@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BHATT-SCHOLZE-17",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -17,7 +17,7 @@
       "All61 pages: introduction, §§2–12, acknowledgments and bibliography."
     ]
   },
-  "summary": "Full-main-source extraction of Witt Grassmannian projectivity, perfect-scheme h/v descent, graded determinants, descendability, derived Witt cohomology and the complete appendix. Reuses shared atlas suppliers, proposes a source-qualified singular Witt h-descent continuation, and records26 source corrections. Recursive original-source and declaration-sized closure remains open, so this is a partial checkpoint.",
+  "summary": "Bhatt–Scholze prove that the Witt vector affine Grassmannian is an ind-(perfection of a projective scheme), by constructing an ample determinant line bundle, using h- and v-descent for vector bundles and perfect complexes on perfect schemes, a K-theoretic determinant and Keel's criterion; they also prove descendability and Witt vector cohomology results. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-six findings are recorded against arXiv v3. After review the remaining stated-result finding is E24 (the Tor-dimension bound, corrected in v3); E16 affects a proof step. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4388,7 +4388,7 @@
       "kind": "theorem",
       "name": "Acyclicity of affine Witt bundles",
       "statement": "For perfect affine X=Spec A and a finite projective W_n(A)-module M, the associated v-sheaf has derived v-sections M in degree zero.",
-      "locator": "Theorem4.1(i), finite level",
+      "locator": "Theorem4.1(i), finite level; Theorem 1.2 (introduction form, for vector bundles in the h-topology)",
       "status": "planned",
       "ownerKey": "wittgeometry",
       "prerequisites": [
@@ -4464,7 +4464,7 @@
       "kind": "theorem",
       "name": "Finite Witt vector-bundle descent",
       "statement": "For every n≥1, X↦Vect(W_n(X)) is a v-stack on perfect schemes.",
-      "locator": "Theorem4.1(ii)",
+      "locator": "Theorem4.1(ii); Theorem 1.2 (introduction form, for vector bundles in the h-topology)",
       "status": "planned",
       "ownerKey": "wittgeometry",
       "prerequisites": [
@@ -12915,6 +12915,27 @@
         "Q-source"
       ],
       "consumers": []
+    },
+    {
+      "id": "PAPER-BHATT-SCHOLZE-17/Q106",
+      "kind": "definition",
+      "name": "Question 10.6 (statement only)",
+      "statement": "(i) Construct an explicit nonzero section of L (or a power) on Gr_SLn; (ii) describe H⁰(Gr_SLn, L^⊗m) as an LG-representation and decide topological irreducibility; (iii) is Pic(Gr_SLn) = Z[1/p]·L?; (iv) for split simple simply connected G, is Pic(Gr_G) ≅ Z[1/p]·L_G with a specified generator?; and the remaining parts on the K2 comparison and finite-type structures, as listed under openQuestions. Questions as posed in 2017; not asserted.",
+      "locator": "Question 10.6",
+      "status": "missing",
+      "ownerKey": "wittgeometry",
+      "prerequisites": [
+        "PAPER-BHATT-SCHOLZE-17/G820"
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "bs17",
+          "locator": "Question 10.6",
+          "match": "arXiv v3 read; added by cc-442dc5 as the numbered statement without its own item."
+        }
+      ],
+      "gaps": []
     }
   ],
   "routes": [
@@ -15224,6 +15245,7 @@
         "PAPER-BHATT-SCHOLZE-17/G818",
         "PAPER-BHATT-SCHOLZE-17/G819",
         "PAPER-BHATT-SCHOLZE-17/G820",
+        "PAPER-BHATT-SCHOLZE-17/Q106",
         "PAPER-BHATT-SCHOLZE-17/G902",
         "PAPER-BHATT-SCHOLZE-17/G903",
         "PAPER-BHATT-SCHOLZE-17/G904",
@@ -15746,7 +15768,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -15755,15 +15778,17 @@
       "locator": "arXivv3 Example2.3 p5",
       "printed": "does not lift to X-tilde",
       "correction": "The valuation does not lift to the deleted open subscheme X.",
-      "reason": "Properness of the blowup X-tilde gives its valuation lift; the deleted exceptional point prevents lifting to X.",
-      "affects": "the proof",
+      "reason": "Properness of the blowup X-tilde gives its valuation lift; the deleted exceptional point prevents lifting to X. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E3",
@@ -15771,15 +15796,17 @@
       "locator": "arXivv3 proof Lemma2.6 p5",
       "printed": "dim Z ≤ n−1",
       "correction": "Use dim Z≤dim Y−1 in the induction on the target dimension.",
-      "reason": "Here n denotes an eventual inductive-level bound, not the dimension parameter used to cut down Y.",
-      "affects": "the proof",
+      "reason": "Here n denotes an eventual inductive-level bound, not the dimension parameter used to cut down Y. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E4",
@@ -15787,15 +15814,17 @@
       "locator": "arXivv3 proof Lemma3.18 p15",
       "printed": "B tensor_A^L A′ = B′",
       "correction": "With X=Spec A and Y=Spec B as named, use A tensor_B^L B′=A′.",
-      "reason": "The printed tensor uses the ring map in the wrong direction. The corrected formula is perfect-ring Tor-independence.",
-      "affects": "the proof",
+      "reason": "The printed tensor uses the ring map in the wrong direction. The corrected formula is perfect-ring Tor-independence. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E5",
@@ -15803,15 +15832,17 @@
       "locator": "arXivv3 proof Lemma4.6 p16",
       "printed": "E = O_Xperf",
       "correction": "Use E=O_Yperf.",
-      "reason": "E was specified as a vector bundle on Yperf, and the reduction is to the unit bundle on that base.",
-      "affects": "the proof",
+      "reason": "E was specified as a vector bundle on Yperf, and the reduction is to the unit bundle on that base. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E6",
@@ -15819,15 +15850,17 @@
       "locator": "arXivv3 proof Lemma4.6 p17",
       "printed": "I^n/I^(n+1)",
       "correction": "For extension from nE to (n+1)E use I^(n+1)/I^(n+2), since mE was defined by I^(m+1).",
-      "reason": "The kernel of O/ I^(n+2)→O/ I^(n+1) is the corrected quotient. The large-exponent Serre argument still applies.",
-      "affects": "the proof",
+      "reason": "The kernel of O/ I^(n+2)→O/ I^(n+1) is the corrected quotient. The large-exponent Serre argument still applies. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E7",
@@ -15842,7 +15875,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -15851,15 +15885,17 @@
       "locator": "arXivv3 proof Proposition6.1 p20",
       "printed": "E ∈ Vect(X)",
       "correction": "Use E∈Vect(Y).",
-      "reason": "The adjunction E→f_*f*E and its Hom reduction require E on the target of f:X→Y.",
-      "affects": "the proof",
+      "reason": "The adjunction E→f_*f*E and its Hom reduction require E on the target of f:X→Y. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E9",
@@ -15867,15 +15903,17 @@
       "locator": "arXivv3 proof Theorem6.13 p26",
       "printed": "H0(X_eta,O_Xeta) ≃ K^r",
       "correction": "Use H0(X_eta,E_eta)≃K^r.",
-      "reason": "The module being embedded is H0(X,E) for a rank-r fibre-trivial vector bundle, not just global functions.",
-      "affects": "the proof",
+      "reason": "The module being embedded is H0(X,E) for a rank-r fibre-trivial vector bundle, not just global functions. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E10",
@@ -15883,15 +15921,17 @@
       "locator": "arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention",
       "printed": "projective dimension 1",
       "correction": "Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.",
-      "reason": "The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions.",
-      "affects": "a stated result",
+      "reason": "The identity isogeny has cokernel zero and the zero R-module is projective; its projective dimension is not exactly one under the usual conventions. (cc-442dc5) Reclassified to affect nothing: 'projective dimension 1' is used as 'at most one' throughout Lemmas 7.7–7.8 and Definition 7.10, and the zero module causes no problem in the determinant construction.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E11",
@@ -15906,7 +15946,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -15922,7 +15963,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -15938,7 +15980,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -15947,15 +15990,17 @@
       "locator": "arXivv3 Theorem11.12 p42",
       "printed": "the Cech nerve of X/Y",
       "correction": "Use X/S.",
-      "reason": "The theorem specifies an h-cover X→S and contains no base scheme Y.",
-      "affects": "a stated result",
+      "reason": "The theorem specifies an h-cover X→S and contains no base scheme Y. (cc-442dc5) Reclassified to affect nothing: the theorem names only S and the h-cover X → S, so X/S is the only possible reading.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E15",
@@ -15963,15 +16008,17 @@
       "locator": "arXivv3 proof Theorem11.27 p46",
       "printed": "Rf0,* O_Y0",
       "correction": "Use Rf0,*O_X0.",
-      "reason": "The map is f0:X0→Y0, so its pushforward takes a sheaf on X0.",
-      "affects": "the proof",
+      "reason": "The map is f0:X0→Y0, so its pushforward takes a sheaf on X0. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E16",
@@ -15986,7 +16033,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16002,7 +16050,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16018,7 +16067,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16034,7 +16084,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16043,15 +16094,17 @@
       "locator": "arXivv3 Remark12.11 p58",
       "printed": "π0 ΩBX = π1 X",
       "correction": "Use π0 ΩBX=π1 BX.",
-      "reason": "For the discrete grouplike space Z, π1X=0 but π0ΩBZ=Z.",
-      "affects": "the proof",
+      "reason": "For the discrete grouplike space Z, π1X=0 but π0ΩBZ=Z. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
-      ]
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E21",
@@ -16066,7 +16119,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16082,7 +16136,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16098,7 +16153,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16114,7 +16170,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     },
     {
@@ -16123,16 +16180,18 @@
       "locator": "arXivv3 proof Lemma7.13 p31",
       "printed": "decreasing filtration",
       "correction": "The kernels K_m=ker(p^m:Q/pQ→p^mQ/p^(m+1)Q) increase with m. Reverse the finite indexing to use the decreasing-filtration convention of Lemma7.14.",
-      "reason": "For Q=W(k)/p², K_0=K_1=0 and K_2=Q/pQ. The displayed dimension formula n_μ(0)−n_μ(m) is also nondecreasing.",
-      "affects": "the proof",
+      "reason": "For Q=W(k)/p², K_0=K_1=0 and K_2=Q/pQ. The displayed dimension formula n_μ(0)−n_μ(m) is also nondecreasing. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
         "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
-        "Additional web queries2026-09-22: Bhatt Scholze 7.13 filtration correction; Witt vector affine Grassmannian erratum filtration. No correction found. The author PDF search result repeats the same convention; no full author-version collation claimed."
-      ]
+        "Additional web queries2026-09-22: Bhatt Scholze 7.13 filtration correction; Witt vector affine Grassmannian erratum filtration. No correction found. The author PDF search result repeats the same convention; no full author-version collation claimed.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/E26",
@@ -16147,7 +16206,8 @@
         "Official Springer article https://link.springer.com/article/10.1007/s00222-016-0710-4 checked2026-09-22; no linked Witt-Grassmannian corrigendum found. Published PDF could not be obtained, so these findings concern the versions explicitly named.",
         "Author publication list https://people.mpim-bonn.mpg.de/scholze/papers.html and author Witt.pdf checked2026-09-22; no paper-specific erratum link found. Author PDF is an earlier September2016 version, not a full collation.",
         "arXiv history https://arxiv.org/abs/1507.06490 checked2026-09-22: v1 July2015, v2 September2015, v3 February2017. Read all v3 and the indicated earlier correction passages.",
-        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found."
+        "Web searches2026-09-22 for Bhatt Scholze Witt affine Grassmannian erratum/correction, Lemma4.6, Tor dimension and Perf truncation; no separate correction to the new entries found.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v3 re-fetched (SHA-256 b4d5a4e0…, matching). Unpaywall lists only the arXiv submitted version, so the Inventiones version of record could not be collated; the Crossref record of DOI 10.1007/s00222-016-0710-4 registers no update relation."
       ]
     }
   ],
@@ -16399,7 +16459,9 @@
         "PAPER-BHATT-SCHOLZE-17/S221",
         "PAPER-BHATT-SCHOLZE-17/S415",
         "PAPER-BHATT-SCHOLZE-17/Q1160"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting of compound inputs is design work; every numbered statement is now an item."
     },
     {
       "id": "Q-sites",
@@ -16531,7 +16593,9 @@
         "PAPER-BHATT-SCHOLZE-17/G1006",
         "PAPER-BHATT-SCHOLZE-17/S221",
         "PAPER-BHATT-SCHOLZE-17/S415"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Rydh, Raynaud–Gruson, Huber, Yanagihara and BST13 are cited suppliers."
     },
     {
       "id": "Q-valuations",
@@ -16644,7 +16708,9 @@
         "PAPER-BHATT-SCHOLZE-17/G1006",
         "PAPER-BHATT-SCHOLZE-17/S221",
         "PAPER-BHATT-SCHOLZE-17/S415"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "BGR84 and RG71 are cited suppliers."
     },
     {
       "id": "Q-Kdet",
@@ -16678,7 +16744,9 @@
         "PAPER-BHATT-SCHOLZE-17/A1217",
         "PAPER-BHATT-SCHOLZE-17/A1218",
         "PAPER-BHATT-SCHOLZE-17/G1008"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Quillen, Thomason–Trobaugh, Bhatt14 and de Jong are cited suppliers."
     },
     {
       "id": "Q-Keel",
@@ -16754,7 +16822,9 @@
         "PAPER-BHATT-SCHOLZE-17/G1007",
         "PAPER-BHATT-SCHOLZE-17/G1006",
         "PAPER-BHATT-SCHOLZE-17/S415"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Keel's contraction theorem and Artin's contraction are cited suppliers."
     },
     {
       "id": "Q-infinity",
@@ -16824,7 +16894,9 @@
         "PAPER-BHATT-SCHOLZE-17/A1212",
         "PAPER-BHATT-SCHOLZE-17/A1215",
         "PAPER-BHATT-SCHOLZE-17/Q1160"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Mathew's descendability and Lurie's ∞-categorical inputs are cited suppliers; the truncation bound is E16."
     },
     {
       "id": "Q-Tor",
@@ -16860,7 +16932,9 @@
         "PAPER-BHATT-SCHOLZE-17/Q1150",
         "PAPER-BHATT-SCHOLZE-17/Q1151",
         "PAPER-BHATT-SCHOLZE-17/Q1152"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E24 records the Tor-dimension correction and the announced 2d+1 bound. Kunz and Gabber are cited suppliers."
     },
     {
       "id": "Q-Witt",
@@ -16912,7 +16986,9 @@
         "PAPER-BHATT-SCHOLZE-17/Q1157",
         "PAPER-BHATT-SCHOLZE-17/Q1158",
         "PAPER-BHATT-SCHOLZE-17/Q1159"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "BBE07 and the algebraization input are cited suppliers."
     },
     {
       "id": "Q-groups",
@@ -16987,7 +17063,9 @@
         "PAPER-BHATT-SCHOLZE-17/G1007",
         "PAPER-BHATT-SCHOLZE-17/G1006",
         "PAPER-BHATT-SCHOLZE-17/S415"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Zhu 2017 (a separate paper job) and the quasi-affine quotient theorem are cited suppliers."
     },
     {
       "id": "Q-source",
@@ -17236,7 +17314,9 @@
         "PAPER-BHATT-SCHOLZE-17/S221",
         "PAPER-BHATT-SCHOLZE-17/S415",
         "PAPER-BHATT-SCHOLZE-17/Q1160"
-      ]
+      ],
+      "status": "unavailable",
+      "resolution": "The Inventiones version of record is not openly available; arXiv v3, the final arXiv version, was read in full."
     }
   ],
   "openQuestions": [
@@ -21149,5 +21229,15 @@
       "Split every remaining compound item to declaration size, promote all used API lemmas, and close each explicit proof gate.",
       "Reconcile shared general suppliers with GS0 and the existing Picard/K/EDS candidates before design; keep singular Witt h-descent separate from convergent tensor extensions."
     ]
+  },
+  "summaryBefore": "Full-main-source extraction of Witt Grassmannian projectivity, perfect-scheme h/v descent, graded determinants, descendability, derived Witt cohomology and the complete appendix. Reuses shared atlas suppliers, proposes a source-qualified singular Witt h-descent continuation, and records26 source corrections. Recursive original-source and declaration-sized closure remains open, so this is a partial checkpoint.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1300,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v3 re-fetched (hash matches); Unpaywall and Crossref checked for the version of record; every numbered statement checked against the items.",
+    "changes": "Question 10.6 added; Theorem 1.2 mapped to Theorem 4.1; twelve findings reclassified to affect nothing; gap statuses recorded; status complete."
   }
 }

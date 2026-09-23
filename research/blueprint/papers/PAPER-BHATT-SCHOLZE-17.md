@@ -1,4 +1,92 @@
-# PAPER-BHATT-SCHOLZE-17 — Witt Grassmannian projectivity and its foundations
+# Bhatt–Scholze (2017): projectivity of the Witt vector affine Grassmannian, extraction and routing
+
+Issue [#1300](https://github.com/CBirkbeck/tauceti-explorer/issues/1300). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** B. Bhatt and P. Scholze, *Projectivity of the Witt vector affine Grassmannian*, Invent. Math. 209 (2017), 329–423.
+  - arXiv v3, the final arXiv version, was re-fetched; its SHA-256 (b4d5a4e0…) matches the checkpoint.
+  - Unpaywall lists only the arXiv submitted version, so the version of record could not be collated.
+  - Crossref registers no erratum.
+- **Items.** The result has **266 items: 23 library, 35 planned and 208 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Twenty-six are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Items.**
+- Question 10.6 was only in the `openQuestions` list; it is now a statement-only item.
+- Theorem 1.2 is the introduction form of Theorem 4.1; the corresponding items now name it.
+
+**Reclassified to affect nothing.** Twelve misprints whose intended form is fixed by the objects named around them:
+- E2, E3, E4, E5, E6, E8, E9, E15, E20 and E25, which the checkpoint had marked as affecting the proof;
+- E10 ("projective dimension 1" for "at most one");
+- E14 (X/Y for X/S).
+
+**Unchanged.**
+- **E16.** The truncation bound; the proof needs only a finite bound.
+- **E23 and E24.** Earlier-version errors corrected in v3, with `known` values naming the correction. E24 is the one finding that still affects a stated result.
+
+**Gaps.**
+- Q-Tor is recorded as a finding (E24).
+- Q-source is unavailable.
+- The others are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), arXivv3 abstract p1. *Printed:* charactristic *Correction:* characteristic
+- **E2** (misprint; affects nothing), arXivv3 Example2.3 p5. *Printed:* does not lift to X-tilde *Correction:* The valuation does not lift to the deleted open subscheme X.
+- **E3** (misprint; affects nothing), arXivv3 proof Lemma2.6 p5. *Printed:* dim Z ≤ n−1 *Correction:* Use dim Z≤dim Y−1 in the induction on the target dimension.
+- **E4** (misprint; affects nothing), arXivv3 proof Lemma3.18 p15. *Printed:* B tensor_A^L A′ = B′ *Correction:* With X=Spec A and Y=Spec B as named, use A tensor_B^L B′=A′.
+- **E5** (misprint; affects nothing), arXivv3 proof Lemma4.6 p16. *Printed:* E = O_Xperf *Correction:* Use E=O_Yperf.
+- **E6** (misprint; affects nothing), arXivv3 proof Lemma4.6 p17. *Printed:* I^n/I^(n+1) *Correction:* For extension from nE to (n+1)E use I^(n+1)/I^(n+2), since mE was defined by I^(m+1).
+- **E7** (misprint; affects nothing), arXivv3 proof Theorem4.1 p17. *Printed:* Condition (i) of Proposition4.5 *Correction:* Use condition(i) of Corollary2.14.
+- **E8** (misprint; affects nothing), arXivv3 proof Proposition6.1 p20. *Printed:* E ∈ Vect(X) *Correction:* Use E∈Vect(Y).
+- **E9** (misprint; affects nothing), arXivv3 proof Theorem6.13 p26. *Printed:* H0(X_eta,O_Xeta) ≃ K^r *Correction:* Use H0(X_eta,E_eta)≃K^r.
+- **E10** (misprint; affects nothing), arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention. *Printed:* projective dimension 1 *Correction:* Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.
+- **E11** (misprint; affects nothing), arXivv3 proof Lemma7.7 p29. *Printed:* if M is of projective dimension 1 *Correction:* Use Q in place of M.
+- **E12** (misprint; affects nothing), arXivv3 Lemma7.9 p29. *Printed:* {type(Q)≤λ} subset { ... } *Correction:* Use equality when defining the type locus by the following set of primes.
+- **E13** (misprint; affects nothing), arXivv3 Remark7.12 p30. *Printed:* K0(W(X) → X) *Correction:* Use K0(W(X) on X).
+- **E14** (misprint; affects nothing), arXivv3 Theorem11.12 p42. *Printed:* the Cech nerve of X/Y *Correction:* Use X/S.
+- **E15** (misprint; affects nothing), arXivv3 proof Theorem11.27 p46. *Printed:* Rf0,* O_Y0 *Correction:* Use Rf0,*O_X0.
+- **E16** (error; affects the proof), arXivv3 proof Theorem11.2 p47. *Printed:* Perf[a,b](X) is (b−a)-truncated *Correction:* Its core object space is (b−a+1)-truncated; the mapping spaces have the printed bound b−a.
+- **E17** (misprint; affects nothing), arXivv3 proof Theorem11.2 p47. *Printed:* (a), (c), (d) *Correction:* Use (1), (3), (4) for the theorem’s numbered assertions.
+- **E18** (misprint; affects nothing), arXivv3 proof Lemma11.36 p50. *Printed:* cosimplicial A-complexes *Correction:* Use R-complexes.
+- **E19** (misprint; affects nothing), arXivv3 §12 p55, nerve description. *Printed:* n−1 morphisms *Correction:* Use n composable morphisms for an n-simplex of the ordinary nerve.
+- **E20** (misprint; affects nothing), arXivv3 Remark12.11 p58. *Printed:* π0 ΩBX = π1 X *Correction:* Use π0 ΩBX=π1 BX.
+- **E21** (misprint; affects nothing), arXivv3 bibliography [Mat14] p60. *Printed:* Akhil Matthew *Correction:* Akhil Mathew.
+- **E22** (misprint; affects nothing), arXivv3 proof Lemma11.23(2) p45. *Printed:* [Mat14, Proposition3.31] *Correction:* Use [Mat14, Corollary3.31].
+- **E23** (error; affects the proof), arXivv1 proof Lemma4.6 PDF16–17, corrected in arXivv3 PDF16–17. *Printed:* H^i(X,I^m) ≃ I^(m−c) H^i(X,I^c) *Correction:* Use the revised argument: reduce to an actual blowup and apply Serre vanishing on the exceptional Cartier divisor, then Frobenius and formal existence.
+- **E24** (error; affects a stated result), arXivv2 Remark5.33 PDF26–27; corrected arXivv3 Remark11.33 PDF49. *Printed:* Tor dimension ≤ d *Correction:* Use the corrected bound 2d for pfp algebras over a perfect field. The additional global bound 2d+1 is announced without proof.
+- **E25** (misprint; affects nothing), arXivv3 proof Lemma7.13 p31. *Printed:* decreasing filtration *Correction:* The kernels K_m=ker(p^m:Q/pQ→p^mQ/p^(m+1)Q) increase with m. Reverse the finite indexing to use the decreasing-filtration convention of Lemma7.14.
+- **E26** (misprint; affects nothing), arXivv3 Proposition11.6 p41. *Printed:* commtuative *Correction:* commutative
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **Q-closure** (deferred). Declaration-sized splitting of compound inputs is design work; every numbered statement is now an item.
+- **Q-sites** (deferred). Rydh, Raynaud–Gruson, Huber, Yanagihara and BST13 are cited suppliers.
+- **Q-valuations** (deferred). BGR84 and RG71 are cited suppliers.
+- **Q-Kdet** (deferred). Quillen, Thomason–Trobaugh, Bhatt14 and de Jong are cited suppliers.
+- **Q-Keel** (deferred). Keel's contraction theorem and Artin's contraction are cited suppliers.
+- **Q-infinity** (deferred). Mathew's descendability and Lurie's ∞-categorical inputs are cited suppliers; the truncation bound is E16.
+- **Q-Tor** (recorded). E24 records the Tor-dimension correction and the announced 2d+1 bound. Kunz and Gabber are cited suppliers.
+- **Q-Witt** (deferred). BBE07 and the algebraization input are cited suppliers.
+- **Q-groups** (deferred). Zhu 2017 (a separate paper job) and the quasi-affine quotient theorem are cited suppliers.
+- **Q-source** (unavailable). The Inventiones version of record is not openly available; arXiv v3, the final arXiv version, was read in full.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-BHATT-SCHOLZE-17 — Witt Grassmannian projectivity and its foundations
 
 This is a **partial extraction checkpoint**, by Codex, session `codex-c83e7a`, for issue #1300. The entire 61-page final arXiv v3 has been read, including the full derived-descent section, determinant appendix, acknowledgments and bibliography. Recursive original-source proofs and declaration-sized closure remain open. No result is claimed formalized and no Lean file was written or compiled.
 
@@ -6,7 +94,7 @@ The primary source is Bhargav Bhatt and Peter Scholze, [Projectivity of the Witt
 
 The paper constructs bounded mixed-characteristic lattice Grassmannians as perfections of projective schemes, together with a canonical ample determinant line. Its proof supplies reusable mathematics well beyond that target: valuative covers, perfect-scheme descent, Witt vector bundles, fibre-trivial descent, a signed spectral determinant, descendability, unbounded derived h-descent, and Frobenius-inverted Witt cohomology. Sections11–12 are fully included even though the geometric projectivity proof can avoid the K-theory route.
 
-## Proof structure and the ownership decisions
+### Proof structure and the ownership decisions
 
 The geometric branch runs from the h/v-cover criteria through perfected abstract-blowup patching and valuation-base vector-bundle descent. A proper pfp map with cohomologically trivial fibres then descends fibre-trivial bundles. Applied to the determinant of the graded quotients on a Demazure resolution, this constructs the line on the Grassmannian. The stronger connected-fibre-only theorem6.13 is recorded separately; it is not made a prerequisite of the earlier theorem6.8.
 
@@ -18,7 +106,7 @@ The atlas already assigns this Witt geometry to `GeometricSatakeAndFusion:GS0:Wi
 
 The existing arc candidate is reused with its original brief and these additional BS17 proof inputs; it is not a second roadmap identifier. Only one new continuation is proposed: `CrystallineCohomologyWittHDescentPartII`. CR.4 owns ordinary Witt complexes and smooth comparisons, while CR.7 explicitly leaves general singular/nonproper theories to source-qualified extensions. Proposition11.41 supplies h-descent of Frobenius-inverted Witt cohomology for arbitrary finitely presented schemes over a finite-dimensional noetherian F_p-base, followed by rational Witt descent. The existing `CrystallineCohomologyConvergentPartII` concerns log/convergent tensor extensions and is a different consumer; the two must not duplicate their shared ordinary Witt or derived foundations.
 
-## Important scope distinctions
+### Important scope distinctions
 
 - Proper pfp in perfect schemes is not ordinary proper finite presentation. General perfection, the inverse-limit ring construction called `Perfection`, and the direct-limit perfect closure are not interchangeable carriers.
 - Tor-independence in Lemma3.16 is for a diagram of perfect **algebras**. It does not imply every perfect-ring map is flat on arbitrary modules.
@@ -31,7 +119,7 @@ The existing arc candidate is reused with its original brief and these additiona
 - “Strict” in Definition12.1 means trivial self-braiding, not strict associativity or unit constraints. The spectrum connectivity convention is explicitly `π_j(X_i)=0` for `j<i`.
 - The questions in10.6 and11.24 are listed as questions posed in2017. Their current research status was not investigated and is not asserted open.
 
-## Concrete mathematical checks
+### Concrete mathematical checks
 
 The dominance comparison was checked on every equal-size partition pair of total length at most10. For `μ≤λ`, the first quotient kernel has dimension `r=n_μ(0)−n_λ(0)`, and the exact incidence threshold is
 
@@ -49,9 +137,9 @@ Other finite checks cover the determinant block-swap sign, the `(2,1,0)` Demazur
 
 The result contains **265 items**: 23 library imports, 35 planned items and 207 missing items. There are 18 routes, 77 definitions/constructions, 231 API statements and 231 mathematical acceptance specifications. All 26 source findings await independent review.
 
-## Route briefs and destinations
+### Route briefs and destinations
 
-### 1. SchemeAndStackFoundations
+#### 1. SchemeAndStackFoundations
 
 Owner `SchemeAndStackFoundations`; `source` route; 31 items.
 
@@ -63,7 +151,7 @@ Imports: Pinned Scheme and PerfectClosure carriers, SchemeAndStackFoundations:SF
 
 Suggested future module: `TauCeti/AlgebraicGeometry/Perfect/Models.lean`.
 
-### 2. SchemeAndStackFoundations
+#### 2. SchemeAndStackFoundations
 
 Owner `SchemeAndStackFoundations`; `source` route; 3 items.
 
@@ -75,7 +163,7 @@ Imports: Pinned Core and InvertibleSheaf, KTheoryLowDegrees:Z.3 signed determina
 
 Suggested future module: `TauCeti/AlgebraicGeometry/Picard/Groupoid.lean`.
 
-### 3. SchemeAndStackFoundations
+#### 3. SchemeAndStackFoundations
 
 Owner `SchemeAndStackFoundations`; `source` route; 5 items.
 
@@ -87,7 +175,7 @@ Imports: Pinned line-bundle carrier, SchemeAndStackFoundations:SF.0 perfection, 
 
 Suggested future module: `TauCeti/AlgebraicGeometry/LineBundle/Keel.lean`.
 
-### 4. EnhancedDerivedSheaves
+#### 4. EnhancedDerivedSheaves
 
 Owner `EnhancedDerivedSheaves`; `source` route; 12 items.
 
@@ -99,7 +187,7 @@ Imports: Pinned Tor, DerivedCategory and finite projective modules, SchemeAndSta
 
 Suggested future module: `TauCeti/Algebra/Homology/PerfectRing/TorDimension.lean`.
 
-### 5. EnhancedDerivedSheaves
+#### 5. EnhancedDerivedSheaves
 
 Owner `EnhancedDerivedSheaves`; `source` route; 17 items.
 
@@ -111,7 +199,7 @@ Imports: SchemeAndStackFoundations:SF.2, EnhancedDerivedSheaves:E5:abstract/E5:a
 
 Suggested future module: `TauCeti/AlgebraicGeometry/Derived/PerfectHDescent.lean`.
 
-### 6. EnhancedDerivedSheaves
+#### 6. EnhancedDerivedSheaves
 
 Owner `EnhancedDerivedSheaves`; `source` route; 19 items.
 
@@ -123,7 +211,7 @@ Imports: EnhancedDerivedSheaves:E0/E1, Pinned category and symmetric monoidal ca
 
 Suggested future module: `TauCeti/CategoryTheory/Monoidal/Descendable.lean`.
 
-### 7. EnhancedDerivedSheaves
+#### 7. EnhancedDerivedSheaves
 
 Owner `EnhancedDerivedSheaves`; `source` route; 11 items.
 
@@ -135,7 +223,7 @@ Imports: EnhancedDerivedSheaves:E0/E5:abstract, Pinned WittVector and simplicial
 
 Suggested future module: `TauCeti/Algebra/Animated/PerfectWitt.lean`.
 
-### 8. SchemeKTheoryOperations
+#### 8. SchemeKTheoryOperations
 
 Owner `SchemeKTheoryOperations`; `source` route; 7 items.
 
@@ -147,7 +235,7 @@ Imports: EnhancedDerivedSheaves:E1/E2/E5:animation, SchemeAndStackFoundations:SF
 
 Suggested future module: `TauCeti/AlgebraicGeometry/PerfectComplex/VDescent.lean`.
 
-### 9. SchemeKTheoryOperations
+#### 9. SchemeKTheoryOperations
 
 Owner `SchemeKTheoryOperations`; `source` route; 10 items.
 
@@ -159,7 +247,7 @@ Imports: GeneralAlgebraicKTheory:K.3/K.4:construction/K.7, SchemeKTheoryOperatio
 
 Suggested future module: `TauCeti/AlgebraicGeometry/KTheory/WittSupport.lean`.
 
-### 10. KTheoryLowDegrees
+#### 10. KTheoryLowDegrees
 
 Owner `KTheoryLowDegrees`; `source` route; 14 items.
 
@@ -171,7 +259,7 @@ Imports: SchemeAndStackFoundations:SF.1/SF.3, SchemeKTheoryOperations:S.1/S.2/S.
 
 Suggested future module: `TauCeti/Algebra/KTheory/Determinant/GradedPicard.lean`.
 
-### 11. GeneralAlgebraicKTheory
+#### 11. GeneralAlgebraicKTheory
 
 Owner `GeneralAlgebraicKTheory`; `source` route; 3 items.
 
@@ -183,7 +271,7 @@ Imports: tauceti:TauCetiRoadmap/GrothendieckEulerForms, StableHomotopyKTheory:H.
 
 Suggested future module: `TauCeti/Algebra/KTheory/SymmetricMonoidal.lean`.
 
-### 12. StableHomotopyKTheory
+#### 12. StableHomotopyKTheory
 
 Owner `StableHomotopyKTheory`; `source` route; 6 items.
 
@@ -195,7 +283,7 @@ Imports: Pinned nerve, Core and Quasicategory, EnhancedDerivedSheaves:E0 abstrac
 
 Suggested future module: `TauCeti/AlgebraicTopology/GroupCompletion/Segal.lean`.
 
-### 13. StableHomotopyKTheory
+#### 13. StableHomotopyKTheory
 
 Owner `StableHomotopyKTheory`; `source` route; 3 items.
 
@@ -207,7 +295,7 @@ Imports: StableHomotopyKTheory:H.1/H.4, EnhancedDerivedSheaves:E0, SchemeAndStac
 
 Suggested future module: `TauCeti/AlgebraicTopology/Spectrum/Picard.lean`.
 
-### 14. GeometricSatakeAndFusion
+#### 14. GeometricSatakeAndFusion
 
 Owner `GeometricSatakeAndFusion`; `source` route; 64 items.
 
@@ -219,7 +307,7 @@ Imports: SchemeAndStackFoundations:SF.0/SF.2/SF.3/SF.4/SF.5, KTheoryLowDegrees:Z
 
 Suggested future module: `TauCeti/AlgebraicGeometry/AffineGrassmannian/WittProjective.lean`.
 
-### 15. RelativeFarguesFontaine
+#### 15. RelativeFarguesFontaine
 
 Owner `RelativeFarguesFontaine`; `source` route; 1 items.
 
@@ -231,7 +319,7 @@ Imports: Pinned WittVector, Specified O_K over W(k), GeometricSatakeAndFusion:GS
 
 Suggested future module: `TauCeti/Algebra/PeriodRing/RamifiedWitt.lean`.
 
-### 16. K2SymbolsBrauer
+#### 16. K2SymbolsBrauer
 
 Owner `K2SymbolsBrauer`; `source` route; 3 items.
 
@@ -243,7 +331,7 @@ Imports: GeometricSatakeAndFusion:GS0:Witt-geometry, KTheoryLowDegrees:Z.3/U.3, 
 
 Suggested future module: `TauCeti/Algebra/KTheory/K2/WittLoopExtension.lean`.
 
-### 17. The arc-topology and descent for étale cohomology
+#### 17. The arc-topology and descent for étale cohomology
 
 Owner `ArcTopologyAndDescent`; `new` route; 30 items.
 
@@ -255,7 +343,7 @@ Imports: SchemeAndStackFoundations:SF.0/SF.1/SF.2, EnhancedDerivedSheaves:E0/E2,
 
 Suggested future module: `TauCeti/AlgebraicGeometry/Topology/ValuativeDescent.lean`.
 
-### 18. Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: Witt cohomology under h-covers
+#### 18. Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: Witt cohomology under h-covers
 
 Owner `CrystallineCohomologyWittHDescentPartII`; `part-ii` route; 3 items.
 
@@ -267,11 +355,11 @@ Imports: CrystallineCohomology:CR.4, EnhancedDerivedSheaves:E5:animation/E2, Sch
 
 Suggested future module: `TauCeti/AlgebraicGeometry/Cohomology/WittHDescent.lean`.
 
-## Item inventory
+### Item inventory
 
 Each statement below has its prerequisites, API and tests in the companion JSON. The inventory retains the source’s actual version and the corrected conventions above. Missing and planned entries are specifications, not implementation claims.
 
-### L01 — Witt-vector coefficient carrier
+#### L01 — Witt-vector coefficient carrier
 
 **definition; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -283,8 +371,7 @@ API: Reuse WittVector.mk on a coefficient sequence. Equality follows from equali
 
 Acceptance cases: Equal coefficient sequences give equal vectors. Over F_p the fraction field specializes to Q_p after the standard comparison. Witt addition in positive coordinates is not coordinatewise addition in general.
 
-
-### L06 — Connected reductive group predicate
+#### L06 — Connected reductive group predicate
 
 **definition; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -296,8 +383,7 @@ API: Reuse the geometric normal-unipotent-subgroup characterization. Transport t
 
 Acceptance cases: G_m is reductive. GL_n is reductive in characteristic zero. The additive group is not reductive.
 
-
-### L07 — Algebraic torus predicate
+#### L07 — Algebraic torus predicate
 
 **definition; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -309,8 +395,7 @@ API: A geometric split-torus isomorphism proves the predicate. The geometric fib
 
 Acceptance cases: G_m is rank one. A norm-one quadratic torus need not be split. G_a is not a torus.
 
-
-### L08 — Geometric character lattice
+#### L08 — Geometric character lattice
 
 **definition; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -322,8 +407,7 @@ API: Expose the action inherited from geometric scalar extension. Identify a cha
 
 Acceptance cases: X*(G_m) is Z. Conjugation acts by minus one on a real norm-one torus. The trivial torus has zero character group.
 
-
-### L09 — Cocharacter lattice and pairing
+#### L09 — Cocharacter lattice and pairing
 
 **definition; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -335,8 +419,7 @@ API: Use the integral-dual linear equivalence. Evaluate a character on a cochara
 
 Acceptance cases: For G_m, exponents a and b pair to ab. The zero cocharacter pairs to zero. Simultaneous sign reversal on a norm-one torus preserves the pairing.
 
-
-### L10 — Perfect character-cocharacter pairing
+#### L10 — Perfect character-cocharacter pairing
 
 **theorem; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -346,8 +429,7 @@ Pinned imports: `tauceti:TauCeti.TorusCommHopfAlgCat.instCharacterCocharacterPai
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-
-### L16 — Finite free cocharacter lattice
+#### L16 — Finite free cocharacter lattice
 
 **theorem; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -357,8 +439,7 @@ Pinned imports: `tauceti:TauCeti.TorusCommHopfAlgCat.cocharacterLattice_module_f
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-
-### L17 — Galois invariance of the pairing
+#### L17 — Galois invariance of the pairing
 
 **theorem; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -368,8 +449,7 @@ Pinned imports: `tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocha
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-
-### L23 — Perfect coefficient-ring predicate
+#### L23 — Perfect coefficient-ring predicate
 
 **construction; library**. Source: §§1–3,9, imported coefficient or reductive-group foundation.
 
@@ -381,8 +461,7 @@ API: Supply injectivity and surjectivity of the p-power map. Every element has a
 
 Acceptance cases: A finite field is perfect. The zero ring has a bijective power map. Fp[t] is not perfect since t has no polynomial pth root.
 
-
-### L30 — Truncated Witt-vector carrier
+#### L30 — Truncated Witt-vector carrier
 
 **construction; library**. Source: §4.
 
@@ -394,8 +473,7 @@ API: Construct from n coefficients. Equality is coefficientwise. Truncate full W
 
 Acceptance cases: W_1(F_p)=F_p. W_0(R) has one element. Coordinatewise multiplication is not the Witt product in general.
 
-
-### L31 — Direct-limit perfect closure
+#### L31 — Direct-limit perfect closure
 
 **construction; library**. Source: §3.
 
@@ -409,8 +487,7 @@ API: Construct the class of (n,x). The successor Frobenius relation identifies (
 
 Acceptance cases: The class of x^(1/p) has pth power x. PerfectClosure F_p p is F_p. Mathlib Perfection R p is an inverse limit of rings and cannot replace this direct limit for arbitrary R.
 
-
-### L32 — Ordinary categorical core
+#### L32 — Ordinary categorical core
 
 **construction; library**. Source: §12.
 
@@ -422,8 +499,7 @@ API: Construct Core objects and morphisms from isomorphisms. CoreHom is the isom
 
 Acceptance cases: Core of a discrete category remains discrete. Core of the terminal category is terminal. The zero map of a nonzero module is excluded.
 
-
-### L33 — Categorical nerve
+#### L33 — Categorical nerve
 
 **construction; library**. Source: §12, p.55.
 
@@ -437,8 +513,7 @@ API: Construct the n-simplex from n composable arrows. Zero simplices are object
 
 Acceptance cases: Two composable arrows form a 2-simplex. The identity gives a degenerate 1-simplex. A chain of n−1 arrows is not an n-simplex.
 
-
-### L34 — Quasicategory predicate
+#### L34 — Quasicategory predicate
 
 **construction; library**. Source: §§11–12.
 
@@ -452,8 +527,7 @@ API: Verify all inner horn fillers. Expose the inner-index conditions 0<i<n. Tra
 
 Acceptance cases: A categorical nerve is a quasicategory. Every Kan complex is a quasicategory. Outer horn filling is not part of the quasicategory predicate.
 
-
-### L35 — Symmetric monoidal category predicate
+#### L35 — Symmetric monoidal category predicate
 
 **construction; library**. Source: §12.
 
@@ -465,8 +539,7 @@ API: Supply a monoidal category and symmetric braiding. Double braiding is ident
 
 Acceptance cases: Swapping two one-dimensional summands twice is identity. The tensor unit has its standard symmetry. Self-braiding need not be identity; BS Definition12.1 imposes an additional condition.
 
-
-### L36 — Ordinary unbounded derived category
+#### L36 — Ordinary unbounded derived category
 
 **construction; library**. Source: §11.
 
@@ -478,8 +551,7 @@ API: Choose HasDerivedCategory.standard in the required universe. Q sends quasi-
 
 Acceptance cases: An acyclic complex maps to zero. The zero abelian category has a zero derived category. Its ordinary categorical nerve does not supply the stable enhancement.
 
-
-### L37 — Tor bifunctor
+#### L37 — Tor bifunctor
 
 **construction; library**. Source: Lemma3.16.
 
@@ -491,8 +563,7 @@ API: Apply the left-derived tensor functor in degree n. For projective Y, Tor_(n
 
 Acceptance cases: Tor_1(R,R)=0. Tensor with the zero object gives zero. The existing Tor functor alone does not prove Tor vanishing for perfect-ring diagrams.
 
-
-### L38 — Invertible module predicate
+#### L38 — Invertible module predicate
 
 **construction; library**. Source: Construction5.1.
 
@@ -504,8 +575,7 @@ API: Provide bijective evaluation. Identify the evaluation map with a linear equ
 
 Acceptance cases: R is invertible over itself. A nonzero rank-two free module over a field is not invertible. Invertibility is not the same as an arbitrary finite projective module.
 
-
-### L39 — Invertible sheaf category
+#### L39 — Invertible sheaf category
 
 **construction; library**. Source: Construction5.1.
 
@@ -519,8 +589,7 @@ API: Form an invertible sheaf from the existing local rank-one condition. Its un
 
 Acceptance cases: O_X is an invertible sheaf. On the empty scheme the local condition is vacuous. This full category is not a groupoid: zero endomorphisms remain.
 
-
-### L40 — Finite projective splitting
+#### L40 — Finite projective splitting
 
 **theorem; library**. Source: §§4,7,12.
 
@@ -530,8 +599,7 @@ Pinned imports: `mathlib:Module.Finite.exists_comp_eq_id_of_projective`.
 
 Use the pinned finite-generator surjection and projective lifting property.
 
-
-### L41 — Exact category of finite projective modules
+#### L41 — Exact category of finite projective modules
 
 **construction; library**. Source: §§5,12.
 
@@ -545,8 +613,7 @@ API: Use finiteProjectiveModulesExactStructure. Its conflations are precisely am
 
 Acceptance cases: A split sequence P→P⊕Q→Q is a conflation. The zero projective is allowed. Nonsplit exact structures on other categories cannot be discarded.
 
-
-### L42 — Scheme carrier
+#### L42 — Scheme carrier
 
 **construction; library**. Source: §2.
 
@@ -558,8 +625,7 @@ API: Reuse Scheme and Scheme.Hom. Affine neighborhoods identify the structure sh
 
 Acceptance cases: Spec F_p is a scheme. The empty scheme is allowed. A sheaf-valued lattice functor is not a scheme without representability.
 
-
-### L43 — Fppf topology on schemes
+#### L43 — Fppf topology on schemes
 
 **construction; library**. Source: Theorem2.8.
 
@@ -573,8 +639,7 @@ API: Form covering families through fppfPrecoverage. Each arrow is flat and loca
 
 Acceptance cases: A surjective finite etale map gives a cover. An identity is a cover. A proper nonflat cover need not be fppf.
 
-
-### S201 — Valuative covers
+#### S201 — Valuative covers
 
 **definition; missing**. Source: Definition2.1.
 
@@ -588,7 +653,7 @@ Acceptance cases: A faithfully flat map is a v-cover. The identity is a v-cover.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S202 — Refinement of a v-cover
+#### S202 — Refinement of a v-cover
 
 **construction; missing**. Source: Definition2.1.
 
@@ -602,7 +667,7 @@ Acceptance cases: A cover followed by its further covering refinement works. The
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S203 — Subtrusive and submersive comparisons
+#### S203 — Subtrusive and submersive comparisons
 
 **theorem; missing**. Source: Definition2.1 and Rydh Cor2.9/Th2.8.
 
@@ -614,7 +679,7 @@ Import Rydh’s valuation and specialization-lifting proof, retaining the noethe
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S204 — Adic detection of v-covers
+#### S204 — Adic detection of v-covers
 
 **theorem; missing**. Source: Remark2.2.
 
@@ -626,7 +691,7 @@ Use valuations bounded by one, not just scheme points; original Huber constructi
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S205a — Flat covers
+#### S205a — Flat covers
 
 **theorem; missing**. Source: Example2.3.
 
@@ -638,7 +703,7 @@ Lift a suitable specialization or generic valuation point, then use flatness or 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S205b — Proper covers
+#### S205b — Proper covers
 
 **theorem; missing**. Source: Example2.3.
 
@@ -650,7 +715,7 @@ Lift a suitable specialization or generic valuation point, then use flatness or 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S205c — h-covers
+#### S205c — h-covers
 
 **theorem; missing**. Source: Example2.3.
 
@@ -662,7 +727,7 @@ Lift a suitable specialization or generic valuation point, then use flatness or 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S206 — Surjective non-v-cover
+#### S206 — Surjective non-v-cover
 
 **theorem; missing**. Source: Example2.3.
 
@@ -674,7 +739,7 @@ The valuation lifts to the proper blowup; its unique relevant lift lies at the d
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S207 — Rydh refinement theorem
+#### S207 — Rydh refinement theorem
 
 **theorem; missing**. Source: Theorem2.4.
 
@@ -686,7 +751,7 @@ Import Rydh Th3.12 with finite presentation and affine target; do not infer this
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S208 — Inductive level of proper covers
+#### S208 — Inductive level of proper covers
 
 **definition; missing**. Source: Definition2.5.
 
@@ -700,7 +765,7 @@ Acceptance cases: A proper fppf cover has level zero. Identity maps have level z
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S209 — Finite inductive level
+#### S209 — Finite inductive level
 
 **theorem; missing**. Source: Lemma2.6.
 
@@ -712,7 +777,7 @@ Approximate over a finite-type Z-model, reduce the target, then induct on its di
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S210 — h-topology
+#### S210 — h-topology
 
 **definition; missing**. Source: Definition2.7.
 
@@ -726,7 +791,7 @@ Acceptance cases: A blowup cover belongs to h. An isomorphism generates a trivia
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S211 — Abstract blowup square
+#### S211 — Abstract blowup square
 
 **construction; missing**. Source: Theorems2.8–2.9.
 
@@ -740,7 +805,7 @@ Acceptance cases: The blowup of a closed ideal gives such a square. An identity 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S212 — Set-valued h-descent criterion
+#### S212 — Set-valued h-descent criterion
 
 **theorem; missing**. Source: Theorem2.8.
 
@@ -752,7 +817,7 @@ Induct on proper-cover level after Rydh refinement; sheafify representables befo
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S213 — Space-valued h-descent criterion
+#### S213 — Space-valued h-descent criterion
 
 **theorem; missing**. Source: Theorem2.9.
 
@@ -764,7 +829,7 @@ The closed immersion makes the relevant map a monomorphism, so the discrete push
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S214 — Universal descent for a presheaf
+#### S214 — Universal descent for a presheaf
 
 **construction; missing**. Source: Lemma2.10.
 
@@ -778,7 +843,7 @@ Acceptance cases: A split cover has universal descent. The identity Cech nerve i
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S215 — Composition of universal descent
+#### S215 — Composition of universal descent
 
 **theorem; missing**. Source: Lemma2.10.
 
@@ -790,7 +855,7 @@ Use the augmented bisimplicial Čech diagram and commute its two homotopy limits
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S216 — Cohomological h criterion
+#### S216 — Cohomological h criterion
 
 **theorem; missing**. Source: Corollary2.11.
 
@@ -802,7 +867,7 @@ Apply Dold–Kan to truncations of derived sections and the space-valued h crite
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S217 — Approximation of affine v-covers
+#### S217 — Approximation of affine v-covers
 
 **theorem; missing**. Source: Lemma2.12.
 
@@ -814,7 +879,7 @@ Use noetherian approximation and the valuative condition; keep the cover conditi
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S218 — v-topology on qcqs schemes
+#### S218 — v-topology on qcqs schemes
 
 **definition; missing**. Source: Definition2.13.
 
@@ -828,7 +893,7 @@ Acceptance cases: An affine valuation product can v-cover a scheme. Identity sie
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S219 — Truncated space-valued v criterion
+#### S219 — Truncated space-valued v criterion
 
 **theorem; missing**. Source: Corollary2.14.
 
@@ -840,7 +905,7 @@ Finite truncation lets Cech totalizations commute with filtered colimits; no unr
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S220 — Cohomological v criterion
+#### S220 — Cohomological v criterion
 
 **theorem; missing**. Source: Corollary2.15.
 
@@ -852,7 +917,7 @@ Apply the truncated-space criterion degree by degree to the cohomological constr
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S301 — Perfect schemes and geometric perfection
+#### S301 — Perfect schemes and geometric perfection
 
 **construction; planned**. Source: Definitions3.1–3.2.
 
@@ -870,7 +935,7 @@ Acceptance cases: The perfection of A¹ has all p-power roots of its coordinate.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S302 — Size cutoff for the perfect site
+#### S302 — Size cutoff for the perfect site
 
 **theorem; missing**. Source: Remark3.3.
 
@@ -884,7 +949,7 @@ Carry explicit universe growth through the product of valuation rings; do not qu
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3040 — Quasi-compact under perfection
+#### S3040 — Quasi-compact under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -898,7 +963,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3041 — Quasi-separated under perfection
+#### S3041 — Quasi-separated under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -912,7 +977,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3042 — Affine under perfection
+#### S3042 — Affine under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -926,7 +991,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3043 — Separated under perfection
+#### S3043 — Separated under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -940,7 +1005,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3044 — Integral under perfection
+#### S3044 — Integral under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -954,7 +1019,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3045 — Universally closed under perfection
+#### S3045 — Universally closed under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -968,7 +1033,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3046 — A universal homeomorphism under perfection
+#### S3046 — A universal homeomorphism under perfection
 
 **theorem; missing**. Source: Lemma3.4(i).
 
@@ -982,7 +1047,7 @@ Use the affine universal-homeomorphism maps X_perf→X and the corresponding des
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3050 — Perfection preserves a closed immersion
+#### S3050 — Perfection preserves a closed immersion
 
 **theorem; missing**. Source: Lemma3.4(ii).
 
@@ -996,7 +1061,7 @@ Pass through affine perfect closures or the universal-homeomorphism comparison, 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3051 — Perfection preserves an open immersion
+#### S3051 — Perfection preserves an open immersion
 
 **theorem; missing**. Source: Lemma3.4(ii).
 
@@ -1010,7 +1075,7 @@ Pass through affine perfect closures or the universal-homeomorphism comparison, 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3052 — Perfection preserves a locally closed immersion
+#### S3052 — Perfection preserves a locally closed immersion
 
 **theorem; missing**. Source: Lemma3.4(ii).
 
@@ -1024,7 +1089,7 @@ Pass through affine perfect closures or the universal-homeomorphism comparison, 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3053 — Perfection preserves etale
+#### S3053 — Perfection preserves etale
 
 **theorem; missing**. Source: Lemma3.4(ii).
 
@@ -1038,7 +1103,7 @@ Pass through affine perfect closures or the universal-homeomorphism comparison, 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S3054 — Perfection preserves faithfully flat
+#### S3054 — Perfection preserves faithfully flat
 
 **theorem; missing**. Source: Lemma3.4(ii).
 
@@ -1052,7 +1117,7 @@ Pass through affine perfect closures or the universal-homeomorphism comparison, 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S306 — Picard group after perfection
+#### S306 — Picard group after perfection
 
 **theorem; missing**. Source: Lemma3.5.
 
@@ -1066,7 +1131,7 @@ Line bundles descend to a finite Frobenius stage; Frobenius pullback is pth tens
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S307 — Ampleness survives and descends through perfection
+#### S307 — Ampleness survives and descends through perfection
 
 **theorem; missing**. Source: Lemma3.6.
 
@@ -1080,7 +1145,7 @@ Use affine nonvanishing loci and descent to a finite Frobenius stage. Ordinary f
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S308 — Etale-site invariance
+#### S308 — Etale-site invariance
 
 **theorem; missing**. Source: Theorem3.7.
 
@@ -1094,7 +1159,7 @@ Import topological invariance of the etale site under universal homeomorphisms.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S309 — Universal homeomorphisms of perfect schemes
+#### S309 — Universal homeomorphisms of perfect schemes
 
 **theorem; missing**. Source: Lemma3.8.
 
@@ -1108,7 +1173,7 @@ Use weak normality and the affine integral radicial comparison. The later v-desc
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S310 — Perfect finite presentation
+#### S310 — Perfect finite presentation
 
 **definition; planned**. Source: Definition3.10.
 
@@ -1126,7 +1191,7 @@ Acceptance cases: F_p[t^(1/p∞)] is pfp over F_p. A perfect field’s identity 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S311 — Comparison of perfect models
+#### S311 — Comparison of perfect models
 
 **theorem; missing**. Source: Discussion after Definition3.10.
 
@@ -1140,7 +1205,7 @@ Use descent of the finitely many generators, relations and comparison maps to a 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S312 — Local characterizations of pfp
+#### S312 — Local characterizations of pfp
 
 **theorem; missing**. Source: Proposition3.11.
 
@@ -1154,7 +1219,7 @@ Spread generators and relations through localization; compare affine models.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S313 — Limit characterization of pfp
+#### S313 — Limit characterization of pfp
 
 **theorem; missing**. Source: Proposition3.11.
 
@@ -1168,7 +1233,7 @@ Prove the affine finite-presentation criterion and glue; retain the qcqs convent
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S314 — Descent of pfp objects along limits
+#### S314 — Descent of pfp objects along limits
 
 **theorem; missing**. Source: Proposition3.12.
 
@@ -1182,7 +1247,7 @@ Descend objects, morphisms and equalities; object descent alone is insufficient.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S315 — Finite-presentation model over a perfect base
+#### S315 — Finite-presentation model over a perfect base
 
 **theorem; missing**. Source: Proposition3.13.
 
@@ -1196,7 +1261,7 @@ Use absolute finite-presentation approximation and the Frobenius retraction argu
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S316 — Properness in Perf
+#### S316 — Properness in Perf
 
 **definition; missing**. Source: Definition3.14.
 
@@ -1212,7 +1277,7 @@ Acceptance cases: Perfection of a projective variety is proper in Perf. An ident
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S317 — Proper finite models
+#### S317 — Proper finite models
 
 **theorem; missing**. Source: Corollary3.15.
 
@@ -1226,7 +1291,7 @@ Use the preserved/reflected separated and universally closed properties of Lemma
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S318 — Frobenius-root ideal
+#### S318 — Frobenius-root ideal
 
 **construction; missing**. Source: Lemma3.16 proof.
 
@@ -1242,7 +1307,7 @@ Acceptance cases: For f=t in F_p[t^(1/p∞)], all roots lie in the ideal. For f=
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### S319 — Root ideal flatness
+#### S319 — Root ideal flatness
 
 **theorem; missing**. Source: Lemma3.16 proof.
 
@@ -1256,7 +1321,7 @@ Use its explicit filtered colimit of free modules; this does not make every quot
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### S320 — Tor vanishing for perfect algebras
+#### S320 — Tor vanishing for perfect algebras
 
 **theorem; missing**. Source: Lemma3.16.
 
@@ -1270,7 +1335,7 @@ Factor through a free perfect algebra, then resolve radical quotients by root id
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### S321 — Finite Tor dimension of radical finite quotients
+#### S321 — Finite Tor dimension of radical finite quotients
 
 **theorem; missing**. Source: Remark3.17; Proposition11.29 proof.
 
@@ -1284,7 +1349,7 @@ Induct on generators through flat root ideals, keeping the bound as a bound rath
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### S322 — Unrestricted perfect-scheme derived base change
+#### S322 — Unrestricted perfect-scheme derived base change
 
 **theorem; missing**. Source: Lemma3.18.
 
@@ -1296,7 +1361,7 @@ Reduce to affines. With X=Spec A and Y=Spec B, the required ring identity is A�
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### S401 — Witt schemes and formal Witt schemes
+#### S401 — Witt schemes and formal Witt schemes
 
 **construction; missing**. Source: §4 opening.
 
@@ -1312,7 +1377,7 @@ Acceptance cases: W_n(Spec F_p)=Spec Z/p^n. W_1(X)=X. The formal W(X) is not sim
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S402 — Vector-bundle groupoids on Witt schemes
+#### S402 — Vector-bundle groupoids on Witt schemes
 
 **construction; missing**. Source: §4 opening.
 
@@ -1328,7 +1393,7 @@ Acceptance cases: A free rank-two Witt bundle stays rank two on reduction. The r
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### S403 — Acyclicity of affine Witt bundles
+#### S403 — Acyclicity of affine Witt bundles
 
 **theorem; planned**. Source: Theorem4.1(i), finite level.
 
@@ -1344,7 +1409,7 @@ Induct on n using the Witt p-filtration and additive cohomology descent.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S404 — Formal Witt acyclicity
+#### S404 — Formal Witt acyclicity
 
 **theorem; missing**. Source: Theorem4.1(i), formal case.
 
@@ -1358,7 +1423,7 @@ Control inverse limits and finite-projective completeness; do not discard a poss
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S405 — Finite Witt vector-bundle descent
+#### S405 — Finite Witt vector-bundle descent
 
 **theorem; planned**. Source: Theorem4.1(ii).
 
@@ -1374,7 +1439,7 @@ For n=1 use abstract blowup bundle patching. For n>1 descend the sheaf and its p
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S406 — Abstract blowup cohomology triangle
+#### S406 — Abstract blowup cohomology triangle
 
 **theorem; missing**. Source: Lemma4.6(i).
 
@@ -1388,7 +1453,7 @@ Reduce by faithful-flat completion and finite-projective splitting to the struct
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S407 — Abstract blowup vector-bundle patching
+#### S407 — Abstract blowup vector-bundle patching
 
 **theorem; planned**. Source: Lemma4.6(ii).
 
@@ -1404,7 +1469,7 @@ Full faithfulness uses Hom-bundle cohomology. Essential surjectivity uses the re
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S408 — Reduction to a blowup and Serre vanishing
+#### S408 — Reduction to a blowup and Serre vanishing
 
 **theorem; missing**. Source: Lemma4.6 proof, pp.16–17.
 
@@ -1418,7 +1483,7 @@ Use Raynaud–Gruson Cor5.7.12 and Serre vanishing. A general proper modificatio
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S409 — Frobenius extension of bundle gluing
+#### S409 — Frobenius extension of bundle gluing
 
 **theorem; missing**. Source: Lemma4.6 proof, p.17.
 
@@ -1432,7 +1497,7 @@ For mE=V(I^(m+1)), the obstruction from nE to (n+1)E uses I^(n+1)/I^(n+2). Serre
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S410 — v-topology is subcanonical on Perf
+#### S410 — v-topology is subcanonical on Perf
 
 **theorem; missing**. Source: Remark4.2.
 
@@ -1444,7 +1509,7 @@ Apply descent of functions and affine gluing. This assertion does not apply to r
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S411 — Affineness does not descend for perfect v-covers
+#### S411 — Affineness does not descend for perfect v-covers
 
 **theorem; missing**. Source: Remark4.3.
 
@@ -1458,7 +1523,7 @@ Use the exceptional Cartier divisor on the blowup and nonaffineness of punctured
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S412 — Flat sheaves can fail h-descent
+#### S412 — Flat sheaves can fail h-descent
 
 **theorem; missing**. Source: Remark4.3.
 
@@ -1472,7 +1537,7 @@ Keep the nonzero higher cohomology on the original space; derived descent will r
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S413 — Hom between Witt bundles is a v-sheaf
+#### S413 — Hom between Witt bundles is a v-sheaf
 
 **theorem; missing**. Source: Corollary4.4.
 
@@ -1486,7 +1551,7 @@ Apply affine acyclicity to the Hom bundle and glue.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S414 — Translation from schemes to perfections
+#### S414 — Translation from schemes to perfections
 
 **theorem; missing**. Source: Proposition4.5.
 
@@ -1498,7 +1563,7 @@ Perfection preserves the finite products in Cech diagrams and carries covers to 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### D501 — Picard groupoid of a scheme
+#### D501 — Picard groupoid of a scheme
 
 **construction; missing**. Source: Construction5.1; Definition12.14.
 
@@ -1512,7 +1577,7 @@ Acceptance cases: Pic(Spec k) has automorphism group k× at its unit. The tensor
 
 Open gates: `Q-closure`, `Q-source`.
 
-### D502 — Graded Picard groupoid
+#### D502 — Graded Picard groupoid
 
 **construction; missing**. Source: Construction5.1; Example12.2(iii).
 
@@ -1528,7 +1593,7 @@ Acceptance cases: Two odd lines acquire a minus sign when swapped. The unit is (
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D503 — Homotopy groups of graded Picard objects
+#### D503 — Homotopy groups of graded Picard objects
 
 **theorem; missing**. Source: Construction5.1.
 
@@ -1542,7 +1607,7 @@ Use classification of line isomorphism classes and the locally constant grading.
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D504 — Automorphisms of graded Picard objects
+#### D504 — Automorphisms of graded Picard objects
 
 **theorem; missing**. Source: Construction5.1.
 
@@ -1556,7 +1621,7 @@ Compute invertible endomorphisms of the trivial line; nerves of groupoids are 1-
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D505 — Graded Picard fibre sequence
+#### D505 — Graded Picard fibre sequence
 
 **theorem; missing**. Source: Construction5.1.
 
@@ -1570,7 +1635,7 @@ The fibre of the grading map is the ungraded Picard groupoid.
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D506 — Forgetting degree is not symmetric
+#### D506 — Forgetting degree is not symmetric
 
 **theorem; missing**. Source: Construction5.1; Remark5.4.
 
@@ -1584,7 +1649,7 @@ Over a field of odd characteristic test the self-braiding of the degree-one triv
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D507 — Graded Picard v-descent
+#### D507 — Graded Picard v-descent
 
 **theorem; missing**. Source: Proposition5.2.
 
@@ -1596,7 +1661,7 @@ Use vector-bundle descent, the local rank-one condition and descent of locally c
 
 Open gates: `Q-closure`, `Q-source`.
 
-### D508 — Enhanced perfect complexes
+#### D508 — Enhanced perfect complexes
 
 **construction; planned**. Source: §5; Theorem11.2.
 
@@ -1612,7 +1677,7 @@ Acceptance cases: A finite projective module in degree zero is perfect. The zero
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### D509 — Scheme K-theory spectrum
+#### D509 — Scheme K-theory spectrum
 
 **construction; planned**. Source: §5 before Proposition5.3.
 
@@ -1628,7 +1693,7 @@ Acceptance cases: K0 of a field is generated by its one-dimensional vector space
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D510 — Determinant of perfect complexes
+#### D510 — Determinant of perfect complexes
 
 **theorem; missing**. Source: Proposition5.3.
 
@@ -1642,7 +1707,7 @@ Use the affine construction from §12 and Zariski descent; coherent additivity a
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D511 — Additivity of determinant
+#### D511 — Additivity of determinant
 
 **theorem; missing**. Source: Proposition5.3 discussion.
 
@@ -1656,7 +1721,7 @@ Use K-theory additivity, retaining the associativity and symmetry homotopies for
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D512 — Witt complexes supported on the special fibre
+#### D512 — Witt complexes supported on the special fibre
 
 **construction; planned**. Source: §5, p.19.
 
@@ -1672,7 +1737,7 @@ Acceptance cases: W(R)/p is represented by the two-term multiplication-p complex
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D513 — Witt support K-theory
+#### D513 — Witt support K-theory
 
 **construction; missing**. Source: §5, p.19.
 
@@ -1686,7 +1751,7 @@ Acceptance cases: For perfect k, a k-vector space gives a p-torsion Witt complex
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D514 — Regular devissage for support K-theory
+#### D514 — Regular devissage for support K-theory
 
 **theorem; planned**. Source: Theorem5.5.
 
@@ -1700,7 +1765,7 @@ Compare regular K with coherent G on Y,Z and the open complement, then compare l
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D515 — Perfect regular-base Witt devissage
+#### D515 — Perfect regular-base Witt devissage
 
 **theorem; missing**. Source: Corollary5.6.
 
@@ -1712,7 +1777,7 @@ Choose a p-complete flat lift with a Frobenius lift, pass to its Frobenius colim
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D516 — Frobenius-colimit lift
+#### D516 — Frobenius-colimit lift
 
 **construction; missing**. Source: Corollary5.6 proof.
 
@@ -1726,7 +1791,7 @@ Acceptance cases: For R0=F_p the construction gives Z_p. Reducing the completion
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D517 — Supported perfect complexes and p-completion
+#### D517 — Supported perfect complexes and p-completion
 
 **theorem; missing**. Source: Corollary5.6 proof; Bhatt14 Lemma5.12.
 
@@ -1738,7 +1803,7 @@ Compactness makes a power of p nullhomotopic on a supported perfect complex; com
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D518 — Filtered-colimit K compatibility
+#### D518 — Filtered-colimit K compatibility
 
 **theorem; planned**. Source: Corollary5.6 proof; TT90 Prop3.20.
 
@@ -1752,7 +1817,7 @@ Use compact finite-presentation descent of perfect complexes, their morphisms an
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D519 — Sheafified devissage
+#### D519 — Sheafified devissage
 
 **theorem; missing**. Source: Theorem5.7 proof.
 
@@ -1764,7 +1829,7 @@ Reduce by finite presentation and de Jong alterations to regular perfect models;
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D520 — Witt support determinant
+#### D520 — Witt support determinant
 
 **theorem; missing**. Source: Theorem5.7.
 
@@ -1778,7 +1843,7 @@ Identify both 1-truncated K presheaves with Pic^Z after sheafification, then com
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### D521 — Filtration formula for Witt determinant
+#### D521 — Filtration formula for Witt determinant
 
 **theorem; missing**. Source: Theorem5.7 discussion.
 
@@ -1792,7 +1857,7 @@ Compare with the regular v-local case and descend the coherent isomorphism; equa
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### F601 — Fully faithful pullback across connected proper fibres
+#### F601 — Fully faithful pullback across connected proper fibres
 
 **theorem; planned**. Source: Proposition6.1.
 
@@ -1808,7 +1873,7 @@ Reduce Hom bundles to O_Y→f_*O_X, and apply Stein factorization: the finite un
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F602 — Witt-bundle full faithfulness
+#### F602 — Witt-bundle full faithfulness
 
 **theorem; missing**. Source: Proposition6.1 following sentence.
 
@@ -1822,7 +1887,7 @@ Use the finite Witt filtration and then compatible inverse limits; do not infer 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F603 — Valuation-product cover
+#### F603 — Valuation-product cover
 
 **construction; missing**. Source: Lemma6.2.
 
@@ -1836,7 +1901,7 @@ Acceptance cases: A finite product of fields gives a finite discrete component s
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### F604 — Ultrafilter valuation components
+#### F604 — Ultrafilter valuation components
 
 **construction; missing**. Source: Lemma6.2 proof.
 
@@ -1850,7 +1915,7 @@ Acceptance cases: A principal ultrafilter recovers the corresponding factor. A o
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### F605 — Convex-subgroup valuation decomposition
+#### F605 — Convex-subgroup valuation decomposition
 
 **construction; missing**. Source: Lemma6.3.
 
@@ -1864,7 +1929,7 @@ Acceptance cases: The trivial quotient makes V′ its fraction field and V0=V. T
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### F606 — Valuation decomposition exact sequence
+#### F606 — Valuation decomposition exact sequence
 
 **theorem; missing**. Source: Lemma6.3.
 
@@ -1876,7 +1941,7 @@ The kernel ideal agrees before and after localization; identify the square as a 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### F607 — Valuation decomposition for derived sections
+#### F607 — Valuation decomposition for derived sections
 
 **theorem; missing**. Source: Lemma6.3.
 
@@ -1888,7 +1953,7 @@ Tensor the exact ring square using perfect-scheme derived base change.
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### F608 — Finite-rank valuation approximation
+#### F608 — Finite-rank valuation approximation
 
 **theorem; missing**. Source: Lemma6.4 proof, p.22.
 
@@ -1900,7 +1965,7 @@ Restrict valuations to finite-transcendence-degree subfields; torsionfree module
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### F609 — Localization and reduction detect zero
+#### F609 — Localization and reduction detect zero
 
 **theorem; missing**. Source: Lemma6.6.
 
@@ -1912,7 +1977,7 @@ The first condition makes every cohomology group g-power torsion; the second mak
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### F610 — Residue tests may fail without noetherianity
+#### F610 — Residue tests may fail without noetherianity
 
 **theorem; missing**. Source: Remark6.7.
 
@@ -1924,7 +1989,7 @@ Use flatness and idempotence of m. The quotient V/g, rather than only the residu
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### F611 — Triviality over a valuation base
+#### F611 — Triviality over a valuation base
 
 **theorem; missing**. Source: Lemma6.4.
 
@@ -1938,7 +2003,7 @@ Reduce to a complete rank-one algebraically closed fraction field, choose a sect
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F612 — Cohomologically trivial fibre descent
+#### F612 — Cohomologically trivial fibre descent
 
 **theorem; planned**. Source: Theorem6.8.
 
@@ -1954,7 +2019,7 @@ After a valuation-product v-cover, trivializations spread from components to clo
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F613 — Fibrewise cohomology detects the structure pushforward
+#### F613 — Fibrewise cohomology detects the structure pushforward
 
 **theorem; missing**. Source: Lemma6.9.
 
@@ -1968,7 +2033,7 @@ Reduce to rank-one valuations and a finite-presentation model. Frobenius on its 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F614 — Frobenius splitting consequence
+#### F614 — Frobenius splitting consequence
 
 **theorem; missing**. Source: Lemma6.9 discussion.
 
@@ -1982,7 +2047,7 @@ O_X0 is a direct summand of the perfected structure sheaf; pass the splitting to
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### F615 — Point fibres force an isomorphism
+#### F615 — Point fibres force an isomorphism
 
 **theorem; missing**. Source: Corollary6.10.
 
@@ -1996,7 +2061,7 @@ A finite-presentation model is proper quasi-finite, hence finite; it is a univer
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### F616 — Filtered torsion determinant line
+#### F616 — Filtered torsion determinant line
 
 **construction; missing**. Source: Lemma6.11.
 
@@ -2012,7 +2077,7 @@ Acceptance cases: For Q=k with its one-step filtration the line is trivial. For 
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### F617 — Fibre determinant triviality
+#### F617 — Fibre determinant triviality
 
 **theorem; planned**. Source: Lemma6.11.
 
@@ -2028,7 +2093,7 @@ One proof uses det-tilde(Q) pulled back from k. The independent geometric proof 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F618 — Bounded saturated valuation lattice
+#### F618 — Bounded saturated valuation lattice
 
 **construction; missing**. Source: Lemma6.14.
 
@@ -2042,7 +2107,7 @@ Acceptance cases: A closed ball with radius in |K×| is a free rank-one lattice.
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### F619 — Saturated bounded modules are finite free
+#### F619 — Saturated bounded modules are finite free
 
 **theorem; missing**. Source: Lemma6.14.
 
@@ -2056,7 +2121,7 @@ Induct on r via intersection with K^(r−1). Spherical completeness gives Ext1_V
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### F620 — Descent using only connected fibres
+#### F620 — Descent using only connected fibres
 
 **theorem; planned**. Source: Theorem6.13; Theorem1.3.
 
@@ -2072,7 +2137,7 @@ Reduce to valuation bases; replace by flat generic closure, normalize using BGR8
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F621 — Flat closure and normalization reduction
+#### F621 — Flat closure and normalization reduction
 
 **theorem; missing**. Source: Theorem6.13 proof, pp.25–26.
 
@@ -2086,7 +2151,7 @@ Use the closure of the generic fibre, geometric connectedness, BGR84 finite-pres
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### F622 — Saturation of global sections
+#### F622 — Saturation of global sections
 
 **theorem; missing**. Source: Theorem6.13 proof, p.26.
 
@@ -2100,7 +2165,7 @@ Use integral closedness, locally free possibly infinite-rank V-modules from RG71
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G701 — Partitions and dominance
+#### G701 — Partitions and dominance
 
 **construction; missing**. Source: Definition7.1.
 
@@ -2114,7 +2179,7 @@ Acceptance cases: For λ=(2,1,0), the column counts are (2,1). The empty partiti
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G702 — Witt torsion module type
+#### G702 — Witt torsion module type
 
 **construction; missing**. Source: Definition7.2.
 
@@ -2130,7 +2195,7 @@ Acceptance cases: W(k)/p² ⊕ k has type (2,1). The zero module has empty type.
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G703 — Constant type gives projective gradeds
+#### G703 — Constant type gives projective gradeds
 
 **theorem; missing**. Source: Lemma7.3; Remark7.4.
 
@@ -2144,7 +2209,7 @@ Use reducedness of R and constant fibre ranks for finite modules, then induction
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G7050 — Dominance criterion 1
+#### G7050 — Dominance criterion 1
 
 **theorem; missing**. Source: Lemma7.5(1).
 
@@ -2158,7 +2223,7 @@ Identify column tails with sum_j max(λ_j−m,0); use the concavity duality betw
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G7051 — Dominance criterion 2
+#### G7051 — Dominance criterion 2
 
 **theorem; missing**. Source: Lemma7.5(2).
 
@@ -2172,7 +2237,7 @@ Identify column tails with sum_j max(λ_j−m,0); use the concavity duality betw
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G7052 — Dominance criterion 3
+#### G7052 — Dominance criterion 3
 
 **theorem; missing**. Source: Lemma7.5(3).
 
@@ -2186,7 +2251,7 @@ Identify column tails with sum_j max(λ_j−m,0); use the concavity duality betw
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G7053 — Dominance criterion 4
+#### G7053 — Dominance criterion 4
 
 **theorem; missing**. Source: Lemma7.5(4).
 
@@ -2200,7 +2265,7 @@ Identify column tails with sum_j max(λ_j−m,0); use the concavity duality betw
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G706 — Isogeny of projective Witt modules
+#### G706 — Isogeny of projective Witt modules
 
 **construction; missing**. Source: Lemma7.6.
 
@@ -2216,7 +2281,7 @@ Acceptance cases: Multiplication by p^a on W(R)^r is an isogeny for a≥0. An id
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G707 — Isogeny cokernel criterion
+#### G707 — Isogeny cokernel criterion
 
 **theorem; missing**. Source: Lemma7.7, zero-module convention corrected.
 
@@ -2230,7 +2295,7 @@ Take a finite free presentation; its kernel is finite projective by the projecti
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G708 — Projectivity after reduction modulo p
+#### G708 — Projectivity after reduction modulo p
 
 **theorem; missing**. Source: Lemma7.8, zero-module convention corrected.
 
@@ -2244,7 +2309,7 @@ Lift an idempotent presentation for one implication; for the converse reduce a l
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G709 — Closed bounded-type locus
+#### G709 — Closed bounded-type locus
 
 **theorem; missing**. Source: Lemma7.9.
 
@@ -2258,7 +2323,7 @@ The determinant valuation gives clopen total-length loci. Express the remaining 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G710 — Demazure filtration functor
+#### G710 — Demazure filtration functor
 
 **construction; missing**. Source: Definition7.10.
 
@@ -2274,7 +2339,7 @@ Acceptance cases: For one-column λ this is the relevant Grassmann quotient func
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G711 — Filtration representability
+#### G711 — Filtration representability
 
 **theorem; missing**. Source: Proposition7.11.
 
@@ -2288,7 +2353,7 @@ Induct on λ by a Grassmann quotient of Q/pQ; impose the closed p-containment co
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G712 — Witt support rank
+#### G712 — Witt support rank
 
 **theorem; missing**. Source: Remark7.12.
 
@@ -2300,7 +2365,7 @@ Apply the graded determinant degree or the determinant valuation; write K0(W(X) 
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### G713 — Image of the filtration scheme
+#### G713 — Image of the filtration scheme
 
 **theorem; missing**. Source: Lemma7.13(i).
 
@@ -2314,7 +2379,7 @@ Use the column-tail inequalities for a filtration; construct filtrations inducti
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G714 — Filtered Grassmann incidence variety
+#### G714 — Filtered Grassmann incidence variety
 
 **theorem; missing**. Source: Lemma7.14.
 
@@ -2328,7 +2393,7 @@ Identify the inequalities with Schubert incidence conditions; resolve by success
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G715 — Exact-type uniqueness
+#### G715 — Exact-type uniqueness
 
 **theorem; missing**. Source: Lemma7.13(ii).
 
@@ -2342,7 +2407,7 @@ The only admissible filtration at exact type is the p-adic one; use properness a
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G716 — Cohomology of filtration fibres
+#### G716 — Cohomology of filtration fibres
 
 **theorem; missing**. Source: Lemma7.13(iii).
 
@@ -2356,7 +2421,7 @@ Induct through the incidence Grassmannian and smaller filtration schemes; use Le
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G801 — Bounded Witt lattice Grassmannian
+#### G801 — Bounded Witt lattice Grassmannian
 
 **construction; planned**. Source: Definition8.1.
 
@@ -2374,7 +2439,7 @@ Acceptance cases: λ=0 gives the standard lattice alone. For n=1 each fixed leng
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G802 — Bounded Grassmannian is a v-sheaf
+#### G802 — Bounded Grassmannian is a v-sheaf
 
 **theorem; missing**. Source: Definition8.1 discussion.
 
@@ -2388,7 +2453,7 @@ Descend the Witt bundle and its isogeny into the standard bundle, then detect th
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G803 — Prior algebraic-space representability
+#### G803 — Prior algebraic-space representability
 
 **theorem; planned**. Source: Theorem8.2 [Zhu14].
 
@@ -2404,7 +2469,7 @@ Read the cited original representability theorem with its perfect-base conventio
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G804 — Global Demazure resolution
+#### G804 — Global Demazure resolution
 
 **construction; planned**. Source: Definition8.4.
 
@@ -2422,7 +2487,7 @@ Acceptance cases: The exact-type locus has one filtration. The zero partition gi
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G805 — Proper cohomological resolution
+#### G805 — Proper cohomological resolution
 
 **theorem; missing**. Source: Remark8.5.
 
@@ -2436,7 +2501,7 @@ Apply the relative filtration theorem after every perfect scheme mapping to Gr; 
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G806 — Smooth projective resolution tower
+#### G806 — Smooth projective resolution tower
 
 **theorem; missing**. Source: Proposition8.6.
 
@@ -2450,7 +2515,7 @@ Construct E_(i+1) as the kernel of E_i→Q_i, use the Witt projectivity criterio
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G807 — First nontrivial boundary fibre example
+#### G807 — First nontrivial boundary fibre example
 
 **theorem; missing**. Source: Example8.7.
 
@@ -2464,7 +2529,7 @@ Write the first two quotient choices and specialize to Q=k³ killed by p; the ad
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G808 — Determinant line on the Grassmannian
+#### G808 — Determinant line on the Grassmannian
 
 **construction; planned**. Source: Theorem8.8.
 
@@ -2484,7 +2549,7 @@ Acceptance cases: On the one-column Grassmannian it is the Plücker line. The ze
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G809 — Ample weighted quotient determinants
+#### G809 — Ample weighted quotient determinants
 
 **theorem; missing**. Source: Lemma8.9(i).
 
@@ -2498,7 +2563,7 @@ Induct up the projective Grassmann bundle tower using the relatively ample Plüc
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G810 — Sections at the open stratum
+#### G810 — Sections at the open stratum
 
 **theorem; missing**. Source: Lemma8.9(ii).
 
@@ -2512,7 +2577,7 @@ Use p^i times the standard Witt generators and their images in Q_i, then take an
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G811 — Ample, nef, big and exceptional locus interfaces
+#### G811 — Ample, nef, big and exceptional locus interfaces
 
 **construction; missing**. Source: §8; Keel99 Definitions0.1 and1.0.
 
@@ -2528,7 +2593,7 @@ Acceptance cases: O(1) on projective space is ample, nef and big. The trivial li
 
 Open gates: `Q-closure`, `Q-Keel`, `Q-source`.
 
-### G812 — Strict positivity on Grassmannian curves
+#### G812 — Strict positivity on Grassmannian curves
 
 **theorem; missing**. Source: Lemma8.10.
 
@@ -2542,7 +2607,7 @@ Choose a quotient determinant with positive degree along the first varying stage
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G813 — Bigness and boundary exceptional locus
+#### G813 — Bigness and boundary exceptional locus
 
 **theorem; missing**. Source: Lemma8.11.
 
@@ -2556,7 +2621,7 @@ For a chosen open-stratum point, factor a sufficiently high power as an ample we
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G814 — Keel positive-characteristic criterion
+#### G814 — Keel positive-characteristic criterion
 
 **theorem; missing**. Source: Keel99 Theorem0.2; Corollary1.9, used §8.
 
@@ -2570,7 +2635,7 @@ Reduce using an ample-plus-effective-Cartier decomposition, the exceptional-locu
 
 Open gates: `Q-closure`, `Q-Keel`, `Q-source`.
 
-### G815 — Keel finite-union semiampleness
+#### G815 — Keel finite-union semiampleness
 
 **theorem; missing**. Source: Keel99 Lemma1.8, used Theorem8.3.
 
@@ -2584,7 +2649,7 @@ Apply the ample-plus-effective reduction to X2 and glue powers along the interse
 
 Open gates: `Q-closure`, `Q-Keel`, `Q-source`.
 
-### G816 — Powers descend across universal homeomorphisms
+#### G816 — Powers descend across universal homeomorphisms
 
 **theorem; missing**. Source: Keel99 Lemma1.4.
 
@@ -2598,7 +2663,7 @@ Factor a Frobenius power through the finite map and compare line pullbacks and s
 
 Open gates: `Q-closure`, `Q-Keel`, `Q-source`.
 
-### G817 — Ample-plus-effective reduction
+#### G817 — Ample-plus-effective reduction
 
 **theorem; missing**. Source: Keel99 Proposition1.6 and Lemma1.7.
 
@@ -2612,7 +2677,7 @@ Use the formal neighborhoods of D and an algebraic-space contraction; record Art
 
 Open gates: `Q-closure`, `Q-Keel`, `Q-source`.
 
-### G818 — Semiampleness on the resolution
+#### G818 — Semiampleness on the resolution
 
 **theorem; missing**. Source: Theorem8.3 proof.
 
@@ -2626,7 +2691,7 @@ Induct on the finite dominance interval. Boundary pieces are smaller Grassmannia
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G819 — Semiample contraction and relation comparison
+#### G819 — Semiample contraction and relation comparison
 
 **construction; missing**. Source: Theorem8.3 proof.
 
@@ -2642,7 +2707,7 @@ Acceptance cases: The zero partition contracts a point to itself. A positive-dim
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G820 — Projectivity of bounded Witt Grassmannians
+#### G820 — Projectivity of bounded Witt Grassmannians
 
 **theorem; planned**. Source: Theorem8.3; Theorem1.1.
 
@@ -2658,7 +2723,7 @@ Identify the two v-coequalizers and hence Gr≤λ with the contraction X. The de
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G901 — Ramified Witt coefficient ring
+#### G901 — Ramified Witt coefficient ring
 
 **construction; missing**. Source: §9 opening.
 
@@ -2674,7 +2739,7 @@ Acceptance cases: For O_K=W(k) recover W(R). At R=k recover O_K. The constructio
 
 Open gates: `Q-closure`, `Q-groups`, `Q-source`.
 
-### G902 — Mixed-characteristic loop groups
+#### G902 — Mixed-characteristic loop groups
 
 **construction; missing**. Source: Definition9.1.
 
@@ -2690,7 +2755,7 @@ Acceptance cases: For GL1 the values are the corresponding unit groups. The iden
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G903 — Loop representability
+#### G903 — Loop representability
 
 **theorem; missing**. Source: Proposition9.2; Remark9.3.
 
@@ -2704,7 +2769,7 @@ Use Witt coordinates for L+ and impose simultaneous pole bounds on matrix entrie
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G904 — Affine Grassmannian of an integral group model
+#### G904 — Affine Grassmannian of an integral group model
 
 **construction; planned**. Source: Definition9.4.
 
@@ -2722,7 +2787,7 @@ Acceptance cases: For GLn recover the lattice Grassmannian. The neutral coset is
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G905 — Integral-model ind-quasi-projectivity
+#### G905 — Integral-model ind-quasi-projectivity
 
 **theorem; missing**. Source: Corollary9.6 first assertion.
 
@@ -2736,7 +2801,7 @@ Use a faithful integral representation with quasi-affine quotient and locally cl
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G906 — Parahoric ind-projectivity
+#### G906 — Parahoric ind-projectivity
 
 **theorem; planned**. Source: Corollary9.6 second assertion.
 
@@ -2752,7 +2817,7 @@ Combine the locally closed projective bounds with Zhu’s ind-properness theorem
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G907 — Kottwitz connected components
+#### G907 — Kottwitz connected components
 
 **theorem; missing**. Source: Proposition9.7 [Zhu14, Proposition1.21].
 
@@ -2766,7 +2831,7 @@ Import the original Kottwitz component comparison, its Galois coinvariants and t
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G1001 — Normalized determinant for SLn lattices
+#### G1001 — Normalized determinant for SLn lattices
 
 **construction; missing**. Source: Proposition10.1.
 
@@ -2782,7 +2847,7 @@ Acceptance cases: At the standard lattice the normalization specifies a triviali
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G1002 — Determinant central extension
+#### G1002 — Determinant central extension
 
 **construction; missing**. Source: Definition10.2.
 
@@ -2798,7 +2863,7 @@ Acceptance cases: The identity loop with the identity line map is the identity. 
 
 Open gates: `Q-closure`, `Q-groups`, `Q-source`.
 
-### G1003 — Exact determinant extension
+#### G1003 — Exact determinant extension
 
 **theorem; missing**. Source: Proposition10.3.
 
@@ -2812,7 +2877,7 @@ Use the determinant’s local functorial identifications for local lifts, and Γ
 
 Open gates: `Q-closure`, `Q-groups`, `Q-source`.
 
-### G1004 — K2 boundary comparison
+#### G1004 — K2 boundary comparison
 
 **theorem; missing**. Source: Proposition10.4.
 
@@ -2826,7 +2891,7 @@ Compare the homotopy fibre of localization with the supported determinant; ident
 
 Open gates: `Q-closure`, `Q-groups`, `Q-source`.
 
-### G1005 — Infinite-dimensional sections
+#### G1005 — Infinite-dimensional sections
 
 **theorem; missing**. Source: Proposition10.5.
 
@@ -2840,7 +2905,7 @@ On any positive-dimensional bounded perfected projective stage, H0(L^m) is the F
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### Q1101 — Enhanced unbounded quasi-coherent complexes
+#### Q1101 — Enhanced unbounded quasi-coherent complexes
 
 **construction; planned**. Source: §11.1; Theorem11.2.
 
@@ -2856,7 +2921,7 @@ Acceptance cases: For an affine field, a vector space in degree zero gives its o
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1102 — Tor-amplitude strata
+#### Q1102 — Tor-amplitude strata
 
 **construction; missing**. Source: Theorem11.2 proof, p.47.
 
@@ -2870,7 +2935,7 @@ Acceptance cases: Perf[0,0](F3) contains a component with automorphism group F3�
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1103 — Animated commutative rings
+#### Q1103 — Animated commutative rings
 
 **construction; planned**. Source: §11.2.
 
@@ -2886,7 +2951,7 @@ Acceptance cases: The constant simplicial ring F_p is discrete. The zero ring is
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1106 — Perfect animated Fp-algebras are discrete
+#### Q1106 — Perfect animated Fp-algebras are discrete
 
 **theorem; missing**. Source: Proposition11.6.
 
@@ -2898,7 +2963,7 @@ Factor Frobenius on positive homotopy through multiplication at the zero compone
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1107 — Cosimplicial perfection is different
+#### Q1107 — Cosimplicial perfection is different
 
 **theorem; missing**. Source: Remark11.7.
 
@@ -2910,7 +2975,7 @@ Use the ordinary elliptic curve with bijective Frobenius on coherent H1; the sig
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1108 — Multiplication at the zero component
+#### Q1108 — Multiplication at the zero component
 
 **theorem; missing**. Source: Remark11.8, Gabber argument.
 
@@ -2922,7 +2987,7 @@ Test universally on Sym_Z(Z²[i]); the cross term lies in connectivity 2i and he
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1109 — Perfection forgets derived structure
+#### Q1109 — Perfection forgets derived structure
 
 **theorem; missing**. Source: Corollary11.9.
 
@@ -2934,7 +2999,7 @@ Apply the affine discreteness result and glue across derived open covers.
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1110 — Perfect-ring pushouts are already derived
+#### Q1110 — Perfect-ring pushouts are already derived
 
 **theorem; missing**. Source: Lemma11.10.
 
@@ -2946,7 +3011,7 @@ The derived pushout is again Frobenius-invertible, so discreteness identifies it
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1111 — Imperfect bases invalidate the tensor shortcut
+#### Q1111 — Imperfect bases invalidate the tensor shortcut
 
 **theorem; missing**. Source: Remark11.11.
 
@@ -2958,7 +3023,7 @@ For a missing pth root, the difference of its copies is nonzero but its pth powe
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1114 — Stable monoidal homotopy theory
+#### Q1114 — Stable monoidal homotopy theory
 
 **construction; planned**. Source: Definition11.14.
 
@@ -2974,7 +3039,7 @@ Acceptance cases: The enhanced derived category of modules over a ring is an exa
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1115 — Descendable algebra map
+#### Q1115 — Descendable algebra map
 
 **construction; missing**. Source: Definition11.14; Mathew v1 Definition3.17 and Proposition3.19.
 
@@ -2988,7 +3053,7 @@ Acceptance cases: The identity map is descendable with index at most one. A nilp
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1116 — Module-category descent
+#### Q1116 — Module-category descent
 
 **theorem; missing**. Source: Theorem11.15; Mathew v1 Proposition3.21.
 
@@ -3000,7 +3065,7 @@ Apply the Barr–Beck argument to extension of scalars, using thick generation f
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1117 — Completion is weaker than descendability
+#### Q1117 — Completion is weaker than descendability
 
 **theorem; missing**. Source: Remark11.16.
 
@@ -3012,7 +3077,7 @@ Use Q_p as a nonzero object annihilated by tensoring with F_p, contrary to conse
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1118 — Composition of descendability
+#### Q1118 — Composition of descendability
 
 **theorem; missing**. Source: Lemma11.17(1); Mathew v1 Proposition3.23.
 
@@ -3024,7 +3089,7 @@ Compose thick tensor generation witnesses or finite tensor-nilpotence bounds.
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1119 — Right cancellation of descendability
+#### Q1119 — Right cancellation of descendability
 
 **theorem; missing**. Source: Lemma11.17(2).
 
@@ -3036,7 +3101,7 @@ The thick tensor ideal generated by C is contained in the one generated by B.
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1120 — Descendability index
+#### Q1120 — Descendability index
 
 **construction; missing**. Source: Definition11.18.
 
@@ -3050,7 +3115,7 @@ Acceptance cases: An identity has zero fibre and bound one. For a square-zero qu
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1121 — Finite index characterizes descendability
+#### Q1121 — Finite index characterizes descendability
 
 **theorem; missing**. Source: Lemma11.20 first assertion; Mathew v1 Proposition3.26.
 
@@ -3062,7 +3127,7 @@ Compare the tensor powers of the augmentation fibre with the fibres of the finit
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1122 — Functorial preservation of the index
+#### Q1122 — Functorial preservation of the index
 
 **theorem; missing**. Source: Lemma11.20 second assertion.
 
@@ -3074,7 +3139,7 @@ Use the bar presentation of relative tensor and the lax structure maps to carry 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1123 — A quantitative open-cover example
+#### Q1123 — A quantitative open-cover example
 
 **theorem; missing**. Source: Example11.19.
 
@@ -3086,7 +3151,7 @@ Resolve the extension class of the two-open cover and make the fivefold tensor o
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1124 — No unrestricted filtered-colimit stability
+#### Q1124 — No unrestricted filtered-colimit stability
 
 **theorem; missing**. Source: Example11.21.
 
@@ -3098,7 +3163,7 @@ Every finite nilpotent subideal supplies descent, but no finite tensor power kil
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1125 — Uniform-index sequential colimits
+#### Q1125 — Uniform-index sequential colimits
 
 **theorem; missing**. Source: Lemma11.22, case proved in the paper.
 
@@ -3110,7 +3175,7 @@ Use the Milnor exact sequence: stagewise null maps leave a lim1 obstruction, and
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1126 — Uniform-index colimits in finite cohomological dimension
+#### Q1126 — Uniform-index colimits in finite cohomological dimension
 
 **theorem; missing**. Source: Lemma11.22 general statement.
 
@@ -3122,7 +3187,7 @@ Supply the finite-cohomological-dimension derived-limit multiplication argument 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1127 — Finite open covers are descendable
+#### Q1127 — Finite open covers are descendable
 
 **theorem; missing**. Source: Lemma11.23(1).
 
@@ -3134,7 +3199,7 @@ Use the finite Čech filtration or thick tensor generation by the open localizat
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1128 — Fppf covers are descendable
+#### Q1128 — Fppf covers are descendable
 
 **theorem; missing**. Source: Lemma11.23(2); Mathew v1 Corollary3.31.
 
@@ -3146,7 +3211,7 @@ Reduce to the affine faithfully flat countably presented map covered by Mathew�
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1129 — Nilpotent quotients are descendable
+#### Q1129 — Nilpotent quotients are descendable
 
 **theorem; missing**. Source: Lemma11.23(3); Mathew v1 Proposition3.33.
 
@@ -3158,7 +3223,7 @@ If I^m=0, the m-fold tensor map through I^m is null; track the derived multiplic
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1130 — Pushforward preserves descendability
+#### Q1130 — Pushforward preserves descendability
 
 **theorem; missing**. Source: Lemma11.23(4).
 
@@ -3170,7 +3235,7 @@ Use the lax monoidal, colimit-preserving derived pushforward in the qcqs setting
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1131 — Countably generated faithfully flat algebras
+#### Q1131 — Countably generated faithfully flat algebras
 
 **theorem; missing**. Source: Remark11.24.
 
@@ -3182,7 +3247,7 @@ Close the exact countability reduction in the original Mathew proof before expor
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1132 — Noetherian h-covers are descendable
+#### Q1132 — Noetherian h-covers are descendable
 
 **theorem; missing**. Source: Proposition11.25.
 
@@ -3194,7 +3259,7 @@ Induct on the finite level. In the abstract blowup step the bounded coherent fib
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1133 — Descent for noetherian schemes
+#### Q1133 — Descent for noetherian schemes
 
 **theorem; missing**. Source: Theorem11.12.
 
@@ -3206,7 +3271,7 @@ The structure algebra is descendable and derived affine Čech terms realize its 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1134 — Perfect and pseudocoherent objects detected by h-descent
+#### Q1134 — Perfect and pseudocoherent objects detected by h-descent
 
 **theorem; missing**. Source: Remark11.13.
 
@@ -3218,7 +3283,7 @@ Descend dualizability for perfect objects; for pseudocoherence use finite approx
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1135 — Derived h-hyperdescent counterexample
+#### Q1135 — Derived h-hyperdescent counterexample
 
 **theorem; missing**. Source: Remarks11.4 and11.13.
 
@@ -3230,7 +3295,7 @@ Compute the truncation and the localization module. Keep the ordinary noetherian
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1136 — Finite-presentation converse to descendability
+#### Q1136 — Finite-presentation converse to descendability
 
 **theorem; missing**. Source: Theorem11.26.
 
@@ -3242,7 +3307,7 @@ For the converse descend suitable eventually connective idempotent algebra objec
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1137 — Perfect h-covers are descendable
+#### Q1137 — Perfect h-covers are descendable
 
 **theorem; missing**. Source: Theorem11.27.
 
@@ -3254,7 +3319,7 @@ Choose a noetherian model, preserve its finite index along Frobenius and use the
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1138 — Quasi-coherent h-descent on perfect schemes
+#### Q1138 — Quasi-coherent h-descent on perfect schemes
 
 **theorem; planned**. Source: Theorem11.2(1).
 
@@ -3268,7 +3333,7 @@ Perfect-ring tensor products are already derived, so the geometric Čech nerve r
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1139a — Hypercomplete v-descent for Perf(X)
+#### Q1139a — Hypercomplete v-descent for Perf(X)
 
 **theorem; planned**. Source: Theorem11.2(2).
 
@@ -3282,7 +3347,7 @@ Use Tor-amplitude strata and finite truncation for Perf, then the finite Witt fi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1139b — Hypercomplete v-descent for Perf(W_n(X))
+#### Q1139b — Hypercomplete v-descent for Perf(W_n(X))
 
 **theorem; planned**. Source: Theorem11.2(2).
 
@@ -3296,7 +3361,7 @@ Use Tor-amplitude strata and finite truncation for Perf, then the finite Witt fi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1139c — Hypercomplete v-descent for Perf(W(X))
+#### Q1139c — Hypercomplete v-descent for Perf(W(X))
 
 **theorem; planned**. Source: Theorem11.2(2).
 
@@ -3310,7 +3375,7 @@ Use Tor-amplitude strata and finite truncation for Perf, then the finite Witt fi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1139d — Hypercomplete v-descent for Perf(W(X) on X)
+#### Q1139d — Hypercomplete v-descent for Perf(W(X) on X)
 
 **theorem; planned**. Source: Theorem11.2(2).
 
@@ -3324,7 +3389,7 @@ Use Tor-amplitude strata and finite truncation for Perf, then the finite Witt fi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### Q1140 — Derived abstract-blowup patching
+#### Q1140 — Derived abstract-blowup patching
 
 **theorem; missing**. Source: Corollary11.28.
 
@@ -3336,7 +3401,7 @@ Apply h-descent and the abstract-blowup excision criterion to the enhanced categ
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1141 — Finite Tor dimension of perfect finite-presentation maps
+#### Q1141 — Finite Tor dimension of perfect finite-presentation maps
 
 **theorem; missing**. Source: Proposition11.29.
 
@@ -3350,7 +3415,7 @@ Perfect polynomial extensions are flat; kill the radical generators one at a tim
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1142 — Boundedness is h-local
+#### Q1142 — Boundedness is h-local
 
 **theorem; planned**. Source: Lemma11.30; Theorem11.2(3).
 
@@ -3364,7 +3429,7 @@ Induct on cover level using the abstract-blowup triangle, projection formula and
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1143 — Finite global dimension after perfection
+#### Q1143 — Finite global dimension after perfection
 
 **theorem; missing**. Source: Proposition11.31.
 
@@ -3378,7 +3443,7 @@ Kunz makes Frobenius on P0 flat; represent modules using the countable Frobenius
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1144 — Bounded complexes admit bounded projective representatives
+#### Q1144 — Bounded complexes admit bounded projective representatives
 
 **theorem; missing**. Source: Remark11.32.
 
@@ -3390,7 +3455,7 @@ Use the finite global-dimension bound to truncate a projective resolution; no fi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1145 — Intrinsic Tor-dimension bound
+#### Q1145 — Intrinsic Tor-dimension bound
 
 **theorem; missing**. Source: Remark11.33, corrected version.
 
@@ -3404,7 +3469,7 @@ Apply Noether normalization and almost finite étaleness away from one element, 
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1146 — The earlier dimension bound fails
+#### Q1146 — The earlier dimension bound fails
 
 **theorem; missing**. Source: Remark11.33 footnote24; arXiv v2 Remark5.33.
 
@@ -3418,7 +3483,7 @@ Write I_y=Ann_R(x), the span of all positive y-monomials with exponents in Z[1/p
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1147 — Intrinsic global bound announced in the correction
+#### Q1147 — Intrinsic global bound announced in the correction
 
 **theorem; missing**. Source: Remark11.33 footnote24.
 
@@ -3432,7 +3497,7 @@ Supply a separate original-source proof; do not infer that the paper’s d+1 pre
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1148 — Kunz converse via perfection
+#### Q1148 — Kunz converse via perfection
 
 **theorem; missing**. Source: Corollary11.35.
 
@@ -3446,7 +3511,7 @@ Reduce by completion and a regular presentation, then transfer finite projective
 
 Open gates: `Q-closure`, `Q-valuations`, `Q-Tor`, `Q-source`.
 
-### Q1149 — Tensor commutes with a bounded cosimplicial totalization
+#### Q1149 — Tensor commutes with a bounded cosimplicial totalization
 
 **theorem; missing**. Source: Lemma11.36.
 
@@ -3458,7 +3523,7 @@ Use the projective-dimension bound, homological and cohomological truncations wi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1150 — Hyperdescent of derived sections
+#### Q1150 — Hyperdescent of derived sections
 
 **theorem; missing**. Source: Lemma11.37.
 
@@ -3470,7 +3535,7 @@ Compute on an affine h-hypercover, commute tensor with totalization by Lemma11.3
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1151 — Relative truncation preserves hypercompleteness
+#### Q1151 — Relative truncation preserves hypercompleteness
 
 **theorem; missing**. Source: Lemma11.38.
 
@@ -3482,7 +3547,7 @@ Use the slice infinity-topos and the Postnikov characterization of hypercomplete
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1152 — Hypercomplete h-descent of unbounded Dqc
+#### Q1152 — Hypercomplete h-descent of unbounded Dqc
 
 **theorem; planned**. Source: Theorem11.2(4); Remark11.39.
 
@@ -3496,7 +3561,7 @@ Embed quasi-coherent complexes fully faithfully into hypercomplete h-modules; th
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Tor`, `Q-source`.
 
-### Q1153 — Derived Witt vectors and operators
+#### Q1153 — Derived Witt vectors and operators
 
 **construction; missing**. Source: §11.5, before Lemma11.43.
 
@@ -3510,7 +3575,7 @@ Acceptance cases: A discrete perfect ring recovers its usual Witt ring. W_1(A)=A
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1154 — Frobenius-inverted derived Witt discreteness
+#### Q1154 — Frobenius-inverted derived Witt discreteness
 
 **theorem; missing**. Source: Lemma11.43.
 
@@ -3522,7 +3587,7 @@ Describe higher homotopy of the Witt coordinates and use the zero action of Frob
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1155 — p-torsion comparison cone
+#### Q1155 — p-torsion comparison cone
 
 **theorem; missing**. Source: Remark11.44.
 
@@ -3534,7 +3599,7 @@ Verify a nullhomotopy of multiplication by p on the cone, rather than merely che
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-Witt`, `Q-source`.
 
-### Q1156 — Frobenius-inverted Witt blowup excision
+#### Q1156 — Frobenius-inverted Witt blowup excision
 
 **theorem; missing**. Source: Lemma11.45.
 
@@ -3546,7 +3611,7 @@ Use derived base change for each self-product and remove its derived structure b
 
 Open gates: `Q-closure`, `Q-Witt`, `Q-source`.
 
-### Q1157 — Frobenius-inverted Witt h-descent
+#### Q1157 — Frobenius-inverted Witt h-descent
 
 **theorem; missing**. Source: Proposition11.41.
 
@@ -3558,7 +3623,7 @@ Start with fppf descent via finite Witt filtrations, invert universal-homeomorph
 
 Open gates: `Q-closure`, `Q-Witt`, `Q-source`.
 
-### Q1158 — Blowup contraction used for Witt descent
+#### Q1158 — Blowup contraction used for Witt descent
 
 **theorem; missing**. Source: Proposition11.41 proof, pp.53–54.
 
@@ -3572,7 +3637,7 @@ Use Serre vanishing and the original pushout existence theorem; retain derived s
 
 Open gates: `Q-closure`, `Q-sites`, `Q-Witt`, `Q-source`.
 
-### Q1159 — Rational Witt h-descent
+#### Q1159 — Rational Witt h-descent
 
 **theorem; missing**. Source: Theorem11.40; consequence of Proposition11.41.
 
@@ -3584,7 +3649,7 @@ Inverting p makes F invertible through FV=p, so further localize the stronger Fr
 
 Open gates: `Q-closure`, `Q-Witt`, `Q-source`.
 
-### A1201 — Self-braiding-trivial symmetric category
+#### A1201 — Self-braiding-trivial symmetric category
 
 **construction; missing**. Source: Definition12.1; Example12.2.
 
@@ -3600,7 +3665,7 @@ Acceptance cases: Ungraded lines under tensor have identity self-braiding. The t
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### A1203 — Symmetric monoidal determinant of vector bundles
+#### A1203 — Symmetric monoidal determinant of vector bundles
 
 **theorem; missing**. Source: Proposition12.3.
 
@@ -3614,7 +3679,7 @@ Construct the wedge-product comparison, check associativity and units, and compu
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### A1204 — Segal E-infinity monoid
+#### A1204 — Segal E-infinity monoid
 
 **construction; missing**. Source: Definition12.4.
 
@@ -3628,7 +3693,7 @@ Acceptance cases: The terminal diagram gives the one-element monoid. At [0] the 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1205 — Coherent subset construction
+#### A1205 — Coherent subset construction
 
 **construction; missing**. Source: Construction12.5; Remark12.6.
 
@@ -3642,7 +3707,7 @@ Acceptance cases: At [1] recover the core of the original category. At [0] the u
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1207 — Grouplike E-infinity monoid
+#### A1207 — Grouplike E-infinity monoid
 
 **construction; missing**. Source: Definition12.7.
 
@@ -3656,7 +3721,7 @@ Acceptance cases: A discrete abelian group is grouplike. The one-element monoid 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1208 — Connective spectrum via deloopings
+#### A1208 — Connective spectrum via deloopings
 
 **construction; planned**. Source: Definition12.8.
 
@@ -3672,7 +3737,7 @@ Acceptance cases: The Eilenberg–Mac Lane spectrum of an abelian group has its 
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1209 — Infinite-loop-space equivalence
+#### A1209 — Infinite-loop-space equivalence
 
 **theorem; missing**. Source: Theorem12.9.
 
@@ -3684,7 +3749,7 @@ Build compatible iterated deloopings and recover the Segal operations from the i
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1210 — Bar construction and delooping
+#### A1210 — Bar construction and delooping
 
 **construction; missing**. Source: Proposition12.10.
 
@@ -3698,7 +3763,7 @@ Acceptance cases: For discrete Z, BZ has π1=Z. The bar of the trivial monoid is
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1211 — Components of the looped bar construction
+#### A1211 — Components of the looped bar construction
 
 **theorem; missing**. Source: Remark12.11, corrected formula.
 
@@ -3710,7 +3775,7 @@ Use the definition of based loop homotopy groups; the printed π1X omits the bar
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1212 — Group completion
+#### A1212 — Group completion
 
 **construction; planned**. Source: Proposition12.12.
 
@@ -3726,7 +3791,7 @@ Acceptance cases: The completion of N is Z on components. A grouplike input is u
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1213 — K-theory of a symmetric monoidal category
+#### A1213 — K-theory of a symmetric monoidal category
 
 **construction; missing**. Source: Definition12.13.
 
@@ -3740,7 +3805,7 @@ Acceptance cases: Finite-dimensional k-vector spaces give π0=Z. The category wi
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### A1214 — Abstract Picard groupoid
+#### A1214 — Abstract Picard groupoid
 
 **construction; missing**. Source: Definition12.14.
 
@@ -3754,7 +3819,7 @@ Acceptance cases: Lines over a ring and their isomorphisms give a Picard groupoi
 
 Open gates: `Q-closure`, `Q-source`.
 
-### A1215 — Picard groupoids and truncated spectra
+#### A1215 — Picard groupoids and truncated spectra
 
 **theorem; missing**. Source: Proposition12.15.
 
@@ -3766,7 +3831,7 @@ Apply the infinite-loop-space equivalence, preserving the symmetry coherence whi
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-### A1216 — Projective-module K-theory spectrum
+#### A1216 — Projective-module K-theory spectrum
 
 **construction; planned**. Source: Definition12.16.
 
@@ -3782,7 +3847,7 @@ Acceptance cases: For a field, rank identifies K0 with Z. The zero ring has cont
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### A1217 — Spectral determinant for rings
+#### A1217 — Spectral determinant for rings
 
 **theorem; missing**. Source: Corollary12.17.
 
@@ -3796,7 +3861,7 @@ Apply group completion to the signed determinant functor; the Picard target is a
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### A1218 — Zariski-sheafified low K-theory
+#### A1218 — Zariski-sheafified low K-theory
 
 **theorem; missing**. Source: Proposition12.18.
 
@@ -3810,7 +3875,7 @@ On local rings use K0=Z and determinant K1≃units; compare stalks of 1-truncate
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### G1008 — Restriction of scalars on ramified support K-theory
+#### G1008 — Restriction of scalars on ramified support K-theory
 
 **construction; missing**. Source: Proposition10.1 proof.
 
@@ -3824,7 +3889,7 @@ Acceptance cases: For O_K=W(k) this is the identity functor. O_K/π contributes 
 
 Open gates: `Q-closure`, `Q-Kdet`, `Q-source`.
 
-### G717 — Incidence parameters of the first filtration quotient
+#### G717 — Incidence parameters of the first filtration quotient
 
 **construction; missing**. Source: Proof Lemma7.13, p31.
 
@@ -3840,7 +3905,7 @@ Acceptance cases: For μ=(1,1,1), λ=(2,1), r=1 and the first kernel lies in a p
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G908 — GLn lattice quotient comparison
+#### G908 — GLn lattice quotient comparison
 
 **theorem; missing**. Source: Proposition9.5.
 
@@ -3854,7 +3919,7 @@ Descend the finite projective module and its trivialization from an fpqc trivial
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G1007 — SLn determinant-trivial lattice comparison
+#### G1007 — SLn determinant-trivial lattice comparison
 
 **theorem; missing**. Source: Proposition10.1 first assertion.
 
@@ -3868,7 +3933,7 @@ Compare determinant-one frame torsors and the lattice determinant; keep the spec
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### G1006 — Restriction of sections to perfect projective bounds
+#### G1006 — Restriction of sections to perfect projective bounds
 
 **theorem; missing**. Source: Proposition10.5, second assertion.
 
@@ -3882,7 +3947,7 @@ Use Frobenius powers and Serre vanishing for surjectivity between closed stages,
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### S221 — Right cancellation of universal descent
+#### S221 — Right cancellation of universal descent
 
 **theorem; missing**. Source: Lemma2.10(2).
 
@@ -3894,7 +3959,7 @@ Base change to the composite cover, where the resulting augmented Čech comparis
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-source`.
 
-### S415 — Formal Witt vector-bundle descent
+#### S415 — Formal Witt vector-bundle descent
 
 **theorem; planned**. Source: Theorem4.1(ii), formal Witt assertion.
 
@@ -3910,7 +3975,7 @@ Identify finite projective p-complete Witt modules with compatible systems modul
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
-### Q1160 — Gorenstein faithful-flat index bound
+#### Q1160 — Gorenstein faithful-flat index bound
 
 **theorem; missing**. Source: Example11.19, generalization.
 
@@ -3922,11 +3987,11 @@ The flat quotient B/A makes the m-fold fibre concentrated in cohomological degre
 
 Open gates: `Q-closure`, `Q-infinity`, `Q-source`.
 
-## Source findings awaiting independent review
+### Source findings awaiting independent review
 
 These findings concern the named arXiv versions. None has an independent verdict yet. Two are corrections already acknowledged by the authors in v3; the remaining entries record the exact formula, index, scope or spelling issue and its check. They do not establish failure of a main theorem.
 
-### E1 — misprint
+#### E1 — misprint
 
 arXivv3 abstract p1. Affects: **nothing**.
 
@@ -3938,7 +4003,7 @@ Reason: Spelling visible in the rendered PDF.
 
 Existing correction: new.
 
-### E2 — misprint
+#### E2 — misprint
 
 arXivv3 Example2.3 p5. Affects: **the proof**.
 
@@ -3950,7 +4015,7 @@ Reason: Properness of the blowup X-tilde gives its valuation lift; the deleted e
 
 Existing correction: new.
 
-### E3 — misprint
+#### E3 — misprint
 
 arXivv3 proof Lemma2.6 p5. Affects: **the proof**.
 
@@ -3962,7 +4027,7 @@ Reason: Here n denotes an eventual inductive-level bound, not the dimension para
 
 Existing correction: new.
 
-### E4 — misprint
+#### E4 — misprint
 
 arXivv3 proof Lemma3.18 p15. Affects: **the proof**.
 
@@ -3974,7 +4039,7 @@ Reason: The printed tensor uses the ring map in the wrong direction. The correct
 
 Existing correction: new.
 
-### E5 — misprint
+#### E5 — misprint
 
 arXivv3 proof Lemma4.6 p16. Affects: **the proof**.
 
@@ -3986,7 +4051,7 @@ Reason: E was specified as a vector bundle on Yperf, and the reduction is to the
 
 Existing correction: new.
 
-### E6 — misprint
+#### E6 — misprint
 
 arXivv3 proof Lemma4.6 p17. Affects: **the proof**.
 
@@ -3998,7 +4063,7 @@ Reason: The kernel of O/ I^(n+2)→O/ I^(n+1) is the corrected quotient. The lar
 
 Existing correction: new.
 
-### E7 — misprint
+#### E7 — misprint
 
 arXivv3 proof Theorem4.1 p17. Affects: **nothing**.
 
@@ -4010,7 +4075,7 @@ Reason: Proposition4.5 is the perfection-translation statement; the enumerated v
 
 Existing correction: new.
 
-### E8 — misprint
+#### E8 — misprint
 
 arXivv3 proof Proposition6.1 p20. Affects: **the proof**.
 
@@ -4022,7 +4087,7 @@ Reason: The adjunction E→f_*f*E and its Hom reduction require E on the target 
 
 Existing correction: new.
 
-### E9 — misprint
+#### E9 — misprint
 
 arXivv3 proof Theorem6.13 p26. Affects: **the proof**.
 
@@ -4034,7 +4099,7 @@ Reason: The module being embedded is H0(X,E) for a rank-r fibre-trivial vector b
 
 Existing correction: new.
 
-### E10 — misprint
+#### E10 — misprint
 
 arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention. Affects: **a stated result**.
 
@@ -4046,7 +4111,7 @@ Reason: The identity isogeny has cokernel zero and the zero R-module is projecti
 
 Existing correction: new.
 
-### E11 — misprint
+#### E11 — misprint
 
 arXivv3 proof Lemma7.7 p29. Affects: **nothing**.
 
@@ -4058,7 +4123,7 @@ Reason: Q is the cokernel to which the hypothesis is applied; M was not that mod
 
 Existing correction: new.
 
-### E12 — misprint
+#### E12 — misprint
 
 arXivv3 Lemma7.9 p29. Affects: **nothing**.
 
@@ -4070,7 +4135,7 @@ Reason: This is the definition of the named locus, subsequently shown closed, ra
 
 Existing correction: new.
 
-### E13 — misprint
+#### E13 — misprint
 
 arXivv3 Remark7.12 p30. Affects: **nothing**.
 
@@ -4082,7 +4147,7 @@ Reason: The support K-theory category is the one defined in §5; the printed arr
 
 Existing correction: new.
 
-### E14 — misprint
+#### E14 — misprint
 
 arXivv3 Theorem11.12 p42. Affects: **a stated result**.
 
@@ -4094,7 +4159,7 @@ Reason: The theorem specifies an h-cover X→S and contains no base scheme Y.
 
 Existing correction: new.
 
-### E15 — misprint
+#### E15 — misprint
 
 arXivv3 proof Theorem11.27 p46. Affects: **the proof**.
 
@@ -4106,7 +4171,7 @@ Reason: The map is f0:X0→Y0, so its pushforward takes a sheaf on X0.
 
 Existing correction: new.
 
-### E16 — error
+#### E16 — error
 
 arXivv3 proof Theorem11.2 p47. Affects: **the proof**.
 
@@ -4118,7 +4183,7 @@ Reason: For a=b=0 and X=Spec F3, the object O_X has automorphism group F3×, so 
 
 Existing correction: new.
 
-### E17 — misprint
+#### E17 — misprint
 
 arXivv3 proof Theorem11.2 p47. Affects: **nothing**.
 
@@ -4130,7 +4195,7 @@ Reason: The actual statement lists four numerically indexed assertions.
 
 Existing correction: new.
 
-### E18 — misprint
+#### E18 — misprint
 
 arXivv3 proof Lemma11.36 p50. Affects: **nothing**.
 
@@ -4142,7 +4207,7 @@ Reason: The coefficient ring throughout the lemma is R. Its subscript homologica
 
 Existing correction: new.
 
-### E19 — misprint
+#### E19 — misprint
 
 arXivv3 §12 p55, nerve description. Affects: **nothing**.
 
@@ -4154,7 +4219,7 @@ Reason: A 1-simplex is a morphism, and a 2-simplex is a composable pair. The pri
 
 Existing correction: new.
 
-### E20 — misprint
+#### E20 — misprint
 
 arXivv3 Remark12.11 p58. Affects: **the proof**.
 
@@ -4166,7 +4231,7 @@ Reason: For the discrete grouplike space Z, π1X=0 but π0ΩBZ=Z.
 
 Existing correction: new.
 
-### E21 — misprint
+#### E21 — misprint
 
 arXivv3 bibliography [Mat14] p60. Affects: **nothing**.
 
@@ -4178,7 +4243,7 @@ Reason: The original arXiv1404.2156 title page gives the author’s surname with
 
 Existing correction: new.
 
-### E22 — misprint
+#### E22 — misprint
 
 arXivv3 proof Lemma11.23(2) p45. Affects: **nothing**.
 
@@ -4190,7 +4255,7 @@ Reason: Original arXiv1404.2156v1 p24 labels the countably presented faithfully 
 
 Existing correction: new.
 
-### E23 — error
+#### E23 — error
 
 arXivv1 proof Lemma4.6 PDF16–17, corrected in arXivv3 PDF16–17. Affects: **the proof**.
 
@@ -4202,7 +4267,7 @@ Reason: The v1 argument uses this formal-functions comparison to force high-powe
 
 Existing correction: Known: arXivv3 acknowledgments p4 explain the earlier Lemma4.6 error and its origin in [GD61, Corollary3.3.2]; revised proof pp16–17. Both earlier and revised BS passages read..
 
-### E24 — error
+#### E24 — error
 
 arXivv2 Remark5.33 PDF26–27; corrected arXivv3 Remark11.33 PDF49. Affects: **a stated result**.
 
@@ -4214,7 +4279,7 @@ Reason: Gabber’s corrected footnote gives R=(k[x,y]/xy)_perf with nonzero Tor2
 
 Existing correction: Known: arXivv3 Remark11.33 footnote24 explicitly corrects the previous bound and supplies Gabber’s counterexample. v2 PDF26–27 and v3 PDF49 read in full..
 
-### E25 — misprint
+#### E25 — misprint
 
 arXivv3 proof Lemma7.13 p31. Affects: **the proof**.
 
@@ -4226,7 +4291,7 @@ Reason: For Q=W(k)/p², K_0=K_1=0 and K_2=Q/pQ. The displayed dimension formula 
 
 Existing correction: new.
 
-### E26 — misprint
+#### E26 — misprint
 
 arXivv3 Proposition11.6 p41. Affects: **nothing**.
 
@@ -4240,7 +4305,7 @@ Existing correction: new.
 
 Correction searches examined the official Springer record, arXiv version history, the author publication list and targeted erratum queries on22September2026. Each JSON entry records those searches; E25 adds the filtration-specific queries. The published PDF remains unavailable for collation.
 
-## Questions as posed in2017
+### Questions as posed in2017
 
 - **Question10.6(1)**: Construct an explicit nonzero section or theta divisor of L or a power on Gr_SLn. Question as posed in2017; no claim about its current open status.
 
@@ -4256,7 +4321,7 @@ Correction searches examined the official Springer record, arXiv version history
 
 - **Remark11.24**: Is countable generation necessary for descendability of a faithfully flat algebra? Question as posed in2017; current status not investigated.
 
-## Remaining closure work
+### Remaining closure work
 
 - **Q-closure**: Complete recursive declaration-sized closure. All61 main-source pages are read and the main named results/constructions are indexed, but compound cited inputs, model comparisons and coherence proofs remain. API/test entries are mathematical acceptance specifications, not Lean declarations.
 
@@ -4278,7 +4343,7 @@ Correction searches examined the official Springer record, arXiv version history
 
 - **Q-source**: Independently review all26 sourceIssues against the named versions, and obtain the published95-page PDF for a final collation. Author PDF and arXivv3 are not asserted text-identical to the publication.
 
-## Prerequisite reading register
+### Prerequisite reading register
 
 - **Rydh, Submersions and effective descent of etale morphisms,2010** — BS bibliography [Ryd10], Bull.Soc.Math.France138(2),181–230. Theorems2.8,3.12 and Cor2.9 for valuative and proper/open refinement; original full proofs remain unread.
 
@@ -4310,7 +4375,7 @@ Correction searches examined the official Springer record, arXiv version history
 
 - **Carlsson, Derived completions in stable homotopy theory,2008; Lurie, Higher Topos Theory and Higher Algebra** — BS bibliography [Car08], [Lur09], [Lur14b]. Pro-Amitsur fibre comparison, infinity-topos hypercompletion, spectra/group-completion and coherent determinant comparison. Appendix12 sketches do not close these originals.
 
-## Provenance and validation
+### Provenance and validation
 
 - **bs17**: All61 pages read, including introduction, §§2–12, acknowledgments and bibliography; displayed formulas additionally checked in rendered pages1,5,15,16,17,19,20,26,28,29,30,42,46,47,49,50,55,58,60. SHA256 `b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e`.
 - **author**: First4 pages read in full and targeted version searches; not a full collation. September2016 author version. SHA256 `774032c0daee98e339b7be165174185c77714b0e729a39a985ee876ccc7e7b64`.
