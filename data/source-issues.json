@@ -49959,6 +49959,26 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E35",
+   "kind": "misprint",
+   "locator": "Adjacent source Elkik (1973), Lemma1 proof, printed p.556/PDF5, last paragraph; rendered original checked",
+   "printed": "on peut déduire de (5)",
+   "correction": "The linear-combination step refers to displayed identity (4), not (5).",
+   "reason": "Identity (4) is the just-announced conductor-weighted Jacobian correction used to express t^h f(a) as a Jacobian image. Equation (5) occurs on the following page and gives conductor relations, not that correction. The subsequent argument combines (4) over the finite expression for t^h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://www.numdam.org/item/ASENS_1973_4_6_4_553_0/ and the original DOI PDF",
+    "Elkik 1973 Lemma1 correction/erratum search, 2026-09-23; no correction of this reference located. Later Newton-lemma generalizations are not treated as errata of this display."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
