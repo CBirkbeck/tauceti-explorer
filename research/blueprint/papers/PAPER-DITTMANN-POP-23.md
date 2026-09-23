@@ -4,10 +4,18 @@ Issue [#1099](https://github.com/CBirkbeck/tauceti-explorer/issues/1099). Status
 
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoints of Codex sessions codex-a71f92, codex-c83e7a and codex-hjdg0j (latest [#1935](https://github.com/CBirkbeck/tauceti-explorer/pull/1935)), whose material follows below.
 - **The paper.** Philip Dittmann and Florian Pop, *Characterizing finitely generated fields by a single field axiom*, Annals of Mathematics 198 (2023), 1203–1227 (doi 10.4007/annals.2023.198.3.4; arXiv 2012.01307v2, the authors' final version).
-- **Items.** The result has **154 items: 29 library, 6 planned and 119 missing**.
+- **Items.** The result has **154 items: 29 library, 7 planned and 118 missing**.
   - The checkpoint's 152 item ids are kept; niceness-definability and function-field-fundamental-equality are new.
   - Seven routes own the missing items, each exactly once.
 - **Mistakes.** Seventeen are recorded under `sourceIssues`: E1–E4 and E6–E18. E5 was withdrawn earlier and is not reused.
+
+## Independent review (Codex, codex-7e92bd, 23 September 2026)
+
+**Accepted after corrections.** The current extraction has 154 items: 29 library, 7 planned and 118 missing, each missing item routed exactly once. All seven routes are accepted. See [the independent report](../reviews/REV-PAPER-DITTMANN-POP-23.md) for the item/status audit, exact fixes, source versions and checks.
+
+The function-field fundamental equality is imported from upstream AlgebraicCurves Layer 6. The niceness formula now has a characteristic-zero dyadic guard and an explicit derivative Hensel criterion which works in characteristic two. The odd-degree alteration has the precise ILO base-extension contract, and cohomology injectivity includes the purely inseparable part. Existing finite-generation, relative algebraic closure and prime-localization carriers are explicitly credited.
+
+Sixteen source findings are independently confirmed at the stated author-version locators; E18 is rejected as a new error because Remark 4.4 supplies the low-dimensional inputs. Its useful low-dimensional planning item is retained. E8 belongs to the cited Kuhlmann–Novacoski paper, not Dittmann–Pop. Typeset Annals collation remains unavailable. Earlier narrative below records the extraction history; the review objects and corrected items give the current verdicts.
 
 ## This continuation (cc-442dc5)
 
@@ -32,7 +40,7 @@ Issue [#1099](https://github.com/CBirkbeck/tauceti-explorer/issues/1099). Status
 
 **A new supplier item: the fundamental equality without separability.** The proof of Lemma 3.6 uses Chevalley's fundamental equality for the purely inseparable extension K|K_s.
 - Tau Ceti has the identity only for separable extensions (`TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`, `Fundamental.lean:77`). Its docstring says that the general form waits on a separability-free finiteness of normalization.
-- AlgebraicModuliForArithmeticGeometry:A0-extension owns that finiteness, so the new item goes to that source route.
+- Independent review correction: upstream AlgebraicCurves Layer 6 already owns the full fundamental equality, supported by Layer 2 normalization. The item is planned there and removed from the A0-extension source route.
 
 **Spacing.** Stripped spaces in the checkpoint's strings ("Proposition5.1", "On2026-09-23") are restored. Session ids, API names and citation keys are left as they were.
 
@@ -145,7 +153,7 @@ Items: pfister-two, pfister-hyperbolic, pfister-invariant, pfister-invariant-zer
 
 The reviewed L5 decomposition deliberately allows alteration degree divisible by the coefficient prime. Dittmann–Pop needs the Gabber odd-degree strengthening so restriction on mod-two cohomology stays injective; arbitrary de Jong alterations do not supply it.
 
-Design brief: Add the prime-to-l degree-control theorem to Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons), importing L5's existing alteration, model, boundary and normalization infrastructure rather than rebuilding it. Audit ILO Exposé X Theorem 2.4 in its exact excellent-base setting and export the specialized proper regular alteration of the projective models over a global field's henselian finite-place DVR used in Dittmann–Pop Proposition 3.4. The residue characteristic is not two and the function-field extension must have finite odd degree; record all permitted base extensions and the separability or purely inseparable comparison required by the cohomology consumer. Import Scheme and stack foundations (SchemeAndStackFoundations) for models and Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory) for restriction/corestriction. Test that arbitrary even-degree alterations are rejected by this interface. This is a source-audit-dependent proposal, not a claimed proof of general resolution of singularities.
+Design brief: Extend Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons) beyond L5 with prime-to-degree control. Prove the following exact consumer of ILO Exposé X Theorem 2.4: for an excellent henselian DVR R with residue characteristic different from two and an integral projective flat R-model X, obtain a projective regular integral alteration Y→X whose function-field degree is odd, allowing the stated odd-degree extension of Frac(R) and normalization of the base. Do not assert separability. Import L5 alteration/model/boundary infrastructure, Scheme and stack foundations (SchemeAndStackFoundations) for scheme operations, and Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory) for restriction/corestriction and the purely inseparable etale-cohomology comparison. Retain the actual excellent one-dimensional base hypotheses. Test that an arbitrary even-degree alteration does not satisfy this interface. The general Gabber theorem and its log-modification proof remain the supplier work; this brief claims no general resolution of singularities.
 
 Items: odd-degree-alteration.
 
@@ -2806,3 +2814,8 @@ No Lean deliverable is part of a paper job.
 - Check E17 and its repair.
 - Check E18: where dimensions one and two of Theorem 1.2 come from.
 - Check the owner chosen for the separability-free fundamental equality.
+
+
+### Current review amendments to historical findings
+
+E17 is an omitted formula-level justification. Its repaired finite-place test is the scaled derivative criterion in `niceness-definability`, with dyadic restricted to characteristic zero; the earlier bound involving `4a_1a_0` is superseded. E18 is **rejected** as a newly discovered error, while `low-dimensional-biinterpretability` remains the explicit adapter for implementation. The source-issue review objects are authoritative for these dispositions.
