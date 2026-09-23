@@ -265,3 +265,30 @@ Nothing remains for an extractor; what follows is carried in `gaps` for the desi
 Two prerequisites deserve a reviewer's attention because the paper leans on unpublished work: Kedlaya's *Étale and crystalline companions* is cited in §7 as work in progress, and the Fontaine–Laffaille comparison is used in Faltings's starred form [Fa1, Theorem 2.6*]. Neither affects Theorems 1.4, 1.6 or 1.8.
 
 Validation: `scripts/check_paper.py` reports no errors with `"status": "complete"`, which includes the check that every missing item is routed exactly once; `research/blueprint/intake.py check-files` passes on both deliverable paths; `python3 -m unittest tests.test_check_paper` passes (9 tests). No Lean file was compiled and none belongs to a paper issue; the `planningAPI` and `unitTests` fields are planning obligations for the design jobs, not executed tests.
+
+## Review (REV-PAPER-ESNAULT-GROECHENIG-20, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1467), **accepted** this
+extraction and all six routes, with three titles corrected in place. The full record is
+[REV-PAPER-ESNAULT-GROECHENIG-20.md](../reviews/REV-PAPER-ESNAULT-GROECHENIG-20.md).
+
+The recorded hash of the published Acta PDF reproduces. 136 items, all 119 missing routed exactly
+once; both source stages, all twelve planned layer ids and all eight library declarations check out
+at the pins; the planned items inside source routes are allowed by PROTOCOL §16.
+
+**Correction.** Three of the four Part II titles paraphrased their parent instead of reproducing its
+atlas title: `SemisimpleAlgebrasPartIIGeometricMorita` ("Semisimple algebras, Artin-Wedderburn, and
+the structure of their modules"), `CrystallineCohomologyPartIICartierFlows` ("Crystalline cohomology,
+de Rham–Witt and logarithmic foundations") and `PadicDifferentialEquationsPartIIRigidCompanions`
+("P-adic differential equations, rigid cohomology and p-adic weights"). Each of those ids is proposed
+by this extraction alone, so the fix is local; the fourth, `HodgeStructuresPartII`, already matched
+and is shared with three other extractions under the same title.
+
+All ten findings are **confirmed** at their locators. E1: the introduction (p.106) defines
+cohomological rigidity by `H¹_dR(X,(End(E),∇)) = 0` where §7 (p.148) uses `End⁰`, and on a
+fixed-determinant moduli space the trace-free version is the right one. E4: Definition 5.2 carries no
+determinant condition although the rest of the paper fixes it. E2: monicity gives uniqueness of the
+factorisation only over a reduced base. E3, E5 and E6 are gaps of the shape recorded — a truncated
+deformation need not keep the order of its Hitchin invariant; vanishing after restriction does not
+localise a form to the zero-section; and the Kodaira–Spencer vanishing needs `S` shrunk. E7–E10 are
+printed as quoted, "integrality condition" and `Ω¹_X` on p.108 included.
