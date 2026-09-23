@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-TSIMERMAN-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept after moving the general uniformization construction to its PEL/Shimura suppliers. LD.6 owns the definable counting and functional-transcendence application, including the precise PT2014 normalizer/family induction. Generic group/canonical-model theory stays imported."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "R35.1-R35.3 own the metrized determinant, arithmetic degree and stable height; R35.5-R35.6 receive Bost and the source-specific application. The metric adapter changes the squared norm, not the finite lattice."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "CM.0/CM.2 own type/reflex and ideal/idele/polarization dictionaries. General CM reciprocity is imported from V5; no reverse CM.2-to-V5 prerequisite and no elliptic-only substitute for general CM classification."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "RP.0 supplies absolute coordinate heights, extension invariance and bounded-degree Northcott. It is the correct common height owner, with the Siegel-coordinate application left to the quantitative CM route."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AN.0/AN.4/AN.5 receive uniform counting and analytic estimates. Quadratic reciprocity and conductor-discriminant were removed from new AN ownership and imported from upstream CFT. AL.1 supplies continuation/completion. Retained general-Artin items are explicitly unresolved source interfaces; they are not inputs assumed proved by the quadratic alternative."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "A3 supplies dual torsion and the perfect Weil pairing; A6 supplies arithmetic Hom and complete reducibility. The Silverberg sufficient hypothesis includes rational n-torsion on both source and target; the CM isotypic application imports CM classification."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept after adding M3 for analytic-to-moduli uniformization, with D5/V0/V1 imported. M6 owns coarse/fine descent and level rigidification. The extension bound is a separate source refinement, not a consequence of a coarse rational point alone."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "AL.1 is the common Hecke continuation and completed-functional-equation supplier. The nontrivial primitive quadratic specialization preserves the gamma factors and avoids general Artin holomorphy."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The quantitative targets go beyond CM.0-CM.6. The shared pending Part II ID is also used by the AGHMP and Yuan-Zhang extractions; combine their deep proof branches in one design and consume their normalized theorem here. Import all generic CM, heights, CFT, uniformization and isogeny foundations. Source proof gaps remain explicit design prerequisites."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "R28 and its accepted partial decomposition provide qualitative finiteness, height variation and Hom/isogeny criteria, not a dimension-only polynomial minimum geometric isogeny bound. The new quantitative extension has the correct common-field, constant and polarization scope, supported by MW Theorem II p. 6 and the refinement p. 23."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "The restricted mixed consequence is a source-scoped LD.6 application. Gao Theorems 13.3 and 13.6 require the pure orbit bound, with fixed datum/level and mixed denominator. General mixed foundations/Ax-Lindemann remain Gao prerequisites; boundary mixed data in C1 do not supply them."
+    }
+  ],
+  "notes": "Independent review by Codex, codex-hjdg0j, REV-PAPER-TSIMERMAN-18, 2026-09-23. Accept the extraction after the recorded in-place corrections; this is complete paper routing, not recursive proof closure. All 101 IDs preserved; 5 library, 30 planned, 66 missing, each missing routed once. Eleven routes accepted. Existing E1-E5 remain in the separately reviewed errata file; new E6-E8 are recorded with checked source comparisons. See the review report for the per-item ledger, pinned signatures, owner searches, source read extent and residual prerequisite limits."
+}
