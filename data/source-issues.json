@@ -3677,14 +3677,15 @@
    "known": "new",
    "searched": [
     "Predecessor, 2026-09-23: published Numdam PDF and journal article page; no linked corrigendum found.",
-    "Predecessor, 2026-09-23: arXiv 1609.00345 submission history, author homepage, and exact-title erratum/corrigendum searches; no explicit correction found. This is not exhaustive."
+    "Predecessor, 2026-09-23: arXiv 1609.00345 submission history, author homepage, and exact-title erratum/corrigendum searches; no explicit correction found. This is not exhaustive.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The printed Hom subscript is S although no S-module structure on R is specified. The evaluation and multiplication argument needs Hom_R(S,R). Checked p.90."
   },
   {
    "id": "PAPER-ANDRE-18-B/E2",
@@ -3697,14 +3698,15 @@
    "known": "new",
    "searched": [
     "Predecessor, 2026-09-23: published PDF, journal article page, arXiv submission history, author homepage and exact-title/A.3.1 correction searches; no explicit correction found.",
-    "Continuation, 2026-09-23: page 91 image rechecked; the division error is recorded separately in E4."
+    "Continuation, 2026-09-23: page 91 image rechecked; the division error is recorded separately in E4.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The construction defines the finite module M, and the same functional and Artinian argument must act on M. N is not defined at that point. Checked p.91."
   },
   {
    "id": "PAPER-ANDRE-18-B/E3",
@@ -3717,14 +3719,15 @@
    "known": "new",
    "searched": [
     "Predecessor, 2026-09-23: published PDF and journal article page; no linked corrigendum found.",
-    "Predecessor, 2026-09-23: arXiv 1609.00345 history, author homepage and exact-title correction searches; no explicit correction found. This is not exhaustive."
+    "Predecessor, 2026-09-23: arXiv 1609.00345 history, author homepage and exact-title correction searches; no explicit correction found. This is not exhaustive.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The parenthesized primed parameter data after diagram (20) belongs to B′, as the diagram and colon conditions show. Checked p.87."
   },
   {
    "id": "PAPER-ANDRE-18-B/E4",
@@ -3739,14 +3742,15 @@
     "2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf, including page images 90 and 91.",
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no erratum link found.",
     "2026-09-23: https://arxiv.org/abs/1609.00345 lists only v1 dated 1 September 2016, not a later correction of the published appendix.",
-    "2026-09-23: author homepage https://webusers.imj-prg.fr/~yves.andre/ and searches for the exact title with erratum/corrigendum and with A.3.1; no matching correction found. The new label records that search outcome, not an exhaustive novelty claim. Independent review is still required."
+    "2026-09-23: author homepage https://webusers.imj-prg.fr/~yves.andre/ and searches for the exact title with erratum/corrigendum and with A.3.1; no matching correction found. The new label records that search outcome, not an exhaustive novelty claim. Independent review is still required.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The zero-divisor counterexample R=k[[t]]⊕εk[[t]], S=k[[t]]⊕εk((t)), ε²=0, r=ε, and t↦t² satisfies the printed hypotheses. The nonzero functional (a,b)↦(0,a) exists, while every S→R functional kills ε by t-adic separation; purity fails modulo t. Require r=0 or r regular for (c)⇒(b). This does not repair (a)⇒(b); see E21."
   },
   {
    "id": "PAPER-ANDRE-18-B/E5",
@@ -3760,14 +3764,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "For R=F_p and S=algebraic closure of F_p, the printed H^0(S)≅Hom(S*,F_p) would identify a countably infinite-dimensional vector space with its double dual, which has larger cardinality. The correct arbitrary-module direction is Hom(H^d_m(M),E)≅Hom(M,Rhat), by H^d_m(M)=M⊗E and End(E)=Rhat. HLC11 5.1 and 11.5–11.6 checked. Complete bases give the required ordinary target R."
   },
   {
    "id": "PAPER-ANDRE-18-B/E6",
@@ -3781,14 +3786,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Footnote 7 repeats M where the second Tor argument is the regular-parameter quotient N. Descending Tor induction with N=R/(x_1,…,x_i) supplies the claimed flatness implication. Checked pp.86–87."
   },
   {
    "id": "PAPER-ANDRE-18-B/E7",
@@ -3802,14 +3808,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The published bibliography gives 2014, while the cited volume 220(2), pp.621–632 is 2016. Checked Crossref metadata for DOI 10.1016/j.jpaa.2015.07.008."
   },
   {
    "id": "PAPER-ANDRE-18-B/E8",
@@ -3823,14 +3830,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The reference prints Flatnss. The author’s publication page gives Flatness and Completion Revisited, Algebras and Representation Theory 21 (2018), 717–736. Checked the primary author record."
   },
   {
    "id": "PAPER-ANDRE-18-B/E9",
@@ -3844,14 +3852,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Dimension zero has empty product 1 and empty generated ideal 0. Thus the printed membership iff m≥n fails there. The all-dimensional noncontainment for m<n and the positive-dimensional iff are correct."
   },
   {
    "id": "PAPER-ANDRE-18-B/E10",
@@ -3865,14 +3874,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "For M′→M→N the kernel to be tested for M′→N lies in that of M→N; the printed repeated M′→M is the wrong arrow. The extra almost-injectivity assumption is unnecessary for the kernel inclusion. Checked p.92."
   },
   {
    "id": "PAPER-ANDRE-18-B/E11",
@@ -3886,14 +3896,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "arXiv v1 p.14 has the wrong source in the tensor test; the published A.4 p.92 correctly uses P⊗M→P⊗N. Confirmed as already corrected between versions."
   },
   {
    "id": "PAPER-ANDRE-18-B/E12",
@@ -3907,21 +3918,22 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
-    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "arXiv v1 p.15 spells Heitman, while published [12] p.92 correctly spells Heitmann. Confirmed as already corrected between versions."
   },
   {
    "id": "PAPER-ANDRE-18-B/E13",
    "kind": "misprint",
    "locator": "§0.1, footnote 1, p.72 (published version)",
-   "printed": "Les énoncés suivants sont équivalents¹ … ¹ … L'implication (1) ⇒ (3) est implicite dans [27, 23]; (1) ⇔ (4), voir [14]; (1) ⇒ (2) est élémentaire … pour la réciproque, voir [9]; (4) ⇒ (5), voir [14, 10]; (5) ⇒ (6), implicite dans [11, 14].",
-   "correction": "The arrows for the two statements that were renumbered should close: (1) ⇔ (3) and (4) ⇔ (5).",
+   "printed": "Footnote 1 explicitly cites [23] for the equivalence concerning (3), and [10] for the converse concerning (5).",
+   "correction": "No correction to the paper. Correct the extraction’s incomplete quotation and attribution.",
    "reason": "Statements (1)–(5) are asserted to be equivalent, but the footnote supplies only (1) ⇒ (3) and only (4) ⇒ (5); (3) ⇒ (1) and (5) ⇒ (4) appear nowhere. Both converses are in the works cited at those very places: the reference given for (3) is Ohi, “Direct summand conjecture and descent for flatness”, whose title is the equivalence, and the second reference given for (5) is Dutta, “On the canonical element conjecture”. The 2016 preprint, whose list has no flat-descent item and numbers the remaining statements (1)–(5), states the corresponding attributions as two-sided: “Pour l'équivalence (1) ⇔ (3), voir [H2, th. 6.1]” for the monomial statement and “Pour (3) ⇒ (4), voir [H2], et [Du] pour la réciproque” for the complex/dimension statement. The one-sided arrows are an artefact of inserting the new statement (3) and shifting the numbering.",
    "affects": "nothing",
    "known": "new",
@@ -3930,14 +3942,15 @@
     "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
     "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
     "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
-    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Rejected. The published footnote explicitly attributes the equivalence for statement (3) to [23] and the converse for (5) to [10]. The submitted quotation omitted those attributions. There is no missing-converse misprint."
   },
   {
    "id": "PAPER-ANDRE-18-B/E14",
@@ -3953,14 +3966,15 @@
     "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
     "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
     "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
-    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Rejected. If λ is a nonunit, choose N with |λ|^N≤|ϖ|; then λ^N is a multiple of ϖ in K°, and λ-torsion-freeness implies ϖ-torsion-freeness. If λ is a unit, evaluation gives the integral quotient directly. The purported gap overlooks powers of λ."
   },
   {
    "id": "PAPER-ANDRE-18-B/E15",
@@ -3976,14 +3990,15 @@
     "arXiv listing for 1609.00345, checked 23 September 2026: a single version v1 (1 September 2016), whose LaTeX source (e-print sha256 878082a3d2be43ed19a333ccd5db57be0033c937ea87cd4f765267cc2e08b3b6) was read at the corresponding passages. It predates publication, so it cannot correct the published text; it is used here only as evidence of what changed between preprint and print.",
     "HAL record hal-01357338 (deposited 29 August 2016), checked 23 September 2026: it carries the same 2016 file (FactDirect7.pdf) and no later version.",
     "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
-    "No published erratum is known to this extraction; recorded as new and awaiting independent review."
+    "No published erratum is known to this extraction; recorded as new and awaiting independent review.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The image of p.77 has et where the sentence requires est. The displayed discrete/dense formulas themselves are unaffected."
   },
   {
    "id": "PAPER-ANDRE-18-B/E16",
@@ -3997,35 +4012,37 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The multiplier of the module-valued F must be B[T], not M[T]. Independently checked the original Hochster 2002 §4.1, p.8. The corrected extraction additionally makes the image of 1 explicit for the application’s pointed modules."
   },
   {
    "id": "PAPER-ANDRE-18-B/E17",
    "kind": "misprint",
    "locator": "Published §3.1, p.83, citation [1, §3.6.2]",
    "printed": "La K̂_∞-algèbre Â_∞∞ est perfectoïde [1, §3.6.2].",
-   "correction": "[1, §3.6.1]",
+   "correction": "No correction required. Propositions 3.6.1 and 3.6.2 provide two valid proofs with Corollary 2.9.3.",
    "reason": "In the published companion (PMIHES 127, 2018) §3.6.1, p.48, proves that A⟨g^{1/p^∞}⟩ is perfectoid for a perfectoid spectral A, as an extremal quotient of A⊗̂_K K⟨T^{1/p^∞}⟩, and that is the result used here, through Lemma 2.5.1. §3.6.2 (p.49) is a Remark on epimorphisms that begins ‘Signalons quelques résultats … que nous n'utiliserons pas dans la suite’. The numbering is the same in the companion's arXiv v1 (1609.00320v1, §3.6.1 and §3.6.2), so the slip is not an artefact of renumbering.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Rejected. Companion Proposition 3.6.1 proves the root algebra perfectoid directly, but the cited 3.6.2 also applies to its dense-image uniform-completion presentation from 2.9.3. Both references are valid; 3.6.2 being unused in the companion’s own proof does not invalidate its use here."
   },
   {
    "id": "PAPER-ANDRE-18-B/E18",
@@ -4039,14 +4056,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Rejected as a gap. The diagram and the arbitrary choice of the root-depth parameter prove that a bad sequence would force every π^(1/p^h) into m_B D. Hence the distinguished image of 1 survives. Renaming the auxiliary large bound clarifies the proof, but the printed weaker inequality is a consequence, not a missing implication."
   },
   {
    "id": "PAPER-ANDRE-18-B/E19",
@@ -4060,14 +4078,15 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The denominator construction supplies maps into D[1/π] with degree-dependent bounds. It neither places the image in D nor makes the choices compatible, so it does not establish the parenthetical factorization B→C→D. The proof of existence needs only absence of bad sequences and remains valid without this parenthesis."
   },
   {
    "id": "PAPER-ANDRE-18-B/E20",
@@ -4081,35 +4100,38 @@
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The product over all normalized factors includes nondominating components. For R=k[[x,y]], S=R×R/(x), the second CM factor is x-torsion and not R-flat. Restrict to components whose contraction to each completed regular local base is zero; lying-over supplies at least one, and the resulting big CM factors are faithfully flat over that base. Chase product flatness gives the corrected proof."
   },
   {
    "id": "PAPER-ANDRE-18-B/E21",
-   "kind": "gap",
-   "locator": "Published Appendix A.3, Applications, p.91",
+   "kind": "error",
+   "locator": "Appendix A.3.1 regular/integral implication (a)⇒(b) and Applications, pp.90–91",
    "printed": "soit R := V[[T_1, …, T_n]] (où V est un anneau de valuation discrète quelconque d'uniformisante r, ou un corps) … l'implication (a) ⇒ (b) de la proposition entraîne alors que R → R^+ admet une rétraction R-linéaire.",
-   "correction": "Proved when V is complete (so that R is complete): complete-pure-split, or the corrected functional criterion with the correct-direction duality, gives the retraction. For a noncomplete V, R is not complete, and the published argument gives only a nonzero R-linear map R^+ → R̂. The retraction R → R^+ is then not established here.",
-   "reason": "The only argument offered for (a) ⇒ (b) in the regular integral case passes through (a) ⇒ (c), whose proof uses the false identification H^d_m(S) ≅ Hom_R(S^∨, E) (E5). The correct duality Hom_R(H^d_m(S), E) ≅ Hom_R(S, R̂) yields Hom_R(S, R̂) ≠ 0. For noncomplete R, maps into R̂ need not produce maps into R: for a noncomplete discrete valuation ring V, the pure extension V → V̂ has Hom_V(V̂, V) = 0, since V̂/V is divisible. That example is not integral, so it does not refute the claim; it shows that the gap is real.",
+   "correction": "Restrict the pure-to-split and absolute-integral-closure applications to complete Noetherian local bases, or impose a separately proved sufficient splitting hypothesis. Adding only r regular does not suffice.",
+   "reason": "Confirmed as a false stated result, not merely an unproved application. Datta–Murayama Proposition 5.4.1(iii) gives a non-F-solid excellent Henselian DVR V. Put S=V^(1/p), r a uniformizer and σ=τ=id: all A.3 hypotheses hold, S is integral faithfully flat and pure, but Hom_V(S,V)=0. An absolute-integral-closure retraction would restrict to S, so the application already fails with zero power-series variables. Complete-base repairs remain valid.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "A later counterexample follows from Datta–Murayama, arXiv:2007.10383v1, Proposition 5.4.1(iii). No explicit corrigendum to André located.",
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda.",
+    "Read Datta–Murayama pp.28–29 and 35–38, especially Proposition 5.4.1(iii)."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Confirmed as a false stated result, not merely an unproved application. Datta–Murayama Proposition 5.4.1(iii) gives a non-F-solid excellent Henselian DVR V. Put S=V^(1/p), r a uniformizer and σ=τ=id: all A.3 hypotheses hold, S is integral faithfully flat and pure, but Hom_V(S,V)=0. An absolute-integral-closure retraction would restrict to S, so the application already fails with zero power-series variables. Complete-base repairs remain valid."
   },
   {
    "id": "PAPER-ANDRE-18-B/E22",
@@ -4124,35 +4146,37 @@
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
     "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
-    "2026-09-23: Crossref API query for Bartijn–Strooker 1983."
+    "2026-09-23: Crossref API query for Bartijn–Strooker 1983.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The primary publisher table of contents gives Bartijn–Strooker, Modifications monomiales, pp.192–217 (1983). The article bibliography’s minimales (and the preprint’s mnimales) is incorrect."
   },
   {
    "id": "PAPER-ANDRE-18-B/E23",
    "kind": "gap",
    "locator": "Published proof of Theorem 2.5.2, sentence before formula (11), pp.79–80",
-   "printed": "selon [22, cor. 6.7 i], il existe un élément f_i ∈ Â°_∞0⟨T^{1/p^∞}⟩, congru à T − g modulo ϖ et admettant des racines f_i^{1/p^k}",
-   "correction": "Scholze's Corollary 6.7(i) gives |f_i − (T − g)| ≤ |ϖ|^{1−ε}, that is a congruence modulo ϖ^{1−ε} for any ε > 0, not modulo ϖ. The proof uses only the congruence modulo ϖ′ (step (b) on p.81), which holds once |ϖ|^{1−ε} ≤ |ϖ′|, and the equality of rational subsets (11), which holds for c ≥ i.",
+   "printed": "The published sentence says modulo ϖ′ (prime present).",
+   "correction": "No correction to the paper; restore the prime in the extraction’s quotation.",
    "reason": "Scholze 2012 Corollary 6.7(i), p.290: for f ∈ R, c ≥ 0 and ε > 0 there is g_{c,ε} ∈ R^♭ with |f(x) − g_{c,ε}^♯(x)| ≤ |ϖ|^{1−ε} max(|f(x)|, |ϖ|^c). Since ϖ may have |ϖ| = |p|, ε cannot be removed by changing ϖ. With c ≥ i, |f| ≤ |ϖ|^i holds exactly when |g^♯| ≤ |ϖ|^i, so (11) is right.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
-    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "Rejected. The printed page image says modulo ϖ′, with a prime. This is precisely what the approximation supplies. The submitted quotation dropped the prime and created a nonexistent gap."
   },
   {
    "id": "PAPER-ANDRE-18-B/E24",
@@ -4167,14 +4191,34 @@
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
     "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
     "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
-    "2026-09-23: Crossref API query for Mihara 2016."
+    "2026-09-23: Crossref API query for Mihara 2016.",
+    "Independent reviewer Codex — codex-c83e7a, 2026-09-23: published PDF, arXiv version history, author/journal pages and bounded exact-title erratum/corrigendum searches checked. No explicit linked corrigendum found; later counterexamples are distinguished from corrigenda."
    ],
    "owner": "PAPER-ANDRE-18-B",
    "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
    "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The primary DOI metadata gives On Tate’s Acyclicity and uniformity of Berkovich spectra and adic spectra, Israel Journal of Mathematics 216 (2016), 61–105. The bibliography’s Tate Acyclicity wording is a title misprint."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E25",
+   "kind": "error",
+   "locator": "Introduction §0.6, p.74; compare §§0.4,2.2–2.3, pp.73,78",
+   "printed": "The p-adic completion of the union of A[ζ_(p^i),g^(1/p^i),1/p]° is identified with Â_∞⟨g^(1/p^∞)⟩°.",
+   "correction": "Include the coordinate-root tower: use the completed directed union of A_jk° from §§2.2–2.3, with the T_l^(1/p^j) as well as cyclotomic and g-roots.",
+   "reason": "Take A=W(k)[[T]] and g=1. The printed right-hand construction only extends constants; its integral rings are cyclotomic coefficient rings [[T]], whose reduction modulo p has no p-th root of T. The claimed left-hand algebra contains T^(1/p). Completion modulo p does not create that missing coordinate root. The body’s two-index tower already includes it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published p.74 page image and §§0.4,2.2–2.3 read; arXiv v1 §0.6 has a different introductory formulation. Bounded exact-title erratum searches found no explicit correction."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANDRE-18-B",
+   "reviewReason": "The g=1, one-coordinate test disproves the literal introductory identification; §§2.2–2.3 give the correct tower. This changes neither Theorem 2.5.2 nor its body proof."
   },
   {
    "id": "PAPER-ANDRE-18/E1",
@@ -36823,7 +36867,7 @@
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E1",
    "kind": "misprint",
-   "locator": "§1.3, p.7 (arXiv v3; published Annals version not collated)",
+   "locator": "§1.3, p.7 (arXiv v3; the published version was not accessible)",
    "printed": "\"Then S^sm denotes the regular locus of X.\"",
    "correction": "S^sm denotes the regular locus of S.",
    "reason": "The sentence introduces notation for the variety S.",
@@ -36837,14 +36881,14 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed on p.7: 'Then S^sm denotes the regular locus of X' should say S."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E2",
    "kind": "misprint",
-   "locator": "Introduction to §4, p.16 (arXiv v3; published Annals version not collated)",
+   "locator": "Introduction to §4, p.16 (arXiv v3; the published version was not accessible)",
    "printed": "\"Next we prove the appropriate lower bound for (M · F^{·(d−1)}) in Proposition 4.3.\"",
    "correction": "An upper bound: Proposition 4.3 gives (M·F^{·(d−1)}) ≤ cN^{2(d−1)}.",
    "reason": "The preceding paragraph asks for \"an appropriate upper bound for (M·F^{·(d−1)})\", and Siu's criterion needs exactly that.",
@@ -36858,14 +36902,14 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed on p.16: the same paragraph asks for an upper bound, §4.2 is titled 'Bounding an intersection number from above', and Siu's criterion needs an upper bound."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E3",
    "kind": "misprint",
-   "locator": "Proof of Theorem 6.2, p.27 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem 6.2, p.27 (arXiv v3; the published version was not accessible)",
    "printed": "\"obtain that D_M(C^{[M+1]}_S) is non-degenerate if M ≥ j_ε(C_S) = dim S + 1\"",
    "correction": "M ≥ dim j_ε(C_S) = dim S + 1.",
    "reason": "Gao's Theorem 1.3(ii) has a dimension threshold, and dim j_ε(C_S) = dim S + 1 because the curves are one-dimensional.",
@@ -36879,14 +36923,14 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed on p.27. Gao's Theorem 1.3(ii) reads 'for all m ≥ dim X if ι is quasi-finite', which matches the correction."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E4",
    "kind": "misprint",
-   "locator": "Proof of Theorem 1.2, p.36 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem 1.2, p.36 (arXiv v3; the published version was not accessible)",
    "printed": "\"As in the proof of Theorem 1.2 we use h(ι(ρ(t))) ≤ c′h_{A_g,M}(t) + c″\"",
    "correction": "\"As after the proof of Theorem 1.1\".",
    "reason": "The inequality is established in the remark following the proof of Theorem 1.1 (p.35); the sentence sits inside the proof of Theorem 1.2 itself.",
@@ -36900,14 +36944,14 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed on p.36: the sentence refers to its own proof; the inequality h(ι(ρ(t))) ≤ c′h_{A_g,M}(t) + c″ is proved after Theorem 1.1 on p.35."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E5",
    "kind": "misprint",
-   "locator": "Proof of Theorem B.1, pp.43–46 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem B.1, pp.43–46 (arXiv v3; the published version was not accessible)",
    "printed": "\"We will proceed the proof with six dévissage steps.\" … \"Seventh dévissage: … It remains to prove the height inequality (B.1) with the extra hypotheses (i) - (v) listed above using Theorem 1.6. … (Hyp) is just (iv) and (v).\"",
    "correction": "There are seven dévissage steps. The extra hypotheses are (i)–(vi), and (Hyp) is (v) and (vi) (principal polarization and level-ℓ structure).",
    "reason": "The list has items (i)–(vii), with (iv) \"isogenous to a principally polarized scheme\", (v) \"principal polarization\" and (vi) \"level ℓ-structure\", and the text has headings First to Seventh. (Hyp) is defined on p.5 as a principal polarization plus a level-ℓ structure.",
@@ -36921,17 +36965,17 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed on pp.43–46: the list has seven hypotheses (i)–(vii) and the headings run First to Seventh dévissage, so there are seven steps; (Hyp) is (v) and (vi) (principal polarization and level structure)."
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E6",
    "kind": "gap",
-   "locator": "Proof of Theorem 1.4, p.36 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem 1.4, p.36 (arXiv v3; the published version was not accessible)",
    "printed": "\"By the Northcott property and Torelli's Theorem, there are up-to Q̄-isomophism only finitely many C_Q̄'s … such that h(ι([Jac(C_Q̄)])) < c1. By applying Raynaud's result on the Manin–Mumford Conjecture to each one of these finitely many curves separately, we obtain Theorem 1.4.\"",
-   "correction": "For each of the finitely many curves C a bound for #((C − P₀) ∩ Jac(C)_tors) uniform in P₀ ∈ C(ℚ̄) is needed, because Theorem 1.4 quantifies over all P₀. For g ≥ 3 it follows from Raynaud's theorem for the surface C − C ⊆ Jac(C): its torsion lies in finitely many points and elliptic torsion cosets, and a coset t + E pulls back to a curve in C × C with no component C × {P₀}, so each P₀ meets it in boundedly many points. For g = 2, C − C = Jac(C), and a uniform Manin–Mumford for the translates C − P₀ is required, e.g. Kühne's later uniform Manin–Mumford theorem (arXiv:2101.10272), which proves Theorem 1.4 without the dependence on d.",
-   "reason": "Raynaud's theorem gives, for each embedding C − P₀ ⊆ Jac(C), a finite set, with no control of its size as P₀ varies over the infinitely many points of C(ℚ̄). The statement is true, but the displayed step does not prove it.",
+   "correction": "For each of the finitely many curves C of small height a bound for #((C − P₀) ∩ Jac(C)_tors) uniform in P₀ ∈ C(ℚ̄) is needed. Rémond's bound ([DP02, p.643], item 67), which the paper already uses after the proof of Theorem 1.1, gives it: with X = C − P₀ and Γ the torsion subgroup (rank 0), the cosets x_i + B_i ⊆ X are points, and their number is at most (2^{34}·h₀(Jac C)·deg(C − P₀))^{g^5·4}, which does not depend on P₀ (deg(C − P₀) is independent of P₀). This works for every g ≥ 2. Alternatively, apply Raynaud's theorem for subvarieties to D₂(C³) ⊊ Jac(C)² together with Lemma 6.3 (M = 2).",
+   "reason": "Raynaud's theorem gives, for each embedding C − P₀ ⊆ Jac(C), a finite set, with no control of its size as P₀ varies over the infinitely many points of C(ℚ̄). The statement is true, and the paper's own tool repairs the step.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -36942,9 +36986,219 @@
    "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
    "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Confirmed as a gap, but the extraction's correction was revised. It excluded components C × {P₀} where the paper's D₁ convention gives {P₀} × C. Its g ≥ 3 route needs Raynaud's theorem for subvarieties, not the cited curve paper [Ray83]. Its claim that g = 2 requires Kühne's uniform Manin–Mumford is wrong: Rémond's bound ([DP02, p.643], read by the review) with Γ the torsion subgroup is uniform in P₀ for every g ≥ 2, and the paper already uses it after the proof of Theorem 1.1. The correction above now says this."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E7",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.2, pp.17–18 (arXiv v3; the published version was not accessible)",
+   "printed": "\"In particular ϑ(P₀) = θ ∘ π(P₀) = 1.\" (p.17); \"θ ∘ π(P₀) = 1 by choice of θ.\" (p.18)",
+   "correction": "θ(P₀) = ϑ ∘ π(P₀) = ϑ(s₀) = 1, and on p.18 'θ(P₀) = ϑ(π(P₀)) = 1 by choice of ϑ'.",
+   "reason": "ϑ is the cut-off on S^an and θ = ϑ ∘ π its pullback to A^an (§3.2, p.15); the printed formulas swap them.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.17–18."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E8",
+   "kind": "error",
+   "locator": "Proof of Proposition 4.2, p.17 (arXiv v3; the published version was not accessible)",
+   "printed": "\"We extend ϑ to a smooth function on (ℙ^m_ℂ)^an by setting it 0 outside of the compact set K ⊆ S^an.\"",
+   "correction": "Take any smooth function on (ℙ^m_ℂ)^an equal to ϑ on S^an and vanishing on S̄^an ∖ K (extend smoothly from the closed submanifold S^an of ℙ^m ∖ (S̄ ∖ S), multiply by a cut-off equal to 1 on K, and extend by zero).",
+   "reason": "When dim S < m, extension by zero off K is not even continuous: for S̄ a line in ℙ², ϑ(s₀) = 1 while the extension vanishes at points off the line arbitrarily close to s₀. Only the values on S̄^an enter (4.7)–(4.9), so nothing downstream changes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.17."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E9",
+   "kind": "error",
+   "locator": "Proof of Proposition 4.3, (4.13), p.21 (arXiv v3; the published version was not accessible)",
+   "printed": "\"(4^l D′)^{d−1} Σ … ≤ (4^l D′)^{d−1} 2^{d−1} 3^n Σ_{i+p=n+m−d} a_{ip}\"",
+   "correction": "Use max{1, D′} in place of D′ (or arrange D′ ≥ 1 by multiplying the quartic polynomials by a linear form not vanishing on S̄).",
+   "reason": "The terms with p″ = 0 carry D_l^{i″} = 4^{li″} and no factor D′; if D′ = 0 and d ≥ 2 they are positive while the printed bound is 0. With max{1, D′} the estimate cN^{2(d−1)} and Proposition 4.3 stand.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.21; the exponent bookkeeping was rechecked by the helper on 400 random multidegree configurations."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E10",
+   "kind": "gap",
+   "locator": "Proof of Proposition A.2, pp.39–40 (arXiv v3; the published version was not accessible)",
+   "printed": "\"We apply the Height Machine a final time and use that h_{S̄} arises from the Weil height restricted to S̄(ℚ̄).\"",
+   "correction": "The needed bound |h_{S̄′,E}(s)| ≤ c·max{1, h_{S̄}(b(s))} holds for s ∈ b^{−1}(S), where b : S̄′ → S̄ is the resolution: for k large, H⁰(S̄′, b*O(k) ⊗ E^{±1}) = H⁰(S̄, O(k) ⊗ b_*E^{±1}) is globally generated over S, where b_*E^{±1} is invertible, so finitely many sections have no common zero on b^{−1}(S).",
+   "reason": "b*O(1) is only big and nef on S̄′, so the Height Machine does not give the comparison directly, and it fails on the exceptional locus (on a contracted curve C with E·C ≠ 0, h_E is unbounded while h_{S̄} ∘ b is constant). Only points over S are needed, where the argument above applies. Proposition A.2 stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.39–40; the repair was re-derived by the reviewer."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E11",
+   "kind": "error",
+   "locator": "§1.2, p.6 (arXiv v3; the published version was not accessible)",
+   "printed": "\"Taking the Jacobian of a smooth curve leads to the Torelli morphism M_g → A_g which is finite-to-1 (but not injective as we have level structure).\"",
+   "correction": "τ(C,α) = τ(C′,α′) iff (C′,α′) ≅ (C,±α). So τ is injective on points for g = 2 and not injective for g ≥ 3; on p.24 the paper says, correctly, 'need not be injective'.",
+   "reason": "(C,α) ≅ (C,−α) iff some automorphism of C acts as −1 on the level structure. For ℓ ≥ 3 that forces it to act as −1 on the Jacobian, i.e. to be a hyperelliptic involution. Every genus-2 curve is hyperelliptic, so there the fibres of τ are points. The paper never uses non-injectivity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.6."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E12",
+   "kind": "misprint",
+   "locator": "§1.2, display after (1.3), p.6 (arXiv v3; the published version was not accessible)",
+   "printed": "\"X := D_M(C_g ×_{M_g} ⋯ ×_{M_g} C_g) ⊆ 𝔄_g ×_{M_g} ⋯ ×_{M_g} 𝔄_g\"",
+   "correction": "The target is 𝔄_g^{[M]} ×_{A_g} M_g, as in (6.3)–(6.5) on p.25.",
+   "reason": "𝔄_g is a scheme over A_g, not over M_g.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.6 against pp.24–25."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E13",
+   "kind": "misprint",
+   "locator": "§1.2, sketch of the counting, p.4 (arXiv v3; the published version was not accessible)",
+   "printed": "\"… so the points of C(F) of large height lie in (1 + c₀c₃)^ρ balls …\" (and the displayed set lacks '#')",
+   "correction": "(1 + 2√(c₀c₃))^ρ balls, as Rémond's packing bound gives on p.34 (with R² = c₀·max{1,h} and r² = max{1,h}/c₃); the set should be preceded by '#'.",
+   "reason": "The ball-packing count is (1 + 2R/r)^ρ; for c₀c₃ = 1 the printed figure gives 2^ρ against the correct 3^ρ. The proof on p.34 uses the correct bound.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of pp.4 and 34."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E14",
+   "kind": "gap",
+   "locator": "Proof of Proposition 2.7 (and hence Proposition 2.2(iii)), pp.11–12 (arXiv v3; the published version was not accessible)",
+   "printed": "\"We assume first that the right side of (2.3) is false, i.e., the maximal rank is strictly less than 2d = 2 dim X. So every x ∈ X^{sm,an} ∩ A_Δ is a non-isolated point of b_Δ^{−1}(r) ∩ X^{sm,an} …\" and, for the converse, \"using holomorphic local coordinates we find an irreducible, 1-dimensional, complex analytic subset C_x which passes through x … such that ω|_{X^{sm,an}} vanishes along the tangent space of C_x^{sm}.\"",
+   "correction": "Argue pointwise: from (2.1), dZ·Y^{−1}Im w − dw = −(da + Z db), so the Hermitian form of ω at v is μᵀY^{−1}μ̄ with μ = da(v) + Z db(v), which vanishes iff da(v) = db(v) = 0 (Im Z > 0). Hence ker(ω|_{T_xX}) = ker(db_Δ|_{T_xX}), so (ω|_X)^{∧d}_x ≠ 0 iff rank_ℝ(db_Δ|_X)_x = 2d, pointwise, and the identity theorem gives (2.3).",
+   "reason": "Rank < 2d everywhere does not by itself make every point non-isolated in its fibre for a real-analytic map (x² + y² on ℝ² has rank ≤ 1 and an isolated zero). The existence of a complex curve C_x tangent to the kernel of ω is asserted without proof. The statement is true by the pointwise argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.11–12; the pointwise identity was checked by the reviewer from (2.1)."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E15",
+   "kind": "gap",
+   "locator": "Proof of Theorem B.1, second dévissage, p.43 (arXiv v3; the published version was not accessible)",
+   "printed": "\"Hence there exists a non-empty open subset Δ′ of (S′)^{sm,an} with π(x) ∈ Δ′ ⊆ Δ and rank_ℝ(db_{Δ′}|_{X^{sm,an}})_x = 2 dim X.\"",
+   "correction": "Choose x with π(x) ∈ S′^{sm}: by Lemma B.3 the maximal rank is attained on X ∩ π^{−1}(S′^{sm}), which is Zariski open and dense in X.",
+   "reason": "The x chosen just before need not lie over the regular locus of S′ = π(X).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.43."
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E16",
+   "kind": "misprint",
+   "locator": "Theorem 6.2, p.27 (arXiv v3; the published version was not accessible)",
+   "printed": "\"… with the Betti map b_Δ : A_Δ = π^{−1}(Δ) → T^{2g}, such that (6.6) rank_ℝ(db_Δ|_{X^{sm,an}})_x = 2 dim X …\"",
+   "correction": "The target is T^{2Mg}: A = 𝔄_g^{[M]} ×_{A_g} S has relative dimension Mg.",
+   "reason": "With target T^{2g}, (6.6) could never hold, since 2 dim X > 2g for M ≥ 3g − 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.27."
   },
   {
    "id": "PAPER-DING-25/E1",
@@ -74635,9 +74889,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "The displayed computation that follows sums a_iS_j(s_i) + b_iS_{j+1}(t_i) over j < d, i.e. R(j). The intended meaning is clear."
   },
   {
    "id": "PAPER-NGODAC-21/E2",
@@ -74656,9 +74910,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "The a_i, b_i ∈ K multiply the F_p structure constants. Exact computation at q = 2: C_(1)(R₁) = S_d(3) + (θ²+θ)S_{d+1}(1,2), so g = θ²+θ ∉ F_2. Lemma 2.9 correctly writes a_i, b_i ∈ K."
   },
   {
    "id": "PAPER-NGODAC-21/E3",
@@ -74677,9 +74931,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "B*_v is defined only for a positive integer v (a singleton tuple). As printed for j = 0, (2.14) would contain S_d(1,t) where (2.11) has S_{d+1}(1,t), so it is not a valid fixed relation, although the summed MZV identity is the same. The paper's remark 'these terms appear only in the case where j ≥ 1' (p. 13) shows the intended reading, so the damage is small. The repaired branch was run 114 times in the reviewer's implementation (q=2,…,5) and every resulting identity was verified in K∞."
   },
   {
    "id": "PAPER-NGODAC-21/E4",
@@ -74698,9 +74952,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Checked on the page image and against ABP arXiv math/0207168 p. 7. The counterexample holds: Φ=diag(t−θ^{1/q},0) and ψ=(Ω^(−1),0)^T∈E², with (Ω^(−1))^(−1)=(t−θ^{1/q})Ω^(−1), satisfy ψ^(−1)=Φψ, det Φ=0 and ρψ(θ)=0 for ρ=(1,0), since Ω^(−1)(θ)=0. Any P with Pψ=0 has P_1=0, so P(θ)≠ρ. The matrices the paper actually uses have c=1."
   },
   {
    "id": "PAPER-NGODAC-21/E5",
@@ -74719,9 +74973,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Chang 2014 (arXiv 1207.2326v4) was read. Proposition 4.3.1 (p. 12) says that if π̃^w, Z_1, …, Z_n are linearly dependent over K̄ then they are dependent over K. It concerns π̃^w, and its proof assumes the K̄-independence of the Z_i. Theorem 3.4.5 (p. 9) gives K-independence ⇒ K̄-independence for same-weight MZ-property values."
   },
   {
    "id": "PAPER-NGODAC-21/E6",
@@ -74740,9 +74994,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Crossref metadata for 'A conjectural characterization for F_q(t)-linear relations between multizeta values' gives J. Number Theory 187, pages 264–287. Second checker: Checked on the page image. Crossref for DOI 10.1016/j.jnt.2017.09.028 gives pages 264–287."
   },
   {
    "id": "PAPER-NGODAC-21/E7",
@@ -74761,9 +75015,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "ABP (arXiv math/0207168) §3.1 has Theorem 3.1.1 (the lifting criterion, p. 7) and Proposition 3.1.3 (p. 9: det Φ(0)≠0 and ψ∈Mat(C∞{t}) ⇒ ψ∈Mat(E)). There is no Proposition 3.1.1. The property 'det Φ|_{t=0}≠0, entries in T' is exactly Proposition 3.1.3's hypothesis, and Chang's own Theorem 3.2.1 cites Thm. 3.1.1 correctly."
   },
   {
    "id": "PAPER-NGODAC-21/E8",
@@ -74782,9 +75036,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "The first page of imrnrelation.pdf (SHA-256 f330b56b…) gives Vol. 2009, No. 12, pp. 2318–2346, doi:10.1093/imrn/rnp018, and Crossref gives the same pages. The printed data are those of [1] (Anderson–Thakur, IMRN 2009 no. 11, 2038–55) in the same list. Ngo Dac's own [23] is correct."
   },
   {
    "id": "PAPER-NGODAC-21/E9",
@@ -74802,9 +75056,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Exact check at X'_i = (1), A' = (1,1), d = 2, for q = 2 and q = 3: LHS − RHS = S_1(1) ≠ 0. Known: Thakur's updates.pdf (SHA-256 99e77414…), entry 36 (47): 'The fourth equality in the display (page 1979) … is wrong'. Theorem 3 itself is true, and Ngo Dac's paper does not rely on the faulty step."
   },
   {
    "id": "PAPER-NGODAC-21/E10",
@@ -74813,7 +75067,7 @@
    "printed": "F ∈ Mat_{r₁×r₂}(k̄[t])",
    "correction": "The matrix of the rationalized-module homomorphism lies in Mat_{r₁×r₂}(k̄(t)); the conclusion is that its monic common denominator belongs to F_q[t].",
    "reason": "Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement. This finding concerns a cited source, not Ngo Dac's text.",
-   "affects": "the proof",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Author publication page https://www.math.nthu.edu.tw/~cychang/Publications.html and author-hosted file explicitly named EulerianJEMS_Corrections1.pdf inspected 2026-09-22.",
@@ -74822,9 +75076,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Rendered page checked: arXiv v2 has the same k̄[t]. A k̄(t)[σ]-linear map has in general a rational matrix (multiplication by 1/t on the trivial object), the proof works with den(F), and the paper (§5.2, p. 21) applies it to the rational matrix (Id 0; (g_t/g) 1). Suggest affects 'nothing' rather than 'the proof': the intended statement is clear and the proof proves it; read literally, the printed statement is only trivial."
   },
   {
    "id": "PAPER-NGODAC-21/E11",
@@ -74844,9 +75098,9 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Page images checked. On p. 24 the proof writes δ_1=(aθ+b)(t−θ)^w, resp. (aθ²+bθ+c)(t−θ)^w, with a,b,c∈F_q[t], and repeats 'δ_1 ∈ K[t]' in (6.5). K[t]-membership with a θ-degree bound does not give that form; e.g. (t−θ)^w/θ∈K[t]. The fix above was verified (the descent recursion δ_j=δ_{j+m}^q−F_{j+m}−Σ_{i<m}B_iδ_{j+m−i} and the degree count qN=qm+N). Kuan–Lin (Exp. Math. 25, DOI 10.1080/10586458.2015.1069228) is paywalled and not on arXiv, so it may state A[t] and the paper may merely misquote it. Either way the printed justification is inadequate, and the step is true."
   },
   {
    "id": "PAPER-NGODAC-21/E12",
@@ -74866,9 +75120,93 @@
    "owner": "PAPER-NGODAC-21",
    "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
    "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "Page image checked. T′_q=T^0_q, since (q)∉T′_q and every other composition of q has entries <q, so Theorem B covers w=q. As printed, w=q falls to Step 3, which asserts 's_i=(k,q−1) where k=w−(q−1) satisfying 1<k≤q−1' (p. 23), whereas k=1 there. The step survives: (w)=(q)∉T′_q, so the relation is the single term a_2ζ_A(1,q−1)=0, impossible by nonvanishing."
+  },
+  {
+   "id": "PAPER-NGODAC-21/E13",
+   "kind": "misprint",
+   "locator": "HAL v1, §1.3, printed p. 4, fourth bullet of the list of known cases (w = 3, q = 2); page image checked",
+   "printed": "The inequality d(w) ≤ 2 (i.e. Theorem A in this case) can be easily proved. Further, we have d(w) ≥ 2 by [22, Theorem 5.10.2].",
+   "correction": "The inequality dim_K Z_w ≤ 2 … Further, we have dim_K Z_w ≥ 2 by [22, Theorem 5.10.2].",
+   "reason": "d(3) = d(2) + d(1) = 1 + 1 = 2 by definition when q = 2, so 'd(w) ≤ 2' and 'd(w) ≥ 2' say nothing. Theorem A bounds dim_K Z_w, and the cited lower bound is also for dim_K Z_w. Consistently, the reviewer's Theorem A run at q = 2 gives ζ(3) = (θ²+θ)²(ζ(1,1,1)+ζ(2,1)) and ζ(1,2) = (θ²+θ)(ζ(1,1,1)+ζ(2,1)), verified in K∞.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-NGODAC-21/E14",
+   "kind": "misprint",
+   "locator": "HAL v1, §2.1, printed p. 7, proof of Proposition 2.1, Part 2 (start of the induction step); page image checked",
+   "printed": "By the induction hypothesis there exist constants f′_j, g′_{ij} ∈ F_p and • tuples c″_j … • tuples d″_j … such that … S_<d(a_−)S_<d(b) = Σ_j f″_j S_<d(c″_j), S_<d(a)S_<d(b_−) = Σ_j g″_j S_<d(d″_j).",
+   "correction": "constants f″_j, g″_j ∈ F_p.",
+   "reason": "The constants named in the sentence (f′_j, g′_{ij}, carried over from Part 1) are not the ones used in the displayed formulas and in the rest of the proof (f″_j, g″_j). The intended meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-NGODAC-21/E15",
+   "kind": "misprint",
+   "locator": "§5.2, end of Step 2, p. 21 (HAL printed page; the journal PDF was not available)",
+   "printed": "For any j ∈ N, by specializing (5.7) at t = θ^{q^j} and using (4.2) and the fact that Ω has a simple zero at t = θ^{q^j} we deduce that f(θ) = ν(θ)/b(θ).",
+   "correction": "'using (5.4)': L(t)(θ^{q^j})=L(t)(θ)^{q^j}, together with a_i, b, ν_t ∈ F_q[t], so that f_t(θ^{q^j})=f_t(θ)^{q^j}, followed by taking q^j-th roots.",
+   "reason": "Specializing (5.7) at θ^{q^j} kills δΨ′, since every entry of Ψ′ carries Ω^{w−w(t)} with w−w(t)≥1. What remains is b(θ^{q^j})f(θ^{q^j})=ν(θ^{q^j}). Passing to f(θ) needs the Frobenius specialization (5.4), not the evaluation (4.2) L(s)(θ)=Γ_sζ_A(s)/π̃^{w(s)}; no ζ-value appears in the conclusion. (4.2) is used later, in Step 3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-NGODAC-21/E16",
+   "kind": "gap",
+   "locator": "§5.3, Step 3 of the proof of Theorem B, pp. 21–22; and §6, Step 3 of the proof of Theorem 6.2, (6.2), p. 23 (HAL printed page; the journal PDF was not available)",
+   "printed": "For s_i we let m_i ∈ Z^{≥0} be the biggest index such that (s_{i1},...,s_{im_i}) belongs to I(s_j) for some j ≠ i. ... Let m := max_i m_i. Then we can find two different tuples, says s_1 and s_2 be such that m_1 = m_2 = m.",
+   "correction": "First dispose of a relation with only one index: a_1Γ_{s_1}ζ_A(s_1)=0 is impossible since ζ_A(s_1)≠0 [24, Theorem 4] and a_1Γ_{s_1}≠0. Otherwise at least two indices occur, m_i is defined, and the argument runs as printed. The same remark justifies 'for some a_1,a_2∈K^*' in (6.2).",
+   "reason": "With a single index there is no j≠i, so m_i is undefined and two tuples with m_1=m_2=m do not exist. Step 3 gives no contradiction then: f_∅(θ)=0 is the hypothesis, and the isolated tails only force divisibility. The case is trivial by nonvanishing (stated in §1), but neither proof mentions it. Likewise, (6.2) presupposes that both (w) and (k,q−1) occur.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2021.194.1.6 (Ann. of Math. 194 (2021), 361–392), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2021/194-1/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from the HAL manuscript here is not established"
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-NGODAC-21",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-NIKOLAUS-SCHOLZE-18/E1",
