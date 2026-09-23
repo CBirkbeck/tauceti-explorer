@@ -4,9 +4,13 @@ Paper: Kisin–Madapusi Pera–Shin, *Honda–Tate theory for Shimura varieties*
 
 Original errata: Claude Code, `cc-fb70e5`, 22 September 2026, job ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22. Independent checkpoint: Codex, `codex-a71f92`, 23 September 2026, issue #1798, job REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.
 
+Independent continuation: Codex, `codex-7e92bd`, 23 September 2026. The first checkpoint's E1–E7 arguments and source history are preserved below; this continuation independently reconciles the extraction's E8–E12 and checks related literature for E13.
+
 ## Status and version boundary
 
 **Partial, not a completed independent review.** All seven original findings were checked against the exact named author PDF, including page images. Their local mathematical defects are supported, with the refinements below. A further direct-sum/similitude defect is recorded as E13. No finding receives a final `review` verdict in this checkpoint, and no completion report is written under `reviews/`.
+
+The continuation adds E8, E9, E11 and E12 to the JSON, making twelve recorded findings. E10 is a rejected extraction candidate, documented below and deliberately excluded from the errata JSON; its identifier remains reserved. E9 is strengthened from a gap to a failed proof step by an example within the Hodge-type setup. These are author-version conclusions, pending journal collation.
 
 The published text has not been obtained or collated. Therefore this work does not assert that these defects survive in the journal version or remain uncorrected there. The provisional `known: new` fields mean only that no external correction was found in the bounded searches recorded; they do not certify the journal text.
 
@@ -17,7 +21,11 @@ Sources independently used:
 - [Shin's errata](https://math.berkeley.edu/~swshin/errata.pdf): both pages read; they concern three other papers. SHA-256 `0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be`.
 - [Crossref record](https://api.crossref.org/works/10.1215/00127094-2021-0063), the three authors' publication pages, and bounded title/DOI/correction/arXiv searches: no later correction located. The publisher article/PDF and Crossref download links returned challenge HTML rather than article text. No access control was bypassed.
 
-The full source-read coverage is §§1.1.2–1.1.4; Proposition 1.1.13 through Corollary 1.1.17; Proposition 1.2.5 and its proof; Corollary 2.1.9 and its setup; §§2.2.6–2.2.13 including the accommodating reduction, Lemma 2.2.8, Lemma 2.2.11 and its torus application; and A.2–A.3 with the surrounding appendix setup. Page images checked: 6, 11, 14, 26, 27, 28, 29, 37.
+The first checkpoint's source-read coverage is §§1.1.2–1.1.4; Proposition 1.1.13 through Corollary 1.1.17; Proposition 1.2.5 and its proof; Corollary 2.1.9 and its setup; §§2.2.6–2.2.13 including the accommodating reduction, Lemma 2.2.8, Lemma 2.2.11 and its torus application; and A.2–A.3 with the surrounding appendix setup. Its page images checked: 6, 11, 14, 26, 27, 28, 29, 37.
+
+The continuation reacquired the same 41-page author PDF and Shin errata PDF, with exactly the hashes above. It read the Hodge-type setup on p.15, §§1.3.8–1.3.18 on pp.18–20, §§2.1.1–2.1.5 on pp.21–22, the auxiliary constructions on pp.27–28, and Lemma 2.3.10/Proposition 2.3.11 on pp.33–34, with images 19–21, 27 and 34 checked. It also read [Kisin–Zhou, arXiv:2103.09945v2](https://arxiv.org/pdf/2103.09945v2), p.10 Definition 2.2.4/Remark 2.2.5, p.40 §4.3.7 and pp.43–45 §§4.4.5–4.4.10. This 63-page PDF has SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`.
+
+Crossref, the author pages, the title/DOI correction searches and the publisher routes were checked again. [OpenAlex's DOI record](https://api.openalex.org/works/https://doi.org/10.1215/00127094-2021-0063) supplies no open-access full-text location. The published PDF and Noot §2.3 remain unavailable through the public routes located. Related results in Kisin–Zhou are not being labelled a KMPS erratum.
 
 ## E1 — decency equation
 
@@ -72,6 +80,46 @@ Since D⊂S, D−S is empty. The open set must be S−D. The divisorial log stru
 
 The original rationale that a sheaf of rings cannot be a log structure was too imprecise: it has an underlying multiplicative monoid. The actual obstruction is that j_*O_U contains functions with poles along D. For S=Spec W[x] and D=(x), it contains x^{-1}; a monoid map to O_S agreeing with the identity on U would force x to be a unit. Restricting to regular functions invertible on U gives the intended structure. Misprint; intended mathematics unchanged.
 
+## E8 — ordinary classes need not exist for inner forms
+
+The unqualified existence assertion in §1.3.15, p.20, fails locally. Let D be the quaternion division algebra over Q_p, put G=D×, and split it over L with Frobenius σ_D=Int(J)σ, where J=[[0,p],[1,0]] and J²=p·1. The map b↦bJ identifies the twisted σ-conjugacy classes with ordinary GL₂ classes. It raises κ by 1 and each Newton slope by 1/2: the adjoint Frobenius actions coincide, while determinant valuations differ by 1.
+
+For the minuscule cocharacter μ_m=(m+1,m), an ordinary class would give GL₂ slopes (m+3/2,m+1/2). Two distinct slopes in dimension two have rank-one summands and hence must be integral. Thus this class does not exist. More precisely, admissibility bounds both GL₂ slopes to [m+1/2,m+3/2] with sum 2m+2. If distinct, both would be integers, but that interval contains only m+1. The basic vector (m+1,m+1) is realized by b=p^mJ, so the unique admissible G-vector is (m+1/2,m+1/2), strictly below μ_m. The choice m=−1 gives the inverse-Hodge representative (0,−1).
+
+Kisin–Zhou's Definition 2.2.4 defines the ordinary class conditionally, and Remark 2.2.5 expressly distinguishes a greatest admissible class from one attaining the Hodge average. Quasi-splitness suffices for the latter. This supports an **error affecting a stated result**, with a precise local scope. The quaternion calculation is not a constructed counterexample satisfying every global integral-model hypothesis of the following density corollaries. Such a downstream audit remains open.
+
+## E9 — the full generated category has a smaller group
+
+In Corollary 1.3.13, p.19, preservation of the chosen Hodge tensors gives an inclusion H⊂G_s0 for the actual Tannakian group H; it does not give equality. There is an example inside the paper's Hodge-type setting, beyond the extraction's abstract unit-object example.
+
+Take E:y²=x³−x with CM by Q(i), the torus Shimura datum T=Res_{Q(i)/Q}G_m, and p=5. The discriminant is a 5-adic unit. The numbers of affine points over x=0,1,2,3,4 are 1,1,2,2,1, respectively. Including infinity gives #E(F₅)=8, trace −2, and ordinary slopes 0 and 1. On a geometric component of this zero-dimensional Shimura variety, D is the sum of the unit isocrystal and the rank-one slope-one isocrystal (or their duals, depending on convention).
+
+The full Tannakian category generated by D, after scalar extension to L, is Rep_L G_m: its objects are sums of integral powers of that rank-one object, with the slope-zero summand already the tensor unit. But the selected CM Hodge tensors have stabilizer T_L≅G_m². The dimension discrepancy disproves the printed equivalence. Accordingly E9 changes from **gap** to **error affecting the proof**.
+
+Evaluation must be followed by forgetting Frobenius to obtain a Vec_L-valued fibre functor; F-Isoc(s0) is Q_p-linear, as §1.3.11 itself says. Restriction from G_s0 to H can still give an exact faithful functor, so the final tensor-functor assertion is not refuted. Its construction and descent require all the needed invariant morphisms and idempotents, not merely a declaration that the two groups agree. This checkpoint does not complete that repair.
+
+## E10 — rejected extraction candidate: rational-point intersection
+
+The extraction called I_s0(Q_p) a misprint in the intersection defining I_s0(Z_(p)) on p.21, because the proof on p.22 writes I_s0(Q). Both expressions define the same subgroup.
+
+Set A=Aut_Q(A_s0), an algebraic group over Q, and I=I_s0, explicitly a closed Q-subgroup of A. Inside A(Q_p), one has
+
+`I(Q_p) ∩ A(Q) = I(Q)`.
+
+Indeed, if a rational point of A lies in I after extension to Q_p, every rational defining equation of I vanishes on it in Q_p and therefore in Q. Equivalently, factorization through a closed subscheme descends along the faithfully flat extension Q→Q_p. Since Aut(A_s0), interpreted up to prime-to-p isogeny, is a subgroup of A(Q), intersecting either side with it proves the equality in question.
+
+The p.22 notation is more explicit but supplies no counterexample to p.21. **Reject the proposed misprint on mathematical grounds.** E10 was never in the original errata JSON and is not added to it. This section preserves its identifier and rationale for the eventual completed review; the extraction is outside this job's editable files.
+
+## E11 — tensor exponents interchanged
+
+The p.19 proof defines V_m,n=V^⊗n⊗V*^⊗m but assigns it D^⊗m⊗D*^⊗n. The case (m,n)=(0,1) would send V to D*, although the functor is required to send V to D. Swap the exponents in the image. This is a **misprint affecting nothing**, independent of E9's categorical defect.
+
+## E12 — retain inverse Hodge cocharacters consistently
+
+Lemma 1.3.9, p.18, places δ in B(G,{μ_X^{-1}}), and Lemma 2.3.10, p.33, explicitly uses μ_x^{-1} in the Frobenius κ formula. In Proposition 2.3.11, p.34, choose a crystalline cocharacter λ_T∈{μ_X^{-1}} with Nλ_T=ν_δ. Use λ_T^{-1} for the complex Hodge cocharacter and the special pair (T,h_x), while retaining λ_T in the Newton and κ calculations.
+
+Both Frobenius elements then have κ=m log_p(q)·λ_T^♯ after taking sufficiently divisible m; the preceding lemma compares them up to a further power. Merely reversing the first conjugacy class and leaving the subsequent Hodge identification unchanged would not suffice. With this consistent convention, the intended argument is clear: **misprint affecting nothing**.
+
 ## E13 — another missing common multiplier
 
 In §2.2.7, p.27, the identity component of G′×_{G^ad}G is asserted to act by similitudes on (V⊕V′,ψ⊕ψ′). Passing to the adjoint fibre product does not equate central multipliers.
@@ -82,10 +130,10 @@ Impose equality of the two multiplier characters and then take the identity comp
 
 The new finding uses **E13**, not E8: E8–E12 already refer to different findings in the newer extraction.
 
+The continuation found the proposed common-multiplier construction explicitly in Kisin–Zhou §4.3.7, p.40: (G₂×_{G^ad,G_m}G)^0 with the direct-sum representation and paired Hodge homomorphism. Its Proposition 4.4.10, p.45, includes the product projections among the tensors, constructs central-kernel endomorphisms by specialization, and checks exactness of the I-group sequences after extension to Q_ℓ using Frobenius centralizers. These passages clarify the needed next checks. They have additional group and integral-model assumptions, so citing them does not finish the KMPS reduction in its original generality.
+
 ## Remaining review work
 
-The errata predates completion of the extraction. The current extraction has twelve findings: its E1–E7 correspond to the original errata, while E8–E12 concern ordinary classes for inner forms, a Tannakian identification, a rational-point intersection, swapped tensor exponents, and a later inverse-Hodge convention. The old report's blanket treatment of the first two as merely open questions is therefore stale.
-
-This checkpoint does not copy or endorse those five findings without checking their source arguments. Reconcile all five with the errata, preserving their identifiers. In particular, distinguish whether the rational-point intersection is merely an alternative expression for the same group. Obtain the journal text, compare all relevant passages, and finish the external Noot comparison before issuing the completed review.
+The extraction's E8–E12 have now been independently reconciled in the author version: retain E8, E9, E11 and E12 with the refinements above; reject E10. Obtain the journal text and compare every relevant passage, finish the external Noot §2.3 comparison, and audit E13's repaired lifting, centralizers and quotients before issuing the completed review. E9's full functor repair and E8's downstream global scope are explicitly not established here.
 
 No claim is made here that the paper's main theorems are false, that all downstream proofs have been repaired, or that anything has been formalized.
