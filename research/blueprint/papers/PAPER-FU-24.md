@@ -793,3 +793,26 @@ for p in [3,5,7]:
 
 print(f"PASS: {count} exact finite assertions")
 ```
+
+## Review (REV-PAPER-FU-24, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1084](https://github.com/CBirkbeck/tauceti-explorer/issues/1084). **Verdict: accept.**
+
+- **Items and routes:** nothing changed. All 36 library citations were read at the pinned
+  commits and all say what the citing item claims; the 11 planned items all name atlas
+  layers that exist; each of the three Part II titles extends its base roadmap's title
+  exactly, and all three new roadmap names are free.
+- **Source issues:** all seven confirmed, and each now carries a `review` verdict. E4 was
+  redone outright — if `R` is ramified then `p ∈ m²`, so `p^a ∈ m^{2a} ⊆ m^{a+1}` for
+  `a ≥ 1` and `0 ∈ S₀`, collapsing the localisation. E5 is confirmed as a gap and
+  deliberately not upgraded to an error.
+- **One correction.** The source block's `archiveStatus`, `version` and
+  `continuationRead.scope` still said the published PDF had never been retrieved, while
+  every locator in the file cites it by the hash prefix `a6a15856…` and the read log
+  records it as read in full. The review re-fetched it from NSF PAR — it returned in a few
+  seconds — confirmed SHA-256
+  `a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80`, and corrected the
+  three stale fields. The earlier timeouts were transient.
+
+Full report: `research/blueprint/reviews/REV-PAPER-FU-24.md`.
