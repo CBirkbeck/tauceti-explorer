@@ -114,3 +114,38 @@ Links and reasons are in the JSON.
 - Every missing item appears in exactly one route, and no source route takes a planned or library item. The two briefs are 327 and 423 words.
 - Library citations were read at the pinned commits: Tau Ceti f790474 (`AbelianVariety/Basic.lean:94`, `AbelianVariety/Isogeny.lean:61`, `LineBundle/Basic.lean:78`) and Mathlib 082e2d3 (`NumberTheory/Height/Projectivization.lean:51`). Every planned layer id was checked against `data/atlas.json`.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-GAO-GE-KUHNE-26, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1439), **accepted** this
+extraction and all six routes, with one correction made in place. The full record is
+[REV-PAPER-GAO-GE-KUHNE-26.md](../reviews/REV-PAPER-GAO-GE-KUHNE-26.md).
+
+The recorded hash of the version of record reproduces. The reviewer re-extracted the text after
+expanding the PDF's object streams, which is what recovers the relation symbols: a naive extraction
+of this file loses every one of them, and two findings (E3 and E13) turn on a strict `<`, which is
+indeed what is printed. 93 items, all 74 missing ones routed exactly once; all eight stage ids and
+all fifteen planned layer ids exist; 55 of 60 locator checks land exactly and the other five are
+proofs spanning pages. Both Part II titles reproduce their parent's atlas title exactly, both areas
+are galaxy ids, and a search of every layer description confirms that nothing in the atlas owns the
+Betti map, the Betti form or non-degeneracy. The shared ids hold up:
+`PAPER-DIMITROV-GAO-HABEGGER-21` and `PAPER-GAO-HABEGGER-19` use `AbelianSchemesBettiMapsPartII`
+with this title, and they, `PAPER-DEMARCO-KRIEGER-YE-20` and `PAPER-DEMARCO-MAVRAKI-YE-26` use
+`HeightsRationalPointsAndObstructionsPartII` with it too; `PAPER-YUAN-26` uses the narrower title
+"uniform Bogomolov for curves" for the same id, and the design job should take the broader one, as
+this brief says.
+
+**Correction.** Item 55, the Weil height on `ℙ^n(ℚ̄)` and the induced height on `A(ℚ̄)`, is now
+`planned` at RP.0 rather than `library`: Mathlib's `Projectivization.logHeight` needs a
+`Height.AdmissibleAbsValues` instance and the only one at the pin is for number fields, so the
+statement as written is not in the libraries; the Mathlib declaration stays in the note as the
+supplier RP.0 will import. The three Tau Ceti citations stand, and their notes already say what is
+not there yet.
+
+All thirteen findings are **confirmed**, each read at its locator and checked against the definitions
+it depends on: Lemma 2.4's constant for E2, the definition of `D` and Lemma 4.3 for E6 and E7,
+(Hyp pack) for E9 and E10, the case analysis on p.219 for E8, the pigeonhole on p.232 for E11, and
+Step 1 on p.230 for E13. E12, the one gap, is real — the §8 induction applies Proposition 5.1 and the
+induction hypothesis to components that need not generate the ambient abelian variety and sit in
+translates, where the Néron–Tate height is not invariant — and the repair recorded here is sound, so
+Theorem 1.3 stands.
