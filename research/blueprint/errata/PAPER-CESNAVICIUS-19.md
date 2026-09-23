@@ -1,32 +1,32 @@
 # Mistakes in Česnavičius, *Purity for the Brauer group*
 
-Job ERRATA-PAPER-CESNAVICIUS-19. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The finding is in `PAPER-CESNAVICIUS-19.json` beside this file.
+Original job ERRATA-PAPER-CESNAVICIUS-19: Claude Code, session `cc-fb70e5`, 22 September 2026. Independent review REV-ERRATA-PAPER-CESNAVICIUS-19: Codex, session `codex-hjdg0j`, 23 September 2026. One finding, **confirmed as a proof gap in the accessible manuscripts**. The JSON beside this file contains the verdict.
 
-**Paper and version read.** Kęstutis Česnavičius, Duke Mathematical Journal 168 (2019), 1461–1486, DOI 10.1215/00127094-2018-0057.
-- Read: arXiv 1711.06456v4 of 1 December 2018 (PDF SHA-256 `a62a12bb…8709`), the latest version and the one the extraction used. §2 was re-read in full.
-- Compared: the author's own copy (27 November 2018), which has the same text there.
-- Not collated: the published text.
+## Versions and scope
 
-**Earlier work.** The extraction PAPER-CESNAVICIUS-19 (partial) read the whole paper and recorded one point in the source, gap G-NONABELIAN, below. Its other open "gaps" are reading debts on cited sources (Giraud, SGA 2, Gabber–Ramero, Elkik and others), not mistakes in this paper. Its note on numbering in Gabber–Ramero is a version dictionary, not an error.
+The paper appeared in Duke Mathematical Journal 168 (2019), 1461–1486, [DOI](https://doi.org/10.1215/00127094-2018-0057). Freshly read: [arXiv v4](https://arxiv.org/pdf/1711.06456v4), latest version dated 1 December 2018, §2 pp.3–6; and the corresponding passage in the author manuscript dated 27 November 2018. The [old author PDF](https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf) and [current author PDF](https://webusers.imj-prg.fr/~kestutis.cesnavicius/brauer-purity.pdf) are byte-identical. Full hashes and source-reading limits are in the review report. The journal version was not collated: Project Euclid returned HTML challenges rather than its article/PDF. This finding must not be read as certification of the published wording.
 
-**Existing corrections.** None was found:
-- Crossref registers no erratum;
-- v4 is the latest arXiv version;
-- the author's copy is unchanged;
-- a web search found nothing.
+The current author publication list links no correction for this paper; the latest arXiv version retains the passage. Crossref records no update, and exact-title erratum/correction searches found none on 23 September 2026. This bounds the designation “new”.
 
-**Effect.** None on the main theorems. The one finding is a gap in the noncommutative case of an auxiliary proposition that the paper only applies to commutative groups.
+## E1. Noncommutative injectivity in Proposition 2.2
 
-## E1. Proposition 2.2 for noncommutative G (gap)
+Under a finite flat map R→R′ of local rings, an open V⊂Spec R with Γ(V,O)=R, and an affine smooth R-group G with every G-torsor over R trivial, Proposition 2.2 asserts full injectivity of H¹(V,G)→H¹(V_R′,G).
 
-**The statement.** Proposition 2.2 asserts, for a finite flat map R → R′ of local rings, an open V ⊂ Spec R with Γ(V, O) = R, and an affine smooth R-group G whose torsors over R are trivial, that H¹(V, G) → H¹(V_{R′}, G) is injective.
+Set H=Res_{R′/R}(G_R′) and X=H/G. Lemma 2.1 makes X affine. The proof uses X(R)=X(V) and triviality of R-torsors to show H(V)→X(V) is onto, then asserts injectivity of H¹(V,G)→H¹(V,H). The subsequent restriction-of-scalars identification does not address the problem with this implication.
 
-**The proof.** Put H = Res_{R′/R}(G_{R′}) and X = H/G. The proof shows that every V-point of the affine R-scheme X comes from R and hence lifts to H(V). Citing Giraud III.3.2.2, it concludes that H¹(V, G) → H¹(V, H) is injective. It then identifies H¹(V, H) with H¹(V_{R′}, G).
+The boundary sequence identifies the **neutral fibre** with H(V)\X(V). To describe the fibre through a G-torsor P, one must instead twist: it is (^P H)(V)\(^P X)(V). The group twists use conjugation; on H/G the induced action agrees with left multiplication by G. The distinguished coset gives a section of ^P X. For this fibre to be a singleton, the map (^P H)(V)→(^P X)(V) must be onto. The twists are initially over V, and no extension of them to affine R-schemes is established. If P extended to R, it would already be trivial by the assumption on R-torsors. Thus the argument does not cover the remaining fibres.
 
-**The gap.** Surjectivity of H(V) → X(V) only says that the class of the trivial torsor is alone in its fibre. When G is commutative this is injectivity, since the map is a homomorphism. When G is not commutative, H¹ is a pointed set, and the fibre through the class of a G-torsor P is governed by the twisted forms: it is the orbit set of (^P H)(V) on (^P X)(V) (Giraud III.3.2; compare Serre, *Galois Cohomology* I.5.5, Cor. 2). The proof does not treat these. They are defined only over V, so neither Γ(V, O) = R nor the affineness of X controls their V-points. If P extends over R, it is trivial by hypothesis (2), so the open question concerns exactly the torsors on V that do not extend.
+This formula can be checked directly from reductions of the extended H-torsor: sections of its H/G-bundle give G-reductions, and two give isomorphic G-torsors exactly when related by an automorphism of the H-torsor. It is also explicit in [Serre, *Galois Cohomology*](https://www.math.tau.ac.il/~borovoi/courses/Galois/Limud1.pdf), I.§5.3 Proposition 35 and **§5.4** Proposition 36, Corollaries 1–2, pp.49–51. The inherited report incorrectly cited §5.5 Corollary 2, which concerns the other map arising from a normal subgroup. This citation has been corrected; it is an error in the report, not a second error in Česnavičius's paper. The paper's own Giraud citation was not available for direct reading.
 
-**Effect and correction.** Proposition 2.2 is used twice:
-- in Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T;
-- in Corollary 2.4, with G = T a torus.
+For a concrete diagnostic of the logical distinction, let C₂ act trivially on D₈=⟨(1234),(24)⟩⊂S₄. H¹(C₂,D₈) consists of four conjugacy classes of involutions including the identity. The neutral fibre in H¹(C₂,S₄) is a singleton, but (13)(24) and (14)(23), nonconjugate in D₈, become conjugate in S₄. This is a counterexample to the formal implication about pointed sets, **not** to Proposition 2.2 with its geometric hypotheses.
 
-Both groups are commutative, so everything downstream, including the purity theorem, stands. The proposition should be stated for commutative G, or the twisted surjectivity supplied. This record, like the extraction, does not claim the noncommutative statement is false.
+## Repairs and reach
+
+Two conclusions follow from the argument already printed:
+
+- Restrict to commutative G to retain full injectivity: H is then commutative too, and the map on H¹ is a group homomorphism with zero kernel.
+- Retain general G and assert only that the fibre over the trivial torsor is trivial.
+
+To retain full injectivity for general G, a proof of all the twisted surjectivity assertions is missing. No falsity of the geometric statement is claimed.
+
+The two uses of Proposition 2.2 are in Proposition 2.3, for the commutative group Res(T)/T, and Corollary 2.4, for the torus T. Both are covered by the first repair. Consequently this gap does not obstruct those uses or the purity arguments downstream; this is not a new certification of all other parts of the paper.
