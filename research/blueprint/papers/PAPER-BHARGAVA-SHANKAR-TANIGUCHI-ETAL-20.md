@@ -1,3 +1,19 @@
+# Current independent-review disposition: revise
+
+Codex, session `codex-7e92bd`, 23 September 2026; review issue [#1421](https://github.com/CBirkbeck/tauceti-explorer/issues/1421).
+
+The extraction is **partial**, with **152 items: 38 library, 8 planned, 106 missing**. Every missing item is assigned once, but unresolved proof suppliers and unproved corrections prevent acceptance. Only route 6 (the two quantitative GN.5 primitive-basis adapters) is accepted; routes 1–5 require revision. See the [independent review](../reviews/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md) and the separate route-verdict JSON.
+
+The clear fixes are applied in the result JSON: reuse the implemented class-group two-rank/cardinality interface and primitive-vector engine; import existing polynomial-resolvent/order owners; withdraw the asserted hyperelliptic and fixed-q Sedunova corrections as established theorems; and restore explicit G0–G10 boundaries. The norm-curve, quadratic-tower, determinant-rounding and first Picard-bound replacements have been checked mathematically at the scope described in the review.
+
+There are now **17 source findings: 16 confirmed, E8 rejected**. E8's weaker alternative theorem does not prove the source's stronger claim false. E9 disproves a Selmer bound, not a Mordell–Weil rank bound, and does not establish a correction for every hyperelliptic model. E10 was checked also in Sedunova's published article. E12 records the already-repaired squarefree norm-curve degree error; E13 records the unexcluded bad-reduction step; E14–E17 record literal slips in HV and Tsimerman supplier versions. All findings are limited to the versions actually read.
+
+A later-dated MPG copy is text-identical to arXiv v1 apart from its date and does not resolve the final JAMS comparison. No assertion is made that the final paper is unavailable everywhere. All 106 named library references were read at the pins, with 54 file byte checks. No consumer Lean file was compiled and no new formalization is claimed.
+
+## Historical extraction report (preserved)
+
+The text below is preserved for provenance, including earlier reading and validation claims. Its heading that calls the extraction complete and its assertions that the hyperelliptic/fixed-q repairs hold are **superseded** by the current disposition above and the corrected result JSON.
+
 # Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): bounds on 2-torsion in class groups, extraction and routing
 
 Issue [#1420](https://github.com/CBirkbeck/tauceti-explorer/issues/1420). Status: **complete**. Implementation and proof closure are not claimed.
