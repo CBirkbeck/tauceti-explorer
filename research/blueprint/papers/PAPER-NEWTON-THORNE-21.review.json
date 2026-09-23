@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-NEWTON-THORNE-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ML.3 is to 'integrate Newton-Thorne source-scoped symmetric-power automorphy', with Newton–Thorne as a selected source, so Theorems A, B and Corollary C are its endpoints. The review attached to them a note on the gap E21 in the printed route. It also added the planned definition of Sym^{n−1}π (item 134, ML.5/ML.0) and the inputs of Corollary C (items 135–137)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer plans analytic continuation of symmetric-power functoriality along eigenvarieties, the ping pong on the Buzzard–Kilford annuli, or the killing of non-supercuspidal ramification in §8. ML.3 plans only the endpoints, and the neighbouring candidates own eigenvarieties, companion points and trianguline deformations, which this route imports. The review moved item 73 (Newton–Thorne 2020) to route 7 so that it has one owner. It added seven missing inputs (Conrad, the base-change morphism of Theorem 2.33, Chevalley, Sen, the mod-5/mod-7 input, the boundary-annulus weights, Weston/Diamond–Taylor) and appended the corrections E9–E13, E24 and E25 to the brief."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Level raising on definite unitary groups for symmetric powers is the method of Clozel–Thorne's pending SymmetricPowersByUnitaryLevelRaising, and Newton–Thorne's Part II extends it with new types. The coalescence is right. The review added Kazhdan–Varshavsky, the §4 level and types and the auxiliary field of Lemma 6.7. The brief now records the corrections E14, E17, E19, E22 and E23, and above all E21: π_2 in the proof of Proposition 7.4 is not conjugate self-dual. The design job must supply a correct GL_2 block or record the odd case of Theorem 7.1 as a gap."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Emerton's unitary eigenvariety, its classicality lemma and the exclusion of companion points belong to the pending LocalGlobalCompatibilityPartIIEigenvarietyCompanions. The review added BHS17 Lemme 2.11 in its published form (item 143)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Local trianguline deformation theory is the foundation of the pending TriangulineVarietyAndItsLocalModel. The review added KPX Proposition 6.2.8 and the Weil–Deligne-to-triangulation dictionary (items 138–139), and corrected item 48 (Remark 2.16)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Moy–Prasad depth-zero types and Henniart's explicit unramified correspondence are general statements about types, owned by the pending SmoothRepresentationsPartII."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Residually reducible polarized deformation theory (§5), Geraghty's ordinary Hecke algebras and the Allen–Newton–Thorne and BLGGT14 inputs belong to the pending PolarizedAutomorphyLifting. The review added eight missing items: the Newton–Thorne 2020 adjoint Selmer vanishing (moved from route 2), Allen's genericity and Remark 1.2.9, Geraghty Lemma 3.9, primitivity, generic primes, the BLGGT14 §1.1 operations and Bellovin–Gee. It corrected items 95, 98, 101 and 104."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Added by the review, as for PAPER-NEWTON-THORNE-21-B. The Ribet–Momose large-image theorem concerns the compatible family of a fixed eigenform that AutomorphicGaloisRepresentations R19.3 constructs, and no layer plans it."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-38267a, 23 September 2026, of the extraction by cc-39fac3. The review read the open-access published version in full (the extraction's PDF, SHA-256 ef76912a…), with the arXiv v3 TeX and PDF; a word-level comparison found no differences beyond typesetting and bibliography formatting. Four checkers split the paper (Introduction and §1; §2; §§3–5; §§6–8), comparing every item with the text and page images, listing uncovered results and checking recorded and new mistakes. The coordinator re-derived the substantive findings: E5 (the twisted η on p. 13) by computation; E7 (the Hensel step of Proposition 1.22(3)); E9 (the twin map); E10 (Lemma 2.12's lifts are conjugate, not equal); E17 (ωω^c = (det r·ϵ)^{1−n}); E18 (definite unitary groups over ℚ exist for n ≡ 0 mod 4); E21, computed on both the Hecke and the Galois side: π_2 in the proof of Proposition 7.4 fails to be conjugate self-dual by δ_{K/ℚ}|_{F_0}, because ω_0ω_0^c = ϵ³δ enters only through the even power n − 1 while det r_τ = ϵ^{−8k}δ, and τ is Steinberg at q_1 so has no δ-self-twist; and E22 (the multiplicity count in Lemma 6.7). E21 leaves a gap in the printed proof of Theorem 7.1 for n not a power of 2, and hence in the printed route to Theorems A, B, E and Corollary C. No result is shown false; for n a power of 2, Remark 7.5 gives a complete route. Items: about 40 statements corrected, two locators fixed, 38 items added (17 planned in layers whose descriptions were read, 21 missing and routed). No library claims were made, and the review found no library declarations for the new items: Tau Ceti has Chebotarev's Frobenius prime sets but not the density theorem. The three Newton–Thorne extractions now agree on one owner for the Newton–Thorne 2020 results (PolarizedAutomorphyLifting); PAPER-NEWTON-THORNE-26's routing is left to its own review. The prerequisite Clozel–Thorne III, already an atlas paper, was removed and eight were added. E1–E4 are confirmed and E5–E26 are new. No published correction exists (Crossref, arXiv, publisher). scripts/check_paper.py reports no errors."
+}
