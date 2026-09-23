@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-JANNSEN-16",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "Reject the current aggregate, not HL.6 as the core owner. Conjectures now distinguished from proved cases, p-degree and d>0 corrected, but G1–G3, G5 and G10–G11 leave missing atomic maps, proof suppliers and scope adapters. A source route of this size must not stand in for that work."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept the narrowed field-coefficient source destination at HL.2. Existing generic and twist-one carriers are reused, and geometric logarithmic purity is explicitly excluded. Remaining decomposition does not justify another owner of the common coefficient convention."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the corrected global-duality consequences at R02.4: separate Theorem 1.5(a)/(b), property (H), Theorem 2.5(a)/(b) and torus comparison. The ℓ≠char K hypothesis and prime-to-characteristic approximation are explicit; imported tori, weights and upstream cohomology must not be rebuilt here."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject this combined source route pending G4–G5. The general set-valued specialization theorem, all-n logarithmic application, all-DVR unramified comparison and universally exact Gersten complex are distinct interfaces; SF.2's broad scheme-cohomology description alone does not establish them."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept the corrected SNC weight-sequence export in DWP.10, using DWP.7/8 and EDC.3 as suppliers and [Jan90] 3.20 as the actual construction reference. The E₂ indexing and r≥3 degeneration have been checked."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Reject CR.4-only routing. Ordinary de Rham–Witt complexes are a supplier, not the full geometric logarithmic purity, weak Lefschetz and p-adic weight/base-change package. G6 requires a single explicit extension owner after primary-provider checks."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept the narrowly restated Gabber degree-control addition to the existing PrimeToDegreeAlterations candidate. L5 imports ordinary alterations; the new theorem preserves both prime-to-ℓ degree conditions and the SNC boundary. Transfer is an upstream import, not a duplicate; ILO14 remains an explicit proof source."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accept joining QuadraticFormsRealFunctionFields. The upstream parent's Layer 4 explicitly excludes higher Pfister/function-field theory, so those inputs cannot be claimed as already imported. The amended brief names their shared owner and CTJ91, and keeps the d≥2, char-zero and 2^(d+1) bound."
+    },
+    {
+      "route": 9,
+      "verdict": "reject",
+      "reason": "Reject the weight-homology brief pending G7–G9 and G11. Corrected Proposition 5.4, the homology-only factorization hypothesis, proper/projective motives, general homology ownership and actual motivic-envelope descent must be decomposed. Generic E2/L5 hypercovers do not supply all of this. The unverified optional alteration branch has been removed."
+    }
+  ],
+  "notes": "Independent review by Codex — codex-a71f92 of Claude Code cc-39fac3's extraction (PR #1967, merge 12b76f65bcc0bd8da3ecc374b8a13bc7ef49972a). Read every published page and all original 61 records, then corrected and expanded to 84 records (4 library, 9 planned, 71 missing), retaining 9 routes. 18 prerequisite entries and 12 explicit closure gaps. All 9 original source findings checked; E9 narrowed to four verified cross-references, withdrawing its unsupported fifth criticism. Added E10–E23; all 23 retained findings independently confirmed with reasons and correction-search limitations. Overall revise deliberately prevents queue application, including the five individually supported route directions, until the extraction is accepted. No Lean compiled and no formalization claimed."
+}
