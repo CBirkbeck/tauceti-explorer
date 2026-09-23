@@ -1,0 +1,17 @@
+{
+  "paper": "PAPER-VENKATESH-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ArithmeticLocallySymmetricSpaces plans arithmetic quotients, local systems, chain complexes and Hecke correspondences on complexes, and stops at the ordinary Hecke action. The derived Hecke algebra's action, the generation theorems and the reciprocity law with the Selmer group are new layers in exactly that direction, and nothing else in the atlas plans them. The brief states Theorems 7.6, 8.5 and 5.2, Proposition 8.6 and Conjecture 8.8 as printed; the review corrected its one wrong number (Lemma 2.11 for 'Lemma 2.10') and added item 9 and nine further items."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SR.0:derived-extension, SR.1 and SR.4 plan the smooth category, Hecke algebras over rings and the classical Satake isomorphism; the local derived Hecke algebra, its models, the derived Satake isomorphism and the Iwahori-level Morita equivalence are their graded versions and belong there as sources. The review added two further local items (surjectivity of coefficient reduction at nice primes; the derived Iwahori–Hecke algebra)."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-7b31c4. The extraction read arXiv v3; the review read the published version (Forum Math. Pi 7 (2019), e7, 119 pages, open access) in full. Print matches v3 almost word for word with the same numbering, but several of the extraction's locators were wrong in both (Definition 2.9 and Lemma 2.11, not 2.8 and 2.10; equation numbers such as (1.1.1) that exist in neither). All 61 locators now carry published section, number and page; 37 statements were corrected; 13 items were added; item 9 moved to missing (AG2.3 does not plan Galois representations for general locally symmetric spaces), item 47's planned stages were corrected (NC.6 is not a supplier), and item 61 moved from library to planned (Mathlib has group cohomology but no cup product on it). The extraction recorded no mistakes; the review recorded 33 (E1–E33), 28 new in print, including gaps in the Chebotarev step of §5.11 and in Lemma 8.25 (a union of Taylor–Wiles data is not a datum), and 5 v3 slips corrected in print, among them v3's Lemma 3.8, which is false without the trivial-G₂-action hypothesis that print adds. None affects the main theorems. Every change is listed in research/blueprint/reviews/REV-PAPER-VENKATESH-19.md."
+}

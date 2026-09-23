@@ -131,3 +131,15 @@ None recorded. The version read is the one revised after the referee report, and
 one point where the first version overreached: graded commutativity of the global derived Hecke algebra is *not*
 claimed in general, which is why the theorems are stated for the strict global derived Hecke algebra and why
 Proposition 8.6 is needed to obtain graded commutativity in the cases of interest.
+
+
+## Review (REV-PAPER-VENKATESH-19, 23 September 2026)
+
+An independent review read the published version (Forum Math. Pi 7 (2019), e7) and corrected this extraction in place.
+
+- **Locators:** all now carry published numbers and pages. Several were wrong in both versions.
+- **Items:** 37 statements were corrected and 13 items added.
+- **Statuses:** item 9 moved to missing. Item 47's planned stages were corrected. Item 61 moved from library to planned.
+- **Source issues:** 33 mistakes were recorded (E1–E33), including 5 v3 slips that print corrects.
+
+The counts above are those before the review. After it there are 74 items: 12 planned, 1 library and 61 missing. Details are in [the review report](../reviews/REV-PAPER-VENKATESH-19.md).
