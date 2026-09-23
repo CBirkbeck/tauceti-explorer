@@ -1,0 +1,92 @@
+{
+  "paper": "PAPER-BINDA-KATO-VEZZANI-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The corrected enhanced-site lemma belongs to E2/E3; shared enhancement and Ind machinery remain E0/E1/E5 imports. The published AGV erratum supplies exact added hypotheses."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Non-fine log and specialization proof leaves G3 remain undecomposed; item 11 is repaired, but the exact Ogus/Vidal suppliers and base-scope checks are still missing."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The geometric source additions (plurinodal charts and Gabber local product) fit F0/R0–R2. Their non-noetherian applications require the explicit G12 scope check; this accepts ownership/source contribution, not a completed formal-geometry implementation."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Geometric perfectoid tilting and towers are existing P1–P3/P7 imports; motivic comparisons remain separate."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The correct carrier direction is R06.2, but E15/G11 prevent building on the derived compactness/colimit contract. Item 139 explicitly gates the proposed Ind repair."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "Log-rigid and overconvergent scope belongs here, respecting Disegni–Liu, but G5 lacks the exact original complex/comparison maps and coefficient hypotheses."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "CR.6 is the correct classical HK owner, but G5 still lacks the source-closed proper comparison and normalized base-change construction."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "MC.4 owns algebraic rational motives and the localized geometric category; no duplicate mixed-motive roadmap is proposed."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Compact realizations, proper-smooth duality, cycle classes and multiplicative PD splitting fit MC.1–2. Corrected variance and irreducible-trace scope remain explicit; no unresolved general category equivalence is imported as proved."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "SF.5 owns the positive pushforward/degree lemma; item 133 imports the already existing cycle carrier and residue-degree operation."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "DWP.0 explicitly supplies coefficient-independent Weil-number and spectral weight algebra, without assuming semisimplicity."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "L5 explicitly plans the exact de Jong smooth/semistable alteration forms; this source uses rational degree division and does not impose prime-to-p degree."
+    },
+    {
+      "route": 13,
+      "verdict": "reject",
+      "reason": "The rigid-motive Part II direction is justified, but G3–G5/G7/G8/G11 leave major comparison, descent and category interfaces unbuildable. Corrected formal scope and split items do not discharge these leaves."
+    },
+    {
+      "route": 14,
+      "verdict": "reject",
+      "reason": "A nonarchimedean extension of the upstream complex toric roadmap is justified, but G12 lacks the generic-base divisor, formal-model and approximation construction leaves. Do not launch design from an endpoint-only brief."
+    },
+    {
+      "route": 15,
+      "verdict": "reject",
+      "reason": "Import LPV.1 rather than rebuild its filtration. G2/G6 and the unresolved suppliers of routes 13/14 prevent accepting the full local-field and toric application brief."
+    },
+    {
+      "route": 16,
+      "verdict": "reject",
+      "reason": "Reuse the existing proposed Jannsen owner, but that candidate is itself partial/rejected. G8 lacks the source-closed enhanced weight-complex/full-comparison chain. Correcting the published twist sign and splitting graded factorization is insufficient for an accepted design."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "LPV.1 explicitly owns the uniquely characterized centred monodromy filtration and its functoriality. Scalar-rescaling and equivariant-idempotent consequences extend that same API; Frobenius weights remain consumers."
+    }
+  ],
+  "notes": "Finished independent review by Codex codex-c83e7a of work by codex-a71f92 and cc-442dc5. Read the full arXiv v2 and public published appendix; repaired statements, locators, Tate signs and ownership. 139 items, 17 routes, 19 source findings (18 confirmed, E10 rejected); most main-body confirmations are arXiv-only. Partial status restored because explicit supplier/category gaps remain. No Lean deliverable or compilation."
+}
