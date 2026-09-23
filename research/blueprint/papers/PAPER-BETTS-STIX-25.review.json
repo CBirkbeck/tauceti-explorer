@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BETTS-STIX-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of AnabelianGeometryAndNonabelianChabauty for the paper's own theory, taking 48 of the 80 missing items. The form is right: the parent's title in data/atlas.json is exactly 'Anabelian geometry and nonabelian Chabauty', so the proposed title 'Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings' has the shape section 16 requires; the area arithmeticgeometry is a galaxy id; the brief is 323 words and states the final theorems. The direction is the parent's: NC.0–NC.6 build the unipotent fundamental group, Selmer varieties and quadratic Chabauty for rational points, and this paper's subject — Galois sections, their p-adic period mappings and the finiteness of the section set — extends that with the same objects, which is what a Part II is for."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of MordellLawrenceVenkatesh:LV.1 for the two items on Faltings's finiteness lemma and friendly places. The target is a designed roadmap in research/blueprint/roadmaps/MordellLawrenceVenkatesh.json, which section 16 allows a source route to name, and its LV.1 is 'Galois representations: Faltings's finiteness lemma, friendly places and purity of Hodge weights' — the same targets, from the same source (LV §§2.3–2.5)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of MordellLawrenceVenkatesh:LV.2 for six items on abelian-by-finite families and Gauss–Manin transport. LV.2 is 'Abelian-by-finite families, good models and Gauss–Manin transport on residue disks' (LV §§3.1–3.3, Definition 5.1); Betts–Stix work in the same generality and their §4 items belong there."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of MordellLawrenceVenkatesh:LV.3 for twelve items on period domains and period maps. LV.3 is 'Lagrangian period varieties and the complex and p-adic period maps' (LV §§3.2–3.4), which is where the paper's Lagrangian Grassmannian period domain and its p-adic period map belong."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of MordellLawrenceVenkatesh:LV.7 for the single item on the rational-point criterion. LV.7 is 'Rational points on the base of an abelian-by-finite family' (LV Definition 5.2, Proposition 5.3, §6), the layer that owns the criterion this item refines."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of PadicHodgeTheory:P8 for the sixteen relative p-adic Hodge theory items — Scholze's relative comparison, the structural period sheaves and the de Rham comparison for smooth proper families. P8 is the layer that plans exactly that ('the integral A_inf sheaf on the analytic pro-étale site', 'the rational structural period sheaves', 'the proper-smooth de Rham/semistable comparison'), and PadicHodgeTheory has origin campaign."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of CohomologyComparisons:CP.6 for the single Chern-class item. CP.6 owns first Chern classes of line bundles under the étale Kummer and de Rham dlog maps, which is what the item (and the finding E3 attached to it) is about."
+    }
+  ],
+  "notes": "Accept. 100 items over a 59-page paper, 1 library, 19 planned and 80 missing, every missing item routed exactly once and six planned items named as sources. I reproduced the recorded hash of arXiv v1 (7d4b7d49…). The locators are exact: of the 103 name-and-page checks, 101 land on a page the locator names once ranges are parsed, and the two that do not are right when read — Proposition 1.8 begins on p. 5 and its part (c), which E1 quotes, is on p. 6; Remark 6.23 begins on p. 53 and its item (I), which E6 quotes, is on p. 54. The routing is sound: the Part II title matches the parent's atlas title exactly and its area is a galaxy id; the four MordellLawrenceVenkatesh layers exist in research/blueprint/roadmaps/MordellLawrenceVenkatesh.json (LV.0–LV.11) with the subject matter the routes claim; PadicHodgeTheory:P8 and CohomologyComparisons:CP.6 exist in the atlas and are campaign-origin. All 19 planned items name layers that exist, in the atlas or in that designed roadmap. The one library item is right: Nat.forall_exists_prime_gt_and_eq_mod (Mathlib/NumberTheory/LSeries/PrimesInAP.lean:442) is Dirichlet's theorem on primes in arithmetic progression, with that docstring. All six findings are printed exactly as quoted and correctly diagnosed: Proposition 6.7(c)'s dim_{Q_p}(A) against the #Σ the reduction actually gives (E1); the trace step in Proposition 2.16(1), where G_v acts on Q_p^nr only through Gal(Q_p^nr/K_{v,0}) so that averaging over G_v alone gives the trace to K_{v,0} (E2); the appeal to properties proved for smooth proper varieties at the total space of a line bundle in Proposition 3.20(8) (E3); X_{y′_0} for X_{y′_i} in Lemma 4.12, against the correct indexing in the paragraph before it and in (4.3) (E4); M^1(Φ) for M^{≤1}(Φ) in (∗) on p. 51, where the right-hand side is a pair (E5); and the choice of r_0 in Remark 6.23(I), which does not exclude K′ ∩ Q(ζ_{q−1}) = Q(√±r) for a ramified prime r ≥ r_0 dividing q − 1 (E6). The G-source gap is a real boundary and not an omission: I tried the Annals article page for 201-1 p02 and the two canonical PDF paths, and the published text is subscription-only, so the arXiv numbering the locators use is the only one available. Nothing was corrected, rejected or deleted."
+}
