@@ -8,7 +8,7 @@ The machine-readable extraction is [PAPER-CASTELLA-ETAL-22.result.json](PAPER-CA
 - 39 items: 1 library, 9 planned, 29 missing;
 - 9 routes: 7 source routes and 2 coalesced Part IIs;
 - 10 prerequisite entries;
-- 13 recorded source issues.
+- 41 recorded source issues: E1–E13 from the extraction, E14–E41 added by the independent review (see the last section).
 
 ## Sources read
 
@@ -138,3 +138,60 @@ DOIs were checked against Crossref.
 - The two coalesced Part IIs keep the ids and titles already in use: PAPER-BURUNGALE-TIAN-26's CMAllPrimeMainConjectures, and the maintainer's RankOneConverse (#951).
 - **Checked by computer (PARI via cypari2):** the five example curves (conductors, torsion, isogenies, analytic ranks, reduction at p), 26b1, and the conductor-30 curve of E2.
 - No Lean was written or compiled; this is an extraction.
+
+## Independent review corrections (REV-PAPER-CASTELLA-ETAL-22, 23 September 2026)
+
+The review read the whole of arXiv v2, with the same PDF and TeX SHA-256 as the extraction. Unpaywall lists only the arXiv copy.
+- **Method.** Three read-only helper agents split the paper (Introduction and §1; §3; §§2, 4–5). They recomputed the examples and the BSD bookkeeping in PARI, re-derived the §3 algebra with small computer checks, and compared the imported results with the texts of Howard (2004) and Mazur–Rubin. The reviewer checked every finding at the page image or in the text.
+- **Routes.** All nine are accepted. The RankOneConverse brief is narrowed for Corollary 5.2.3 and Remark 5.2.4.
+- **Statuses.** They were checked against data/atlas.json and Mathlib, and are unchanged.
+
+**Recorded issues.** E1–E13 are confirmed, with these refinements made in place:
+- **E1.** The replacement curve 26b1 has rank 0, so the correction now names twists: D = 33, 41 and 61 give analytic rank 1.
+- **E2.** The affected class is every curve with no twist of good reduction at 3, for example 27a1. Even with good reduction at 3, the cited BKLOS Thm. 2.6 counts all twists; the subfamily version comes from Thm. 2.1.
+- **E3.** Locator refined.
+- **E7.** "27 | 3a" corrected to "81 | 3a", and the repair now specifies the diagonal pairing.
+- **E9.** The examples are reworded: the first could not occur.
+- **E8, E11.** Affects changes to "the proof", since each needs a short new argument.
+
+**New issues (E14–E41).** One error, one gap in a stated result, seven gaps in definitions, proofs or citations, and nineteen misprints. The substantive ones:
+- **E33 (error).** Remark 5.2.4's "at least 41.6% … rank 1 and at least 25% … rank 0" for twists of 19a3 is unsupported. The method reaches only twists by d ≡ 2 mod 3, which have density 3/8.
+- **E34 (gap).** Corollary D omits p ∤ D_K, which §3.2 assumes.
+- **E14 (gap).** λ and μ on Λ^ur are defined through a generator in Λ, which need not exist. The definition is now via Weierstrass preparation over Z_p^ur.
+- **E32 (gap).** Corollary 3.4.2 uses control at γ − 1 without proof or citation.
+- **E35.** A sign error in (5.7); both sides vanish in the proof.
+- **E36.** ĥ(P_K) = [E(K):ZP_K]²Reg omits the torsion.
+
+The extraction's "checked and correct" list for Theorem F above missed E35 and E36.
+
+**Citation gaps and misprints.**
+- E22: the wrong lemma, [MR04, Lem. 2.2.1].
+- E23: Howard's parity lemma uses his (H.5).
+- E24: MR04 Lem. 3.5.4 needs (H.6).
+- E31: the no-CM reason for the linear disjointness.
+- E37: (2.8) holds only mod p.
+- E39: the Cassels–Tate step in Corollary 5.2.2.
+- E19: the wrong H² cited in the proof of Proposition 1.1.3(ii).
+- The rest are misprints: E15–E18, E20, E21, E25–E30, E38, E40 and E41.
+
+**Items corrected in place:**
+- **2.** Λ^ur invariants.
+- **3, 4, 5, 7, 8, 9, 12, 13, 15, 16, 31.** Locators.
+- **4.** The link from the introduction's 𝔛_E to §1.4.
+- **9.** The Δ_θ-invariants, and the note on O_K^×.
+- **10.** Hida's hypotheses hold here.
+- **15.** The §2 hypotheses and the normalization of 𝒫_w.
+- **16.** S defined.
+- **17.** I_n, G_n, 𝒩, F(n).
+- **19.** Howard and Mazur–Rubin citations.
+- **20.** "Contains a submodule isomorphic to".
+- **21.** exp M^{(k)}(1) ≤ ind(κ_1) + 3e.
+- **24.** Control at γ − 1.
+- **25.** C/O_m.
+- **26.** The standing hypotheses.
+- **30.** p ∤ D_K.
+- **31.** The Selmer group.
+- **36.** BKLOS: which theorem.
+- **37.** Cassels–Tate.
+- **38.** The scope, and the unsupported percentages removed.
+- **39.** (5.7) and the torsion.
