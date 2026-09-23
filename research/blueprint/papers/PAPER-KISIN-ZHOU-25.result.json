@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KISIN-ZHOU-25",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -24,7 +24,7 @@
       "All references"
     ]
   },
-  "summary": "Continuation of the full Kisin–Zhou extraction: prove the finite Frobenius-orbit dominance choice by folding, supply a same-field local curve by etale polynomial graphs, and register image-verified source anomalies. Integral-model/display, valued-root, stack, companion and arithmetic gates remain; no formalization is claimed.",
+  "summary": "Kisin and Zhou prove that for an abelian variety A over a number field and a prime v | p > 2 of good reduction, the ℓ-adic Frobenius conjugacy classes in the Mumford–Tate group G come from a single rational class γ ∈ Conj_G(Q), for all ℓ ≠ p (Theorem 1.1). They do this through integral models of Shimura varieties of Hodge type for strongly acceptable triples at very special parahoric level. The μ-ordinary locus is open and dense and its points lift to special points (Theorem 1.3), and curves through Kottwitz–Rapoport strata over the same residue field with Chin's companions give ℓ-independence at every mod p point (Theorem 1.2). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and fourteen findings are recorded; the proof gaps E10–E12 and E14 have repairs and the rest are misprints. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3319,7 +3319,7 @@
       "kind": "theorem",
       "name": "Straight translation representative of the ordinary class",
       "statement": "Every mu-ordinary class is represented by a lift of a sigma-straight t_muprime for muprime in W_0(mu).",
-      "locator": "Proposition 2.2.6",
+      "locator": "Lemma 2.2.6",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -3346,7 +3346,8 @@
           "locator": "Proposition 2.2.6",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 2.2.6"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/N20",
@@ -3866,7 +3867,7 @@
       "kind": "definition",
       "name": "R-smooth torus",
       "statement": "T is R-smooth when its closure model T_c is smooth. Then this closure identifies with its Neron lft model; the property is unchanged by passage to the completed maximal unramified extension.",
-      "locator": "Definition 2.4.2 and following discussion",
+      "locator": "Definition 2.4.3 (with §§2.4.1–2.4.2)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -3929,14 +3930,15 @@
           "locator": "Definition 2.4.2 and following discussion",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Definition 2.4.2 and following discussion"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/R05",
       "kind": "theorem",
       "name": "Closed immersion of Neron lft models",
       "statement": "A closed immersion of tori T to Tprime with T R-smooth extends to a closed immersion of their Neron lft models.",
-      "locator": "Proposition 2.4.4(1)",
+      "locator": "Lemma 2.4.4(1)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -3960,14 +3962,15 @@
           "locator": "Proposition 2.4.4(1)",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 2.4.4(1)"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/R06",
       "kind": "theorem",
       "name": "Closed immersion of finite-type torus models",
       "statement": "Under R05, the induced map T_ft to Tprime_ft is a closed immersion.",
-      "locator": "Proposition 2.4.4(2)",
+      "locator": "Lemma 2.4.4(2)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -3991,7 +3994,8 @@
           "locator": "Proposition 2.4.4(2)",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 2.4.4(2)"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/R07",
@@ -5614,7 +5618,7 @@
       "kind": "theorem",
       "name": "Central cocharacter filtration reduces correctly",
       "statement": "The central absolute cocharacter lambda-tilde of the ordinary Newton Levi induces a filtration whose reduction is the Hodge filtration of G_0.",
-      "locator": "Proposition 3.4.3",
+      "locator": "Lemma 3.4.3",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -5639,7 +5643,8 @@
           "locator": "Proposition 3.4.3",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 3.4.3"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/D17",
@@ -5720,7 +5725,7 @@
       "kind": "construction",
       "name": "Ordinary central-filtration Breuil–Kisin lift",
       "statement": "Choose a finite field of definition K for lambda-tilde. Form S=W(k)[[u]], the preimage of the central filtration in its Frobenius pullback, trivialize the M-torsor and define a height-one Frobenius using the Eisenstein factor.",
-      "locator": "Proof of Proposition 3.4.5",
+      "locator": "Proof of Theorem 3.4.5",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -5785,14 +5790,15 @@
           "locator": "Proof of Proposition 3.4.5",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proof of Proposition 3.4.5"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/D19",
       "kind": "theorem",
       "name": "Ordinary adapted lift exists",
       "statement": "Under §3.4's acceptable good-embedding and full-fixer-equality assumptions, a mu-ordinary G_0 has an adapted lift over O_K for finite K/breve Q_p with filtration induced by lambda-tilde.",
-      "locator": "Proposition 3.4.5, existence",
+      "locator": "Theorem 3.4.5, existence",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -5817,14 +5823,15 @@
           "locator": "Proposition 3.4.5, existence",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 3.4.5, existence"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/D20",
       "kind": "theorem",
       "name": "Entire sigma-centralizer action lifts rationally",
       "statement": "The lift D19 carries the action of J_b(Q_p) extending that on G_0 in the category of p-divisible groups up to isogeny.",
-      "locator": "Proposition 3.4.5, action",
+      "locator": "Theorem 3.4.5, action",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -5848,7 +5855,8 @@
           "locator": "Proposition 3.4.5, action",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 3.4.5, action"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S01",
@@ -5998,7 +6006,7 @@
       "kind": "theorem",
       "name": "Global good Hodge embedding",
       "statement": "For p>2 and acceptable Hodge-type (G,X) with p not dividing pi_1(G_der) and R-smooth maximal-split-torus centralizer, a Hodge embedding extends to a good integral embedding for the source's associated fixer.",
-      "locator": "Proposition 4.1.4",
+      "locator": "Lemma 4.1.4",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -6023,7 +6031,8 @@
           "locator": "Proposition 4.1.4",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.1.4"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S04",
@@ -6269,7 +6278,7 @@
       "kind": "theorem",
       "name": "Special lift at a very good ordinary point",
       "statement": "For p>2, good Hodge embedding with full-fixer equality, and ordinary x where it is very good, there is a lift of x over a finite extension that is a special point and carries I_x(Q)'s action up to isogeny.",
-      "locator": "Proposition 4.1.11",
+      "locator": "Theorem 4.1.11",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -6296,14 +6305,15 @@
           "locator": "Proposition 4.1.11",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.1.11"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S10",
       "kind": "theorem",
       "name": "Ordinary points are very good",
       "statement": "Under the setup of 4.1, the embedding is very good at a mu-ordinary point.",
-      "locator": "Lemma 4.1.13",
+      "locator": "Remark 4.1.13",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -6329,14 +6339,15 @@
           "locator": "Lemma 4.1.13",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Lemma 4.1.13"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S11",
       "kind": "theorem",
       "name": "Integral extension property",
       "statement": "With assumptions A-prime, B-prime, C-prime of §4.1, the pro-away-p integral model has bijective restriction from mixed-characteristic DVR points to generic-fiber points.",
-      "locator": "Proposition 4.1.15(1)",
+      "locator": "Theorem 4.1.15(1)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -6360,14 +6371,15 @@
           "locator": "Proposition 4.1.15(1)",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.1.15(1)"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S12",
       "kind": "construction",
       "name": "Hodge local-model diagram",
       "statement": "Under S11, construct the G-torsor over the integral model and its G-equivariant smooth map of relative dimension dim G to Mloc, with level compatibility and stack descent.",
-      "locator": "Proposition 4.1.15(2)",
+      "locator": "Theorem 4.1.15(2)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -6431,7 +6443,8 @@
           "locator": "Proposition 4.1.15(2)",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.1.15(2)"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S13",
@@ -7162,7 +7175,7 @@
       "kind": "theorem",
       "name": "Neutral-component integral isomorphism",
       "statement": "The neutral pro-components of the compatible derived-isomorphic Hodge models are isomorphic over the ring of integers of the maximal unramified reflex extension.",
-      "locator": "Proposition 4.3.4",
+      "locator": "Corollary 4.3.4",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -7187,7 +7200,8 @@
           "locator": "Proposition 4.3.4",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.3.4"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S29",
@@ -7402,7 +7416,7 @@
       "kind": "definition",
       "name": "Ordinary locus of the integral Shimura model",
       "statement": "Define the locus of points whose associated tensor isocrystal lies in the mu-ordinary class, assuming that class exists; for strongly acceptable triples quasi-splitness ensures existence.",
-      "locator": "Definition 4.4.1 and 4.4.2–4.4.3",
+      "locator": "§§4.4.1–4.4.2 and Definition 4.4.3",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -7467,14 +7481,15 @@
           "locator": "Definition 4.4.1 and 4.4.2–4.4.3",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Definition 4.4.1 and 4.4.2–4.4.3"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S34",
       "kind": "theorem",
       "name": "Ordinary locus is open and dense under normality",
       "statement": "At neat away-p level, when the special fiber in §4.4 is normal, the mu-ordinary locus is open and dense.",
-      "locator": "Proposition 4.4.4",
+      "locator": "Theorem 4.4.4; Theorem 1.3(1) (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -7483,7 +7498,7 @@
         "PAPER-KISIN-ZHOU-25/N18"
       ],
       "owner": "ShimuraVarietiesHondaTatePartII",
-      "note": "Ordinary existence and normality remain visible assumptions.",
+      "note": "Ordinary existence and normality remain visible assumptions. (cc-442dc5) Theorem 4.4.4(1) proves the normality of S_K2 from the integrality of the special fibre of the local model.",
       "proofSteps": [
         "Ordinary existence and normality remain visible assumptions."
       ],
@@ -7499,7 +7514,8 @@
           "locator": "Proposition 4.4.4",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Proposition 4.4.4"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S35",
@@ -7538,7 +7554,7 @@
       "kind": "theorem",
       "name": "Exact isogeny-group sequences for the fiber product",
       "statement": "At matching points x_i there are exact sequences 1 to C_i to I_x3 to I_xi to 1, with C_i the corresponding central kernel of the datum map.",
-      "locator": "Lemma 4.4.10",
+      "locator": "Proposition 4.4.10",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -7564,14 +7580,15 @@
           "locator": "Lemma 4.4.10",
           "match": "Source item or explicitly qualified prerequisite contract; corrections and unread original proofs are recorded in named gates."
         }
-      ]
+      ],
+      "previousLocator": "Lemma 4.4.10"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/S37",
       "kind": "theorem",
       "name": "Ordinary special-point lift for a strongly acceptable triple",
       "statement": "For p>2, a strongly acceptable triple and a mu-ordinary geometric special point x, there is a finite K/breve Q_p and an integral lift specializing to x whose generic point is special.",
-      "locator": "Theorem 4.4.6, existence",
+      "locator": "Theorem 4.4.6, existence; Theorem 1.3(2) (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -8977,7 +8994,7 @@
       "kind": "theorem",
       "name": "Rational common Frobenius class on a Shimura stack",
       "statement": "For p>2 and strongly acceptable (G,X,Gpar), every y in its special fiber over F_q has gamma_y in Conj_G(Q) whose image equals gamma_y,ell for every ell different from p.",
-      "locator": "Theorem 5.1.4",
+      "locator": "Theorem 5.1.4; Theorem 1.2 (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -11100,7 +11117,9 @@
         "PAPER-KISIN-ZHOU-25/C08",
         "PAPER-KISIN-ZHOU-25/A01",
         "PAPER-KISIN-ZHOU-25/A12"
-      ]
+      ],
+      "status": "unavailable",
+      "resolution": "The November 2024 Annals revision is not openly available (Unpaywall lists no copy); arXiv v2, the latest arXiv version, was reread and E3–E9 were checked there."
     },
     {
       "id": "G-local",
@@ -11138,7 +11157,9 @@
         "PAPER-KISIN-ZHOU-25/S20",
         "PAPER-KISIN-ZHOU-25/S33",
         "PAPER-KISIN-ZHOU-25/A06"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "He, He–Nie, He–Rapoport, He–Zhou and Haines–Rapoport are cited suppliers."
     },
     {
       "id": "G-neron",
@@ -11158,7 +11179,9 @@
         "PAPER-KISIN-ZHOU-25/R12",
         "PAPER-KISIN-ZHOU-25/R13",
         "PAPER-KISIN-ZHOU-25/S18"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Edixhoven, BLR and the Bruhat–Tits root charts are cited suppliers."
     },
     {
       "id": "G-models",
@@ -11192,7 +11215,9 @@
         "PAPER-KISIN-ZHOU-25/S37",
         "PAPER-KISIN-ZHOU-25/S40",
         "PAPER-KISIN-ZHOU-25/C01"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "KPZ, AGLR, FHLR, Levin and Scholze–Weinstein are cited suppliers."
     },
     {
       "id": "G-display",
@@ -11213,7 +11238,9 @@
         "PAPER-KISIN-ZHOU-25/D18",
         "PAPER-KISIN-ZHOU-25/D19",
         "PAPER-KISIN-ZHOU-25/D20"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Zink, Anschütz and Kisin 2010 are cited suppliers."
     },
     {
       "id": "G-tensors",
@@ -11241,7 +11268,9 @@
         "PAPER-KISIN-ZHOU-25/A02",
         "PAPER-KISIN-ZHOU-25/A03",
         "PAPER-KISIN-ZHOU-25/A04"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Deligne, Blasius–Wintenberger and KMPS are cited suppliers."
     },
     {
       "id": "G-components",
@@ -11254,7 +11283,9 @@
         "PAPER-KISIN-ZHOU-25/S42",
         "PAPER-KISIN-ZHOU-25/S43",
         "PAPER-KISIN-ZHOU-25/S44"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "KP18 and KPZ component descent are cited suppliers."
     },
     {
       "id": "G-functoriality",
@@ -11268,7 +11299,9 @@
         "PAPER-KISIN-ZHOU-25/S31",
         "PAPER-KISIN-ZHOU-25/S32",
         "PAPER-KISIN-ZHOU-25/S35"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Pappas–Rapoport's canonical integral models are a cited supplier."
     },
     {
       "id": "G-roots",
@@ -11280,7 +11313,9 @@
         "PAPER-KISIN-ZHOU-25/C07",
         "PAPER-KISIN-ZHOU-25/C09",
         "PAPER-KISIN-ZHOU-25/C13"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E12 records the orbit-choice step in the proof of Proposition 5.2.3, with the folded dominance repair written out in the items; the valued-root normalization of BT84 is a cited supplier."
     },
     {
       "id": "G-curves",
@@ -11294,7 +11329,9 @@
         "PAPER-KISIN-ZHOU-25/C12",
         "PAPER-KISIN-ZHOU-25/C13",
         "PAPER-KISIN-ZHOU-25/R14"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E11 records the reliance on [Poo04, Corollary 3.4] in Corollary 5.2.7, with the same-field étale-graph argument written out in the items."
     },
     {
       "id": "G-stacks",
@@ -11305,7 +11342,9 @@
         "PAPER-KISIN-ZHOU-25/C10",
         "PAPER-KISIN-ZHOU-25/C12",
         "PAPER-KISIN-ZHOU-25/A11"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Laumon–Moret-Bailly is a cited supplier."
     },
     {
       "id": "G-companions",
@@ -11320,7 +11359,9 @@
         "PAPER-KISIN-ZHOU-25/E11",
         "PAPER-KISIN-ZHOU-25/E15",
         "PAPER-KISIN-ZHOU-25/P16"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Chin 2004 and L. Lafforgue are cited suppliers."
     },
     {
       "id": "G-global",
@@ -11343,7 +11384,9 @@
         "PAPER-KISIN-ZHOU-25/A13",
         "PAPER-KISIN-ZHOU-25/A14",
         "PAPER-KISIN-ZHOU-25/A15"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E10 and E14 record the missing semisimple choice of the real lift in Lemma 6.3.3; Steinberg, Chebotarev, Krasner and Langlands–Rapoport/Kottwitz are cited suppliers."
     },
     {
       "id": "G-weights",
@@ -11351,7 +11394,9 @@
       "consumers": [
         "PAPER-KISIN-ZHOU-25/P11",
         "PAPER-KISIN-ZHOU-25/E08"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "E8 records the Tate-twist convention; the Weil and Rosati inputs are cited suppliers."
     }
   ],
   "sourceArchives": [
@@ -14841,7 +14886,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -14859,7 +14905,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -14870,17 +14917,19 @@
       "locator": "arXiv2103.09945v2, p23,§3.2.5, canonical comparison c; final Annals text not compared",
       "printed": "c: U_tilde_1 tensor W_hat(A_G/a_G) -> M_tilde_1 tensor W_hat(A_G)",
       "correction": "Reduce the right side to W_hat(A_G/a_G) as well, with the same coefficient maps.",
-      "reason": "The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation5.2.1 gives both sides over the quotient.",
-      "affects": "the proof",
+      "reason": "The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation5.2.1 gives both sides over the quotient. (cc-442dc5) Reclassified to affect nothing: the very-good condition compares c(s_{α,0} ⊗ 1) with s_{α,0} ⊗ 1 after reduction modulo a_G̃, so the intended target M̃_1 ⊗ Ŵ(A_G̃/a_G̃), as in [KPZ]'s canonical isomorphism, is clear and is the one used.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E4",
@@ -14888,17 +14937,19 @@
       "locator": "arXiv2103.09945v2, p25,equation(3.3.2.1) and its following tensor label; final Annals text not compared",
       "printed": "T_p(G)^vee tensor_(breve Z_p) W_hat(O_K); s_(alpha,0)",
       "correction": "Tensor the etale Tate lattice over Z_p. The tensors transported from that lattice are s_(alpha,et); s_(alpha,0) denotes the crystalline tensors on the target.",
-      "reason": "T_p(G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In§3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha,et) to s_(alpha,0). Keep the crystalline lift tilde-s on the right.",
-      "affects": "the proof",
+      "reason": "T_p(G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In§3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha,et) to s_(alpha,0). Keep the crystalline lift tilde-s on the right. (cc-442dc5) Reclassified to affect nothing: (3.3.2.1) is Kisin's comparison T_pG^∨ ⊗_{Z_p} Ŵ(O_K) ≅ D(G)(Ŵ(O_K)); the tensors transported from the Tate module are the s_{α,ét} named in the preceding paragraph, so the intended statement is clear and nothing uses the printed form.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E5",
@@ -14906,17 +14957,19 @@
       "locator": "arXiv2103.09945v2, p34,Proposition4.2.3(5); final Annals text not compared",
       "printed": "X_*(G^ab)_I is torsion.",
       "correction": "Use torsion-free.",
-      "reason": "The immediately following Lemma4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract.",
-      "affects": "a stated result",
+      "reason": "The immediately following Lemma4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract. (cc-442dc5) Reclassified to affect nothing: Lemma 4.2.4 assumes 'X_*(G^ab)_I is torsion-free' (v2 p.34) and the proof of Lemma 4.3.8 cites 'torsion-free by Proposition 4.2.3 (5)' (p.41), so the intended property is torsion-free and it is the one used.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E6",
@@ -14924,17 +14977,19 @@
       "locator": "arXiv2103.09945v2, p48,§5.2.1, integral dominance; final Annals text not compared",
       "printed": "an integral linear combination of positive coroots",
       "correction": "Require a nonnegative integral linear combination of positive coroots.",
-      "reason": "Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g.0 and2 in PGL2). The Bruhat-compatible order requires the positive integral cone.",
-      "affects": "a stated result",
+      "reason": "Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g.0 and2 in PGL2). The Bruhat-compatible order requires the positive integral cone. (cc-442dc5) Reclassified to affect nothing: without 'non-negative' the relation would not be an order; the next sentence identifies ≼ with the Bruhat order on W_J\\W/W_J, which is the usual dominance order, and that is the order used.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E7",
@@ -14942,17 +14997,19 @@
       "locator": "arXiv2103.09945v2, p52,Lemma5.2.5, hypothesis on t_lambda; final Annals text not compared",
       "printed": "t_lambda in G(F_q[[t]])",
       "correction": "Use t_lambda in G(F_q((t))) for the loop element; the conjugator g remains in the positive-loop parahoric.",
-      "reason": "The earlier proof onp49 chooses a loop-field lift, andp52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives.",
-      "affects": "a stated result",
+      "reason": "The earlier proof onp49 chooses a loop-field lift, andp52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives. (cc-442dc5) Reclassified to affect nothing: ṫ_λ is a lift of the translation t_λ, an element of G(F_q((t))); the proof intersects G(k[[t]]) with ṫ_λ G(k[[t]]) ṫ_λ^{−1} inside G(k((t))) and uses only that ṫ_λ is defined over F_q.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E8",
@@ -14960,17 +15017,19 @@
       "locator": "arXiv2103.09945v2, p55,§6.1.1, Hodge types of Betti cohomology; final Annals text not compared",
       "printed": "H^1_B(A(C),Q); ((0,-1),(-1,0))",
       "correction": "For the stated H^1 and the dual Tate comparison in§6.1.3, use cohomological types ((1,0),(0,1)). If choosing H_1 instead, change the realization and dual conventions consistently throughout.",
-      "reason": "The negative types belong to homology. The displayed§6.1.3 comparison is with T_l(A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate.",
-      "affects": "the proof",
+      "reason": "The negative types belong to homology. The displayed§6.1.3 comparison is with T_l(A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate. (cc-442dc5) Reclassified to affect nothing: V_B is identified with T_ℓA^∨ ⊗ Q_ℓ in §6.1.3, i.e. with H^1 up to a Tate twist; the Mumford–Tate group, which is all that §6 uses, is the same for H^1 and H^1(1) because both contain the scalars.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E9",
@@ -14978,17 +15037,19 @@
       "locator": "arXiv2103.09945v2, p58,proof of Lemma6.2.6(2), diagonal conjugacy; final Annals text not compared",
       "printed": "h^(-1) g h = g; h_1 g h_1^(-1)=gprime",
       "correction": "The premise is h^-1 g h=gprime and its first-coordinate consequence is h_1^-1 g h_1=gprime.",
-      "reason": "Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid.",
-      "affects": "the proof",
+      "reason": "Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid. (cc-442dc5) Reclassified to affect nothing: the page image (v2 p.58) shows 'h^{−1}gh = g' where g′ is meant and 'h_1gh_1^{−1} = g′' where h_1^{−1}gh_1 = g′ follows; either way g and g′ are conjugate in G(Q̄), which is all that is used.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
-      "evidence": "PDF text and corresponding page image inspected on2026-09-23."
+      "evidence": "PDF text and corresponding page image inspected on2026-09-23.",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-KISIN-ZHOU-25/E10",
@@ -15003,7 +15064,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -15021,7 +15083,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -15039,7 +15102,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -15057,7 +15121,8 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
@@ -15075,10 +15140,21 @@
         "Annals2025 landing page https://annals.math.princeton.edu/2025/202-3/p03 checked2026-09-23: revision19November2024; no correction link found. Final article text not obtained.",
         "arXiv2103.09945 version history and freshly downloadedv2,7October2024, checked2026-09-23; bytes match previous read.",
         "Author PDF https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf direct retrieval failed TLS certificate verification; author homepage web retrieval timed out; no newer text certified.",
-        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim."
+        "Web search2026-09-23 for Kisin Zhou independence Frobenius conjugacy erratum coroot orbit returned no correction; this is a bounded search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: arXiv v2 re-fetched (SHA-256 62d26eb9…, matching), the latest arXiv version. The Annals text is not openly available (Unpaywall lists no copy), and Crossref lists no correction for 10.4007/annals.2025.202.3.3."
       ],
       "versionScope": "Finding applies to the inspected preprint. New means no correction located in this bounded search; no assertion of priority or independent confirmation.",
       "evidence": "PDF text and corresponding page image inspected on2026-09-23."
     }
-  ]
+  ],
+  "summaryBefore": "Continuation of the full Kisin–Zhou extraction: prove the finite Frobenius-orbit dominance choice by folding, supply a same-field local curve by etale polynomial graphs, and register image-verified source anomalies. Integral-model/display, valued-root, stack, companion and arithmetic gates remain; no formalization is claimed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1069,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v2 re-fetched (hash matches); §§2.2, 2.4, 3.2–3.3, 4.2, 4.4, 5.2 and 6.1–6.2 re-read for the findings, and every numbered statement checked against the items.",
+    "changes": "E3–E9 reclassified to affect nothing after checking the text; seventeen locators corrected to v2's labels; Theorems 1.2 and 1.3 mapped as introduction forms; gap statuses recorded; status complete."
+  }
 }
