@@ -1,96 +1,90 @@
 # Mistakes in Duke–Imamoḡlu–Tóth, *Geometric invariants for real quadratic fields*
 
-Job ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-DUKE-IMAMOGLU-TOTH-16.json` beside this file.
+Original worker: Claude Code, session `cc-fb70e5`, 22 September 2026. Independent reviewer: Codex, session `codex-7e92bd`, job `REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16`, 23 September 2026. The adjacent JSON records **thirteen confirmed findings and one rejected candidate**.
 
-**Paper and version read.** W. Duke, Ö. Imamoḡlu and Á. Tóth, Annals of Mathematics 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8.
-- Read: the publisher PDF (SHA-256 `a67de715…5f61`), as by the extraction. Every passage below was re-read there, and each formula was checked on the page image.
-- Collated: the author preprint of 29 July 2016 on W. Duke's page (`geometric.pdf`, SHA-256 `f1f042ad…cfcf`). It has the same text at every locator.
+The review collated the [published article](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Annals 184 (2016), 949–990, with the [29 July 2016 author preprint](https://www.math.ucla.edu/~wdduke/preprints/geometric.pdf). The relevant errors occur in both. SHA-256 hashes:
 
-**Earlier work.** The extraction PAPER-DUKE-IMAMOGLU-TOTH-16 (partial) found E1–E4 and E6–E10:
-- E6 in its section "The spectral norm gate";
-- the others in its "Corrections and proof qualifications".
+- Publisher, 42 pages: `a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61`.
+- Author preprint, 33 pages: `f1f042adf06eafd410b43b819e076c24c9be8f928f0a8a7927f7569ef8b5cfcf`.
 
-It also checked the endpoint order in (3.5), p.958, and found it correct. E5 is new here.
+On 23 September 2026, the [journal page](https://annals.math.princeton.edu/2016/184-3/p08), [Crossref record](https://api.crossref.org/works/10.4007/annals.2016.184.3.8), [Duke's publication list](https://www.math.ucla.edu/~wdduke/), and title/arXiv/correction searches yielded no separate erratum or corrected DIT16 version. This is a bounded search. [Humphries–Nordentoft v2](https://arxiv.org/pdf/2211.05890v2), Remark 3.22, does identify the coding problem in E5; it does not give the counterexample family below. No global novelty claim is made for that family.
 
-**Existing corrections.** None was found:
-- the Annals page links no erratum;
-- W. Duke's page lists corrections for other papers but not this one;
-- the paper is not on arXiv;
-- a web search found nothing.
+| ID | Published page; author page | Verdict and correction |
+|---|---|---|
+| E1 | 961; 11 | Confirmed: hyperbolic Laplacian uses y². |
+| E2 | 965; 14 | Confirmed: the normalized lift is unique only up to a unit complex scalar. |
+| E3 | 966, 981–982; 15, 27–28 | Confirmed: five occurrences need 1/4+r². |
+| E4 | 968; 16 | Confirmed: restore π in the area sum. |
+| E5 | 968; 17 | Confirmed: the uniform logarithmic upper bound for ℓ_A is false. |
+| E6 | 968–969; 17 | Confirmed gap: retain the spectral norm factor or use unit vectors. |
+| E7 | 970; 18 | Confirmed: include the character in each Euler factor. |
+| E8 | 981–982; 27–28 | Confirmed: use the absolute value of D for all permitted signs. |
+| E9 | 984; 30 | Confirmed: the sine integral needs 2^(ν−1) in the denominator. |
+| E10 | 985; 30 | Confirmed: the intermediate Bessel series needs √2. |
+| E11 | 983–985; 29–30 | Rejected as a substantive gap: the displayed Frobenius expansions suffice. |
+| E12 | 961; 11 | Confirmed: the norm integrates φ(z), not φ(x). |
+| E13 | 962; 11 | Confirmed: retain z in the completed Eisenstein functional equation. |
+| E14 | 963; 12 | Confirmed: use n throughout the Eisenstein L-series sum. |
 
-One later paper touches E5: Humphries–Nordentoft, arXiv 2211.05890v2, Remark 3.22.
+E1–E10 retain the original errata IDs. E11 records the rejected extraction E11 candidate. Errata E12 and E13 correspond to extraction E15 and E16. Extraction E12–E14 concern DIT11 and Biró, so were not copied into this paper's errata. E14 was found during this review. The extraction files remain unchanged.
 
-**Effect.** The main results stand:
-- Theorem 1;
-- the equidistribution Theorem 2;
-- the Hecke and Katok–Sarnak type formulas, Theorems 3 and 4, apart from the uniqueness clause of Theorem 4 (E2).
+## Independent mathematical checks
 
-E6 is a gap in the proof of Theorem 2, repaired by normalizing the cusp forms correctly. E5 is a false remark that nothing uses. The rest are misprints.
+**E1–E4.** Acting on y^s distinguishes the two Laplacians immediately; (7.10) already uses the correct one. Multiplication of F by any scalar of modulus one preserves its norm, the linear Shimura relation, and the product b(d′)overline(b(d)); even −F disproves the stated uniqueness. A basis chosen in Proposition 6 fixes a representative but is not part of Theorem 4's conditions. Numerically, r=13.77975135 gives 1/4+r²≈190.13154727, whereas the half-shift gives 190.38154727. Finally, (3.3) supplies π times the period length for each area, so summing must preserve that factor.
 
-## E1. The Laplacian (misprint)
+**E5: an unbounded family, not just a numerical pattern.** Let a≥3 be odd and D=a²+4 squarefree. Set u=(a+√D)/2 and w=u+1. Then u has norm −1, w is reduced, and wZ+Z=O_K represents the principal narrow class. Its primitive minus cycle consists of a+2 followed by a−1 twos. There is only one digit different from two, so this cycle is primitive and ℓ_I=a. For N(n)=[[n,−1],[1,0]], the monodromy is
 
-On p.961 the paper says E(z, s) is an eigenfunction of "Δ = −y^{−2}(∂²_x + ∂²_y)" with eigenvalue s(1 − s). The hyperbolic Laplacian is −y²(∂²_x + ∂²_y). Only that operator is Γ-invariant and has Δ(y^s) = s(1 − s)y^s. The paper's (7.10), p.972, uses the correct operator.
+\[
+N(a+2)N(2)^{a-1}=
+\begin{pmatrix}a^2+a+1&-a^2\\a&1-a\end{pmatrix}.
+\]
 
-## E2. Uniqueness in Theorem 4 (error)
+Its determinant is one, its trace is a²+2, and its expanding eigenvalue is (a²+2+a√D)/2=u². The product formula (6.3) identifies this with ε_D. Consequently
 
-Theorem 4 asserts a *unique* nonzero weight-1/2 form F with ⟨F, F⟩ = 1 that satisfies (5.16) for all coprime fundamental d′, d and the Shimura relation. Every condition is invariant under F ↦ uF for |u| = 1:
-- the norm is unchanged;
-- the Shimura relation is linear;
-- the left side of (5.16), 12√π|D|^{3/4} b(d′)\overline{b(d)}, is unchanged.
+\[
+\frac{\ell_I}{\log\epsilon_D}
+=\frac{a}{2\operatorname{arsinh}(a/2)}\longrightarrow\infty.
+\]
 
-So −F is a second solution. The correct statement is uniqueness up to a unimodular constant, or uniqueness after fixing, say, b(d₀) > 0 for one d₀ with b(d₀) ≠ 0. Existence and the formula itself are unaffected. The proof produces F as a member of a chosen orthonormal basis B_r (Proposition 6).
+[Friedlander–Iwaniec, Theorem 2.1](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7023D0C01F0F50F6BDDCB6586475B63/S0013091508000989a.pdf/squarefree_values_of_quadratic_polynomials.pdf), applied with their fixed parameter D=4, supplies a positive density of squarefree a²+4. The local factor at 2 is 1/2, while all other factors are positive and their deviations from one are summable. Every squarefree value here comes from odd a, giving infinitely many fundamental discriminants. This verifies the asymptotic assertion without assuming infinitely many prime values of a quadratic polynomial.
 
-## E3. The eigenvalue 1/2 + r² (misprint)
+Exact arithmetic checked the complete cycles and products for a=5,7,13,21,51,101,201,401,1001; all nine discriminants are squarefree. The ratio rises from about 1.52 to 72.44. These computations supplement the general argument. The erroneous upper bound is a stated assertion even though unnumbered, so `affects` is corrected to `a stated result`; the equidistribution proof uses the lower bound instead.
 
-The numerical example on p.966 says "λ = 190.13154731 ··· = 1/2 + r², where r/2 = 6.889875675". Proposition 6 and its proof on pp.981–982 also write "Laplace eigenvalue 1/2 + r²". The paper's convention (5.6) is λ = 1/4 + r², and the numbers agree with it: r = 13.77975135 gives 1/4 + r² = 190.131547…, while 1/2 + r² = 190.381547….
+**E6: normalization and the actual missing estimate.** Read [Duke 1988](https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf), pp.77–79 and 85. His Fourier expansion uses the same Whittaker normalization, and his spectral cusp forms have norm one. Theorem 5 contributes cosh(πt/2), with t=r/2 here. The product of two coefficients in DIT16 (5.16) therefore contributes cosh²(πr/4). The cited results do not justify dropping this factor for φ/‖φ‖².
 
-## E4. The factor π in (6.2) (misprint)
+The level-one specialization of [Humphries–Nordentoft (4.2), (4.5)](https://arxiv.org/pdf/2211.05890v2), p.21, gives
 
-(6.2) reads Σ area(F_A) = Σ ℓ_A. Theorem 1 gives area(F_A) = πℓ_A, so the right side is πΣℓ_A. The proof only needs a lower bound up to a constant, so nothing changes.
+\[
+\|\phi\|^2=\frac{2L(1,\operatorname{ad}\phi)}{\cosh(\pi r)}.
+\]
 
-## E5. The upper bound for ℓ_A (error)
+The leading coefficient is one in their Whittaker convention because [DLMF 13.18.9](https://dlmf.nist.gov/13.18.E9) converts that convention to DIT16's factor 2 in front of √y K. On replacing φ/‖φ‖² by u=φ/‖φ‖, the multiplier ‖φ‖ cancels the exponential growth: cosh²(πr/4)/√cosh(πr) is bounded. Any polynomial upper bound for the adjoint L-value, such as the standard convexity bound, can be absorbed into the unspecified exponent C. No r^ε bound is needed for this repair.
 
-The Remark on p.968 says Eichler's argument gives ℓ_A < c log ε_D for an explicit c. Here ℓ_A is the length of the minus continued fraction period. The bound is false.
+Equivalently retain the exponential in the original coordinates and use
 
-- **The family.** Take a odd with D = a² + 4 squarefree, for example a = 13 (D = 173) or a = 101 (D = 10205 = 5·13·157). Such D is a fundamental discriminant, and a positive proportion of a qualify.
-- **The period.** For the principal class, (a + √D)/2 has regular continued fraction [a; a, a, …]. Each regular partial quotient a in an odd position becomes a run of a − 1 twos in the minus continued fraction. The reduced period is therefore ((a + 2, 2, …, 2)), and ℓ_A = a ≈ √D.
-- **The unit.** ε_D = ((a + √D)/2)², so log ε_D ≈ 2 log a ≈ log D. Hence ℓ_A / log ε_D → ∞.
-- **Computation.** For a = 5, 7, 13, 21, 51, 101, 201, 401, a direct computation gives ℓ_A = a. In each case the product of the reduced w over the period equals ε_D, as in the paper's (6.3), which confirms that ℓ_A is the paper's quantity.
+\[
+c(\phi)=\|\phi\|\langle f,u\rangle,
+\qquad |c(\phi)|\le\|\phi\|(1/4+r^2)^{-N}\|\Delta^Nf\|_2.
+\]
 
-Humphries and Nordentoft (arXiv 2211.05890v2, Remark 3.22) observed that Eichler's argument bounds the geometric code of a closed geodesic rather than ℓ_A, the arithmetic code, so the remark is unsupported. The counterexample family is new here. Only the paper's lower bound (6.4), ℓ_A > log ε_D / log(√D + 1), is proved and used.
+This follows by integration by parts and Cauchy–Schwarz. The previous errata explanation overstated the normalization problem with c(φ): polynomial decay can hold for the Hecke-normalized coefficients too, but suppressing their norm factor hides the needed cancellation. The unit-vector proof supplies the equidistribution bound. E6 remains a gap in the stated deduction, not a separately proved counterexample to the printed uniform estimate.
 
-## E6. The normalization in (6.6) (gap)
+**E7–E10.** Multiplicativity determines the missing character in the Euler product. The definition of T includes negative discriminants and (5.16) has the absolute value, identifying E8's intended correction. At ν=3, β=0 the sine integral equals π/2, while the printed expression is 2π. The full correction follows from [DLMF 5.12.6](https://dlmf.nist.gov/5.12.E6). For E10, [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2) gives the Bessel series, and multiplying by t^(1/2) leaves the missing √2. The corrected intermediate expressions yield the existing (A.2) and (A.3).
 
-Proposition 2 states Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪ r^C |D|^{13/28+ε} and says this "follows straight from Theorem 4 and Theorem 5 of [12]".
+**E11: why the extra gap is rejected.** The integral is generally not an ordinary Taylor series at zero, but the paper explicitly displays it as t^s times a power series in (A.2), and does the same for the Bessel side in (A.3). It compares the coefficients of t^s, t^(s+1), t^(s+2), so no ordinary regular-point uniqueness theorem is being invoked.
 
-**What the cited results give.** The cusp forms are normalized by a(1) = 1 ((5.7), p.962). Duke's Theorem 5 (1988, p.85, checked on the page image) bounds the coefficients of a spectral weight-1/2 form of eigenvalue 1/4 + t² by |λ|^A ch(πt/2)|n|^{−2/7+ε}, with t = r/2 here. So Theorem 4 gives only
+More explicitly, put f=t^s H. The Whittaker series makes H entire in t: on each compact t-set, the integrand after removing t^s is bounded by a constant times sin(θ)^(Re(s)−1), and Re(s)>0 makes this integrable. This also justifies differentiation and the endpoint integration by parts; the boundary expression decays as sin(θ)^Re(s). The common differential equation gives
 
-  |Weyl(⟨φ, φ⟩^{−1}φ, χ)| ≪ r^C cosh²(πr/4) |D|^{13/28+ε}.
+\[
+tH''+2sH'+tH=0,
+\qquad 2s c_1=0,\qquad
+n(n+2s-1)c_n=-c_{n-2}\quad(n\ge2).
+\]
 
-**Why the factor matters.** The exponential cannot be discarded. For a(1) = 1, Rankin–Selberg unfolding gives ⟨φ, φ⟩ ≍ L(1, sym²φ)/cosh(πr), so ⟨φ, φ⟩^{−1}φ is about e^{πr/2} times the unit vector u = φ/‖φ‖.
+Every denominator is nonzero in the stated half-plane. Thus c₀ alone determines H, also when s=1/2 or c₀=0. The explicit series and elementary recurrence already make the coefficient comparison valid; an explanatory recurrence would improve exposition, but is not a new mathematical hypothesis or substantive repair. This rejection leaves E9–E10 intact. Five high-precision integral checks, including s=1/2, vanishing leading coefficient, and complex parameters, support the calculation but are not its proof.
 
-**The repair.** State (6.6) for u. Then the exponentials cancel:
+**E12–E13.** Both variable slips were confirmed on the published images and author p.11. They do not change the intended norm or functional equation.
 
-  Weyl(u, χ) = ‖φ‖ Weyl(⟨φ, φ⟩^{−1}φ, χ) ≪ L(1, sym²φ)^{1/2} r^C |D|^{13/28+ε}, with L(1, sym²φ) ≪ r^ε.
+**E14.** Both page images mix n and m in the summand. Replacing m by n recovers the identity: write n=dk in the divisor sum to obtain Σ_(d,k≥1) d^(−s−it)k^(−s+it)=ζ(s+it)ζ(s−it), absolutely convergently for Re(s)>1 and real t.
 
-This is what the proof of Theorem 2 needs, because the spectral term is c(φ)⟨φ, φ⟩^{−1}φ = ⟨f, u⟩u, and the bound c(φ) ≪ |r|^{−A} quoted on p.969 holds for u. Theorem 2 stands.
-
-## E7. The Euler product of L(s, χ) (misprint)
-
-On p.970, "L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − N(p)^{−s})^{−1}". The Euler factor must be (1 − χ(p)N(p)^{−s})^{−1}; as printed the product is the Dedekind zeta function of K.
-
-## E8. |D|^{3/4} in Proposition 6 (misprint)
-
-Proposition 6 gives T(φ, χ) = 12π^{1/2} D^{3/4} b(d′)\overline{b(d)} for all non-square D = d′d, including D < 0, which it needs in order to prove Theorem 4 in those cases. The factor must be |D|^{3/4}, as in (5.16).
-
-## E9. The sine-power integral in Appendix A (misprint)
-
-On p.984 the formula quoted from Gradshteyn–Ryzhik 3.892(1) omits 2^{ν−1} from the denominator. The correct formula is
-
-  ∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (2^{ν−1} Γ((ν+β+1)/2) Γ((ν−β+1)/2)).
-
-For ν = 3, β = 0 the integral is π/2, while the printed formula gives 2π. (A.2) is correct: with ν = n + s the factor 2^{n+s−1} cancels (2t)^{n+s} and leaves the printed 2π.
-
-## E10. The Bessel series in Appendix A (misprint)
-
-On p.985, "t^{1/2} J_{s−1/2}(t) = Σ (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r))" lacks a factor √2, since t^{1/2}(t/2)^{s−1/2+2r} = √2 (t/2)^{s+2r}. (A.3) is correct with the √2, and its leading coefficient agrees with that of (A.2) by the duplication formula. Lemma 7 stands.
+The review checks these findings and their local repairs; it does not claim a fresh line-by-line review of every theorem in the paper. No Lean file was required or compiled.
