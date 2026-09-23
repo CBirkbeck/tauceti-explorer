@@ -1457,7 +1457,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
     "the Cambridge Core article page, which lists no erratum, corrigendum or related correction",
     "arXiv:2009.14236, whose latest version is v6 of 29 November 2023 and which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the arXiv v6 source, whose e-print hash reproduces exactly (9b813ef6…): `Let $E_v/F_v$ be a finite Galois assumption such that $\\Gal(E_v/F_v)$ has order coprime to $\\ell$.' Two sentences earlier, in the paragraph the subsection continues, the same object is introduced correctly: `let $E_v/F_v$ be a finite Galois extension and $G := \\Res_{E_v/F_v}(H_{E_v})$'. A slip of the pen with an unambiguous reading.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E2",
@@ -1472,7 +1477,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, and the source settles it twice over: `Let $S_F$ be a maximal $F_v$-split torus of $H$ contained in $S_G$, $Z_F = Z_H(S_H)$, and $\\cZ_F \\subset Z_F(F_v)$', with `$Z_E := Z_G(S_G)$' one clause earlier. I counted the occurrences of the symbol $S_H$ in the whole file: there is exactly one, this one. So it is never defined, and the torus meant is $S_F$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E3",
@@ -1487,7 +1497,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `Since $U_0 \\supset H(F_v)_{x,0}$, the Cartan decomposition implies that double cosets $U_0 \\bs G_v / U_0$ are represented by $z \\in \\cZ_F$.' Everything in that sentence lives in $H_v$: $U_0 = K_0^{\\Gal(E_v/F_v)}$ contains $H(F_v)_{x,0}$, and $\\cZ_F \\subset Z_F(F_v) \\subset H(F_v)$. The Cartan decomposition being applied is the one quoted in §6.2.2 for $H(F_v)$, and the statement being proved is that $U_r \\bs H_v / U_r \\to K_r \\bs G_v / K_r$ is injective — so $U_0 \\bs H_v / U_0$ is the object the sentence is about, and the next sentence's $K_0z_1K_0 = K_0z_2K_0$ is where $G_v$ enters.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E4",
@@ -1502,7 +1517,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands in both places",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim, both occurrences in one sentence: `Note that $\\Gal(E_r/F_r)$ is of order prime-to-$\\ell$ while $K_r$ is pro-$\\ell$ thanks to the assumption $r>0$, so then $H^1(\\Gal(E_r/F_r); K^b_r) = 0$.' No fields $E_r$ or $F_r$ occur anywhere in the paper; the group with order prime to $\\ell$ by the standing assumption of §6.2.1, and the one acting on $K_r$ through the $\\sigma$ that the same paragraph uses, is $\\Gal(E_v/F_v)$. The subscript has been copied from $K_r$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E5",
@@ -1517,7 +1537,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `It is evident from the definition that $Z(\\Br)$ through the quotient $Z(\\Cal{H}(G, K_r)^{\\sigma}) / N \\cdot \\mf{Z}(G, K_r)$.' The verb is missing, and the sentence that follows composes $Z(\\Br)$ with the Tate diagonal on $\\mf{Z}(G,K_r)$, which is exactly what factoring through that quotient licenses. The same phrase `factors through the quotient' is used correctly at the head of Appendix B.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E6",
@@ -1532,7 +1557,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: `We say will be called \\emph{automorphic} if it arises via Proposition \\ref{prop: galois rep} from $C_c^{\\infty}(\\Bun_{G,D}(\\F_\\ell); k)$ for some $D$'. The sentence has no subject; the preceding paragraph of the same definition gives the parallel clause in full, which fixes the meaning. Two ways of phrasing the definition have been run together.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   },
   {
    "id": "PAPER-FENG-24/E7",
@@ -1547,7 +1577,12 @@
     "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where both occurrences stand and where B.3 is again a Lemma",
     "the Cambridge Core article page, which lists no erratum or corrigendum",
     "arXiv:2009.14236v6, which has the same text"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I checked it the way the finding says it was found. The two sentences read `Then using Proposition \\ref{B: eichler-shimura}, we may eliminate all powers of partial Frobenius with exponent $\\geq \\dim W$' and `Therefore the Eichler-Shimura relation from Proposition \\ref{B: eichler-shimura} is also satisfied in the right column', and the label sits on `\\begin{lemma}\\label{B: eichler-shimura}'. Rebuilding the paper's thirteen-environment counter from the source confirms the numbering the finding relies on: B.1 is a Proposition (Xue's Eichler–Shimura relation for ordinary cohomology) and B.3 is the Lemma, its Tate-cohomology analogue, which is the statement §B.3 needs. Only the word is wrong.",
+    "by": "Claude Code, session cc-7b31c4, issue #1355"
+   }
   }
  ]
 }

@@ -208,3 +208,39 @@ V. Lafforgue and Böckle–Harris–Khare–Thorne are already queued (`PAPER-LA
 * A statement-by-statement comparison of the published numbering with the preprint numbering across all
   eight sections, and confirmation of each source issue against the published text.
 * No Lean file is part of this job.
+
+## Review (REV-PAPER-FENG-24, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1355), **accepted** this
+extraction and all four routes, and needed no correction. The full record is
+[REV-PAPER-FENG-24.md](../reviews/REV-PAPER-FENG-24.md).
+
+The recorded arXiv v6 e-print hash reproduces byte for byte and the archive holds the recorded
+`Smith_base_change.tex`, 3549 lines; all seven findings are in that text. 107 items with all 89
+missing ones routed exactly once; all four stage ids and all 15 planned ids resolve; both Part II
+titles reproduce their parents' atlas titles exactly, all three areas are galaxy ids, and the new
+roadmap's id is free. All 15 library declarations resolve, in Mathlib and Tau Ceti.
+
+**The three-way split is endorsed as the substantive judgement.** Smith theory, parity sheaves and
+the base-change functor have no home in the atlas and become a new roadmap; the global and local
+applications extend two roadmaps whose parents own exactly the theory the paper consumes; and the
+eight items belonging to the shtuka roadmap itself go back to it as a source route rather than being
+absorbed into the Part II.
+
+**Locators were checked mechanically.** Rebuilding the paper's numbering from its thirteen
+`\newtheorem` declarations, **104 of the 105 statement references resolve to a statement of exactly
+the cited kind and number**; the exception is labelled in its own locator as Kaletha–Prasad's
+numbering. The reconstruction also confirms that `B.1` is a Proposition and `B.3` a Lemma, which is
+what `E7` turns on.
+
+**All seven findings are confirmed verbatim.** Three are settled by the paper contradicting itself
+within a line or two: "a finite Galois **assumption**" against "a finite Galois **extension**" two
+sentences earlier (`E1`); `Z_F = Z_H(S_H)` against `Z_E := Z_G(S_G)` one clause earlier, with `S_H`
+occurring exactly once in the whole file and never defined (`E2`); and "Proposition" twice for a
+label sitting on `\begin{lemma}` (`E7`). Two are missing words (`E5`'s verb, `E6`'s subject), and two
+are index slips inside one proof — `U_0 \ G_v / U_0` where everything in the sentence lies in `H_v`
+(`E3`), and `Gal(E_r/F_r)` twice for fields that do not exist (`E4`).
+
+The review reports one provenance gap it did not fill: no `libraryPins` are recorded. It notes this
+is the sixth extraction reviewed that day with the same gap, so it is a queue-level omission rather
+than six independent oversights.
