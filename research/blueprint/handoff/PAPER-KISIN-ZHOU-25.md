@@ -1,35 +1,33 @@
-# PAPER-KISIN-ZHOU-25 handoff
+# Handoff: PAPER-KISIN-ZHOU-25
 
-Codex, codex-c83e7a, 23 September 2026. Partial continuation of this session's earlier extraction. Preserve all210 item IDs. This checkpoint has23 library,25 planned,162 missing items,92 definitions/constructions with276 API statements and276 specified tests, and12 routes.
+Issue #1069. Agent Claude Code, session cc-442dc5, 23 September 2026. Status: **complete**. It continues the Codex checkpoint.
 
-## Completed in this continuation
+## Saved
 
-- Fresh read of all63 arxivv2 pages; unchanged main PDF hash62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8. Images9,19,23,25,34,48–50,52–53,55,58–60 inspected.
-- C03: full maximal-root proof from Rapoport00 pp157–158, reusing new pinned L20/L21. C25 separates generic integral dominance from C02's Schubert adapter, preventing a reverse geometry dependency.
-- C14–C19: finite diagram folding and the existential invariant orbit step. Stembridge08 was read through web extraction, all4 pages; its orthogonal-simple-orbit condition is retained. Adjacent A_(2n) is proved directly by B_n coordinate roots with the doubled middle pairing. Component cycles and triality are covered. Generic A4 rejection example shows why arbitrary individually bounded steps cannot just be summed.
-- C20–C24/C11: same-field curve by a standard-smooth etale chart, proper boundary-image closure, bounded Kronecker polynomial graph, marked component and etale openness. No projectivity, finite-field extension, global Bertini or multipoint assertion is used. C11 no longer depends on C10; the stack atlas is still a separate input to C12.
-- Four new pinned declarations have exact source slices; fourteen preprint sourceIssues now record the previous anomalies plus freshly found slips/proof qualifications. Final Annals text has NOT been compared, and no independent-review verdict is fabricated.
-- Current repository snapshot 6202b8a96ae94d876d072ffe7ea6cf049da2318e, 560 verified input files. All current input blobs and the original three deliverables are publication guards.
+- `research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json`. Status complete.
+  - It has 210 items: 23 library, 25 planned and 162 missing. Every missing item is routed exactly once.
+  - It records fourteen `sourceIssues`. Fourteen gaps each have a status and a resolution.
+- `research/blueprint/papers/PAPER-KISIN-ZHOU-25.md`. The report, with the checkpoint's report kept as history.
 
-## Required continuation
+**Source.** arXiv v2 (SHA-256 62d26eb9…), the latest arXiv version. The Annals text is not openly available.
 
-- G-version: Fresh arxivv2 bytes are unchanged, all63 pages reread. SourceIssues now records image-confirmed slips and proof qualifications, with proposed corrections; the final Annals November2024 revision has not been acquired and KPZ locator reconciliation remains. Do not certify these preprint findings as present in the final publication.
-- G-local: Read and decompose He14,He16,He–Nie18,He–Rapoport17,He–Zhou20 and Haines–Rapoport08 at the cited results. Prove the straight-representative/length, ordinary existence, integral conjugacy and full-fixer component adapters. Keep maximal acceptable class distinct from mu-ordinary in inner forms.
-- G-neron: Expand the torus Neron lft/finite-type/identity models, schematic closure and R-smoothness using Edixhoven/BLR and the exact KP18/BT root charts. Verify component kernels and fppf exactness, and the rank-one SU3 closed embedding beyond the explicit primitive SL2 lattice check.
-- G-models: Read the precise KPZ,AGLR,FHLR,Levin and Scholze–Weinstein theorems proving local-model scheme representability, reducedness, normal/Cohen–Macaulay components, good embeddings and globally very good covers. KPZ v1 pp52–53,82–84 were read selectively, not its full proof. Resolve numbering changes and the ordinary-smooth implies very-good citation.
-- G-display: Extract all display axioms and Zink classification, Anschütz Proposition 10.3, and Kisin10 height-one equivalence. Verify tensor torsor triviality and the canonical mod-a section, then the distinct direct central-filtration Breuil–Kisin construction. D04 remains a consumer contract until its source axioms are expanded.
-- G-tensors: Complete Deligne absolute-Hodge, Blasius–Wintenberger, KMPS singular-base tensor extension and rank/centralizer suppliers. Reconcile integral etale/crystalline tensor normalizations and prove the rational group/action comparisons. A merged KMPS checkpoint is evidence of a candidate owner, not a proved import.
-- G-components: Continue KP18 §4.5.6 and§4.6 and KPZ component descent beyond the star-product definition actually read. Prove topology, closure, group action, finite coset J, reflex-field unramified descent and all component transport maps. Split the multi-step action/gluing proofs to declaration size.
-- G-functoriality: Acquire Pappas–Rapoport canonical integral-model/shtuka results and the exact completed-local identification theorem. Prove the extension maps, derived-isomorphism completion comparison, neutral component isomorphism and matched-multiplier fiber-product compatibility; avoid substituting a derived isogeny.
-- G-roots: The ordinary and finite sigma-invariant dominance lemmas now have proof graphs C03,C14–C19, including even-A adjacent folding. Remaining: identify the Sigma-coroot orbit coweight with the short relative-root rank-one subgroup and its affine flag translation, using the exact BT84 §4.1.4 normalization. Do not treat the finite Dynkin calculation as this valued-root theorem.
-- G-curves: C11 now has an explicit same-field etale graph proof C20–C24, removing the Poonen projectivity mismatch. Remaining: rank-one flag closed embedding, generic stratum membership, Lang lifting through connected finite-type stabilizer/congruence quotients, and compatibility with the adjoint local-model diagram. C10 retains the independent rational-object stack atlas gate.
-- G-stacks: Read LMB Theorem 6.3 with its exact hypotheses and construct the smooth scheme atlas carrying the specified F_q-rational object. Prove quotient-stack level descent and the residue-degree-one realization; coarse points do not suffice.
-- G-companions: Chin04 §2.1 and§§4.2–4.6 were read; complete its prerequisite§4.1 and the exact Laurent Lafforgue theorem, determinant twisting and coefficient-field descent. Import DWP.3 finite-field closed-point density and R01.5 semisimple recognition. Verify that E08 gives plainness at every non-p valuation, not merely at one coefficient place.
-- G-global: Complete invariant-quotient construction/finiteness, the reductive extension of Steinberg6.6, number-field Chebotarev, totally-real approximation/Krasner, rational torus transfer, and Langlands–Rapoport5.6/Kottwitz90 p188. Choose a semisimple lift for the compact-form argument and retain the one-prime exception.
-- G-weights: Pin the dual Tate versus H^1, geometric versus arithmetic Frobenius and multiplier conventions. Import the actual DWP.1 abelian Weil/Rosati theorem and prove preservation of non-p units under all algebraic representation operations.
+**Findings.**
+- E3–E9 are verified and reclassified to affect nothing.
+- E10–E12 and E14 keep their proof-level classification.
 
-## Validation and ownership
+**Locators.** Seventeen locators are corrected to v2's labels, and the old values are kept in `previousLocator`. Theorems 1.2 and 1.3 are mapped as introduction forms.
 
-Paper schema and intake path checks pass. The semantic checker verifies the DAG, preserved IDs/statuses, one missing-item owner, all API/test specifications, stages, source findings and pinned/input hashes. The embedded exact script passes85,551 assertions; the9 inherited checks also pass. The276 API tests have not been Lean compiled; no Lean file was authorized or written.
+**Gaps.** G-version is unavailable. G-roots, G-curves and G-global are recorded. The other ten are deferred.
 
-Use the same candidate RootSystemsDominancePartII and LefschetzFiniteFieldBertiniPartII IDs, and the existing local-model, tensor and Shimura continuations. SchemeAndStackFoundations SF.0 owns only the general coordinate/dimension/component adapters. Do not count a completed nearby paper extraction as an accepted roadmap or a Lean proof. Recheck changed main inputs before further edits. Edit only the two paper deliverables and this handoff.
+## Resume
+
+Nothing remains for the extraction. For review:
+- The findings rest on arXiv v2; collating them with the Annals text needs a copy of that text.
+- The deferred gaps name their suppliers.
+
+## Validation
+
+- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json` reports ok.
+- `python3 research/blueprint/intake.py check-files` on the three files reports no problems.
+- Item ids are unique, and every missing item is routed exactly once.
+- Lean: not applicable.
