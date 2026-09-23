@@ -1,102 +1,109 @@
-# PAPER-ANDRE-18-B — third continuation: the independent review of E1–E4
+# PAPER-ANDRE-18-B — direct summands, the unramified reduction and complete-base duality
 
-Status: **partial**. Issue #2188. Continuing agent: **Claude Code — `cc-fb70e5`**, 23 September 2026. Continues the checkpoints merged in #2210 (Codex — `codex-a71f92`) and #2222 (ChatGPT — `cgpt-20260923-4c72a9`).
+Status: **partial**. Issue #2188. Agent: **Codex — codex-hjdg0j**, 23 September 2026. Continues #2210, #2222 and #2233. No Lean file was requested, created or compiled.
 
-This tick did the first item of the previous resume order and nothing else: **the independent mathematical review the handoff asked for**. No item, route, status, API, test, baseline pin or coverage gap was altered except the `review` fields of the four source issues and the text of G6, which was **appended to**. The extraction stays **`partial`**, 83 items, five routes, for the reasons the previous worker gave.
+This checkpoint adds 25 items to the 83-item extraction: **108 items, 17 library, 7 planned, 84 missing**, five ownership routes, 22 definition/construction APIs, 66 typed planning tests and 106 selected dependency edges. All missing items have exactly one route. Reading the entire paper does not close its prerequisite extraction: G0–G7 remain explicit, with G3 and G6 substantially narrowed.
 
-I am **not an author of any of these findings** — E1–E3 are `codex-a71f92`'s and E4 is `cgpt-20260923-4c72a9`'s — and the handoff's instruction "do not let the authoring worker mark its own finding confirmed" is respected.
+## 1. What changed and which sources were read
 
-## Provenance, re-verified
+The complete published [André paper](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf), printed pp.71–93, was read in this continuation. Its SHA-256 was recalculated from this session’s earlier public download:
 
-The journal PDF was re-downloaded from the recorded numdam URL and its **sha256 is byte-for-byte the recorded `34da107d…d47053`**. So the inherited provenance is confirmed independently, and every quotation below is from that file: printed pages 87, 90 and 91, which are PDF pages 17, 20 and 21.
+`34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053`.
 
-## The four verdicts: all `confirmed`
+The [Hochster 1983 article](https://deepblue.lib.umich.edu/handle/2027.42/25107) was obtained through Michigan’s public repository API after the old PDF URLs returned HTML. The actual [bitstream](https://backend.production.deepblue-documents.lib.umich.edu/server/api/core/bitstreams/e8432785-2176-424e-a449-adb5930bb1db/content) has SHA-256:
 
-- **E1** (misprint, p. 90). The page prints, in the proof of Lemma A.2.1(4)(c)⇒(b): "noter que pour tout couple (s, š) ∈ S × **Hom_S(S,R)** tel que š(s) = 1_R…". The subscript is `S` where it must be `R`: no `S`-module structure on `R` is given or used, and the composite is an `R`-linear retraction on the strength of `R`-linearity alone.
-- **E2** (misprint, p. 91). "…il existe un facteur direct (libre) de type fini **M** tel que λ(1) ∈ M \ σᵐ(𝔪)M, et on peut donc trouver d'après Nakayama une forme σᵐR-linéaire μ sur **N**…, qu'on prolonge à R par 0 sur un supplémentaire de **M**." `N` occurs nowhere else; the extension-by-zero clause presupposes the form lives on `M`. The finding is also right that this is independent of E4 — fixing the symbol leaves the division step untouched.
-- **E3** (misprint, p. 87). Proposition 4.4.1 prints "…presque de Cohen-Macaulay pour (B,x,π^{1/p^∞}) (resp. **(B**,x′,π′^{1/p^∞})". The second triple must be `(B′,x′,π′^{1/p^∞})`: `x′` is introduced in the same sentence as a maximal secant sequence **for `B′`**, and the right vertical map of diagram (20) is `B′ → D′`.
-- **E4** (error, affects a stated result, pp. 90–91). **Confirmed, and reconstructed from scratch.**
+`be549b099aa0057cf6e1ffbd0414ea23ce08ba69c1192a58a9f7a29f68d59642`.
 
-## E4 in detail, and two additions to its record
+Printed pp.504–518 and 538–543 were read, including Definition 2.1, the root-complex argument through 2.17 and Theorem 6.1 with its proof. This is selected reading, not a claim to have read all 51 pages. The theorem’s page image was inspected.
 
-The printed hypotheses of Proposition A.3.1 are exactly: `R` local with maximal ideal `𝔪`, **not necessarily Noetherian**; `r ∈ 𝔪` with `R` `r`-adically separated; `σ` a **local** endomorphism with `R` **free over `σ(R)`** and `⋂_m (σᵐ(𝔪)·R) ⊆ rR`; and `S` an extension of `R` to which `σ` extends **injectively**. Every one holds for the example:
+[Hochster’s 2011 local-cohomology notes](https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf), version 6 January 2011, were read at pp.7–8,19–21,35–36,40–42. Their SHA-256 is:
 
-| hypothesis | check |
+`e8dda8d32793d5257b3e2c51f68e0fc61ea02bbca23117f2adacbc3bb7ce8ed0`.
+
+In particular, Theorem 5.1 gives the endomorphism ring of the injective hull, Remark 11.6 treats arbitrary modules in top local cohomology, and Theorem 11.8 explicitly assumes a finite module for the opposite-direction formula. The full notes were not read.
+
+The existing Mathlib local-cohomology file and Tau Ceti injective-envelope file were read in full at the pins. The tensor–Hom equivalence, injective extension property and integral-closure carrier were also statement-read. The reviewed R03.3 audit and current R03.1/R03.3/DD.1 stage texts were checked, together with paper ownership proposals. Generic Matlis theory already routes to R03.3 in PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23; this extraction refines that supplier.
+
+## 2. The complete-base duality repair
+
+Write `D(M)=Hom_R(M,E)`, where E is an injective hull of the residue field of a Noetherian local ring R. The letter `∨` in André’s appendix instead means the ordinary dual `Hom_R(S,R)`; these two duals must remain distinct.
+
+### 2.1 The displayed isomorphism is false for an infinite integral algebra
+
+E5 concerns the display in published A.3.1, p.91, also present in arXiv v1 p.14. Take R=F_p, its maximal ideal zero, r=0, σ=id and S=an algebraic closure of F_p, with τ=id. This satisfies the printed endomorphism hypotheses, and the extension is both integral and pure. The dimension is zero and E=F_p. The displayed identification therefore says `S≅S**` for the algebraic vector-space dual.
+
+But S is countably infinite and has countably infinite dimension over F_p. Its dual has cardinality `2^ℵ₀`; over a finite field its dimension has that same infinite cardinality. Its double dual has cardinality `2^(2^ℵ₀)`. Hence even a noncanonical isomorphism is impossible. This disproves the display; it does not disprove splitting of a field extension.
+
+The same orientation appears in Hochster 1983, p.541. Neither occurrence licenses infinite-module biduality. The correction needed for their complete-base nonvanishing argument is available directly.
+
+### 2.2 Correct direction, with completion visible
+
+For a regular Noetherian local ring R of dimension d, top local cohomology is represented by the top Čech cokernel, equivalently the direct limit of parameter-power quotients. Tensoring an arbitrary module M commutes with that cokernel/direct limit. Since `H_m^d(R)≅E`, this gives
+
+`H_m^d(M)≅M⊗_R E`.
+
+Consequently tensor–Hom adjunction and Hochster’s Theorem 5.1 give
+
+`D(H_m^d(M)) ≅ Hom_R(M,End_R(E)) ≅ Hom_R(M,Rhat)`.
+
+This is valid without a finite-generation hypothesis on M. The functor D detects nonzero modules: map a nonzero cyclic submodule onto the residue field, embed that field in E, and extend the resulting nonzero map by injectivity. Therefore
+
+`H_m^d(M)≠0 ⇔ Hom_R(M,Rhat)≠0`.
+
+For **complete** R the target is R. For noncomplete R it is Rhat, and replacing it by R is an additional assertion. The previous handoff proposed a Mittag–Leffler investigation of inverse systems of ordinary duals. That investigation is unnecessary for this complete-base proof: no limit/dual interchange is made.
+
+If R→S is pure and integral, write S as the filtered union of finite subalgebras. Each finite inclusion is pure and splits over Noetherian R. Thus the nonzero top local-cohomology class of R remains nonzero at every stage and in the colimit. Correct-direction duality then gives a nonzero ordinary dual when R is complete. The filtered-colimit comparison for the pinned Ext-colimit carrier still needs its Lean-level adapter.
+
+### 2.3 A stronger complete-base splitting argument
+
+There is an even shorter route that does not require regularity, integrality or an endomorphism. Let R be **any complete Noetherian local ring** and R→S a pure algebra map. Purity makes
+
+`E → S⊗_R E`, `e ↦ 1⊗e`
+
+injective. As E is injective, its identity extends to an R-linear map `f:S⊗E→E`. Curry f to a map `S→End_R(E)≅R`. The image of 1 is the identity of E, hence corresponds to 1 in R. This is an R-linear retraction of R→S.
+
+Accordingly, if all finite extension domains of a complete regular local R split, their union R+ is pure and also splits. This is a conditional theorem and does not assume the general direct-summand theorem inside its own proof. It applies to André’s W(k) power-series base after Theorem 0.2.1.
+
+The printed application with `V[[T]]` for an **arbitrary noncomplete DVR V** is still held. This checkpoint neither proves nor disproves that broader assertion. It establishes the complete-base version with a fully explicit mathematical argument, while leaving the missing formal suppliers visible.
+
+### 2.4 What is already in the libraries
+
+| Needed object or step | Pinned supplier and limit |
 |---|---|
-| `R = k[[t]][ε]/(ε²)` local | maximal ideal `(t,ε)`; `a+εb` is a unit iff `a` is |
-| `r = ε ∈ 𝔪`, `R` `r`-adically separated | `ε² = 0`, so `⋂ εⁿR = 0` already at `n = 2` |
-| `σ : t ↦ t²`, fixing `ε` and `k`, local | `σ(𝔪) ⊆ (t²,ε)` |
-| `R` free over `σ(R)` | basis `1, t`, since `k[[t]] = k[[t²]] ⊕ t·k[[t²]]` |
-| `⋂_j σʲ(𝔪)·R ⊆ rR` | `σʲ(𝔪)R = (t^{2ʲ},ε)R`, intersection `= εA = rR`, so equality |
-| `S = A ⊕ εK ⊇ R`, `σ` extends injectively | same formula; `a(t) ↦ a(t²)` is injective on `k((t))` |
+| Local cohomology | `mathlib:localCohomology`; the Ext-colimit carrier exists. Its Čech comparison is explicitly future work. |
+| Same support radical | `mathlib:localCohomology.isoOfSameRadical`, for Noetherian R. This alone does not change the base ring. |
+| Tensor–Hom | `mathlib:TensorProduct.lift.equiv` and its evaluation formulas. |
+| Extension into an injective module | `mathlib:Module.Injective.extension_property`, with its universe hypotheses. |
+| Injective envelope | `tauceti:TauCeti.IsInjectiveEnvelope` and uniqueness; **existence is not proved in that file**. |
+| Absolute integral closure carrier | `mathlib:integralClosure`, instantiated in a chosen algebraic closure of the fraction field. |
 
-`(c)` holds: `λ(a+εb) := εa` is additive, `R`-linear (both `λ(ρx)` and `ρλ(x)` equal `εca` for `ρ = c+εd`), and `λ(1) = ε ≠ 0`. `(b)` fails: a retraction `ρ` needs `ρ(ε) = ε`, but `ε = t^N·(εt^{-N})` with `εt^{-N} ∈ S` for **every** `N`, so `ρ(ε) ∈ ⋂_N t^N R = 0`.
+The six new missing Matlis/local-cohomology interfaces go to **DeformationAndDerivedPatchingAlgebra:R03.3**, matching the existing Matlis proposals. The generic Koszul complex comes from **DerivedDeRhamCohomology:DD.1**. No second carrier or separate Matlis roadmap is introduced.
 
-**Addition 1 — the example also refutes the printed `(c) ⇒ (a)`, not only `(c) ⇒ (b)`.** Because `tK = K`, we get `tS = tA ⊕ εK`, so `S/tS = A/tA = k`, while `R/tR = k ⊕ εk`. The class of `ε` dies, so for the finitely presented `P = R/tR` the map `P → P ⊗_R S` is not injective and `R → S` is not pure. The printed chain `(c) ⇔ (b) ⇒ (a)` therefore fails at its first arrow *and* end to end.
+## 2A. What Hochster’s unramified reduction actually uses
 
-**Addition 2 — the point of failure is sharper than "division by a zero divisor is ill-defined".** Here `λ(S) = εA = rR` **exactly**, so the proof's opening move — divide `λ` by a suitable power of `r` until some value escapes `rR` — is the one called for, and it is *impossible*: if `λ = r·λ′` with `λ′` `R`-linear then `ε·λ′(1) = ε` forces `λ′(1) = 1 + εd`, a unit, and `λ′(1)^{-1}λ′` would be exactly the retraction we have just excluded. So a **single** division fails; `r`-adic separation cannot help, because separation only rules out an infinite descent.
+Theorem 6.1(2) assumes a **complete unramified regular local ring with algebraically closed residue field** and finite extension domains. André proves the needed mixed-characteristic cases for W(k)[[T]] with perfect k, which includes that residue-field case. Equal-characteristic cases are separate inputs in Hochster’s theorem.
 
-**Containment.** Both applications the paper itself makes of `(c) ⇒ (b)` satisfy the repair the finding proposes: the characteristic-`p` one takes `r = 0`, where the step is vacuous (`rR = 0`, and a non-zero `λ` already has a value outside it); the mixed-characteristic one takes `R = V[[T₁,…,T_n]]` with `r` a uniformiser of a DVR — a non-zerodivisor in a domain. The example's `R` is non-reduced and its `S` is not module-finite. **Nothing in §§0–4 is affected**, which is what `affects: a stated result` should be read as meaning here.
+The chain is substantive. Localization and faithfully flat extension are justified by the image of evaluation at 1 on `Hom_A(B,A)`, using finite presentation to commute Hom with flat base change. Reduction to finite domain extensions and residue-field enlargement are also required. These steps do not alone remove ramification.
 
-## G6 narrowed — and deliberately not turned into a finding
+From finite splittings over the complete unramified base one gets nonzero top local cohomology of A+. A finite extension of complete coefficient DVRs lets one identify the two absolute integral closures and compare local cohomology, since the extended maximal ideal is primary for the new one. Over that **complete** base the corrected duality gives a nonzero ordinary dual. The endomorphism sending each coordinate to its q-th power extends to A+, and the corrected functional criterion splits it.
 
-The remaining half of G6 is the `(a) ⇒ (c)` branch. As printed on p. 91 it runs: `S` is a filtered colimit of finite **pure** sub-`R`-algebras `S_α`; `H^d_𝔪(R) ≠ 0` and injects into each `H^d_𝔪(S_α)` because `R → S_α` is split; so `H^d_𝔪(S) ≠ 0` by passage to the colimit; and then "par dualité locale, `H^d_𝔪(S)` s'identifie à `Hom_R(S^∨,E)`", whence `S^∨ ≠ 0`. Two observations for whoever closes it:
+Hochster then applies this to the root extensions needed in Theorem 2.9. The tensor product of the two-term complexes `[J_i→B∞]`, with J_i generated by all compatible p-power roots of a parameter, is a flat resolution of its augmentation. Its acyclicity uses distributivity of root ideals in the perfect quotient, not an assertion that B∞ is already Cohen–Macaulay. A hypothetical failure of CE produces a homotopy and a monomial relation in a finite intermediate algebra. The assumed splitting contradicts the nonzero socle monomial of a regular parameter quotient. CE then implies monomial noncontainment, and the finite-extension monomial criterion returns the desired splitting.
 
-1. **Only one direction is used.** The proof needs the contrapositive — `S^∨ = 0 ⟹ H^d_𝔪(S) = 0` — so the full duality isomorphism is more than required, and a design job should target the weaker statement.
-2. **That weaker statement is not formal in the colimit.** Local cohomology commutes with filtered colimits, so `H^d_𝔪(S) = colim H^d_𝔪(S_α)`, and Matlis duality over a complete regular `R` gives `H^d_𝔪(S_α) ≅ (S_α^∨)^∨` at the **finite** stages; meanwhile `S^∨ = Hom_R(colim S_α, R) = lim S_α^∨`. So the step asks that a vanishing **limit** of the `S_α^∨` force the vanishing of the **colimit** of their Matlis duals, and the natural comparison runs `colim Hom(S_α^∨,E) → Hom(lim S_α^∨,E)`, which is not an isomorphism for a general filtered system. Whether *this* system has surjective transition maps, or is Mittag-Leffler, is exactly what must be checked against Hochster 1983.
+The result now records the exact reduction and these intermediate theorem contracts. **G3 remains open** for the declaration-sized root-complex/distributivity/homotopy decomposition, the original 1973 socle criterion, coefficient-ring and residue-enlargement proofs, and their precise library adapters. The source was read; it was not flattened into a fictitious one-line completion lemma.
 
-Until that is checked, **neither the step nor a defect in it is asserted here**. This also narrows `PAPER-BHATT-18`'s G9, which flags the same appendix from the other side.
+## 2B. The Tor induction and source findings
 
-## What this tick did not do
+The footnote proving flatness of an arbitrary balanced big-CM algebra contains two occurrences of M where N is needed (E6, page image checked). For M=A/P choose a maximal regular sequence in P and an embedding `M→N=A/(x)`. The positive Tor groups of **N** against C vanish because x is regular on C. The exact segment is
 
-No new item, route, API, test or gap; no Lean file; no rerun of the inherited diagnostics; no fresh reading of Hochster 1983, Hochster 2002, Bartijn–Strooker, Scholze 2012 or Gabber–Ramero, so **G0–G5 and G7 are exactly as they were**. The remaining resume order stands as written, minus its first item.
+`Tor_(i+1)(N/M,C) → Tor_i(M,C) → Tor_i(N,C)`.
 
----
+Descending induction kills the first term; regularity kills the last. The middle term is the desired conclusion, not an assumption. The associated-prime embedding and the bounded-projective-dimension input remain genuine suppliers; finite-module Auslander–Buchsbaum alone is not a proof for arbitrary C.
 
-## Second checkpoint report — retained in full
+All twelve source findings await a finished independent review job. E1–E4 retain the prior workers’ mathematical reasoning. Their former `review: confirmed` fields came from paper job #2188, not a completed review job, so they were moved intact into `assessmentHistory` under PROTOCOL §18. This is a metadata correction, not a rejection of the counterexample. The report below retains its full proof.
 
-# PAPER-ANDRE-18-B — direct summands and big Cohen–Macaulay algebras
+The new records are E5 (infinite-module duality), E6 (Tor typography), E7 (Shimomoto bibliography year), E8 (Yekutieli title and publication metadata), E9 (the dimension-zero edge case in the introductory monomial membership iff), E10 (the reversed intermediate-module arrow in A.4), E11 (the v1 almost-purity tensor formula, already corrected in print), and E12 (two v1 bibliography spellings, already corrected in print). E9 does not affect the usual monomial noncontainment or the main theorem. E10 follows by inclusion of tensor kernels and does not need the extra almost-injectivity condition. Bounded correction searches and exact locators are recorded in the JSON.
 
-Status: **partial**. Issue #2188. Continuing agent: ChatGPT — `cgpt-20260923-4c72a9`, 23 September 2026. This continues Codex checkpoint #2210; it is not an independent review of that checkpoint, a complete extraction, or a formalization.
-
-## 1. What this checkpoint establishes
-
-The result retains the 76 existing mathematical item identities and five ownership routes. It adds four explicit lemmas for the Artinian-retraction argument, two statement-read Mathlib suppliers for eventual ranges, and one corrected implication from Appendix A.3.1. The resulting inventory is 83 items: 11 library, 7 planned and 65 missing. Each missing item has one route. The 18 definitions/constructions retain use-derived APIs and three planning tests each. The dependency list is a selected proof spine, not an exhaustive prerequisite graph.
-
-The substantial new finding is **E4**: the printed implication A.3.1(c)⇒(b) is false when the separating element is allowed to be a zero divisor. Section 3 gives an explicit counterexample, verifies every hypothesis, and proves a sufficient repair. This finding has **not** been independently reviewed. It is an error in the appendix’s stated generality, not a counterexample to the direct-summand theorem.
-
-The second advance is the full source-level explanation of §3.4: how unrelated finite-quotient retractions yield a compatible system. The argument uses descending cosets in Artinian modules, not finite underlying sets, and does not assume that the original transition maps on retractions are surjective. Section 4 records the construction and exact library boundary.
-
-G3 remains open for the separate reduction to the unramified complete-local base. Its source is **Hochster 1983, Theorem 6.1**, as André explicitly says in §0.2; Hochster 1973 p.30 is the source of the inverse-limit argument, not that complete reduction. G6 remains open for the other, regular/integral local-duality branch of A.3.1 and the full absolute-integral-closure application. The remaining gaps G0–G2, G4–G5 and G7 have not disappeared.
-
-## 2. Sources, reading and library evidence
-
-### Primary sources
-
-The paper is Yves André, *La conjecture du facteur direct*, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI [10.1007/s10240-017-0097-9](https://doi.org/10.1007/s10240-017-0097-9). Locators use the [published Numdam PDF](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf), whose first PDF page is printed page 71.
-
-The predecessor downloaded that 23-page PDF, recorded SHA-256 `34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053`, and read the whole article. That byte-level provenance is inherited, not presented as a fresh hash computed by this worker. This continuation rechecked §0.2, §3.4 and Appendix A.3.1, including page images 84, 90 and 91. The browser source was accessible, but this worker did not obtain a local PDF download or compute a new source hash.
-
-Hochster’s *Contracted ideals from integral extensions of regular rings*, Nagoya Math. J. 51 (1973), 25–43, was read in the [public Cambridge PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/82D140341FC0DE224799A1FB5468DC45/S0027763000015701a.pdf/contracted-ideals-from-integral-extensions-of-regular-rings.pdf). The relevant page 30 was inspected as an image as well as text. It constructs nonempty retraction cosets, stabilizes their images, and passes to a compatible inverse limit. The opening local/base-change and domain-reduction material was also inspected; this is not a claim of a complete extraction of Hochster’s paper. No local byte hash of that PDF was obtained.
-
-Hochster’s 1983 *Canonical elements in local cohomology modules and the direct summand conjecture*, J. Algebra 84, 503–553, DOI [10.1016/0021-8693(83)90092-3](https://doi.org/10.1016/0021-8693(83)90092-3), remains a required source for the unramified reduction and the remaining local-duality assertion. Finding its bibliographic record is not treated as reading those proofs.
-
-The [arXiv history](https://arxiv.org/abs/1609.00345) was checked: it lists only v1, submitted 1 September 2016. It must not be confused with the companion Abhyankar paper, arXiv:1609.00320. The [journal article page](https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/), the [author’s homepage](https://webusers.imj-prg.fr/~yves.andre/) and exact-title/A.3.1 correction searches disclosed no correction of E4. This is a recorded search outcome, not an exhaustive novelty guarantee. No message was sent to the author.
-
-### Pinned libraries and ownership
-
-The fixed library baseline remains Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The inherited ownership snapshot is `9311f8ee5d78d9c02aee2deac5265940129cea31`. The preceding checkpoint read the relevant atlas descriptions, proposed-roadmap/packet material and the reviewed coverage file; this continuation is not a second exhaustive catalogue audit.
-
-The nine inherited positive items concern regular local/regular rings, regular sequences on arbitrary modules, faithful flatness and its tensor-unit test, flat transport of weak regularity, completion of the Noetherian base, and Witt DVRs. The canonical JSON records their declarations and the predecessor’s source checks. Completion of the Noetherian base is not promoted to the stronger completion-of-an-arbitrary-flat-algebra assertion.
-
-The two new exact suppliers are in [Mathlib/CategoryTheory/CofilteredSystem.lean at the pin](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/CofilteredSystem.lean):
-
-- `CategoryTheory.Functor.surjective_toEventualRanges` supplies surjective maps after restricting a Mittag–Leffler functor to its eventual ranges.
-- `CategoryTheory.Functor.toEventualRanges_nonempty` supplies nonempty eventual ranges for a pointwise nonempty Mittag–Leffler functor.
-
-Their actual statements and proofs, including the cofiltered-category hypotheses, were read. Neither assumes that the underlying types are finite. In contrast, the later `eval_section_surjective_of_surjective` is in the finite-system section, and `nonempty_sections_of_finite_cofiltered_system` also requires finite underlying types. They do not apply merely because the modules have finite length. A Tau Ceti code search for `MittagLeffler` returned no match; that limited search is not an exhaustive absence certificate. The four new application adapters keep their fine library reduction inside G7.
-
-The inherited upstream interface guidance remains Mathlib PR #22909’s `Submodule.IsPure` shape and PR #26218’s CM naming. Their predecessor checks are dated and pinned in the JSON; they are not current-status claims or declarations in the fixed baseline. Do not invent competing carriers, and do not wait for an upstream merge before developing the missing contracts in Tau Ceti.
+The following proofs of E4 and the §3.4 limit argument are retained from the earlier checkpoint, with their scope unchanged.
 
 ## 3. E4: a zero-divisor counterexample to Appendix A.3.1
 
@@ -192,7 +199,7 @@ Finally put
 
 For a∈R and s∈S, `τ^j(as)=σ^j(a)τ^j(s)`. The R-linearity of λ₀, σ^j(R)-linearity of μ and final inverse isomorphism yield `ρ(as)=aρ(s)`. Additivity is immediate, and `ρ(1)=1`. This is the required retraction.
 
-The added disjunction is sufficient, not claimed necessary. It retains the r=0 equal-characteristic case and the regular-element setting of the domain applications. It does not validate the other part of A.3.1, whose use of local duality for a possibly noncomplete regular R and infinite integral S remains G6. E2, the undefined letter in the printed coordinate-functional paragraph, is a separate typographical issue.
+The added disjunction is sufficient, not claimed necessary. It retains the r=0 equal-characteristic case and the regular-element setting of the domain applications. It does not validate the other part of A.3.1, whose noncomplete-base branch remains G6; the complete-base branch is proved above. E2, the undefined letter in the printed coordinate-functional paragraph, is a separate typographical issue.
 
 ## 4. Completing the Artinian-retraction argument of §3.4
 
@@ -242,39 +249,20 @@ Finite generation of B was used to make V_m Artinian. It is not needed for this 
 
 The JSON now separates parameter cofinality, coset stabilization, countable compatible choice and functional reconstruction. These four adapters route to the existing proposed `DirectSummandsAndBigCohenMacaulay` direction. The two general eventual-range results are library items and need no route.
 
-## 5. The inherited architecture and its unresolved boundaries
 
-The five routes are retained rather than replacing the previous design.
+## 5. Ownership and unfinished work
 
-**DirectSummandsAndBigCohenMacaulay** owns ordinary module/ring purity, splitting obstructions, Noetherian-base completion and annihilator tools, Hochster reductions, Artinian retractions, bounded modifications and the direct-summand/big-CM applications. With the five new missing items, that route takes 50 missing items. The finite depth/CM substrate comes from `DeformationAndDerivedPatchingAlgebra:R03.3`, not a duplicate predicate. The corrected A.3.1 implication is an additional theorem within this same direction.
+The five routes remain the existing proposed architecture. DirectSummandsAndBigCohenMacaulay now receives 63 missing items, including the CE/reduction and complete-pure-splitting adapters. PerfectoidSpaces P0 retains its generic almost foundations, while P1–P2 supply the cyclotomic example and rational-localization model. The nine ramification items retain the **same PerfectoidRamification Part II** id/title used by PAPER-ANDRE-18. R03.3 receives the finite CM predicate plus six new missing Matlis/local-cohomology interfaces; these refine its existing supplier proposals.
 
-**PerfectoidSpaces:P0** supplies the generic almost bases, adjoints, reframing, tensor/Hom interfaces and almost-purity comparison. Its source route has ten items, four planned and six missing. Ordinary purity must precede the almost-purity comparison; later commutative-algebra applications consume P0. Record stage-level dependencies so this does not become a false coarse roadmap cycle.
+Keep the valuation and ramified almost ideals distinct, module `!` distinct from algebra `!!`, and product roots `(ϖg)^(1/p^h)` distinct from g-roots alone. Preserve m≥2 for the nonzero pg witness modulo p^m and p² in §4.2. PerfectoidQuotients Q3 does not identify its existential extension with André’s specified normalized one without a proof.
 
-**PerfectoidSpaces:P1–P2** owns the cyclotomic perfectoid example and the integral rational-localization model. The field k in the cyclotomic construction need not be finite, so a locally compact local-field result is not an exact supplier for the whole assertion.
+G0 still contains introductory implications/easy cases and Banach/tower remarks; G1–G2 need the exact perfectoid/Abhyankar and finite-stage flatness suppliers; G4 needs Hochster 2002 partial modifications and Bartijn–Strooker balancing; G5 needs pure completion, compatible coefficient enlargement and the weakly functorial CM argument. G3 now has a source-read reduction but unfinished detailed adapters. G6 is restricted to the noncomplete-base branch. G7 retains the fine baseline and proof closure audit. Keep status partial until these are addressed.
 
-**PerfectoidRamification** is the *same* Part II id and title already proposed by `PAPER-ANDRE-18`. Its nine missing items cover the specified normalized Kummer tower, tubular comparison, almost flatness, finite-level purity, actual left-adjoint flat model and ramified integral closure. This is not a second root-algebra or Abhyankar project. `PerfectoidQuotients:Q3` constructs a related existential p-completely faithfully flat absolutely-integrally-closed extension; it does not, merely by name, identify that extension with André’s specified normalization.
+## 6. Validation
 
-**DeformationAndDerivedPatchingAlgebra:R03.3** receives the ordinary finite CM/depth consumer as a source. Big-CM existence for arbitrary algebras does not belong to its finite-module substrate alone.
+The repository paper checker, intake file validation and whitespace check pass on this revision. The embedded diagnostics were run locally: **3,646 retained finite cases and 15,066 square-zero/Laurent-polynomial identities**. They support the earlier explicit algebra computations; they do not establish infinite intersections, cardinalities, Matlis duality or a formalization. Those arguments are supplied mathematically above. The structural check verifies all 108 identities, unique routing of 84 missing items, 22 APIs with 66 allowed-type tests, 106 acyclic dependencies, and absence of unauthorized review verdicts.
 
-Several mathematical distinctions from the first checkpoint remain essential. Theorem 2.5.2 uses the valuation almost ideal; the ramified almost-purity application also involves roots of g. The actual algebra left adjoint `!!` is not the module adjoint `!`. Its flat model contains the products `(ϖg)^(1/p^h)` without thereby containing each g-root separately. In §3.3 the nonzero contraction witness `pg mod p^m` is used for m≥2; the m=1 splitting follows by reduction. In §4.2 the choice p² likewise preserves the noncontainment witness and must not be silently changed to p.
-
-The bounded partial-modification carrier remains held. An arbitrary module-valued polynomial cannot be multiplied as though it were a ring element. Hochster 2002 Lemma 5.1, the denominator estimate, the no-bad-chain argument and Bartijn–Strooker’s balancing theorem still require exact source work. The finite-module Auslander–Buchsbaum formula alone does not prove that an arbitrary balanced big-CM algebra over a regular local ring is faithfully flat; the source’s Tor argument is a separate requirement. Global product-flatness needs the Noetherian/coherent hypothesis. The pure local completion test must cover arbitrary finitely presented modules over the completed base, not just descended ones. Theorem 4.4.2 retains its regular target and separable residue extension.
-
-The published main results are the direct-summand theorem (0.1.1), balanced big-CM existence (0.7.1), and flat domination of finite regular-ring extensions (0.7.2, printed p.75; proof §4.3). Full unqualified weak functoriality is not asserted by this paper. Existing introductory equivalences, several Banach and tower facts, and the remaining lower-level supplier audit are explicitly still missing from a complete extraction.
-
-## 6. Source issues and review instructions
-
-E1–E3 are retained: the incorrect scalar subscript on the dual in A.2.1(4), the undefined letter in A.3.1’s coordinate-functional paragraph, and the missing prime on the right-hand almost-CM base in 4.4.1. They are typographical issues. E4 is different: it changes a stated implication and has an explicit counterexample.
-
-The reviewer should independently verify the six ingredients of E4: locality and separation; freeness over the endomorphism image; the intersection equality; the injective extension of the endomorphism; the nonzero R-linear functional; and the obstruction to any retraction. The corrected proof should be checked independently too, especially unique division, iterated freeness and the final semilinear composition. Nothing here is marked confirmed by the authoring worker.
-
-The result remains partial after these checks because proof of these two portions is not proof of all the paper’s supplier claims. G3 and G6 are narrower, not closed. No source was silently corrected, no review verdict was authored, and no correspondence with the paper’s author was initiated.
-
-## 7. Validation and reproducible diagnostics
-
-No Lean file was created or compiled. API and test entries are planning contracts, not executable Lean proofs. The continuing worker ran **15,066 exact finite algebra identity checks** over F₂, F₃ and F₅, using Laurent polynomials without truncating negative exponents. Those checks support the square-zero multiplication, substitution, linearity, even/odd decomposition and divisibility identities. They do not prove localness, completeness, infinite intersections or nonexistence of a retraction; those are proved in Section 3.
-
-The predecessor reported successful repository checker/unit runs and 3,646 finite diagnostics. Those executions belong to #2210 and are not represented as runs on this revision. The script below preserves those diagnostic families and updates the structural expectations. Its full JSON/graph part is supplied for a checkout; it was not locally run by this browser worker, whose clone attempt failed at DNS resolution. The PR’s actual swarm check runs the repository’s `check_paper.py` and intake validation on the committed files. Consult that check for its outcome.
+No new executable finite test is offered as a proxy for the infinite-module counterexample. No Lean file was compiled. API and test signatures remain planning contracts.
 
 ```python
 import collections
@@ -286,17 +274,17 @@ from random import Random
 path = Path('research/blueprint/papers/PAPER-ANDRE-18-B.result.json')
 data = json.loads(path.read_text(encoding='utf-8'))
 items = {x['id']: x for x in data['items']}
-assert len(items) == len(data['items']) == 83
+assert len(items) == len(data['items']) == 108
 assert collections.Counter(x['status'] for x in items.values()) == {
-    'library': 11, 'planned': 7, 'missing': 65
+    'library': 17, 'planned': 7, 'missing': 84
 }
 taken = collections.Counter(i for r in data['routes'] for i in r['items'])
 assert all(taken[i] == 1 for i, x in items.items() if x['status'] == 'missing')
 definitions = [x for x in items.values() if x['kind'] in ('definition', 'construction')]
-assert len(definitions) == 18
+assert len(definitions) == 22
 assert all(x.get('api') and x.get('uses') and len(x.get('tests', [])) >= 3
            for x in definitions)
-assert sum(len(x['tests']) for x in definitions) == 54
+assert sum(len(x['tests']) for x in definitions) == 66
 active, done = set(), set()
 def visit(i):
     assert i in items
@@ -310,10 +298,13 @@ def visit(i):
     done.add(i)
 for i in items:
     visit(i)
-assert sum(len(x.get('dependencies', [])) for x in items.values()) == 62
+assert sum(len(x.get('dependencies', [])) for x in items.values()) == 106
 assert len(data['coverageGaps']) == 8
-assert len(data['sourceIssues']) == 4
+assert len(data['sourceIssues']) == 12
 assert data['status'] == 'partial'
+allowed = {'computation', 'degenerate', 'compatibility', 'characterisation', 'non-example'}
+assert all(t['kind'] in allowed for x in definitions for t in x['tests'])
+assert all('review' not in issue for issue in data['sourceIssues'])
 
 # Retained diagnostics from checkpoint #2210, not proofs of general theorems.
 ann_checks = 0
@@ -388,9 +379,7 @@ for p in (2, 3, 5):
     for n in range(1, 21):
         check(smul(({n: 1}, {}), ({}, {-n: 1}), p), eps)
 assert checks == 15066
-print('structure: 83 items, 65 missing routed once, 18 APIs, 54 tests, 62 acyclic edges')
+print('structure: 108 items, 84 missing routed once, 22 APIs, 66 tests, 106 acyclic edges')
 print('finite diagnostics: 3646 retained cases and 15066 square-zero identity checks')
 print('These computations certify neither the general theorems nor Lean elaboration.')
 ```
-
-The handoff identifies the next exact sources and limits of this checkpoint. The unresolved tasks are mathematical source/API work, not permission to assume their conclusions.
