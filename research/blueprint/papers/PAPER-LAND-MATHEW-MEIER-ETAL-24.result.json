@@ -1136,7 +1136,12 @@
     "arXiv:2001.10425, all five versions listed on the abstract page; v5 of 18 December 2023 is the latest and is described there as the accepted version, and no erratum is announced",
     "the published article at https://www.ams.org/jams/2024-37-04/S0894-0347-2024-01043-X/, which is paywalled and returned HTTP 403, so it is not known whether copy-editing removed this",
     "the publication lists on the home pages of Akhil Mathew and Lennart Meier, which link only to the arXiv version and record no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source. Line 1484 of Purity-in-K-theory.tex reads cf.~\\Cref{remark:tstructure}, and no \\label{remark:tstructure} exists anywhere in the file; the only labels containing \"tstructure\" are prop:tstructure, which is Proposition 3.12 (line 1038) and is referenced correctly at lines 458 and 893. My own audit confirms this is the only undefined cross-reference among all 56 labels, and the v5 PDF contains exactly one ??, in this sentence. The intended target is unambiguous, since Proposition 3.12 is the alternative proof due to Ishan Levy and says so in its own proof.",
+    "by": "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/E2",
@@ -1151,7 +1156,12 @@
     "arXiv:2001.10425, all five versions listed on the abstract page; v5 of 18 December 2023 is the latest and is the accepted version, and no erratum is announced",
     "the published article at https://www.ams.org/jams/2024-37-04/S0894-0347-2024-01043-X/, which is paywalled and returned HTTP 403",
     "the LaTeX source of v5, in which \\mathscr{Cyc} occurs at lines 1558, 1562 and 1580 and \\mathscr{C} at line 1578"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source. Corollary 4.34 (line 1576) opens \"let $\\mathcal{O}_{\\mathscr{C}}(G)$ be as in \\Cref{TCpassembly}\", and TCpassembly is Proposition 4.33 (line 1555), which introduces $\\mathcal{O}_{\\mathscr{Cyc}}(G)$; the assembly map displayed inside Corollary 4.34 itself uses Cyc (line 1580), so only the introducing sentence differs. The entry's qualification is right too: §1 separately defines $\\mathscr{O}_{\\mathscr{C}}(G)$ for the same orbit category (line 427), so the clash is between the two sections' notations and the meaning is not in doubt.",
+    "by": "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
+   }
   }
  ]
 }
