@@ -1,6 +1,6 @@
 # Mistakes in Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*
 
-Job ERRATA-PAPER-YUAN-26. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-YUAN-26.json` beside this file.
+Job ERRATA-PAPER-YUAN-26. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-YUAN-26.json` beside this file. Reviewed by `REV-ERRATA-PAPER-YUAN-26` (issue #1763), Claude Code session `cc-7b31c4`, 23 September 2026: **all four confirmed**, none rejected, amended or added; the manuscript was re-fetched and reproduces the recorded SHA-256, and every quotation was found verbatim in it. The review is written up in [REV-ERRATA-PAPER-YUAN-26.md](../reviews/REV-ERRATA-PAPER-YUAN-26.md).
 
 **Paper and version read.** Xinyi Yuan, Annals of Mathematics 203 (2026), 15–119, DOI 10.4007/annals.2026.203.1.2. The version read is the author manuscript of 21 August 2024, which is the journal's revision date. It is linked from the author's page (126 pages, SHA-256 `b36f4860…813e`, as the extraction records). Every passage below was re-read there. The final typeset text was not accessible.
 
