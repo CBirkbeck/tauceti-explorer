@@ -5452,3 +5452,75 @@ Two scope cautions are written into the steps because they are easy to lose: Q04
 primes only, with no multiplicity and no reducedness claim about the original special fibre (reducedness
 appears only after normalization, in Q08); and Q10's second half refutes a blanket unibranch expectation on
 the special fibre while leaving `z̃` itself unibranch by its first half.
+
+## Continuation — §6 and §9 proof steps, and the library citations (cc-7b31c4, 23 September 2026)
+
+This pass closed **two whole clusters**: `P` (§6, patching functors) and `V` (§9, the global Serre-weight
+and modularity-lifting applications). `proofSteps` were written for **P09–P16** and **V07, V09, V11, V12,
+V13**, with prerequisite edges on eight of them. Nothing else in the census changed: 652 items, 24 routes,
+61 unreviewed findings, all inherited ids, `sourceData` and findings preserved. The missing-theorem proof
+backlog falls from **241 to 228** and now contains no `P`, `Q` or `V` item; what remains is
+`A` 58, `N` 40, `K` 31, `G` 30, `U` 25, `M` 23, `B` 20, `Z` 1. `LocModels.pdf` was re-fetched and its hash
+re-verified against the recorded `e5647879…`; PDF 127–131 and 183–187 were read fresh for this pass.
+
+**Two things about §6 and §9 are worth carrying into the blueprint, because they are easy to lose.**
+
+- **The two hypotheses of Proposition 6.2.3 are genuinely alternative, and are proved differently.** The
+  `(6n−2)`-generic case runs one place at a time through an arithmetic cohomology functor; the
+  `(2n−1)`-deep plus `4n`-generic case builds a type `τ(w, ŵ_h·λ+η)` and argues by absence of a
+  potentially crystalline lift. Collapsing the two thresholds to the weaker one is not licensed. P09 records
+  both routes separately.
+- **§9's two main statements are one- and two-line deferrals, and the steps say so.** Theorem 9.1.6 is
+  "follows from Lemmas 9.1.10 and A.1.1" — so V07 carries both lemmas as owned obligations and records the
+  genericity polynomial explicitly, as the product of `P_{6n−2}`, `P_{2η,e}`, `P_{η₀η,e}` and the `Q` of
+  Lemma 9.1.9 named in Remark 9.1.7(1). Theorem 9.2.1 is "follows from Theorem 7.3.2 from standard base
+  change and Taylor–Wiles patching arguments" — so V12 spells out the chain a blueprint must own (solvable
+  base change, the patched module for the definite unitary group of §9.1, the support argument that consumes
+  the domain property of Theorem 7.3.2, and the descent), and keeps Remark 9.2.2(2)'s own admission that the
+  inexplicit `P_{λ+η,e}` makes the theorem impractical to apply. V13 records that the change-of-weight
+  relaxation is paid for by enlarging that polynomial, and names which factors are added.
+
+Lemma 9.1.10 (V11) is where the real work of §9.1 sits, and its steps keep the structure the proof has: an
+easy inclusion from Proposition 6.2.3, a **defect-lowering claim** proved with a strictly defect-lowering
+type, and a hard inclusion combining four separate inputs — maximal Cohen–Macaulayness of `M_∞(σ°(τ))` over
+`R_∞(τ)`, the domain property of `R^τ_ρ̄` from Theorem 7.3.2(2), nonvanishing from Proposition 6.2.7, and the
+component description of Theorem 7.4.2(1). The scope caution written into V11 is that the lemma assumes only
+**weak and detectable**: no minimality, no rank-one hypothesis; the minimal functor appears only as an
+auxiliary object inside the last step.
+
+### Library citations, corrected and flagged
+
+The extraction carried no `libraryPins`; they are now recorded (Mathlib `082e2d3`, Tau Ceti `f790474`). Of the
+**162** cited declarations, six did not resolve at those commits. Three were name changes and are **corrected
+in place**:
+
+| was | is | file |
+|---|---|---|
+| `mathlib:BaireSpace.of_t2Space_locallyCompactSpace` | `mathlib:IsGδ.baireSpace_of_t2Space_locallyCompactSpace` | `Mathlib/Topology/Baire/LocallyCompactRegular.lean:62` |
+| `mathlib:IsLocalRing.linearCombination_bijective_of_flat` | `mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat` | `Mathlib/RingTheory/LocalRing/Module.lean:294` |
+| `mathlib:IsNoetherian.of_isNoetherian_tensorProduct_of_faithfullyFlat` | `mathlib:Submodule.IsNoetherian.of_isNoetherian_tensorProduct_of_faithfullyFlat` | `Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean:634` |
+
+The other three are **flagged in the item notes as unverified, not deleted**, because the declaration index
+does not settle them either way:
+
+- `mathlib:HenselianRing.is_henselian` and `mathlib:IsAdicComplete.henselianRing` (item `L77`) are a class
+  field and an instance of `Mathlib/RingTheory/Henselian.lean`, and the index lists only that file's five
+  top-level declarations. Class projections and anonymously named instances are not indexed, so these are
+  unverified rather than absent.
+- `mathlib:Module.Flat.instTensorProduct` (item `L55`) is not in the index under any name; the named instances
+  in `Mathlib/RingTheory/Flat/Basic.lean` are `self`, `ulift`, `shrink`, `directSum`, `dfinsupp`, `finsupp`,
+  `of_projective` and `of_free`, and none is a tensor product of two flat modules. This one may need replacing
+  by an explicit lemma.
+
+A blueprint must open the file before relying on any of the three. The other 159 citations resolve.
+
+### Resume in order
+
+1. **`N` (§2, 40 items)** and **`U` (§3, 25)** — the conventions and the Iwahori/Breuil–Kisin groundwork that
+   everything downstream cites; closing them first makes the later clusters cheaper.
+2. **`K` (§5, 31)** and **`M` (§4, 23)** — the local model theory, whose Corollary 5.5.8 and Theorem 5.3.1/5.3.3
+   are consumed by P13 and by §7.
+3. **`G` (§7, 30)** and **`B` (§8, 20)** — monodromy, potentially crystalline stacks and the global cycles.
+4. **`A` (Appendix A, 58)** last: it is the largest, and Lemma A.1.1 is the one piece of it that §9 already
+   depends on through V07, so its steps should be written with V07's obligations in hand.
+5. The **61 findings still carry no verdicts**; they are the review job's business, not this one's.

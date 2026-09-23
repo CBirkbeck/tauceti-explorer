@@ -846,6 +846,10 @@
       ]
     }
   },
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
   "summary": "Partial extraction: 652 items (120 library, 34 planned, 498 missing), 24 routes and 61 unreviewed source findings. This continuation decomposes strict-affinoid topology and the integral/generic completed-tensor comparisons, repairs regular-map descent, and imports existing height, completion and homological suppliers. The recursive proof/source audit and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
   "items": [
     {
@@ -8093,7 +8097,14 @@
       "locator": "Proposition6.2.3, PDF128",
       "statement": "If M_infinity(sigma) is nonzero, then sigma belongs to W?(rho^ss) provided either every local rho_v^ss is(6n-2)-generic, or sigma is(2n-1)-deep and every rho_v^ss is4n-generic. The two alternatives are separate sufficient hypotheses.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Write sigma = tensor_v sigma_v over v in S_p and treat the two hypotheses of the statement as genuinely separate cases; the paper proves them by different routes and neither implies the other.",
+        "First case, every rho^ss_v is (6n-2)-generic. The patching axioms make M_infinity(- tensor (tensor_{v != v0} sigma_v)) an arithmetic cohomology functor on F[GL_n(k_{v0})] in the sense of the cited weight-elimination paper, and its conclusion gives sigma_v in W?(rho^ss_v) for every v, one place at a time.",
+        "Second case, sigma is (2n-1)-deep and every rho^ss_v is 4n-generic. Pick lambda with F(lambda) = sigma and set tau = tau(w, w-hat_h . lambda + eta), which is an n-generic tame inertial type for every w in W. The cited elimination argument produces some w for which rho has no potentially crystalline lift of type (eta, tau) whenever sigma is not in W?(rho^ss).",
+        "By the axioms of M_infinity it is then enough that sigma be a Jordan-Holder constituent of sigma-bar(tau). The paper supplies this from the lowest alcove presentation: if (s, mu - eta) is n-generic for tau then F(pi^{-1}(w-tilde) . (t_mu s w-tilde^{-1}(eta) - eta)) lies in JH(sigma-bar(tau)), the depth of mu - eta being exactly what makes t_mu s w-tilde^{-1}(eta) - eta dominant and p-restricted for every w-tilde in W-tilde^+_1.",
+        "Blueprint note: the two genericity thresholds (6n-2 against 4n plus (2n-1)-depth) must be carried separately into any formalisation; collapsing them to the weaker one is not licensed by this proof."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P10",
@@ -8102,7 +8113,14 @@
       "locator": "Proposition6.2.4(1), PDF128–129",
       "statement": "If p does not divide2n, every residual L-homomorphism in the section's unramified setup has a weak potentially diagonalizable patching functor. This is a global construction using globalization, potentially diagonalizable lifts and Taylor–Wiles patching, not a formal existence axiom.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Reduce to the case that O_p is a domain O_K; the general case follows by completed tensor products over the places of S_p, which is how the section's R_p is built.",
+        "Quote the existence input rather than reproving it: by the cited moduli-of-etale-(phi,Gamma)-modules paper a crystalline potentially diagonalizable lift of rho exists, of some type (xi + eta, tau).",
+        "Feed that xi and tau into the Taylor-Wiles construction of the cited patching paper. It produces a finitely generated R_infinity[[GL_n(O_K)]]-module M_infinity, from which the functor is defined by M_infinity(sigma) = Hom^cont_{O[[GL_n(O_K)]]}(M_infinity, sigma^vee)^vee.",
+        "That this functor satisfies the weak patching axioms is the cited paper's own conclusion. Potential diagonalizability is separate: the residual representation r used there is potentially diagonalizably automorphic, and the proof of the cited weight paper upgrades that to potential diagonalizability of M_infinity.",
+        "Blueprint obligation: this is a global construction (globalise rho to a definite unitary group, patch), not a formal existence axiom, so a blueprint owns the globalisation and the patching input, not merely the axiom list."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P11",
@@ -8111,7 +8129,16 @@
       "locator": "Proposition6.2.4(2), PDF128–129",
       "statement": "Under P10, if each rho_v has a potentially diagonalizable lift of a type for which the product potentially crystalline lifting ring is formally smooth, then a weak minimal potentially diagonalizable functor exists.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Run the construction of P10 unchanged; the additional hypothesis is used only at the last step.",
+        "Assume each rho_v has a potentially diagonalizable lift of type (xi_v + eta_v, tau_v) with R^{xi+eta,tau}_rho formally smooth, and choose that type as the (xi, tau) fed to the patching construction.",
+        "Minimality is then immediate from the cited construction: formal smoothness of the local lifting ring at the chosen type is exactly the hypothesis under which the patched module is minimal there.",
+        "Record the dependency honestly: minimality here is a property of the chosen type, not of rho alone, so the blueprint must carry the type through."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P10"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12",
@@ -8120,7 +8147,17 @@
       "locator": "Proposition6.2.6, PDF129",
       "statement": "For K/Qp finite unramified, p not dividing2n, and semisimple rho with4n-generic inertia, every weak potentially diagonalizable functor is detectable, and a weak minimal detectable potentially diagonalizable functor exists. Fontaine–Laffaille formally smooth lift existence supplies P11's hypothesis.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "First assertion. Reprove the cited paper's detectability argument verbatim with one substitution: use Proposition 6.2.3 of this paper in place of the corollary that plays that role in loc. cit. The 4n-genericity of the tame inertial L-parameter is what makes the substitution legitimate.",
+        "Second assertion, existence. Each rho_v is Fontaine-Laffaille under the standing hypotheses, so it has a crystalline potentially diagonalizable lift for some Fontaine-Laffaille Hodge-Tate weights, and the corresponding crystalline lifting ring is formally smooth; this is quoted from three cited papers.",
+        "That is precisely the hypothesis of Proposition 6.2.4(2), so a weak minimal potentially diagonalizable patching functor exists.",
+        "Detectability of that functor is then automatic from the first assertion, since it is in particular weak potentially diagonalizable. Note the logical order: existence is obtained first and detectability is inherited, not imposed."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P11"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
@@ -8129,7 +8166,18 @@
       "locator": "Proposition6.2.7, PDF129–130",
       "statement": "For semisimple rho with4n-generic inertia, dominant effective lambda_j in[0,h]^n, tau with chosen max(2n,h+n-1)-generic presentation, a stable lattice sigma^circ(lambda,tau), and a weak detectable minimal functor, the following are equivalent: its patched module is nonzero; R_infinity(lambda,tau) is nonzero; R_rho^(lambda+eta,tau) is nonzero; rho admits a lambda-compatible presentation with w(tau)^-1 w(rho) in Adm(lambda+eta). Expand the equivalence into individual implications in the blueprint. No domain claim is involved.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Prove the four conditions equivalent as a cycle (1) => (2) => (3) => (4) => (1); the paper's proof is exactly this cycle and no two of the steps share an argument.",
+        "(1) => (2). M_infinity(sigma^circ(lambda, tau)) is supported on X_infinity(lambda, tau), so if it is nonzero then R_infinity(lambda, tau) is nonzero.",
+        "(2) <=> (3). By the definition of R_infinity(lambda, tau) as a completed tensor product with the local factor, it is nonzero exactly when R^{lambda+eta,tau}_rho is.",
+        "(3) => (4). Corollary 5.5.8: nonvanishing of the local deformation ring produces a lambda-compatible lowest alcove presentation of rho with w-tilde(rho, tau) in Adm(lambda + eta). This is the step that consumes the local model theory of sections 4 and 5.",
+        "(4) => (1). Proposition 2.6.6 makes W^obv(rho) intersect JH(sigma^circ(lambda, tau)) nonempty; for sigma in that intersection M_infinity(sigma) is nonzero, and exactness of M_infinity lifts this to M_infinity(sigma^circ(lambda, tau)).",
+        "Blueprint note: the chosen max(2n, h + n - 1)-generic lowest alcove presentation of tau is a hypothesis of the statement, not a normalisation, and the equivalence is asserted only for a detectable minimal functor."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14",
@@ -8138,7 +8186,14 @@
       "locator": "Lemma6.2.8, PDF130–131",
       "statement": "Let kappa in X1 be(n-1)-deep and rho upper triangular with diagonal characters chi_bar_i having inertia product_j baromega_(K,sigma_j)^(kappa_j,i+eta_j,i). It admits an upper triangular lift with inertia characters chi_i=epsilon^(n-i) product_j omega_(K,sigma_j)^kappa_j,i. Every such lift is potentially crystalline of type(eta,tau(1,kappa)). The proof uses local H2 obstruction vanishing, de Rham extension results, and distinct inertial characters to kill monodromy.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Existence of the lift. The (n-1)-depth of kappa forces chi-bar_i not equal to chi-bar_{i'} epsilon for all i < i', so H^2(G_K, chi-bar_i chi-bar_{i'}^{-1}) = 0 and the successive extension problems defining an upper triangular lift with the prescribed diagonal characters chi_i are unobstructed.",
+        "De Rham-ness. Along the diagonal the j-labelled Hodge-Tate weights of the lift increase, which is the hypothesis of the cited de Rham criterion; hence the lift is de Rham and so potentially semistable, with Hodge-Tate weight eta by inspection of the diagonal.",
+        "Inertial type. D_pst of the lift is a successive extension of the D_pst(chi_i) as I_K-representations, and D_pst(chi_i) is the product over j of omega^{kappa_{j,i}}_j, so the inertial type is tau(1, kappa).",
+        "Vanishing of monodromy. The depth hypothesis on kappa makes D_pst restricted to I_K a direct sum of n distinct characters; the monodromy operator N commutes with I_K up to the cyclotomic twist and therefore must vanish. So the lift is potentially crystalline of type (eta, tau(1, kappa)).",
+        "Note that the conclusion is about every such lift, not merely one: the last two steps use only the diagonal characters, so they apply to any upper triangular lift with those diagonal entries."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P15",
@@ -8147,7 +8202,17 @@
       "locator": "Proposition6.2.9, first assertion, PDF131",
       "statement": "For kappa,rho as in P14, assume rho4n-generic. Every weak potentially diagonalizable functor has M_infinity(F(kappa)) nonzero. Weight elimination and the singleton obvious-weight intersection isolate F(kappa) from the type lattice.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The lift rho-tilde of P14 is ordinary, hence potentially diagonalizable by the cited potential-diagonalizability criterion for ordinary representations. So for a potentially diagonalizable M_infinity, M_infinity(sigma^circ(tau(1, kappa))) is nonzero for any O-lattice in sigma(tau(1, kappa)).",
+        "Fix a lowest alcove presentation (w-tilde, omega) of F(kappa), so kappa = pi^{-1}(w-tilde) . (omega - eta). Because rho is 4n-generic that presentation is 3n-generic, which is the depth the next step needs.",
+        "Set w-tilde = t_{eta w} w and use Proposition 2.4.5 to write tau(1, kappa) and rho^ss restricted to I_K in compatible lowest alcove presentations. Then w-tilde(rho, tau(1, kappa)) = t_{w^{-1}(eta)}, and Corollary 2.6.5 gives W?(rho^ss) intersect JH(sigma-bar(tau(1, kappa))) = {F(kappa)}: a singleton, which is the crux.",
+        "Every other constituent sigma of sigma-bar(tau(1, kappa)) is 2n-deep by Proposition 2.3.7 and lies outside W?(rho^ss), so M_infinity(sigma) = 0 by Proposition 6.2.3. Exactness of M_infinity then forces the nonvanishing to be carried by F(kappa) alone, so M_infinity(F(kappa)) is nonzero."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P16",
@@ -8156,7 +8221,16 @@
       "locator": "Proposition6.2.9, last assertion, PDF131",
       "statement": "Under P15's hypotheses, if F(kappa) is a constituent of the reduction of sigma(lambda,tau), then R_rho^(lambda+eta,tau) is nonzero.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Combine P15 with the patching axioms: F(kappa) is a constituent of sigma-bar(lambda, tau) and M_infinity(F(kappa)) is nonzero, so by exactness M_infinity(sigma^circ(lambda, tau)) is nonzero for any O-lattice.",
+        "The support axiom then gives R_infinity(lambda, tau) nonzero, and hence R^{lambda+eta,tau}_rho nonzero, by the same identification used in P13.",
+        "This is the direction of P13's cycle that survives without semisimplicity of rho, which is why the paper isolates it here; do not import the rest of P13's equivalence into the non-semisimple setting."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P15"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01",
@@ -11053,7 +11127,14 @@
       "locator": "Theorem9.1.6 PDF183–184",
       "statement": "In the standing definite-unitary unramified local setting, with p not dividing 2n, residual r automorphic, r restricted to G_{F(zeta_p)} adequate, and tame local inertia whose chosen lowest-alcove parameters mu are generic for a nonzero integral polynomial P independent of p, W(r)=W_gen^g(r_p)=W?(r_p inertia) and W_gen(r)=W_gen^BM(r_p). Preserve all global hypotheses and do not impose an additional mild-level condition away from p.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The printed proof is two lines and defers entirely: 'The result follows from Lemmas 9.1.10 and A.1.1.' A blueprint must therefore carry both lemmas as owned obligations, not as citations.",
+        "Lemma A.1.1 supplies the object: for automorphic r-bar with adequate restriction to G_{F(zeta_p)} it produces a weak patching functor whose nonvanishing set is exactly W(r-bar), and, under the extra P_{6n-2}P_{2 eta, e}-genericity, a detectable one.",
+        "Lemma 9.1.10 computes that nonvanishing set for a detectable functor: it equals W?(r-bar_p restricted to inertia), and among generic weights equals W^BM_gen(r-bar_p).",
+        "Chaining the two identifies W(r-bar) with W?(r-bar_p|I), and Lemma 9.1.9 identifies the latter with W^g_gen(r-bar_p), giving the three-way equality in the statement; the generic clause is the second half of 9.1.10.",
+        "Record the genericity polynomial explicitly, as Remark 9.1.7(1) does: P may be taken to be the product of P_{6n-2}, P_{2 eta, e}, P_{eta_0 eta, e} and the Q of Lemma 9.1.9. The theorem is only as effective as that product, which is not made explicit in rank n."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08",
@@ -11120,7 +11201,13 @@
       "locator": "Lemma9.1.9 PDF184",
       "statement": "A nonzero integral polynomial Q built from finitely many shifted fixed-point polynomials P_w, together with the 4n-depth polynomial, makes W_gen^g(rho)=W?(rho inertia) for tame residual L-parameters. The product is finite modulo central translations.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "One inclusion is quoted: W^g_gen(rho) is contained in W?(rho restricted to I) by Proposition 7.4.7(3), for 4n-generic rho. Only the reverse inclusion needs the polynomial.",
+        "Build the polynomial. Fix a set R of representatives for the finite quotient W-tilde^+_1 / X_0(T) and set Q(X_1, ..., X_n) to be the product, over w-tilde in R, over w-tilde_2 with w-tilde_2 up-arrow w-tilde and w-tilde_2 in W-tilde^+, and over w in W, of P_{w-tilde}(X + w w-tilde_2^{-1}(0)), where P_{w-tilde} is the fixed-point polynomial of Proposition 4.7.3 and w w-tilde_2^{-1}(0) is read in Z^n under X^*(T) = Z^n. The product is finite because the quotient is.",
+        "Reverse inclusion. If rho restricted to I_K has a Q-generic lowest alcove presentation (s, mu - eta), then for sigma in W?(rho|I_K) the compatible presentation supplied by Proposition 2.6.2 satisfies the hypothesis of Proposition 7.4.7(2), whence rho lies in C_sigma, i.e. sigma lies in W^g_gen(rho).",
+        "Take P = Q P_{4n}, the second factor securing the 4n-genericity that the first inclusion needed. Note that P depends on n but not on p, which is what makes the statement uniform in p."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V10",
@@ -11182,7 +11269,20 @@
       "locator": "Lemma9.1.10 PDF185–186",
       "statement": "For a suitable polynomial-generic tame rho, a weak detectable patching functor has nonzero weight evaluations exactly on W?(rho inertia), and among generic weights exactly on W_gen^BM(rho). The argument uses defect-lowering types, domains, maximal Cohen–Macaulay support and component primes. No minimal rank-one hypothesis is imposed on this functor.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "Fix the polynomial first: P is the product of P_{eta_0 eta, e}, P_{6n-2} and the Q of Lemma 9.1.9. Every genericity appeal below names which factor it consumes.",
+        "Easy inclusion. {sigma : M_infinity(sigma) nonzero} is contained in W?(rho|I) by Proposition 6.2.3, using that P_{6n-2} divides P.",
+        "Defect-lowering claim, which carries the argument. If sigma is in W?(rho) and Ann_{R_rho} M_infinity(sigma) is contained in p_{sigma'}(rho) for some sigma' in W^g_gen(rho), then delta(sigma') <= delta(sigma) for the defect function of section 8.6.1. It is proved by choosing a 2n-generic tame tau with w-tilde(tau) = w-tilde(rho|I)(w-tilde_h w-tilde)^{-1} w_0 w-tilde_1, so that W?(rho|I) intersect JH(sigma-bar(tau)) contains sigma together with weights of strictly smaller defect, and reading off the components of Spec R^tau_rho from Theorem 7.4.2(1).",
+        "Hard inclusion. For sigma in W?(rho|I) choose tau as above. Since (w-tilde_h w-tilde)^{-1} w_0 w-tilde_1 lies in Adm(eta) by Proposition 2.1.6 and P_{eta_0 eta, e} divides P, the pair (eta, tau) lies in S_{0,t}. Combining four inputs - M_infinity(sigma^circ(tau)) maximal Cohen-Macaulay over R_infinity(tau); R^tau_rho a domain by Theorem 7.3.2(2); M_infinity(sigma^circ(tau)) nonzero by Proposition 6.2.7; and Theorem 7.4.2(1) - gives Ann M_infinity(sigma^circ(tau)) contained in p_sigma(rho). Applying the defect claim with the roles of sigma and sigma' exchanged, and strict defect lowering, forces sigma = sigma', so M_infinity(sigma) is nonzero.",
+        "Generic clause. For generic sigma, membership of W?(rho) and of W^BM_gen(rho) agree: forwards by Lemma 9.1.9 with Remark 9.1.3; backwards because for a minimal patching functor for S_{0,t} Theorem 8.4.10(2) gives nonvanishing, hence membership of W? by Proposition 6.2.3, with an alternative route through Remark 4.7.4(2).",
+        "Scope caution: this lemma assumes only weak and detectable, with no minimality and no rank-one hypothesis on M_infinity; the minimal functor appears only inside the last step as an auxiliary object."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V09"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V12",
@@ -11191,7 +11291,13 @@
       "locator": "Theorem9.2.1 PDF186–187",
       "statement": "For a CM extension in the applicable local unramified setting, a continuous r:G_F->GL_n(E) with finite ramification, potentially crystalline regular type (lambda+eta,tau) at p, polynomial-generic tame tau, polarization r^c=r^vee epsilon^(1-n), semisimple residual restrictions at p, adequate residual image on G_{F(zeta_p)} and zeta_p not in F^{ker ad rbar}, and a residual RACSDC automorphic lift with matching weight and K-types, is automorphic with that weight and type. The residual bars were checked in the published PDF image; residual automorphy is the hypothesis, not prior automorphy of r.",
       "status": "missing",
-      "note": "Route owner: PolarizedAutomorphyLifting. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: PolarizedAutomorphyLifting. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The printed proof is one sentence: the theorem 'follows from Theorem 7.3.2 from standard base change and Taylor-Wiles patching arguments', with a reference to the proof of a cited automorphy lifting paper. Treat this as an outstanding obligation, not as a proof.",
+        "What Theorem 7.3.2 supplies is the local input: for a P_{lambda+eta,e}-generic tame tau, the potentially crystalline deformation ring R^{lambda+eta,tau}_rho is a domain (and normal, Cohen-Macaulay). That is the hypothesis a Taylor-Wiles patching argument needs in order to conclude that the patched module is supported on the whole of the local deformation space.",
+        "The blueprint obligation is therefore the standard chain, stated in full and not deferred: solvable base change to a setting where the relevant level is mild and r-bar remains adequate; construction of the patched module for the definite unitary group of section 9.1; the support argument using the domain property; and the descent back to automorphy of r with the stated weight and K-type.",
+        "Carry all the hypotheses of the statement without weakening: the polarization r^c = r^vee epsilon^{1-n}, semisimplicity of r-bar locally above p, adequacy of r-bar on G_{F(zeta_p)} with zeta_p not in F^{ker ad r-bar}, and the residual RACSDC automorphic lift of matching weight and type. Remark 9.2.2(2) itself records that the inexplicit P_{lambda+eta,e} makes the theorem impractical to apply, which a blueprint should not hide."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V13",
@@ -11200,7 +11306,17 @@
       "locator": "Remark9.2.2 PDF187",
       "statement": "After strengthening the genericity polynomial, the residual automorphic lift in V12 need not initially have matching weight/type: the weight theorem supplies the change of weight. The polynomial is not made effective in arbitrary rank.",
       "status": "missing",
-      "note": "Route owner: PolarizedAutomorphyLifting. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: PolarizedAutomorphyLifting. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "proofSteps": [
+        "The remark asserts two things, and only the first is a mathematical claim: after possibly enlarging the polynomial P_{lambda+eta,e}, the last hypothesis of Theorem 9.2.1 can be relaxed to r-bar being isomorphic to r-bar_iota(pi) for some RACSDC pi with no matching of weight or type.",
+        "The mechanism is the weight theorem: Theorem 9.1.6 identifies W(r-bar) with W?(r-bar_p|I) under polynomial genericity, so an automorphic lift of any weight can be moved to one whose weight and K-type match (lambda, sigma(tau)), which is exactly a change of weight.",
+        "The enlargement of the polynomial is what pays for this, and it is not made explicit; the blueprint should record which factors are added (those of Theorem 9.1.6, i.e. P_{6n-2}, P_{2 eta, e}, P_{eta_0 eta, e} and Q) rather than leave 'possibly changing' unquantified.",
+        "The second assertion of the remark is not a theorem but a caveat, that the inexplicit polynomial makes the result impractical; keep it as a recorded limitation of the whole section rather than dropping it."
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V12"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A01",
@@ -15154,7 +15270,7 @@
       "library": [
         "mathlib:Module.Flat.instTensorProduct"
       ],
-      "note": "Pinned declaration statements read; no new Lean implementation. "
+      "note": "Pinned declaration statements read; no new Lean implementation.  Reviewer/continuation note (issue #1254): Module.Flat.instTensorProduct does not appear in the declaration index at the pinned commit; the named instances in Mathlib/RingTheory/Flat/Basic.lean are self, ulift, shrink, directSum, dfinsupp, finsupp, of_projective and of_free, and no instance for a tensor product of two flat modules is listed under any name. This citation is unverified and may need replacing by an explicit lemma; a blueprint must check it before relying on it."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L56",
@@ -18028,10 +18144,10 @@
       "status": "library",
       "library": [
         "mathlib:nonempty_interior_of_iUnion_of_closed",
-        "mathlib:BaireSpace.of_t2Space_locallyCompactSpace"
+        "mathlib:IsGδ.baireSpace_of_t2Space_locallyCompactSpace"
       ],
       "prerequisites": [],
-      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Read in the Mathlib source at the pinned commit 082e2d3, statements and hypotheses as quoted."
+      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Read in the Mathlib source at the pinned commit 082e2d3, statements and hypotheses as quoted. Continuation note (issue #1254): library citations corrected against the pinned Mathlib commit, where the previously recorded names do not exist; the declarations now cited do."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L76",
@@ -18070,7 +18186,7 @@
       "status": "library",
       "prerequisites": [],
       "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
-      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier. Reviewer/continuation note (issue #1254): HenselianRing.is_henselian and IsAdicComplete.henselianRing are the class field and the instance of Mathlib/RingTheory/Henselian.lean; neither appears in the declaration index at the pinned commit, which lists only the five top-level declarations of that file (isLocalHom_of_le_jacobson_bot, HenselianRing, HenselianLocalRing, HenselianLocalRing.TFAE, IsLocalRing.eq_of_eval_eq_zero_of_not_isUnit_sub). Class projections and anonymously named instances are not indexed, so these two citations are unverified rather than known absent; a blueprint must open the file before relying on them.",
       "library": [
         "mathlib:IsAdicComplete.henselianRing",
         "mathlib:HenselianRing.is_henselian"
@@ -18178,10 +18294,10 @@
       "status": "library",
       "prerequisites": [],
       "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
-      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier. Continuation note (issue #1254): library citations corrected against the pinned Mathlib commit, where the previously recorded names do not exist; the declarations now cited do.",
       "library": [
         "mathlib:Module.free_of_flat_of_isLocalRing",
-        "mathlib:IsLocalRing.linearCombination_bijective_of_flat"
+        "mathlib:Module.IsLocalRing.linearCombination_bijective_of_flat"
       ]
     },
     {
@@ -20071,9 +20187,9 @@
       "status": "library",
       "prerequisites": [],
       "implementationStatus": "unchecked",
-      "note": "",
+      "note": "Continuation note (issue #1254): library citations corrected against the pinned Mathlib commit, where the previously recorded names do not exist; the declarations now cited do.",
       "library": [
-        "mathlib:IsNoetherian.of_isNoetherian_tensorProduct_of_faithfullyFlat"
+        "mathlib:Submodule.IsNoetherian.of_isNoetherian_tensorProduct_of_faithfullyFlat"
       ]
     },
     {
