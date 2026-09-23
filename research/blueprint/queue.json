@@ -3365,8 +3365,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BINDA-KATO-VEZZANI-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1211"
+   "state": "external",
+   "note": "claimed on GitHub issue #1211"
   },
   {
    "id": "REV-PAPER-BINDA-KATO-VEZZANI-25",
@@ -4943,8 +4943,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1302"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1302",
+   "finishedAt": "2026-09-23T06:49:51Z"
   },
   {
    "id": "REV-PAPER-LIU-ZHU-17",
