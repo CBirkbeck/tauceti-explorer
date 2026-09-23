@@ -1,14 +1,87 @@
-# PAPER-YANG-ZHAO-25 — localized Chern classes and the global conductor comparison
+# Yang–Zhao (2025): cohomological Milnor formula and Saito's conjecture, extraction and routing
+
+Issue [#1218](https://github.com/CBirkbeck/tauceti-explorer/issues/1218). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** E. Yang and Y. Zhao, *Cohomological Milnor formula and Saito's conjecture on characteristic classes*, Invent. Math. 240 (2025), 123–191.
+  - arXiv v4 was re-fetched; its SHA-256 (e3da9817…) matches the checkpoint.
+  - The journal text is closed access, and Crossref registers no erratum.
+- **Items.** The result has **142 items: 9 library, 12 planned and 121 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Nine are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Items.**
+- Saito's conjecture (Conjecture 6.12, stated as Conjecture 1.2) was only in the `conjecturalBoundaries` list. It is now the statement-only item M19.
+- The introduction's Theorems 1.3, 1.5, 1.9, 1.12 and 1.14, Corollary 1.6 and Proposition 1.11 restate body results; the body items now name them.
+
+**Reclassified to affect nothing.**
+- **E7.**
+  - The problem: Lemma 3.2's final specialization needs Λ_X to be ULA over S.
+  - Why it is harmless: that holds over a field, and the lemma's one use (Lemma 3.15) is over a perfect field.
+
+**Unchanged.** E6 and E8 affect the proof, and the checkpoint already gives their repairs:
+- **E6.** The projection formula in place of σ_*σ^*F = F^⊕d.
+- **E8.** A coefficient extension, because a nontrivial additive character F_p → Λ^× can fail to exist.
+
+No finding affects a stated result.
+
+**Gaps.**
+- G07 is recorded as E8.
+- G01 is unavailable.
+- The others are deferred as cited suppliers' proofs or design work. G09 is among them: UYZ's journal lemma for quasi-projective X is not openly available, and item M15 keeps it as a verification point.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), §2.3(3), p.8, prose and (2.3.5), arXiv v4. *Printed:* δ!Λ *Correction:* Replace the displayed δ!Λ factors by δ!G in the description of the left vertical map of (2.3.4).
+- **E2** (misprint; affects nothing), §3.6, p.16, two tensor-dual expressions, arXiv v4. *Printed:* D_X/S(F) *Correction:* Use D_X/S(G) in both descriptions of a correspondence from G to F.
+- **E3** (misprint; affects nothing), Lemma3.14 proof, p.21, prose immediately after (3.14.5), arXiv v4. *Printed:* F⊠D_X'/S(G) → F⊠K_X'/Y *Correction:* The evaluation morphism to which c is applied is (F⊠S D_X'/S(G))⊗p2*G→F⊠S K_X'/S.
+- **E4** (misprint; affects nothing), Proposition4.14, p.27, vanishing hypothesis preceding (4.14.2), arXiv v4. *Printed:* K_X'/Y' *Correction:* Replace Y' by Y. In the following formula spell out ν_target^−1 after the defect pushforward when only target C2 is assumed.
+- **E5** (misprint; affects nothing), Proposition4.15 proof, p.28, isomorphism string after (4.15.4), arXiv v4. *Printed:* (f'e0)* *Correction:* Use (e0 f')* (equivalently f'^* e0^*) in that pullback expression.
+- **E6** (error; affects the proof), Theorem6.13 proof, p.50, sentence before (6.13.2), arXiv v4. *Printed:* σ*σ*F=F^⊕deg(k'/k) *Correction:* Use the projection formula σ*σ*F≃F⊗σ*Λ. The finite-free lisse sheaf σ*Λ has rank d but need not be constant. Apply Lemma3.2 to cohomological classes and the étale-local additive rank-twist identity M13 to characteristic cycles/Chow classes; then the needed endpoint equalities in(6.13.2) follow, and d is inverted only in Λ-cohomology.
+- **E7** (gap; affects nothing), Lemma3.2, p.15, final specialization, arXiv v4. *Printed:* C_X/S(L)=rankL·C_X/S(Λ) *Correction:* For the stated general base add Λ_X∈Dctf(X/S,Λ) to this specialization, or restrict to the field-base applications where it holds. For nonlocal coefficient rings specify trace-rank or constant finite-free rank.
+- **E8** (gap; affects the proof), arXiv2209.11086v4 p.45, paragraph before Theorem6.3 and §6.4 character choice; journal passage not inspected. *Printed:* We choose a non-trivial additive character ψ : Fp → Λ* *Correction:* First replace Λ by the finite local faithfully free algebra B of Q01, run the character-admitting proof there and descend by Q07–Q10. Do not divide by the coefficient extension degree.
+- **E9** (misprint; affects nothing), Saito, On the proper push-forward of the characteristic cycle of a constructible sheaf, arXiv1607.03156v1 p.3, paragraph preceding (8); journal text not inspected. *Printed:* equals the support of X *Correction:* The base of SS(F) is the support of F.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G01, Final journal-version reconciliation** (unavailable). The Inventiones text is closed (Unpaywall, Springer previews only); arXiv v4 was read in full.
+- **G02, Enhanced six-operation and coherence proof closure** (deferred). Gaitsgory–Rozenblyum, Hemo–Richarz–Scholbach and Lurie are cited suppliers.
+- **G03, General-base relative duality and transversality leaves** (deferred). Saito, Illusie and Lu–Zheng are cited suppliers; the Lemma 3.2 scope is E7.
+- **G04, Absolute-purity, semipurity and regular-class scope** (deferred). Fujiwara and ILO are cited suppliers.
+- **G05, Hansen–Scholze ULA extension descent** (deferred). Hansen–Scholze is a cited supplier.
+- **G06, Nearby-cycle finiteness and goodness domain** (deferred). The nearby-cycle finiteness results are cited suppliers.
+- **G07, Local Fourier and modular-to-adic proof closure after coefficient descent** (recorded). The missing character is E8, with its coefficient-extension repair; UYZ and Laumon are cited suppliers.
+- **G08, Positive-characteristic microlocal existence and integrality** (deferred). Beilinson and Saito's characteristic-cycle theory are cited suppliers.
+- **G09, Quasi-projective pencil and blowup hypothesis reconciliation** (deferred). UYZ's journal Lemma 4.2.7 is a cited supplier. Its final text returned HTTP 403, and the accessible arXiv version treats projective X, so item M15 keeps the quasi-projective form as a verification point.
+- **G10, Localized Chern and conductor comparison input** (deferred). Saito's localized Chern input is a cited supplier.
+- **G11, Complete prerequisite granularity** (deferred). Prerequisite granularity is design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-YANG-ZHAO-25 — localized Chern classes and the global conductor comparison
 
 Third partial checkpoint, Codex `codex-c83e7a`, issue #1218, continuing [PR #2029](https://github.com/CBirkbeck/tauceti-explorer/pull/2029). The earlier report is preserved below as a historical record. This checkpoint has 141 items: 9 library, 12 planned and 120 missing, with 298 acyclic dependency edges and six routes. Its 52 definitions/constructions have 158 API entries and 156 proposed specification tests. Eleven gaps still prevent source closure. No Lean implementation or independent review is claimed.
 
-## What this checkpoint adds
+### What this checkpoint adds
 
 The central addition is an explicit proof chain for the global localized-Chern comparison in Yang–Zhao Remark 6.8. It keeps the class on the bad fiber distinct from its image on the target curve. It also corrects an error in our previous extraction: the two-term cotangent presentation need not be exact off the bad fiber. Its degree-zero cohomology there is a locally free sheaf of rank `n−1`. For the smooth projection `P¹×A¹→A¹`, that cohomology is the nonzero relative cotangent line bundle.
 
 All 130 previous item IDs and statuses, the nine source findings and the conjectural boundaries are retained. M08's statement is corrected; M05's generic intersection operations are delegated to their existing owner; A14 gains the explicit proof bridge. These are changes to this extraction, not additional alleged errors in the papers.
 
-## Sources and precise reading scope
+### Sources and precise reading scope
 
 The newly downloaded [Yang–Zhao arXiv v4](https://arxiv.org/pdf/2209.11086v4) is byte-identical to the version read completely in this session for PR #2029. That full 51-page reading is reused, and pp.48–49 were freshly reread here. The final 69-page journal version remains unavailable; this is not a claim of a fresh second full reading or of journal collation.
 
@@ -20,7 +93,7 @@ The new source work is:
 
 URLs, dates and SHA-256 hashes are in `sourceLedger`. Bloch's original §1 and the full graph-construction/Whitney proof chain remain unacquired. Reading a later proposition that records their properties does not close those leaves.
 
-## Localized construction and section comparison
+### Localized construction and section comparison
 
 J02 states the required construction accurately. A bounded complex K of finite locally free sheaves has cohomology only in degree zero on `U=X−Z`, where `H⁰(K)` has rank `n−1`. Its Chern classes of degree at least n acquire support on Z. The lower classes remain ordinary classes. Forgetting support gives the virtual total class
 
@@ -42,7 +115,7 @@ For the application J04, proper flat `f:X→Y`, smooth off `X_y`, has the presen
 
 Flatness makes each nonempty smooth component dominate the curve; generic smoothness makes the line-to-bundle map injective. Its cokernel is `Ω¹_X/Y`. Near y a uniformizer t trivializes `Ω¹_Y/k` and yields the derivative section `d(f*t)`. Changing t rescales this section by a unit, so the refined intersection and isomorphism class of the complex are unchanged. This uses the global localized class and a neighborhood of the entire fiber, not an unsupported assertion that Chow classes glue from arbitrary open patches.
 
-## The cotangent-cycle calculation
+### The cotangent-cycle calculation
 
 J05 isolates the correspondence `T*X ← X×Y T*Y → T*Y`. Its left lci Gysin map has dimension shift `m−n`; its right map is proper on the relevant support. Their composition sends `CH_n(C)` to `CH_m(f∘C)`. Under the dimension bounds it is a map of integral top-dimensional cycle groups. The commutative-square proof of its composition law is retained.
 
@@ -52,7 +125,7 @@ J06 gives Saito's curve-target expansion. Over the properly transversal open V, 
 
 This is an intersection-theoretic identity, without a sheaf direct-image theorem or a projectivity hypothesis. For a general C, the smooth neighborhood of its base support is used when forming the fiber cotangent intersection. The full signed-transversality supplier proof remains an explicit inherited leaf.
 
-## A global proof using the earlier trace interfaces
+### A global proof using the earlier trace interfaces
 
 J07 makes the virtual Chern calculation explicit. Put `α=f*c1(ΩY)`. Since Y is a smooth curve, `α²=0`. Thus `c(K)=c(ΩX)(1−α)`, and dualization gives the integral identity
 
@@ -72,7 +145,7 @@ This is exactly the expression in Yang–Zhao (6.8.3). A14 follows by the source
 
 The support boundary is testable. Over an algebraically closed field of characteristic 5, take Λ=F3 and `f:A¹→A¹`, `t=x²`. The signed local Chern term is `−[0]`, with nonzero class `−1` in `H0_{0}(A¹,K)=F3`. Its image in `H0(A¹,K)=H²(A¹,F3(1))` is zero. Thus the global identity alone cannot recover the supported equality expected in Remark 6.8. No new claim is made about that conjecture.
 
-## Ownership and remaining work
+### Ownership and remaining work
 
 The complete SchemeAndStackFoundations document and EDC.3 description were read, together with reviewed AUDIT-01 SF.5 and AUDIT-18 EDC.3. SF.5 already owns generic integral Chow, Gysin, Chern, projection and excess constructions. A sixth **source** route supplies the rank-threshold localized-Chern interface and section calculation to that existing layer. EDC.3 keeps the geometric étale realization. The Microlocal continuation imports both and owns the cotangent application. All five prior roadmap IDs remain unchanged.
 
@@ -80,19 +153,19 @@ The complete pinned Mathlib algebraic-cycle file was read. L09 reuses its actual
 
 G10 is narrowed, not deleted. The graph construction and its bivariant/Whitney invariance still require their original proofs. G11 now names the SF.5/EDC.3 division of M05 but still requires implementation-level supplier decomposition. The final journal versions, UYZ pencil and Fourier inputs, enhanced geometry, purity, nearby-cycle goodness and other inherited gaps remain open.
 
-## Validation
+### Validation
 
 The paper checker, three-file intake and structural audit pass. The structural audit checks 1,603 assertions, including all preserved IDs/statuses, the two statement corrections, unchanged source issues, resolved dependencies, acyclicity, actual planned stage IDs, route uniqueness and definition APIs/tests. Exact diagnostics pass 20,654 cases for the virtual Chern signs over a square-zero base class, product-family cancellation, derivative degeneracy and finite-coefficient distinctions. These calculations do not prove the geometric supplier theorems. No Lean file is authorized for this paper issue, and none was compiled.
 
-## Historical report from the second checkpoint
+### Historical report from the second checkpoint
 
 The following is preserved from PR #2029. Its counts, routes and reading boundaries describe that checkpoint; the current refinements and totals are above.
 
-# PAPER-YANG-ZHAO-25 — non-acyclicity classes and characteristic-class comparison
+## PAPER-YANG-ZHAO-25 — non-acyclicity classes and characteristic-class comparison
 
 Second research checkpoint by Codex, session `codex-c83e7a`, for issue #1218, continuing PR #1963 by `codex-a71f92` on 2026-09-23. This is a paper extraction, not an implementation or a closed blueprint.
 
-## Result and reading boundary
+### Result and reading boundary
 
 The extraction records 130 interfaces: 8 library items, 10 planned interfaces and 112 missing items, with 272 acyclic dependency edges. Its 47 definitions/constructions carry 141 API entries and 141 mathematical specification tests. Every missing item has exactly one route. Eleven explicit gaps prevent a completion claim.
 
@@ -100,7 +173,7 @@ This continuation reread the entire [arXiv v4](https://arxiv.org/pdf/2209.11086v
 
 The previous worker read the author's [alternative fibration proof](https://yelmath.github.io/PFF.pdf) visually in full: eleven image pages, printed 31–41. This reading is inherited; the present worker did not repeat it. It replaces the longer difference-of-prisms argument with a nine-diagram identity. The author calls it an alternative proof, not an erratum. The extraction retains both proofs and records their different numbering. The previous worker also read selected Hansen–Scholze, Umezaki–Yang–Zhao and Saito passages; their exact scopes and SHA-256 hashes are in `sourceLedger`. Selected Lu–Zheng and Laumon readings from the immediately preceding Abe audit are reused with their original limited scope.
 
-## What is proved, and what is not
+### What is proved, and what is not
 
 For a Noetherian base and the paper's torsion Noetherian coefficients, the central diagram is Z→X→Y→S. Write U=X\Z, K_X/Y=f!Λ, and K_X/Y/S for the explicit diagonal-transversality defect. Three conditions must not be conflated:
 
@@ -122,7 +195,7 @@ The finite-set formula and cohomological Grothendieck–Ogg–Shafarevich formul
 
 The final comparison cl(cc_X(F))=C_X/k(F) is proved for **smooth quasi-projective X**. It does not prove the embeddable-singular Conjecture 6.12. The source also leaves the supported Bloch localized-Chern identity and the general non-isolated cotangent/non-acyclicity comparison conjectural. Only their explicitly stated weaker global or finite-support consequences are extracted as theorems.
 
-## Proof decomposition
+### Proof decomposition
 
 | Items | Work isolated |
 | --- | --- |
@@ -140,7 +213,7 @@ The alternative proof gives a reusable lemma in a stable infinity-category: from
 
 The local Milnor proof deforms by the Artin–Schreier kernel, passes to a finite parameter cover with a ULA extension, and compares the 0 and infinity fibers. The latter is supported on the isolated point; local Fourier theory identifies its alternating dimension. The proof needs descent of both the complex and its prescribed identification on the open chart. A nontrivial additive character is not automatically available in every finite local coefficient ring: for example F3 has no nontrivial character into F2×. The new Q01–Q10 give the coefficient extension and descent argument below. The actual local Fourier and modular-to-adic suppliers remain open.
 
-## Coefficient descent without dividing by its degree
+### Coefficient descent without dividing by its degree
 
 The unrestricted choice of an additive character on arXiv v4 p.45 omits a
 coefficient step: F2 admits no nontrivial character of the additive group F3.
@@ -208,7 +281,7 @@ remaining local Fourier and modular-to-adic proofs stay in G07, and geometric
 suppliers G02/G03/G06 remain open. The character-choice component is resolved
 relative to them, rather than declared a recursively closed foundation.
 
-## Finite étale pushforward in the final comparison
+### Finite étale pushforward in the final comparison
 
 This continuation read all of pp.1–5 of Saito's
 [proper-pushforward preprint](https://arxiv.org/pdf/1607.03156v1), including
@@ -246,7 +319,7 @@ The page image was checked. The author bibliography and arXiv history showed
 no correction for this paper; its journal text was not compared. This finding
 has no independent-review verdict and does not affect M17.
 
-## Ownership and library evidence
+### Ownership and library evidence
 
 The pinned commits remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All eight cited library declarations were read in those source trees in this continuation. The four additions are `AdjoinRoot.powerBasis'`, `IsArtinianRing.localization_surjective`, `Module.free_of_flat_of_isLocalRing`, and `IsLocalRing.split_injective_iff_lTensor_residueField_injective`; exact source paths and statement ranges are recorded in the JSON. Mathlib supplies the quasicategory horn-filling predicate and ordinary derived localization. Tau Ceti supplies generic triangulated K0, its triangle relation and shift signs. None constructs a stable infinity-category, étale ULA complex or non-acyclicity class.
 
@@ -264,7 +337,7 @@ Pending proposals are **missing**, not accepted planned stages. No guessed stage
 
 The item-level dependency graph is important: early ULA/transversality and independent microlocal definitions precede Fourier/Milnor; the final Saito comparison is later. The weak localized-Chern conductor comparison consumes the early Chern construction, not the late Saito theorem. Replacing these prefix contracts by mutually dependent whole-roadmap imports would introduce a false cycle.
 
-## Source issues and independent checks
+### Source issues and independent checks
 
 The seven inherited version-specific findings and two new entries are recorded in `sourceIssues`, without independent-review verdicts:
 
@@ -284,13 +357,13 @@ For E6, take k=F2, k'=F4 and Λ=F3. Frobenius on σ*Λ swaps two basis vectors; 
 
 The inherited correction search covered the journal page, arXiv history, current and older author pages, the complete alternative proof, and title searches with correction/erratum. This continuation checked the journal landing page, arXiv history, current author page and title correction searches again, without representing the alternative proof as reread. No matching correction was found. “New” records that search outcome only; the full journal-version comparison is still open. Nothing was sent to authors.
 
-## Why this remains partial
+### Why this remains partial
 
 The full main text is read, but source closure is not achieved. The highest-value next step is obtaining the final Umezaki–Yang–Zhao journal statements. Its inspected arXiv v4 good-pencil lemma assumes projectivity, and its Chow induction proposition requires smooth properly transversal fibers on the divisor of the rational differential. Those exact conditions must be reconciled with the quasi-projective reduction cited in Yang–Zhao's final proof. No disagreement between versions is invented and no false-theorem claim is made from the older preprint alone.
 
 Other remaining leaves include the actual enhanced correspondence realization, purity domains, Hansen–Scholze's full extension proof, Ψ-goodness, local Fourier and modular-to-adic comparison, Beilinson/Saito existence and integrality, and Bloch's localized Chern construction. The JSON gaps identify their consuming items. Some foundational interfaces must still be expanded against supplier blueprint nodes; this checkpoint does not claim every generic six-operation leaf has been decomposed.
 
-## Validation
+### Validation
 
 The paper checker, three-file intake check and custom structural audit passed. A separate exact diagnostic passed 159 finite algebra cases: cyclotomic identities over several finite coefficient rings, additive-character multiplication, a retraction F4→F2 with trace(1)=0, failure of Z/4 residue reduction to detect equality, scalar-extension invariants and the skyscraper sign. These examples do not prove the general sheaf theorems. The 141 specification tests are not Lean results. No suggested Lean file is part of this paper issue's authorized deliverables, and no Lean compilation or formalization is claimed.
 
