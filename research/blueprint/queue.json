@@ -30696,7 +30696,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-MARTIN-25",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1714"
   },
   {
    "id": "ERRATA-PAPER-BRESCIANI-24",
@@ -31367,7 +31368,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1871"
   },
   {
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
