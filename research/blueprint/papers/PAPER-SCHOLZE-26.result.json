@@ -1,0 +1,758 @@
+{
+  "paper": "PAPER-SCHOLZE-26",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Berkovich motives",
+    "authors": "Peter Scholze",
+    "venue": "Journal of the American Mathematical Society 39 (2026), 697–764",
+    "doi": "10.1090/jams/1068",
+    "arxiv": "2412.03382",
+    "url": "https://arxiv.org/abs/2412.03382v3",
+    "readSections": [
+      "arXiv 2412.03382v3 (22 January 2026), read in full: 65 pages, SHA-256 440b4a82eca992d1b7edb5c608bd7de8c336cce7f623f290aa95002cab57d484, fetched from https://arxiv.org/pdf/2412.03382v3 on 23 September 2026. v2 (19 November 2025) and v3 both carry the comment 'final version, to appear in Journal of the AMS'; the JAMS version (published electronically 11 December 2025) is paywalled and was not read. Page numbers are v3's.",
+      "Read: §1 (Definitions 1.1–1.3, 1.11, Propositions 1.5, 1.6, 1.13, Theorems 1.7, 1.9, 1.12, 1.14, Remarks 1.4, 1.8, 1.10), §2 (Definitions 2.1–2.20, Propositions 2.4, 2.6, 2.9, 2.21, Theorems 2.12, 2.14, 2.18, Corollary 2.15, §2.4), §3 (Definition 3.1 to Theorem 3.14), §4 (Theorem 4.1 to Example 4.26), §5 (Definition 5.1 to Proposition 5.19), §6 (Theorem 6.1 to Corollary 6.9), §7 (Theorem 7.1, Lemma 7.3), §8 (Corollary 8.1 to Theorem 8.13), §9 (Definition 9.1 to Proposition 9.7), §10 (Proposition 10.1 to Proposition 10.10), §11 (Theorem 11.1 to Corollary 11.10), §12 (Propositions 12.1–12.4, Corollary 12.2) and the references. Every recorded mistake was checked on the page images of v3 and is also in v2.",
+      "Cited inputs were not read; items resting on Voevodsky, Ayoub, Vezzani, Binda–Gallauer–Vezzani, Suslin, Thomason–Trobaugh, Cisinski, Morrow, Kerz–Strunk–Tamme, Efimov, Ramzi, Gaitsgory–Rozenblyum, Heyer–Mann, Scholze's Six-Functor Formalisms and Étale cohomology of diamonds state them as the paper uses them."
+    ]
+  },
+  "summary": "The paper builds étale motives on Berkovich spaces from scratch, uniformly for archimedean and nonarchimedean Banach rings. Banach rings carry the arc-topology (finitely many maps jointly surjective on Berkovich spectra), whose basis of strictly totally disconnected rings makes finitary functors hypercomplete arc-sheaves; D^eff_mot(X) is the category of finitary, ball-invariant arc-sheaves, and D_mot(X) inverts ℤ(1) = Ḡ_m[−1]. Main results: the cancellation theorem over any base (Theorem 1.9); rational motivic cohomology equals the Adams eigenspaces of rational K-theory, with explicit descriptions via cofib(K(A_{<1}) → K(A)) (Theorem 1.7); a six-functor formalism with smooth maps cohomologically smooth and D_mot(X) rigid dualizable for analytic X of finite cohomological dimension (Theorem 1.12); D_mot(k) is Voevodsky's étale motives for discrete algebraically closed k (Proposition 1.13); motives over C = completed k((T))^alg are pairs (A, N) over k via motivic nearby cycles (Theorem 1.14); torsion motives are overconvergent étale sheaves on v-stacks (§12). The atlas has a pending Part II of MotivesAndAlgebraicCycles for rigid-analytic motives (from Binda–Kato–Vezzani) carrying the same tilting, good-reduction and nearby-cycles theorems for Ayoub's RigDA, so the Berkovich construction coalesces with it; Banach rings go to TropicalAndBerkovichArithmetic TB.0–TB.1, K-theory inputs to GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3/S.5 and RefinedTraceMethods RT.5, dualizable and rigid categories to EnhancedDerivedSheaves E5. Three misprints are recorded.",
+  "items": [
+    {
+      "id": "PAPER-SCHOLZE-26/1",
+      "kind": "definition",
+      "name": "Seminormed rings and Banach rings (Scholze's conventions)",
+      "statement": "A seminormed ring is a commutative unital ring R with |·|_R : R → ℝ_{≥0} such that |0| = 0, |−1| ≤ 1, |xy| ≤ |x||y| and |x + y| ≤ |x| + |y|; maps are norm-nonincreasing ring maps. A Banach ring is a complete seminormed ring (then |·| is a norm; R = 0 allowed since |1| = 1 is not required). Any ring with the discrete norm is a Banach ring. Seminormed and Banach rings have all colimits (pushouts via the projective tensor norm, completion; Proposition 2.4); free seminormed algebras R[T_1..T_n]_{r_1..r_n} (§2.1); power-multiplicative R is nonarchimedean iff |2| ≤ 1 (Proposition 2.6).",
+      "locator": "§1, p. 2; §2, Definitions 2.1, 2.2, 2.5, Remark 2.3, Propositions 2.4, 2.6, §2.1, pp. 7–9",
+      "status": "missing",
+      "note": "TropicalAndBerkovichArithmetic TB.0 plans the Berkovich spectrum of Banach algebras over a field; this general category of Banach rings (all Banach rings, including ℤ and archimedean ones) extends its input."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/2",
+      "kind": "theorem",
+      "name": "Proposition 2.9: seminormed rings form a compactly assembled category",
+      "statement": "A map f : X → Y in a presentable ∞-category is weakly compact if every map from Y to a filtered colimit colim Z_i lifts through some Z_i after precomposing with f; C is compactly assembled if filtered colimits commute with finite limits and C is generated by sequential colimits along weakly compact maps (Definition 2.7; equivalently colim : Ind(C) → C has a left adjoint, Ramzi). The category of seminormed rings is compactly assembled — ℤ[T]_r = colim_{r′>r} ℤ[T]_{r′} along compact maps — though not compactly generated, and Banach rings are not.",
+      "locator": "§2.1, Definition 2.7, Remark 2.8, Proposition 2.9, pp. 9–10",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/3",
+      "kind": "theorem",
+      "name": "Gelfand–Mazur for Banach fields",
+      "statement": "A Banach field is a Banach ring (K, |·|) with K a field and |·| multiplicative (Definition 2.10); Banach fields are discrete, archimedean or nonarchimedean. Any Banach field with |2|_K > 1 is isomorphic to ℝ or ℂ with |·|^α for some 0 < α ≤ 1 (Theorem 2.12).",
+      "locator": "§2.2, Definition 2.10, Remark 2.11, Theorem 2.12, p. 10",
+      "status": "missing",
+      "note": "Mathlib has the core: NormedAlgebra.Real.nonempty_algEquiv_or (a normed field that is a normed ℝ-algebra is ℝ or ℂ) and NormedAlgebra.Complex.nonempty_algEquiv; the step from |2| > 1 to a normed ℝ-algebra structure with |·|^α (Ostrowski) is not there."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/4",
+      "kind": "definition",
+      "name": "The Berkovich spectrum M(R) and completed residue fields",
+      "statement": "M(R) ⊂ ∏_{r∈R} [0, |r|_R] is the compact Hausdorff space of multiplicative seminorms ‖·‖ ≤ |·|_R with ‖1‖ = 1 (Definition 2.13); for s ∈ M(R), K(s) is the completed residue Banach field, and points are equivalently maps R → K to Banach fields with dense fraction field of the image; M(R) ≠ ∅ when |1|_R = 1 (Theorem 2.14), f is invertible iff ‖f‖ > 0 on M(R) (Corollary 2.15, Wiener's theorem).",
+      "locator": "§1, p. 2; §2.2, Definition 2.13, Theorem 2.14, Corollary 2.15, Remark 2.16, pp. 10–11",
+      "status": "planned",
+      "planned": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "note": "TropicalAndBerkovichArithmetic TB.0 plans the Berkovich spectrum of a Banach algebra from bounded multiplicative seminorms, its topology and completed residue fields."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/5",
+      "kind": "theorem",
+      "name": "Theorem 2.18 and §2.3: idempotents, uniform rings and the Gelfand transform",
+      "statement": "A Banach ring is analytic if all K(x) are non-discrete (Definition 2.17, Kedlaya–Liu); idempotents of a Banach ring R correspond to open and closed subsets of M(R) (Theorem 2.18; via overconvergent rational localisations and Kedlaya–Liu [KL15, Cor. 2.8.9], or animated gaseous sheaves). The Gelfand transform R → ∏^Ban_s K(s) (Definition 2.19); R is uniform if it is isometric (Definition 2.20), iff |·| is power-multiplicative, the spectral norm being lim |xⁿ|^{1/n} (Proposition 2.21), which defines the uniform completion.",
+      "locator": "§2.2–2.3, Definitions 2.17, 2.19, 2.20, Theorem 2.18, Proposition 2.21, pp. 11–13",
+      "status": "missing",
+      "note": "Extends TB.0's Berkovich spectrum to the Banach-ring toolkit the arc-topology needs."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/6",
+      "kind": "theorem",
+      "name": "§2.4: the Berkovich closed disc over an algebraically closed nonarchimedean field",
+      "statement": "M(C⟨T⟩_1) = {(x_a)_{a∈O_C} : x_a ≤ max(x_b, |a − b|), |a − b| ≤ max(x_a, x_b)} ⊂ ∏[0,1], an inverse limit of finite trees; points are of types (1)–(4) with residue fields C, the completion of C(T) with transcendental residue extension, with value group |C^×| × x_a^ℤ (C⟨(T−a)^{±1}⟩_{x_a}), or an immediate extension; types (3), (4) disappear for |C| = ℝ_{≥0}, resp. spherically complete C.",
+      "locator": "§2.4, pp. 13–14",
+      "status": "planned",
+      "planned": [
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "note": "TropicalAndBerkovichArithmetic TB.1 plans the four point types on the affine line, paths and skeletons. Misprint 'pm1' for ±1 (source issue E1)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/7",
+      "kind": "definition",
+      "name": "The arc-topology on Banach rings and arc-stacks",
+      "statement": "{A → B_i} is an arc-cover if for some finite J ⊂ I the map ⊔_{i∈J} M(B_i) → M(A) is surjective — equivalently every A → K to a Banach field lifts to some B_i after a field extension (Definition 3.1). M_arc(A) is the arc-sheafification of Hom(A, −); κ-small Banach rings and small arc-sheaves (small colimits of M_arc(A)'s); objects of the arc-site are qcqs (Proposition 3.3).",
+      "locator": "§1, Definition 1.1, p. 3; §3, Definition 3.1, Proposition 3.3, pp. 14–15",
+      "status": "missing",
+      "note": "The Banach-ring analogue of the scheme-theoretic arc-topology of Bhatt–Mathew (the proposed ArcTopologyAndDescent roadmap, which is for qcqs schemes) and of the v-topology on perfectoid spaces (DiamondsAndVStacks)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/8",
+      "kind": "theorem",
+      "name": "Proposition 3.2: Berkovich spectra of pushouts and filtered colimits",
+      "statement": "For a pushout D = B ⊗_A C of seminormed rings, M(D) → M(B) ×_{M(A)} M(C) is surjective; for a filtered colimit A = colim A_i, M(A) ≅ lim M(A_i).",
+      "locator": "§3, Proposition 3.2, pp. 14–15",
+      "status": "missing",
+      "note": "Proof: reduce to Banach fields and |1|_D = 1 via integral models or Laurent series."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/9",
+      "kind": "theorem",
+      "name": "Examples 3.4–3.8 and Proposition 3.9: basic arc-covers",
+      "statement": "A → completion of A[T^{±1}]_{1/2} (locally analytic); A → its uniform completion; A → ∏^Ban_{x∈M(A)} K(x); in characteristic p, A → A_perf (so sheafification perfects); over ℂ, A → Cont(M(A), ℂ) — so the arc-site on Banach ℂ-algebras is Morita equivalent to compact Hausdorff spaces with finite jointly surjective covers (condensed sets), and over ℝ to compact Hausdorff spaces with involution.",
+      "locator": "§3, Examples 3.4–3.8, Proposition 3.9, pp. 15–16",
+      "status": "missing",
+      "note": "Example 3.6 calls the target totally disconnected, which needs A analytic (source issue E3)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/10",
+      "kind": "theorem",
+      "name": "Proposition 3.11 to Theorem 3.14: strictly totally disconnected Banach rings",
+      "statement": "A Banach ring is totally disconnected if analytic, uniform and M(A) profinite, strictly so if moreover every K(x) is algebraically closed (Definition 3.10); ∏^Ban K_i of non-discrete (algebraically closed) fields is (strictly) totally disconnected with M = β(I) and residue fields Banach ultraproducts (Proposition 3.11); these form a basis (Corollary 3.12) on which the arc-topology is subcanonical (Theorem 3.13); on perfectoid Banach rings with |p| < 1 it is subcanonical too (Theorem 3.14; overconvergent v-sheaves).",
+      "locator": "§1, Definition 1.3, p. 3; §3, Definition 3.10, Proposition 3.11, Corollary 3.12, Theorems 3.13, 3.14, pp. 16–18",
+      "status": "missing",
+      "note": "Parallel to strictly totally disconnected perfectoid spaces in DiamondsAndVStacks."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/11",
+      "kind": "theorem",
+      "name": "Theorem 4.1: finitary functors are hypercomplete arc-sheaves",
+      "statement": "For any Banach ring A, a functor F from strictly totally disconnected Banach A-algebras to anima commuting with finite products and filtered colimits is a hypercomplete arc-sheaf; for abelian-group valued F, its cohomology on strictly totally disconnected B vanishes in positive degrees. The same holds for compactly generated or compactly assembled targets (Remark 4.2).",
+      "locator": "§4, Theorem 4.1, Remark 4.2, pp. 19, 22",
+      "status": "missing",
+      "note": "Proof via quasi-pro-étale covers (Definition 4.3, Lemmas 4.4–4.7) and splitting of arc-covers of strictly totally disconnected rings (Lemmas 4.8–4.9)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/12",
+      "kind": "theorem",
+      "name": "Lemmas 4.4–4.9: quasi-pro-étale covers and splittings",
+      "statement": "A → B is quasi-pro-étale if after base change to any algebraically closed Banach field C the uniform completion of B ⊗_A C is Cont(S, C) for a profinite S (Definition 4.3); analytic A has a quasi-pro-étale strictly totally disconnected cover (Lemma 4.4); over strictly totally disconnected A these are profinite sets over M(A) (Lemma 4.5), whose sheaves are sheaves on M(A) (Lemma 4.6); n-truncated finitary functors extend by quasi-pro-étale sheafification keeping finitariness (Lemma 4.7); arc-covers of strictly totally disconnected A are completed filtered colimits of split ones (Lemma 4.8), since open U ⊂ 𝔸ⁿ_A surjecting onto M(A) has a section (Lemma 4.9).",
+      "locator": "§4, Definition 4.3, Lemmas 4.4–4.9, pp. 19–21",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/13",
+      "kind": "definition",
+      "name": "Finitary arc-sheaves D_fin(X, ℤ)",
+      "statement": "For a small arc-stack X, D_fin(X, ℤ) ⊂ D(X_arc, ℤ) is the full subcategory of arc-sheaves whose restriction to strictly totally disconnected Banach rings over X commutes with filtered colimits (Definition 4.10); equivalently functors from strictly totally disconnected rings over X to D(ℤ) commuting with finite products and filtered colimits (Proposition 4.12); it is stable under colimits and truncations and left-complete (Proposition 4.13); for D⁺ commutation holds on all Banach rings (Remark 4.11).",
+      "locator": "§4, Definition 4.10, Remark 4.11, Propositions 4.12, 4.13, pp. 22–23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/14",
+      "kind": "theorem",
+      "name": "Theorem 4.14 and Propositions 4.15–4.16: finitary sheaves over ℂ, at points and on M(A)",
+      "statement": "For a Banach ℂ-algebra A, pullback identifies the left-complete derived category of sheaves on M(A) with D_fin(M_arc(A), ℤ) (Theorem 4.14). For a non-discrete Banach field K with completed algebraic closure C, M(K) ≅ M(C)^{hG_K} (continuous, i.e. condensed, group cohomology; Proposition 4.15); for M ∈ D⁺_fin(M_arc(A)), Rν_*M on M(A) has stalks M(K(x)) (Proposition 4.16). Cohomological dimension d(X) (Definition 4.17) is bounded by dim M(A) + sup cd G_{K(x)} (Corollary 4.18).",
+      "locator": "§4, Theorem 4.14, Propositions 4.15, 4.16, Definition 4.17, Corollary 4.18, pp. 23–24",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/15",
+      "kind": "theorem",
+      "name": "Theorem 4.20: proper base change for finitary sheaves",
+      "statement": "Proper maps are 0-truncated qcqs maps of small arc-stacks, with cohomological dimension d(f) (Definition 4.19). For f proper of finite cohomological dimension, f_* preserves finitary sheaves with finite cohomological dimension and commutes with any base change; for f quasi-pro-étale it satisfies the projection formula. Example 4.26: the projection formula fails for P¹_X → X (the sheaf Ḡ_m has H¹(P¹_C, Ḡ_m) ≠ 0).",
+      "locator": "§4, Definition 4.19, Theorem 4.20, Example 4.26, pp. 24, 26",
+      "status": "missing",
+      "note": "Uses repleteness of the arc-topos and Postnikov completeness (Mondal–Reinecke [MR25])."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/16",
+      "kind": "theorem",
+      "name": "Definitions 4.21–4.22, Lemma 4.23, Propositions 4.24–4.25: open immersions, finitary maps, excision",
+      "statement": "Open immersions are representable by open subspaces of M(A) (Definition 4.21); f is finitary if Y(A) commutes with filtered colimits of strictly totally disconnected rings relative to X (Definition 4.22); finitary maps are stable under composition, pullback and cancellation, colimits, include open immersions and finitary injections are open immersions (Lemma 4.23); for finitary f, f_♯ preserves finitary sheaves with the projection formula (Proposition 4.24); j_!j^*M → M → i_*i^*M is exact for finitary M (Proposition 4.25), separating the archimedean locus |2| > 1 from the nonarchimedean locus.",
+      "locator": "§4, Definitions 4.21, 4.22, Lemma 4.23, Propositions 4.24, 4.25, pp. 24–26",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/17",
+      "kind": "definition",
+      "name": "Effective motivic sheaves D^eff_mot(X)",
+      "statement": "Y is ball-invariant if Y(A) → Y(A⟨T⟩_1) is an isomorphism for all Banach rings A over X (Definition 5.1). D^eff_mot(X) ⊂ D_fin(X, ℤ) is the full subcategory of ball-invariant finitary arc-sheaves ('étale motives' with ℤ-coefficients; the sphere spectrum would work equally, Definition 5.2 and footnote 3).",
+      "locator": "§1, Definition 1.2, p. 3; §5, Definitions 5.1, 5.2, p. 26",
+      "status": "missing",
+      "note": "The Berkovich analogue of Ayoub's rigid-analytic motives RigDA (the coalesced Part II's rigid-motive layer) and of Voevodsky's étale motives."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/18",
+      "kind": "theorem",
+      "name": "Lemma 5.3, Corollaries 5.4–5.5, Propositions 5.6–5.8: the ball-localisation L_B",
+      "statement": "C⟨T⟩_1 has cohomological dimension ≤ 3 (Lemma 5.3); ball-invariance can be checked on algebraically closed fields (Corollary 5.4); D^eff_mot is closed under colimits (Corollary 5.5); the left adjoint is L_B(M)(A) = colim_{[n]∈Δ^op} M(A⟨Δⁿ⟩) with Δⁿ = 𝔹ⁿ (Proposition 5.6, via Lurie HTT 5.2.7.4; the presheaf version L_B^pre, Remark 5.7); L_B is a Verdier quotient by the ⊗-ideal of 𝔹-contractible sheaves, giving a unique symmetric monoidal structure (Proposition 5.8, Nikolaus–Scholze Theorem I.3.6).",
+      "locator": "§5, Lemma 5.3, Corollaries 5.4, 5.5, Propositions 5.6, 5.8, Remark 5.7, pp. 26–28",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/19",
+      "kind": "theorem",
+      "name": "Proposition 5.9 and Corollary 6.6: torsion motives are étale sheaves",
+      "statement": "For n with |n| ≥ 1 on X, a finitary ℤ/n-sheaf invariant under change of algebraically closed field is ball-invariant (Proposition 5.9, via Berkovich [Ber93, Thms 6.3.9, 6.4.1] or an explicit Kummer computation on trees); conversely ball-invariant ℤ/n-sheaves are invariant under change of algebraically closed field (Corollary 6.6).",
+      "locator": "§1, Proposition 1.5(ii), p. 4; §5, Proposition 5.9, pp. 28–30; §6, Corollary 6.6, p. 39",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/20",
+      "kind": "theorem",
+      "name": "Proposition 5.10 and Corollary 6.9: the homotopy t-structure",
+      "statement": "D^eff_mot(X, ℚ) ⊂ D_fin(X, ℚ) is stable under truncations (C⟨T⟩_1 has cohomological dimension 1 rationally; Proposition 5.10), and so is D^eff_mot(X) ⊂ D_fin(X, ℤ) (Corollary 6.9); the Tate twist sits in degree −1.",
+      "locator": "§5, Proposition 5.10, p. 30; §6, Corollary 6.9, p. 40",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/21",
+      "kind": "theorem",
+      "name": "Lemma 5.11 to Theorem 5.14: free motivic sheaves and f_♯",
+      "statement": "For open U ⊂ 𝔸ⁿ_X, L_B^pre(U) is finitary (Lemma 5.11); so the free motivic sheaf ℤ_mot[U] ∈ D^eff_mot(X) exists, represents M ↦ M(U), commutes with base change and takes fibre products to tensor products (Proposition 5.12); for X = M_arc(A) analytic of finite cohomological dimension these generate D^eff_mot(X) (Proposition 5.13); for f : Y → 𝔸ⁿ_X → X (finitary then projection), f^* has a left adjoint f_♯ with base change and projection formula (Theorem 5.14).",
+      "locator": "§1, p. 4; §5.1, Lemma 5.11, Propositions 5.12, 5.13, Theorem 5.14, pp. 30–32",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/22",
+      "kind": "theorem",
+      "name": "Theorem 5.16 and Proposition 5.17 (= Proposition 1.6): the reduced multiplicative group",
+      "statement": "On the nonarchimedean locus, Ḡ_m := G_m/(1 + O_{<1}) is finitary and ball-invariant (Theorem 5.16; modulo ℓ via Proposition 5.9, rationally via Pic(C⟨T⟩_1) = 0 and harmonicity of norm functions on trees), and ℤ_mot[G_m]/ℤ_mot[∗] ≅ Ḡ_m via characteristic polynomials Symⁿ(Ḡ_m) ≅ 𝔸^{n−1} × Ḡ_m (Proposition 5.17).",
+      "locator": "§1, Proposition 1.6, p. 5; §5.2, Definition 5.15, Theorem 5.16, Proposition 5.17, pp. 32–34",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/23",
+      "kind": "definition",
+      "name": "The Tate twist ℤ(1) and Proposition 5.19",
+      "statement": "ℤ(1) := (ℤ_mot[G_m]/ℤ_mot[∗])[−1] (Definition 5.18); over ℂ it is ℤ, over ℝ with complex conjugation acting nontrivially, and on the nonarchimedean locus ℤ(1) ≅ Ḡ_m[−1]. Over strictly totally disconnected X, ℤ(1) is compact and ℤ_mot[T] ≅ ℤ_mot[G_m] for every open annulus T (Proposition 5.19, via Newton polygons: Symⁿ(T) → T(r_1ⁿ, r_2ⁿ) is a fibration in open balls).",
+      "locator": "§1, p. 4; §5.2, Definition 5.18, Proposition 5.19, pp. 34–35",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/24",
+      "kind": "theorem",
+      "name": "Theorem 6.1: explicit free motivic sheaves",
+      "statement": "For a finitary arc-sheaf of sets U over X and strictly totally disconnected A over X, after inverting all primes p with |p| < 1 somewhere on M(A), ℤ_mot[U](A) is the group completion of L_B^pre(ℕ[U])(A); rationally this also holds on affine subsets of 𝔸¹_A; modulo n with |n| ≥ 1, ℤ_mot[U]/n is invariant under change of algebraically closed field.",
+      "locator": "§6, Theorem 6.1, p. 35",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/25",
+      "kind": "theorem",
+      "name": "Definition 6.2 and Theorem 6.3: presheaves with transfer",
+      "statement": "Over strictly totally disconnected X, presheaves of abelian groups with transfer are additive functors on the category whose maps A → B are maps ℕ[M_arc(A)/X] → ℕ[M_arc(B)/X] of arc-sheaves of commutative monoids (Definition 6.2). For a finitary ball-invariant such M, the derived arc-sheafification is ball-invariant after inverting primes with |p| < 1 somewhere, invariant under change of algebraically closed field mod n, and M ⊗ ℚ is already a sheaf on open subsets of 𝔸¹_A with unchanged values on affine subsets (Theorem 6.3).",
+      "locator": "§6, Definition 6.2, Theorem 6.3, pp. 35–36",
+      "status": "missing",
+      "note": "The analogue of Voevodsky's presheaves with transfers (MotivicEtaleKTheory M.5a plans the algebraic theory)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/26",
+      "kind": "theorem",
+      "name": "Lemmas 6.4–6.5: homotopies on curves and motives of domains in the line",
+      "statement": "For a smooth connected curve U over an algebraically closed nonarchimedean C and a prime p, any two points x, x′ ∈ U(C) satisfy x + p x_1 + … + p x_n ~_𝔹 x′ + p x′_1 + … + p x′_n in ℕ[U] for suitable points (Lemma 6.4; divisibility of the generalised Jacobian with trivialisations on boundary discs, van der Put [vdP80]). For U, V ⊂ 𝔸¹_C with complements finite unions of closed discs, ℚ_mot[U] ≅ ℚ ⊕ Ḡ_m^d and its value on V is the cokernel of ℕ[U](V × 𝔹) ⊗ ℚ → ℕ[U](V) ⊗ ℚ, in degree 0 (Lemma 6.5).",
+      "locator": "§6, Lemmas 6.4, 6.5, pp. 36–39",
+      "status": "missing",
+      "note": "Misprint P¹_A for P¹_C in Lemma 6.5 and the proof of Theorem 6.3 (source issue E2)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/27",
+      "kind": "theorem",
+      "name": "Theorem 6.7 and Proposition 6.8: p-torsion and tilting",
+      "statement": "If |p|_A < 1 then p is invertible in D^eff_mot(M(A)) (after tilting, Artin–Schreier 0 → 𝔽_p → 𝔹 → 𝔹 → 0); if |p| ≥ 1 on M(A), the p-power torsion part of D^eff_mot(M(A)) is the left-completed derived category of p-power torsion étale sheaves (Theorem 6.7). For X with |p| < 1 everywhere, tilting gives D^eff_mot(X) ≅ D^eff_mot(X^♭), both ℤ[1/p]-linear (Proposition 6.8; Vezzani's motivic Fontaine–Wintenberger theorem [Vez19]).",
+      "locator": "§1, Proposition 1.5(iii), (iv), p. 4; §6, Theorem 6.7, Proposition 6.8, pp. 39–40",
+      "status": "missing",
+      "note": "The coalesced Part II already carries the motivic Fontaine–Wintenberger equivalence for RigDA (from the Binda–Kato–Vezzani extraction)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/28",
+      "kind": "theorem",
+      "name": "Theorem 7.1 (= Theorem 1.9): the cancellation theorem over any base",
+      "statement": "For any small arc-stack X, − ⊗ ℤ(1) : D^eff_mot(X) → D^eff_mot(X) is fully faithful. Unlike the algebraic and rigid-analytic settings (where it holds only over fields), it holds over any base, reducing formally to geometric points (Remarks 1.10, 7.2).",
+      "locator": "§1, Theorem 1.9, Remark 1.10, p. 6; §7, Theorem 7.1, Remark 7.2, pp. 40–43",
+      "status": "missing",
+      "note": "After Voevodsky [Voe10]; Ayoub proved it for rigid-analytic motives with transfers and Vezzani showed transfers do not matter [Vez17]. Proof: rationally over C, a splitting of ℚ_mot[U] → Hom(ℚ_mot[(Ḡ_m, ∗)], ℚ_mot[U × (Ḡ_m, ∗)]) on π_i built from the loci Y_1 (balls around N-th roots of unity) and Y_2 = {p_1^N = p_2}."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/29",
+      "kind": "theorem",
+      "name": "Lemma 7.3: the symmetric group acts trivially on ℤ(1)^{⊗n}",
+      "statement": "For σ ∈ Σ_n the action of σ on ℤ(1)^{⊗n} is trivial (reduce to the swap on ℤ(2)[3] = reduced homology of 𝔸² ∖ {0}, where SL_2 acts trivially by homotopy invariance and −1 acts trivially on Ḡ_m); after cancellation the action is homotopy-coherently trivial.",
+      "locator": "§1, p. 5; §7, Lemma 7.3, p. 43",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/30",
+      "kind": "theorem",
+      "name": "Corollaries 8.1–8.2: symmetric powers and ℚ_mot[∗/G_m]",
+      "statement": "Symⁿ(ℚ(1)) = ℚ(n); ℚ_mot[∗/G_m] = ⊕_{n≥0} ℚ(n)[2n], with ℚ_mot[Pⁿ] → ℚ_mot[∗/G_m] (classifying O(1)) an isomorphism onto ⊕_{i≤n} ℚ(i)[2i]; the cofibre of ℤ_mot[P^{n−1}] → ℤ_mot[Pⁿ] is ℤ(n)[2n].",
+      "locator": "§8, Corollaries 8.1, 8.2, p. 44",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/31",
+      "kind": "theorem",
+      "name": "Propositions 8.4–8.5 and Corollary 8.6 (= Theorem 1.7(i)–(ii)): K-theory and motivic cohomology",
+      "statement": "Let K^cn(A) be the connective K-theory of the abstract ring A (group completion of the E_∞-monoid of finite projective modules; Definition 8.3). Its universal ball-invariant arc-sheaf 𝒦 is finitary and an E_∞-ring (Proposition 8.4, Breen–Deligne resolutions [Aok24, Thm 4.4]); ℚ_mot[∗/G_m] ≅ 𝒦 ⊗ ℚ via line bundles (Proposition 8.5: ℚ_mot[∗/(G_mⁿ ⋊ Σ_n)] ≅ ℚ_mot[∗/GL_n] by the Σ_n-invariants of the flag variety and cancellation); hence 𝒦 ⊗ ℚ ≅ ⊕_{n≥0} ℚ(n)[2n], a filtration split canonically by Adams operations (Corollary 8.6).",
+      "locator": "§1, Theorem 1.7(i), (ii), Remark 1.8, p. 5; §8, Definition 8.3, Propositions 8.4, 8.5, Corollary 8.6, pp. 44–46",
+      "status": "missing",
+      "note": "The paper notes the argument also works in classical motivic homotopy theory."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/32",
+      "kind": "theorem",
+      "name": "Adams operations and eigenspaces on rational K-theory",
+      "statement": "Adams operations ψ^k act on rational K-theory with ψ^k = k^j on the weight-j eigenspace, giving the Adams decomposition used to identify rational motivic cohomology with Adams eigenspaces.",
+      "locator": "§1, Theorem 1.7(ii), p. 5; §8, Corollary 8.6, p. 46; §11, Theorem 11.1, p. 57 (used)",
+      "status": "planned",
+      "planned": [
+        "SchemeKTheoryOperations:S.6"
+      ],
+      "note": "SchemeKTheoryOperations S.6 plans λ- and Adams operations and the eigenvalue ψ^k = k^j on weight-j rational K-theory."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/33",
+      "kind": "theorem",
+      "name": "Propositions 8.7–8.8 and Theorem 8.9 (= Theorem 1.7(iii)–(iv)): K-theory of the 1-units",
+      "statement": "With a unit T, |T| < 1, having n-th roots for infinitely many n, A_{<1} is Tor-unital and K(A_{<1}) is the K-theory of the dualizable category of almost modules. The universal ball-invariant arc-sheaf under A ↦ K^cn(A_{<1}) is trivial (Proposition 8.7); A ↦ cofib(K(A_{<1}) → K(A)) commutes with filtered colimits (Proposition 8.8); on strictly totally disconnected A with |p| ≥ 1 for p ∉ S, cofib(K(A_{<1}) → K(A))[1/S] is a finitary ball-invariant arc-sheaf, hence equals 𝒦[1/S] (Theorem 8.9). So 𝒦(C) ≅ cofib(K(C_{<1}) → K(C))[1/p] for C algebraically closed nonarchimedean of residue characteristic p, and 𝒦(A) ⊗ ℚ ≅ cofib(K(A_{<1}) → K(A)) ⊗ ℚ when A_{≤1} completes a smooth O_C-algebra.",
+      "locator": "§1, Theorem 1.7(iii), (iv), p. 5; §8, Propositions 8.7, 8.8, Theorem 8.9, pp. 46–47",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/34",
+      "kind": "theorem",
+      "name": "Corollary 8.10: an E_∞-structure on the cofibre",
+      "statement": "For C algebraically closed nonarchimedean, cofib(K(C_{<1}) → K(C)) has a natural E_∞-K(C)-algebra structure (after inverting p it is 𝒦(C); after p-completion it is K(k)^∧_p = ℤ_p, Hesselholt–Nikolaus [HN20, L1.3.7], Kratzer [Kra80, Cor. 5.5]).",
+      "locator": "§1, Remark 1.8, p. 5; §8, Corollary 8.10, pp. 47–48",
+      "status": "missing",
+      "note": "The categorical reason is unclear ('almost O_C-modules form an ideal in C-vector spaces')."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/35",
+      "kind": "theorem",
+      "name": "Theorems 8.11–8.13 and Corollary 8.12: analytic descent for the cofibre",
+      "statement": "On perfectoid Banach rings (|p| < 1), cofib(K(A_{<1}) → K(A)) is a sheaf for the analytic topology (torsion almost modules localise on M(A); Theorem 8.11), and when all sheaves on M(A) are Postnikov complete, its rationalisation is a finitary ball-invariant hypercomplete arc-sheaf, so 𝒦(A)_ℚ = cofib(K(A_{<1}) → K(A))_ℚ (Corollary 8.12, using 𝔸¹-invariance of K over valuation rings). On all analytic nonarchimedean A, cofib(KH(A_{<1}) → KH(A)) is an analytic sheaf, giving 𝒦(A)_ℚ = cofib(KH …)_ℚ, and = cofib(K …)_ℚ for totally disconnected A (Theorem 8.13).",
+      "locator": "§8, Theorem 8.11, Corollary 8.12, Theorem 8.13, pp. 48–50",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/36",
+      "kind": "theorem",
+      "name": "Suslin's excision for Tor-unital non-unital rings",
+      "statement": "For a Tor-unital non-unital ring I (ℤ ⊗^L_{I⁺} ℤ = ℤ), K(I) := fib(K(I⁺) → K(ℤ)) agrees with fib(K(A′) → K(A′/I)) for every unital ring A′ containing I as an ideal [Sus95].",
+      "locator": "§1, footnote 2, p. 5; §8, p. 46 (cited)",
+      "status": "missing",
+      "note": "GeneralAlgebraicKTheory K.5 plans relative and non-unital theories with 'excision under the hypotheses of the adopted theorem'; Suslin's theorem is that adopted theorem here."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/37",
+      "kind": "theorem",
+      "name": "K-theory inputs: Thomason–Trobaugh, cdh and pro-cdh descent, 𝔸¹-invariance over valuation rings",
+      "statement": "K-theory with supports is unchanged under T-adic completion (Thomason–Trobaugh [TT90, Prop. 3.19]); KH satisfies cdh-descent (Cisinski [Cis13]); K-theory satisfies pro-cdh descent (Morrow [Mor16, Thm 3.7] in equal characteristic 0, Kerz–Strunk–Tamme [KST18, Thm A]); algebraic K-theory is 𝔸¹-invariant over valuation rings; with torsion coefficients, Gabber–Suslin rigidity under change of algebraically closed field.",
+      "locator": "§1, p. 6; §8, proofs of Proposition 8.8, Theorems 8.9, 8.13, Corollary 8.12, pp. 47–50 (cited)",
+      "status": "missing",
+      "note": "SchemeKTheoryOperations S.3 (supports and localisation) and S.5 (homotopy invariance, homotopy K-theory for singular schemes) are their owners in the atlas; these descent theorems belong there."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/38",
+      "kind": "theorem",
+      "name": "Efimov's K-theory of dualizable categories",
+      "statement": "Localising invariants such as K-theory extend to dualizable presentable stable ∞-categories and send Verdier sequences to fibre sequences; the category D(B^a) of almost modules for an idempotent ideal is dualizable, so K(D(B^a)) = fib(K(B) → K(B/A_{<1})) depends only on A_{<1} [Efi24]; compact objects of a filtered colimit of dualizable categories are the colimit of compact objects [Efi24, Prop. 1.72].",
+      "locator": "§8, pp. 46, 48; §10, Lemma 10.5, p. 55 (cited)",
+      "status": "missing",
+      "note": "RefinedTraceMethods RT.5 plans compact/dualizable objects and continuous extensions of localizing invariants (the Efimov–Scholze refinement); Efimov's K-theory of dualizable categories belongs there."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/39",
+      "kind": "theorem",
+      "name": "Quillen: rational K-theory of finite fields",
+      "statement": "K(𝔽_q)_ℚ = ℚ[0] (the rational homology of finite groups vanishes, K(𝔽_q) being the group completion of ⊔ ∗/GL_n(𝔽_q)); hence K(𝔽̄_p)_ℚ = ℚ[0] and there are no nonzero rational maps between distinct Tate twists in D_mot(𝔽̄_p).",
+      "locator": "§11, Proposition 11.5, p. 59",
+      "status": "planned",
+      "planned": [
+        "KTheoryFiniteLocalFields:L.1"
+      ],
+      "note": "KTheoryFiniteLocalFields L.1 plans Quillen's finite-field calculation."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/40",
+      "kind": "definition",
+      "name": "Definition 9.1 (= Definition 1.11): motivic sheaves D_mot(X)",
+      "statement": "D_mot(X) = D^eff_mot(X)[ℤ(1)^{⊗−1}] (Robalo [Rob15]) = colim along −⊗ℤ(1) in presentable categories = lim along Hom(ℤ(1), −); objects are sequences M_n with M_n ≅ Hom(ℤ(1), M_{n+1}), and D^eff_mot(X) ⊂ D_mot(X) is fully faithful by cancellation.",
+      "locator": "§1, Definition 1.11, p. 6; §9, Definition 9.1, p. 50",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/41",
+      "kind": "theorem",
+      "name": "Theorem 9.2 and Proposition 9.3: pushforward and the projective line",
+      "statement": "For f : M_arc(B) → M_arc(A) of finite cohomological dimension with Y embedded in a finite-dimensional ball over X, f_* on D_mot commutes with colimits and base change and satisfies the projection formula (Theorem 9.2); for f : P¹_X → X, f_♯ ≅ f_* ⊗ ℤ(1)[2] (Proposition 9.3; unit from the G_m-torsor O(Δ), counit from the reduced cohomology of P¹).",
+      "locator": "§1, p. 6; §9, Theorem 9.2, Proposition 9.3, pp. 50–52",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/42",
+      "kind": "theorem",
+      "name": "The six-functor formalism X ↦ D_mot(X) on small arc-stacks",
+      "statement": "Starting from affine arc-sheaves with maps of finite cohomological dimension as !-able and proper maps, the extension theorems [Sch25b, Thm 5.19], [HM24, Thm 3.4.11] give a six-functor formalism on small arc-stacks; open immersions are !-able with j_! left adjoint to j^* (Proposition 9.4); étale maps (finitary with finite geometric fibres) are !-able and cohomologically étale (Proposition 9.5); smooth K-analytic spaces without boundary are cohomologically smooth (Corollary 9.6); proper 0-truncated maps of locally finite cohomological dimension satisfy the projection formula (Corollary 10.2).",
+      "locator": "§1, p. 6; §9, Propositions 9.4, 9.5, Corollary 9.6, pp. 52; §10, Corollary 10.2, pp. 53–54",
+      "status": "missing",
+      "note": "The abstract extension theorems of Scholze's Six-Functor Formalisms notes and Heyer–Mann are prerequisites; the atlas has six operations only for diamonds (DiamondSixOperations) and étale sheaves."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/43",
+      "kind": "theorem",
+      "name": "Proposition 9.7: tilting for D_mot",
+      "statement": "For X with |p| < 1 and tilt X^♭, tilting gives a symmetric monoidal equivalence D_mot(X) ≅ D_mot(X^♭), functorial in X.",
+      "locator": "§1, Proposition 1.5(iv), p. 4; §9, Proposition 9.7, pp. 52–53",
+      "status": "missing",
+      "note": "From Proposition 6.8, since the Tate twist is preserved."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/44",
+      "kind": "theorem",
+      "name": "Proposition 10.1 (= Theorem 1.12, geometric points)",
+      "statement": "For an algebraically closed Banach field C, D_mot(C) is compactly generated with compact unit and compact = dualizable objects, hence rigid; in equal characteristic with a splitting k → C of the residue field, it is generated by ℤ_mot[X_C](−j) for X smooth projective over k and j ≥ 0 (motives of smooth projective varieties with good reduction).",
+      "locator": "§1, Theorem 1.12, p. 6; §10, Proposition 10.1, p. 53",
+      "status": "missing",
+      "note": "Proof by induction on topological transcendence degree through points of types (2)–(4), with de Jong's alterations; cf. the coalesced Part II's 'good-reduction-generated rigid motives'."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/45",
+      "kind": "theorem",
+      "name": "Proposition 10.3 (= Theorem 1.12, relative case): rigidity of D_mot",
+      "statement": "For A analytic of finite cohomological dimension, D_mot(M_arc(A)) is rigid (Gaitsgory–Rozenblyum's notion); more generally for qcqs arc-sheaves X of finite cohomological dimension whose points are reached by quasi-pro-étale maps from geometric points. Proof: ℤ_mot[U] → ℤ_mot[V] is compact for U ⋐ V ⊂ 𝔸ⁿ_X (compactly assembled), and generation by sequential colimits along trace-class maps (Ramzi [Ram24b, Cor. 4.57]). Mixed Tate motives D_MT(X) (geometric fibres generated by the ℤ(n), Definition 10.7) form an arc-sheaf of categories (Proposition 10.8), are generated by the ℤ(n) over strictly totally disconnected X (Proposition 10.9) and are rigid (Proposition 10.10).",
+      "locator": "§1, Theorem 1.12, pp. 6–7; §10, Proposition 10.3, Definition 10.7, Propositions 10.8–10.10, pp. 54–57",
+      "status": "missing",
+      "note": "Unlike étale sheaves on schemes or rigid spaces, where compact objects need not be dualizable."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/46",
+      "kind": "theorem",
+      "name": "Lemma 10.4 and Corollary 10.6: quasi-pro-étale descent and Künneth",
+      "statement": "For quasi-pro-étale proper f : Y → X, D_mot(Y) ≅ Mod_{f_*ℤ}(D_mot(X)) (Barr–Beck–Lurie), and D_mot of a cofiltered limit of such is the colimit (Lemma 10.4); for qcqs X → S ← Y as in Proposition 10.3, D_mot(X) ⊗_{D_mot(S)} D_mot(Y) → D_mot(X ×_S Y) is fully faithful (Corollary 10.6).",
+      "locator": "§10, Lemma 10.4, Corollary 10.6, pp. 55–56",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/47",
+      "kind": "theorem",
+      "name": "∞-categorical inputs: dualizable, compactly assembled and rigid categories",
+      "statement": "Presentable stable ∞-categories that are compactly assembled (colim : Ind(C) → C has a left adjoint; Ramzi [Ram24a, Thm 2.39]) are exactly the dualizable ones; rigid symmetric monoidal categories (Gaitsgory–Rozenblyum [GR17, I.9.1.2]) and their characterisation by generation along trace-class maps (Ramzi [Ram24b]); relative tensor products of rigid categories are rigid; adjoining a ⊗-inverse of a symmetric object (Robalo); symmetric monoidal Verdier quotients by ⊗-ideals (Nikolaus–Scholze [NS18, Thm I.3.6]); Barr–Beck–Lurie; descendable algebras (Mathew [Mat16, Def. 3.18]).",
+      "locator": "§2, Definition 2.7, Remark 2.8; §§5, 9–11 (cited)",
+      "status": "missing",
+      "note": "EnhancedDerivedSheaves E5:presentability plans Ind-completion, compact objects and extension of exact functors for the shared enhancement; dualizable and rigid presentable categories belong there."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/48",
+      "kind": "theorem",
+      "name": "Theorem 11.1 (= Proposition 1.13): D_mot(k) is Voevodsky's category of étale motives",
+      "statement": "For an algebraically closed discrete field k, D_mot(k) is generated by the compact dualizable ℤ_mot[X](−j), X smooth projective, j ∈ ℤ; Hom(ℤ_mot[X](−j), ℤ) is rationally the weight-j Adams piece of K(X) and, profinitely (prime to p), pro-étale cohomology with Ẑ_{p′}(j). Hence the comparison functor from Voevodsky's étale motives (étale descent, 𝔸¹-invariance, G_m-stability) is an equivalence (Remark 11.2).",
+      "locator": "§1, Proposition 1.13, p. 7; §11, Theorem 11.1, Remark 11.2, pp. 57–58",
+      "status": "missing",
+      "note": "Proof through K = k((T))_{1/2}: f_♯ exists and f_♯ℤ = (f_*ℤ)^∨ splits off ℤ; K(X_C)_ℚ via excision on regular schemes."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/49",
+      "kind": "theorem",
+      "name": "Voevodsky's category of étale motives over a field",
+      "statement": "The presentable stable ∞-category of étale motives over a field k: generated by smooth k-schemes, subject to étale descent, 𝔸¹-invariance and G_m-stability, with cancellation and rational Hom groups governed by K-theory.",
+      "locator": "§1, pp. 1–2, 7; §11, Remark 11.2, p. 57 (cited)",
+      "status": "planned",
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivicEtaleKTheory:M.5a"
+      ],
+      "note": "MotivesAndAlgebraicCycles MC.4 plans geometric mixed motives with A¹-invariance and Tate stabilisation, and MotivicEtaleKTheory M.5a finite correspondences, effective motivic complexes and cancellation."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/50",
+      "kind": "definition",
+      "name": "Definition 11.3 and Proposition 11.4: motivic nearby cycles",
+      "statement": "For C the completed algebraic closure of k((T))_{1/2} and f : M_arc(C) → M_arc(k), D_mot(C) = Mod_{f_*ℤ}(D_mot(k)); a pseudouniformiser π with compatible roots π^{1/n} (n prime to p) gives f_*ℤ ≅ g_*ℤ → ℤ (g : G̃_m,k → M_arc(k), G̃_m = lim G_m), and Ψ = Ψ(π^{1/n}) : D_mot(C) → D_mot(k) is base change along it (Definition 11.3); f_*ℤ → ℤ is descendable, so Ψ is conservative ('neutral Tannakian', Proposition 11.4).",
+      "locator": "§1, Theorem 1.14, p. 7; §11, Definition 11.3, Proposition 11.4, pp. 58–59",
+      "status": "missing",
+      "note": "The coalesced Part II carries 'Chosen augmentation and motivic nearby cycles' for RigDA (Binda–Kato–Vezzani, BGV)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/51",
+      "kind": "theorem",
+      "name": "Propositions 11.5–11.8: mixed Tate motives over 𝔽̄_p and the motivic t-structure",
+      "statement": "Let MG_k be the stack over ℤ[1/p] of line bundles L with compatible L/n ≅ μ_n(k) ⊗ R (≅ BG_m^rat, G_m^rat = Spec(ℚ[T^{±1}] ×_ℚ ℤ[1/p])); D_qc(MG_k) is compactly generated by L^{⊗n}, and D_qc(MG_k) → D_mot(k) is fully faithful with image D_MT(k), the subcategory generated by the ℤ(n) (Proposition 11.6), giving the motivic t-structure on D_MT(k); D_MT(C) ⊗_{D_MT(k)} D_mot(k) ≅ D_mot(C) (Proposition 11.7); Ψ : D_MT(C) → D_MT(k) is conservative, t-exact and symmetric monoidal (Proposition 11.8).",
+      "locator": "§11, Propositions 11.6–11.8, pp. 59–60",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/52",
+      "kind": "theorem",
+      "name": "Theorem 11.9 and Corollary 11.10 (= Theorem 1.14): motives over C by monodromy",
+      "statement": "The gerbe MG_C → MG_k banded by Hom(ℚ, L) gives D_qc(MG_C) ≅ D_MT(C) and D_mot(C) ≅ D_mot(k) ⊗_{D_qc(MG_k)} D_qc(MG_C) (Theorem 11.9); a choice of π^{1/n} makes Ψ a symmetric monoidal equivalence D_mot(C) ≅ {(A, N) : A ∈ D_mot(k), N : A → A ⊗ ℚ(−1) locally nilpotent}, and rationally the choice of π suffices (Corollary 11.10).",
+      "locator": "§1, Theorem 1.14, p. 7; §11, Theorem 11.9, Corollary 11.10, pp. 61–62",
+      "status": "missing",
+      "note": "Previously proved rationally by Binda–Gallauer–Vezzani [BGV23]; the coalesced Part II imports BGV for its log-free comparison."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/53",
+      "kind": "theorem",
+      "name": "Proposition 12.1 and Corollary 12.2: arc-stacks as partially proper v-stacks",
+      "statement": "In characteristic p, with N → ∗ the v-sheaf of norms (an ℝ_{>0}-torsor), the functors (R, R⁺) ↦ R and R ↦ (R, (𝔽_p + R°°)~) induce adjoint morphisms of topoi a^* : vStack/N → arcStack, b^* : arcStack → vStack/N with (b^*Y)(R, R⁺) = Y(R), and b^*a^*X the canonical compactification [Sch17, Prop. 18.6] (Proposition 12.1); b^* is fully faithful onto the partially proper v-stacks (Corollary 12.2). A variant arcStack′ on perfectoid Tate 𝔽_p-algebras (the arc-topology on Huber pairs) removes N.",
+      "locator": "§12, Proposition 12.1, Corollary 12.2, pp. 62–63",
+      "status": "missing",
+      "note": "Imports DiamondsAndVStacks (v-stacks, canonical compactifications) rather than re-planning them."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/54",
+      "kind": "theorem",
+      "name": "Propositions 12.3–12.4: torsion motives and overconvergent étale sheaves on diamonds",
+      "statement": "For a small v-stack X with Y = a′^*X and n prime to p, D_mot(Y, ℤ/n) ≅ D_et(Y, ℤ/n) ↪ D_et(X, ℤ/n) is fully faithful onto overconvergent étale sheaves, compatibly with pullback, tensor products and proper pushforward of finite cohomological dimension (Proposition 12.3, via [Sch17, Props 13.13, 22.7]); for a spatial diamond of finite cohomological dimension the inclusion has a colimit-preserving right adjoint, D_et(X, ℤ/n) being compactly generated (Proposition 12.4).",
+      "locator": "§12, Propositions 12.3, 12.4, pp. 63–64",
+      "status": "missing",
+      "note": "Imports DiamondEtaleCohomology's D_et of diamonds; this is the bridge to the companion 'Geometrization of the local Langlands correspondence, motivically' (independence of ℓ, Fargues–Scholze Conjecture I.9.5)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/55",
+      "kind": "theorem",
+      "name": "Proposition 1.5: effective motives over a geometric point",
+      "statement": "For X = M_arc(C), C algebraically closed non-discrete: (i) C = ℂ: D(ℤ) ≅ D^eff_mot(X), the finitary sheaves; (ii) C nonarchimedean, n invertible in the residue field: D(ℤ/n) ≅ D^eff_mot(X, ℤ/n), ball-invariance ⇔ invariance under change of algebraically closed field; (iii) residue characteristic p: p is invertible in D^eff_mot(X); (iv) mixed characteristic: tilting gives D^eff_mot(C) ≅ D^eff_mot(C^♭). So only ℚ-coefficients over nonarchimedean fields are new.",
+      "locator": "§1, Proposition 1.5, p. 4",
+      "status": "missing",
+      "note": "Assembled from Theorem 4.14, Proposition 5.9, Corollary 6.6, Theorem 6.7 and Proposition 6.8."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "P. Scholze, Six-Functor Formalisms, arXiv:2510.26269; C. Heyer, L. Mann, 6-Functor Formalisms and Smooth Representations, arXiv:2410.13038",
+      "link": "https://arxiv.org/abs/2510.26269",
+      "why": "Theorem 5.19 and Theorem 3.4.11: extending six-functor formalisms from affine arc-sheaves (§9)."
+    },
+    {
+      "citation": "P. Scholze, Étale cohomology of diamonds, arXiv:1709.07343 (to appear in Astérisque)",
+      "link": "https://arxiv.org/abs/1709.07343",
+      "why": "The model for §§3–4 and §12: strictly totally disconnected spaces, Propositions 8.8, 13.13, 18.6, 20.17, 21.9, 22.7."
+    },
+    {
+      "citation": "J. Ayoub, M. Gallauer, A. Vezzani, The six-functor formalism for rigid analytic motives, Forum Math. Sigma 10 (2022) e61",
+      "link": "10.1017/fms.2022.55",
+      "why": "The parallel adic theory; Ayoub's RigDA and its six functors."
+    },
+    {
+      "citation": "A. Vezzani, A motivic version of the theorem of Fontaine and Wintenberger, Compos. Math. 155 (2019), 38–88; Effective motives with and without transfers in characteristic p, Adv. Math. 306 (2017), 852–879",
+      "link": "10.1112/s0010437x18007595",
+      "why": "Tilting of rigid motives (Proposition 6.8) and transfers (cancellation, §7)."
+    },
+    {
+      "citation": "F. Binda, M. Gallauer, A. Vezzani, Motivic monodromy and p-adic cohomology theories, arXiv:2306.05099",
+      "link": "https://arxiv.org/abs/2306.05099",
+      "why": "The rational version of Theorem 1.14 / Corollary 11.10."
+    },
+    {
+      "citation": "V. Voevodsky, Cancellation theorem, Doc. Math. (2010), 671–685",
+      "link": "https://www.elibm.org/article/10011510",
+      "why": "The argument followed in §7."
+    },
+    {
+      "citation": "A. Efimov, K-theory and localizing invariants of large categories, arXiv:2405.12169",
+      "link": "https://arxiv.org/abs/2405.12169",
+      "why": "K-theory of dualizable categories (§8) and Proposition 1.72 (Lemma 10.5)."
+    },
+    {
+      "citation": "M. Ramzi, Dualizable presentable ∞-categories, arXiv:2410.21537; Locally rigid ∞-categories, arXiv:2410.21524",
+      "link": "https://arxiv.org/abs/2410.21537",
+      "why": "Compactly assembled categories (Definition 2.7) and trace-class generation (Proposition 10.3)."
+    },
+    {
+      "citation": "K. Aoki, (Semi)topological K-theory via solidification, arXiv:2409.01462",
+      "link": "https://arxiv.org/abs/2409.01462",
+      "why": "Theorem 4.4 (Breen–Deligne resolution of group completion) in Proposition 8.4."
+    },
+    {
+      "citation": "A. A. Suslin, Excision in integer algebraic K-theory, Trudy Mat. Inst. Steklov. 208 (1995), 290–317",
+      "link": "https://mathscinet.ams.org/mathscinet-getitem?mr=1730270",
+      "why": "K-theory of the Tor-unital ideal A_{<1} (§8)."
+    },
+    {
+      "citation": "D.-C. Cisinski, Descente par éclatements en K-théorie invariante par homotopie, Ann. of Math. 177 (2013), 425–448; M. Kerz, F. Strunk, G. Tamme, Algebraic K-theory and descent for blow-ups, Invent. Math. 211 (2018), 523–577",
+      "link": "10.4007/annals.2013.177.2.2",
+      "why": "cdh and pro-cdh descent in Theorem 8.13."
+    },
+    {
+      "citation": "B. Bhatt, A. Mathew, The arc-topology, Duke Math. J. 170 (2021), 1899–1988",
+      "link": "10.1215/00127094-2020-0088",
+      "why": "The scheme arc-topology the Berkovich arc-topology is modelled on (extracted as PAPER-BHATT-MATHEW-21)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "MotivesAndAlgebraicCycles",
+      "roadmap": "MotivesRigidAnalyticPartII",
+      "title": "Algebraic cycles, pure and mixed motives, Part II: rigid analytic and logarithmic motives",
+      "area": "motives",
+      "items": [
+        "PAPER-SCHOLZE-26/2",
+        "PAPER-SCHOLZE-26/7",
+        "PAPER-SCHOLZE-26/9",
+        "PAPER-SCHOLZE-26/10",
+        "PAPER-SCHOLZE-26/11",
+        "PAPER-SCHOLZE-26/12",
+        "PAPER-SCHOLZE-26/13",
+        "PAPER-SCHOLZE-26/14",
+        "PAPER-SCHOLZE-26/15",
+        "PAPER-SCHOLZE-26/16",
+        "PAPER-SCHOLZE-26/17",
+        "PAPER-SCHOLZE-26/18",
+        "PAPER-SCHOLZE-26/19",
+        "PAPER-SCHOLZE-26/20",
+        "PAPER-SCHOLZE-26/21",
+        "PAPER-SCHOLZE-26/22",
+        "PAPER-SCHOLZE-26/23",
+        "PAPER-SCHOLZE-26/24",
+        "PAPER-SCHOLZE-26/25",
+        "PAPER-SCHOLZE-26/26",
+        "PAPER-SCHOLZE-26/27",
+        "PAPER-SCHOLZE-26/28",
+        "PAPER-SCHOLZE-26/29",
+        "PAPER-SCHOLZE-26/30",
+        "PAPER-SCHOLZE-26/31",
+        "PAPER-SCHOLZE-26/33",
+        "PAPER-SCHOLZE-26/34",
+        "PAPER-SCHOLZE-26/35",
+        "PAPER-SCHOLZE-26/40",
+        "PAPER-SCHOLZE-26/41",
+        "PAPER-SCHOLZE-26/42",
+        "PAPER-SCHOLZE-26/43",
+        "PAPER-SCHOLZE-26/44",
+        "PAPER-SCHOLZE-26/45",
+        "PAPER-SCHOLZE-26/46",
+        "PAPER-SCHOLZE-26/48",
+        "PAPER-SCHOLZE-26/50",
+        "PAPER-SCHOLZE-26/51",
+        "PAPER-SCHOLZE-26/52",
+        "PAPER-SCHOLZE-26/53",
+        "PAPER-SCHOLZE-26/54",
+        "PAPER-SCHOLZE-26/55"
+      ],
+      "brief": "This route coalesces with MotivesRigidAnalyticPartII, proposed by PAPER-BINDA-KATO-VEZZANI-25; keep its id, title, parent, area and brief. Scholze's Berkovich motives (J. Amer. Math. Soc. 39 (2026)) give a second, self-contained construction of the rigid-analytic motives that Part II plans through Ayoub's RigDA, uniform in archimedean and nonarchimedean Banach rings, with integral (étale) coefficients, and reprove several of its planned endpoints in that setting: the motivic Fontaine–Wintenberger (tilting) equivalence (Propositions 6.8, 9.7), generation by motives with good reduction (Proposition 10.1) and motivic nearby cycles with monodromy (Theorem 1.14, after Binda–Gallauer–Vezzani).\n\nAdd, as a Berkovich branch reusing the Part II's formal layers: (1) the arc-topology on Banach rings, strictly totally disconnected rings, subcanonicity (§3) and finitary arc-sheaves with Theorem 4.1, proper base change and excision (§4) — the Banach-ring toolkit itself is routed to TropicalAndBerkovichArithmetic TB.0–TB.1; (2) effective motives D^eff_mot as finitary ball-invariant sheaves, L_B, the homotopy t-structure, free motivic sheaves and f_♯, Ḡ_m and ℤ(1) (§5); (3) presheaves with transfer, torsion comparison with étale sheaves, p-invertibility and tilting (§6); (4) the cancellation theorem over any base (§7); (5) the K-theory comparison 𝒦 ⊗ ℚ ≅ ⊕ ℚ(n)[2n] and the 1-unit cofibre descriptions (§8); (6) D_mot, the six-functor formalism on small arc-stacks and tilting (§9); (7) rigidity, mixed Tate motives and Künneth (§10); (8) D_mot(k) = Voevodsky's étale motives, the motivic Galois stacks MG_k, MG_C and nearby cycles Ψ (§11); (9) the comparison with v-stacks and overconvergent étale sheaves (§12). A comparison layer relating D_mot(X) to Ayoub's RigDA on smooth rigid spaces (not proved in the paper; Ayoub–Gallauer–Vezzani is the adic parallel) should be stated as a separate target.\n\nImport, never re-plan: TropicalAndBerkovichArithmetic TB.0–TB.1 (Berkovich spectra, the disc); MotivesAndAlgebraicCycles MC.4 and MotivicEtaleKTheory M.5a (Voevodsky's motives, transfers, algebraic cancellation); GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3, S.5, S.6 and RefinedTraceMethods RT.5 (Suslin excision, Thomason–Trobaugh, cdh descent, Adams operations, Efimov's K-theory of dualizable categories); KTheoryFiniteLocalFields L.1 (Quillen); EnhancedDerivedSheaves E5 (dualizable, compactly assembled and rigid categories); DiamondsAndVStacks, DiamondEtaleCohomology and DiamondSixOperations (v-stacks, D_et, canonical compactifications); the proposed ArcTopologyAndDescent (the scheme arc-topology) for comparison. Prerequisites: Scholze's Six-Functor Formalisms and Heyer–Mann (extension of six-functor formalisms), Efimov, Ramzi, Aoki. Tests: X = M_arc(ℂ) (Betti sheaves), torsion coefficients (étale sheaves), Ḡ_m and P¹ (Example 4.26), K(𝔽̄_p)_ℚ = ℚ, the pair (A, N) description over C.",
+      "reason": "The pending Part II owns rigid-analytic motives (Ayoub's RigDA, tilting, good-reduction generation, nearby cycles); Berkovich motives are an alternative foundation for the same objects and theorems, so a separate roadmap would duplicate its endpoints."
+    },
+    {
+      "route": "source",
+      "roadmap": "TropicalAndBerkovichArithmetic",
+      "stages": [
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/4",
+        "PAPER-SCHOLZE-26/6",
+        "PAPER-SCHOLZE-26/1",
+        "PAPER-SCHOLZE-26/3",
+        "PAPER-SCHOLZE-26/5",
+        "PAPER-SCHOLZE-26/8"
+      ],
+      "reason": "TB.0 plans the Berkovich spectrum of a Banach algebra with its topology and completed residue fields, TB.1 the four point types and trees on the line. The paper works with all Banach rings (including ℤ, archimedean and discrete ones): Scholze's seminormed and Banach rings with their colimits, Gelfand–Mazur for Banach fields, idempotents versus clopen subsets of M(R), uniform rings and the Gelfand transform, and M of pushouts and filtered colimits belong in TB.0 as its general input."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeneralAlgebraicKTheory",
+      "stages": [
+        "GeneralAlgebraicKTheory:K.5"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/36"
+      ],
+      "reason": "K.5 plans non-unital K-theory and 'excision under the hypotheses of the adopted theorem'; Suslin's excision for Tor-unital rings is that theorem, used for K(A_{<1})."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeKTheoryOperations",
+      "stages": [
+        "SchemeKTheoryOperations:S.3",
+        "SchemeKTheoryOperations:S.5"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/37"
+      ],
+      "reason": "S.3 (supports and localisation) and S.5 (homotopy invariance, homotopy K-theory for singular schemes) own the Thomason–Trobaugh completion invariance, cdh and pro-cdh descent for KH and K, and 𝔸¹-invariance over valuation rings that §8 uses."
+    },
+    {
+      "route": "source",
+      "roadmap": "RefinedTraceMethods",
+      "stages": [
+        "RefinedTraceMethods:RT.5"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/38"
+      ],
+      "reason": "RT.5 plans compact and dualizable objects and continuous extensions of localizing invariants (the Efimov–Scholze refinement); Efimov's K-theory of dualizable categories, applied here to almost modules, belongs there."
+    },
+    {
+      "route": "source",
+      "roadmap": "EnhancedDerivedSheaves",
+      "stages": [
+        "EnhancedDerivedSheaves:E5:presentability"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/47"
+      ],
+      "reason": "E5:presentability plans Ind-completion, compact objects and colimit-preserving extensions for the shared enhancement; compactly assembled and dualizable presentable categories, rigidity, Robalo's inversion and symmetric monoidal Verdier quotients are the presentable-category statements the paper uses."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-SCHOLZE-26/E1",
+      "kind": "misprint",
+      "locator": "§2.4, type (3) points, p. 14 (arXiv v3; also v2)",
+      "printed": "In fact, it can be explicitly described as C⟨(T−a)^{pm1}⟩_{x_a}, the uniform completion of the free seminormed ring C[(T−a)^{±1}]_{x_a}",
+      "correction": "C⟨(T−a)^{±1}⟩_{x_a}",
+      "reason": "A LaTeX slip ('pm1' for \\pm 1): the same ring is written C[(T−a)^{±1}]_{x_a} in the same sentence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+        "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+        "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/E2",
+      "kind": "misprint",
+      "locator": "§6, proof of Theorem 6.3, p. 36; Lemma 6.5 and its proof, p. 37 (arXiv v3; also v2)",
+      "printed": "the complements of each of U, U_1, U_2 and V in P¹_A is a finite disjoint union of closed discs; … open subsets whose complements in P¹_A are finite disjoint unions of closed discs; … the complement of U in P¹_A is the union of closed discs Z_0, …, Z_d",
+      "correction": "P¹_C (the projective line over the algebraically closed field C)",
+      "reason": "In both places X = M_arc(C) and U, V ⊂ 𝔸¹_C; no Banach ring A is in scope.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+        "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+        "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/E3",
+      "kind": "misprint",
+      "locator": "§3, Example 3.6, p. 16 (arXiv v3; also v2)",
+      "printed": "Let A be any Banach ring. The map A → B = ∏^Ban_{x∈M(A)} K(x) is an arc-cover. The target is an example of a totally disconnected Banach ring as defined below.",
+      "correction": "The target is totally disconnected when A is analytic (all K(x) non-discrete), which can always be arranged by Example 3.4.",
+      "reason": "Definition 3.10 requires totally disconnected rings to be analytic, and Proposition 3.11 assumes the K_i non-discrete; for a discrete ring A (e.g. ℤ with the trivial norm) the residue fields are discrete and B is not analytic.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+        "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+        "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+      ]
+    }
+  ]
+}
