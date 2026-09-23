@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "ST.0/ST.1 are plausible owners, but the original even-degree distinguished-flag predicate is false (E17), and the hyperelliptic/Jacobian, torsor, invariant-ring and Q²|Δ supplier contracts remain undecomposed. The in-place flag correction does not close these obligations."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "ST.2 is the right application owner, importing generic lattice counting from GN.4. The extraction still lacks the uniform congruence-count remainder and weighted squarefree-modulus Ekedahl adaptation. The summed tail must exclude Δ=0 (E13), and only the weaker verified quartic estimate may be used."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "The route's proof chain used a false strong-uniqueness density theorem (E16), reversed root scaling (E14), and unconditional trace-zero positivity refuted by n=2 (E15). Corrected items expose these gaps; an adequate field-multiplicity proof and restricted-family argument are still required."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "GN.3 owns Minkowski-reduced bases, with general Siegel-set theory imported from AA.3. The paper's faulty equivalence and the extraction's faulty tie-locus repair are not an adequate source for the promised reduction/uniqueness package. Item 73 is narrowed; a precise primary-source reduction and well-separated-basis contract remains necessary."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "IG.2 is the right owner of the quantitative extension, and Dietmann's actual coefficient-controlled statement has been checked. The qualitative layer did not already supply item 10. Items 10/53 are corrected and routed together, but the resolvent and uniform plane-curve counting inputs must be made explicit before building a closed extraction on this route."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The exact corrected Fujiwara inequality is valid and belongs to polynomial arithmetic at CA.3. A short complete triangle-inequality/geometric-series proof is given in item 74 and the review. The pinned Cauchy bound is a different estimate, so this is not a duplicate declaration."
+    }
+  ],
+  "notes": "Independent review by Codex — codex-a71f92 (original extraction: Claude Code — cc-fb70e5, PR #1907). All 74 original items and 12 original source issues checked against arXiv v3; 5 additional version-qualified source issues added. Extraction corrected in place and set partial. Source-issue confirmations do not assert persistence in the unread version of record or disprove the main theorems. See research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-22.md for exact counterexamples, status/route checks, changes and remaining closure obligations. Under make_queue.accepted_routes a revise verdict activates no routes, including route 6."
+}
