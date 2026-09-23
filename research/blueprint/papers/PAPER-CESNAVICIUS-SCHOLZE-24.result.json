@@ -37,7 +37,9 @@
     "sha256": "863f0cc66f8583f0db68d14850c5148995ae741be873f63c5ef99c62f8179cd8",
     "read": "the authors' revision of 27 February 2023 (88 pages), compared with v3 by a word-level diff"
    }
-  ]
+  ],
+  "sha256": "2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4",
+  "sha256Note": "SHA-256 of https://arxiv.org/pdf/1912.10932v3. The report already recorded this hash; review REV-PAPER-CESNAVICIUS-SCHOLZE-24 re-fetched the file on 23 September 2026, confirmed it and copied it into this source block, which had none."
  },
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1503,7 +1505,7 @@
     "PAPER-CESNAVICIUS-SCHOLZE-24/143"
    ],
    "brief": "Plan purity for flat cohomology after Česnavičius–Scholze, Purity for flat cohomology (Ann. of Math. 199 (2024) 51–180). Final theorems, as stated there: Theorem 6.2.3 (= Theorem 1.1.1): for a Noetherian local complete intersection (R, 𝔪) and a commutative, finite, flat R-group G, H^i_𝔪(R, G) = 0 for i < dim(R); Theorem 6.2.7: for regular R that is not a field, H^i_𝔪(R, G) = 0 for i ≤ dim(R); Theorem 6.1.1, the key formula RΓ_Z(A, G) ≅ RΓ_Z(A_inf(A), 𝕄(G))^{V=1} for perfectoid A and G of p-power order, and Theorem 6.1.2, purity for perfectoid rings (depth_Z(A) ≥ d gives H^i_Z(A, G) = 0 for i < d); Theorem 6.2.4: H^i_𝔪(R, G) = 0 for i < vdim(R) for finite étale G over any Noetherian local R; Theorem 3.3.1: Zariski–Nagata purity for vdim ≥ 3; and the global consequences — Theorem 7.1.2 (use the corrected hypothesis 'regular of dimension ≥ max(d − 1, 1)', sourceIssues E1), Theorem 7.1.3 (Moret-Bailly purity for torsors and gerbes), Gabber's Conjectures 2 and 3 (Theorems 7.2.5 and 7.2.1), Corollary 7.2.3 and Theorems 7.2.8–7.2.9 on groups of multiplicative type, including purity for the Brauer group of schemes with complete intersection singularities.\n\nLayers, in order. (1) Virtual dimension and étale depth (Section 3.2): vdim, its independence and additivity, and Theorem 3.2.4 by the hypersurface reduction. (2) Zariski–Nagata for vdim ≥ 3 (Section 3.3), with Zariski–Nagata for regular rings (SGA 2 X 3.4). (3) Positive characteristic (Section 4.1 from 4.1.10): α_p and ℤ/p below depth, Lemma 4.1.11 (the only place the complete intersection hypothesis enters), the finite-cover Lemma 4.1.12 and Proposition 4.1.13. (4) Perfectoid analysis (Section 4.2 from 4.2.4): low-degree cohomology, arc descent for Dieudonné-module cohomology, products and the local analysis over products of valuation rings (with Katz's unit-root lemma). (5) Theorem 5.5.1 and the key formula and perfectoid purity (Section 6.1). (6) The main theorems (Section 6.2), with Lemma 6.2.2 and the counterexample of Remark 6.2.6. (7) Global purity, local Picard and Brauer groups (Section 7), with parafactoriality, Grothendieck–Lefschetz (SGA 2 XI 3.13, XII 3.7), Grothendieck's Brauer results, Auslander's criterion and the Hartogs Lemma 7.2.7; the sharpness examples of Remarks 7.2.2, 7.2.4 and 7.2.6 are tests.\n\nImports: the proposed Part II of SchemeAndStackFoundations from this extraction (flat cohomology of animated rings: the positive-characteristic key formula 4.1.8, excision, p-adic and general continuity, fpqc descent, Bégueri resolution, Brauer groups of schemes); the proposed Part II of PerfectoidQuotients (perfectoid structure, towers, the ind-syntomic André lemma); the proposed Part II of EtaleDualityAndPerverseSheaves (Gabber–Thomason purity and the local Lefschetz lemma); ArcTopologyAndDescent and PrismaticCohomologyPartIIPrismaticDieudonneTheory as proposed by other extractions; PerfectoidQuotients Q0 and Q3, PrismaticCohomology PR.0, DeformationAndDerivedPatchingAlgebra R03.1 (Cohen structure, routed here as a source) and R03.3, SchemeAndStackFoundations SF.1–SF.4, InverseGaloisAndArithmeticFundamentalGroups IG.0, DerivedDeRhamCohomology DD.0–DD.1, Tau Ceti's Cartier duality and Mathlib's IsRegularLocalRing, regular sequences, localCohomology and CommRing.Pic. Tests: G = μ_p, ℤ/p, α_p over 𝔽_p⟦x, y⟧, over a mixed-characteristic hypersurface and over W(k)⟦x_1, …, x_d⟧/(p − f); a perfectoid valuation ring and a product of them; the cone over an elliptic curve; ℂ⟦x_1, x_2, x_3⟧^{ℤ/2}. The pending Česnavičius, Purity for the Brauer group extraction should route here too.",
-   "reason": "The atlas has no flat cohomology beyond SF.2's site, and no Brauer groups of schemes, local Picard groups or SGA 2 purity. EDC.2 excludes absolute purity, and the perfectoid, prismatic and Dieudonné roadmaps compute cohomology rather than purity. The paper's main line (virtual dimension, the key formula, perfectoid purity, purity for complete intersections, Gabber's conjectures, Brauer purity) has no existing direction, so it is a new roadmap. The general tools it builds are routed to their owners (routes 2–6)."
+   "reason": "The atlas has no flat cohomology beyond SF.2's site, and no Brauer groups of schemes, local Picard groups or SGA 2 purity. no stage in the atlas mentions absolute purity at all — EDC.2, the nearest candidate, plans smooth trace, relative purity and Poincaré duality without it, and the perfectoid, prismatic and Dieudonné roadmaps compute cohomology rather than purity. The paper's main line (virtual dimension, the key formula, perfectoid purity, purity for complete intersections, Gabber's conjectures, Brauer purity) has no existing direction, so it is a new roadmap. The general tools it builds are routed to their owners (routes 2–6). (Review REV-PAPER-CESNAVICIUS-SCHOLZE-24: the Brauer material the atlas does have is the Brauer group of a field and the local invariants, in Tau Ceti's ClassFieldTheory layers 5, 6 and 10, and the Brauer–Manin pairing of HeightsRationalPointsAndObstructions RP.2, which consumes Br(X) rather than constructing it; so placing the Brauer group of a scheme in route 2 is right.)"
   },
   {
    "route": "part-ii",
@@ -1670,7 +1672,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I built a counterexample. Theorem 7.1.2 (p. 87) assumes each O_{X,z} with z ∈ Z is 'either a complete intersection of dimension ≥ d or regular of dimension ≥ d − 1', and concludes that H^i(X,G) → H^i(X∖Z,G) is injective for i < d. At d = 1 the second clause permits dimension 0, i.e. a field. Take X = Spec k ⊔ Spec k, Z one of the two points, G any nontrivial finite locally free group: O_{X,z} = k is regular of dimension 0 ≥ d − 1, the immersion X∖Z ↪ X is quasi-compact, and H^0(X,G) = G(k) × G(k) → H^0(X∖Z,G) = G(k) is not injective. So the theorem as stated fails for d = 1, and the extraction's repair — dimension ≥ max(d−1, 1), i.e. not a field, or d ≥ 2 — is the right one. Every application in the paper has d ≥ 2, so nothing downstream is affected. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E2",
@@ -1686,7 +1693,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 14 as recorded: 'we may repeat the construction with A_1 in place of A to likewise build an A_1-subalgebra A_2 ⊂ A'. The construction produces subalgebras of the tilde object — the next sentence takes their union as an A-subalgebra of Ã — so ⊂ A is a slip for ⊂ Ã. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E3",
@@ -1702,7 +1714,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 28 as recorded: 'In fact, their union is p-this integral closure'. The preceding clause names 'the p-integral closure A_1^m', so the hyphen has migrated. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E4",
@@ -1718,7 +1735,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 35 as recorded: 'The assumption vdim(R_d) ≥ 3 allows us …'. There is no R_d in that proof; the invariant used throughout is vdim(R), and 'vdimpRdq ě 3' occurs exactly once in the whole paper against one correct 'vdimpRq ě 3'. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E5",
@@ -1734,7 +1756,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 53 as recorded: 'π_*(M′ ⊗^L_A M) ≅ π_i(M′) ⊗_{π_0(A)} π_0(M)'. The left side is π_* and the right has a free index i, so the right must be π_*(M′). No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E6",
@@ -1750,7 +1777,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 65 as recorded: 'Then even A⟨a^∞⟩ ≅ (π_0(A))⟨a^∞⟩, so also A/^L a ≅ π_0(A′)/^L a'. The whole passage is about A′ — the two displayed exact sequences are in π_0(A′) and π_1(A′), and the second half of this very sentence uses π_0(A′) — so the first π_0(A) is the slip. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E7",
@@ -1766,7 +1798,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 75 as recorded: 'show that for i ≥ 2 the map … is surjective for i ≥ 1, bijective for i ≥ 2'. The leading range contradicts the first of the two conclusions it introduces. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E8",
@@ -1782,7 +1819,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively by the paper itself. Page 79 reads 'it satisfies the analogues of (5.7.2.1), (5.7.2.2), and (5.7.2.2)', and page 80, concluding the same argument, reads 'the analogues of (5.7.2.1), (5.7.2.2), and (5.7.2.3)'. The repeated (5.7.2.2) on p. 79 is the misprint. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E9",
@@ -1798,7 +1840,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 80 as recorded: 'replace A and A^• by τ_{≤n}(A) and τ_{≤n} ⊗^L_A A^•'. The second τ_{≤n} has lost its argument; it is τ_{≤n}(A) ⊗^L_A A^•, as the first half of the sentence writes it. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E10",
@@ -1814,7 +1861,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 81 as recorded: 'our assumption about faithful flatness modulo (a_1, …, a_n)'. The assumption in force at that point is stated for the r-element sequence, and n is the truncation index used two paragraphs earlier, so the two letters have been conflated. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E11",
@@ -1830,7 +1882,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively by the paper itself. Page 85 reads 'R ≃ W(k)⟦x_1, …, x_d⟧/(p − f) with either f = x_1 or f ∈ (p, x_1, …, x_n)²', while page 29 states the same Cohen-structure consequence correctly as 'f ∈ (p, x_1, …, x_d)²'. Only d occurs in the surrounding display, so x_n on p. 85 is the slip. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E12",
@@ -1846,7 +1903,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 89 as recorded: 'Since every element of Pic(U_R)_tors comes from H^1(U_R, µ_n) for some n ≥ 0'. At n = 0 the group µ_0 is trivial and contributes nothing, so the range must start at 1. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E13",
@@ -1862,7 +1924,12 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Printed on p. 90 as recorded: 'Br(R)[n] ≅ H^2(R, µ_n) and Br(U_R)[n] ≅ H^2(U_R, µ_n) for n ≥ 0'. Same slip as E12: n = 0 makes both sides trivial and is not the intended range. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E14",
@@ -1878,7 +1945,23 @@
     "Annals of Mathematics abstract page https://annals.math.princeton.edu/2024/199-1/p02 (received 7 January 2020, revised 27 February 2023, accepted 21 April 2023, pp. 51–180; the published PDF is behind the subscription)",
     "the first author's homepage publication list and its PDF of the 27 February 2023 revision (no erratum listed)",
     "Crossref metadata for 10.4007/annals.2024.199.1.2 (no update or correction relation)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the paper contradicts itself. Page 75 thanks 'Akhil Matthew', while the acknowledgements on p. 9 list 'Akhil Mathew', p. 20 cites the 'arc descent result of Bhatt–Mathew', and the bibliography has '[BM21] Bhargav Bhatt and Akhil Mathew' and '[Mat22] Akhil Mathew'. The spelling on p. 75 is the only wrong one — plausibly by attraction to 'Matthew Morrow', who appears in the same bibliography. No later version or erratum corrects it: arXiv 1912.10932 stops at v3, itself the 'final version, to appear in Annals of Mathematics', and Crossref's record of doi:10.4007/annals.2024.199.1.2 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published text is paywalled and was not compared, as the extraction states.",
+    "by": "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
+   }
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1072,
+  "job": "REV-PAPER-CESNAVICIUS-SCHOLZE-24",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv 1912.10932v3, SHA-256 2f9d3ee8…cd6ed4, matching the hash the report records; all 14 recorded mistakes at their locators, with E1 settled by an explicit counterexample.",
+  "changes": "All 14 sourceIssues carry a review verdict and all are confirmed. The PDF's SHA-256, recorded in the report but absent from this source block, was copied in. No item, status, route or locator changed.",
+  "lean": "none"
+ }
 }
