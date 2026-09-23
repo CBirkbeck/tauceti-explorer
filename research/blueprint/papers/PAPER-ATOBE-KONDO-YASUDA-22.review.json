@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-ATOBE-KONDO-YASUDA-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source additions to SmoothRepresentationsOfLocalGroups at SR.0, SR.2, SR.3, SR.4 and SR.5 — the smooth category, parabolic induction, derivatives and the spherical theory. All five stages exist and each of the four items sits in the stage that owns its notion. The right owner for the general machinery the paper assumes rather than builds."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "EndoscopicTransferAndUnitaryTraceComparison:ET.6 for the nine segment and multisegment items. ET.6 is where Zelevinsky segments already live, so attaching the paper's combinatorics there rather than opening a new home is correct."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AutomorphicLFunctionsAndLocalFactors at AL.0, AL.2 and AL.3 for the Fourier/additive-character setup, conductors and the classical local factors. These are exactly the three items routed, and the conductor item is the one Theorem 2.2 is stated in terms of."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "GL2AutomorphicRepresentationsAndTransfer:R16.2 for the single GL_2 input. A one-item source addition to the existing owner; nothing is duplicated."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/LocalFieldsRamification, title extended exactly ('Local fields and ramification' + ', Part II: finite-length DVR modules and filtrations'). §4 of the paper is a self-contained theory of finite-length modules over a DVR — the lattice |C|, the join operation, and the filtration results of Propositions 4.4–4.6 and Corollary 4.7 — which the parent roadmap does not plan and which nothing else in the atlas owns. The name is free. This is the right granularity: the material is reusable and does not belong inside a newforms roadmap."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations, title extended exactly. Multisegment duality is genuinely the combinatorics of the A_n quiver, so the parent is well chosen, and the parent plans path algebras and Gabriel's theorem but not the Zelevinsky involution. Fourteen items, name free."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Part II of AutomorphicLFunctionsAndLocalFactors, title extended exactly. §8's Rankin–Selberg integrals for Speh representations — the local integrals I_m and Z_m, their convergence, rationality and functional equation (Theorem 8.11) — extend the parent's local-factor theory in its own direction rather than duplicating it. Thirty-five items, name free."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Part II of SmoothRepresentationsOfLocalGroups, title extended exactly, and the largest route at 59 items. This is the paper's own contribution: newvectors, the conductor-level theory and the essential vector for general linear groups. The parent owns the smooth category and the spherical theory but stops well short of newform theory. Name free. One caution the design job should carry forward rather than a reason to reject: the §9 items that rest on Theorem 9.1's uniqueness are exactly the ones this review found to have an unjustified step in the paper (E1, E19), so the brief should record that the printed proof of uniqueness is not complete and that a builder must supply or replace it rather than transcribe it."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5 (continuing codex-c83e7a). Verdict accept: no item, status or route changed. All 161 items, 8 routes and 19 recorded mistakes were checked against the published open-access text, all 56 pages. Of the 19 mistakes, 18 are confirmed and one is REJECTED. E3 claims to disprove Lemma 8.10 by exhibiting, for n = m = 2 with equal Satake parameters, a second Hecke eigenfunction H with h_k = k·q^{−k/2}x^k. It is not one. The spherical Hecke recursion at x_1 = x_2 = x reads c_{k+1} = 2c_k − c_{k−1} on coefficients, and both (k+1) — the true Whittaker function — and k satisfy it for k ≥ 1; they are the two solutions of the same three-term recursion. What separates them is the boundary condition: the Whittaker support condition forces w_{−1} = 0, and then w_0 = 0 forces w_1 = 0 for every eigenvalue, whereas the candidate has h_0 = 0 and h_1 = q^{−1/2}x ≠ 0. It extends to a recursion solution only with h_{−1} = −1/x ≠ 0, precisely the solution the support condition excludes — which is the standard reason the eigenspace is one-dimensional, as Lemma 8.10 says. The finding's other route also fails: the family W^0(xe^t, xe^{−t}) is even in t, since s_k = x^k Σ_{j=0}^k e^{(2j−k)t} is invariant under j ↦ k−j, so differentiating at t = 0 gives zero. Two further corrections follow from that rejection and from the standard of proof the register requires. E13's reason appealed to 'the flawed Lemma 8.10 argument'; that clause is withdrawn and the finding now stands on its direct-integral point alone. E19's correction asserted flatly that 'the uniqueness itself is false (E1)'; this review softened it, because E1's second solution rests on a Lapid–Mao construction that was not independently verified here, and an assertion that a published theorem is false must meet a higher bar than an assertion that its printed proof has a gap. E19's own reason field had already taken the careful line, recording that no counterexample to Theorem 2.1 is known. What IS confirmed about E1 and E19, and was read on the page image, is that Corollary 9.4, Propositions 9.5 and 9.6 and the uniqueness of Theorem 9.1 all run through one step on p. 50 — 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′) … Therefore, we have W ∘ ι ∈ Π' — whose only stated justification is that ι(G′) normalises V″ and preserves the measure. That is not Ψ-equivariance, and I verified by direct computation that Ψ is not preserved: E_13E_32 = E_12 gives (1+tE_13)(1+bE_32)(1−tE_13) = 1 + bE_32 + tbE_12 exactly, changing Ψ(g) = ψ(g_12+g_34) by ψ(tb). So the printed §9 argument does not establish Theorem 2.1 for σ = Sp(π,m) with L(s,π) = 1 and n, m ≥ 2. E2 was confirmed independently and more strongly than recorded: for λ = 0 the congruence defining X_λ is modulo p^0 = o and so vacuous, giving X_0 = M_n(o), and then ϖ^N g ∈ X_0^{≥m} for large N puts every g ∈ G_n in every Z_n X_0^{≥m} — so the 'intersection is empty' claim fails for all n, not only n = 1. E5, E8, E9, E12, E15, E16, E17 and E18 were each settled against the paper's own surrounding text, and E5 and E12 on page images because they turn on a summation limit and a prime. A provenance problem was found and recorded: the source block's sha256 for the published PDF is NOT reproducible, because Cambridge stamps every page with the download time and sets ModDate at download. Two downloads a minute apart gave different hashes. The arXiv v4 hash, which the extraction also records, was re-fetched and matches byte for byte and is the verifiable anchor; the review additionally recorded a reproducible stamp-stripped text hash, c8beb4ee…1866, obtained identically from both downloads. All 8 library citations were read at the pinned commits and all say what the citing item claims; all 10 planned items name atlas layers that exist; all 143 missing items are routed exactly once. Each of the four Part II titles is an exact prefix extension of its parent's, all four names are free, and none is co-proposed by another paper. Run-together numbering was repaired in 295 places. Every change is listed in research/blueprint/reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md."
+}
