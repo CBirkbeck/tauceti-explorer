@@ -64085,9 +64085,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image (p. 5) and in the TeX, which reads '$V \\cap C$'. C is the completed algebraic closure, not a subset of Z. The functions lie in O_Z(U), so the condition concerns V ∩ U, which is the notion of an analytic subset in BGR 9.5.2 Corollary 7. The extraction's kind, affects and correction are all right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E2",
@@ -64107,9 +64107,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image. By (3.1.1.1), trFil^i_{ℒ_2}𝒱_1 = (ξ^iℒ_2 ∩ ℒ_1)/(ξ^iℒ_2 ∩ ξℒ_1), so the last term of the quotient is ξ^iℒ_2 ∩ ξℒ_1. That is also what multiplication by ξ^{-i} needs in order to land on the printed denominator of gr^{-i}_{ℒ_1}𝒱_2. The proof fixes only ξ, and on an affinoid perfectoid over Q_p without p-power roots of unity Fontaine's t is not available (where it is, tℒ_1 = ξℒ_1). The extraction's kind, affects and correction are right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E3",
@@ -64129,14 +64129,14 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image, where the group is set in calligraphic type: '𝒢(𝒪)' (TeX \\mc{G}(\\mc{O})), not 'G(O)' as the extraction quotes. Either way it should be G(B_dR): the preceding sentence and Theorem 3.2.1 concern bilatticed G(B_dR)-local systems, and a G(𝒪)-local system carries filtrations, not lattices. The extraction's kind, affects and correction are right; only its quotation of the glyph is off. The L[ν] in the same phrase is E4."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E4",
    "kind": "misprint",
-   "locator": "Section 3.2, p. 22 (twice) and Theorem 3.2.1, p. 22 (arXiv v2)",
+   "locator": "Section 3.2, p. 22 (twice: 'filtered G(𝒪)-local system 𝒢^f on X/Spd(L[ν])' and 'bilatticed … on X/Spd(L[ν])') and Theorem 3.2.1, p. 22 ('X/Spd(L[μ])') (arXiv v2)",
    "printed": "X/Spd(L[ν]) … X/Spd(L[μ])",
    "correction": "X/Spd L([ν]) and X/Spd L([μ])",
    "reason": "The reflex field is written L([ν]) in the same sentences ('defined over the reflex field L([ν]) ⊂ L̄') and everywhere else; L[ν] is not defined.",
@@ -64151,9 +64151,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image: all three occurrences print L[ν] or L[μ]. The same sentences define the reflex field as L([ν]) ⊂ L̄, and the proof of Theorem 3.2.1 writes C/L([μ]). The notation L[ν] is never defined."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E5",
@@ -64173,9 +64173,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image and in the TeX: the definition is over the locally spatial diamond Y and no X is in scope. The recorded kind, affects and correction are right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E6",
@@ -64195,9 +64195,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image: the pair is defined on Y and S is not in scope (the same slip S for Y does not recur in Section 7.2). Kind, affects and correction are right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E7",
@@ -64217,9 +64217,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image. The printed claim is vacuous: by Theorem 5.0.4(4) at S = Spa L′, Gr_[μ](Spd L′) = Fl_{[μ^{-1}]}(L′), which is non-empty for a finite extension L′ of Q̆_p([μ]). The proof produces a rigid point of the admissible locus (Rapoport–Viehmann Proposition 3.1 for M, pushed along M → G by (7.5.0.1)), and Remark 6.2.2 needs exactly that version to get a rigid point of X_[μ] via duality. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E8",
@@ -64239,9 +64239,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Seen on the page image. g must be an element of G(Q̆_p): it σ-conjugates b to ι(b_H) and gives the isomorphism g: E_{ι(b_H)} → E_b (compare Section 7.5, p. 46, where g ∈ G(Q̆_p)). The extraction's kind, affects and correction are right; ι(b_H) is added for precision."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E9",
@@ -64261,9 +64261,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Seen on the page image (Q_p without the breve). The misprint stands, but the extraction's reason needs adjusting. Section 6.2 does not state the base of X_[μ]. The Q̆_p base comes from the definition X_[μ] := Gr_[μ^{-1}] ×_{Bun_G} Bun_G^{[b]}: Bun_G is a stack on Perf_{F̄_p} (§4.2), and the modification map Gr → Bun_G exists only over Spd Q̆_p (§4.3). Section 6.4 writes the same functoriality map as X_[μ_H] ↪ X_{[μ],Q̆_p([μ_H])}. The paper is itself inconsistent: Remark 6.2.2 (p. 37) writes X_[μ]/Spd Q_p([μ]), which is meaningful because X_[μ] is cut out of Gr_[μ^{-1}] by a condition on geometric points and so descends to Q_p([μ]). Either reading is harmless; the correction makes the display agree with §6.4 and the other two maps in it."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E10",
@@ -64283,9 +64283,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Confirmed on the page image, and the extraction's kind, affects and correction are all right. X_[μ] is built from the modification (E_triv)_{L_univ}, which needs a base over Spd Q̆_p (Section 4.3). So it is a diamond over Spd Q̆_p([μ]), as Lemma 6.3.3 (L/Q̆_p([μ])) and Section 6.4 (X_{[μ],Q̆_p([μ_H])}) confirm. Under Definition 2.2.1 a rigid analytic point over Spd Q_p([μ]) is a map from Spd L′ with L′/Q_p([μ]) finite. No such map factors through a diamond over Spd Q̆_p, since L′ has finite residue field and does not contain Q̆_p. So the printed claim is false as written, while the intended one (finite extensions of Q̆_p([μ]), as produced by Proposition 7.3.3 over Q̆_p([μ]) and the duality) is clear."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E11",
@@ -64305,14 +64305,14 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Seen on the page image; the commented-out TeX draft at the same point has the same formula. K_b ≤ G_b(Q_p) × 𝔍, which does not contain H(Q_p) in general. The Hodge–Tate tower of M_{b_H,[μ_H]} is indexed by compact opens of H_{b_H}(Q_p) × 𝔍, over which π_{L_dR} is a torsor (Lemma 8.3.1 for H). If h σ-centralizes b_H, then ghg^{-1} σ-centralizes b. The extraction's kind, affects and correction are right; the conjugation by g is made explicit."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E12",
    "kind": "misprint",
-   "locator": "Section 10.1, first paragraph, p. 62 (visible in the TeX source) (arXiv v2)",
+   "locator": "Section 10.1, first paragraph, p. 62 (arXiv v2)",
    "printed": "We say a Q_p-local system 𝕃 on S is de Rham if L ⊗_{Q_p} B^+_dR is in the essential image of the functor M",
    "correction": "if 𝕃 ⊗_{Q_p} B^+_dR is in the essential image",
    "reason": "L denotes the p-adic field in this paragraph; the local system is 𝕃 (\\mathbb{L} in the source, L in the printed formula).",
@@ -64327,9 +64327,9 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "The page image shows an italic L, the p-adic field, where the blackboard 𝕃 is meant; the TeX has $L \\otimes_{\\ul{\\mathbb{Q}_p}}$. The slip is visible in the PDF, not only in the TeX. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E13",
@@ -64349,14 +64349,14 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the page image and in the sources. Liu–Zhu prove Theorem 3.9 in their §3, whose standing assumption is 'X is a smooth rigid analytic variety over k'. Scholze's de Rham local systems and filtered flat bundles are for smooth X, as this paper itself says (Section 2.5; Theorem 3.3.1 is 'Let X/Spa L be a smooth rigid analytic variety'). Liu–Zhu's Theorem 1.3 does allow singular geometrically connected X, via resolution, but it only gives de Rhamness at classical points, not the filtered flat bundle on S_ét that the proof needs. The theorem is used on singular bases (Lemma 7.5.1(2), and Section 9, where p. 60 itself passes to a desingularization of Z), so the gap is real; the statement survives by the repair above, hence 'affects: the proof' is right. The smooth-locus route controls only points of S^sm: at a singular point the type could a priori drop, since types are only semicontinuous (Gr_{≤[μ]} is closed), and the resolution is what excludes this. A smaller scope point in the same proof: Liu–Zhu fix k a finite extension of Q_p (Introduction, before their Theorem 1.3), while here L ⊇ Q̆_p. Their method (Sen theory over k, Scholze's OB_dR) is expected to carry over, but the citation does not literally cover it."
   },
   {
    "id": "PAPER-HOWE-KLEVDAL-26/E14",
    "kind": "error",
-   "locator": "arXiv v1 (21 August 2023), Lemma 4.1.1, p. 20, and the bijection B(G) ≅ Bun_G(C)/≅ deduced from it for non-reductive G",
+   "locator": "arXiv v1 (21 August 2023), Lemma 4.1.1, p. 20, and the bijection B(G) ≅ Bun_G(C)/≅ for non-reductive G deduced from it on the same page",
    "printed": "Lemma 4.1.1. For S a perfectoid space and any E ∈ Bun_G(S), the canonical isomorphism π_*(ι∘π)^*E ≅ π_*E lifts pro-étale locally on S to an isomorphism (ι∘π)^*E ≅ E",
    "correction": "The statement holds only on basic strata: v2 replaces it by Theorem 4.2.2, Bun_G^{[b]} ≅ Bun_G ×_{Bun_M} Bun_M^{[b_M]} ≅ [∗/G_b(Q_p)] for [b] basic in G, which is all that the later sections use.",
    "reason": "For G the upper-triangular Borel of GL_2, M the diagonal torus and S = Spa C, the non-split extension 0 → O → O(1/2) → O(1) → 0 is a G-bundle whose Levi push-out is O ⊕ O(1), not isomorphic to O(1/2). The proof's torsor of lifts is under a twist of U with H^1 of a negative-slope line bundle (here H^1(FF, O(−1)) ≠ 0), which Fargues–Scholze Proposition II.2.5(ii) does not kill.",
@@ -64372,9 +64372,750 @@
    "owner": "PAPER-HOWE-KLEVDAL-26",
    "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
    "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "Checked on the v1 page image (v1 PDF SHA-256 62b77e53…, as the extraction records) and on the arXiv v2 comment ('Section 4 is rewritten to remove an incorrect statement (Lemma 4.1.1 of v1); the main results are unaffected'). Counterexample, as the extraction gives it: G the upper-triangular Borel of GL_2, M the diagonal torus, S = Spa C. Let s be a nonzero section of the stable bundle O(1/2). Its saturation is a line subbundle of degree ≤ 1/2, hence O, so 0 → O → O(1/2) → O(1) → 0 is a non-split extension. The flag O ⊂ O(1/2) is a G-bundle whose Levi push-out is (O, O(1)). It is not isomorphic to (ι∘π)_*𝓔 = O ⊕ O(1), although pro-étale covers of Spa C split. Every E_b (b ∈ G(Q̆_p) is σ-conjugate into M) has a split underlying bundle, so this bundle is not in the image of B(G) either. The v1 proof fails because the torsor of lifts is under the twist Hom(O(1), O) = O(−1), and H^1(FF_C, O(−1)) ≠ 0; Fargues–Scholze II.2.5(ii) treats only slope 0. The extraction's kind, affects and 'known' are right. Its phrase 'holds only on basic strata' is too strong: for example, extensions of O by O(1) always split, so the lemma also holds for flags O(1) ⊂ 𝓔 on non-basic strata. Its claim that later sections use only the basic case checks out: v2 cites Theorem 4.2.2 only for basic [b] (Sections 6.2, 7.3, 8.5 and 10.1, e.g. Bun_G^{[1]} = Bun_M^{[1]} ×_{Bun_M} Bun_G in the proof of Proposition 7.3.3)."
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E15",
+   "kind": "misprint",
+   "locator": "Remark 1.1.1, p. 4 (arXiv v2)",
+   "printed": "Caraiani-Scholze [8] … For the comparison with [8], we note that there is an inverse in the definition of the Schubert cell on the bottom of [8, p. 683] and we refer to I.Remark 1.2.1 for a comparison with the two normalizations for flag varieties in [8].",
+   "correction": "[7, p. 683], i.e. Caraiani–Scholze, On the generic part of the cohomology of compact unitary Shimura varieties, Ann. of Math. 186 (2017), 649–766. The other two uses of [8] in the remark presumably also mean [7].",
+   "reason": "The bibliography's [8] is the non-compact paper, Ann. of Math. 199 (2024), pp. 483–590, which has no p. 683. [7], the compact paper (pp. 649–766), contains it. Part I's proof of Theorem 4.4.4 cites exactly this point ('there is also an inverse appearing on the cocharacter') as [compact, pp. 683–684], and Part II cites [7, Proposition 3.4.3] for the B_dR^+-Grassmannian (p. 24). Part I Remark 1.2.1 cites '[non-compact, p. 660]', also outside 483–590, which points to the same key confusion. Checked on the page image. The content of [7] p. 683 was not read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E16",
+   "kind": "misprint",
+   "locator": "Example 1.3.1, p. 10 (arXiv v2)",
+   "printed": "a neutral admissible pair over Spd L is the same as an admissible pair with good reduction over L as defined in I.Section 5.5",
+   "correction": "as defined in I.Definition 5.4.1 (I.Section 5.4)",
+   "reason": "The TeX cites \\Iref{ss.galois-representation}, which is Part I Section 5.5, 'Galois representations for admissible pairs with good reduction'. The definition of good reduction over a strict p-adic subfield K, AdmPair^goodred(K), is Part I Definition 5.4.1 in Section 5.4 (label ss.admissible-pairs-with-good-reduction). Checked on the page image and in the Part I TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E17",
+   "kind": "misprint",
+   "locator": "Section 2.1, p. 13 (arXiv v2)",
+   "printed": "The coverings for the v-topology on Perfd are the families of maps {f_j : Y_i → X}_{i∈I} such that …",
+   "correction": "{f_i : Y_i → X}_{i∈I}",
+   "reason": "The index of the map does not match its source or the index set; the rest of the sentence uses J ⊆ I, U_j ⊆ Y_j and f_j(U_j). The TeX reads $\\{f_j: Y_i \\rightarrow X\\}_{i \\in I}$. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E18",
+   "kind": "misprint",
+   "locator": "Section 2.3, p. 16 (arXiv v2)",
+   "printed": "the ring B^+_dR(R) is defined to be the Ker θ-adic completion of W(R^+)[1/[ϖ^♭]]",
+   "correction": "the Ker θ-adic completion of W(R^{+♭})[1/[ϖ^♭]]",
+   "reason": "θ is defined on W(R^{+♭}) in the preceding display. The next sentence says 'this is already true of W(R^{+,♭})[1/[ϖ^♭]]', and [ϖ^♭] is a Teichmüller lift in W(R^{+♭}). W(R^+) is the Witt ring of the characteristic-0 ring R^+, on which θ is not defined. The TeX reads W(R^+). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E19",
+   "kind": "error",
+   "locator": "Section 2.5, p. 19 (arXiv v2)",
+   "printed": "which in both cases is given by a continuous semi-linear action of (Z_p(1))^n ⋊ Z_p^× to descend from each S̃_i to S_i",
+   "correction": "(Z_p(1))^n ⋊ Γ_L with Γ_L = Gal(L(μ_{p^∞})/L), an open subgroup of Z_p^× via the cyclotomic character; it equals Z_p^× only when L is linearly disjoint from Q_p(μ_{p^∞}) over Q_p",
+   "reason": "S is smooth over an arbitrary p-adic field L. The affinoid perfectoid Galois cover of a toric chart S_i → T^n_L is S_i ×_{T^n} Spa(L̂_∞⟨T^{±1/p^∞}⟩) with L_∞ = L(μ_{p^∞}), whose group is Z_p(1)^n ⋊ Gal(L_∞/L). For example, for L = Q_p(ζ_p) with p odd, Gal(L_∞/L) ≅ 1 + pZ_p ≠ Z_p^×. The comparison of descent data works unchanged with the correct profinite group, so nothing downstream is affected. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E20",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7.2.3, p. 42 (arXiv v2)",
+   "printed": "it suffices to show that each ω_ét ∘ 𝒢(V) is a de Rham Q_p-local system on S_ét in the sense of [40, Definition 8.4]",
+   "correction": "[40, Definition 8.3]",
+   "reason": "In Scholze, p-adic Hodge theory for rigid-analytic varieties (arXiv 1205.3463v2, read), Definition 8.3 defines a de Rham lisse Ẑ_p-sheaf and Theorem 8.4 is the de Rham comparison theorem. The paper's other citations of [40] follow the same numbering: Lemma 7.3, Definition 7.4, Theorem 7.6(i), Lemma 7.8, Proposition 7.9, Proposition 6.10, Corollary 6.19 and Definition 8.1. The Forum Math. Pi numbering was not checked separately. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E21",
+   "kind": "gap",
+   "locator": "Proof of Theorem 3.3.1(3), p. 24 (arXiv v2)",
+   "printed": "If the type of the lattice is constant, the trace filtration on 𝒱, trFil^i_ℒ𝒱 = ν_*(Fil^iℒ ∩ M/Fil^iℒ ∩ Fil^1M), is a filtration by local direct summands [7, Proposition 3.4.3]. … Noticing that ℒ/ℒ′ ≅ trFil^0_ℒ ⊗ Ô_X and ℒ′/(ℒ′ ∩ Fil^2M) ≅ trFil^{-1}_ℒ ⊗ Ô_X(1) …",
+   "correction": "Add the descent step. Étale-locally on X, where 𝒱 ≅ O^n, the trace filtration of constant type is a filtration of O^n on X^♢ by finite projective submodules. It therefore defines a map X^♢ → Fl^♢. X is smooth, hence seminormal, so by Scholze–Weinstein Proposition 10.2.3 (the paper's own Proposition 5.0.3(4), whose proof uses nothing from Section 3) this map comes from a unique filtration of 𝒱|_U on X_ét by local direct summands whose pullback is the trace filtration. By uniqueness these filtrations glue to Fil^•𝒱 on X, with Fil^i𝒱 ⊗ Ô_X ≅ trFil^i_ℒ(𝒱 ⊗ Ô_X). Since ν_*Ô_X = O_X, one gets ν_*(trFil^i_ℒ) = Fil^i𝒱. The rest of the proof (Griffiths transversality from Lemma 7.8, and ℒ = M(𝒱, ∇, trFil^•_ℒ) by Scholze's uniqueness Lemma 7.10) then goes through.",
+   "reason": "Caraiani–Scholze Proposition 3.4.3 (read in arXiv 1511.02418) constructs the Bialynicki-Birula map Gr_{G,μ} → Fl_{G,μ} 'where we regard Fl_{G,μ} as a functor on perfectoid affinoid E-algebras'. So it only shows that the trace filtration of 𝒱 ⊗ Ô is by finite projective Ô-modules over affinoid perfectoids. It says nothing about ν_* or X_ét. The proof then uses what that citation does not give. It writes ℒ/ℒ′ ≅ trFil^0_ℒ ⊗ Ô_X, and it runs Scholze's proof of Proposition 7.9, whose uniqueness Lemma 7.10 computes Ext^1(Fil^0E, ·) for Fil^0E a locally free O_X-module on X_ét. Both need the Ô-filtration to descend to a filtration of 𝒱 on X_ét. An Ô-local direct summand of 𝒱 ⊗ Ô need not a priori be of the form F ⊗ Ô, and the proof never argues that it is. The statement is still true, by the fix above, which uses only tools the paper already has (item 026, item 084).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E22",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.2.1, p. 23 (arXiv v2)",
+   "printed": "(the key statement to verify being that the associated graded pieces for any representation of V are 𝒪-local systems rather than just 𝒪-modules)",
+   "correction": "for any representation V of G",
+   "reason": "Checked on the page image. V here is a representation of G. The functor 𝒢^bl is evaluated on V ∈ Rep G, and 'representation of V' makes no sense.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E23",
+   "kind": "misprint",
+   "locator": "Theorem 3.3.1(3), p. 24 (arXiv v2)",
+   "printed": "the trace filtration (3.1.1.1) of ℒ on M ⊗_{B_dR^+} 𝒪 is by local direct summands (equivalently, the type of the lattice ℒ is constant)",
+   "correction": "(equivalently, the type of the lattice ℒ is locally constant)",
+   "reason": "Checked on the page image. If X is disconnected and ℒ has different constant types on two components, the trace filtration is by local direct summands on each component, hence on X, but the type is not constant, so the printed 'equivalently' fails. The proof, which fixes one type r_1 ≥ … ≥ r_n, works component by component. The intended statement is 'locally constant', and the result is right as intended (see item 066).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E24",
+   "kind": "misprint",
+   "locator": "Section 3.3, definition of M_0, p. 23 (arXiv v2)",
+   "printed": "To that end, for (𝒱, ∇) a filtered vector bundle with integrable connection on X, let M_0(𝒱, ∇) := M(𝒱, ∇, Fil^•_triv)",
+   "correction": "for (𝒱, ∇) a vector bundle with integrable connection on X",
+   "reason": "Checked on the page image. M_0 uses the trivial filtration Fil^•_triv and ignores any given filtration. Theorem 3.3.1(1) defines M_0 on vector bundles with integrable connection.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E25",
+   "kind": "misprint",
+   "locator": "Section 4.2, p. 26 (arXiv v2)",
+   "printed": "note that the argument for G reductive in [17, following III.1.1, Proposition III.I.3] does not depend on G being reductive",
+   "correction": "[17, following III.1.1, Proposition III.1.3]",
+   "reason": "Checked on the page image and in Fargues–Scholze (arXiv 2102.13459): 'Proposition III.1.3. The v-stack Bun_G is small.' 'III.I.3' is not a label in Fargues–Scholze. v1 had 'III.I.2'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E26",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2.2, p. 28 (arXiv v2)",
+   "printed": "Since the reductive case of the entire theorem has already been established, Bun_M^{[b]} is an open substack of Bun_M",
+   "correction": "Bun_M^{[b_M]} is an open substack of Bun_M",
+   "reason": "Checked on the page image. The proof has just fixed the convention 'we will write b if we view it as an element of G(Q̆_p) and b_M if we view it as an element of M(Q̆_p)', and (4.2.2.2) is stated with Bun_M^{[b_M]}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E27",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.2.2, p. 28 (arXiv v2)",
+   "printed": "The result then follows from the equivalence H^1_ét(FF_S, 𝒪_S) = H^1(FF_S, 𝒪_S) … and the pro-étale local annihilation of classes in H^1(FF_S, 𝒪_S)",
+   "correction": "H^1_ét(FF_S, 𝒪_{FF_S}) = H^1(FF_S, 𝒪_{FF_S}) and classes in H^1(FF_S, 𝒪_{FF_S})",
+   "reason": "Checked on the page image. The sheaf is the structure sheaf of the curve (the preceding sentence writes Lie U ⊗_{Q_p} 𝒪_{FF_S}), not that of S. Fargues–Scholze Proposition II.2.5(ii) is about H^1(X_S, 𝒪_{X_S}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E28",
+   "kind": "misprint",
+   "locator": "Section 5.1, paragraph before Lemma 5.1.1, p. 33 (arXiv v2)",
+   "printed": "However, we claim that there is an embedding G ↪ G′ for G′ reductive such that G/G′ is quasi-affine.",
+   "correction": "… such that G′/G is quasi-affine.",
+   "reason": "Checked on the page image. For G ⊆ G′ the homogeneous space is G′/G. The previous sentence speaks of GL_n/G. Thang–Bac Theorem 9 (G observable in G′ ⇔ G′/G quasi-affine) and Lemma 5.1.1 (hypotheses on G′/G) both use G′/G. Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E29",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.2.3, p. 37 (arXiv v2)",
+   "printed": "Given a p-adic Hodge structure L of weight 2ν on the trivial G(Q_p)-local system over a geometric point, the G-isocrystal underlying the associated G-admissible pair in the equivalence of I.Theorem 5.1.6 is basic with slope morphism 2ν.",
+   "correction": "… is basic with slope morphism ν.",
+   "reason": "Checked on the page image. ν is defined just before the proposition as the slope morphism of [b], and the weight grading is 2ν. The paper's own parenthetical explains the factor: the slope of a simple isocrystal is minus the slope of its bundle, and weight λ means bundle slope −λ/2 (Definition 6.0.1), so isocrystal slope λ/2. Hence the isocrystal of an HS with weight grading 2ν has slope morphism ν. The proof then concludes that this isocrystal lies in [b], whose slope morphism is ν, which is impossible with slope morphism 2ν unless ν = 0. Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E30",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 6.3.2, p. 38 (arXiv v2)",
+   "printed": "We need to show that, for an affinoid perfectoid space Y/S, the locus Z on Y where ℓ ⊗_{Q_p} Fil^n B^+_dR(Y) ⊆ L is closed in Y.",
+   "correction": "… where ℓ ⊗_{Q_p} Fil^n B_dR(Y) ⊆ L …",
+   "reason": "Checked on the page image. Definition 6.3.1 uses Fil^n B_dR, and the next sentence of the proof takes a generator of ℓ ⊗ Fil^n B_dR(Y). For n < 0 (lines of negative weight, e.g. of type Q_p(1)), Fil^n B_dR^+ = B_dR^+ ≠ ξ^n B_dR^+ = Fil^n B_dR, so the printed condition would define a different locus. The intended one is clear. Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E31",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.3.3, p. 38 (arXiv v2)",
+   "printed": "Let Fil^•V̂ be the filtration on V̂ from Theorem 3.3.1-(3), which we can apply since L has constant type. From the proof of Theorem 3.3.1-(3), the filtration Fil^•V̂ is pulled back from a filtration Fil^•V of the trivial vector bundle V = V ⊗_{Q_p} O_{S_ét} by local direct summands.",
+   "correction": "Take instead the filtration given by Theorem 5.0.4(4), applied to G_L over L, or equivalently by BB and Proposition 5.0.3(4). The classifying map S^♢ → Gr_[μ^{-1}] composed with BB: Gr_[μ^{-1}] → Fl^♢_[μ] is, because S is seminormal, the diamond of a map S → Fl_[μ]. That map is a filtration Fil^•V of V ⊗ O_{S_ét} by local direct summands whose pullback to V̂ is the trace (Hodge–Tate) filtration of L. The rest of the proof is unchanged.",
+   "reason": "Checked on the page image. Theorem 3.3.1 is stated for 'X/Spa L a smooth rigid analytic variety', and its proof of (3) uses R^1ν_*Ô(1) ≅ Ω^1, which needs smoothness. Lemma 6.3.3 assumes only that S is seminormal, and the proof of Theorem 9.1.3 (p. 57) applies it to seminormal Y that may be singular. So the cited theorem is used outside its hypotheses. The repair uses only results proved earlier in the paper, and the lemma stays true. Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E32",
+   "kind": "gap",
+   "locator": "Proof of Proposition 6.4.1, p. 39 (arXiv v2)",
+   "printed": "Let V be a representation of G and ℓ ⊆ V a line such that H = Stab_G(ℓ). By Lemma 6.3.2, HT(ℓ) ⊆ X_[μ] is the locus where MT(L_univ) ⊆ H",
+   "correction": "Add the step showing that ℓ lies in V_{2n} for some n ∈ Z, as Definition 6.3.1 and Lemma 6.3.2 require. [b] is basic in G, so the weight cocharacter 2ν is central in G and each V_λ is a G-subrepresentation. ν is the image of the (central) slope morphism of b_H, so ν factors through H = Stab_G(ℓ); hence ℓ is ν-stable and ℓ ⊆ V_λ for a single λ. Replacing V by V_λ keeps H = Stab_G(ℓ). X_[μ_H] is non-empty (Lemma 6.2.1 for H), and at a geometric point of it ℓ underlies a one-dimensional sub-p-adic Hodge structure, which is some Q_p(k) (Part I Example 4.2.5). So λ = −2k is an even integer 2n, and Lemma 6.3.2 applies.",
+   "reason": "Checked on the page image. HT(ℓ) is defined only for a line ℓ in a single weight-2n component (Definition 6.3.1), but Chevalley's theorem gives an arbitrary line ℓ with H = Stab_G(ℓ). The TeX source (main-2.tex, proof of prop.Xmu-funct-closed) has this argument commented out ('%Since H acts via a character on ℓ, ℓ must lie purely in weight 2n for some integer n …'), so the published text leaves the step out. The fix is short and the proposition holds. Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E33",
+   "kind": "gap",
+   "locator": "Section 6, paragraph after Example 6.0.2, p. 36 (arXiv v2)",
+   "printed": "As in the case of a point in treated in I.Theorem 4.3.5, we find that neutral p-adic Hodge structures on Y form a rigid abelian tensor category over Q_p, which we denote by HS°(Y). It is neutral Tannakian: the forgetful functor ω_ét(V, L) := V is a fiber functor on HS°(Y).",
+   "correction": "Supply the family argument. For a morphism f: (V,L) → (V′,L′) of weight λ over affinoid perfectoid S, the modified bundles E = (V⊗O)_L and E′ = (V′⊗O)_{L′} on FF_S are fibrewise semistable of slope −λ/2. After twisting by O(λ/2)^∨ they are fibrewise semistable of slope 0, so pro-étale locally trivial (Kedlaya–Liu; Fargues–Scholze II.2.19–2.20). Hence E → E′ comes from a map of pro-étale local systems whose rank is constant, since it equals rank f fibrewise. Kernel, image and cokernel are therefore locally direct-summand sub- and quotient bundles, fibrewise semistable of slope −λ/2. Completing at ∞ shows that L ∩ (ker f ⊗ B_dR), f(L) = L′ ∩ (f(V) ⊗ B_dR), and the image of L′ in (V′/f(V)) ⊗ B_dR are B_dR^+-lattices (locally finite projective). So kernels and cokernels exist in HS°(Y), images equal coimages, and ω_ét is exact and faithful.",
+   "reason": "Checked on the page image. The point-case proof (Part I Lemma 4.3.2) compares slopes of bundles on one curve over C, where B_dR^+(C) is a DVR, so the lattice f(L) and the intersection L′ ∩ (f(V) ⊗ B_dR) are automatically free. Over a family, B_dR^+(R) is not a PID. That these B_dR^+-modules are lattices, and that their formation commutes with restriction to geometric points, is exactly what 'as in the case of a point' skips. The result is true by the argument above, but the paper gives no proof. (The same step appears in the proof of Theorem 7.1.2, p. 40, 'which we can do after restricting to each geometric point'; that is in range 4 and should be checked there.) Looked for an existing correction in: the arXiv 2308.11064 listing (v1, v2) and the v2 TeX source; Crossref metadata for 10.1007/s00222-025-01400-6 (no correction relation); the first author's homepage (no erratum). The published Invent. Math. text could not be read (bot challenge). Hence 'new'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E34",
+   "kind": "error",
+   "locator": "Proof of Proposition 7.5.2, pp. 47–48 (arXiv v2)",
+   "printed": "This ﬁnishes the proof since then GrbH−adm H is identiﬁed with the subdiamond Hdg(ℓ˘Qp), which is closed by Lemma 7.4.3. To construct s, observe that the neutral G-admissible pair G|Hdg(ℓ˘Qp) admits a reduction of structure group from G to H which agrees with the canonical reduction of structure of G|GrbH−adm H = H ×H G; the classifying map s: Hdg(ℓ˘Qp) → GrH for the neutral H-admissible pair induced by this reduction of structure group has image in GrbH−adm H and gives the section s.",
+   "correction": "Hdg(ℓ) lies in the image of Gr_{H,Q̆_p}, but the induced H-structure is neutral only where the étale line of the sub-pair lies in the G(Q_p)-orbit of ℓ. In general Hdg(ℓ) is the disjoint union, over c ∈ ker(H^1(Q_p, H) → H^1(Q_p, G)) = G(Q_p)\\(G/H)(Q_p), of the loci where the H-bundle (E_{b_H})_L lies in the basic stratum Bun_H^{[c]}. Each such locus is open by Theorem 4.2.2, so the piece c = 1, which is Gr_H^{b_H-adm}, is open and closed in Hdg(ℓ) and therefore closed in Gr_G^{b_G-adm}. The Proposition is true; the identification Gr_H^{b_H-adm} = Hdg(ℓ) and the section s hold when the kernel is trivial (for example H a parabolic, a split torus or unipotent).",
+   "reason": "Counterexample to the identification. Take G = SL_2 and T ⊂ SL_2 the norm-one torus of an unramified quadratic F/Q_p. It is anisotropic and split over Q̆_p, with X_*(T) = Z and Frobenius acting by −1, so B(T) ≅ X_*(T)_Γ = Z/2 = H^1(Q_p, T), while H^1(Q_p, SL_2) = 1. Let ℓ ⊂ W be a line with Stab(ℓ) = T (Chevalley); T fixes ℓ pointwise since X^*(T)^Γ = 0. Take b_H = b_G = g = 1, μ ∈ X_*(T) odd, and L_μ = μ(ξ)·L_0 over C. As a T-bundle, (E_1)_{L_μ} = E_{b′} with κ_T(b′) ≠ 0, so L_μ ∉ Gr_T^{1-adm}. Its push-out to SL_2 is basic with κ = 0, i.e. trivial, so L_μ ∈ Gr_{SL_2}^{1-adm}. Also ℓ ⊗ B_dR^+ = μ(ξ)(ℓ ⊗ B_dR^+) ⊆ L_μ(W), so L_μ ∈ Hdg(ℓ). Hence Hdg(ℓ) ⊋ Gr_T^{1-adm}, and s cannot exist at L_μ. The general description: at a geometric point of Hdg(ℓ), the sub-pair is the Tate pair Q̆_p(n) (a larger lattice would give positive degree inside a slope-zero bundle), so it gives a degree-zero line subbundle of the trivial bundle W ⊗ O, i.e. a constant Q_p-line [w] ∈ (G/H)(Q_p), and the H-reduction is the Q_p-torsor G ×_{G/H} [w]. Lemma 6.3.2's analogue for p-adic Hodge structures is unaffected, because there the étale side is trivialized.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E35",
+   "kind": "error",
+   "locator": "Remark 7.5.3, p. 47 (arXiv v2)",
+   "printed": "When H is a subgroup, this map is an injection and, taking a faithful representation of G, we ﬁnd that the pre-image of the bG-admissible locus is the bH-admissible locus. If H is reductive, then the map on aﬃne Grassmannians is a closed immersion, so that one obtains Proposition 7.5.2 immediately in this case. … A good example to keep in mind is G = GL2, H the upper-triangular Borel, bH = bG = diag(p, 1), and g = 1. If we restrict to the closed Schubert cell for µ = diag(t−1, 1) in GrG and its preimage in GrH, then the map on Grassmannians is identiﬁed with the open inclusion A1 → P1, but the restriction to the admissible loci is the isomorphism A1 → A1.",
+   "correction": "Only 'the b_H-admissible locus is contained in the pre-image of the b_G-admissible locus' holds. The b_H-admissible locus is an open and closed part of the Hodge locus (see the issue on Proposition 7.5.2). For reductive H, Proposition 7.5.2 follows from the closed immersion Gr_H → Gr_G only with that extra step. In the example take b_H = b_G = diag(1, p). Then the B-cell {⟨e_1, ξ^{-1}(e_2 + x e_1)⟩ : x ∈ A^1} of type diag(1, t^{-1}) maps by the open inclusion A^1 → P^1 onto P^1 minus ⟨ξ^{-1}e_1, e_2⟩. That is exactly the b_G-admissible locus of the Schubert cell, and it is b_H-admissible, so the admissible loci correspond by A^1 ≅ A^1. With diag(p, 1) as printed, the b_H-admissible locus over the cell is the single point ⟨ξ^{-1}e_1, e_2⟩.",
+   "reason": "With b = diag(p, 1), E_b = O(−1)e_1 ⊕ O e_2, since isocrystal slopes are negated (Section 6.2; consistent with Proposition 7.3.3 for μ = diag(t^{-1}, 1)). The Schubert cell is P^1 = {L = L_0 + ξ^{-1}(a e_1 + c e_2)B_dR^+}. The GL_2-bundle (E_b)_L is O(−1) ⊕ O(1) for a = 0 and trivial for a ≠ 0 (H^0 is then 2-dimensional over Q_p; equivalently Fil^1 = ⟨a e_1 + c e_2⟩ is weakly admissible iff it is not ⟨e_2⟩). As a B-bundle, the sub-line from e_1 has lattice L ∩ e_1 B_dR = B_dR^+ e_1 whenever c ≠ 0, so the B-bundle is an extension of O(1) by O(−1) and not trivial. Gr_B → Gr_G is bijective on C-points (Iwasawa, since GL_2/B is proper). So every L with a, c ≠ 0 is in the pre-image of the b_G-admissible locus but is not b_H-admissible. The b_H-admissible locus over the cell is the one point ⟨ξ^{-1}e_1, e_2⟩ = Hdg(e_1), consistent with Proposition 7.5.2 and contradicting 'A^1 → A^1'. The same computation with diag(1, p) gives the admissible locus {c ≠ 0} for both GL_2 and B. The pre-image claim also fails for reductive H: in the SL_2/anisotropic-torus example of the Proposition 7.5.2 issue, L_μ lies in Gr_T and is SL_2-admissible but not T-admissible. No later proof uses the remark.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E36",
+   "kind": "gap",
+   "locator": "Lemma 7.4.4, p. 46, proved by reference ('almost identical') to the proof of Lemma 6.3.3, p. 38 (arXiv v2)",
+   "printed": "Let Fil•V̂ be the ﬁltration on V̂ from Theorem 3.3.1-(3), which we can apply since L has constant type. From the proof of Theorem 3.3.1-(3), the ﬁltration Fil•V̂ is pulled back from a ﬁltration Fil•V of the trivial vector bundle V = V ⊗Qp OS´et by local direct summands. (p. 38; p. 46: 'The proofs of the following two statements are almost identical to the proofs of the corresponding statements for Hodge-Tate loci in Section 6.3.')",
+   "correction": "For seminormal S, obtain Fil•V from Section 5 instead. The lattice has constant type [μ], so its trace filtration is a filtered O-local system of type [μ^{-1}] (Section 3.2), that is, a Bialynicki-Birula map S^♢ → Fl^♢_{[μ^{-1}]}. By Proposition 5.0.3(4), which uses full faithfulness on seminormal rigid varieties, this is a filtration Fil•V of V ⊗ O_{S_ét} by local direct summands, pulling back to the trace filtration (Theorem 5.0.4(4)). The rest of the proof is unchanged.",
+   "reason": "Theorem 3.3.1 is stated only for smooth X (p. 23: 'Let X/Spa L be a smooth rigid analytic variety'), and its proof uses Scholze's OB_dR and R^1ν_*Ô(1) ≅ Ω^1 for smooth X. Lemmas 6.3.3 and 7.4.4 are stated for seminormal, possibly singular, S. The tools that do cover seminormal S are proved in Section 5.3 and give exactly the filtration needed, so the statements stand.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E37",
+   "kind": "gap",
+   "locator": "Section 7.5, p. 46 (paragraph before Lemma 7.5.1), with Section 7.2, p. 41 (arXiv v2)",
+   "printed": "This identiﬁes MG(G, y) with a closed subgroup of H ≤ G. The canonical (in the sense of I.Section 2.1.3) reduction of structure group of G is then to H, and we write the resulting neutral H-admissible pair as H.",
+   "correction": "Add that MG(𝒢, y) is connected. Proof: otherwise some X ∈ ⟨𝒢⟩ has finite non-trivial MG(X, y). At every geometric point y′, MG(y′^*X) is a closed subgroup of MG(X, y′) (Deligne–Milne Proposition 2.21(b)), and MG(X, y′) is an inner form of MG(X, y), hence finite. So MG(y′^*X) is finite, hence trivial because AdmPair(C′) is connected (Part I Theorem 5.1.6). Then X is pointwise, hence globally, a sum of unit objects (Q̆_p, B_dR^+), and MG(X, y) = 1.",
+   "reason": "Section 7.5 (p. 46) takes H connected. Gr_H and Theorem 5.0.4 are for connected groups (Section 5). The b_H-rigidification in the proof of Lemma 7.5.1 uses Steinberg's theorem H^1(Q̆_p, H) = 1 (Part I §2.2.3), which fails for disconnected H. Theorem 7.2.3, used for Lemma 7.5.1(2), assumes G connected. Section 9 also replaces G by MG(𝒢, y) (proof of Lemma 9.3.3, p. 59). Theorem 7.1.2 only says 'neutral Tannakian', and connectedness of MG(𝒢, y) is stated nowhere in Part II.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E38",
+   "kind": "error",
+   "locator": "Section 7.5, p. 46, and Lemma 7.5.1, pp. 46–47 (arXiv v2)",
+   "printed": "Let Y/Spd ˘Qp be a locally spatial diamond … The canonical … reduction of structure group of G is then to H, and we write the resulting neutral H-admissible pair as H. … The pull-back of the universal neutral H-admissible pair by such an f′ is H.",
+   "correction": "Assume Y connected, as in all the paper's uses (Lemma 7.5.1(2); Section 9), or apply the lemma on each connected component with its own H, b_H and g. For connected Y the canonical reduction is neutral. The class of the H-torsor Isom^⊗(ω_y, ω_{y′}) restricted to ⟨𝒢⟩ in the finite set H^1(Q_p, H) is locally constant in y′: on a v-cover trivializing ω_ét(X) for a generator X, it is the GL_n(Q_p)-orbit of the line of a rank-one subobject cutting out H, and these orbits are open. Hence the class is constant.",
+   "reason": "Remark 7.1.3 stresses that ω_y is faithful even over disconnected Y, so MG(𝒢, y) sees all components; but ω_{y′} for y′ on another component can be a non-trivial form of ω_y on ⟨𝒢⟩. Example: G = SL_2, T the anisotropic norm-one torus of an unramified quadratic F/Q_p, and ℓ ⊂ W with Stab(ℓ) = T. Take b = 1, Y = Spd C ⊔ Spd C, the trivial lattice on the first copy and L_μ = μ(ξ)L_0 (μ ∈ X_*(T) odd) on the second. Both are 1-admissible for SL_2 and ℓ ⊗ B_dR^+ lies in both lattices, so ℓ gives a sub-pair over Y, and MG(𝒢, y_1) ⊆ T for the obvious trivialization at a point y_1 of the first copy. At a point y_2 of the second copy, the étale line of that sub-pair lies in the non-trivial G(Q_p)-orbit of (G/T)(Q_p), because the T-bundle (E_1)_{L_μ} is the non-trivial basic one. So ω_{y_2}∘ℋ is a non-trivial torsor, ℋ is not neutral, and no f′ with f′^*(universal) ≅ ℋ exists.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E39",
+   "kind": "misprint",
+   "locator": "Example 7.5.7, p. 48 (arXiv v2)",
+   "printed": "Thus Gr[µ] = Gr^{bµ−1−adm}_[µ] ≅ Spd Qp([µ]). It follows that, for b ∈ T(˘Qp), Gr^{b−adm}_T = ⊔_{µ: µ#=κT([b])} Gr[µ−1].",
+   "correction": "Gr_{[μ],Q̆_p([μ])} = Gr^{b_{μ^{-1}}-adm}_{[μ]} ≅ Spd Q̆_p([μ]); and Gr^{b-adm}_T is the disjoint union over the Gal(Q̄_p/Q̆_p)-orbits of μ with μ^# = κ_T([b]) of the images of Gr_{[μ^{-1}]} (equivalently, the displayed formula holds after base change to C).",
+   "reason": "Gr^{b-adm}_{[μ]} is defined as a subdiamond of Gr_{[μ],Q̆_p([μ])} over Spd Q̆_p([μ]) (Section 7.3), not over Q_p([μ]). When T is ramified, μ and an inertia conjugate τμ have maps Gr_[μ] → Gr_{T,Q̆_p} and Gr_[τμ] → Gr_{T,Q̆_p} that differ by τ on Spd Q̆_p(μ), so they have the same image, and a disjoint union over all μ counts it twice. For T split over Q̆_p the printed formula is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E40",
+   "kind": "misprint",
+   "locator": "Lemma 7.5.1(2), p. 47 (arXiv v2)",
+   "printed": "(2) If Y is furthermore a geometrically connected rigid analytic diamond over a p-adic ﬁeld Spd L then any f′ as in (1) factors through an open Schubert cell Gr^{bH−adm}_[µH] with µH a cocharacter of H contained in [µ].",
+   "correction": "… then 𝒢 has a type [μ] (Theorem 7.2.3), and any f′ as in (1) factors through an open Schubert cell Gr^{b_H-adm}_{[μ_H]} for a conjugacy class [μ_H] of cocharacters of H_{Q̄_p} contained in [μ].",
+   "reason": "Neither Lemma 7.5.1 nor the paragraph before it ('Notation as above') introduces [μ]; the proof ('follows from Theorem 7.2.3') shows it is the type of 𝒢.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the TeX source main-2.tex of arXiv 2308.11064v2 (Sections 5.3, 6.3, 7) and the Part I TeX (arXiv 2308.11065v2)",
+    "the extraction's sourceIssues E1–E14, which do not record it",
+    "the first author's homepage and Crossref record as listed under E1 (no erratum; the published version could not be read)"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E41",
+   "kind": "error",
+   "locator": "Lemma 9.3.3, p. 59 (arXiv v2)",
+   "printed": "A subdiamond T ⊆ S intersects the Hodge generic locus of 𝒢 if and only if MG(𝒢|_T, y) = MG(𝒢, y) for some (equivalently any) geometric point y of T. [proof ends:] … a rank one isocrystal ℓ ⊆ ω_Isoc∘𝒢(V) that underlies a sub-admissible pair of 𝒢|_T but not of 𝒢. Equivalently, T ⊆ Hdg(ℓ) ⊊ S.",
+   "correction": "MG(𝒢|_T, y) = MG(𝒢, y) if and only if T is contained in no single proper Hodge locus Hdg(ℓ) ⊊ S. Hence, if T meets the Hodge generic locus, then MG(𝒢|_T, y) = MG(𝒢, y). When T is a single (geometric) point the converse holds too: a point is Hodge generic iff its motivic Galois group is MG(𝒢, y).",
+   "reason": "The proof shows that MG(𝒢|_T) is proper iff T lies in one proper Hodge locus. The Hodge exceptional locus (Definition 9.3.2) is the union of all of them. A T contained in the union but in no single member breaks the 'if' direction. Example: T = {t_1, t_2} (a Zariski closed subdiamond) in a connected component of a GL_2 Lubin–Tate/Drinfeld space M_{b,[μ]}, whose generic motivic Galois group is GL_2, with t_1, t_2 CM points whose motivic Galois groups (through ρ_ét) are distinct non-split maximal tori T_1 ≠ T_2. A line that is Hodge on all of T is stabilized by T_1 and T_2. The closed connected subgroup they generate is neither a torus nor inside a Q_p-Borel, so it is GL_2. Hence MG(𝒢|_T) = GL_2 = MG(𝒢), while T lies in the Hodge exceptional locus. A connected example is ({x_1} × S_2) ∪ (S_1 × {x_2}) in a product for G_1 × G_2. The applications are unaffected: Proposition 9.3.4's proof uses the point case, and Theorem 9.1.3's proof (p. 57) uses only the forward direction for T = {z}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E42",
+   "kind": "gap",
+   "locator": "Proof of Theorem 9.1.3, pp. 56–57, applying Lemma 9.3.1 (p. 58); and proof of Lemma 9.3.5, p. 60 (arXiv v2)",
+   "printed": "Since Z̃ is connected, by shrinking the Galois part of K we may assume that Z is geometrically connected (as a rigid analytic diamond over C^K). … By Lemma 9.3.1, we can choose a Hodge generic classical point z ∈ Z(C) [Lemma 9.3.1: 'Z/Spa L a geometrically irreducible rigid analytic variety']; [Lemma 9.3.5: 'Suppose S is a smooth connected rigid analytic variety over L … |Hdg(ℓ)| … is Zariski closed by Lemma 7.4.4']",
+   "correction": "State and use Lemma 9.3.1 for Z irreducible. Its proof goes through a desingularization S → Z, which is connected because Z is irreducible (the proof itself says so). In Lemma 9.3.5, the appeal to Lemma 7.4.4 needs 𝒢 to have a type [μ] over a field containing Q̆_p([μ]). In the application the type is [μ] because the pair is pulled back from M_{b,[μ]}/K. In general, pass to the field of constants L_S of S (finite over L; S is geometrically connected over it), where Theorem 7.2.3 gives a type. The remaining steps (Conrad's Lemma 2.1.4 on the connected normal S, weakly Shilov points, the Baire argument) need only connectedness.",
+   "reason": "Irreducible and geometrically connected does not imply geometrically irreducible. Example: Z = {x² = ϖy²} in the closed unit bidisc over a p-adic field E with ϖ ∈ E a non-square. It is irreducible over E (Weierstrass preparation reduces a factorization to one in E⟨y⟩[x], which would need √ϖ ∈ E) and geometrically connected (two lines through 0). Its normalization is connected over E but geometrically disconnected. So the hypothesis of Lemma 9.3.1 as printed is not verified at the point of use. Lemma 9.3.5 is stated for S only connected but cites Lemma 7.4.4 (p. 46), whose hypotheses include a type [μ] with L ⊇ Q̆_p([μ]). Theorem 7.2.3 supplies a type only for geometrically connected S. Inside the printed Lemma 9.3.1 (geometrically irreducible Z) both hold, so only the application in Theorem 9.1.3, and Lemma 9.3.5 read on its own, need the repair.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E43",
+   "kind": "gap",
+   "locator": "Proof of Theorem 9.1.3, p. 57 (arXiv v2)",
+   "printed": "Note Y(C) = Y^♢(C) also contains the orbit of y under a sufficiently small open subgroup of 𝔍, which, because z is Hodge generic, by I.Corollary 5.5.3 and Lemma 9.3.3, is equal to the orbit of y by a compact open subgroup K_0 ≤ G(Q_p).",
+   "correction": "Let F be the (finite over C^K) field of definition of z and F' the completion of its maximal unramified extension, a strict p-adic field with Gal(C/F') the inertia subgroup of Gal(C/F). Apply Part I Corollary 5.5.3 to the admissible pair at z over F': ρ(Gal(C/F')) is open in MG = G(Q_p). The orbit of y under any open subgroup of Gal(C/F) therefore contains K_0·y for a compact open K_0 ≤ G(Q_p), and this inclusion is all the rest of the argument uses. Alternatively, assume L strict in Theorem 9.1.3, which suffices for Theorems A and B.",
+   "reason": "Theorem 9.1.3 takes L/Q̆_p([μ]) to be any p-adic field, meaning perfect residue field (definition in Section 1.6, p. 12; Remark 1.1.7 wants residue fields larger than F̄_p). Part I §5.5, which contains Corollary 5.5.3, begins 'In this subsection we take K to be a strict p-adic field', and its Remark 5.5.2 defers non-algebraically-closed residue fields to Part III. When L is not strict, z is defined over a non-strict field, so the cited corollary does not apply as stated. The repair uses only that MG is unchanged by base change from F to F'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E44",
+   "kind": "gap",
+   "locator": "Proof of Lemma 9.3.5, p. 60 (arXiv v2)",
+   "printed": "if Z contained a disk in D_n(L'), then it would also contain the corresponding Gauss point (e.g. by Raynaud's description; here we use that the residue field is algebraically closed!)",
+   "correction": "What is needed is that the residue field k' of L' be infinite. That holds because L' is a finite extension of L ⊇ Q̆_p, so k' ⊇ F̄_p. Algebraic closedness holds only when L is strict.",
+   "reason": "In Lemmas 9.3.1 and 9.3.5, L is only a p-adic field over Q̆_p (perfect residue field; Section 1.6, p. 12), so the residue field of L' need not be algebraically closed. The claim nevertheless holds with k' infinite. A rational neighbourhood {|f_i| ≤ |g|} of the Gauss point, normalized so that |g|_Gauss = 1, contains every x ∈ O_{L'}^n whose reduction lies outside the zero set of ḡ ≠ 0, and such points exist when k' is infinite. For finite k' the claim fails: {|x^q − x| ≥ 1} is a neighbourhood of the Gauss point of the unit disc with no L'-points.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E45",
+   "kind": "misprint",
+   "locator": "Lemma 9.3.5, p. 60 (arXiv v2)",
+   "printed": "it contains all weakly Shilov points (c.f. [2, Definition 2.4])",
+   "correction": "[2, Definition 2.5] (weakly Shilov points; density is [2, Lemma 2.8])",
+   "reason": "In Bhatt–Hansen, arXiv 2101.09759 v1 (24 January 2021) and v2 (22 September 2021), Definition 2.4 defines Shilov points of the adic spectrum of a tft K-algebra. Weakly Shilov points of a rigid space are Definition 2.5, Lemma 2.8 says they are dense, and Corollary 2.10 is as the paper cites it. The published Compositio 158 (2022) numbering was not checked. Items 165 and 176 and route 3's brief copy the wrong number.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E46",
+   "kind": "misprint",
+   "locator": "Section 9, introduction, p. 54 (arXiv v2)",
+   "printed": "for H a non-reductive group and [μ_H] a conjugacy class of characters of H_{Q̄_p} admitting a basic element b_H ∈ B(H, [μ_H^{-1}])",
+   "correction": "a conjugacy class of cocharacters of H_{Q̄_p} admitting a basic class [b_H] ∈ B(H, [μ_H^{-1}])",
+   "reason": "Seen on the page image. [μ_H] is a conjugacy class of cocharacters throughout (Definition 8.4.1), and B(H, [μ_H^{-1}]) consists of σ-conjugacy classes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E47",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 9.1.3, p. 58, and proof of Theorem B, p. 58 (arXiv v2)",
+   "printed": "such that K_0 · y ∈ V(C) … the argument given above for Theorem 9.1.3-(ii) establishes the remainder of Theorem B",
+   "correction": "K_0 · y ⊆ V(C); Theorem 9.1.3-(2)",
+   "reason": "Seen on the page images. K_0·y is a set (elsewhere on p. 57 it is written K_0·y ⊆ V(C)), and Theorem 9.1.3 numbers its parts (1) and (2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-HOWE-KLEVDAL-26/E48",
+   "kind": "misprint",
+   "locator": "Section 10.1, p. 64 (arXiv v2)",
+   "printed": "let S be the basic locus of the rigid generic fiber of the associated Shimura variety over L … implies that S can be written as a disjoint union of components of the form M_{b,[μ]}/K_p × Γ where Γ is a discrete subgroup of G_b(Q_p)",
+   "correction": "S_{L̆} (L̆ the completion of the maximal unramified extension of L) is a disjoint union of quotients (M_{b,[μ]}/K_p)/Γ, i.e. M_{b,[μ]}/(K_p × Γ)",
+   "reason": "Seen on the page image. M_{b,[μ]} is a diamond over Spd Q̆_p([μ]), while L, a p-adic completion of the reflex field, contains neither Q̆_p nor an algebraically closed residue field. The uniformization of the basic locus is over the completed maximal unramified extension, as §10.2 does explicitly ('the base change of Sh to Q̆_p'), and Theorem A needs such a field. Γ acts on M_{b,[μ]}/K_p, and the component is the quotient, not a product with the discrete set Γ. The discussion is informal and no result depends on it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2308.11064: v2 (28 February 2025) is the latest version; v1 compared where needed",
+    "Crossref for doi:10.1007/s00222-025-01400-6 (Invent. Math. 244 (2026), 455–530), 23 September 2026: no update-to or relation entries",
+    "the first author's homepage (math.utah.edu/~howe), 23 September 2026: no erratum; it notes that the published numbering differs",
+    "the published version is behind the paywall (Springer's PDF redirects to the article page, and the SharedIt link returns no text), so whether print differs from arXiv v2 here is not established"
+   ],
+   "owner": "PAPER-HOWE-KLEVDAL-26",
+   "file": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+   "citation": "Howe–Klevdal, \"Admissible pairs and p-adic Hodge structures II: the bi-analytic Ax-Lindemann theorem\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HOWE-KLEVDAL-26",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23/E1",
