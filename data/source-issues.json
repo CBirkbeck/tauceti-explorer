@@ -82353,9 +82353,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Independently multiplied r interval lengths 2R_v and s planar areas pi*R_v^2. Since n=r+2s and |Norm(alpha)|=N(I)^m, the volume is 2^r*pi^s*sqrt(|D_K|)/N(I), whose ratio to the Minkowski threshold is (pi/2)^s >= 1. For Q(i), I=O_K, alpha=1, the incorrect expression gives sqrt(2*pi)<4 whereas the area is 2*pi>4. The intended proof survives. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E2",
@@ -82382,9 +82382,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Both preprints omit the absolute values. Recomputed the coefficient and discriminant estimates directly, replacing the inherited sharp-constant assertion with the proved fixed-degree bounds. This is a presentation slip, not a change to the asymptotic argument. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E3",
@@ -82411,9 +82411,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "For Z(T)=P(T)/((1-T)(1-qT)), the ordinary s-residue of Z(q^(-s)) at 1 is P(1/q)/((1-1/q)*log(q)). The functional equation gives P(1/q)=q^(-g)P(1), proving the correction. Already C=P^1 over F_q contradicts the printed identity: Pic^0 has size 1 but its right side is q/(q-1). The omitted factor lies between 1/2 and 1, so it does not alter the growth comparison. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
@@ -82440,17 +82440,17 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "The smooth projective cubic y^2+y=x^3 in characteristic 2 has inverse (x,y+1); no affine geometric point equals its inverse, so its geometric 2-torsion consists only of the identity, not 2 points. In general [2]=V∘F on a g-dimensional abelian variety, deg(F)=2^g and deg([2])=2^(2g), so there are at most 2^g geometric kernel points. The group-scheme length is not the number of geometric points. Only the upper bound is needed here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5",
    "kind": "gap",
    "locator": "Taniguchi author copy dated 18 February 2017, §4, p.6, index-two case; independently collated with arXiv:1701.02458v1, p.6.",
    "printed": "by genus theory, the 2-torsion in the class group of K is bounded by the 2-torsion in the class group of F multiplied by O(2^t) … we obtain a bound of O_ε(|Disc(K)|^{1/4+ε})",
-   "correction": "A verified sufficient replacement is Klüners–Wang, arXiv:2003.12161v2, Theorem 2.1: h_2(K) <= 4^(e-1) h_2(F)^2, where t counts all ramified places including infinite ones and e=max(t,1), not simply t. Use this in a strong induction on n=[K:Q]. If m=[F:Q]=n/2>=3 and the lower-degree bound has exponent 1/2-1/(2m)+eta, then D_F^2<=D_K and 4^(e-1)<<_{n,eta}D_K^eta give exponent 1/2-1/n+O(eta), sufficient for the claimed 1/2-1/(2n)+epsilon when n>4. For n=4, quadratic genus theory for F gives D_K^epsilon. This replacement does not itself prove or refute the printed one-factor relative bound or its stronger D_K^(1/4+epsilon) conclusion.",
-   "reason": "The displayed one-factor estimate has no derivation or precise citation in either preprint. Klüners–Wang Theorem 2.1 and its proof give the squared estimate above; Remark 2.2 gives an improvement when the base 2-rank is zero. However, a weaker known upper bound is not evidence that a stronger bound is false or unavailable by a different argument. Independent confirmation of E5 as a source gap is therefore deferred pending a check of the intended relative-genus statement.",
+   "correction": "A verified sufficient replacement is Klüners–Wang, arXiv:2003.12161v2, Theorem 2.1: h_2(K) ≤ 4^{e-1} h_2(F)², where t counts all ramified places including infinite ones and e = max(t,1), not simply t. Use this in a strong induction on n = [K:Q] rather than with Brauer–Siegel. If m = [F:Q] = n/2 ≥ 3 and the lower-degree case of the theorem gives exponent 1/2 - 1/(2m) + η, then D_F² ≤ D_K and 4^{e-1} ≪_{n,η} D_K^η give exponent 1/2 - 1/n + O(η), which is stronger than the 1/2 - 1/(2n) + ε the theorem needs. For n = 4, quadratic genus theory for F gives D_K^ε directly. This replacement neither proves nor refutes the printed one-factor relative bound, and it reaches the theorem's exponent without the printed D_K^{1/4+ε} claim for this case.",
+   "reason": "The displayed one-factor estimate has no derivation or precise citation in either preprint, and it is not what genus theory delivers. Genus theory for a quadratic K/F is the ambiguous class number formula, which bounds the Gal(K/F)-invariant classes: |Cl(K)^G| = h_F 2^{t-1} / [E_F : E_F ∩ N K^×] ≤ h_F 2^{t-1}. Passing from those to the 2-torsion costs a second factor: on Cl(K)[2] the map c ↦ c·σ(c) lands in Cl(K)^G and has kernel Cl(K)[2]^G, so the standard route gives only |Cl(K)[2]| ≤ |Cl(K)^G|², and genus theory bounds neither Cl(K)[2]^G nor Cl(K)^G by O(2^t)·h_2(F). That missing step is the whole of the gap, and it is load-bearing here: it is exactly what lets the printed argument finish by applying Brauer–Siegel to F, since h_2(F) ≪_ε |Disc F|^{1/2+ε} ≤ |Disc K|^{1/4+ε}. With the squared estimate that route gives only |Disc K|^{1/2+ε}, which is the trivial bound. Klüners–Wang Theorem 2.1 and its proof give the squared estimate h_2(K) ≤ 4^{e-1}h_2(F)², with Remark 2.2 improving it when the base 2-rank is zero; no statement in the literature gives the one-factor form. A weaker known upper bound is not evidence that the printed bound is false, and none is claimed here: the finding is that the step is asserted without proof or citation, not that it is refuted.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -82467,16 +82467,16 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed as a gap reaching the proof, resolving the deferral left by the previous checkpoint of this job, which asked that the failing step be identified before a verdict was given. It is this. Genus theory for a quadratic extension is the ambiguous class number formula, and it bounds |Cl(K)^{Gal(K/F)}| by h_F·2^{t-1} — by the full class number of F, not by h_2(F). The passage from ambiguous classes to 2-torsion is where the printed sentence jumps: the natural map Cl(K)[2] → Cl(K)^G, c ↦ c·σ(c), has kernel Cl(K)[2]^G, which genus theory does not bound by O(2^t), so the standard argument yields a square and not the printed single factor. That is also why the gap matters rather than being cosmetic: the printed one-factor form is precisely what makes Brauer–Siegel on F enough to finish, and the squared form gives back only the trivial exponent. I checked the printed passage again in the 18 February 2017 author copy (§4, p. 6, sha256 bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec) and in arXiv v1 (sha256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871); it reads the same in both, and neither gives a citation for it. No claim is made that the printed bound is false — only that it is asserted without proof and does not follow from what genus theory provides. The replacement recovers the theorem: taking Klüners–Wang in a strong induction on the degree, with D_F² ≤ D_K, gives exponent 1/2 - 1/n + O(η) for n = 2m ≥ 6 and D_K^ε for n = 4, both stronger than the 1/2 - 1/(2n) + ε that Theorem 1.1 asserts, so the theorem stands and 'the proof' is the right reach."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6",
    "kind": "error",
    "locator": "Taniguchi author copy dated 18 February 2017, Theorem 1.3(a) and preceding Selmer estimate, p.2 (page image independently inspected); collated with arXiv:1701.02458v1, p.2. Part (b) is affected through its stated deduction, not refuted by this counterexample.",
    "printed": "|Sel_2(Jac(C))| = O_ε(|Disc(K)|^ε h_2(K)); (a) |Sel_2(Jac(C))| = O_ε(|Disc(K)|^{1/2−δ_n+ε}); (b) rank(Jac(C)) < c_ε + (1/2−δ_n+ε) log_2|Disc(K)|",
-   "correction": "Remove the assertion that the etale-algebra discriminant alone bounds these Selmer groups and retain bad-reduction/model-discriminant dependence in descent. For the cubic elliptic case, Theorem 5.2 supplies |Sel_2(E)| <= 4*4^omega(|Delta_E|)*h_2(K), hence <<_epsilon |Delta_E|^epsilon h_2(K), and the corresponding rank upper bound follows. The inherited proposed all-hyperelliptic Disc(C) replacement is a candidate repair requiring an explicit discriminant convention and descent input; it is not certified in all degrees by this checkpoint. No assertion of unbounded Mordell–Weil ranks is made.",
+   "correction": "Remove the assertion that the étale-algebra discriminant alone bounds these Selmer groups and retain bad-reduction/model-discriminant dependence in descent. For the cubic elliptic case, Theorem 5.2 supplies |Sel_2(E)| ≤ 4·4^{ω(|Δ_E|)}·h_2(K), hence ≪_ε |Δ_E|^ε h_2(K), and the corresponding rank upper bound follows; that much is certified. The all-degree replacement of Disc(K) by a discriminant of the curve is **not** certified here and is left as an open repair: it needs an explicit model/discriminant convention and a hyperelliptic 2-descent theorem covering even degrees, neither of which this list supplies. No assertion of unbounded Mordell–Weil ranks is made.",
    "reason": "For f_N=x^3-N^2*x, K=Q^3, |Disc(K)|=h_2(K)=1, whereas the 2-Selmer dimensions of E_N:y^2=x^3-N^2*x are unbounded. Independently checked Kane, published Algebra & Number Theory 7 (2013), Theorems 2–3, pp.1253–1254: for the roots (0,1,-1), the three square tests are (-1,2,2), so the hypotheses hold and every dimension d>=2 has positive limiting density. This contradicts Theorem 1.3(a) and the preceding Selmer estimate. It invalidates the offered deduction of (b), but does not show (b) false: Selmer growth can come from Sha[2].",
    "affects": "a stated result",
    "known": "new",
@@ -82494,9 +82494,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed the split-etale-algebra counterexample using Kane's published positive-density theorem, with its no-rational-cyclic-4-subgroup hypothesis checked explicitly. Restricted the verified correction to the elliptic descent inequality and the general need for bad-prime dependence; the all-degree proposed repair still needs its own proof. Distinguished a false Selmer bound from an unsupported rank deduction. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete. Closing the second item the previous checkpoint left open: the correction is now explicitly limited rather than left as a candidate. What is certified is the elliptic case through the paper's own Theorem 5.2 and the failure of the field-only bound; the general hyperelliptic replacement is stated as an open repair with the two inputs it needs named. This reviewer did not attempt to prove it in that generality."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7",
@@ -82521,9 +82521,9 @@
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Checked the reduction in both preprints, Sedunova's v1 statement and proof section, and the published Sedunova statement on p.321. Replaced the inaccurate suggestion that Sedunova explicitly states q-dependence with the exact printed statement and a direct counterexample to uniformity in its full range. Kept the verdict at 'gap': an epsilon-lossy input cannot be promoted to its endpoint without further control, and no complete substitute function-field proof is supplied here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
   },
   {
    "id": "PAPER-BHATT-ETAL-23/E1",
@@ -90115,14 +90115,15 @@
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed in the published pp.9–10,14 and H15 v3 Theorem 2.27, p.37. Independently generated the A2 Weyl group, reconstructed the parabolic factorization and Demazure product, and computed the three affine root ranges exactly. The input is shrunken and the constructed seed is not. This invalidates this application of the citation, not basic nonemptiness or the main theorem. The discarded claim about every singular coweight remains discarded."
   },
   {
    "id": "PAPER-HE-21/E2",
@@ -90136,14 +90137,15 @@
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed in published p.13 against the definition and GHN Lemma 3.6.3. Direct multiplication gives the correct finite factor yσ(x)=σ(ησ(w)); the recorded A2 example puts the printed conjugate outside W_J. Both translation expressions have the same Levi Kottwitz image because W_J acts trivially modulo its coroot lattice. The reach remains the written proof, not its numerical obstruction."
   },
   {
    "id": "PAPER-HE-21/E3",
@@ -90157,14 +90159,15 @@
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed in the published p.8 page image and the v1 p.9 proof. Section 2.2 explicitly defines the order with coroots. The cone elements being compared are coweights; α must be α∨ in the indicated sums, while roots in pairings are unchanged."
   },
   {
    "id": "PAPER-HE-21/E4",
@@ -90178,35 +90181,37 @@
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed in the same published and preprint proofs. The all-zero feasible case disproves strict positivity over the entire base. Nonnegative coefficients suffice for the componentwise-minimum proof; strict coefficients on the actual nonzero supports remain valid."
   },
   {
    "id": "PAPER-HE-21/E5",
    "kind": "gap",
    "locator": "He21, published version, Proposition 5.1 proof, existence of the asserted unique minimal feasible coweight.",
    "printed": "a unique minimal element",
-   "correction": "Add nonemptiness and existence of a minimal element before using the proved common-lower-bound property. Use μ0=λ−λ′+N·2ρ∨, where 2ρ∨ is the sum of all positive coroots, for sufficiently large integral N.",
+   "correction": "No source correction required. For an expanded proof, choose μ0=λ−λ′+N·2ρ∨ for large integral N, use finite lower intervals of dominant integral-coroot order, and apply the proved lower-directedness.",
    "reason": "Each simple-root pairing with 2ρ∨ is 2, so μ0 is dominant for large N and μ0+λ′−λ is in the nonnegative integral coroot cone. If μ≤_Zμ0 is dominant and μ0−μ=Σ n_iα_i∨, then Σ n_i=〈ρ,μ0−μ〉≤〈ρ,μ0〉; hence there are finitely many such μ. A minimal feasible element below μ0 exists, and lower-directedness makes it globally least. This is a routine completion, not a false theorem. The inherited proposed direction Σ(simple coroots) is wrong: in D4 its simple-root pairings are (1,−1,1,1). Input item /53 already uses the valid 2ρ∨ direction.",
-   "affects": "the proof",
-   "known": "new",
+   "affects": "nothing",
+   "known": "Rejected by independent review: routine omitted order argument, not an established source error.",
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Rejected as a source-error allegation. The asserted nonempty feasible set has finite lower intervals: use μ0=λ−λ′+N·2ρ∨ and bound the coroot coefficients below it by pairing with ρ. The printed lower-directedness calculation then gives a global least element. This routine well-foundedness argument requires no missing hypothesis or additional theorem and does not make the proof inadequate. The report spells it out for formalization. The bad simple-coroot direction belongs to the earlier extraction, not this source."
   },
   {
    "id": "PAPER-HE-21/E6",
@@ -90214,20 +90219,21 @@
    "locator": "He21, published version, §2.2 standing reduction and §§5.2–5.4 auxiliary coweights and translations.",
    "printed": "simple and quasi-split",
    "correction": "Specify the adjoint/full-coweight datum in which the auxiliary construction is performed, and justify transfer of the final geometric statement to the original group. Do not demand nonexistent lifts of intermediate translations.",
-   "reason": "For split SL3, ω1∨=(2α1∨+α2∨)/3 is not a cocharacter, so the factor t^{ρ_J∨} with J={s1} is not in its Iwahori–Weyl group. The obstruction can persist in γ: in unramified simply connected ²A2, let σ exchange the nodes, λ=(3,3), x=1,y=s1 in fundamental-coweight coordinates. Then x′=s2 and γ=λ−ω1∨+s2ω2∨=(3,2), with coroot coordinates (8/3,7/3), whereas λ has integral coroot coordinates (3,3). Equality of auxiliary Kottwitz coinvariants does not produce a lift. GHN’s adjoint comparison is componentwise after its erratum and carries an equal-characteristic coprimality restriction; ramified and mixed-characteristic applications need their actual comparison. No counterexample to He21 Theorem 6.1 is claimed.",
+   "reason": "For split SL3, ω1∨=(2α1∨+α2∨)/3 is not a cocharacter, so the factor t^{ρ_J∨} with J={s1} is not in its Iwahori–Weyl group. The obstruction can persist in γ: in unramified simply connected ²A2, let σ exchange the nodes, λ=(3,3), x=1,y=s1 in fundamental-coweight coordinates. Then x′=s2 and γ=λ−ω1∨+s2ω2∨=(3,2), with coroot coordinates (8/3,7/3), whereas λ has integral coroot coordinates (3,3). Equality of auxiliary Kottwitz coinvariants does not produce a lift. GHN’s adjoint comparison is componentwise after its erratum. Its equal-characteristic geometric comparison has a coprimality hypothesis; p.652 separately supplies a mixed-characteristic set bijection without that hypothesis. The final dimension transfer needs its appropriate geometric or combinatorial justification. H14 §1.4 explicitly assumes adjoint type, unlike H21’s standing reduction. No counterexample to He21 Theorem 6.1 is claimed.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed as a missing carrier/reduction in the written construction, published pp.5,9–10. Exact A2 calculations show both a nonintegral fundamental coweight for SL3 and nonintegral output γ for a shrunken simply connected twisted input. Narrowed the comparison warning: GHN p.652 already supplies a mixed-characteristic set bijection without the equal-characteristic coprimality assumption. The final geometric transfer still needs the correct scope; auxiliary Kottwitz equality does not supply lifts. H14 §1.4 explicitly imposes adjoint type, while H21 does not."
   },
   {
    "id": "PAPER-HE-21/E9",
@@ -90241,14 +90247,15 @@
    "searched": [
     "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
     "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed directly in the published H14 p.399 image. The statement introduces the Weyl factor x; v is the Hecke parameter. HZZ v1 Proposition 3.4.2 supplies positive evidence of the intended x-support condition. Already known as a later reformulation, not an official erratum."
   },
   {
    "id": "PAPER-HE-21/E10",
@@ -90262,14 +90269,15 @@
    "searched": [
     "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
     "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed directly in H14 p.399. Minimality as a left parabolic representative forbids a descent in δ⁻¹(J1); a nonidentity element of W_J has a descent in its complement. This is also exactly the condition needed in the next step. Checked the corresponding outside-parabolic choice in HZZ pp.22–23."
   },
   {
    "id": "PAPER-HE-21/E11",
@@ -90283,14 +90291,15 @@
    "searched": [
     "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
     "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed directly in H14 p.399. The preceding equations establish saturated support only; the node-interchange A2 example separates it from ordinary support. HZZ retains the saturated support required for induction."
   },
   {
    "id": "PAPER-HE-21/E13",
@@ -90298,20 +90307,21 @@
    "locator": "GHN15, P-alcoves and nonemptiness of affine Deligne–Lusztig varieties, Ann. Sci. ÉNS 48 (2015), Proposition 2.2.1, p.651.",
    "printed": "the injective map π0(Flag)→π0(Flag_ad)",
    "correction": "Retain the componentwise flag isomorphisms. Assert a global immersion only with injectivity of the component-group map, and retain the characteristic hypothesis of the comparison.",
-   "reason": "The authors’ erratum, Proposition 0.0.1, removes automatic injectivity and gives the corrected componentwise statement. In equal characteristic the comparison assumes char(k) does not divide |π1(G_ad)|. Its subsequent description of the kernel by torsion in cocharacter coinvariants is stated for semisimple G, not arbitrary reductive G. The He21 adjoint reduction must import the corrected result, rather than the original global assertion.",
+   "reason": "The authors’ erratum, Proposition 0.0.1, removes automatic injectivity and gives the corrected componentwise statement. In equal characteristic the comparison assumes char(k) does not divide |π1(G_ad)|. Its subsequent description of the kernel by torsion in cocharacter coinvariants is stated for semisimple G, not arbitrary reductive G. The He21 adjoint reduction must import the corrected result, rather than the original global assertion. Independently, G=G_m has π0(Flag)=Z and trivial adjoint group, so its component map is not injective; the coprimality hypothesis holds because π1(G_ad)=0.",
    "affects": "a stated result",
    "known": "Authors’ erratum, Proposition 0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
    "searched": [
     "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
     "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
-    "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
+    "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed against the original published p.651 and all three pages of the authors’ erratum. Independently, G=G_m has flag-component map Z→0 for the trivial adjoint group, so automatic injectivity is false even when the characteristic condition holds. The componentwise comparison survives. The semisimple restriction on the erratum’s kernel formula is retained."
   },
   {
    "id": "PAPER-HE-21/E14",
@@ -90325,35 +90335,37 @@
    "searched": [
     "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
     "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
-    "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
+    "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed against original published p.657 and erratum Proposition 0.0.2. Independently checked the two diagonal GL2 representatives: permutation conjugation interchanges them, but torus σ-conjugation preserves each valuation. The basic restriction belongs to Levi-class uniqueness, not the one-way obstruction; He21 explicitly says so in its footnote."
   },
   {
    "id": "PAPER-HE-21/E15",
    "kind": "misprint",
    "locator": "He21, published version, §6.1 heading; also visible in arXiv:2001.03325v1 p.12.",
    "printed": "(J,w,δ)",
-   "correction": "Use (J,x,σ) in the heading to match the definition immediately below it.",
-   "reason": "The body uses x for the conjugator, σ for the twist and w for the element being tested. This is only an editorial consistency correction, with no change of mathematical meaning or hypotheses.",
+   "correction": "No correction required: the heading uses generic argument names. Matching them to (J,x,σ) in the body is an optional editorial change.",
+   "reason": "The names of the three arguments in a heading are dummy variables. They do not identify the conjugator with the element being tested or alter the twist in the definition. No false or ill-defined expression results.",
    "affects": "nothing",
-   "known": "new",
+   "known": "Rejected by independent review: no source error established.",
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Rejected. The published p.13 heading and v1 p.12 use generic argument names (J,w,δ), as in the cited literature. The definition below specializes the names to (J,x,σ). A heading with dummy variables does not assert that the conjugator equals the tested element or that a different automorphism is used. Harmonizing the names is optional editing, not a mathematical misprint. E2 is a different, actual substitution inside an assertion."
   },
   {
    "id": "PAPER-HE-21/E16",
@@ -90367,14 +90379,15 @@
    "searched": [
     "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
     "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
-    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+    "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed in the published p.4 image and v1 p.4. The field and normalizer points are defined with F-breve; no local field L is introduced. The later L-action cannot provide that missing field definition. This is a harmless notation slip."
   },
   {
    "id": "PAPER-HE-21/E17",
@@ -90388,14 +90401,15 @@
    "searched": [
     "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
     "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
-    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+    "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23.",
+    "2026-09-23 independent review: fresh source PDFs and author/arXiv records checked; published H21 and H14 Crossref records have no update-to or correction relation. See the review report for measured hashes and limits."
    ],
    "owner": "PAPER-HE-21",
    "file": "research/blueprint/errata/PAPER-HE-21.json",
    "citation": "He, \"Cordial elements and dimensions of affine Deligne–Lusztig varieties\", Forum of Mathematics, Pi (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HE-21",
+   "reviewReason": "Confirmed directly in the published H14 p.400 image, not merely extracted text. The immediately preceding twisted step ends with y s_{δ(i)}; the induction display drops δ. HZZ’s corresponding branch ends with yσ(s). The correction is needed for nontrivial twists and does not contradict Proposition 11.6."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E1",
