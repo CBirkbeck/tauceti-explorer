@@ -4201,8 +4201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5714,8 +5714,9 @@
    ],
    "avoidAccountOf": "PAPER-CLOZEL-THORNE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLOZEL-THORNE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1337"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1337",
+   "finishedAt": "2026-09-23T18:39:36Z"
   },
   {
    "id": "PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -5903,7 +5904,8 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1347"
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
@@ -6651,7 +6653,8 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1390"
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
