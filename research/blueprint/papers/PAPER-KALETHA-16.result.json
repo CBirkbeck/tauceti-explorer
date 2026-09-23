@@ -145,9 +145,30 @@
         "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN235181684_0259:00000429/full/1400,/0/default.jpg",
         "sha256": "ed17a2873e3bf2c1052703d4a4a00edd0a01b8c1bf5e663a98a733d1a1e84d0b"
       }
-    ]
+    ],
+    "continuationRead": {
+      "date": "2026-09-23",
+      "priorFullRead": "All 74 published pages were read for PR1968 and retained; this continuation does not claim another full read.",
+      "primary": "Fresh published PDF8–17, pp566–575, including all of §§3.1–3.2 and the initial §3.3 proofs.",
+      "nsw": {
+        "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf?download=1",
+        "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91",
+        "accessed": "2026-09-23",
+        "pages": 840,
+        "version": "Second edition,corrected electronic version2.3,May2020",
+        "read": "II §7 through2.7.7, pp136–143; I §1 pp5–11 including exercise4; Schreier1.2.4 pp17–20; local pp375–384 including7.1.8 and7.2.6. The complete book was not read."
+      },
+      "errata": {
+        "url": "https://www.math.uni-bonn.de/people/kaletha/errata.pdf",
+        "sha256": "31e5f2d4e9c50d3380c9bc07b3228e9b631d8563b9e823f264b6a8c6397c31b5",
+        "accessed": "2026-09-23",
+        "pages": 14,
+        "read": "section3,PDF6–7"
+      },
+      "failedAcquisition": "The unqueried NSW PDF URL redirected to its HTML index. The download=1 link delivered the verified PDF; the HTML was not treated as book text."
+    }
   },
-  "summary": "Full-primary-reading checkpoint for Kaletha’s rigid Galois cohomology, enlarged Tate–Nakayama duality, inner-twist groupoids and refined real tempered packets. Imports pinned cochain/Kummer/Tate/group carriers and existing ordinary cohomology/transfer owners; proposes one rigid-inner-form continuation distinct from geometric stabilization. The p-adic refined LLC and global multiplicity formula remain conjectural; the global transfer-factor product is unconditional. Author errata and independently checkable additional source findings are retained. Recursive original-source and declaration closure remain open.",
+  "summary": "Full-primary-reading checkpoint for Kaletha’s rigid Galois cohomology, enlarged Tate–Nakayama duality, inner-twist groupoids and refined real tempered packets. Imports pinned cochain/Kummer/Tate/group carriers and existing ordinary cohomology/transfer owners; proposes one rigid-inner-form continuation distinct from geometric stabilization. The p-adic refined LLC and global multiplicity formula remain conjectural; the global transfer-factor product is unconditional. Author errata and independently checkable additional source findings are retained. Recursive original-source and declaration closure remain open. This continuation sharpens the compact-coefficient Milnor sequence, supplies the profinite Schreier continuity and automorphism interfaces using built carriers, and proves a sufficient deep-unit power bound and finite local H1 without local reciprocity. Original-source and typed implementation gaps remain.",
   "items": [
     {
       "id": "PAPER-KALETHA-16/L06",
@@ -1030,16 +1051,15 @@
       "id": "PAPER-KALETHA-16/P03",
       "kind": "theorem",
       "name": "Compact-coefficient derived inverse-limit comparison",
-      "statement": "For the countable inverse systems of compact/discrete coefficient modules in Theorem3.1, construct the continuous-cochain Rlim comparison and its lim/lim1 exact sequence; prove the required Mittag–Leffler and vanishing hypotheses before commuting H1 or H2 with limits.",
+      "statement": "For a profinite group G and a countable tower A_n of finite discrete continuous abelian G-modules, A=lim A_n with its actual inverse-limit topology satisfies, for q≥1, 0→lim¹H^(q−1)(G,A_n)→H^q_cts(G,A)→lim H^q(G,A_n)→0; H0 commutes with the limit. Surjective transitions are not required. Mittag–Leffler of H^(q−1), in particular its levelwise finiteness, kills the obstruction. Degree one is unconditional because invariants of finite coefficients are finite. Degree two needs the H1 hypothesis, supplied for the local fields here by P23.",
       "locator": "Theorem3.1,NSW2.7.6–2.7.7",
       "status": "planned",
       "ownerKey": "agd",
       "prerequisites": [
-        "PAPER-KALETHA-16/L23",
-        "PAPER-KALETHA-16/L24"
+        "PAPER-KALETHA-16/P22"
       ],
       "proofSteps": [
-        "Read the precise NSW hypotheses, then instantiate the existing compact-coefficient roadmap. Surjective coefficient transitions alone do not prove every cohomological lim1 vanishes."
+        "Apply the precise NSW2.7.5–2.7.6 interfaces P19–P22, now read at source. For H1 reuse CHT item154 at the same R02.1 owner; finite coefficients do not imply all cohomology groups finite for arbitrary profinite G. The existing canonical carrier is retained and its typed comparison is an implementation obligation."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -1056,6 +1076,13 @@
         {
           "statement": "Prove the stated contract under its exact field, coefficient, topology and group hypotheses from the listed suppliers; no placeholder predicate may encode the result.",
           "status": "not Lean compiled"
+        }
+      ],
+      "relatedImports": [
+        {
+          "item": "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+          "stage": "ArithmeticGaloisDuality:R02.1",
+          "relation": "Existing same-owner degree-one specialization and direct proof; P22 supplies the all-degree extension and its exact hypotheses."
         }
       ]
     },
@@ -1202,10 +1229,12 @@
       "status": "planned",
       "ownerKey": "upstream",
       "prerequisites": [
-        "PAPER-KALETHA-16/P07"
+        "PAPER-KALETHA-16/P07",
+        "PAPER-KALETHA-16/P27"
       ],
       "proofSteps": [
-        "Use local class-field existence with its topological norm statement, not only an abstract Artin homomorphism."
+        "Use local class-field existence with its topological norm statement, not only an abstract Artin homomorphism.",
+        "P27 gives the required open finite-index subgroup of n-th powers, even when p divides n. Local existence then produces an abelian extension whose norm group is contained in it. Local existence itself remains an upstream arithmetic supplier."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -1733,7 +1762,8 @@
         "PAPER-KALETHA-16/P08"
       ],
       "proofSteps": [
-        "Compute each finite-level group by Shapiro and Kummer; show the relevant transitions eventually kill classes using norm neighborhoods and control lim1 separately."
+        "Compute each finite-level group by Shapiro and Kummer; show the relevant transitions eventually kill classes using norm neighborhoods and control lim1 separately.",
+        "For the coefficient-limit step use P03 in degree one: H0(Gamma,u_k) is finite, so lim¹ vanishes without assuming finite H1. The eventual-zero H1 transition argument remains the local-norm calculation; the limit comparison no longer has an unspecified hypothesis."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -1762,10 +1792,12 @@
         "PAPER-KALETHA-16/D01",
         "PAPER-KALETHA-16/P03",
         "PAPER-KALETHA-16/P05",
-        "PAPER-KALETHA-16/P06"
+        "PAPER-KALETHA-16/P06",
+        "PAPER-KALETHA-16/P23"
       ],
       "proofSteps": [
-        "Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification."
+        "Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification.",
+        "For degree two, P23 supplies finite H1(Gamma,u_k), including the real case. P03 therefore gives H2(Gamma,u)=lim H2(Gamma,u_k). Finiteness of u_k alone would not justify this for an arbitrary profinite Gamma."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -1888,7 +1920,9 @@
       "ownerKey": "rigid",
       "prerequisites": [
         "PAPER-KALETHA-16/D02",
-        "PAPER-KALETHA-16/L28"
+        "PAPER-KALETHA-16/L28",
+        "PAPER-KALETHA-16/P24",
+        "PAPER-KALETHA-16/P25"
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -1940,7 +1974,8 @@
           "where": "Definition3.2 and§4.5",
           "how": "Domain for the rigid cocycles."
         }
-      ]
+      ],
+      "note": "Use the existing FactorSet.Extension algebraic carrier L31 and add only P24 topology. P25 supplies the precise profinite classification; a continuous section is already built in L29."
     },
     {
       "id": "PAPER-KALETHA-16/T05",
@@ -1952,10 +1987,11 @@
       "ownerKey": "rigid",
       "prerequisites": [
         "PAPER-KALETHA-16/D03",
-        "PAPER-KALETHA-16/T02"
+        "PAPER-KALETHA-16/T02",
+        "PAPER-KALETHA-16/P26"
       ],
       "proofSteps": [
-        "Describe such automorphisms by continuous Z1(Gamma,u) and use H1=0. Track the resulting central coboundaries."
+        "P26 identifies automorphisms fixing u and Gamma with continuous Z1(Gamma,u). T02 makes every class a coboundary, hence an inner conjugation by u. The conjugating element is determined modulo u^Gamma; no unique representative or canonical raw-cocycle identification is claimed."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -6303,10 +6339,12 @@
         "PAPER-KALETHA-16/D01",
         "PAPER-KALETHA-16/P03",
         "PAPER-KALETHA-16/P05",
-        "PAPER-KALETHA-16/P06"
+        "PAPER-KALETHA-16/P06",
+        "PAPER-KALETHA-16/P23"
       ],
       "proofSteps": [
-        "Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification."
+        "Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification.",
+        "For degree two, P23 supplies finite H1(Gamma,u_k), including the real case. P03 therefore gives H2(Gamma,u)=lim H2(Gamma,u_k). Finiteness of u_k alone would not justify this for an arbitrary profinite Gamma."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -6537,6 +6575,521 @@
           "status": "not Lean compiled"
         }
       ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/L29",
+      "kind": "theorem",
+      "name": "Normalized continuous sections of profinite quotients",
+      "statement": "For a profinite group E and a closed subgroup H, the quotient E→E/H has a continuous section s with s(H)=1. More generally E/K→E/H has a normalized continuous section for K≤H. The section is a map of spaces, not necessarily a group homomorphism.",
+      "locator": "NSW I §1 exercise4 p11; TauCeti/Topology/Algebra/Group/Profinite/Section.lean226–260",
+      "status": "library",
+      "ownerKey": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.exists_continuous_section",
+        "tauceti:TauCeti.exists_continuous_section_of_le"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW I §1 exercise4 p11; TauCeti/Topology/Algebra/Group/Profinite/Section.lean226–260",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/L30",
+      "kind": "theorem",
+      "name": "Finite towers have Mittag–Leffler stable images",
+      "statement": "A cofiltered set-valued diagram with an eventually finite image at every index is Mittag–Leffler. In particular a tower of finite sets is Mittag–Leffler. Restricting a Mittag–Leffler diagram to its eventual ranges makes the transitions surjective and preserves its compatible sections. This is a set-level result; it does not itself construct lim¹ of abelian groups.",
+      "locator": "NSW II §7 pp138–142; Mathlib/CategoryTheory/CofilteredSystem.lean230–265",
+      "status": "library",
+      "ownerKey": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:CategoryTheory.Functor.isMittagLeffler_of_exists_finite_range",
+        "mathlib:CategoryTheory.Functor.surjective_toEventualRanges",
+        "mathlib:CategoryTheory.Functor.toEventualRangesSectionsEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW II §7 pp138–142; Mathlib/CategoryTheory/CofilteredSystem.lean230–265",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/L31",
+      "kind": "construction",
+      "name": "Existing factor-set group extension",
+      "statement": "For an abstract group G acting by automorphisms on a commutative multiplicative group A and a normalized factor set c:G×G→A, use TauCeti.FactorSet.Extension with multiplication (a,g)(b,h)=(a·g(b)·c(g,h),gh). Its existing groupExtension has kernel A and quotient G. No topology is supplied by this declaration.",
+      "locator": "NSW I §2 pp18–20; TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean155–350",
+      "status": "library",
+      "ownerKey": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.FactorSet.Extension",
+        "tauceti:TauCeti.FactorSet.groupExtension",
+        "tauceti:TauCeti.FactorSet.rescaleEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW I §2 pp18–20; TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean155–350",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Kaletha16.L31.construct",
+          "role": "constructor",
+          "statement": "Use the existing Extension and groupExtension of a normalized FactorSet; the inverse is (g⁻¹·(a·c(g,g⁻¹))⁻¹,g⁻¹)."
+        },
+        {
+          "name": "Kaletha16.L31.recover",
+          "role": "characterisation",
+          "statement": "The canonical section g↦(1,g) has factor set c, and conjugation on A is the given G-action."
+        },
+        {
+          "name": "Kaletha16.L31.rescale",
+          "role": "functoriality",
+          "statement": "If c(g,h)b(gh)=c′(g,h)g(b(h))b(g), rescaleEquiv sends (a,g) to (a·b(g),g); the inverse divides by b(g)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Kaletha16.L31.test1",
+          "kind": "computation",
+          "statement": "The nonzero factor set for trivial C2-action on C2 yields C4.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.L31.test2",
+          "kind": "degenerate",
+          "statement": "The identity factor set recovers the existing semidirect product.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.L31.test3",
+          "kind": "non-example",
+          "statement": "For a nontrivial action, the kernel need not be central.",
+          "status": "acceptance specification; not Lean compiled"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-KALETHA-16/P24",
+          "how": "Adds the product topology to this existing carrier, rather than defining a second algebraic extension."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/L32",
+      "kind": "theorem",
+      "name": "Continuous cochains lift through a discrete quotient",
+      "statement": "For a surjection p:B→C of underlying types, topological B and discrete C, every continuous f:X→C has a continuous lift e:X→B with p∘e=f. A set-theoretic section of p is continuous because its domain C is discrete; no compactness, additive structure or equivariance of the lift is required.",
+      "locator": "TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean132–157; NSW II §7 proof2.7.5",
+      "status": "library",
+      "ownerKey": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.exists_continuous_lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean132–157; NSW II §7 proof2.7.5",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/L33",
+      "kind": "theorem",
+      "name": "Built degree-one inflation–restriction exactness",
+      "statement": "For a topological group G, normal subgroup N and continuous topological additive G-module M, with the induced continuous G/N-action on M^N, inflation H1(G/N,M^N)→H1(G,M) is injective and its range is the kernel of restriction to H1(N,M). This is the explicit continuous carrier and does not require the full Hochschild–Serre spectral sequence.",
+      "locator": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean188–248,331–361",
+      "status": "library",
+      "ownerKey": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.explicitInfl1_injective",
+        "tauceti:TauCeti.ContCohomology.explicitInfRes_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean188–248,331–361",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P19",
+      "kind": "construction",
+      "name": "The shift-difference presentation of lim and lim¹",
+      "statement": "For a countable inverse sequence of abelian groups B_n with f_n:B_(n+1)→B_n, define Δ:∏B_n→∏B_n by Δ(x)_n=x_n−f_n(x_(n+1)). Identify lim B_n with ker Δ and lim¹ B_n with coker Δ as ordinary abelian groups. Short exact sequences of towers give the natural six-term kernel/cokernel exact sequence. For this index category these agree with the zeroth and first derived limit functors, and higher derived limits vanish.",
+      "locator": "NSW2.7.4 pp140–141; exact proof read, with ordinary-group Delta description below",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The kernel equation is exactly compatibility. Products of short exact sequences of abelian groups remain exact, using coordinatewise choices of preimages. Apply the snake lemma to their two product rows and the three Delta maps.",
+        "To identify the cokernel with the derived limit, use the two-term resolution by finite-prefix product towers in NSW2.7.4. These towers have surjective transitions; recursive lifting makes their higher limit functors vanish. This proves the derived identification and vanishing above degree one.",
+        "All groups here are ordinary abelian groups. No closed-image quotient or topological derived category is being substituted."
+      ],
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.4 pp140–141; exact proof read, with ordinary-group Delta description below",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Kaletha16.P19.construct",
+          "role": "constructor",
+          "statement": "Construct the additive Delta map, its kernel and ordinary cokernel on the existing product and quotient carriers."
+        },
+        {
+          "name": "Kaletha16.P19.naturality",
+          "role": "functoriality",
+          "statement": "A morphism of towers commutes with Delta and induces compatible maps on lim and lim¹."
+        },
+        {
+          "name": "Kaletha16.P19.connecting",
+          "role": "comparison",
+          "statement": "For 0→A_n→B_n→C_n→0 construct the six-term sequence 0→lim A→lim B→lim C→lim¹ A→lim¹ B→lim¹ C→0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Kaletha16.P19.test1",
+          "kind": "computation",
+          "statement": "For Z←×2 Z, lim=0 and lim¹=Z2/Z, detected by alternating binary digits.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.P19.test2",
+          "kind": "degenerate",
+          "statement": "Identity transitions give lim=B_0 and lim¹=0; zero transitions give both zero.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.P19.test3",
+          "kind": "non-example",
+          "statement": "Every finite truncation of Delta is surjective, but this does not imply surjectivity of the infinite operator.",
+          "status": "acceptance specification; not Lean compiled"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-KALETHA-16/P20",
+          "how": "Makes the exact obstruction to commuting a limit explicit."
+        },
+        {
+          "where": "PAPER-KALETHA-16/P21",
+          "how": "The cochain product sequence induces this kernel/cokernel comparison."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P20",
+      "kind": "theorem",
+      "name": "Mittag–Leffler kills the shift-difference cokernel",
+      "statement": "For a countable Mittag–Leffler tower of abelian groups B_n, Delta from P19 is surjective, hence lim¹ B_n=0. If the tower is ML-zero, both lim and lim¹ vanish. Finite groups at every level suffice for Mittag–Leffler, without surjectivity of the original maps.",
+      "locator": "NSW2.7.3–2.7.4 pp139–141; direct Delta proof",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/P19",
+        "PAPER-KALETHA-16/L30"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "When all f_n are surjective, choose x_0 arbitrarily and recursively lift x_n−y_n through f_n; this solves Delta x=y.",
+        "For a general Mittag–Leffler tower let B′_n be its stable image. L30 gives surjective transitions on B′. The quotient B″ is ML-zero: every sufficiently far map to a fixed quotient is zero.",
+        "For ML-zero B″ the coordinatewise finite sum x_n=Σ_(j≥n) f_(n,j)(y_j) solves Delta x=y. Uniqueness follows by propagating a compatible x from a sufficiently far zero map.",
+        "Lift a solution modulo B′ to the product of B_n. Its Delta differs from y by a product of B′_n; solve this error recursively in B′. Thus Delta is surjective. This is also the six-term argument of P19."
+      ],
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.3–2.7.4 pp139–141; direct Delta proof",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P21",
+      "kind": "theorem",
+      "name": "Milnor sequence for a surjective finite-coefficient tower",
+      "statement": "Let G be profinite and A_n finite discrete abelian G-modules with continuous actions and surjective equivariant transitions. Give A=lim A_n its inverse-limit topology. For q≥1 there is a natural exact sequence 0→lim¹ H^(q−1)(G,A_n)→H^q_cts(G,A)→lim H^q(G,A_n)→0. In degree zero invariants commute with the limit. H_cts is ordinary cohomology of continuous cochains with the stated coefficient topology.",
+      "locator": "NSW2.7.5 pp141–142; surjective case of its proof",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/P19",
+        "PAPER-KALETHA-16/L23",
+        "PAPER-KALETHA-16/L24",
+        "PAPER-KALETHA-16/L32"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Continuous maps to A are precisely compatible continuous coordinate maps. Thus the ordinary inhomogeneous cochain complex C•(G,A) is the degreewise inverse limit of C•(G,A_n). The differentials commute with coefficient projections.",
+        "In each degree L32 lifts continuous cochains through A_(n+1)→A_n. Recursive lifting therefore makes Delta on the product of cochain groups surjective. Its kernel is C•(G,A), giving a short exact sequence of complexes.",
+        "Products commute with ordinary cohomology: cycles are coordinatewise cycles; a tuple of boundaries has a tuple of chosen primitives. Apply the long exact sequence of these ordinary complexes to obtain P19 applied to the tower of cohomology groups.",
+        "Use the homogeneous/inhomogeneous comparison on the existing canonical continuous cochain complex. The formulas evaluate at (1,g1,g1g2,...) and invert this by g0 acting on consecutive ratios. The result concerns underlying abelian groups; a pointwise quotient-topology isomorphism is not claimed. Typed comparison remains implementation work."
+      ],
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.5 pp141–142; surjective case of its proof",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P22",
+      "kind": "theorem",
+      "name": "Stable-image reduction for arbitrary finite coefficient towers",
+      "statement": "The exact sequence in P21 holds for any countable tower of finite discrete continuous G-modules, with no surjectivity assumption on transitions. Consequently H^q_cts(G,lim A_n)→lim H^q(G,A_n) is an isomorphism whenever the tower H^(q−1)(G,A_n) is Mittag–Leffler, in particular whenever those groups are finite. For q=1 no extra finiteness assumption is needed.",
+      "locator": "NSW2.7.5–2.7.6 pp141–142",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/P20",
+        "PAPER-KALETHA-16/P21",
+        "PAPER-KALETHA-16/L30",
+        "PAPER-KALETHA-16/L32"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Take stable images A′_n. The coefficient tower A′ is surjective, has the same inverse limit, and Q_n=A_n/A′_n is ML-zero. Apply P21 to A′.",
+        "L32 identifies the quotient of ordinary cochain complexes C•(G,A_n)/C•(G,A′_n) with C•(G,Q_n). A sufficiently far transition Q_j→Q_n is zero uniformly in all cochain degrees, so the induced cohomology tower is ML-zero.",
+        "The cohomology exact sequence shows that the kernel and cokernel of H^q(G,A′_n)→H^q(G,A_n) are ML-zero towers. P19–P20, applied to image, kernel and cokernel sequences, identify both lim and lim¹ for these two cohomology towers. Transport P21.",
+        "For q=1 the obstruction uses the finite groups A_n^G. The degree-one case already has the direct finite-fibre proof in CHT item154 at the same R02.1 owner; import it, rather than proposing another implementation."
+      ],
+      "planned": [
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.5–2.7.6 pp141–142",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ],
+      "relatedImports": [
+        {
+          "item": "PAPER-CADORET-HUI-TAMAGAWA-17/154",
+          "stage": "ArithmeticGaloisDuality:R02.1",
+          "relation": "Existing same-owner degree-one specialization and direct proof; P22 supplies the all-degree extension and its exact hypotheses."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P23",
+      "kind": "theorem",
+      "name": "Finite local H¹ for finite coefficients",
+      "statement": "For F finite over Qp and a finite discrete abelian G_F-module M, H¹(G_F,M) is finite, including residue-characteristic-primary M. For F=R, finite coefficients have finite cohomology in every nonnegative degree because G_F=C2 is finite.",
+      "locator": "NSW7.1.8(iii), pp376–377; degree-one proof without local reciprocity; Kaletha Theorem3.1",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/P01",
+        "PAPER-KALETHA-16/L33",
+        "PAPER-KALETHA-16/P27"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Choose finite Galois K/F splitting the finite action and containing all m-th roots of unity, m=exponent M. Over G_K decompose the finite abelian group M as a finite sum of cyclic groups, each identified with its cyclotomic mu_d after these roots are chosen.",
+        "P01 and P27 make H¹(K,mu_d)=K×/(K×)^d finite. Thus H¹(K,M) is finite.",
+        "The built L33 exactness embeds the quotient of H¹(F,M) by the image of H¹(Gal(K/F),M) into H¹(K,M). The former finite-group cochain set is finite, so both the kernel and possible image are finite. No reciprocity theorem, perfect pairing or full Hochschild–Serre spectral sequence is used.",
+        "For the real case the cochain sets Maps(C2^q,M) are finite directly. In particular all H¹ groups needed in the degree-two comparison are finite."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW7.1.8(iii), pp376–377; degree-one proof without local reciprocity; Kaletha Theorem3.1",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P24",
+      "kind": "construction",
+      "name": "Profinite topology on the existing factor-set extension",
+      "statement": "Let G be a profinite group and A a profinite abelian group with jointly continuous G-action. For a continuous normalized factor set c:G×G→A, put the product topology on the existing L31 extension E_c. This is a profinite topological group and 1→A→E_c→G→1 is a continuous extension with closed embedded kernel and the quotient topology. The canonical section is continuous.",
+      "locator": "NSW2.7.7 p143 and1.2.4 pp18–20; continuity adaptation of the pinned factor-set carrier",
+      "status": "missing",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/L31"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Transport the product topology on A×G to FactorSet.Extension. Its multiplication and inverse are the existing formulas; continuity follows from continuous multiplication, inversion, the action and c.",
+        "The underlying product is compact, Hausdorff and totally disconnected, so it is profinite. Inclusion a↦(a,1) is a closed embedding and projection is an open surjection; the existing algebraic exactness is unchanged.",
+        "If c′=c−db in additive notation with continuous normalized b:G→A, use the existing rescaleEquiv formula (a,g)↦(a+b(g),g). Both it and its inverse are continuous. Retain the sign in this formula."
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.7 p143 and1.2.4 pp18–20; continuity adaptation of the pinned factor-set carrier",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Kaletha16.P24.topologize",
+          "role": "constructor",
+          "statement": "Equip L31 with the topology transported from A×G and prove profiniteness and continuous group operations."
+        },
+        {
+          "name": "Kaletha16.P24.extension",
+          "role": "characterisation",
+          "statement": "The inclusion identifies A with the closed kernel, projection induces the topological quotient G, and g↦(0,g) is a continuous normalized section in additive notation."
+        },
+        {
+          "name": "Kaletha16.P24.rescale",
+          "role": "functoriality",
+          "statement": "For c′=c−db and continuous b, upgrade the existing rescaleEquiv (a,g)↦(a+b(g),g) to a topological extension equivalence; zero c recovers the topological semidirect product."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Kaletha16.P24.test1",
+          "kind": "computation",
+          "statement": "For C2 acting by inversion on Z/4, c(1,1)=0 and2 give the order-eight dihedral and quaternion extensions.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.P24.test2",
+          "kind": "degenerate",
+          "statement": "Zero coefficients recover G and zero c recovers A semidirect G.",
+          "status": "acceptance specification; not Lean compiled"
+        },
+        {
+          "name": "Kaletha16.P24.test3",
+          "kind": "non-example",
+          "statement": "Forgetting continuity of c does not justify continuity of the multiplication in the product topology.",
+          "status": "acceptance specification; not Lean compiled"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-KALETHA-16/P25",
+          "how": "Provides the explicit continuous realization of a cohomology class."
+        },
+        {
+          "where": "PAPER-KALETHA-16/D03",
+          "how": "Realizes the fixed rigid class xi on the shared generic extension carrier."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P25",
+      "kind": "theorem",
+      "name": "Continuous H² classifies profinite extensions",
+      "statement": "For profinite G and profinite abelian A with prescribed continuous action, H²_cts(G,A) is naturally in pointed bijection with equivalence classes of profinite extensions 1→A→E→G→1 inducing that action. Equivalence means a continuous group isomorphism inducing identity on A and G. A class is zero exactly when the extension has a continuous group-theoretic splitting.",
+      "locator": "NSW2.7.7 p143; full Schreier proof1.2.4 pp17–20",
+      "status": "missing",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/L24",
+        "PAPER-KALETHA-16/L28",
+        "PAPER-KALETHA-16/L29",
+        "PAPER-KALETHA-16/P24"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Identify A with a closed subgroup of E: a continuous injection from compact A into Hausdorff E is an embedding. The induced continuous bijection E/A→G is a homeomorphism. L29 therefore supplies a normalized continuous section s:G→E.",
+        "Its factor set s(g)s(h)s(gh)⁻¹ is continuous into A with its subspace topology and satisfies the normalized cocycle equation. Replacing s by b·s changes c to c+db with continuous b; equivalent extensions have the same continuous class.",
+        "Every continuous two-cocycle can be normalized by subtracting the coboundary of its constant value at (1,1), a continuous cochain. P24 constructs its extension. Multiplication (a,g)↦a·s(g) is a continuous bijection from compact A×G to E, hence a homeomorphism, and identifies the two constructions.",
+        "Equality in continuous H² supplies a continuous coboundary witness. P24 rescaling gives the equivalence; conversely evaluate an equivalence on the canonical section to recover a continuous witness. Abstract H² equality alone is not used to infer continuity.",
+        "Zero class gives the continuous semidirect-product splitting. A continuous homomorphic section has zero factor set and therefore gives zero class."
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "NSW2.7.7 p143; full Schreier proof1.2.4 pp17–20",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P26",
+      "kind": "theorem",
+      "name": "Extension automorphisms and continuous one-cocycles",
+      "statement": "For E_c as in P24, continuous extension automorphisms inducing identity on A and G form a group naturally isomorphic to Z¹_cts(G,A). In additive coordinates b acts by (a,g)↦(a+b(g),g). Conjugation by a0∈A corresponds to b(g)=a0−g·a0. Thus the quotient by these inner automorphisms is H¹_cts(G,A); if H¹=0 every such automorphism is inner, and its conjugating a0 is determined modulo A^G.",
+      "locator": "Kaletha §3.2 p573; direct calculation on the NSW Schreier model",
+      "status": "missing",
+      "ownerKey": "agd",
+      "prerequisites": [
+        "PAPER-KALETHA-16/P24",
+        "PAPER-KALETHA-16/L24"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Any automorphism fixing A is determined by the images of the section (0,g). Fixing the quotient forces that image to be (b(g),g), and continuity makes b continuous.",
+        "Comparing multiplication on two section elements gives b(gh)=b(g)+g·b(h). Conversely this equation makes the displayed map an automorphism with inverse obtained by −b. Composition is pointwise addition.",
+        "Conjugate (a,g) by (a0,1) to obtain (a+a0−g·a0,g). The kernel of this map from A consists precisely of A^G; its image is the one-coboundaries, with the displayed sign convention."
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "Kaletha §3.2 p573; direct calculation on the NSW Schreier model",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KALETHA-16/P27",
+      "kind": "theorem",
+      "name": "Deep powers and finite power classes over p-adic fields",
+      "statement": "Let K/Qp be finite, pi a uniformizer, v the normalized valuation and n≥1 an integer. Then 1+pi^(2v(n)+1)O_K is contained in (K×)^n. The n-th-power subgroup is open and K×/(K×)^n is finite, including p|n. Only finiteness and this sufficient depth are asserted, not the sharp power-class cardinality formula.",
+      "locator": "LocalFieldsRamification Layer1 power subgroup/finite-index targets; elementary complete-DVR contraction proof supplied here",
+      "status": "planned",
+      "ownerKey": "agd",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Write u=1+n²*pi*a with a∈O_K. Define P(Y)=((1+n*pi*Y)^n−u)/(n²*pi) as a polynomial over K. The binomial expansion shows P(Y)=Y−a+pi*Q(Y) with Q∈O_K[Y]: its degree-j coefficient for j≥2 is binomial(n,j)n^(j−2)pi^(j−1). This also covers n=1 with Q=0.",
+        "An integral polynomial is 1-Lipschitz on O_K: factor each y^j−z^j by y−z and use the nonarchimedean triangle inequality. Starting y_0=0, iterate y_(r+1)=a−pi*Q(y_r). Successive differences gain at least one valuation at every step, so completeness gives a limit y∈O_K. Polynomial continuity implies P(y)=0.",
+        "The unit x=1+n*pi*y then satisfies x^n=u. The ideal n²*pi*O_K equals pi^(2v(n)+1)O_K. Thus the power subgroup contains an open principal-unit subgroup and is open.",
+        "The compact unit group has finite quotient by its open n-th-power subgroup. The valuation sequence gives quotient Z/nZ, while a unit which is an n-th power in K has a unit root. Hence the full power-class quotient is finite. This consumes the existing complete-DVR, valuation and compact-unit interfaces of LocalFieldsRamification.",
+        "Characteristic zero cannot be dropped at n=p: in Fp((t)), p-th powers have Laurent exponents divisible by p, and arbitrarily deep 1+t^m with p not dividing m are omitted. No local reciprocity or logarithm theorem is used in this proof."
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "continuation-2026-09-23",
+          "locator": "LocalFieldsRamification Layer1 power subgroup/finite-index targets; elementary complete-DVR contraction proof supplied here",
+          "match": "Exact source and pinned-library scopes are recorded in source.continuationRead and baseline.continuationAudit; mathematical proofs are planning, not Lean implementations."
+        }
+      ]
     }
   ],
   "routes": [
@@ -6568,9 +7121,12 @@
         "PAPER-KALETHA-16/P06",
         "PAPER-KALETHA-16/D14",
         "PAPER-KALETHA-16/T21",
-        "PAPER-KALETHA-16/T22"
+        "PAPER-KALETHA-16/T22",
+        "PAPER-KALETHA-16/P24",
+        "PAPER-KALETHA-16/P25",
+        "PAPER-KALETHA-16/P26"
       ],
-      "reason": "The existing compact-coefficient, Hochschild–Serre and Tate-duality owner supplies the generic cochain comparisons. Place the new reusable unbalanced cochain product and its Leibniz proof here. Import ordinary finite local duality and real Brauer invariants from ClassFieldTheory; no second Poitou–Tate or continuous-cohomology carrier."
+      "reason": "The existing compact-coefficient, Hochschild–Serre and Tate-duality owner supplies the generic cochain comparisons. Place the new reusable unbalanced cochain product and its Leibniz proof here. Import ordinary finite local duality and real Brauer invariants from ClassFieldTheory; no second Poitou–Tate or continuous-cohomology carrier. The generic profinite extension topology, continuous Schreier classification and extension-automorphism interface also belong to this compact-coefficient owner. They reuse the pinned abstract factor-set carrier and normalized quotient sections."
     },
     {
       "route": "source",
@@ -6748,8 +7304,16 @@
     {
       "citation": "Neukirch–Schmidt–Wingberg, Cohomology of Number Fields, second edition",
       "link": "https://doi.org/10.1007/978-3-540-37889-1",
-      "why": "Compact inverse-limit cohomology2.7.6–2.7.7, finite Tate cup conventions and local duality; exact original statements remain open.",
-      "coverage": "Referenced primary supplier; not a claim of complete recursive reading."
+      "why": "Compact inverse-limit cohomology2.7.6–2.7.7, finite Tate cup conventions and local duality; exact original statements remain open. The exact limit and profinite-extension sections are now read; the remaining arithmetic and global supplier chapters are not thereby closed.",
+      "coverage": "Referenced primary supplier; not a claim of complete recursive reading.",
+      "continuationRead": {
+        "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf?download=1",
+        "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91",
+        "accessed": "2026-09-23",
+        "pages": 840,
+        "version": "Second edition,corrected electronic version2.3,May2020",
+        "read": "II §7 through2.7.7, pp136–143; I §1 pp5–11 including exercise4; Schreier1.2.4 pp17–20; local pp375–384 including7.1.8 and7.2.6. The complete book was not read."
+      }
     },
     {
       "citation": "Tate, The cohomology groups of tori in finite Galois extensions of number fields (1966)",
@@ -7109,13 +7673,13 @@
     {
       "id": "GAP02",
       "title": "Continuous profinite and local duality suppliers",
-      "remaining": "Read and decompose NSW2.7.6–2.7.7, the exact inverse-limit hypotheses, finite duality, local norm existence and relative Weil transfer. The pin has carriers, not all comparison theorems. Import existing ClassFieldTheory/ProfiniteCohomology owners; the real invariant is in ClassFieldTheory layer10.",
+      "remaining": "NSW2.7.3–2.7.7 and the full referenced Schreier proof have now been read and decomposed. P19–P22 supply the exact countable finite-coefficient limit hypotheses, P23/P27 give a direct degree-one local finiteness route, and L29/P24–P26 supply profinite extension realization and automorphisms. Remaining: typed comparison with the canonical cohomology carrier, finite local duality, local norm existence and relative Weil transfer at their original sources. The latter arithmetic tasks are not closed by reading NSW statements, and the local-duality owner must not acquire a reciprocity dependency.",
       "status": "open"
     },
     {
       "id": "GAP03",
       "title": "Explicit cochain proof closure",
-      "remaining": "Complete every boundary degree and continuity condition of the unbalanced product, corrected section choices, quotient-torus extensions and cochain identities. The source leaves elementary derivations to the reader; degree checks alone are not proofs of those identities.",
+      "remaining": "Complete every boundary degree and continuity condition of the unbalanced product, corrected section choices, quotient-torus extensions and cochain identities. The source leaves elementary derivations to the reader; degree checks alone are not proofs of those identities. The generic continuous section needed in §3.2 is now credited to the pinned library; this does not solve the simultaneous relative-Weil section choices of §4.4 or the unbalanced product identities.",
       "status": "open"
     },
     {
@@ -7152,7 +7716,7 @@
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "atlasCommit": "3e25b1d8af9f7dffad09bc92dd2df01928dba283",
+    "atlasCommit": "bbe6491e549edb8259dc4ad5eb46d9ee8c5268c1",
     "inputs": [
       {
         "path": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
@@ -7163,6 +7727,21 @@
         "path": "content/campaign/AdelicAlgebraicGroups/README.md",
         "sha": "d695b639e903d219ecdb8cbc8b7507b5e43cb9cd",
         "sha256": "5876e9491ad7b2814752410ecc9c971fa20d28d80e90320856d37ae5ea897c4f"
+      },
+      {
+        "path": "content/campaign/AdicEtaleGeometry/README.md",
+        "sha": "6e633a007e32e3f2ec6981cbdfef478b49bfcb52",
+        "sha256": "18852ff43a6ab89bcf9dc45abb0794fdd1b39bf3166f188ea51531077b8f88d5"
+      },
+      {
+        "path": "content/campaign/AdicSpacesPartII/README.md",
+        "sha": "3fe5fc17636c775fccd84048d8eefa634c72ac1f",
+        "sha256": "a5544190f67cc70f28ef8063010a886757c89b123f051865602b8d2b49e8bd56"
+      },
+      {
+        "path": "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md",
+        "sha": "ce1b763bc3909c5098d9a390f4e930c757b99b8b",
+        "sha256": "a137c6fcec0a00edaca46278b6212d97255fa43230f3fef239a13b24793bc3b4"
       },
       {
         "path": "content/campaign/ArithmeticGaloisDuality/README.md",
@@ -7240,6 +7819,11 @@
         "sha256": "c3e614c447e7a851dca0a7f7c7f2a81bdac99c5b591bd11bdbf12246b5738255"
       },
       {
+        "path": "content/campaign/DrinfeldModulesAndTModules/README.md",
+        "sha": "ef25631fab1cc8831fb5b0c5fa601e1ca5c697e5",
+        "sha256": "1a5849945a28d218b4ca83b15aa81ccc6b2ada548acadbe397c6f4b323ac3b7f"
+      },
+      {
         "path": "content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md",
         "sha": "af49b4d1c0fb29d9b498b12aea84dedc3ad9dfba",
         "sha256": "4de9feb8f81b814b5f5aca705387c1787eac1fa5d21976a291e988e4ccd8a0f3"
@@ -7255,9 +7839,19 @@
         "sha256": "59e6a616e29bd31bc625c32f60a199aa9d0252afc1fb9e2640c758cb897c4c99"
       },
       {
+        "path": "content/campaign/ExcursionOperatorsAndSpectralAction/README.md",
+        "sha": "6b9d2a88e0ad9ea3128555b8789a6307246ff176",
+        "sha256": "e1c70a12c5788329b17d7275a04fc10c4553b6af325280d34bae802ec3aad765"
+      },
+      {
         "path": "content/campaign/FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md",
         "sha": "7d416c44828754712dc1134ff2a18a040b8ea4d5",
         "sha256": "e2443ea2fcedc06c744d0b29803416ec77e748f3f78c0069a30863bf5d08fa42"
+      },
+      {
+        "path": "content/campaign/FunctionFieldArithmetic/README.md",
+        "sha": "381203806f142fd8319da052e6d896cb363e3302",
+        "sha256": "f947f73903ac9c6b5c89ec5eea7541e047c2768f642a8a104bf63afac03fdb89"
       },
       {
         "path": "content/campaign/GL2AutomorphicRepresentationsAndTransfer/README.md",
@@ -7293,6 +7887,11 @@
         "path": "content/campaign/HigherLocalFieldsAndHigherClassFieldTheory/README.md",
         "sha": "822c24ce75eb42d660eba535f04add318febe242",
         "sha256": "d9df54c98d4f0b7d3860a911bf06ead8e4941c9a45ec65df68f17c23ddc92431"
+      },
+      {
+        "path": "content/campaign/HodgeTateAndCanonicalSubgroups/README.md",
+        "sha": "3eb6306eec74dc84695b63a8702f4c347f9ed974",
+        "sha256": "c472da7fcc53be76f244d5a10ea1b12be63b300e256c4c6c49bf4ce0e8564807"
       },
       {
         "path": "content/campaign/IgusaVarietiesAndTorsionConcentration/README.md",
@@ -7333,6 +7932,11 @@
         "path": "content/campaign/LocalGaloisDeformationRings/README.md",
         "sha": "37898dda5d508badb670cb993cea5500303b2086",
         "sha256": "8925d162411301b4007c386e2a7eaa1527485d18c7ddb2c46be259f54ab7ae96"
+      },
+      {
+        "path": "content/campaign/LogicAndDefinabilityInNumberTheory/README.md",
+        "sha": "89e733f78dae50095efd75d93d12a11b355d7609",
+        "sha256": "5e6bc2326bbea906aea3611863a3a0e858d1b6047b3bcbe520a05b5d976c7ae9"
       },
       {
         "path": "content/campaign/MetaplecticAutomorphicForms/README.md",
@@ -7385,9 +7989,24 @@
         "sha256": "a32a051570c60bf58c04ba99363ff604a8d4a7d94c0e1c06bb533757ef2f9841"
       },
       {
+        "path": "content/campaign/PeriodsAndSpecialValues/README.md",
+        "sha": "cfb6af960f3da6e3659a29616aa506ee86487e68",
+        "sha256": "a5925d10a0fb2e0c38fa1dfb0a91d1c43517cf83157d6de5f7f79e3aed18d2fa"
+      },
+      {
+        "path": "content/campaign/PhiGammaModulesAndIwasawaCohomology/README.md",
+        "sha": "722a1fae051b6766955328555186219a6b09c2fc",
+        "sha256": "76fd9352c0b2e14865a9149ddcf114f43fb6b8e00e595ef07f91c8558ae9e94d"
+      },
+      {
         "path": "content/campaign/ReductiveGroupsPartII/README.md",
         "sha": "2b093d1410cc2699573c514f83cf0aebca9f3a83",
         "sha256": "0753d181fb761edbd5688777896b40f2d131c4af1ad49f43847cd4b84cddf423"
+      },
+      {
+        "path": "content/campaign/RelativeFarguesFontaine/README.md",
+        "sha": "22728183aab6d9a584abafd2ea807a9ab9f6e2c5",
+        "sha256": "2fe283daff1db960718dd662b2ca2515747b3b3d56a58df143e9d0ad4418c417"
       },
       {
         "path": "content/campaign/SchemeAndStackFoundations/README.md",
@@ -7425,14 +8044,39 @@
         "sha256": "7d540f4a415cc49bcd6eaa410a8abf29fbf9bec8d123dac1f4118e5591ea7763"
       },
       {
+        "path": "content/tau-ceti/AlgebraicCurves/README.md",
+        "sha": "616c2fc59ce131b6cfd3cc2d37feeec2487571ad",
+        "sha256": "8696d432a66c7a374619fc5ccb139248c0a1cf41bf7cba6d55a6af2f1fb1a7a5"
+      },
+      {
+        "path": "content/tau-ceti/Chebotarev/README.md",
+        "sha": "349f69cb6108f6e525ff0085668814afa625185f",
+        "sha256": "be7c4c9b7c0b36b5b095e442e3322943e18f9249b6601abf1c1b5273789c330b"
+      },
+      {
+        "path": "content/tau-ceti/GlobalNumberFields/README.md",
+        "sha": "8055760d129f0f8dc38c1e0d5f6b1055d03c0376",
+        "sha256": "b533be9e4e29ff8edf142fc7d9b6179ecea815866fff2c0a49769f102a381a89"
+      },
+      {
         "path": "content/tau-ceti/GrothendieckEulerForms/README.md",
         "sha": "f508d231b5c9b0674a739b942906110e12d6b57e",
         "sha256": "165e126ebef2cfdc228310b7fc427f9945367168329637d60b57413a99adebef"
       },
       {
+        "path": "content/tau-ceti/QuadraticFormInvariants/README.md",
+        "sha": "2c864e6a950cf35ad944e0c7f583d68609ab018a",
+        "sha256": "9cf19bcdbccf3c40b721ebe327da78c0cb301cca3ec02fb4237c4730b4d60d63"
+      },
+      {
         "path": "content/tau-ceti/ReductiveGroups/README.md",
         "sha": "a6e3c66b92dac794f2afd5725eb10c718dd11f4d",
         "sha256": "b6888bb0f65d0f4a7686c047ee2d3204d019fb3e6c35fc0bd83b531ef10b4c1b"
+      },
+      {
+        "path": "content/tau-ceti/RepresentationTheory/InductionRestriction/README.md",
+        "sha": "591cf0455be8ca4143176565e5d69d1c8f13b424",
+        "sha256": "32cb677fcc95ba1752ddf8abc5ad4970e7ac45577aa69ad1d9f585ac6785aff6"
       },
       {
         "path": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
@@ -8780,9 +9424,19 @@
         "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
       },
       {
+        "path": "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.result.json",
+        "sha": "f480c68808448e4f714a944728e24e68e0311a58",
+        "sha256": "fb15852e46b3ba9b87bb73adbeb2939aaa714ccdc3ed4561f8ae30423647cafb"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ABE-18.result.json",
+        "sha": "ad1d191298770448a8e29a0d15c247b07485af5d",
+        "sha256": "c30cfac075e5c5e565fa8d88e831468e8efebc4983a571791dd862dffb29f96c"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-ABE-25.result.json",
-        "sha": "e0c63ae35762bfa60b77ac936fcd56a2bcd549a2",
-        "sha256": "72cf7a69d31c3bfb8893ac382a99090ed8ff0bab32b5316870ca52c57f75b1bf"
+        "sha": "e1915e7fed0ced76504c206a1867eecd2ce82455",
+        "sha256": "2a3002527717d8fe2c4b6e33fa79ac0fa8c53a001e2f2b5868a47ab934c6817d"
       },
       {
         "path": "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
@@ -8791,8 +9445,18 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-ANDRE-18.result.json",
-        "sha": "0d414bf4580d0400f02c17fcbf7ec24eb69a16a1",
-        "sha256": "c815a5437484ed4c375f606313ff6bd88a516ef9859fb897a54fdd371dd48c85"
+        "sha": "dd06f43fb4c8bb613e8b600f0aafd65264af3bde",
+        "sha256": "4f8d4703b041045b0a6c1f236daf2f9f89081addacfea3b63eebc92ef430a4cc"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
+        "sha": "9242a3b358ac40c4b8c625a90972f4808a1153b5",
+        "sha256": "e25bc08eb8edd592d0dfed896dce6985b612f7d9594641a5cb55f2ed39a22d3c"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
+        "sha": "896d257782a01606cf486798a9f1b131164498c0",
+        "sha256": "b2a8c2d6ad7cf6604fa9c88022db0b0cff1088297cfa5d79d441dc0eb21a480c"
       },
       {
         "path": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
@@ -8806,8 +9470,8 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
-        "sha": "7406104583b4fbe28b54cdccbc5ac6ba2b7cf88f",
-        "sha256": "14f01e74af86747ff0f286b0fe97dee6418cb593176ab5efa495c49ef0f40885"
+        "sha": "a6c5c8b5aa17cc8e44f7550da93f60db0772f512",
+        "sha256": "703a40f534f6c535d7beb9dde4c7da6a7007a01a40f058bac40cd131626babbc"
       },
       {
         "path": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
@@ -8831,13 +9495,28 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
-        "sha": "87347c3f4f4ce11e9f92fc068238c69fdd3f9c96",
-        "sha256": "3dfaf230c41235c7ef3e240a6c0c61a78a8846bc794ca0f310f7c8b6ba5f5730"
+        "sha": "f7d77bf99fa1362ff82c450af76127f83fbb2b7e",
+        "sha256": "a9ac7b22589d0cf8f76f96ae32640f15d18fbcfc8fc08fd795d88f162bbd18e4"
       },
       {
         "path": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
-        "sha": "790f323729f479d91823ee74ec6ad5576d441088",
-        "sha256": "00394ad4e7a8c48488726ac80493a379ee61f64d5f4d8369acfe6b2917fef1b3"
+        "sha": "9264babdf5fcc90c61014452fd57fdc649e9faaf",
+        "sha256": "ebc4e4361776f541ee7781e6f4017c0922ca5b994a57872d4c4b5a974adea550"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+        "sha": "68d76773dce1c2081e3d30d2c1cbeba3319e4a12",
+        "sha256": "c5d9e24a35e13f102d7d1b29e689125e9497919f70179404369e823e69e3e832"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.result.json",
+        "sha": "f44ec026c7d0d3d2fab28a279cd22b8123229b79",
+        "sha256": "8178543c811b3f74563b064fc3b3a6e7fcfaec79c6c5f057bc02aa62a037e6a1"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+        "sha": "682e9d78d6da7d1f77cfbd916f423368791b5b9c",
+        "sha256": "e54728dad891cbcaecd921c721c881cc7bb1b94154cc87db650811460a8055d7"
       },
       {
         "path": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
@@ -8870,6 +9549,21 @@
         "sha256": "848a525072beae264541021902be458e10fc0471927dbb59198827b83484797c"
       },
       {
+        "path": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+        "sha": "0fa7a8a25b55b340a10a6c90a0331d3041beebcf",
+        "sha256": "dca7f4a0c48ac9c6de1fa352025f7dc447f44f30010669e7e5201b1ce76f99d2"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
+        "sha": "546070438b2f4e1b49df99b0fc69b395d66e61cb",
+        "sha256": "3c37637952cbf76e6adb5e5da70d2405bfbf861cd2e03160e076051749f1041b"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
+        "sha": "5767f491c059f4900b5b948a50128e25e1a177cf",
+        "sha256": "d1b92ea9501207ae324b8510ea0c830c709579c90664215a08267dfaec6c69e0"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-17.result.json",
         "sha": "c1f006c2b922c677fe2e06b757b5f6b5352fcd76",
         "sha256": "2d57f24357d2f42f959f3573b1f7c5bef5ca4468a5bee04a66ebb9d77a2c9893"
@@ -8880,9 +9574,24 @@
         "sha256": "0092a5cd8838c8f13e5a10600c9494c6c5637738fafdad428070fa31239d354c"
       },
       {
+        "path": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+        "sha": "7aa1bc0d3ac4c9532887552f81f3aec1f40a3d4c",
+        "sha256": "f1344826dd182d87fa48bcccb4820e5ffc0f1ef522fe80f086fd236985b02a2c"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-BINYAMINI-22.result.json",
         "sha": "9372ff14b9849117b52dead9c34cf108eea4e49e",
         "sha256": "1d8ed9d1348819b73468b50c9fb784d366d1e8689cc599c7bc33f117f9920645"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
+        "sha": "65f3cde87ce9288b62d34f2d4a8b332af3c169da",
+        "sha256": "bd112528f3cb3553e363dbc15d35912c22558634003cc3fc3d421fa7047b804f"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json",
+        "sha": "ef684f3d9e80236dd954f0b4c0cb4ea3c1ed3ab8",
+        "sha256": "380159abf8c9224141b2fa613fa3078e3d9e22675dc49febf51b0df3a3b3fa45"
       },
       {
         "path": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-25.result.json",
@@ -8891,8 +9600,13 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
-        "sha": "4790a81124a8fd1040786dd119fc2d2d807addba",
-        "sha256": "a7ad1887f506163bf24b3082548faab46b37d047136fa5b5a9075a89836df06d"
+        "sha": "d7eec8768c5fea58ce2020d2a2cbb66f3df80ac3",
+        "sha256": "b7c3a0eca997697f775fe84343aafdae4c036c64a3bdae71a173a4621106a485"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.result.json",
+        "sha": "c2236e9ba9504f4ec1523917b35712a14e1a3ef3",
+        "sha256": "e4dca18de96a2563bf2ccfc8b7656e6673ddca11fb5e515d613e46d732e87267"
       },
       {
         "path": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
@@ -8910,6 +9624,11 @@
         "sha256": "5a607f1f0fa3224c721feccec0a6ae07042d6e4f7e7ab21a13c98ec9732ab35c"
       },
       {
+        "path": "research/blueprint/papers/PAPER-BRUINIER-EHLEN-YANG-21.result.json",
+        "sha": "a8e0db349e2ce68b14e404071921eff1a7390314",
+        "sha256": "44c788808ce54675b39fbd99907b80b48f1a605c192f52ba5f9767ff35d559e5"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
         "sha": "f70ed9b48e93e83aabcdf34d1e807475407599bc",
         "sha256": "f34a08e99d89ed9062af007fc9476bf83be0bc34ebdcbcfb076ac36c02eb2871"
@@ -8920,14 +9639,24 @@
         "sha256": "9d37d5fdb254b277bfeea21158aad576b44aa9b20cec21e975c918e2e8466431"
       },
       {
+        "path": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
+        "sha": "9126f1e8342b94382c79ba588215c697cda5b1f3",
+        "sha256": "fc4e9631b8b063324f70325b3e5bfb131929471a98b06a8ceb09f60e2c6e9041"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
-        "sha": "38f6a0ebb51c5cc571707b767385fa63ff7cc79e",
-        "sha256": "bf02d17c336fb35790444721bc9f2ce116fc06f55232f7b22ac2433c11985fb8"
+        "sha": "631e07757940d77f2be1eff7b53130cfe6e63bf6",
+        "sha256": "bc1ddc669bdf4dffdc6a0dd211c0cd99fc20f074c961b57b331160517d5bd876"
       },
       {
         "path": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json",
         "sha": "3625fedbad07226fe7c148aa45e6be65d47b57f1",
         "sha256": "95d7151fa3d00c0e38b5237387a119105ef2a5eff9c2d6d58809766f45a46904"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json",
+        "sha": "657738e0d69dbbd189e716e1e5cd2ed85a374806",
+        "sha256": "7ad9dd2fcfda4b22a62a2b77fe3e1f30019838fb4342ee16be41aa39e3811e23"
       },
       {
         "path": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json",
@@ -8940,14 +9669,24 @@
         "sha256": "1a9ecaefd1ac16bc9a8dcfa74efcbced2318bd91f43531b92201791e3383bea0"
       },
       {
+        "path": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+        "sha": "bbd4eeaa42e36a16802e4037a7f284e19feecc58",
+        "sha256": "f8e5b915c04ffe7fe2b27978ab6adbd4e5b2318df0090d8b90e06f6981525681"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
-        "sha": "4d7af9350ecc87cbc04b9ef61df8d1ea7e4feb20",
-        "sha256": "e37490ad14a98d204c60252d005c97a11186f1eee5b74231b5dc602fe338419e"
+        "sha": "b455190b52313f5179365d51e4d35ff59a20395c",
+        "sha256": "82eebffbb61df101602a89f328725af212a0328723e56b3ee1843e16069c0880"
       },
       {
         "path": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
         "sha": "0d1a4b3c0d17c906541faefc94b53cafef7c27f9",
         "sha256": "e90a32a7b93476d7abc77e9d3ae76a7ae0c634f238469f2f44960df3fab7e36b"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.result.json",
+        "sha": "f89ab02552a92282952aea51a05a71a05d467035",
+        "sha256": "36d4863f250fabcbd0ee78f2dc8171dc0c2c97263b65d410e223ff835953a37e"
       },
       {
         "path": "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
@@ -8973,6 +9712,36 @@
         "path": "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.result.json",
         "sha": "c360cc46b98ffda434815b0d4e9861fd4e652d87",
         "sha256": "f92118a24a6af64cca2daf86dc22d99559fe87104aa3cf26ef2f6b51a648fdcd"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+        "sha": "e7d1b004931c851340de76b38f2b482d5c3cde81",
+        "sha256": "0a06140df2bae3cafb53dbf256cc5a6057add35e9e2f848c09eea54489ac9ef0"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+        "sha": "1fcae8dc62c256f053dabfa87ca11c1fbbd06896",
+        "sha256": "b3ef61aa4960115904dc9d49ca94a05ed1a2da85a5696568c16c749044a4e0ad"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+        "sha": "221c929b6eb3598724b289b82dd7dbbc9be06bd2",
+        "sha256": "9893a22979f2a5216a2bdd7d47e809df8371c0b9e295650f1f4292521d5fe735"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+        "sha": "b71ba48e5cb226009fe89015c89d34b05bb60cc9",
+        "sha256": "4c87709e52904f55baa4c02cd14f2dae8a41290ab4fe998f0d33072f93348b72"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+        "sha": "ef965faf5048ba83c50e4138b2f96ed66db44a64",
+        "sha256": "1b03bfb05d736a3587a2aa61a5f9f6cfb43d7d59786c826bc95f36a5591121c8"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+        "sha": "2c74a1d2ff72a0872025cbb12c28bcc4b48b67af",
+        "sha256": "9894f78865b652a669c6f8faa3a922c08ec0ebfb5f8f2acba5b8fb8b2bd7ff23"
       },
       {
         "path": "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
@@ -9005,14 +9774,24 @@
         "sha256": "88084a19de29c215e171cfd5be6741a3c5043f33961ace5f94720a4809bdd7ce"
       },
       {
+        "path": "research/blueprint/papers/PAPER-DING-25.result.json",
+        "sha": "fe1a3f8d071512f2900f36e61470d4453d61d9c3",
+        "sha256": "d5e69c9e934d9c070aa6265b9671178dcff4d373708e4df7bc182e146017a63c"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
         "sha": "e370f61b42931a9e473662e0a8310272e2a0b060",
         "sha256": "2b59871593f99bb97ef3c855aa05b290bd2c7ed1e124aad5a6ef2e0fc22caaef"
       },
       {
         "path": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
-        "sha": "c41c5b504e0c9c857dc7513588425e7a96aef02b",
-        "sha256": "6c67a85c79dc9e4d3ee5ea96e022794b2142678ed9ee40c632d210eb28227794"
+        "sha": "1bdaa0e256fd1d9dcb3519f158a3a2d91e5e8ac8",
+        "sha256": "37b163bc27a7efbd3029a1b13657603bf57b0913f81203c077049942b774c7b2"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-DOR-23.result.json",
+        "sha": "ffc19dc0094f49074c3e528d32524a1c2068caa7",
+        "sha256": "d8280e2b56c84d8725cdd556c6db9ce4ab91b3c308cbe8b4777c3e50b536dbde"
       },
       {
         "path": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
@@ -9021,13 +9800,13 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
-        "sha": "f530b296572e3ea210a626cd1e1eb7eb79aeba3e",
-        "sha256": "11001b7e36525f51b3dbb1ce8a589d3a5150d60a61df2e83d2ff7d9e93a0141d"
+        "sha": "04c542bc091187355d992136add44fb9975d52c4",
+        "sha256": "028c73004824fedbe7e7d8e089c417d4802674a07c0f697a09204cce2a0d3c3a"
       },
       {
         "path": "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
-        "sha": "0eaaf30c346e2c59321b145bee42c6bca6b7e825",
-        "sha256": "f0d2b520ffeb6b7e51c907108926da46ca2c26191c3fd20353433dba2d0864d8"
+        "sha": "576a3fcf245aa4fa916cbc282ed5e13335acddf2",
+        "sha256": "def465eb7acbcc4fc20cface0af55f8da5eba0a9ed363e2d99c06cbadb5e5087"
       },
       {
         "path": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
@@ -9035,9 +9814,29 @@
         "sha256": "a12d43bed2b310fbfe76b776f224757db575e0a7523924238c504750e9153a19"
       },
       {
+        "path": "research/blueprint/papers/PAPER-FENG-24.result.json",
+        "sha": "800d8f22befaf6a5b0026528df7d80cab6c6a5c6",
+        "sha256": "42e5365c8e794380ea6d612fcab20cf1165d5d685cbe193b32681063c369ee23"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json",
+        "sha": "e78cd5322488a01080a51e7999c5bbe86bc7d8a1",
+        "sha256": "c27d35249ccef1b344b9fc004693a7fde907bc2f2c838cbb19fee81baf8cfe77"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+        "sha": "e04feb4ece2bcc01337d229b80b54b32496969e2",
+        "sha256": "2d0385d51208048a28183074fc9804d3f8c9cc6854b5e4823f0fdead9d055fa8"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
         "sha": "fb014c4254425a49f7ad8c7971d0d8b43ebcf547",
         "sha256": "fa59a5e9182d6b9c964f284edba7d4aebc87c6265fe6d72b7ccb91dddb9e9031"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+        "sha": "85ce9420eefe80f3baed031ed025d1b46822d46b",
+        "sha256": "b6a80b3795d9404860f616f624eedf956eda154b45d6c035d7fce1780653b792"
       },
       {
         "path": "research/blueprint/papers/PAPER-FU-24.result.json",
@@ -9050,9 +9849,19 @@
         "sha256": "26cfe7aa4d8df70175fea9a88feda22103eb90c04d59b74c3904248ae3b44fef"
       },
       {
+        "path": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+        "sha": "fa86e71e8f96ea04377958be4573dc0e4fbdb2e6",
+        "sha256": "3383e33ea5fe57c3df8f2585f7e9eadd003888e3cffba193171582e4ab1cd26b"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
         "sha": "07fa24e505b6edc3715cbedc081166d8cc72e8f0",
         "sha256": "be9b6efac25757a0496039e5801d8b240a5fc45eb8fa9aa1083539233880fd36"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
+        "sha": "04bd1f532cc66f46f69fc4beb4e6e2522a149dda",
+        "sha256": "e73096eb7484430a813dfa9d9a43ac20fcc1b64a61f1f70b192b8454db114528"
       },
       {
         "path": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
@@ -9090,14 +9899,24 @@
         "sha256": "2f63acf925e7707281f7702d9f2e93db239f9d2289674c7cc879ff2779551656"
       },
       {
-        "path": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.md",
-        "sha": "60f244df903731e1fe5ec703790ecf13de57c919",
-        "sha256": "0d6c17b9d4c7fb4ae643b59c65a351014c8880e4797f405f923ab97a665fc907"
+        "path": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
+        "sha": "eec04e48d488665e89012f16780133317493d099",
+        "sha256": "736231e5b9ab318ff9f19af04f9d4ac053a73761b73ab74ef7fa675759081bd4"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
+        "sha": "cedd4c917b774c0a9bb2ba88a05ecfe709bf93b2",
+        "sha256": "84d5040999cb17c1520ffb3270ea473d111697bbe62542c1d3d0ffb16af0dbb6"
       },
       {
         "path": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
-        "sha": "1f17756ae670824a09e2cec145d07f94d047c320",
-        "sha256": "bf9e33dd74340eea9dd60183f08216511b475b55b24e227b9a5f4ea2b5aaee1c"
+        "sha": "bfbad023d59564e6bab32b48026fb4ec33538e52",
+        "sha256": "29534581699568999706db7ad8f242e147d8bc871cbbfe651ddd11ae8b77813c"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
+        "sha": "b70c58ee1cd308d8048ead4d7fa3123715188890",
+        "sha256": "b1e35b85d9614cbc8f9794cf3086e57ed522e163b38d33862914015e1eb2571e"
       },
       {
         "path": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
@@ -9116,8 +9935,8 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-HE-18.result.json",
-        "sha": "d366d941701e8cafaa01c8b41f3e66bea4570617",
-        "sha256": "a38b33a3557574520c5d64e298015ff4af7da7666318af9f5696bff816480c95"
+        "sha": "53915b392a2521e0108f9b9b2fec2316d1bf8aba",
+        "sha256": "6c88cc8481b059b65dfc5d87451a69479dd66b1c2133dbd9e9dd5b6077c71b88"
       },
       {
         "path": "research/blueprint/papers/PAPER-HE-21.result.json",
@@ -9130,6 +9949,16 @@
         "sha256": "1833dcd32dfea5f7c58301201c4f10b902228f1ca96f70718710ff7f80e0d86a"
       },
       {
+        "path": "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+        "sha": "0d3495a69f50bf2f588c53fd349fcfcf3f8358aa",
+        "sha256": "db0f875fa2787f8a9c852b15fca4d5fa258e462cd0190be1e9503e2f86c5a88e"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+        "sha": "6079921af69d3404255e00591c8d144d3ef837ec",
+        "sha256": "634a63a82d0d7692ce99242552bfac9591e7d4e050c61c960d619ae1056bcc34"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.result.json",
         "sha": "59f5fdee0cc3067eab4c949d8ce8d5ec80c61bb8",
         "sha256": "7f9e7918270a990765ae21d6af7de3fa4a354766ce5ec74d90c76b75bfdcea99"
@@ -9140,6 +9969,11 @@
         "sha256": "fcca0540002a05cce5247a2598c443d754e30025f8da41a68b60b52ee1bd0c1b"
       },
       {
+        "path": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+        "sha": "d263d9b732f69eedceebe72fe3358383eb6f0ec9",
+        "sha256": "d41ea2c992e448b668f77005a05b0a1d06bec69d97e6cbdc7f50a52844b8321a"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
         "sha": "0334cca0b7ec38c69c9199717b591188f6403745",
         "sha256": "4f165cc8d455a926b6f6f57f52994851c47a7177f1a26f2f3b49061cf7d03ea2"
@@ -9148,6 +9982,11 @@
         "path": "research/blueprint/papers/PAPER-KHAYUTIN-19.result.json",
         "sha": "3073db5cc39fdd09a924403f690de273671370dc",
         "sha256": "d5daf75899fe63bc4e2cb2661708ce5f0f799e313fc6b353859a7471e9a7b125"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-KINGS-SPRANG-25.result.json",
+        "sha": "cb85cc6b1c2d290d18c2c165a8acf1deddd20591",
+        "sha256": "bd1928f8d1c13524ab4409ee25212dc8a4dbe8a70151be95810cb457991c9121"
       },
       {
         "path": "research/blueprint/papers/PAPER-KISIN-17.result.json",
@@ -9166,13 +10005,13 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.md",
-        "sha": "0897fe361c2d2d14e30e2f1064fcdf582e0149ae",
-        "sha256": "215d3f994a8bad2e747afa56b7f3242baa325219783a741cce86fa7a345ea9d9"
+        "sha": "02a45f1a9466fd8211a87f94cb74e288fa7f2326",
+        "sha256": "de3f4e64ac6c0033c012e67c2ba272e1ccadd1aa3ea582de2b3fed52ed45c4b2"
       },
       {
         "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.result.json",
-        "sha": "3fdc1633bc000016be824cb28171eba1540a7f6b",
-        "sha256": "2f6c1edc9b9a4cdb20626c32480931ce7d2cecc4a0a4e85751dd18e34e356293"
+        "sha": "e375e840bc65cbf2fe9e9c6f7853833c1724f08d",
+        "sha256": "b7adb75693b5fde7e48effe442645165afb88d9d46d74eac43da7b5f38918da8"
       },
       {
         "path": "research/blueprint/papers/PAPER-KISIN-PAPPAS-ZHOU-26.md",
@@ -9195,9 +10034,19 @@
         "sha256": "6fad895c204348aa55bd54a3804b6780e231b82b7ad07f4ed2765a28c298ed4b"
       },
       {
+        "path": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
+        "sha": "e005667d71bb18428c4a0b8fef833caa72b9840d",
+        "sha256": "baff05c9f41cddf6fb19b87a9725c9d3ddcce5ded4ca83ca4a57b8e6d2a0bfe5"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
         "sha": "d148fffde3aeb3ba8b56ed8fe5c8763aeca3d8ea",
         "sha256": "ba37a6e4e8bb18d903504a3bb7c5ea09a417cdf7d2940912d4e511184cad8d33"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
+        "sha": "0f37b2aca9038ce886c603166f3271f39a2a0472",
+        "sha256": "f1f1821366f1b7a4b9a4c52613d8312022f90a42eef03d3c094738a24fbf2975"
       },
       {
         "path": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
@@ -9213,6 +10062,11 @@
         "path": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
         "sha": "26cf31a7ba49ac6ebe4d2e77f1ec3c28d93c237f",
         "sha256": "3ecdeff6841cbabb73aa78fbf5e4795bd394d51e0621b7b995a1107197cd5e68"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-LI-23.result.json",
+        "sha": "e3728ffb6e4d200a6b8f956fd00c180f300ac203",
+        "sha256": "df0047fc77a4dcc1bc51dda980a4f633ae7f662b924d8b682603f61ed6a55194"
       },
       {
         "path": "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
@@ -9240,9 +10094,29 @@
         "sha256": "4ca0f836132bf46787715e82883649c7c97da97ac1826be48c19d91e88c5775e"
       },
       {
+        "path": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+        "sha": "d34b00e2a7554dbcb18c710613d36e24240a7154",
+        "sha256": "1e2337a1343c251e9de09b622c9a22ba68a6fdd92966e64015ff098598c8a8de"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+        "sha": "9e74d672a676a2c6c9589d068f8d421b38c3aaf5",
+        "sha256": "4f7cf35de280aba6d039cfd02fa60d746233923a3220ab9ec4f012f8cfd66fe7"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-LIU-ZHU-17.result.json",
+        "sha": "78cdce475362d7291be24560c2f4e6826e2769f5",
+        "sha256": "941239784b39223ccfb8493793fb641f2580f530d80602a183fc220060ac159e"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
         "sha": "2e2e2f37659d825c7909e729967ee8f2e77486ca",
         "sha256": "0e73a474c61f9049cd956489c5d4046e6cd5035b048bfa1ca9ea3813e1dcd60f"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+        "sha": "05a3a82aafd9cdab6142173e2e03a3c443797677",
+        "sha256": "1ad4d648a1a463faf972715a3295f6fb27c36d7931b5903365877fa198908a7c"
       },
       {
         "path": "research/blueprint/papers/PAPER-MERKURJEV-SCAVIA-26.result.json",
@@ -9260,6 +10134,16 @@
         "sha256": "5ac2634a427f36464f2cf3a5ba875ecac61056da298e6b6720f61c26518c7be8"
       },
       {
+        "path": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+        "sha": "665a1192cf1345bbed282cd12d79430d4313846f",
+        "sha256": "af53ee05983327eb630c005f2c2dd9f0d4ef43ac8815e8ebf98d6171ef7adcbf"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-QIAN-23.result.json",
+        "sha": "dcc8308825b91c9b71ca0e5f054be30dfad8b49b",
+        "sha256": "afba5ee0e43bd302d2095b8d4a6eb07e7d3f494edaafde4cae63fed89ba85f95"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
         "sha": "387e75ded00f40f445f99b3ad0d4bc9ae02d8cf2",
         "sha256": "8a514da88020faa979fa31bd44d947f5927f641cf16fb92ae181f74018c1e11e"
@@ -9270,9 +10154,14 @@
         "sha256": "6036b2173c93064811fc20a38d835bea3e0409554c658c6d38b32cd129d9cf2f"
       },
       {
+        "path": "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+        "sha": "be604164c4cb108016ca164b5254af13829b3c8c",
+        "sha256": "a79e327425e49e57aaec5dc2f32e249a049bc0349a8efb07a0eb1f729d996fc1"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-SCHROER-23.result.json",
-        "sha": "115871f77ebc17511d2a863ad24a458a37ad1aa6",
-        "sha256": "01668270287c0e54964a27f1243bd31d9ffabf99b34133be86b88a2ee2a9d6ee"
+        "sha": "3fba1f53e831c526b9b19b76626ff7b8111f4e04",
+        "sha256": "b065328d94eb17f516041ac9ba7c258a14348fd3625b8e4fe3d7a2f6e53a32a9"
       },
       {
         "path": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
@@ -9296,13 +10185,18 @@
       },
       {
         "path": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
-        "sha": "d73163114bb0f5d83dabd978ff2522566e9e309f",
-        "sha256": "26ade5664e28b403060f05568a5f21ac73d94fd70dcbb15be83cefeaa2e47f01"
+        "sha": "84ccb6227c2b25fd3f70c887ab313a56f671b32a",
+        "sha256": "1c212aa499316e7fb07e166f865dbd4cef0f4737fddbf14665474b3d29b5c445"
       },
       {
         "path": "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
         "sha": "e73047ad64a772ec32763226ce7013fa9ff3206d",
         "sha256": "baa320b0a9c43792fd14b881e62fd3c954d2bea86888204bbafb9bd08769e9fc"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
+        "sha": "6214b1a302e54c91112be02674a583cd10c11504",
+        "sha256": "ec0d388a7a6bba461f2965366e2cd41e517c5b658a670c57f0990ef2b67a27b6"
       },
       {
         "path": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
@@ -9315,24 +10209,59 @@
         "sha256": "068e6dca31d6c49281d73977a956332899385f6fa81e2271fe8246596afb81c1"
       },
       {
+        "path": "research/blueprint/papers/PAPER-WEI-26.result.json",
+        "sha": "5d8d860f54253faa001f2733a8dd59b0f0c76316",
+        "sha256": "89611f9fc241a6f0e3ec31550369bfe34a095a9d0bde4eaf53857e66cd0129ec"
+      },
+      {
         "path": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
-        "sha": "c3f8aa7046d3be6884608ac570db719e01f28345",
-        "sha256": "9462a699934685cd2c9df8eca60c28d5128f13717a6da4f8c33a335a6982005a"
+        "sha": "30627735ff986ed0d24653064bf166dbe0bf2737",
+        "sha256": "e339d46ddd854e199b03f553d18b25d292765779ab57e692bb18732778156a7f"
       },
       {
         "path": "research/blueprint/papers/PAPER-WOOD-19.result.json",
-        "sha": "8009e952deee4951f5e243ec283f9fd416ec9f51",
-        "sha256": "298858c3a65c4637d789343648ad794cf55d8d7b3e79e6d934373994c5a821a9"
+        "sha": "bda1866bac01cce9fc8e749c30e8dea6a8604fa2",
+        "sha256": "1c5a35708cad0c3132918037f8b35cdc3665e44335602f8c10f497edef48d255"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-XU-ZHU-22.result.json",
+        "sha": "63c918dee785472bada63dcfdd5acaf83231b25e",
+        "sha256": "b80a435faaa1b6ef9555d27ee2a7efdd0296d227c065a2af6fe7924c79590cdb"
       },
       {
         "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
-        "sha": "c42d6de0b3382d1f29473a0074e4f79ee70dee42",
-        "sha256": "8dcb71352a71baf8a9b9e7ab3c6bf28e044050c2136b9003166b60ac5b80b451"
+        "sha": "83758e777b0cbaeee03e5674b29cecd1a58ad222",
+        "sha256": "a402f63a1f3705d9207de7f62abb1105723af1f1ebe3fe15ecd79889e1201dc4"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-YU-23.result.json",
+        "sha": "a8281dc5adb6dd2d2f901b6bf2ec697812a8461e",
+        "sha256": "18a82f167a611db9f9bd1d172425b3adac043b488e1bf7b10b6e05a24b423942"
       },
       {
         "path": "research/blueprint/papers/PAPER-YUAN-26.result.json",
         "sha": "720390f75cc3e9f6cf1ce653ee846f50c4b18b65",
         "sha256": "910583aa64edb9274495d7cc5191811d11f255afecec56394a8b928910db2b0c"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
+        "sha": "f1ea9c86e56860fa050efffb82e19b1e9a3abd4e",
+        "sha256": "86e9473fab28539d8c0aa5183cbf5b2b0c18afb763efdde98de086a2621477e0"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+        "sha": "98edfcbdd7a28e7bbbf8ed62a8aa0b796a2e8ed2",
+        "sha256": "86e3b38b6f3bff0e91999c5c74652df96ef71133fa455bbac65052ae33d88713"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+        "sha": "61801748ad31d0bebdfa955612ce1b41eca4e3db",
+        "sha256": "91eb7ac9e8869f9bb3be3f83b289bc301c91219758d64448e5d18ff157e3a7ef"
+      },
+      {
+        "path": "research/blueprint/papers/PAPER-ZHANG-21.result.json",
+        "sha": "38ed0869413b356446decce7c30b394e9fde89e2",
+        "sha256": "20e10f9f15a3f71f6d70a7a8609b3a1cdfc4544aed59231efa382ab13c69e77e"
       },
       {
         "path": "research/blueprint/papers/PAPER-ZHU-17.result.json",
@@ -9794,6 +10723,105 @@
           }
         ],
         "checked": "Statement and ambient hypotheses read at the pinned source in this worker session."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_continuous_section",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/Section.lean",
+        "line": 220,
+        "lastLine": 260,
+        "sha256": "3ff5ecc5274f52b0f242667cd521a778db892885ad828e28b68c4556007dee4c",
+        "statementRead": "/-- **Continuous sections of profinite quotients** (Ribes-Zalesskii, Proposition 2.2.2). For a\nclosed subgroup `H` of a profinite group `G` the quotient map `G → G ⧸ H` has a continuous section\nsending the identity coset to `1`. This is the statement that the transgression of a five-term\nexact sequence, the exactness of coinduction and the inverse in Shapiro's lemma all lift through;\nfor an *open* subgroup the finite transversal `Quotient.out` already suffices, and this statement\nis not needed. -/\ntheorem exists_continuous_section [CompactSpace G] [TotallyDisconnectedSpace G]\n    (H : Subgroup G) (hH : IsClosed (H : Set G)) :\n    ∃ s : G ⧸ H → G, Continuous s ∧ (∀ x : G ⧸ H, (QuotientGroup.mk (s x) : G ⧸ H) = x) ∧\n      s (QuotientGroup.mk 1) = 1 := by\n  obtain ⟨C, hCclosed, hC⟩ := Subgroup.exists_isClosed_isComplement_left H hH\n  have : IsClosed (H : Set G) := hH\n  have : CompactSpace C := isCompact_iff_compactSpace.mp hCclosed.isCompact\n  have hcont : Continuous fun x : C => (QuotientGroup.mk (x : G) : G ⧸ H) :=\n    QuotientGroup.continuous_mk.comp continuous_subtype_val\n  let e : C ≃ₜ G ⧸ H :=\n    Continuous.homeoOfEquivCompactToT2 (f := hC.leftQuotientEquiv.symm) hcont\n  set s₀ : G ⧸ H → G := fun q => ((e.symm q : C) : G)\n  have hs₀sec : ∀ q, (QuotientGroup.mk (s₀ q) : G ⧸ H) = q :=\n    hC.quotientGroupMk_leftQuotientEquiv\n  have hmem : s₀ (QuotientGroup.mk 1) ∈ H := by\n    have := hs₀sec (QuotientGroup.mk 1)\n    rw [QuotientGroup.eq, mul_one] at this\n    simpa using H.inv_mem this\n  refine ⟨fun q => s₀ q * (s₀ (QuotientGroup.mk 1))⁻¹,\n    (continuous_subtype_val.comp e.symm.continuous).mul continuous_const, fun q => ?_, by simp⟩\n  calc (QuotientGroup.mk (s₀ q * (s₀ (QuotientGroup.mk 1))⁻¹) : G ⧸ H)\n      = QuotientGroup.mk (s₀ q) := (QuotientGroup.eq.mpr (by simpa using H.inv_mem hmem)).symm\n    _ = q := hs₀sec q\n\n/-- **The continuous section of a projection between quotients of a profinite group.** For subgroups\n`K ≤ H` of a profinite group with `H` closed, the projection `G ⧸ K → G ⧸ H` has a continuous\nsection normalized at the identity coset. -/\ntheorem exists_continuous_section_of_le [CompactSpace G] [TotallyDisconnectedSpace G]\n    {K H : Subgroup G} (hKH : K ≤ H) (hH : IsClosed (H : Set G)) :\n    ∃ s : G ⧸ H → G ⧸ K, Continuous s ∧\n      (∀ x : G ⧸ H, Subgroup.quotientMapOfLE hKH (s x) = x) ∧\n      s (QuotientGroup.mk 1) = QuotientGroup.mk 1 := by\n  obtain ⟨t, hcont, hsec, h1⟩ := exists_continuous_section H hH\n  exact ⟨fun x => QuotientGroup.mk (t x), QuotientGroup.continuous_mk.comp hcont,\n    fun x => by rw [Subgroup.quotientMapOfLE_apply_mk]; exact hsec x, by simp [h1]⟩",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_continuous_section_of_le",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/Section.lean",
+        "line": 220,
+        "lastLine": 260,
+        "sha256": "3ff5ecc5274f52b0f242667cd521a778db892885ad828e28b68c4556007dee4c",
+        "statementRead": "/-- **Continuous sections of profinite quotients** (Ribes-Zalesskii, Proposition 2.2.2). For a\nclosed subgroup `H` of a profinite group `G` the quotient map `G → G ⧸ H` has a continuous section\nsending the identity coset to `1`. This is the statement that the transgression of a five-term\nexact sequence, the exactness of coinduction and the inverse in Shapiro's lemma all lift through;\nfor an *open* subgroup the finite transversal `Quotient.out` already suffices, and this statement\nis not needed. -/\ntheorem exists_continuous_section [CompactSpace G] [TotallyDisconnectedSpace G]\n    (H : Subgroup G) (hH : IsClosed (H : Set G)) :\n    ∃ s : G ⧸ H → G, Continuous s ∧ (∀ x : G ⧸ H, (QuotientGroup.mk (s x) : G ⧸ H) = x) ∧\n      s (QuotientGroup.mk 1) = 1 := by\n  obtain ⟨C, hCclosed, hC⟩ := Subgroup.exists_isClosed_isComplement_left H hH\n  have : IsClosed (H : Set G) := hH\n  have : CompactSpace C := isCompact_iff_compactSpace.mp hCclosed.isCompact\n  have hcont : Continuous fun x : C => (QuotientGroup.mk (x : G) : G ⧸ H) :=\n    QuotientGroup.continuous_mk.comp continuous_subtype_val\n  let e : C ≃ₜ G ⧸ H :=\n    Continuous.homeoOfEquivCompactToT2 (f := hC.leftQuotientEquiv.symm) hcont\n  set s₀ : G ⧸ H → G := fun q => ((e.symm q : C) : G)\n  have hs₀sec : ∀ q, (QuotientGroup.mk (s₀ q) : G ⧸ H) = q :=\n    hC.quotientGroupMk_leftQuotientEquiv\n  have hmem : s₀ (QuotientGroup.mk 1) ∈ H := by\n    have := hs₀sec (QuotientGroup.mk 1)\n    rw [QuotientGroup.eq, mul_one] at this\n    simpa using H.inv_mem this\n  refine ⟨fun q => s₀ q * (s₀ (QuotientGroup.mk 1))⁻¹,\n    (continuous_subtype_val.comp e.symm.continuous).mul continuous_const, fun q => ?_, by simp⟩\n  calc (QuotientGroup.mk (s₀ q * (s₀ (QuotientGroup.mk 1))⁻¹) : G ⧸ H)\n      = QuotientGroup.mk (s₀ q) := (QuotientGroup.eq.mpr (by simpa using H.inv_mem hmem)).symm\n    _ = q := hs₀sec q\n\n/-- **The continuous section of a projection between quotients of a profinite group.** For subgroups\n`K ≤ H` of a profinite group with `H` closed, the projection `G ⧸ K → G ⧸ H` has a continuous\nsection normalized at the identity coset. -/\ntheorem exists_continuous_section_of_le [CompactSpace G] [TotallyDisconnectedSpace G]\n    {K H : Subgroup G} (hKH : K ≤ H) (hH : IsClosed (H : Set G)) :\n    ∃ s : G ⧸ H → G ⧸ K, Continuous s ∧\n      (∀ x : G ⧸ H, Subgroup.quotientMapOfLE hKH (s x) = x) ∧\n      s (QuotientGroup.mk 1) = QuotientGroup.mk 1 := by\n  obtain ⟨t, hcont, hsec, h1⟩ := exists_continuous_section H hH\n  exact ⟨fun x => QuotientGroup.mk (t x), QuotientGroup.continuous_mk.comp hcont,\n    fun x => by rw [Subgroup.quotientMapOfLE_apply_mk]; exact hsec x, by simp [h1]⟩",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.isMittagLeffler_of_exists_finite_range",
+        "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+        "line": 230,
+        "lastLine": 265,
+        "sha256": "8eefa76f38bbefc7d03d7973d8fcea24779ecfd217c488eb896e04d4872bf80b",
+        "statementRead": "theorem isMittagLeffler_of_exists_finite_range\n    (h : ∀ j : J, ∃ (i : _) (f : i ⟶ j), (range <| F.map f).Finite) : F.IsMittagLeffler := by\n  intro j\n  obtain ⟨i, hi, hf⟩ := h j\n  obtain ⟨m, ⟨i, f, hm⟩, hmin⟩ := Finset.wellFoundedLT.wf.has_min\n    { s : Finset (F.obj j) | ∃ (i : _) (f : i ⟶ j), ↑s = range (F.map f) }\n    ⟨_, i, hi, hf.coe_toFinset⟩\n  refine ⟨i, f, fun k g =>\n    (F.ranges_directed j).directedOn_range.is_bot_of_is_min ⟨⟨i, f⟩, rfl⟩ ?_ _ ⟨⟨k, g⟩, rfl⟩⟩\n  rintro _ ⟨⟨k', g'⟩, rfl⟩ hl\n  refine (eq_of_le_of_not_lt hl ?_).ge\n  have := hmin _ ⟨k', g', (m.finite_toSet.subset <| hm.substr hl).coe_toFinset⟩\n  rwa [← Finset.coe_ssubset, Set.Finite.coe_toFinset, hm] at this\n\n/-- The subfunctor of `F` obtained by restricting to the eventual range at each index. -/\n@[simps obj map]\ndef toEventualRanges : J ⥤ Type v where\n  obj j := F.eventualRange j\n  map f := ↾((F.eventualRange_mapsTo f).restrict _ _ _)\n\ninstance toEventualRanges_finite [∀ j, Finite (F.obj j)] : ∀ j, Finite (F.toEventualRanges.obj j) :=\n  fun _ => Subtype.finite\n\n/-- The sections of the functor `F : J ⥤ Type v` are in bijection with the sections of\n`F.toEventualRanges`. -/\ndef toEventualRangesSectionsEquiv : F.toEventualRanges.sections ≃ F.sections where\n  toFun s := ⟨_, fun f => Subtype.coe_inj.2 <| s.prop f⟩\n  invFun s :=\n    ⟨fun _ => ⟨_, mem_iInter₂.2 fun _ f => ⟨_, s.prop f⟩⟩, fun f => Subtype.ext <| s.prop f⟩\n\n/-- If `F` satisfies the Mittag-Leffler condition, its restriction to eventual ranges is a\nsurjective functor. -/\ntheorem surjective_toEventualRanges (h : F.IsMittagLeffler) ⦃i j⦄ (f : i ⟶ j) :\n    Function.Surjective (F.toEventualRanges.map f) := fun ⟨x, hx⟩ => by\n  obtain ⟨y, hy, rfl⟩ := h.subset_image_eventualRange F f hx\n  exact ⟨⟨y, hy⟩, rfl⟩",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.toEventualRangesSectionsEquiv",
+        "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+        "line": 230,
+        "lastLine": 265,
+        "sha256": "8eefa76f38bbefc7d03d7973d8fcea24779ecfd217c488eb896e04d4872bf80b",
+        "statementRead": "theorem isMittagLeffler_of_exists_finite_range\n    (h : ∀ j : J, ∃ (i : _) (f : i ⟶ j), (range <| F.map f).Finite) : F.IsMittagLeffler := by\n  intro j\n  obtain ⟨i, hi, hf⟩ := h j\n  obtain ⟨m, ⟨i, f, hm⟩, hmin⟩ := Finset.wellFoundedLT.wf.has_min\n    { s : Finset (F.obj j) | ∃ (i : _) (f : i ⟶ j), ↑s = range (F.map f) }\n    ⟨_, i, hi, hf.coe_toFinset⟩\n  refine ⟨i, f, fun k g =>\n    (F.ranges_directed j).directedOn_range.is_bot_of_is_min ⟨⟨i, f⟩, rfl⟩ ?_ _ ⟨⟨k, g⟩, rfl⟩⟩\n  rintro _ ⟨⟨k', g'⟩, rfl⟩ hl\n  refine (eq_of_le_of_not_lt hl ?_).ge\n  have := hmin _ ⟨k', g', (m.finite_toSet.subset <| hm.substr hl).coe_toFinset⟩\n  rwa [← Finset.coe_ssubset, Set.Finite.coe_toFinset, hm] at this\n\n/-- The subfunctor of `F` obtained by restricting to the eventual range at each index. -/\n@[simps obj map]\ndef toEventualRanges : J ⥤ Type v where\n  obj j := F.eventualRange j\n  map f := ↾((F.eventualRange_mapsTo f).restrict _ _ _)\n\ninstance toEventualRanges_finite [∀ j, Finite (F.obj j)] : ∀ j, Finite (F.toEventualRanges.obj j) :=\n  fun _ => Subtype.finite\n\n/-- The sections of the functor `F : J ⥤ Type v` are in bijection with the sections of\n`F.toEventualRanges`. -/\ndef toEventualRangesSectionsEquiv : F.toEventualRanges.sections ≃ F.sections where\n  toFun s := ⟨_, fun f => Subtype.coe_inj.2 <| s.prop f⟩\n  invFun s :=\n    ⟨fun _ => ⟨_, mem_iInter₂.2 fun _ f => ⟨_, s.prop f⟩⟩, fun f => Subtype.ext <| s.prop f⟩\n\n/-- If `F` satisfies the Mittag-Leffler condition, its restriction to eventual ranges is a\nsurjective functor. -/\ntheorem surjective_toEventualRanges (h : F.IsMittagLeffler) ⦃i j⦄ (f : i ⟶ j) :\n    Function.Surjective (F.toEventualRanges.map f) := fun ⟨x, hx⟩ => by\n  obtain ⟨y, hy, rfl⟩ := h.subset_image_eventualRange F f hx\n  exact ⟨⟨y, hy⟩, rfl⟩",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.surjective_toEventualRanges",
+        "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+        "line": 230,
+        "lastLine": 265,
+        "sha256": "8eefa76f38bbefc7d03d7973d8fcea24779ecfd217c488eb896e04d4872bf80b",
+        "statementRead": "theorem isMittagLeffler_of_exists_finite_range\n    (h : ∀ j : J, ∃ (i : _) (f : i ⟶ j), (range <| F.map f).Finite) : F.IsMittagLeffler := by\n  intro j\n  obtain ⟨i, hi, hf⟩ := h j\n  obtain ⟨m, ⟨i, f, hm⟩, hmin⟩ := Finset.wellFoundedLT.wf.has_min\n    { s : Finset (F.obj j) | ∃ (i : _) (f : i ⟶ j), ↑s = range (F.map f) }\n    ⟨_, i, hi, hf.coe_toFinset⟩\n  refine ⟨i, f, fun k g =>\n    (F.ranges_directed j).directedOn_range.is_bot_of_is_min ⟨⟨i, f⟩, rfl⟩ ?_ _ ⟨⟨k, g⟩, rfl⟩⟩\n  rintro _ ⟨⟨k', g'⟩, rfl⟩ hl\n  refine (eq_of_le_of_not_lt hl ?_).ge\n  have := hmin _ ⟨k', g', (m.finite_toSet.subset <| hm.substr hl).coe_toFinset⟩\n  rwa [← Finset.coe_ssubset, Set.Finite.coe_toFinset, hm] at this\n\n/-- The subfunctor of `F` obtained by restricting to the eventual range at each index. -/\n@[simps obj map]\ndef toEventualRanges : J ⥤ Type v where\n  obj j := F.eventualRange j\n  map f := ↾((F.eventualRange_mapsTo f).restrict _ _ _)\n\ninstance toEventualRanges_finite [∀ j, Finite (F.obj j)] : ∀ j, Finite (F.toEventualRanges.obj j) :=\n  fun _ => Subtype.finite\n\n/-- The sections of the functor `F : J ⥤ Type v` are in bijection with the sections of\n`F.toEventualRanges`. -/\ndef toEventualRangesSectionsEquiv : F.toEventualRanges.sections ≃ F.sections where\n  toFun s := ⟨_, fun f => Subtype.coe_inj.2 <| s.prop f⟩\n  invFun s :=\n    ⟨fun _ => ⟨_, mem_iInter₂.2 fun _ f => ⟨_, s.prop f⟩⟩, fun f => Subtype.ext <| s.prop f⟩\n\n/-- If `F` satisfies the Mittag-Leffler condition, its restriction to eventual ranges is a\nsurjective functor. -/\ntheorem surjective_toEventualRanges (h : F.IsMittagLeffler) ⦃i j⦄ (f : i ⟶ j) :\n    Function.Surjective (F.toEventualRanges.map f) := fun ⟨x, hx⟩ => by\n  obtain ⟨y, hy, rfl⟩ := h.subset_image_eventualRange F f hx\n  exact ⟨⟨y, hy⟩, rfl⟩",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.Extension",
+        "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+        "line": 155,
+        "lastLine": 175,
+        "sha256": "dd78a7719ac3dd8f60d752068baac01c18c2247c3f72840aacfc998cbac3871e",
+        "statementRead": "namespace Extension\n\nvariable {α : FactorSet G M}\n\ninstance instMul : Mul α.Extension where\n  mul x y := ⟨x.left * x.right • y.left * α (x.right, y.right), x.right * y.right⟩\n\n@[simp]\ntheorem mul_left (x y : α.Extension) :\n    (x * y).left = x.left * x.right • y.left * α (x.right, y.right) :=\n  rfl\n\n@[simp]\ntheorem mul_right (x y : α.Extension) : (x * y).right = x.right * y.right := rfl\n\ninstance instOne : One α.Extension where one := ⟨1, 1⟩\n\n@[simp] theorem one_left : (1 : α.Extension).left = 1 := rfl\n\n@[simp] theorem one_right : (1 : α.Extension).right = 1 := rfl\n",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.groupExtension",
+        "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+        "line": 256,
+        "lastLine": 269,
+        "sha256": "dd78a7719ac3dd8f60d752068baac01c18c2247c3f72840aacfc998cbac3871e",
+        "statementRead": "/-- The group extension `1 → M → E_α → G → 1` determined by a factor set. -/\ndef groupExtension : GroupExtension M α.Extension G where\n  inl := inl α\n  rightHom := rightHom α\n  inl_injective := inl_injective α\n  range_inl_eq_ker_rightHom := range_inl_eq_ker_rightHom α\n  rightHom_surjective := rightHom_surjective α\n\n@[simp] theorem groupExtension_inl : α.groupExtension.inl = inl α := (rfl)\n\n@[simp] theorem groupExtension_rightHom : α.groupExtension.rightHom = rightHom α := (rfl)\n\n/-- The canonical set-theoretic section `g ↦ ⟨1, g⟩` of the projection. It fails to be a\nhomomorphism by exactly `α`; see `TauCeti.FactorSet.canonicalSection_mul`. -/",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.rescaleEquiv",
+        "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+        "line": 314,
+        "lastLine": 350,
+        "sha256": "dd78a7719ac3dd8f60d752068baac01c18c2247c3f72840aacfc998cbac3871e",
+        "statementRead": "\nvariable (α β : FactorSet G M) (x : G → M)\n  (hx : ∀ g h : G, α (g, h) * x (g * h) = β (g, h) * (g • x h * x g))\n\ninclude hx\n\n/-- A rescaling turning one factor set into another is normalized. -/\ntheorem rescale_one : x 1 = 1 := by simpa using hx 1 1\n\n/-- **Rescaling the canonical section by `x` turns the extension built from `α` into the one built\nfrom `β`.** The hypothesis says that `α` and `β` differ by the coboundary of `x`; see\n`TauCeti.FactorSet.nonempty_groupExtensionEquiv`. -/\ndef rescaleEquiv : α.groupExtension.Equiv β.groupExtension where\n  toFun y := ⟨y.left * x y.right, y.right⟩\n  invFun y := ⟨y.left * (x y.right)⁻¹, y.right⟩\n  left_inv _ := by ext <;> simp\n  right_inv _ := by ext <;> simp\n  map_mul' y z := by\n    ext\n    · simp only [Extension.mul_left, Extension.mul_right]\n      rw [mul_assoc, hx, smul_mul']\n      ac_rfl\n    · rfl\n  inl_comm := by\n    funext a\n    ext\n    · simp only [Function.comp_apply, MulEquiv.coe_mk, Equiv.coe_fn_mk, groupExtension_inl,\n        inl_left, inl_right, rescale_one α β x hx, mul_one]\n    · rfl\n  rightHom_comm := rfl\n\n@[simp]\ntheorem rescaleEquiv_apply (y : α.Extension) :\n    rescaleEquiv α β x hx y = ⟨y.left * x y.right, y.right⟩ :=\n  (rfl)\n\n@[simp]",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.exists_continuous_lift",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean",
+        "line": 132,
+        "lastLine": 157,
+        "sha256": "8af2d3881fe8a516ee67c5a33b1a3a5d2b4344c7b7eca81fa2f5db4f5c926a25",
+        "statementRead": "variable {X : Type w} {B : Type vB} {C : Type vC} {p : B → C}\n\n/-- The canonical lift of a cochain along a surjection: compose it with `Function.surjInv`. -/\nprivate noncomputable def liftCochain (hp : Function.Surjective p) (f : X → C) : X → B :=\n  fun x => Function.surjInv hp (f x)\n\n/-- The canonical lift lies over the cochain it lifts. Not a `simp` lemma: the head of its\nleft-hand side is the variable `p`. -/\nprivate theorem apply_liftCochain (hp : Function.Surjective p) (f : X → C) (x : X) :\n    p (liftCochain hp f x) = f x := Function.surjInv_eq hp (f x)\n\nvariable [TopologicalSpace X] [TopologicalSpace B] [TopologicalSpace C] [DiscreteTopology C]\n\n/-- The canonical lift of a continuous cochain is continuous, the target being discrete. -/\nprivate theorem continuous_liftCochain (hp : Function.Surjective p) {f : X → C}\n    (hf : Continuous f) : Continuous (liftCochain hp f) :=\n  (continuous_of_discreteTopology (f := Function.surjInv hp)).comp hf\n\n/-- **A continuous cochain lifts along any surjection onto a discrete space.** Discreteness of the\ntarget is the sufficient hypothesis used here: `f` is locally constant, so composing it with any\nset-theoretic section of `p` is continuous again. Stated on an arbitrary topological space and for\na bare surjection, hence in every degree at once. -/\ntheorem exists_continuous_lift (hp : Function.Surjective p) {f : X → C} (hf : Continuous f) :\n    ∃ e : X → B, Continuous e ∧ ∀ x, p (e x) = f x :=\n  ⟨liftCochain hp f, continuous_liftCochain hp hf, apply_liftCochain hp f⟩\n",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitInfl1_injective",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "line": 188,
+        "lastLine": 240,
+        "sha256": "a7226d1a2125579ffb7bd8929eb54e9014f5d616b80ba6d66de4bee6edb4eed8",
+        "statementRead": "variable (G : Type u) [Group G] [TopologicalSpace G]\n  (M : Type v) [AddCommGroup M] [TopologicalSpace M] [IsTopologicalAddGroup M]\n  [DistribMulAction G M] [ContinuousSMul G M]\n  (N : Subgroup G) [N.Normal] [ContinuousSMul (G ⧸ N) (FixedPoints.addSubgroup N M)]\n\n/-- **Inflation in degree one**: the compatible-pair pullback along the quotient homomorphism\n`G → G ⧸ N`, with the invariants `M ^ N` as coefficients. -/\nnoncomputable def explicitInfl1 :\n    H1 (G ⧸ N) (FixedPoints.addSubgroup N M) →+ H1 G M :=\n  explicitMap1 (G ⧸ N) (FixedPoints.addSubgroup N M) G M (ContinuousMonoidHom.quotientMk N)\n    (FixedPoints.addSubgroup N M).subtype (continuous_fixedPoints_addSubgroup_subtype G M N)\n    (subtype_quotientMk_smul G M N)\n\n/-- Inflation sends the class of a continuous `1`-cocycle on `G ⧸ N` to the class of the cocycle\nit inflates to; `TauCeti.ContCohomology.cocyclesMap1_apply` evaluates the latter. -/\n@[simp]\ntheorem explicitInfl1_mk (c : Z1 (G ⧸ N) (FixedPoints.addSubgroup N M)) :\n    explicitInfl1 G M N (c : H1 (G ⧸ N) (FixedPoints.addSubgroup N M)) =\n      (cocyclesMap1 (G ⧸ N) (FixedPoints.addSubgroup N M) G M (ContinuousMonoidHom.quotientMk N)\n        (FixedPoints.addSubgroup N M).subtype (continuous_fixedPoints_addSubgroup_subtype G M N)\n        (subtype_quotientMk_smul G M N) c : H1 G M) :=\n  explicitMap1_mk _ _ _ _ _ _ _ _ c\n\n/-- Inflation in degree one is the compatible-pair pullback along the quotient homomorphism\n`G → G ⧸ N` and the inclusion of the invariants `M ^ N` into `M`. -/\ntheorem explicitInfl1_eq_explicitMap1 :\n    explicitInfl1 G M N =\n      explicitMap1 (G ⧸ N) (FixedPoints.addSubgroup N M) G M (ContinuousMonoidHom.quotientMk N)\n        (FixedPoints.addSubgroup N M).subtype (continuous_fixedPoints_addSubgroup_subtype G M N)\n        (subtype_quotientMk_smul G M N) := by\n  rw [explicitInfl1]\n\n/-- **Restriction to `N` kills inflation in degree one**, the first half of the\ninflation-restriction sequence: the inflation of a cocycle restricts to the zero cochain on `N`,\nbecause a continuous `1`-cocycle vanishes at `1`. -/\ntheorem explicitRes1_comp_explicitInfl1 :\n    (explicitRes1 G M N).comp (explicitInfl1 G M N) = 0 := by\n  refine AddMonoidHom.ext fun x => ?_\n  induction x using QuotientAddGroup.induction_on with\n  | _ c =>\n    rw [AddMonoidHom.comp_apply, explicitInfl1_mk, explicitRes1_mk, AddMonoidHom.zero_apply,\n      H1pi_eq_zero_iff, mem_B1_iff]\n    refine ⟨0, fun n => ?_⟩\n    rw [cocyclesMap1_apply, cocyclesMap1_apply]\n    simp [quotientMk_coe_eq_one n, map_one_of_mem_Z1 c.2]\n\n/-- **Inflation is injective in degree one.** A cocycle on `G ⧸ N` whose inflation is the\ncoboundary of `m : M` has `m` fixed by `N`, so it is already the coboundary of `m` viewed in\n`M ^ N`. -/\ntheorem explicitInfl1_injective : Function.Injective (explicitInfl1 G M N) := by\n  rw [injective_iff_map_eq_zero]\n  intro x hx\n  induction x using QuotientAddGroup.induction_on with",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitInfRes_exact",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean",
+        "line": 331,
+        "lastLine": 361,
+        "sha256": "a7226d1a2125579ffb7bd8929eb54e9014f5d616b80ba6d66de4bee6edb4eed8",
+        "statementRead": "variable (G M N)\n\n/-- **Exactness of the inflation-restriction sequence at `H¹(G, M)`**: a continuous `1`-cocycle on\n`G` that becomes a coboundary on `N` is, after subtracting that coboundary, inflated from\n`G ⧸ N`. -/\ntheorem explicitInfRes_exact :\n    (explicitInfl1 G M N).range = (explicitRes1 G M N).ker := by\n  refine le_antisymm ((AddMonoidHom.range_le_ker_iff _ _).2\n    (explicitRes1_comp_explicitInfl1 G M N)) fun x hx => ?_\n  induction x using QuotientAddGroup.induction_on with\n  | _ c =>\n    rw [AddMonoidHom.mem_ker, explicitRes1_mk, H1pi_eq_zero_iff, mem_B1_iff] at hx\n    obtain ⟨m, hm⟩ := hx\n    -- Subtract the coboundary of `m`, so that the corrected cocycle `z` vanishes on `N`.\n    have hmB1 : d0 G M m ∈ B1 G M := mem_B1_iff.2 ⟨m, fun g => (d0_apply m g).symm⟩\n    set z : Z1 G M := c - ⟨d0 G M m, B1_le_Z1 G M hmB1⟩ with hzdef\n    have hzc : (z : H1 G M) = (c : H1 G M) := by\n      rw [H1pi_eq_iff, hzdef]\n      simpa using neg_mem hmB1\n    have hzN : ∀ n : N, (z : G → M) (n : G) = 0 := by\n      intro n\n      -- The `↥N`-action on `M` is the restriction of the `G`-action, so `hm n` may be read with\n      -- the ambient scalar; Mathlib's `Submonoid.smul_def` is stated for a `Submonoid` and does\n      -- not fire on a `Subgroup`.\n      have h : (n : G) • m - m = (c : G → M) (n : G) := by\n        have hn := hm n\n        rw [cocyclesMap1_apply] at hn\n        simp only [ContinuousMonoidHom.subgroupSubtype_apply, AddMonoidHom.id_apply] at hn\n        exact hn\n      simp [hzdef, ← h]\n    exact ⟨(descendZ1 z hzN : H1 (G ⧸ N) (FixedPoints.addSubgroup N M)),",
+        "checked": "Actual statement and surrounding hypotheses freshly read at the pinned commit; library credit is limited to the stated scope."
       }
     ],
     "reviewedAuditRead": {
@@ -10212,7 +11240,26 @@
       }
     },
     "searchScope": "Searched both entire pinned library trees for rigid-inner, strong-real-form, unbalanced-cup and Tate–Nakayama names; none found. Read actual continuous cochain, Kummer, low Tate and abstract extension declarations. Read all current paper route summaries matching rigid/endoscopic/cohomological directions and the complete GWZ geometric-stabilization brief. Name-search absence alone was not used as proof.",
-    "lateInputReview": "PAPER-DASGUPTA-KAKDE-VENTULLO-18 summary and all routes read after the previous extraction; Gross–Stark/Iwasawa continuation is distinct. The GLX own extraction adds no rigid gerbe or real packet owner. Ten later inputs were also checked before publication: new Bright–Newton23,Disegni–Liu24,Farb–Kisin–Wolfson24,Iyengar–Khare–Manning24,Khayutin19,Treumann–Venkatesh16,Yang–Zhao25 and updates to Bhargava–Shankar–Taniguchi20,Li–Liu21,Li–Liu22. Their full summaries and route lists were read; the sigma-dual homomorphism brief was read in full. The mod-p Smith/Heisenberg and dual-norm lanes, wild Brauer evaluation and unitary arithmetic inner products do not own rigid gerbes or real tempered packets. Shared local duality and dual groups remain imported."
+    "lateInputReview": "PAPER-DASGUPTA-KAKDE-VENTULLO-18 summary and all routes read after the previous extraction; Gross–Stark/Iwasawa continuation is distinct. The GLX own extraction adds no rigid gerbe or real packet owner. Ten later inputs were also checked before publication: new Bright–Newton23,Disegni–Liu24,Farb–Kisin–Wolfson24,Iyengar–Khare–Manning24,Khayutin19,Treumann–Venkatesh16,Yang–Zhao25 and updates to Bhargava–Shankar–Taniguchi20,Li–Liu21,Li–Liu22. Their full summaries and route lists were read; the sigma-dual homomorphism brief was read in full. The mod-p Smith/Heisenberg and dual-norm lanes, wild Brauer evaluation and unitary arithmetic inner products do not own rigid gerbes or real tempered packets. Shared local duality and dual groups remain imported.",
+    "continuationAudit": {
+      "reviewedCoverage": [
+        "ArithmeticGaloisDuality:R02.1 and D7 target records read in full",
+        "ProfiniteCohomology Layer0 audit read in full",
+        "ClassFieldTheory Layer5 targets read in full",
+        "LocalFieldsRamification Layer1 power-class/openness targets read"
+      ],
+      "roadmaps": "Full ArithmeticGaloisDuality README freshly read; ProfiniteCohomology Layers0–1, ClassFieldTheory Layer5 and LocalFieldsRamification Layer1 relevant targets freshly read. Prior broader ownership reads retained, not claimed repeated.",
+      "searches": "Pinned Mathlib group extensions, cofiltered systems, profinite topology and continuous cohomology; TauCeti GroupExtension, ContCohomology, profinite Section and local-field PowerSubgroup/Henselian files. No general lim¹/Milnor or profinite factor-set topology found in those searched areas. Absence is scoped, not inferred from a name search alone.",
+      "crossPaper": "CHT item154 already supplies the exact degree-one finite-tower comparison at R02.1; imported by reference. No second cohomology carrier or new roadmap is proposed.",
+      "localBoundary": "ClassFieldTheory Layer5 forbids a local-reciprocity dependency. The degree-one finiteness proof here instead uses Kummer, finite power classes and inflation–restriction. NSW7.2.6 is not silently installed as that owner’s proof.",
+      "publicationRefresh": {
+        "inputs": 517,
+        "scope": "Checked changed item statements and routes against the generic compact-coefficient interfaces; this was not a full reread of the newly submitted papers.",
+        "kingsSprang": "Only the Part II Poincare-bundle ownership route changed substantively; the full changed route was read and does not overlap these interfaces.",
+        "schroer": "Screened the 78 changed item statements for profinite, inverse-limit, Schreier, Mittag-Leffler, power-class and finite-H1 interfaces; none matched. No claim of full extraction review.",
+        "newInputs": "Screened BeuzartPlessis–Chaudouard25, Colmez–Dospinescu–Niziol20 and Yun–Zhang19. Read CDN20 items 2-pro-discrete and 3-stein-limits and their full routes: these concern quasi-abelian topological-module categories and Banach–Colmez/convex-space limits, not the ordinary abelian-group Milnor comparison here. Their functional-analysis and VectorBundlesAndIsocrystals owners remain distinct; no duplicate category is proposed."
+      }
+    }
   },
   "validation": {
     "diagnostics": {
@@ -10276,12 +11323,210 @@
     },
     "leanCompiled": false,
     "implementationStatus": "unchecked",
-    "scope": "Paper extraction only. Finite diagnostics, source comparison and structural validation are not proof certification."
+    "scope": "Paper extraction only. Finite diagnostics, source comparison and structural validation are not proof certification.",
+    "continuation": {
+      "newDiagnostics": {
+        "status": "PASS",
+        "counts": {
+          "cyclicH2Order": 17,
+          "extensionAssociativity": 169696,
+          "extensionInverse": 784,
+          "continuousRescalingFiniteModel": 84848,
+          "innerAutomorphismQuotient": 60,
+          "innerAutomorphismSign": 5608,
+          "finiteDeltaRecursion": 96824,
+          "finiteDeltaBijective": 224,
+          "finiteStableImageSurjective": 209,
+          "lim1ObstructionCongruences": 80,
+          "deepUnitPowerContainment": 1269,
+          "scaledPolynomialIdentity": 5776
+        },
+        "total": 365395,
+        "scope": "Finite arithmetic checks only; infinite limits, continuity and local-field completeness use the written proofs."
+      },
+      "lean": "No Lean file requested or compiled; all proposed tests remain acceptance specifications.",
+      "preservation": "All 142 inherited IDs, 168 API names, 168 test names, seven routes and all 15 unreviewed findings are preserved.",
+      "structural": {
+        "result": "PASS",
+        "items": 156,
+        "statuses": {
+          "library": 21,
+          "planned": 24,
+          "missing": 111
+        },
+        "internalEdges": 336,
+        "externalStageEdges": 1,
+        "definitions": 59,
+        "apis": 177,
+        "tests": 177,
+        "inputHashes": 517,
+        "declarationHashes": 41
+      },
+      "topologicalOrder": [
+        "PAPER-KALETHA-16/L06",
+        "PAPER-KALETHA-16/L07",
+        "PAPER-KALETHA-16/L08",
+        "PAPER-KALETHA-16/L09",
+        "PAPER-KALETHA-16/L10",
+        "PAPER-KALETHA-16/L16",
+        "PAPER-KALETHA-16/L17",
+        "PAPER-KALETHA-16/L20",
+        "PAPER-KALETHA-16/L21",
+        "PAPER-KALETHA-16/L22",
+        "PAPER-KALETHA-16/L23",
+        "PAPER-KALETHA-16/L24",
+        "PAPER-KALETHA-16/L25",
+        "PAPER-KALETHA-16/L26",
+        "PAPER-KALETHA-16/L27",
+        "PAPER-KALETHA-16/L28",
+        "PAPER-KALETHA-16/P01",
+        "PAPER-KALETHA-16/P02",
+        "PAPER-KALETHA-16/P19",
+        "PAPER-KALETHA-16/L30",
+        "PAPER-KALETHA-16/P20",
+        "PAPER-KALETHA-16/L32",
+        "PAPER-KALETHA-16/P21",
+        "PAPER-KALETHA-16/P22",
+        "PAPER-KALETHA-16/P03",
+        "PAPER-KALETHA-16/P04",
+        "PAPER-KALETHA-16/P05",
+        "PAPER-KALETHA-16/P06",
+        "PAPER-KALETHA-16/P07",
+        "PAPER-KALETHA-16/P27",
+        "PAPER-KALETHA-16/P08",
+        "PAPER-KALETHA-16/P09",
+        "PAPER-KALETHA-16/P10",
+        "PAPER-KALETHA-16/P11",
+        "PAPER-KALETHA-16/P14",
+        "PAPER-KALETHA-16/R01",
+        "PAPER-KALETHA-16/P12",
+        "PAPER-KALETHA-16/P13",
+        "PAPER-KALETHA-16/P15",
+        "PAPER-KALETHA-16/P16",
+        "PAPER-KALETHA-16/P17",
+        "PAPER-KALETHA-16/D01",
+        "PAPER-KALETHA-16/T01",
+        "PAPER-KALETHA-16/T02",
+        "PAPER-KALETHA-16/L33",
+        "PAPER-KALETHA-16/P23",
+        "PAPER-KALETHA-16/T03",
+        "PAPER-KALETHA-16/T03R",
+        "PAPER-KALETHA-16/D02",
+        "PAPER-KALETHA-16/T04",
+        "PAPER-KALETHA-16/L31",
+        "PAPER-KALETHA-16/P24",
+        "PAPER-KALETHA-16/L29",
+        "PAPER-KALETHA-16/P25",
+        "PAPER-KALETHA-16/D03",
+        "PAPER-KALETHA-16/P26",
+        "PAPER-KALETHA-16/T05",
+        "PAPER-KALETHA-16/D04",
+        "PAPER-KALETHA-16/D05",
+        "PAPER-KALETHA-16/D06",
+        "PAPER-KALETHA-16/T06",
+        "PAPER-KALETHA-16/T07",
+        "PAPER-KALETHA-16/T08",
+        "PAPER-KALETHA-16/T04S",
+        "PAPER-KALETHA-16/T09",
+        "PAPER-KALETHA-16/T10",
+        "PAPER-KALETHA-16/T11",
+        "PAPER-KALETHA-16/T12",
+        "PAPER-KALETHA-16/T13",
+        "PAPER-KALETHA-16/T14",
+        "PAPER-KALETHA-16/D07",
+        "PAPER-KALETHA-16/T15",
+        "PAPER-KALETHA-16/D10",
+        "PAPER-KALETHA-16/D11",
+        "PAPER-KALETHA-16/T20",
+        "PAPER-KALETHA-16/D12",
+        "PAPER-KALETHA-16/D13",
+        "PAPER-KALETHA-16/D14",
+        "PAPER-KALETHA-16/T21",
+        "PAPER-KALETHA-16/T22",
+        "PAPER-KALETHA-16/D15",
+        "PAPER-KALETHA-16/T23",
+        "PAPER-KALETHA-16/D16",
+        "PAPER-KALETHA-16/D17",
+        "PAPER-KALETHA-16/T23B",
+        "PAPER-KALETHA-16/T24",
+        "PAPER-KALETHA-16/T24X",
+        "PAPER-KALETHA-16/T25",
+        "PAPER-KALETHA-16/D18",
+        "PAPER-KALETHA-16/T26",
+        "PAPER-KALETHA-16/T27",
+        "PAPER-KALETHA-16/T12F",
+        "PAPER-KALETHA-16/T28",
+        "PAPER-KALETHA-16/T29",
+        "PAPER-KALETHA-16/T30",
+        "PAPER-KALETHA-16/T31",
+        "PAPER-KALETHA-16/D20",
+        "PAPER-KALETHA-16/D21",
+        "PAPER-KALETHA-16/T40",
+        "PAPER-KALETHA-16/D22",
+        "PAPER-KALETHA-16/D23",
+        "PAPER-KALETHA-16/T41",
+        "PAPER-KALETHA-16/D24",
+        "PAPER-KALETHA-16/D25",
+        "PAPER-KALETHA-16/D26",
+        "PAPER-KALETHA-16/T42",
+        "PAPER-KALETHA-16/D27",
+        "PAPER-KALETHA-16/T43",
+        "PAPER-KALETHA-16/T44",
+        "PAPER-KALETHA-16/D30",
+        "PAPER-KALETHA-16/D31",
+        "PAPER-KALETHA-16/T50",
+        "PAPER-KALETHA-16/D32",
+        "PAPER-KALETHA-16/D33",
+        "PAPER-KALETHA-16/D34",
+        "PAPER-KALETHA-16/T51",
+        "PAPER-KALETHA-16/T52",
+        "PAPER-KALETHA-16/D35",
+        "PAPER-KALETHA-16/C01",
+        "PAPER-KALETHA-16/C02",
+        "PAPER-KALETHA-16/D36",
+        "PAPER-KALETHA-16/T53",
+        "PAPER-KALETHA-16/T54",
+        "PAPER-KALETHA-16/R02",
+        "PAPER-KALETHA-16/P18",
+        "PAPER-KALETHA-16/R03",
+        "PAPER-KALETHA-16/R04",
+        "PAPER-KALETHA-16/R05",
+        "PAPER-KALETHA-16/R06",
+        "PAPER-KALETHA-16/R07",
+        "PAPER-KALETHA-16/R08",
+        "PAPER-KALETHA-16/R09",
+        "PAPER-KALETHA-16/R10",
+        "PAPER-KALETHA-16/R10I",
+        "PAPER-KALETHA-16/R11",
+        "PAPER-KALETHA-16/R12",
+        "PAPER-KALETHA-16/R13",
+        "PAPER-KALETHA-16/R14",
+        "PAPER-KALETHA-16/R15",
+        "PAPER-KALETHA-16/R16",
+        "PAPER-KALETHA-16/R17",
+        "PAPER-KALETHA-16/R18",
+        "PAPER-KALETHA-16/R19",
+        "PAPER-KALETHA-16/R20",
+        "PAPER-KALETHA-16/G01",
+        "PAPER-KALETHA-16/G02",
+        "PAPER-KALETHA-16/G03",
+        "PAPER-KALETHA-16/G04",
+        "PAPER-KALETHA-16/G05",
+        "PAPER-KALETHA-16/G06",
+        "PAPER-KALETHA-16/G07",
+        "PAPER-KALETHA-16/G08",
+        "PAPER-KALETHA-16/G09",
+        "PAPER-KALETHA-16/G10",
+        "PAPER-KALETHA-16/T14R",
+        "PAPER-KALETHA-16/T40E"
+      ],
+      "priorDiagnostics": "The unchanged nine-group program from PR1968 was rerun and its output matches the preserved diagnostics exactly. It includes one tolerance-based complex-number example; only the new integer certificate is counted in the new exact-check total."
+    }
   },
   "worker": {
     "agent": "Codex",
     "session": "codex-c83e7a",
     "issue": 1190,
-    "date": "2026-09-22"
+    "date": "2026-09-23"
   }
 }
