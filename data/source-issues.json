@@ -80313,65 +80313,117 @@
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E1",
    "kind": "misprint",
-   "locator": "Theorem 1.11 and the paragraph before it, p.5, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
-   "printed": "\"The Conjectures 9.1 and 9.3 cited in the statement of our main theorem asserts that this is possible\" and \"Theorem 1.11. Let π ⊂ A_disc(G, Q̄) with m_U(π) ≠ 0. Assume Conjectures 9.1 and 9.3; alternatively, assume π admits a parametrization as in [Laf18].\"",
+   "locator": "Theorem 1.11 and preceding paragraph, p.5; compare §9.1 pp.30–31, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.",
+   "printed": "“Assume Conjectures 9.1 and 9.3” (also in the preceding paragraph).",
    "correction": "\"Conjectures 9.1 and 9.5\".",
    "reason": "(9.3) is a displayed decomposition, introduced with \"for the moment we assume there is such an action, and that it gives rise to a decomposition\". The numbered conjecture is Conjecture 9.5 (Lafforgue), whose part (1) asserts \"There is a decomposition as in (9.3)\". Noted by the extraction.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
-    "arXiv 2311.15300: v1 (26 November 2023) is the only version",
-    "web search for an erratum or correction, 22 September 2026: none found"
+    "23 September 2026: https://arxiv.org/abs/2311.15300 lists only v1, 26 November 2023; freshly downloaded and inspected. This expands and replaces arXiv 2204.06053, which was not collated here.",
+    "23 September 2026: https://annals.math.princeton.edu/2026/204-2/p03 lists revision 8 October 2025 and online publication 13 September 2026, with no linked correction. The journal PDF was not obtained: the conventional Annals PDF URL returned 404 and the Project Euclid PDF endpoint returned an HTML challenge.",
+    "23 September 2026: https://api.crossref.org/works/10.4007/annals.2026.204.2.3 has empty relation and no update-to entry.",
+    "23 September 2026: Harris publication list https://www.math.columbia.edu/~harris/website/publications links arXiv v1. Ciubotaru Oxford profile https://www.maths.ox.ac.uk/people/dan.ciubotaru and ORA record https://ora.ox.ac.uk/objects/uuid:8b5759d0-92d7-4756-8f36-4e423abe34a3 list the paper; the ORA record provided no downloadable manuscript. No linked correction found for this paper.",
+    "23 September 2026: exact-title searches with erratum and correction found none. New means uncorrected in the checked preprint and none found in this search; the inaccessible 2025 revision may already repair these points."
    ],
    "owner": "PAPER-CIUBOTARU-HARRIS-26",
    "file": "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
    "citation": "Ciubotaru–Harris, \"On the generalized Ramanujan and Arthur conjectures over function fields\", Annals of Mathematics 204 (2026), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "reviewReason": "Read pp.5,30–32. The numbered conjecture 9.5 asserts the excursion decomposition displayed as (9.3) and Satake compatibility; there is no Conjecture 9.3. Restore 9.5 in both citations. This is a cross-reference repair, with the intended assumption identified by the argument. Confirmed for arXiv v1 only."
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E2",
    "kind": "misprint",
-   "locator": "Proof of Theorem 8.5, case (2) (G^∨ = Sp(2n)), p.29, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
-   "printed": "\"We can use the standard representation of G^∨ to conclude that ν_i = 0 for all i odd. The remaining nonzero points are ν_j = ½ω^j_{⌊r_j/2⌋}, when j is odd and r_j ≥ 3, and all of these points are half-integral for G^∨.\"",
+   "locator": "Proof of Theorem 8.5, case (2), p.29; compare statement (1) p.28 and Remark 8.6 p.29, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.",
+   "printed": "“when j is odd and r_j ≥ 3”",
    "correction": "\"… when j is even and r_j ≥ 3 …\"",
    "reason": "The theorem's statement (1) lists ℜ(s) = ½h^∨ + ½Σ_{j even, r_j≥3} ε_j ω^j_{⌊r_j/2⌋}. The centralizer is Z(O^∨) = ∏_{i odd} Sp(r_i) × ∏_{j even} O(r_j), so the so(r_j) factors that carry the points are those with j even. The preceding sentence has just shown ν_i = 0 for i odd. Noted by the extraction.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
-    "arXiv 2311.15300: v1 (26 November 2023) is the only version",
-    "web search for an erratum or correction, 22 September 2026: none found"
+    "23 September 2026: https://arxiv.org/abs/2311.15300 lists only v1, 26 November 2023; freshly downloaded and inspected. This expands and replaces arXiv 2204.06053, which was not collated here.",
+    "23 September 2026: https://annals.math.princeton.edu/2026/204-2/p03 lists revision 8 October 2025 and online publication 13 September 2026, with no linked correction. The journal PDF was not obtained: the conventional Annals PDF URL returned 404 and the Project Euclid PDF endpoint returned an HTML challenge.",
+    "23 September 2026: https://api.crossref.org/works/10.4007/annals.2026.204.2.3 has empty relation and no update-to entry.",
+    "23 September 2026: Harris publication list https://www.math.columbia.edu/~harris/website/publications links arXiv v1. Ciubotaru Oxford profile https://www.maths.ox.ac.uk/people/dan.ciubotaru and ORA record https://ora.ox.ac.uk/objects/uuid:8b5759d0-92d7-4756-8f36-4e423abe34a3 list the paper; the ORA record provided no downloadable manuscript. No linked correction found for this paper.",
+    "23 September 2026: exact-title searches with erratum and correction found none. New means uncorrected in the checked preprint and none found in this search; the inaccessible 2025 revision may already repair these points."
    ],
    "owner": "PAPER-CIUBOTARU-HARRIS-26",
    "file": "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
    "citation": "Ciubotaru–Harris, \"On the generalized Ramanujan and Arthur conjectures over function fields\", Annals of Mathematics 204 (2026), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "reviewReason": "Read statement and proof, including the page image. Odd-sized Jordan blocks have symplectic multiplicity spaces and their parameters have just been set to zero; even-sized blocks have orthogonal multiplicity spaces and carry the stated exceptions. The explicit Sp(6), partition (2,2,2) example has j=2 and r₂=3, independently fixing the parity. Replace odd by even; no change to the correctly stated theorem. Confirmed for arXiv v1 only."
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E3",
    "kind": "misprint",
-   "locator": "Proof of Theorem 10.3, the list of explicit values, p.34, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
-   "printed": "\"(3) … (a) O^∨ = B_3: … n_v(9) = n_v(9) = 0, n_v(8) = 2 > 1 = n_u(8). … (4) G^∨ = E_7: … n_v(10) = n_u(10) = 1, n_v(9) = 1 > 0 = n_v(9). (5) G^∨ = E_8: (a) O^∨ = D_6: … n_v(17) = n_u(17) = 0, n_v(16) = 2 > 1 = n_v(16).\"",
+   "locator": "Proof of Theorem 10.3, p.34, items (3)(a), (4), (5)(a), in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.",
+   "printed": "n_v(9)=n_v(9)=0; n_v(9)=1>0=n_v(9); n_v(16)=2>1=n_v(16).",
    "correction": "n_v(9) = n_u(9) = 0 in (3)(a); n_v(9) = 1 > 0 = n_u(9) in (4); n_v(16) = 2 > 1 = n_u(16) in (5)(a).",
-   "reason": "Each item exhibits a weight i_0 where Property A fails, that is, n_u(i) = n_v(i) for i > i_0 but n_u(i_0) < n_v(i_0). The other items state exactly this with n_u on the right. As printed, \"n_v(9) = 1 > 0 = n_v(9)\" and \"n_v(16) = 2 > 1 = n_v(16)\" are self-contradictory, and \"n_v(9) = n_v(9)\" is vacuous. Checked on the page image. Noted by the extraction.",
+   "reason": "These comparisons concern n_v at an unramified extraneous parameter and n_u at the central parameter. The rightmost subscript must be u: otherwise two comparisons are self-contradictory and the first is vacuous. This is only an index repair. Independent root enumeration confirms the E7 and E8 comparisons; for F4 it confirms n_u(9)=n_v(9)=0 and n_u(8)=1<n_v(8)=2 after ALSO correcting the B3 parameter in Theorem 8.5 as recorded separately in E5. The original F4 parameter does not yield the numerical values printed in this proof.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
-    "arXiv 2311.15300: v1 (26 November 2023) is the only version",
-    "web search for an erratum or correction, 22 September 2026: none found"
+    "23 September 2026: https://arxiv.org/abs/2311.15300 lists only v1, 26 November 2023; freshly downloaded and inspected. This expands and replaces arXiv 2204.06053, which was not collated here.",
+    "23 September 2026: https://annals.math.princeton.edu/2026/204-2/p03 lists revision 8 October 2025 and online publication 13 September 2026, with no linked correction. The journal PDF was not obtained: the conventional Annals PDF URL returned 404 and the Project Euclid PDF endpoint returned an HTML challenge.",
+    "23 September 2026: https://api.crossref.org/works/10.4007/annals.2026.204.2.3 has empty relation and no update-to entry.",
+    "23 September 2026: Harris publication list https://www.math.columbia.edu/~harris/website/publications links arXiv v1. Ciubotaru Oxford profile https://www.maths.ox.ac.uk/people/dan.ciubotaru and ORA record https://ora.ox.ac.uk/objects/uuid:8b5759d0-92d7-4756-8f36-4e423abe34a3 list the paper; the ORA record provided no downloadable manuscript. No linked correction found for this paper.",
+    "23 September 2026: exact-title searches with erratum and correction found none. New means uncorrected in the checked preprint and none found in this search; the inaccessible 2025 revision may already repair these points."
    ],
    "owner": "PAPER-CIUBOTARU-HARRIS-26",
    "file": "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
    "citation": "Ciubotaru–Harris, \"On the generalized Ramanujan and Arthur conjectures over function fields\", Annals of Mathematics 204 (2026), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "reviewReason": "Page image p.34, definitions (10.4)–(10.6) and Property A checked. The three rightmost n_v labels must be n_u. Exact root enumerations (48 F4, 126 E7, 240 E8 roots) reproduce the intended comparisons, with the necessary additional F4 coordinate repair E5. This narrows the original claim that an index change alone makes every associated formula consistent. Confirmed for arXiv v1 only."
+  },
+  {
+   "id": "PAPER-CIUBOTARU-HARRIS-26/E4",
+   "kind": "misprint",
+   "locator": "Appendix, proof of Lemma 10.9 p.35, highest-weight calculation for the two half-spin modules and headers of Tables 2–4 pp.35–37; compare Definition 2.2 p.6, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.",
+   "printed": "“dim Fil_i(ǧ), i ≥ 0” (table headers); the half-spin calculation uses maximal i with dim Fil_i nonzero.",
+   "correction": "Use dim gr_i^Fil(ǧ), equivalently the h-eigenvalue-i multiplicity, in the table headers and the appendix computations describing the entries. In the half-spin maximum, likewise use nonzero gr_i instead of nonzero Fil_i. The lemma itself may retain equality of genuine filtration dimensions, since finite differences give equality of all graded dimensions and cumulative sums recover the filtration dimensions.",
+   "reason": "Definition 2.2 explicitly specifies an increasing filtration. The F4 principal row begins 4,0,4, which cannot be dimensions of nested subspaces. Moreover an exhaustive increasing filtration on a nonzero half-spin module remains nonzero for all sufficiently large i, so its nonzero Fil_i have no maximal index. Direct root enumeration reproduces every entry of the principal F4, E8 and G2 rows as graded multiplicities, including the rank-dimensional zero weight and symmetric negative weights; their total dimensions are 52,248,14. The F4 principal filtration has dim Fil_0=28, not 4. The issue is a confusion of graded and cumulative dimensions, not evidence that these three checked rows have wrong multiplicities. Other rows have not all been recomputed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: https://arxiv.org/abs/2311.15300 lists only v1, 26 November 2023; freshly downloaded and inspected. This expands and replaces arXiv 2204.06053, which was not collated here.",
+    "23 September 2026: https://annals.math.princeton.edu/2026/204-2/p03 lists revision 8 October 2025 and online publication 13 September 2026, with no linked correction. The journal PDF was not obtained: the conventional Annals PDF URL returned 404 and the Project Euclid PDF endpoint returned an HTML challenge.",
+    "23 September 2026: https://api.crossref.org/works/10.4007/annals.2026.204.2.3 has empty relation and no update-to entry.",
+    "23 September 2026: Harris publication list https://www.math.columbia.edu/~harris/website/publications links arXiv v1. Ciubotaru Oxford profile https://www.maths.ox.ac.uk/people/dan.ciubotaru and ORA record https://ora.ox.ac.uk/objects/uuid:8b5759d0-92d7-4756-8f36-4e423abe34a3 list the paper; the ORA record provided no downloadable manuscript. No linked correction found for this paper.",
+    "23 September 2026: exact-title searches with erratum and correction found none. New means uncorrected in the checked preprint and none found in this search; the inaccessible 2025 revision may already repair these points."
+   ],
+   "owner": "PAPER-CIUBOTARU-HARRIS-26",
+   "file": "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
+   "citation": "Ciubotaru–Harris, \"On the generalized Ramanujan and Arthur conjectures over function fields\", Annals of Mathematics 204 (2026), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "reviewReason": "Added after independently resolving the extraction’s open convention question from Definition 2.2, appendix page images and exact root counts for the three principal rows. Graded dimensions repair both the nonmonotone headers and the half-spin highest-weight sentence without changing the lemma’s equivalence. No full exceptional-table audit is claimed. Preprint only."
+  },
+  {
+   "id": "PAPER-CIUBOTARU-HARRIS-26/E5",
+   "kind": "error",
+   "locator": "Theorem 8.5(3), F4 row O∨=B3, p.29; compare coordinates (6.21) p.22 and proof of Theorem 10.3(3)(a) p.34, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.",
+   "printed": "ℜ(s)=ω₁+ω₂+½ω₃+½ω₄ for the B₃ orbit in F₄.",
+   "correction": "Delete ω₂: ℜ(s)=ω₁+½ω₃+½ω₄. In the Euclidean coordinates of (6.21), the corrected dominant representative is (5/2,1,1/2,0). This is Weyl-conjugate to (2,−1,3/2,1/2), the parameter at ν=1/2 in the B3 complementary series.",
+   "reason": "Using the explicit fundamental weights (6.21), the printed parameter is (4,3/2,1,1/2), with squared norm 39/2. Ciubotaru’s primary classification [Ci1], §3.2 table continued on manuscript p.14 and §5 p.37, gives B3 parameters (3/2+ν,−3/2+ν,3/2,1/2), 0≤ν<1, in the SAME coordinates (§2.6 p.10). Their squared norms are 7+2ν²<9, so the printed point is not Weyl-conjugate to any member of this complementary series. The nonzero half-integral value is ν=1/2. Its coordinate vector (2,−1,3/2,1/2) first becomes (2,3/2,1,1/2) by a signed permutation and then (5/2,1,1/2,0) by reflection in (1,−1,−1,−1). This equals ω₁+½ω₃+½ω₄. Independent enumeration gives top adjoint Frobenius weight 16 for the printed point, contradicting the p.34 bound 10. The corrected point has multiplicities n_v(10)=1,n_v(9)=0,n_v(8)=2, as needed there. The coordinate classification statement must therefore be repaired, in addition to the index repair E3; no failure of the intended global theorem is asserted.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "23 September 2026: https://arxiv.org/abs/2311.15300 lists only v1, 26 November 2023; freshly downloaded and inspected. This expands and replaces arXiv 2204.06053, which was not collated here.",
+    "23 September 2026: https://annals.math.princeton.edu/2026/204-2/p03 lists revision 8 October 2025 and online publication 13 September 2026, with no linked correction. The journal PDF was not obtained: the conventional Annals PDF URL returned 404 and the Project Euclid PDF endpoint returned an HTML challenge.",
+    "23 September 2026: https://api.crossref.org/works/10.4007/annals.2026.204.2.3 has empty relation and no update-to entry.",
+    "23 September 2026: Harris publication list https://www.math.columbia.edu/~harris/website/publications links arXiv v1. Ciubotaru Oxford profile https://www.maths.ox.ac.uk/people/dan.ciubotaru and ORA record https://ora.ox.ac.uk/objects/uuid:8b5759d0-92d7-4756-8f36-4e423abe34a3 list the paper; the ORA record provided no downloadable manuscript. No linked correction found for this paper.",
+    "23 September 2026: exact-title searches with erratum and correction found none. New means uncorrected in the checked preprint and none found in this search; the inaccessible 2025 revision may already repair these points."
+   ],
+   "owner": "PAPER-CIUBOTARU-HARRIS-26",
+   "file": "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
+   "citation": "Ciubotaru–Harris, \"On the generalized Ramanujan and Arthur conjectures over function fields\", Annals of Mathematics 204 (2026), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "reviewReason": "Added after the numerical check of E3 failed for the literal parameter. Checked (6.21), Theorem 8.5 in its page image, and [Ci1] §2.6 plus the B3 classification rows on manuscript pp.14,37. Exact arithmetic verifies the squared-norm exclusion, Weyl-conjugate corrected parameter and all relevant adjoint multiplicities. Confirmed as a false coordinate in the arXiv-v1 classification table; published status unknown."
   },
   {
    "id": "PAPER-COUVEIGNES-20/E1",
@@ -87917,9 +87969,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The quotation is on p. 4 of arXiv v1. The error term of the sketch is (total dimension of the lower cohomology) × q^{g/2} against a main term of size q^g, so it vanishes only when N/√q < 1, that is q > N². The paper's own second proof of Theorem 4.2 (p. 31) runs exactly this argument with the bound 4^g and ends 'The above implies the result as soon as q > 16', which is 4², confirming both the correction and the diagnosis. The reach is right: the first proof of Theorem 4.2 has no condition on q, its error term being o(q^{−g/2+εg}) for every ε."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E2",
@@ -87939,9 +87991,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and the counterexample checks out. Θ_r is defined (Notation 2.14) as the image of C^{(r)} under the κ-identification J_d ≅ J_{d+2}, so it meets J^{2g−a−b} only when r ≡ a + b (mod 2), and the hypothesis L ∉ Θ_r is then vacuous. With a = b ≥ 1, L = (g−a)κ and r = 2a+1 > a+b: every effective D of degree g−a satisfies D + τD ~ (g−a)κ, so L − Θ_{g−a} = Θ_{g−a} and the locus is Θ_{g−a} itself, whose H^{2g−2a} is nonzero; i = 2g−2a satisfies i > 2g−4a−1/2, and H^{2g+2a}(J) = 0 since a ≥ 1. The theorem as printed is therefore false, so 'a stated result' is right. The missing 'If' before 'L ∉ Θ_r' is also in the source."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E3",
@@ -87961,9 +88013,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. Conjecture 1.4 puts no condition on the line bundle, whereas Theorem 3.11 — the only proof offered — assumes e(L) ≤ g − a − b, and that hypothesis is used throughout §3 (Lemma 3.5, Corollary 3.6 and the restriction to J̃^{2g−a−b} in §3.2 all carry it). The paper itself states the restricted form as Conjecture 4.3 and says on p. 32 only that it believes the statement without the assumption, which settles the point. 'gap / a stated result' is the right classification."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E4",
@@ -87983,9 +88035,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The printed proof is 'On J(C), multiplication by d_i scales the tangent space to the identity by d_i', which is zero when the characteristic divides d_i, so the differential is not injective and the deformation argument fails. This is not merely infinitesimal: the characteristic-5 family recorded under E5 moves (P, Q) in a one-dimensional family while O(5P + Q) is constant. The correction, restricting to d_i nonzero in k and phrasing the conclusion as injectivity of the differential, is the right repair."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E5",
@@ -88005,9 +88057,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed; I reproduced the counterexample. Over F̄_5 on y² = x⁵ − x one has y² = b² + t⁵ − t with t = x − a and b² = a⁵ − a, and expanding √(1+s) in characteristic 5 gives b⁵y ≡ b⁶ − 3b⁴t + 3b²t² − t³ = H(t) modulo t⁵, so G = b⁵y − H vanishes to order at least 5 at P. Symbolically, b^{10}y² − H² = t⁵(a^{25} − a − t), whose divisor is 5P + 5τP + Q + τQ − 12∞; G has pole order 6 at ∞ (the term 4t³), G(τP) = −2b⁶ ≠ 0, so div G = 5P + Q − 6∞ with Q the remaining zero. Enumerating all 120 admissible pairs (a, b) over F_125 with a^{25} ≠ a, G vanishes at (a^{25}, −b^{25}) in every case and never at (a^{25}, +b^{25}), so the quoted formula for Q is right as printed. Since x(P) ≠ x(Q), h^0(O(P + Q)) = 1, and 5P + Q runs over a one-dimensional family inside |6∞|, contradicting the corollary."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E6",
@@ -88027,9 +88079,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. P H^0(P¹, O(g))^∨ is P^g, not P^{g−1}, and the target is P T_0J = P H^1(C, O_C) of dimension g − 1; the Veronese of the rational normal curve of degree g − 1 is the one meant, so O(g − 1) is correct."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E7",
@@ -88049,9 +88101,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The proof of Proposition 2.15 invokes Lemma 2.11, which is stated 'For d < g', so the proposition needs the same restriction. It also fails for d ≥ g: Θ_g is the whole Jacobian, smooth and equal to its own Nash blowup, while A : C^{(g)} → J contracts the positive-dimensional linear systems; and for d > g, dim C^{(d)} = d > g = dim Θ_d. The source's own sentence immediately before the proposition — 'We record the following interesting fact, which is not however used in the paper' — confirms that nothing else is affected."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E8",
@@ -88071,9 +88123,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and the counterexample checks out. With a = b ≥ 1 and L = (g − a)κ the fibre of A̲ contains {(D, τD)} and has dimension g − a, above the expected g − 2a; at a general such point Lemma 2.1 gives rank g − a for dA̲, so the tangent space to the fibre also has dimension g − a and the fibre is smooth there although D ∪ τD is special. So 'singular point of the fibre' has to be 'critical point of A̲'. The later uses are at points of expected dimension, where the two agree, so 'affects nothing' is right."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E9",
@@ -88093,9 +88145,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The source reads 'or $D_1 \\cap D_2$ is special'; the displayed equality just derived, and the statement of the proposition, are both about the union."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E10",
@@ -88115,9 +88167,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and I checked both examples. For p a Weierstrass point, D_1 = p, D_2 = 2p the canonical decomposition is H_2 = 2p, R_1 = p and the rest zero, so the septuple expression gives 2, whereas D_1 ∪ D_2 = 2p ~ κ has h^0 = 2 and Lemma 2.1 gives rank 2 + 1 − 2 = 1. For g = 3, D_1 = τp + q + τq, D_2 = p + τp + τq the union p + τp + q + τq is special by Lemma 2.13 (4/2 + 0 = 2 ≤ g − 1), yet the septuple expression equals g, and the inequality deg H_1 + deg H_∩ + deg S ≤ 2(g − 1 − r) that the proof of Lemma 3.17 derives from the corollary reads 2 ≤ 0. So the corollary is false and the step in Lemma 3.17 is not available; 'a stated result' is right."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E11",
@@ -88137,9 +88189,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. Riemann–Roch gives h^0(κ^{−m}L) > 0 whenever 2g − a − b − 2m ≥ g, so e(L) ≥ ⌊(g − a − b)/2⌋, with equality for general L; a general class of degree g has e(L) = 0, so the printed bound is false. It is also incompatible with the standing hypothesis e(L) ≤ g − a − b of §3 as soon as a + b ≥ 2, which identifies 2g as the slip."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E12",
@@ -88159,9 +88211,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The proof of Corollary 2.20 appeals to Corollary 2.4 for the divisor R_1 + R_2 + 2R_∩, and E5 shows Corollary 2.4 fails in characteristic p when a weight is divisible by p. Since R_1 + R_2 + R_∩ has degree at most g − 1, the weights are at most 2g − 2, so the appeal is safe exactly when the characteristic is 0 or exceeds 2g − 2, as the correction says. Corollary 2.20 feeds Lemma 3.5, Lemma 3.7, Proposition 3.8 and Theorem 3.9, and in Case 2 of Theorem 4.4 the field is fixed while g → ∞, so the restriction bites there; 'gap / a stated result' is right."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E13",
@@ -88181,9 +88233,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed on both points. The source writes e(L − (r+s)κ) where s is the addition map and the variables are l and r, and the following equivalence is the one for (l + r). The displayed chain uses Θ_{g−2a−2l} and Θ_{g−2b−2r}, while the strata of the lemma are Θ_{g−a−2l} and Θ_{g−b−2r}; with the correct indices the second step would read g − a − b − l − r ≥ g − (a + b)/2 − l − r, false for a + b > 0, so the chain does not bound what it must. The proposed repair through Corollary 2.20 applied to (a + 2l, b + 2r, L − (l + r)κ) is sound, and for l = r = 0 there is nothing to prove because the standing hypothesis is exactly e(L) ≤ g − a − b."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E14",
@@ -88203,9 +88255,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. With n = g − a − b, the exact sequence 0 → F → Q̄_ℓ[n] → IC_X → 0 gives H^{k+n}(X) ≅ IH^k(X) for k outside [−e − 1, e], so the printed shift is the wrong way round. Duality IH^k ≅ (IH^{−k})^∨ then needs −k outside the same interval as well, and for k = e + 1 one has −k = −e − 1, which is inside it; so the argument yields the conclusion only for i ≥ n + e + 2, one degree short of the stated range. The classification as a gap in a stated result, with the downstream uses unaffected, is right."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E15",
@@ -88225,9 +88277,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed; the counterexample is decisive. For K = Q_C[1] on a smooth curve, χ(K_p) = −1 and Eu_C ≡ 1 on the smooth locus, so the expansion has n_C = −1, while γ^1_C(p) = mult_p C = 1 and dim H^{−1}(K_p) = 1: the printed inequality reads 1 ≤ −1. For a perverse sheaf the characteristic-cycle multiplicities (−1)^{dim V_α} n_α are the nonnegative quantities, and Massey's bound is in terms of them. Sawin's later paper, which proves a characteristic-p analogue, states its bound 'in terms of certain intersection multiplicities of the characteristic cycle', which independently corroborates the correction."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E16",
@@ -88247,9 +88299,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The Abel map C^{(g−a)} → Θ_{g−a} has fibre P^l over the open stratum of Θ_{g−a−2l} = Θ_{g−(a+2l)}, so the upper index increases and [C^{(g−a)}] = Σ_l L^l[Θ_{g−a−2l}]; the printed a − 2l, b − 2r and the exponent r + s (s being undefined here) are slips for a + 2l, b + 2r and l + r. Inverting the product of the two geometric series gives −L[A̲^{a,b+2}], so the printed third term is missing its L. Setting L = 1 gives the constructible-function identity (3) exactly as printed, so nothing downstream moves."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E17",
@@ -88269,9 +88321,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. B lies in (C/τ)^{(g−1)} ≅ P T_0J^∨, which contains the annihilator L^∨ and not L, and the proof opens its main case with 'Now, consider L^∨ ⊄ B'. The hypothesis in the statement is the negation of what the proof uses."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E18",
@@ -88291,9 +88343,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and I checked the arithmetic. Multiplication by 2 acts on H_{2u}(J) by 4^u, so [2]_*[Θ_u] = 4^u[Θ_u] when [2] is generically injective on Θ_u, and the printed 2^u is wrong; with r = 0, s = 1, k = g − 2 the formula gives 2[C] for the class of the curve 2C, which is 4[C]. Recomputing c_{k,r,s} with 4^{s−b} and maximising over all admissible (g, k, r, s) with g ≤ 25 gives c_{k,r,s} ≤ 0.2 · 20^{g−1} and c_{k,r,s} ≤ 0.002 · g²24^g, so both the corrected bound 20^{g−1} and the printed bound g²24^g hold."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E19",
@@ -88313,9 +88365,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and I checked the arithmetic. ½Θ_{k+1} = [2]^{−1}Θ_{k+1} has class [2]^*[Θ_{k+1}], and [2]^* multiplies H^{2c} by 4^c with c = g − k − 1, so the printed factor 2^g is too small exactly when k < g/2 − 1. [Θ_{k+1}]·[Θ_{g−1−k}] = θ^g/((g−k−1)!(k+1)!) = binom(g, k+1). Maximising 4^{g−k−1}c_{k,r,s}binom(g, k+1) over all admissible (g, k, r, s) with g ≤ 25 gives at most 0.25 · 64^g/32, so the corrected chain holds and the stated bound g²96^g, hence the constant 960 of Theorem 3.11, survives. The subscript g − r − s conflicts with the 'E − L + ½(Θ_{k+1})' of the sentence just above, and the multiplicity is that of the polar variety, as the proposition says."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E20",
@@ -88335,9 +88387,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. The lift of φ : X̃ → J through a proper surjective map exists only after a finite base change; a proper surjection of varieties need not admit a section over a given curve. The repair — replace X̃ by the normalisation of a dominating component of the fibre product — is standard, relations (4) and (5) survive it, and over ℂ a nonconstant f_1 still has df_1 ≠ 0 on a dense open set, so the rest of the argument is untouched."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E21",
@@ -88357,9 +88409,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, and the counterexample checks out. Over F_5, x⁵ − x vanishes identically on F_5, so y² = 2((x⁵ − x)^{2m} + 1) takes the non-square value 2 at every rational x; the degree 10m is even with non-square leading coefficient 2, so the points at infinity are not rational either, and for m not divisible by 5 the polynomial is squarefree (its derivative is a unit multiple of (x⁵ − x)^{2m−1}, and f does not vanish on F_5), giving a smooth hyperelliptic curve of genus 5m − 1 with no F_5-point. Such a sequence is admissible in Theorem 4.2 since 5 > 4. The intended fact, that the two parity classes have equal mass, needs only a degree-one divisor class, which F. K. Schmidt's theorem provides, so the conclusion stands and only the justification fails."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E22",
@@ -88379,9 +88431,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. Dividing the contour estimate by #J(F_q) = q^g P_C(q^{−1}) needs a lower bound for P_C(q^{−1}); the estimate the proof cites is on the circle |t| = q^{−1/2}, not at t = q^{−1}. Weil's bound alone gives the required decay only when q^{−1/2}(1 − q^{−1/2})^{−2} < 1, that is when q^{−1/2} < (3 − √5)/2, so for q ≥ 7 — exactly the threshold the finding states. The proposed repair is correct: log P_C(q^{−1}) = Σ_k (#C(F_{q^k}) − q^k − 1)/(k q^k), with #C(F_{q^k}) ≤ 2(q^k + 1) for small k and Weil's bound for large k, gives log P_C(q^{−1}) = O(log g), hence #J(F_q) = q^{g+o(g)} and the first proof for every q."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E23",
@@ -88401,9 +88453,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. On |t| = q^{−1/2} the factor t^{−n−1} contributes q^{(n+1)/2} and the rest of the integrand is O_ε(q^{εg}), so the integral is O_ε(q^{n/2+εg}); the printed exponent (n/2 + ε)g is far larger than the main term q^n and is contradicted by the very next line."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E24",
@@ -88423,9 +88475,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. Theorem 3.11 gives ≪_ε (960 + ε)^g, which establishes Conjecture 4.3 for every N > 960 but not for N = 960 itself."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E25",
@@ -88445,9 +88497,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. μ_i is the uniform probability measure on Pic(C_i)/π_i^*Pic(P¹), a set of 2·#J(F_q) elements, so it cannot equal a point count of order q^{g−a−b}; the normalisation used a page later, where the analogous ratio is divided by #J(F_q) after conditioning on a parity class, is the correct one."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E26",
@@ -88467,9 +88519,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed, with a note on its nature. The quotations are exact, and the citation attached to the change of split place is '\\bibitem[Lin] E. Lindenstrauss, private communication', so the step is not verifiable from the published literature; the paper's own Remark says the analytic alternative would need a Waldspurger formula 'not available in sufficient generality'. This is a completeness finding about a published proof rather than a demonstrated falsehood, and the entry says so. Since Case 1 covers every sequence with M_i ∈ Θ_{εg}, including the μ_D alternative, 'a stated result' is the right reach."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E27",
@@ -88489,9 +88541,9 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. At a place ramified in l the class of √π has matrix [[0, π], [1, 0]] in the basis (1, √π), of determinant −π; conjugation preserves the determinant and rescaling changes its valuation by an even amount, so no conjugate of the compact group T(k_v) lies in PGL_2(O_v), and l_v^×/(k_v^×O_{l,v}^×) ≅ Z/2 because the value group of l_v^× is Z while that of k_v^× is 2Z. The source's own preceding sentence, 'Note also O_{l,v}^× ⊂ γ_v GL_2(O_v)γ_v^{−1}', is about the units, which is exactly the group the correction puts in place of T(O). Since the theorems are stated and proved for Pic(C)/π^*Pic(P¹) directly, 'affects nothing' is right."
   },
   {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E28",
@@ -88511,9 +88563,78 @@
    "owner": "PAPER-SHENDE-TSIMERMAN-17",
    "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
    "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Confirmed. §A.2 sets T = (Res_{l/k}G_m)/G_m, which has no map to GL_2, while the space of line bundles on D framed at each place of k is l^×\\A_l^× = X_{T′} for T′ = Res_{l/k}G_m. Replacing X_T by X_{T′} throughout §A.3 repairs both sentences, and quotienting by the central G_m returns the PGL_2 statement of §A.2."
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E29",
+   "kind": "misprint",
+   "locator": "§3, proof of Theorem 3.9, p. 16 (arXiv v1)",
+   "printed": "Proof. By Lemma 3.8, we have an exact sequence of perverse sheaves on Θ_{g−a} ∩ L − Θ_{g−b}",
+   "correction": "By Proposition 3.8.",
+   "reason": "The statement invoked is set as a proposition and prints as 'Proposition 3.8. Assume e(L) ≤ g − a − b. In the abelian category of perverse sheaves …' on the preceding page; the source calls it by the wrong word (its label is lem:bm2, a leftover from an earlier arrangement). There is no Lemma 3.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2017-0025 (Duke Math. J. 166 (2017), no. 18, 3461–3504), re-checked 23 September 2026 by this review: no update-to or relation entry, and the filter updates:10.1215/00127094-2017-0025 returns no work.",
+    "arXiv 1307.8237: still only v1 (31 July 2013). Its PDF (sha256 542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29) and its LaTeX e-print (sha256 e88384404c9d0d80c19e095cca66b65d3388265fbcd5f9ce3da27711b764db03) were fetched on 23 September 2026 and read at this locator; the numbering of every statement was reconstructed from the source and checked against the PDF.",
+    "W. Sawin, arXiv 1907.04850v2 (30 September 2020, with an appendix by J. Tsimerman), which proves the Shende–Tsimerman conjecture: checked for acknowledged corrections, 23 September 2026; it acknowledges none.",
+    "The published article could not be read (Project Euclid serves a bot-check page), so whether the published text still contains this passage is not established.",
+    "Found by this review job, not by the errata job it reviews."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Found and checked by this review. The source reads '\\begin{proposition} \\label{lem:bm2}' and the proof of Theorem 3.9 reads 'By Lemma \\ref{lem:bm2}'; the rendered page 16 of arXiv v1 shows 'Proposition 3.8' as the statement and 'By Lemma 3.8' in the proof. Nothing but the word is wrong."
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E30",
+   "kind": "misprint",
+   "locator": "§1, p. 4 (arXiv v1); the equation referred to is (6) on p. 30",
+   "printed": "The Grothendieck-Lefschetz trace formula then implies that the LHS and RHS of (6) differ by the traces of the lower cohomologies.",
+   "correction": "… the LHS and RHS of (1) differ …",
+   "reason": "The equation meant is the limit assertion displayed three paragraphs earlier on the same page, which is numbered (1). Equation (6) is the corresponding display in the proof of Theorem 4.2, twenty-six pages later. The two carry the same label in the source, so the cross-reference resolves to the later one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2017-0025 (Duke Math. J. 166 (2017), no. 18, 3461–3504), re-checked 23 September 2026 by this review: no update-to or relation entry, and the filter updates:10.1215/00127094-2017-0025 returns no work.",
+    "arXiv 1307.8237: still only v1 (31 July 2013). Its PDF (sha256 542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29) and its LaTeX e-print (sha256 e88384404c9d0d80c19e095cca66b65d3388265fbcd5f9ce3da27711b764db03) were fetched on 23 September 2026 and read at this locator; the numbering of every statement was reconstructed from the source and checked against the PDF.",
+    "W. Sawin, arXiv 1907.04850v2 (30 September 2020, with an appendix by J. Tsimerman), which proves the Shende–Tsimerman conjecture: checked for acknowledged corrections, 23 September 2026; it acknowledges none.",
+    "The published article could not be read (Project Euclid serves a bot-check page), so whether the published text still contains this passage is not established.",
+    "Found by this review job, not by the errata job it reviews."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Found and checked by this review. The label eq:pgl2limit is attached to two different displayed equations in the source, in §1 and in §4, and is referenced once, in §1; LaTeX resolves it to the later definition. The rendered pages confirm it: p. 4 numbers the §1 display (1) and then refers to '(6)', and p. 30 numbers the §4 display (6)."
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E31",
+   "kind": "misprint",
+   "locator": "Bibliography, p. 40, with the citations on p. 2 and p. 33 (arXiv v1)",
+   "printed": "[Lin] Yu. V. Linnik, Ergodic properties of algebraic fields … [Lin] E. Lindenstrauss, private communication.",
+   "correction": "Give the two references distinct labels, for instance [Linnik] and [Lind].",
+   "reason": "Two different entries of the bibliography carry the same label, and both are cited: 'Linnik, assuming the general Riemann hypothesis, treated what is essentially the case of G = PGL_2 and H a torus [Lin]' in §1 points to Linnik's book, while 'this suffices for the proof [Lin]' in Case 1 of Theorem 4.4 points to the private communication. A reader cannot tell which is which from the citation alone, and the distinction matters for the status of that step (see the entry on Case 1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2017-0025 (Duke Math. J. 166 (2017), no. 18, 3461–3504), re-checked 23 September 2026 by this review: no update-to or relation entry, and the filter updates:10.1215/00127094-2017-0025 returns no work.",
+    "arXiv 1307.8237: still only v1 (31 July 2013). Its PDF (sha256 542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29) and its LaTeX e-print (sha256 e88384404c9d0d80c19e095cca66b65d3388265fbcd5f9ce3da27711b764db03) were fetched on 23 September 2026 and read at this locator; the numbering of every statement was reconstructed from the source and checked against the PDF.",
+    "W. Sawin, arXiv 1907.04850v2 (30 September 2020, with an appendix by J. Tsimerman), which proves the Shende–Tsimerman conjecture: checked for acknowledged corrections, 23 September 2026; it acknowledges none.",
+    "The published article could not be read (Project Euclid serves a bot-check page), so whether the published text still contains this passage is not established.",
+    "Found by this review job, not by the errata job it reviews."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "reviewReason": "Found and checked by this review. The source has \\bibitem[Lin]{ELPC} for Lindenstrauss and \\bibitem[Lin]{Lin} for Linnik, and both \\cite{Lin} (p. 2) and \\cite{ELPC} (p. 33) occur; the rendered pages show '[Lin]' at both citations and at both bibliography entries."
   },
   {
    "id": "PAPER-SMITH-24/E1",
