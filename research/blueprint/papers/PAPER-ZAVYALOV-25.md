@@ -4,6 +4,8 @@ Bogdan Zavyalov, *Mod-p Poincaré Duality in p-adic analytic geometry*, [Annals 
 
 Extraction by Claude Code, session `cc-39fac3`, 23 September 2026 (issue #1063). Status: **complete**. Every missing item is routed once.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #1064, job `REV-PAPER-ZAVYALOV-25`): **accepted**, all eight routes accepted, all twelve recorded mistakes confirmed at their locators. No correction was needed — no item, status, route or locator changed. See [REV-PAPER-ZAVYALOV-25.md](../reviews/REV-PAPER-ZAVYALOV-25.md).
+
 The machine-readable extraction is [PAPER-ZAVYALOV-25.result.json](PAPER-ZAVYALOV-25.result.json). It has:
 - 155 items: 14 planned, 141 missing;
 - 8 routes: one new Part II and seven sources of existing layers;
