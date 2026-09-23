@@ -1366,7 +1366,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at published p. 345. The proof of Proposition 4.8 opens 'Le (ii) est une conséquence directe du (i) et de suite exacte ci-dessus', and the next sentence reads 'Pour montrer le (ii), on montre d'abord que l'action de G_j (resp., Ǧ_n) sur O(M^ϖ_n)^* … peut se dériver'. Having just deduced (ii) from (i), the proof announces (ii) again and never announces (i), while what follows — deriving the action and showing a functional killed by the Lie algebra vanishes — establishes (i). The second correction, 'et de la suite exacte', is a dropped article in the same sentence. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E2",
@@ -1382,7 +1387,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at published p. 349, and the text layer itself is evidence that the distinction is real rather than a rendering artefact: the page renders the caron in ρ_{Π̌,p} but not in the Π_p of the parenthesis, printing 'l'isomorphisme D_pst(ρ_{Π̌,p}(−1)) = M (qui découle de l'hypothèse Π_p ≃ JL(M))'. The choices fixed on p. 348 are Π̌ with Π̌_p = JL(M), and Π its Jacquet–Langlands partner with Π_p = LL(M); the hypothesis invoked concerns ρ_{Π̌,p}, so it is the one on Π̌_p. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E3",
@@ -1398,7 +1408,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at published p. 355: 'comme M est de pente 1/2, le noyau t(B^+_st ⊗ M)^{N=0,φ=1} de θ : (B^+_st ⊗ M)^{N=0,φ=1} → C ⊗ M_dR est réduit à 0' — the source of θ carries the same superscript φ=1 as its kernel, so as printed the map would have kernel equal to its whole source. Throughout the paper θ is defined on X^+_st(M) = (B^+_st ⊗ M)^{N=0,φ=p}, and only the superscript on the source is wrong. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E4",
@@ -1414,7 +1429,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed decisively at published p. 355, by counting brackets. Proposition 5.16 displays 'C(S^p(U), F) = H^0(G, Hom(π, LC(S(U))) ⊗ X' — the three closing parentheses after S(U) close S(, LC( and Hom(, leaving H^0(G, unclosed. The proof on the same page pulls X out of the Hom because G acts trivially on it, and the application three lines later writes Hom_G(π, LC(S(U))) ⊗_L Z, so the tensor factor belongs outside the invariants exactly as the correction says. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E5",
@@ -1430,7 +1450,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at published p. 355, first half verified directly: the display prints 'Hom_G(π, LC(U^p)) ⊗_L Z ≃ (B^+_st ⊗ H^1_HK(Sh_n(U)[M]))^{φ=p,N=0}', and U^p is not a defined object in this paper — the compact open subgroup is U and the space whose locally constant functions Proposition 5.16 speaks of is S(U). The second half, that the bracket should close after Sh_n(U) so that the M-part is taken of the cohomology as in Proposition 5.12, follows the extraction's collation with that proposition; I verified the display as printed but did not re-derive the bracketing. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/E6",
@@ -1446,7 +1471,12 @@
     "the AMS article page for JAMS 33 (2020) no. 2, which lists no corrigendum",
     "the authors' final version at webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf (identical text) and arXiv:1704.08928v1–v2",
     "the authors' later papers on the same tower (arXiv:2204.11214, Forum Math. Pi 11 (2023)) for a correction notice"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at published p. 343, and read on a page image because the whole finding turns on a hat that a text layer drops. Lemma 4.4 prints 'on suppose de plus que l'on peut écrire X comme une réunion croissante stricte d'affinoïdes X_n dont les images inverses dans X sont des affinoïdes perfectoïdes', and the image shows a plain X with no hat. As printed the hypothesis is absurd: the inverse image of X_n in X is X_n itself, an affinoid that is never perfectoid. The covering is X̂, and the proof says so — 'l'image inverse X̂_n de X_n dans X̂ est affinoïde perfectoïde'. Verified against the published JAMS text, JAMS 33 (2020), 311–362, re-fetched by this review and hashing to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Crossref records no correction notice for doi:10.1090/jams/935 (checked 23 September 2026).",
+    "by": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
+   }
   }
  ],
  "gaps": [
@@ -1474,5 +1504,16 @@
    "id": "notation-that-must-be-disambiguated",
    "detail": "Three distinct objects are written with almost the same symbol and are genuinely different: M_∞ (the non-completed projective system, whose cohomology is a colimit), M̂_∞ (its completion, a perfectoid space) and the completed cohomology H̃^1_ét(M_∞) — Remark 0.3 (iv) stresses that the last two differ by an interchange of a colimit and a limit, because the M_n are not compact, and that H^1_ét(M̂_∞,L(1)) is ‘beaucoup plus gros’ than H̃^1_ét(M_∞,L(1)). Similarly ~HK(X), HK^1_1(X) and (B^+_st ⊗ H^1_HK(X))^{N=0,φ=p} agree for a proper curve but not for an affinoid, where HK^1_1(X) is not even separated. A plan must name these apart before stating any comparison."
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1425,
+  "job": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "The published JAMS text, JAMS 33 (2020), 311–362, re-fetched and hashed to db810ee0…f0a16, matching the record byte for byte; 52 pages, printed page = PDF page + 310. Every one of the 6 recorded mistakes checked at its locator, with p. 343 read on a page image.",
+  "changes": "No change to any item, status, route or locator. All 6 recorded mistakes carry review verdicts and all are confirmed against the published text. The source block's statement that JAMS opens its back content after six years, so that the published article could be read directly, was verified and is correct.",
+  "lean": "none"
+ }
 }
