@@ -30758,7 +30758,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CARO-PASTEN-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CARO-PASTEN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1794"
   },
   {
    "id": "ERRATA-PAPER-LIU-ETAL-22",
