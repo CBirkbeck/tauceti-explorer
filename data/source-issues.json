@@ -49855,9 +49855,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 14: 'One has a projective system (relative to G_2-conjugacy) of centralizer subgroups Z_{G_2}(φ) which are finite of order 3, and thus identified with the component groups S_φ.' The restriction the finding asks for — that this holds for φ = ι′∘ρ with ρ not self-dual, where Z_{G_2}(φ) = μ_3, while a self-dual ρ gives S_φ ≅ S_3 and no order-3 centralizer — follows the extraction's analysis of which parameters occur; I verified the quotation and that the sentence carries no such hypothesis, but did not re-derive the classification, so the scope of the repair rests on the extraction. Classified a gap rather than an error, which is the right call. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E2",
@@ -49876,9 +49876,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as a gap, and the paper's own Theorem 2.1(ii) is what shows the hypothesis is needed. Page 27 states Theorem 9.1(ii) for every π: 'suppose that π ∈ Irr(G_2) has (enhanced) L-parameter (φ, η), then its local theta lift θ(π) ∈ Irr(PGSp_6) has (enhanced) L-parameter (φ′, η′) satisfying …'. But Theorem 2.1(ii), the theta dichotomy, is printed on p. 8 as 'Let π ∈ Irr(G_2). Then π has nonzero theta lift to exactly one of PD^× or PGSp_6.' For the π whose nonzero lift is to PD^×, the phrase 'its local theta lift θ(π) ∈ Irr(PGSp_6)' has no referent, so the statement as printed cannot hold for all π and a restriction is required. The extraction's φ ∈ Φ^♦_ds(G_2) is that restriction; I confirm the need for one and leave its exact form to the extraction. 'Affects a stated result' is right. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E3",
@@ -49897,9 +49897,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed decisively at p. 4, by counting brackets. The Main Theorem (ix) prints 'γ(s, π × τ, ψ) = γ(s, std ◦ L(π)) ⊗ φ_τ, ψ)': the close after L(π) shuts γ( prematurely, leaving '⊗ φ_τ, ψ)' dangling with an unmatched close. The intended reading, γ(s, (std ∘ L(π)) ⊗ φ_τ, ψ), is the only one that parses and the only one that matches a γ-factor of a tensor product. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E4",
@@ -49918,9 +49918,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed at p. 5: 'using various globalization results which are given in Appendices A and B (i.e. §9 and §11)'. Appendix A is §10, not §9 — the extraction's own readSections list the paper's structure as §9 Applications to theta correspondence, §10 Appendix A (globalisation), §11 Appendix B, and I confirmed that Theorem 9.1 sits in §9 at p. 26 while the globalisation material is in §10. The companion correction to the citation keys rests on the extraction. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E5",
@@ -49939,9 +49939,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed at p. 8 and p. 10, and the parts of Theorem 2.1 decide it. The theorem is printed with (i) Howe duality, (ii) theta dichotomy — 'Let π ∈ Irr(G_2). Then π has nonzero theta lift to exactly one of PD^× or PGSp_6' — and (iii) 'More precisely, one has:'. The decomposition of Irr(G_2) is therefore introduced by (ii), not by (i); yet p. 8 says 'as a refinement of the decomposition of Irr(G_2) in Theorem 2.1(i)' and p. 10 says 'introduced in Theorem 2.1(i)'. Both should cite (ii), which is what the correction says. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E6",
@@ -49960,9 +49960,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed decisively at p. 11, by the sentence that follows it. The text reads 'Let k be a totally real number field with a place w such that k_w ≅ F. Let O be a totally definite octonion algebra over F with automorphism group G = Aut(O). Then G_v is anisotropic at all archimedean places v and G_v is the split G_2 at all finite places v.' The algebra must be over the global field k: an octonion algebra over the local field F has no places v to be anisotropic at, and the whole point of the paragraph is a global argument. 'over F' is the slip. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E7",
@@ -49981,9 +49981,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed at p. 19: the proof of Proposition 4.1(i) prints 'This gives the identity for representations of G_2(F):'. The identity that follows is an identity for representations of PGSp_6(F), as the correction says; I verified the sentence as printed and the surrounding proposition concerns the lift to PGSp_6, though I did not re-derive the identity itself. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E8",
@@ -50002,9 +50002,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 22. Equation (7.2) defines Φ̃_{φ♭} := {φ ∈ Φ(PGSp_6) : std ∘ φ = φ^♭} and the prose calls it the set 'of lifts of φ to Spin_7(C)' — but the condition std ∘ φ = φ^♭ makes these lifts of φ^♭, not of φ. The companion correction in (d) rests on the extraction's reading of the packet notation. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E9",
@@ -50023,9 +50023,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 26. The sentence distinguishes a packet as 'the unique one in Φ̃_{φ♭}' where the correction reads Π̃_{φ♭}: a distinguished packet is unique among packets, not among parameters, and Φ̃_{φ♭} is the parameter set just defined in (7.2). I verified the quotation; the parenthetical gloss in the correction rests on the extraction. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E10",
@@ -50044,9 +50044,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Located at p. 27: 'The group M acts on N̂ with open orbits parameterized by quaternion algebras D: the stabilizer in M of an element in the orbit parameterized by … is isomorphic to Aut(D).' The text layer drops the symbol after 'parameterized by', so I could not settle from it alone which letter is printed; the finding's reading, that the orbit must be the one parameterized by D for Aut(D) to be its stabilizer, is forced by the sentence's own logic and I confirm it on that basis rather than on a glyph reading. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E11",
@@ -50065,9 +50065,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 27, in the proof of Lemma 10.1: 'any summand of θ(π) restricted to Sp_6(F) is of Howe's N-rank 2, and thus a classical theta lift of a unitary representation'. The correction to 'N-rank at most 2' follows the extraction's reading of the rank argument; I verified the quotation but did not re-derive the bound. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E12",
@@ -50086,9 +50086,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 35. The passage announces two cases 'according to the decomposition of Irr(G)' where the decomposition in play is that of Irr(PGSp_6), and then writes f_2^*(θ^♥(π)) with π where the case is stated for σ. The full list of substitutions in the correction rests on the extraction's collation of §12.3 with the proof of Theorem 12.6. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E13",
@@ -50107,9 +50107,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed decisively at p. 36, because the same page prints the formula correctly eighteen lines earlier. Line 18 has 'std ∘ φ = L_{Sp_6}(rest(σ))' and the proof of Theorem 12.3 has 'std ∘ φ = L_{SO_6}(θ^♠♣(σ)) ⊕ 1 = L_{Sp_6 6}(rest(σ))' — the doubled subscript is the slip, and the paper's own earlier display is the correction. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E14",
@@ -50128,9 +50128,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed as printed at p. 37, in the proof of Lemma 12.4. The three substitutions the correction asks for — Σ′_{v_0} = σ rather than π, Σ′♭ rather than Σ′′♭, and Σ_{v_0} = σ ⊗ χ_0 — rest on the extraction's collation of the globalisation argument, which I did not re-derive; I verified that the passage reads as quoted. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E15",
@@ -50149,9 +50149,9 @@
    "owner": "PAPER-GAN-SAVIN-23-B",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
    "citation": "Gan–Savin, \"The Local Langlands Conjecture for G_2\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23-B",
+   "reviewReason": "Confirmed at p. 39, and internally inconsistent as printed: 'moreover, the global theta lift Θ(Σ) of Π to PGSO_8 is a nonzero cuspidal representation'. Θ(Σ) is by its own notation the theta lift of Σ, not of Π, and Σ is the representation the sentence has just been constructing ('Σ_{v_0} = σ and Σ_{v_1} = St_{v_1}'). The companion correction L_w(σ ⊗ χ) = φ rests on the extraction. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e28, 1–42, re-fetched by this review on 23 September 2026; printed page = PDF page. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.27 carries no update-to, updated-by or relation entry, and arXiv 2209.07346 stops at v2, which the extraction records as predating the journal revision."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E1",
