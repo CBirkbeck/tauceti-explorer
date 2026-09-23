@@ -199,3 +199,35 @@ DOIs were checked against Crossref.
   - the Fourier inversion in Theorem 7.24.
 - **Checked by the background agent, spot-checked by hand:** the §5 cohomology computations (Lemmas 5.8, 5.12, Proposition 5.15) and the group-theory check that the unramified enlargement splits Γ for e, f ≤ 8.
 - No Lean was written or compiled; this is an extraction.
+
+## Review (REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1293](https://github.com/CBirkbeck/tauceti-explorer/issues/1293). **Verdict: accept.** All five
+routes accepted; no item, status, route, locator or quotation changed.
+
+- **A provenance limitation, recorded honestly.** Springer's PDF endpoint returns a 3 KB JavaScript
+  challenge page to every request made here — browser User-Agent, article referer and cookie jar
+  alike — and Unpaywall lists no other copy of the published version, so the recorded SHA-256
+  `f2231145…3e07` could **not** be re-verified in this environment. The published *text* was
+  verified instead, through a rendering proxy, with the journal page map rebuilt from the running
+  heads (91 marks, pp. 506–596). Crossref still records no correction.
+- **All 20 mistakes confirmed at their locators.** Nine are settled by the paper contradicting
+  itself: E3 (the first half of Lemma 3.12 works with gerbes in `H²_ét`, the second is stated with
+  `Br(P)[r]`), E5, E6 (a sum over `i` whose summand is indexed by `j`), E8 (Claim 4.2 asks for a
+  1-gauge form and the display identifies `η^{⊗r}`), E9, E10, E11, E17 and E19.
+- **Seven counterexamples were rebuilt independently:** E1's two compatible root systems at `q = 4`
+  giving `2` and `−2`; E2's obstruction `(Z_ℓ^×)^{ℓ^k} = μ_{ℓ−1}(1+ℓ^{k+1}Z_ℓ)`; E3's orders 4 and
+  16 for `y² = x³ − x` over `Q₅`; E4's conic over `R`; **E13's cyclic quartic** `x⁴ − 20x² + 50` over
+  `Q₅`, whose `q(p²−4q) = 100²` makes `Γ ≅ Z/4` a non-split extension *inside the paper's own
+  hypotheses*; E14's `r(−1) = 1`; and E18's `c₂(T(−a)) = a² − 3a + 3`.
+- **One distinction recorded on E20:** the dropped `H¹_ét(k_F, −)` in the application of Lemma
+  2.7(c) is a real slip, but the "Γ versus I" half is a choice of presentation, the paper writing
+  the same stack as `[Spec k_F/I] = [Spec k_L/Γ]`.
+- **Items and routes:** 78 items (3 library, 5 planned, 70 missing), each missing item routed once.
+  Route 4 is byte-identical to the Part II already accepted for GWZ-20-B, so it coalesces; and the
+  new roadmap is justified by an atlas sweep in which **"Higgs bundle", "stringy" and "Hausel" occur
+  nowhere at all**, while item 61 is correctly left `planned` at ET.2b, which does plan twisted
+  Higgs moduli and the Hitchin map.
+
+Full report: `research/blueprint/reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md`.
