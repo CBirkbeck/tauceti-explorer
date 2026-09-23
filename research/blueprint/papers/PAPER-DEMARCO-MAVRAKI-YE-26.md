@@ -2,7 +2,7 @@
 
 Laura DeMarco, Niki Myrto Mavraki and Hexi Ye, *Bounded geometry for PCF-special subvarieties*, [Forum of Mathematics, Pi 14 (2026), e4](https://doi.org/10.1017/fmp.2026.10024); arXiv [2405.17343](https://arxiv.org/abs/2405.17343).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1338). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-MAVRAKI-YE-26.result.json](PAPER-DEMARCO-MAVRAKI-YE-26.result.json): 35 items (1 library, 1 planned, 33 missing), 5 routes, 16 prerequisite entries and 9 recorded source issues. The independent review (REV-PAPER-DEMARCO-MAVRAKI-YE-26) corrected it in place; its changes are listed at the end.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1338). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-MAVRAKI-YE-26.result.json](PAPER-DEMARCO-MAVRAKI-YE-26.result.json): 35 items (2 planned, 33 missing), 5 routes, 16 prerequisite entries and 9 recorded source issues. The independent review (REV-PAPER-DEMARCO-MAVRAKI-YE-26) corrected it in place; its changes are listed at the end.
 
 **Source.** The published open-access article (CC BY 4.0), 22 pages, SHA-256 `7845e297f7c154ab6233cb9ea42702e1884764af6b0b6e2b286b62695abe4048`, read in full on 2026-09-22. Locators refer to the published pages.
 
@@ -114,3 +114,5 @@ The review read the published article in full and compared the places below with
 - Lemma 4.1's δ ≤ ε/(2M₀) should carry a factor √r for the polydisc.
 - (4.11) calls a weak limit of measures "uniform".
 - p.4 has a typo, "Theorems 1.8".
+
+**Post-review correction (cc-442dc5, 23 September 2026).** Item 7, the Weil height on ℙ¹(Q̄), moves from library to planned by HeightsRationalPointsAndObstructions RP.0. Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values (for a number field, not normalized by the degree) and has no Q̄ version; RP.0 plans the normalized absolute height. The review had accepted the library status.

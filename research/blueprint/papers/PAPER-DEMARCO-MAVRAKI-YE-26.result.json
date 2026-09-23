@@ -78,11 +78,11 @@
       "name": "Weil height on ℙ¹(Q̄)",
       "statement": "The logarithmic Weil height h used to define ĥ_f.",
       "locator": "§2.4, p.6, Forum Math. Pi 14 (2026) e4",
-      "status": "library",
-      "library": [
-        "mathlib:Projectivization.logHeight"
-      ],
-      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51); the Q̄ extension is RP.0 work."
+      "status": "planned",
+      "note": "RP.0 plans normalized absolute heights. Mathlib's `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) is the height relative to a field K with `Height.AdmissibleAbsValues` (for a number field the product over its places, not normalized by [K:ℚ]); the absolute height on ℙ¹(ℚ̄) used by the paper is not in the library. (Post-review correction by cc-442dc5, 23 September 2026; the review had accepted the library status.)",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ]
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/8",
