@@ -2753,7 +2753,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHMIDT-STIX-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHMIDT-STIX-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1169"
   },
   {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -4230,8 +4231,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
