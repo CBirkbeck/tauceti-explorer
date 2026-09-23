@@ -3749,6 +3749,174 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-ANDRE-18-B/E5",
+   "kind": "error",
+   "locator": "Published A.3.1 proof of (a)⇒(c), p.91; arXiv v1 §5.4.1 p.14",
+   "printed": "H_m^d(S) s’identifie à Hom_R(S∨,E)",
+   "correction": "For arbitrary S use Hom_R(H_m^d(S),E)≅Hom_R(S,Rhat). For complete R this proves the required nonzero-dual implication. The reverse-direction formula H_m^d(S)≅Hom_R(Hom_R(S,R),E) is valid for finite S over a regular local ring but not for arbitrary integral S. The noncomplete conclusion needs a further argument.",
+   "reason": "Take R=F_p, m=0, r=0, σ=id, and S=an algebraic closure of F_p with τ=id. All A.3.1 hypotheses including regularity, integrality and purity hold. Then d=0, E=F_p, H_0^0(S)=S and the printed right side is S**. S is countable and infinite dimensional over F_p, whereas its algebraic double dual has cardinality 2^(2^aleph_0), so they cannot be isomorphic. Complete-base repair: H_m^d(S)=S⊗E; curry Hom(−,E) and use End(E)=Rhat. No interchange of a colimit with duals is required.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E6",
+   "kind": "misprint",
+   "locator": "Published footnote 7 continued on p.87, proof of Remark 4.2.1",
+   "printed": "Tor_i^A(M,C)=0; Tor_i^A(M,C)→Tor_i^A(M,C)",
+   "correction": "The first vanishing is Tor_i^A(N,C)=0; the last term in the exact segment is Tor_i^A(N,C). Thus use Tor_(i+1)^A(N/M,C)→Tor_i^A(M,C)→Tor_i^A(N,C).",
+   "reason": "N=A/(x) for the chosen regular sequence, so regularity on C kills its positive Tor. Vanishing for M=A/P is what the descending induction is proving. The page image confirms both printed M occurrences; corrected proof recorded in regular-big-cm-flat.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E7",
+   "kind": "misprint",
+   "locator": "Published bibliography [28], p.93",
+   "printed": "220 (2014), 621–632",
+   "correction": "Shimomoto, J. Pure Appl. Algebra 220(2) (2016), 621–632, DOI 10.1016/j.jpaa.2015.07.008.",
+   "reason": "The cited volume and pages belong to the 2016 publication, as recorded by the author’s institutional publication list https://strdb.s.isct.ac.jp/html/100003320_en.html, already checked in this session for the companion-paper errata. This reference is absent from arXiv v1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E8",
+   "kind": "misprint",
+   "locator": "Published bibliography [30], p.93; arXiv v1 [25], p.15",
+   "printed": "Flatnss and completion revisited",
+   "correction": "Flatness and Completion Revisited. The journal metadata is Algebras and Representation Theory 21 (2018), 717–736, DOI 10.1007/s10468-017-9735-7; 2016 is the preprint year.",
+   "reason": "The author’s publication record for https://doi.org/10.1007/s10468-017-9735-7 gives the title and journal metadata; arXiv 1606.01832 records the 2016 preprint. The missing e remains in the published bibliography.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E9",
+   "kind": "error",
+   "locator": "Published introduction §0.1(4), p.72, quantifier over all local rings",
+   "printed": "si et seulement si m ≥ n",
+   "correction": "For the stated iff, require positive dimension d (and positive ideal exponent n). In dimension zero the parameter list is empty: its product is 1 and the generated ideal is zero, so membership never holds in a nonzero local ring. The usual monomial noncontainment for m<n remains valid also at d=0.",
+   "reason": "Take a field R, d=0, and m=n=1. The left-hand membership is 1∈(0), false, while m≥n is true. This is only the degenerate-dimension wording of the introductory equivalence, not a counterexample to the monomial conjecture or the main theorem.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E10",
+   "kind": "misprint",
+   "locator": "Published A.4 first paragraph, p.92; arXiv v1 §5.5, p.14",
+   "printed": "M′ → M presque injectif",
+   "correction": "For an intermediate factorization M→M′→N, the indicated map, if retained, is M′→N. In fact almost purity of the composite already implies almost purity of M→M′ without that additional assumption.",
+   "reason": "There is no reverse map M′→M in an intermediate factorization. For every P, ker(P⊗M→P⊗M′) is contained in ker(P⊗M→P⊗N), so the same almost ideal annihilates it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E11",
+   "kind": "misprint",
+   "locator": "arXiv v1 §5.5 definition, p.14; corrected published A.4 p.92",
+   "printed": "P → P ⊗_R S",
+   "correction": "P⊗_R M→P⊗_R N in the definition of almost purity of M→N.",
+   "reason": "S is not part of this module-map definition. The published definition has the correct two tensor factors.",
+   "affects": "nothing",
+   "known": "Corrected in the published A.4 definition, p.92.",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E12",
+   "kind": "misprint",
+   "locator": "arXiv v1 bibliography [2] p.14 and [11] p.15; corrected published [2],[12] pp.92–93",
+   "printed": "Modifications mnimales; R. Heitman",
+   "correction": "Modifications minimales; R. Heitmann.",
+   "reason": "The published bibliography supplies both corrected spellings.",
+   "affects": "nothing",
+   "known": "Corrected in the published bibliography [2] and [12], p.92.",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
+    "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
+    "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ANDRE-18/E1",
    "kind": "error",
    "locator": "Published §2.2.4, second paragraph, p. 13; the same assertion and proof are in arXiv:1609.00320v1 §2.2.4, p. 12",
