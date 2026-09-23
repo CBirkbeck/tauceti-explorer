@@ -14,7 +14,8 @@
       "Read: §1 (Theorems 1.1–1.3, 1.5–1.7, Corollary 1.4, Propositions 1.8, 1.9, Lemma 1.10, the strategy of §§1.4–1.5), §2 (Lemmas 2.1–2.4, Definition 2.5 to Proposition 2.30), §3 (Lemmas 3.1–3.5, Proposition 3.6 to Proposition 3.16), §4 (Lemmas 4.1–4.16, Definitions 4.7, 4.10), §5 (Lemma 5.1 to Lemma 5.17), §6 (Remark 6.1 to Remark 6.14), §7 (Definitions 7.1, 7.2, Lemma 7.3 to Remark 7.7), §8 (Lemma 8.1 to Lemma 8.12), §9 (Lemma 9.1 to Remark 9.15), §10 (Proposition 10.1 to Example 10.8), §11 (Proposition 11.1 to Proposition 11.5), §12 (Lemma 12.1 to Corollary 12.18), §13 (the hypothesis (DIM), Lemma 13.1 to Corollary 13.38), §14 (Lemma 14.2 to Example 14.7), §15 (Proposition 15.1 to §15.6), §16 (Lemma 16.1 to Theorem 16.5), Appendix A (Lemmas A.1–A.8), the glossary and the references. Every recorded mistake was checked on the page images; the text extraction drops bars and super/subscripts, so no candidate was accepted from it alone.",
       "arXiv 2404.14622v2 (9 January 2026, 'Revised version after the referee report') was compared at the recorded passages: it has both.",
       "Cited inputs were not read; items resting on PQ25 (generalised tori), Quast's G-pseudocharacter paper, Cotner, Martin, Bate–Martin–Röhrle, Richardson, Seshadri, Emerson–Morel, Wang-Erickson, Böckle–Juschka, Chenevier, Buzzard–Gee and Langlands state them as the paper uses them."
-    ]
+    ],
+    "sha256Note": "Cambridge stamps each download of this article with a footer carrying the date and the requesting IP — the reviewer's own copy carries 'IP address: 178.33.239.142, on 23 Sep 2026 at 20:59:15' on every page — so the byte stream and its hash differ between downloads and this sha256 is not reproducible: a fresh download on 2026-09-23 gave b336113ee34901fde3351a622014c63458356d265cce31a313e5b0e54a43383a, 96 pages, printed page = PDF page. The reproducible pin is the arXiv e-print of 2404.14622, sha256 05a2306efbfa0dabbc885bb86e23b090e8254c19b244ce1fe9140ffa9637e003, whose single source file defG_REV.tex (6796 lines) carries both findings verbatim. Added by the reviewer (issue #1345)."
   },
   "summary": "For F/ℚ_p finite and any generalised reductive O-group scheme G (smooth affine, reductive neutral component, finite component group; no condition on p), the framed deformation ring R^□_ρ̄ of a continuous ρ̄ : Γ_F → G(k) is a local complete intersection, O-flat of relative dimension dim G_k([F:ℚ_p] + 1), reduced with normal generic fibre (Theorem 1.1); R^□_ψ → R^□_ρ̄ is flat for ψ the projection to G/G′, and a bijection on irreducible components when π_1(G′) is étale (Theorem 1.2, the Böckle–Juschka conjecture), the components being complete-intersection normal domains, factorial for [F:ℚ_p] ≥ 3 (Theorem 1.3, Corollary 1.4); the same holds with 'fixed partial determinant', covering L-groups and C-groups (§16), and R^ps_G for V. Lafforgue's G-pseudocharacters is equidimensional of the expected dimension (Theorem 1.5). The method generalises Böckle–Iyengar–Paškūnas (the GL_d case): a G-valued space of generic matrices X^gen_{G,ρ̄^ss} defined via condensed continuity, its GIT quotient finite and universally homeomorphic onto Spec R^ps_G, and an induction on dim G bounding special fibres through G-complete reducibility, bounds on reductive subgroups (codimension ≥ 2) and W-special loci. The Böckle–Iyengar–Paškūnas extraction proposed a Part II of LocalGaloisDeformationRings for exactly this theory and asked that this paper extend it, so the route coalesces with it; general inputs go as sources to LocalGaloisDeformationRings R08.1, DeformationAndDerivedPatchingAlgebra, IntegralHeckeAndGaloisDeterminants (G-pseudocharacters), ArithmeticGaloisDuality D7 and the condensed foundations layer VS2. One error (Proposition 11.5 is false in characteristic 0, harmlessly for the paper) and one misprint are recorded.",
   "items": [
@@ -1023,7 +1024,12 @@
         "arXiv 2404.14622: v1 (22 April 2024) and v2 (9 January 2026, the revised version after the referee report); v2 has the recorded passages unchanged, and no later version exists",
         "The article page on Cambridge Core (published 30 April 2026), 23 September 2026: its corrections list is empty and no erratum is linked",
         "Only the characteristic-p case is used: Theorem 14.6 reduces all three fibres to the special fibre through Corollary 13.15, so no main theorem is affected."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an error in a stated result. §11 opens `Let $G$ be a generalised reductive group over an algebraically closed field $\\kappa$', with no condition on the characteristic, and Proposition 11.5 is stated exactly as quoted. Its proof turns on the sentence `If $\\psi=\\omega$ or $\\psi=\\omega^{-1}$ then $\\psi^{p-1}=1$', where $\\omega=\\chi_{\\cyc}\\otimes_{\\Zp}\\kappa$ — an implication that holds because the reduction of the cyclotomic character has order dividing $p-1$, which is a statement about characteristic $p$. In characteristic $0$, $\\omega=\\chi_{\\cyc}$ has infinite order and the step fails, and Lemma 11.4, which is what the rest of the proof reduces to, has $\\psi\\neq\\omega^{\\pm1}$ as its first hypothesis — so the case the proof handles separately is exactly the case its lemma excludes, and nothing covers it. The recorded counterexample sits in that gap: $G=\\PGL_2$, $P=B_2$, $L=T_2$, $\\kappa=\\overline{\\Q}_p$ and a non-split $\\begin{psmallmatrix}1&b\\\\0&\\chi_{\\cyc}\\end{psmallmatrix}$ give $\\psi=\\chi_{\\cyc}^{-1}=\\omega^{-1}$, with (1) holding by non-splitness, (2) because $\\psi$ has infinite order and $H_0=\\mu_{p-1}$, and (3) vacuously since $G_1$ is trivial. The correction is right and so is its evidence: the proposition's only application is Proposition 14.5, whose proof works throughout on the special fibre $\\Xbar^{\\gen}_{G,\\rhobarss}$ and with $\\varphi: G_k\\rightarrow\\Aut(G^0_k)$, so char $\\kappa=p$ there and nothing downstream is affected.",
+        "by": "Claude Code, session cc-7b31c4, issue #1345"
+      }
     },
     {
       "id": "PAPER-PASKUNAS-QUAST-26/E2",
@@ -1038,7 +1044,12 @@
         "Crossref record of doi:10.1017/fmp.2026.10030: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1017/fmp.2026.10030, 23 September 2026)",
         "arXiv 2404.14622: v1 (22 April 2024) and v2 (9 January 2026, the revised version after the referee report); v2 has the recorded passages unchanged, and no later version exists",
         "The article page on Cambridge Core (published 30 April 2026), 23 September 2026: its corrections list is empty and no erratum is linked"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the arXiv source: `\\begin{lem}\\label{fg_quotient} There is a topologically finitely generated quotient $\\Gamma\\twoheadrightarrow Q$ such that $R^{\\ps,\\Gamma}_{\\GL_d}=R^{\\ps,Q}_{\\GL_d}$ and every $\\rho\\in X^{\\gen}_{\\GL_d}(A)$, where $A\\in R^{\\ps}_G\\text{-}\\alg$, factors as $\\rho:\\Gamma\\rightarrow Q\\rightarrow\\GL_d(A)$.' The functor $X^{\\gen}_{\\GL_d}$ is defined on $R^{\\ps}_{\\GL_d}$-algebras, the rest of the same lemma is stated for $R^{\\ps}_{\\GL_d}$, and the proof immediately above it works over $\\RpsGLd$; $R^{\\ps}_G$ is introduced only in §7.2. A substitution slip.",
+        "by": "Claude Code, session cc-7b31c4, issue #1345"
+      }
     }
   ]
 }

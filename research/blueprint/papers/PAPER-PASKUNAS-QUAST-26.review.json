@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-PASKUNAS-QUAST-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of LocalGaloisDeformationRings, the main route at 65 of the 80 missing items, area langlands (a galaxy id), brief 458 words. The title reproduces the parent's atlas title exactly. Generalised reductive groups, R-parabolics and R-Levis, the generalised pseudocharacter ring R^ps_G, the complete intersection property, irreducible components and normality of the unrestricted deformation ring are the paper's own subject and none of it is in the parent, which owns the GL_d theory the paper generalises. Route 2 sends five items back to the parent's own R08.1, which is the right division."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of LocalGaloisDeformationRings R08.1, 5 items, for what belongs to the parent itself. The stage id resolves."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of DeformationAndDerivedPatchingAlgebra R03.1 and R03.3, 4 items: complete local coefficient rings and the depth, Serre-condition and complete-intersection commutative algebra the paper runs on. Both stage ids resolve and this is the right owner for statements that are not about Galois representations at all."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of IntegralHeckeAndGaloisDeterminants IHG.0 and IHG.1, 5 items, for determinants and pseudocharacters. The generalised pseudocharacter ring of the Part II is built on exactly that, and keeping the classical theory with its owner is right."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticGaloisDuality D7 for the one local-duality item the Euler-characteristic and h⁰ computations use. One item at an existing owner is proportionate."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of VStackSheavesAndLisseCategories VS2 for the one condensed/continuity item, which is also where the paper's single library claim (Mathlib's CondensedSet, Condensed.discrete and CondensedSet.isDiscrete_tfae) lands. The stage id resolves."
+    }
+  ],
+  "notes": "Accept, with a source note added and no other correction. Source: the published Cambridge hash does not reproduce and cannot — a fresh download today gave b336113e… against the recorded c265f54f…, and every page of my copy carries 'IP address: 178.33.239.142, on 23 Sep 2026 at 20:59:15'. I added a `sha256Note` recording that and naming the arXiv e-print as the reproducible pin; this is the sixth instance in the corpus, after PAPER-HE-18, PAPER-HE-21, PAPER-SHANKAR-SHANKAR-TANG-ETAL-22, PAPER-BHATT-MATHEW-23 and PAPER-HACON-WITASZEK-23. I read the published PDF (96 pages, printed page = PDF page) and the arXiv e-print (sha256 05a2306e…, single source file defG_REV.tex, 6796 lines), which carries both findings verbatim. Structure: 84 items (80 missing, 3 planned, 1 library), 6 routes (1 Part II, 5 source). Every missing item is routed exactly once, all seven source stage ids resolve, all three planned ids resolve, the Part II parent exists and its proposed title reproduces the parent's atlas title exactly, the area is the galaxy id langlands, and check_paper.py passes. The single library item's three declarations resolve: Mathlib's CondensedSet, Condensed.discrete and CondensedSet.isDiscrete_tfae. Locators: 112 of 114 name-and-page checks land exactly. The two that do not are right as well — items 1 and 5 give the introduction's page for Theorems 1.1 and 1.5–1.6 and then name the body statements (Theorem 16.2, Remark 13.33) in parentheses, which are on pp. 86–88 and 71. No locator error. Findings: both confirmed. E2 is a substitution slip, confirmed verbatim. E1 is the substantial one and it is an error in a stated result: §11 assumes only that $\\kappa$ is algebraically closed, and the proof of Proposition 11.5 disposes of the case $\\psi=\\omega^{\\pm1}$ by `then $\\psi^{p-1}=1$', which holds because the reduction of the cyclotomic character has order dividing $p-1$ — a characteristic-$p$ fact. In characteristic zero that step fails, and Lemma 11.4, to which the rest of the proof reduces, has $\\psi\\neq\\omega^{\\pm1}$ as its first hypothesis, so the case the proof handles separately is exactly the one its lemma excludes and nothing covers it. The recorded $\\PGL_2$ counterexample sits in that gap. The correction is right and its evidence checks out: the proposition's only application, Proposition 14.5, works throughout on the special fibre, so char $\\kappa=p$ there and nothing downstream is affected. One provenance gap I did not fill: no `libraryPins` are recorded. This is the seventh extraction reviewed today with that gap — PAPER-BHATT-MATHEW-23, PAPER-WOOD-19, PAPER-HACON-WITASZEK-23, PAPER-CANNING-LARSON-PAYNE-24, PAPER-IM-KIM-LE-ETAL-24 and PAPER-FENG-24 are the others — which confirms it as a queue-level omission rather than a series of oversights. No roadmap change, no library claim and no Lean work is proposed by this review."
+}
