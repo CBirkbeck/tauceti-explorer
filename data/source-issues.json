@@ -46775,7 +46775,7 @@
    "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); now collated with the published journal: Theorem 1.2 p.379; Theorem 4.8 pp.406–407; proof pp.408–410 (especially p.409)",
    "printed": "lim_{q→∞} Ẽ^±/|H₂(G′,c)[q−1]|",
    "correction": "For G′ not good, replace lim by liminf: liminf_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[q−1]| ≥ w_G n^{N_{G′}−1}, and likewise with E^± and a smaller constant in Theorem 1.2.",
-   "reason": "The proof bounds the ratio from below for each large q. It keeps only the multidegrees n in a set 𝒞 (all n_i large, with prescribed parities) on which the number of Frobenius-fixed components is |H_2(G′,c)[q−1]|, and discards the other components as nonnegative. That gives a lower bound for the liminf. It does not show the limit exists: the discarded components with small n_i and their Frobenius-fixed counts may depend on q, and nothing in the argument controls them. The good cases, where the limits are computed exactly, are unaffected. In Theorem 1.2 the passage from Ẽ to E divides by the positive constants of §2.1, |Aut_{G′}(G)| and A(G,G′), so the lower bound transfers with a smaller constant. The proof's remark that \"the second statements of both theorems are the same\" should be read that way. Noted by the extraction (items 97, 141 and 143). The continuation makes the remaining obligation precise: by /307–/309 the ordinary limit exists iff the total normalized fixed-component profile is eventually constant. Stable parity fibers themselves require the obstruction test /300–/304; do not assume all stable fibers are independent of q without that test. No admissible-type counterexample is asserted.",
+   "reason": "The proof bounds the ratio from below for each large q. It keeps only the multidegrees n in a set 𝒞 (all n_i large, with prescribed parities) on which the number of Frobenius-fixed components is |H_2(G′,c)[q−1]|, and discards the other components as nonnegative. That gives a lower bound for the liminf. It does not show the limit exists: the discarded components with small n_i and their Frobenius-fixed counts may depend on q, and nothing in the argument controls them. The good cases, where the limits are computed exactly, are unaffected. In Theorem 1.2 the passage from Ẽ to E divides by the positive constants of §2.1, |Aut_{G′}(G)| and A(G,G′), so the lower bound transfers with a smaller constant. The proof's remark that \"the second statements of both theorems are the same\" should be read that way. Noted by the extraction (items 97, 141 and 143). The continuation makes the remaining obligation precise: by /307–/309 the ordinary limit exists iff the total normalized fixed-component profile is eventually constant. Stable parity fibers themselves require the obstruction test /300–/304; do not assume all stable fibers are independent of q without that test. No admissible-type counterexample is asserted. (cc-442dc5) Rechecked in the published text (pp.406–409): the proof ends 'by dividing both sides by |H_2(G′,c)[q−1]| and then letting q → ∞', after a lower bound valid for each large q, so only the liminf is established. The good cases and the lower-bound content are unaffected.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -46784,7 +46784,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46808,7 +46809,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46832,7 +46834,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46856,7 +46859,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46880,7 +46884,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46904,7 +46909,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46919,8 +46925,8 @@
    "locator": "Conjecture 5.1, p.26, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); now collated with the published journal: Conjecture 5.1 p.411, with Lemma 3.11 p.393",
    "printed": "u∈μ_{Q(μ_{4|G̃′_c|})}",
    "correction": "Let u be a generator of μ_{Q(μ_{4|G̃′_c|})} (and h ∈ H_2(G′,c)[|μ_Q|]). Equivalently, stratify by the Hom-valued invariant u ↦ I(ρ,u). This matches Theorem 4.8, which takes u_q ∈ Ẑ(1)^×.",
-   "reason": "By Lemma 3.11, u ↦ I_{F,π,K}(φ,u) is a homomorphism from μ_L to H_2(F,c)[|μ_K|], so I(ρ,1) = 1 for every ρ. With u = 1 and h ≠ 1 the count in the numerator is zero for every X, so the limit is 0, not 1, whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper has such cases. For Q = ℚ, where |μ_Q| = 2, its table in §8.2 lists the good pair G = A_4, G′ = ((C_2⁴) ⋊ C_3) ⋊ C_2 [227] with H_2(G′,c) = C_2, and G = A_5, G′ = A_5 ≀ C_2 with H_2(G′,c) = C_2. More generally, for u of order d the invariant only sees h in the image of μ_d. For a generator u, evaluation at u identifies the homomorphisms μ_L → H_2(G′,c)[|μ_Q|] with H_2(G′,c)[|μ_Q|], since |μ_Q| divides |μ_L|, which is the intended stratification. The braces in \"H_2(G′,c){|μ_Q|}\" are a misprint for the torsion subgroup H_2(G′,c)[|μ_Q|]. Noted by the extraction (items 99 and 144).",
-   "affects": "a stated result",
+   "reason": "By Lemma 3.11, u ↦ I_{F,π,K}(φ,u) is a homomorphism from μ_L to H_2(F,c)[|μ_K|], so I(ρ,1) = 1 for every ρ. With u = 1 and h ≠ 1 the count in the numerator is zero for every X, so the limit is 0, not 1, whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper has such cases. For Q = ℚ, where |μ_Q| = 2, its table in §8.2 lists the good pair G = A_4, G′ = ((C_2⁴) ⋊ C_3) ⋊ C_2 [227] with H_2(G′,c) = C_2, and G = A_5, G′ = A_5 ≀ C_2 with H_2(G′,c) = C_2. More generally, for u of order d the invariant only sees h in the image of μ_d. For a generator u, evaluation at u identifies the homomorphisms μ_L → H_2(G′,c)[|μ_Q|] with H_2(G′,c)[|μ_Q|], since |μ_Q| divides |μ_L|, which is the intended stratification. The braces in \"H_2(G′,c){|μ_Q|}\" are a misprint for the torsion subgroup H_2(G′,c)[|μ_Q|]. Noted by the extraction (items 99 and 144). (cc-442dc5) Reclassified to affect nothing: Theorem 4.8, which the conjecture generalizes, takes u_q ∈ Ẑ(1)^×, a generator, and Lemma 3.11 makes u ↦ I(ρ, u) a homomorphism; the intended quantifier is 'u a generator'.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
@@ -46928,7 +46934,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46952,7 +46959,8 @@
     "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
     "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
     "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed.",
-    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof."
+    "23 September 2026: NSF PAR supplied the published PDF, SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d; full article read, the listed passage collated visually/textually. Author publications page and bounded title-plus-erratum/correction search found no linked correction for this paper; not a novelty proof.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46967,12 +46975,13 @@
    "locator": "Wood, An algebraic lifting invariant…, author lifting.pdf (hash in report), Theorem2.5 proof, p4; not a claim of published-version collation",
    "printed": "φ·ψ",
    "correction": "With φ(x̂,e_x)=[x]k_x and ψ(x̂,e_x)=k_x as written, use φ·ψ^{-1} throughout the marking correction.",
-   "reason": "The printed product has image [x]k_x², while multiplying by the inverse removes the discrepancy. The existing extraction /254 already uses the corrected sign.",
-   "affects": "the proof",
+   "reason": "The printed product has image [x]k_x², while multiplying by the inverse removes the discrepancy. The existing extraction /254 already uses the corrected sign. (cc-442dc5) Reclassified to affect nothing: this is in the cited Wood (2021) proof, where the marking correction is φ·ψ^{-1}; the extraction item /254 already uses the corrected sign.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "22 September 2026: author publication page and linked lifting.pdf; no separate lifting-invariant erratum located.",
-    "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read."
+    "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
@@ -46992,7 +47001,8 @@
    "known": "new",
    "searched": [
     "22 September 2026: author publication page and linked lifting.pdf; no separate lifting-invariant erratum located.",
-    "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read."
+    "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
    ],
    "owner": "PAPER-WOOD-19",
    "file": "research/blueprint/papers/PAPER-WOOD-19.result.json",
