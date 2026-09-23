@@ -134,3 +134,24 @@ No Lean deliverable is part of a paper job.
 
 **For the reviewer.**
 - Check E1: that the remark needs X rationally connected as justified, and the corrected item 75.
+
+## Review (REV-PAPER-HARPAZ-WITTENBERG-20, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1427), **accepted** this
+extraction and all fourteen routes, with ten locator page numbers corrected. The full record is
+[REV-PAPER-HARPAZ-WITTENBERG-20.md](../reviews/REV-PAPER-HARPAZ-WITTENBERG-20.md).
+
+The recorded hash of the authors' PDF reproduces, and its printed pages coincide with the PDF's. 150
+items, all 131 missing routed exactly once; all stage ids, planned layer ids and all nine library
+declarations check out; all 39 numbered results are cited by items.
+
+**Correction.** Ten citations named a page one away from the declaration: Proposition 2.3 is on p.9
+(cited p.8 in four items), Proposition 2.6 on p.11, Corollaire 2.2 on p.8, Corollaire 3.2 on p.13,
+Théorème 4.2 on p.16 (cited p.15 twice) and Définition 6.4 on p.22. The two "proof of" locators that
+also differ are right as they stand, and the two external "DLA19 Definition 5.1" citations were left
+untouched.
+
+Both findings are **confirmed**. E1: the standing setting of §4 (p.15) fixes a dominant `f : X → P^n`
+whose generic fibre is rationally connected, and Remarque 4.5 (p.17) invokes Théorème 4.2(i) for an
+`X` assumed only proper and smooth, so the hypothesis is missing. E2: `Q_{2^m}` is defined for
+`m ≥ 3`, not `m ≥ 1`.
