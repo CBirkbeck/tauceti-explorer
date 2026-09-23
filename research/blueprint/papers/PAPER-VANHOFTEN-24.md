@@ -1,10 +1,114 @@
-# PAPER-VANHOFTEN-24 — parahoric mod-p points
+# van Hoften (2024): mod p points on Shimura varieties of parahoric level, extraction and routing
+
+Issue [#1360](https://github.com/CBirkbeck/tauceti-explorer/issues/1360). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** P. van Hoften, with an appendix by R. Zhou, *Mod p points on Shimura varieties of parahoric level*, Forum Math. Pi 12 (2024), e20.
+  - The checkpoint's published copy (SHA-256 1f86fdc5…) remains the reference.
+  - The Cambridge endpoint returned HTML to this environment, so this continuation re-read arXiv v4.
+- **Items.** The result has **193 items: 16 library, 12 planned and 165 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+  - Checked against arXiv v4's statement list. Its Lemma 2.2.2 and Proposition 2.2.17 are the published Lemma 2.2.3 and the bounded level-change statement.
+- **Mistakes.** Thirty-four are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Reclassified to affect nothing.** Ten slips whose intended form is fixed by the surrounding text:
+- E4, the dimension formula Dim X = Dim Y + d;
+- E6 and E9;
+- E18, the dominance orientation;
+- E21, E23, E24, E26, E28 and E30, sign and σ-conjugacy slips in Appendix A.
+
+E4 and E28 were labelled errors and are now misprints.
+
+**Unchanged.**
+- **Affect the proof:** the §2.1 perfect-space gaps (E2, E3, E5, E7), E10, E11, E13, E14 and E16, the appendix steps E22, E25, E29 and E34, and the Hoff23 import E33.
+- **Affects a stated result:** E17, a missing compatibility hypothesis that the application supplies through HZZ 5.2.6(3).
+
+**Gaps.**
+- Q-perfect, Q-hoff and Q-rootcurves are recorded as findings.
+- The other seventeen are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Published2024 §2.1 p6, definition of deperfection. *Printed:* with Y an algebraic space of finite presentation *Correction:* The finite-presentation condition is on Y0, the deperfection, not on Y.
+- **E2** (error; affects the proof), Published2024 Lemma2.1.6 proof p8; also arXivv4 PDF9. *Printed:* B is isomorphic to the integral closure of A0 inside of A *Correction:* Only embed B, the normalization in Frac(A0), into normal A=A0^perf; use A0⊂B⊂A to conclude B^perf=A.
+- **E3** (gap; affects the proof), Published2024 Lemma2.1.7 proof p8; arXivv4 PDF10. *Printed:* injective on k-points, and hence universally injective *Correction:* Use the same argument after every algebraically closed field extension, or establish radiciality via the perfection comparison.
+- **E4** (misprint; affects nothing), Published2024 Lemma2.1.10 p9; arXivv4 PDF11. *Printed:* Dim X + d = Dim Y *Correction:* Dim X = Dim Y + d.
+- **E5** (misprint; affects the proof), Published2024 Lemma2.1.10 proof p9; arXivv4 PDF11. *Printed:* going down holds for O_X,x → O_Y,y *Correction:* The ring map is O_Y,y→O_X,x. For the dimension proof use compatible smooth charts rather than unproved flatness of an arbitrary deperfection.
+- **E6** (misprint; affects nothing), Published2024 Lemma2.1.12 and proof2.1.13 p9; arXivv4 PDF11. *Printed:* for some positive integer d_y *Correction:* Use nonnegative integers for algebraic-space relative dimensions.
+- **E7** (gap; affects the proof), Published2024 Lemma2.1.13 proof p9; arXivv4 PDF11. *Printed:* U_y ∩ U_yprime is non-empty because Y is connected *Correction:* Use the locally constant dimension function; distinct nonempty value fibers would disconnect Y.
+- **E8** (misprint; affects nothing), Published2024 §2.2.5 p12; arXivv4 PDF15. *Printed:* the standard Iwahori subgroup ... contains a very special parahoric subgroup *Correction:* The standard Iwahori is contained in a very special parahoric.
+- **E9** (misprint; affects nothing), Published2024 Lemma2.3.9 proof p21, first display. *Printed:* [M_I^(1-rdt) / Ad_sigma H_m] = Sht_I,mu^(mprime,1) *Correction:* Remove the final equality; pass from the H_m quotient to the L^mprime G_I quotient by the additional kernel gerbe.
+- **E10** (error; affects the proof), Published2024 §2.4 after Lemma2.4.5 p24, sigma-conjugacy diagram. *Printed:* bprime = g^(-1)b sigma(g); beta0 maps to g beta0 *Correction:* Transport beta0 to g^(-1)beta0 (and sigma*beta0 accordingly); then the new constant shtuka is bprime.
+- **E11** (error; affects the proof), Published2024 Remark3.1.8 p28, citing XZ17 Proposition7.2.4 and SYZ21 Theorem4.4.3. *Printed:* the square in [XZ17, top of page 113] does not commute *Correction:* Use Hoff23 Corollary2.57 with Assumption2.28 and normalization comparison, or a separately verified corrected SYZ argument.
+- **E12** (misprint; affects nothing), Published2024 §3.1.9 p29, isogeny definition. *Printed:* D_x[1/p] → D_xprime[1/p] *Correction:* For A_x→A_xprime use the contravariant arrow D_xprime[1/p]→D_x[1/p], pulling s_alpha,0,xprime to s_alpha,0,x.
+- **E13** (gap; affects the proof), Published2024 Proposition3.1.12 proof p31, GL diagram. *Printed:* GL(direct_sum_i=1^r Lambda_i,p) → GL(direct_sum_i=1^s Lambda_i,p) *Correction:* Restrict the right column to automorphisms compatible with the lattice chain and retained subchain, then define restriction.
+- **E14** (error; affects the proof), Published2024 Lemma4.1.6 proof footnote22 p39. *Printed:* its perfection is finite *Correction:* Its perfection is integral and affine and perfectly finite; ordinary finite is not automatic. The quasi-affineness consumer can use the affine pullback of the ample line.
+- **E15** (misprint; affects nothing), Published2024 Lemma4.1.6 proof p39, paragraph after Claim4.1.7. *Printed:* It suffices to show that fprime has finite fibres *Correction:* The remaining goal is finite fibers for f; fprime is already finite.
+- **E16** (error; affects the proof), Published2024 Corollary4.2.3 proof p42; arXivv4 PDF50. *Printed:* lambdaHat is weakly perfectly smooth of relative dimension 0 *Correction:* Its relative dimension is dim G_I. Use this value in Lemma2.1.20.
+- **E17** (error; affects a stated result), Published2024 §4.3.12–Proposition4.3.13 p47. *Printed:* Fix an identification G tensor A_f^p ≃ H tensor A_f^p and an inner twisting *Correction:* Require compatibility of the local identifications with the global inner twisting on the abelianized center complex (up to inner automorphism suffices).
+- **E18** (misprint; affects nothing), Published2024 AppendixA1 p54; arXivv4 PDF64. *Printed:* lambda − lambdaPrime can be written as a sum of positive coroots *Correction:* Use lambdaPrime−lambda for lambda≤lambdaPrime, allowing the zero sum.
+- **E19** (misprint; affects nothing), Published2024 AppendixA2.1 p56. *Printed:* nu_w := t^lambda / n *Correction:* Use nu_w=lambda/n in X_*(T)_(I,Q).
+- **E20** (misprint; affects nothing), Published2024 Proof PropositionA1.6 p57. *Printed:* u w sigma(u) = wsharp *Correction:* Use u w sigma(u)^(-1)=wsharp.
+- **E21** (misprint; affects nothing), Published2024 Proof PropositionA1.6 p57. *Printed:* simple roots contained in M but not in G *Correction:* Use the classes of simple coroots of G outside M to generate ker(pi1(M)→pi1(G)).
+- **E22** (misprint; affects the proof), Published2024 Proof PropositionA1.6 p57, Kottwitz class comparison. *Printed:* the image of [b]_M ... in pi1(M)_I *Correction:* The Kottwitz invariant of a sigma-conjugacy class belongs to pi1(M)_Gamma. Perform the torsion-kernel argument after the necessary sigma coinvariants, retaining the exactness check.
+- **E23** (misprint; affects nothing), Published2024 Proof PropositionA1.6 p58, choice of g0. *Printed:* g0^(-1) wsharp g0 = w *Correction:* Use g0^(-1) wsharp sigma(g0)=w.
+- **E24** (misprint; affects nothing), Published2024 Proof PropositionA1.6 p58, definition of w_i. *Printed:* w_i := u_i^(-1) wsharp sigma(u_i) *Correction:* Use w_i=u_i^(-1) w sigma(u_i) after choosing g0 with g0^(-1)wsharp sigma(g0)=w and g_i=g0 u_i.
+- **E25** (error; affects the proof), Published2024 Proof PropositionA1.6 p58. *Printed:* U_(-alpha_(i+1)) is contained in I s_(i+1) I *Correction:* Use U_(-alpha)⊂I union I s_alpha I, or restrict the nonzero parameter when using the second cell.
+- **E26** (misprint; affects nothing), Published2024 AppendixA3.3 p59. *Printed:* x − xprime = alphaVee − sigma^r(alphaVee) *Correction:* Use xprime−x=alphaVee−sigma^r(alphaVee), consistently with the displayed intermediate parameters and the endpoint in LemmaA3.11.
+- **E27** (misprint; affects nothing), Published2024 AppendixA3.5 p60. *Printed:* If alphaBar is divisible *Correction:* For the chosen short relative root, distinguish multipliable (2alphaBar a root) from nonmultipliable.
+- **E28** (misprint; affects nothing), Published2024 AppendixA3.7(3) p61; arXivv4 PDF71. *Printed:* u_1([a], [a]^2/2) *Correction:* Use u_1([a], −[a]^2/2) for the stated Hermitian form and tau fixing [a].
+- **E29** (gap; affects the proof), Published2024 AppendixA3.6–A3.9 pp61–62, applied to the full generality of A1.3. *Printed:* Let pi ... be a uniformiser, such that tau(pi) = −pi *Correction:* For the p>2 tame application state these restrictions. To prove the announced all-quasi-split local theorem, supply the dyadic/wild rank-one models or an independent argument.
+- **E30** (misprint; affects nothing), Published2024 Proof LemmaA3.11 p62, endpoint limit. *Printed:* product_i t^(sigma^i(alphaVee)) *Correction:* The first endpoint expression must use t^(−sigma^i(alphaVee)), consistently with the next equality g_x t^(−sum_i sigma^i(alphaVee)).
+- **E31** (misprint; affects nothing), Published2024 Proof LemmaA3.11 p63, triality paragraph. *Printed:* beta with sigma^h(beta) *Correction:* Complete the condition as sigma^h(beta)=beta for the central root.
+- **E32** (misprint; affects nothing), Published2024 Proof LemmaA3.11 p63, display after LemmaA3.9(2). *Printed:* u_(sigma^(r−h)(alpha))(−c2z) (t^lambda u_(sigma^r(alpha)+sigma^r(beta))(c1 z)t^(−lambda)) u_(sigma^(r−h)(alpha))(c2z) *Correction:* Append membership in L+G to this displayed expression.
+- **E33** (gap; affects the proof), Published2024 §3.1.7 p28, import of Hoff23 Corollary2.57. *Printed:* is perfectly smooth by [Hof23, Corollary 2.57] *Correction:* Retain Hoff Assumption2.28 and identify the normalization of the restricted shtuka target, or cite a proof discharging both under the present hypotheses.
+- **E34** (error; affects the proof), Published2024 Proof PropositionA1.6 p58, reduced word and endpoints. *Printed:* g(infinity) = g_i s_(i+1) I = g_(i+1) I *Correction:* Write v=u^(-1)=s1...sn and v_i=s1...si, and set g_i=g0 v_i. Then g_(i+1)=g_i s_(i+1), and the final sigma-conjugate is u w sigma(u)^(-1)=wsharp.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **Q-perfect** (recorded). E2, E3, E5 and E7 record the paper's own §2.1 proof gaps. BGA18, Zhu17 and BS17 are cited suppliers.
+- **Q-restricted** (deferred). The restricted-shtuka inputs are cited from [55] and the checkpoint's items. E9 now affects nothing.
+- **Q-newton** (deferred). Fargues–Scholze and Rapoport–Richartz are cited suppliers; E10 records the σ-conjugacy diagram.
+- **Q-display** (deferred). Lau, Gabber and Zhou are cited suppliers; E11 (a failure in XZ17 that the paper itself reports, with the Shen–Yu–Zhang erratum) and E13 are recorded.
+- **Q-hoff** (recorded). E33 records the import of Hoff23 Corollary 2.57 without its Assumption 2.28. The assumption itself is a cited supplier's.
+- **Q-model** (deferred). Kisin–Pappas, Pappas, Pappas–Rapoport and DvHKZ are cited suppliers.
+- **Q-isogeny** (deferred). Rapoport–Zink and Zhou are cited suppliers; E14 is recorded.
+- **Q-local** (deferred). Kottwitz, Lang and the z-extension inputs are cited suppliers.
+- **Q-adlv** (deferred). He, He–Zhou, Hamacher–Viehmann and Zhou–Zhu are cited suppliers.
+- **Q-rootcurves** (recorded). E22, E25, E29 and E34 record the appendix's proof gaps; the sign slips are now misprints that affect nothing.
+- **Q-nie** (deferred). Nie and CKV (with its corrigendum) are cited suppliers.
+- **Q-line** (deferred). The Hodge-line and SYZ inputs are cited suppliers.
+- **Q-components** (deferred). Madapusi Pera and He–Rapoport are cited suppliers; E16 is recorded.
+- **Q-basic** (deferred). He–Zhou–Zhu is a cited supplier.
+- **Q-cohom** (deferred). Borovoi and the Hasse principle are cited suppliers; E17 is recorded.
+- **Q-approximation** (deferred). Strong approximation is a cited supplier.
+- **Q-incidence** (deferred). Wedhorn–Ziegler and Andreatta are cited suppliers.
+- **Q-monodromy** (deferred). van Hoften's ordinary Hecke orbit theorem is a cited supplier.
+- **Q-main** (deferred). Splitting the final argument into declarations is design work.
+- **Q-granularity** (deferred). Declaration-sized splitting is design work; every numbered statement is an item.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-VANHOFTEN-24 — parahoric mod-p points
 
 Codex, session `codex-c83e7a`, issue #1360. This is a full-main-paper extraction checkpoint, with status **partial**. All 67 pages of the published paper were read, including Rong Zhou’s appendix and the bibliography. The main constructions and numbered targets have routes; recursive source closure and several declaration-sized decompositions remain unfinished. No result is claimed formalized.
 
 The paper is Pol van Hoften, *Mod p points on Shimura varieties of parahoric level*, with an appendix by Rong Zhou, **Forum of Mathematics, Pi 12 (2024), e20, 1–67**, DOI [10.1017/fmp.2024.22](https://doi.org/10.1017/fmp.2024.22). The [published PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf) was acquired on 22 September 2026, SHA-256 `1f86fdc536d3f6eca1febe9d52c33f61878ff333b60ee0d72597165b288d2921`. Printed and PDF page numbers agree. The 78-page [arXiv v4](https://arxiv.org/abs/2010.10496v4), dated 3 September 2024, was used for targeted comparisons. It was not read as a second complete version. The article supplies a CC BY license; this report attributes its statements and keeps quotations confined to the source-issue record.
 
-## What the paper proves
+### What the paper proves
 
 The introductory hypotheses are essential. The datum is Hodge type, the prime is greater than two, the local group is quasi-split and splits over a tame extension, the prime does not divide the order of the derived algebraic fundamental group, and the inertia coinvariants `pi1(G)_I` are torsion-free. The paper’s expression “connected parahoric” means that the full facet fixer equals the connected parahoric. Merely recalling that a parahoric group scheme has connected special fiber does not supply this stronger equality.
 
@@ -14,7 +118,7 @@ For the general component theorem, “Q-nonbasic” requires nonbasicness in eve
 
 The local Hodge cocharacter is `mu=sigma(mu_h^(-1))`. The dual and Frobenius conventions are part of the interface. Tensor-preserving isogenies act forward on the covariant away-p realization and backward on the contravariant Dieudonné realization. The orbit formula couples the local ADLV coordinate and the away-p adelic coordinate by a single rational quasi-isogeny group. It is not a product of independent orbit sets.
 
-## How the proof fits together
+### How the proof fits together
 
 The paper constructs the perfect local shtuka attached to a point of the integral Hodge model. For an Iwahori inside a very special parahoric, it forms the two-fiber product of the very-special Shimura variety with the Iwahori local-shtuka stack over the very-special local-shtuka stack. This auxiliary space is called `ShStar` here because the distinct fonts in the printed paper can disappear in extracted PDF text. The natural map from the actual Iwahori model to `ShStar` is first proved to be a closed immersion.
 
@@ -30,7 +134,7 @@ The finite-level transitivity statement passes to the away-p tower using inverse
 
 The EKOR component argument additionally uses the ordinary Hecke-orbit monodromy theorem. First a sigma-straight Q-nonbasic stratum is treated: the relevant Hecke action on component fibers is both trivial and transitive. A general stratum is reduced to a suitable straight one in its closure. The finite set of places must include the compact adjoint factors used in the monodromy theorem. The original monodromy hypotheses, its CM-lift input and normality requirement remain explicit verification obligations.
 
-## What the appendix adds
+### What the appendix adds
 
 Zhou proves a local component theorem for quasi-split groups at very special level. For the Newton Levi `M`, the map from **every individual** admissible Levi parameter to the global ADLV component set is surjective. This is stronger than surjectivity from the union of all parameters. It validates the use of a single chosen parameter in Proposition 3.4.5; the initially suspected union-versus-single-parameter issue is not an error.
 
@@ -42,7 +146,7 @@ The full local theorem is announced for general quasi-split groups, whereas the 
 
 In Appendix A4 the good isogeny-map locus is a union of components. An adapted Newton-Levi lift and rational Tate-lattice modifications make it meet every component. The individual-parameter surjectivity then proves that the good locus is the whole ADLV. This gives the tensor-preserving isogeny map and the CM-reduction statement. The exact Zhou deformation assumptions and realization comparisons are indispensable imports, not consequences of the word “adapted.”
 
-## Ownership and the pinned baseline
+### Ownership and the pinned baseline
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The JSON retains statement-read module references and hashes. The library already supplies Witt vectors and their fraction-field Frobenius, reductive and torus predicates, character/cocharacter lattices and pairings, dominant-chamber ingredients, abelian varieties, divided powers and the ordinary comma-category carrier. These are imported in their exact generality. An ordinary comma category does not by itself provide a stack two-fiber product, and a Witt isocrystal carrier does not classify reductive isocrystals or ADLVs.
 
@@ -52,7 +156,7 @@ The foundational perfect-space material belongs to Scheme and Stack Foundations.
 
 The four continuations reuse existing candidate identifiers: the integral local-shtuka continuation, tensor-display continuation, ADLV continuation and integral Shimura/Honda–Tate continuation. This paper supplies new source obligations to those directions. It does not create a fifth independent “van Hoften” roadmap. The main Shimura direction imports each reusable local and cohomological theorem from its owner.
 
-## Source corrections and proof gates
+### Source corrections and proof gates
 
 The machine-readable `sourceIssues` list is authoritative for all findings recorded here. Each entry gives a locator, the printed assertion, a correction or missing input, a reason, its reach and the correction search. Mathematical formulas are transcribed without PDF font artifacts. Findings marked new mean that no correction was found in the listed search; they still require independent review. The worker has not added a review verdict and has not contacted the authors.
 
@@ -64,9 +168,9 @@ The smoothness issue in XZ/SYZ is already documented by the paper and by the SYZ
 
 The bibliography is not recursively closed. In particular, the original Nie, HZ and Zhou component/deformation arguments; full basic uniformization; WZ/Andreatta incidence; and ordinary Hecke-orbit monodromy need further source work. The exact remaining inputs and their consuming item ids appear under `gaps`. Some named compound results need splitting, and any API fact used in a proof must be promoted to a lemma node before the design is closed. These limitations are why the job remains partial despite the complete main-paper reading and total routing of its current item inventory.
 
-## Route briefs and module destinations
+### Route briefs and module destinations
 
-### 1. SchemeAndStackFoundations
+#### 1. SchemeAndStackFoundations
 
 Owner `SchemeAndStackFoundations`; route `source`; 28 items.
 
@@ -74,13 +178,11 @@ The foundational roadmap owns general perfection, smoothness, descent, quotient 
 
 Stages: `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
-
-
 Imports: FoundationsAndLibraryIntegration, GeometricSatakeAndFusion:GS0:Witt-geometry, existing perfect-space use, Pinned scheme, quotient-category and field-perfection carriers.
 
 Suggested design destination: `TauCeti/AlgebraicGeometry/Perfect/WeakSmooth.lean`. No Lean file was created.
 
-### 2. ReductiveGroupsPartII
+#### 2. ReductiveGroupsPartII
 
 Owner `ReductiveGroupsPartII`; route `source`; 11 items.
 
@@ -88,13 +190,11 @@ Existing relative-root, parahoric and double-coset layers own very special verti
 
 Stages: `ReductiveGroupsPartII:RG2.1`, `ReductiveGroupsPartII:RG2.3`, `ReductiveGroupsPartII:RG2.4`.
 
-
-
 Imports: tauceti:TauCetiRoadmap/ReductiveGroups, BunGAndNewtonStrata:BG1, Pinned root pairing and cocharacter lattices.
 
 Suggested design destination: `TauCeti/Algebra/AlgebraicGroup/Parahoric/VerySpecial.lean`. No Lean file was created.
 
-### 3. GeometricSatakeAndFusion
+#### 3. GeometricSatakeAndFusion
 
 Owner `GeometricSatakeAndFusion`; route `source`; 7 items.
 
@@ -102,13 +202,11 @@ The existing Witt-geometry layer explicitly owns perfect lattice/flag spaces, re
 
 Stages: `GeometricSatakeAndFusion:GS0:Witt-geometry`.
 
-
-
 Imports: SchemeAndStackFoundations:SF.0/SF.1, ReductiveGroupsPartII:RG2.3/RG2.4, RelativeFarguesFontaineCurve:RF0 coefficient owner.
 
 Suggested design destination: `TauCeti/AlgebraicGeometry/AffineFlag/ParahoricWitt.lean`. No Lean file was created.
 
-### 4. BunGAndNewtonStrata
+#### 4. BunGAndNewtonStrata
 
 Owner `BunGAndNewtonStrata`; route `source`; 3 items.
 
@@ -116,13 +214,11 @@ BG0 owns B(G) and J_b and BG1 owns Newton/Kottwitz invariants. Add the rational 
 
 Stages: `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`.
 
-
-
 Imports: ReductiveGroupsPartII:RG2.3/RG2.4, Pinned Witt fraction-field Frobenius.
 
 Suggested design destination: `TauCeti/Algebra/Isocrystal/KottwitzComponents.lean`. No Lean file was created.
 
-### 5. EndoscopicTransferAndUnitaryTraceComparison
+#### 5. EndoscopicTransferAndUnitaryTraceComparison
 
 Owner `EndoscopicTransferAndUnitaryTraceComparison`; route `source`; 4 items.
 
@@ -130,13 +226,11 @@ The existing rational/stable conjugacy and inner-form layer already owns Borovoi
 
 Stages: `EndoscopicTransferAndUnitaryTraceComparison:ET.0`.
 
-
-
 Imports: tauceti:TauCetiRoadmap/ProfiniteCohomology, ArithmeticGaloisDuality, ReductiveGroupsPartII, SchemeAndStackFoundations:SF.1.
 
 Suggested design destination: `TauCeti/GroupTheory/GaloisCohomology/PositiveInnerForms.lean`. No Lean file was created.
 
-### 6. AbelianSchemesAndArithmeticModuli
+#### 6. AbelianSchemesAndArithmeticModuli
 
 Owner `AbelianSchemesAndArithmeticModuli`; route `source`; 2 items.
 
@@ -144,13 +238,11 @@ The abelian-scheme roadmap owns quotient realization and compatibility of p-divi
 
 Stages: `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A3`, `AbelianSchemesAndArithmeticModuli:A4`.
 
-
-
 Imports: FiniteFlatGroupsAndIntegralPadicHodgeTheory, PELModuli:M1/M2, SchemeAndStackFoundations:SF.1.
 
 Suggested design destination: `TauCeti/AlgebraicGeometry/AbelianScheme/PerfectIsogenyQuotient.lean`. No Lean file was created.
 
-### 7. Hecke stacks and local shtukas, Part II: integral parahoric models and crystalline diagrams
+#### 7. Hecke stacks and local shtukas, Part II: integral parahoric models and crystalline diagrams
 
 Owner `HeckeStacksAndLocalShtukasIntegralPartII`; route `part-ii`; 23 items.
 
@@ -162,7 +254,7 @@ Imports: HeckeStacksAndLocalShtukas, SchemeAndStackFoundations, GeometricSatakeA
 
 Suggested design destination: `TauCeti/ArithmeticGeometry/LocalShtuka/RestrictedParahoric.lean`. No Lean file was created.
 
-### 8. Finite flat groups and integral p-adic Hodge theory, Part II: tensors and adapted deformations
+#### 8. Finite flat groups and integral p-adic Hodge theory, Part II: tensors and adapted deformations
 
 Owner `FiniteFlatGroupsWithTensorsPartII`; route `part-ii`; 6 items.
 
@@ -174,7 +266,7 @@ Imports: FiniteFlatGroupsAndIntegralPadicHodgeTheory, CrystallineCohomology, Pad
 
 Suggested design destination: `TauCeti/ArithmeticGeometry/PDivisibleGroup/ParahoricAdaptedLift.lean`. No Lean file was created.
 
-### 9. Hecke stacks and local shtukas, Part II: affine Deligne–Lusztig geometry
+#### 9. Hecke stacks and local shtukas, Part II: affine Deligne–Lusztig geometry
 
 Owner `HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig`; route `part-ii`; 28 items.
 
@@ -186,7 +278,7 @@ Imports: HeckeStacksAndLocalShtukas, HeckeStacksAndLocalShtukasIntegralPartII, G
 
 Suggested design destination: `TauCeti/ArithmeticGeometry/AffineDeligneLusztig/VerySpecialComponents.lean`. No Lean file was created.
 
-### 10. Shimura varieties, Part II: integral models, special isogenies and mod-p points
+#### 10. Shimura varieties, Part II: integral models, special isogenies and mod-p points
 
 Owner `ShimuraVarietiesHondaTatePartII`; route `part-ii`; 57 items.
 
@@ -198,11 +290,11 @@ Imports: ShimuraVarieties, ShimuraData, PELModuli, AbelianSchemesAndArithmeticMo
 
 Suggested design destination: `TauCeti/ArithmeticGeometry/ShimuraVariety/ParahoricModPPoints.lean`. No Lean file was created.
 
-## Item inventory
+### Item inventory
 
 The JSON carries the complete API and test lists. Each entry below records the statement and the proof or construction boundary so that the routes can be reviewed without inferring a theorem from its name.
 
-### L01 — Witt-vector coefficient carrier
+#### L01 — Witt-vector coefficient carrier
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -216,7 +308,7 @@ API: Reuse WittVector.mk on a coefficient sequence. Equality follows from equali
 
 Acceptance cases: Equal coefficient sequences give equal vectors. Over F_p the fraction field specializes to Q_p after the standard comparison. Witt addition in positive coordinates is not coordinatewise addition in general.
 
-### L02 — Frobenius on the Witt fraction field
+#### L02 — Frobenius on the Witt fraction field
 
 **construction; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -230,7 +322,7 @@ API: The inverse is induced by inverse Witt Frobenius over a perfect domain. The
 
 Acceptance cases: Over F_p Frobenius fixes p. Applying Frobenius then its inverse fixes every fraction. Semilinearity uses sigma(a), not a, on a nonfixed scalar.
 
-### L06 — Connected reductive group predicate
+#### L06 — Connected reductive group predicate
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -244,7 +336,7 @@ API: Reuse the geometric normal-unipotent-subgroup characterization. Transport t
 
 Acceptance cases: G_m is reductive. GL_n is reductive in characteristic zero. The additive group is not reductive.
 
-### L07 — Algebraic torus predicate
+#### L07 — Algebraic torus predicate
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -258,7 +350,7 @@ API: A geometric split-torus isomorphism proves the predicate. The geometric fib
 
 Acceptance cases: G_m is rank one. A norm-one quadratic torus need not be split. G_a is not a torus.
 
-### L08 — Geometric character lattice
+#### L08 — Geometric character lattice
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -272,7 +364,7 @@ API: Expose the action inherited from geometric scalar extension. Identify a cha
 
 Acceptance cases: X*(G_m) is Z. Conjugation acts by minus one on a real norm-one torus. The trivial torus has zero character group.
 
-### L09 — Cocharacter lattice and pairing
+#### L09 — Cocharacter lattice and pairing
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -286,7 +378,7 @@ API: Use the integral-dual linear equivalence. Evaluate a character on a cochara
 
 Acceptance cases: For G_m, exponents a and b pair to ab. The zero cocharacter pairs to zero. Simultaneous sign reversal on a norm-one torus preserves the pairing.
 
-### L10 — Perfect character-cocharacter pairing
+#### L10 — Perfect character-cocharacter pairing
 
 **theorem; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -296,7 +388,7 @@ Imports: `tauceti:TauCeti.TorusCommHopfAlgCat.instCharacterCocharacterPairingIsP
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-### L11 — Closed dominant chamber of a root pairing
+#### L11 — Closed dominant chamber of a root pairing
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -310,7 +402,7 @@ API: Membership is nonnegativity on the simple coroot functionals. The zero vect
 
 Acceptance cases: In type A1 the chamber is one closed half-line. The wall point zero is not interior. Swapping roots with coroots uses the flipped pairing.
 
-### L12 — Unique dominant representative in a Weyl orbit
+#### L12 — Unique dominant representative in a Weyl orbit
 
 **theorem; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -320,7 +412,7 @@ Imports: `tauceti:TauCeti.existsUnique_mem_orbit_inter_dominantChamber`.
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-### L13 — Abelian variety over a field
+#### L13 — Abelian variety over a field
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -334,7 +426,7 @@ API: Expose the existing group scheme and structure map. Base change is the exis
 
 Acceptance cases: An elliptic curve gives a dimension-one example. The trivial abelian variety is allowed. A nonproper torus is not an abelian variety.
 
-### L15 — Divided-power structure
+#### L15 — Divided-power structure
 
 **definition; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -348,7 +440,7 @@ API: Use the existing divided-power operations on the ideal. The product of divi
 
 Acceptance cases: On the zero ideal gamma_0(0)=1. Gamma_1(x)=x on the ideal. Division by n! is not a definition over a torsion ring.
 
-### L16 — Finite free cocharacter lattice
+#### L16 — Finite free cocharacter lattice
 
 **theorem; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -358,7 +450,7 @@ Imports: `tauceti:TauCeti.TorusCommHopfAlgCat.cocharacterLattice_module_free`, `
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-### L17 — Galois invariance of the pairing
+#### L17 — Galois invariance of the pairing
 
 **theorem; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -368,7 +460,7 @@ Imports: `tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocharacterP
 
 Reuse the cited pinned declaration in its stated scope. Any application adapter beyond that statement must be proved separately and is not baseline evidence.
 
-### P02 — Bruhat–Tits smooth stabilizers and connected parahorics
+#### P02 — Bruhat–Tits smooth stabilizers and connected parahorics
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -378,7 +470,7 @@ Stage imports: `ReductiveGroupsPartII:RG2.3`.
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P03 — Affine Weil restriction
+#### P03 — Affine Weil restriction
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -388,7 +480,7 @@ Stage imports: `ReductiveGroupsPartII:RG2.0a`.
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P04 — Pinned root subgroup maps
+#### P04 — Pinned root subgroup maps
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -398,7 +490,7 @@ Stage imports: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleyd
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P08 — Dieudonné and nilpotent deformation theory
+#### P08 — Dieudonné and nilpotent deformation theory
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -408,7 +500,7 @@ Stage imports: `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P09 — Integral p-divisible group classification
+#### P09 — Integral p-divisible group classification
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -418,7 +510,7 @@ Stage imports: `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`.
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P12 — Siegel and PEL good-level moduli
+#### P12 — Siegel and PEL good-level moduli
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -428,7 +520,7 @@ Stage imports: `PELModuli:M1`, `PELModuli:M2`.
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P13 — Canonical generic Shimura models
+#### P13 — Canonical generic Shimura models
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -438,7 +530,7 @@ Stage imports: `ShimuraVarieties:V1`, `ShimuraVarieties:V6`, `ShimuraVarieties:V
 
 Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates.
 
-### P14 — Serre–Tate comparison with structures
+#### P14 — Serre–Tate comparison with structures
 
 **theorem; planned**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -448,7 +540,7 @@ Stage imports: `AbelianSchemesAndArithmeticModuli:A4`.
 
 Use the source proof and listed prerequisites; the owner-level gate records recursive source and declaration closure still required.
 
-### L20 — Ordinary comma-category carrier
+#### L20 — Ordinary comma-category carrier
 
 **construction; library**. Source: §§2–4 and Appendix A, imported foundation.
 
@@ -456,13 +548,11 @@ For functors L:A→T and R:B→T, Comma L R has objects a,b and a morphism L(a)�
 
 Imports: `mathlib:CategoryTheory.Comma`.
 
-
-
 API: Construct the left and right objects and comparison morphism. Arrow squares define its morphisms. Functorial diagrams induce the corresponding comma functors.
 
 Acceptance cases: Over the terminal category this is the product carrier. Identity arrows give objects over equal images. For an isocomma adapter restrict comparison arrows to isomorphisms.
 
-### L23 — Perfect coefficient-ring predicate
+#### L23 — Perfect coefficient-ring predicate
 
 **construction; library**. Source: Pinned Mathlib/FieldTheory/Perfect.lean:44.
 
@@ -476,7 +566,7 @@ API: Supply injectivity and surjectivity of the p-power map. Every element has a
 
 Acceptance cases: A finite field is perfect. The zero ring has a bijective power map. Fp[t] is not perfect since t has no polynomial pth root.
 
-### L24 — Linear Witt isocrystal carrier
+#### L24 — Linear Witt isocrystal carrier
 
 **construction; library**. Source: Pinned Mathlib/RingTheory/WittVector/Isocrystal.lean:113.
 
@@ -490,7 +580,7 @@ API: Supply the fraction-ring module and its semilinear automorphism. Morphisms 
 
 Acceptance cases: A one-dimensional Frobenius module gives the rank-one carrier. The zero module has its unique semilinear automorphism. A reductive G-isocrystal classification is additional structure beyond this module class.
 
-### F01 — Perfection of an algebraic space
+#### F01 — Perfection of an algebraic space
 
 **construction; missing**. Source: §2.1 pp6–7.
 
@@ -508,7 +598,7 @@ Acceptance cases: Spec(k[t]) perfects to Spec(k[t^(1/p^infinity)]). A perfect fi
 
 Open gates: `Q-granularity`.
 
-### F02 — Perfection preserves topology
+#### F02 — Perfection preserves topology
 
 **theorem; missing**. Source: §2.1 p6.
 
@@ -522,7 +612,7 @@ Use affine Frobenius integrality, radiciality and surjectivity, then étale desc
 
 Open gates: `Q-granularity`.
 
-### F03 — Perfect finite presentation and deperfections
+#### F03 — Perfect finite presentation and deperfections
 
 **construction; missing**. Source: §2.1 p6.
 
@@ -540,7 +630,7 @@ Acceptance cases: The perfected affine line is pfp. Spec k is its own deperfecti
 
 Open gates: `Q-granularity`.
 
-### F04 — Finite-presentation continuity
+#### F04 — Finite-presentation continuity
 
 **theorem; missing**. Source: Lemma2.1.1 p7.
 
@@ -554,7 +644,7 @@ Apply finite-presentation continuity to a deperfection and the perfection adjunc
 
 Open gates: `Q-granularity`.
 
-### F05 — Perfect properness
+#### F05 — Perfect properness
 
 **construction; missing**. Source: §2.1 p7.
 
@@ -572,7 +662,7 @@ Acceptance cases: P1^perf→Spec k is perfectly proper. A closed immersion of pf
 
 Open gates: `Q-granularity`.
 
-### F06 — Perfect smoothness with relative dimension
+#### F06 — Perfect smoothness with relative dimension
 
 **construction; missing**. Source: Definition2.1.2 p7.
 
@@ -590,7 +680,7 @@ Acceptance cases: (A2)^perf→Spec k has dimension2. An étale map has dimension
 
 Open gates: `Q-granularity`.
 
-### F07 — Smooth deperfections give perfect smooth maps
+#### F07 — Smooth deperfections give perfect smooth maps
 
 **theorem; missing**. Source: Example2.1.3 p7.
 
@@ -604,7 +694,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F08 — Perfect group torsors are perfectly smooth
+#### F08 — Perfect group torsors are perfectly smooth
 
 **theorem; missing**. Source: Example2.1.4 pp7–8.
 
@@ -618,7 +708,7 @@ Use Zhu AppendixA26 for the group and étale descent of the smooth charts.
 
 Open gates: `Q-perfect`, `Q-granularity`.
 
-### F09 — Connected perfect smooth dimension
+#### F09 — Connected perfect smooth dimension
 
 **theorem; missing**. Source: Lemma2.1.5 p8.
 
@@ -632,7 +722,7 @@ The dimension function is locally constant, hence constant on a connected space.
 
 Open gates: `Q-granularity`.
 
-### F10 — Normal deperfection
+#### F10 — Normal deperfection
 
 **theorem; missing**. Source: Lemma2.1.6 p8.
 
@@ -646,7 +736,7 @@ Reduce to integral components; normalize a reduced model A0 in Frac(A0). Embed i
 
 Open gates: `Q-perfect`, `Q-granularity`.
 
-### F11 — Normality ascends perfectly smoothly
+#### F11 — Normality ascends perfectly smoothly
 
 **theorem; missing**. Source: Lemma2.1.7 first assertion pp8–9.
 
@@ -660,7 +750,7 @@ Use smooth/étale deperfections of local charts and normality ascent.
 
 Open gates: `Q-granularity`.
 
-### F12 — Normality descends perfectly smoothly
+#### F12 — Normality descends perfectly smoothly
 
 **theorem; missing**. Source: Lemma2.1.7 second assertion pp8–9.
 
@@ -674,7 +764,7 @@ Descend via normal deperfections and geometric-point/radicial comparison; k-rati
 
 Open gates: `Q-perfect`, `Q-granularity`.
 
-### F13 — Weak perfect smoothness
+#### F13 — Weak perfect smoothness
 
 **construction; missing**. Source: Definition2.1.9 p9.
 
@@ -692,7 +782,7 @@ Acceptance cases: Identity has d=0. A smooth projection of dimension2 satisfies 
 
 Open gates: `Q-granularity`.
 
-### F14 — Weak smoothness base change
+#### F14 — Weak smoothness base change
 
 **theorem; missing**. Source: After Definition2.1.9 p9.
 
@@ -706,7 +796,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F15 — Weak smoothness composition
+#### F15 — Weak smoothness composition
 
 **theorem; missing**. Source: After Definition2.1.9 p9.
 
@@ -720,7 +810,7 @@ Pull the two witness covers to a common perfectly smooth cover.
 
 Open gates: `Q-granularity`.
 
-### F16 — Corrected dimension formula
+#### F16 — Corrected dimension formula
 
 **theorem; missing**. Source: Lemma2.1.10 p9, corrected.
 
@@ -734,7 +824,7 @@ Use dimensions of perfect-smooth charts and subtract the cover dimension; this a
 
 Open gates: `Q-granularity`.
 
-### F17 — Local fiber dimension
+#### F17 — Local fiber dimension
 
 **theorem; missing**. Source: Lemma2.1.11 p9.
 
@@ -748,7 +838,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F18 — Local characterization of weak smoothness
+#### F18 — Local characterization of weak smoothness
 
 **theorem; missing**. Source: Lemma2.1.12 p9, corrected.
 
@@ -762,7 +852,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F19 — Connected weak smooth dimension
+#### F19 — Connected weak smooth dimension
 
 **theorem; missing**. Source: Lemma2.1.13 p9.
 
@@ -776,7 +866,7 @@ The dimension function is locally constant. Its nonempty fibers are clopen; conn
 
 Open gates: `Q-granularity`.
 
-### F20 — Weak smooth normality ascent
+#### F20 — Weak smooth normality ascent
 
 **theorem; missing**. Source: Lemma2.1.14 p10.
 
@@ -790,7 +880,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F21 — Weak smooth normality descent
+#### F21 — Weak smooth normality descent
 
 **theorem; missing**. Source: Lemma2.1.14 p10.
 
@@ -804,7 +894,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F22 — Perfect algebraic stacks
+#### F22 — Perfect algebraic stacks
 
 **construction; missing**. Source: Definitions2.1.15–2.1.18 pp10–11.
 
@@ -822,7 +912,7 @@ Acceptance cases: A pfp perfect space gives a representable stack. BG for a smoo
 
 Open gates: `Q-granularity`.
 
-### F23 — Weak smooth maps of perfect stacks
+#### F23 — Weak smooth maps of perfect stacks
 
 **construction; missing**. Source: Definitions2.1.18–2.1.19 pp10–11.
 
@@ -840,7 +930,7 @@ Acceptance cases: A smooth group gerbe has the expected negative stack-fiber dim
 
 Open gates: `Q-granularity`.
 
-### F24 — Quotient dimension formula
+#### F24 — Quotient dimension formula
 
 **theorem; missing**. Source: Lemma2.1.20 p11.
 
@@ -854,7 +944,7 @@ Pull back the atlas X→[X/G], compute dimensions of the G-torsor, and subtract 
 
 Open gates: `Q-granularity`.
 
-### R01 — Full fixer versus connected parahoric
+#### R01 — Full fixer versus connected parahoric
 
 **construction; missing**. Source: §2.2.1 pp11–12.
 
@@ -870,7 +960,7 @@ Acceptance cases: A hyperspecial GLn model has connected full fixer. A connected
 
 Open gates: `Q-granularity`.
 
-### R02 — Torsion-free inertia ensures connected fixer
+#### R02 — Torsion-free inertia ensures connected fixer
 
 **theorem; missing**. Source: Lemma2.2.3 p12.
 
@@ -882,7 +972,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### R03 — Connectedness for a smaller parahoric
+#### R03 — Connectedness for a smaller parahoric
 
 **theorem; missing**. Source: Lemma2.2.4 p12.
 
@@ -894,7 +984,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### R04 — Very special parahoric
+#### R04 — Very special parahoric
 
 **construction; missing**. Source: §2.2.5 p12.
 
@@ -910,7 +1000,7 @@ Acceptance cases: For split GL2 take GL2(Zp) containing the standard Iwahori. A 
 
 Open gates: `Q-granularity`.
 
-### R05 — Iwahori–Weyl group and length-zero part
+#### R05 — Iwahori–Weyl group and length-zero part
 
 **construction; missing**. Source: §2.2.5 pp12–13.
 
@@ -926,7 +1016,7 @@ Acceptance cases: Split GL2 has translations Z² and W0=S2. For a torus Waff is 
 
 Open gates: `Q-granularity`.
 
-### G01 — Witt loop groups
+#### G01 — Witt loop groups
 
 **construction; missing**. Source: §2.2.6 pp13–14.
 
@@ -944,7 +1034,7 @@ Acceptance cases: For GL1 these are the units in the three coefficient rings. Th
 
 Open gates: `Q-granularity`.
 
-### G02 — Witt affine flags
+#### G02 — Witt affine flags
 
 **theorem; planned**. Source: §2.2.7 pp13–14.
 
@@ -958,7 +1048,7 @@ Prerequisites: `G01`.
 
 Use the located argument with the listed interfaces; the original-source and declaration-size gates remain open.
 
-### G03 — Torsor modification description
+#### G03 — Torsor modification description
 
 **construction; missing**. Source: §2.2.7 p14.
 
@@ -976,7 +1066,7 @@ Acceptance cases: A trivialized GLn torsor gives a Witt lattice. The standard la
 
 Open gates: `Q-granularity`.
 
-### G04 — Witt torsors and loop torsors
+#### G04 — Witt torsors and loop torsors
 
 **theorem; missing**. Source: Lemma2.2.8 p14.
 
@@ -990,7 +1080,7 @@ Use smooth lifting, henselian Witt pairs and étale descent; original-source clo
 
 Open gates: `Q-granularity`.
 
-### G05 — Admissible Schubert union
+#### G05 — Admissible Schubert union
 
 **construction; missing**. Source: §2.2.14–2.2.15 pp15–16.
 
@@ -1008,7 +1098,7 @@ Acceptance cases: For mu=0 only the appropriate length-zero datum survives. Spli
 
 Open gates: `Q-granularity`.
 
-### G06 — Schubert normality and dimension
+#### G06 — Schubert normality and dimension
 
 **theorem; planned**. Source: §2.2.14 p15.
 
@@ -1022,7 +1112,7 @@ Prerequisites: `G05`.
 
 Use the located argument with the listed interfaces; the original-source and declaration-size gates remain open.
 
-### G07 — Minuscule local-model dimension
+#### G07 — Minuscule local-model dimension
 
 **theorem; missing**. Source: §2.2.15 p16.
 
@@ -1036,7 +1126,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S01 — Local Hecke stack
+#### S01 — Local Hecke stack
 
 **construction; missing**. Source: §2.2.9 p14.
 
@@ -1054,7 +1144,7 @@ Acceptance cases: For GL1 the relative position is the valuation of a rational u
 
 Open gates: `Q-granularity`.
 
-### S02 — Perfect local shtuka
+#### S02 — Perfect local shtuka
 
 **construction; missing**. Source: §2.2.10 pp14–15.
 
@@ -1072,7 +1162,7 @@ Acceptance cases: For GLn this gives a sigma-semilinear isomorphism on the ratio
 
 Open gates: `Q-granularity`.
 
-### S03 — Local shtuka quotient
+#### S03 — Local shtuka quotient
 
 **theorem; missing**. Source: §2.3.1 p16.
 
@@ -1086,7 +1176,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S04 — Height-one local shtuka
+#### S04 — Height-one local shtuka
 
 **construction; missing**. Source: §2.2.10 p15.
 
@@ -1102,7 +1192,7 @@ Acceptance cases: Etale and multiplicative p-divisible groups give the two rank-
 
 Open gates: `Q-granularity`.
 
-### S05 — Gabber–Lau classification
+#### S05 — Gabber–Lau classification
 
 **theorem; missing**. Source: §2.2.10 p15, Lau18.
 
@@ -1114,7 +1204,7 @@ Import the actual perfect-ring theorem, not the field-only Dieudonné classifica
 
 Open gates: `Q-display`, `Q-granularity`.
 
-### S06 — Change of parahoric on classifying stacks
+#### S06 — Change of parahoric on classifying stacks
 
 **theorem; missing**. Source: Lemma2.2.11 p15.
 
@@ -1128,7 +1218,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S07 — Unbounded level-change fiber
+#### S07 — Unbounded level-change fiber
 
 **theorem; missing**. Source: Lemma2.2.12 p15.
 
@@ -1142,7 +1232,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S08 — Bounded level change is perfectly proper
+#### S08 — Bounded level change is perfectly proper
 
 **theorem; missing**. Source: Lemma2.2.13 p15.
 
@@ -1156,7 +1246,7 @@ Realize the bounded source as a closed locus in the unbounded flag fibration.
 
 Open gates: `Q-granularity`.
 
-### S09 — Infinite and reductively truncated local models
+#### S09 — Infinite and reductively truncated local models
 
 **construction; missing**. Source: §2.3.1 pp16–17.
 
@@ -1174,7 +1264,7 @@ Acceptance cases: For a torus the reductive quotient is the torus itself. At the
 
 Open gates: `Q-granularity`.
 
-### S10 — Finite-level factorization of the twisted action
+#### S10 — Finite-level factorization of the twisted action
 
 **theorem; missing**. Source: §2.3.1 p17.
 
@@ -1188,7 +1278,7 @@ Descend the action map by pfp continuity and then descend the equalities definin
 
 Open gates: `Q-granularity`.
 
-### S11 — Restricted local shtuka stack
+#### S11 — Restricted local shtuka stack
 
 **construction; missing**. Source: §2.3.1 and Remark2.3.2 pp17–18.
 
@@ -1206,7 +1296,7 @@ Acceptance cases: In the torus case conjugation reduces to a Lang-type equation.
 
 Open gates: `Q-granularity`.
 
-### S12 — Restricted stack dimension
+#### S12 — Restricted stack dimension
 
 **theorem; missing**. Source: Remark2.3.2 p18.
 
@@ -1220,7 +1310,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S13 — Iwahori truncation correspondence
+#### S13 — Iwahori truncation correspondence
 
 **construction; missing**. Source: §2.3.3 pp18–19.
 
@@ -1238,7 +1328,7 @@ Acceptance cases: For I=K in rank zero the correspondence is the identity. Split
 
 Open gates: `Q-granularity`.
 
-### S14 — Cartesian restricted correspondence
+#### S14 — Cartesian restricted correspondence
 
 **theorem; missing**. Source: Proposition2.3.4 pp18–20.
 
@@ -1252,7 +1342,7 @@ First prove the outer-parahoric quotient square, then identify the common congru
 
 Open gates: `Q-restricted`, `Q-granularity`.
 
-### S15 — Outer parahoric square
+#### S15 — Outer parahoric square
 
 **theorem; missing**. Source: Lemma2.3.5 p19.
 
@@ -1266,7 +1356,7 @@ Compare geometric points and reduced closed subschemes of the ambient perfect fl
 
 Open gates: `Q-restricted`, `Q-granularity`.
 
-### S16 — Correspondence dimension equality
+#### S16 — Correspondence dimension equality
 
 **theorem; missing**. Source: Lemma2.3.6 pp19–20.
 
@@ -1280,7 +1370,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S17 — Equal-band gerbe comparison
+#### S17 — Equal-band gerbe comparison
 
 **theorem; missing**. Source: Proof Proposition2.3.4 p20.
 
@@ -1294,7 +1384,7 @@ Trivialize locally, identify the common congruence kernel, then descend the equi
 
 Open gates: `Q-restricted`, `Q-granularity`.
 
-### S18 — Cofinality of congruence kernels
+#### S18 — Cofinality of congruence kernels
 
 **theorem; missing**. Source: Lemma2.3.8 p21.
 
@@ -1308,7 +1398,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### S19 — Weak smoothness of the correspondence
+#### S19 — Weak smoothness of the correspondence
 
 **theorem; missing**. Source: Lemma2.3.9 pp21–22.
 
@@ -1322,7 +1412,7 @@ Factor through the unipotent Borel-to-torus torsor and the subsequent congruence
 
 Open gates: `Q-restricted`, `Q-granularity`.
 
-### S20 — General restricted local shtukas
+#### S20 — General restricted local shtukas
 
 **construction; missing**. Source: §2.3.10 p22.
 
@@ -1340,7 +1430,7 @@ Acceptance cases: GLn frames reduce modulo p^n. At equal truncations the transit
 
 Open gates: `Q-granularity`.
 
-### S21 — EKOR index poset
+#### S21 — EKOR index poset
 
 **construction; missing**. Source: §2.3.11 pp22–23.
 
@@ -1358,7 +1448,7 @@ Acceptance cases: At Iwahori the order becomes Bruhat order on Adm. The zero-dim
 
 Open gates: `Q-granularity`.
 
-### B01 — Reductive isocrystals and sigma-centralizers
+#### B01 — Reductive isocrystals and sigma-centralizers
 
 **construction; planned**. Source: §2.4.1 p23.
 
@@ -1374,7 +1464,7 @@ API: Construct the sigma-conjugacy class and the descended automorphism group. C
 
 Acceptance cases: GL1 classes are valuation slopes. For b=1, J_b(Qp)=G(Qp). J_b(Qp) must retain its locally profinite topology.
 
-### B02 — Acceptable Newton classes
+#### B02 — Acceptable Newton classes
 
 **construction; planned**. Source: §2.4.1 p23.
 
@@ -1390,7 +1480,7 @@ API: Supply both the Kottwitz equality and Newton inequality. Basic means the Ne
 
 Acceptance cases: For GLn the slopes sum to the Hodge degree. For a torus every class is basic. A Newton inequality without the Kottwitz equality is insufficient.
 
-### B03 — Newton semicontinuity for shtukas
+#### B03 — Newton semicontinuity for shtukas
 
 **theorem; missing**. Source: §2.4.1 p23.
 
@@ -1404,7 +1494,7 @@ Import RR96 and the perfect-base comparison with its exact hypotheses.
 
 Open gates: `Q-newton`, `Q-granularity`.
 
-### X01 — Affine Deligne–Lusztig variety
+#### X01 — Affine Deligne–Lusztig variety
 
 **construction; missing**. Source: §2.4.2 pp23–24.
 
@@ -1420,7 +1510,7 @@ Acceptance cases: For Gm, nonemptiness forces the valuation of b to equal mu. Fo
 
 Open gates: `Q-granularity`.
 
-### X02 — Representability of ADLV
+#### X02 — Representability of ADLV
 
 **theorem; missing**. Source: Lemmas2.4.4–2.4.5 pp23–24.
 
@@ -1432,7 +1522,7 @@ Use HV18/ZZ20 and the diagram functor, not a claim that the whole ADLV is finite
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### X03 — Framed isocrystal diagram
+#### X03 — Framed isocrystal diagram
 
 **construction; missing**. Source: Lemma2.4.5 pp23–24.
 
@@ -1448,7 +1538,7 @@ Acceptance cases: For sigma=id the equation is ordinary conjugation. g=1 acts id
 
 Open gates: `Q-granularity`.
 
-### X04 — Locally profinite automorphism sheaf
+#### X04 — Locally profinite automorphism sheaf
 
 **construction; missing**. Source: Lemma2.4.6 pp24–25.
 
@@ -1466,7 +1556,7 @@ Acceptance cases: For a profinite test set S, continuous maps S→J_b(Qp) give s
 
 Open gates: `Q-granularity`.
 
-### X05 — Pro-etale local quasi-isogeny triviality
+#### X05 — Pro-etale local quasi-isogeny triviality
 
 **theorem; missing**. Source: Proof Lemma2.4.6 p25, FS21 I.2.1.
 
@@ -1480,7 +1570,7 @@ Separate local existence from the simple transitivity of the automorphism action
 
 Open gates: `Q-newton`, `Q-granularity`.
 
-### X06 — Newton stratum quotient
+#### X06 — Newton stratum quotient
 
 **theorem; missing**. Source: Lemma2.4.6 pp24–25.
 
@@ -1494,7 +1584,7 @@ Use framed quasi-isogenies as a torsor atlas and descend the bounded lattice con
 
 Open gates: `Q-granularity`.
 
-### X07 — ADLV nonemptiness
+#### X07 — ADLV nonemptiness
 
 **theorem; missing**. Source: §2.4.2 and Corollary2.4.7 pp23–25.
 
@@ -1506,7 +1596,7 @@ Use He16 nonemptiness/level-change input; split the two assertions to close the 
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### M01 — Kisin–Pappas integral Hodge model
+#### M01 — Kisin–Pappas integral Hodge model
 
 **construction; missing**. Source: §3.1.1–3.1.4 pp25–27.
 
@@ -1524,7 +1614,7 @@ Acceptance cases: Hyperspecial Siegel data recover the smooth Siegel model. A to
 
 Open gates: `Q-granularity`.
 
-### M02 — Local-model diagram
+#### M02 — Local-model diagram
 
 **theorem; missing**. Source: Theorem3.1.4 pp26–27.
 
@@ -1538,7 +1628,7 @@ Import KP18 with its corrected display/deformation inputs and the same group act
 
 Open gates: `Q-model`, `Q-granularity`.
 
-### M03 — Hodge-embedding independence
+#### M03 — Hodge-embedding independence
 
 **theorem; missing**. Source: §3.1.4 p27.
 
@@ -1552,7 +1642,7 @@ Use the characterized integral model, not normalization independence by itself.
 
 Open gates: `Q-model`, `Q-granularity`.
 
-### M04 — Compatible realization tensors
+#### M04 — Compatible realization tensors
 
 **construction; missing**. Source: §3.1.5–3.1.6 p27.
 
@@ -1570,7 +1660,7 @@ Acceptance cases: The polarization tensor in Siegel type gives symplectic simili
 
 Open gates: `Q-granularity`.
 
-### M05 — Crystalline local shtuka map
+#### M05 — Crystalline local shtuka map
 
 **construction; missing**. Source: §3.1.6 p27.
 
@@ -1588,7 +1678,7 @@ Acceptance cases: The contravariant Siegel example recovers the height-one Frobe
 
 Open gates: `Q-granularity`.
 
-### M06 — Canonical diamond comparison
+#### M06 — Canonical diamond comparison
 
 **theorem; missing**. Source: §3.1.6 footnote16 p27.
 
@@ -1602,7 +1692,7 @@ Import PR21 Example2.4.9 and DvHKZ24 §5.3 with their precise comparison; the v-
 
 Open gates: `Q-model`, `Q-granularity`.
 
-### D01 — Hoff infinitesimal tensor compatibility
+#### D01 — Hoff infinitesimal tensor compatibility
 
 **theorem; missing**. Source: Hoff23 Assumption2.28 p25; consumed in vh24 §3.1.7.
 
@@ -1616,7 +1706,7 @@ Prove the assumption using the permitted local-model tangent-lifting theorem, wi
 
 Open gates: `Q-hoff`, `Q-granularity`.
 
-### M07 — Restricted shtuka smoothness
+#### M07 — Restricted shtuka smoothness
 
 **theorem; missing**. Source: §3.1.7–3.1.8 p28; Hoff23 Corollary2.57 pp35–36.
 
@@ -1630,7 +1720,7 @@ Use locally universal displays, Artinian lifting and the perfection comparison. 
 
 Open gates: `Q-hoff`, `Q-model`, `Q-granularity`.
 
-### M08 — Commuting local-model morphism
+#### M08 — Commuting local-model morphism
 
 **theorem; missing**. Source: §3.1.7 p28.
 
@@ -1644,7 +1734,7 @@ Use the corrected comparison diagram; the original XZ/SYZ square cannot be used 
 
 Open gates: `Q-hoff`, `Q-granularity`.
 
-### M09 — Global EKOR stratum
+#### M09 — Global EKOR stratum
 
 **construction; missing**. Source: §3.1.8 p28.
 
@@ -1662,7 +1752,7 @@ Acceptance cases: At Iwahori this is the KR stratification. For very special ran
 
 Open gates: `Q-granularity`.
 
-### M10 — Tensor-preserving isogeny class
+#### M10 — Tensor-preserving isogeny class
 
 **construction; missing**. Source: §3.1.9 p29.
 
@@ -1680,7 +1770,7 @@ Acceptance cases: An actual tensor-preserving isomorphism gives the same class. 
 
 Open gates: `Q-granularity`.
 
-### M11 — Rational tensor quasi-isogeny group
+#### M11 — Rational tensor quasi-isogeny group
 
 **construction; missing**. Source: §3.1.9 p29.
 
@@ -1698,7 +1788,7 @@ Acceptance cases: Scalar endomorphisms must obey any polarization similitude con
 
 Open gates: `Q-granularity`.
 
-### M12 — Proper parahoric transition
+#### M12 — Proper parahoric transition
 
 **theorem; missing**. Source: Proposition3.1.10 pp29–30.
 
@@ -1712,7 +1802,7 @@ Use compatible lattice-chain embeddings and Zhou7.1, including finite comparison
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### M13 — Same level fiber is one isogeny class
+#### M13 — Same level fiber is one isogeny class
 
 **theorem; missing**. Source: Proposition3.1.12 first assertion pp30–31.
 
@@ -1726,7 +1816,7 @@ Extend the subchain quasi-isogeny to the full chain and compare crystalline fram
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### M14 — Preimage of an isogeny class
+#### M14 — Preimage of an isogeny class
 
 **theorem; missing**. Source: Proposition3.1.12 second assertion pp30–31.
 
@@ -1740,7 +1830,7 @@ Lift the prescribed lattice-chain isogeny and compare the rational tensor struct
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### M15 — Shtuka and level compatibility
+#### M15 — Shtuka and level compatibility
 
 **theorem; missing**. Source: §3.1.13 p31.
 
@@ -1754,7 +1844,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### M16 — Special point and integral reduction
+#### M16 — Special point and integral reduction
 
 **construction; missing**. Source: §3.2.1–3.2.2 pp31–32.
 
@@ -1772,7 +1862,7 @@ Acceptance cases: A torus Shimura datum has only special points. Identity level 
 
 Open gates: `Q-granularity`.
 
-### M17 — CM reductions at every parahoric
+#### M17 — CM reductions at every parahoric
 
 **theorem; missing**. Source: Theorem1 p3; Corollary3.2.3 p32.
 
@@ -1786,7 +1876,7 @@ Choose an Iwahori in the given parahoric and a very special parahoric containing
 
 Open gates: `Q-granularity`.
 
-### M18 — Isogeny uniformization parameters
+#### M18 — Isogeny uniformization parameters
 
 **construction; missing**. Source: §3.3.1 pp32–33; AppendixA4.
 
@@ -1804,7 +1894,7 @@ Acceptance cases: The identity local modification and unit adele map to x. At id
 
 Open gates: `Q-granularity`.
 
-### M19 — Cartesian square reduces uniformization
+#### M19 — Cartesian square reduces uniformization
 
 **theorem; missing**. Source: Theorem3.3.1 pp32–34.
 
@@ -1818,7 +1908,7 @@ Base change the pro-etale Newton quotient, identify its fiber product by the dia
 
 Open gates: `Q-main`, `Q-granularity`.
 
-### M20 — Uniformization respects the shtuka coordinate
+#### M20 — Uniformization respects the shtuka coordinate
 
 **theorem; missing**. Source: Lemma3.3.3 p33.
 
@@ -1832,7 +1922,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### M21 — Isogeny groupoid fiber product
+#### M21 — Isogeny groupoid fiber product
 
 **theorem; missing**. Source: Lemma3.3.4 pp33–34.
 
@@ -1846,7 +1936,7 @@ Use an isocomma groupoid with invertible comparison; trivialize and identify the
 
 Open gates: `Q-main`, `Q-granularity`.
 
-### M22 — Profinite Shimura component group
+#### M22 — Profinite Shimura component group
 
 **construction; missing**. Source: §3.4.1 pp34–35.
 
@@ -1864,7 +1954,7 @@ Acceptance cases: At finite level components form a finite set. The identity ade
 
 Open gates: `Q-granularity`.
 
-### R06 — Local component quotient
+#### R06 — Local component quotient
 
 **theorem; missing**. Source: Lemma3.4.2 pp34–35.
 
@@ -1876,7 +1966,7 @@ Prove torus Lang surjectivity, the simply connected derived case, then a z-exten
 
 Open gates: `Q-local`, `Q-granularity`.
 
-### M23 — Generic component torsor
+#### M23 — Generic component torsor
 
 **theorem; missing**. Source: §3.4.3 pp35–36.
 
@@ -1890,7 +1980,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### M24 — Very-special specialization of components
+#### M24 — Very-special specialization of components
 
 **theorem; missing**. Source: §3.4.3 pp35–36.
 
@@ -1904,7 +1994,7 @@ Use normality and the compactification/specialization theorem of MP19 with its e
 
 Open gates: `Q-components`, `Q-granularity`.
 
-### M25 — Component formula for isogeny parameters
+#### M25 — Component formula for isogeny parameters
 
 **theorem; missing**. Source: Proposition3.4.5 pp36–37.
 
@@ -1918,7 +2008,7 @@ Use M-adapted lifts, the rational M(Qp) component-surjectivity input, and Append
 
 Open gates: `Q-components`, `Q-granularity`.
 
-### M26 — Minimal KR stratum meets every component
+#### M26 — Minimal KR stratum meets every component
 
 **theorem; missing**. Source: Corollary3.4.6 p37.
 
@@ -1932,7 +2022,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### M27 — Every KR stratum meets every component
+#### M27 — Every KR stratum meets every component
 
 **theorem; missing**. Source: Corollary3.4.7 p37.
 
@@ -1946,7 +2036,7 @@ Use He–Rapoport closure relations and the source stratification input.
 
 Open gates: `Q-components`, `Q-granularity`.
 
-### B04 — Sigma-centralizer Kottwitz surjectivity
+#### B04 — Sigma-centralizer Kottwitz surjectivity
 
 **theorem; missing**. Source: Proof Corollary3.4.6 p37; Kisin17 §1.2.
 
@@ -1958,7 +2048,7 @@ Use the local quotient for the inner form and the basic identification of fundam
 
 Open gates: `Q-local`, `Q-granularity`.
 
-### C01 — Auxiliary perfect Shimura fiber product
+#### C01 — Auxiliary perfect Shimura fiber product
 
 **construction; missing**. Source: §4 p38.
 
@@ -1976,7 +2066,7 @@ Acceptance cases: When I=K the fiber product is Sh_K. The image of an actual I-l
 
 Open gates: `Q-granularity`.
 
-### C02 — Siegel level square
+#### C02 — Siegel level square
 
 **theorem; missing**. Source: Lemma4.1.2 pp38–39.
 
@@ -1990,7 +2080,7 @@ Use the equivalence with p-divisible groups and the quotient theorem for abelian
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### C03 — Abelian quotient realization
+#### C03 — Abelian quotient realization
 
 **theorem; missing**. Source: Proof Lemma4.1.2 p38.
 
@@ -2004,7 +2094,7 @@ Read and split the original Rapoport–Zink quotient construction; do not infer 
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### C04 — Auxiliary map to Siegel model
+#### C04 — Auxiliary map to Siegel model
 
 **theorem; missing**. Source: Corollary4.1.3 p39.
 
@@ -2018,7 +2108,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### F25 — Perfect proper point injection
+#### F25 — Perfect proper point injection
 
 **theorem; missing**. Source: Lemma4.1.5 p39, BS17 Corollary6.10.
 
@@ -2032,7 +2122,7 @@ Use a deperfection, radiciality and the perfect-space closed-immersion criterion
 
 Open gates: `Q-perfect`, `Q-granularity`.
 
-### C05 — Closed immersion into auxiliary model
+#### C05 — Closed immersion into auxiliary model
 
 **theorem; missing**. Source: Proposition4.1.4 pp39–40.
 
@@ -2046,7 +2136,7 @@ Prove perfect properness; tensor branch uniqueness gives geometric-point injecti
 
 Open gates: `Q-model`, `Q-granularity`.
 
-### C06 — Affine auxiliary Siegel map
+#### C06 — Affine auxiliary Siegel map
 
 **theorem; missing**. Source: Lemma4.1.6 and footnote22 p39, corrected sufficient conclusion.
 
@@ -2060,7 +2150,7 @@ Use perfect properness and finite fibers at a finite-presentation model, then pr
 
 Open gates: `Q-perfect`, `Q-granularity`.
 
-### C07 — Injectivity in the auxiliary fiber
+#### C07 — Injectivity in the auxiliary fiber
 
 **theorem; missing**. Source: Lemma4.1.7 pp39–40.
 
@@ -2074,7 +2164,7 @@ Reduce the shtuka fiber to the B(L+) flag fiber and use the exact integral stabi
 
 Open gates: `Q-local`, `Q-granularity`.
 
-### C08 — Auxiliary weak smooth local-model map
+#### C08 — Auxiliary weak smooth local-model map
 
 **theorem; missing**. Source: Proposition4.2.1 pp41–42.
 
@@ -2088,7 +2178,7 @@ Pull back the restricted correspondence, compare quotient dimensions, then compo
 
 Open gates: `Q-restricted`, `Q-granularity`.
 
-### C09 — Auxiliary KR strata
+#### C09 — Auxiliary KR strata
 
 **construction; missing**. Source: §4.2.2 p42.
 
@@ -2106,7 +2196,7 @@ Acceptance cases: The tau stratum has dimension0. A maximal translation gives a 
 
 Open gates: `Q-granularity`.
 
-### C10 — Auxiliary KR dimensions
+#### C10 — Auxiliary KR dimensions
 
 **theorem; missing**. Source: Corollary4.2.3 p42, corrected proof.
 
@@ -2120,7 +2210,7 @@ At maximal length compare equal dimensions of ShStar and Mloc; F24 gives n=dim G
 
 Open gates: `Q-granularity`.
 
-### C11 — Normality of auxiliary KR closures
+#### C11 — Normality of auxiliary KR closures
 
 **theorem; missing**. Source: Corollary4.2.3 pp42–43.
 
@@ -2134,7 +2224,7 @@ Pull back the normal Schubert variety through a weakly perfectly smooth map and 
 
 Open gates: `Q-granularity`.
 
-### C12 — Quasi-affineness of auxiliary KR strata
+#### C12 — Quasi-affineness of auxiliary KR strata
 
 **theorem; missing**. Source: Corollary4.2.4 p43.
 
@@ -2148,7 +2238,7 @@ Use the Zarhin symplectic enlargement, Hodge-line ampleness on Siegel, its restr
 
 Open gates: `Q-line`, `Q-granularity`.
 
-### F26 — Torsion ample line implies quasi-affineness
+#### F26 — Torsion ample line implies quasi-affineness
 
 **theorem; missing**. Source: Proof Corollary4.2.4 p43.
 
@@ -2160,7 +2250,7 @@ Choose a power trivializing the line; affine nonvanishing loci give the quasi-af
 
 Open gates: `Q-line`, `Q-granularity`.
 
-### C13 — Minimal-EKOR incidence condition
+#### C13 — Minimal-EKOR incidence condition
 
 **construction; missing**. Source: Conjecture4.3.1 p43.
 
@@ -2178,7 +2268,7 @@ Acceptance cases: The hyperspecial case follows from the stated WZ18/And21 input
 
 Open gates: `Q-granularity`.
 
-### C14 — Proper incidence reaches zero KR stratum
+#### C14 — Proper incidence reaches zero KR stratum
 
 **theorem; missing**. Source: Lemma4.3.4 pp43–44.
 
@@ -2192,7 +2282,7 @@ Choose minimal length in the intersection. The resulting closed proper union of 
 
 Open gates: `Q-granularity`.
 
-### C15 — Minimal intersection is straight
+#### C15 — Minimal intersection is straight
 
 **theorem; missing**. Source: Lemma4.3.6 p44.
 
@@ -2206,7 +2296,7 @@ Use the basic/local uniformization morphism in the source and HZ20 Theorem4.1 de
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### C16 — Straight KR to EKOR finite-etale map
+#### C16 — Straight KR to EKOR finite-etale map
 
 **theorem; missing**. Source: Lemma4.3.7 pp44–45.
 
@@ -2220,7 +2310,7 @@ On the pro-etale Newton cover reduce to zero-dimensional perfect straight ADLVs 
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### C17 — Incidence from the very-special conjecture
+#### C17 — Incidence from the very-special conjecture
 
 **theorem; missing**. Source: Proposition4.3.5 pp44–46.
 
@@ -2234,7 +2324,7 @@ The minimal straight stratum maps finite etale to an EKOR stratum whose closure 
 
 Open gates: `Q-granularity`.
 
-### C18 — Basic uniformization as perfect schemes
+#### C18 — Basic uniformization as perfect schemes
 
 **theorem; missing**. Source: §4.3.8 p46; HZZ21 Proposition5.2.2 PDF39.
 
@@ -2248,7 +2338,7 @@ Use the HZZ basic theorem and its single-isogeny-class argument, with inner-comp
 
 Open gates: `Q-basic`, `Q-granularity`.
 
-### C19 — Basic quasi-isogeny inner form
+#### C19 — Basic quasi-isogeny inner form
 
 **theorem; missing**. Source: §4.3.8 p46; HZZ21 Proposition5.2.6 PDF41.
 
@@ -2262,7 +2352,7 @@ Use a sufficiently divisible finite field, elliptic Frobenius triple and the CM-
 
 Open gates: `Q-basic`, `Q-granularity`.
 
-### C20 — Basic auxiliary uniformization
+#### C20 — Basic auxiliary uniformization
 
 **theorem; missing**. Source: §4.3.9 pp46–47.
 
@@ -2276,7 +2366,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### C21 — Simply connected action on minimal local fibers
+#### C21 — Simply connected action on minimal local fibers
 
 **theorem; missing**. Source: Lemma4.3.11 p47.
 
@@ -2288,7 +2378,7 @@ Straightness gives J_b transitivity and a parahoric stabilizer. Quotient by its 
 
 Open gates: `Q-local`, `Q-granularity`.
 
-### E01 — Abelianized degree-zero reductive cohomology
+#### E01 — Abelianized degree-zero reductive cohomology
 
 **construction; missing**. Source: §4.3.12–4.3.15 pp47–49; Bor20 answer.
 
@@ -2304,7 +2394,7 @@ Acceptance cases: For a torus abelianization in degree0 is T(Q). For simply conn
 
 Open gates: `Q-granularity`.
 
-### E02 — Degree-zero abelianization exactness
+#### E02 — Degree-zero abelianization exactness
 
 **theorem; missing**. Source: §4.3.13–4.3.14 pp48–49; Bor20.
 
@@ -2316,7 +2406,7 @@ Use the crossed-module hypercohomology sequence and its pointed-set connecting m
 
 Open gates: `Q-cohom`, `Q-granularity`.
 
-### E03 — Real-positive image criterion
+#### E03 — Real-positive image criterion
 
 **theorem; missing**. Source: Lemma4.3.14 and Corollary4.3.15 pp48–49.
 
@@ -2328,7 +2418,7 @@ An abelianized class with real image from the center has locally trivial H1 imag
 
 Open gates: `Q-cohom`, `Q-granularity`.
 
-### E04 — Inner-form equality of positive adelic images
+#### E04 — Inner-form equality of positive adelic images
 
 **theorem; missing**. Source: Proposition4.3.13 p47, compatibility made explicit.
 
@@ -2340,7 +2430,7 @@ Use the same center complex and its localization maps; arbitrary unrelated outer
 
 Open gates: `Q-cohom`, `Q-granularity`.
 
-### C22 — Hecke transitivity on zero-stratum fibers
+#### C22 — Hecke transitivity on zero-stratum fibers
 
 **theorem; missing**. Source: Proposition4.3.16 pp49–50.
 
@@ -2354,7 +2444,7 @@ Use strong approximation for I_x^sc, the compact-mod-center real form, local fib
 
 Open gates: `Q-approximation`, `Q-granularity`.
 
-### C23 — Hecke transitivity on KR components
+#### C23 — Hecke transitivity on KR components
 
 **theorem; missing**. Source: Proposition4.3.17 pp50–51.
 
@@ -2368,7 +2458,7 @@ Zero-stratum points surject onto finite-level component fibers; pass to the coun
 
 Open gates: `Q-approximation`, `Q-granularity`.
 
-### C24 — Global Cartesian square theorem
+#### C24 — Global Cartesian square theorem
 
 **theorem; missing**. Source: Theorem4.4.1 pp51–52.
 
@@ -2382,7 +2472,7 @@ Closed equidimensional image is a union of components of normal maximal KR closu
 
 Open gates: `Q-main`, `Q-granularity`.
 
-### C25 — Hyperspecial minimal-incidence theorem
+#### C25 — Hyperspecial minimal-incidence theorem
 
 **theorem; missing**. Source: Remarks4.3.2–4.3.3 p43; proof main results p52.
 
@@ -2396,7 +2486,7 @@ Read the exact EO-closure incidence theorem and the comparison of the two period
 
 Open gates: `Q-incidence`, `Q-granularity`.
 
-### C26 — General-parahoric isogeny uniformization
+#### C26 — General-parahoric isogeny uniformization
 
 **theorem; missing**. Source: Theorem2(2) p3; §4.4 pp51–52.
 
@@ -2410,7 +2500,7 @@ Choose an Iwahori and a very special over-parahoric, apply the Cartesian theorem
 
 Open gates: `Q-main`, `Q-granularity`.
 
-### C27 — He–Rapoport axioms
+#### C27 — He–Rapoport axioms
 
 **theorem; missing**. Source: Theorem3 p3; §4.4 p52.
 
@@ -2424,7 +2514,7 @@ Use Zhou8.1(ii) and retain the exact correspondence with He–Rapoport’s origi
 
 Open gates: `Q-main`, `Q-granularity`.
 
-### C28 — Q-nonbasic Newton class
+#### C28 — Q-nonbasic Newton class
 
 **construction; missing**. Source: §4.5.1 p52.
 
@@ -2442,7 +2532,7 @@ Acceptance cases: For a product, both adjoint factors must be nonbasic. A torus 
 
 Open gates: `Q-granularity`.
 
-### C29 — KR-to-EKOR surjectivity
+#### C29 — KR-to-EKOR surjectivity
 
 **theorem; missing**. Source: Lemma4.5.3 p52.
 
@@ -2456,7 +2546,7 @@ Apply SYZ5.4.5(3) with the verified axiom.
 
 Open gates: `Q-granularity`.
 
-### C30 — Straight Q-nonbasic stratum components
+#### C30 — Straight Q-nonbasic stratum components
 
 **theorem; missing**. Source: Proof Theorem4.5.2 step1 pp52–53.
 
@@ -2470,7 +2560,7 @@ Apply the ordinary Hecke-orbit monodromy theorem with its CM-lift and normality 
 
 Open gates: `Q-monodromy`, `Q-granularity`.
 
-### C31 — General Q-nonbasic EKOR components
+#### C31 — General Q-nonbasic EKOR components
 
 **theorem; missing**. Source: Theorem4.5.2 pp52–53.
 
@@ -2484,7 +2574,7 @@ Find a sigma-straight wprime≤w in a Q-nonbasic class by HZ20. Use zero-stratum
 
 Open gates: `Q-monodromy`, `Q-granularity`.
 
-### C32 — EKOR component theorem for Q-simple adjoint group
+#### C32 — EKOR component theorem for Q-simple adjoint group
 
 **theorem; missing**. Source: Theorem4 p4.
 
@@ -2498,7 +2588,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### A01 — Saturated Iwahori preimage at very special level
+#### A01 — Saturated Iwahori preimage at very special level
 
 **construction; missing**. Source: AppendixA1 p54.
 
@@ -2516,7 +2606,7 @@ Acceptance cases: If WK=1 saturation does nothing. A flag fiber at a K-point con
 
 Open gates: `Q-granularity`.
 
-### A02 — Flag fibration preserves connected components
+#### A02 — Flag fibration preserves connected components
 
 **theorem; missing**. Source: EquationA1.1–A1.2 p54.
 
@@ -2530,7 +2620,7 @@ Use the located argument with the listed interfaces; the original-source and dec
 
 Open gates: `Q-granularity`.
 
-### V01 — Echelonnage root datum and corrected dominance
+#### V01 — Echelonnage root datum and corrected dominance
 
 **construction; missing**. Source: AppendixA1 p54, corrected order.
 
@@ -2546,7 +2636,7 @@ Acceptance cases: In rank one, 0≤alphaVee for the positive coroot. The central
 
 Open gates: `Q-granularity`.
 
-### A03 — Newton Levi and admissible Levi parameters
+#### A03 — Newton Levi and admissible Levi parameters
 
 **construction; missing**. Source: AppendixA1.1 pp54–55.
 
@@ -2564,7 +2654,7 @@ Acceptance cases: For M=G the parameter comparison uses the same fundamental gro
 
 Open gates: `Q-granularity`.
 
-### A04 — Union of Levi images meets all components
+#### A04 — Union of Levi images meets all components
 
 **theorem; missing**. Source: PropositionA1.6 pp55–58.
 
@@ -2578,7 +2668,7 @@ Find a straight element in each saturated Iwahori component, transport it to the
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### A05 — Every individual Levi image meets all components
+#### A05 — Every individual Levi image meets all components
 
 **theorem; missing**. Source: TheoremA1.3 second assertion p55.
 
@@ -2592,7 +2682,7 @@ Combine union-surjectivity with independence of the chosen Levi parameter.
 
 Open gates: `Q-granularity`.
 
-### A06 — Independence of Levi component image
+#### A06 — Independence of Levi component image
 
 **theorem; missing**. Source: PropositionA1.7 pp55,58–63.
 
@@ -2606,7 +2696,7 @@ Join Levi parameters by irreducible root relations and construct the corrected r
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A07 — Transitivity on ADLV connected components
+#### A07 — Transitivity on ADLV connected components
 
 **theorem; missing**. Source: TheoremA1.3 first assertion pp55–56.
 
@@ -2620,7 +2710,7 @@ Use transitivity for the basic M-minuscule ADLV from HZ20, then surject its comp
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### A08 — Sigma-straight affine Weyl element
+#### A08 — Sigma-straight affine Weyl element
 
 **construction; missing**. Source: AppendixA2.1 p56.
 
@@ -2638,7 +2728,7 @@ Acceptance cases: A dominant translation has linear length growth. The identity 
 
 Open gates: `Q-granularity`.
 
-### A09 — Straight class classification
+#### A09 — Straight class classification
 
 **theorem; missing**. Source: AppendixA2.1 p56.
 
@@ -2652,7 +2742,7 @@ Import the original straight-class classification with its representative conven
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### A10 — Straight element in the Newton Levi
+#### A10 — Straight element in the Newton Levi
 
 **theorem; missing**. Source: LemmaA2.3 pp56–57.
 
@@ -2666,7 +2756,7 @@ Use the nu-fundamental property, identify the conjugated Iwahori of M, and prove
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### R07 — Levi fundamental-group kernel
+#### R07 — Levi fundamental-group kernel
 
 **theorem; missing**. Source: Proof PropositionA1.6 p57, corrected roots and coinvariant qualification.
 
@@ -2678,7 +2768,7 @@ The kernel before coinvariants is Qvee(G)/Qvee(M). The Galois-stable simple-coro
 
 Open gates: `Q-local`, `Q-granularity`.
 
-### A11 — Rank-one perfect projective curve
+#### A11 — Rank-one perfect projective curve
 
 **construction; missing**. Source: Proof PropositionA1.6 pp57–58.
 
@@ -2696,7 +2786,7 @@ Acceptance cases: In SL2, lower-unipotent x factors through the Weyl matrix for 
 
 Open gates: `Q-granularity`.
 
-### A12 — Root curve stays in the saturated bound
+#### A12 — Root curve stays in the saturated bound
 
 **theorem; missing**. Source: Proof PropositionA1.6 p58.
 
@@ -2710,7 +2800,7 @@ Choose g0 with g0^(-1)wsharp sigma(g0)=w. Write v=u^(-1)=s1...sn, v_i=s1...si, a
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A13 — Unramified comparison of root combinatorics
+#### A13 — Unramified comparison of root combinatorics
 
 **theorem; missing**. Source: AppendixA3.2 pp58–59.
 
@@ -2722,7 +2812,7 @@ Compare the valued affine root datum with the unramified reduced root system and
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A14 — Levi root relations
+#### A14 — Levi root relations
 
 **construction; missing**. Source: AppendixA3.3 p59.
 
@@ -2740,7 +2830,7 @@ Acceptance cases: If sigma^r alphaVee=alphaVee the difference is0. A zero differ
 
 Open gates: `Q-granularity`.
 
-### A15 — Chains of Levi root relations
+#### A15 — Chains of Levi root relations
 
 **theorem; missing**. Source: LemmaA3.4 pp59–60.
 
@@ -2754,7 +2844,7 @@ Read Nie7.7 and its weak-dominance extension to general basic b in M. The origin
 
 Open gates: `Q-nie`, `Q-granularity`.
 
-### A16 — Weak dominance of Levi parameters
+#### A16 — Weak dominance of Levi parameters
 
 **theorem; missing**. Source: Proof LemmaA3.4 p60; Nie18 Lemma4.1.
 
@@ -2768,7 +2858,7 @@ Verify the actual minuscule/root hypotheses and the proof of the extension in th
 
 Open gates: `Q-nie`, `Q-granularity`.
 
-### R08 — Rank-one subgroup for a relative root
+#### R08 — Rank-one subgroup for a relative root
 
 **construction; missing**. Source: AppendixA3.5–A3.6 pp60–61.
 
@@ -2784,7 +2874,7 @@ Acceptance cases: Split rank one uses SL2. Ramified unitary rank one has both sh
 
 Open gates: `Q-granularity`.
 
-### R09 — Unitary root coordinates
+#### R09 — Unitary root coordinates
 
 **construction; missing**. Source: AppendixA3.6 pp60–61.
 
@@ -2800,7 +2890,7 @@ Acceptance cases: For tau(c)=c and p>2, d=−c²/2 satisfies the equation. c=d=0
 
 Open gates: `Q-granularity`.
 
-### A17 — Three root-curve models
+#### A17 — Three root-curve models
 
 **construction; missing**. Source: AppendixA3.7 p61, corrected unitary sign.
 
@@ -2818,7 +2908,7 @@ Acceptance cases: a=1 in the nonstandard unitary case satisfies 1−1/2−1/2=0.
 
 Open gates: `Q-granularity`.
 
-### A18 — Rank-two bounded double-coset estimate
+#### A18 — Rank-two bounded double-coset estimate
 
 **theorem; missing**. Source: LemmaA3.9(1) p61.
 
@@ -2832,7 +2922,7 @@ Carry out the SL2/SU3 rank-two calculations with the corrected unitary sign and 
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A19 — Integral rank-two conjugate
+#### A19 — Integral rank-two conjugate
 
 **theorem; missing**. Source: LemmaA3.9(2) p61.
 
@@ -2846,7 +2936,7 @@ Compute the commutator terms and verify every coefficient is integral.
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A20 — Root curve for a short orbit segment
+#### A20 — Root curve for a short orbit segment
 
 **theorem; missing**. Source: LemmaA3.11 pp62–63.
 
@@ -2860,7 +2950,7 @@ Normalize b to tau_x, construct the ordered Frobenius product, use the four domi
 
 Open gates: `Q-nie`, `Q-rootcurves`, `Q-granularity`.
 
-### A21 — Triality curve correction
+#### A21 — Triality curve correction
 
 **theorem; missing**. Source: Proof LemmaA3.11 p63.
 
@@ -2874,7 +2964,7 @@ Verify the central-root fixedness condition and the omitted final membership in 
 
 Open gates: `Q-rootcurves`, `Q-granularity`.
 
-### A22 — Good isogeny-map locus
+#### A22 — Good isogeny-map locus
 
 **construction; missing**. Source: AppendixA4.1–A4.3 pp63–65.
 
@@ -2892,7 +2982,7 @@ Acceptance cases: The point1 associated with x is good. Identity quasi-isogeny p
 
 Open gates: `Q-granularity`.
 
-### A23 — Good locus is a union of components
+#### A23 — Good locus is a union of components
 
 **theorem; missing**. Source: Proof PropositionA4.3 p64; Zhou20 Propositions6.9–6.10.
 
@@ -2906,7 +2996,7 @@ Use the integral deformation/propagation argument and tensor-branch uniqueness; 
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### A24 — Adapted Newton-Levi lift
+#### A24 — Adapted Newton-Levi lift
 
 **construction; missing**. Source: Proof PropositionA4.3 pp64–65; Zhou20 Definition4.6.
 
@@ -2924,7 +3014,7 @@ Acceptance cases: An ordinary split example has its slope-preserving adapted lif
 
 Open gates: `Q-granularity`.
 
-### A25 — Adapted-lift existence input
+#### A25 — Adapted-lift existence input
 
 **theorem; missing**. Source: Proof PropositionA4.3 pp64–65.
 
@@ -2938,7 +3028,7 @@ Verify Assumption5.12 in the precise very-special situation and use the original
 
 Open gates: `Q-display`, `Q-granularity`.
 
-### A26 — Rational Levi modifications meet its components
+#### A26 — Rational Levi modifications meet its components
 
 **theorem; missing**. Source: Proof PropositionA4.3 p65; Zhou20 Propositions6.5,5.19.
 
@@ -2952,7 +3042,7 @@ Compare Tate-lattice modification and the tensor Dieudonné lattice; apply the o
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-### A27 — Very-special isogeny map
+#### A27 — Very-special isogeny map
 
 **theorem; missing**. Source: PropositionA4.3 and TheoremA4.5(1) pp64–65; main Theorem2(1).
 
@@ -2966,7 +3056,7 @@ The good locus is a union of components and meets every component via any Levi p
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### A28 — Very-special CM reduction theorem
+#### A28 — Very-special CM reduction theorem
 
 **theorem; missing**. Source: TheoremA4.5(2) p65.
 
@@ -2980,7 +3070,7 @@ Use the now-verified isogeny-map assumption in Zhou’s special-lift theorem. Un
 
 Open gates: `Q-isogeny`, `Q-granularity`.
 
-### A29 — Reduction to irreducible relations
+#### A29 — Reduction to irreducible relations
 
 **theorem; missing**. Source: Proof LemmaA3.11 p62; Nie18 Lemmas7.5,7.15.
 
@@ -2994,7 +3084,7 @@ Read the original refinement argument; split each of the two possible shorter re
 
 Open gates: `Q-nie`, `Q-granularity`.
 
-### A30 — Adjoint-simple reduction of component propositions
+#### A30 — Adjoint-simple reduction of component propositions
 
 **theorem; missing**. Source: AppendixA1.8 p56.
 
@@ -3008,9 +3098,9 @@ Close the original HZ central-isogeny/component argument; this does not make the
 
 Open gates: `Q-adlv`, `Q-granularity`.
 
-## Source-issue register awaiting independent review
+### Source-issue register awaiting independent review
 
-### E1 — misprint
+#### E1 — misprint
 
 Published2024 §2.1 p6, definition of deperfection. Affects: **nothing**.
 
@@ -3022,7 +3112,7 @@ Reason: The previous sentence defines pfp Y as a perfection of a finite-presenta
 
 Existing correction: new.
 
-### E2 — error
+#### E2 — error
 
 Published2024 Lemma2.1.6 proof p8; also arXivv4 PDF9. Affects: **the proof**.
 
@@ -3034,7 +3124,7 @@ Reason: For A0=k[t], B=A0 while every element of A=k[t^(1/p^infinity)] is integr
 
 Existing correction: new.
 
-### E3 — gap
+#### E3 — gap
 
 Published2024 Lemma2.1.7 proof p8; arXivv4 PDF10. Affects: **the proof**.
 
@@ -3046,7 +3136,7 @@ Reason: The field k here is merely perfect. Rational-point injectivity alone doe
 
 Existing correction: new.
 
-### E4 — error
+#### E4 — error
 
 Published2024 Lemma2.1.10 p9; arXivv4 PDF11. Affects: **a stated result**.
 
@@ -3058,7 +3148,7 @@ Reason: The perfectly smooth map (A1)^perf→Spec k has source dimension1, targe
 
 Existing correction: new.
 
-### E5 — misprint
+#### E5 — misprint
 
 Published2024 Lemma2.1.10 proof p9; arXivv4 PDF11. Affects: **the proof**.
 
@@ -3070,7 +3160,7 @@ Reason: A morphism X→Y induces the opposite-direction local ring map.
 
 Existing correction: new.
 
-### E6 — misprint
+#### E6 — misprint
 
 Published2024 Lemma2.1.12 and proof2.1.13 p9; arXivv4 PDF11. Affects: **a stated result**.
 
@@ -3082,7 +3172,7 @@ Reason: An identity map is weakly perfectly smooth of relative dimension0.
 
 Existing correction: new.
 
-### E7 — gap
+#### E7 — gap
 
 Published2024 Lemma2.1.13 proof p9; arXivv4 PDF11. Affects: **the proof**.
 
@@ -3094,7 +3184,7 @@ Reason: For the connected reducible affine cross Spec k[x,y]/(xy), D(x) and D(y)
 
 Existing correction: new.
 
-### E8 — misprint
+#### E8 — misprint
 
 Published2024 §2.2.5 p12; arXivv4 PDF15. Affects: **nothing**.
 
@@ -3106,7 +3196,7 @@ Reason: For split GL2, the upper-triangular-mod-p subgroup is properly contained
 
 Existing correction: new.
 
-### E9 — misprint
+#### E9 — misprint
 
 Published2024 Lemma2.3.9 proof p21, first display. Affects: **the proof**.
 
@@ -3118,7 +3208,7 @@ Reason: The next display of the proof explicitly constructs that nontrivial kern
 
 Existing correction: new.
 
-### E10 — error
+#### E10 — error
 
 Published2024 §2.4 after Lemma2.4.5 p24, sigma-conjugacy diagram. Affects: **the proof**.
 
@@ -3130,7 +3220,7 @@ Reason: The new Frobenius is beta0^(-1)g bprime sigma(g)^(-1)sigma(beta0), equal
 
 Existing correction: new.
 
-### E11 — error
+#### E11 — error
 
 Published2024 Remark3.1.8 p28, citing XZ17 Proposition7.2.4 and SYZ21 Theorem4.4.3. Affects: **the proof**.
 
@@ -3142,7 +3232,7 @@ Reason: The paper explicitly reports the failed diagram. The relocated SYZ errat
 
 Existing correction: Already recorded in van Hoften Remark3.1.8 and Shen–Yu–Zhang erratum §1, https://www.mcm.ac.cn/people/members/202507/P020251203332408071053.pdf; textual correction read in full..
 
-### E12 — misprint
+#### E12 — misprint
 
 Published2024 §3.1.9 p29, isogeny definition. Affects: **nothing**.
 
@@ -3154,7 +3244,7 @@ Reason: The paragraph explicitly defines D as contravariant, and the printed ten
 
 Existing correction: new.
 
-### E13 — gap
+#### E13 — gap
 
 Published2024 Proposition3.1.12 proof p31, GL diagram. Affects: **the proof**.
 
@@ -3166,7 +3256,7 @@ Reason: A general automorphism of a larger direct sum need not preserve the smal
 
 Existing correction: new.
 
-### E14 — error
+#### E14 — error
 
 Published2024 Lemma4.1.6 proof footnote22 p39. Affects: **the proof**.
 
@@ -3178,7 +3268,7 @@ Reason: For odd p, k[t]→k[x], t=x², is finite. On perfections, the odd eigens
 
 Existing correction: new.
 
-### E15 — misprint
+#### E15 — misprint
 
 Published2024 Lemma4.1.6 proof p39, paragraph after Claim4.1.7. Affects: **nothing**.
 
@@ -3190,7 +3280,7 @@ Reason: The displayed union decomposes a fiber of f into fibers over the finitel
 
 Existing correction: new.
 
-### E16 — error
+#### E16 — error
 
 Published2024 Corollary4.2.3 proof p42; arXivv4 PDF50. Affects: **the proof**.
 
@@ -3202,7 +3292,7 @@ Reason: With dim ShStar=dim Mloc=d, the quotient formula d=d+n−dim G_I forces 
 
 Existing correction: new.
 
-### E17 — error
+#### E17 — error
 
 Published2024 §4.3.12–Proposition4.3.13 p47. Affects: **a stated result**.
 
@@ -3214,7 +3304,7 @@ Reason: Take G=H=Gm and global identity twisting, but invert only the Q_3 factor
 
 Existing correction: new.
 
-### E18 — misprint
+#### E18 — misprint
 
 Published2024 AppendixA1 p54; arXivv4 PDF64. Affects: **a stated result**.
 
@@ -3226,7 +3316,7 @@ Reason: The following identity Adm(mu)={lambda:lambda≤mu} and the Schubert Bru
 
 Existing correction: new.
 
-### E19 — misprint
+#### E19 — misprint
 
 Published2024 AppendixA2.1 p56. Affects: **nothing**.
 
@@ -3238,7 +3328,7 @@ Reason: t^lambda is an affine-Weyl translation, not an element of the rational c
 
 Existing correction: new.
 
-### E20 — misprint
+#### E20 — misprint
 
 Published2024 Proof PropositionA1.6 p57. Affects: **nothing**.
 
@@ -3250,7 +3340,7 @@ Reason: This is the definition in LemmaA2.3 immediately preceding the proof.
 
 Existing correction: new.
 
-### E21 — misprint
+#### E21 — misprint
 
 Published2024 Proof PropositionA1.6 p57. Affects: **the proof**.
 
@@ -3262,7 +3352,7 @@ Reason: M is a Levi subgroup of G, so it has no simple roots outside G; the kern
 
 Existing correction: new.
 
-### E22 — misprint
+#### E22 — misprint
 
 Published2024 Proof PropositionA1.6 p57, Kottwitz class comparison. Affects: **the proof**.
 
@@ -3274,7 +3364,7 @@ Reason: For the unramified degree2 induced torus, sigma swaps Z². Representativ
 
 Existing correction: new.
 
-### E23 — misprint
+#### E23 — misprint
 
 Published2024 Proof PropositionA1.6 p58, choice of g0. Affects: **the proof**.
 
@@ -3286,7 +3376,7 @@ Reason: The point lies in the sigma-conjugacy ADLV; ordinary conjugacy is not su
 
 Existing correction: new.
 
-### E24 — misprint
+#### E24 — misprint
 
 Published2024 Proof PropositionA1.6 p58, definition of w_i. Affects: **the proof**.
 
@@ -3298,7 +3388,7 @@ Reason: Substitution gives g_i^(-1)wsharp sigma(g_i)=u_i^(-1)w sigma(u_i).
 
 Existing correction: new.
 
-### E25 — error
+#### E25 — error
 
 Published2024 Proof PropositionA1.6 p58. Affects: **the proof**.
 
@@ -3310,7 +3400,7 @@ Reason: The root subgroup contains1 and1 is not in the nonidentity Bruhat double
 
 Existing correction: new.
 
-### E26 — misprint
+#### E26 — misprint
 
 Published2024 AppendixA3.3 p59. Affects: **the proof**.
 
@@ -3322,7 +3412,7 @@ Reason: The first alleged shorter step is x→x+alphaVee−sigma^i(alphaVee). Wi
 
 Existing correction: new.
 
-### E27 — misprint
+#### E27 — misprint
 
 Published2024 AppendixA3.5 p60. Affects: **nothing**.
 
@@ -3334,7 +3424,7 @@ Reason: In the BC1 relative root system the short root e is not divisible, but2e
 
 Existing correction: new.
 
-### E28 — error
+#### E28 — error
 
 Published2024 AppendixA3.7(3) p61; arXivv4 PDF71. Affects: **a stated result**.
 
@@ -3346,7 +3436,7 @@ Reason: At a=1 the printed unitary equation tau(c)c+d+tau(d)=0 reads1+1/2+1/2=2.
 
 Existing correction: new.
 
-### E29 — gap
+#### E29 — gap
 
 Published2024 AppendixA3.6–A3.9 pp61–62, applied to the full generality of A1.3. Affects: **the proof**.
 
@@ -3358,7 +3448,7 @@ Reason: The formulas divide by2 and choose an anti-invariant uniformizer in a ra
 
 Existing correction: new.
 
-### E30 — misprint
+#### E30 — misprint
 
 Published2024 Proof LemmaA3.11 p62, endpoint limit. Affects: **the proof**.
 
@@ -3370,7 +3460,7 @@ Reason: The unipotent factors tend to1, so a product of positive translations ca
 
 Existing correction: new.
 
-### E31 — misprint
+#### E31 — misprint
 
 Published2024 Proof LemmaA3.11 p63, triality paragraph. Affects: **nothing**.
 
@@ -3382,7 +3472,7 @@ Reason: A condition lacks its relation and right-hand side; the central vertex o
 
 Existing correction: new.
 
-### E32 — misprint
+#### E32 — misprint
 
 Published2024 Proof LemmaA3.11 p63, display after LemmaA3.9(2). Affects: **nothing**.
 
@@ -3394,7 +3484,7 @@ Reason: LemmaA3.9(2) is invoked precisely to absorb this factor into the integra
 
 Existing correction: new.
 
-### E33 — gap
+#### E33 — gap
 
 Published2024 §3.1.7 p28, import of Hoff23 Corollary2.57. Affects: **the proof**.
 
@@ -3406,7 +3496,7 @@ Reason: Hoff v1 p25 explicitly states the tensor-compatibility assumption, p35 a
 
 Existing correction: Hoff23 Assumption2.28 and Remark2.40 explicitly flag the inputs; later KPZ local-model tangent arguments are a candidate discharge that must be checked, not assumed..
 
-### E34 — error
+#### E34 — error
 
 Published2024 Proof PropositionA1.6 p58, reduced word and endpoints. Affects: **the proof**.
 
@@ -3420,7 +3510,7 @@ Existing correction: new.
 
 The common correction search examined the Cambridge article and listing, the latest arXiv history and selected v4 formulas, the author publication page, and targeted erratum searches on 22 September 2026. Exact locations and any known repair are repeated in each JSON entry. No finding has an independent review verdict yet.
 
-## Remaining closure work
+### Remaining closure work
 
 - **Q-perfect**: Read the full original BGA18/Zhu17/BS17 perfect-space and descent proofs; split chart descent, radiciality, pfp closed immersions and dimension/normality arguments. Repair every source issue before use.
 
@@ -3462,7 +3552,7 @@ The common correction search examined the Cambridge article and listing, the lat
 
 - **Q-granularity**: All67 main-paper pages are read and each named main result and central construction is indexed. Some cited compound inputs and multi-page proofs are still bundled. Complete recursive declaration-sized closure, exact quotient diagrams and API lemma promotion before status complete.
 
-## Provenance and verification
+### Provenance and verification
 
 The JSON input manifest records 371 repository blobs at `4e324e26a67fb00e019d0a293160ce784680d027`, including reviewed coverage, stages, packets, reserved ids and prior paper candidates. Source archives record their URL, digest, access date and actual reading scope. Invalid or unread downloads are not evidence for a theorem.
 
