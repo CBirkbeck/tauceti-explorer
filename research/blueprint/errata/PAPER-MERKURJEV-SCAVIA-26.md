@@ -1,130 +1,161 @@
-# Mistakes in Merkurjev–Scavia, *Galois representations modulo p that do not lift modulo p²*
+# Reviewed manuscript findings: Merkurjev–Scavia
 
-Job ERRATA-PAPER-MERKURJEV-SCAVIA-26. Worker: Claude Code, session `cc-7b31c4`, 23 September 2026. The
-findings are in `PAPER-MERKURJEV-SCAVIA-26.json` beside this file.
+Paper: *Galois representations modulo p that do not lift modulo p²*,
+J. Amer. Math. Soc. 39 (2026), 73–94, DOI 10.1090/jams/1059.
+Original errata author: Claude Code, `cc-7b31c4`.
+Independent reviewer: Codex, `codex-hjdg0j`, 23 September 2026.
 
-**Paper and version read.** Alexander Merkurjev and Federico Scavia, *J. Amer. Math. Soc.* **39** (2026),
-no. 1, 73–94, DOI [10.1090/jams/1059](https://doi.org/10.1090/jams/1059), published online 22 May 2025.
-**The printed version could not be read**: the AMS article page and the version-of-record PDF return HTTP
-403, and the HAL record `hal-05373722` deposits no full text. The findings below are therefore recorded
-against the two publicly available texts, which were both read in full and compared:
+**Eight inherited findings are confirmed, E9 is rejected, and six additional
+notation findings are confirmed (E10–E15): fourteen confirmed in total.**
+Individual verdicts are in the [JSON](PAPER-MERKURJEV-SCAVIA-26.json).
+The [review](../reviews/REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26.md) records
+provenance, correction search and validation.
 
-* [arXiv:2410.12560v1](https://arxiv.org/abs/2410.12560) (16 October 2024, the only version), e-print source
-  sha256 `ce45c7b4…`, PDF sha256 `699028a3…`, 21 pages;
-* the author manuscript [`Negligible.pdf`](https://www.math.ucla.edu/~merkurev/papers/Negligible.pdf),
-  sha256 `e1049ad7…`, 21 pages, linked from Merkurjev's publications page.
+All verdicts concern [arXiv v1](https://arxiv.org/pdf/2410.12560v1) and the
+[current author manuscript](https://www.math.ucla.edu/~merkurev/papers/Negligible.pdf),
+both 21 pages. **The published JAMS text was inaccessible.** The AMS PDF
+endpoints returned HTTP 403, and browser retrieval also failed. It is not
+known which findings persist in the journal version. Neither accessible
+manuscript supplies a later correction, and the current author publication
+pages link no erratum. Page numbers below are manuscript pages.
 
-A character-by-character comparison of the two, after extracting both from their PDF content streams, finds
-no difference beyond the arXiv stamp and the font encoding of ligatures. **Every finding below was checked
-in both.** It is not known whether copy-editing removed any of them from the printed text.
+## E1: the divisor-generator lemma
 
-**Earlier work.** The extraction `PAPER-MERKURJEV-SCAVIA-26.result.json` (status *partial*, 133 items,
-sessions `codex-c83e7a` and `codex-a71f92`) recorded no `sourceIssues`, but its report and its item notes
-record eight corrections and one supplied proof. All nine are converted here, keeping everything they say,
-and each was rechecked at its locator in the source. Nothing further was found: the remaining numbered
-statements were read against their proofs, and the two arithmetic verifications that carry the p = 3 case
-(Lemma 5.2(1) and the norm and commutator identities of Claim 5.4) were redone by hand and agree with the
-printed matrices.
+**Confirmed: error / stated result; Lemma 4.1, p.12.** Take F=R,
+H=C₂ acting faithfully on the affine line by t↦−t, B=Z/2 with trivial
+action, x=(t), and f_x=t. Since H_x=H, the proposed relative norm is
+just the square class of t. It is not invariant: conjugation changes it by
+the nonsquare −1 in R(t). If −1 were a rational-function square, clearing
+denominators would give a nonzero sum of two real polynomial squares equal
+to zero, impossible by its leading coefficient.
 
-**Existing corrections.** None was found, so all nine findings are new.
-- Crossref registers no `update-to`, `updated-by` or relation against DOI 10.1090/jams/1059.
-- arXiv stops at v1 (October 2024); there is no later version and no journal reference there.
-- Merkurjev's publications page links the manuscript and lists no erratum; the file is byte-identical to the
-  copy fetched two days earlier by the extraction.
-- Scavia's site is rendered client-side and yielded no readable publication list.
-- The AMS page, and with it the journal's own errata listing, could not be read (HTTP 403).
+The failure also appears in the divisor map. Any square class with divisor
+x modulo 2 has the form ct w² with c∈R*, so its conjugate-to-original ratio
+is −1 times a square. Thus the invariant divisor generator x does not lift
+to an invariant square class. The proof's left-exact sequence does not supply
+such lifts; the purported generators need not even be in the invariant group.
 
-**Effect on the main results.** Theorems 1.3 and 1.4 stand. The one finding that reaches a stated result is
-E1: **Lemma 4.1 is false as printed**, but the version of it that the proof of Theorem 1.3 actually uses —
-the one with the roots-of-unity hypothesis that is in force there — is true, and the paper verifies that
-hypothesis at the point of use. Of the rest, six are slips inside proofs, each with an evident repair, one
-is a slip that changes nothing, and one is an assertion in a remark that is made without proof.
+A sufficient repair is to assume nB=0, e(H)|e and that F contains a primitive
+ne-th root of unity. For h∈H_x, the ratio h(f_x)/f_x is a constant. These
+ratios form a character H_x→F*, so lie in μ_e. They are n-th powers in F*,
+which makes b⊗f_x invariant under H_x for every b∈B^{H_x}. The orbit
+norms are therefore well-defined invariant lifts of the divisor generators.
+Subtracting these lifts from any invariant element leaves an invariant
+constant term by the left-exact sequence. This proves the repaired lemma.
 
-## Findings in brief
+Theorem 1.3 uses B=A(−1), n=e(A), e=e(H), and its roots-of-unity hypothesis
+is exactly sufficient. The proof on pp.13–14 already verifies the character
+calculation at that use. Thus this finding refutes the unrestricted lemma,
+not the main theorem. The section's standing assumptions concern A; they do
+not say that its integer n annihilates the arbitrary B quantified in Lemma 4.1.
 
-- **E1 (Lemma 4.1, p. 12) — error, reaches a stated result.** The lemma asserts that `(B ⊗ F(V)^×)^H` is
-  generated by `(B ⊗ F^×)^H` together with the elements `N_{H/H_x}(b ⊗ f_x)`. Those elements need not even
-  be `H`-invariant, because `f_x` is determined only up to `F^×`; and the proof's reduction to
-  `(B ⊗ Div(V))^H` needs a surjectivity that only left exactness supplies. Counterexample: `F = R`,
-  `H = C₂` acting on `A¹_R` by `t ↦ −t`, `B = Z/2`, `x = (t)`, `f_x = t`. Then `H_x = H`, the claimed
-  generator is `1 ⊗ t`, and `σ(1 ⊗ t)` differs from it by the class of `−1` in `R(t)^×/(R(t)^×)²`, which is
-  nontrivial. The image of `(B ⊗ F(V)^×)^H` in `(B ⊗ Div(V))^H` really does miss `1 ⊗ x`, so the conclusion
-  fails and not merely the typing. **Repair, and what the paper uses:** add the hypotheses `nB = 0`,
-  `e(H) | e` and `μ_{ne} ⊂ F`. Then `h(f_x)/f_x ∈ μ_e ⊂ (F^×)^n`, so `b ⊗ f_x` is `H_x`-invariant and the
-  orbit generators lift. Those hypotheses are exactly the standing hypotheses of §4, and the proof of
-  Theorem 1.3 checks `fμ_e ∈ (F(V)^×/μ_e)^{H_x}` before applying the lemma.
-- **E2 ((2.3) and the words before it, p. 6) — misprint, reaches a proof.** The inflation in the display
-  has target `H²(L,A)`; it should be `H²(K,A)`, since inflation goes from the quotient `H = Γ_K/Γ_L` to
-  `Γ_K`. (The composite to `H²(L,A)` is zero, so the printed display says nothing.) That `H²(K,A)` is meant
-  is fixed by the use made of it: Corollary 2.4 combines the display with Proposition 2.1, whose conclusion
-  is about inflation to `H²(F(V)^H,A)`. The display is also not a *short* exact sequence: it is the segment
-  of the five-term sequence that is exact at `H²(H,A)` only.
-- **E3 (proof of Lemma 2.5, p. 7) — misprint, reaches a proof.** In the closing chain
-  `cor(tg(x)) = −cor(u ∪ x) = −u′ ∪ N(x) = tg(N(x))` the classes `u ∈ H²(H,Δ)` and `u′ = res(u) ∈ H²(H′,Δ)`
-  are interchanged. It should read `−cor(u′ ∪ x) = −u ∪ N(x)`, which is the projection formula
-  `cor(res(u) ∪ x) = u ∪ cor(x)` quoted one line earlier. As printed each expression is ill-typed.
-- **E4 (proof of Proposition 3.3, p. 11) — misprint, reaches a proof.** "We apply Lemma 3.4 to the short
-  exact sequence **(3.2)**" should be **(3.3)**. Lemma 3.4 needs *trivial* `H`-action, and `H` acts on the
-  `L^×` of (3.2) through the Galois action; (3.3), that is `1 → μ_n → μ_{ne} → μ_e → 1`, has trivial action
-  and is the sequence whose connecting map is the `∂₂` appearing in the conclusion.
-- **E5 (proof of Lemma 5.3, p. 15) — error, reaches a proof.** "The restriction to `Ṽ` of any element of
-  `E` belongs to `GL(Ṽ)`" is false: an element of `E` has off-diagonal blocks divisible by `p`, not zero.
-  With `Ṽ` spanned by the first two coordinates of `(Z/p²)³`, the matrix `I + pE₃₁` lies in `E` and does not
-  preserve `Ṽ`. The map `π` is instead the top-left block, and it is multiplicative because the product of
-  two off-diagonal blocks is divisible by `p²`. The lemma is also attributed to [DCF17, Lemma 3.4], so only
-  the alternative argument is touched.
-- **E6 (proof of Claim 5.7, p. 19) — misprint, reaches a proof.** `H²(Z,Z) ≅ F_p(τ₁₃)` should be
-  `F_p(τ₃₁)`. The action on characters is contragredient, as the same proof states a page earlier, and the
-  two neighbouring computations use it correctly. With the printed `τ₁₃` the invariants
-  `(A^Z ⊗ H²(Z,Z))^T` would vanish for every `p > 3`, contradicting the answer displayed two lines later;
-  the parenthetical remark distinguishing `p = 3` from `p > 3` is correct only for `τ₃₁`, because `τ₁₃` and
-  `τ₃₁` coincide on `(F₃^×)³`.
-- **E7 (proof of Claim 5.7, p. 18) — misprint, reaches a proof.** `φ_U(E₁₂ ⊗ ∂(χ₁₂))` is ill-typed: `φ_U`
-  has source `A^U ⊗ H²(U,Z)` and the same proof has computed `A^U = ⟨I, E₁₃⟩`. The projection formula, which
-  is what the sentence invokes, gives `φ_N(E₁₂ ⊗ ∂χ₁₂) = φ_U(N_{U/N}(E₁₂) ⊗ ∂χ̃₁₂)`. The conclusion is
-  correct and in fact stronger: `N_{U/N}(E₁₂) = pE₁₂ − (p(p−1)/2)E₁₃ = 0` for odd `p`.
-- **E8 (proof of Claim 5.6, p. 17) — misprint, reaches nothing.** "By definition, `H̄²(N,A)` is generated by
-  the images of all the `φ_H`, where `H` is a subgroup of `U`" should say `H̄²(U,A)`: the maps `φ_H` land in
-  `H²(U,A)` by their definition (3.7), and the claim being proved is about `res^U_N(H̄²(U,A))`.
-- **E9 (Remark 5.8(2), p. 19) — gap, reaches nothing.** "one can show that `α` restricts to a negligible
-  class in `H²(N,A)`" is asserted with no proof and no reference. It is true, in two independent ways. With
-  the least-residue section `s(a,b) = I + āE₁₂ + b̄E₁₃`, all products of `E₁₂` and `E₁₃` vanish, so
-  `s(x)s(y)s(x+y)^{-1} = I + p(κ(a,c)E₁₂ + κ(b,d)E₁₃)` with `κ` the carry `⌊(ā+c̄)/p⌋`; the integral
-  connecting class of `a ↦ a/p mod Z` is represented by the same carry, and `N` fixes `E₁₂` and `E₁₃`, so
-  `res^U_N α = E₁₂ ∪ δχ₁₂ + E₁₃ ∪ δχ₁₃`, a sum of two generators of `H̄²(N,A)` for the ambient group `N`;
-  Theorem 1.3 applies with `e(N) = e(A) = p` and `μ_{p²} ⊂ F`. Directly: Kummer theory lifts both characters
-  of any continuous `ρ = (χ₁,χ₂) : Γ_K → N` to `Z/p²`, and `ρ̃(g) = I + χ̃₁(g)E₁₂ + χ̃₂(g)E₁₃` is a
-  continuous homomorphism lifting `ρ`, because the two matrix directions multiply to zero. Nothing in the
-  paper depends on the remark; it explains only why restricting to `N` cannot shorten the proof of
-  Theorem 5.1, and Claim 5.4, which shows `res^U_N(α) ≠ 0`, is proved independently.
+## E2–E4: transgression and the coefficient sequence
 
-## Why the main theorems are unaffected
+**E2 — confirmed, misprint / nothing; (2.3), p.6.** For
+1→Γ_L→Γ_K→H→1, inflation has target H²(K,A). The relevant five-term
+segment is
 
-Theorem 1.3 determines `H²(H,A)_{neg,F} = H̄²(H,A)` when `F` contains a primitive root of unity of order
-`e(A)e(H)`. Its proof has two halves. The inclusion `H̄² ⊆ H²_{neg}` uses only Example 2.2 (Kummer theory),
-Lemma 2.3 and a reduction to cyclic groups, none of which is touched. The reverse inclusion is where
-Lemma 4.1 enters, and it enters under the hypotheses `n = e(A)`, `e = e(H)` and `μ_{ne} ⊂ F`; the proof
-explicitly verifies that `(h−1)f ∈ μ_e` for `h ∈ H_x`, which is precisely the condition that makes the
-generators invariant. So the corrected Lemma 4.1 is available exactly where it is used.
+H¹(L,A)^H → H²(H,A) → H²(K,A),
 
-Theorem 5.1 (the non-negligibility of the `GL_n` and `B_n` reduction extensions) rests on Claim 5.4, which
-is untouched, and Claim 5.7, whose proof carries E6 and E7. Both are notational: correcting `τ₁₃` to `τ₃₁`
-is what makes the displayed invariants come out as printed, and replacing `E₁₂` by its relative norm makes
-the last step well typed and, since that norm is zero, immediate. Theorem 1.4 then follows from Theorem 5.1
-together with Lemma 5.3, whose statement is unaffected by E5 and is in any case also attributed to
-[DCF17, Lemma 3.4].
+exact at the middle term. It is not a short exact sequence: no injectivity
+of transgression or surjectivity of inflation follows. The next corollary
+only uses middle exactness, and Proposition 2.1 already identifies
+K=F(V)^H as the intended field. Reclassified the inherited proof-level reach
+to a harmless notation slip.
 
-## Method
+**E3 — confirmed, misprint / nothing; Lemma 2.5, p.7.** The two classes
+u and u′=res(u) are interchanged in the final chain. The transgression over
+H′ uses −u′∪x, and its corestriction is −u∪N_(H/H′)(x). This is the
+projection formula and agrees with the definitions immediately above the
+chain. The lemma's square and conclusion are unchanged.
 
-The LaTeX source of arXiv v1 (1035 lines, one file) was read in full, and every finding was then located in
-the text of the content streams of both PDFs, so that no finding rests on a source file alone. The
-numbering used in the locators is the printed numbering: the environments `thm`, `prop`, `lemma`, `cor`,
-`claim` and `rmk` share one counter per section, giving Proposition 2.1, Example 2.2, Lemma 2.3,
-Corollary 2.4, Lemma 2.5 in §2; Proposition 3.1, Lemma 3.2, Proposition 3.3, Lemma 3.4 in §3; Lemma 4.1,
-Theorem 1.3's proof and Corollary 4.2 in §4; and Theorem 5.1, Lemma 5.2, Lemma 5.3, Claims 5.4–5.7 and
-Remark 5.8 in §5. Equations are numbered separately, so (2.3) is the display after the transgression map
-and (3.2), (3.3) are the two short exact sequences defining `∂₁` and `∂₂`.
+**E4 — confirmed, misprint / nothing; Proposition 3.3, p.11.** Apply
+Lemma 3.4 to (3.3), not (3.2). The former is the sequence of roots of unity
+with trivial H-action and boundary ∂₂, exactly as the conclusion requires.
+The latter contains the Galois module L* and supplies ∂₁ instead.
 
-`python3 scripts/check_errata.py research/blueprint/errata/PAPER-MERKURJEV-SCAVIA-26.json` reports no
-errors. Only the two named deliverables change. The earlier extraction was not edited. No Lean file is part
-of an errata job and no formalisation is claimed.
+## E5–E8: the matrix and weight arguments
+
+**E5 — confirmed, error / proof; Lemma 5.3, p.15.** An element of E need
+not preserve the lifted summand Ṽ. For example, with Ṽ spanned by e₁,e₂
+and W̃ by e₃, the matrix I+pE₃₁ lies in E but sends e₁ to e₁+pe₃.
+Consequently the claimed restriction map is not defined.
+
+Use the top-left block A instead. Every element of E has block form
+`[[A,pB],[pC,D]]`; A is invertible because it is invertible modulo p.
+The top-left block of a product is A₁A₂+p²B₁C₂=A₁A₂ modulo p².
+Thus this block projection is a homomorphism and induces the required
+projection on the kernel matrices. It supplies the diagram in the proof and
+proves the stated implication without changing Lemma 5.3.
+
+**E6 — confirmed, misprint / nothing; Claim 5.7, pp.18–19.** The weight
+of H²(Z,Z) is τ₃₁. Indeed t⁻¹(I+E₁₃)t=I+(t₃/t₁)E₁₃, and the
+paper's character action is contragredient. Hence E₁₃⊗∂χ₁₃ is invariant,
+as the next display correctly asserts. When p=3, τ₁₃=τ₃₁; for p>3 they
+differ. In the full A tensor this character there is an additional invariant
+E₃₁ at p=3, but E₃₁ does not centralize Z. This verifies the parenthetical
+case distinction as well as the corrected weight. Reclassified the reach
+to nothing: the subsequent calculation already uses the intended weight.
+
+**E7 — confirmed, misprint / nothing; Claim 5.7, p.18.** E₁₂ is N-fixed
+but not U-fixed, so it cannot be inserted directly in φ_U. The projection
+formula uses N_(U/N)(E₁₂)⊗∂χ̃₁₂, where χ̃₁₂ extends χ₁₂ to U.
+For coset representatives σ₂₃^i, conjugation gives E₁₂−iE₁₃, and thus
+
+N_(U/N)(E₁₂)=pE₁₂−p(p−1)E₁₃/2=0
+
+for every odd p. The class φ_N(E₁₂⊗∂χ₁₂) consequently vanishes already
+before restriction. The missing norm is the sole defect in this sentence.
+
+**E8 — confirmed, misprint / nothing; Claim 5.6, p.17.** The images of
+φ_H for H⊂U generate the indicated subgroup of H²(U,A), with ambient
+letter U. The source's initial N is incorrect; the claim then restricts this
+subgroup from U to N, as the rest of its proof correctly does.
+
+## E9: a correct optional remark, not an erratum
+
+**Rejected; Remark 5.8(2), p.19.** The remark says the restriction to N is
+negligible and omits its verification. This is a correct supplementary
+observation, unused in the proof. The omission of a routine verification
+from a remark does not establish a source mistake.
+
+Here is a direct check under the roots-of-unity assumption used in the
+preceding proof. Write a Galois representation into N as a pair of
+characters χ₁,χ₂. If μ_{p²}⊂K, Kummer theory lifts each character to
+Z/p²; the matrices I+χ̃₁E₁₂+χ̃₂E₁₃ then give a lift, since all products
+of these two matrix directions are zero. Equivalently, the least-residue
+section of N has carry cocycle
+
+κ(a,c)E₁₂+κ(b,d)E₁₃, with κ(a,c)=floor((a+c)/p).
+
+It represents E₁₂∪∂χ₁₂+E₁₃∪∂χ₁₃, a sum of the generators in
+Theorem 1.3 for ambient N. It can be nonzero in finite-group cohomology,
+as Claim 5.4 proves, while still being negligible for absolute Galois groups.
+
+The assertion even holds without μ_{p²} in the field. After the extension
+K′=K(μ_p), of degree prime to p, let c be the mod-p² cyclotomic character,
+so c≡1 mod p. Kummer theory lifts χ₁,χ₂ to μ_{p²}-valued cocycles
+b₁,b₂: its map on H¹ is the surjection K′*/K′*^{p²}→K′*/K′*^p.
+The matrix with first row (c,b₁,b₂) and lower two rows (0,1,0),(0,0,1)
+is multiplicative by the cocycle identities and reduces to the prescribed
+N-representation. Restriction/corestriction then kills the original
+p-torsion obstruction over K, since [K′:K] is prime to p. This also removes
+any ambiguity about retaining the preceding proof's roots-of-unity assumption.
+
+## Additional notation findings
+
+All six below are confirmed **misprints affecting nothing**, checked in
+both manuscripts and in page images.
+
+| ID | Locator | Correction and reason |
+| --- | --- | --- |
+| E10 | After Theorem 1.3, p.4 | Reverse the action phrase: H acts trivially on A. A is the coefficient H-module; no action of A on H is given. |
+| E11 | Example 2.2, p.5 | Use K*/K*^{mn}→K*/K*^m and Γ_K for every extension K/F. The displayed H¹ groups are over K, and negligibility requires all such K. The identical Kummer argument works over each. |
+| E12 | End of Lemma 4.1 proof, p.13 | Replace the sum's upper limit k by r=[H:H_x], the number of representatives fixed on p.12. There is no k in this construction. |
+| E13 | End of p.13, Theorem 1.3 proof | Replace Div(X) by Div(V). The cited sequence (4.2) concerns V and x was chosen in V^(1). |
+| E14 | Theorem 5.1 proof, pp.15–16 | First push the coefficient module b_n into gl_n, as in Lemma 2.3(1); the resulting class is subsequently identified with a restriction from GL_n to B_n. H²(B_n,gl_n) is not a subgroup to which (5.2) is restricted. |
+| E15 | Lemma 3.2, p.8 | Use fL*^n for the Kummer class, and call L[t]/(t^n−f) a finite étale L-algebra (also over K). The printed fL* is always trivial, while F is not a field named in this lemma. |
+
+These corrections repair the identified manuscript passages. They do not
+constitute a certification of all arguments or external inputs in the paper,
+and no claim is made about uninspected journal text.
