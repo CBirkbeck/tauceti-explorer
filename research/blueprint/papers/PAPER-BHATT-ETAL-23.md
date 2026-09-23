@@ -438,3 +438,31 @@ Run the repository paper checker and the supplemental dependency/route/API audit
 The 2026-09-22 continuation also ran `scripts/check_paper.py` and an exact-arithmetic and sympy check of the E1 counterexample: the nef interval is [0,2] for 41 rational t, with chart exponents c²d and f².
 
 Resume from [the handoff](../handoff/PAPER-BHATT-ETAL-23.md). The two counterexamples are now verified and their repairs proved (E1, E2). The next worker should continue with the open source issues (Corollary 4.20's Weil adapter, the §9 supplier scope, the Kollár base-change condition, CT geometric connectedness), then exact original-source closure and finer statement splitting. This checkpoint must not be marked complete merely because every currently listed missing item has a route.
+
+## Review (REV-PAPER-BHATT-ETAL-23, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1445), **accepted** this
+extraction and all fifteen routes, with two kinds of correction in place. The full record is
+[REV-PAPER-BHATT-ETAL-23.md](../reviews/REV-PAPER-BHATT-ETAL-23.md).
+
+The recorded hash reproduces from the Centre Mersenne PDF at the recorded DOI. 273 items, all 255
+missing routed exactly once; all planned layer ids and all twelve library declarations check out at
+the pins. `AnalyticStacks:AS.1` is not in `data/atlas.json` but in the designed roadmap
+`research/blueprint/roadmaps/AnalyticStacks.json`, which three other extractions also route to, so
+that route is well-formed.
+
+**Correction 1 — locators.** In 67 locators the numbered result is right but the kind word is wrong:
+`Lemma 2.48` for Proposition 2.48, `Theorem 6.9` for Corollary 6.9, `Proposition 4.18` for Lemma
+4.18, `Lemma 9.30` for Definition 9.30, `Corollary 9.33` for Theorem 9.33, `Theorem 5.1` for Setting
+5.1, and so on — 50 distinct results. The kind words now match what the paper prints. External
+citations (`Pat18 Theorem 9.7`, `Bha20 Theorem 3.4`, `SGA7 XVII`) and the arXiv-version numbering in
+E1's locator were left untouched, and no number was changed.
+
+**Correction 2 — a Part II title.** `PrismaticCohomologyIntegralRiemannHilbert` now carries the
+parent's full atlas title, "Prismatic cohomology: relative, absolute, Nygaard and log variants".
+
+All eight findings are **confirmed**. Two are the paper contradicting itself: Theorem 9.28(c) prints
+a strict bound where the introduction's Theorem I(c) and Lemma 9.29 are non-strict (E4), and Theorem
+10.6 prints `β(1) = 393` where Theorem K prints 373 (E5). E6 and E7 have immediate counterexamples —
+`g^{−1}(X)` is not a divisor, and the minimum over an empty linear system does not exist — and E1,
+E2, E3 and E8 are as recorded, each read at its page.

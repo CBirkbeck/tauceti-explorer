@@ -2179,7 +2179,7 @@
       "kind": "definition",
       "name": "Terminalization",
       "statement": "A terminalization is a projective birational crepant model with terminal transformed pair, with Q-factoriality specified when provided by the theorem; existence is not built into the definition.",
-      "locator": "Definition2.31; Theorem9.19",
+      "locator": "Definition2.31; Proposition9.19",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -3656,7 +3656,7 @@
       "kind": "definition",
       "name": "Completely globally +-regular pair over a base",
       "statement": "For a pair over the specified excellent base, require global +-regularity after completion at every closed base point. This predicate depends on the base morphism; ordinary equivalence is a theorem for proper pairs.",
-      "locator": "Definition6.1; Theorem6.9",
+      "locator": "Definition6.1; Corollary6.9",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -4088,7 +4088,7 @@
       "kind": "definition",
       "name": "Function algebra and restricted algebra",
       "statement": "Use §8's N-graded subalgebra V⊆K[T], finite degree pieces over the chosen finite base algebra, its Veronese subalgebras, and the IMAGE of restriction to S. The restricted algebra is not defined as the entire section ring of S.",
-      "locator": "§8; Definition8.2",
+      "locator": "§8; Remark8.2",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -4571,7 +4571,7 @@
       "kind": "definition",
       "name": "Kollár-compatible stable-surface moduli groupoid",
       "statement": "For rational v>0 and a Noetherian base T, objects are flat projective families with geometrically stable volume-v fibres AND every reflexive power ω^[m] compatible with every base change; arrows are isomorphisms over T.",
-      "locator": "Theorem10.2; Pat18 Definition1.5",
+      "locator": "Corollary10.2; Pat18 Definition1.5",
       "status": "missing",
       "ownerRoute": "MOD",
       "prerequisites": [
@@ -4746,7 +4746,7 @@
       "kind": "definition",
       "name": "Lefschetz pencil of a smooth projective surface",
       "statement": "Use the blowup of the smooth codimension-two axis of an admissible hyperplane pencil; the map to P¹ has smooth general fibres and at most one ordinary quadratic singularity in each singular fibre. A second Veronese may be necessary.",
-      "locator": "Definition10.4; Theorem10.5",
+      "locator": "Remark10.4; Remark10.5",
       "status": "planned",
       "ownerRoute": "LPV",
       "prerequisites": [
@@ -5256,7 +5256,7 @@
       "kind": "definition",
       "name": "Global F-regularity for an F-finite normal scheme",
       "statement": "For the source F-finite normal characteristic-p scheme, every effective Cartier divisor D admits an exponent e>0 for which O_X→F_*^e O_X(D) splits; pair variants retain their boundary rounding.",
-      "locator": "Proposition6.14; SS10",
+      "locator": "Lemma6.14; SS10",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -6960,7 +6960,7 @@
       "kind": "theorem",
       "name": "Characteristic-zero excellent basepoint freeness",
       "statement": "For the characteristic-zero excellent dualizing setup, a Q-factorial klt pair with real boundary and nef Q-divisor L satisfying L−(K+Δ) nef and big has L semiample.",
-      "locator": "Lemma2.48",
+      "locator": "Proposition2.48",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -7056,7 +7056,7 @@
       "kind": "theorem",
       "name": "Basepoint freeness supported on a plt centre",
       "statement": "For the threefold dlt/plt setting of Lem2.51, Q-Cartier floor components and nef Cartier L with L−(K+S+B) ample and E(L)⊆S, obtain semiampleness.",
-      "locator": "Lemma2.51 first conclusion",
+      "locator": "Proposition2.51 first conclusion",
       "status": "missing",
       "ownerRoute": "POS",
       "prerequisites": [
@@ -7109,7 +7109,7 @@
       "kind": "theorem",
       "name": "Numerically trivial Q-divisors descend along the supported contraction",
       "statement": "Under Lem2.51's hypotheses, Q-Cartier divisors numerically trivial on the associated semiample contraction descend up to a positive multiple as asserted in the source.",
-      "locator": "Lemma2.51 second conclusion",
+      "locator": "Proposition2.51 second conclusion",
       "status": "missing",
       "ownerRoute": "NUM",
       "prerequisites": [
@@ -7154,7 +7154,7 @@
       "kind": "theorem",
       "name": "Inseparable surface adjunction",
       "statement": "In Lem2.52's normalization/geometric-base-change surface situation, the canonical relation includes conductor, geometric nonreducedness and geometric nonnormality corrections with their specified effective coefficients.",
-      "locator": "Lemma2.52",
+      "locator": "Proposition2.52",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -7192,7 +7192,7 @@
       "kind": "theorem",
       "name": "EWM for nef big threefold divisors",
       "statement": "For a klt normal integral threefold in §2.8 with L nef and big and L−(K+Δ) nef and big, L is EWM in the paper's excellent-base scope.",
-      "locator": "Lemma2.53",
+      "locator": "Corollary2.53",
       "status": "missing",
       "ownerRoute": "POS",
       "prerequisites": [
@@ -8518,7 +8518,7 @@
       "kind": "theorem",
       "name": "Affine stable sections equal the BCM test ideal",
       "statement": "For a complete normal local domain of residual characteristic p>0 and effective Δ with K_R+Δ Q-Cartier, the affine B⁰ identifies with the R⁺-BCM test ideal in the source normalization.",
-      "locator": "Theorem4.17",
+      "locator": "Proposition4.17",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8560,7 +8560,7 @@
       "kind": "theorem",
       "name": "Stable sections transform under trace",
       "statement": "For a finite cover, or an alteration with the required Q-Cartier adjoint difference, and integralized pullback twist, trace maps the transformed stable sections surjectively onto B⁰ on X.",
-      "locator": "Proposition4.18",
+      "locator": "Lemma4.18",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8611,7 +8611,7 @@
       "kind": "theorem",
       "name": "Birational boundary enlargement decreases stable sections",
       "statement": "For the proper birational setting of Proposition4.19, an effective upstairs boundary at least the crepant transformed boundary yields the stated inclusion in downstairs B⁰.",
-      "locator": "Proposition4.19 inclusion",
+      "locator": "Lemma4.19 inclusion",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8656,7 +8656,7 @@
       "kind": "theorem",
       "name": "Crepant effective boundaries preserve B⁰",
       "statement": "Under Proposition4.19 with the crepant upstairs boundary effective and chosen exactly, the stable-section spaces identify.",
-      "locator": "Proposition4.19 equality",
+      "locator": "Lemma4.19 equality",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8700,7 +8700,7 @@
       "kind": "theorem",
       "name": "Ceilings and fractional boundaries under birational pullback",
       "statement": "For Q-Cartier L and klt (X,B+{−L}), the source's H⁰ and B⁰ comparisons use ceil L downstairs and ceil(π*L+A_Y) upstairs with the specified fractional boundary.",
-      "locator": "Corollary4.20",
+      "locator": "Lemma4.20",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8779,7 +8779,7 @@
       "kind": "theorem",
       "name": "Component sum formula",
       "statement": "For reduced S=ΣS_i, B⁰_S is the sum of the individual component-image spaces in the common global-section module, hence choice-independent.",
-      "locator": "Corollary4.23",
+      "locator": "Lemma4.23",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8818,7 +8818,7 @@
       "kind": "theorem",
       "name": "Adjoint trace intersection and compatible lifts",
       "statement": "In the complete-base adjoint setup, B⁰_S has Proposition4.24's intersection-of-trace-images formula and admits coherent inverse-system lifts.",
-      "locator": "Proposition4.24",
+      "locator": "Lemma4.24",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8864,7 +8864,7 @@
       "kind": "theorem",
       "name": "Finite and alteration adjoint spaces agree",
       "statement": "When K_X+S+B is Q-Cartier in the complete-base setting, B⁰_S=B⁰_{S,alt}.",
-      "locator": "Proposition4.25",
+      "locator": "Lemma4.25",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8917,7 +8917,7 @@
       "kind": "theorem",
       "name": "Adjoint stable sections enter lowered-boundary stable sections",
       "statement": "For rational 0≤a<1, B⁰_S(X,S+B;M)⊆B⁰(X,aS+B;M) in the source complete-base setting.",
-      "locator": "Proposition4.26",
+      "locator": "Lemma4.26",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -8957,7 +8957,7 @@
       "kind": "theorem",
       "name": "Birational adjoint comparison",
       "statement": "Under Proposition4.27's proper birational and effective-boundary hypotheses, obtain the adjoint inclusion, and equality for the effective crepant transform with the selected strict transforms of S.",
-      "locator": "Proposition4.27",
+      "locator": "Lemma4.27",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9041,7 +9041,7 @@
       "kind": "theorem",
       "name": "Ordinary stable sections after base completion",
       "statement": "For normal integral X proper over excellent normal local residual-p R with dualizing complex and H⁰(O_X)=R, B⁰ of the completed pair is the intersection of completions of ORIGINAL finite-cover trace images.",
-      "locator": "Theorem4.29 finite-cover statement",
+      "locator": "Proposition4.29 finite-cover statement",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9092,7 +9092,7 @@
       "kind": "theorem",
       "name": "Alteration completion comparison",
       "statement": "Under Theorem4.29 with M−K−Δ Q-Cartier, the analogous intersection of completed original alteration images computes the completed stable-section space.",
-      "locator": "Theorem4.29 alteration statement",
+      "locator": "Proposition4.29 alteration statement",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9656,7 +9656,7 @@
       "kind": "theorem",
       "name": "Ordinary versus completely global +-regularity for proper pairs",
       "statement": "For proper pairs over the specified excellent dualizing base with positive-characteristic closed points, ordinary and completely global +-regularity are equivalent.",
-      "locator": "Theorem6.9",
+      "locator": "Corollary6.9",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9702,7 +9702,7 @@
       "kind": "theorem",
       "name": "Globally +-regular schemes are CM",
       "statement": "A globally +-regular pair in §6's setting has Cohen–Macaulay underlying X.",
-      "locator": "Corollary6.10 CM clause",
+      "locator": "Proposition6.10 CM clause",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9752,7 +9752,7 @@
       "kind": "theorem",
       "name": "Globally +-regular schemes are pseudorational",
       "statement": "In Cor6.10, X is pseudorational, with rationality only via the cited Kovács comparison under its hypotheses.",
-      "locator": "Corollary6.10 pseudorational clause",
+      "locator": "Proposition6.10 pseudorational clause",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9792,7 +9792,7 @@
       "kind": "theorem",
       "name": "Q-Gorenstein globally +-regular pairs are klt",
       "statement": "If K_X+Δ is Q-Cartier, a globally +-regular pair in §6's setting is klt.",
-      "locator": "Corollary6.10 klt clause",
+      "locator": "Proposition6.10 klt clause",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9832,7 +9832,7 @@
       "kind": "theorem",
       "name": "Stable sections exhaust all line-bundle sections on globally +-regular pairs",
       "statement": "In the proper globally +-regular setup, the indicated complete stable-section space of every line bundle equals its full section space.",
-      "locator": "Corollary6.11",
+      "locator": "Lemma6.11",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9920,7 +9920,7 @@
       "kind": "theorem",
       "name": "Higher cohomology of the structure sheaf vanishes",
       "statement": "For the proper globally +-regular setting, H^i(X,O_X)=0 for i>0.",
-      "locator": "Corollary6.13",
+      "locator": "Proposition6.13",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -9960,7 +9960,7 @@
       "kind": "theorem",
       "name": "Global F-regularity implies global +-regularity",
       "statement": "For an F-finite normal scheme in characteristic p satisfying the source global F-regularity definition, global +-regularity follows.",
-      "locator": "Proposition6.14; Claim6.15",
+      "locator": "Lemma6.14; Claim6.15",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -10000,7 +10000,7 @@
       "kind": "theorem",
       "name": "Descent from completed coefficient-field perfection",
       "statement": "For the proper complete equal-characteristic-p situation of Lem6.18, global F-regularity after completed tensoring with the coefficient-field perfection implies global +-regularity downstairs.",
-      "locator": "Lemma6.18",
+      "locator": "Corollary6.18",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -10162,7 +10162,7 @@
       "kind": "theorem",
       "name": "Pure splitting is local on the base",
       "statement": "In the proper adjoint setting of Proposition6.25, pure global +-regularity can be tested at closed base localizations.",
-      "locator": "Proposition6.25",
+      "locator": "Lemma6.25",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -10242,7 +10242,7 @@
       "kind": "theorem",
       "name": "Pure regularity gives ordinary regularity below coefficient one",
       "statement": "If (X,S+B) is pure globally +-regular, then (X,aS+B) is globally +-regular for rational 0≤a<1.",
-      "locator": "Proposition6.27",
+      "locator": "Lemma6.27",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -10804,7 +10804,7 @@
       "kind": "theorem",
       "name": "Kollár component for the birational surface case",
       "statement": "For the klt birational surface setting over the complete local base of Setting7.1 with infinite residue field and anti-adjoint nef, obtain the plt extraction/identity and log Fano curve model with the effective comparison of adjoints stated in Proposition7.13.",
-      "locator": "Proposition7.13",
+      "locator": "Lemma7.13",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11131,7 +11131,7 @@
       "kind": "theorem",
       "name": "Global normality of Q-factorial plt centres",
       "statement": "For the source mixed-characteristic excellent threefold setting with all closed residue characteristics zero or >5, Q-factorial plt centres are normal.",
-      "locator": "Corollary7.18",
+      "locator": "Remark7.18",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11260,7 +11260,7 @@
       "kind": "theorem",
       "name": "Finite-point avoidance over an infinite residue field",
       "statement": "A basepoint-free linear system in Setup8.5 admits a section avoiding a prescribed finite set of points under the infinite-residue-field hypothesis.",
-      "locator": "Lemma8.6",
+      "locator": "Remark8.6",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11296,7 +11296,7 @@
       "kind": "theorem",
       "name": "Common finite-index compatible resolution",
       "statement": "For any finite set of adjoint indices in Setup8.5, there exists a good resolution compatible with every index.",
-      "locator": "Lemma8.10",
+      "locator": "Remark8.10",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11337,7 +11337,7 @@
       "kind": "theorem",
       "name": "Mobile pullback on compatible resolutions",
       "statement": "For index-compatible good resolutions, the mobile divisor transforms by the prescribed pullback; arbitrary pushforward/restriction does not commute this way.",
-      "locator": "Lemma8.11",
+      "locator": "Remark8.11",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11429,7 +11429,7 @@
       "kind": "theorem",
       "name": "Q-factoriality of the normalized surface image",
       "statement": "In Setup8.5, the normalization of f(S) is Q-factorial.",
-      "locator": "Lemma8.14",
+      "locator": "Remark8.14",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11663,7 +11663,7 @@
       "kind": "theorem",
       "name": "Rationality of the restricted mobile limit",
       "statement": "Under Setup8.5, the nef limit divisor on the fixed terminal surface is rational.",
-      "locator": "Lemma8.20 rationality clause",
+      "locator": "Theorem8.20 rationality clause",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11712,7 +11712,7 @@
       "kind": "theorem",
       "name": "Semiampleness of the restricted mobile limit",
       "statement": "The rational limit divisor of Lem8.20 is semiample on the fixed terminal surface.",
-      "locator": "Lemma8.20 semiampleness clause",
+      "locator": "Theorem8.20 semiampleness clause",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11807,7 +11807,7 @@
       "kind": "theorem",
       "name": "Eventual stabilization on divisible indices",
       "statement": "With the fixed-model small-boundary perturbation and divisibility of Lem8.22, the rounded saturation inequality holds for i≫j; when jD is free it forces D_j=D.",
-      "locator": "Lemma8.22",
+      "locator": "Proposition8.22",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11855,7 +11855,7 @@
       "kind": "theorem",
       "name": "Finite generation of the restricted algebra",
       "statement": "Under Setup8.5, the restricted adjoint algebra on S is finitely generated.",
-      "locator": "Lemma8.23; Claim8.24",
+      "locator": "Proposition8.23; Claim8.24",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11907,7 +11907,7 @@
       "kind": "theorem",
       "name": "pl-flips over an infinite residue field",
       "statement": "Under Cor8.25's three-dimensional complete-local pl-flip setup, normal Q-Cartier S, adjoint Q-linearly proportional to S and the surface's small-perturbation +-regularity, the adjoint algebra is finitely generated and the flip exists.",
-      "locator": "Corollary8.25",
+      "locator": "Theorem8.25",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12002,7 +12002,7 @@
       "kind": "theorem",
       "name": "One-complement pl-flips in every positive residue characteristic",
       "statement": "In Theorem8.27's dlt complete-local setup, S prime, S,A effective Q-Cartier Weil, floor B=0, −(K+S+A+B),−S,A relatively ample, and adjoint Q-linearly proportional to both S and A as specified, the adjoint algebra is finitely generated.",
-      "locator": "Theorem8.27",
+      "locator": "Proposition8.27",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12130,7 +12130,7 @@
       "kind": "theorem",
       "name": "Standard pl-flips over the global base",
       "statement": "For §9's threefold standard-coefficient pl-flipping setup with no closed residue characteristic2,3,5, the flip exists.",
-      "locator": "Corollary9.6",
+      "locator": "Proposition9.6",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12178,7 +12178,7 @@
       "kind": "theorem",
       "name": "Special termination near the coefficient-one boundary",
       "statement": "For an existing MMP sequence of Q-factorial dlt threefold pairs over the §9 base, only finitely many steps meet the floor of the boundary, with the source's all-residue scope.",
-      "locator": "Proposition9.7",
+      "locator": "Theorem9.7",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12234,7 +12234,7 @@
       "kind": "theorem",
       "name": "Eventual avoidance of the entire boundary",
       "statement": "For the source sequence of threefold flips, assuming all relevant birational klt models admit terminalizations, eventually the flipping loci avoid the entire boundary support.",
-      "locator": "Proposition9.8",
+      "locator": "Theorem9.8",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12280,7 +12280,7 @@
       "kind": "theorem",
       "name": "Cone decomposition for a numerically effective adjoint",
       "statement": "In Prop9.9's normal Q-factorial threefold pair with coefficients in [0,1] and numerically effective adjoint, obtain countably many negative curve rays and the stated cone decomposition over the §9 base.",
-      "locator": "Proposition9.9 decomposition",
+      "locator": "Theorem9.9 decomposition",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12335,7 +12335,7 @@
       "kind": "theorem",
       "name": "Local finiteness and partial length bound",
       "statement": "Under Prop9.9, the rays are locally finite after ample perturbation and all but finitely many selected curves obey the bound4d_C.",
-      "locator": "Proposition9.9 bounds",
+      "locator": "Theorem9.9 bounds",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12459,7 +12459,7 @@
       "kind": "theorem",
       "name": "Standard klt extremal flips",
       "statement": "For Theorem9.13's standard-boundary Q-factorial klt threefold with a rho-one flipping contraction and no closed residue2,3,5, the flip exists.",
-      "locator": "Theorem9.13",
+      "locator": "Proposition9.13",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12851,7 +12851,7 @@
       "kind": "theorem",
       "name": "Terminalizations of klt threefolds",
       "statement": "For a klt threefold with real boundary over the §9 base with no closed residue2,3,5, a Q-factorial terminalization exists as stated.",
-      "locator": "Theorem9.19",
+      "locator": "Proposition9.19",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12915,7 +12915,7 @@
       "kind": "theorem",
       "name": "Any MMP terminates for a pseudoeffective threefold adjoint",
       "statement": "For a Q-factorial dlt threefold pair with real boundary, projective surjective over positive-dimensional T in §9 and no closed residue2,3,5, if K+Δ is pseudoeffective then any MMP terminates with a minimal model.",
-      "locator": "Theorem9.20; Theorem G pseudoeffective branch",
+      "locator": "Proposition9.20; Theorem G pseudoeffective branch",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -12985,7 +12985,7 @@
       "kind": "theorem",
       "name": "Q-factorial dlt modification with truncated boundary",
       "statement": "For the normal effective-boundary absolute-threefold scope of Theorem9.21 with R-Cartier adjoint and residue exclusions, obtain a projective birational Q-factorial model whose specified truncated transformed boundary is dlt.",
-      "locator": "Theorem9.21(1),(2)",
+      "locator": "Corollary9.21(1),(2)",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13044,7 +13044,7 @@
       "kind": "theorem",
       "name": "Nef adjoint on the dlt modification",
       "statement": "The adjoint with the truncated boundary on Theorem9.21's model is nef over X.",
-      "locator": "Theorem9.21(3)",
+      "locator": "Corollary9.21(3)",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13091,7 +13091,7 @@
       "kind": "theorem",
       "name": "Effective crepant excess on the dlt modification",
       "statement": "The difference between the crepant pulled-back boundary and the truncated dlt boundary in Theorem9.21 is effective with the source exceptional support.",
-      "locator": "Theorem9.21(4)",
+      "locator": "Corollary9.21(4)",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13139,7 +13139,7 @@
       "kind": "theorem",
       "name": "Fibrewise support dichotomy for the excess",
       "statement": "Each fibre of Theorem9.21's modification is wholly contained in, or disjoint from, the support of the effective excess divisor.",
-      "locator": "Theorem9.21(5)",
+      "locator": "Corollary9.21(5)",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13232,7 +13232,7 @@
       "kind": "theorem",
       "name": "Relative abundance for lc surfaces over a local residual-p base",
       "statement": "For an lc surface Q-pair projective surjective over the source local base of positive residue characteristic, a nef adjoint is semiample.",
-      "locator": "Lemma9.24; Theorem2.45",
+      "locator": "Theorem9.24; Theorem2.45",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13690,7 +13690,7 @@
       "kind": "theorem",
       "name": "Minimal normalized degree on an extremal ray",
       "statement": "Lemma9.30 chooses a curve of minimum normalized ample degree H·C/d_C on the negative extremal ray and proves the source independence and comparison properties.",
-      "locator": "Lemma9.30",
+      "locator": "Definition9.30",
       "status": "missing",
       "ownerRoute": "NUM",
       "prerequisites": [
@@ -13889,7 +13889,7 @@
       "kind": "theorem",
       "name": "Real-divisor basepoint freeness",
       "statement": "Under Cor9.33's positive-image, klt real-boundary and residue-exclusion hypotheses, a nef R-Cartier D with D−(K+Δ) nef and big is a positive real combination of semiample Q-Cartier divisors in the required sense.",
-      "locator": "Corollary9.33; diagnostic G08",
+      "locator": "Theorem9.33; diagnostic G08",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -14044,7 +14044,7 @@
       "kind": "theorem",
       "name": "Any flips terminate over a base with finitely many closed points",
       "statement": "In Theorem9.36's klt threefold setting, projective surjective to positive-dimensional T with finitely many closed points and no closed residue2,3,5, every flip sequence terminates.",
-      "locator": "Theorem9.36; diagnostic G08",
+      "locator": "Proposition9.36; diagnostic G08",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -14246,7 +14246,7 @@
       "kind": "theorem",
       "name": "Algebraicity and finite type of stable-surface moduli",
       "statement": "For rational v>0, the Kollár-compatible stable-surface moduli groupoid over Z[1/30] is an Artin stack of finite type.",
-      "locator": "Theorem10.2 algebraicity",
+      "locator": "Corollary10.2 algebraicity",
       "status": "missing",
       "ownerRoute": "MOD",
       "prerequisites": [
@@ -14304,7 +14304,7 @@
       "kind": "theorem",
       "name": "Separatedness and finite diagonal",
       "statement": "The stack in Theorem10.2 is separated and has finite diagonal; it is not thereby Deligne–Mumford or tame.",
-      "locator": "Theorem10.2 separatedness/diagonal",
+      "locator": "Corollary10.2 separatedness/diagonal",
       "status": "missing",
       "ownerRoute": "MOD",
       "prerequisites": [
@@ -14359,7 +14359,7 @@
       "kind": "theorem",
       "name": "Coarse stable-surface algebraic space",
       "statement": "Theorem10.2's stack has a separated finite-type coarse algebraic space over Z[1/30].",
-      "locator": "Theorem10.2 coarse conclusion",
+      "locator": "Corollary10.2 coarse conclusion",
       "status": "missing",
       "ownerRoute": "MOD",
       "prerequisites": [
@@ -14459,7 +14459,7 @@
       "kind": "theorem",
       "name": "Lefschetz pencil after a second Veronese",
       "statement": "For a smooth projective variety in Theorem10.5's field setting, the second Veronese embedding has an admissible Lefschetz pencil after the required field extension.",
-      "locator": "Theorem10.5; SGA7 XVII",
+      "locator": "Remark10.5; SGA7 XVII",
       "status": "planned",
       "ownerRoute": "LPV",
       "prerequisites": [
@@ -14973,7 +14973,7 @@
       "kind": "theorem",
       "name": "Finite-inertia coarse-space construction",
       "statement": "Import the exact finite-inertia/quotient coarse-space theorem and its proved base-change properties from R09.5; verify each stable-stack hypothesis.",
-      "locator": "Theorem10.2; R09.5",
+      "locator": "Corollary10.2; R09.5",
       "status": "planned",
       "ownerRoute": "MODR5",
       "prerequisites": [
@@ -15014,7 +15014,7 @@
       "kind": "theorem",
       "name": "Bounded pluricanonical embeddings and hull strata",
       "statement": "For fixed positive rational volume, the HK19/Alexeev boundedness and Kollár hull/husk stratification inputs provide finitely many Hilbert polynomials and the all-reflexive-powers base-change strata used in Pat18's atlas.",
-      "locator": "Theorem10.2; Pat18 Theorem9.7",
+      "locator": "Corollary10.2; Pat18 Theorem9.7",
       "status": "missing",
       "ownerRoute": "MOD",
       "prerequisites": [
@@ -15655,7 +15655,7 @@
       "route": "part-ii",
       "parent": "PrismaticCohomology",
       "roadmap": "PrismaticCohomologyIntegralRiemannHilbert",
-      "title": "Prismatic cohomology, Part II: integral Riemann–Hilbert and Cohen–Macaulay vanishing",
+      "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants, Part II: integral Riemann–Hilbert and Cohen–Macaulay vanishing",
       "area": "padic",
       "items": [
         "PAPER-BHATT-ETAL-23/integral-rh",
@@ -15664,7 +15664,7 @@
         "PAPER-BHATT-ETAL-23/rh-almost-perverse",
         "PAPER-BHATT-ETAL-23/absolute-etale-acyclic"
       ],
-      "reason": "PR.4 plans smooth étale comparison, not the integral singular-scheme functor used in Bhatt's absolute-closure vanishing. EDC.5 owns the generic-fibre perverse theory, while Q0 owns integral perfectoid algebra; extend this prismatic direction without duplicating either.",
+      "reason": "PR.4 plans smooth étale comparison, not the integral singular-scheme functor used in Bhatt's absolute-closure vanishing. EDC.5 owns the generic-fibre perverse theory, while Q0 owns integral perfectoid algebra; extend this prismatic direction without duplicating either. Title corrected by REV-PAPER-BHATT-ETAL-23: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; this roadmap id is proposed by this extraction alone, so no other file is affected.",
       "brief": "Start after Prismatic cohomology (PrismaticCohomology PR.0–PR.2), using perfected derived prismatic cohomology and its universal-prism comparison from PerfectoidQuotients Q2. Import integral perfectoid rings from PerfectoidQuotients:Q0:integral-algebra, almost mathematics from PerfectoidSpaces:P0, generic derived completion from DerivedDeRhamCohomology:DD.1, and homotopy-coherent diagrams, enhancements and Kan extensions from EnhancedDerivedSheaves E0–E3. Import constructible étale sheaves, Verdier duality and the middle perverse t-structure from EtaleDualityAndPerverseSheaves:EDC.5 and its predecessors. The latter applies to F_p on the characteristic-zero generic fibre; it is not a p-torsion special-fibre assertion. Construct, rather than assume, Bha20 Theorem3.4's exact colimit-preserving RH_Δ:D(X_et,Z/p^n)→D_qc(X_{p^n=0}) for schemes over a perfectoid ring. Prove the constant-sheaf perfected-prismatic formula and proper-pushforward natural isomorphism, with coefficient changes and coherent composition. Under X finitely presented flat over O_C, add generic-fibre almostification, almost coherence, Verdier/Grothendieck duality compatibility and the precise two perverse bounds; split those clauses and retain all shifts and local dimensions. Prove the étale acyclicity of integral normal schemes with algebraically closed function fields, the resulting proper-map mod-p annihilation mechanism, and the prismatic Frobenius/finite-length argument underlying Bhatt's geometric CM theorem. The birational extension owns the general excellent-base approximation and B⁰ applications. Do not identify this with a rational p-adic local-system correspondence or smooth de Rham comparison. The main paper cites BL as in preparation; this worker obtained Bha20's statements and sketches, not the full construction. Locate the authoritative construction and close its transitive proof inputs before this proposed direction is declared complete."
     },
     {
@@ -16416,7 +16416,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 2.56 on p.101 states the local-Seshadri comparison and then, in its second assertion, 'More generally, let D be a fixed divisor and let A be a semiample Q-Cartier Q-divisor such that A ∼_Q M + Λ, where M is an effective…'. The equality claimed there does not survive the passage to a Q-linear equivalence: only the lower bound with an arbitrarily small loss γ does, which is what the correction states and what every application in the paper uses.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E2",
@@ -16433,7 +16438,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Proposition 6.28 on p.154 is printed as quoted, with the parenthetical 'completely purely globally +-regular over R, resp.' in the hypothesis and a conclusion whose resp. clause drops the pure boundary. The correction's repair — carry the strict transform S_Y as the pure boundary and set B_Y = Δ_Y − S_Y — is what makes the resp. statement true, and the counterexample with R = k[[t]], X = Y = Spec R and Δ = S = V(t) shows the printed version is not.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E3",
@@ -16450,7 +16460,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 128 prints 'Twisting by the pullback L⁺ to W⁺ of the line bundle O_Y(f*(M − (K_X + S + B)))' and then 'The left zeros are due to Corollary 3.7 and the fact that L⁺ is the pullback of a big and semiample line bundle'. Corollary 3.7 on p.107 vanishes only for negative twists of a big and semiample bundle, so the twist has to be by the inverse, O_Y(f*(K_X + S + B − M)), as the correction says.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E4",
@@ -16467,7 +16482,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper contradicts itself across the two statements. Theorem 9.28(c) on p.206 prints the strict '−4d_{Γ_i} < (K_X + Δ)·Γ_i < 0', while the introduction's Theorem I(c) on p.74 prints '0 < −(K_X + Δ)·_k C ≤ 4d_{C_i}', which is non-strict, and the proof's Lemma 9.29 is non-strict too.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E5",
@@ -16484,7 +16504,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and again by the paper's own two statements. Theorem 10.6 on p.216 prints 'β(v) = 393 if v = 1, 213v + 48 if v ≥ 2', while Theorem K on p.76 prints the same function as 'f(v) = 373 if v = 1, 213v + 48 if v ≥ 2'. The corrected 373 implies the printed 393 statement, so nothing downstream breaks.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E6",
@@ -16501,7 +16526,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 2.13 on p.85 is printed with 'let T be a subscheme of X' and concludes that g^{−1}(T) is a divisor. For T = X, or for any T containing an irreducible component of X, g^{−1}(T) contains a component of Y and is not a divisor, so the hypothesis that T be closed and nowhere dense is needed; the paper's own applications all have it.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E7",
@@ -16518,7 +16548,12 @@
         "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
         "Karl Schwede's papers page (no separate corrigendum)",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 2.19 on p.88 prints 'coeff_E Fix(D) = min_{D′ ∈ |D|} coeff_E D′. Note that as D is Cartier the above coefficients are integers and hence the minimum exists.' Integrality gives the existence of a minimum only over a non-empty set, and |D| is empty for D = O(−1) on P¹; the uses in §8 are all on divisors with non-empty linear system.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E8",
@@ -16532,7 +16567,12 @@
       "searched": [
         "Published Lemma 2.36 (p.94) and Lemma 4.20 (pp.121–122) read (cc-442dc5); the checkpoint's gap-weil-adapter flagged the step.",
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 a07fcb79…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Lemma 4.20 ends on p.122 with 'Hence the map κ is an isomorphism (Lemma 2.36)', and Lemma 2.36 is stated with both divisors Q-Cartier while D_Y = ⌈π*L + A_Y⌉ on the normal Y need not be. The correction's observation — that the proof of Lemma 2.36 uses only the Q-Cartier hypothesis on D_X — is what keeps the step, and is the form in which it should be cited.",
+        "by": "REV-PAPER-BHATT-ETAL-23"
+      }
     }
   ],
   "summaryBefore": "Mixed-characteristic absolute-closure vanishing, B⁰/adjoint trace spaces, BCM/test-module comparison, Fujita generation, ordinary/pure +-regularity, section lifting and threefold flips/MMP, with stable-surface moduli and finite-generation/F-regularity applications. Full primary-paper reading with a 271-item partial proof graph; 15 open source, scope and transitive-closure gaps prevent a completeness claim. Six diagnostic gaps are resolved, and seven verified source mistakes are recorded in sourceIssues.",
