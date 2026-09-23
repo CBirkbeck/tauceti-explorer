@@ -1,3 +1,30 @@
+# PAPER-LIU-ETAL-22 — current handoff (cc-fb70e5, Claude Code, 2026-09-23)
+
+Continuation of merged PR #2236. **Still `partial`**: 214 items (12 library / 20 planned / 182 missing), 21 routes, 371 edges — **all unchanged**. This tick reviewed source findings and did nothing else.
+
+## Delivered
+
+- **Six of the sixteen findings now carry `review.verdict: confirmed`** — **E4, E6, E11, E14, E15, E16** — each re-derived at its locator by a worker independent of the authoring sessions, with the reasoning in `sourceIssues[*].review.reason` so it can be checked rather than trusted. This answers the previous handoff's "no source finding is independently reviewed here" for those six.
+- **Provenance re-verified independently**: the NSF published PDF re-downloaded, sha256 byte-for-byte the recorded `dd821abd…ec89d97`.
+- Each verdict added something the finding did not have: **E4** — the defect is confined to Prop 2.7.2(3), since Lemma 2.7.1's identical phrase is vacuously safe, and `P ≠ 0` provably suffices for large `ℓ`. **E6** — 4 corrupted against ~25 correct occurrences of the same product, including the identical indexed form on p. 348, *plus a locator correction*: Appendix B.3 has **Proposition** B.3.5 and **Lemma** B.3.6, not the other way round. **E11** — the paper's own tangent-rank formula and the hypotheses of A.1.3(3) both transfer exactly under `h ↦ h−d` and not under `h`. **E14** — the display one paragraph above has coefficient degree `2n−1`. **E15** — footnote 4's convention makes the 1-polarized weight set symmetric about `−1/2`, so `[−n,n−1]`; and Lemma 2.2.7, invoked in the next sentence, needs `a < 0`, which `[1−n,n]` fails at `n = 1`. **E16** — a group-theoretic type mismatch (`Gal(F̃_S/F⁺)` versus the quotient), not merely a symbol slip.
+
+## Resume in this order
+
+1. **The previous handoff's top item is untouched and still first**: derive vanishing, or a uniform-in-`m` bound, for the two obstruction groups from the actual `GI(T²−1)`, `j = 1` tensor hypotheses. Nothing here bears on it.
+2. **Ten findings still need review.** **E7** was examined and deliberately left open: the printed `c_{r−1}` carries no `j` while the right side is `d^•_{r−j,p}`, but `DL^•(V_{s^•})` itself depends on `j`, so the `j`-dependence may be honest — settling it needs Theorem 5.7.7 and Proposition A.2.4(2). **E1, E2, E3, E5, E8, E9, E10, E12, E13** were not attempted; E1 and E2 in particular are the normal-closure formula and the diagonal-basis step that the obstruction thread is built on, and they deserve a dedicated reading. No verdict was invented for any of them.
+3. **G7's 76 inherited two-test D/C entries** still lack their third typed tests.
+4. The two `openInvestigations` (U1: global triviality of the exceptional `P¹`-bundle, Lemma 5.11.3(5); U2: the forgetful-arrow direction in Proposition 5.10.13) are untouched and remain investigations, not findings.
+
+## Boundaries
+
+Fresh reads by this worker: the published PDF at pp. 124, 134–137, 229, 302, 311, 319, 322, 338–348 — the locators of the six reviewed findings and the passages needed to adjudicate them. Everything else is inherited. No item, route, API, test, edge, threshold or obstruction statement was modified; no Lean file; the embedded diagnostics were **not** rerun; the pins were **not** re-read. The JSON was checked to round-trip identically under `json.dumps(indent=2, ensure_ascii=False)` before editing, so the diff is confined to six `review` objects.
+
+**Do not read six confirmed misprint/error verdicts as progress on the mathematics.** Five of the six are typographical, and the sixth (E4) is repaired by a hypothesis the paper's own application already satisfies. The extraction is partial for the reasons the earlier handoffs give.
+
+---
+
+## Previous handoffs — historical context
+
 # PAPER-LIU-ETAL-22 — current handoff (codex-a71f92, 2026-09-23)
 
 Continuation of merged PR #2224. Input `fbfe41975f277338d20c2259ea7426696d29df36`.
