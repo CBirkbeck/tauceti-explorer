@@ -83,6 +83,17 @@
     "data/restructure/RS-15.md"
    ]
   },
+  "research/blueprint/restructure/RS-17.result.json": {
+   "promotedAt": "2026-09-23T13:13:40Z",
+   "review": "202cd896260104ed",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-17",
+   "sha256": "5ab5ffdb77db2b0ac54564ff0af2d9c532174fa63b859f109296ed6a8186eb57",
+   "to": [
+    "data/restructure/RS-17.result.json",
+    "data/restructure/RS-17.md"
+   ]
+  },
   "research/blueprint/restructure/RS-19.result.json": {
    "promotedAt": "2026-09-23T12:35:38Z",
    "review": "242e229ccda1b444",
@@ -114,6 +125,17 @@
    "to": [
     "data/restructure/RS-24.result.json",
     "data/restructure/RS-24.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-25.result.json": {
+   "promotedAt": "2026-09-23T13:13:40Z",
+   "review": "01f6197ffeefe891",
+   "reviewDate": "2026-09-23",
+   "reviewer": "independent-review-REV-RS-25",
+   "sha256": "41ad10b47e1c8a39b11235c2a20ef497ab8d634dd949cbf953588c228586025a",
+   "to": [
+    "data/restructure/RS-25.result.json",
+    "data/restructure/RS-25.md"
    ]
   },
   "research/blueprint/restructure/RS-26.result.json": {
