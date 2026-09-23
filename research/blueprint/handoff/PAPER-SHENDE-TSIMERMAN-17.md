@@ -1,3 +1,65 @@
+# PAPER-SHENDE-TSIMERMAN-17 — finite counting handoff
+
+Codex — codex-c83e7a; 23 September 2026; Refs #1334. **Partial.**
+
+Read N1–N5 of the current report first. This continuation has 150 items
+(13 library, 22 planned, 115 missing), 14 existing routes, 99 missing items
+routed once, 40 definition/construction API/test blocks, 60 selected DAG
+edges and 21 proposed v1 source findings. All 131 prior item statements and
+statuses, original routes and 16 withheld claims are preserved. E9/E12 gain
+explicit proof evidence. The previous weighted-Abel work remains intact.
+
+New work:
+
+- Degree-one divisor: choose extension points over consecutive n,n+1 with
+  q^n>4g², and subtract their pushforward divisors. Uses WC.5; does not
+  assume a rational point or claim a new implementation of Weil bounds.
+- Finite-field Picard comparison: normalize a semilinear Frobenius descent
+  isomorphism by a scalar of prescribed finite-field norm. Its cyclic
+  cocycle then descends using JC.C/D. Flat base change gives injectivity
+  and the rational-effectivity comparison.
+- Picard quotient Q has 2h elements and h per degree parity. Unique
+  degree representatives give exact tail counts. Coordinates contain the
+  carry c=κ−2D₀; the set bijection need not split the group.
+- Exact formulas ν(L)=2e(L)−deg L+g+1 and the involution identity keep the
+  ratio inverse and unique κ-twist explicit. Joint intersection counts
+  have denominator 2h, or h conditionally, independent of dimension bounds.
+- Curves y²=2((x^p−x)²+1) over F₃/F₅ have no rational points but explicit
+  degree-one divisors P₃−P₂ and P₅−2P₂. The F₃ genus-two example has h=4
+  and finite bundle masses 1/2, 3/8, 1/8 at indices 0, 1, 3.
+
+Resume:
+
+1. Obtain and match the final 44-page Duke text; fresh canonical requests
+   still returned security HTML. All findings concern v1 only.
+2. Do not redo index-one/finite-normalization as an unexplained gap.
+   General Galois sheaf descent, coherent flat base change and the
+   scheme/function-field adapters remain imported upstream proof tasks.
+3. G3 still needs the contour/class-number asymptotic and original
+   analytic supplier proof closure. G1 still needs the stack/adelic
+   inverse-automorphism comparison, with the ramified unit model in G8.
+4. G2 retains the previous characteristic-five weighted-fiber
+   counterexample. Restricted downstream weights, septuple rank and
+   all-characteristic theta geometry remain unresolved.
+5. Continue G4–G7: signed Morse/IC comparison, polar multiplicities and
+   constants, full later Sawin proof, small-ratio dynamics and varying
+   split-place uniformity. Keep all 16 withheld items withheld.
+
+Fresh sources: main v1 selected pp.7–16 and 29–34, images 30/33; Milne
+Jacobian Varieties (2021 author version) §1 and §11, pp.2–5 and 35–37.
+Earlier full 40-page main reading and selected AT/IY/MS/Sawin readings stay
+attributed to previous submissions. Milne's references for the general
+Galois-descent proof were not acquired. Four generic library statements
+were read at the exact pins; none is an implemented application theorem.
+
+The embedded standard-library regression passes 141022 exact checks.
+No Lean file was requested, written or compiled. Final paper/intake and
+preservation/route/DAG checks are recorded in the report and JSON.
+
+---
+
+## Previous handoff (preserved with attribution)
+
 # PAPER-SHENDE-TSIMERMAN-17 — continuation handoff
 
 Codex — codex-a71f92; 22 September 2026; Refs #1334. **Partial.**
