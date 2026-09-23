@@ -101580,14 +101580,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "R/m and Frac(R) require the valuation ring. Confirmed in v3 p.1."
   },
   {
    "id": "PAPER-TSUZUKI-23/E2",
@@ -101603,14 +101606,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed finite-norm domain slip in v3 p.4. The series with coefficient p^(−floor(sqrt(n))) is analytic at every radius below one but has unbounded coefficients. Keep the bounded-ring correction; no intended bounded-ring theorem is refuted."
   },
   {
    "id": "PAPER-TSUZUKI-23/E3",
@@ -101626,14 +101632,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "The local definition uses K,t; the alpha-indexed ring is not introduced there. Confirmed v3 p.5."
   },
   {
    "id": "PAPER-TSUZUKI-23/E4",
@@ -101649,14 +101658,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Q is ordered, not well-ordered; the well-order condition belongs on supports. Confirmed v3 p.6."
   },
   {
    "id": "PAPER-TSUZUKI-23/E5",
@@ -101672,14 +101684,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "The cited part (4) belongs to Lemma 2.6, not the three-part Lemma 2.5. The later filtration has no defined length s. Confirmed pp.8–9."
   },
   {
    "id": "PAPER-TSUZUKI-23/E6",
@@ -101695,60 +101710,69 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.14. For the unipotent connection de2=e1 dt/t on a generic disc, log(X/t) is analytic but its coefficients at n=p^a are unbounded. The proof implication fails, not the intended closure theorem."
   },
   {
    "id": "PAPER-TSUZUKI-23/E7",
-   "kind": "misprint",
+   "kind": "error",
    "locator": "arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated",
    "printed": "nonzero and bounded",
    "correction": "Add M≠0 to the asserted nonzero quotient, and separately define the bounded quotient of zero to be zero.",
-   "reason": "The zero module satisfies solvability but has no nonzero quotient. (cc-442dc5) Reclassified: the statement fails only for M = 0, and Definition 3.13 speaks of the 'nontrivial' quotient; M ≠ 0 is intended.",
-   "affects": "nothing",
+   "reason": "The zero module satisfies solvability but has no nonzero quotient.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.15 and image. Zero is a finite free solvable module and has no nonzero quotient. The missing nonzero hypothesis changes the literal theorem domain; corrected item 053 handles zero separately."
   },
   {
    "id": "PAPER-TSUZUKI-23/E8",
-   "kind": "misprint",
+   "kind": "error",
    "locator": "arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated",
    "printed": "M is PBQ if and only if M ⊗B N is PBQ",
    "correction": "Require N≠0 in the unit-root tensor detection assertion.",
-   "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead. (cc-442dc5) Reclassified: the statement fails only when N = 0; N ≠ 0 is intended.",
-   "affects": "nothing",
+   "reason": "Tensoring with zero loses all information about M. With a nonzero-only pure-slope convention even a PBQ line tensored with zero violates the displayed iff; if zero is allowed as PBQ, take non-PBQ M instead.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.16 and image. Zero has a unit-root lattice but tensoring by zero cannot detect PBQ. Nonzero N is an actual hypothesis of the repaired equivalence."
   },
   {
    "id": "PAPER-TSUZUKI-23/E9",
@@ -101764,14 +101788,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed pp.16–17 and image. On E(1)⊕E(0), nested top quotients both have slope one; graded top quotients have slopes one and zero. This is a clear graded-index misprint under PROTOCOL §18; CT11 Corollary 5.5 and Ohkubo Definition 12.5 verify the intended successive-quotient convention."
   },
   {
    "id": "PAPER-TSUZUKI-23/E10",
@@ -101787,14 +101814,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.18: the rank equality needs dimension of the solution space, and the solution derivative uses x."
   },
   {
    "id": "PAPER-TSUZUKI-23/E11",
@@ -101810,21 +101840,24 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.19 and image: f_* starts on C′ and f* starts on C."
   },
   {
    "id": "PAPER-TSUZUKI-23/E12",
    "kind": "gap",
    "locator": "arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated",
    "printed": "N is PBQ by Lemma 3.30",
-   "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion. (cc-442dc5) A non-circular proof of (1): PBQ is a property of the generic ϕ-∇-module, and for the finite étale f the generic module of f*N† is E_{η′} ⊗_{E_η} N_η. The argument of Proposition 3.14 and Corollary 3.15, applied to the finite extension E_{η′}/E_η in place of E_α/E_η, gives (E_{η′} ⊗ N_η)^b = E_{η′} ⊗ N_η^b, so PBQ is preserved. Part (2) then follows as printed.",
+   "correction": "Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion. (cc-442dc5) A non-circular proof of (1): PBQ is a property of the generic ϕ-∇-module, and for the finite étale f the generic module of f*N† is E_{η′} ⊗_{E_η} N_η. The argument of Proposition 3.14 and Corollary 3.15, applied to the finite extension E_{η′}/E_η in place of E_α/E_η, gives (E_{η′} ⊗ N_η)^b = E_{η′} ⊗ N_η^b, so PBQ is preserved. Part (2) then follows as printed. Independent review: this is a proposed repair outline. Its finite-étale generic-disc comparison and bounded-kernel descent are not proved by the stated generic-local Proposition 3.14 alone; G2 remains open.",
    "reason": "Part (1) starts with N PBQ but concludes N PBQ again; part (2) invokes the lemma. The displayed argument does not prove its required pullback conclusion. The extraction retains the source-stated theorem with a proof gap.",
    "affects": "the proof",
    "known": "new",
@@ -101833,14 +101866,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.19 and image. Part (1) concludes its hypothesis again, and (2) invokes the missing pullback result. The proposed generic finite-étale base-change repair is retained as a candidate; it does not by itself discharge the extra Taylor/comparison and adjunction obligations in G2."
   },
   {
    "id": "PAPER-TSUZUKI-23/E13",
@@ -101856,14 +101892,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.21: compact support is required on the source of the support-forgetting arrow."
   },
   {
    "id": "PAPER-TSUZUKI-23/E14",
@@ -101879,14 +101918,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.27 against Proposition 3.29 and the diagram: h has target the global convergent bounded quotient, not Mη/Mb nor an automatically overconvergent coefficient."
   },
   {
    "id": "PAPER-TSUZUKI-23/E15",
@@ -101902,14 +101944,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.29: the displayed factorization ends at the restriction of M†."
   },
   {
    "id": "PAPER-TSUZUKI-23/E16",
@@ -101925,14 +101970,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.30 and image: the composite lands in the L3 category, so the left side must be theta13."
   },
   {
    "id": "PAPER-TSUZUKI-23/E17",
@@ -101948,14 +101996,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed as an omitted coefficient-dual identification, not a counterexample to duality. The displayed pairing after extra K-scalar extension does not itself identify the dual of the original L-object. The finite trace pairing and multiplication component give the required original L-valued pairing; G6 tracks its typed realization."
   },
   {
    "id": "PAPER-TSUZUKI-23/E18",
@@ -101971,14 +102022,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.33 and image. A separable non-normal extension need not split over itself; after an algebraic closure it does. Use trace on restriction of scalars of the finite L-model. E26 separately records the displayed infinite coefficient-field notation."
   },
   {
    "id": "PAPER-TSUZUKI-23/E19",
@@ -101994,14 +102048,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.34 and image. A scalar coefficient twist multiplies the nth iterate by lambda^n. Finite differences show nth powers span in characteristic zero, completing the trace-pairing argument without the false linear scaling."
   },
   {
    "id": "PAPER-TSUZUKI-23/E20",
@@ -102009,22 +102066,25 @@
    "locator": "arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated",
    "printed": "w ∈ Z",
    "correction": "Allow arbitrary real weights, or explicitly normalize by a rank-one twist and then restore its weight. The unrestricted mixedness/purity theorem cannot use integer-only weights.",
-   "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked. (cc-442dc5) Reclassified: Definition 7.14 restricts weights to Z, which makes Theorem 7.18 false as printed. But the paper uses purity only through Abe–Esnault's theorem and Proposition 7.15, which hold with real weights, so the mathematics as intended is right.",
-   "affects": "nothing",
+   "reason": "On Spec F3 the rank-one coefficient with Frobenius 2 is irreducible but has w=2 log_3 2, not an integer (3^w=4). AE's public proof twists to finite determinant then untwists. PDF p.34 visually checked.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "arXiv:1910.03871 version history: v3 (19 October 2021) is the latest listed; its note says proofs of 5.2 and 6.1 changed.",
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed pp.34,37 and image. The F3 point with Frobenius 2 is irreducible and has nonintegral real weight. Thus the unrestricted purity theorem is false with the integer-only definition. The real-weight repair preserves the intended application; AE v1 Theorem 2.6 explicitly twists to finite determinant."
   },
   {
    "id": "PAPER-TSUZUKI-23/E21",
@@ -102040,14 +102100,17 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed p.35 by typing the endomorphism-surjectivity map. tau_m is an endomorphism of N and the compatible map is g′ tau_m."
   },
   {
    "id": "PAPER-TSUZUKI-23/E22",
@@ -102063,19 +102126,22 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed as a missing comparison. Appendix B, also visible in the publisher HTML, proves the raw factor n[L:K]. The projected coefficient functor removes a component multiplicity; derive that comparison before using 1/m. No finding that 1/m itself is wrong."
   },
   {
    "id": "PAPER-TSUZUKI-23/E23",
    "kind": "misprint",
-   "locator": "arXiv:1910.03871v3, Appendix A.1 proof p.38; A.2 p.39; journal version not collated",
+   "locator": "arXiv:1910.03871v3, Appendix A.1 proof p.38; A.2 p.39; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML",
    "printed": "valuation ring",
    "correction": "In the comparison with the completed algebraic residue extension use valuation group, not valuation ring; in the tube notation use sp^−1(Z), not sp(Z).",
    "reason": "The fixed field has finite residue field while the ambient completed unramified field has algebraically closed residue, so their valuation rings cannot coincide; the specialization direction also fixes the tube preimage.",
@@ -102086,19 +102152,22 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed in v3 pp.38–39 and in the publisher HTML Appendix A: the valuation rings cannot coincide with different residue fields, and a tube is a specialization inverse image."
   },
   {
    "id": "PAPER-TSUZUKI-23/E24",
    "kind": "gap",
-   "locator": "arXiv:1910.03871v3, Lemma A.1(3) proof p.38; journal version not collated",
+   "locator": "arXiv:1910.03871v3, Lemma A.1(3) proof p.38; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML",
    "printed": "σ = idL ⊗ σ",
    "correction": "Supply a σ-compatible action on a sufficiently enlarged L, or a different descent construction. Identity on L does not in general glue to σ on K over K^(σ^n).",
    "reason": "σ may act nontrivially on K^(σ^n), so the two proposed maps disagree on the tensor base. The existence statement might be repaired by further enlargement; it is not declared false here.",
@@ -102109,14 +102178,59 @@
     "Publisher DOI 10.1007/s00222-022-01146-5 metadata, abstract and accessible appendix; full journal PDF was not accessible, so journal persistence is unverified.",
     "Bounded title/author plus erratum/corrigendum search and institutional author profile checked on 2026-09-22; no correction located. This is not an exhaustive novelty search.",
     "Earlier note: uncertain: preprint observation; no novelty claim about the published article",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01146-5 registers no update relation; Unpaywall reports the Inventiones version as closed access, so it could not be collated; arXiv v3 is the latest version.",
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
    ],
    "owner": "PAPER-TSUZUKI-23",
    "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
    "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed in v3 p.38 and publisher HTML Lemma A.1(3). Identity on L and sigma on K need not agree on K^(sigma^n). Already on an unramified degree-two constant subfield with q=p, sigma acts nontrivially while sigma² is identity. Further coefficient enlargement needs a compatible action; the existence theorem itself is not refuted."
+  },
+  {
+   "id": "PAPER-TSUZUKI-23/E25",
+   "kind": "gap",
+   "locator": "arXiv:1910.03871v3, Lemma 3.33 proof p.20, first rank-one step; compare Lemma 3.32 p.19; journal main text not collated",
+   "printed": "Lemma 3.32 implies",
+   "correction": "Normalize the arbitrary rank-one generic object to unit-root by an allowed constant Frobenius twist, after a compatible finite coefficient extension if needed; then untwist and descend the global object and embedding. Supply these comparisons before applying the unit-root Lemma 3.32.",
+   "reason": "Lemma 3.33 allows an arbitrary rank-one submodule, whereas Lemma 3.32 assumes unit-root. The constant line with F=q has nonzero slope and satisfies the rank-one setup without being unit-root. Rank one alone does not supply the cited hypothesis. This is an omitted reduction, not a counterexample to the gluing theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
+   ],
+   "owner": "PAPER-TSUZUKI-23",
+   "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
+   "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Read the full rank-one and exterior-power argument and inspected PDF p.20. Its first invocation has the stated hypothesis mismatch. Item 165/G10 isolates the normalization, untwist and descent obligations."
+  },
+  {
+   "id": "PAPER-TSUZUKI-23/E26",
+   "kind": "misprint",
+   "locator": "arXiv:1910.03871v3, Lemma 7.11(1),(3) p.33; journal main text not collated",
+   "printed": "Tr_K",
+   "correction": "In (1) use the finite L-model M_alpha,L as the target of the L-isomorphism; in (3) take the K-trace on restriction of scalars of that finite L-model, then extend the resulting equality to Qpbar.",
+   "reason": "The Qpbar fiber in the displayed formulas is generally infinite dimensional over finite L and K. It cannot be L-isomorphic to the finite source in (1), and ordinary finite-dimensional K-trace is not defined on it in (3). The paragraph preceding the lemma explicitly distinguishes the finite L-model from its Qpbar extension; item 126 already states the intended finite-model identity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: https://arxiv.org/abs/1910.03871 lists v3 (19 October 2021) as latest, with changed proofs of 5.2 and 6.1; no later correction listed.",
+    "Publisher https://link.springer.com/article/10.1007/s00222-022-01146-5 checked for corrections and accessible text. Public PDF request redirects to subscription preview; main journal §§1–7 unavailable. Appendices A–B are publicly displayed and were read: E23 and E24 persist there. No correction notice found on the article page.",
+    "Bounded title + correction/erratum searches of arxiv.org, link.springer.com and math.tohoku.ac.jp returned no correction. Author homepage https://www.math.tohoku.ac.jp/~tsuzuki/ appears as a conference listing in search; full fetch failed (502/certificate error). This is an access limit, not an exhaustive novelty check."
+   ],
+   "owner": "PAPER-TSUZUKI-23",
+   "file": "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
+   "citation": "Tsuzuki, \"Minimal slope conjecture of F-isocrystals\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSUZUKI-23",
+   "reviewReason": "Confirmed against the preceding finite-L/finite-K dimension paragraph and PDF p.33. The correction is coefficient-model notation and does not change the intended trace identity; the non-normal splitting error remains E18."
   },
   {
    "id": "PAPER-VANHOFTEN-24/E1",
