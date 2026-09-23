@@ -1,0 +1,72 @@
+{
+ "paper": "PAPER-BHATT-MORROW-SCHOLZE-19",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. This is the model case of joining another paper's proposal rather than opening a rival roadmap: RefinedTraceMethodsPartIIHenselianPairs is already proposed as a Part II of RefinedTraceMethods by PAPER-CLAUSEN-MATHEW-MORROW-21 (84 items, the owning paper) and by PAPER-CLAUSEN-MATHEW-21 (7 items), with the same parent, and this route adds a single item - Theorem 7.15, the comparison K(S; Z_p) ≃ τ_{≥0}TC(S; Z_p) for S henselian along p with semiperfect reduction - as a source for it. The title reproduces the parent's title exactly, as PROTOCOL section 15 asks, and the brief says in so many words that CMM owns the rigidity theorem and states what BMS2 exports."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. RefinedTraceMethods owns this mathematics and the cited layer (RefinedTraceMethods:RT.6) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: RT.6 owns 'the BMS2 quasisyntomic THH/TC^-/TP computation and motivic-filtration interface' and the trace-to-prismatic comparison, so BMS2 §§5–7, §8.3 and §9 are its primary source (the planned items listed here). The missing item"
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. RefinedTraceMethods owns this mathematics and the cited layer (RefinedTraceMethods:RT.1) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: RT.1 constructs Hochschild, cyclic, negative cyclic and periodic cyclic homology with derived tensor products, but plans only the smooth characteristic-zero HKR comparison; the integral HKR filtration obtained by left Kan extensio"
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. RefinedTraceMethods owns this mathematics and the cited layer (RefinedTraceMethods:RT.2) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: RT.2 constructs THH of E_1-algebras and its cyclotomic structure; the comparison THH(A) ⊗_{THH(Z)} Z ≃ HH(A) with the finiteness of π_*THH(Z) is the basic link between RT.1 and RT.2 that BMS2 uses throughout."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. DerivedDeRhamCohomology owns this mathematics and the cited layer (DerivedDeRhamCohomology:DD.0) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: DD.0 plans the cotangent-complex lci amplitude criterion 'in its finite-presentation/flatness range' and the alternative formulations of quasisyntomicity in BMS2 §4; Avramov's theorem for arbitrary Noetherian rings, which BMS2 use"
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. DerivedDeRhamCohomology owns this mathematics and the cited layer (DerivedDeRhamCohomology:DD.1) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: DD.1 constructs filtered enhanced modules, completed filtered tensor products and graded pieces; the Beilinson t-structure on DF(R) with its heart Ch(R), the supporting Ext computation, and the weak-Postnikov-tower lemma are the f"
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. DerivedDeRhamCohomology owns this mathematics and the cited layer (DerivedDeRhamCohomology:DD.4) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: DD.4 constructs the derived de Rham to crystalline comparison and 'the p-completed derived de Rham description of A_cris in Bhatt §9'; BMS2 §8.2 extends Bhatt's Theorem 3.27 to all quasiregular semiperfect F_p-algebras, adds the c"
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. DerivedDeRhamCohomology owns this mathematics and the cited layer (DerivedDeRhamCohomology:DD.5) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: DD.5 constructs the quasisyntomic site and its semiperfectoid covers 'used by BMS2'; the proj-quasisyntomic variant over O_C and the passage from quasisyntomic sheaves to formal étale sites are two further site-theoretic statement"
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology owns this mathematics and the cited layer (AInfCohomology:AI.1) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: AI.1 constructs Lη_f with its lax symmetric monoidal structure and Bockstein description; BMS2 Proposition 5.8 identifies Lη_I with the Beilinson connective cover of the I-adic filtration, which is how AI.1's filtered Lη enters PR"
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. AInfCohomology owns this mathematics and the cited layer (AInfCohomology:AI.7) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: AI.7 constructs Breuil–Kisin cohomology and must 'compare with BMS2 §11's trace construction'; the Frobenius-twisted complex Δ̂_{A/𝔖^(−1)}, the descent by inverting u, the non-descent of the Nygaard filtration, the Lη_E identity a"
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. CrystallineCohomology owns this mathematics and the cited layer (CrystallineCohomology:CR.4) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: CR.4 constructs de Rham–Witt complexes with Frobenius, Verschiebung, dlog and the Lη_p fixed-point characterization, but does not name the Nygaard filtration; BMS2 §8.1 defines it on WΩ^•, relates it to the conjugate and Hodge fil"
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. PrismaticCohomology owns this mathematics and the cited layer (PrismaticCohomology:PR.3) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: PR.3 constructs Nygaard pieces and 'the Lη_I Frobenius factorization in BS22 §15'; BMS2's explicit description of the Nygaard filtration in q-de Rham coordinates is a computation inside that layer."
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Accept. PrismaticCohomology owns this mathematics and the cited layer (PrismaticCohomology:PR.4) belongs to it, verified in data/atlas.json. The items routed here are this paper's uses of that layer rather than new theory: PR.4 constructs the syntomic Tate twists and must 'prove the stated truncation and nearby-cycle/logarithmic de Rham–Witt comparisons under BS22/BMS2's hypotheses'; the lemmas of BMS2 §§7.4, 8.3 and 10 are those proofs (Theorems 1."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-fb70e5, 23 September 2026, of the extraction by session cc-442dc5 (issue #1458). cc-fb70e5 appears nowhere in it.\n\nProvenance. All three recorded artifacts were re-downloaded and all three hashes match byte for byte: the arXiv v2 PDF b2338ef1...b3594038, the v2 e-print 30968bad...4b91878ac (bms2.tex, 3266 lines) and the open-access published PDF on Centre Mersenne 6b43d1ff...23ff23dd. The findings were checked in both texts, which mattered: two of them (E10, E11) are phrased in the published text and were verified there.\n\nNumbering and coverage. Sixteen environments share one per-section counter. Simulating that independently gives 173 numbered objects, exactly the extraction's count, and every one of them is covered once locator ranges are expanded - the locators use forms like 'Lemmas 4.15-4.17' and 'Lemmas 4.25-4.27', which a naive matcher reads as two numbers rather than three. Before expanding them I had Lemma 4.16 (closure of quasisyntomic and quasismooth maps under composition and base change) and Lemma 4.26 (the finite-free/flat injectivity criterion) as apparent gaps; both are in fact cited, and Lemma 4.16's content is folded into the statement of the quasisyntomic-site item. After expansion the only uncovered objects are four introductory remarks, all commentary: the forward reference to the prismatic site, the extension to TR^r, Schneider's sheaves, and the comparison with BMS1.\n\nStatuses. The single library item cites WittVector, PreTilt and WittVector.fontaineTheta, all of which exist at Mathlib 082e2d3 (RingTheory/WittVector/Defs.lean:52, RingTheory/Perfection.lean:634 and RingTheory/Perfectoid/FontaineTheta.lean:165, the last inside namespace WittVector). The 56 planned items cite 22 layers, all of which exist in data/atlas.json.\n\nRoutes. Twelve source routes and one Part II, all accepted. Every source route's stage exists and belongs to the roadmap that claims it. The Part II is exemplary: it adds one item to a roadmap that two other extractions already propose with the same parent, rather than opening a competing one.\n\nMistakes in the paper. All 12 were checked at their locators and all 12 are confirmed; all are misprints affecting nothing. Several are settled by the paper against itself - d_R against the d_S of the next sentence (E9), D(C) against the D(S) of the same sentence (E2), gr^n TC(A)[-2i] against the introduction's consistent n (E5), and the missing relative base in gr^0(TC^-(A)[1/u]) against Proposition 11.15 and its own proof (E12). Two were settled by computation rather than comparison: E7, where the display's isomorphism p^{i-1-n}V degenerates exactly at n = i - 1, and E10, where f = μ^j g and μ = ξφ^{-1}(μ) give g - ξ^{i-j}φ^{-1}(g) ∈ Ô_X^{♭+}, not the printed μ^{i-j}.\n\nNothing was corrected in place. Verdict: accept."
+}
