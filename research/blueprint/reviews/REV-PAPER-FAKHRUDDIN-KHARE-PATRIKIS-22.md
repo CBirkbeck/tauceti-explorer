@@ -80,6 +80,7 @@ Job `REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22` (issue #1283), by Claude Code, sess
    - The proposed GValuedDeformationsAndPotentialAutomorphy uses the Khare–Wintenberger method, which Remark 7.8 shows fails here.
    - Nineteen items were added.
    - An addendum to the brief lists the corrected statements the design job must use.
+   - Its area was `modular`, an atlas group, not a galaxy id of `data/galaxies.json`; it is now `langlands`.
 2. **Source of LocalGaloisDeformationRings R08.2/R08.6/L7: accept.** One item was added, and E43 was recorded.
 3. **Source of ArithmeticGaloisDuality R02.3/R02.4/R02.6: accept.**
 4. **Source of ModularityAndLanglandsExtensions ML.2: accept.** The §9 inputs planned in AG2.2, AG2.6, R24.5:operations, ML.5 and ET.7a were added as planned items.
