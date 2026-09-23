@@ -19,6 +19,8 @@ Job ERRATA-PAPER-SMITH-24. Worker: Claude Code, session `cc-fb70e5`, 22 Septembe
 
 **Effect.** None of these affects the theorems. Four are misprints: a "least" that should be "greatest", a missing absolute value, a missing sign condition and a missing mass factor. One is a small gap in the proof of Theorem 5.11.
 
+**Independent review.** REV-ERRATA-PAPER-SMITH-24 (Claude Code, session `cc-442dc5`, 23 September 2026) confirmed E1–E5 and added E6 and E7 from the proof of Proposition 2.5; see [REV-ERRATA-PAPER-SMITH-24.md](../reviews/REV-ERRATA-PAPER-SMITH-24.md). The "p.36 singleton-component point" set aside above is E6.
+
 ## E1. λ_SSS is a greatest, not a least, number (misprint)
 
 On p.1, λ_SSS is "the least real number" such that for every ε > 0 only finitely many totally positive α have tr(α) < (λ_SSS − ε) deg(α). If λ has this property, so does every smaller number. The set has no least element, and the constant meant, bounded by 1.793145 ≤ λ_SSS ≤ 2, is its supremum.
@@ -40,3 +42,21 @@ For a finite measure μ, integrating Lemma 5.2's bound gives U^{μ∗ν_ε} − 
 **The gap.** λ_Smyth is defined with positive coefficients a_i, but the separation argument yields only a_i ≥ 0. The proof then handles roots x of the Q_i by saying "the right is −∞". That fails when every Q_i vanishing at x has a_i = 0: the term is 0 · (−∞), and δ_x lies outside the class of measures being separated.
 
 **Repair.** Discard the zero-coefficient polynomials. Use continuity at non-isolated points of Σ. At isolated points, perturb with a small positive coefficient, at a small cost in λ.
+
+## E6. One-point components need not be isolated (error; added at review)
+
+The proof of Proposition 2.5 (p.36) writes Σ as "the union of its set of isolated points" with an increasing union of compact finite unions of intervals. A one-point component need not be isolated.
+
+**Counterexample.** Take Σ = {0} ∪ ⋃_{n≥1}[1/(2n+1), 1/(2n)] ∪ [1, 6]:
+- it satisfies the standing hypotheses (countably many components, capacity > 1);
+- the component {0} is not isolated;
+- 0 lies in no compact finite union of intervals inside Σ.
+
+**Correction.** Use the set of one-point components. It is countable, which is all the argument uses.
+
+## E7. The energy condition has the wrong direction (misprint; added at review)
+
+In the same paragraph, "since I(μ) > −∞" should be "since I(μ) < ∞".
+- **The convention.** In the paper's convention, I(μ) = ∫∫ −log|z − w| dμ dμ.
+- **What the argument needs.** Finite energy from above prevents μ from charging the countable (capacity-zero) set, and Proposition 5.7 supplies it through I(μ) ≤ 0.
+- **Why the printed condition says nothing.** I(μ) > −∞ holds for every compactly supported measure.
