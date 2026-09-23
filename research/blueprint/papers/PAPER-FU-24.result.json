@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-FU-24",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Sharp bounds for multiplicities of Bianchi modular forms",
     "authors": "Weibo Fu",
@@ -20,7 +20,8 @@
       "Marshall 2012 sections 2.1, 5.1-5.2; CE09 torsion/corank argument; FGT selected sections 1 and 4.17-4.20",
       "Codex continuation: complete 25-page arXiv v2 PDF, sections1–7 and references, extracted text lines1–1518; focused rechecks of 3.2–3.4,4.3,5.3,5.7–5.8.",
       "Kohlhaase author PDF section1.4, Frommer theorem and Corollary1.4.1 with proof; AW14 arXivv1 sections4.4–4.6,5.1 and5.4 with global coefficient/group hypotheses.",
-      "AB07 arXivv1 and author PDF section5.4 lemma and corollary; ST03 arXiv section4 weighted-c0 definition, HYP,4.5,4.7,4.9 and4.11 proof passages."
+      "AB07 arXivv1 and author PDF section5.4 lemma and corollary; ST03 arXiv section4 weighted-c0 definition, HYP,4.5,4.7,4.9 and4.11 proof passages.",
+      "2026-09-23, cc-442dc5: the published Annals text, all of §§1–7 and references, read in full."
     ],
     "publisher": "https://annals.math.princeton.edu/2024/200-1/p03",
     "continuationRead": {
@@ -30,9 +31,17 @@
       "url": "https://arxiv.org/pdf/2201.11190v2",
       "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
       "scope": "Independently read all 25 pages, §§1–7, every proof and references. Published PDF still unavailable: conventional Annals PDF path 404; NSF public URL timed out. Publisher metadata and author research page confirm the article identity, not a full version collation."
+    },
+    "publishedRead": {
+      "url": "https://par.nsf.gov/servlets/purl/10625156",
+      "sha256": "a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80",
+      "pages": "30 (Annals 200 (2024), 123–152, with the journal header)",
+      "date": "2026-09-23",
+      "reader": "cc-442dc5",
+      "collation": "Read in full and collated with arXiv v2: the numbered statements agree. The published Corollary 1.3 adds 'Suppose K_f is sufficiently small'; page images were checked at p. 146 (Theorem 5.7's proof). All locators now refer to the published pages."
     }
   },
-  "summary": "A deepened 123-item extraction/routing checkpoint for Fu: integral central PBW bounds, analytic microlocalization and all-integral central injectivity, then rank-error and weight-aspect bounds via completed homology. All103 missing items have exactly one route; all42 definitions/constructions carry API and unit-test contracts. Exact source archives, reviewed-audit/current-stage reconciliation, the full paper checker and41,069 exact finite regressions are recorded. Published-version collation, original auxiliary proof tasks and D_r quotient-filtration separation remain open. No mathematical formalization or closed-blueprint readiness is claimed. Continuation: correct the unramified microlocal target to its rational completion, separate finite coefficient extension, import restricted Gauss facilities, and prove a small-real-radius central-domain route with an attained quotient norm. Larger-radius separation remains open.",
+  "summary": "Fu proves a degree-one saving bound dim S_k(K_f) ≪ (min k_i)^{-1}∆(k) for cohomological cusp forms on SL₂ over a number field that is not totally real, hence dim ≍ k for Bianchi forms. The method passes completed homology through Ardakov–Wadsley's microlocalization. It shows that nonzero Iwasawa elements stay nonzero at every integral central character (Theorem 1.5), and it bounds the PBW growth of cyclic torsion modules. Complete (cc-442dc5): the published text was read and collated, every numbered statement is an item, every missing item is routed, and seven findings are recorded in §18 form. Theorem 5.7 is false as printed for non-integral characters (E7), and its proof at large radii has a gap (E5); the main theorems rest on Ardakov–Wadsley instead. Not formalised.",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "baseline": {
@@ -3824,57 +3833,143 @@
   ],
   "sourceIssues": [
     {
-      "id": "S1",
-      "locator": "Fu v2 equation (2), paragraph after it and Corollary 1.3; Marshall 2012 section 2.1, equation (4)",
-      "finding": "Marshall defines H_c as cuspidal cohomology inside ordinary cohomology, whereas Fu describes it as compactly supported. Marshall also states the displayed dimension identity for nontrivial coefficient systems.",
-      "resolution": "Use the cuspidal injection for the upper bound. For the full compact-support interpretation retain an explicit boundary long-exact-sequence calculation and Poincare-Lefschetz comparison, treating the trivial coefficient separately. The two-sided Bianchi result uses the specified base-change lower-bound level class. The continuation gives a cusp-torus Koszul argument with dimensions(1,2,1) and resulting |dim H_c^i−dim H^i|<=3c for i=1,2 and c cusps; its geometric and chain-comparison imports remain explicit.",
-      "classification": "source-convention mismatch; boundary proof required",
+      "id": "PAPER-FU-24/E1",
+      "kind": "error",
+      "locator": "§1, equation (2), p. 125, and Corollary 1.3, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "dim_C H_c^{r1+r2}(Y(K_f), W_k) = 2^{r1} dim_C S_k(K_f) … This space corresponds to the first compactly supported cohomology with coefficient local system W_k … by the Eichler–Shimura isomorphism (2).",
+      "correction": "Read cuspidal (interior) cohomology, as in [Mar12, (4)]. Compactly supported cohomology differs from it by boundary terms, bounded here by 3·(number of cusps) in degrees 1 and 2, so Theorem 1.2 (an upper bound through ordinary cohomology) and Corollary 1.3 still hold.",
+      "reason": "Marshall defines H_c as cuspidal cohomology inside ordinary cohomology, whereas Fu describes it as compactly supported. Marshall also states the displayed dimension identity for nontrivial coefficient systems. Use the cuspidal injection for the upper bound. For the full compact-support interpretation retain an explicit boundary long-exact-sequence calculation and Poincare-Lefschetz comparison, treating the trivial coefficient separately. The two-sided Bianchi result uses the specified base-change lower-bound level class. The continuation gives a cusp-torus Koszul argument with dimensions(1,2,1) and resulting |dim H_c^i−dim H^i|<=3c for i=1,2 and c cusps; its geometric and chain-comparison imports remain explicit. (Converted by cc-442dc5 from the checkpoint's finding S1; its text is kept in previousForm.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/cuspidal-support-dictionary",
         "PAPER-FU-24/bianchi-boundary-estimate",
         "PAPER-FU-24/bianchi-cohomological-sharpness"
-      ]
+      ],
+      "previousForm": {
+        "id": "S1",
+        "locator": "Fu v2 equation (2), paragraph after it and Corollary 1.3; Marshall 2012 section 2.1, equation (4)",
+        "finding": "Marshall defines H_c as cuspidal cohomology inside ordinary cohomology, whereas Fu describes it as compactly supported. Marshall also states the displayed dimension identity for nontrivial coefficient systems.",
+        "resolution": "Use the cuspidal injection for the upper bound. For the full compact-support interpretation retain an explicit boundary long-exact-sequence calculation and Poincare-Lefschetz comparison, treating the trivial coefficient separately. The two-sided Bianchi result uses the specified base-change lower-bound level class. The continuation gives a cusp-torus Koszul argument with dimensions(1,2,1) and resulting |dim H_c^i−dim H^i|<=3c for i=1,2 and c cusps; its geometric and chain-comparison imports remain explicit.",
+        "classification": "source-convention mismatch; boundary proof required",
+        "items": [
+          "PAPER-FU-24/cuspidal-support-dictionary",
+          "PAPER-FU-24/bianchi-boundary-estimate",
+          "PAPER-FU-24/bianchi-cohomological-sharpness"
+        ]
+      }
     },
     {
-      "id": "S2",
-      "locator": "Fu v2 (16); Schneider-Teitelbaum 2003, section 4, pp.18-19 of arXiv copy",
-      "finding": "The norm-completion description of D_r needs weighted coefficients tending to zero. Equation (16) gives only a boundedness condition; Schneider-Teitelbaum distinguishes the larger bounded space D_<r.",
-      "resolution": "Keep D_r and D_<r separate. For example r=p^(-1/p) and coefficients c_(pj)=p^(-j) give a bounded weighted sequence of value 1 which does not tend to zero. At every radius simultaneously the two descriptions give the same Frechet space, but not at one fixed radius.",
-      "classification": "explicit definition correction",
+      "id": "PAPER-FU-24/E2",
+      "kind": "misprint",
+      "locator": "§4, equation (16), p. 138, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "D_r(G, K) = {Σ λ_α b^α | λ_α ∈ K, sup_α |λ_α| r^{|α|} < ∞}",
+      "correction": "The completion of D(G, K) for ‖·‖_r consists of the series with |λ_α| r^{|α|} → 0; the bounded condition describes a larger space.",
+      "reason": "The norm-completion description of D_r needs weighted coefficients tending to zero. Equation (16) gives only a boundedness condition; Schneider-Teitelbaum distinguishes the larger bounded space D_<r. Keep D_r and D_<r separate. For example r=p^(-1/p) and coefficients c_(pj)=p^(-j) give a bounded weighted sequence of value 1 which does not tend to zero. At every radius simultaneously the two descriptions give the same Frechet space, but not at one fixed radius. (Converted by cc-442dc5 from the checkpoint's finding S2; its text is kept in previousForm.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/distribution-radius-completion",
         "PAPER-FU-24/frechet-stein"
-      ]
+      ],
+      "previousForm": {
+        "id": "S2",
+        "locator": "Fu v2 (16); Schneider-Teitelbaum 2003, section 4, pp.18-19 of arXiv copy",
+        "finding": "The norm-completion description of D_r needs weighted coefficients tending to zero. Equation (16) gives only a boundedness condition; Schneider-Teitelbaum distinguishes the larger bounded space D_<r.",
+        "resolution": "Keep D_r and D_<r separate. For example r=p^(-1/p) and coefficients c_(pj)=p^(-j) give a bounded weighted sequence of value 1 which does not tend to zero. At every radius simultaneously the two descriptions give the same Frechet space, but not at one fixed radius.",
+        "classification": "explicit definition correction",
+        "items": [
+          "PAPER-FU-24/distribution-radius-completion",
+          "PAPER-FU-24/frechet-stein"
+        ]
+      }
     },
     {
-      "id": "S3",
-      "locator": "Fu v2 Theorems 1.5 and 5.1, Remark 5.8; AW14 Theorems 4.6 and 5.4",
-      "finding": "Integral Casimir parameters are not all induced by Q_p-valued torus characters. For p=3, lambda=1, a(a+2)/2=1 forces (a+1)^2=3, impossible in Q_3 by valuation parity.",
-      "resolution": "Preserve the direct induced-character proof separately. For the all-integral theorem adjoin the roots in a finite coefficient extension and use the affinoid-Verma annihilator and faithfulness theorems, with explicit faithful scalar-extension comparisons. AW14 allows n=0; this was checked on its page image. The continuation spells out finite-free coefficient descent and the AW14 n=0 application in the central-scalar-descent proofSteps.",
-      "classification": "parameter-scope reconciliation; comparison lemmas required",
+      "id": "PAPER-FU-24/E3",
+      "kind": "error",
+      "locator": "Remark 5.8, second bullet, p. 147, with Theorems 1.5 and 5.1, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "The infinitesimal character λ is induced if and only if the valuation λ0 is at least 2",
+      "correction": "Only 'only if' holds. With λ_k(Δ) = ½((k+1)² − 1), λ is induced exactly when 2λ(Δ) + 1 is the square of an element of Z_p; for p = 3, λ(Δ) = 1 is integral but not induced. So Section 5 proves Theorem 1.5 only for induced λ. Theorem 1.5 for all λ ∈ Z_p^r follows from [AW14, Ths. 4.6 and 5.4], which the paper cites after Theorem 1.5, and Theorem 1.4 needs genericity only at induced parameters (the closure of the λ_k).",
+      "reason": "Integral Casimir parameters are not all induced by Q_p-valued torus characters. For p=3, lambda=1, a(a+2)/2=1 forces (a+1)^2=3, impossible in Q_3 by valuation parity. Preserve the direct induced-character proof separately. For the all-integral theorem adjoin the roots in a finite coefficient extension and use the affinoid-Verma annihilator and faithfulness theorems, with explicit faithful scalar-extension comparisons. AW14 allows n=0; this was checked on its page image. The continuation spells out finite-free coefficient descent and the AW14 n=0 application in the central-scalar-descent proofSteps. (Converted by cc-442dc5 from the checkpoint's finding S3; its text is kept in previousForm.)",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/all-integral-central-injectivity",
         "PAPER-FU-24/induced-central-injectivity",
         "PAPER-FU-24/central-scalar-descent"
-      ]
+      ],
+      "previousForm": {
+        "id": "S3",
+        "locator": "Fu v2 Theorems 1.5 and 5.1, Remark 5.8; AW14 Theorems 4.6 and 5.4",
+        "finding": "Integral Casimir parameters are not all induced by Q_p-valued torus characters. For p=3, lambda=1, a(a+2)/2=1 forces (a+1)^2=3, impossible in Q_3 by valuation parity.",
+        "resolution": "Preserve the direct induced-character proof separately. For the all-integral theorem adjoin the roots in a finite coefficient extension and use the affinoid-Verma annihilator and faithfulness theorems, with explicit faithful scalar-extension comparisons. AW14 allows n=0; this was checked on its page image. The continuation spells out finite-free coefficient descent and the AW14 n=0 application in the central-scalar-descent proofSteps.",
+        "classification": "parameter-scope reconciliation; comparison lemmas required",
+        "items": [
+          "PAPER-FU-24/all-integral-central-injectivity",
+          "PAPER-FU-24/induced-central-injectivity",
+          "PAPER-FU-24/central-scalar-descent"
+        ]
+      }
     },
     {
-      "id": "S4",
-      "locator": "Fu v2 equation (17); AW13 sections 10.3-10.4",
-      "finding": "With the maximal ideal and ramified coefficient DVR, the displayed union p^a+m^(a+1) may contain zero because p belongs to m^2. AW13 uses the unramified setting where p is a uniformizer.",
-      "resolution": "Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R. This continuation reads AW13 §10.1 and the full Theorem10.4 proof, corrects the target to the rational completion, and supplies separate finite completed-group-ring/PBW scalar-extension interfaces plus their flat composite.",
-      "classification": "coefficient-hypothesis correction",
+      "id": "PAPER-FU-24/E4",
+      "kind": "error",
+      "locator": "§4, equation (17), p. 138, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "S0 := ∪_{a⩾0} (p^a + m^{a+1}) ⊆ R[[G]], where m is the maximal ideal of R[[G]] and R the integers of a finite extension K of Q_p",
+      "correction": "Take R = Z_p (or R unramified), as in [AW13, §10], and obtain the microlocalization over a general K by base change K ⊗_{Q_p} (18). For ramified R, p ∈ m² and 0 ∈ p^a + m^{a+1} for a ≥ 1. Sections 5–7 work over Q_p, so the main results are unaffected.",
+      "reason": "With the maximal ideal and ramified coefficient DVR, the displayed union p^a+m^(a+1) may contain zero because p belongs to m^2. AW13 uses the unramified setting where p is a uniformizer. Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R. This continuation reads AW13 §10.1 and the full Theorem10.4 proof, corrects the target to the rational completion, and supplies separate finite completed-group-ring/PBW scalar-extension interfaces plus their flat composite. (Converted by cc-442dc5 from the checkpoint's finding S4; its text is kept in previousForm.)",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/microlocal-ore-set",
         "PAPER-FU-24/lazard-microlocal-identification"
-      ]
+      ],
+      "previousForm": {
+        "id": "S4",
+        "locator": "Fu v2 equation (17); AW13 sections 10.3-10.4",
+        "finding": "With the maximal ideal and ramified coefficient DVR, the displayed union p^a+m^(a+1) may contain zero because p belongs to m^2. AW13 uses the unramified setting where p is a uniformizer.",
+        "resolution": "Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R. This continuation reads AW13 §10.1 and the full Theorem10.4 proof, corrects the target to the rational completion, and supplies separate finite completed-group-ring/PBW scalar-extension interfaces plus their flat composite.",
+        "classification": "coefficient-hypothesis correction",
+        "items": [
+          "PAPER-FU-24/microlocal-ore-set",
+          "PAPER-FU-24/lazard-microlocal-identification"
+        ]
+      }
     },
     {
-      "id": "S5",
-      "locator": "Fu v2 Theorem 5.7 and last paragraph of Theorem 5.1 proof",
-      "finding": "The domain argument uses a weaker quotient filtration and the later proof leaves a topological PBW normal form to the reader. Quotient separation and coefficient decay are load-bearing, not automatic from an abstract graded-ring calculation.",
-      "resolution": "Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved. The continuation proves an attained normal-form quotient norm for B_rho and an isometric log/exp comparison for all real p^(-1)<=r<p^(-1/(p-1)), establishing the integral-parameter domain theorem on that interval. The larger-radius ideal-contraction condition is still open. The attached Q_p<T/R>/(T(T-a)) test proves that the omitted separation hypothesis is essential to this type of graded argument.",
-      "classification": "explicit proof-decomposition obligation",
+      "id": "PAPER-FU-24/E5",
+      "kind": "gap",
+      "locator": "Proof of Theorem 5.7, pp. 145–146, as used in the proof of Theorem 5.1, p. 147, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "The associated graded ring for D_r^λ(G, Q_p) is gr_{r′} D_r^λ(G, Q_p) ≃ gr_{r′} D_r(G, Q_p)/gr_{r′}(p²∆ + λ0) by Lemma 2.2 … is an integral domain",
+      "correction": "Passing from the graded ring to D_r^λ needs the filtration induced on D_r/D_r(p²∆ + λ0) by ‖·‖_{r′}, r′ < r, to be separated, i.e. D_r ∩ D_{r′}(p²∆ + λ0) = D_r(p²∆ + λ0). This is proved (checkpoint items) when p^{−1} < r < p^{−1/(p−1)}, where r′ = r works, but not for the radii r = p^{−1/p^n}, n ≥ 1, used in the proof of Theorem 5.1. Theorems 1.2–1.5 do not depend on it: Theorem 1.5 follows from [AW14].",
+      "reason": "The domain argument uses a weaker quotient filtration and the later proof leaves a topological PBW normal form to the reader. Quotient separation and coefficient decay are load-bearing, not automatic from an abstract graded-ring calculation. Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved. The continuation proves an attained normal-form quotient norm for B_rho and an isometric log/exp comparison for all real p^(-1)<=r<p^(-1/(p-1)), establishing the integral-parameter domain theorem on that interval. The larger-radius ideal-contraction condition is still open. The attached Q_p<T/R>/(T(T-a)) test proves that the omitted separation hypothesis is essential to this type of graded argument. (Converted by cc-442dc5 from the checkpoint's finding S5; its text is kept in previousForm.)",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/radius-central-domain",
         "PAPER-FU-24/completed-pbw-radius-quotient",
@@ -3885,42 +3980,105 @@
         "PAPER-FU-24/weighted-central-domain",
         "PAPER-FU-24/small-radius-log-exp",
         "PAPER-FU-24/small-radius-central-domain"
-      ]
+      ],
+      "previousForm": {
+        "id": "S5",
+        "locator": "Fu v2 Theorem 5.7 and last paragraph of Theorem 5.1 proof",
+        "finding": "The domain argument uses a weaker quotient filtration and the later proof leaves a topological PBW normal form to the reader. Quotient separation and coefficient decay are load-bearing, not automatic from an abstract graded-ring calculation.",
+        "resolution": "Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved. The continuation proves an attained normal-form quotient norm for B_rho and an isometric log/exp comparison for all real p^(-1)<=r<p^(-1/(p-1)), establishing the integral-parameter domain theorem on that interval. The larger-radius ideal-contraction condition is still open. The attached Q_p<T/R>/(T(T-a)) test proves that the omitted separation hypothesis is essential to this type of graded argument.",
+        "classification": "explicit proof-decomposition obligation",
+        "items": [
+          "PAPER-FU-24/radius-central-domain",
+          "PAPER-FU-24/completed-pbw-radius-quotient",
+          "PAPER-FU-24/weighted-pbw-completion",
+          "PAPER-FU-24/bounded-central-division",
+          "PAPER-FU-24/weighted-central-closedness",
+          "PAPER-FU-24/weighted-central-radius-injection",
+          "PAPER-FU-24/weighted-central-domain",
+          "PAPER-FU-24/small-radius-log-exp",
+          "PAPER-FU-24/small-radius-central-domain"
+        ]
+      }
     },
     {
-      "id": "S6",
-      "locator": "Fu v2 Theorem 1.2 and Corollary 1.3",
-      "finding": "The printed minimum uses the field-degree index although the weight tuple has r_1+r_2 entries. The subscripted asymptotic symbol in the Bianchi corollary is used as a two-sided growth bound.",
-      "resolution": "Index the minimum by the actual places. State two positive constant multiples, not a ratio tending to one or a leading constant that the proof does not compute.",
-      "classification": "index and asymptotic normalization",
+      "id": "PAPER-FU-24/E6",
+      "kind": "misprint",
+      "locator": "Theorem 1.2, (3), and Corollary 1.3, p. 125, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(∆(k)) … dim_C H_c^n(Y(K_f), W_k) ∼_{K_f} k",
+      "correction": "The minimum runs over the r1 + r2 archimedean entries of k; ∼_{K_f} means bounded above and below by positive constant multiples.",
+      "reason": "The printed minimum uses the field-degree index although the weight tuple has r_1+r_2 entries. The subscripted asymptotic symbol in the Bianchi corollary is used as a two-sided growth bound. Index the minimum by the actual places. State two positive constant multiples, not a ratio tending to one or a leading constant that the proof does not compute. (Converted by cc-442dc5 from the checkpoint's finding S6; its text is kept in previousForm.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/weight-size",
         "PAPER-FU-24/bianchi-cohomological-sharpness"
-      ]
+      ],
+      "previousForm": {
+        "id": "S6",
+        "locator": "Fu v2 Theorem 1.2 and Corollary 1.3",
+        "finding": "The printed minimum uses the field-degree index although the weight tuple has r_1+r_2 entries. The subscripted asymptotic symbol in the Bianchi corollary is used as a two-sided growth bound.",
+        "resolution": "Index the minimum by the actual places. State two positive constant multiples, not a ratio tending to one or a leading constant that the proof does not compute.",
+        "classification": "index and asymptotic normalization",
+        "items": [
+          "PAPER-FU-24/weight-size",
+          "PAPER-FU-24/bianchi-cohomological-sharpness"
+        ]
+      }
     },
     {
-      "id": "S7",
-      "locator": "Fu v2 Theorem5.7, p.20, and zero-associated-graded branch; AB07 §5.4 separately reconciled in its item.",
-      "finding": "The printed domain statement does not exclude nonintegral parameters or zero quotients. For r=p^(-2/3), lambda=p^(-1), the Casimir has norm at most p^(2/3)<|lambda|, so Delta-lambda is a unit and the central quotient is zero.",
-      "resolution": "Record the source's unrestricted statement, the explicit zero-quotient theorem and the integral-parameter target separately. Do not infer separatedness from a zero associated graded. This correction leaves the integral-parameter main theorem untouched.",
-      "classification": "nonzero-domain hypothesis correction",
+      "id": "PAPER-FU-24/E7",
+      "kind": "error",
+      "locator": "Theorem 5.7, p. 145, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…); arXiv v2 has the same numbering",
+      "printed": "Let p be an odd prime. If 1/p < r < 1, then D_r^λ(G, Q_p) is an integral domain.",
+      "correction": "Add the hypothesis v_p(λ0) ≥ 2 (for instance λ(∆) ∈ Z_p), the only case used. For λ(∆) = p^{−1} and r = p^{−2/3}, ‖∆‖_r ≤ p^{2/3} < |λ|, so ∆ − λ is a unit and D_r^λ = 0, which is not an integral domain; the proof's own first branch reaches this zero quotient.",
+      "reason": "The printed domain statement does not exclude nonintegral parameters or zero quotients. For r=p^(-2/3), lambda=p^(-1), the Casimir has norm at most p^(2/3)<|lambda|, so Delta-lambda is a unit and the central quotient is zero. Record the source's unrestricted statement, the explicit zero-quotient theorem and the integral-parameter target separately. Do not infer separatedness from a zero associated graded. This correction leaves the integral-parameter main theorem untouched. (Converted by cc-442dc5 from the checkpoint's finding S7; its text is kept in previousForm.)",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
+        "arXiv 2201.11190 v2 (the version previously read) collated with the published text by cc-442dc5: the numbered statements and the passages quoted here are the same.",
+        "The published text itself, read in full by cc-442dc5 (NSF Public Access Repository, https://par.nsf.gov/servlets/purl/10625156)."
+      ],
       "items": [
         "PAPER-FU-24/radius-central-domain",
         "PAPER-FU-24/large-central-character-zero-quotient"
-      ]
+      ],
+      "previousForm": {
+        "id": "S7",
+        "locator": "Fu v2 Theorem5.7, p.20, and zero-associated-graded branch; AB07 §5.4 separately reconciled in its item.",
+        "finding": "The printed domain statement does not exclude nonintegral parameters or zero quotients. For r=p^(-2/3), lambda=p^(-1), the Casimir has norm at most p^(2/3)<|lambda|, so Delta-lambda is a unit and the central quotient is zero.",
+        "resolution": "Record the source's unrestricted statement, the explicit zero-quotient theorem and the integral-parameter target separately. Do not infer separatedness from a zero associated graded. This correction leaves the integral-parameter main theorem untouched.",
+        "classification": "nonzero-domain hypothesis correction",
+        "items": [
+          "PAPER-FU-24/radius-central-domain",
+          "PAPER-FU-24/large-central-character-zero-quotient"
+        ]
+      }
     }
   ],
   "coverage": {
     "mainPaper": "All seven sections were read and their numbered results and proof-critical constructions are inventoried. This is not an assertion that every auxiliary source has been decomposed.",
-    "remaining": [
+    "remaining": [],
+    "historicalOnly": [
+      "The totally-real Shimizu asymptotic and earlier Marshall/Hu exponents are context, not prerequisites of the new proof.",
+      "The one-complex-place sharpness heuristic, Calegari-Emerton conjectures, and the speculative deeper-group microlocal identification in Remark 5.4 are not imported as theorems."
+    ],
+    "remainingBefore": [
       "Obtain and collate the published Annals PDF with the completely read/arXivv2 archive; the public NSF URL timed out.",
       "Resolve or explicitly qualify the weaker-quotient-filtration separation and all-real-radius domain assertion in Fu5.7 (S5). Preserve the zero-quotient counterexample(S7).",
       "Finish the primary-source proof audit of AW13 microlocal coefficient hypotheses and original Frommer/DDMS inputs; do not promote the selected item DAG into a closed blueprint.",
       "Independently review the refined route boundaries, new weighted-PBW/bounded-division argument and cusp support comparison. The catalogue and full checker access gaps are closed, but no mathematical independent review is claimed."
     ],
-    "historicalOnly": [
-      "The totally-real Shimizu asymptotic and earlier Marshall/Hu exponents are context, not prerequisites of the new proof.",
-      "The one-complex-place sharpness heuristic, Calegari-Emerton conjectures, and the speculative deeper-group microlocal identification in Remark 5.4 are not imported as theorems."
+    "resolution": [
+      "Published version: read in full and collated (source.publishedRead).",
+      "Theorem 5.7 at large radii: recorded as E5, a gap in the paper; E7 records the unrestricted statement. Theorems 1.2–1.5 do not depend on it, since Theorem 1.5 follows from AW14 (items central-scalar-descent and all-integral-central-injectivity).",
+      "Auxiliary proofs (AW13, AW14, Frommer, DDMS, Lazard, ST03): deferred as cited suppliers' proofs.",
+      "Independent review of the route boundaries and the checkpoint's new arguments: for the reviewer."
     ]
   },
   "inspection": {
@@ -4041,157 +4199,12 @@
     "noLean": "No Lean file required, written or compiled."
   },
   "continuation": {
-    "previousPR": 1659,
-    "preservedIDs": 123,
-    "items": 137,
-    "counts": {
-      "planned": 11,
-      "missing": 114,
-      "library": 12
-    },
-    "definitionsAndConstructions": 43,
-    "apiContracts": 129,
-    "unitTestContracts": 129,
-    "inputs": {
-      "commit": "5a2df16e0b15e326e1adf3e6999e2fd3e32b73bd",
-      "files": [
-        {
-          "path": "data/galaxies.json",
-          "sha": "89f0352d24d02608d86d3de3df5514237525b085",
-          "sha256": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599"
-        },
-        {
-          "path": "research/blueprint/reserved-ids.json",
-          "sha": "f2a86b67bbdefd74db66350b301213dcdd5e38c7",
-          "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json",
-          "sha": "52c0fa8938bf2f305b4d9032398e3af17af96e6a",
-          "sha256": "349366fa832de9ea9ba4661e6febe4b4d92fddcc3e0aef4bfe5ede9fbfec111f"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json",
-          "sha": "1244a8d8d042077bbe9d3f2e0b00f94fdcd420d2",
-          "sha256": "5c027b0f894c54010cb22130a58d1c0eade88b9aa400e0236d4ab52d926c7ca6"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json",
-          "sha": "2cfaf9080dcb4e35969cbcff8f7e57efa9ea6e9c",
-          "sha256": "f821066e01b7163fd5612d74f58dfb042a8236dda91d2fd8c7163ef22c13e54d"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json",
-          "sha": "b924cbb0d5cfdb836ce4ea52b4bf7f6bd51487f5",
-          "sha256": "d197dd76777d7ddf6d22a751ddb791928ad0d7ddae63080cfaf79378dfec88b5"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json",
-          "sha": "9577089c08471ba23d2c5af7ff88a7932c4885be",
-          "sha256": "a32fd7d01c467156e7ebe606405030acf4f0082fb91b77194304a5722bfe16a8"
-        },
-        {
-          "path": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
-          "sha": "3e9fc70217ab990b7b90545864c9d01f3030d452",
-          "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json",
-          "sha": "6ad2c2274ac39a5289637573db24c82064e8f7b8",
-          "sha256": "a75c1992bbbef26d0000e842db383b957ad5b7c120e662630f0543e43370ba8d"
-        },
-        {
-          "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
-          "sha": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
-          "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
-        },
-        {
-          "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
-          "sha": "b18c75cd5ea017e32be3733f9d060d97dd151979",
-          "sha256": "9e3a4bb41dcec200da9d585ebb7ae48ad86f2586bd49db05dd78d7f1f991ccf4"
-        },
-        {
-          "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
-          "sha": "6d34100064c7480cfc26770bd73b39c91359ee10",
-          "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
-        },
-        {
-          "path": "research/blueprint/roadmaps/AnalyticStacks.json",
-          "sha": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
-          "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
-        },
-        {
-          "path": "research/blueprint/roadmaps/QWittVectors.json",
-          "sha": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
-          "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
-        },
-        {
-          "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
-          "sha": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
-          "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
-        },
-        {
-          "path": "data/decompositions/CompletedCohomologyPartII.json",
-          "sha": "0565e89bedad2bc1a456c6d3e1a11306edd76da3",
-          "sha256": "68ab502973106d49a140412dd61a0fc4f473013ce85a827a7256c33c066e646a"
-        },
-        {
-          "path": "data/library-coverage.json",
-          "sha": "5e708cfc74a51b10e62149113872fe4e00eb5846",
-          "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
-        },
-        {
-          "path": "data/decompositions/LocallyAnalyticDistributions.json",
-          "sha": "fc650b18f0eca461de6174b845b40783012ce41f",
-          "sha256": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c"
-        },
-        {
-          "path": "content/campaign/LocallyAnalyticDistributions/README.md",
-          "sha": "968797e647477458a96567fb7636fc630f56889a",
-          "sha256": "923ac71784d323223fc1a526bd0bea409d3cc5e9cbef79b30ebfc5926ecac8e3"
-        },
-        {
-          "path": "content/campaign/CompletedCohomologyPartII/README.md",
-          "sha": "9bb897f81cda9352c40a26fd3b43c093a4ddc822",
-          "sha256": "833b542ad278a00eb8086bc8dba7f9a5e86d1249843a4954d85766f4f6b71427"
-        },
-        {
-          "path": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
-          "sha": "61bb05cc2d7d4d59b39c135f6aaa28b62ae360ee",
-          "sha256": "e08c8acacd68d8f7793a6f65e9f8925901ec1214927a6d675304607f601999ac"
-        },
-        {
-          "path": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
-          "sha": "40e02ab571f96d9fc1bcdcde950dbcf1c778ecfd",
-          "sha256": "bae7b8e787f0aa2e6f952bceca0dc43be2e7fdc6c6ca5cee5b954476ea69434d"
-        },
-        {
-          "path": "content/campaign/PadicMeasuresIwasawaAlgebras/README.md",
-          "sha": "fe43346362f6826aee3a7d72e5c9e32aac50a405",
-          "sha256": "7b7e14bfcf70d562d40f3516cdee4680dd3fb69255ecc5570f1ad2b4215db984"
-        },
-        {
-          "path": "content/campaign/NoncommutativeAndEquivariantIwasawa/README.md",
-          "sha": "855ed22d740cf2543bdded7201be4d1fa114e068",
-          "sha256": "f4331c1566ba81895cad913d801919e48c87bba54d58d77c320bb6920988b8f4"
-        },
-        {
-          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json",
-          "sha256": "6b599471ae62d75d076dbad7464cd539b7e7355196af9149141865fb80afed74"
-        },
-        {
-          "path": "content/tau-ceti/ProfiniteProPGroups/README.md",
-          "sha256": "8917e380c8f99602af5f80be9fde0cb7d66cd32a4c97c758d7a48763ebf4baa0"
-        }
-      ]
-    },
-    "readLimit": "Prior worker source reads remain attributed to codex-a71f92. This continuation does not claim a fresh full read of all ten older auxiliary PDFs or closed proof leaves throughout the inherited inventory.",
-    "unresolved": [
-      "Published-version collation and original Frommer/DDMS proof acquisition.",
-      "For integral central parameters, larger-radius D_R ideal contraction/separation; the small-radius result does not imply it.",
-      "Original Zariskian Ore/completion and Lie-theoretic source interiors, plus previously recorded supplier gaps.",
-      "Independent review of derived analytic proofs; no formalization is claimed."
-    ]
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1083,
+    "date": "2026-09-23",
+    "status": "complete",
+    "changes": "Published version obtained, read and collated; findings S1–S7 converted to PAPER-FU-24/E1–E7 with published locators, known 'new' and searched lists (old text kept in previousForm); coverage resolution recorded; status complete."
   },
   "inspectionHistory": [
     {
@@ -4225,6 +4238,161 @@
         "leanCompiled": false,
         "limits": "Finite formula checks and source-informed plans; no full-atlas DAG, infinite-dimensional proof, or independent review certificate."
       }
+    }
+  ],
+  "continuationHistory": [
+    {
+      "previousPR": 1659,
+      "preservedIDs": 123,
+      "items": 137,
+      "counts": {
+        "planned": 11,
+        "missing": 114,
+        "library": 12
+      },
+      "definitionsAndConstructions": 43,
+      "apiContracts": 129,
+      "unitTestContracts": 129,
+      "inputs": {
+        "commit": "5a2df16e0b15e326e1adf3e6999e2fd3e32b73bd",
+        "files": [
+          {
+            "path": "data/galaxies.json",
+            "sha": "89f0352d24d02608d86d3de3df5514237525b085",
+            "sha256": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599"
+          },
+          {
+            "path": "research/blueprint/reserved-ids.json",
+            "sha": "f2a86b67bbdefd74db66350b301213dcdd5e38c7",
+            "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/PadicMeasuresIwasawaAlgebras.json",
+            "sha": "52c0fa8938bf2f305b4d9032398e3af17af96e6a",
+            "sha256": "349366fa832de9ea9ba4661e6febe4b4d92fddcc3e0aef4bfe5ede9fbfec111f"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/CompletedCohomologyPartII.json",
+            "sha": "1244a8d8d042077bbe9d3f2e0b00f94fdcd420d2",
+            "sha256": "5c027b0f894c54010cb22130a58d1c0eade88b9aa400e0236d4ab52d926c7ca6"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json",
+            "sha": "2cfaf9080dcb4e35969cbcff8f7e57efa9ea6e9c",
+            "sha256": "f821066e01b7163fd5612d74f58dfb042a8236dda91d2fd8c7163ef22c13e54d"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/LocallyAnalyticDistributions.json",
+            "sha": "b924cbb0d5cfdb836ce4ea52b4bf7f6bd51487f5",
+            "sha256": "d197dd76777d7ddf6d22a751ddb791928ad0d7ddae63080cfaf79378dfec88b5"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_RepresentationTheory_LieHighestWeight.json",
+            "sha": "9577089c08471ba23d2c5af7ff88a7932c4885be",
+            "sha256": "a32fd7d01c467156e7ebe606405030acf4f0082fb91b77194304a5722bfe16a8"
+          },
+          {
+            "path": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+            "sha": "3e9fc70217ab990b7b90545864c9d01f3030d452",
+            "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/NoncommutativeAndEquivariantIwasawa.json",
+            "sha": "6ad2c2274ac39a5289637573db24c82064e8f7b8",
+            "sha256": "a75c1992bbbef26d0000e842db383b957ad5b7c120e662630f0543e43370ba8d"
+          },
+          {
+            "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+            "sha": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
+            "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
+          },
+          {
+            "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+            "sha": "b18c75cd5ea017e32be3733f9d060d97dd151979",
+            "sha256": "9e3a4bb41dcec200da9d585ebb7ae48ad86f2586bd49db05dd78d7f1f991ccf4"
+          },
+          {
+            "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+            "sha": "6d34100064c7480cfc26770bd73b39c91359ee10",
+            "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
+          },
+          {
+            "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+            "sha": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
+            "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
+          },
+          {
+            "path": "research/blueprint/roadmaps/QWittVectors.json",
+            "sha": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
+            "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
+          },
+          {
+            "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+            "sha": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
+            "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
+          },
+          {
+            "path": "data/decompositions/CompletedCohomologyPartII.json",
+            "sha": "0565e89bedad2bc1a456c6d3e1a11306edd76da3",
+            "sha256": "68ab502973106d49a140412dd61a0fc4f473013ce85a827a7256c33c066e646a"
+          },
+          {
+            "path": "data/library-coverage.json",
+            "sha": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+            "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+          },
+          {
+            "path": "data/decompositions/LocallyAnalyticDistributions.json",
+            "sha": "fc650b18f0eca461de6174b845b40783012ce41f",
+            "sha256": "b1dca72f4b2941dd184d9fe2b9172003edd98509931a18df1219f567298f1b5c"
+          },
+          {
+            "path": "content/campaign/LocallyAnalyticDistributions/README.md",
+            "sha": "968797e647477458a96567fb7636fc630f56889a",
+            "sha256": "923ac71784d323223fc1a526bd0bea409d3cc5e9cbef79b30ebfc5926ecac8e3"
+          },
+          {
+            "path": "content/campaign/CompletedCohomologyPartII/README.md",
+            "sha": "9bb897f81cda9352c40a26fd3b43c093a4ddc822",
+            "sha256": "833b542ad278a00eb8086bc8dba7f9a5e86d1249843a4954d85766f4f6b71427"
+          },
+          {
+            "path": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+            "sha": "61bb05cc2d7d4d59b39c135f6aaa28b62ae360ee",
+            "sha256": "e08c8acacd68d8f7793a6f65e9f8925901ec1214927a6d675304607f601999ac"
+          },
+          {
+            "path": "content/tau-ceti/RepresentationTheory/LieHighestWeight/README.md",
+            "sha": "40e02ab571f96d9fc1bcdcde950dbcf1c778ecfd",
+            "sha256": "bae7b8e787f0aa2e6f952bceca0dc43be2e7fdc6c6ca5cee5b954476ea69434d"
+          },
+          {
+            "path": "content/campaign/PadicMeasuresIwasawaAlgebras/README.md",
+            "sha": "fe43346362f6826aee3a7d72e5c9e32aac50a405",
+            "sha256": "7b7e14bfcf70d562d40f3516cdee4680dd3fb69255ecc5570f1ad2b4215db984"
+          },
+          {
+            "path": "content/campaign/NoncommutativeAndEquivariantIwasawa/README.md",
+            "sha": "855ed22d740cf2543bdded7201be4d1fa114e068",
+            "sha256": "f4331c1566ba81895cad913d801919e48c87bba54d58d77c320bb6920988b8f4"
+          },
+          {
+            "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json",
+            "sha256": "6b599471ae62d75d076dbad7464cd539b7e7355196af9149141865fb80afed74"
+          },
+          {
+            "path": "content/tau-ceti/ProfiniteProPGroups/README.md",
+            "sha256": "8917e380c8f99602af5f80be9fde0cb7d66cd32a4c97c758d7a48763ebf4baa0"
+          }
+        ]
+      },
+      "readLimit": "Prior worker source reads remain attributed to codex-a71f92. This continuation does not claim a fresh full read of all ten older auxiliary PDFs or closed proof leaves throughout the inherited inventory.",
+      "unresolved": [
+        "Published-version collation and original Frommer/DDMS proof acquisition.",
+        "For integral central parameters, larger-radius D_R ideal contraction/separation; the small-radius result does not imply it.",
+        "Original Zariskian Ore/completion and Lie-theoretic source interiors, plus previously recorded supplier gaps.",
+        "Independent review of derived analytic proofs; no formalization is claimed."
+      ]
     }
   ]
 }
