@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-LI-23",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "GN.2 owns the lattice extension, but exact Chang local/dyadic and different-square proofs remain unacquired (G2). Quoted consequences are not full source closure."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "GN.3 owns the definite theta/Eisenstein identity. The corrected item has inverse-stabilizer mass normalization and the Hecke expansion checked in Bogo–Li §2; ordinary kernels are imported from MP.5."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "MP.6 owns indefinite Siegel–Weil. Bruinier–Yang Lemma 4.3 supplies the convergence hypotheses and weighted n=0 cycle convention, now explicit."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Retarget the general ample-twist comparison to R09.1. Import relative Proj/ampleness and the whole blowup/exceptional-divisor construction from upstream StableReduction Layers 2 and 4. Preserve exceptional multiplicities; the smooth-boundary gap is separate."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The shared HigherGreenFunctionCMValues Part II is correctly coalesced with BEY. G1 boundary regularity, the remaining G3 integral/application check and G4 cited-input decomposition prevent acceptance. Classical Hilbert forms, generic bundles and blowups must be imported."
+    }
+  ],
+  "notes": "Independent review complete, extraction partial. All 39 original IDs preserved and checked; 81 items, 32 APIs and 96 planning tests. All nine original source findings independently assessed and twelve added, giving 21 confirmed findings with scoped corrections. No claim that the main theorem is false or formalised. No Lean required or compiled."
+}
