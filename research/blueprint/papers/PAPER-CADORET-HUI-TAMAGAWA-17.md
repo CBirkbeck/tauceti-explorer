@@ -1,4 +1,78 @@
-# PAPER-CADORET-HUI-TAMAGAWA-17 — geometric monodromy
+# Cadoret–Hui–Tamagawa (2017): extraction and routing
+
+Issue [#1157](https://github.com/CBirkbeck/tauceti-explorer/issues/1157). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints (#1937, #2008, #2044), whose reports follow below as history.
+- **The paper.** A. Cadoret, C.-Y. Hui and A. Tamagawa, *Geometric monodromy — semisimplicity and maximality*, Ann. of Math. 186 (2017), 205–236. The published PDF matches the checkpoint's hash (3aa67f68…).
+- **Items.** The result has **156 items: 12 library, 19 planned and 125 missing**. Every missing item is routed exactly once. Every numbered statement (Theorems 1.1–1.3, Facts 3.1–3.4, §§4–11) has an item.
+- **Mistakes.** Five are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**What was read.** §§1–5, 9 and 11 of the published article, and the other sections at the findings.
+
+**E3 now affects a stated result.**
+- **The problem.** Theorem 9.1 states (9.1.1), smoothness of the Zariski closure, and (9.1.2), the reductive rank, with no restriction on ℓ. But the proof identifies the root groups with t ↦ exp(tN_α) only for ℓ ≥ r, where Σ_{k<r} t^k N_α^k/k! is integral.
+- **The consequence.** So for ℓ < r these two assertions are not established.
+- **What is unaffected.** §9.2 uses Theorem 9.1 only for ℓ ≫ 0, so Theorem 1.1 is unaffected.
+
+**The other findings.**
+- **E1 and E2 were confirmed at their locators.**
+  - E1: H^w for H_c^w in Lemma 5.2.
+  - E2: x₀ ∈ π₁(X₀, x) for a closed point of X₀ in §9.2.1.
+- **E4 (the Bruhat–Tits page range).** Its `known` field said the author's preprint has the right pages. The preprint predates publication, so it is not a correction in print, and `known` is now "new".
+
+**Corollary 11.1 (G7).** The Q_ℓ-hypotheses are to be read as holding for all ℓ ≠ p. The proof needs this twice: the ℓ-independent separable minimal polynomial, and [MR04, Lemma 3.1]. The item records this reading.
+
+**Gaps.**
+- G7 is resolved.
+- The others are deferred: they ask for cited suppliers' proofs (Gabber/Suh, Nori, Larsen–Pink, Bruhat–Tits, SGA, CT13/CT16) or for design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- What remains is suppliers' proofs.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Published p.218, Lemma 5.2, sentence after the displayed finite étale trace; same omission in author GSS.pdf. *Printed:* H^w(U′,Λℓ) *Correction:* Replace this direct-summand target by H_c^w(U′,Λℓ).
+- **E2** (misprint; affects nothing), Published p.229, §9.2.1, last paragraph before the footnote; same expression in author GSS.pdf. *Printed:* x₀ ∈ π₁(X₀,x) *Correction:* The x₀ indexing its residue field and Frobenius F_x₀ is a closed point of X₀; use x₀∈|X₀|.
+- **E3** (gap; affects a stated result), Published Theorem 9.1(1)–(2), p.226, versus the root-exponential step p.227; author version has the same scope. *Printed:* For ℓ ≥ r *Correction:* Either supply a proof of the first two assertions also for ℓ<r, or restrict them to the sufficiently-large-ℓ scope actually used in the application. The extraction exports only this restricted version.
+- **E4** (misprint; affects nothing), Published p.233, bibliography [BT84]. *Printed:* 197–376; SB_1988-1989__31__7_0 *Correction:* The Bruhat–Tits II article is Publications Mathématiques de l'IHÉS 60 (1984), pp.5–184, https://www.numdam.org/item/PMIHES_1984__60__5_0/ .
+- **E5** (misprint; affects the proof), External prerequisite Larsen2010, Lemma4 proof, pp.1033–1034, official published PDF; rendered pages inspected. *Printed:* Y′ = W_U ∐ Y′₁ *Correction:* Use the closed image family C_U for the open-stratum part of Y′, not the boundary W_U; the map ψ:X′→X restricts to U→X. Verify the reduced-image construction separately.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1** (deferred). Gabber/Suh, CT13, CT16, CT12, Nori, Jantzen/Larsen, Larsen–Pink and Milne–Ramachandran are cited suppliers; E5 records the Larsen 2010 slip.
+- **G2** (deferred). Typing the weight-projector argument of item 116 is design work.
+- **G3** (deferred). The affine-curve cd ≤ 1, finite-coefficient H¹ and group/étale-sheaf comparisons are SGA suppliers.
+- **G4** (deferred). Bruhat–Tits big-cell and closure statements are suppliers; the ℓ-range of Theorem 9.1 is E3, and §9.2 uses E_ℓ unramified (ℓ prime to the discriminant).
+- **G5** (deferred). The CT16 exponential-family and Chevalley spreading statements are suppliers.
+- **G6** (deferred). Larsen–Pink's Γ-regular and common-Frobenius statements are suppliers.
+- **G7** (resolved). In Corollary 11.1 the Q_ℓ-hypotheses are for all ℓ ≠ p, as the proof requires (MR04 Lemma 3.1 and the ℓ-independent minimal polynomial); item 105/106 records this reading.
+- **G8** (deferred). Owner reconciliation is design work.
+- **G9** (deferred). Expanding the suggested files is formalization work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
+- **Earlier records.** The checkpoint's `continuation` record is kept unchanged, and this continuation is recorded under `completion`.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E3 on pp. 226–227.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial*, this continuation supersedes them.
+
+## PAPER-CADORET-HUI-TAMAGAWA-17 — geometric monodromy
 
 Codex — codex-c83e7a, continuing [PR2008](https://github.com/CBirkbeck/tauceti-explorer/pull/2008) and its predecessor [PR1937](https://github.com/CBirkbeck/tauceti-explorer/pull/1937). Refs #1157. Status: **partial**; no formalization claimed.
 
@@ -6,13 +80,13 @@ This continuation supplies direct degree-one coefficient proofs for the cohomolo
 
 All32 pages of the published paper, pp.205–236, were freshly reread. The earlier full Larsen2010 read and selected CT16 author-version read remain part of the source record. Recursive geometric and group-theoretic sources remain open. The five inherited source findings are unchanged and unreviewed.
 
-## What the paper proves
+### What the paper proves
 
 For a connected smooth separated variety X over an algebraically closed field k of characteristic p≥0 and a smooth proper family Y→X, Theorem1.1 proves semisimplicity of the **geometric** monodromy on H*(Yx,Fℓ) for every sufficiently large ℓ≠p. Theorem1.3 controls reduction of invariants in bounded mixed Schur tensors, and separately in arithmetic-stable free quotients and saturated submodules. The arithmetic-stability requirement matters.
 
 After one finite étale cover independent of ℓ, Theorem1.2/Corollary8.2 identifies this with almost-hyperspecial geometric image: the inverse image in the simply connected cover is hyperspecial. The original image is not automatically itself a hyperspecial subgroup. Corollary11.1 is conditional arithmetic mathematics, assuming rational semisimplicity and Tate fullness in both complementary codimensions. Its precise prime quantifiers remain G7.
 
-## The direct lattice argument
+### The direct lattice argument
 
 Let R be a complete discrete valuation ring, π a uniformizer, K its fraction field, G a topological group and M a finite free R-lattice with its π-adic topology and jointly continuous R-linear G-action. Use Tau Ceti's existing explicit H¹ additive quotient; item147 adds the requested scalar structure to that same type.
 
@@ -33,7 +107,7 @@ In0→A→H→B→0, finite freeness of B gives a continuous R-linear section by
 
 For A=H^Π with Π normal in the arithmetic group, A is arithmetic-stable. Theorem1.3(2) therefore gives invariant lifting for this saturated Hom lattice;150 gives torsion-free H¹. Rational semisimplicity kills the extension class over K,151 kills it integrally, and101 gives an integral equivariant splitting. Reduction and the previously extracted exterior/determinant criterion99 finish the §10 branch. This supplies the coefficient proof, conditional on the existing geometric monodromy and uniform tensor inputs; it does not claim the entire theorem has been formalized.
 
-## Canonical carrier and topology boundary
+### Canonical carrier and topology boundary
 
 At Mathlib082e2d3, `continuousCohomology` is built from **nested** continuous coinduction. It cannot simply be called a complex of jointly continuous functions without an adapter. `Homeomorph.curry`, whose locally compact hypotheses were read at the pin, supplies that adapter for finite powers of a profinite group. The homogeneous one-cochain associated to c is
 
@@ -45,13 +119,13 @@ The homogeneous differential evaluated at(1,g,gh) is g·c(h)−c(gh)+c(g), and a
 
 The pinned Tau Ceti `H1` and `explicitCoeff1` already accept nondiscrete topological coefficients. The existing `explicitH1IsoGroupCohomology` assumes a discrete group, while the existing short exact sequence results assume discrete coefficients. These statements were read with their binders; they are not credited at a larger scope.
 
-## Finite coefficient towers and the remaining geometric input
+### Finite coefficient towers and the remaining geometric input
 
 For a tower of finite discrete modules M_n, the map H¹(G,lim M_n)→lim H¹(G,M_n) is an isomorphism (154). Injectivity follows by taking an inverse limit of the finite nonempty sets of primitives of projected boundaries. Surjectivity follows by taking an inverse limit of the finite nonempty sets of cocycle representatives of each chosen compatible class. Each representative set is finite because it is a translate of B¹, the image of the finite module M_n; the whole H¹ group need not be finite. The pinned theorem `nonempty_sections_of_finite_inverse_system` does not require surjective transitions. Continuity of the resulting cocycle follows coordinatewise in the inverse-limit topology.
 
 For a quotient of finite free lattices, assume each finite-level kernel has vanishing **explicit discrete H²** and finite H¹. The already built discrete H¹ exactness results then give nonempty finite fibres of lift classes. Their inverse limit and154 give lattice H¹ surjectivity (155). The geometric application in §5.2 still needs affine-curve cdℓ≤1, finite-coefficient H¹ finiteness, and the group/étale-sheaf comparisons, including transport of H² vanishing to the explicit carrier. These are exactly what remains in G3; no all-degree derived-limit theorem is silently assumed.
 
-## Ownership and verified library inputs
+### Ownership and verified library inputs
 
 ArithmeticGaloisDuality:R02.1 already owns topological coefficients and coefficient-limit comparisons; R02.2 owns descent. The new requested interfaces refine that owner. `PAPER-KALETHA-16/P03` already requests the general compact coefficient inverse-limit comparison there;154 is its finite-coefficient degree-one specialization. Bresciani24/168 uses a different direct Tate-module injection and remains a consumer of the shared carrier. Upstream ProfiniteCohomology supplies discrete finite-level exactness and explicitly excludes general nondiscrete-coefficient theorems from its scope. No new cohomology roadmap is proposed.
 
@@ -66,7 +140,7 @@ Pinned positive reads:
 
 The reviewed R02.1/R02.2 audit and exact owner scopes were checked again. Negative library claims are limited to the named searched files and reviewed entries. The current input manifest records506 files with Git blob and SHA256 hashes; it is a provenance inventory, not a claim that every file was newly read in full.
 
-## Source record
+### Source record
 
 [Published CHT paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p05-p.pdf), Annals of Mathematics 186 (2017), no. 1, 205–236, DOI10.4007/annals.2017.186.1.5. SHA256 `3aa67f6881cd54cdb5384eada8dc3ec9eff051d6ccb43de76d28100297b298d5`. All pages reread2026-09-23.
 
@@ -76,9 +150,9 @@ The reviewed R02.1/R02.2 audit and exact owner scopes were checked again. Negati
 
 The selected earlier author-version GSS.pdf collation is retained with its original attribution; no fresh full author-version collation is claimed.
 
-## Routes
+### Routes
 
-### Route1: ArithmeticGaloisRepresentationsGeometricMonodromy (part-ii)
+#### Route1: ArithmeticGaloisRepresentationsGeometricMonodromy (part-ii)
 
 R01/G7 supplies continuous representations and operations, but no existing layer states uniform geometric mod-ℓ semisimplicity, Nori-special-fibre equality or almost-hyperspecial geometric images. PotentialModularityAndCompatibleSystems concerns different arithmetic existence/descent theorems; no duplicate compatible-system infrastructure is proposed.
 
@@ -86,7 +160,7 @@ Design brief: Import Arithmetic Galois representations (ArithmeticGaloisRepresen
 
 Items: 01, 02, 03, 05, 11, 12, 13, 14, 18, 24, 25, 26, 29, 30, 31, 36, 49, 61, 62, 63, 64, 65, 66, 81, 92, 93, 94, 95, 99, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111.
 
-### Route2: ReductiveGroupsMonodromyModels (part-ii)
+#### Route2: ReductiveGroupsMonodromyModels (part-ii)
 
 Generic algebraic groups and Bruhat–Tits foundations already have owners. The missing layer is the characteristic-uniform envelope, bounded tensor stabilizer, composition-factor comparison and dual-Lie-defect criterion; neither the upstream field theory nor RG2.1–3 promises it.
 
@@ -94,7 +168,7 @@ Design brief: Import Reductive algebraic groups (tauceti:TauCetiRoadmap/Reductiv
 
 Items: 04, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 67, 68, 69, 72, 73, 74, 75, 77, 78, 79, 80, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 113, 114, 117, 118, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142.
 
-### Route3: SchurWeylIntegralFunctors (part-ii)
+#### Route3: SchurWeylIntegralFunctors (part-ii)
 
 The pinned rational symmetrizer and Q-algebra Weyl module are genuine existing work. Their integral Zℓ/Fℓ functor, commuting reduction projectors and determinant retractions are a coefficient-general extension, not a re-plan of rational Schur–Weyl duality.
 
@@ -102,7 +176,7 @@ Design brief: Import Representations of the symmetric group, Specht modules, and
 
 Items: 07, 08, 35, 50, 96, 97.
 
-### Route4: DeligneWeightsUniformIntegralMonodromy (part-ii)
+#### Route4: DeligneWeightsUniformIntegralMonodromy (part-ii)
 
 DWP.0/7/8 and WC.3 plan rational weights and ℓ-independent pure factors, not Gabber–Suh uniform lattice torsion-freeness, common mod-ℓ annihilators or the finite-field-curve Inv theorem. The extension imports these owners and owns only the integral uniform step.
 
@@ -110,7 +184,7 @@ Design brief: Import Deligne weights and purity (DeligneWeightsAndPurity:DWP.0,7
 
 Items: 19, 21, 22, 37, 38, 39, 40, 42, 43, 44, 46, 47, 116.
 
-### Route5: ArithmeticGaloisDuality (source)
+#### Route5: ArithmeticGaloisDuality (source)
 
 R02.1 already owns compact/topological coefficients and coefficient-tower comparisons; R02.2 owns descent. Items147–155 and the refinements10/101 make that existing scope precise using the built explicit and canonical carriers. Upstream ProfiniteCohomology owns the discrete finite-level long exact sequence; it is imported only at the finite levels. No new cohomology roadmap is proposed.
 
@@ -118,7 +192,7 @@ Supplier stages: ArithmeticGaloisDuality:R02.1, ArithmeticGaloisDuality:R02.2.
 
 Items: 09, 10, 27, 28, 48, 100, 101, 147, 148, 149, 150, 151, 152, 153, 154, 155.
 
-### Route6: SchemeAndStackFoundations (source)
+#### Route6: SchemeAndStackFoundations (source)
 
 The paper supplies concrete requirements for the common scheme étale carrier: lisse/stalk/fundamental-group equivalence, arithmetic action and integral fibre-power Künneth. SF.2 imports PR196 and the existing site/sheaf APIs; this is not analytic adic cohomology or a new six-functor construction.
 
@@ -126,7 +200,7 @@ Supplier stages: SchemeAndStackFoundations:SF.2.
 
 Items: 15, 16, 33.
 
-### Route7: EtaleDualityAndPerverseSheaves (source)
+#### Route7: EtaleDualityAndPerverseSheaves (source)
 
 Lemma 5.2 is an application/test of the already planned finite étale trace normalization. Preserve compact support and the invertible-degree hypothesis; E1 supplies a concrete regression against the printed missing subscript.
 
@@ -134,7 +208,7 @@ Supplier stages: EtaleDualityAndPerverseSheaves:EDC.2.
 
 Items: 45.
 
-## Source findings retained for independent review
+### Source findings retained for independent review
 
 All five records are unchanged from PR2008. They remain unreviewed; this continuation supplies no verdict. Exact statements, evidence and corrections follow.
 
@@ -233,7 +307,7 @@ All five records are unchanged from PR2008. They remain unreviewed; this continu
 }
 ```
 
-## Remaining gaps
+### Remaining gaps
 
 - **G1**: Verify recursive originals for Gabber/Suh, CT13 and CT16 uniform-image assertions, CT12, Nori A/B, Jantzen/Larsen95b, Larsen–Pink92/95 and Milne–Ramachandran. Larsen2010 is now fully read: close its Nori correspondence, Serre analytic-growth, finite extension/Jordan component, Kneser ramified splitting, EGA reduced-family/Hilbert properness/component-constructibility and Lang/finite-field point-count inputs. Review and repair E5 before exporting Lemma4. Consumed by: 21, 24, 25, 26, 49, 56, 68, 89, 107, 113, 114, 128, 129, 130, 131, 135, 137, 138, 139, 140, 141.
 - **G2**: Turn item116's CRT weight-projector argument into a fully typed lattice/subquotient proof; combine the finitely many degrees and ranks, fibre powers, shifts and geometrically trivial determinant twists to obtain a single bound independent of the subquotient. Consumed by: 11, 12, 13, 116.
@@ -245,11 +319,11 @@ All five records are unchanged from PR2008. They remain unreviewed; this continu
 - **G8**: Reconcile any overlapping future generic Lang/Tits/finite Lie-type simplicity or exterior-adjoint invariant owner at design time. CFSGStatement L3 is a carrier roadmap and explicitly does not prove simplicity. Library nonexistence claims are scoped to this pinned search, not all future work. Consumed by: 78, 89, 124, 140.
 - **G9**: Future blueprint work expands the suggested files into signatures, API and tests and compiles at the pins. This is downstream formalization work, not an unfulfilled authorized paper deliverable; no Lean file was requested here. Consumed by: downstream blueprint work.
 
-## Complete item ledger
+### Complete item ledger
 
 All previous interfaces are retained. Status `planned` cites an existing owner; it does not mean implemented. The following statements, proof outlines, API entries, uses and tests are generated from the submitted JSON.
 
-### 01 — Smooth-proper geometric and arithmetic cohomology representations
+#### 01 — Smooth-proper geometric and arithmetic cohomology representations
 
 **missing · construction**. §1 pp.205–208; §2.1; §6
 
@@ -264,7 +338,7 @@ In F construct continuous π and π₀ actions on Hℓ∞,Hℓ,Vℓ∞ and their
 - Proposed test: For P¹ retain degrees 0 and 2 and the Tate twist
 - Proposed test: Integral torsion obstructs naive identification of reduction with cohomology
 
-### 02 — Geometric mod-ℓ semisimplicity
+#### 02 — Geometric mod-ℓ semisimplicity
 
 **missing · definition**. §1, Theorem 1.1
 
@@ -279,7 +353,7 @@ In F, semisimplicity means every π-stable Fℓ-subspace of Hℓ has a π-stable
 - Proposed test: a nontrivial unipotent Jordan block does not split
 - Proposed test: purity alone does not imply arithmetic splitting
 
-### 03 — Geometric semisimplicity for all large primes
+#### 03 — Geometric semisimplicity for all large primes
 
 **missing · theorem**. Theorem 1.1 p.205; §§9–10
 
@@ -287,7 +361,7 @@ In F there is B(f) such that π acts semisimply on Hℓ for every prime ℓ> B(f
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/99, PAPER-CADORET-HUI-TAMAGAWA-17/103.
 
-### 04 — Hyperspecial and almost-hyperspecial compact subgroup
+#### 04 — Hyperspecial and almost-hyperspecial compact subgroup
 
 **missing · definition**. §1.2 p.206; §8 pp.223–224
 
@@ -302,7 +376,7 @@ For connected semisimple G/Qℓ, a compact subgroup is hyperspecial if it is �
 - Proposed test: almost-hyperspecial need not equal all model points
 - Proposed test: a torus is outside the stated semisimple domain
 
-### 05 — Almost-hyperspecial geometric image
+#### 05 — Almost-hyperspecial geometric image
 
 **missing · theorem**. Theorem 1.2 p.207; Corollary 8.2
 
@@ -310,7 +384,7 @@ In F, after replacing X by one connected finite étale cover independent of ℓ,
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/03, PAPER-CADORET-HUI-TAMAGAWA-17/81.
 
-### 06 — Rational Young symmetrizer normalization already built
+#### 06 — Rational Young symmetrizer normalization already built
 
 **library · theorem**. §1.3 p.208, rational precursor
 
@@ -318,7 +392,7 @@ For a tableau t on a Young diagram of size d, the rational group-algebra Young s
 
 Library: tauceti:TauCeti.YoungTableau.youngSymmetrizer_sq, tauceti:TauCeti.YoungTableau.isIdempotentElem_smul_youngSymmetrizer.
 
-### 07 — Integral Young symmetrizers and invertible normalization
+#### 07 — Integral Young symmetrizers and invertible normalization
 
 **missing · construction**. §1.3 p.208; Lemma 4.4
 
@@ -333,7 +407,7 @@ For λ⊢d construct cλ in Z[S_d], prove cλ²=nλcλ with nλ=d!/dim_Q Sλ a p
 - Proposed test: The row and column partitions give symmetrization and antisymmetrization
 - Proposed test: At ℓ dividing nλ the normalized expression is unavailable
 
-### 08 — Integral and mixed Schur functors
+#### 08 — Integral and mixed Schur functors
 
 **missing · definition**. §1.3 p.208; §4
 
@@ -348,7 +422,7 @@ For finite-free Zℓ-module M with continuous Π-action and λ⊢d with ℓ>d, S
 - Proposed test: λ=(1^d) gives Λ^d
 - Proposed test: degree zero gives unit; ℓ≤d needs a separate construction
 
-### 09 — Invariant reduction predicate
+#### 09 — Invariant reduction predicate
 
 **missing · definition**. §1.3 p.208
 
@@ -363,7 +437,7 @@ InvΠ(M) is the canonical coefficient-reduction isomorphism in convention I. Con
 - Proposed test: finite group of order prime to ℓ
 - Proposed test: a rank-two unipotent action congruent to 1 mod ℓ where Inv fails
 
-### 10 — Invariant reduction and H¹ torsion
+#### 10 — Invariant reduction and H¹ torsion
 
 **planned · theorem**. §1.3 p.208, (Inv)
 
@@ -375,7 +449,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/150, PAPER-CADORET-HUI-TAMAGAWA-17/1
 
 1. Apply exactness150; absence of ℓ-torsion excludes every ℓ-power torsion class inductively, and every nonzero element of Zℓ is a unit times a power of ℓ.
 
-### 11 — Invariant reduction for fixed mixed Schur tensors
+#### 11 — Invariant reduction for fixed mixed Schur tensors
 
 **missing · theorem**. Theorem 1.3(0) p.208
 
@@ -383,7 +457,7 @@ In F, for fixed d,e≥0, uniformly over partitions λ⊢d,μ⊢e, Invπ(Sλ,μ(H
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/36, PAPER-CADORET-HUI-TAMAGAWA-17/37.
 
-### 12 — Invariant reduction for arithmetic-stable free quotients
+#### 12 — Invariant reduction for arithmetic-stable free quotients
 
 **missing · theorem**. Theorem 1.3(1) p.208
 
@@ -391,7 +465,7 @@ In F and the same fixed d,e, Invπ(M) holds uniformly for every π₀-equivarian
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/36, PAPER-CADORET-HUI-TAMAGAWA-17/38.
 
-### 13 — Invariant reduction for arithmetic-stable saturated submodules
+#### 13 — Invariant reduction for arithmetic-stable saturated submodules
 
 **missing · theorem**. Theorem 1.3(2) p.208
 
@@ -399,13 +473,13 @@ In F and the same fixed d,e, Invπ(M) holds uniformly for every π₀-stable M�
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/36, PAPER-CADORET-HUI-TAMAGAWA-17/39.
 
-### 14 — Symmetric and exterior invariant comparisons
+#### 14 — Symmetric and exterior invariant comparisons
 
 **missing · theorem**. §1.3 following Theorem 1.3
 
 Theorem 1.3 specializes to Sym^d, Λ^d and their mixed dual tensors through the row/column partitions. The integral idempotent comparison uses ℓ>d; this is not a claim for arbitrary small characteristic or arbitrary modular Schur subquotients.
 
-### 15 — Lisse sheaves and fundamental-group representations
+#### 15 — Lisse sheaves and fundamental-group representations
 
 **missing · construction**. §2.1 pp.209–210
 
@@ -420,13 +494,13 @@ For connected X in F and Λ=Zℓ or Fℓ, identify the relevant lisse Λ-sheaves
 - Proposed test: Changing the base point conjugates via the chosen path
 - Proposed test: A nonconstant rank-one local system need not have nonzero global sections
 
-### 16 — Arithmetic fundamental-group sequence and fibre Frobenius
+#### 16 — Arithmetic fundamental-group sequence and fibre Frobenius
 
 **missing · theorem**. §2.1 p.210
 
 For the geometrically connected model X₀/k₀, π₁(X,x)→π₁(X₀,x)→Gal(k₀)→1 is exact. A k₀-rational point supplies a section and realizes the Galois action on geometric global sections by its fibre action. Do not add left injectivity without its hypotheses.
 
-### 17 — Weil weights with every complex embedding
+#### 17 — Weil weights with every complex embedding
 
 **planned · definition**. §2.2 p.210
 
@@ -443,7 +517,7 @@ Planned: DeligneWeightsAndPurity:DWP.0.
 - Proposed test: q⁻¹ is weight −2
 - Proposed test: a pure Jordan block still need not be semisimple
 
-### 18 — Rational compatible family of Frobenius polynomials
+#### 18 — Rational compatible family of Frobenius polynomials
 
 **missing · definition**. §2.2 pp.210–211
 
@@ -458,7 +532,7 @@ For sheaves on a finite-field model, require at each closed point away from the 
 - Proposed test: two systems with different point polynomials fail
 - Proposed test: subquotients need their own compatibility argument
 
-### 19 — Primitive integral reduction of rational polynomials
+#### 19 — Primitive integral reduction of rational polynomials
 
 **missing · construction**. §2.3 p.211
 
@@ -473,7 +547,7 @@ For nonzero P=Σa_nT^n∈Q[T], let a(P)>0 have valuations −min_n v_p(a_n) for 
 - Proposed test: P=2T+3 stays primitive and drops degree modulo2
 - Proposed test: Zero is excluded from a(P)
 
-### 20 — Continuous-cohomology object already built
+#### 20 — Continuous-cohomology object already built
 
 **library · construction**. §1.3 and §§2,5,10, foundational carrier
 
@@ -490,7 +564,7 @@ Library: mathlib:continuousCohomology.
 - Proposed test: Continuous cochains retain coefficient topology
 - Proposed test: The object alone does not supply a compact-coefficient long exact sequence
 
-### 21 — Gabber–Suh uniform torsion-freeness
+#### 21 — Gabber–Suh uniform torsion-freeness
 
 **missing · theorem**. Fact 3.1 p.212
 
@@ -498,7 +572,7 @@ In F, H*(Yx,Zℓ) is torsion-free for all sufficiently large ℓ, simultaneously
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/23.
 
-### 22 — Uniform cohomological reduction
+#### 22 — Uniform cohomological reduction
 
 **missing · theorem**. Fact 3.1 p.212
 
@@ -506,7 +580,7 @@ In F and for the same large-prime range, the canonical H*(Yx,Zℓ)⊗Fℓ→H*(Y
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/21.
 
-### 23 — Smooth-proper rational compatibility and purity
+#### 23 — Smooth-proper rational compatibility and purity
 
 **planned · theorem**. Fact 3.2 p.212; §5
 
@@ -514,7 +588,7 @@ For a smooth proper finite-field family, the Frobenius polynomials on R^wf_*Qℓ
 
 Planned: DeligneWeightsAndPurity:DWP.7, DeligneWeightsAndPurity:DWP.8, WeilConjectures:WC.3.
 
-### 24 — One cover gives connected geometric and arithmetic monodromy
+#### 24 — One cover gives connected geometric and arithmetic monodromy
 
 **missing · theorem**. Fact 3.3 p.212; condition (6.2.2)
 
@@ -522,19 +596,19 @@ In F, after one connected finite étale Galois cover independent of ℓ, all gen
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/23.
 
-### 25 — Uniform perfect residual geometric image
+#### 25 — Uniform perfect residual geometric image
 
 **missing · theorem**. Fact 3.4 p.212; condition (6.2.1)
 
 In F, after one connected finite étale Galois cover independent of ℓ, the geometric mod-ℓ images are perfect for every sufficiently large ℓ.
 
-### 26 — Uniform order-ℓ generation of residual images
+#### 26 — Uniform order-ℓ generation of residual images
 
 **missing · theorem**. Fact 3.4 p.212; condition (6.2.1)
 
 With the same kind of fixed cover as Fact 3.4, for every sufficiently large ℓ the residual geometric image is generated by its elements of order ℓ. This is stronger than just having an ℓ-Sylow subgroup and is a separate input to Nori theory.
 
-### 27 — Prime-to-index descent for Inv
+#### 27 — Prime-to-index descent for Inv
 
 **missing · theorem**. Lemma 4.2(1) p.213
 
@@ -542,19 +616,19 @@ For closed normal open U⊂Π of index prime to ℓ and a finite-free continuous
 
 1. An invariant residual vector has an invariant lift under U by Inv_U. Average this lift over the finite quotient Π/U, dividing by its order, a unit in Zℓ. The average is Π-invariant and reduces to the original vector. This elementary proof needs no compact-coefficient long exact sequence.
 
-### 28 — Prime-to-index descent for semisimplicity
+#### 28 — Prime-to-index descent for semisimplicity
 
 **missing · theorem**. Lemma 4.2(2) p.213
 
 For U normal open in profinite Π with ℓ∤[Π:U], a finite-dimensional continuous Fℓ-representation semisimple upon restriction to U is semisimple for Π. Average a U-equivariant splitting over Π/U; normality and invertibility of the index are essential.
 
-### 29 — Geometric monodromy comparison with a finite-field curve
+#### 29 — Geometric monodromy comparison with a finite-field curve
 
 **missing · theorem**. Lemma 4.3 pp.213–214
 
 In F there exist a smooth geometrically connected finite-field curve, a smooth proper family over it and one fixed normal open subgroup U of the original π such that their geometric images identify on Zℓ and Fℓ cohomology for all sufficiently large ℓ. The construction uses Bertini, spreading, tame specialization and smooth proper base change; an arbitrary arithmetic specialization does not give this assertion.
 
-### 30 — Bertini curve with fundamental-group surjection
+#### 30 — Bertini curve with fundamental-group surjection
 
 **missing · construction**. Lemma 4.3 proof p.214, [Jou83, Thm. 6.10]
 
@@ -569,13 +643,13 @@ After permissible finitely generated-field/base-point enlargement, choose a smoo
 - Proposed test: A constant map into a positive-genus base need not surject on π₁
 - Proposed test: Surjectivity preserves the image for each coefficient at once
 
-### 31 — Uniform tame reduction and specialization
+#### 31 — Uniform tame reduction and specialization
 
 **missing · theorem**. Lemma 4.3 proof p.214
 
 Use de Jong to make boundary inertia potentially unipotent uniformly in ℓ on one cover; for ℓ≠p unipotent congruence images are pro-ℓ, so wild pro-p inertia is killed. Specialize the resulting tame representation to a finite-field curve and compare fibres by smooth proper base change. Retain the one-cover quantifier and both coefficient levels.
 
-### 32 — Alteration with smooth compactification and normal-crossing boundary
+#### 32 — Alteration with smooth compactification and normal-crossing boundary
 
 **planned · theorem**. Lemma 4.3; Lemma 5.2, [dJ96, Thm. 4.1]
 
@@ -583,13 +657,13 @@ For the integral finite-type schemes over the perfect fields arising in §§4–
 
 Planned: AdicCoefficientsAndComparisons:L5.
 
-### 33 — Fibre-power Künneth realization of total tensor powers
+#### 33 — Fibre-power Künneth realization of total tensor powers
 
 **missing · theorem**. §4 pp.212–215; §10.1
 
 For the d-fold fibre product of the smooth proper family, integral Künneth gives H*(Yx^[d],Zℓ)≅H*(Yx,Zℓ)⊗d after all torsion terms vanish; the comparison is arithmetic-equivariant and compatible with reduction. Rational or derived Künneth alone is not the integral direct-sum statement.
 
-### 34 — Poincaré duality with twist and support retained
+#### 34 — Poincaré duality with twist and support retained
 
 **planned · theorem**. §4; Lemma 5.3 p.218
 
@@ -597,19 +671,19 @@ For smooth pure-dimensional Y over an algebraically closed field, coefficients �
 
 Planned: EtaleDualityAndPerverseSheaves:EDC.2.
 
-### 35 — Schur direct-factor inheritance of invariant reduction
+#### 35 — Schur direct-factor inheritance of invariant reduction
 
 **missing · theorem**. Lemma 4.4 p.215
 
 For 0≤d,e<ℓ, the normalized Young projectors make Sλ,μ(M) a Π-equivariant direct summand of M⊗d⊗(M∨)⊗e. Inv for the ambient tensor object implies Inv for that summand; extend the reduction to arithmetic-stable free quotients and saturated submodules with the induced projector maps.
 
-### 36 — Reduction to untensored finite-field curve results
+#### 36 — Reduction to untensored finite-field curve results
 
 **missing · theorem**. Proposition 4.1 pp.212–213
 
 Theorem 4.5 for ordinary cohomology on finite-field curves implies Theorem 1.3 in F, by Lemmas 4.2–4.4, fibre powers, finite direct sums, duality and twists. The same curve reduction transfers the geometric semisimplicity assertion. The integral Frobenius-projector dévissage is supplied in item 116.
 
-### 37 — Curve invariant reduction
+#### 37 — Curve invariant reduction
 
 **missing · theorem**. Theorem 4.5(0) p.216
 
@@ -617,7 +691,7 @@ In C, for all sufficiently large ℓ, Invπ(H*(Yx,Zℓ)) holds.
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/47.
 
-### 38 — Curve free-quotient invariant reduction
+#### 38 — Curve free-quotient invariant reduction
 
 **missing · theorem**. Theorem 4.5(1) p.216; §5.2
 
@@ -625,7 +699,7 @@ In C and for all sufficiently large ℓ uniformly over the quotient, Invπ(M) ho
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/48, PAPER-CADORET-HUI-TAMAGAWA-17/46, PAPER-CADORET-HUI-TAMAGAWA-17/47, PAPER-CADORET-HUI-TAMAGAWA-17/116.
 
-### 39 — Curve saturated-submodule invariant reduction
+#### 39 — Curve saturated-submodule invariant reduction
 
 **missing · theorem**. Theorem 4.5(2) p.216; §5.3
 
@@ -633,13 +707,13 @@ In C and for all sufficiently large ℓ uniformly over the submodule, Invπ(M) h
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/38, PAPER-CADORET-HUI-TAMAGAWA-17/49, PAPER-CADORET-HUI-TAMAGAWA-17/50, PAPER-CADORET-HUI-TAMAGAWA-17/116.
 
-### 40 — Torsion characteristic polynomial divides reduction
+#### 40 — Torsion characteristic polynomial divides reduction
 
 **missing · theorem**. Lemma 5.1 p.217
 
 For a finitely generated Zℓ-module H and a Zℓ-linear automorphism F, charpoly(F|H[ℓ]) divides charpoly(F|H/ℓH). For finite H the two Fℓ[F]-modules have equal classes in the finite-length Grothendieck group and hence equal semisimplifications, not necessarily an isomorphism.
 
-### 41 — Characteristic polynomial commutes with base change
+#### 41 — Characteristic polynomial commutes with base change
 
 **library · theorem**. §5.1 and §11, coefficient comparisons
 
@@ -647,7 +721,7 @@ For R commutative, M finite free over R, f∈End_R(M) and commutative R-algebra 
 
 Library: mathlib:LinearMap.charpoly_baseChange.
 
-### 42 — Uniform compact-support annihilator over Qℓ
+#### 42 — Uniform compact-support annihilator over Qℓ
 
 **missing · theorem**. Lemma 5.2 p.217
 
@@ -655,7 +729,7 @@ For separated finite-type Y₀/F_q and w≥0, there is nonzero P≤w,Y₀∈Q[T]
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/23, PAPER-CADORET-HUI-TAMAGAWA-17/44.
 
-### 43 — Uniform compact-support annihilator modulo ℓ
+#### 43 — Uniform compact-support annihilator modulo ℓ
 
 **missing · theorem**. Lemma 5.2 pp.217–218
 
@@ -663,7 +737,7 @@ For the same Y₀,w, the primitive-integral reduction of a common P≤w,Y₀ as 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/21, PAPER-CADORET-HUI-TAMAGAWA-17/22, PAPER-CADORET-HUI-TAMAGAWA-17/44.
 
-### 44 — Annihilator descent and dimension induction
+#### 44 — Annihilator descent and dimension induction
 
 **missing · construction**. Lemma 5.2 proof pp.217–218
 
@@ -680,7 +754,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/32, PAPER-CADORET-HUI-TAMAGAWA-17/45
 - Proposed test: For A¹ retain compact support in degree2
 - Proposed test: A prime dividing the alteration degree prevents trace splitting
 
-### 45 — Finite étale compact-support trace splitting
+#### 45 — Finite étale compact-support trace splitting
 
 **planned · theorem**. Lemma 5.2 p.218; corrected E1
 
@@ -688,7 +762,7 @@ For finite étale U′→U of degree δ over a finite field and Λ=Qℓ or Fℓ 
 
 Planned: EtaleDualityAndPerverseSheaves:EDC.2.
 
-### 46 — Curve Leray edge and high-weight annihilator
+#### 46 — Curve Leray edge and high-weight annihilator
 
 **missing · theorem**. Lemma 5.3 p.218
 
@@ -696,7 +770,7 @@ In C, for Λ=Qℓ (all ℓ≠p) or Fℓ (all sufficiently large ℓ), H¹(X,R^wf
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/34, PAPER-CADORET-HUI-TAMAGAWA-17/42, PAPER-CADORET-HUI-TAMAGAWA-17/43.
 
-### 47 — Weight-separated annihilators kill torsion
+#### 47 — Weight-separated annihilators kill torsion
 
 **missing · theorem**. §5.1 pp.216–217
 
@@ -704,7 +778,7 @@ In C the ℓ-torsion of H¹(X,R^wf_*Zℓ) is killed by reduction of P_w from a r
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/40, PAPER-CADORET-HUI-TAMAGAWA-17/41, PAPER-CADORET-HUI-TAMAGAWA-17/46.
 
-### 48 — Affine curve H¹ quotient surjectivity
+#### 48 — Affine curve H¹ quotient surjectivity
 
 **missing · theorem**. §5.2 pp.218–219
 
@@ -715,7 +789,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/155.
 1. Import affine-curve cdℓ≤1 and finiteness for finite locally constant ℓ-primary coefficients, with ℓ different from the geometric characteristic; verify the group/sheaf comparison. These are the remaining G3 geometric inputs.
 2. Apply155 to each arithmetic-stable free quotient of the original lattice. Every construction is natural for the arithmetic action, so surjectivity transports the original high-weight annihilator.
 
-### 49 — Geometric determinants of saturated submodules are trivial
+#### 49 — Geometric determinants of saturated submodules are trivial
 
 **missing · theorem**. §5.3 p.219, [CT12, Thm.5.7]
 
@@ -723,7 +797,7 @@ After the fixed covers of Facts 3.3–4, Π∞ has finite abelianization and is 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/24, PAPER-CADORET-HUI-TAMAGAWA-17/25, PAPER-CADORET-HUI-TAMAGAWA-17/26.
 
-### 50 — Determinant duality reduces saturated submodules to quotients
+#### 50 — Determinant duality reduces saturated submodules to quotients
 
 **missing · construction**. §5.3 p.219
 
@@ -738,7 +812,7 @@ For M free of rank m≥1, the wedge map identifies M with (Λ^(m−1)M)∨⊗det
 - Proposed test: Treat rank0 separately
 - Proposed test: An arithmetic nontrivial character can be geometrically trivial
 
-### 51 — Integral monodromy closure and its two fibres
+#### 51 — Integral monodromy closure and its two fibres
 
 **missing · definition**. §6 p.220, (6.1)
 
@@ -755,7 +829,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/01.
 - Proposed test: conjugated lattice changes model
 - Proposed test: do not assume special smoothness at definition time
 
-### 52 — Subgroup generated by ℓ-Sylows
+#### 52 — Subgroup generated by ℓ-Sylows
 
 **missing · definition**. §7.1 pp.220–221
 
@@ -770,7 +844,7 @@ For closed Π⊂GL_r(Zℓ) or GL_r(Fℓ), Π+ is the closed normal subgroup gene
 - Proposed test: prime-to-ℓ finite group has trivial plus
 - Proposed test: SL₂ integral plus-generation
 
-### 53 — Bounded mixed tensor space
+#### 53 — Bounded mixed tensor space
 
 **missing · definition**. §7.1 pp.220–221
 
@@ -787,7 +861,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/118.
 - Proposed test: setwise stabilizer of a line is too large
 - Proposed test: d=0 gives only trivial-tensor constraints
 
-### 54 — Truncated exponential and logarithm for order-ℓ matrices
+#### 54 — Truncated exponential and logarithm for order-ℓ matrices
 
 **missing · construction**. §7.1 p.221
 
@@ -802,7 +876,7 @@ For ℓ≥r and g∈GL_r(Fℓ) of order ℓ, log(g)=−Σ_{1≤i<ℓ}(1−g)^i/i
 - Proposed test: For N²=0 use exp(tN)=1+tN
 - Proposed test: Do not divide by factorials containing the characteristic
 
-### 55 — Nori exponential envelope
+#### 55 — Nori exponential envelope
 
 **missing · definition**. §7.1 p.221
 
@@ -819,19 +893,19 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/54.
 - Proposed test: prime-to-ℓ group gives trivial envelope
 - Proposed test: SL₂ upper/lower root subgroups generate
 
-### 56 — Nori finite-points plus comparison
+#### 56 — Nori finite-points plus comparison
 
 **missing · theorem**. Lemma 7.1(1) p.221
 
 For ℓ sufficiently large depending only on r, N(Π)(Fℓ)+=Π+. This is the group-theoretic input from Nori, not a consequence of Zariski density of the finite set Π.
 
-### 57 — Nori invariant-subspace comparison
+#### 57 — Nori invariant-subspace comparison
 
 **missing · theorem**. Lemma 7.1(1) p.221
 
 Under the same bound, Π+ and N(Π) have exactly the same invariant Fℓ-subspaces of H=Fℓ^r. Scheme-representation invariance is compared with the finite-group action; this does not assert every rational representation is semisimple.
 
-### 58 — Uniform bounded-tensor stabilizer
+#### 58 — Uniform bounded-tensor stabilizer
 
 **missing · theorem**. Lemma 7.1(2) p.221, [CT16, Lem.4.1]
 
@@ -844,19 +918,19 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/122, PAPER-CADORET-HUI-TAMAGAWA-17/1
 3. It is a fixed tensor in the expanded bounded tensor family. Any element fixing all U-invariant tensors fixes this one and lies in U; the reverse inclusion is definitional. Use126 to remove multiplicities and take separate degree bounds.
 4. This closes the linear-algebra reduction; the family/Chevalley/spreading scheme-level input122 remains G5.
 
-### 59 — Bounded tensor invariants agree
+#### 59 — Bounded tensor invariants agree
 
 **missing · theorem**. Lemma 7.1(3) pp.221–222
 
 For each fixed d and ℓ sufficiently large depending on r,d, T≤d(H)^N(Π)=T≤d(H)^Π+. For the polynomial interpolation step ℓ>2d(r−1) suffices once the exponential construction is valid; do not replace this with ℓ>d alone.
 
-### 60 — Simply connected integral points are plus-generated
+#### 60 — Simply connected integral points are plus-generated
 
 **missing · theorem**. Lemma 7.2 p.221
 
 If 𝒮/Zℓ is a simply connected semisimple group scheme, then 𝒮(Zℓ)=𝒮(Zℓ)+. Use surjectivity of smooth reduction with pro-ℓ kernel and generation of 𝒮(Fℓ) by ℓ-elements.
 
-### 61 — Special monodromy fibre equals Nori envelope
+#### 61 — Special monodromy fibre equals Nori envelope
 
 **missing · theorem**. Theorem 7.3 pp.221–222
 
@@ -864,13 +938,13 @@ In G, for every sufficiently large ℓ, Gs=Nℓ as closed group schemes in GL(H�
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/11, PAPER-CADORET-HUI-TAMAGAWA-17/51, PAPER-CADORET-HUI-TAMAGAWA-17/56, PAPER-CADORET-HUI-TAMAGAWA-17/58, PAPER-CADORET-HUI-TAMAGAWA-17/59, PAPER-CADORET-HUI-TAMAGAWA-17/113, PAPER-CADORET-HUI-TAMAGAWA-17/142.
 
-### 62 — Special-fibre plus image is perfect and enveloping
+#### 62 — Special-fibre plus image is perfect and enveloping
 
 **missing · theorem**. Theorem 7.3(1) p.221
 
 In G and for all large ℓ, Gs(Fℓ)+ is perfect and Gs is the Nori envelope of Gs(Fℓ). Preserve both assertions as consequences of 61 and Nori's plus comparison.
 
-### 63 — Uniform weak maximality index bound
+#### 63 — Uniform weak maximality index bound
 
 **missing · theorem**. Theorem 7.3(2) p.222
 
@@ -878,7 +952,7 @@ In G, there is C_r depending only on r=rank Hℓ∞ with [𝒢(Zℓ):Π∞]≤C_
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/61, PAPER-CADORET-HUI-TAMAGAWA-17/114.
 
-### 64 — Geometric image equals integral-points plus subgroup
+#### 64 — Geometric image equals integral-points plus subgroup
 
 **missing · theorem**. Theorem 7.3(2) p.222
 
@@ -886,7 +960,7 @@ In G and for all sufficiently large ℓ, Π∞=𝒢(Zℓ)+. Combine plus-generat
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/26, PAPER-CADORET-HUI-TAMAGAWA-17/63.
 
-### 65 — Integral geometric monodromy closure is smooth connected
+#### 65 — Integral geometric monodromy closure is smooth connected
 
 **missing · theorem**. Corollary 7.4 p.222
 
@@ -894,7 +968,7 @@ In G and for all sufficiently large ℓ, 𝒢 is a smooth connected Zℓ-group s
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/51, PAPER-CADORET-HUI-TAMAGAWA-17/61.
 
-### 66 — Residual and algebraic module semisimplicity agree
+#### 66 — Residual and algebraic module semisimplicity agree
 
 **missing · theorem**. Corollary 7.5, (1)↔(2), p.222
 
@@ -902,7 +976,7 @@ In G and for all large ℓ, Hℓ is semisimple under Πℓ iff it is semisimple 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/57, PAPER-CADORET-HUI-TAMAGAWA-17/61.
 
-### 67 — Faithful semisimple Nori module forces semisimple group
+#### 67 — Faithful semisimple Nori module forces semisimple group
 
 **missing · theorem**. Corollary 7.5, (2)→(3), p.222
 
@@ -910,13 +984,13 @@ In G, semisimplicity of the faithful Gs-module Hℓ implies Gs reductive. Its ge
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/55.
 
-### 68 — Low-dimensional representations in large characteristic
+#### 68 — Low-dimensional representations in large characteristic
 
 **missing · theorem**. Corollary 7.5, (3)→(2), p.222; [Jan97, Prop.3.2], [Lar95b, Thm.3.5]
 
 For a connected semisimple algebraic group over Fℓ, its r-dimensional rational representation is semisimple when ℓ is sufficiently large in terms of r, in the Jantzen/Larsen range used here. The exact cited bound remains external-input gap G1; no Maschke argument with ℓ dividing the group order is allowed.
 
-### 69 — Fibre semisimplicity and integral semisimple model
+#### 69 — Fibre semisimplicity and integral semisimple model
 
 **missing · theorem**. Corollary 7.5, (3)↔(4), p.222
 
@@ -924,7 +998,7 @@ For the smooth connected 𝒢 of 65 with semisimple generic fibre, Gs semisimple
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/65, PAPER-CADORET-HUI-TAMAGAWA-17/117.
 
-### 70 — Field-level semisimple and reductive groups already built
+#### 70 — Field-level semisimple and reductive groups already built
 
 **library · definition**. §§6–9, underlying algebraic group notions
 
@@ -941,7 +1015,7 @@ Library: tauceti:TauCeti.semisimpleCommHopfAlgProperty, tauceti:TauCeti.semisimp
 - Proposed test: A positive-dimensional torus is not semisimple
 - Proposed test: The definition has field input and does not define semisimplicity over Zℓ
 
-### 71 — Field-level semisimple implies reductive already built
+#### 71 — Field-level semisimple implies reductive already built
 
 **library · theorem**. §§7–9, structural algebraic-group input
 
@@ -949,7 +1023,7 @@ Every semisimple finite-type commutative Hopf algebra over a field is reductive,
 
 Library: tauceti:TauCeti.semisimpleCommHopfAlgProperty.reductive.
 
-### 72 — Hyperspecial points and semisimple integral models
+#### 72 — Hyperspecial points and semisimple integral models
 
 **missing · construction**. §8 p.223, [Tit79, §3.8]
 
@@ -964,13 +1038,13 @@ For connected semisimple G/Qℓ use the building of Gsc with Gad(Qℓ)-action. S
 - Proposed test: A parahoric with nontrivial special unipotent radical is not hyperspecial
 - Proposed test: Generic isogeny extension requires the matched building point
 
-### 73 — Hyperspecial maximal compactness
+#### 73 — Hyperspecial maximal compactness
 
 **missing · theorem**. §8 p.223, [Tit79, §3.8.2]
 
 A hyperspecial subgroup of a connected semisimple Qℓ-group is maximal among compact subgroups and has maximal volume; its conjugates are hyperspecial. Retain the specified Haar-volume comparison when used, rather than claiming every maximal compact is hyperspecial.
 
-### 74 — Nonabelian composition-factor product
+#### 74 — Nonabelian composition-factor product
 
 **missing · definition**. Lemma 8.1 proof pp.223–224
 
@@ -985,13 +1059,13 @@ For a profinite group Π with an open normal pro-ℓ subgroup, define cna(Π) as
 - Proposed test: pro-ℓ group gives 1
 - Proposed test: A₅ gives 60, with finite product multiplicity
 
-### 75 — Composition-factor product under subgroups and abelian extensions
+#### 75 — Composition-factor product under subgroups and abelian extensions
 
 **missing · theorem**. Lemma 8.1 proof pp.223–224
 
 For the finite-by-pro-ℓ groups in 74, a closed subgroup Π′⊂Π satisfies cna(Π′)≤cna(Π). Extensions with abelian kernel or abelian quotient leave cna unchanged. Establish the finite-group reduction and composition-factor argument, not an unsupported equality of orders.
 
-### 76 — Smooth integral reduction with pro-ℓ kernel
+#### 76 — Smooth integral reduction with pro-ℓ kernel
 
 **planned · theorem**. Lemma 8.1 proof (1) p.223
 
@@ -999,19 +1073,19 @@ For smooth connected affine finite-type 𝓗/Zℓ, 𝓗(Zℓ)→𝓗(Fℓ) is su
 
 Planned: ReductiveGroupsPartII:RG2.0, ReductiveGroupsPartII:RG2.3.
 
-### 77 — Solvable-radical quotient preserves nonabelian factors
+#### 77 — Solvable-radical quotient preserves nonabelian factors
 
 **missing · theorem**. Lemma 8.1 proof (2) p.224
 
 For smooth connected affine H/Fℓ, Lang's theorem makes H(Fℓ)→(H/R(H))(Fℓ) surjective. For sufficiently large ℓ relative to rank, passing to this semisimple quotient or to plus subgroups preserves cna; central-isogeny cokernels have bounded order and are abelian.
 
-### 78 — Uniform finite Lie-type composition-factor bounds
+#### 78 — Uniform finite Lie-type composition-factor bounds
 
 **missing · theorem**. Lemma 8.1 proof (3) p.224; [Tit64], [Nor87, Lem.3.5]
 
 For connected semisimple H/Fℓ of dimension d and bounded rank, for all sufficiently large ℓ its nonabelian factors are those of almost-simple factors H_i(Fℓ)+ modulo their centres. There is a rank-dependent c>0 with (ℓ−1)^d/c≤cna(H(Fℓ))≤(ℓ+1)^d. Keep the small-field exceptions and central-isogeny indices explicit.
 
-### 79 — Semisimple model comparison via simply connected cover
+#### 79 — Semisimple model comparison via simply connected cover
 
 **missing · theorem**. Lemma 8.1 pp.223–225
 
@@ -1019,7 +1093,7 @@ Let G/Qℓ be connected semisimple and 𝒢,𝒮 smooth connected integral model
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/74, PAPER-CADORET-HUI-TAMAGAWA-17/75, PAPER-CADORET-HUI-TAMAGAWA-17/76, PAPER-CADORET-HUI-TAMAGAWA-17/77, PAPER-CADORET-HUI-TAMAGAWA-17/78.
 
-### 80 — Simply connected pullback of integral-points plus subgroup
+#### 80 — Simply connected pullback of integral-points plus subgroup
 
 **missing · theorem**. Corollary 8.2 proof, (i)–(ii), p.225
 
@@ -1027,7 +1101,7 @@ For semisimple 𝒢/Zℓ and its simply connected semisimple model 𝒮 at the s
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/60, PAPER-CADORET-HUI-TAMAGAWA-17/72, PAPER-CADORET-HUI-TAMAGAWA-17/73.
 
-### 81 — Semisimplicity iff almost hyperspecial
+#### 81 — Semisimplicity iff almost hyperspecial
 
 **missing · theorem**. Corollary 8.2 p.225
 
@@ -1035,7 +1109,7 @@ In G and for all sufficiently large ℓ, the four conditions of Corollary 7.5 ar
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/64, PAPER-CADORET-HUI-TAMAGAWA-17/65, PAPER-CADORET-HUI-TAMAGAWA-17/66, PAPER-CADORET-HUI-TAMAGAWA-17/67, PAPER-CADORET-HUI-TAMAGAWA-17/68, PAPER-CADORET-HUI-TAMAGAWA-17/69, PAPER-CADORET-HUI-TAMAGAWA-17/79, PAPER-CADORET-HUI-TAMAGAWA-17/80.
 
-### 82 — Invariant-dimension defect
+#### 82 — Invariant-dimension defect
 
 **missing · definition**. §9.1 p.226
 
@@ -1050,7 +1124,7 @@ In L, for finite-free algebraic 𝒢-representation M, Δ_H(M)=dim_Fℓ((M⊗F�
 - Proposed test: connected special identity-component convention
 - Proposed test: defect criterion only on specified dual Lie exterior powers
 
-### 83 — Nice integral model of a maximal torus
+#### 83 — Nice integral model of a maximal torus
 
 **missing · definition**. §9.1 p.226
 
@@ -1065,7 +1139,7 @@ The nice-model predicate is convention L's extension of a CLOSED split-torus emb
 - Proposed test: weight set must generate character lattice
 - Proposed test: pointwise injectivity is not closed immersion
 
-### 84 — Nice torus implies smooth integral closure in large characteristic
+#### 84 — Nice torus implies smooth integral closure in large characteristic
 
 **missing · theorem**. Theorem 9.1(1) p.226; proof p.227
 
@@ -1073,7 +1147,7 @@ In L with a nice torus and sufficiently large ℓ (in particular ℓ≥r for the
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/83, PAPER-CADORET-HUI-TAMAGAWA-17/87.
 
-### 85 — Nice torus preserves reductive rank and root inclusion
+#### 85 — Nice torus preserves reductive rank and root inclusion
 
 **missing · theorem**. Theorem 9.1(2) pp.226–227; scoped by E3
 
@@ -1081,7 +1155,7 @@ Under 84's hypotheses, (Gs)°/Ru((Gs)°) has rank s equal to rankGη, and its ge
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/84.
 
-### 86 — Exterior Lie-defect criterion for semisimple models
+#### 86 — Exterior Lie-defect criterion for semisimple models
 
 **missing · theorem**. Theorem 9.1(3) p.226
 
@@ -1089,7 +1163,7 @@ In L with a nice torus, for ℓ sufficiently large depending only on r, write �
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/85, PAPER-CADORET-HUI-TAMAGAWA-17/88, PAPER-CADORET-HUI-TAMAGAWA-17/89, PAPER-CADORET-HUI-TAMAGAWA-17/90, PAPER-CADORET-HUI-TAMAGAWA-17/91.
 
-### 87 — Integral root groups and big-cell smoothness
+#### 87 — Integral root groups and big-cell smoothness
 
 **missing · construction**. Theorem 9.1 proof pp.226–227; [BT84, 2.2.3(iii)]
 
@@ -1104,7 +1178,7 @@ After faithfully flat base change to O_E splitting the nice torus, take primitiv
 - Proposed test: Retain O_E for a ramified splitting field
 - Proposed test: A small prime dividing a factorial is outside this construction
 
-### 88 — First exterior defect excludes the reductive centre
+#### 88 — First exterior defect excludes the reductive centre
 
 **missing · theorem**. §9.1 Claim 1 pp.227–228
 
@@ -1112,13 +1186,13 @@ Under the hypotheses of 86 and Δ_H(𝔤∨)≤0, the reductive quotient of (Gs)
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/68, PAPER-CADORET-HUI-TAMAGAWA-17/82.
 
-### 89 — Exterior-adjoint invariant Poincaré polynomial
+#### 89 — Exterior-adjoint invariant Poincaré polynomial
 
 **missing · theorem**. §9.1 Claim 2 p.228; [Baz01], [Car72], [Jan97], [Ste68b]
 
 For connected semisimple groups of rank s in characteristic zero, and in sufficiently large positive characteristic depending on s, the dimensions of (Λ^m𝔤)^G are the coefficients of P_G(T)=∏_j(1+T^(2e_j+1)), the multiset e_j of Weyl exponents over all almost-simple factors. For a product, use Λ*(V⊕W)≅Λ*V⊗Λ*W. Prove the large-characteristic transfer, not just the complex Lie-group formula.
 
-### 90 — Equal rank and smaller dimension force an exterior invariant excess
+#### 90 — Equal rank and smaller dimension force an exterior invariant excess
 
 **missing · theorem**. §9.1 Claim 2 p.228
 
@@ -1126,7 +1200,7 @@ For connected semisimple G/Fℓ and G′/Qℓ of the same rank s, ℓ sufficient
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/89.
 
-### 91 — All exterior defects remove the unipotent radical
+#### 91 — All exterior defects remove the unipotent radical
 
 **missing · theorem**. §9.1 conclusion p.229, [Con14, Prop.3.1.3]
 
@@ -1134,7 +1208,7 @@ With 85,88–90 and all Δ_H(Λ^n𝔤∨)≤0, the reductive quotient has dimens
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/85, PAPER-CADORET-HUI-TAMAGAWA-17/88, PAPER-CADORET-HUI-TAMAGAWA-17/90.
 
-### 92 — Γ-regular semisimple element
+#### 92 — Γ-regular semisimple element
 
 **missing · definition**. §9.2.1 footnote 2 p.229
 
@@ -1149,13 +1223,13 @@ For reductive G⊂GL(V) in characteristic zero, a regular semisimple g in its un
 - Proposed test: exclude repeated distinct-root collisions
 - Proposed test: central scalar is not regular in a higher-rank semisimple group
 
-### 93 — Compatible Frobenius gives a nice torus
+#### 93 — Compatible Frobenius gives a nice torus
 
 **missing · theorem**. §9.2.1 pp.229–230; [LP92, Prop.7.2], [LP95, Prop.1.3]
 
 In G, apply Larsen–Pink to the arithmetic semisimplification and lift its Γ-regular torus across the unipotent radical of G′η. One suitable closed point x₀ with common rational polynomial P_x₀, and exclusion of the discriminant primes of its squarefree part, gives integral eigenspace decompositions and a nice model of a geometric maximal torus for all sufficiently large ℓ. Uniformity in the chosen point and the torus lift are external-input checks, not consequences of rational compatibility alone.
 
-### 94 — Arithmetic-stable Lie lattice and tensor quotients
+#### 94 — Arithmetic-stable Lie lattice and tensor quotients
 
 **missing · construction**. §9.2.2 p.230
 
@@ -1172,7 +1246,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/24, PAPER-CADORET-HUI-TAMAGAWA-17/65
 - Proposed test: A nonsaturated sublattice need not give a surjection on duals
 - Proposed test: Special Lie base change requires the proved smoothness
 
-### 95 — Tensor invariant reduction forces Lie defects zero
+#### 95 — Tensor invariant reduction forces Lie defects zero
 
 **missing · theorem**. §9.2.2 p.230, (9.2.2.1)–(9.2.2.2)
 
@@ -1180,7 +1254,7 @@ Apply Theorem 1.3(1) to 94. Since Gs is connected by Theorem 7.3, dim M^Gs≤dim
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/12, PAPER-CADORET-HUI-TAMAGAWA-17/61, PAPER-CADORET-HUI-TAMAGAWA-17/86, PAPER-CADORET-HUI-TAMAGAWA-17/93, PAPER-CADORET-HUI-TAMAGAWA-17/94.
 
-### 96 — Splitting invariant exterior vectors splits a determinant line
+#### 96 — Splitting invariant exterior vectors splits a determinant line
 
 **missing · theorem**. Lemma 10.1, (10.1.3)→(10.1.2), pp.230–231
 
@@ -1188,13 +1262,13 @@ In G, let A⊂Hℓ be a Πℓ-submodule of dimension a≥1. If (Λ^aHℓ)^Πℓ�
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/26.
 
-### 97 — A split determinant inclusion splits the submodule
+#### 97 — A split determinant inclusion splits the submodule
 
 **missing · theorem**. Lemma 10.1, (10.1.2)→(10.1.1), p.231
 
 For a finite-dimensional representation H over a field and a stable a-dimensional subspace A, a≥1, an equivariant retraction s:Λ^aH→Λ^aA induces H→A by v↦[u↦s(v∧Λ^(a−1)ι(u))] and A≅Hom(Λ^(a−1)A,Λ^aA). It retracts A↪H, with no division by a. The zero-dimensional subspace splits separately.
 
-### 98 — Exterior powers and induced linear maps already built
+#### 98 — Exterior powers and induced linear maps already built
 
 **library · construction**. §§4,9,10, exterior-power carrier
 
@@ -1211,7 +1285,7 @@ Library: mathlib:exteriorPower.presentation, mathlib:exteriorPower.map.
 - Proposed test: Degree1 recovers the module
 - Proposed test: A repeated vector has zero wedge
 
-### 99 — Invariant splitting suffices for geometric semisimplicity
+#### 99 — Invariant splitting suffices for geometric semisimplicity
 
 **missing · theorem**. §10.1 p.231
 
@@ -1219,7 +1293,7 @@ By 96–97, it suffices to split invariant inclusions in every exterior power of
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/33, PAPER-CADORET-HUI-TAMAGAWA-17/35, PAPER-CADORET-HUI-TAMAGAWA-17/96, PAPER-CADORET-HUI-TAMAGAWA-17/97.
 
-### 100 — Canonical invariant lattice and quotient reduce exactly
+#### 100 — Canonical invariant lattice and quotient reduce exactly
 
 **missing · construction**. §10.2 p.231
 
@@ -1236,7 +1310,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/09, PAPER-CADORET-HUI-TAMAGAWA-17/11
 - Proposed test: No rational invariants makes the invariant lattice zero
 - Proposed test: Without Inv the reduced lattice can miss residual invariants
 
-### 101 — Continuous H¹ class of a representation extension
+#### 101 — Continuous H¹ class of a representation extension
 
 **planned · construction**. §10.1–10.2 pp.231–232
 
@@ -1262,7 +1336,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143, PAPER-CADORET-HUI-TAMAGAWA-17/1
 - Proposed test: All choices of section yield the same class
 - Proposed test: The C3 unipotent representation [[1,g],[0,1]] over F3 gives a nonsplit extension of trivial modules
 
-### 102 — Saturated arithmetic Hom lattice has torsion-free H¹
+#### 102 — Saturated arithmetic Hom lattice has torsion-free H¹
 
 **missing · theorem**. §10.2 p.232
 
@@ -1274,7 +1348,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/13, PAPER-CADORET-HUI-TAMAGAWA-17/10
 2. By153, Hom(B,A) embeds arithmetically and saturatedly in End(H). Apply Theorem1.3(2), item13, at the bounded tensor degree(1,1) to obtain Inv for this lattice.
 3. Item10 converts Inv into absence of ℓ-torsion and full Zℓ-torsion-freeness of H1.
 
-### 103 — Cohomological proof of geometric semisimplicity
+#### 103 — Cohomological proof of geometric semisimplicity
 
 **missing · theorem**. §10.2 p.232
 
@@ -1286,7 +1360,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/24, PAPER-CADORET-HUI-TAMAGAWA-17/10
 2. Clear the single denominator of its Hom-space primitive as in151. Torsion-freeness102 forces its integral class to vanish.
 3. Use101 to obtain an integral equivariant section. Reduce it modulo ℓ, then apply99, which already records the finite collection of exterior/tensor tests and their uniform bound.
 
-### 104 — Arithmetic semisimplicity and Tate fullness assertions
+#### 104 — Arithmetic semisimplicity and Tate fullness assertions
 
 **missing · definition**. §11 p.232
 
@@ -1301,7 +1375,7 @@ For K₀ finitely generated over F_p, smooth proper d-dimensional Y₀/K₀, Y=Y
 - Proposed test: complementary degree d−w retained
 - Proposed test: geometric theorem does not discharge arithmetic assumptions
 
-### 105 — Conditional arithmetic mod-ℓ semisimplicity
+#### 105 — Conditional arithmetic mod-ℓ semisimplicity
 
 **missing · theorem**. Corollary 11.1, semisimplicity conclusion, p.232
 
@@ -1309,7 +1383,7 @@ For 104, assuming (11.1,Qℓ,w) and (11.2,Qℓ,i) for i=w,d−w in the source's 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/107, PAPER-CADORET-HUI-TAMAGAWA-17/108, PAPER-CADORET-HUI-TAMAGAWA-17/109, PAPER-CADORET-HUI-TAMAGAWA-17/110.
 
-### 106 — Conditional arithmetic mod-ℓ Tate fullness
+#### 106 — Conditional arithmetic mod-ℓ Tate fullness
 
 **missing · theorem**. Corollary 11.1, fullness conclusion, pp.232–233
 
@@ -1317,19 +1391,19 @@ Under the same hypotheses as 105, conclude (11.2,Fℓ,w) for all sufficiently la
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/107, PAPER-CADORET-HUI-TAMAGAWA-17/111.
 
-### 107 — Integral cycle saturation from rational Tate hypotheses
+#### 107 — Integral cycle saturation from rational Tate hypotheses
 
 **missing · theorem**. §11 proof p.232, [MR04, Lem.3.1]
 
 In 104 under the rational assumptions of Corollary 11.1, for all sufficiently large ℓ the cycle map Z^w(Y₀)⊗Zℓ→H^(2w)(Y,Zℓ(w))^Gal(K₀) is surjective and its map to all integral cohomology has torsion-free cokernel. This is the precise Milne–Ramachandran Lemma 3.1 input; exact external hypotheses and ℓ quantifiers remain G7.
 
-### 108 — Finite-field reduction of semisimple Frobenius
+#### 108 — Finite-field reduction of semisimple Frobenius
 
 **missing · theorem**. §11 finite-field case p.233
 
 For a rational compatible Frobenius family with a common separable rational minimal polynomial acting on stable lattices, exclude denominator/discriminant primes. The reductions are semisimple of prime-to-ℓ order; the dimension of fixed vectors equals the multiplicity of 1 in the characteristic polynomial. The common separable minimal polynomial is an input to verify, not implied by purity.
 
-### 109 — Spreading out and common semisimple Frobenius
+#### 109 — Spreading out and common semisimple Frobenius
 
 **missing · construction**. §11 general-field case p.233, [LP95]
 
@@ -1344,7 +1418,7 @@ For Y₀ over finitely generated K₀/F_p, spread to a smooth proper family over
 - Proposed test: Choosing one point separately for each ℓ does not meet the common-point requirement
 - Proposed test: A finite base extension must preserve each required Tate hypothesis
 
-### 110 — Arithmetic semisimplicity from geometric subgroup and Frobenius
+#### 110 — Arithmetic semisimplicity from geometric subgroup and Frobenius
 
 **missing · theorem**. §11 p.233, [Ser94, Lem.5(b)]
 
@@ -1352,7 +1426,7 @@ For the finite residual arithmetic image, the geometric image is normal and semi
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/03, PAPER-CADORET-HUI-TAMAGAWA-17/108.
 
-### 111 — Arithmetic invariant ranks and fullness transfer
+#### 111 — Arithmetic invariant ranks and fullness transfer
 
 **missing · theorem**. §11 p.233, [LP95, Prop.2.1]
 
@@ -1360,7 +1434,7 @@ In the spread-out setting, arithmetic invariants equal Frobenius-fixed geometric
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/11, PAPER-CADORET-HUI-TAMAGAWA-17/105, PAPER-CADORET-HUI-TAMAGAWA-17/107.
 
-### 112 — Low-degree corestriction-restriction already built
+#### 112 — Low-degree corestriction-restriction already built
 
 **library · theorem**. Lemma 4.2 and §11, finite-cover descent precursor
 
@@ -1368,7 +1442,7 @@ For a topological group G, open finite-index subgroup U and topological coeffici
 
 Library: tauceti:TauCeti.ContCohomology.explicitCor1_comp_res1.
 
-### 113 — Larsen Nori-dimension bound
+#### 113 — Larsen Nori-dimension bound
 
 **missing · theorem**. Theorem 7.3 proof; Larsen 2010, Theorem 7 pp.1034–1035
 
@@ -1376,7 +1450,7 @@ For each n there is A_n such that for prime ℓ>A_n and closed Γ⊂GL_n(Zℓ), 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/132, PAPER-CADORET-HUI-TAMAGAWA-17/135.
 
-### 114 — Larsen equality-case bounded index
+#### 114 — Larsen equality-case bounded index
 
 **missing · theorem**. Theorem 7.3(2) proof; Larsen 2010, Theorem 7(3) p.1035
 
@@ -1384,7 +1458,7 @@ In 113, if Nori dimension equals dimG and the radical of G° is unipotent, then 
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/136, PAPER-CADORET-HUI-TAMAGAWA-17/137, PAPER-CADORET-HUI-TAMAGAWA-17/138, PAPER-CADORET-HUI-TAMAGAWA-17/139, PAPER-CADORET-HUI-TAMAGAWA-17/140, PAPER-CADORET-HUI-TAMAGAWA-17/141.
 
-### 115 — Building and parahoric foundations are imported
+#### 115 — Building and parahoric foundations are imported
 
 **planned · construction**. §8 pp.223–225
 
@@ -1401,7 +1475,7 @@ Planned: ReductiveGroupsPartII:RG2.1, ReductiveGroupsPartII:RG2.2, ReductiveGrou
 - Proposed test: An Iwahori facet is not hyperspecial
 - Proposed test: The special reductive quotient must not be identified with the whole special fibre
 
-### 116 — Uniform weight projectors on arithmetic subquotients
+#### 116 — Uniform weight projectors on arithmetic subquotients
 
 **missing · theorem**. Explicit extraction dévissage for §5.2–5.3 pp.218–219; based on Fact 3.2 and the CRT
 
@@ -1409,7 +1483,7 @@ In C choose one rational-point Frobenius and its finitely many degree-w rational
 
 Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/23, PAPER-CADORET-HUI-TAMAGAWA-17/41.
 
-### 117 — Semisimple group scheme over Zℓ
+#### 117 — Semisimple group scheme over Zℓ
 
 **missing · definition**. §7.1 p.221
 
@@ -1424,7 +1498,7 @@ A semisimple Zℓ-group scheme is smooth affine with connected semisimple geomet
 - Proposed test: G_m is reductive but not semisimple
 - Proposed test: nonsmooth special fibre fails the predicate
 
-### 118 — Finite-free integral representation category
+#### 118 — Finite-free integral representation category
 
 **missing · definition**. §9.1 p.226
 
@@ -1441,7 +1515,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/70.
 - Proposed test: torsion cokernel is not an object
 - Proposed test: tensor and dual commute with base change
 
-### 119 — Pure and mixed lisse integral sheaves
+#### 119 — Pure and mixed lisse integral sheaves
 
 **planned · definition**. §2.2 pp.210–211
 
@@ -1458,7 +1532,7 @@ Planned: DeligneWeightsAndPurity:DWP.5.
 - Proposed test: Tate twist(1) has weight−2
 - Proposed test: A pure unipotent Jordan action need not be semisimple
 
-### 120 — Finite-support mixed tensor multiplicities
+#### 120 — Finite-support mixed tensor multiplicities
 
 **missing · definition**. CT16 author TI.pdf §4.2 pp.10–11; definition preceding Lemma4.2.1.1
 
@@ -1477,7 +1551,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/53.
 - Proposed test: One copy in degree(0,0) is trivial rank1
 - Proposed test: Repeating a summand changes rank but not its fixed-vector stabilizer
 
-### 121 — Finite-type parameter family for exponential products
+#### 121 — Finite-type parameter family for exponential products
 
 **missing · construction**. CT16 §4.2.1 p.11; Larsen Proposition3 pp.1032–1033
 
@@ -1498,7 +1572,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/54.
 - Proposed test: Upper/lower root nilpotents in rank2 need both generators
 - Proposed test: The 2r² and 2r⁴ parameter counts represent distinct constructions
 
-### 122 — Uniform Chevalley subspaces by finite stratification
+#### 122 — Uniform Chevalley subspaces by finite stratification
 
 **missing · theorem**. CT16 Lemma4.2.1.1 proof p.11
 
@@ -1511,7 +1585,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/120, PAPER-CADORET-HUI-TAMAGAWA-17/1
 3. Repeat on the lower-dimensional complements and sum the finitely many multiplicity maps. Finiteness of the parameter scheme, not an individual group, supplies uniformity.
 4. G5 requires the precise family/group-scheme and spreading hypotheses; the author text switches to field-point notation, so this stronger interface remains an explicit proof obligation.
 
-### 123 — A subspace stabilizer equals its determinant-line stabilizer
+#### 123 — A subspace stabilizer equals its determinant-line stabilizer
 
 **missing · theorem**. CT16 Lemma4.2.1.1 proof p.11; Plücker step
 
@@ -1522,7 +1596,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/98.
 1. Choose a basis adapted to W and its direct-sum complement. The stabilizer condition is vanishing of the lower-left matrix block.
 2. The Plücker line condition, with an invertible coefficient on its basis wedge, gives the same block equations over every F-algebra. Include δ=0 and δ=dim E.
 
-### 124 — Exponentially generated groups have no characters
+#### 124 — Exponentially generated groups have no characters
 
 **missing · theorem**. CT16 Lemma4.2.1.1 p.11; Larsen Proposition1 p.1030
 
@@ -1533,7 +1607,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/55.
 1. Restrict the character to each exponential G_a. A Hopf algebra morphism F[z,z⁻¹]→F[t] sends z to a unit, hence to a constant, and its identity value forces that constant to be1.
 2. The kernel is a closed subgroup containing every exponential generator, so minimality of the generated group makes it all U. The determinant action is a character.
 
-### 125 — Antisymmetrization embeds determinant lines into tensor powers
+#### 125 — Antisymmetrization embeds determinant lines into tensor powers
 
 **missing · theorem**. CT16 Lemma4.2.1.1 last paragraph p.11
 
@@ -1544,7 +1618,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/98.
 1. Alternating the pure tensor factors factors through the exterior universal property.
 2. Its wedge projection is δ! on pure wedges. Inverting δ! gives a left inverse; equivariance follows because permutation and diagonal actions commute.
 
-### 126 — Multiplicity tensor tests reduce to separate degree bounds
+#### 126 — Multiplicity tensor tests reduce to separate degree bounds
 
 **missing · theorem**. CHT §7.1 Lemma7.1.2 from CT16 Lemma4.2.1.1
 
@@ -1556,7 +1630,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/120, PAPER-CADORET-HUI-TAMAGAWA-17/5
 2. A tensor product adds the two degrees separately. Thus each expanded summand occurs within the specified rectangular bound.
 3. Prove equations on all coefficient algebras; no density assertion about U(Fℓ) is used.
 
-### 127 — Pointwise tensor-stabilizer subgroup scheme
+#### 127 — Pointwise tensor-stabilizer subgroup scheme
 
 **missing · definition**. CHT §7.1; CT16 Lemma4.2.1.1
 
@@ -1575,7 +1649,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/53.
 - Proposed test: Fixing a nonzero line pointwise is stronger than preserving it
 - Proposed test: Over dual numbers a scalar 1+ε preserves a line but does not fix its basis vector
 
-### 128 — Characteristic-zero criterion for exponential generation
+#### 128 — Characteristic-zero criterion for exponential generation
 
 **missing · theorem**. Larsen Proposition2 pp.1030–1031
 
@@ -1587,7 +1661,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/54, PAPER-CADORET-HUI-TAMAGAWA-17/55
 2. In the converse, the split unipotent radical is generated successively by G_a using the filtration and vanishing H¹ inputs; proper parabolic unipotent radicals generate the remaining isotropic semisimple quotient.
 3. Retain the primary structure and rational-point density inputs as G1 leaves, rather than assuming every reductive group is split.
 
-### 129 — Nori correspondence for nilpotently generated Lie algebras
+#### 129 — Nori correspondence for nilpotently generated Lie algebras
 
 **missing · theorem**. Larsen Proposition3 pp.1032–1033 and Theorem7 p.1035, citing Nori TheoremA
 
@@ -1598,7 +1672,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/54, PAPER-CADORET-HUI-TAMAGAWA-17/55
 1. This is the exact Nori TheoremA interface used by Larsen. It is not Nori TheoremB finite-index/plus comparison56.
 2. Read the original Nori proof and field hypotheses before marking this input closed.
 
-### 130 — Finite set of exponential-group Hilbert polynomials
+#### 130 — Finite set of exponential-group Hilbert polynomials
 
 **missing · theorem**. Larsen Proposition3 pp.1032–1033
 
@@ -1610,7 +1684,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/121, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. Apply131 to construct reduced fibre images over a finite-type stratification.
 3. Flatten projectively over finitely many strata to obtain finitely many Hilbert polynomials; retain the Hilbert/flatness inputs in G1.
 
-### 131 — Reduced closed fibre images in a finite-type family
+#### 131 — Reduced closed fibre images in a finite-type family
 
 **missing · theorem**. Larsen Lemma4 pp.1033–1034
 
@@ -1620,7 +1694,7 @@ For X finite type over Z, Y⊂P^m_X closed and ξ:Z→Y finite type with every f
 2. Remove the closure B of the constructible-image boundary; the remaining closed image C is used for the family.
 3. The printed proof uses B_U as Y′ over an open U chosen disjoint from B; source issue E5 records this. Verify the corrected image family and geometric reducedness/base-change details before using the lemma.
 
-### 132 — Nori dimension of a compact matrix group
+#### 132 — Nori dimension of a compact matrix group
 
 **missing · definition**. Larsen Definition5 p.1034
 
@@ -1639,7 +1713,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/55.
 - Proposed test: One nontrivial additive root subgroup has dimension1
 - Proposed test: A one-dimensional torus has rational dimension1 and Nori dimension0
 
-### 133 — Congruence filtration of a compact matrix group
+#### 133 — Congruence filtration of a compact matrix group
 
 **missing · definition**. Larsen Theorem7 proof p.1035
 
@@ -1656,7 +1730,7 @@ For closed H⊂GL_n(Z_p) and m≥1, F_mH={h∈H:h≡1 mod p^m}. The map h↦(h�
 - Proposed test: For GL_n(Z_p) each positive-level graded piece has dimension n²
 - Proposed test: Using level0 does not linearize multiplication
 
-### 134 — Powers of a lifted exponential detect its logarithm
+#### 134 — Powers of a lifted exponential detect its logarithm
 
 **missing · theorem**. Larsen Lemma6 p.1034
 
@@ -1668,7 +1742,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/54, PAPER-CADORET-HUI-TAMAGAWA-17/13
 2. For 1≤m<p the binomial coefficient is divisible by p, so all words containing pB disappear modulo p². At m=p the only possibly surviving one-B words have i+j=p−1; p≥2n ensures i≥n or j≥n, killing them because N^n=0 for this lift. Terms with two B are divisible by p².
 3. Thus A^p≡exp(pM)≡1+pM modulo p². Iteration uses (1+p^kC)^p≡1+p^(k+1)C modulo p^(k+2) for odd p. The n=1,p=2 nilpotent x=0 case is direct.
 
-### 135 — Congruence growth bounds Nori dimension
+#### 135 — Congruence growth bounds Nori dimension
 
 **missing · theorem**. Larsen Theorem7 proof p.1035
 
@@ -1680,7 +1754,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/129, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. Lift residual order-p elements in Γ and apply134; their logarithms span the Nori Lie algebra by129.
 3. These give lower and upper bounds inside the same M_n(F_p). The analytic growth theorem is a separate G1 input.
 
-### 136 — Equal congruence dimensions imply equal first kernels
+#### 136 — Equal congruence dimensions imply equal first kernels
 
 **missing · theorem**. Larsen Theorem7(1) proof p.1035
 
@@ -1692,7 +1766,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/133, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. For h∈F_1H, lift its residue successively through Γ, correcting the error in levels2,3,… . Completeness gives a limit in Γ because Γ is closed.
 3. F_1H is open, so containing it gives the asserted openness.
 
-### 137 — Large-prime component-group bound
+#### 137 — Large-prime component-group bound
 
 **missing · theorem**. Larsen Theorem7(2) proof pp.1035–1036
 
@@ -1704,7 +1778,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/136.
 2. For p−1>n, the irreducibility of the pth cyclotomic polynomial over Q_p excludes order-p matrices in GL_n(Q_p).
 3. The finite-extension realization and Jordan input remain exact G1 leaves; do not claim arbitrary infinite group extensions preserve order-p elements.
 
-### 138 — Totally ramified extension removes anisotropic quotients
+#### 138 — Totally ramified extension removes anisotropic quotients
 
 **missing · theorem**. Larsen Theorem7(3) proof p.1036
 
@@ -1715,7 +1789,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/128.
 1. Use the local classification of anisotropic simple factors and split the associated division algebras by a common totally ramified extension of suitable degree.
 2. No torus quotient remains by the radical hypothesis; preserve the unchanged residue field for later cardinality comparison. The Kneser/local division-algebra inputs remain G1.
 
-### 139 — Uniform component bound for the flat integral closure
+#### 139 — Uniform component bound for the flat integral closure
 
 **missing · theorem**. Larsen Theorem7(3) proof p.1036
 
@@ -1727,7 +1801,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/130, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. Properness of the relevant Hilbert schemes extends the generic point to O_F. Uniqueness of flat closure identifies the resulting family.
 3. Constructibility of the number of geometric components on a finite-type base gives d_n. Intersect with the GL_n open and retain the dimension statement for the flat group model. All Hilbert/EGA inputs are listed in G1.
 
-### 140 — Finite-field points of connected algebraic groups
+#### 140 — Finite-field points of connected algebraic groups
 
 **missing · theorem**. Larsen Theorem7(3) proof pp.1036–1037
 
@@ -1737,7 +1811,7 @@ For a smooth connected linear algebraic group K/F_p of dimension d, (p−1)^d≤
 2. Lang-surjectivity combines the connected radical and reductive quotient. On a rational component with a rational point, translation identifies its rational points with the identity component; empty components contribute zero.
 3. These structural/counting inputs are G1 and G8, not supplied by the CFSG carrier roadmap.
 
-### 141 — Equal-kernel point counts give uniform compact index
+#### 141 — Equal-kernel point counts give uniform compact index
 
 **missing · theorem**. Larsen Theorem7(3) proof p.1037
 
@@ -1749,7 +1823,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/56, PAPER-CADORET-HUI-TAMAGAWA-17/13
 2. Totally ramified scalar extension keeps residue F_p and GL_n(Z_p)∩F_1GL_n(O_F)=F_1GL_n(Z_p), making the upper reduction bound valid.
 3. Use Nori’s finite-points index bound e_n and140 for the lower bound, divide, then cancel the equal first kernels. No dimension equality alone gives this numerical index bound.
 
-### 142 — Full-dimensional closed subscheme of an integral variety
+#### 142 — Full-dimensional closed subscheme of an integral variety
 
 **missing · theorem**. CHT Theorem7.3 proof p.222
 
@@ -1758,7 +1832,7 @@ If X is an integral finite-type scheme over a field and Z⊂X is closed with dim
 1. A proper closed subset of an irreducible finite-type variety has strictly smaller dimension; hence the support of Z is all X.
 2. The radical of its defining ideal is zero. Since X is reduced, the ideal is zero as well. Connected smooth algebraic groups over the perfect field Fℓ are geometrically integral, as needed for the application.
 
-### 143 — Explicit continuous H¹ and coefficient maps already built
+#### 143 — Explicit continuous H¹ and coefficient maps already built
 
 **library · construction**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1778,7 +1852,7 @@ Library: tauceti:TauCeti.ContCohomology.Z1, tauceti:TauCeti.ContCohomology.H1, t
 - Proposed test: A nonzero homomorphism C3→F3 gives a nonzero class for trivial action
 - Proposed test: Z3 coefficients are allowed without a discrete-topology instance
 
-### 144 — Topological module homology uses the ordinary image
+#### 144 — Topological module homology uses the ordinary image
 
 **library · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1788,7 +1862,7 @@ Library: mathlib:TopModuleCat.ker, mathlib:TopModuleCat.coker, mathlib:TopModule
 
 1. Read the whole TopModuleCat homology construction, including isLimitKer, isColimitCoker and the comparison of left/right homology after forgetting to ModuleCat. This justifies the algebraic quotient used in148, without claiming a Hausdorff quotient.
 
-### 145 — Compact-open currying already built
+#### 145 — Compact-open currying already built
 
 **library · construction**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1807,7 +1881,7 @@ Library: mathlib:ContinuousMap.curry, mathlib:ContinuousMap.uncurry, mathlib:Hom
 - Proposed test: Constant functions are preserved
 - Proposed test: The uncurrying continuity hypothesis is retained for a nondiscrete profinite group
 
-### 146 — Nonempty finite inverse systems have a section
+#### 146 — Nonempty finite inverse systems have a section
 
 **library · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1817,7 +1891,7 @@ Library: mathlib:nonempty_sections_of_finite_inverse_system.
 
 1. Read nonempty_sections_of_finite_inverse_system and its cofiltered-system generalization at the Mathlib pin. Apply to finite sets of primitives, cocycle representatives and lift classes, not to an unproved general derived inverse limit.
 
-### 147 — Scalar structure on the existing explicit H¹ quotient
+#### 147 — Scalar structure on the existing explicit H¹ quotient
 
 **planned · construction**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1841,7 +1915,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143.
 - Proposed test: For trivial action H1 agrees with continuous additive homomorphisms and their scalar action
 - Proposed test: Over F3 with trivial C3 action, the class of g↦g is nonzero and killed by3
 
-### 148 — Underlying linear comparison of canonical and explicit H¹
+#### 148 — Underlying linear comparison of canonical and explicit H¹
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1857,7 +1931,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/20, PAPER-CADORET-HUI-TAMAGAWA-17/14
 4. A degree-zero invariant homogeneous function is g↦g·m. Its differential evaluated at (1,g) is g·m−m. Thus cycles and boundaries match, including the sign convention.
 5. Use144 to descend the equivalence to the ordinary algebraic quotient. Postcomposition and restriction commute with the formulas, giving naturality. This is a mathematical proof outline awaiting typed implementation.
 
-### 149 — Continuous linear sections of finite free lattice quotients
+#### 149 — Continuous linear sections of finite free lattice quotients
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1869,7 +1943,7 @@ Planned: ArithmeticGaloisDuality:R02.1.
 2. In finite bases every R-linear map is a finite matrix, hence continuous for the π-adic topology. The resulting H≃A⊕B and its inverse are continuous.
 3. The Hom action is matrix multiplication by the continuous representation matrices and their inverses, so is jointly continuous. This verifies the topological assumption needed to construct101.
 
-### 150 — Invariant lifting obstruction in continuous H¹
+#### 150 — Invariant lifting obstruction in continuous H¹
 
 **planned · construction**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1897,7 +1971,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143, PAPER-CADORET-HUI-TAMAGAWA-17/1
 - Proposed test: C3 acting on Z3² by [[0,−1],[1,−1]] has zero integral invariants and a one-dimensional residual invariant space mapping bijectively to H1≃F3
 - Proposed test: Changing a lift by3a changes the connecting cocycle by the boundary of a
 
-### 151 — Rationalization kernel is exactly lattice torsion
+#### 151 — Rationalization kernel is exactly lattice torsion
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1911,7 +1985,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. Conversely, from π^n[c]=0 choose m with π^n c=δm. Then c=δ(m/π^n) in V, so its rational class vanishes.
 3. If H1[π]=0, induction on n makes multiplication by π^n injective. Every nonzero scalar of the DVR is a unit times π^n; this also proves torsion-freeness from absence of π-torsion.
 
-### 152 — Compact-group H¹ commutes with lattice localization
+#### 152 — Compact-group H¹ commutes with lattice localization
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1925,7 +1999,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/151, PAPER-CADORET-HUI-TAMAGAWA-17/1
 2. Every localized class has one denominator. If its image is zero, its numerator class lies in the torsion kernel151 and vanishes after localization.
 3. The compactness boundary is real: for the discrete group Z[1/ℓ] with trivial action, Hom(G,Zℓ)=0 because the image of1 would be divisible by every ℓ^n, but the inclusion G→Qℓ is a nonzero continuous homomorphism with unbounded denominators. The localization comparison is not surjective there.
 
-### 153 — The extension Hom lattice is a saturated equivariant block
+#### 153 — The extension Hom lattice is a saturated equivariant block
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1939,7 +2013,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/149.
 2. Equivariance follows directly from equivariance of i and p; no equivariant section is assumed.
 3. For a∈H^Π, γ∈Γ and h∈Π, h(γa)=γ(γ⁻¹hγ)a=γa by normality. The quotient and Hom action are consequently ambient-group representations.
 
-### 154 — Continuous H¹ of a tower of finite coefficients
+#### 154 — Continuous H¹ of a tower of finite coefficients
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1956,7 +2030,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143, PAPER-CADORET-HUI-TAMAGAWA-17/1
 
 Related supplier: PAPER-KALETHA-16/P03 at ArithmeticGaloisDuality:R02.1. Existing planned general coefficient-limit supplier. This finite-coefficient degree-one lemma is a direct specialization/refinement for the same owner, not a second derived-limit construction.
 
-### 155 — Conditional H¹ surjectivity for a lattice quotient
+#### 155 — Conditional H¹ surjectivity for a lattice quotient
 
 **planned · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1971,7 +2045,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/149, PAPER-CADORET-HUI-TAMAGAWA-17/1
 3. Transition maps preserve L_n, though they need not be surjective. Apply146 to choose compatible lift classes and154 to identify them with a lattice class.
 4. For CHT §5.2 the remaining geometric inputs are affine-curve cdℓ≤1, finiteness of finite-coefficient H1 and the group/sheaf comparison. The present conditional lemma does not establish those inputs.
 
-### 156 — Discrete coefficient H¹ exactness already built
+#### 156 — Discrete coefficient H¹ exactness already built
 
 **library · theorem**. CHT §1.3 p.208, §5.2 pp.218–219 and §10 pp.230–232; direct coefficient proof supplied in this continuation
 
@@ -1983,7 +2057,7 @@ Dependencies: PAPER-CADORET-HUI-TAMAGAWA-17/143.
 
 1. Read DiscreteShortExact.explicitLongExact_H1B and explicitLongExact_H1C with all section binders in LongExact.lean at f790474. The latter requires ContinuousMul G, which holds for our topological groups. Apply only to the finite reductions in155.
 
-## Validation and executable finite regressions
+### Validation and executable finite regressions
 
 The paper checker and three-file intake passed. The structural check verified156 unique items,209 acyclic edges, all missing-item routes, all planned stage IDs, all definition APIs/uses/tests, all five unchanged unreviewed findings, and506 input hashes. No Lean file was requested or compiled.
 
@@ -2012,7 +2086,7 @@ The new certificate passed66950 exact checks. It enumerates the nontrivial C3 la
 }
 ```
 
-### New coefficient certificate
+#### New coefficient certificate
 
 ```python
 """Exact finite regression examples for the proposed compact H1 interfaces.
@@ -2129,7 +2203,7 @@ counts['scope']='Finite cocycle, torsion, denominator, section and block regress
 print(json.dumps(counts,indent=2))
 ```
 
-### Inherited Larsen/tensor certificate, unchanged
+#### Inherited Larsen/tensor certificate, unchanged
 
 ```python
 """Exact finite regressions. These are not proofs of the uniform group theorems."""
@@ -2203,7 +2277,7 @@ counts['scope']='Finite rank-two congruences, tensor bounds and explicit counter
 print(json.dumps(counts,indent=2))
 ```
 
-### Inherited root/weight certificate, unchanged
+#### Inherited root/weight certificate, unchanged
 
 ```python
 """Exact finite checks for CHT17 extraction; not geometric proofs."""
