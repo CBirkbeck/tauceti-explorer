@@ -1,0 +1,1761 @@
+{
+  "paper": "PAPER-GAN-SAVIN-23-B",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "The Local Langlands Conjecture for G_2",
+    "authors": "Wee Teck Gan and Gordan Savin",
+    "venue": "Forum of Mathematics, Pi 11 (2023), e28, 1–42",
+    "doi": "10.1017/fmp.2023.27",
+    "arxiv": "2209.07346",
+    "url": "https://doi.org/10.1017/fmp.2023.27",
+    "readSections": [
+      "The published open-access version (CC BY 4.0), read in full on 2026-09-23: §1 Introduction and the Main Theorem, §2 Theta dichotomy, §3 Definition of L, §4 Triality and spin lifting, §5 Results of Kret–Shin, §6 Surjectivity of L^♦, §7 Results of Bin Xu, §8 Fibers of L, §9 Applications to theta correspondence, §10 Appendix A (globalisation), §11 Appendix B (topology of the unitary dual), §12 Appendix C (a weak LLC for PGSp_6) and the references. PDF fetched from https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2479D805B0F248C91A33671F3A03752E/S2050508623000276a.pdf/the-local-langlands-conjecture-for-dollarg2dollar.pdf (linked from the landing page of doi:10.1017/fmp.2023.27), SHA-256 9a68ba45dd15981b317ddca587568b0181f20eeeb1d5c255dcf93ed25d33b4ce. Received 9 November 2022, revised 24 August 2023, accepted 15 September 2023. Page numbers are the journal's.",
+      "arXiv 2209.07346v2 (17 December 2022; PDF SHA-256 025a257e0450ce545d608208f9757c26b3f51630e8794a5c5834a796696decb7) predates the journal revision; it was consulted only to check whether the recorded mistakes were already present before revision. It differs in places (for example Lemma 10.1 assumes θ(π) square-integrable there, tempered in the journal).",
+      "Cited inputs were not read; items that rest on one (Kret–Shin, Xu, Chenevier, Harris–Khare–Thorne, [GS23], [GS24], [GrS2]) state them as the paper uses them."
+    ]
+  },
+  "summary": "Gan and Savin prove the local Langlands conjecture for the split exceptional group G_2 over a p-adic field F of characteristic 0: a natural surjective finite-to-one map L : Irr(G_2) → Φ(G_2) that respects discrete series, temperedness and Langlands quotients, is characterised either by two commutative diagrams through theta correspondences (with PD^× and PGSp_6) or by γ-factors of pairs, is compatible with the global Galois representations of Chenevier, and has fibres in natural bijection with Irr(S_φ) for p ≠ 3 (Main Theorem (i)–(x)). The construction transports the known LLC for PD^× and for Sp_6 (Arthur) along the theta dichotomy of their earlier paper (PAPER-GAN-SAVIN-23); a global argument (Chenevier's classification of subgroups of Spin_7 and SO_7) shows the Sp_6-parameter of θ(π) factors through G_2(C). The packets over parameters from PGL_3 come from the correspondences with the inner forms of PGL_3. The hard part, the packets over the remaining discrete parameters, uses a spin lifting from PGSp_6 to GL_8 built from similitude theta lifting and triality on PGSO_8, Kret–Shin's Spin_7-valued Galois representations, and Bin Xu's L-packets for PGSp_6: the fibre over φ is a distinguished Xu packet (Propositions 8.1–8.2, Lemma 8.3). Appendices give globalisation theorems (Poincaré series, isolation), the isolation of the Steinberg representation in the unitary dual, and a weak LLC for PGSp_6. The atlas plans the LLC for GL_n, Jacquet–Langlands, Arthur's classification and Rankin–Selberg factors; the exceptional theta correspondences are pending in ExceptionalThetaCorrespondencesForG2. Nothing plans a local Langlands correspondence for an exceptional group, the spin lifting, GSpin-valued Galois representations, Xu's packets, Langlands–Shahidi factors or the topology of the unitary dual. Fifteen source issues are recorded; the one of substance is that the proof of Proposition 3.2 assumes the component group has order 3, which Lemma 2.4 contradicts for self-dual parameters from PGL_3, so the parametrisation of those packets (component group S_3) is not constructed.",
+  "items": [
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/1",
+      "kind": "definition",
+      "name": "L-parameters, Φ(G) and component groups S_φ",
+      "statement": "F is a nonarchimedean local field of characteristic 0 with residue characteristic p, W_F its Weil group and WD_F = W_F × SL_2(C) its Weil–Deligne group. For a split connected reductive G over F with dual group G^∨, Φ(G) is the set of G^∨-conjugacy classes of L-parameters WD_F → G^∨ (Frobenius-semisimple on W_F, algebraic on SL_2(C)); Φ_ds(G), Φ_t(G) and Φ_nt(G) are the discrete (not factoring through a proper Levi subgroup of G^∨), tempered (W_F with bounded image) and non-tempered parameters. For φ ∈ Φ(G), S_φ = π_0(Z_{G^∨}(φ)). The LLC asks for a surjective finite-to-one map L_G : Irr(G) → Φ(G) whose fibres (the L-packets) are parametrised by Irr(S_φ), characterised by natural conditions.",
+      "locator": "§1, p. 2; (vii) of the Main Theorem, p. 4",
+      "status": "missing",
+      "note": "The G_2 case (A_ϕ = π_0(Z_{G_2}(ϕ)), with the desiderata for non-supercuspidal packets) is PAPER-GAN-SAVIN-23's item g2-l-packets, routed to ExceptionalThetaCorrespondencesForG2; here it is needed for G_2, PGSp_6 (dual Spin_7(C)), Sp_6 (SO_7(C)), PGL_3 (SL_3(C)) and GL_n. ArithmeticGaloisRepresentations R01.2 plans Weil–Deligne representations for GL_n and LanglandsParameterStacks LP0 plans L-parameters without the SL_2 factor; nothing plans the general definition with component groups."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/2",
+      "kind": "theorem",
+      "name": "Main Theorem: a natural surjective finite-to-one map L : Irr(G_2) → Φ(G_2)",
+      "statement": "Let F be a nonarchimedean local field of characteristic 0 and G_2 the split exceptional group over F. There is a natural surjective map L : Irr(G_2(F)) → Φ(G_2) with finite fibres satisfying (i)–(x) of the Main Theorem (the following items).",
+      "locator": "§1.1, Main Theorem, p. 3",
+      "status": "missing",
+      "note": "Proved in §§3–8; (i)–(iii) in §3.4, (iv)–(v) by construction (§3), (vi) in Corollary 5.3, (vii) in Proposition 3.2 and §8.3, (viii)–(x) in §3.4."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/3",
+      "kind": "theorem",
+      "name": "Main Theorem (i): discrete series",
+      "statement": "π ∈ Irr(G_2) is square-integrable (a discrete series representation) if and only if L(π) does not factor through a proper Levi subgroup of G_2^∨ = G_2(C).",
+      "locator": "§1.1, Main Theorem (i), p. 3",
+      "status": "missing",
+      "note": "Established in §3.4 ('Summary') from the construction and [GS23]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/4",
+      "kind": "theorem",
+      "name": "Main Theorem (ii): tempered representations",
+      "statement": "π ∈ Irr(G_2) is tempered if and only if L(π)(W_F) is bounded in G_2(C). More precisely, if π is contained in Ind_P^{G_2} τ with P = MN a proper parabolic subgroup and τ a unitary discrete series representation of M, then L(π) is the composite of the L-parameter of τ with M^∨ ↪ G_2(C); here M is GL_2 (for either maximal parabolic) or GL_1 × GL_1, for which the LLC is known.",
+      "locator": "§1.1, Main Theorem (ii), p. 3",
+      "status": "missing",
+      "note": "The printed sentence does not say that P is proper, but it names only GL_2 and GL_1² as M; for P = G_2 the statement is (i)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/5",
+      "kind": "theorem",
+      "name": "Main Theorem (iii): non-tempered representations",
+      "statement": "If π ∈ Irr(G_2) is non-tempered, so that π is the unique Langlands quotient of a standard module Ind_P^{G_2} τ induced from a proper parabolic subgroup P = MN, then L(π) is the composite of the L-parameter of τ with M^∨ ↪ G_2(C).",
+      "locator": "§1.1, Main Theorem (iii), p. 3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/6",
+      "kind": "theorem",
+      "name": "Main Theorem (iv)(a): the commutative diagram for Irr^♠(G_2)",
+      "statement": "For π ∈ Irr^♠(G_2) (the representations with nonzero theta lift to PD^×), L(π) = ι′_*(L_{PD^×}(θ_D(π))), where θ_D is the theta correspondence for PD^× × G_2 ⊂ E_6^D, L_{PD^×} : Irr(PD^×) → Φ(PGL_3) is the known LLC for the inner form PD^× of PGL_3, and ι′ : SL_3(C) → G_2(C) is the natural inclusion.",
+      "locator": "§1.1, Main Theorem (iv)(a), p. 3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/7",
+      "kind": "theorem",
+      "name": "Main Theorem (iv)(b): the commutative diagram for Irr^♥(G_2)",
+      "statement": "For π ∈ Irr^♥(G_2) (the representations with nonzero theta lift to PGSp_6), std_* ∘ ι_*(L(π)) = L_{Sp_6}(rest(θ(π))), where θ is the theta correspondence for G_2 × PGSp_6 ⊂ E_7, rest(σ) ∈ Irr(Sp_6)/PGSp_6 is the PGSp_6(F)-orbit of irreducible constituents of the restriction of σ to Sp_6(F), L_{Sp_6} is Arthur's LLC for Sp_6, and ι : G_2(C) → Spin_7(C), std : Spin_7(C) → SO_7(C) are the natural maps.",
+      "locator": "§1.1, Main Theorem (iv)(b), pp. 3–4",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/8",
+      "kind": "theorem",
+      "name": "Main Theorem (v): characterisation by (i)–(iv)",
+      "statement": "The map L is uniquely characterised by the properties (i), (ii), (iii) and (iv).",
+      "locator": "§1.1, Main Theorem (v), p. 4",
+      "status": "missing",
+      "note": "Uniqueness comes from the injectivity of ι′_* on Φ(PGL_3)/(Z/2Z) and of std_* ∘ ι_* on Φ(G_2) (Lemma 2.4)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/9",
+      "kind": "theorem",
+      "name": "Main Theorem (vi): the spin diagram for generic discrete series",
+      "statement": "For π ∈ Irr_{gen,ds}(G_2) (generic discrete series), θ(π) ∈ Irr_{gen,ds}(PGSp_6) and L_{GL_8}(spin_*(θ(π))) = spin ∘ ι ∘ L(π), where spin_* : Irr_gen(PGSp_6) → Irr(GL_8) is the spin lifting of §4 and spin : Spin_7(C) → GL_8(C) the spin representation.",
+      "locator": "§1.1, Main Theorem (vi), p. 4",
+      "status": "missing",
+      "note": "Corollary 5.3."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/10",
+      "kind": "theorem",
+      "name": "Main Theorem (vii): parametrisation of the L-packets",
+      "statement": "For each φ ∈ Φ(G_2) the fibre L^{-1}(φ) is in natural bijection with Irr(S_φ), S_φ = π_0(Z_{G_2(C)}(φ)), when p ≠ 3. When p = 3 this is still true unless perhaps φ ∈ ι′_*(Φ_ds(PGL_3)). For tempered φ the trivial character of S_φ corresponds to the unique generic element of L^{-1}(φ).",
+      "locator": "§1.1, Main Theorem (vii), p. 4",
+      "status": "missing",
+      "note": "Non-discrete φ: §3.4; φ ∈ Φ^♠♣_ds: Proposition 3.2; φ ∈ Φ^♦_ds: §8.3. For self-dual φ ∈ ι′_*(Φ_ds(PGL_3)), where S_φ ≅ S_3, the proof of Proposition 3.2 constructs no bijection (sourceIssues E1)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/11",
+      "kind": "theorem",
+      "name": "Main Theorem (viii): global–local compatibility",
+      "statement": "Let Π be a globally generic regular algebraic cuspidal automorphic representation of (split) G_2 over a totally real number field k with a Steinberg local component, and ρ_Π : Gal(k̄/k) → GL_7(Q̄_ℓ) a Galois representation associated to Π (for almost all places v, ρ_Π(Frob_v)^ss is conjugate to the Satake parameter s_{Π_v} ∈ G_2(Q̄_ℓ) ⊂ GL_7(Q̄_ℓ)). Then ρ_Π factors through G_2(Q̄_ℓ), uniquely up to G_2(Q̄_ℓ)-conjugacy, and for each finite place v the restriction of ρ_Π to Gal(k̄_v/k_v) corresponds to L(Π_v).",
+      "locator": "§1.1, Main Theorem (viii), p. 4; proof §3.4, p. 12",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/12",
+      "kind": "theorem",
+      "name": "Main Theorem (ix): preservation of γ-factors of pairs",
+      "statement": "Fix a nontrivial additive character ψ of F. For π ∈ Irr(G_2) and τ ∈ Irr(GL_r) with L-parameter φ_τ, the γ-factor of [GS24] satisfies γ(s, π × τ, ψ) = γ(s, (std ∘ L(π)) ⊗ φ_τ, ψ), where std : G_2(C) ↪ GL_7(C) is the 7-dimensional representation.",
+      "locator": "§1.1, Main Theorem (ix), p. 4; proof §3.4, p. 13",
+      "status": "missing",
+      "note": "Printed with a misplaced parenthesis (sourceIssues E3)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/13",
+      "kind": "theorem",
+      "name": "Main Theorem (x): characterisation by γ-factors",
+      "statement": "The map L is uniquely characterised by the properties (i), (ii), (iii) and (ix).",
+      "locator": "§1.1, Main Theorem (x), p. 4; proof §3.4, p. 13",
+      "status": "missing",
+      "note": "Proof: γ-factors of pairs determine std ∘ φ_π for tempered π (the standard argument for GL_7), and GL_7(C)-conjugacy of G_2(C)-valued parameters implies G_2(C)-conjugacy (Lemma 2.4(iii))."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/14",
+      "kind": "theorem",
+      "name": "Generic supercuspidal representations and supercuspidal parameters (Harris–Khare–Thorne, reproved)",
+      "statement": "(Harris–Khare–Thorne; reproved here) There is a bijection Irr_{sc,gen}(G_2(F)) ↔ Φ_sc(G_2) between the irreducible generic supercuspidal representations and the supercuspidal L-parameters (discrete parameters W_F → G_2(C) trivial on the Deligne SL_2).",
+      "locator": "§1.4, p. 6",
+      "status": "missing",
+      "note": "The paper reproves it as part of the Main Theorem, without automorphic descent or potential modularity (Proposition 6.1 and Proposition 8.1 give a unique generic member of each supercuspidal packet); only [HKT, Lemma 4.6] and its appendix are used."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/15",
+      "kind": "definition",
+      "name": "The three exceptional dual pairs and their theta lifts",
+      "statement": "For a cubic division F-algebra D, the dual pairs (PGL_3 ⋊ Z/2Z) × G_2 ⊂ E_6 ⋊ Z/2Z, PD^× × G_2 ⊂ E_6^D and G_2 × PGSp_6 ⊂ E_7, with the groups of type E of adjoint type. Restricting the minimal representation of E to the dual pair gives, for a representation π of one member, the big theta lift Θ(π) on the other member and its maximal semisimple quotient θ(π).",
+      "locator": "§1.2, pp. 4–5; §2.1, pp. 7–8",
+      "status": "missing",
+      "note": "Items minimal-representation and the dual-pair items of PAPER-GAN-SAVIN-23."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/16",
+      "kind": "theorem",
+      "name": "Theorem 2.1(i) = Theorem 1.1(i): Howe duality ([GS23])",
+      "statement": "For the three dual pairs above, Θ(π) has finite length and its maximal semisimple quotient θ(π) is irreducible or zero.",
+      "locator": "§1.2, Theorem 1.1(i), p. 5; §2.1, Theorem 2.1(i), p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, thm-1-2."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/17",
+      "kind": "theorem",
+      "name": "Theorem 2.1(ii) = Theorem 1.1(ii): theta dichotomy ([GS23])",
+      "statement": "Every π ∈ Irr(G_2) has nonzero theta lift to exactly one of PD^× and PGSp_6. Hence Irr(G_2) = Irr^♥(G_2) ⊔ Irr^♠(G_2), where Irr^♥(G_2) consists of the representations that participate in the theta correspondence with PGSp_6 and Irr^♠(G_2) of those that participate in the theta correspondence with PD^×.",
+      "locator": "§1.2, Theorem 1.1(ii), p. 5; §2.1, Theorem 2.1(ii), p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, thm-1-1."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/18",
+      "kind": "theorem",
+      "name": "Theorem 2.1(iii)(a): the correspondence with PD^×",
+      "statement": "The theta correspondence for PD^× × G_2 defines an injective map θ_D : Irr^♠(G_2) ↪ Irr(PD^×), bijective if p ≠ 3. Moreover Irr^♠(G_2) ⊂ Irr_ds(G_2).",
+      "locator": "§2.1, Theorem 2.1(iii)(a), p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, thm-1-2(i) and Theorem 7.2."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/19",
+      "kind": "theorem",
+      "name": "Theorem 2.1(iii)(b): the correspondence with PGSp_6",
+      "statement": "The theta correspondence for G_2 × PGSp_6 defines an injection θ : Irr^♥(G_2) ↪ Irr(PGSp_6), which carries tempered representations to tempered representations.",
+      "locator": "§2.1, Theorem 2.1(iii)(b), p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, thm-1-2(iii) and thm-1-3(i)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/20",
+      "kind": "theorem",
+      "name": "Theorem 2.1(iii)(c) and (2.2): the correspondence with PGL_3 ⋊ Z/2Z",
+      "statement": "The theta correspondence for (PGL_3 ⋊ Z/2Z) × G_2 defines an injective map θ_{M_3} : Irr^♣(G_2) ↪ Irr(PGL_3 ⋊ Z/2Z), where Irr^♣(G_2) ⊂ Irr^♥(G_2) is the set of representations that participate in it; θ_{M_3} respects tempered (resp. discrete series) representations and its image is completely determined. Hence Irr^♥(G_2) = Irr^♦(G_2) ⊔ Irr^♣(G_2), with Irr^♦(G_2) the representations participating only in the correspondence with PGSp_6.",
+      "locator": "§2.1, Theorem 2.1(iii)(c) and (2.2), p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, thm-1-2(ii) and Theorem 8.5."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/21",
+      "kind": "theorem",
+      "name": "Proposition 2.3: the discrete series trichotomy",
+      "statement": "Each irreducible discrete series representation of G_2 has a nonzero discrete series theta lift to exactly one of PD^×, PGL_3 ⋊ Z/2Z and PGSp_6. With Irr^•_ds(G_2) = Irr_ds(G_2) ∩ Irr^•(G_2): Irr_ds(G_2) = Irr^♠_ds(G_2) ⊔ Irr^♣_ds(G_2) ⊔ Irr^♦_ds(G_2).",
+      "locator": "§2.1, Proposition 2.3, p. 8",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23, cor-15-7."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/22",
+      "kind": "theorem",
+      "name": "Theta for G_2 × PGSp_6 preserves genericity",
+      "statement": "For π ∈ Irr^♥(G_2) with θ(π) a discrete series, θ(π) is (Whittaker) generic if and only if π is.",
+      "locator": "§5.2, p. 20; §8.1, p. 23; §8.5, p. 25",
+      "status": "missing",
+      "note": "Used without statement in Propositions 5.2, 8.1 and §8.5; PAPER-GAN-SAVIN-23 records it in cor-15-7 (Corollary 15.7 of arXiv v1)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/23",
+      "kind": "theorem",
+      "name": "The explicit theta lifts of non-supercuspidal representations ([GS23])",
+      "statement": "[GS23] determines θ_{M_3}(π) and θ(π) ∈ Irr(PGSp_6) explicitly for every non-supercuspidal π (GS23, Theorems 8.2, 8.5, 15.1, 15.2 and 15.3); in particular the two definitions of L agree on Irr^♣(G_2), L on non-supercuspidal representations is the parametrisation of [GS23, §3.5], and every non-supercuspidal representation in Irr^♦_ds(G_2) is generic (GS23, Theorem 15.3).",
+      "locator": "§3.2, p. 11; §3.3, p. 11; §3.4, p. 12; §8.4, p. 24",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23's items for Theorems 8.2, 8.5, 15.1–15.3 and g2-l-packets. The paper cites the published GS23's §3.5, which is §3.4 of arXiv v1."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/24",
+      "kind": "definition",
+      "name": "Maps of dual groups and of L-parameters",
+      "statement": "The natural morphisms SL_3(C) →ι′ G_2(C) →ι Spin_7(C) →std SO_7(C), and spin : Spin_7(C) → SO_8(C) ⊂ GL_8(C), induce Φ(PGL_3) →ι′_* Φ(G_2) →ι_* Φ(PGSp_6) →std_* Φ(Sp_6) and spin_* : Φ(PGSp_6) → Φ(GL_8). The outer automorphism of SL_3(C) induces an action of Z/2Z on Φ(PGL_3) (φ ↦ φ^∨).",
+      "locator": "§1.1, p. 3; §2.2, p. 9",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23's item g2-dual-group has SL_3(C) ⋊ Z/2Z ⊂ G_2(C) and the centralisers; the chain G_2(C) ⊂ Spin_7(C) and the spin representation are needed here."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/25",
+      "kind": "theorem",
+      "name": "Lemma 2.4(i): parameters from PGL_3",
+      "statement": "ι′_* gives an injection Φ(PGL_3)/(Z/2Z) ↪ Φ(G_2), with image denoted Φ^♠♣(G_2). It restricts to an injection Φ_ds(PGL_3)/(Z/2Z) ↪ Φ_ds(G_2), whose image is the set of φ ∈ Φ_ds(G_2) such that L(s, std ∘ ι ∘ φ) has a pole at s = 0. For φ ∈ Φ_ds(PGL_3), with S_φ = μ_3: S_{ι′_*(φ)} = μ_3 if φ is not self-dual and S_3 if φ is self-dual.",
+      "locator": "§2.2, Lemma 2.4(i) and proof, pp. 9–10",
+      "status": "missing",
+      "note": "The proof leaves the case of three one-dimensional summands 'as an exercise'."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/26",
+      "kind": "theorem",
+      "name": "Lemma 2.4(ii): the map to PGSp_6",
+      "statement": "ι_* : Φ(G_2) → Φ(PGSp_6) is injective and restricts to an injection Φ^♦_ds(G_2) := Φ_ds(G_2) ∖ Φ^♠♣(G_2) → Φ_ds(PGSp_6), whose image is the set of φ′ ∈ Φ_ds(PGSp_6) such that L(s, spin ∘ φ′) has a pole at s = 0. For φ ∈ Φ^♦_ds(G_2), ι induces S_φ ≅ S_{ι_*(φ)}/Z(Spin_7), with Z(Spin_7) ≅ μ_2.",
+      "locator": "§2.2, Lemma 2.4(ii), p. 9; §8.3, p. 24",
+      "status": "missing",
+      "note": "Proof by reference to [GrS2, Chapter 4, §1] (Prop. 1.10 for the component groups)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/27",
+      "kind": "theorem",
+      "name": "Lemma 2.4(iii): the standard parameter determines the G_2-parameter",
+      "statement": "std_* ∘ ι_* : Φ(G_2) → Φ(Sp_6) is injective and restricts to an injection Φ^♦_ds(G_2) ↪ Φ_ds(Sp_6). Equivalently, G_2(C)-valued L-parameters that are conjugate in GL_7(C) are conjugate in G_2(C).",
+      "locator": "§2.2, Lemma 2.4(iii), p. 9; §3.4, p. 13",
+      "status": "missing",
+      "note": "Proof by reference to [GrS2, Chapter 4, §1]; Griess's conjugacy theorems for G_2."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/28",
+      "kind": "construction",
+      "name": "First definition of L",
+      "statement": "For π ∈ Irr^♠(G_2) ⊂ Irr_ds(G_2), with τ = θ_D(π) ∈ Irr(PD^×), let φ_τ : WD_F → SL_3(C) be the discrete L-parameter given by the Jacquet–Langlands correspondence and the LLC for PGL_3, and set L(π) = ι′ ∘ φ_τ ∈ Φ_ds(G_2). For π ∈ Irr^♥(G_2), with σ = θ(π) ∈ Irr(PGSp_6), let φ_{rest(σ)} ∈ Φ(Sp_6) be the L-parameter of rest(σ) ∈ Irr(Sp_6)/PGSp_6 given by Arthur's LLC for Sp_6; by Proposition 3.1 it lies in Im(std_* ∘ ι_*), and L(π) is the unique element of Φ(G_2) with std_* ∘ ι_*(L(π)) = φ_{rest(σ)} (Lemma 2.4(iii)).",
+      "locator": "§1.2, pp. 4–5; §3.1, pp. 10–11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/29",
+      "kind": "theorem",
+      "name": "Proposition 3.1: the Sp_6-parameter of θ(π) factors through G_2(C)",
+      "statement": "For π ∈ Irr^♥(G_2) with σ = θ(π) ∈ Irr(PGSp_6): φ_{rest(σ)} ∈ Im(std_* ∘ ι_*).",
+      "locator": "§3.1, Proposition 3.1, p. 11; proof §3.3, pp. 11–12",
+      "status": "missing",
+      "note": "Non-supercuspidal π: from the explicit lifts of [GS23]. Supercuspidal π: globalise π to a cuspidal Π of the anisotropic G = Aut(O) over a totally real k (O totally definite; Proposition 10.5, Corollary 10.6) with Steinberg component at u ≠ w and cuspidal theta lift Σ to PGSp_6 (holomorphic discrete series at infinity); Arthur's cuspidal transfer of rest(Σ) to GL_7, local–global compatibility of that transfer, and Chenevier's Theorem E give the factorisation through G_2(C) at w."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/30",
+      "kind": "construction",
+      "name": "Second definition of L (through PGL_3 ⋊ Z/2Z)",
+      "statement": "For π ∈ Irr^♣(G_2), with θ_{M_3}(π) = τ̃ ∈ Irr(PGL_3 ⋊ Z/2Z), the restriction of τ̃ to PGL_3 gives {τ, τ^∨} ∈ Irr(PGL_3)/(Z/2Z) and hence φ_τ̃ : WD_F → SL_3(C) up to the outer automorphism; set L(π) = ι′ ∘ φ_τ̃ ∈ Φ(G_2). On Irr^♠ and Irr^♦ the definition is the first one. The two definitions agree on Irr^♣(G_2) by the explicit correspondences of [GS23, Thms 8.2, 8.5, 15.1, 15.2].",
+      "locator": "§3.2, p. 11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/31",
+      "kind": "theorem",
+      "name": "Chenevier: G_2-valued local parameters (Theorem E of [C])",
+      "statement": "(Chenevier, Doc. Math. 24 (2019), Thm. E, as used here) For the cuspidal regular algebraic automorphic representation A(rest(Σ)) of GL_7 over a totally real field obtained in the proof of Proposition 3.1 (the transfer of the restriction to Sp_6 of the theta lift Σ of a cuspidal representation of the anisotropic G_2), at every finite place v the local L-parameter of A(rest(Σ))_v factors through G_2(C) ⊂ SO_7(C), uniquely up to G_2(C)-conjugacy.",
+      "locator": "§3.3, p. 12",
+      "status": "missing",
+      "note": "The statement is recorded as the paper uses it; Chenevier's Theorem E itself was not read. It rests on his classification of subgroups of Spin(7) and SO(7) in which every element is conjugate into G_2."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/32",
+      "kind": "theorem",
+      "name": "Arthur: LLC for Sp_6, transfer to GL_7 and local–global compatibility",
+      "statement": "(Arthur) The local Langlands correspondence for Sp_6 (L-packets as PGSp_6(F)-orbits are well defined, with a unique generic member for each Whittaker datum and fixed parameter), the transfer of discrete automorphic representations of Sp_6 to isobaric representations of GL_7 (cuspidal when there is a Steinberg local component), its local–global compatibility at every finite place, the transfer SO_8 → GL_8 (also Cogdell–Kim–Piatetski-Shapiro–Shahidi for generic representations), and Arthur's multiplicity formula for Sp_6.",
+      "locator": "§1.2, p. 5; §3.3, p. 12; §4.2, p. 17; §6, p. 21; §12.5, p. 37",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "note": "ML.4 owns the Arthur/Mok classification inputs (packets, transfers, multiplicities, local–global compatibility). The 'Steinberg component ⇒ cuspidal transfer and trivial global component group' consequence is used in §3.3, §3.4 and §12.5."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/33",
+      "kind": "theorem",
+      "name": "LLC and Jacquet–Langlands for PGL_3 and its inner form PD^×",
+      "statement": "The local Langlands correspondence for GL_n(F) (Harris–Taylor, Henniart), with its compatibility with Rankin–Selberg γ-factors, and the Jacquet–Langlands correspondence between discrete series representations of PGL_3 and irreducible representations of PD_j^× for the cubic division algebras D_j, giving the LLC L_{PD^×} : Irr(PD^×) → Φ_ds(PGL_3).",
+      "locator": "§1, p. 2; §3.1, p. 10; §3.4, p. 13; §3.5, p. 14",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "note": "ET.6 plans the characteristic-zero LLC for GL_m with L- and ε-factor compatibility and Jacquet–Langlands on essentially square-integrable representations of GL_r(D)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/34",
+      "kind": "theorem",
+      "name": "§3.4: non-tempered L-packets are singletons",
+      "statement": "The results of [GS23, Thm. 15.1] show that L gives the Langlands parametrisation of non-tempered representations of [GS23, §3.5]; in particular L restricts to a bijection Irr_nt(G_2) ↔ Φ_nt(G_2), and non-tempered L-packets of G_2 are singletons.",
+      "locator": "§3.4, p. 12",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/35",
+      "kind": "theorem",
+      "name": "§3.4: L respects temperedness and discreteness",
+      "statement": "L maps Irr_t(G_2) to Φ_t(G_2) and Irr_ds(G_2) to Φ_ds(G_2) (by [GS23, Thms 15.2, 15.3]).",
+      "locator": "§3.4, p. 12",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/36",
+      "kind": "theorem",
+      "name": "§3.4: tempered non-discrete packets",
+      "statement": "L restricts to a surjection Irr_t(G_2) ∖ Irr_ds(G_2) ↠ Φ_t(G_2) ∖ Φ_ds(G_2) whose fibre over φ has size 1 or 2 according as |S_φ| = 1 or 2; each fibre has a unique generic member, attached to the trivial character of S_φ.",
+      "locator": "§3.4, p. 12",
+      "status": "missing",
+      "note": "This proves (vii) for non-discrete-series φ, for all p."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/37",
+      "kind": "theorem",
+      "name": "Chenevier: G_2-valued Galois representations (Theorem 6.4 of [C])",
+      "statement": "(Chenevier, Doc. Math. 24 (2019), Thm. 6.4, as used here) In the situation of (viii), the Galois representation ρ_Π : Gal(k̄/k) → GL_7(Q̄_ℓ) associated with the regular algebraic cuspidal A(rest(Σ)) takes values in G_2(Q̄_ℓ) after conjugation.",
+      "locator": "§3.4, p. 12",
+      "status": "missing",
+      "note": "Recorded as the paper uses it."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/38",
+      "kind": "theorem",
+      "name": "Galois representations and local–global compatibility for regular algebraic self-dual cuspidal representations of GL_n",
+      "statement": "For a regular algebraic, essentially self-dual cuspidal automorphic representation of GL_n over a totally real field there is an associated ℓ-adic Galois representation, and its restriction to each decomposition group at a finite place corresponds, as a Frobenius-semisimple Weil–Deligne representation, to the local component under the LLC (Taylor–Yoshida, Caraiani).",
+      "locator": "§3.4, p. 12; §5.2, p. 20",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "note": "AG2.2 plans the polarized automorphic Galois representations and AG2.5 the Taylor–Yoshida and Caraiani local–global comparison."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/39",
+      "kind": "construction",
+      "name": "The lift Lif : Irr(G_2) → Irr(GL_7) and the γ-factors γ(s, π × τ, ψ)",
+      "statement": "The results of [GS23] give Lif : Irr(G_2) → Irr(GL_7) with: on Irr^♠(G_2), Lif(π) = ⊞(JL(θ_D(π))), where ⊞(τ) = τ × 1 × τ^∨ for τ ∈ Irr_ds(PGL_3); on Irr^♥(G_2), Lif(π) = Art(rest(θ(π))), Arthur's transfer from Sp_6 to GL_7. For π ∈ Irr(G_2), τ ∈ Irr(GL_r) and a nontrivial ψ, [GS24] sets γ(s, π × τ, ψ) := γ(s, Lif(π) × τ, ψ), the Rankin–Selberg γ-factor of Jacquet–Piatetski-Shapiro–Shalika and Shahidi.",
+      "locator": "§3.4, p. 13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/40",
+      "kind": "theorem",
+      "name": "[GS24]: characterisation of the γ-factors of G_2 × GL_r",
+      "statement": "(Gan–Savin, arXiv:2308.12561) The family of invariants γ(s, π × τ, ψ) for π ∈ Irr(G_2), τ ∈ Irr(GL_r) is characterised by a list of properties independent of the LLC, including multiplicativity and global functional equations for certain cuspidal representations; hence the definition through Lif is the only possible one.",
+      "locator": "§1.1 (ix), p. 4; §3.4, p. 13",
+      "status": "missing",
+      "note": "Stated in the paper only in this summary form; [GS24] was not read."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/41",
+      "kind": "theorem",
+      "name": "Rankin–Selberg γ-factors of GL_n × GL_r",
+      "statement": "The local Rankin–Selberg γ-factors γ(s, π × τ, ψ) for π ∈ Irr(GL_n), τ ∈ Irr(GL_r) (Jacquet–Piatetski-Shapiro–Shalika, Shahidi), with the local converse property used to recover std ∘ φ_π from γ-factors of pairs.",
+      "locator": "§3.4, p. 13",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "note": "AL.3 plans the GL_n × GL_m zeta integrals, γ-factors and functional equations."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/42",
+      "kind": "theorem",
+      "name": "Twisted γ-factors determine a tempered Weil–Deligne representation",
+      "statement": "Two tempered (bounded) 7-dimensional Frobenius-semisimple Weil–Deligne representations φ, φ′ of WD_F with γ(s, φ ⊗ φ_τ, ψ) = γ(s, φ′ ⊗ φ_τ, ψ) for every τ ∈ Irr(GL_r) and every r are isomorphic.",
+      "locator": "§3.4, p. 13",
+      "status": "missing",
+      "note": "Called 'the standard argument' in the proof of (x); it is the local converse theorem for GL_7 transported by the LLC. AL.3 plans the γ-factors but not the converse theorem."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/43",
+      "kind": "theorem",
+      "name": "Proposition 3.2: the packets over Φ^♠♣_ds(G_2)",
+      "statement": "L^♠♣ := L restricted to Irr^♠_ds(G_2) ⊔ Irr^♣_ds(G_2) → Φ^♠♣_ds(G_2) is surjective. For φ ∈ Φ^♠♣_ds(G_2) the fibre L^{-1}(φ) contains a unique generic element, which belongs to Irr^♣_ds(G_2). For p ≠ 3 there is a natural bijection L^{-1}(φ) ↔ Irr(S_φ) under which the generic element corresponds to the trivial character. For p = 3 there is an injection L^{-1}(φ) ↪ Irr(S_φ), bijective when φ|_{SL_2} is the subregular SL_2 of G_2(C).",
+      "locator": "§3.5, Proposition 3.2 and proof, pp. 14–16",
+      "status": "missing",
+      "note": "The proof treats S_φ as cyclic of order 3 throughout, which Lemma 2.4(i) contradicts for self-dual φ (S_φ ≅ S_3); the bijection is constructed only for non-self-dual φ (sourceIssues E1)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/44",
+      "kind": "construction",
+      "name": "Degree-3 central simple algebras, the invariant map and the Kottwitz map for PGL_3",
+      "statement": "H^1(F, PGL_3) classifies central simple F-algebras of degree 3, with base point M_3, and inv : H^1(F, PGL_3) → Z/3Z is a bijection; D_j (j ≠ 0) are the cubic division algebras, D_1 and D_2 are opposite and x ↦ x^{-1} gives a canonical isomorphism i : D_1^× ≅ D_2^×. Kottwitz's map identifies Irr(Z(SL_3(C))) = Irr(μ_3) with H^1(F, PGL_3).",
+      "locator": "§3.5, pp. 14–15",
+      "status": "missing",
+      "note": "Tau Ceti ClassFieldTheory, Layer 5, plans the local Brauer group and its invariant (Br F ≅ Q/Z); the identification of H^1(F, PGL_3) with the 3-torsion of Br F and Kottwitz's isomorphism H^1(F, G) ≅ π_0(Z(G^∨)^Γ)^D are not planned."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/45",
+      "kind": "theorem",
+      "name": "Jacquet–Langlands for the two cubic division algebras",
+      "statement": "For a discrete series τ of PGL_3 and j ∈ Z/3Z, with JL_{D_j}(τ) its Jacquet–Langlands transfer to D_j^×: JL_{D_1}(τ)^∨ ≅ i^*(JL_{D_2}(τ)).",
+      "locator": "§3.5, p. 14",
+      "status": "missing",
+      "note": "Stated without proof."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/46",
+      "kind": "theorem",
+      "name": "The dual pairs Aut(D^+) × G_2 and the lifts π_η",
+      "statement": "For a central simple algebra D of degree 3 with Jordan algebra D^+, Aut(D^+)^0 = PD^× and the dual pair Aut(D^+) × G_2 ⊂ E_6^{D^+} gives the correspondences θ_D and θ_{M_3}. Since D_j^+ ≅ D_{−j}^+, with PD_j^× ≅ PD_{−j}^× through x ↦ x^{-1}, one has θ(JL_{D_j}(τ)) ≅ θ(JL_{D_{−j}}(τ^∨)). For p ≠ 3, π_η := θ(JL_{D_{j(η)}}(τ_ρ)) is nonzero and irreducible for every η; for p = 3 this is known only when η is trivial or φ|_{SL_2} is subregular.",
+      "locator": "§3.5, p. 15",
+      "status": "missing",
+      "note": "From [GS23]; PAPER-GAN-SAVIN-23 items for §7 and §8."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/47",
+      "kind": "construction",
+      "name": "The parametrisation of L^{-1}(φ) for φ ∈ Φ^♠♣_ds(G_2)",
+      "statement": "For [φ] ∈ Φ^♠♣_ds(G_2) with S_[φ] of order 3, C_[φ] = Z_{G_2}(S_[φ]) is simply connected of type A_2; fixing i_[φ] : SL_3(C) ≅ C_[φ] gives [ρ] : WD_F → SL_3(C) with [φ] = i_[φ] ∘ [ρ], and a bijection j : Irr(S_[φ]) → Irr(Z(SL_3(C))) → H^1(F, PGL_3) → Z/3Z. For η ∈ Irr(S_[φ]), τ_{φ,η} = JL_{D_{j(η)}}(τ_ρ) and π_η := θ(τ_{φ,η}); then L^{-1}([φ]) = {π_η : η ∈ Irr(S_[φ])}, independently of the choice of i_[φ] (changing it replaces ρ by ρ^∨ and j by −j).",
+      "locator": "§3.5, proof of Proposition 3.2, pp. 14–16",
+      "status": "missing",
+      "note": "Valid as written only for non-self-dual φ; for self-dual φ, S_[φ] ≅ S_3 and Z_{G_2}(S_3) ≅ SO_3(C) (sourceIssues E1)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/48",
+      "kind": "definition",
+      "name": "Triality: the three maps SO_8 → PGSO_8",
+      "statement": "For split SO_8 and PGSO_8 over F there are three maps f_1, f_2, f_3 : SO_8 → PGSO_8, non-conjugate under PGSO_8 and cyclically permuted by an order-3 outer (triality) automorphism of PGSO_8; f_1 : SO_8 ↪ GSO_8 → PGSO_8 is the standard one. Dually, f_1^∨ = std and f_2^∨, f_3^∨ (the half-spin representations) : Spin_8(C) → SO_8(C).",
+      "locator": "§4.1, p. 16",
+      "status": "missing",
+      "note": "Tau Ceti SpinRepresentations, Layer 8, plans triality for Spin_8 over C (representation level and as an outer automorphism); the maps over F and their duals are not planned."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/49",
+      "kind": "theorem",
+      "name": "Restriction of the vector and half-spin representations of Spin_8(C) to Spin_7(C)",
+      "statement": "For the standard embedding i : Spin_7(C) → Spin_8(C) (over SO_7(C) ⊂ SO_8(C)): f_1^∨ ∘ i = std ⊕ 1 and f_2^∨ ∘ i = f_3^∨ ∘ i = spin as representations of Spin_7(C).",
+      "locator": "§4.1, p. 17",
+      "status": "missing",
+      "note": "Tau Ceti SpinRepresentations, Layers 5 and 8, plan the spin representations of B_l and D_l and triality; this branching statement is not stated there."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/50",
+      "kind": "theorem",
+      "name": "Similitude theta lifting from PGSp_6 to PGSO_8",
+      "statement": "For an irreducible generic σ of PGSp_6 and σ^♭ ⊂ rest(σ), the isometry theta lift of σ^♭ to SO_8 and the similitude theta lift θ(σ) to PGSO_8 are nonzero and θ(σ^♭) ⊂ θ(σ)|_{SO_8} = f_1^*(θ(σ)); if σ^♭ has L-parameter φ^♭ then every irreducible constituent of f_1^*(θ(σ)) has L-parameter φ^♭ ⊕ 1. If σ is unramified with Satake parameter s ∈ Spin_7(C), θ(σ) is unramified with Satake parameter i(s) ∈ Spin_8(C).",
+      "locator": "§4.2, p. 17",
+      "status": "missing",
+      "note": "Classical similitude theta correspondence for Sp_6 × O_8 (Roberts; Gan–Takeda), with the unramified correspondence."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/51",
+      "kind": "construction",
+      "name": "The spin lifting spin_* : Irr_gen(PGSp_6) → Irr(GL_8)",
+      "statement": "For generic σ ∈ Irr(PGSp_6): spin_*(σ) := A(f_2^*(θ(σ))) ∈ Irr(GL_8), where θ is the similitude theta lift to PGSO_8 and A : Irr(SO_8) → Irr(GL_8) the functorial lift of Cogdell–Kim–Piatetski-Shapiro–Shahidi or Arthur. It is expected to be the lifting attached to spin : Spin_7(C) → SO_8(C) → GL_8(C).",
+      "locator": "§4.3, p. 17",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/52",
+      "kind": "construction",
+      "name": "The global spin lifting",
+      "statement": "If Σ is a globally generic cuspidal automorphic representation of PGSp_6 over a number field k whose global theta lift θ(Σ) to PGSO_8 is cuspidal, then f_2^*(θ(Σ)) is a submodule of globally generic cusp forms on SO_8 whose summands are weak spin liftings of Σ, and its transfer spin_*(Σ) := A(f_2^*(θ(Σ))) is an isobaric automorphic representation of GL_8 of orthogonal type with spin_*(Σ)_v ≅ spin_*(Σ_v) at every place v.",
+      "locator": "§4.3, pp. 17–18",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/53",
+      "kind": "theorem",
+      "name": "Proposition 4.1(i): spin lifting preserves γ-factors",
+      "statement": "Let σ be an irreducible generic discrete series representation of PGSp_6(F). For the γ-factors of the Langlands–Shahidi method, γ(s, σ, spin, ψ) = γ(s, spin_*(σ), std, ψ) for every nontrivial character ψ of F.",
+      "locator": "§4.4, Proposition 4.1(i) and proof, pp. 18–19",
+      "status": "missing",
+      "note": "Proof: globalise over a totally complex k with components σ at a set T of places, Steinberg at u and a generic supercuspidal δ at w (Proposition 10.7), compare the global functional equations for L^S(s, Σ, spin) and L^S(s, spin_*(Σ), std), use the complex-place theta correspondence of Adams–Barbasch, and vary |T|. The printed conclusion says 'representations of G_2(F)' (sourceIssues E7)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/54",
+      "kind": "theorem",
+      "name": "Proposition 4.1(ii): spin lifting commutes with quadratic twists",
+      "statement": "For σ as in Proposition 4.1 and a quadratic character χ of F^×: spin_*(σ ⊗ χ) = spin_*(σ) ⊗ χ.",
+      "locator": "§4.4, Proposition 4.1(ii) and proof, pp. 18–19",
+      "status": "missing",
+      "note": "By globalising χ and strong multiplicity one for GL_8."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/55",
+      "kind": "theorem",
+      "name": "Langlands–Shahidi γ-factors for the spin L-function of PGSp_6",
+      "statement": "The Langlands–Shahidi method attaches to generic σ ∈ Irr(PGSp_6(F)) local factors γ(s, σ, spin, ψ) and L(s, σ, spin) for the 8-dimensional spin representation of Spin_7(C), satisfying the global functional equation L^S(1 − s, Σ^∨, spin) = ∏_{v∈S} γ(s, Σ_v, spin, Ψ_v) · L^S(s, Σ, spin) for globally generic cuspidal Σ, with the unramified factors given by the Satake parameter.",
+      "locator": "§4.4, pp. 18–19; §6, pp. 21–22; §9, p. 26",
+      "status": "missing",
+      "note": "AutomorphicLFunctionsAndLocalFactors plans Tate, Godement–Jacquet and Rankin–Selberg factors (AL.1–AL.3) and unramified factors (AL.4), not the Langlands–Shahidi method."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/56",
+      "kind": "theorem",
+      "name": "Strong multiplicity one for isobaric automorphic representations of GL_n",
+      "statement": "(Jacquet–Shalika) Two isobaric automorphic representations of GL_n(A_k) that are nearly equivalent (isomorphic at almost all places) are isomorphic.",
+      "locator": "§4.4, p. 19; §5.2, p. 21; §12.8, p. 40",
+      "status": "missing",
+      "note": "Planned only for GL_2 (GL2AutomorphicRepresentationsAndTransfer R16.4) and classical modular forms (Tau Ceti ModularForms, Layer 5)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/57",
+      "kind": "theorem",
+      "name": "The theta correspondence for complex groups (Adams–Barbasch)",
+      "statement": "For complex reductive dual pairs, including Sp_6(C) × O_8(C) (note PGSp_6(C) = Sp_6(C)/μ_2), the local theta correspondence is explicitly known (Adams–Barbasch); in particular the spin and standard γ-factors of Σ_v and spin_*(Σ)_v agree at complex places.",
+      "locator": "§4.4, p. 19",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/58",
+      "kind": "theorem",
+      "name": "Kret–Shin: Spin_7-valued Galois representations for PGSp_6",
+      "statement": "(Kret–Shin, JEMS 2023, Thm. A, specialised as in the paper) Let Σ be a cuspidal automorphic representation of PGSp_6 over a totally real field k such that Σ_∞ is a sufficiently regular generic discrete series representation at each archimedean place and Σ_u is the Steinberg representation at some finite place u. Then there is ρ_Σ : Gal(k̄/k) → Spin_7(Q̄_ℓ) with ρ_Σ(Frob_v)^ss conjugate to the Satake parameter s_{Σ_v} ∈ Spin_7(Q̄_ℓ) for almost all v, and std ∘ ρ_Σ is the Galois representation associated to rest(Σ).",
+      "locator": "§5.1, p. 19; §12.4–12.6, pp. 36–38",
+      "status": "missing",
+      "note": "Appendix C instead asks the archimedean components to be spin-regular in the sense of [KS]. No roadmap constructs GSpin-valued Galois representations."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/59",
+      "kind": "theorem",
+      "name": "Proposition 5.1: existence of Kret–Shin parameters",
+      "statement": "Let σ ∈ Irr_{gen,ds}(PGSp_6). There exists φ ∈ Φ_ds(PGSp_6) with std_*(φ) the L-parameter of rest(σ) and spin_*(φ) the L-parameter of spin_*(σ).",
+      "locator": "§5.2, Proposition 5.1 and proof, p. 20",
+      "status": "missing",
+      "note": "Proof: globalise σ (Proposition 10.7) with Steinberg and generic supercuspidal components and sufficiently regular generic discrete series at infinity; apply Kret–Shin and local–global compatibility for spin_*(Σ) and rest(Σ) (Taylor–Yoshida, Caraiani)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/60",
+      "kind": "definition",
+      "name": "Kret–Shin parameters",
+      "statement": "For σ ∈ Irr_{gen,ds}(PGSp_6), a Kret–Shin parameter of σ is φ ∈ Φ(PGSp_6) as in Proposition 5.1: std_*(φ) = L_{Sp_6}(rest(σ)) and spin_*(φ) = L_{GL_8}(spin_*(σ)). It need not be unique, since Spin_7(C) is not acceptable, but any two differ by a quadratic twist.",
+      "locator": "§5.2, p. 20",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/61",
+      "kind": "theorem",
+      "name": "Chenevier–Gan: Spin_7 is unacceptable; weak equivalence is elementwise conjugacy (Lemma 12.2)",
+      "statement": "(Chenevier–Gan, 'Spin(7) is unacceptable') The map std_* × spin_* : Φ(PGSp_6) → Φ(Sp_6) × Φ(GL_8) is not injective. For φ_1, φ_2 ∈ Φ(PGSp_6) the following are equivalent: (std_*(φ_1), spin_*(φ_1)) = (std_*(φ_2), spin_*(φ_2)); φ_1 and φ_2 are elementwise conjugate.",
+      "locator": "§5.2, p. 20; §12.1, Lemma 12.2, p. 34",
+      "status": "missing",
+      "note": "Lemma 12.2 is quoted from [CG1, §1]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/62",
+      "kind": "theorem",
+      "name": "Proposition 5.2: uniqueness of the Kret–Shin parameter of a theta lift from G_2",
+      "statement": "Let σ ∈ Irr_{gen,ds}(PGSp_6) be the theta lift of a generic discrete series π of G_2. Then the Kret–Shin parameter of σ is unique as an element of Φ(PGSp_6) and equals ι ∘ L(π).",
+      "locator": "§5.2, Proposition 5.2 and proof, pp. 20–21",
+      "status": "missing",
+      "note": "Proof: globalise π (Proposition 10.7, Lemma 10.8); strong multiplicity one gives spin_*(Σ) = 1 ⊞ std_*(Σ); another Kret–Shin parameter is a quadratic twist φ of ι ∘ L(π) with spin ∘ φ = 1 ⊕ φ^♭, hence conjugate to ι ∘ L(π) by [HKT, Lemma 4.6]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/63",
+      "kind": "theorem",
+      "name": "Harris–Khare–Thorne, Lemma 4.6",
+      "statement": "(Harris–Khare–Thorne, Lemma 4.6, based on Griess) If φ_0 : WD_F → G_2(C) and φ is a quadratic twist of ι ∘ φ_0 in Φ(PGSp_6) with spin ∘ φ ≅ 1 ⊕ std ∘ ι ∘ φ_0, then φ and ι ∘ φ_0 are conjugate in Spin_7(C).",
+      "locator": "§5.2, proof of Proposition 5.2, p. 21",
+      "status": "missing",
+      "note": "Recorded as the paper uses it."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/64",
+      "kind": "theorem",
+      "name": "Corollary 5.3: the diagram (vi)",
+      "statement": "The commutative diagram (vi) of the Main Theorem holds: for π ∈ Irr_{gen,ds}(G_2), spin_*(ι_*(L(π))) = L_{GL_8}(spin_*(θ(π))).",
+      "locator": "§5.2, Corollary 5.3, p. 21",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/65",
+      "kind": "theorem",
+      "name": "Proposition 6.1: surjectivity of L^♦",
+      "statement": "Let φ : WD_F → G_2(C) be a discrete series parameter in Φ^♦_ds(G_2). There is a generic discrete series representation π of G_2 with L(π) = φ.",
+      "locator": "§6, Proposition 6.1 and proof, pp. 21–22",
+      "status": "missing",
+      "note": "φ nontrivial on SL_2: the candidate of [GS23, §3.5] and its explicit theta lift. φ trivial on SL_2: pick a generic supercuspidal σ of PGSp_6 with σ^♭ ⊂ rest(σ) the generic member of the Sp_6-packet of std ∘ ι ∘ φ; after a quadratic twist ι ∘ φ is a Kret–Shin parameter of σ, so L(0, σ, spin) = L(0, spin ∘ ι ∘ φ) = ∞ and σ lifts to G_2 by Savin–Weissman. The display uses 𝜑 for φ."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/66",
+      "kind": "theorem",
+      "name": "Savin–Weissman: generic supercuspidals of PGSp_6 with a spin pole lift to G_2",
+      "statement": "(Savin–Weissman, Prop. 4.6 and Thm. 5.3) If σ is an irreducible generic supercuspidal representation of PGSp_6(F) with L(0, σ, spin) = ∞, then σ has nonzero theta lift to G_2; more generally an irreducible generic supercuspidal representation of G_2 lifts to a generic supercuspidal of exactly one of PGL_3 and PGSp_6.",
+      "locator": "§1.4, p. 6; §6, p. 22",
+      "status": "missing",
+      "note": "A local result on the exceptional theta correspondence, the generic precursor of the dichotomy of [GS23]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/67",
+      "kind": "definition",
+      "name": "The sets Π̃_{φ♭} and Φ̃_{φ♭}",
+      "statement": "For an L-parameter φ^♭ of Sp_6 whose L-packet Π_{φ♭} has trivial central character (φ^♭ lifts to Spin_7(C)): Π̃_{φ♭} = {π̃ ∈ Irr(PGSp_6) : rest(π̃) ⊂ Π_{φ♭}} (7.1), on which Hom(F^×, μ_2) acts by twisting (through the similitude character), and Φ̃_{φ♭} = {φ ∈ Φ(PGSp_6) : std ∘ φ = φ^♭} (7.2), the finite set of lifts of φ^♭ to Spin_7(C), on which Hom(W_F, μ_2) acts transitively by twisting; any two elements of Φ̃_{φ♭} have canonically identified component groups.",
+      "locator": "§7, (7.1)–(7.2), p. 22",
+      "status": "missing",
+      "note": "Printed 'lifts of φ' for 'lifts of φ♭' (sourceIssues E8)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/68",
+      "kind": "theorem",
+      "name": "Xu: partition of Π̃_{φ♭} into packets and restriction to Sp_6 (a), (b)",
+      "statement": "(Xu, [Xu1, Prop. 6.27, 6.28, Thm. 6.30], [Xu2, Prop. 4.4, Thm. 4.6]) Π̃_{φ♭} is a disjoint union of finite subsets ('Xu's packets'): (a) if Π̃^X_{φ♭} is one of them, the others are the twists Π̃^X_{φ♭} ⊗ χ by quadratic characters χ; (b) restriction to Sp_6 defines a bijection Π̃^X_{φ♭} → Π_{φ♭}/PGSp_6.",
+      "locator": "§7 (a)–(b), p. 22",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/69",
+      "kind": "theorem",
+      "name": "Xu: parametrisation of a packet by the component group (c)",
+      "statement": "(Xu) There is a natural bijection Π̃^X_{φ♭} ↔ Irr(S_φ/Z(Spin_7)) for any lift φ ∈ Φ̃_{φ♭} with component group S_φ.",
+      "locator": "§7 (c), p. 22",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/70",
+      "kind": "theorem",
+      "name": "Xu: stability and endoscopic character identities (d)",
+      "statement": "(Xu) With respect to the parametrisation (c), the packets Π̃^X_{φ♭} satisfy the stability properties and local character identities required by the theory of endoscopy.",
+      "locator": "§7 (d), p. 22",
+      "status": "missing",
+      "note": "Printed with the undefined notation Π̃^X_{φ,ν} (sourceIssues E8)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/71",
+      "kind": "theorem",
+      "name": "Xu: stabilisers and the number of packets (e)",
+      "statement": "(Xu) For σ ∈ Π̃^X_{φ♭} and φ ∈ Φ̃_{φ♭}, the stabiliser of σ in Hom(F^×, μ_2) equals the stabiliser of φ in Hom(W_F, μ_2) (identified by local class field theory). Hence #{Xu's packets ⊂ Π̃_{φ♭}} = #Φ̃_{φ♭}, and the two sets are (non-canonically) isomorphic homogeneous sets under Hom(F^×, μ_2) = Hom(W_F, μ_2).",
+      "locator": "§7 (e), p. 23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/72",
+      "kind": "theorem",
+      "name": "Xu: global packets and the Arthur multiplicity formula for PGSp_6 (f)",
+      "statement": "(Xu, [Xu3, Thm. 4.1]) Globally, the tempered part of the automorphic discrete spectrum of PGSp_6 is described by global packets Π̃^X_{Ψ♭} = ⊗_v Π̃^X_{Ψ♭_v} built from the local packets and an Arthur multiplicity formula; when the global component group S_{Ψ♭} of the generic A-parameter Ψ^♭ of rest(Σ) is trivial, every element of the global packet containing Σ is automorphic (cuspidal).",
+      "locator": "§7 (f), p. 23; §8.4, p. 25; §12.8, pp. 39–40",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/73",
+      "kind": "theorem",
+      "name": "Proposition 8.1: uniqueness of the generic member",
+      "statement": "For φ ∈ Φ^♦_ds(G_2) there is a unique generic representation in L^{-1}(φ).",
+      "locator": "§8.1, Proposition 8.1 and proof, pp. 23–24",
+      "status": "missing",
+      "note": "Two generic π, π′ would give generic θ(π) ≇ θ(π′) = θ(π) ⊗ χ in Π̃_{φ♭}, both with Kret–Shin parameter ι ∘ φ (Propositions 4.1(ii), 5.2), so χ fixes ι ∘ φ but not θ(π), contradicting Xu's (e)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/74",
+      "kind": "definition",
+      "name": "The distinguished Xu packet Π̃^{X*}_{φ♭}",
+      "statement": "For φ ∈ Φ^♦_ds(G_2) with φ^♭ = std ∘ ι ∘ φ: Π̃^{X*}_{φ♭} is the Xu packet containing the unique generic θ(π) with L(π) = φ, equivalently the Xu packet containing the unique generic σ ∈ Π̃_{φ♭} with nonzero theta lift to G_2.",
+      "locator": "§8.2, p. 24",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/75",
+      "kind": "theorem",
+      "name": "Proposition 8.2: the fibre over φ ∈ Φ^♦_ds is a Xu packet",
+      "statement": "For φ ∈ Φ^♦_ds(G_2), the local theta correspondence defines a bijection L^{-1}(φ) ↔ Π̃^{X*}_{φ♭}.",
+      "locator": "§8.2, Proposition 8.2, p. 24; proof §8.5, p. 25",
+      "status": "missing",
+      "note": "Lemma 8.3 shows the distinguished packet lifts entirely to G_2 and no member of another Xu packet lifts (its generic member does not, by Proposition 8.1 and the preservation of genericity by θ)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/76",
+      "kind": "theorem",
+      "name": "§8.3: (vii) for φ ∈ Φ^♦_ds(G_2)",
+      "statement": "For φ ∈ Φ^♦_ds(G_2): L^{-1}(φ) ↔ Π̃^{X*}_{φ♭} ↔ Irr(S_{ι∘φ}/Z(Spin_7)) ↔ Irr(S_φ), by Proposition 8.2, Xu's (c) and S_φ ≅ S_{ι∘φ}/Z(Spin_7) ([GrS2, §4, Prop. 1.10]).",
+      "locator": "§8.3, p. 24",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/77",
+      "kind": "theorem",
+      "name": "Lemma 8.3: one in, all in",
+      "statement": "Let Π̃^X_{φ♭} ⊂ Π̃_{φ♭} be any Xu packet (φ ∈ Φ^♦_ds(G_2)). Either every element of Π̃^X_{φ♭} has nonzero theta lift to G_2 or none has.",
+      "locator": "§8.4, Lemma 8.3 and proof, pp. 24–25",
+      "status": "missing",
+      "note": "Proof: globalise σ = θ(π) at two places w_1, w_2 (split G_2 and Proposition 10.7/Lemma 10.8 if π is generic; the definite form, Proposition 10.5/Corollary 10.6 and a Steinberg place if π is supercuspidal); Xu's multiplicity formula gives Σ′ with Σ′_{w_1} ≅ Σ′_{w_2} ≅ σ′ and the other components of Σ; L^S(s, Σ′, spin) = ζ^S(s) L^S(s, Σ, std) has a pole at s = 1, so Σ′ lifts to a form of G_2 by [GS20, Thm. 1.1]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/78",
+      "kind": "definition",
+      "name": "A partial LLC for PGSp_6",
+      "statement": "For φ ∈ Φ^♦_ds(G_2), the set of Xu packets in Π̃_{φ♭} and Φ̃_{φ♭} are homogeneous Hom(F^×, μ_2)-sets with distinguished points Π̃^{X*}_{φ♭} and ι ∘ φ; declare ι ∘ φ to be the L-parameter of Π̃^{X*}_{φ♭}, which gives a canonical isomorphism of Hom(F^×, μ_2)-sets. Π̃^{X*}_{φ♭} is the unique Xu packet in Π̃_{φ♭} whose generic member has Langlands–Shahidi spin L-function equal to L(s, spin ∘ ι ∘ φ) (with a pole at s = 0).",
+      "locator": "§9, p. 26",
+      "status": "missing",
+      "note": "Printed 'the unique one in Φ̃_{φ♭}' (sourceIssues E9)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/79",
+      "kind": "theorem",
+      "name": "Theorem 9.1(i): the conjecture of Gross–Savin for PGL_3 × G_2 (p ≠ 3)",
+      "statement": "Conjecture 3.1 of [GrS1] holds when p ≠ 3: (a) for τ ∈ Irr(PGL_3) with L-parameter φ_τ, the local theta lifts of τ to G_2 are the π ∈ Irr(G_2) with enhanced L-parameter (φ, η) such that φ = ι′ ∘ φ_τ and η ∘ ι′_* = 1, where ι′_* : π_0(Z_{SL_3}(φ_τ)) → S_{ι′∘φ_τ}; (b) for discrete τ with Jacquet–Langlands lift τ_D to D^×, the theta lifts of τ_D and τ_D^∨ to G_2 are the π with φ = ι′ ∘ φ_τ and η ∘ ι′_* ≠ 1.",
+      "locator": "§9, Theorem 9.1(i), p. 26",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/80",
+      "kind": "theorem",
+      "name": "Theorem 9.1(ii): the conjectures of Gross–Savin for G_2 × PGSp_6",
+      "statement": "Conjecture 1.13 (and Conjectures 2.3 and 2.5) of [GrS2, §4] hold: if π ∈ Irr(G_2) has enhanced L-parameter (φ, η), then θ(π) ∈ Irr(PGSp_6) has enhanced L-parameter (φ′, η′) with φ′ = ι ∘ φ and η = η′ ∘ ι_*, ι_* : S_φ → S_{ι∘φ}.",
+      "locator": "§9, Theorem 9.1(ii), p. 27",
+      "status": "missing",
+      "note": "As printed the statement covers every π ∈ Irr(G_2), but θ(π) = 0 for π ∈ Irr^♠(G_2), and the paper defines enhanced L-parameters for PGSp_6 only for the distinguished packets over Φ^♦_ds(G_2) (sourceIssues E2). The item is the statement for π with L(π) ∈ Φ^♦_ds(G_2)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/81",
+      "kind": "definition",
+      "name": "The subgroup G_D ⊂ Aut(O) of a quaternion subalgebra",
+      "statement": "For an octonion algebra O over F with G = Aut(O) and a quaternion algebra D ↪ O (the embedding unique up to G), G_D ⊂ G is the pointwise stabiliser of D; it is isomorphic to the group of norm-one elements of D.",
+      "locator": "§10.1, p. 27",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/82",
+      "kind": "theorem",
+      "name": "Open orbits of the Siegel Levi on characters of N",
+      "statement": "For H = PGSp_6(F) with Siegel parabolic P = MN, M acts on the unitary dual N̂ with open orbits parametrised by the quaternion F-algebras D; the stabiliser in M of an element of the orbit of D is isomorphic to Aut(D).",
+      "locator": "§10.1, p. 27",
+      "status": "missing",
+      "note": "Printed 'parameterized by is isomorphic' with D omitted (sourceIssues E10)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/83",
+      "kind": "theorem",
+      "name": "Twisted Jacquet module of the E_7 minimal representation along N ([GrS2])",
+      "statement": "(Gross–Savin, [GrS2, §5, Lemma 3.4, case (4)]) For the minimal representation Π of E_7 and ψ_N in the open orbit of N̂ parametrised by D: Π_{N,ψ_N} ≅ ind^G_{G_D}(1) as a G-module.",
+      "locator": "§10.1, proof of Lemma 10.1, p. 27",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/84",
+      "kind": "theorem",
+      "name": "Howe's N-rank and Li's classification of low-rank unitary representations",
+      "statement": "(Howe, Li) An irreducible unitary representation of Sp_6(F) whose restriction to N is supported on characters of rank at most 2 is a theta lift from an orthogonal group O(m) with m ≤ 2; such theta lifts are not tempered.",
+      "locator": "§10.1, proof of Lemma 10.1, p. 27",
+      "status": "missing",
+      "note": "The proof says 'of Howe's N-rank 2 … O(2)'; ranks 0 and 1 also occur (sourceIssues E11)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/85",
+      "kind": "theorem",
+      "name": "Lemma 10.1: tempered lifts are quotients of ind^G_{G_D}(1)",
+      "statement": "Let π be an irreducible representation of G = Aut(O) (O an octonion algebra over F) such that θ(π) is a tempered representation of H = PGSp_6. Then there is a quaternion algebra D ⊂ O such that π is a quotient of ind^G_{G_D}(1).",
+      "locator": "§10.1, Lemma 10.1 and proof, p. 27",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/86",
+      "kind": "theorem",
+      "name": "Corollary 10.2: supercuspidals with nonzero lift are submodules of ind^G_{G_D}(1)",
+      "statement": "Let π be a supercuspidal representation of G with θ(π) ≠ 0. Then there is a quaternion algebra D such that π is a submodule of ind^G_{G_D}(1).",
+      "locator": "§10.1, Corollary 10.2 and proof, p. 27",
+      "status": "missing",
+      "note": "θ preserves temperedness, and π is projective."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/87",
+      "kind": "theorem",
+      "name": "Lemma 10.3: the Steinberg representation in L²(G_D∖G)",
+      "statement": "Let St be the Steinberg representation of G and D a division quaternion algebra. Then St is a direct summand of L²(G_D∖G).",
+      "locator": "§10.1, Lemma 10.3 and proof, pp. 27–28",
+      "status": "missing",
+      "note": "Proof: θ(St) is the Steinberg representation of H, whose restriction to a maximal unipotent subgroup U ⊃ N is the regular representation of U (Chan–Savin, Prop. 5); so θ(St)_{N,ψ_N} ≠ 0 for every ψ_N, St is a quotient of ind^G_{G_D}(1), and since G_D is compact St has a G_D-fixed vector whose matrix coefficient embeds St in L²(G_D∖G)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/88",
+      "kind": "theorem",
+      "name": "Lemma 10.4: representations of compact G_2(R) have SU_2-fixed vectors",
+      "statement": "Let ℍ be the quaternion division R-algebra and G^c_2(R) the automorphism group of the octonion division R-algebra. Every irreducible representation π of G^c_2(R) has π^{G_ℍ(R)} ≠ 0, so π ⊂ L²(G_ℍ(R)∖G^c_2(R)).",
+      "locator": "§10.1, Lemma 10.4 and proof, p. 28",
+      "status": "missing",
+      "note": "Proof: G_ℍ(R) ≅ SU_2 ⊂ SU_3 ⊂ G^c_2(R), and by the Gelfand–Tsetlin branching rule every irreducible representation of SU_3 has SU_2-fixed vectors. Tau Ceti ClassicalGroups, Layer 6, plans the GL_n ↓ GL_{n−1} branching rule that gives this."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/89",
+      "kind": "definition",
+      "name": "L²_D(G(k)∖G(A)): automorphic forms with nonzero G_D-period",
+      "statement": "For a totally real k, a totally definite octonion algebra O over k with G = Aut(O) (anisotropic at the archimedean places, split at the finite places) and a quaternion subalgebra D ⊆ O: L²_D(G(k)∖G(A)) ⊂ L²(G(k)∖G(A)) is the Hilbert subspace orthogonal to every automorphic representation Π on which the period ∫_{G_D(k)∖G_D(A)} f(g) dg vanishes identically.",
+      "locator": "§10.2, p. 28",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/90",
+      "kind": "theorem",
+      "name": "Proposition 10.5: first globalisation result",
+      "statement": "Let v_1, …, v_n be a nonempty set of places of k. For nonarchimedean v_i let π_i be the Steinberg representation or a supercuspidal representation of G_{v_i} with θ(π_i) ≠ 0; for real v_i let π_i be any irreducible (finite-dimensional) representation. Then there are a quaternion algebra D ⊆ O and an automorphic representation Π = ⊗_v Π_v in L²_D(G(k)∖G(A)) with Π_{v_i} ≅ π_i for i = 1, …, n.",
+      "locator": "§10.2, Proposition 10.5 and proof, pp. 28–29",
+      "status": "missing",
+      "note": "Proof: choose D with π_i ⊂ L²(G_{D,v_i}∖G_{v_i}) (Corollary 10.2, Lemmas 10.3, 10.4); Poincaré series from compactly supported functions on G_D∖G (Sakellaridis–Venkatesh, Thm. 16.3.2, Rem. 16.4.1) show ⊗_i L²(G_{D,v_i}∖G_{v_i}) is weakly contained in L²_D; isolation (Proposition 11.3) and Corollary 11.7 conclude."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/91",
+      "kind": "theorem",
+      "name": "Poincaré series and weak containment (Sakellaridis–Venkatesh)",
+      "statement": "(Sakellaridis–Venkatesh, Thm. 16.3.2 and Rem. 16.4.1) For a spherical subgroup and a finite set of places, the local L²-spaces ⊗_i L²(H_{v_i}∖G_{v_i}) are weakly contained in the automorphic L²-space of forms with nonzero H-period, via Poincaré series built from compactly supported functions; the same argument works with Whittaker functions ([GI, proof of Prop. A.2] for control at other places).",
+      "locator": "§10.2, pp. 28–29; §10.3, pp. 29–30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/92",
+      "kind": "definition",
+      "name": "The global dual pair G × PGSp_6 in E_{7,3}",
+      "statement": "The global theta correspondence for G × H (G = Aut(O), H = PGSp_6) inside the adjoint group of absolute type E_7 and k-rank 3 attached to the Albert algebra J_3(O) by the Koecher–Tits construction, using the global minimal representation of [HS, Thm. 6.4].",
+      "locator": "§3.3, p. 11; §10.2, p. 29",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/93",
+      "kind": "theorem",
+      "name": "Global nonvanishing and cuspidality of exceptional theta lifts ([GrS2])",
+      "statement": "(Gross–Savin, [GrS2, Ch. 5, Prop. 4.5 and Cor. 4.9], over any number field) An automorphic representation of G = Aut(O) with nonzero G_D-period has nonzero global theta lift to PGSp_6; the lift is cuspidal under the conditions of Corollary 10.6.",
+      "locator": "§10.2, proof of Corollary 10.6, p. 29",
+      "status": "missing",
+      "note": "The paper notes that [GrS2] works over Q and that its proofs hold over any number field."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/94",
+      "kind": "theorem",
+      "name": "Corollary 10.6: nonzero cuspidal global theta lifts",
+      "statement": "In the context of Proposition 10.5, Π has nonzero global theta lift to H = PGSp_6, and this lift is cuspidal if π_i is the Steinberg representation at some nonarchimedean v_i or π_i has regular highest weight at some real v_i.",
+      "locator": "§10.2, Corollary 10.6, p. 29",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/95",
+      "kind": "definition",
+      "name": "L²_{ψ-gen,σ}(G(k)∖G(A))",
+      "statement": "For a simple split group G over a number field k, a Whittaker character ψ = ∏_v ψ_v of U(A)/U(k) (U the unipotent radical of a Borel subgroup), a place w and a ψ_w-generic supercuspidal σ of G(k_w): L²_{ψ-gen,σ}(G(k)∖G(A)) ⊂ L²_cusp(G(k)∖G(A)) is the Hilbert subspace orthogonal to every square-integrable automorphic Π on which the ψ-Whittaker functional vanishes or with Π_w ≇ σ. Its irreducible constituents are globally generic with w-component σ.",
+      "locator": "§10.3, p. 29",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/96",
+      "kind": "theorem",
+      "name": "Generic square-integrable representations are summands of L²_ψ(U∖G)",
+      "statement": "Every generic square-integrable representation of G(k_v) is a direct summand of the space L²_{ψ_v}(U(k_v)∖G(k_v)) of square-integrable Whittaker functions.",
+      "locator": "§10.3, p. 29",
+      "status": "missing",
+      "note": "Cited to [SV]."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/97",
+      "kind": "theorem",
+      "name": "Proposition 10.7: second globalisation result",
+      "statement": "Let v_1, …, v_n be places of k different from w and δ_i a ψ_{v_i}-generic square-integrable representation of G(k_{v_i}), assumed isolated in L²_{ψ-gen,σ}(G(k)∖G(A)). Then there is an irreducible cuspidal Π ⊂ L²_{ψ-gen,σ}(G(k)∖G(A)) with Π_{v_i} ≅ δ_i for all i; moreover, at all but one place other than w and the v_i, Π_v may be taken spherical.",
+      "locator": "§10.3, Proposition 10.7 and proof, pp. 29–30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/98",
+      "kind": "theorem",
+      "name": "Isolation of generic discrete series for classical groups ([ILM])",
+      "statement": "(Ichino–Lapid–Mao, Prop. A.5 and Lemma A.2) For classical groups and their similitude groups, every generic discrete series representation is isolated in the generic cuspidal spectrum L²_{gen,σ}, as a consequence of bounds towards the Ramanujan conjecture for globally generic cuspidal representations.",
+      "locator": "§10.3, p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/99",
+      "kind": "theorem",
+      "name": "Lemma 10.8: isolation for G_2",
+      "statement": "Let G = G_2, H = PGSp_6 and u ≠ w finite places. Let σ be a generic supercuspidal representation of G(k_w) whose local theta lift to H(k_w) is a generic supercuspidal representation (such σ of depth zero exist by [G]), and δ a generic discrete series representation of G(k_u) with θ(δ) a generic discrete series of H(k_u). Then δ is isolated in L²_{ψ-gen,σ}(G(k)∖G(A)) for the Fell topology.",
+      "locator": "§10.3, Lemma 10.8 and proof, p. 30",
+      "status": "missing",
+      "note": "Proof: a sequence of non-tempered local components π_n = Ind_P(τ_n) converging to δ has generic unitarizable lifts θ(π_n) = Ind_Q(ν_n) (global generic lifts, [HKT, appendix]; explicit lifts of [GS23]); by Proposition 11.2 θ(δ) is a limit of the θ(π_n), contradicting the isolation of θ(δ) ([ILM])."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/100",
+      "kind": "theorem",
+      "name": "Generic global theta lifts from G_2 ([HKT, appendix])",
+      "statement": "Every irreducible Π ⊂ L²_{gen,σ}(G_2(k)∖G_2(A)) has a nonzero globally generic global theta lift Σ ⊂ L²_{gen,θ(σ)}(PGSp_6(k)∖PGSp_6(A)).",
+      "locator": "§10.3, proof of Lemma 10.8, p. 30; §5.2, p. 20; §8.4, p. 25",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/101",
+      "kind": "theorem",
+      "name": "Depth-zero generic supercuspidals with generic supercuspidal lifts ([G])",
+      "statement": "(Gan, exceptional Howe correspondences over finite fields) There are depth-zero generic supercuspidal representations δ of G_2(F) whose theta lift to PGSp_6(F) is a generic supercuspidal representation.",
+      "locator": "§8.4, p. 25; §10.3, p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/102",
+      "kind": "theorem",
+      "name": "Archimedean matching of infinitesimal characters ([HPS])",
+      "statement": "(Huang–Pandžić–Savin) For the real dual pair G_2 × PGSp_6 in E_7 the theta correspondence matches infinitesimal characters; with Vogan's result that at discrete-series infinitesimal characters sufficiently far from the walls only discrete series are unitary, the global lift Σ of a Π with such components has discrete series archimedean components.",
+      "locator": "§8.4, p. 25",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/103",
+      "kind": "theorem",
+      "name": "Archimedean discrete series far from the walls",
+      "statement": "At a discrete-series infinitesimal character sufficiently far from the walls, the only unitary representations of a real reductive group are discrete series; hence such discrete series are isolated in the unitary dual.",
+      "locator": "§8.4, p. 25",
+      "status": "missing",
+      "note": "The first half is used in Lemma 8.3(i) without reference (it follows from the classification of unitary representations with strongly regular infinitesimal character). The isolation is needed for the hypothesis of Proposition 10.7 at the archimedean places prescribed in Proposition 5.1 and Lemma 8.3, and is not stated in the paper."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/104",
+      "kind": "definition",
+      "name": "Unitary and unitarizable representations; limit and cluster points",
+      "statement": "G is a simple split (Chevalley) group over a p-adic field F. A unitary representation is continuous (g ↦ π(g)v continuous) and its smooth vectors are dense; a smooth irreducible representation is unitarizable if it has a G-invariant positive-definite hermitian form. An irreducible unitarizable π is a limit point of a sequence π_n if for some (equivalently any) matrix coefficient ⟨π(g)v, v⟩ there are matrix coefficients ⟨π_n(g)v_n, v_n⟩ converging to it uniformly on compact sets; it is a cluster point if it is a limit point of a subsequence. L[π_n] ⊆ C[π_n] are the sets of limit and cluster points; a sequence of characters χ_{π_n} converges weakly if χ_{π_n}(f) converges for every f ∈ C_c(G).",
+      "locator": "§11, §11.1, pp. 30–31",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/105",
+      "kind": "theorem",
+      "name": "Theorem 11.1 (Miličić)",
+      "statement": "(Miličić, [Mi, Thm. 5]; see [Ta1]) Let π_n be irreducible unitarizable representations of G whose characters converge weakly. Then there is a finite set S of unitary representations and integers n_σ > 0 with lim χ_{π_n}(f) = Σ_{σ∈S} n_σ χ_σ(f) for all f ∈ C_c(G), and S = L[π_n] = C[π_n].",
+      "locator": "§11.1, Theorem 11.1, p. 31",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/106",
+      "kind": "theorem",
+      "name": "Heiermann–Opdam: generic representations are standard modules",
+      "statement": "(Heiermann–Opdam) Every irreducible generic representation of G is isomorphic to a standard module Ind_P^G(τ), τ = τ° · χ with τ° tempered and χ unramified with differential Σ_{α∈Δ∖S} s_α ϖ_α, s_α > 0.",
+      "locator": "§11.1, proof of Proposition 11.2, p. 32",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/107",
+      "kind": "theorem",
+      "name": "Tadić: compactness of tempered characters and convergence in the Bernstein centre",
+      "statement": "(Tadić, [Ta1], [Ta2]) A sequence of tempered representations of a Levi subgroup has a subsequence whose characters converge weakly (to the character of a possibly reducible representation), and the supercuspidal support of a limit is the limit of the supercuspidal supports; convergence in the Fell topology implies convergence in the Bernstein centre.",
+      "locator": "§10.3, p. 30; §11.1, pp. 32–33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/108",
+      "kind": "theorem",
+      "name": "Proposition 11.2: limits of generic unitary representations",
+      "statement": "Let G be a simple split group over F, δ a generic unitarizable representation and π_n generic unitarizable representations with δ a limit point of (π_n). After passing to a subsequence there are a parabolic P ⊆ G and standard modules Ind_P^G(τ_n) with π_n ≅ Ind_P^G(τ_n), the characters of τ_n converge weakly to that of a (possibly reducible) τ, and δ is a subquotient of Ind_P^G(τ); in particular τ is generic.",
+      "locator": "§11.1, Proposition 11.2 and proof, pp. 31–32",
+      "status": "missing",
+      "note": "For real groups a more general result is Vogan's."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/109",
+      "kind": "theorem",
+      "name": "Lemma 11.4: K-types persist in limits",
+      "statement": "Let K be an open compact subgroup, τ a smooth irreducible representation of K occurring in the irreducible unitarizable π, and π a limit point of irreducible representations π_n. Then τ occurs in π_n for almost all n.",
+      "locator": "§11.1, Lemma 11.4 and proof, p. 32",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/110",
+      "kind": "theorem",
+      "name": "Barbasch–Moy: the Steinberg K-type detects genericity",
+      "statement": "(Barbasch–Moy) For a special maximal compact K with quotient G(F_q), an irreducible representation containing the inflation st_G of the Steinberg representation of G(F_q) is generic; st_G is the unique K-type of the Steinberg representation with Iwahori-fixed vectors.",
+      "locator": "§11.1, proof of Proposition 11.3, pp. 32–33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/111",
+      "kind": "theorem",
+      "name": "Rodier: the principal series containing Steinberg; Howe–Moore",
+      "statement": "(Rodier) The principal series Ind_B^G(χ) containing the Steinberg representation has 2^r irreducible subquotients (r the rank), with known exponents; (Howe–Moore) matrix coefficients of a unitary representation of the simple group G without invariant vectors vanish at infinity. Hence the only unitarizable subquotients of Ind_B^G(χ) are the trivial and Steinberg representations.",
+      "locator": "§11.1, proof of Proposition 11.3, p. 33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/112",
+      "kind": "theorem",
+      "name": "Proposition 11.3: the Steinberg representation is isolated",
+      "statement": "Let σ be the Steinberg representation of G. If the rank of G is at least 2, σ is isolated in the unitary dual of G.",
+      "locator": "§11.1, Proposition 11.3 and proof, pp. 32–33",
+      "status": "missing",
+      "note": "Argument due to Miličić, with Lemma 11.4, Barbasch–Moy, Proposition 11.2, Tadić's Bernstein-centre convergence, Rodier and Howe–Moore."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/113",
+      "kind": "definition",
+      "name": "Definition 11.5: weak containment",
+      "statement": "For unitary representations π and σ of G, σ is weakly contained in π if every normalised matrix coefficient ⟨σ(g)v, v⟩ (‖v‖ = 1) is a uniform limit on compact subsets of convex combinations of normalised matrix coefficients of π.",
+      "locator": "§11.2, Definition 11.5, p. 33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/114",
+      "kind": "theorem",
+      "name": "Banach–Alaoglu",
+      "statement": "The closed unit ball of the dual of a normed space is compact in the weak-* topology (applied to L^∞(G) = L^1(G)^*).",
+      "locator": "§11.2, proof of Proposition 11.6, p. 33",
+      "status": "library",
+      "library": [
+        "mathlib:WeakDual.isCompact_closedBall",
+        "mathlib:WeakDual.isCompact_polar"
+      ],
+      "note": "Mathlib's WeakDual.isCompact_closedBall (Mathlib/Analysis/Normed/Module/WeakDual.lean) is the Banach–Alaoglu theorem for StrongDual 𝕜 E; the identification of L^∞(G) with the dual of L^1(G) is not in the library and is part of item 'Proposition 11.6'."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/115",
+      "kind": "theorem",
+      "name": "Krein–Milman and Milman's converse",
+      "statement": "In a locally convex Hausdorff space a compact convex set is the closed convex hull of its extreme points (Krein–Milman); if the closed convex hull C of a set F is compact, every extreme point of C lies in the closure of F (Milman's converse, the form used in the proof).",
+      "locator": "§11.2, proof of Proposition 11.6, p. 33",
+      "status": "missing",
+      "note": "Mathlib has the Krein–Milman theorem (closure_convexHull_extremePoints, Mathlib/Analysis/Convex/KreinMilman.lean) but not Milman's converse, which the proof uses under the name 'Krein–Milman'."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/116",
+      "kind": "theorem",
+      "name": "Raikov's theorem and extremality of matrix coefficients",
+      "statement": "(Bekka–de la Harpe–Valette, Thms C.5.2 and C.5.6) Normalised matrix coefficients of an irreducible unitary representation are extreme points of the convex set of normalised positive-definite functions; weak-* convergence of normalised positive-definite functions to a normalised positive-definite function is uniform on compact sets (Raikov).",
+      "locator": "§11.2, proof of Proposition 11.6, p. 33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/117",
+      "kind": "theorem",
+      "name": "Proposition 11.6: weak containment in a direct sum",
+      "statement": "Let π_1, π_2, … be irreducible unitary representations of G, π = ⊕̂_i π_i and σ an irreducible unitary representation weakly contained in π. Then σ is a limit of a subsequence of (π_n).",
+      "locator": "§11.2, Proposition 11.6 and proof, p. 33",
+      "status": "missing",
+      "note": "For p-adic G Raikov's theorem is replaced by pointwise convergence of K-bi-invariant functions."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/118",
+      "kind": "theorem",
+      "name": "Corollary 11.7: isolated representations weakly contained in a direct sum",
+      "statement": "With π = ⊕̂_i π_i as in Proposition 11.6, if σ is irreducible, isolated in the unitary dual and weakly contained in π, then σ ≅ π_i for some i.",
+      "locator": "§11.2, Corollary 11.7, p. 33",
+      "status": "missing",
+      "note": "Proposition 10.5 applies it to a finite product of groups G_{v_i} including compact real ones."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/119",
+      "kind": "definition",
+      "name": "Definition 12.1: weak equivalence of L-parameters of PGSp_6",
+      "statement": "φ_1, φ_2 ∈ Φ(PGSp_6) are weakly equivalent if (std_*(φ_1), spin_*(φ_1)) = (std_*(φ_2), spin_*(φ_2)) in Φ(Sp_6) × Φ(GL_8); Φ_w(PGSp_6) is the set of weak equivalence classes.",
+      "locator": "§12.1, Definition 12.1, p. 34",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/120",
+      "kind": "theorem",
+      "name": "Similitude theta dichotomy for PGSp_6",
+      "statement": "For the similitude theta correspondences of PGSp_6 with the split PGO_8 and PGO_6 = PGL_4 ⋊ Z/2Z and with PGO_{5,1} ≅ PGL_2(D) ⋊ Z/2Z (D the quaternion division algebra, F-rank 1), the conservation relation (Sun–Zhu) gives: every σ ∈ Irr(PGSp_6) has nonzero theta lift to exactly one of PGO_8 and PGO_{5,1}, so Irr(PGSp_6) = Irr^♥(PGSp_6) ⊔ Irr^♠(PGSp_6), and Irr^♥(PGSp_6) = Irr^♦(PGSp_6) ⊔ Irr^♣(PGSp_6) with Irr^♣ the representations lifting to PGO_6. This gives θ^♠♣ : Irr^♠♣(PGSp_6) → Irr(PGL_2(D))/(Z/2Z) ⊔ Irr(PGL_4)/(Z/2Z) →JL Irr(PGL_4)/(Z/2Z), and θ^♦ : Irr^♦(PGSp_6) → Irr(PGSO_8)/(Z/2Z), which is injective with values in the Z/2Z-fixed points.",
+      "locator": "§12.2, pp. 34–35",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/121",
+      "kind": "construction",
+      "name": "The spin lifting on all of Irr(PGSp_6)",
+      "statement": "(a) For σ ∈ Irr^♥(PGSp_6): spin_*(σ) = A(f_2^*(θ^♥(σ))) ∈ Irr(GL_8), as in §4.3. (b) For σ ∈ Irr^♠♣(PGSp_6): spin_*(σ) = ⊞ ∘ θ^♠♣(σ), where ⊞(τ, τ^∨) is the unique constituent of Ind_P^{GL_8}(τ ⊠ τ^∨) (P with Levi GL_4 × GL_4) with L-parameter φ_τ ⊕ φ_τ^∨. The two definitions agree on Irr^♣(PGSp_6), giving spin_* : Irr(PGSp_6) → Irr(GL_8).",
+      "locator": "§12.3, pp. 35–36",
+      "status": "missing",
+      "note": "Printed with π for σ and G for PGSp_6 (sourceIssues E12)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/122",
+      "kind": "theorem",
+      "name": "Theorem 12.3: Kret–Shin parameters for all of Irr(PGSp_6)",
+      "statement": "For σ ∈ Irr(PGSp_6) there is a unique φ ∈ Φ_w(PGSp_6) with std ∘ φ = L_{Sp_6}(rest(σ)) and spin ∘ φ = L_{GL_8}(spin_*(σ)).",
+      "locator": "§12.4, Theorem 12.3 and proof, p. 36",
+      "status": "missing",
+      "note": "An outline: the non-discrete-series case of Irr^♥ is 'omitted', and the discrete series case follows the proof of Proposition 5.1 with Lemmas 12.4 and 12.5."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/123",
+      "kind": "theorem",
+      "name": "Shin's automorphic Plancherel density theorem",
+      "statement": "(Shin, [S, Thm. 5.8], as used) Over a totally real k there are cuspidal automorphic representations of PGSp_6 with prescribed discrete series component at a finite place v_0, Steinberg component at v_1, discrete series with very regular (spin-regular) infinitesimal character at every real place, and unramified components elsewhere.",
+      "locator": "§12.5, proof of Lemma 12.4, p. 37",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/124",
+      "kind": "theorem",
+      "name": "Lemma 12.4: globalisation for PGSp_6",
+      "statement": "Let k be totally real with a place v_0, k_{v_0} = F, and a finite place v_1 ≠ v_0, and let σ ∈ Irr(PGSp_6(F)) be a discrete series representation. There is a cuspidal Σ of PGSp_6 over k with Σ_{v_0} = σ, Σ_{v_1} the Steinberg representation, Σ_{v_∞} a generic discrete series with very regular (spin-regular in the sense of [KS]) infinitesimal character at each real place, and Σ_v a quadratic twist of an unramified representation elsewhere.",
+      "locator": "§12.5, Lemma 12.4 and proof, p. 37",
+      "status": "missing",
+      "note": "The hypothesis that σ is a discrete series is implicit (Theorem 12.3 applies it to σ ∈ Irr_ds). Proof: Shin's theorem, Arthur's multiplicity formula for the generic A-parameter of rest(Σ′) (trivial global component group because of the Steinberg component) to change the archimedean components, extension to PGSp_6 and a quadratic twist."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/125",
+      "kind": "theorem",
+      "name": "The Rallis inner product criterion and the tower property for Sp_6 → O_8",
+      "statement": "(Gan–Qiu–Takeda, Thm. 1.4(ii)) For a cuspidal Σ of (P)GSp_6 over k, the global theta lift to (P)GSO_8 is nonzero if every local component Σ_v has nonzero local theta lift and L(s, Σ, std) is nonzero at s = 1; by the tower property it is cuspidal if the lift to the split PGO_6 vanishes (as it does when some Σ_v is the Steinberg representation).",
+      "locator": "§4.4, p. 18; §12.6, Lemma 12.5 and proof, pp. 37–38",
+      "status": "missing",
+      "note": "Stated in [GQT] for isometry groups; used here for the similitude pair. The proof of Proposition 4.1 also uses, without reference, that the global theta lift of a globally generic cuspidal representation of PGSp_6 to PGSO_8 is nonzero and globally generic."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/126",
+      "kind": "theorem",
+      "name": "Lemma 12.5: the global theta lift to PGSO_8",
+      "statement": "For Σ as in Lemma 12.4 with σ ∈ Irr^♥(PGSp_6), the global theta lift Θ(Σ) of Σ to the split PGSO_8 is a nonzero cuspidal automorphic representation.",
+      "locator": "§12.6, Lemma 12.5 and proof, pp. 37–38",
+      "status": "missing",
+      "note": "The text after the lemma adds that spin_*(Σ) = A(f_2^*(Θ(Σ))) is a cuspidal representation of GL_8 'because of the spin-regularity of the infinitesimal character at infinite places', with no further argument; the argument of Proposition 5.1, which the proof of Theorem 12.3 follows, uses spin_*(Σ) only as an isobaric representation."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/127",
+      "kind": "theorem",
+      "name": "Theorem 12.6: the weak LLC L_w for PGSp_6",
+      "statement": "L_w : Irr(PGSp_6) → Φ_w(PGSp_6), L_w(σ) := the φ of Theorem 12.3, is characterised by std ∘ L_w(σ) = L_{Sp_6}(rest(σ)) and spin ∘ L_w(σ) = L_{GL_8}(spin_*(σ)). It sends tempered (resp. discrete series) representations to weak classes of tempered (resp. discrete) parameters, and L_w(σ ⊗ χ) ≅ L_w(σ) ⊗ χ for every quadratic character χ of F^×.",
+      "locator": "§12.7, Theorem 12.6 and proof, pp. 38–39",
+      "status": "missing",
+      "note": "The twisting identity for Irr^♠♣ is 'omitted'. It uses θ^♥(σ ⊗ χ) = θ^♥(σ) ⊗ χ with the similitude character of PGSO_8 trivial on f_1(SO_8(F)), and f_2^*(π ⊗ χ) = f_2^*(π) ⊗ (χ ∘ spinor norm)."
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/128",
+      "kind": "theorem",
+      "name": "Theorem 12.7: the fibres of L_w",
+      "statement": "(i) L_w is surjective, and for each φ the restriction map rest : L_w^{-1}(φ) → L_{Sp_6}^{-1}(std ∘ φ)/PGSp_6 is surjective. (ii) The fibres of L_w are unions of Xu packets. For φ ∈ Φ(PGSp_6) valued in G_2(C) (φ = ι ∘ φ_0, φ_0 ∈ Φ^♦_ds(G_2)), L_w^{-1}(φ) is a single Xu packet.",
+      "locator": "§12.8, Theorem 12.7 and proof, pp. 39–40",
+      "status": "missing",
+      "note": "Proof of (ii) is given for discrete φ not factoring through Spin_6(C); the other cases are 'left to the reader'. The last sentence is the closing remark of §12.8, from Proposition 5.2."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "A. Kret and S. W. Shin, Galois representations for general symplectic groups, J. Eur. Math. Soc. 25 (2023), 75–152",
+      "link": "10.4171/jems/1179",
+      "why": "Theorem A: Spin_7(Q̄_ℓ)-valued (GSpin_{2n+1}) Galois representations for cuspidal representations of PGSp_6 with a Steinberg component and regular discrete series at infinity; the source of the Kret–Shin parameters (§5, Appendix C). No roadmap constructs GSpin-valued Galois representations."
+    },
+    {
+      "citation": "B. Xu, On a lifting problem of L-packets, Compositio Math. 152 (2016), 1800–1850",
+      "link": "10.1112/s0010437x16007545",
+      "why": "Propositions 6.27, 6.28 and Theorem 6.30: the partition of Π̃_{φ♭} into packets and their properties (a)–(e) (§7)."
+    },
+    {
+      "citation": "B. Xu, L-packets of quasisplit GSp(2n) and GO(2n), Math. Ann. 370 (2018), 71–189",
+      "link": "10.1007/s00208-016-1515-x",
+      "why": "Proposition 4.4 and Theorem 4.6: Xu's packets for GSp(2n) with stability and character identities (§7)."
+    },
+    {
+      "citation": "B. Xu, Global L-packets of quasisplit GSp(2n) and GO(2n), Amer. J. Math. 147 (2025), 401–464 (arXiv:2103.15300)",
+      "link": "10.1353/ajm.2025.a954647",
+      "why": "Theorem 4.1: global packets and the Arthur multiplicity formula for PGSp_6, used in Lemma 8.3 and Theorem 12.7 (cited as 'to appear')."
+    },
+    {
+      "citation": "G. Chenevier, Subgroups of Spin(7) or SO(7) with each element conjugate to some element of G_2 and applications to automorphic forms, Doc. Math. 24 (2019), 95–161",
+      "link": "10.4171/dm/676",
+      "why": "Theorem E (local parameters factor through G_2(C)) in the proof of Proposition 3.1, and Theorem 6.4 (G_2-valued Galois representations) for (viii)."
+    },
+    {
+      "citation": "G. Chenevier and W. T. Gan, Spin(7) is unacceptable, Peking Math. J. 8 (2025), 601–639 (arXiv:2303.15897)",
+      "link": "10.1007/s42543-023-00083-3",
+      "why": "Non-uniqueness of Kret–Shin parameters and Lemma 12.2 (weak equivalence is elementwise conjugacy)."
+    },
+    {
+      "citation": "M. Harris, C. Khare and J. A. Thorne, A local Langlands parameterization for generic supercuspidal representations of p-adic G_2, Ann. Sci. ENS 56 (2023), 257–286",
+      "link": "10.24033/asens.2533",
+      "why": "Lemma 4.6 (Proposition 5.2) and the appendix on generic global theta lifts (Lemma 10.8); its main theorem is reproved here."
+    },
+    {
+      "citation": "G. Savin and M. Weissman, Dichotomy for generic supercuspidal representations of G_2, Compositio Math. 147 (2011), 735–783",
+      "link": "10.1112/s0010437x10005178",
+      "why": "Proposition 4.6 and Theorem 5.3: generic supercuspidals of PGSp_6 with a pole of the spin L-function at s = 0 lift to G_2 (Proposition 6.1)."
+    },
+    {
+      "citation": "W. T. Gan and G. Savin, An exceptional Siegel–Weil formula and poles of the Spin L-function of PGSp_6, Compositio Math. 156 (2020), 1231–1261",
+      "link": "10.1112/s0010437x20007186",
+      "why": "Theorem 1.1: a cuspidal representation of PGSp_6 whose partial spin L-function has a pole at s = 1 lifts to a form of G_2 (Lemma 8.3)."
+    },
+    {
+      "citation": "W. T. Gan and G. Savin, A theory of γ-factors for G_2 × GL_r, arXiv:2308.12561 (2023)",
+      "link": "arXiv:2308.12561",
+      "why": "The γ-factors γ(s, π × τ, ψ) and their characterisation by properties independent of the LLC, which give (ix) and (x) their content."
+    },
+    {
+      "citation": "B. H. Gross and G. Savin, The dual pair PGL_3 × G_2, Canad. Math. Bull. 40 (1997), 376–384",
+      "link": "10.4153/cmb-1997-045-0",
+      "why": "Conjecture 3.1, proved in Theorem 9.1(i)."
+    },
+    {
+      "citation": "B. H. Gross and G. Savin, Motives with Galois group of type G_2: an exceptional theta-correspondence, Compositio Math. 114 (1998), 153–217",
+      "link": "10.1023/a:1000456731715",
+      "why": "Chapter 4 §1 (Lemma 2.4(ii)–(iii), S_φ ≅ S_{ι∘φ}/Z(Spin_7)); Chapter 5, Lemma 3.4, Prop. 4.5 and Cor. 4.9 (the twisted Jacquet module Π_{N,ψ_N} and the nonvanishing and cuspidality of global lifts); Conjectures 1.13, 2.3 and 2.5, proved in Theorem 9.1(ii)."
+    },
+    {
+      "citation": "J.-S. Huang, P. Pandžić and G. Savin, New dual pair correspondences, Duke Math. J. 82 (1996), 447–471",
+      "link": "10.1215/s0012-7094-96-08220-4",
+      "why": "Matching of infinitesimal characters for the real exceptional dual pairs (Lemma 8.3)."
+    },
+    {
+      "citation": "W. T. Gan, Exceptional Howe correspondences over finite fields, Compositio Math. 118 (1999), 323–344",
+      "link": "10.1023/a:1001555811349",
+      "why": "Depth-zero generic supercuspidals of G_2 with generic supercuspidal theta lifts (Lemmas 8.3 and 10.8)."
+    },
+    {
+      "citation": "M. Hanzer and G. Savin, Eisenstein series arising from Jordan algebras, Canad. J. Math. 72 (2020), 183–201",
+      "link": "10.4153/cjm-2018-033-2",
+      "why": "Theorem 6.4: the global minimal representation of the k-rank-3 form of E_7 used for global theta lifts (§10.2)."
+    },
+    {
+      "citation": "A. Ichino, E. Lapid and Z. Mao, On the formal degrees of square-integrable representations of odd special orthogonal and metaplectic groups, Duke Math. J. 166 (2017), 1301–1348",
+      "link": "10.1215/00127094-0000001x",
+      "why": "Proposition A.5 and Lemma A.2: isolation of generic discrete series in the generic cuspidal spectrum (Proposition 10.7, Lemma 10.8)."
+    },
+    {
+      "citation": "Y. Sakellaridis and A. Venkatesh, Periods and harmonic analysis on spherical varieties, Astérisque 396 (2017)",
+      "link": "10.24033/ast.1040",
+      "why": "Theorem 16.3.2 and Remark 16.4.1: Poincaré series and weak containment, the engine of both globalisation results (§10)."
+    },
+    {
+      "citation": "W. T. Gan, Y. Qiu and S. Takeda, The regularized Siegel–Weil formula (the second term identity) and the Rallis inner product formula, Invent. Math. 198 (2014), 739–831",
+      "link": "10.1007/s00222-014-0509-0",
+      "why": "Theorem 1.4(ii): the nonvanishing criterion for the global theta lift from PGSp_6 to PGSO_8 (Lemma 12.5)."
+    },
+    {
+      "citation": "B. Sun and C.-B. Zhu, Conservation relations for local theta correspondence, J. Amer. Math. Soc. 28 (2015), 939–983",
+      "link": "10.1090/s0894-0347-2014-00817-1",
+      "why": "The theta dichotomy for PGSp_6 between PGO_8 and PGO_{5,1} (§12.2)."
+    },
+    {
+      "citation": "S. W. Shin, Automorphic Plancherel density theorem, Israel J. Math. 192 (2012), 83–120",
+      "link": "10.1007/s11856-012-0018-z",
+      "why": "Theorem 5.8: globalisation of discrete series of PGSp_6 with prescribed components (Lemma 12.4)."
+    },
+    {
+      "citation": "J. W. Cogdell, H. H. Kim, I. I. Piatetski-Shapiro and F. Shahidi, Functoriality for the classical groups, Publ. Math. IHÉS 99 (2004), 163–233",
+      "link": "10.1007/s10240-004-0020-z",
+      "why": "The transfer A from SO_8 to GL_8 in the definition of the spin lifting (§4)."
+    },
+    {
+      "citation": "J. Adams and D. Barbasch, Reductive dual pair correspondence for complex groups, J. Funct. Anal. 132 (1995), 1–42",
+      "link": "10.1006/jfan.1995.1099",
+      "why": "The explicit theta correspondence at complex places in the proof of Proposition 4.1."
+    },
+    {
+      "citation": "R. L. Griess, Jr., Basic conjugacy theorems for G_2, Invent. Math. 121 (1995), 257–277",
+      "link": "10.1007/bf01884298",
+      "why": "Conjugacy of G_2(C)-valued parameters that are conjugate in GL_7(C) or Spin_7(C) (Lemma 2.4, [HKT, Lemma 4.6])."
+    },
+    {
+      "citation": "D. Miličić, On C*-algebras with bounded trace, Glasnik Mat. 8(28) (1973), 7–22",
+      "link": "no DOI (Glasnik Matematički 1973); not located online",
+      "why": "Theorem 5: limits of characters of irreducible unitary representations (Theorem 11.1)."
+    },
+    {
+      "citation": "M. Tadić, Geometry of dual spaces of reductive groups (non-archimedean case), J. Analyse Math. 51 (1988), 139–181",
+      "link": "10.1007/bf02791122",
+      "why": "Fell convergence implies convergence in the Bernstein centre (Proposition 11.3); with Tadić, 'On limits of characters of irreducible unitary representations', Glasnik Mat. 23(43) (1988), 15–25 (no DOI), used in Proposition 11.2 and Lemma 10.8."
+    },
+    {
+      "citation": "D. Barbasch and A. Moy, Whittaker models with an Iwahori fixed vector, Contemp. Math. 177 (1994), 101–105",
+      "link": "10.1090/conm/177/01917",
+      "why": "Representations containing the Steinberg K-type are generic (Proposition 11.3)."
+    },
+    {
+      "citation": "V. Heiermann and E. Opdam, On the tempered L-functions conjecture, Amer. J. Math. 135 (2013), 777–799",
+      "link": "10.1353/ajm.2013.0026",
+      "why": "Generic irreducible representations are standard modules (Proposition 11.2)."
+    },
+    {
+      "citation": "K. Y. Chan and G. Savin, Iwahori component of Bessel model spaces, Proc. Amer. Math. Soc. 148 (2020), 1487–1497",
+      "link": "10.1090/proc/14903",
+      "why": "Proposition 5: the Steinberg representation restricted to a maximal unipotent subgroup is the regular representation (Lemma 10.3)."
+    },
+    {
+      "citation": "J.-S. Li, On the classification of irreducible low rank unitary representations of classical groups, Compositio Math. 71 (1989), 29–48",
+      "link": "http://www.numdam.org/item/CM_1989__71_1_29_0/",
+      "why": "Low-rank unitary representations of Sp_6 are theta lifts from small orthogonal groups (Lemma 10.1)."
+    },
+    {
+      "citation": "B. Bekka, P. de la Harpe and A. Valette, Kazhdan's Property (T), Cambridge Univ. Press, 2008",
+      "link": "10.1017/cbo9780511542749",
+      "why": "Appendix F (Fell topology) and Theorems C.5.2, C.5.6 (extremality of matrix coefficients, Raikov) in Appendix B."
+    },
+    {
+      "citation": "D. A. Vogan, Jr., Isolated unitary representations, in Automorphic Forms and Applications, IAS/Park City Math. Ser. 12 (2007), 379–398",
+      "link": "10.1090/pcms/012/08",
+      "why": "The real-group analogue of Proposition 11.2."
+    }
+  ],
+  "routes": [
+    {
+      "route": "new",
+      "roadmap": "LocalLanglandsCorrespondenceForG2",
+      "title": "The local Langlands correspondence for G_2: theta lifting, spin lifting by triality and Kret–Shin parameters",
+      "area": "langlands",
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/2",
+        "PAPER-GAN-SAVIN-23-B/3",
+        "PAPER-GAN-SAVIN-23-B/4",
+        "PAPER-GAN-SAVIN-23-B/5",
+        "PAPER-GAN-SAVIN-23-B/6",
+        "PAPER-GAN-SAVIN-23-B/7",
+        "PAPER-GAN-SAVIN-23-B/8",
+        "PAPER-GAN-SAVIN-23-B/9",
+        "PAPER-GAN-SAVIN-23-B/10",
+        "PAPER-GAN-SAVIN-23-B/11",
+        "PAPER-GAN-SAVIN-23-B/12",
+        "PAPER-GAN-SAVIN-23-B/13",
+        "PAPER-GAN-SAVIN-23-B/14",
+        "PAPER-GAN-SAVIN-23-B/24",
+        "PAPER-GAN-SAVIN-23-B/25",
+        "PAPER-GAN-SAVIN-23-B/26",
+        "PAPER-GAN-SAVIN-23-B/27",
+        "PAPER-GAN-SAVIN-23-B/28",
+        "PAPER-GAN-SAVIN-23-B/29",
+        "PAPER-GAN-SAVIN-23-B/30",
+        "PAPER-GAN-SAVIN-23-B/31",
+        "PAPER-GAN-SAVIN-23-B/34",
+        "PAPER-GAN-SAVIN-23-B/35",
+        "PAPER-GAN-SAVIN-23-B/36",
+        "PAPER-GAN-SAVIN-23-B/37",
+        "PAPER-GAN-SAVIN-23-B/39",
+        "PAPER-GAN-SAVIN-23-B/40",
+        "PAPER-GAN-SAVIN-23-B/42",
+        "PAPER-GAN-SAVIN-23-B/43",
+        "PAPER-GAN-SAVIN-23-B/44",
+        "PAPER-GAN-SAVIN-23-B/45",
+        "PAPER-GAN-SAVIN-23-B/47",
+        "PAPER-GAN-SAVIN-23-B/48",
+        "PAPER-GAN-SAVIN-23-B/49",
+        "PAPER-GAN-SAVIN-23-B/51",
+        "PAPER-GAN-SAVIN-23-B/52",
+        "PAPER-GAN-SAVIN-23-B/53",
+        "PAPER-GAN-SAVIN-23-B/54",
+        "PAPER-GAN-SAVIN-23-B/55",
+        "PAPER-GAN-SAVIN-23-B/56",
+        "PAPER-GAN-SAVIN-23-B/57",
+        "PAPER-GAN-SAVIN-23-B/58",
+        "PAPER-GAN-SAVIN-23-B/59",
+        "PAPER-GAN-SAVIN-23-B/60",
+        "PAPER-GAN-SAVIN-23-B/61",
+        "PAPER-GAN-SAVIN-23-B/62",
+        "PAPER-GAN-SAVIN-23-B/63",
+        "PAPER-GAN-SAVIN-23-B/64",
+        "PAPER-GAN-SAVIN-23-B/65",
+        "PAPER-GAN-SAVIN-23-B/73",
+        "PAPER-GAN-SAVIN-23-B/74",
+        "PAPER-GAN-SAVIN-23-B/75",
+        "PAPER-GAN-SAVIN-23-B/76",
+        "PAPER-GAN-SAVIN-23-B/77",
+        "PAPER-GAN-SAVIN-23-B/78",
+        "PAPER-GAN-SAVIN-23-B/79",
+        "PAPER-GAN-SAVIN-23-B/80",
+        "PAPER-GAN-SAVIN-23-B/89",
+        "PAPER-GAN-SAVIN-23-B/90",
+        "PAPER-GAN-SAVIN-23-B/91",
+        "PAPER-GAN-SAVIN-23-B/94",
+        "PAPER-GAN-SAVIN-23-B/95",
+        "PAPER-GAN-SAVIN-23-B/96",
+        "PAPER-GAN-SAVIN-23-B/97",
+        "PAPER-GAN-SAVIN-23-B/98",
+        "PAPER-GAN-SAVIN-23-B/99",
+        "PAPER-GAN-SAVIN-23-B/103",
+        "PAPER-GAN-SAVIN-23-B/119",
+        "PAPER-GAN-SAVIN-23-B/121",
+        "PAPER-GAN-SAVIN-23-B/122",
+        "PAPER-GAN-SAVIN-23-B/123",
+        "PAPER-GAN-SAVIN-23-B/124",
+        "PAPER-GAN-SAVIN-23-B/126",
+        "PAPER-GAN-SAVIN-23-B/127",
+        "PAPER-GAN-SAVIN-23-B/128"
+      ],
+      "brief": "A new roadmap for W. T. Gan and G. Savin, 'The local Langlands conjecture for G_2' (Forum Math. Pi 11 (2023), e28; doi:10.1017/fmp.2023.27; arXiv:2209.07346). Final theorems, as the paper states them (F a nonarchimedean local field of characteristic 0 with residue characteristic p). Main Theorem: there is a natural surjective map L : Irr(G_2(F)) → Φ(G_2) with finite fibres such that (i) π is a discrete series iff L(π) does not factor through a proper Levi subgroup of G_2(C); (ii) π is tempered iff L(π)(W_F) is bounded, and for π ⊂ Ind_P τ with τ unitary discrete series of M (M = GL_2 or GL_1²), L(π) is the parameter of τ composed with M^∨ ↪ G_2(C); (iii) for non-tempered π, the Langlands quotient of Ind_P τ, L(π) is the parameter of τ composed with M^∨ ↪ G_2(C); (iv) L(π) = ι′_*(L_{PD^×}(θ_D(π))) for π ∈ Irr^♠(G_2), and std_* ι_*(L(π)) = L_{Sp_6}(rest(θ(π))) for π ∈ Irr^♥(G_2); (v) L is characterised by (i)–(iv); (vi) for generic discrete series π, spin_* ι_*(L(π)) = L_{GL_8}(spin_*(θ(π))); (vii) L^{-1}(φ) is in natural bijection with Irr(S_φ), S_φ = π_0(Z_{G_2(C)}(φ)), for p ≠ 3, and for p = 3 unless perhaps φ ∈ ι′_*(Φ_ds(PGL_3)); for tempered φ the trivial character corresponds to the unique generic member; (viii) for a globally generic regular algebraic cuspidal Π of G_2 over a totally real field with a Steinberg component, any associated ρ_Π : Gal → GL_7(Q̄_ℓ) factors through G_2(Q̄_ℓ) and is compatible with L(Π_v) at every finite v; (ix) γ(s, π × τ, ψ) = γ(s, (std ∘ L(π)) ⊗ φ_τ, ψ) for the γ-factors of [GS24]; (x) L is characterised by (i), (ii), (iii) and (ix). Also final: Theorem 9.1 (the Gross–Savin conjectures for PGL_3 × G_2 when p ≠ 3, and for G_2 × PGSp_6 on the discrete parameters Φ^♦_ds(G_2)); the partial LLC for PGSp_6 of §9; and Appendix C's weak LLC L_w : Irr(PGSp_6) → Φ_w(PGSp_6) (Theorems 12.3, 12.6, 12.7). Cover, in this order: (0) the dual-group maps SL_3(C) → G_2(C) → Spin_7(C) → SO_7(C) and spin : Spin_7(C) → GL_8(C), the induced maps of L-parameters, and Lemma 2.4 (injectivity, the pole characterisations of Φ^♠♣_ds and Φ^♦_ds, the component groups; after Griess and Gross–Savin [GrS2, Ch. 4 §1]), with Chenevier's results on subgroups of Spin(7) and SO(7) (Theorems E and 6.4), Harris–Khare–Thorne's Lemma 4.6 and Chenevier–Gan's 'Spin(7) is unacceptable' (Lemma 12.2); (1) the two definitions of L and Proposition 3.1 with its global proof; (2) the initial properties of §3.4 and the γ-factor characterisation: the lift Lif to GL_7, the γ-factors of [GS24] and the local converse theorem for GL_7; (3) the packets over Φ^♠♣_ds(G_2) (Proposition 3.2): central simple algebras of degree 3, the invariant and Kottwitz maps for PGL_3, Jacquet–Langlands for D_1 and D_2; (4) triality over F and the spin lifting spin_* : Irr_gen(PGSp_6) → Irr(GL_8), local and global, and Proposition 4.1, with Langlands–Shahidi γ-factors for the spin L-function, the Adams–Barbasch correspondence at complex places and strong multiplicity one for GL_n; (5) Kret–Shin parameters: Kret–Shin's Theorem A, Propositions 5.1 and 5.2, Corollary 5.3; (6) the surjectivity of L^♦ (Proposition 6.1); (7) the fibres over Φ^♦_ds(G_2): Propositions 8.1 and 8.2, Lemma 8.3 and §8.3, on Xu's packets; (8) the applications of §9; (9) globalisation (Appendix A, §§10.2–10.3): the spaces L²_D and L²_{ψ-gen,σ}, Propositions 10.5 and 10.7, Corollary 10.6, Lemma 10.8, Sakellaridis–Venkatesh's Poincaré series, Ichino–Lapid–Mao's isolation of generic discrete series, the archimedean isolation of discrete series far from the walls, and Shin's automorphic Plancherel density theorem; (10) the weak LLC for PGSp_6 (Appendix C). Treat as proof obligations: the parametrisation of the packets over self-dual φ ∈ ι′_*(Φ_ds(PGL_3)), where S_φ ≅ S_3 and the proof of Proposition 3.2 does not apply (sourceIssues E1); the scope of Theorem 9.1(ii) (E2); the steps Appendix C omits (the non-discrete case of Theorem 12.3, the twisting identity on Irr^♠♣ in Theorem 12.6, the reduction to discrete parameters and the Irr^♠♣ case in Theorem 12.7(ii)); and the implicit hypotheses of Lemma 12.4 (σ a discrete series) and Lemma 12.5 (σ ∈ Irr^♥). State as source-gated inputs, with their exact published hypotheses, until a roadmap owns them: Kret–Shin's Theorem A, Chenevier's Theorems E and 6.4, [GS24]'s characterisation of γ-factors, and Shin's Theorem 5.8. Import from: Exceptional theta correspondences for G_2 (ExceptionalThetaCorrespondencesForG2, proposed by PAPER-GAN-SAVIN-23 and extended by this extraction), for the local exceptional theta correspondences, the L-parameters and desiderata for G_2, the local lemmas of §10.1 and the global exceptional theta lifts; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4, for Arthur's classification of Sp_6 and SO_8 and for Xu's packets for PGSp_6 (routed there by this extraction); Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6, for the LLC of GL_n and Jacquet–Langlands; Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII) AG2.2 and AG2.5, for Galois representations of regular algebraic self-dual cuspidal representations and Taylor–Yoshida/Caraiani local–global compatibility; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3–AL.4, for Rankin–Selberg and unramified factors; Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.3, for the classical similitude theta correspondences of PGSp_6 (routed there), and its pending Part II MetaplecticAutomorphicFormsPartIIShimuraWaldspurger for the Rallis inner product formula and the tower property; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.3, and its Part II proposed here (SmoothRepresentationsPartIIUnitaryDual) for the Fell topology, weak containment and the isolation of the Steinberg representation; Clifford algebras, the Pin and Spin groups, and spin representations (tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations) Layers 5 and 8, for the spin representations and triality over C; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layer 5, for the local Brauer group and its invariant; Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups) Layer 9, for the split groups G_2, PGSp_6, SO_8 and PGSO_8.",
+      "reason": "Nothing in the atlas plans a local Langlands correspondence beyond GL_n and inner forms (ET.6) and Arthur's classical groups (ML.4). ExceptionalThetaCorrespondencesForG2, proposed by PAPER-GAN-SAVIN-23 and awaiting review, owns the exceptional theta correspondences and records the desiderata for the L-packets of G_2; its brief asks to be designed so that this paper can extend it. It is still a candidate, not a roadmap, so a Part II of it cannot be proposed: this new roadmap takes it as its first prerequisite and starts where it stops (if the candidate is designed first, the reviewer may retitle this route 'Exceptional theta correspondences for G_2, Part II: the local Langlands correspondence'). Coalescing into the candidate instead would load a theta roadmap with Galois representations, Xu's packets, triality and the spin lifting, and globalisation, none of which is theta. The spin lifting, the Kret–Shin parameters and the weak LLC for PGSp_6 are tools for G_2 in this paper and have no other consumer in the atlas, so they stay here."
+    },
+    {
+      "route": "new",
+      "roadmap": "ExceptionalThetaCorrespondencesForG2",
+      "title": "Exceptional theta correspondences for G_2: minimal representations, Howe duality and theta dichotomy",
+      "area": "representations",
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/1",
+        "PAPER-GAN-SAVIN-23-B/15",
+        "PAPER-GAN-SAVIN-23-B/16",
+        "PAPER-GAN-SAVIN-23-B/17",
+        "PAPER-GAN-SAVIN-23-B/18",
+        "PAPER-GAN-SAVIN-23-B/19",
+        "PAPER-GAN-SAVIN-23-B/20",
+        "PAPER-GAN-SAVIN-23-B/21",
+        "PAPER-GAN-SAVIN-23-B/22",
+        "PAPER-GAN-SAVIN-23-B/23",
+        "PAPER-GAN-SAVIN-23-B/46",
+        "PAPER-GAN-SAVIN-23-B/66",
+        "PAPER-GAN-SAVIN-23-B/81",
+        "PAPER-GAN-SAVIN-23-B/82",
+        "PAPER-GAN-SAVIN-23-B/83",
+        "PAPER-GAN-SAVIN-23-B/84",
+        "PAPER-GAN-SAVIN-23-B/85",
+        "PAPER-GAN-SAVIN-23-B/86",
+        "PAPER-GAN-SAVIN-23-B/87",
+        "PAPER-GAN-SAVIN-23-B/88",
+        "PAPER-GAN-SAVIN-23-B/92",
+        "PAPER-GAN-SAVIN-23-B/93",
+        "PAPER-GAN-SAVIN-23-B/100",
+        "PAPER-GAN-SAVIN-23-B/101",
+        "PAPER-GAN-SAVIN-23-B/102"
+      ],
+      "brief": "This route coalesces with ExceptionalThetaCorrespondencesForG2, proposed by PAPER-GAN-SAVIN-23 (Gan–Savin, 'Howe duality and dichotomy for exceptional theta correspondences', Invent. Math. 232 (2023)); keep its id, title, area and brief. Gan–Savin 2023b ('The local Langlands conjecture for G_2', Forum Math. Pi 11 (2023), e28) is the consumer that brief anticipates, and the new roadmap LocalLanglandsCorrespondenceForG2 proposed here imports the following, which this route adds to the candidate's targets: (a) the summary Theorem 2.1, Proposition 2.3 and the decomposition (2.2) as the paper restates them, the explicit lifts of non-supercuspidal representations (GS23 Theorems 8.2, 8.5, 15.1–15.3) and the preservation of genericity by θ (GS23 Corollary 15.7); (b) L-parameters Φ(G) and component groups S_φ for any split G, not only G_2, so that PGSp_6, Sp_6, PGL_3 and GL_n use the same definition; (c) the dual pairs Aut(D^+) × G_2 for every central simple algebra D of degree 3, with θ(JL_{D_j}(τ)) ≅ θ(JL_{D_{−j}}(τ^∨)) and the nonvanishing of these lifts for p ≠ 3; (d) Savin–Weissman's theorem that a generic supercuspidal of PGSp_6 with L(0, σ, spin) = ∞ lifts to G_2, and Gan's depth-zero generic supercuspidals of G_2 with generic supercuspidal lifts (Compositio 118 (1999)); (e) the local lemmas of Appendix A, §10.1: the subgroups G_D, the open Siegel orbits indexed by quaternion algebras, Π_{N,ψ_N} ≅ ind^G_{G_D}(1) for the E_7 minimal representation ([GrS2, §5, Lemma 3.4]), Howe's N-rank with Li's classification of low-rank unitary representations, Lemma 10.1, Corollary 10.2, Lemma 10.3 and Lemma 10.4; (f) a global layer after the local ones: the dual pair G × PGSp_6 in the k-rank-3 form E_{7,3} given by the Albert algebra J_3(O), with Hanzer–Savin's global minimal representation, Gross–Savin's nonvanishing (via G_D-periods) and cuspidality results [GrS2, Ch. 5, Prop. 4.5, Cor. 4.9] over any number field, the generic global lifts of [HKT, appendix], and Huang–Pandžić–Savin's matching of infinitesimal characters at real places. Additional imports: Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms) MP.5, for theta kernels and automorphic spaces in the global layer; Finite-dimensional representations of the classical groups (tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups) Layer 6, for the branching rule.",
+      "reason": "PAPER-GAN-SAVIN-23 proposed ExceptionalThetaCorrespondencesForG2 for the exceptional theta correspondences that this paper takes as its starting point, and that candidate already plans the L-parameters and desiderata of G_2 and the subgroups of G_2(C). The items routed here are statements about those correspondences, restated or used by this paper, and local or global properties of the same dual pairs; one owner for the exceptional theta correspondence keeps them together."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SmoothRepresentationsOfLocalGroups",
+      "roadmap": "SmoothRepresentationsPartIIUnitaryDual",
+      "title": "Smooth representations of local groups, Part II: the unitary dual, the Fell topology and isolated representations",
+      "area": "representations",
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/104",
+        "PAPER-GAN-SAVIN-23-B/105",
+        "PAPER-GAN-SAVIN-23-B/106",
+        "PAPER-GAN-SAVIN-23-B/107",
+        "PAPER-GAN-SAVIN-23-B/108",
+        "PAPER-GAN-SAVIN-23-B/109",
+        "PAPER-GAN-SAVIN-23-B/110",
+        "PAPER-GAN-SAVIN-23-B/111",
+        "PAPER-GAN-SAVIN-23-B/112",
+        "PAPER-GAN-SAVIN-23-B/113",
+        "PAPER-GAN-SAVIN-23-B/115",
+        "PAPER-GAN-SAVIN-23-B/116",
+        "PAPER-GAN-SAVIN-23-B/117",
+        "PAPER-GAN-SAVIN-23-B/118"
+      ],
+      "brief": "Part II of Smooth representations of local groups (SmoothRepresentationsOfLocalGroups). It starts where that roadmap stops: SR.0–SR.6 build the smooth category, Hecke algebras, induction and Jacquet functors, admissibility, the Bernstein decomposition, temperedness criteria and Satake, but no layer treats unitary representations. Source: Gan–Savin, 'The local Langlands conjecture for G_2' (Forum Math. Pi 11 (2023), e28), Appendix B (§11), with its inputs. Final theorems, as stated there for a split simple (Chevalley) group G over a p-adic field F: Theorem 11.1 (Miličić: for irreducible unitarizable π_n with weakly convergent characters, lim χ_{π_n} = Σ_{σ∈S} n_σ χ_σ with S finite and S = L[π_n] = C[π_n]); Proposition 11.2 (after passing to a subsequence, generic unitarizable π_n with a generic limit point δ are standard modules Ind_P(τ_n) with τ_n → τ and δ a subquotient of Ind_P(τ)); Proposition 11.3 (the Steinberg representation is isolated in the unitary dual when rank G ≥ 2); Proposition 11.6 (an irreducible unitary σ weakly contained in ⊕̂ π_i is a limit of a subsequence of the π_i); Corollary 11.7 (if moreover σ is isolated, σ ≅ π_i for some i). Cover, in this order: (1) continuous unitary representations, smooth vectors, unitarizability, matrix coefficients and normalised positive-definite functions; (2) the Fell topology through uniform convergence of matrix coefficients on compact sets, limit and cluster points (Bekka–de la Harpe–Valette, Appendix F); (3) weak containment (Definition 11.5), Raikov's theorem and the extremality of matrix coefficients of irreducibles (BHV, Thms C.5.2, C.5.6), Banach–Alaoglu (Mathlib's WeakDual.isCompact_closedBall) with L^∞(G) = L^1(G)^*, Milman's converse to the Krein–Milman theorem (Mathlib has closure_convexHull_extremePoints but not the converse), Proposition 11.6 and Corollary 11.7, stated also for finite products of such groups with compact groups, as the globalisation arguments use them; (4) character distributions and their weak convergence, Miličić's theorem, and Tadić's results (limits of tempered characters, supercuspidal supports of limits, Fell convergence implies convergence in the Bernstein centre); (5) Heiermann–Opdam (every irreducible generic representation is a standard module) and Proposition 11.2; (6) the isolation of supercuspidal representations, Howe–Moore, Rodier's description of the principal series containing the Steinberg representation, the Steinberg representation st_G of G(F_q) and Barbasch–Moy's genericity criterion, Lemma 11.4 and Proposition 11.3. Import from: Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.3, for induction, Jacquet modules, the Bernstein centre and temperedness; Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII) RG2.3–RG2.4, for parahoric and Iwahori subgroups and the Cartan and Iwahori decompositions. The real-group analogues (Vogan) are out of scope; the consumer states the archimedean facts it needs.",
+      "reason": "SmoothRepresentationsOfLocalGroups owns the representation theory of p-adic groups in the atlas, and none of its layers treats unitary representations or the unitary dual; the pending SmoothRepresentationsPartII (PAPER-BUSHNELL-HENNIART-17, PAPER-FINTZEN-21) goes in another direction (types, depth and supercuspidals). Appendix B is stated for any split simple p-adic group, so by PROTOCOL §15 it is planned once, as a Part II of the most foundational owner, and the local Langlands roadmap for G_2 imports it."
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularityAndLanglandsExtensions",
+      "stages": [
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/67",
+        "PAPER-GAN-SAVIN-23-B/68",
+        "PAPER-GAN-SAVIN-23-B/69",
+        "PAPER-GAN-SAVIN-23-B/70",
+        "PAPER-GAN-SAVIN-23-B/71",
+        "PAPER-GAN-SAVIN-23-B/72"
+      ],
+      "reason": "Bin Xu's L-packets for quasi-split GSp(2n), their properties (a)–(e) and his global multiplicity formula are classification inputs for a classical similitude group, of the kind ML.4 owns (packets, multiplicities and local–global compatibilities of the Arthur/Mok/KMSW classification). PAPER-GAN-SAVIN-23 routed Gan–Takeda's correspondence for GSp_4 to ML.4 for the same reason. Xu's published papers (Compositio 2016, Math. Ann. 2017, Amer. J. Math. 2025) are the sources."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.3"
+      ],
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/50",
+        "PAPER-GAN-SAVIN-23-B/120"
+      ],
+      "reason": "The similitude theta correspondences of PGSp_6 with PGSO_8, PGO_6 = PGL_4 ⋊ Z/2Z and PGO_{5,1}, the conservation relation of Sun–Zhu and the unramified correspondence are classical local theta facts, which MP.3 owns. PAPER-GAN-ICHINO-18 routed the conservation relation and Howe duality to MP.3, and PAPER-GAN-SAVIN-23 routed the similitude correspondence for GL_2 × GSO_4 there."
+    },
+    {
+      "route": "part-ii",
+      "parent": "MetaplecticAutomorphicForms",
+      "roadmap": "MetaplecticAutomorphicFormsPartIIShimuraWaldspurger",
+      "title": "Metaplectic groups, Weil representations and automorphic theta kernels, Part II: theta correspondences and the Shimura–Waldspurger correspondence for Mp_2n",
+      "area": "automorphic",
+      "items": [
+        "PAPER-GAN-SAVIN-23-B/125"
+      ],
+      "brief": "This route coalesces with MetaplecticAutomorphicFormsPartIIShimuraWaldspurger, proposed by PAPER-GAN-ICHINO-18; keep its id, title, area and brief. Its layer (4) already plans global theta lifts, the tower property and the Rallis inner product formula (Kudla–Rallis, Gan–Qiu–Takeda, Yamana). Gan–Savin, 'The local Langlands conjecture for G_2' (Forum Math. Pi 11 (2023), e28), uses them for the similitude dual pair PGSp_6 × PGSO_8 (Proposition 4.1 and Lemma 12.5): state the Gan–Qiu–Takeda nonvanishing criterion (Invent. Math. 198 (2014), Thm. 1.4(ii)) for Sp_6 × O_8, the boundary case dim V = 2n + 2 where the relevant value is L(1, Σ, std), with its similitude version; cuspidality by the tower property when the lift to the split PGO_6 vanishes; and the nonvanishing and global genericity of the theta lift of a globally generic cuspidal representation.",
+      "reason": "PAPER-GAN-ICHINO-18 proposed MetaplecticAutomorphicFormsPartIIShimuraWaldspurger for global classical theta lifts, including the tower property and the Rallis inner product formula of Gan–Qiu–Takeda, which is the owner of this item."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E1",
+      "kind": "gap",
+      "locator": "§3.5, proof of Proposition 3.2, pp. 14–15",
+      "printed": "One has a projective system (relative to G_2-conjugacy) of centralizer subgroups Z_{G_2}(φ) which are finite of order 3, and thus identified with the component groups S_φ. We denote this projective system of local component groups by S_[φ] and set C_[φ] = Z_{G_2}(S_[φ]): this is a projective system of subgroups of G_2(C) which are simply-connected of type A_2.",
+      "correction": "Restrict this construction to the φ = ι′ ∘ ρ with ρ not self-dual, where Z_{G_2}(φ) = μ_3. For self-dual ρ (S_φ ≅ S_3) a separate parametrisation is needed; Theorem 9.1(i) predicts it: the two characters of S_3 trivial on μ_3 go to the lifts from PGL_3 ⋊ Z/2Z, the 2-dimensional representation to the lift from PD^×.",
+      "reason": "Lemma 2.4(i) (p. 9) states S_{ι′_*(φ)} = S_3 when φ ∈ Φ_ds(PGL_3) is self-dual, and its proof (p. 10) says the centraliser in G_2(C) is μ_3 or S_3 according as φ ≇ φ^∨ or φ ≅ φ^∨. Self-dual discrete φ exist for every p: for φ trivial on W_F and 3-dimensional irreducible on SL_2, ι′ ∘ φ is the subregular SL_2 of G_2(C), which the proposition itself names, and its component group is S_3. For such φ, S_[φ] does not have order 3; C_[φ] = Z_{G_2}(S_3) is the fixed group of an outer involution of SL_3(C), isomorphic to SO_3(C), not simply connected of type A_2; and Irr(S_3) has three elements, so the bijection j : Irr(S_[φ]) → Z/3Z and the map η ↦ π_η of (b)–(c) are not defined. The count is right (three members; PAPER-GAN-SAVIN-23's desiderata list π_gen[1], π_deg[1], π_sc[1], indexed by 1, r, ε of S_3, for the subregular unipotent parameter), so the statement is plausible, but the 'natural bijection' of Proposition 3.2 and Main Theorem (vii) is not constructed for these φ.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E2",
+      "kind": "gap",
+      "locator": "§9, Theorem 9.1(ii), p. 27",
+      "printed": "More precisely, suppose that π ∈ Irr(G_2) has (enhanced) L-parameter (φ, η), then its local theta lift θ(π) ∈ Irr(PGSp_6) has (enhanced) L-parameter (φ′, η′) satisfying φ′ = ι ∘ φ and η = η′ ∘ ι_*",
+      "correction": "… suppose that π ∈ Irr(G_2) has enhanced L-parameter (φ, η) with φ ∈ Φ^♦_ds(G_2); then θ(π) ∈ Irr(PGSp_6) has enhanced L-parameter (ι ∘ φ, η′) with η = η′ ∘ ι_*.",
+      "reason": "For π ∈ Irr^♠(G_2), θ(π) = 0 (Theorem 2.1(ii)). The paper attaches an L-parameter, with Xu's parametrisation (c) as enhancement, only to the distinguished Xu packets Π̃^{X*}_{φ♭} for φ ∈ Φ^♦_ds(G_2) (§9: 'with this definition of the L-packet of PGSp_6 associated to ι ∘ φ'); Appendix C's L_w gives only weak equivalence classes and no enhancement. For π ∈ Irr^♣(G_2) or non-discrete φ the paper defines no enhanced parameter for θ(π), so (ii) is proved only for φ ∈ Φ^♦_ds(G_2), where it follows from §8.3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the passage was not compared (the PDF text of v2 is set differently)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E3",
+      "kind": "misprint",
+      "locator": "§1.1, Main Theorem (ix), p. 4",
+      "printed": "γ(s, π × τ, ψ) = γ(s, std ∘ L(π)) ⊗ φ_τ, ψ)",
+      "correction": "γ(s, π × τ, ψ) = γ(s, (std ∘ L(π)) ⊗ φ_τ, ψ)",
+      "reason": "The parentheses do not balance; §3.4 (p. 13) writes γ(s, (std ∘ φ_π) ⊗ φ_τ, ψ).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the passage was not compared (the PDF text of v2 is set differently)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E4",
+      "kind": "misprint",
+      "locator": "§1.2, p. 5",
+      "printed": "using various globalization results which are given in Appendices A and B (i.e. § 9 and §11), the construction of Galois representations associated to cohomological cuspidal representations of GL_7 and the group theoretic results of Chenevier [C] and Greiss [Gr95].",
+      "correction": "… Appendices A and B (i.e. §10 and §11) … Chenevier [C] and Griess [Gr95].",
+      "reason": "Appendix A is §10 ('10. Appendix A: Some Globalization Results', p. 27); §9 is 'Applications to Theta Correspondence'. The author of [Gr95] is R. L. Griess, Jr., as the bibliography (p. 41) spells it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E5",
+      "kind": "misprint",
+      "locator": "§2.1, p. 8 and §3.1, p. 10",
+      "printed": "By Theorem 2.1(iii), as a refinement of the decomposition of Irr(G_2) in Theorem 2.1(i), one has a further decomposition … / … we make use of the decomposition Irr(G_2) = Irr^♠(G_2) ⊔ Irr^♥(G_2) introduced in Theorem 2.1(i).",
+      "correction": "Theorem 2.1(ii), in both places.",
+      "reason": "Theorem 2.1(i) is Howe duality; the decomposition Irr(G_2) = Irr^♥(G_2) ⊔ Irr^♠(G_2) is stated in Theorem 2.1(ii) (theta dichotomy).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E6",
+      "kind": "misprint",
+      "locator": "§3.3, p. 11",
+      "printed": "Let k be a totally real number field with a place w such that k_w ≅ F. Let O be a totally definite octonion algebra over F with automorphism group G = Aut(O). Then G_v is anisotropic at all archimedean places v and G_v is the split G_2 at all finite places v.",
+      "correction": "… Let O be a totally definite octonion algebra over k …",
+      "reason": "O must be a global algebra: G_v for archimedean v and the automorphic representation Π of G are over k, and 'totally definite' refers to the real places of k (as in §10.2, p. 28, and §8.4, p. 25).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E7",
+      "kind": "misprint",
+      "locator": "§4.4, proof of Proposition 4.1(i), p. 19",
+      "printed": "This gives the identity for representations of G_2(F):",
+      "correction": "This gives the identity for representations of PGSp_6(F):",
+      "reason": "The display that follows involves St, δ and σ, which are representations of PGSp_6(F) (Σ is a cuspidal representation of PGSp_6 over k with Σ_u = St, Σ_w = δ, Σ_v = σ for v ∈ T).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E8",
+      "kind": "misprint",
+      "locator": "§7, (7.2) and (d), p. 22",
+      "printed": "Φ̃_{φ♭} := {φ ∈ Φ(PGSp_6) : std ∘ φ = φ^♭} (7.2) of lifts of φ to Spin_7(C). … (d) With respect to the parametrization above, the set Π̃^X_{φ,ν} satisfies the stability properties and local character identities required by the theory of endoscopy.",
+      "correction": "… of lifts of φ^♭ to Spin_7(C). … (d) … the set Π̃^X_{φ♭} satisfies …",
+      "reason": "The elements of Φ̃_{φ♭} are the lifts of the Sp_6-parameter φ^♭ along std : Spin_7(C) → SO_7(C). The notation Π̃^X_{φ,ν} is defined nowhere; the Xu packets are the subsets Π̃^X_{φ♭} of (a)–(c).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E9",
+      "kind": "misprint",
+      "locator": "§9, p. 26",
+      "printed": "Indeed, the distinguished Xu's packet Π̃^{X*}_{φ♭} is the unique one in Φ̃_{φ♭} for which the Langlands-Shahidi Spin L-function of its unique generic member is equal to the local L-factor of spin ∘ ι ∘ φ",
+      "correction": "… is the unique one in Π̃_{φ♭} (the unique Xu packet contained in Π̃_{φ♭}) for which …",
+      "reason": "Xu packets are subsets of Π̃_{φ♭} ⊂ Irr(PGSp_6) (§7); Φ̃_{φ♭} is the set of L-parameters lifting φ^♭.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E10",
+      "kind": "misprint",
+      "locator": "§10.1, p. 27",
+      "printed": "The group M acts on N̂ with open orbits parameterized by quaternion algebras D: the stabilizer in M of an element in the orbit parameterized by is isomorphic to Aut(D).",
+      "correction": "… in the orbit parameterized by D is isomorphic to Aut(D).",
+      "reason": "The object of 'parameterized by' is missing.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E11",
+      "kind": "misprint",
+      "locator": "§10.1, proof of Lemma 10.1, p. 27",
+      "printed": "If not then any summand of θ(π) restricted to Sp_6(F) is of Howe's N-rank 2, and thus a classical theta lift of a unitary representation of an orthogonal group O(2) [Li].",
+      "correction": "… is of Howe's N-rank at most 2, and thus a classical theta lift of a unitary representation of an orthogonal group O(m) with m ≤ 2 [Li].",
+      "reason": "If θ(π)_{N,ψ_N} = 0 for every ψ_N in the open (rank-3) orbits, the spectrum of θ(π)|_N lies on characters of rank at most 2, so ranks 0 and 1 (the trivial representation, lifts from O(1)) are not excluded. Those lifts are not tempered either, so the argument is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the passage is new: v2's Lemma 10.1 assumes θ(π) square-integrable and argues differently"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E12",
+      "kind": "misprint",
+      "locator": "§12.3 (a)–(b), p. 35, and proof of Theorem 12.6, p. 39",
+      "printed": "We consider two cases, according to the decomposition of Irr(G). (a) if σ ∈ Irr^♥(PGSp_6), we set: f_2^*(θ^♥(π)) ∈ Irr(SO_8)/PGSO_8 and spin_*(σ) = A(f_2^*(θ^♥(π))) ∈ Irr(GL_8). … (b) … θ^♠♣ : Irr^♠♣(G) → Irr(PGL_4)/Z/2Z. … For σ ∈ Irr^♠♣(G), one verifies this identity along similar lines",
+      "correction": "… according to the decomposition of Irr(PGSp_6). (a) … f_2^*(θ^♥(σ)) … spin_*(σ) = A(f_2^*(θ^♥(σ))) … (b) θ^♠♣ : Irr^♠♣(PGSp_6) → … For σ ∈ Irr^♠♣(PGSp_6) …",
+      "reason": "Appendix C concerns PGSp_6 (G is G_2 in the body of the paper), and the representation being lifted in (a) is σ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text for 'Irr^♠♣(G)' in the proof of Theorem 12.6; the rest was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E13",
+      "kind": "misprint",
+      "locator": "§12.4, proof of Theorem 12.3, p. 36",
+      "printed": "std ∘ φ = L_{SO_6}(θ^♠♣(σ)) ⊕ 1 = L_{Sp_66}(rest(σ)).",
+      "correction": "std ∘ φ = L_{SO_6}(θ^♠♣(σ)) ⊕ 1 = L_{Sp_6}(rest(σ)).",
+      "reason": "L_{Sp_6} is the LLC for Sp_6, written so throughout (e.g. Theorem 12.3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the same text (the mistake predates the revision)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E14",
+      "kind": "misprint",
+      "locator": "§12.5, proof of Lemma 12.4, p. 37",
+      "printed": "Σ′_{v_0} = π; … we may replace the archimedean components of Σ′′♭ by the generic discrete series representations … Moreover, Σ_{v_0} = π ⊗ χ_0 and Σ_{v_1} = St_{v_1} ⊗ χ_1",
+      "correction": "Σ′_{v_0} = σ; … the archimedean components of Σ′♭ … Σ_{v_0} = σ ⊗ χ_0 …",
+      "reason": "The lemma globalises σ (Σ_{v_0} = σ in its statement); π is not defined in Appendix C, and Σ′′♭ is not defined (the summand chosen in the previous sentence is Σ′♭).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the passage was not compared (the PDF text of v2 is set differently)"
+      ]
+    },
+    {
+      "id": "PAPER-GAN-SAVIN-23-B/E15",
+      "kind": "misprint",
+      "locator": "§12.8, proof of Theorem 12.7, p. 39",
+      "printed": "Hence L(σ ⊗ χ) = φ. … moreover, the global theta lift Θ(Σ) of Π to PGSO_8 is a nonzero cuspidal representation by Lemma 12.5.",
+      "correction": "Hence L_w(σ ⊗ χ) = φ. … the global theta lift Θ(Σ) of Σ to PGSO_8 …",
+      "reason": "The map in Theorem 12.7 is L_w (L is the LLC for G_2), and Π is not defined in this proof; the globalisation is Σ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2023.27: no correction, erratum, update-to or relation entries; a Crossref bibliographic search for a corrigendum to 'The local Langlands conjecture for G_2' found none (23 September 2026)",
+        "arXiv 2209.07346 has two versions, v1 (15 September 2022) and v2 (17 December 2022), both before the journal revision (24 August 2023); no later version exists, and the published version, read here, is the version of record",
+        "arXiv v2 at this locator: the passage was not compared (the PDF text of v2 is set differently)"
+      ]
+    }
+  ]
+}
