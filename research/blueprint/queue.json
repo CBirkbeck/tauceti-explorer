@@ -5530,8 +5530,9 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1329"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1329",
+   "finishedAt": "2026-09-23T16:34:19Z"
   },
   {
    "id": "PAPER-WOOD-19",
@@ -5716,7 +5717,8 @@
    ],
    "avoidAccountOf": "PAPER-DEMARCO-MAVRAKI-YE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-DEMARCO-MAVRAKI-YE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1339"
   },
   {
    "id": "PAPER-HANSEN-26",
@@ -5975,8 +5977,9 @@
    ],
    "avoidAccountOf": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1353"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1353",
+   "finishedAt": "2026-09-23T16:34:23Z"
   },
   {
    "id": "PAPER-FENG-24",
@@ -7797,7 +7800,8 @@
    ],
    "avoidAccountOf": "PAPER-BENOIST-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BENOIST-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1455"
   },
   {
    "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19",
