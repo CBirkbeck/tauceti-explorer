@@ -6750,8 +6750,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1402"
+   "state": "pending",
+   "note": "released on GitHub issue #1402"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
