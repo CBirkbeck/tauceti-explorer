@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-BUSHNELL-HENNIART-17",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The complex profile direction is useful, but G1/G2/G8 leave finite-image, conductor and projective-lifting interfaces unclosed. Reuse R01.3 generic conductor arguments and the pinned finite-group imports; a coefficient change does not justify duplicating them."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "The endo-class metrics and interpolation extension is justified, but BK recursion, normalized corestriction, profile gluing, corrected perturbation, conductor formula and example suppliers remain G3–G6/G9. The current Fintzen brief also assigns mixed-characteristic GL_m type theory to ET.6. The corrected brief imports that owner."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The explicit finite-quotient occurrence argument is a scoped application of SR.0 smooth carriers and SR.2 closed-subgroup induction/Frobenius reciprocity. It avoids the acknowledged compact-induction error and does not claim the arbitrary Weil finite-dimensionality adapter complete."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AL.0 owns the compact-open local Haar lattice comparison; AL.1/AL.3 own character conductors and pair factors. The fixed-map lattice proof, common exact uniformizer refinement and signed dilation are mathematically sound and explicitly separate from the unresolved BK-normalization/gluing application."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "ET.6 explicitly owns the independent mixed-characteristic classical GL_m correspondence and local-factor normalization. This source route imports that planned contract; it neither replaces it with a semisimple parameter nor extends its field hypothesis."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "ES7:equal-characteristic is the right supplier direction, but its three-action realization still needs the exact complex coefficient dictionary and epsilon-of-pairs normalization required here. G7 remains an unresolved contract, not a consequence of semisimple FS agreement."
+    }
+  ],
+  "notes": "Independent Codex review, session codex-7e92bd. All 149 input items and the full published article inspected. Revised 151 items: 8 library, 9 planned, 134 missing; each missing item routed once. All 17 source findings confirmed with explicit scope. No extra-special-group error is added: BH96 uses a broader cyclic-centre convention. Three routes accepted, three rejected. Extraction remains partial. No Lean deliverable or compilation."
+}
