@@ -46,7 +46,7 @@
     },
     "atlasCommit": "14482fbdbea546a681b66b8bb4ff336bdc8830c6"
   },
-  "summary": "Partial continuation of PR #1652: 124 items (11 library, 26 planned, 87 missing), with eight new local-counting/stabilizer suppliers routed only to existing GN.2/GN.3. Imports the pinned generic monogenic trace dual, Hensel lifting and scalar-length formula. Gives a mathematical replacement for repeated-block local orbit counting and an isotypic congruence-kernel bound, not the source's sharper local exponent or its general global stabilizer bound. Preserves all 19 withheld claims and G0–G8; no final-version comparison or Lean formalization is claimed.",
+  "summary": "Partial second continuation (PRs #1652 and #1848): 136 items (16 library, 26 planned, 94 missing). Adds a coarse non-isotypic stabilizer proof via successive graded profiles, a finite-DVR determinant-index adapter, nested-level double-coset maps/bounds, conjugate-level comparison, finite-support product indices, and a conditional rational-orbit bound D_*³h. Seven new missing endpoints use existing GN.2/GN.3/AA.4 and the existing finite-field Part II; five pinned generic suppliers are imported. All 19 withheld source claims and 17 version-qualified sourceIssues remain. Final journal agreement, arithmetic class-set suppliers and Lean implementation remain unverified.",
   "items": [
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/abelian-variety",
@@ -1336,13 +1336,220 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/gl-card"
       ],
       "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/smith-quotient-supplier",
+      "kind": "theorem",
+      "name": "Full-rank PID quotient in Smith coordinates",
+      "statement": "For a domain R that is a principal ideal ring, a finite basis b of an R-module M and N≤M with equal R-finrank, there is an R-linear equivalence (M/N) ≃ ∏ᵢ R/(aᵢ), with aᵢ the nonzero Smith coefficients of the inclusion N→M.",
+      "locator": "Mathlib/LinearAlgebra/FreeModule/Finite/Quotient.lean:37–77; FreeModule/PID.lean:576–641",
+      "status": "library",
+      "library": [
+        "mathlib:Submodule.quotientEquivPiSpan",
+        "mathlib:Submodule.smithNormalFormBotBasis_def",
+        "mathlib:Submodule.smithNormalFormCoeffs_ne_zero"
+      ],
+      "note": "Freshly read at the pinned Mathlib commit. This is PID-generic; do not substitute the Z-only quotientEquivPiZMod or natAbs_det_basis_change."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-power-cardinality-supplier",
+      "kind": "theorem",
+      "name": "Cardinality of a prime-power quotient",
+      "statement": "In a Dedekind domain S, for a nonzero prime ideal P and i∈ℕ, cardQuot(P^i)=cardQuot(P)^i. Here cardQuot is Nat.card of the quotient, so explicit finite residue field hypotheses are supplied before interpreting this as a finite positive count.",
+      "locator": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean:52–85,112–180",
+      "status": "library",
+      "library": [
+        "mathlib:cardQuot_pow_of_prime",
+        "mathlib:Submodule.cardQuot_apply"
+      ],
+      "note": "The first declaration is in the root namespace, not Ideal. Freshly read its prime-ideal context and induction through successive quotients. For a DVR with finite residue field, the displayed positive cardinal also excludes an infinite quotient."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/dvr-unit-power-supplier",
+      "kind": "theorem",
+      "name": "Unit times uniformizer power in a DVR",
+      "statement": "For a nonzero element x in a discrete valuation ring R and an irreducible uniformizer π, there are n∈ℕ and u∈R× with x=uπ^n.",
+      "locator": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean:320–344",
+      "status": "library",
+      "library": [
+        "mathlib:IsDiscreteValuationRing.eq_unit_mul_pow_irreducible"
+      ],
+      "note": "Freshly read at the pinned commit. Combined with Smith coordinates, this identifies principal-ideal quotients with powers of the maximal ideal; normalized valuations of units are zero."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier",
+      "kind": "theorem",
+      "name": "Representative criterion for a double coset",
+      "statement": "For any group G, subgroups H,K≤G and a,b∈G, DoubleCoset.mk H K a = DoubleCoset.mk H K b iff there are h∈H and k∈K with b=hak.",
+      "locator": "Mathlib/GroupTheory/DoubleCoset.lean:73–126",
+      "status": "library",
+      "library": [
+        "mathlib:DoubleCoset.eq"
+      ],
+      "note": "Read the whole pinned file. The actual carrier is DoubleCoset.Quotient, with capital Q. This does not itself construct a nested-level map or assert a fiber size."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/orbit-index-supplier",
+      "kind": "theorem",
+      "name": "Index of a stabilizer equals its orbit cardinal",
+      "statement": "For any group G acting on X and x∈X, (MulAction.stabilizer G x).index=(MulAction.orbit G x).ncard.",
+      "locator": "Mathlib/GroupTheory/Index.lean:891–900",
+      "status": "library",
+      "library": [
+        "mathlib:MulAction.index_stabilizer"
+      ],
+      "note": "No finiteness of G is assumed. The local argument first proves the orbit finite; otherwise the Nat-valued index/cardinality can be zero for an infinite orbit. Do not apply finite-group cardinal division to an infinite compact group."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+      "kind": "theorem",
+      "name": "Determinant index of a stable DVR lattice",
+      "statement": "Let O be a discrete valuation ring with finite residue field of size q, fraction field K and normalized additive valuation v. Let T be a finite free O-lattice spanning a finite-dimensional K-space W. If F∈GL_K(W) and F(T)⊆T, then T/F(T) and F⁻¹(T)/T are finite of cardinality q^{v(det_K F)}, and F induces an O-linear equivalence F⁻¹(T)/T ≃ T/F(T). This includes rank zero and v(det F)=0.",
+      "locator": "Yun v2 Lemma 4.9 determinant/length step; continuation S1",
+      "status": "missing",
+      "note": "A missing assembly adapter on existing Submodule/LinearMap quotients, not a new DVR or lattice carrier. Finite residue cardinality and invertibility are load-bearing.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/smith-quotient-supplier",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-power-cardinality-supplier",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/dvr-unit-power-supplier"
+      ],
+      "proof": "S1: apply Smith normal form to F(T)≤T; write each nonzero diagonal coefficient as u_iπ^{a_i}; multiply q^{a_i}; det(F) differs from their product by a unit because a domain basis maps to a basis of F(T). The displayed map sends x+T to F(x)+F(T), with inverse F⁻¹.",
+      "tests": [
+        "Unit determinant gives one class.",
+        "A diagonal map diag(π,π²) gives q³ classes, not q².",
+        "Without invertibility, the zero map on rank one has infinite cokernel and is excluded."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound",
+      "kind": "theorem",
+      "name": "Integral stabilizer controlled by successive graded lattices",
+      "statement": "Let ℓ be prime, O=Z_ℓ and K=Q_ℓ. Let γ be integral semisimple with characteristic polynomial ∏_{i=1}^r f_i^{n_i}, where the distinct f_i∈O[X] are monic irreducible and n_i≥1. Put F_i=K[X]/f_i, R_i=O[θ_i], S_i=O_{F_i}, V=⊕F_i^{n_i}, δ_i=v_ℓ disc(f_i), ρ_ij=v_ℓ Res(f_i,f_j), and Δ=Σn_i²δ_i+2Σ_{i<j}n_i n_jρ_ij. For every full γ-stable lattice M there is a conjugate H_M of ∏GL_{n_i}(S_i) containing Stab_{Z_γ(K)}(M), with [H_M:Stab(M)]≤ℓ^{Σn_i²δ_i+Σ_{i<j}n_i n_jρ_ij}≤ℓ^Δ.",
+      "locator": "LT v1 §§3.1.1,3.2.1, especially (20); Yun v2 Lemma 4.9 proof; replacement proof S2–S3",
+      "status": "missing",
+      "note": "This is a proposed replacement proof, not the printed argument. H_M is built from the saturations of successive quotients pr_i(M∩V_{≤i}); these are not M∩V_i and are not replaced by the saturation of M itself. The literal source stabilizer-depth-source remains withheld.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/orbit-index-supplier"
+      ],
+      "proof": "S2–S3: normalize each successive quotient U_i so R_i^{n_i}⊆U_i⊆S_i^{n_i}. Any stabilizer preserves U_i and S_iU_i, hence lies in H. The H-orbit maps equivariantly to ∏H_i·U_i, whose size is at most ℓ^{Σn_i²δ_i}. Each fixed-profile fiber has exactly ℓ^{Σ_{i<j}n_i n_jρ_ij} raw stable lattices: induct using graph classes killed by the invertible Sylvester operator on Hom_K(V_i,V_{<i}) modulo Hom_O(U_i,L_{<i}). Multiply the two bounds, use index_stabilizer, then conjugate back.",
+      "tests": [
+        "One isotypic block recovers L9.",
+        "All discriminants and cross resultants units force index one.",
+        "Multiplicities (2,1) contribute 2ρ to the fiber exponent, not ρ or 4ρ.",
+        "For λ=(0,2,4) over Q₂ the rank-one graded profile has 2⁴=16 lattices, with the middle quotient an image, not an intersection."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map",
+      "kind": "construction",
+      "name": "Nested right-level map on double cosets",
+      "statement": "For any group G, H≤G and K'≤K≤G, construct π:DoubleCoset.Quotient H K'→DoubleCoset.Quotient H K by π([g])=[g]. For each g define a surjection of sets K/K'→π⁻¹([g]), kK'↦[gk], using left cosets kK' of the subgroup K' inside K; neither subgroup is required normal.",
+      "locator": "LT v1 §3.2, (15) and use of (20); AA.4 level-map specialization; continuation S4",
+      "status": "missing",
+      "note": "Reuse DoubleCoset.Quotient and the subgroup-of carrier for K' inside K. These quotients are sets, not quotient groups; retain H∩gKg⁻¹ stabilizers. Proposed home: TauCeti/NumberTheory/AdelicAlgebraicGroups/LevelMaps/DoubleCoset.lean. Reuse Mathlib's quotient API; no private replacement or upstream contribution is required.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier"
+      ],
+      "api": [
+        "π_mk: π(mk H K' g)=mk H K g.",
+        "surjective_π; fiber_surjection_mk(g,k)=[gk].",
+        "levelMap_refl and levelMap_comp for K''≤K'≤K.",
+        "fiber_surjection_respects_cosets: k₂=k₁s with s∈K' gives the same fine double coset; no normality."
+      ],
+      "tests": [
+        "K'=K gives the identity map and singleton fibers.",
+        "H=1 gives exactly [K:K'] fine classes per coarse class when the index is finite.",
+        "H=G gives one fine class, even if [K:K']>1; equality with the level index is false.",
+        "Take nonnormal K' generated by a transposition in S₃ and K=S₃: construction is still well-defined."
+      ],
+      "proof": "S4: DoubleCoset.eq shows well-definedness of π. For a class in the fiber choose x=h g k using that same criterion, then [x]=[gk] at the finer level. Coset representatives k differing on the right by K' give the same fine class."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality",
+      "kind": "theorem",
+      "name": "Finite-index bound for a double-coset level change",
+      "statement": "For a group G and subgroups H,K',K with K'≤K and finite index N=[K:K'], every fiber of H\\G/K'→H\\G/K has at most N elements. If H\\G/K is finite of cardinal h, then H\\G/K' is finite of cardinal at most Nh. No freeness, normality, neatness or finite-group assumption is made.",
+      "locator": "LT v1 §3.2.3 level-index step; continuation S4",
+      "status": "missing",
+      "note": "A bound for coarse sets only, not a claim of an unramified degree-N covering or a quotient-group structure.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map"
+      ],
+      "proof": "Use the surjection from the finite set K/K' onto each fiber. With a finite base, the fine quotient is equivalent as a set to the finite dependent sum of its fibers; sum their cardinalities.",
+      "tests": [
+        "H=G and nontrivial N gives strict inequality 1<N.",
+        "H=1 attains equality.",
+        "N=1 makes the level map bijective."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level",
+      "kind": "theorem",
+      "name": "Conjugate right levels have equivalent double-coset sets",
+      "statement": "For a group G, H,K≤G and a∈G, put K_a=aKa⁻¹. Then H\\G/K_a ≃ H\\G/K via [g]↦[ga], with inverse [x]↦[xa⁻¹]. The conjugating element need not lie in H or normalize H.",
+      "locator": "LT v1 §3.2 choice of integral compact subgroup; continuation S5",
+      "status": "missing",
+      "note": "Right multiplication, not conjugation of representatives. This is what permits orbit-dependent compact levels without assuming a rational conjugating element.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier"
+      ],
+      "proof": "If g'=h g(a k a⁻¹), then g'a=h(ga)k. Apply the inverse formula and quotient induction for the two identity laws.",
+      "tests": [
+        "a=1 is the identity.",
+        "With H a transposition subgroup in S₃ and a outside its normalizer, the equivalence still holds.",
+        "Changing [g] to [a⁻¹ga] would change the left subgroup and is not this map."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index",
+      "kind": "theorem",
+      "name": "Index of product subgroups with finite exceptional support",
+      "statement": "For groups H_v and subgroups S_v≤H_v, suppose S_v=H_v outside a finite set B and [H_v:S_v] is finite for every v∈B. Then (∏H_v)/(∏S_v) is equivalent as a set to ∏_{v∈B}(H_v/S_v), and [∏H_v:∏S_v]=∏_{v∈B}[H_v:S_v]. In a restricted-product ambient group, this applies to the everywhere-compact product and its componentwise stabilizer when those products are subgroups of the specified ambient group.",
+      "locator": "LT v1 (20), local-to-global index step; continuation S5",
+      "status": "missing",
+      "note": "No infinite cardinal multiplication, normality or Haar measure is needed. Finite exceptional support is an explicit input, not a conclusion of the abstract theorem.",
+      "dependsOn": [],
+      "proof": "S5: map a coset to its component cosets. Equality is exactly coordinatewise subgroup membership. Lift the finitely many representatives and fill the remaining coordinates with identity; this gives the inverse on cosets.",
+      "tests": [
+        "Empty B gives index one.",
+        "Two factors of indices 2 and 3 give index 6.",
+        "Infinitely many proper finite-index factors are excluded; their product quotient can be infinite."
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound",
+      "kind": "theorem",
+      "name": "Conditional rational-orbit bound from local lattices",
+      "statement": "Let a group G_f with subgroup Γ act on a lattice space X, with at most D_*² G_f-orbits. Suppose h=#(Γ\\G_f/K₀)<∞ for a fixed compact level K₀. For every orbit representative M assume Stab(M)=∏S_{M,ℓ}, contained in K_M=∏H_{M,ℓ}=a_M K₀ a_M⁻¹ with a_M∈G_f, equality S_{M,ℓ}=H_{M,ℓ} away from finitely many primes, and ∏[H_{M,ℓ}:S_{M,ℓ}]≤D_*. Then Γ\\X is finite and #Γ\\X≤D_*³h. In the semisimple Weil-lattice setting of L8 and S3, where these group-identification and finite-support inputs are established, D_*≤(2√p)^{m(m−1)} gives #Γ\\X≤(2√p)^{3m(m−1)}h.",
+      "locator": "LT v1 §§3.1.6,3.2.1–3.2.3; continuation S5–S6",
+      "status": "missing",
+      "note": "Explicitly conditional on the global action, product stabilizers, restricted-product conjugacy and coarse class-set finiteness. No class-number estimate, Tate/Honda/Waterhouse classification, quaternionic norm comparison, nonprime-field extension or sharp numerical coefficient is proved here.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-class-set",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index"
+      ],
+      "proof": "Decompose X into G_f-orbits, identify the Γ-orbits in G_f·M with Γ\\G_f/Stab(M), bound each by D_* times #Γ\\G_f/K_M, transport the latter by [g]↦[ga_M] to the fixed class set of size h, and sum over at most D_*² orbits.",
+      "tests": [
+        "D_*=1 leaves at most h rational orbits, not necessarily one.",
+        "With Γ=G_f each transitive orbit contributes one, so the upper bound need not be sharp.",
+        "Removing the finite-support or conjugacy hypotheses does not permit this conclusion."
+      ]
     }
   ],
   "prerequisites": [
     {
       "citation": "Yun, Orbital integrals and Dedekind zeta functions (2013), arXiv v2",
       "link": "https://arxiv.org/abs/1303.2420",
-      "why": "Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint. Continuation L5–L8 now supplies a separate coarse repeated-block/local-orbit argument; the regular-semisimple theorem is still not applied directly beyond its scope, and general global stabilizer closure remains outstanding."
+      "why": "Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint. Continuation L5–L8 now supplies a separate coarse repeated-block/local-orbit argument; the regular-semisimple theorem is still not applied directly beyond its scope, and general global stabilizer closure remains outstanding. S2–S3 freshly recheck the full §4.8/Lemma 4.9 proof and supply the repeated-multiplicity version directly by an invertible Sylvester operator; S4–S6 close the abstract finite-index gluing only under explicit arithmetic inputs."
     },
     {
       "citation": "Conrad, Polarizations, VIGRE notes",
@@ -1476,9 +1683,10 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/free-projective-comparison",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
       ],
-      "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built. The continuation adds coefficient-DVR, monogenic conductor and isotypic congruence-kernel adapters on these same carriers."
+      "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built. The continuation adds coefficient-DVR, monogenic conductor and isotypic congruence-kernel adapters on these same carriers. S1 adds only the finite-residue DVR determinant-index assembly on existing Smith and ideal-quotient APIs."
     },
     {
       "route": "source",
@@ -1506,9 +1714,10 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
       ],
-      "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. Add the checked Yun local inputs and weighted-to-unweighted comparison, while the disputed exact estimates remain outside the route. The continuation supplies weighted rank-one counts and a repeated-block argument yielding a coarse quadratic multiplicity bound; the printed sharper local bound and the general global stabilizer estimate remain withheld."
+      "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. L1–L9 supply the coarse local-orbit count; S2–S3 now give a separate non-isotypic stabilizer replacement using graded-lattice profiles. The printed sharper local estimates and the literal disputed source claims remain withheld; generic right-level maps go to AA.4."
     },
     {
       "route": "source",
@@ -1517,9 +1726,13 @@
         "AdelicAlgebraicGroups:AA.4"
       ],
       "items": [
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/strong-approximation"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/strong-approximation",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index"
       ],
-      "reason": "Strong approximation is an existing owner target. Keep the definite quaternion rank-one exception and norm-image obstructions visible."
+      "reason": "AA.4 already owns nested compact-level maps and stabilizer-sensitive degree comparisons. Supply the group-generic coarse-set maps and finite-index inequalities needed here, without inventing a second double-coset carrier or assuming neatness. Strong approximation remains an existing import with its quaternionic rank-one and norm-image restrictions."
     },
     {
       "route": "source",
@@ -1580,10 +1793,11 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/split-prime-density",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/cm-elliptic-existence",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-pgroups-large",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/point-count-isogeny"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/point-count-isogeny",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
       ],
-      "reason": "A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners.",
-      "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed."
+      "reason": "A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners. S6 adds only the finite-field consumer of GN/AA counting suppliers, conditional on the exact global action/classification interfaces.",
+      "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed. S1–S6 now specify a conditional upper bound D_*³ h(G,K₀), with D_*≤(2√p)^{2g(2g−1)}. This is a consumer of existing GN.2/GN.3 and AA.4, not a reimplementation. Before applying it to an isogeny class, prove the product stabilizer, finite-support conjugacy, local-centralizer comparison at every place and finite coarse class-set hypotheses from the named arithmetic suppliers. It does not establish h(G,K₀), its reduced-norm/narrow-class comparison or the sharp coefficient of Theorem 0.1."
     }
   ],
   "sourceIssues": [
@@ -1879,10 +2093,10 @@
   ],
   "verification": {
     "session": "codex-a71f92",
-    "date": "2026-09-22",
+    "date": "2026-09-23",
     "status": "partial",
-    "predecessor": "PR #1652 by codex-c83e7a; all original 113 IDs, statuses, statements, library references, planned imports and original route assignments retained. Two notes clarified; eight missing theorems and three library theorems added.",
-    "explorerSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+    "predecessor": "PR #1848 by this same session, after PR #1652 by codex-c83e7a. All 124 inherited item objects, 17 sourceIssues and inherited report/handoff text retained unchanged. Twelve items appended: five library suppliers and seven missing endpoints, including one construction.",
+    "explorerSnapshot": "277594a65a53ae5f7530539524add19c453b4e19",
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
@@ -1891,21 +2105,221 @@
       {
         "url": "https://arxiv.org/pdf/1511.02212v1",
         "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
-        "extent": "All 38 pages / all 1804 extracted lines including bibliography; page images 9, 10 and 12 additionally checked."
+        "extent": "All 38 pages / 1804 extracted lines, §§0–5.7.3 and full bibliography; no fresh rendered-page inspection in this claim."
       },
       {
         "url": "https://arxiv.org/pdf/1303.2420v2",
         "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
-        "extent": "Selected §§1–2.2, 4.1–4.7 (4.7 only partial), 4.8–4.14; complete Lemma 4.9 and Proposition 4.13 proofs. Not a whole-paper reading."
+        "extent": "§4.8 and complete Lemma 4.9 proof, printed pp.14–15; not a whole-Yun read in this claim."
       }
     ],
-    "historicalReadBoundary": "Conrad and the original eight library-item checks remain attributed to PR #1652. This claim freshly read only the three additional pinned generic library suppliers and their supporting trace-dual statements.",
-    "audit": "GN.2 and GN.3 reviewed rows read at library-coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. Existing owners reused; no new roadmap or definition. Existing Part II unchanged.",
-    "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text.",
-    "finiteChecks": "Reproducible Python in continuation report: 176 weighted-partition tests, 992 residue-degree cases, 6144 exponent cases, 28 exact trace-dual examples, one exhaustive GL₂(F₉) example and 30 finite shear tests. Finite tests are not proofs.",
-    "lean": "No Lean file is requested, written or compiled. All new mathematical endpoints are still missing library implementations.",
-    "checks": "PASS: check_paper.py against the complete current catalogue; intake.py check-files (3 files, 0 problems); preservation of all 113 original IDs/statuses/statements, original route assignments and historical report/handoff; 37 API/test blocks; 68 uniquely routed missing items and the same 19 withheld items; 24 known-ID acyclic selected edges; no local paths; the embedded finite regression. Rerun on the fresh publication snapshot before opening the PR.",
-    "publishSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399"
+    "historicalReadBoundary": "Conrad, earlier Yun regions, earlier image inspections and the first eleven library-item checks remain attributed to the predecessor checkpoints. This claim freshly read five appended Mathlib suppliers, the whole DoubleCoset file, and the compared Tau Ceti HeckeCoset.degree_eq_relIndex statement.",
+    "audit": "Reviewed GN.2, GN.3 and AA.4 audit rows read at the working explorer snapshot; GN/AA full campaign roadmaps and relevant atlas descriptions read. Upstream Completed/IntegralLattices and GlobalNumberFields read fully for granularity and ownership; their existing carriers are consumed, not re-planned. Scoped searches of atlas, new roadmaps, packets/decompositions and pinned libraries found no exact implementation of the seven new assembly endpoints.",
+    "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text. This continuation adds no new finding and does not independently review the inherited findings.",
+    "finiteChecks": "Fresh standard-library Python diagnostics in S7: 47689 exact cases (384 DVR cokernels, 11 flag fibers, 48 stable graph lattices, 4 profile counts, 9 unequal-block fibers, 135 unequal-block orbits, 136 double-coset fibers, 90 total bounds, 216 conjugate-level comparisons, 46656 exponent cases). Finite diagnostics are not mathematical proofs.",
+    "lean": "No Lean file is authorized, written or compiled; no formalization is claimed.",
+    "selectedEdges": [
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-trace-dual-library",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/complete-hensel-library",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-length-scalar-library",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-partition-formula",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/gl-card",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/smith-quotient-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-power-cardinality-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/dvr-unit-power-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/orbit-index-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-map",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-relation-supplier",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-class-set",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonisotypic-stabilizer-bound",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-level-cardinality",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/double-coset-conjugate-level",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      },
+      {
+        "source": "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-support-product-index",
+        "target": "PAPER-LIPNOWSKI-TSIMERMAN-18/conditional-rational-orbit-bound"
+      }
+    ],
+    "checks": "PASS: check_paper.py; intake.py check-files (3 files, 0 problems); 48 regression tests; 47689 exact Python diagnostics; all 124 inherited item objects and 17 sourceIssues unchanged; historical report/handoff preserved; 38 definition/construction API/test blocks; 75 uniquely routed missing items plus 19 unchanged withheld claims; 42 acyclic known-ID selected edges; no local paths. Fresh publication-snapshot deliverables, binding protocols and GN/AA owner/audit inputs match the working base.",
+    "historicalVerification": {
+      "session": "codex-a71f92",
+      "date": "2026-09-22",
+      "status": "partial",
+      "predecessor": "PR #1652 by codex-c83e7a; all original 113 IDs, statuses, statements, library references, planned imports and original route assignments retained. Two notes clarified; eight missing theorems and three library theorems added.",
+      "explorerSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+      "libraryPins": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+      },
+      "freshRead": [
+        {
+          "url": "https://arxiv.org/pdf/1511.02212v1",
+          "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+          "extent": "All 38 pages / all 1804 extracted lines including bibliography; page images 9, 10 and 12 additionally checked."
+        },
+        {
+          "url": "https://arxiv.org/pdf/1303.2420v2",
+          "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
+          "extent": "Selected §§1–2.2, 4.1–4.7 (4.7 only partial), 4.8–4.14; complete Lemma 4.9 and Proposition 4.13 proofs. Not a whole-paper reading."
+        }
+      ],
+      "historicalReadBoundary": "Conrad and the original eight library-item checks remain attributed to PR #1652. This claim freshly read only the three additional pinned generic library suppliers and their supporting trace-dual statements.",
+      "audit": "GN.2 and GN.3 reviewed rows read at library-coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. Existing owners reused; no new roadmap or definition. Existing Part II unchanged.",
+      "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text.",
+      "finiteChecks": "Reproducible Python in continuation report: 176 weighted-partition tests, 992 residue-degree cases, 6144 exponent cases, 28 exact trace-dual examples, one exhaustive GL₂(F₉) example and 30 finite shear tests. Finite tests are not proofs.",
+      "lean": "No Lean file is requested, written or compiled. All new mathematical endpoints are still missing library implementations.",
+      "checks": "PASS: check_paper.py against the complete current catalogue; intake.py check-files (3 files, 0 problems); preservation of all 113 original IDs/statuses/statements, original route assignments and historical report/handoff; 37 API/test blocks; 68 uniquely routed missing items and the same 19 withheld items; 24 known-ID acyclic selected edges; no local paths; the embedded finite regression. Rerun on the fresh publication snapshot before opening the PR.",
+      "publishSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399"
+    },
+    "publishSnapshot": "d546d126d455b9add0ac32d9cb30b5ff488dece7"
   },
   "gaps": [
     {
@@ -1921,7 +2335,7 @@
     {
       "id": "G2",
       "status": "partial",
-      "detail": "L1–L9 supplies mathematical local coarse orbit and isotypic congruence arguments. Coefficient-DVR/topological evaluation, finite-DVR index, trace-dual/class and flag-quotient adapters still require library planning/implementation. General nonisotypic global stabilizer exponent (20), exact source linear 4nδ and global rational class-set glue remain withheld."
+      "detail": "L1–L9 and S1–S6 supply mathematical coarse local-orbit and general semisimple stabilizer bounds, finite-DVR determinant-index assembly, and conditional rational-class counting D_*³h. Five additional generic library suppliers are matched, but these new adapters are not implemented. Coefficient-DVR/topological evaluation, trace-dual/class and flag-carrier comparisons still need closure. Arithmetic product stabilizers, finite-support adelic conjugacy, local group identifications and the finite coarse class-set must be supplied before the conditional bound applies to abelian varieties. The exact linear 4nδ source estimate and literal stabilizer-depth-source remain withheld."
     },
     {
       "id": "G3",
