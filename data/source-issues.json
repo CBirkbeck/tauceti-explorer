@@ -16248,9 +16248,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 4 (and in arXiv v3): 'independent of v' where independence of λ is meant."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E2",
@@ -16270,9 +16270,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 13, footnote 2 and arXiv v3. Writing E(u) = u^e + p·g(u) with g(0) = 1, u^{ep}/p maps to 0 in S̄_𝔽 (it lies in Fil^pS + pS), so c = φ(ḡ) = ḡ^p: a unit and a p-th power, but not 1 in general (E = u² + pu + p gives c = 1 + u^p). With φ(u^eN(x)) = cN(φ(x)) the conclusions of Lemmas 2.2.3 and 2.2.7 survive, as arXiv v3 shows."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E3",
@@ -16291,9 +16291,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 26 (also in arXiv v3)."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E4",
@@ -16312,9 +16312,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 26 (also in arXiv v3): the extension concerned sits between the i-th and (i+1)-st diagonal entries; with the printed indices the definition of (G_m)^d_k fails for d ≥ 3. The only use (k = 0) is unaffected."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E5",
@@ -16333,9 +16333,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 28."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E6",
@@ -16354,16 +16354,16 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 36."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E7",
    "kind": "error",
    "locator": "§4.2, Lemma 4.2.4 and its proof, p. 37",
    "printed": "Moreover, Ψ is defined over M, and we have Ψc(Ψ) = |·|^{N−n}. […] There are c-linear isomorphisms V_{c(λ)} ≅ V_λ^∨(1 − N) and E_{c(λ)} ≅ E_λ^∨(1 − n), so the final part is again a consequence of Schur's lemma.",
-   "correction": "V_{c(λ)} ≅ V_λ^∨(2 − N), and hence Ψ·c(Ψ) = |·|^{N−n−1} (in the paper's normalisation).",
+   "correction": "V_{c(λ)} ≅ V_λ^∨(2 − N), and hence Ψ·c(Ψ) corresponds to ε^{n+1−N} (so Ψ has weight N − n − 1; the printed |·|^{N−n} is off by one, and its sign depends on the normalisation of Art).",
    "reason": "V_λ is an eigenpiece of the middle cohomology H^{N−2} of the fibres of Z, smooth hypersurfaces of dimension N − 2 (§4.1; Proposition 4.2.5 uses H^{N−2}), so it is pure of weight N − 2 and Poincaré duality pairs it into O(2 − N). Weights confirm it: V^∨(1 − N) has weight N, not N − 2. Since E_λ is pure of weight n − 1, (4.2.3) gives Ψ weight N − n − 1; comparing V^c ≅ V^∨(2 − N) with E^c ≅ E^∨(1 − n) through (4.2.3) gives Ψ·c(Ψ) ↔ ε^{n+1−N}, one less in absolute value than the printed exponent. Nothing later uses the exponent: W_λ = V_λ(Ψ_λ^{−1}) and its pairing into k(λ)(1 − n) are stated directly and are consistent with either value.",
    "affects": "a stated result",
    "known": "new",
@@ -16375,9 +16375,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 37 and re-derived by the review: V_λ lies in R^{N−2}π_* of a family of smooth hypersurfaces of dimension N − 2, so it is pure of weight N − 2 and Poincaré duality pairs it into O(2 − N); V^∨(1 − N) would have weight N. Comparing with E_λ (weight n − 1) through (4.2.3) gives Ψ weight N − n − 1. A Hodge-number computation for the Fermat eigenlines confirms HT_τ(Ψ) + HT_{cτ}(Ψ) = N − n − 1. The correction was restated without a sign convention."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E8",
@@ -16396,9 +16396,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 40 and in the TeX."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E9",
@@ -16417,9 +16417,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 43 and in the TeX."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E10",
@@ -16438,9 +16438,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 46 and in the TeX."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E11",
@@ -16459,9 +16459,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 47: the multiplier ε̄^{−m(n−1)}·ε̄^{1−m} is that of Sym^{n−1}r̄_A ⊗ r̄_B; for r̄_A ⊗ r̄_B it would be ε̄^{1−2m}."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E12",
@@ -16480,9 +16480,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 50 and re-derived by the review: x⁸ = 16 gives x² = ±2 since i ∉ ℚ_2(√−5), and −2 ∉ ℚ_2^{×2} ∪ −5ℚ_2^{×2} (odd valuation), so the conclusion holds once −2 is also excluded; in ℚ_2(√−2) the stated premises hold but 16 = (√−2)⁸."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E13",
@@ -16501,9 +16501,408 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
    "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "Checked on the page image of p. 62 (and in the TeX)."
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E14",
+   "kind": "misprint",
+   "locator": "§2.1, Remark 2.1.2, p. 13",
+   "printed": "if M is crystalline, then u^eN(M^h) ⊆ uN(M^h)",
+   "correction": "u^eN(M^h) ⊆ uM^h",
+   "reason": "The proof concludes that u^eN acts by 0 on M^h/uM^h, which is the corrected statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version (also in arXiv v3)"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E15",
+   "kind": "misprint",
+   "locator": "§2.1, definition of Breuil submodules, p. 14",
+   "printed": "φ(N ∩ M^r) ⊆ N",
+   "correction": "φ(N ∩ M^{p−2}) ⊆ N",
+   "reason": "The letter r is undefined; the height is fixed at p − 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version (also in arXiv v3)"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E16",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.2.15(3), p. 20",
+   "printed": "exchange the terms in y′_i of degree r_i + e − 1 with terms in y_{i−1} of degree 0",
+   "correction": "… with terms in y′_{i+1} of degree 0",
+   "reason": "Replacing f′_i by f′_i + z_ie_i changes y′_i by −(a)_iz_iu^{r_i+e−1} and y′_{i+1} by (b)_{i+1}z_i (compare (2.2.23)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E17",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.2.15, p. 20",
+   "printed": "which (recalling that t_i = 0 for all i) we can and do choose so that χ_{2,max} is unramified",
+   "correction": "… so that χ_{1,min} is unramified",
+   "reason": "χ_1 := T(M(t; b)) (p. 19) with t = 0 is unramified mod p, while χ̄_2 = T(M(s; a)) is in general ramified, so it is the lift χ_{1,min} of χ_1 that can be chosen unramified.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the definition of χ_1, χ_2 on p. 19 was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E18",
+   "kind": "gap",
+   "locator": "Theorem 2.4.3(4) and its proof, pp. 26–27",
+   "printed": "There is an open subscheme T of (G_m)^d_k such that for all (t_1, …, t_d) ∈ T(𝔽̄_p) …",
+   "correction": "There is a dense (equivalently nonempty) open subscheme T …; the proof must show that the eigenvalue morphism 𝒰^k → (G_m)^d_k has image containing a nonempty open (it is dominant, from [EG23]).",
+   "reason": "As printed the statement is vacuous (T = ∅ satisfies it), while the proof of Theorem 2.5.2 needs T nonempty, to pick a generic point, and dense, to impose (2.5.3).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E19",
+   "kind": "gap",
+   "locator": "Proof of Theorem 2.4.3(4), p. 27",
+   "printed": "Pick a generic class ψ_m which is not in any L_j^⊥. … which implies that L_j or L_j^⊥ is contained in ⟨ψ_m⟩.",
+   "correction": "Discard the zero subspaces among the L_j first (they only exclude 0); the chain condition should read m ≤ i ≤ n − 2.",
+   "reason": "If some L_j = 0 then L_j^⊥ is the whole space, so no ψ_m outside every L_j^⊥ exists.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E20",
+   "kind": "misprint",
+   "locator": "§3.1.2, p. 31",
+   "printed": "P_v(X) = X^n − T_{v,1}X^{n−1} + ⋯ + (−1)^i q_v^{i(i−1)/2}T_{v,i}X^{n−i} + … + q_v^{n(n−1)/2}T_{v,n}",
+   "correction": "The last term is (−1)^n q_v^{n(n−1)/2}T_{v,n}.",
+   "reason": "The general term at i = n; as in ACC+.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E21",
+   "kind": "misprint",
+   "locator": "§4.1, p. 36",
+   "printed": "V_λ = (π[1/l]_* O_{M_λ})^{H_0 = χ|H_0}",
+   "correction": "V_λ = (R^{N−2}π[1/l]_* O_{M_λ})^{H_0 = χ|H_0}",
+   "reason": "π_*O has rank one with trivial H_0-action, so its χ|_{H_0}-part is 0; the rest of §4 uses H^{N−2}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E22",
+   "kind": "misprint",
+   "locator": "Definition 4.4.1, p. 41",
+   "printed": "'let λ_1, λ_2 be places of ℚ(ζ_N) of these characteristics'; 'a perfect 𝔽_l-bilinear morphism'",
+   "correction": "places of M; 𝔽_{l_i}-bilinear",
+   "reason": "W̄_λ is indexed by places of M (Lemma 4.4.4 distinguishes places of ℚ(ζ_N) and of M), and l is not defined there.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E23",
+   "kind": "gap",
+   "locator": "Definition 4.4.1 and Proposition 4.4.2, pp. 41–42",
+   "printed": "2. For each i = 1, 2, an isomorphism η_i : ∧^n W̄_{λ_i} → ∧^n Ū_{λ_i,T_{0,F}} … Then F({Ū_{λ_i}}) is represented by a finite étale T_{0,F}-scheme T({Ū_{λ_i}}). … Proposition 4.4.2. T({Ū_{λ_i}}) is a geometrically irreducible smooth F-scheme.",
+   "correction": "In the unitary case require η_i to be compatible with the forms induced by the pairings on ∧^n (such η_i exist, since the norm 𝔽_{l²}^× → 𝔽_l^× is surjective), or state Proposition 4.4.2 for T nonempty.",
+   "reason": "When −1 mod N ∈ ⟨l_i⟩ the functor asks for isometries φ_i with ∧^nφ_i = η_i; the values of ∧^nφ over all isometries form a coset of the norm-one elements, so if η_i is not compatible with the induced forms the scheme is empty (replacing ⟨,⟩_U by −⟨,⟩_U rescales the ∧^n form by (−1)^n). An empty scheme is not geometrically irreducible. The nonemptiness claim on p. 60 appeals only to the uniqueness of Hermitian spaces, which does not address η.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the isometry-coset argument was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E24",
+   "kind": "gap",
+   "locator": "Proof of Proposition 4.2.5(1), p. 38",
+   "printed": "[KM74, Theorem 2(2)] shows that for any h ∈ H, the characteristic polynomial of h·Frob_v on this group has coefficients in O_M …, and this implies that Q_v(X) also has coefficients in O_M[X]",
+   "correction": "Integrality of Q_v does not follow, since Q_v is computed on W = V ⊗ Ψ_λ^{−1} and Ψ(ϖ_v) is not a unit at primes above char v. It holds instead because W_{t,λ} is an O_{M_λ}-lattice for every λ ∤ char v with Q_v independent of λ, and at char v by crystallinity with non-negative Hodge–Tate weights.",
+   "reason": "Twisting by the non-unit Ψ(Frob_v)^{−1} can destroy integrality at primes above char v.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the review checked that the stated consequence does not follow from the printed argument"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E25",
+   "kind": "misprint",
+   "locator": "§1.2, p. 7; Remark 4.3.3, p. 40; Proposition 4.5.1(1), p. 43",
+   "printed": "'proving automorphy lifting liftings'; 'all the conditions remain true except that now ⟨x, y⟩ = −c⟨x, y⟩'; 'A finite extension F^avoid/F and disjoint finite sets S_0 of rational primes'",
+   "correction": "'automorphy lifting theorems'; ⟨y, x⟩ = −c⟨x, y⟩ (as in Definition 4.4.1(3)(b)); 'a finite set S_0 of rational primes'.",
+   "reason": "Slips whose meaning is fixed by the context.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E26",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.1.3, p. 44; proofs of Lemmas 5.2.4 and 5.2.6, pp. 47–48; proof of Theorem 6.2.4, pp. 58, 60",
+   "printed": "'ρ|_{G_{K_1}} ∼ ρ_0|_{G_{K_1}}'; 'Aut(G^m) ≃ Aut(G) ⋊ S_m'; 'since r|_{G_{F(ζ_p)}} is irreducible'; 'Ψ_j = Ψ_2 ∘ N_{F_j/F_2}'; 'For each place v|q of F_6, s̄_{UA,𝔭}|_{G_{F_6,v}} is trivial'",
+   "correction": "ρ_{n,m,0}|_{G_{K_1}} (ρ_0 = ρ_{n,1,0} has the wrong weights); Aut(G^k) ≅ Aut(G)^k ⋊ S_k with k = r or s; r̄_B; Ψ_2 ∘ N_{L_j/L_2}; s̄_{UA,𝔮}.",
+   "reason": "Index and letter slips fixed by the surrounding definitions.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E27",
+   "kind": "error",
+   "locator": "Proof of Lemma 5.2.6, p. 48",
+   "printed": "Let α ∈ 𝔽_p^× be an element such that 1, α, …, α^{mn−1} are all distinct; such an α exists because p − 1 ≥ mn. … where A has eigenvalues with ratio α",
+   "correction": "Take α = β² a square, as in Lemma 5.2.4; it exists because (p − 1)/2 ≥ mn when p > 2mn + 1.",
+   "reason": "A ∈ PSL_2(𝔽_p) with 𝔽_p-rational eigenvalues is ±diag(a, a^{−1}), whose eigenvalue ratio a² is a square, so a non-square α cannot occur.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the eigenvalue argument was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E28",
+   "kind": "error",
+   "locator": "Lemma 5.2.6, hypothesis 2 (p. 48), and Proposition 6.2.3(13) (p. 55)",
+   "printed": "'r̄_B ≅ Ind_{G_L}^{G_F} ψ and r̄_B|_{G_{F(ζ_p)}} irreducible'; 'The representation r̄_{CM,𝔯}|_{G_{F(ζ_r)}} is irreducible.'",
+   "correction": "absolutely irreducible",
+   "reason": "Conclusion (1) asserts adequacy, which implies absolute irreducibility, and its proof uses [Tho12, Thm. A.9], which needs absolute irreducibility. An 𝔽_p-rational induced representation can be irreducible over 𝔽_p but split over 𝔽̄_p (for m = 2, Ind ψ̄ ≅ θ ⊕ θη with θ 𝔽_{p²}-valued), and then s̄|_{G_{F(ζ_p)}} is not adequate. Theorem 6.2.4 proves absolute irreducibility (p. 58), so the main results are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the reason was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E29",
+   "kind": "error",
+   "locator": "Proposition 6.2.3(13), p. 55, and the proof of Theorem 6.2.4, pp. 59–60",
+   "printed": "'If m > 2, then the image r̄_{aux,𝔭}(G_F) is a conjugate of GU_m(𝔽_{p²}) and r̄_{aux,𝔭} has multiplier character ε̄^{1−m}'; 'the homomorphism π_1^ét(T_{F_4}) → GU_m(𝔽_{p²})'; 'r̄_{aux,𝔭}(G_{F_5}) = GU_m(𝔽_{p²})'",
+   "correction": "Require r̄_{aux,𝔭} to take values in GU_m(𝔽_{p²}) with multiplier ε̄^{1−m} and r̄_{aux,𝔭}(G_{F(ζ_p)}) = SU_m(𝔽_{p²}), which is all Lemma 5.2.4 uses; in Theorem 6.2.4 take f onto its image G ⊇ SU_m(𝔽_{p²}) (the geometric monodromy of Proposition 4.4.2).",
+   "reason": "(8b) requires det r_{aux,λ} = ε^{−m(m−1)/2}, so det r̄_{aux,𝔭} takes values in 𝔽_p^×; but GU_m(𝔽_{p²}) contains diag(u, 1, …, 1) with u^{p+1} = 1 and u ≠ ±1, whose determinant is not in 𝔽_p^×. So the hypotheses of Proposition 6.2.3 are inconsistent for m > 2 as printed, and the proof of Theorem 6.2.4 asserts a false image.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the determinant argument was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E30",
+   "kind": "gap",
+   "locator": "Proposition 6.2.3, hypotheses (7)–(17) and proof, pp. 55–56",
+   "printed": "7. Distinct primes p, r, not dividing any place of S, and places 𝔭, 𝔯 of M lying above them.",
+   "correction": "Add that r_𝔯|_{G_{F_v}} is crystalline for every v | r (as Theorem 6.2.4 arranges, p. 58, using r ∈ L(R)).",
+   "reason": "A very weakly compatible system is crystalline only outside a density-zero set of primes (Definition 6.1.1(5b)), but the proof applies Theorem 3.2.1 to s_{CM,𝔯} and uses Sym^{n−1}r_𝔯|_{G_{F_v}} ⊗ r_{CM,𝔯} ∼ Sym^{n−1}r_𝔯|_{G_{F_v}} ⊗ r_{aux,𝔯} at v | r, both of which need r_𝔯 crystalline there; nothing in (1)–(17) provides it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the review checked Definition 6.1.1 and the proof"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E31",
+   "kind": "gap",
+   "locator": "Lemma 5.2.4 (m = 2) and its proof, pp. 46–47",
+   "printed": "if m = 2, assume that the fixed fields of the kernels of the projective representations associated to r̄_A and r̄_B are linearly disjoint over F(ζ_p). … or m = 2 and the fields are linearly disjoint by assumption.",
+   "correction": "Assume the Galois closures H̃_A and H̃_B over ℚ linearly disjoint over F(ζ_p).",
+   "reason": "The proof needs Gal(H̃/F(ζ_p)) ≅ Gal(H̃_A/F(ζ_p)) × Gal(H̃_B/F(ζ_p)). If H_B = g(H_A) for some g ∈ G_ℚ − G_F, then H_A and H_B can be linearly disjoint while H̃_A = H̃_B, and the product decomposition fails.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; the counterexample was checked by the review"
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E32",
+   "kind": "gap",
+   "locator": "Proof of Theorem 6.2.4, pp. 60–61",
+   "printed": "We take F^avoid = B′·F_5. … at each step, the extension F_{j+1}/F_j has been chosen so that the image does not change",
+   "correction": "Enlarge F^avoid by the field cut out by r̄_{aux,𝔭} (equivalently s̄_{aux,𝔭}).",
+   "reason": "B′ was fixed before R_aux was constructed over F_5, so linear disjointness from B′F_5 does not keep r̄_{aux,𝔭}(G_{F_6(ζ_p)}) equal to SU_m(𝔽_{p²}), which hypothesis (13) needs over F_6.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+    "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+    "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+   "citation": "Boxer–Calegari–Gee–Newton–Thorne, \"The Ramanujan and Sato–Tate Conjectures for Bianchi modular forms\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+   "reviewReason": "found by the review and checked on the page image of the published version; checked by the review in the text of pp. 59–60"
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E1",
@@ -42122,9 +42521,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively at published p. 55, where the definition is self-referential as printed: 'où les produits tensoriels non spécifiés sont au-dessus de R_{B,M} et Ř_{B,M} = Hom(Ř_{B,M}, L)'. A dual cannot be defined as the dual of itself; Hom(R_{B,M}, L) is meant, which is also the only reading under which the displayed tensor products over R_{B,M} and Ř_{B,M} make sense. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E2",
@@ -42144,9 +42543,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively at published p. 55: 'qui, pour pour tout k ⩾ 1, sont fixes modulo p^k par un sous-groupe ouvert de G_{Q_p}'. The doubled 'pour' occurs exactly once in the whole article, so it is plainly typographical. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E3",
@@ -42166,9 +42565,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively, by comparing the introduction with the body. Théorème 0.18(ii), on published p. 9, reads 'Supposons que p > 3. On a un isomorphisme de E^{δ_M}_B[G_{Q_p}]-modules …' — it carries the hypothesis. Théorème 5.24(ii), on published p. 59, states the same isomorphism of E^{δ_M}_B[G_{Q_p}]-modules with NO hypothesis at all. So the body statement is strictly stronger than the one the introduction announces, and the missing condition is exactly the one the finding names; the article's own discussion of the Steinberg block ('pas à un twist {χ, St ⊗ χ, I(χ,χε)} du bloc de la Steinberg') is the p = 3 alternative. 'Affects a stated result' is the right classification. The companion remark, that Théorème 5.15's proof cites results carrying the same restriction, rests on the extraction's reading of that proof rather than on a check of mine. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E4",
@@ -42188,9 +42587,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively at published p. 62: '[52] V. Paškūnas, Extensions for supersingular representations of ), Astérisque 331 (2010), 317–353.' The group name has dropped out entirely, leaving a stray closing parenthesis. The paper's own reference [71] on the same page shows the intended form, 'supersingular representations of GL_2(F)'. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E5",
@@ -42210,9 +42609,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively at published p. 62: '[42] Y. Hu, H. Wang, On some mod p representations of quaternion algebra over 𝑔 𝑝, arXiv:2201.01464'. The field name is set as the letters g and p rather than Q_p — a font or encoding slip in the bibliography. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E6",
@@ -42232,9 +42631,9 @@
    "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
    "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "reviewReason": "Confirmed decisively at published p. 62: '[68] M. Strauch, Geometrically connected components of of Lubin-Tate deformation spaces with level structures'. The doubled 'of' is plainly typographical. Verified against the published open-access text, Forum of Mathematics Pi 11 (2023), e16, 1–62, re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2023.15 carries no update-to, updated-by or relation entry (checked 23 September 2026)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E1",
