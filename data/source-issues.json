@@ -29876,14 +29876,14 @@
    "owner": "PAPER-CESNAVICIUS-19",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
    "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-19",
+   "reviewReason": "Confirmed as a gap, and the printed text is exactly as quoted (p. 4). Proposition 2.2 is stated for \"an affine, smooth R-group scheme G\" with no commutativity hypothesis, and its proof establishes only that H(V) → X(V) is surjective, where H = Res_{R'/R}(G_{R'}) and X = H/G. For the exact sequence of pointed sets H(V) → X(V) → H¹(V,G) → H¹(V,H), that surjectivity says precisely that the fibre over the neutral class is trivial. For a noncommutative G, H¹ is a pointed set and trivial kernel does not give injectivity: the fibre through the class of a torsor P is computed after twisting, as the orbit set of (^P H)(V) acting on (^P X)(V), and the proof does not treat the twisted forms. The extraction's diagnosis of why the printed hypotheses do not reach them is right: hypothesis (1) together with the affineness of X gives X(V) ≅ X(R) because a map to an affine R-scheme factors through Spec Γ(V,O), but ^P X is only a V-scheme and is not the base change of an affine R-scheme, so neither (1) nor (2) controls its V-points; and by (2) a torsor that extends to R is trivial, so exactly the torsors on V that do not extend are uncontrolled. I verified independently that Proposition 2.2 is invoked in only two places in the paper — the proof of Proposition 2.3, with G = (Res_{R'/R}(T_{R'}))/T, and Corollary 2.4, with G = T an R-torus — and that both are commutative, so the main theorems are untouched. Like the extraction, I do not claim the statement false for noncommutative G; I claim only that the printed proof does not establish it. \"Affects a stated result\" is therefore the right classification, since the Proposition is asserted in that generality. No later version or erratum corrects it: arXiv 1711.06456 stops at v4, the author's own copy at webusers.imj-prg.fr is dated 27 November 2018 and so predates v4, its text differs from v4 only by reflow, and Crossref's record of doi:10.1215/00127094-2018-0057 carries no update-to, updated-by or relation entry (checked 23 September 2026). The published Duke text is paywalled and was not collated, as the extraction states."
   },
   {
    "id": "PAPER-CESNAVICIUS-19/E2",
    "kind": "misprint",
-   "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+   "locator": "Supporting source GR, math/0201175v3, Proposition 5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
    "printed": "such that t^h ∈ H",
    "correction": "Choose the finite subideal H with t^h∈H+p_a. This is precisely the condition used later for H_λ+p_(λ,a).",
    "reason": "The hypothesis is evaluated smoothness, not global smoothness. For R=Q[[t]], I=R, a=1, J=(X²(X−1)), h=0 and n=1, the hypotheses hold: f(a)=0 and f′(a)=1. But S has a singular double-point component at X=0, so H_R is proper and cannot contain 1. A finite selection from a witness modulo p_a is sufficient.",
@@ -29897,14 +29897,14 @@
    "owner": "PAPER-CESNAVICIUS-19",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
    "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-19",
+   "reviewReason": "Confirmed, on the page image as well as in the text layer, since pdftotext scrambles the line. Page 119 prints: \"Let next R be a general ring; let H ⊂ H_R(F,J) be a finitely generated subideal such that t^h ∈ H.\" But the hypothesis of Proposition 5.4.13 is (5.4.9), which reads t^h ∈ H_R(F,J) + p_a — the condition evaluated at the point a, not membership in H_R(F,J) itself. I verified the extraction's counterexample: take R = Q[[t]], I = R, a = 1, J = (X²(X−1)), h = 0, n = 1. Then f(1) = 0 and f'(1) = 1, so 1 ∈ H_R(F,J) + p_a and (5.4.9) holds (also J ⊂ p_a + tIF and n > 2h). But by Lemma 5.4.2(ii) the open set Spec S ∖ V(H_R(F,J)·S) is the smooth locus of S over R, and S = R[X]/(X²(X−1)) has a singular double point at X = 0, so H_R(F,J) is a proper ideal and no subideal of it contains t^h = 1. The correction is confirmed by the proof itself: a few lines later it states the λ-level condition in exactly the repaired form, \"we can assume that t^h ∈ H_λ + p_{λ,a}\", which I also read on the page image. The arXiv copy of Gabber–Ramero was re-fetched on 23 September 2026 and hashes to c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8, matching the recorded hash; the slip is still present. The published book (Lecture Notes in Math. 1800) was not read, so whether it corrects the preprint here is not established, and this verdict is about the preprint text the extraction cites."
   },
   {
    "id": "PAPER-CESNAVICIUS-19/E3",
    "kind": "misprint",
-   "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+   "locator": "Supporting source GR, math/0201175v3, Proposition 5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
    "printed": "S̄_λ := R̄_λ ⊗_(R_λ) S",
    "correction": "The completed finite-stage algebra is S̄_λ=R̄_λ⊗_(R_λ)S_λ, where S_λ=F_λ/J_λ. In the immediately preceding point-ideal list use X_N−c_N for its last generator.",
    "reason": "The completed root c solves J_λ and gives a section of the base change of S_λ. Tensoring the full S over R_λ instead introduces coefficients from R with no chosen map to R̄_λ and does not supply that section. The final variable/subscript slip is merely typographical.",
@@ -29918,17 +29918,17 @@
    "owner": "PAPER-CESNAVICIUS-19",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
    "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-19",
+   "reviewReason": "Confirmed, both halves, on the page image — necessary here because the slip is a missing subscript, which a text layer can drop of its own accord. Page 119 prints \"let U_λ := Spec S_λ ∖ V(H_λ · S_λ) and S̄_λ := R̄_λ ⊗_{R_λ} S\", with a bare S carrying no λ, while the surrounding S_λ, H_λ · S_λ and Spec S_λ all show their subscripts clearly. It must be S_λ: the next clause asks that the section of Spec S̄_λ restrict into the preimage of U_λ, and U_λ ⊂ Spec S_λ; and Lemma 5.4.12, which is then applied, is set up for S̄ := R̄ ⊗_R S with U ⊂ Spec S, so at level λ it needs S̄_λ = R̄_λ ⊗_{R_λ} S_λ. The second half is printed in the same sentence: the point ideal is generated by \"X_1 − c_1, ..., X − c_n\", where the last generator should be X_N − c_N. The arXiv copy of Gabber–Ramero was re-fetched on 23 September 2026 and hashes to c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8, matching the recorded hash; the slip is still present. The published book (Lecture Notes in Math. 1800) was not read, so whether it corrects the preprint here is not established, and this verdict is about the preprint text the extraction cites."
   },
   {
    "id": "PAPER-CESNAVICIUS-19/E4",
    "kind": "misprint",
-   "locator": "Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation",
+   "locator": "Supporting source SGA2, Laszlo annotated edition, XI Lemma 3.17(e); inherited finding from the 2026-09-22 continuation",
    "printed": "pour tout y fermé de X, y ∈ Y",
    "correction": "Replace y ∈ Y by y ∉ Y in this hypothesis.",
-   "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification. (cc-442dc5) Reclassified to affect nothing: the proof of the cited SGA 2 lemma shows the intended hypothesis is y ∉ Y, and the application in 3.13(ii) holds under either reading.",
+   "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition 3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification. (cc-442dc5) Reclassified to affect nothing: the proof of the cited SGA 2 lemma shows the intended hypothesis is y ∉ Y, and the application in 3.13(ii) holds under either reading.",
    "affects": "nothing",
    "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated. Awaiting independent review.",
    "searched": [
@@ -29938,9 +29938,29 @@
    "owner": "PAPER-CESNAVICIUS-19",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
    "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-19",
+   "reviewReason": "Confirmed, and I checked it myself rather than inheriting it. The Laszlo annotated edition (SHA-256 1c648d95…58da1, re-fetched 23 September 2026) prints hypothesis (e) of XI Lemma 3.17 as \"pour tout y fermé de X, y ∈ Y, l'anneau O_{X,y} est parafactoriel\", and I confirmed on the page image that the glyph really is ∈ and not a text-layer corruption of ∉. It is a slip for y ∉ Y. The proof of 3.17 applies (e) through Théorème 3.12, whose hypothesis 3) is parafactoriality \"pour tout voisinage ouvert U de Y dans X et tout x ∈ X − U\" — points lying outside every open neighbourhood of Y, hence outside Y; and the proof of 3.17 says just that, that for every open U ⊇ Y the complement X ∖ U consists of finitely many closed points. Under the printed reading (e) would constrain only points of Y, which c) already covers, and would leave the points the proof needs entirely uncovered. Théorème 3.18(iii), which also conjugates 3.12 and 3.13, states the condition in the correct \"x ∈ X − U\" form. The classification \"affects nothing\" is right: the application in 3.13(ii) verifies parafactoriality at every closed point of X, so it survives either reading. The Laszlo annotated edition was re-fetched on 23 September 2026 and hashes to 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1, matching the recorded hash. The 1968 North-Holland original was not consulted, so this verdict is about the annotated edition."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/E5",
+   "kind": "misprint",
+   "locator": "Supporting source GR, math/0201175v3, proof of Proposition 5.4.13, p. 119, final sentence of the descent-to-level-λ paragraph (not a finding in the main Česnavičius text). Added by review REV-PAPER-CESNAVICIUS-19; SHA-256 c4ab39ad…8dc8.",
+   "printed": "and whose restriction to Spec R_λ \\ V(tI_λ) factors through U",
+   "correction": "factors through U_λ",
+   "reason": "The proof of 5.4.13 defines only U_λ := Spec S_λ \\ V(H_λ · S_λ); a plain U is never introduced in it, so the symbol is undefined as printed. Everything in this sentence is at level λ — the section is σ : Spec R_λ → Spec S_λ, agreeing with c modulo (tI_λ)^{n−h} — and the immediately preceding clause uses \"the preimage of U_λ\", so U_λ is meant. The plain U is inherited from the statement of Lemma 5.4.12, where U is the local name for the open subscheme. Read on the page image, where the surrounding subscripts are all clearly present, so this is not a dropped-subscript artefact of the text layer. Purely typographical: the argument is unaffected.",
+   "affects": "nothing",
+   "known": "new in this review",
+   "searched": [
+    "2026-09-23 https://arxiv.org/pdf/math/0201175 re-fetched and hashed (c4ab39ad…8dc8, matching the recorded hash); the slip is present.",
+    "The published book (Lecture Notes in Math. 1800) was not read, so its status there is not established."
+   ],
+   "owner": "PAPER-CESNAVICIUS-19",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+   "citation": "Česnavičius, \"Purity for the Brauer group\", Duke Mathematical Journal (2019)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-19",
+   "reviewReason": "Found and verified by this review on the page image; see the reason field."
   },
   {
    "id": "PAPER-CESNAVICIUS-21/E1",
@@ -63400,9 +63420,9 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed on p.9. The boxes control only differences within each block of places above w_i, not the block sums t_i = log|Nm_{L/K}(uα_r/α_s)|_{w_i}; the paper's 'Σt_i = 0, since u, α_r and α_s all have norm 1' gives Σ_i t_i = 0 but not Σ max(x_v, 0) = O(1), and the height is unbounded once K has two or more infinite places, which is the case in the application (K = F₁). Rescaling by units of K alone does not suffice (it moves t only by d·Log of a unit). The proposed repair works: pigeonhole Nm_{L/K}(α_i) in O_K^*/(O_K^*)^d (at most d^{[K:ℚ]} classes), rescale, so that α_r/α_s has relative norm 1 and every t_i = 0, at the cost of a constant."
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E2",
@@ -63421,9 +63441,9 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed on pp.7 and 9: the statement sets d := [L : ℚ], the proof 'Let d = [L : K]', and the applications (θ = 1/20 on p.27, θ = 1/24 on p.32, ℓ = 3) need d = [L : K]."
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E3",
@@ -63442,9 +63462,9 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed; the correction is right. Its stated reason is incomplete: the contradiction also needs ℘̄_r to have negative valuation, because condition (3) of Lemma 2.1 forbids both primes being extended, not either one."
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E4",
@@ -63463,9 +63483,9 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed on p.11: ℚ(√2) and ℚ(√−2) both have discriminant of absolute value 8 while h₂(ℚ) = 1. The correct count per discriminant ideal is O(m^ε h₂(F)) (ideals of norm m, sign choices at real places and a bounded number of characters at primes above 2), which is absorbed as claimed. The same passage also writes L/F for the quadratic extension K/F twice. The same slip recurs in the proof of Lemma 5.8 (E14)."
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E5",
@@ -63484,9 +63504,9 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed: O_L appears three times in Lemma 3.14 and its proof (p.17) for O_F, and Corollary 5.5 (p.23) cites a nonexistent 'Lemma 5.1' for Theorem 5.1."
   },
   {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E6",
@@ -63505,9 +63525,219 @@
    "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
    "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
    "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Confirmed on pp.30 and 36: the displayed C_G has no 2^{−r₂(F)} weights, while the proof's final display, D_G and C_m have them. An independent PARI computation over quadratic fields with |D| ≤ 30000 gives weighted 3-torsion averages 1.003921 (real F) and 1.054918 (imaginary F), hence 1.4230 with the proof's formula and 1.4167 with the displayed one, matching the extraction; the proof's denominator 0.052320 agrees with the Cohen–Diaz y Diaz–Olivier constant for D₄-quartic fields (≈ 0.05233), which the displayed weights would not give."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E7",
+   "kind": "misprint",
+   "locator": "Lemma 2.1, statement, p.7 (published version)",
+   "printed": "\"Suppose there exist M pairs of distinct prime ideals (℘_i, ℘̄_i) in O_L and integers a_i, b_i such that …\"",
+   "correction": "\"positive integers a_i, b_i\".",
+   "reason": "With a_i = b_i = 0, conditions (1) and (2) hold trivially for every pair of distinct primes above a split prime, and (3) holds for split primes, so M could be taken arbitrarily large and (2.1) would force Cl_{L/K}[ℓ] = 0. For L = ℚ(√−23), K = ℚ, ℓ = 3 this is false, since Cl_L[3] ≅ ℤ/3. The proof uses a_i, b_i ≥ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on the page image of p.7 against the class number 3 of ℚ(√−23)."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E8",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.1, p.9 (published version)",
+   "printed": "\"… the quotient O_L^*/(O^*O_K^*) is annihilated by d, and we have that [O_L^* : O^*O_K^*] ≤ d^d.\"",
+   "correction": "[O_L^* : O^*O_K^*] ≤ d^{r₁(K)+r₂(K)}, so det U = O_{[L:ℚ]}(1) rather than O_d(1).",
+   "reason": "The quotient is annihilated by d and generated by at most r₁(K) + r₂(K) elements, not d. For K = ℚ(ζ₇)⁺ (a totally real cubic field) and L = K(√2), PARI gives [O_L^* : O^*O_K^*] = |Nm(O_L^*)/(O_K^*)²| = 8 > d^d = 4. The bound is still O_{[L:ℚ]}(1), so the lemma is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review and checked with PARI/GP (bnfinit, rnfinit, bnfisunit) for K = ℚ(ζ₇)⁺, L = K(√2)."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E9",
+   "kind": "error",
+   "locator": "Lemma 3.11, p.14 (published version)",
+   "printed": "\"For any −1/2 ≤ σ ≤ 3/2 and any t ∈ ℝ, the Shintani zeta function satisfies ξ_{F,α}(σ + it) = O_{[F:ℚ],ε}(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}).\"",
+   "correction": "State the bound away from the poles, e.g. for |t| ≥ 1, or for (s − 1)(s − 5/6)(s + 1)^{−2}ξ_{F,α}(s), to which Phragmén–Lindelöf actually applies.",
+   "reason": "By Proposition 3.7, ξ_{F,α} has simple poles at s = 1 and s = 5/6, both inside the strip, so the bound cannot hold for all t. Its use in the proof of Proposition 3.6 bounds horizontal segments that avoid the poles, so nothing downstream changes.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on the page images of pp.12 and 14."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E10",
+   "kind": "error",
+   "locator": "Lemma 3.13, p.16, and its use on p.18 (published version)",
+   "printed": "\"Σ_{R∈ℛ(K)} |Aut_F(A)|^{−1}/Disc(R/O_F)^s = h₃(K/F)/(2Disc(K/F)^s) ζ_F(2s)ζ_F(6s − 1) Σ … \" with \"A := R ⊗_ℚ F\"",
+   "correction": "Use the weight |Aut_{O_F}(R)|^{−1}, and A := R ⊗_{O_F} F (also on p.18).",
+   "reason": "The sum is over isomorphism classes of rings, and an order of A swapped with another by Aut_F(A) is one class with trivial automorphism group; the orbit–stabiliser identity needs |Aut_{O_F}(R)|^{−1}. For F = ℚ, K = ℚ(i) there are three orders of index 5 in ℚ × K, one fixed by conjugation and two swapped: the printed left side has coefficient 1, the right side 3/2, and the corrected weight gives 3/2. The proof of Proposition 3.15 (p.18) bounds Σ|Aut_{O_F}(R)|^{−1}Disc(R/O_F)^{−s} below by the printed left side and then applies the lemma; with the corrected weight that step is an equality, so Proposition 3.15 is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; the reviewer recounted the index-5 case: the orders of index 5 in ℤ × ℤ[i] are the three 2-dimensional unital subalgebras of F₅ × F₅ × F₅, one fixed by complex conjugation and two swapped, so two isomorphism classes, and the coefficient of 25^{−s} on the right is (1/2)(1 + 2) = 3/2."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E11",
+   "kind": "gap",
+   "locator": "Proof of Proposition 3.12, p.18 (published version)",
+   "printed": "\"Following the proof of Lemma 6.2 in [DW88], for a square-free ideal 𝔮 of F of norm Nm 𝔮 ≤ X^{1/2}, the number of S₃ cubic fields L/F with quadratic resolvent K/F and disc(L/F) = 𝔮²disc(K/F) is bounded by …\"",
+   "correction": "Sum over all ideals 𝔮 (the conductor), not only square-free ones; the Dirichlet series Σ_𝔮 4^{ω(𝔮)}Nm(𝔮)^{−2s} still converges as needed.",
+   "reason": "Above 3 the conductor of an S₃ cubic can be non-square-free: ℚ(∛3) has discriminant −243 = −3·9² with resolvent ℚ(√−3), so 𝔮 = (9). The printed sum omits such fields; the bound itself survives.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on the page image of p.18 and by the discriminant of x³ − 3."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E12",
+   "kind": "error",
+   "locator": "§3.4, justification of (3.8), p.19 (published version)",
+   "printed": "\"By the bijection between 3-torsion elements in relative class groups of quadratic extensions and S₃ relative cubic extensions with square-free discriminant ideal [DW88, Section 5], we have …\"",
+   "correction": "The correspondence is with S₃ cubic extensions L/F whose discriminant equals that of the quadratic resolvent, disc(L/F) = disc(K/F).",
+   "reason": "Unramified cyclic cubic extensions of K correspond to cubic L/F with disc(L/F) = disc(K/F), which need not be square-free: ℚ(√−26) has class number 6, and its unramified cubic extension gives a cubic field of discriminant −104 = −8·13. Inequality (3.8) itself is correct.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on p.19 against the class number 6 of ℚ(√−26)."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E13",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.3, p.21 (published version)",
+   "printed": "\"As in the statement of the lemma, we set σ₁ = 1 − ε₁/4c\"",
+   "correction": "\"σ₁ = max(1 − ε₁/4c, 1/2)\", as in the statement.",
+   "reason": "The statement (p.20) has the maximum, which Theorem 4.2 needs since it is stated for σ ≥ 1/2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on the page images of pp.20–21."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E14",
+   "kind": "error",
+   "locator": "Proof of Lemma 5.8, p.25 (published version)",
+   "printed": "\"By class field theory, the number N_k(C₂, X) is bounded by the product of h₂(k) and the number of integral ideals with bounded norm.\"",
+   "correction": "The number of quadratic extensions with a given discriminant ideal is ≤ h₂(k)·2^{r₁(k)}·∏_{v|2}|O_v^×/O_v^{×2}| = O_{[k:ℚ]}(h₂(k)); the lemma's statement stands.",
+   "reason": "For k = ℚ(ζ₂₉)⁺ the class number is 1 and the narrow class group is (ℤ/2)³, so k has 7 quadratic extensions with discriminant ideal of norm 1, against the claimed bound 1. This is the same slip as E4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review and checked with PARI/GP (bnfinit, bnfnarrow for the degree-14 subfield of ℚ(ζ₂₉))."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E15",
+   "kind": "error",
+   "locator": "§7.2, the general prediction for h₃(K/k), p.39 (published version)",
+   "printed": "\"… the predicted average of h₃(K/k) is (1 + ∏_v|V^{σ_v}|^{−1}) ∏_i (1 + ∏_v|V_i^{σ_v}|^{−1} + ⋯ + ∏_v|V_i^{σ_v}|^{−a_i})\"",
+   "correction": "For W′ = ∏_i V_i^{a_i}, the i-th factor is Σ_{j=0}^{a_i} [a_i choose j]_{q_i} x_i^j with x_i = ∏_v|V_i^{σ_v}|^{−1} and q_i = |End_G(V_i)|.",
+   "reason": "The average of |Hom_G(Cl, V_i^{a_i})| is a sum over submodules Z ⊆ V_i^{a_i}, and those isomorphic to V_i^j are counted by the Gaussian binomial; with E|Sur_G(Cl, V_i^j)| = x_i^j ([WW21]) this gives the corrected factor. The printed formula agrees only when every a_i ≤ 1, which covers Example 7.2 (W′ irreducible).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; the reviewer checked the count: |Hom_G(Cl, V_i^{a_i})| = Σ_Z |Sur_G(Cl, Z)| over submodules Z ⊆ V_i^{a_i}, of which [a_i choose j]_{q_i} are isomorphic to V_i^j, and the paper's own input from [WW21, Theorem 6.2, Theorem 4.1] gives the average x_i^j of each surjection count."
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E16",
+   "kind": "error",
+   "locator": "§1, p.2 (published version)",
+   "printed": "\"… and O_ε(X^{1/2+ε}) quartic fields with any other Galois closure group.\"",
+   "correction": "\"o(X) quartic fields with any other Galois closure group\" (for A₄ the best known bound is about X^{0.778}).",
+   "reason": "O(X^{1/2+ε}) is known for C₄ and V₄ but not for A₄: the best bound for A₄-quartic fields is about X^{0.778}, from Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020). The point of the sentence, that only D₄ and S₄ have positive density among quartic fields, still holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "reviewReason": "Found in this review; checked on p.2 against the literature on A₄-quartic counts."
   },
   {
    "id": "PAPER-LESLIE-25/E1",
