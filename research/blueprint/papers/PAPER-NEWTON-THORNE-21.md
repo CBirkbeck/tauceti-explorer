@@ -157,3 +157,39 @@ The entries by topic:
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json` reports no errors.
+
+## Review (REV-PAPER-NEWTON-THORNE-21, 23 September 2026)
+
+The review accepted the extraction and all its routes after corrections made in place, and added one route. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21.md`. Four checkers read the paper in sections against the page images and the arXiv v3 TeX; the coordinator re-derived every substantive finding.
+
+- **Statements corrected (about 40 items).** The material ones:
+  - 10: the residual multiplicity-free hypothesis;
+  - 12: the endoscopic η;
+  - 34–36: the §1.17 hypotheses;
+  - 48: Remark 2.16;
+  - 52: E-rational ρ_v;
+  - 95: the conditions on Σ;
+  - 98: Corollary 5.4 gives a lift of G_{F⁺,S∪Σ};
+  - 101: Theorem 5.7's hypotheses;
+  - 104: how BLGGT14 Theorem 3.1.2 is applied;
+  - 119: Edixhoven needs level prime to p;
+  - 121: π_0 is an isobaric sum;
+  - 125 and 126: patching, and soluble descent against cyclic base change.
+- **Locators:** items 85 and 112 corrected.
+- **New items: 38** (17 planned, 21 missing), 164 in total. They include:
+  - the definitions of regular algebraic and polarizable representations, Sym^{n−1}π, Bloch–Kato H¹_f, primitivity and generic primes;
+  - the inputs behind Corollary C (modularity, Godement–Jacquet, Λ(Sym^n E, s));
+  - Mœglin–Waldspurger, temperedness, Kazhdan–Varshavsky, KPX Proposition 6.2.8, BHS17 Lemme 2.11, Conrad, Sen, Zelevinsky, Arthur–Clozel's cyclic base change, Chebotarev;
+  - the Ribet–Momose large-image theorem, with a new source route to R19.3.
+- **Routes:**
+  - Item 73, the vanishing of adjoint Selmer groups of Newton–Thorne 2020, moved to PolarizedAutomorphyLifting. That is the single owner chosen with the review of PAPER-NEWTON-THORNE-21-B.
+  - The briefs of routes 2, 3 and 7 record the new items and the corrections their design jobs must respect.
+  - The prerequisite Clozel–Thorne III was removed, since it is already an atlas paper, and eight prerequisites were added.
+- **Source issues:** E1–E4 are confirmed, and E5–E26 are new.
+  - **E21 is the most serious.** In the proof of Proposition 7.4, π_2 = τ_0 ⊗ |·|^{(n−2)/2}ιω_1ω_0^{n−1} is not conjugate self-dual: it fails by δ_{K/ℚ}|_{F_0}. So Theorem 4.1 does not apply as printed.
+  - This leaves a gap in the printed proof of Theorem 7.1 for n not a power of 2, and through it in the printed route to Theorems A, B and E. Remark 7.5 covers powers of 2.
+  - The others are:
+    - repairable gaps: E7, E10, E12, E16, E19, E22–E25;
+    - a false remark in the sketch of Part II: E18;
+    - an over-strong corollary that is never used: E15;
+    - misprints.
