@@ -22,9 +22,37 @@
         "Selected PDF24,28,35,38,69; incidental PDF96 and115. Not a full preprint reading."
       ],
       "note": "The selected source slips persist in v2. arXiv version history lists v2 (15June2022) as latest; author-hosted Springer PDF supplies the extraction."
-    }
+    },
+    "continuationReadings": [
+      {
+        "agent": "Codex",
+        "session": "codex-hjdg0j",
+        "date": "2026-09-23",
+        "main": "Published PDF68–69 and78–81 freshly read; inherited full-paper reading by codex-7e92bd is retained, not represented as a second full reading.",
+        "sources": [
+          {
+            "title": "Elkik, Solutions d'équations à coefficients dans un anneau hensélien",
+            "url": "https://numdam.org/item/10.24033/asens.1258.pdf",
+            "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5",
+            "pages": "PDF3–7, printed554–558: conventions, Jacobian ideal, Lemma1 and complete proof; printed556 rendered"
+          },
+          {
+            "title": "BLGGT, Potential automorphy and change of weight",
+            "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+            "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b",
+            "pages": "PDF95–98, printed595–598: standing affinoid conventions, LemmaA.1.1 and following completion examples"
+          },
+          {
+            "title": "Khare–Wintenberger, Serre's modularity conjecture II",
+            "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+            "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+            "pages": "PDF4–6 conventions; PDF8–10 Proposition2.2, full proof and Corollary2.3"
+          }
+        ]
+      }
+    ]
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -880,9 +908,19 @@
       "kind": "theorem",
       "name": "Elkik lifting for a fixed chart presentation",
       "locator": "Proposition3.3.9, PDF68–69",
-      "statement": "Fix lambda,z and a finite presentation of Unv(z,<=lambda,nabla)[1/(2h_lambda)!] over X times An. There are N>2r and r depending on the presentation such that, for any t-adically complete t-torsion-free ring A with a base map v->t, every compatible A/t^m point with m>=N lifts to an A point agreeing modulo t^(m-r). No uniqueness or agreement modulo t^m is claimed; the torsion-free hypothesis is required by the cited Elkik lemma.",
+      "statement": "Fix lambda,z and a finite presentation of Unv(z,<=lambda,nabla)[1/(2h_lambda)!] over X times An. There are N>2r and r depending on the presentation such that, for any t-adically complete t-torsion-free ring A with a base map v->t, every compatible A/t^m point with m>=N lifts to an A point agreeing modulo t^(m-r). No uniqueness or agreement modulo t^m is claimed; torsionfreeness supplies the non-Noetherian I=A specialization of Elkik used here.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07"
+      ],
+      "proofSteps": [
+        "Choose r from the universal conductor-weighted Jacobian identity, before any test-ring base change.",
+        "Use completeness to absorb the approximate-equation error into a unit and obtain t^r∈H_B(a).",
+        "Apply the non-Noetherian torsionfree specialization Z06 with N=2r+1. The corrected point agrees modulo t^(m−r), not necessarily t^m.",
+        "Elkik's original lemma has standing Noetherian hypotheses; Z06 provides the actual adaptation required by this statement."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U25",
@@ -1044,16 +1082,28 @@
       "locator": "Lemma3.7.2, PDF80",
       "statement": "For a complete DVR R and finite-type flat R-algebra A with A[1/varpi] a regular domain, if Spec(A^normal/varpi) is connected, then the varpi-adic completion of A is a domain. Finiteness of normalization and excellence give an injection into a normal completed algebra; any nontrivial idempotent there would survive reduction, contradicting connectedness.",
       "status": "missing",
-      "note": "Route owner: DeformationAndDerivedPatchingAlgebra. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: DeformationAndDerivedPatchingAlgebra. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L01"
+      ],
+      "proofSteps": [
+        "Finite normalization and exact completion give an injection into the normal complete ring B.",
+        "If B is not a domain, normal Noetherian component decomposition gives a nontrivial idempotent in B[1/π]. Integrality of an idempotent and normality put it in B.",
+        "An idempotent in πB belongs to all π^nB and is zero by separatedness; the same applies to 1−e. Thus a nontrivial idempotent survives in B/π, contrary to L01 and connectedness.",
+        "Do not replace connected normalization special fiber by connected original special fiber without justification."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
       "kind": "theorem",
-      "name": "Geometric connectedness input for products of charts",
+      "name": "Completed local product of chart rings is a domain",
       "locator": "Theorem3.7.1 proof, PDF79–80; [10] LemmaA.1.1 and [54] Proposition2.2",
-      "statement": "The proof requires domain results for completed tensor products over a complete DVR: factors have a rational point and regular generic fibre. It uses geometric connectedness of a regular affinoid domain with a rational point, and regularity of the product. Exact external statements and the claimed extension of[54] beyond finite extensions of Zp remain a prerequisite-reading gate; do not replace them by the false assertion that arbitrary tensor products of domains are domains.",
+      "statement": "In the proof of Theorem3.7.1 after the specified complete DVR extension R′, each completed local chart ring is a Noetherian domain with an R′-point and regular generic fiber. Their completed tensor product over R′, for the sum of maximal ideals, is a domain by the domain-only general-DVR adapter Z12. The separate π-adic affinoid product is Z13.",
       "status": "missing",
-      "note": "Route owner: DeformationAndDerivedPatchingAlgebra. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Split from the formerly bundled complete-local and affinoid arguments. Original KWII and BLGGT statements were read in this continuation; their exact general-field interfaces are recorded, not silently assumed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/M01",
@@ -3062,6 +3112,379 @@
       "statement": "For w in the Type A fundamental box, set a^w_ji to the least k for which w^-1(e_i-e_j)+k*delta is a positive affine root. Construct the lower unitriangular matrix whose ji entry is the sum over increasing paths i=i1<...<ik=j of product_l ((s_il-s_i(l+1))/(s_il-s_ik))*t^(sum_l a^w_i(l+1),il)*product_l A_i(l+1),il. Distinct s_i make all denominators units. The inverse has path coefficient (-1)^(k-1)*product_l (s_il-s_i(l+1))/(s_i1-s_i(l+1)). This gives an affine open in the component and satisfies M^-1*t*s*M in w Lie(B). The fixed-point witness reduces to nonsingular determinant minors; the source degree-maximization algorithm and Vandermonde reductions are explicit further proof leaves, with transversality intersection zero.",
       "status": "missing",
       "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+      "kind": "definition",
+      "name": "Elkik's presentation-dependent Jacobian ideal",
+      "statement": "For B=A[X_1,…,X_N]/J with fixed generators f_1,…,f_q, for each subset α of the generators let F_α be their ideal, Δ_α the ideal of |α|×|α| minors of their Jacobian (zero if |α|>N), and K_α=(F_α:J). Put H=Σ_α K_αΔ_α, with the usual empty-minor convention. Elkik permits a chosen H_B⊂H. The vanishing locus of the image of H in B is the nonsmooth locus.",
+      "locator": "Elkik (1973), §0.2, printed p. 555/PDF4; LLHLM23 Proposition3.3.9 proof PDF69",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
+      "prerequisites": [],
+      "proofSteps": [
+        "The full H detects smoothness of the fixed presentation. A chosen subideal is sufficient for Newton lifting when its value contains t^r.",
+        "Under base change the image of H_B remains inside the corresponding Jacobian ideal: conductors can increase, so do not assert equality of those ideals under arbitrary base change."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z03.test_1",
+          "statement": "For J=(f), the nonempty one-row contribution is the gradient ideal; keep the empty-row annihilator contribution separate if that convention is used.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z03.test_2",
+          "statement": "For the duplicated presentation (f,f), selecting one copy recovers the same derivative witness; taking only the full 2-row Jacobian would lose it.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "uses": [
+        {
+          "where": "U24 and G28",
+          "how": "A power of the base parameter in H+J gives a uniform lifting precision independently of the test ring."
+        }
+      ],
+      "api": [
+        {
+          "name": "ElkikPresentation.jacobianIdeal",
+          "role": "constructor",
+          "statement": "Form H from the chosen finite polynomial presentation and its conductor-weighted minors."
+        },
+        {
+          "name": "ElkikPresentation.baseChange_le",
+          "role": "functoriality",
+          "statement": "The image of an admissible H_B under coefficient base change lies in the new conductor-weighted Jacobian ideal."
+        },
+        {
+          "name": "ElkikPresentation.eval",
+          "role": "data",
+          "statement": "Evaluate H_B under the polynomial-evaluation map; a power-membership witness is recorded as a finite expression when supplied."
+        },
+        {
+          "name": "ElkikPresentation.smoothLocus",
+          "role": "characterisation",
+          "statement": "The complement of V(H) in Spec(B) is the smooth locus; distinguish the full H from a smaller chosen witness ideal."
+        },
+        {
+          "name": "ElkikPresentation.powerWitness",
+          "role": "data",
+          "statement": "Export a concrete finite identity v^r=h+j with h∈H and j∈J for use after all base changes."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04",
+      "kind": "theorem",
+      "name": "Newton correction with an Elkik minor witness",
+      "statement": "Let A be a t-torsionfree ring with a finite polynomial presentation J=(f_i), an admissible H_B, and a tuple a with t^r∈H_B(a) and J(a)⊂t^m A, m>2r. There exists y∈(t^(m−r)A)^N such that J(a−y)⊂t^(2m−2r)A.",
+      "locator": "Elkik Lemma1 proof, printed pp. 556–558/PDF5–7, specialized to I=A and no t-torsion",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03"
+      ],
+      "proofSteps": [
+        "For a conductor-weighted minor k_αδ_α, the adjugate matrix and differentiated conductor relations give z_α∈(t^m A)^N with k_α(a)δ_α(a)f(a)=Jac(a)z_α modulo t^(2m).",
+        "Combine finitely many such identities expressing t^r in H_B(a), write the combined z as t^r y, and cancel t^r using torsionfreeness.",
+        "Taylor's formula has a quadratic remainder in t^(2m−2r); the linear residual lies in the stronger ideal t^(2m−r)."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z04.test_1",
+          "statement": "For f(X)=t^r X−t^m and a=0 the exact correction has valuation m−r.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z04.test_2",
+          "statement": "The inequality m>2r gives 2m−2r>m; equality at m=2r does not provide strict improvement.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z05",
+      "kind": "theorem",
+      "name": "Elkik approximation with bounded torsion",
+      "statement": "Let A be Noetherian and t-adically complete, I an ideal, T the t-power torsion ideal, and k satisfy T∩t^k A=0. If t^h∈H_B(a), J(a)⊂t^n I and n>max(2h,h+k), there is a^0 with J(a^0)=0 and a^0−a∈(t^(n−h)I)^N.",
+      "locator": "Elkik Lemma1, printed pp. 555–558/PDF4–7",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03"
+      ],
+      "proofSteps": [
+        "The source's standing Noetherian hypothesis supplies the torsion cutoff and closedness of the relevant ideals.",
+        "Use the conductor-weighted adjugate correction, controlling the torsion during division by t^h, then iterate with improved precision and pass to the limit.",
+        "Do not export this arbitrary-I statement to arbitrary non-Noetherian rings merely by citing the source."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z06",
+      "kind": "theorem",
+      "name": "Torsionfree complete approximation without a Noetherian test ring",
+      "statement": "For a t-adically complete and separated t-torsionfree ring A, a finite polynomial presentation and admissible H_B, if t^r∈H_B(a), J(a)⊂t^m A and m>2r, there is an exact zero a^0 with a^0−a∈(t^(m−r)A)^N.",
+      "locator": "Proof extracted from Elkik Lemma1 with I=A; used in LLHLM23 Proposition3.3.9",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04"
+      ],
+      "proofSteps": [
+        "The finite adjugate/Taylor calculation of Z04 uses no Noetherian condition. Torsionfreeness permits cancellation directly, with k=0.",
+        "At each correction the tuple changes modulo t^(m−r), with m−r>r; the old identity expressing t^r in H_B(a) persists at the new tuple after multiplying by a unit 1+t^(m−2r)b.",
+        "Iterate m_(j+1)=2(m_j−r); its solution is m_j=2r+2^j(m_0−2r), so precision tends to infinity. Completeness gives a limit; continuity of finitely many polynomials gives J(a^0)=0.",
+        "Only I=A is asserted in this non-Noetherian variant; the correction remains in the closed principal-power neighborhood t^(m−r)A."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z06.test_1",
+          "statement": "N=2r+1 is a valid integral threshold for this witness r.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z06.test_2",
+          "statement": "Agreement modulo t^m is false in general: t^r X=t^m with r>0 has the unique solution t^(m−r).",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07",
+      "kind": "theorem",
+      "name": "A fixed smooth generic presentation gives a uniform exponent",
+      "statement": "For the fixed finitely presented universal chart over the Noetherian base S in U24, smoothness after inverting v implies v^r∈H+J for some r≥0. Choose H_B after base change to be the image of this full universal H, which is admissible by Z03. After any base map S→A with v↦t, an approximate zero modulo t^m with m>r satisfies t^r∈H_B(a) if A is t-adically complete.",
+      "locator": "LLHLM23 Proposition3.3.9 proof, PDF69; Elkik §0.2",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: SchemeAndStackFoundations. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23"
+      ],
+      "proofSteps": [
+        "V(H+J) is contained in V(v), hence v lies in the radical of H+J; choose one power and a finite polynomial identity before base change.",
+        "Evaluation gives t^r=h+t^m b. Since 1−t^(m−r)b is a unit by completeness, t^r belongs to H_B(a).",
+        "Combining with Z06 permits N=2r+1. Both r and N are chosen from the universal presentation, not separately for each test ring."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
+      "kind": "definition",
+      "name": "Geometric connectedness in the affinoid finite-extension sense",
+      "statement": "For a nonzero affinoid algebra A over a complete nonarchimedean field K, call A geometrically connected in the sense used by BLGGT if Spec(A⊗_K L) is connected for every finite field extension L/K. Finite extension tensors agree with their completed tensors. Comparison with the scheme predicate testing arbitrary field extensions is a separate interface.",
+      "locator": "BLGGT AppendixA.1, printed pp. 595–596/PDF95–96",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L01"
+      ],
+      "proofSteps": [
+        "Record the finite-extension convention used in the product proof; do not conflate an ordinary tensor product of affinoids with their completed tensor product."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z08.test_1",
+          "statement": "K itself satisfies the condition.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z08.test_2",
+          "statement": "A nontrivial finite separable field extension of K is connected but not geometrically connected after a splitting extension.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "uses": [
+        {
+          "where": "U43/Z13 and LLHLM23 Theorem3.7.1 final paragraph",
+          "how": "The product's connectedness, together with its independently supplied regularity, proves it is a domain."
+        }
+      ],
+      "api": [
+        {
+          "name": "AffinoidGeometricallyConnected.baseChange",
+          "role": "functoriality",
+          "statement": "A finite scalar extension preserves the finite-extension connectedness condition."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.cofinal",
+          "role": "characterisation",
+          "statement": "It suffices to test a cofinal collection of finite field extensions; connectedness descends along further field extension."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.noIdempotents",
+          "role": "characterisation",
+          "statement": "For every finite extension, idempotents are only zero and one."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.completedTensor",
+          "role": "compatibility",
+          "statement": "The completed tensor product preserves this condition once the affinoid fiber comparison is established."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09",
+      "kind": "theorem",
+      "name": "BLGGT geometric connectedness of an affinoid product",
+      "statement": "Let K be a finite extension of Q_l and A_1,A_2 geometrically connected affinoid K-algebras in the finite-extension sense. Then A_1 completed-tensor_K A_2 is geometrically connected.",
+      "locator": "BLGGT LemmaA.1.1, printed p. 596/PDF96; standing field convention p. 595",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08"
+      ],
+      "proofSteps": [
+        "Assume a disconnected finite scalar extension; each open-and-closed part has a maximal ideal. Make both residue fields rational over a common finite extension.",
+        "Project one selected point to the first factor and the other to the second. Fibers over the projections are connected copies of the opposite factor, hence lie in the two different parts.",
+        "Their simultaneous fiber is the field, giving a common point in disjoint parts, a contradiction. Track which of the two chosen points supplies each projection."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
+      "kind": "theorem",
+      "name": "A normal connected affinoid with a rational point is geometrically connected",
+      "statement": "For a complete nonarchimedean field K, a nonzero connected normal affinoid K-algebra A admitting a K-algebra retraction A→K is geometrically connected in the finite-extension sense; in particular this applies to a regular affinoid domain with a K-point.",
+      "locator": "Implicit input before BLGGT LemmaA.1.1 is applied in LLHLM23 Theorem3.7.1, PDF79–80",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08"
+      ],
+      "proofSteps": [
+        "For a finite Galois extension L/K, finite étale base change preserves normality. Its finitely many connected components are disjoint open normal components; the Galois action is transitive, since a union of orbits would descend a nontrivial idempotent to A.",
+        "The K-point base changes to an L-point fixed by the semilinear Galois action. Normality makes its component unique, so this component is fixed. Transitivity forces a single component.",
+        "Descend from Galois closures for separable extensions; purely inseparable finite extensions induce universal homeomorphisms. The finite étale normality, Galois descent of idempotents and inseparable topology are named supplier obligations, not a new assertion of full formal closure."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z10.test_1",
+          "statement": "The disconnected algebra K×K is excluded, even though it is normal and has a K-point.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z10.test_2",
+          "statement": "The theorem needs a rational point over K, not just a point over a finite extension.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z11",
+      "kind": "theorem",
+      "name": "Khare–Wintenberger completed tensor theorem in its original scope",
+      "statement": "Let O be the integers of a finite extension E/Q_p and R_i a finite family of complete Noetherian local O-algebras with residue field O/m_O. Suppose each R_i is a domain with an O-algebra retraction R_i→O and R_i[1/p] is regular. Their completed tensor product, completed for the sum of maximal ideals, is a domain, has an O-point, and has regular generic fiber.",
+      "locator": "Khare–Wintenberger II Proposition2.2(ii), author PDF9; conventions PDF4–6",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: DeformationAndDerivedPatchingAlgebra. Planning only.",
+      "prerequisites": [],
+      "proofSteps": [
+        "At the chosen rational generic points, the completed local rings are power series rings over E.",
+        "Use the cofinality of the saturated point-ideal filtration (Chevalley) to embed the completed tensor in the product-point formal power series ring, hence obtain a domain.",
+        "The source separately proves generic regularity by considering all closed generic points after finite coefficient extension. This last step is not needed merely to deduce the domain conclusion and must not be generalized to imperfect fields without its own hypotheses."
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z11.test_1",
+          "statement": "O[[x]] completed-tensor_O O[[y]] is O[[x,y]].",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z11.test_2",
+          "statement": "Without O-points the domain assertion fails: for odd p, O=Z_p and R=O[s]/(s²−p), R completed-tensor_O R has nonzero factors y−s and y+s with zero product.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12",
+      "kind": "theorem",
+      "name": "Domain part over an arbitrary complete DVR",
+      "statement": "Let O be a complete DVR with fraction field K, and R_i complete Noetherian local O-domains with the same residue field as O and O-algebra retractions ξ_i. Assume the local rings of R_i[1/π] at ker(ξ_i)[1/π] are regular. Then the completed tensor over O, for the sum of maximal ideals, is a domain and has an O-point.",
+      "locator": "LLHLM23 Theorem3.7.1, PDF79, general-DVR adaptation of KWII Proposition2.2",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: DeformationAndDerivedPatchingAlgebra. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z11"
+      ],
+      "proofSteps": [
+        "Let P_i=ker ξ_i and J_i,n=P_i^n R_i[1/π]∩R_i. The map from the domain R_i into its rational-point completion is injective, so ∩_n J_i,n=0.",
+        "Chevalley's theorem in the complete Noetherian LOCAL ring R_i gives, for each maximal-ideal precision q, some n with J_i,n⊂m_i^q. Maximal-ideal cofinality suffices; do not silently claim P_i-adic cofinality from this statement.",
+        "R_i/J_i,n is a finite torsionfree, hence finite free, O-module: R_i/P_i^n is finite over O and saturation removes O-torsion.",
+        "The completed tensor maps to each tensor product of these finite free quotients. The kernels are separated by the maximal-ideal cofinality. Each quotient tensor injects into its K-scalar extension.",
+        "The inverse limit of the K-jet tensors is K[[all rational-point parameters]], using the complete regular equicharacteristic local-ring structure theorem with its given coefficient field K. Thus the original completed tensor embeds in a domain.",
+        "This extracts only the domain and point conclusions needed by LLHLM23. Chevalley, finite-jet comparison and power-series structure remain explicit implementation/source-interface requests."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
+      "kind": "theorem",
+      "name": "The chart's completed affinoid product is a domain",
+      "statement": "For the charts in Theorem3.7.1 after the specified DVR extension R′, let C_j be their flat, topologically finite-type π-adically completed coordinate rings. If each C_j is π-torsionfree, C_j[1/π] is a regular affinoid domain with a K-point (K=Frac R′), and the completed generic product is regular as supplied by the smooth generic chart construction, then the completed integral product is a domain.",
+      "locator": "LLHLM23 Theorem3.7.1 final paragraph, PDF79–80",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23"
+      ],
+      "proofSteps": [
+        "Z10 gives geometric connectedness of each generic factor; Z14 gives connectedness of the completed product.",
+        "Combine connectedness with the independently established regularity: a Noetherian regular ring is a finite product of domains, so only one factor remains.",
+        "The integral completed product injects into its generic fiber by π-torsionfreeness. Verify this torsionfreeness and the identification of the generic completed tensor for these flat finite-type formal models.",
+        "Over an imperfect K, regularity of arbitrary factors alone is not used as a proof of regularity of their product. The stronger smooth-generic-chart source and completion comparison must be retained."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
+      "kind": "theorem",
+      "name": "Affinoid product connectedness over complete nonarchimedean fields",
+      "statement": "For any complete nonarchimedean field K and geometrically connected affinoid K-algebras A_1,A_2 in the finite-extension sense, the completed tensor product is geometrically connected. The proof requires the affinoid Nullstellensatz and completed fiber comparisons over this field, whose exact supplier statements remain open.",
+      "locator": "General-field adaptation of BLGGT LemmaA.1.1 used in LLHLM23 Theorem3.7.1, PDF79–80",
+      "status": "missing",
+      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09"
+      ],
+      "proofSteps": [
+        "The two-fiber contradiction of Z09 uses no arithmetic property of a finite extension of Q_l.",
+        "Its actual prerequisites are: maximal residue fields of affinoids are finite, completed tensors and finite base change commute, and quotienting the completed product by a rational maximal ideal in one factor gives the other factor. Record these exact analytic supplier statements before closing the general-field adapter."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L01",
+      "kind": "theorem",
+      "name": "Connected prime spectra via idempotents",
+      "statement": "For a nontrivial commutative ring R, Spec(R) is connected if and only if every idempotent is zero or one.",
+      "locator": "Pinned Tau Ceti TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.connectedSpace_primeSpectrum_iff_idempotent_eq_zero_or_one"
+      ],
+      "note": "Actual declaration read at f790474. Use in U42 and the affinoid finite-extension connectedness API."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L02",
+      "kind": "theorem",
+      "name": "Geometric connectedness of the ordinary algebraic tensor product",
+      "statement": "For commutative K-algebras S,T over a field K, if their spectra are geometrically connected over K in the scheme sense, so is Spec(S⊗_K T).",
+      "locator": "Pinned Tau Ceti TauCeti/AlgebraicGeometry/Geometrically/Connected.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.geometricallyConnected_tensorProduct"
+      ],
+      "note": "Actual declaration read at f790474. This is the ORDINARY tensor product; it is not the completed affinoid product theorem Z09/Z14."
     }
   ],
   "prerequisites": [
@@ -3093,12 +3516,12 @@
     {
       "citation": "[27] Elkik, Solutions d'equations a coefficients dans un anneau henselien",
       "link": "https://www.numdam.org/item/ASENS_1973_4_6_4_553_0/",
-      "why": "Exact approximation constant and torsion-free completion hypotheses used in Proposition3.3.9 and Theorem7.3.2 remain a reading gate."
+      "why": "Original §0.2 and Lemma1 with full proof read in this continuation. Z03–Z07 record conductor-weighted Jacobian data, the original torsion bound, and the t-torsionfree I=A non-Noetherian adaptation required in U24. General arbitrary-I non-Noetherian approximation is not asserted."
     },
     {
       "citation": "[10] BLGGT, Potential automorphy and change of weight; [54] Khare–Wintenberger, Serre's modularity conjecture II",
       "link": "https://doi.org/10.1007/s00222-009-0206-6",
-      "why": "Read BLGGT LemmaA.1.1 and KWII Proposition2.2 to close the completed tensor-product domain/connectedness input in Theorem3.7.1. Existing owner is DeformationAndDerivedPatchingAlgebra; no claim that arbitrary tensor products of domains are domains."
+      "why": "Both original statements and full relevant proofs read. Z09 and Z11 retain their finite-p-adic-field scopes. Z12 isolates the complete-DVR domain argument; Z14 gives the field-independent affinoid proof with explicit analytic interfaces. Exact Chevalley, formal-local and arbitrary-field analytic supplier closure still remains."
     },
     {
       "citation": "[8],[9],[68],[76] Bushnell–Kutzko, Pyvovarov and Schneider–Zink type theory",
@@ -3346,7 +3769,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G19",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G20",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z07"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs.",
       "stages": [
@@ -3362,9 +3790,11 @@
       "items": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U42",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12"
       ],
-      "reason": "Completed coefficient tensors, depth, support and patching algebra are shared infrastructure. The exact geometric connectedness hypotheses for U43 remain a primary-source gate; this route does not assert a false general tensor-product-of-domains theorem.",
+      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route.",
       "stages": [
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
@@ -3617,7 +4047,23 @@
       "parent": "LocalGaloisDeformationRings",
       "title": "Local Galois deformation rings and their components, Part II: monodromy local models and generic components",
       "area": "langlands",
-      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization."
+      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization. Theorem3.7.1 uses two distinct tensor topologies: import the complete-local domain adapter from DeformationAndDerivedPatchingAlgebra and the completed affinoid product from AdicSpacesPartII R0/F0. Elkik precision is now extracted through Z03–Z07, retaining N=2r+1 and the t^(m−r) agreement."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdicSpacesPartII",
+      "stages": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:F0"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14"
+      ],
+      "reason": "The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They are distinct from complete local coefficient tensors in R03.1. These precise additional statements import the upstream AdicSpaces carrier."
     }
   ],
   "sourceIssues": [
@@ -4160,6 +4606,20 @@
         "Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 was attempted twice but timed out; its correction listing was not inspected. New means no correction located in the successful searches, not a claim of priority.",
         "Exact article title plusA.4.1 and correction searched2026-09-23; no separate correction found."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E35",
+      "kind": "misprint",
+      "locator": "Adjacent source Elkik (1973), Lemma1 proof, printed p.556/PDF5, last paragraph; rendered original checked",
+      "printed": "on peut déduire de (5)",
+      "correction": "The linear-combination step refers to displayed identity (4), not (5).",
+      "reason": "Identity (4) is the just-announced conductor-weighted Jacobian correction used to express t^h f(a) as a Jacobian image. Equation (5) occurs on the following page and gives conductor relations, not that correction. The subsequent argument combines (4) over the finite expression for t^h.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://www.numdam.org/item/ASENS_1973_4_6_4_553_0/ and the original DOI PDF",
+        "Elkik 1973 Lemma1 correction/erratum search, 2026-09-23; no correction of this reference located. Later Newton-lemma generalizations are not treated as errata of this display."
+      ]
     }
   ],
   "gaps": [
@@ -4178,7 +4638,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Finish the primary-source input ledger: Elkik precision and local flatness hypotheses; BLGGT A.1.1 and Khare–WintenbergerII Proposition2.2 for completed tensor domains beyond finite extensions of Zp; exact finite-group/Jantzen and inertial K-type inputs; Kisin monodromy and CHT/Thorne auxiliary-level inputs. Main-paper proofs are read, but these imports have not all been independently opened and extracted."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Close their remaining Chevalley, complete regular local power-series, affinoid fiber and general-field completion interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs."
     },
     {
       "id": "split-and-hypotheses",
@@ -4681,6 +5141,19 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08"
       ],
       "detail": "Expand the proof-only input leaves (including 4.3.7–4.3.8, family coefficient estimates, explicit dense triangular chart and globalization) and attach dependency edges. Retain general conjectures as conjectural interfaces, never as proved results."
+    },
+    {
+      "id": "approximation-and-tensor-adapter-closure",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43"
+      ],
+      "detail": "The source proofs and explicit adapters are recorded, but finalize their declaration-level supplier graph: polynomial Taylor/adjugate identities and convergence for Z06; finite étale normality, Galois component/idempotent descent and purely inseparable topology for Z10; Chevalley maximal-ideal cofinality, finite free jets and regular complete local structure for Z12; arbitrary-field affinoid Nullstellensatz, rational-fiber quotient identities, flat formal-model completion and smooth-generic product regularity for Z13–Z14. Normality plus a rational point is used for connectedness, not a claim that arbitrary regular affinoid products are regular."
     }
   ],
   "sourceData": {
@@ -5095,12 +5568,23 @@
       "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
       "PotentialAutomorphyInfrastructure"
     ],
-    "scope": "Advanced packages classified conservatively; no item is labelled library solely from a name search. TauCeti WeylModule requires a Q-algebra and does not supply the integral/mod-p Weyl module here; NonSplitTorus gives a GL2 torus, not Deligne–Lusztig representations. Existing Coxeter/root/dimension atoms must be imported in a completed atom audit."
+    "scope": "Advanced packages classified conservatively; no item is labelled library solely from a name search. TauCeti WeylModule requires a Q-algebra and does not supply the integral/mod-p Weyl module here; NonSplitTorus gives a GL2 torus, not Deligne–Lusztig representations. Existing Coxeter/root/dimension atoms must be imported in a completed atom audit.",
+    "continuation": {
+      "session": "codex-hjdg0j",
+      "scope": "Both pinned trees searched for Elkik, geometrically connected and completed tensor terms. Actual new library declarations read in full.",
+      "files": [
+        "TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean",
+        "TauCeti/AlgebraicGeometry/Geometrically/Connected.lean",
+        "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean"
+      ],
+      "conclusions": "Idempotent connectedness and the ordinary tensor-product theorem are built (L01,L02). Neither supplies completed affinoid products. No complete Elkik or completed-tensor domain package was found; existing atomic completion and algebra interfaces remain imports."
+    }
   },
   "validation": {
     "lean": "No Lean file required or compiled; no formalization claim.",
     "correctionChecks": "Exact Python integer/Fraction regression assertions passed for star reversal (2500 products), GL2 central shifts/tensor factors, contraction valuations, tame unipotent counterexample, genericity-depth example and appendix exceptional coefficients; downstream Hodge-bound comparison checked on2431 regular tuples.",
-    "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates."
+    "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates.",
+    "continuation": "Paper/intake validators; unique item/finding IDs; one route per missing item; all 83 definition API references; acyclic recorded item dependencies. Exact Fraction/integer checks: 576 precision-recurrence steps, 210 Newton corrections, 175 precision-loss examples and 5 tensor zero-divisor identities. Reproducible code in report. No Lean compilation. Earlier CAS checks are inherited, not rerun."
   },
   "definitionApiGroups": [
     {
@@ -5541,6 +6025,39 @@
         "primes at most7 are excluded by7!"
       ],
       "derivedFrom": "PropositionsB.0.1–B.0.2"
+    },
+    {
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03"
+      ],
+      "api": [
+        "Form H from the chosen finite polynomial presentation and its conductor-weighted minors.",
+        "The image of an admissible H_B under coefficient base change lies in the new conductor-weighted Jacobian ideal.",
+        "Evaluate H_B under the polynomial-evaluation map; a power-membership witness is recorded as a finite expression when supplied.",
+        "The complement of V(H) in Spec(B) is the smooth locus; distinguish the full H from a smaller chosen witness ideal.",
+        "Export a concrete finite identity v^r=h+j with h∈H and j∈J for use after all base changes."
+      ],
+      "unitTests": [
+        "For J=(f), the nonempty one-row contribution is the gradient ideal; keep the empty-row annihilator contribution separate if that convention is used.",
+        "For the duplicated presentation (f,f), selecting one copy recovers the same derivative witness; taking only the full 2-row Jacobian would lose it."
+      ],
+      "derivedFrom": "Elkik (1973), §0.2, printed p. 555/PDF4; LLHLM23 Proposition3.3.9 proof PDF69"
+    },
+    {
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08"
+      ],
+      "api": [
+        "A finite scalar extension preserves the finite-extension connectedness condition.",
+        "It suffices to test a cofinal collection of finite field extensions; connectedness descends along further field extension.",
+        "For every finite extension, idempotents are only zero and one.",
+        "The completed tensor product preserves this condition once the affinoid fiber comparison is established."
+      ],
+      "unitTests": [
+        "K itself satisfies the condition.",
+        "A nontrivial finite separable field extension of K is connected but not geometrically connected after a splitting extension."
+      ],
+      "derivedFrom": "BLGGT AppendixA.1, printed pp. 595–596/PDF95–96"
     }
   ]
 }
