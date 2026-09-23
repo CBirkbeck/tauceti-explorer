@@ -1,0 +1,11 @@
+# REV-PAPER-YANG-ZHAO-25 handoff
+
+Review complete by Codex, session `codex-hjdg0j`, issue #1219. Verdict **revise**, all6 corrected routes accepted; extraction **partial**. All142 item IDs and six route IDs preserved. Nine findings independently confirmed against the inspected public versions. Main v4 and PFF proof fully read; exact bounded supplier readings and hashes are in the result.
+
+Changes: restored open proof obligations; completed M19’s proposition-only API and fixed its dependency direction; separated incoming/outgoing identity transversality; made the shared geometric finite-coefficient Swan prerequisite explicit; reconciled Abe/HKW/microlocal ownership; restored E7’s limited stated-result impact; corrected misleading evidence provenance and stale counts.
+
+Resume the extraction with G09’s final UYZ pencil/blowup hypotheses and quasi-projective reduction, then G07’s finite-coefficient Swan/Fourier/modular lifting leaves. Continue G02–G06 and G08/G10/G11 to actual source-qualified producer nodes. G01 requires final journal collation. Do not reconstruct generic integral Chow/Chern or the shared trace/Fourier prefix in another roadmap. Do not promote the general M19 conjecture or the non-isolated supported comparisons to theorems.
+
+Executed validation: `python3 scripts/check_paper.py research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json` passes. Five-file intake reports0 problems. All142 IDs preserved;301 edges form a DAG;121 missing items routed once;53 definition/construction APIs/uses with161 API entries and160 proposed tests;9 independent source verdicts. Archive diff confirms exactly5 authorized files and no deletions. Finite diagnostics passed for the coefficient character/retraction algebras (4 and16 elements), F3 Frobenius counterexample, skyscraper sign and729 Whitney coefficient checks. These are not Lean proofs. No Lean deliverable was required, created or compiled.
+
+Publication refresh at `1269c94c885da44e5d8860388bd0b77792955d6f`: reviewed inputs and rules unchanged;16 ownership/coverage records checked, including54 relevant audited layers. The newly merged Abe result was compared with the exact refreshed bytes read during this review. Shared Shende–Tsimerman route14 remains rejected for its own characteristic-zero supplier gaps.
