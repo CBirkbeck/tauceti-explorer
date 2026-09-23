@@ -428,6 +428,73 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-c83e7a",
+        "date": "2026-09-23",
+        "main": "Freshly downloaded published PDF, same recorded SHA-256; read PDF28,196–198 in this continuation for Artin/Frobenius and the Hecke polynomial conventions. Earlier source readings remain attributed; this is not a new full-paper reading. Also read PDF49–50 for the whole-isotypic nilpotent partition convention. Published PDF180–181 freshly read for the degree and compactness assumptions.",
+        "sources": [
+          {
+            "title": "BLGGT, Potential automorphy and change of weight (2014)",
+            "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+            "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b",
+            "pages": 109,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "Printed535–539/PDF35–39, with printed536 also inspected as image."
+            ]
+          },
+          {
+            "title": "Labesse, Changement de base CM et séries discrètes",
+            "name": "labesse",
+            "url": "https://www.imj-prg.fr/fa/bpFiles/Labesse2.pdf",
+            "sha256": "c85a0fde13266e3ed6c76d34330b4c51023376f8fe25406da0370fa47c5a45d2",
+            "pages": 53,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "PDF42–44: hypothesis (*), Corollary5.3 and its complete proof."
+            ]
+          },
+          {
+            "title": "Mœglin–Waldspurger, Le spectre résiduel de GL(n)",
+            "name": "mw",
+            "url": "https://www.numdam.org/article/ASENS_1989_4_22_4_605_0.pdf",
+            "sha256": "a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94",
+            "pages": 71,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "Printed605–607/PDF2–4: introductory classification and normalized-induction convention."
+            ]
+          },
+          {
+            "title": "Emerton–Gee–Herzig, Weight cycling and Serre-type conjectures for unitary groups",
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/egh.pdf",
+            "sha256": "1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0",
+            "readSections": [
+              "PDF55–56: Theorem7.2.1 and proof."
+            ]
+          },
+          {
+            "title": "BLGGT, Local-global compatibility for l=p II",
+            "url": "https://virtualmath1.stanford.edu/~rltaylor/lg2.pdf",
+            "sha256": "9badc24926b69c0c606fad193b4705b9cbb21c6081a544f082c18c78031bc67f",
+            "pages": 13,
+            "retrieved": "2026-09-23",
+            "readSections": [
+              "Author PDF5–6: exact special-block partition relation and Theorem1.1; conventions on PDF3 inspected via author PDF text."
+            ]
+          },
+          {
+            "title": "BLGGT l=p II, published version",
+            "url": "https://numdam.org/item/10.24033/asens.2212.pdf",
+            "sha256": "5f7a22dadb589ed0e25c3c0afe6b7d7878d12f6271b69cc30dfcc8d9dd3f354f",
+            "pdfPages": 17,
+            "readSections": [
+              "Numdam PDF4 and6–7: conventions, special-block rank, coefficient normalization and monodromy comparison; compared with author PDF3,5–6."
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -446,7 +513,7 @@
       ]
     }
   },
-  "summary": "Partial continuation: 531 items (68 library, 18 planned, 445 missing), 21 routes, 47 unreviewed findings; all157 definitions/constructions have individual uses/API/typed tests. A74–A76 (cc-442dc5) supply the sigma(lambda,tau)^* coefficient/K-type dictionary for algebraic automorphic forms at level G(O_p), the reduced finite free local projected Hecke image and its characteristic-zero points, which discharge A65's hypotheses conditionally on A62/A73. E46 is a §7.2 pullback misprint; E47 records that TheoremA.4.1's typed local conditions need level G(O_p) at p. A66-A73 separate global Whittaker injectivity and the finite-place genericity consequence of cuspidal base change; L68 imports existing pure-tensor extensionality. E45 is a supplier-note evaluation typo already corrected in later author notes. All519 prior item statements/statuses,44 prior sourceIssues and AppendixB data are preserved. Exact Speh/Galois realization, coefficient/type occurrence, actual Hecke-algebra hypotheses and the twelve recorded closure gaps remain.",
+  "summary": "Partial continuation: 545 items (74 library,19 planned,452 missing),21 routes and51 unreviewed source findings. A77–A81 correct the Speh/Galois realization using algebraically normalized cuspidal factors and integral cyclotomic twists ε^(−j), with geometric Frobenius explicit. A54/A58/A82–A84 reduce monodromy dominance to finite sums of special-block power ranks, importing the pinned PID, polynomial-action, quotient-basis, Maschke, Schur and isotypic suppliers L69–L74. The coefficient/type and Hecke-image interfaces A74–A76 remain available. Recorded source/supplier, fine ownership and Appendix B certificate gaps prevent a complete claim; no Lean formalization is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -16109,11 +16176,12 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A82"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII.",
-      "proofOutline": "Restriction of an irreducible Weil representation to finite inertia is a semisimple orbit of irreducible inertia types with equal multiplicities; unramified twists have identical restriction. The contribution of each special block is the same Jordan length repeated with those multiplicities. Dominance survives repetition and concatenation: equivalently rank(N^a) on each multiplicity space is monotone for every a≥1. The required Clifford-theory and Jordan-rank facts are named supplier gaps; no matching of Frobenius eigenvalues is erased before checking Weil-class membership."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII. Continuation codex-c83e7a removes the unnecessary Clifford-orbit supplier: unramified-equivalence itself identifies the inertia restriction, and A82 supplies the nonnegative multiplicity coefficients.",
+      "proofOutline": "For each irreducible Weil class σ modulo unramified twist, choose one representative s_σ and put c_(θ,σ)=dim Hom_I(θ,s_σ|I). All representatives in σ have the same inertia restriction by the definition of unramified twist. The special-block decomposition used to define BLGGT’s relation gives rank_a on the θ-multiplicity space as Σ_σ c_(θ,σ) Σ_j max(m_j(ρ,σ)−a,0), by A82. Prefix-sum dominance for each σ implies the corresponding inner rank inequality by A58’s partition transform. Multiply by nonnegative c_(θ,σ) and sum over σ. The two sides have the same inertia representation because their semisimplified Weil representations agree. Multiply by dim θ for the whole-isotypic convention and apply A58. This direct finite sum avoids a separate Clifford-theory orbit theorem; overlapping inertia supports cause no difficulty."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
@@ -16188,11 +16256,13 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L61"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A84"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: SmoothRepresentationsPartII.",
-      "proofOutline": "For a decreasing Jordan partition λ set S_i=Σ_(j≤i)λ_j and R_a=Σ_j max(λ_j−a,0). Then R_a=max_i(S_i−ia) and S_i=min_(a≥0)(ia+R_a), so prefix-sum order is equivalent to all R_a inequalities. A Jordan block of size d contributes max(d−a,0) to rank(N^a). The Jordan-basis supplier remains to audit at the pins; only the partition order is imported as already implemented."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: SmoothRepresentationsPartII. Continuation codex-c83e7a closes the named Jordan-basis supplier at extraction level through A83–A84 and pinned L69–L71. No nilpotent-orbit closure theorem or finite-field counting is used.",
+      "proofOutline": "A83–A84 supply the chain basis, rank formula and recovery of the partition from actual operators. For a decreasing partition λ padded by zeros set S_i=Σ_(j≤i)λ_j and R_a=Σ_j max(λ_j−a,0), a≥0. Then R_a=max_i(S_i−ia): choose i equal to the number of parts strictly larger than a. Conversely S_i=min_(a≥0)(ia+R_a): for i≥1 choose a=λ_i (with zero padding), and for i=0 choose a at least the largest part; use a=0 for the empty partition. Hence same-total-size prefix-sum dominance is equivalent to the inequalities R_a≤R′_a for every a≥1; a=0 is equality of dimensions. On an entire θ-isotypic subspace each Jordan block of the multiplicity operator is repeated dim θ times, so all ranks are multiplied by the same positive integer. This preserves and reflects the inequalities, proving equivalence with the whole-isotypic definition printed in the paper."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
@@ -16339,7 +16409,7 @@
           "statement": "If n=1 and all summand dimensions are positive, the count forces r=b_1=m_1=1."
         }
       ],
-      "note": "A consumer-specific use of AG2.2's rank/discrete-parameter comparison and AG2.7's residual interface, not a second general residual-irreducibility theorem. No claim of genericity or full monodromy compatibility is deduced here. Continuation cc-fb70e5: A78 supplies the assumed Galois-equivariant isomorphism, from A60's exponents and A77's uniqueness, conditionally on the existence of the cuspidal blocks' Galois representations."
+      "note": "A consumer-specific use of AG2.2's rank/discrete-parameter comparison and AG2.7's residual interface, not a second general residual-irreducibility theorem. No claim of genericity or full monodromy compatibility is deduced here. Continuation cc-fb70e5: A78 supplies the assumed Galois-equivariant isomorphism, from A60's exponents and A77's uniqueness, using the normalized factor existence theorem imported explicitly in A80. The integral-twist conversion is A81; no half-cyclotomic character is assumed."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L62",
@@ -16929,32 +16999,375 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77",
       "kind": "theorem",
       "name": "Frobenius characteristic polynomials on a conjugacy-dense set determine a semisimple representation",
-      "statement": "Let Delta be a topological group, C a subset of Delta whose conjugacy saturation is dense (the hypothesis of A49), and L an algebraically closed topological field of characteristic zero. Let rho_1,rho_2:Delta→GL_n(L) be continuous semisimple representations with det(1−rho_1(c)X)=det(1−rho_2(c)X) in L[X] for every c in C. Then rho_1 is isomorphic to rho_2. Equal characteristic polynomials give equal traces on C, hence on its conjugacy saturation, hence on Delta by continuity and density; in characteristic zero the trace of a semisimple representation determines it up to isomorphism, by linear independence of the irreducible characters. Both hypotheses are needed: without semisimplicity only the semisimplifications agree, and no modular (Brauer–Nesbitt) statement in characteristic p is claimed here — the residual statement used by this extraction is A50's.",
+      "statement": "Let Delta be a topological group, C a subset of Delta whose conjugacy saturation is dense (the hypothesis of A49), and L an algebraically closed Hausdorff topological field of characteristic zero. Let rho_1,rho_2:Delta→GL_n(L) be continuous semisimple representations with det(1−rho_1(c)X)=det(1−rho_2(c)X) in L[X] for every c in C. Then rho_1 is isomorphic to rho_2. Equal characteristic polynomials give equal traces on C, hence on its conjugacy saturation, hence on Delta by continuity and density; in characteristic zero the trace of a semisimple representation determines it up to isomorphism, by linear independence of the irreducible characters. Both hypotheses are needed: without semisimplicity only the semisimplifications agree, and no modular (Brauer–Nesbitt) statement in characteristic p is claimed here — the residual statement used by this extraction is A50's.",
       "locator": "LLHLM23 TheoremA.4.1 PDF196–197, where each of r(U,W), r(U_0(Q),W) and r(U_1(Q),W) is 'uniquely determined by' the displayed Frobenius characteristic-polynomial equations over the Hecke algebra; the density input is A49 (CHT Proposition3.4.4 proof, PDF107–108).",
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49"
       ],
-      "proofOutline": "The coefficients of det(1−rho(c)X) are the exterior-power traces, so equality at c gives tr rho_1(c)=tr rho_2(c). A trace is a conjugation-invariant continuous function, so the agreement extends to the conjugacy saturation of C and then, by density and continuity, to all of Delta. Over a field of characteristic zero the character of a semisimple representation determines its isomorphism class: decompose both into irreducibles and use that distinct irreducible characters are linearly independent, so the multiplicities agree.",
+      "proofOutline": "Equal characteristic polynomials give equal traces. The traces are continuous conjugation-invariant functions into a Hausdorff field, so their equality set is closed and contains the dense conjugacy saturation of C. For the algebraic step, take the finite-dimensional image algebra of L[Delta] in End(V_1⊕V_2). Both V_i are semisimple modules over it; pass to its semisimple quotient and decompose into matrix blocks over algebraically closed L. On a diagonal matrix unit in each simple block the trace is the multiplicity of its simple module. Equal traces therefore give equal multiplicities because characteristic zero embeds the integers injectively. This is valid for arbitrary Delta and does not assume a finite group or finite Galois image.",
       "implementationStatus": "Not implemented. Stated as the uniqueness half of the Hecke-algebra-valued construction; the determinant/Cayley–Hamilton machinery of IHG.1 is the intended carrier.",
-      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the isomorphism A62 assumes, which the previous handoff left as resume point 1. No Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants."
+      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the isomorphism A62 assumes, which the previous handoff left as resume point 1. No Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Continuation codex-c83e7a adds Hausdorffness, which the dense-set argument needs, and uses a finite-dimensional image algebra for character recognition. The pinned finite-group character-independence theorem has [Finite G] and is not an arbitrary-Galois-group supplier. The dense continuous-equality step reuses mathlib:Continuous.ext_on (Hausdorff.lean:509), with its T2Space hypothesis. The arbitrary-group semisimple character-recognition step is the image-algebra argument in this item, not a use of the finite-group character theorem."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78",
       "kind": "theorem",
       "name": "Galois realization of the base-changed discrete spectrum is a twisted sum of the cuspidal blocks",
-      "statement": "In the setting of A59, let sigma be a discrete automorphic representation of G(A_F+) whose weak base change is the isobaric sum of Delta_1,…,Delta_r, and write Delta_i=Speh(pi_i,b_i) with pi_i unitary cuspidal on GL_(m_i)(A_F) and n=sum_i m_i*b_i (A60, A61). Assume each pi_i is conjugate self-dual and cohomological and carries a continuous p-adic representation r_i:G_F→GL_(m_i)(Qpbar) satisfying the unramified characteristic-polynomial compatibility of TheoremA.4.1, and let r:G_F→GL_n(Qpbar) be a continuous representation satisfying those equations for sigma. Then at every place w unramified for all of the data, det(1−r(Frob_w)X)=prod_i prod_(j=0)^(b_i−1) det(1−q_w^((b_i−1)/2−j)*r_i(Frob_w)X), because the Satake parameters of Speh(pi_i,b_i)_w are those of pi_(i,w) scaled by q_w^((b_i−1)/2−j) for 0<=j<b_i, which is A60's exponent normalization. By A77 the semisimplification of r is therefore the direct sum of the r*b_i pieces r_i tensor eps^((b_i−1)/2−j), eps the p-adic cyclotomic character (eps(Frob_w)=q_w, the normalization of N01). This is exactly the decomposition A62 assumes, with Q_(i,j)=r_i of dimension m_i>0 and chi_(i,j)=eps^((b_i−1)/2−j). For b_i even the individual twists, and the displayed product itself, involve q_w^(1/2) (already for m_i=1, b_i=2 the product is 1−(q_w^(1/2)+q_w^(−1/2))*r_i(Frob_w)X+…), so the identity is to be read in the coefficient field extended by a square root, or equivalently after the compensating half-twist that the xi-normalization of TheoremA.4.1 carries. A62 uses only the dimensions m_i>0 of the blocks and the decomposability, both of which the identity gives either way; pinning the exact even-b_i normalization, rather than only up to that half-twist, is left open and recorded in the global-descent gap. Nothing here proves that r_i exists: that is the standing hypothesis, recorded in the global-descent gap.",
+      "statement": "In A59–A61, form the normalized regular algebraic cuspidal factors Pi_i and their semisimple Galois representations R_i from A79–A80. Let r:G_F→GL_n(Qpbar) be a continuous representation satisfying the good-prime equations of LLHLM TheoremA.4.1 for the rank-n unitary automorphic representation. Then r^ss≅⊕_i ⊕_(j=0)^(b_i−1) R_i⊗ε^(−j). Indeed at every unramified split place w outside the fixed finite bad set the characteristic polynomial is prod_i prod_j det(1−q_w^j R_i(Frob_w)X), with geometric Frob_w and ε(Frob_w)=q_w^(−1). The dense split-Frobenius set from A49 and Hausdorff characteristic-zero uniqueness A77 give the isomorphism. Every summand has positive dimension m_i, so A62 applies once the residual absolute irreducibility hypothesis is imposed.",
       "locator": "LLHLM23 TheoremA.4.1 PDF196–197 (the characteristic-polynomial equations) and §9.1 PDF180–181; A59 (Labesse, Changement de base CM et series discretes, Corollary5.3), A60 and A61 (Moeglin–Waldspurger, Le spectre residuel de GL(n), printed605–607).",
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "proofOutline": "At an unramified w the local component of Speh(pi_i,b_i) is the unramified constituent of the normalized induction of pi_i|det|^((b_i−1)/2),…,pi_i|det|^((1−b_i)/2) (A60), so its Satake parameters are the union over 0<=j<b_i of those of pi_(i,w) scaled by q_w^((b_i−1)/2−j). The isobaric sum multiplies the local L-factors, so the Frobenius characteristic polynomial of r at w is the displayed product. The same polynomial is the characteristic polynomial of the semisimple representation sum_(i,j) r_i tensor eps^((b_i−1)/2−j) at w, since eps(Frob_w)=q_w. Frobenius elements at the unramified split places have dense conjugacy saturation (A49), so A77 applies and the two semisimple representations are isomorphic.",
-      "implementationStatus": "Not implemented. Stated as the explicit adapter that discharges A62's hypothesis; it consumes the existence of the r_i, which remains a hypothesis of the global-descent gap.",
-      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the isomorphism A62 assumes, which the previous handoff left as resume point 1. No Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII. Deliberately not a prerequisite of anything but A62: it supplies A62's assumed isomorphism and nothing else."
+      "proofOutline": "A79 proves the algebraicity and polarization of the correct normalized factors. A80 imports their Galois realization from the existing AG2.2 theorem. A81 identifies the exact rank-normalized polynomials with the integral twists ε^(−j). Apply A49 and A77 to r^ss and this semisimple direct sum. Since the representations have finite dimension, semisimplification preserves good-prime characteristic polynomials and continuity. This supplies A62’s assumed Galois-equivariant decomposition without asserting the existence of a half-power of ε.",
+      "implementationStatus": "Not implemented. The normalized-factor realization is an explicit planned import from AG2.2; the consumer’s exponent and polynomial conversion are missing source adapters in that same owner.",
+      "note": "Continuation codex-c83e7a replaces the earlier half-twist formula. Both old residual hypotheses are discharged at the source-interface level: the factors to which the existence theorem applies are Pi_i, and every Galois twist in the decomposition is ε^(−j). The remaining global-descent supplier audit is not thereby declared closed."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79",
+      "kind": "theorem",
+      "name": "Algebraic normalization and polarization of cuspidal Speh factors",
+      "statement": "In A59–A61 let the regular algebraic rank-n weak base change be the isobaric sum of Delta_i=Speh(pi_i,b_i), where pi_i is unitary cuspidal of rank m_i and n=Σm_i b_i. Then each pi_i is conjugate self-dual, by uniqueness of the unitary cuspidal Speh support. Put t_i=(m_i+b_i−n−1)/2 and Pi_i=pi_i⊗|det|_F^(t_i), where the global adelic norm has its positive real half-powers. Then Pi_i is regular algebraic cuspidal. With d_i=2t_i∈Z and chi_i=|.|_(F+)^(d_i) δ_(F/F+)^(m_i), the pair (Pi_i,chi_i) is polarized in BLGGT §2.1: Pi_i^c≅Pi_i^∨⊗(chi_i∘Norm_(F/F+)∘det), and chi_i,v(−1)=(−1)^(m_i) at every real place. The half-integral t_i is used only for an automorphic norm twist; no p-adic cyclotomic half-character is asserted.",
+      "locator": "LLHLM23 §9.1 PDF180–181 and Theorem A.4.1 PDF196–197; Labesse Corollary5.3 PDF43–44; Mœglin–Waldspurger introduction printed605–607; BLGGT (2014) §2.1 printed536–538",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61"
+      ],
+      "proofOutline": "The total rank-n infinitesimal-character coordinates lie in Z+(n−1)/2 and are distinct, since the total parameter is cohomological with algebraic coefficients. The Speh segment shifts the coordinates a_(i,k) of pi_i by (b_i−1)/2−j. Taking j=0 shows a_(i,k) lies in Z+(n−b_i)/2; adding t_i puts it in Z+(m_i−1)/2. Distinctness of the total coordinates implies distinctness within this subset. After ordering, subtracting the rank-m_i half-sum of positive roots gives an integral dominant highest weight; hence Pi_i is regular algebraic. Norm twists preserve cuspidality. Conjugate self-duality of Delta_i and uniqueness of its unitary Speh support give pi_i^c≅pi_i^∨. Twisting yields the stated norm character with exponent 2t_i. The quadratic character δ is trivial after pullback by Norm and has value −1 at each real −1, supplying the required parity without changing the conjugate-duality equation.",
+      "tests": [
+        {
+          "name": "SpehNormalization.single_cuspidal",
+          "kind": "degenerate",
+          "statement": "For one block b=1,m=n, t=0: Pi=pi and chi=δ^n."
+        },
+        {
+          "name": "SpehNormalization.even_length",
+          "kind": "computation",
+          "statement": "For n=2,m=1,b=2, t=0 even though the raw Speh induction uses half-integer exponents."
+        },
+        {
+          "name": "SpehNormalization.half_norm_twist",
+          "kind": "non-example",
+          "statement": "For n=3,m=1,b=2, t=−1/2. The raw unitary factor need not be algebraic; the normalized Pi is. Do not try to attach a Galois representation to the half norm character alone."
+        }
+      ],
+      "note": "A precise source refinement of AutomorphicGaloisRepresentationsPartII:AG2.2, which already owns discrete constituents with algebraic twists. Regularity is an infinitesimal-character statement; actual archimedean base change is not needed before the cuspidality argument. This corrects an extraction gap, not a source error in LLHLM."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
+      "kind": "theorem",
+      "name": "Galois representation of each algebraically normalized cuspidal factor",
+      "statement": "For each regular algebraic cuspidal polarized pair (Pi_i,chi_i) from A79, fix iota:Qpbar≅C. The existing polarized automorphic-system theorem supplies a continuous semisimple R_i=r_(p,iota)(Pi_i):G_F→GL_(m_i)(Qpbar). At each finite w∤p, iota WD(R_i|G_Fw)^(F−ss)≅rec_w(Pi_(i,w)⊗|det|_w^((1−m_i)/2)); in particular this identifies the good-prime characteristic polynomials. Its polarization is R_i^c≅R_i^∨ ε^(b_i−n). The existence theorem applies to the normalized Pi_i, which may be nonunitary, and not to an unproved algebraicity claim for the original pi_i.",
+      "locator": "BLGGT (2014), Theorem2.1.1(1)–(2), printed538/PDF38; consumed through LLHLM23 TheoremA.4.1 and EGH Theorem7.2.1",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79"
+      ],
+      "proofOutline": "Apply the existing regular algebraic cuspidal polarized realization theorem to A79. The norm character |.|^d_i has p-adic avatar ε^d_i under geometric Artin reciprocity; δ restricts trivially to G_F. Thus the multiplier restricted to G_F is ε^(1−m_i+d_i)=ε^(b_i−n). Only the good-prime characteristic-polynomial consequence is needed for the block comparison; no extra p-adic monodromy assertion is inferred here.",
+      "note": "Imported planned theorem, not a new construction or a pinned implementation. The exact normalization is source-read in BLGGT2.1.1. Preserve the geometry/local-comparison producers AG2.1a→ET.6→AG2.1b rather than assuming a circular geometric construction."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81",
+      "kind": "theorem",
+      "name": "Rank-normalized Speh polynomials use integral cyclotomic twists",
+      "statement": "Use geometric Frobenius Frob_w, q_w=Norm(w), ε(Frob_w)=q_w^(-1), and the local Langlands convention rec_w(π_w⊗|det|^((1−rankπ)/2)). With t_i,Pi_i,R_i as in A79–A80, the good-prime polynomial for the rank-n isobaric Speh sum is prod_i prod_(j=0)^(b_i−1) det(1−q_w^j R_i(Frob_w)X). Equivalently the corresponding semisimple local parameter is the direct sum of R_i|W_Fw⊗ε^(−j). The exponent identity is (b_i−1)/2−j+(1−n)/2=t_i+(1−m_i)/2−j. All cyclotomic exponents are integers.",
+      "locator": "LLHLM23 §1.8.3 PDF28, TheoremA.4.1 PDF196–197; EGH Theorem7.2.1(iii) PDF55; BLGGT Theorem2.1.1(2) PDF38; Mœglin–Waldspurger normalized induction printed605–607",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80"
+      ],
+      "proofOutline": "The rank-n normalization adds (1−n)/2 to each Speh exponent (b_i−1)/2−j. The normalized rank-m_i factor Pi_i adds t_i+(1−m_i)/2=(b_i−n)/2. The difference is −j. An unramified twist |.|^(−j) contributes q_w^j at geometric Frobenius, exactly ε^(−j). Normalized parabolic induction unions the unramified Satake parameters, so determinant polynomials multiply. The A.4.1 Hecke polynomial has the same rank-n normalization: for elementary symmetric Satake coordinate e_k, T_w^(k) has eigenvalue q_w^(k(n−k)/2)e_k and the displayed factor q_w^(k(k−1)/2) gives q_w^(k(n−1)/2)e_k.",
+      "tests": [
+        {
+          "name": "SpehPolynomial.GL2_trivial",
+          "kind": "computation",
+          "statement": "For pi=1 on GL1, b=2,n=2, the normalized polynomial is (1−X)(1−q_w X), realized by 1⊕ε^(−1); it is not a polynomial with q_w^(±1/2) eigenvalues."
+        },
+        {
+          "name": "SpehPolynomial.rank_one",
+          "kind": "degenerate",
+          "statement": "For n=m=b=1 the polynomial is that of R_1, with no twist."
+        },
+        {
+          "name": "SpehPolynomial.polarization_reversal",
+          "kind": "compatibility",
+          "statement": "R_i^c=R_i^∨ε^(b_i−n) and j↦b_i−1−j identify conjugate blocks with dual blocks twisted by ε^(1−n)."
+        }
+      ],
+      "note": "This corrects A78’s earlier arithmetic-Frobenius attribution and the unsupported claim that extending the coefficient field or using the multiplier ξ creates a global half-cyclotomic character. The pinned arithmetic cyclotomic Frobenius theorem is converted by inversion; its convention is not the one adopted in LLHLM §1.8.3."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L69",
+      "kind": "theorem",
+      "name": "Finite prime-power torsion module decomposition over a PID",
+      "statement": "Let R be a commutative principal ideal ring, p∈R irreducible, and M a finite R-module whose every element is killed by some power of p. Then for some d and k:Fin d→N there is an R-linear equivalence M≃⊕_(i:Fin d) R/(p^(k_i)). Exponent zero is allowed and gives a zero summand; remove such summands when forming a positive-parts partition.",
+      "locator": "Pinned Mathlib/Algebra/Module/PID.lean:170; supplier of the nilpotent Jordan statement recalled before LLHLM Definition2.5.3, PDF49",
+      "status": "library",
+      "library": [
+        "mathlib:Module.torsion_by_prime_power_decomposition"
+      ],
+      "prerequisites": [],
+      "note": "Actual statement and enclosing variables read at 082e2d3: Irreducible p, Module.IsTorsion′ for Submonoid.powers p, Module.Finite R M; no topology or finite-group assumption. Specialize R=k[X], p=X, using L70."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L70",
+      "kind": "construction",
+      "name": "Existing polynomial-module action of a linear endomorphism",
+      "statement": "Reuse Module.AEval R M a, the type synonym of M with R[X]-action f·m=(aeval a f)·m. For a linear endomorphism N this is Module.AEval′ N, with X acting as N and X^d acting as N^d. If M is finite over R then this polynomial module is finite over R[X].",
+      "locator": "Pinned Mathlib/Algebra/Polynomial/Module/AEval.lean:39–96; supplier of LLHLM23 PDF49 nilpotent normal form",
+      "status": "library",
+      "library": [
+        "mathlib:Module.AEval",
+        "mathlib:Module.AEval.X_pow_smul_of",
+        "mathlib:Module.AEval.instFinitePolynomial"
+      ],
+      "prerequisites": [],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+          "how": "Turns a nilpotent operator into a finite X-power torsion k[X]-module without a new carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "Module.AEval.of",
+          "role": "equivalence",
+          "statement": "Use the existing R-linear equivalence with the original module."
+        },
+        {
+          "name": "Module.AEval.X_pow_smul_of",
+          "role": "simp",
+          "statement": "The action of X^d is the d-th power of the endomorphism."
+        },
+        {
+          "name": "Module.AEval.instFinitePolynomial",
+          "role": "compatibility",
+          "statement": "Finite generation over the coefficient ring implies finite generation over the polynomial ring."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AEval.zero_operator",
+          "kind": "degenerate",
+          "statement": "If N=0, X kills the polynomial module."
+        },
+        {
+          "name": "AEval.identity",
+          "kind": "non-example",
+          "statement": "For N=id on a nonzero vector space, X acts invertibly, so the module is not X-power torsion."
+        },
+        {
+          "name": "AEval.nilpotent_square",
+          "kind": "computation",
+          "statement": "For N(e_2)=e_1 and N(e_1)=0, X^2 kills the module while X does not."
+        }
+      ],
+      "implementationStatus": "Existing carrier and listed declarations, not a new implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L71",
+      "kind": "construction",
+      "name": "Existing monic polynomial quotient power basis",
+      "statement": "For a commutative coefficient ring k and monic polynomial f, reuse AdjoinRoot.powerBasis′: the powers 1,root(f),…,root(f)^(f.natDegree−1) form a k-basis of AdjoinRoot f=k[X]/(f). This is the general quotient-basis supplier; the specialization to a length-d nilpotent shift for f=X^d is the adapter A83.",
+      "locator": "Pinned Mathlib/RingTheory/AdjoinRoot.lean:625–675, powerBasisAux′ and powerBasis′; supplier of LLHLM23 PDF49",
+      "status": "library",
+      "library": [
+        "mathlib:AdjoinRoot.powerBasis'"
+      ],
+      "prerequisites": [],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+          "how": "Supplies a basis in each k[X]/(X^d) cyclic summand."
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjoinRoot.powerBasis'",
+          "role": "constructor",
+          "statement": "Use the existing power basis for a monic polynomial."
+        },
+        {
+          "name": "AdjoinRoot.powerBasisAux'_repr_apply_to_fun",
+          "role": "simp",
+          "statement": "The basis coordinates are coefficients of the canonical remainder modulo f."
+        },
+        {
+          "name": "AdjoinRoot.powerBasisAux'_repr_symm_apply",
+          "role": "compatibility",
+          "statement": "The inverse coordinate map sends coefficients to the residue class of their polynomial."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PowerBasis.constant_one",
+          "kind": "degenerate",
+          "statement": "For f=1, the basis index is empty and the quotient is zero."
+        },
+        {
+          "name": "PowerBasis.X_cubed",
+          "kind": "computation",
+          "statement": "For f=X^3 the basis is 1,X,X², and multiplication by X sends the last basis vector to zero."
+        },
+        {
+          "name": "PowerBasis.X_minus_one",
+          "kind": "non-example",
+          "statement": "For f=X−1 the quotient has dimension one and multiplication by X is identity, not nilpotent."
+        }
+      ],
+      "implementationStatus": "Existing basis; the nilpotent shift comparison is the missing application adapter A83."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A82",
+      "kind": "theorem",
+      "name": "Special-block restriction to an inertia multiplicity space",
+      "statement": "Let Ω be algebraically closed of characteristic zero and r a finite-dimensional irreducible Weil representation with open kernel. Choose a finite quotient I of inertia through which r restricts, and put s=r|I. For an irreducible I-representation θ put c_θ=dim Hom_I(θ,s). On restriction to I, the special Weil–Deligne block Sp_d(r) has nilpotent operator id_s⊗J_d: its θ-multiplicity space has c_θ copies of J_d, so the a-th power rank is c_θ max(d−a,0). On the whole θ-isotypic subspace multiply that rank by dim θ. Unramified Weil twists leave c_θ unchanged.",
+      "locator": "BLGGT Local-global compatibility for l=p II, PDF3 and5 special-block definition/decomposition; LLHLM23 PDF49–50; explicit restriction adapter",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A84",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L73",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L74"
+      ],
+      "proofOutline": "Choose a finite common inertia quotient through which the representation factors. L72–L74 give a finite direct sum of copies of irreducible inertia modules. By L73, evaluation identifies the θ-copy coefficient space with Hom_I(θ,s), giving s≅⊕_θ θ⊗Hom_I(θ,s). Tensor with the d-dimensional chain space; N commutes with I and acts as identity on θ and Hom_I(θ,s), and as J_d on the chain. Each multiplicity basis vector therefore supplies one chain of length d. Restricting a Weil twist trivial on I changes neither s|I nor c_θ. No Clifford orbit classification, multiplicity-one restriction or disjointness between different Weil classes is needed.",
+      "tests": [
+        {
+          "name": "SpecialBlock.inertia_dim_two",
+          "kind": "computation",
+          "statement": "If θ has dimension2, occurs once in s, and d=3, then the ranks on its multiplicity space are 3,2,1,0 for a=0,1,2,3; on the entire θ-isotypic subspace they are 6,4,2,0."
+        },
+        {
+          "name": "SpecialBlock.absent_type",
+          "kind": "degenerate",
+          "statement": "If c_θ=0 the block contributes no θ-isotypic vectors and zero power ranks."
+        },
+        {
+          "name": "SpecialBlock.overlapping_classes",
+          "kind": "compatibility",
+          "statement": "If two Weil classes contribute the same θ, add their power ranks; no separation of their inertia supports is assumed."
+        }
+      ],
+      "note": "Source adapter in AG2.5/AG2.6 consumed by A54; generic isotypic decompositions and nilpotent linear algebra are imported, not redeclared as arithmetic carriers."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+      "kind": "theorem",
+      "name": "Nilpotent Jordan chains from the existing PID decomposition",
+      "statement": "For any field k, finite-dimensional k-vector space V and nilpotent N∈End_k(V), there are finitely many positive integers d_i and a basis e_(i,j), 0≤j<d_i, with N e_(i,j)=e_(i,j+1) for j+1<d_i and N e_(i,d_i−1)=0. Empty V has an empty family. Algebraic closedness is not required for nilpotent normal form.",
+      "locator": "Jordan normal form recalled immediately before LLHLM Definition2.5.3, PDF49; explicit reduction to pinned polynomial-module/PID suppliers L69–L71",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L69",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L71"
+      ],
+      "proofOutline": "Use the existing polynomial module AEval′ N. A power X^D kills it because N^D=0, and it is finite over k[X] since it is finite over k. The polynomial X is irreducible and k[X] is a PID. Apply L69 to obtain a finite direct sum of k[X]/(X^d_i), discard the zero d_i summands, and restrict scalars. L71 gives the monomial basis in each quotient; multiplication by X gives precisely the asserted chain equations. This is an adapter from existing general suppliers, not a second PID structure theorem.",
+      "tests": [
+        {
+          "name": "NilpotentChains.zero_space",
+          "kind": "degenerate",
+          "statement": "The zero space gives no positive block lengths."
+        },
+        {
+          "name": "NilpotentChains.zero_map",
+          "kind": "computation",
+          "statement": "For the zero endomorphism on k^n, every positive block has size1."
+        },
+        {
+          "name": "NilpotentChains.no_algclosed_needed",
+          "kind": "compatibility",
+          "statement": "The length3 shift on Q³ has its displayed Jordan chain over Q; extending to an algebraic closure is unnecessary."
+        }
+      ],
+      "note": "Keep the nilpotent-conjugacy adapter with N57/A58 in the existing SmoothRepresentationsPartII source route. The general PID, AEval and quotient-basis carriers are library imports."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A84",
+      "kind": "theorem",
+      "name": "Power ranks recover every nilpotent block multiplicity",
+      "statement": "For N with Jordan block sizes d_i, set r_a=rank(N^a) for all a≥0. Then r_a=Σ_i max(d_i−a,0). The number of blocks of size at least a+1 is r_a−r_(a+1), and the number of blocks of size exactly d≥1 is r_(d−1)−2r_d+r_(d+1). Thus the full power-rank sequence determines the Jordan partition and the nilpotent conjugacy class.",
+      "locator": "LLHLM23 PDF49 nilpotent conjugacy classification and Definition2.5.3; linear-algebra supplier of A58",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83"
+      ],
+      "proofOutline": "A length-d chain maps under N^a onto its last max(d−a,0) basis vectors; disjoint chains have independent images, so their ranks add. Taking the first and second finite differences counts blocks at least and exactly the stated size. The recovered positive block multiplicities determine a common chain basis, hence conjugacy. Conversely conjugacy preserves all ranks. These are natural-number dimensions, so the computation is valid in every characteristic.",
+      "tests": [
+        {
+          "name": "NilpotentRanks.partition_3_1",
+          "kind": "computation",
+          "statement": "For partition(3,1), ranks are4,2,1,0; second differences recover one block of size1 and one of size3."
+        },
+        {
+          "name": "NilpotentRanks.single_rank_insufficient",
+          "kind": "non-example",
+          "statement": "Partitions(3,1) and(2,2) both have dimension4 and rank2, but their square ranks are1 and0. Rank(N) alone does not classify."
+        },
+        {
+          "name": "NilpotentRanks.terminal_zero",
+          "kind": "degenerate",
+          "statement": "For the empty partition every r_a is zero, including r_0."
+        }
+      ],
+      "note": "The remaining partition-order comparison is the elementary prefix/rank transform already proved in A58; no geometric orbit-closure theorem is needed."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L72",
+      "kind": "theorem",
+      "name": "Existing Maschke semisimplicity for finite group algebras",
+      "statement": "For a field k, finite group G with (Nat.card G:k) nonzero, and any k[G]-module V, every submodule has a complementary submodule; hence V is semisimple. In characteristic zero the cardinality hypothesis holds. No finite-dimensionality hypothesis is required for this library theorem.",
+      "locator": "Pinned Mathlib/RepresentationTheory/Maschke.lean:138–169; inertia supplier for LLHLM23 PDF49–50",
+      "status": "library",
+      "library": [
+        "mathlib:MonoidAlgebra.Submodule.exists_isCompl"
+      ],
+      "prerequisites": [],
+      "note": "Read the declaration and enclosing variables at 082e2d3. Apply only after passing to a finite common inertia quotient; the Weil group itself is not finite."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L73",
+      "kind": "theorem",
+      "name": "Existing Schur dimension formula for finite-dimensional representations",
+      "statement": "Over an algebraically closed field k, the k-dimension of the intertwining space between two simple finite-dimensional representations V and W is one when they are isomorphic and zero otherwise. An irreducible finite-dimensional representation has only scalar equivariant endomorphisms.",
+      "locator": "Pinned Mathlib/RepresentationTheory/FDRep.lean:157–162 and Irreducible.lean:67–81; multiplicity supplier of A82",
+      "status": "library",
+      "library": [
+        "mathlib:FDRep.finrank_hom_simple_simple",
+        "mathlib:Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed"
+      ],
+      "prerequisites": [],
+      "note": "Read the exact statements and their hypotheses. These hold without assuming the acting group finite; finite inertia is used separately for semisimplicity in L72."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L74",
+      "kind": "theorem",
+      "name": "Existing independent exhaustive isotypic components",
+      "statement": "For a ring R and an R-module M, the family of its nonzero isotypic components is independent. When M is semisimple their supremum is top. If M is Noetherian this family is finite. Together these give the finite internal isotypic decomposition used for finite-dimensional semisimple inertia representations.",
+      "locator": "Pinned Mathlib/RingTheory/SimpleModule/Isotypic.lean:288–303,478–492; supplier of LLHLM23 PDF49–50",
+      "status": "library",
+      "library": [
+        "mathlib:sSupIndep_isotypicComponents",
+        "mathlib:sSup_isotypicComponents"
+      ],
+      "prerequisites": [],
+      "note": "Reuse the existing isotypicComponent carrier. The tensor-evaluation and special-block rank identification remain the explicit consumer adapter A82, rather than being claimed as these declarations themselves."
     }
   ],
   "prerequisites": [
@@ -17139,7 +17552,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A57",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A83",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A84"
       ],
       "reason": "Reuse the existing smooth representation Part II; it already receives depth-zero Deligne–Lusztig types from Newton–Thorne and local type theory from Fintzen/Bushnell–Henniart. These are local K-types, not the modular finite-group reduction theorem.",
       "parent": "SmoothRepresentationsOfLocalGroups",
@@ -17689,9 +18104,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A82"
       ],
-      "reason": "The automorphic sign and coefficient-prime monodromy comparison belong to the existing polarized automorphic-system layers. The LLHLM consumer still needs the explicit unitary-to-cuspidal transfer hypotheses."
+      "reason": "The automorphic sign and coefficient-prime monodromy comparison belong to the existing polarized automorphic-system layers. The LLHLM consumer still needs the explicit unitary-to-cuspidal transfer hypotheses. A79/A81 specify the regular-algebraic normalization t_i=(m_i+b_i−n−1)/2 and its integral cyclotomic polynomial conversion. A80 imports the already planned polarized cuspidal realization theorem at AG2.2."
     },
     {
       "route": "source",
@@ -18470,6 +18888,68 @@
       "searched": [
         "2026-09-23: the Springer article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E48",
+      "kind": "misprint",
+      "locator": "Adjacent prerequisite: BLGGT, Potential automorphy and change of weight (2014), §2.1, printed536/PDF36, paragraph defining polarized automorphic pairs",
+      "printed": "After introducing the pair (π,χ), the parity sentence uses μ_v(−1), and its parenthesis replaces μ by μδ_(F/F+).",
+      "correction": "Use χ_v(−1) and replace χ by χδ_(F/F+) in this sentence. The next paragraph may independently use μ as the existential polarizing character.",
+      "reason": "The data in the current definition names its character χ, while μ was the earlier Galois-representation multiplier and is not part of this automorphic pair. Theorem2.1.1 consistently uses χ. A79 uses the corrected parity convention.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23 codex-c83e7a: inspected the official published PDF page536 as an image; checked the Annals article page, Richard Taylor publication page, arXiv1010.2561 history (latest v4,2013-12-09) and bounded exact-title erratum/corrigendum searches. No explicit correction for this notation slip found. The v4 metadata correction concerns other numbered theorems."
+      ],
+      "reviewStatus": "Unreviewed paper-worker observation, not a confirmed erratum."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E49",
+      "kind": "misprint",
+      "locator": "BLGGT, Local-global compatibility for l=p, II, author PDF and Ann. Sci. ENS47(2014),161–175; author PDF5; published p169–170 (Numdam PDF6–7), equivalence of irreducible Weil representations",
+      "printed": "s ∼ s′ if s ≅ s′ ⊗ χ ◦ det",
+      "correction": "Use χ∘Art_K^(−1) on W_K via abelianization, equivalently twist by an unramified character of W_K.",
+      "reason": "Here χ has domain K×, while s and s′ are representations of W_K. No determinant W_K→K× is defined. The author PDF3 and published p167 define Art_K with precisely the required domain and codomain. The intended unramified-twist equivalence, and hence A54/A82, is unchanged. The author page image and published text were inspected; this finding remains unreviewed.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1105.2242 (only v1 listed, checked2026-09-23)",
+        "https://virtualmath1.stanford.edu/~rltaylor/ and linked lg2.pdf (author warns that copies may differ from print)",
+        "https://numdam.org/articles/10.24033/asens.2212/ and its published PDF; checked the corresponding printed passages",
+        "Targeted title/author erratum search on2026-09-23; no separate correction found for E49/E50 in these sources"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E50",
+      "kind": "misprint",
+      "locator": "BLGGT, Local-global compatibility for l=p, II, author PDF and Ann. Sci. ENS47(2014),161–175; author PDF5; published p169 (Numdam PDF6), extreme regularity, algebraic coefficient representation and Hodge–Tate display",
+      "printed": "{a_(τ,i)+n−i}_{i=1}^n; GL_n; r_(l,iota)(π)",
+      "correction": "Use m for all three rank occurrences in the extreme-regularity set, GL_m in the coefficient representation, and Π for the automorphic representation in the Hodge–Tate display.",
+      "reason": "The fixed weight has m entries and the surrounding automorphic representation has rank m and name Π. The changed letters do not introduce another rank or representation. Their intended meanings are fixed by those domains and neighboring formulas. These are notation slips, not changes to the compatibility theorem; the author image and published text retain them.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/1105.2242 (only v1 listed, checked2026-09-23)",
+        "https://virtualmath1.stanford.edu/~rltaylor/ and linked lg2.pdf (author warns that copies may differ from print)",
+        "https://numdam.org/articles/10.24033/asens.2212/ and its published PDF; checked the corresponding printed passages",
+        "Targeted title/author erratum search on2026-09-23; no separate correction found for E49/E50 in these sources"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E51",
+      "kind": "misprint",
+      "locator": "BLGGT, Local-global compatibility for l=p, II, author PDF and Ann. Sci. ENS47(2014),161–175; author PDF3, special representation paragraph; corrected in published p167 (Numdam PDF4)",
+      "printed": "GL_(mr)(K)",
+      "correction": "GL_(ms)(K).",
+      "reason": "The paragraph induces s blocks, each of rank m; r is not the integer multiplicity. The journal prints the correct rank ms. Use the journal form in A82.",
+      "affects": "nothing",
+      "known": "Corrected in the published Ann. Sci. ENS47(2014) version, p167, DOI10.24033/asens.2212.",
+      "searched": [
+        "https://arxiv.org/abs/1105.2242 (only v1 listed, checked2026-09-23)",
+        "https://virtualmath1.stanford.edu/~rltaylor/ and linked lg2.pdf (author warns that copies may differ from print)",
+        "https://numdam.org/articles/10.24033/asens.2212/ and its published PDF; checked the corresponding printed passages",
+        "Targeted title/author erratum search on2026-09-23; no separate correction found for E49/E50 in these sources"
+      ]
     }
   ],
   "gaps": [
@@ -18537,7 +19017,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02"
       ],
-      "detail": "Current literal census: all156 definitions/constructions have individual use sites, API outlines and at least three typed tests. This continuation adds289 API entries and155 typed tests across the49 previously incomplete entries (Z15 retains its six existing API entries). The earlier numeric censuses are historical. What remains is semantic closure: split compound ring/action/quotient/stack constructions where their interfaces still package several objects, promote API facts used as prerequisites to individually sourced lemma nodes, audit every supplier at the pinned libraries and reconcile those nodes with their common owners. Literal field coverage is complete; neither this gap nor the paper is mathematically closed by that structural fact. A66 adds the global Whittaker transform with six API entries and four typed tests, bringing the literal census to157/157; semantic closure still remains."
+      "detail": "Literal coverage: all159 definitions/constructions have use sites, API outlines and at least three typed tests, including the imported polynomial-action and monic-quotient carriers L70/L71. This is a structural census, not semantic closure. Split any remaining compound constructions, promote used API facts to individually sourced supplier nodes, audit their pinned declarations, and reconcile each with the common owner."
     },
     {
       "id": "library-item-audit",
@@ -18967,7 +19447,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
-      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
+      "detail": "The bounded Thorne, CHT and EGH sources recorded in the reading log have been read. A30–A33 use projected Hecke images; E38 remains the missing unprojected implication. A74–A76 give the coefficient/type dictionary and actual Hecke-image point criterion, building on A63–A65. A79–A81 now supply the algebraically normalized Speh/Galois realization needed by A62; A54/A58/A82–A84 give the monodromy comparison with the whole-isotypic convention. Do not retain those as unexplained hypotheses. Still finish the atom/declaration closure of CHT2.1.4/2.1.5/2.1.12 integral polarized descent, its prescribed multiplier sign, the global analytic suppliers of A66–A73, and the imported BLGGT comparison. EGH semisimplified compatibility alone supplies no equality of monodromy. Exact-type points imply membership in their closure, while the reverse implication is not asserted. The White withdrawal boundary is recorded separately."
     },
     {
       "id": "global-descent-supplier-atoms",
@@ -18985,9 +19465,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A78",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A79",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, and continuation cc-fb70e5 supplies its input isomorphism as A78: A60's exponents give the unramified Satake scaling q_w^((b_i-1)/2-j), and A77 (dense Frobenius comparison plus characteristic-zero semisimple uniqueness, on A49's density) turns the characteristic-polynomial identity into the block decomposition A62 assumes. Two things there remain hypotheses rather than results: the existence of the Galois representation r_i attached to each conjugate self-dual cohomological cuspidal pi_i, imported from the AG2.1/AG2.2 layers and not proved in this extraction, and the exact normalization for even b_i, which A78 fixes only up to the half-twist that the xi of TheoremA.4.1 carries. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open. Continuation cc-442dc5: the σ(λ,τ)^* coefficient/constituent dictionary is now A74 (CHT Proposition3.3.2's proof with the smooth factor kept at p, level G(O_p) at p, E47), with A75 (reduced finite free local projected Hecke image) and A76 (its characteristic-zero points), conditional on A62/A73."
+      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. Remaining supplier obligations: Baire/countability of finite p-adic extensions; self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -18997,7 +19480,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
       ],
-      "detail": "EGH7.2.1 cites White6.1/6.3; the v8 arXiv record withdraws that preprint due to an error in its main proof. The June2011 IHES copy also differs from v7 and has no6.3. For the LLHLM branch use the now-read Labesse5.3 under its actual degree/compactness hypotheses, with ET.4/ET.7a as owners. Finish exact constituent twists and the automorphic/Galois comparison; do not infer full cuspidality or genericity merely from a weak transfer. The specific faulty step in White, later repairs, and the full generality of EGH outside LLHLM's F+!=Q setting have not been audited. This is a source-reliability boundary, not a confirmed new error finding or a refutation of EGH/LLHLM. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
+      "detail": "EGH7.2.1 cites White6.1/6.3; arXiv v8 withdraws White due to an error in the main proof, and the earlier IHES copy differs in numbering. For the LLHLM branch, the read Labesse5.3 applies: LLHLM9.1 (published PDF180–181) assumes [F+:Q]>1 and compactness at infinity. A59–A62 and A77–A81 now give the needed transfer, normalized Speh realization and residual-irreducibility argument; A66–A76 separately expose genericity and the coefficient/Hecke dictionary. Thus exact constituent twists are no longer an open interface. Remaining analytic and Galois suppliers are named in global-descent-supplier-atoms. The specific faulty step in White and the full EGH generality outside LLHLM’s setting have not been audited. This is a bounded source-reliability record, not a confirmed error in EGH/LLHLM and not a requirement to prove the stronger external setting before using the valid LLHLM branch."
     }
   ],
   "sourceData": {
@@ -20923,6 +21406,67 @@
         "definitionLiteralInterfaces": "157/157",
         "danglingInternalPrerequisites": 0,
         "limitations": "No finite diagnostics were added; A74-A76 are source-based adapters whose inputs are the cited CHT/EGH statements. Earlier diagnostics are inherited and were not rerun."
+      }
+    },
+    "codexC83e7aNormalization": {
+      "status": "partial",
+      "scope": "A77 Hausdorff/image-algebra correction; A78 exact Speh decomposition; A79–A81 normalized factors, planned realization and integral cyclotomic twists; E48 auxiliary notation slip",
+      "counts": {
+        "missing": 452,
+        "planned": 19,
+        "library": 74
+      },
+      "newMissingOwners": {
+        "A79": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "A81": "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      },
+      "newPlannedImport": {
+        "A80": "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      },
+      "libraryAudit": "Both pinned trees searched for Speh/regular-algebraic/polarized packages (none); arithmetic cyclotomic Frobenius, continuous cyclotomic character and finite-group trace comparison opened at the pins. AUDIT-31 AG2.2/AG2.7 reviewed rows checked. Generic operations remain imports, not new definitions.",
+      "lean": "Not requested or run.",
+      "monodromy": "A82–A84 give special-block inertia ranks, nilpotent Jordan chains and rank recovery; L69–L71 are existing PID/AEval/monic-basis suppliers. A54 avoids Clifford orbit classification and A58 compares actual isotypic ranks.",
+      "sourceIssues": 51,
+      "libraryImports": "L69–L74; all exact statements read at082e2d3. Generic isotypic tensor evaluation is assembled in A82, not attributed to a single library declaration.",
+      "checks": {
+        "items": 545,
+        "statusCensus": {
+          "missing": 452,
+          "planned": 19,
+          "library": 74
+        },
+        "definitionsConstructions": 159,
+        "routes": 21,
+        "missingRoutedOnce": true,
+        "internalEdges": 352,
+        "acyclic": true,
+        "sourceIssues": 51,
+        "oldSourceIssuesPreserved": 47,
+        "changedOldItems": [
+          "A54",
+          "A58",
+          "A62",
+          "A77",
+          "A78"
+        ],
+        "pinnedFilesVerified": 12,
+        "finiteDiagnostics": {
+          "rankTransform": 2918,
+          "prefixTransform": 2918,
+          "dominancePairs": 12648,
+          "isotypicRanks": 3264,
+          "blockRecovery": 2646,
+          "spehNormalization": 2427
+        },
+        "limits": "Exact finite/rational regressions, not proofs of the global automorphic inputs or formalization. No Lean required or run."
+      },
+      "ownerSearch": "All53 current packet/decomposition/reserved-ID records searched; two adjacent matches inspected. Generic system operations remain at R24.5:operations. No exact new adapter was already a recorded node. AUDIT-31 and current reviewed coverage read.",
+      "publication": {
+        "base": "1f98850ec207906b76eb170d4a14c1451d3d36b9",
+        "guardedInputs": 111,
+        "changedInputs": [],
+        "originalDeliverablesUnchanged": true,
+        "intake": "3 files,0 problems"
       }
     }
   },
