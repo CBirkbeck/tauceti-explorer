@@ -1,5 +1,5 @@
 {
- "purpose": "Papers for the atlas's roadmaps (PROTOCOL.md section 16). `papers` are to be extracted, one paper job each; `guides` were routed by the maintainer and are worked examples of routing; `held` are adjacent papers kept for a later decision, not queued.",
+ "purpose": "Papers for the atlas's roadmaps (PROTOCOL.md section 16). `papers` are to be extracted, one paper job each; `guides` were routed by the maintainer and are worked examples of routing (all seven are now also extracted, as batch 3); `held` are adjacent papers kept for a later decision, not queued.",
  "papers": [
   {
    "id": "PAPER-BURUNGALE-TIAN-26",
@@ -1632,6 +1632,62 @@
    "link": "https://www.maths.cam.ac.uk/person/jat58?page=2",
    "note": "Function-field Galois representations; potential automorphy.",
    "batch": 2
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20",
+   "short": "Lawrence and Venkatesh: Diophantine problems and p-adic period mappings",
+   "citation": "Lawrence and Venkatesh, \"Diophantine problems and p-adic period mappings\", Inventiones mathematicae 221 (2020)",
+   "link": "https://arxiv.org/abs/1807.02721",
+   "note": "Already routed by the maintainer: a new roadmap, MordellLawrenceVenkatesh (DESIGN-LV). Do not re-route it: read the paper in full, record every definition and key theorem with its status, and route the items into that roadmap's layers and to existing roadmaps as sources.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
+   "short": "Boxer, Calegari, Gee and Pilloni: Abelian surfaces over totally real fields are potentially modular",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Abelian surfaces over totally real fields are potentially modular\" (arXiv:1812.09269)",
+   "link": "https://arxiv.org/abs/1812.09269",
+   "note": "Already routed by the maintainer: a new roadmap, AbelianSurfacesPotentialModularity (DESIGN-BCGP18). Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "short": "Boxer, Calegari, Gee and Pilloni: Modularity theorems for abelian surfaces",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
+   "link": "https://arxiv.org/abs/2502.20645",
+   "note": "Already routed by the maintainer: a new roadmap, AbelianSurfacesModularity (DESIGN-BCGP25), building on DESIGN-BCGP18. Do not re-route it: read the paper in full and route its items into those layers and to existing roadmaps as sources.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-PAN-26",
+   "short": "Lue Pan: On locally analytic vectors of the completed cohomology of modular curves II",
+   "citation": "Lue Pan, \"On locally analytic vectors of the completed cohomology of modular curves II\", Annals of Mathematics 203 (2026)",
+   "link": "",
+   "note": "Already routed by the maintainer: a Part II, LocallyAnalyticCompletedCohomology (DESIGN-PAN), of the completed-cohomology roadmap. Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-SKINNER-20",
+   "short": "Christopher Skinner: A converse to a theorem of Gross, Zagier, and Kolyvagin",
+   "citation": "Christopher Skinner, \"A converse to a theorem of Gross, Zagier, and Kolyvagin\", Annals of Mathematics 191 (2020)",
+   "link": "https://arxiv.org/abs/1405.7294",
+   "note": "Already routed by the maintainer: a Part II, RankOneConverse (DESIGN-SKINNER), of Rank-zero and rank-one BSD, which proves the Gross–Zagier–Kolyvagin direction but has no converse layer. Do not re-route it: read the paper in full and route its items into that roadmap's layers, importing Heegner points, Gross–Zagier and the main conjectures from their owners.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "short": "Balakrishnan, Dogra, Müller, Tuitman and Vonk: Explicit Chabauty–Kim for the split Cartan modular curve of level 13",
+   "citation": "Balakrishnan, Dogra, Müller, Tuitman and Vonk, \"Explicit Chabauty–Kim for the split Cartan modular curve of level 13\", Annals of Mathematics 189 (2019)",
+   "link": "https://arxiv.org/abs/1711.05846",
+   "note": "Already routed by the maintainer: a source of the quadratic-Chabauty layers (NC.5 and ED.6), not a new roadmap. Do not re-route it: read the paper in full and route its items to those layers and to other existing roadmaps.",
+   "batch": 3
+  },
+  {
+   "id": "PAPER-BETTS-STIX-25",
+   "short": "Betts and Stix: Galois sections and p-adic period mappings",
+   "citation": "Betts and Stix, \"Galois sections and p-adic period mappings\", Annals of Mathematics 201 (2025)",
+   "link": "",
+   "note": "Already routed by the maintainer: a new roadmap, GaloisSectionsPadicPeriodMaps (DESIGN-BETTS-STIX). Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.",
+   "batch": 3
   }
  ],
  "guides": [
@@ -1735,7 +1791,8 @@
  ],
  "batches": {
   "1": "Annals of Mathematics, issues from January 2016 to September 2026, algebraic number theory and arithmetic geometry read inclusively (the maintainer's classification, 21 September 2026). Four of its papers were routed earlier and are among the guides: Pan (2026), Betts–Stix (2025), Skinner (2020) and Balakrishnan–Dogra–Müller–Tuitman–Vonk (2019).",
-  "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN)."
+  "2": "Six journals (Inventiones, Duke, Forum of Mathematics Pi, JAMS, Publications de l'IHÉS, Acta), issues from 21 September 2016 to 21 September 2026, the same scope as batch 1: the maintainer's working catalogue, not exhaustive (Duke, JAMS, earlier Inventiones and recent Acta are incomplete). Three of its papers were already covered and are not queued: Lawrence–Venkatesh (DESIGN-LV), Boxer–Calegari–Gee–Pilloni 2021 (DESIGN-BCGP18) and Pan's first paper (the foundation of DESIGN-PAN).",
+  "3": "The seven papers the maintainer gave as routing guides (21 September 2026), queued for extraction on 23 September 2026 at the maintainer's request: their routes are already decided and applied, so each extraction reads the paper in full and routes its items into the roadmap its guide entry names."
  },
  "held": [
   {
