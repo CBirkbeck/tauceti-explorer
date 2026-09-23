@@ -2,7 +2,7 @@
 
 Vivek Shende and Jacob Tsimerman, *Equidistribution in Bun₂(P¹)*, [Duke Math. J. 166 (2017), no. 18, 3461–3504](https://doi.org/10.1215/00127094-2017-0025); arXiv [1307.8237](https://arxiv.org/abs/1307.8237).
 
-Errata job `ERRATA-PAPER-SHENDE-TSIMERMAN-17` (issue #1856), by Claude Code, session `cc-39fac3`, 23 September 2026. The machine-readable list is [PAPER-SHENDE-TSIMERMAN-17.json](PAPER-SHENDE-TSIMERMAN-17.json): **28 findings**, 13 errors, 9 misprints and 6 gaps.
+Errata job `ERRATA-PAPER-SHENDE-TSIMERMAN-17` (issue #1856), by Claude Code, session `cc-39fac3`, 23 September 2026. Reviewed by `REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17` (issue #1857), Claude Code session `cc-7b31c4`, 23 September 2026: **all 28 findings confirmed**, none rejected and none amended, and **three further misprints added (E29–E31)**. The machine-readable list is [PAPER-SHENDE-TSIMERMAN-17.json](PAPER-SHENDE-TSIMERMAN-17.json): **31 findings**, 13 errors, 12 misprints and 6 gaps, each carrying its review verdict. The review is written up in [REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md](../reviews/REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md).
 
 ## What was read and where corrections were looked for
 
@@ -327,3 +327,33 @@ So every finding is `new`.
 **Why it is wrong or incomplete:** A.2 defines T = (Res_{l/k} G_m)/G_m, which has no canonical homomorphism to GL_2, and the space of line bundles on D framed at every place is l^×\A_l^×, not T(k)\T(A_k). Passing to the quotient by the central G_m recovers the PGL_2 statement of A.2, so nothing is affected.
 
 **Correction:** Throughout A.3, X_T should be X_{T′} with T′ = Res_{l/k} G_m, so X_{T′} = l^×\A_l^×: framed line bundles on D form X_{T′}, and T′ → GL_2 induces ρ_γ : X_{T′} → X_{GL_2}. The torus T = T′/G_m of A.2 maps only to PGL_2.
+
+### E29 (misprint; affects nothing)
+
+**Where:** §3, proof of Theorem 3.9, p. 16 (arXiv v1). *Added by the review.*
+
+**The paper says:** Proof. By Lemma 3.8, we have an exact sequence of perverse sheaves on Θ_{g−a} ∩ L − Θ_{g−b}
+
+**Why it is wrong or incomplete:** The statement invoked is set as a proposition and prints as “Proposition 3.8. Assume e(L) ≤ g − a − b. In the abelian category of perverse sheaves …” on the preceding page; its label in the source is `lem:bm2`, a leftover from an earlier arrangement. There is no Lemma 3.8 in the paper.
+
+**Correction:** By Proposition 3.8.
+
+### E30 (misprint; affects nothing)
+
+**Where:** §1, p. 4 (arXiv v1); the equation referred to is (6) on p. 30. *Added by the review.*
+
+**The paper says:** The Grothendieck-Lefschetz trace formula then implies that the LHS and RHS of (6) differ by the traces of the lower cohomologies.
+
+**Why it is wrong or incomplete:** The equation meant is the limit assertion displayed three paragraphs earlier on the same page, which is numbered (1); equation (6) is the corresponding display in the proof of Theorem 4.2, twenty-six pages later. Both displays carry the same label in the source, so the single cross-reference to it resolves to the later one.
+
+**Correction:** … the LHS and RHS of (1) differ …
+
+### E31 (misprint; affects nothing)
+
+**Where:** Bibliography, p. 40, with the citations on p. 2 and p. 33 (arXiv v1). *Added by the review.*
+
+**The paper says:** [Lin] Yu. V. Linnik, *Ergodic properties of algebraic fields* … [Lin] E. Lindenstrauss, private communication.
+
+**Why it is wrong or incomplete:** Two different bibliography entries carry the same label, and both are cited: “Linnik, assuming the general Riemann hypothesis, treated what is essentially the case of G = PGL₂ and H a torus [Lin]” in §1 points to Linnik's book, while “this suffices for the proof [Lin]” in Case 1 of Theorem 4.4 points to the private communication. A reader cannot tell them apart from the citation, and the distinction matters for the status of that step (E26).
+
+**Correction:** Give the two references distinct labels, for instance [Linnik] and [Lind].
