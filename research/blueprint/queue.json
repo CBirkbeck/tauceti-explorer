@@ -3904,8 +3904,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1241"
+   "state": "pending",
+   "note": "released on GitHub issue #1241"
   },
   {
    "id": "REV-PAPER-BREUIL-ETAL-23",
@@ -4125,7 +4125,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -6708,7 +6709,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1400"
   },
   {
    "id": "REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -6743,7 +6745,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1402"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
