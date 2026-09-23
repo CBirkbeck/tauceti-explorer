@@ -404,6 +404,30 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "main": "Fresh LLHLM23 published PDF194–201 (§§A.4–A.6, including the application of TheoremA.4.1 at level G(O_p)U_1(Q_m)^(S_p) on PDF201) and §7.2 PDF142; the inherited full-paper read remains attributed to codex-7e92bd.",
+        "sources": [
+          {
+            "title": "L. Clozel, M. Harris, R. Taylor, Automorphy for some l-adic lifts of automorphic mod l Galois representations, Publ. Math. IHES 108 (2008)",
+            "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+            "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+            "readSections": [
+              "§3.3 PDF95–103: definition of S_{a,{ρv},{χv}}(U,A), Lemma3.3.1, Proposition3.3.2 with its proof (the isomorphism i), Corollary3.3.3; §3.4 PDF103–106 through Proposition3.4.2 and the statement of Proposition3.4.4, including the remark that TT(X) is finite free and reduced."
+            ]
+          },
+          {
+            "title": "M. Emerton, T. Gee, F. Herzig, Weight cycling and Serre-type conjectures for unitary groups",
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/egh.pdf",
+            "sha256": "1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0",
+            "readSections": [
+              "§7.1–7.2 PDF52–56: the spaces S(U,W), sufficiently small levels, (7.1.3), Lemma7.1.6 and Theorem7.2.1 with its proof."
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -422,7 +446,7 @@
       ]
     }
   },
-  "summary": "Partial continuation: 528 items (68 library, 18 planned, 442 missing), 21 routes, 45 unreviewed findings; all157 definitions/constructions have individual uses/API/typed tests. A66-A73 separate global Whittaker injectivity and the finite-place genericity consequence of cuspidal base change; L68 imports existing pure-tensor extensionality. E45 is a supplier-note evaluation typo already corrected in later author notes. All519 prior item statements/statuses,44 prior sourceIssues and AppendixB data are preserved. Exact Speh/Galois realization, coefficient/type occurrence, actual Hecke-algebra hypotheses and the twelve recorded closure gaps remain.",
+  "summary": "Partial continuation: 531 items (68 library, 18 planned, 445 missing), 21 routes, 47 unreviewed findings; all157 definitions/constructions have individual uses/API/typed tests. A74–A76 (cc-442dc5) supply the sigma(lambda,tau)^* coefficient/K-type dictionary for algebraic automorphic forms at level G(O_p), the reduced finite free local projected Hecke image and its characteristic-zero points, which discharge A65's hypotheses conditionally on A62/A73. E46 is a §7.2 pullback misprint; E47 records that TheoremA.4.1's typed local conditions need level G(O_p) at p. A66-A73 separate global Whittaker injectivity and the finite-place genericity consequence of cuspidal base change; L68 imports existing pure-tensor extensionality. E45 is a supplier-note evaluation typo already corrected in later author notes. All519 prior item statements/statuses,44 prior sourceIssues and AppendixB data are preserved. Exact Speh/Galois realization, coefficient/type occurrence, actual Hecke-algebra hypotheses and the twelve recorded closure gaps remain.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -16496,7 +16520,7 @@
       ],
       "proofOutline": "Let I_v define the reduced union R_v^D. Each exact-type characteristic-zero point lies in its own Zariski closure by definition, and that closure is one of the subspaces in the dominated union. Thus I_v is killed by every x_i∘f_v (vanishing after a finite field extension already implies vanishing before it). A64 gives the unique integral factorization. The quotient topology and local-ring hypotheses give its continuity/locality. Algebraic identities such as fixed determinant or multiplier survive this factorization; no new choice of polarization is made. This finishes the point-to-integral step conditional on the automorphic constituent/type inputs. It neither proves those inputs nor asserts that every point of an exact-type closure still has exact monodromy type. For the usual complete-local topologies, the quotient topology is the maximal-ideal-adic topology because the quotient maps each power of the source maximal ideal onto the corresponding power in the quotient.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Consumer-specific adapter built from pinned imports, not a new general Artinian/quotient implementation. Owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity",
+      "note": "Codex — codex-a71f92, 2026-09-23. Consumer-specific adapter built from pinned imports, not a new general Artinian/quotient implementation. Owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity Continuation cc-442dc5: A75 (not a prerequisite, to keep the graph acyclic: A30 already consumes A65) supplies the reduced finite flat local hypothesis on T, and A76 the point hypothesis, conditionally on A62/A73.",
       "tests": [
         {
           "name": "IntegralType.bound_not_equality",
@@ -16849,6 +16873,56 @@
           "statement": "Whittaker nonvanishing alone does not imply Hom_K(sigma(tau),pi)≠0 for a prescribed tau, nor a specified Hodge type."
         }
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74",
+      "kind": "theorem",
+      "name": "Algebraic automorphic forms with coefficient sigma(lambda,tau)^* decompose by K-type occurrence at p",
+      "statement": "In the AppendixA.4 setting let U=G(O_p)U^p be sufficiently small with U_p=prod_{v in S_p}G(O_{F_v^+}), and let W be a G(O_p)-stable O-lattice in tensor_{v in S_p} sigma(lambda_v,tau_v)^* o iota_v, where sigma(lambda_v,tau_v)=V(lambda_v) tensor sigma(tau_v) as in LLHLM23 §6.2 and sigma(tau_v) is as in N58. Fix iota:Qpbar≅C. Keeping the smooth factor sigma(tau)^* at p and moving the algebraic factor tensor V(lambda_v)^* to the infinite places through iota gives an isomorphism, equivariant for the Hecke algebra away from S, S(U,W) tensor_(O,iota) C ≅ Hom_(U×G(F+_infinity))(V(lambda)_(iota,infinity) tensor sigma(tau)_C, A) ≅ direct sum over automorphic pi of G(A_F+) with pi_infinity≅V(lambda)_(iota,infinity) of m(pi) (pi^(infinity,p))^(U^p) tensor Hom_(G(O_p))(tensor_v sigma(tau_v) o iota_v tensor_iota C, pi_p). Here A is the space of automorphic forms and V(lambda)_(iota,infinity) is the irreducible algebraic representation of the compact group G(F+_infinity) attached to tensor V(lambda_v) through iota. In particular S(U,W)[1/p] tensor Qpbar is a semisimple Hecke module, and a Hecke eigensystem occurs in it iff it is the eigensystem of such a pi with (pi^(infinity,p))^(U^p)≠0 and Hom_(G(O_p))(sigma(tau),pi_p)≠0. The Hodge normalization of the attached Galois representation is not asserted here; it is the one of A55 and E33.",
+      "locator": "LLHLM23 (A.2) PDF194 and TheoremA.4.1 PDF196 (coefficient lattice in tensor sigma(lambda_v,tau_v)^*); CHT Lemma3.3.1 PDF99, Proposition3.3.2 and its proof PDF100–102, Corollary3.3.3 PDF102; EGH §7.1.2 PDF53 and Lemma7.1.6 PDF55.",
+      "status": "missing",
+      "prerequisites": [
+        "AutomorphicFormsOnReductiveGroups:AF.5",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58"
+      ],
+      "proofOutline": "For U sufficiently small, f↦(f(t_j))_j identifies S(U,W) with a finite free O-module (CHT Lemma3.3.1), and S(U,W) tensor_O C=S(U,W tensor_(O,iota) C). CHT's map i(f)(alpha)(g)=alpha(xi_(a,iota)(g_infinity)^(-1)(xi_a(g_l)f(g^infinity))) in the proof of Proposition3.3.2 moves only the algebraic factor of the coefficient to infinity and keeps the smooth factor (there rho_v at S(B)) at its finite places; applied with the smooth factor sigma(tau)^* at p it gives the first isomorphism. Since G(F+_infinity) is compact, A is a semisimple admissible G(A^infinity)-module (CHT Corollary3.3.3), so Hom over U×G(F+_infinity) splits over the isotypic decomposition, and Schur's lemma for the compact group forces pi_infinity≅V(lambda)_(iota,infinity). For U=U^pG(O_p) the pi-summand is (pi^(infinity,p))^(U^p) tensor Hom_(G(O_p))(sigma(tau),pi_p). Hecke operators away from S act through the unramified pi_v, hence semisimply. EGH Lemma7.1.6 is the case with no smooth factor.",
+      "implementationStatus": "unchecked",
+      "note": "Claude Code — cc-442dc5, 2026-09-23. Source-based planning adapter; no Lean implementation. The level U_p=G(O_p) matters: for a smaller U_p only Hom_(U_p)(sigma(tau),pi_p)≠0 follows, which does not constrain the type (sourceIssues E47). Owner: AutomorphicFormsOnReductiveGroups AF.5 (algebraic modular forms on compact-at-infinity groups), extended by the smooth K-type factor."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A75",
+      "kind": "theorem",
+      "name": "The projected auxiliary Hecke image is a reduced finite free local O-algebra",
+      "statement": "In the setting of A18, for i=0,1 let H_i=pr(S(U_i(Q),W)_mQ) and let T_i^pr be the image of the away-from-S∪Q Hecke algebra in End_O(H_i). If H_i≠0 then T_i^pr is a nonzero commutative local O-algebra, finite and free as an O-module, and reduced. The same holds for the unprojected image T(U,W)_m at original level. These are exactly the hypotheses on T in A63–A65.",
+      "locator": "CHT §3.4, remark after the definition of TT(X), PDF104, with Corollary3.3.3 PDF102; LLHLM23 PDF197–198 (pr commutes with the Hecke algebra); Thorne Proposition5.9, arXiv1107.5989v1 PDF25.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2"
+      ],
+      "proofOutline": "S(U_i(Q),W) is finite free over O because U_i(Q) is sufficiently small (A33, CHT Lemma3.3.1). Its localization at m_Q is a direct summand, hence O-free. pr is a polynomial in commuting operators and commutes with the Hecke algebra (LLHLM23 PDF197–198), so H_i is a Hecke-stable O-submodule, torsion free and hence free, and X=H_i tensor K is Hecke-stable in S(U_i(Q),W tensor K). T_i^pr embeds in End_K(X), so it is finite and torsion free, hence free, over O; this is CHT's 'TT(X) is finite and free as an O-module'. By A74, X is a Hecke-stable subspace of a semisimple Hecke module on which the commutative Hecke algebra acts through characters, so T_i^pr tensor K is a product of fields and T_i^pr is reduced (CHT: 'by Corollary3.3.3 it is reduced'). It is a quotient of the local ring T_mQ, hence local when nonzero.",
+      "implementationStatus": "unchecked",
+      "note": "Claude Code — cc-442dc5, 2026-09-23. Source-based planning adapter; no Lean implementation. Reducedness is a characteristic-zero statement: T_i^pr tensor k need not be reduced. Owner: IntegralHeckeAndGaloisDeterminants IHG.2 (finite Hecke image algebras)."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A76",
+      "kind": "theorem",
+      "name": "Characteristic-zero points of the projected Hecke image are sigma(tau)-typed automorphic eigensystems",
+      "statement": "In the setting of A18 and A74 (so U_i(Q) has level G(O_p) at p), every O-algebra map x:T_i^pr→Qpbar is the Hecke eigensystem of an automorphic representation pi of G(A_F+) with pi_infinity≅V(lambda)_(iota,infinity), (pi^(infinity,p))^(U_i(Q)^p)≠0 and Hom_(G(O_p))(tensor_v sigma(tau_v) o iota_v,pi_p)≠0, whose eigensystem occurs in H_i tensor Qpbar. Consequently, once A59, A62 and A73 supply the RACSDC cuspidal Pi and the identification of the Galois representation required by A55, every characteristic-zero field factor x_j of A63 satisfies A55's hypothesis, and x_j∘f_v lies on R_rhobar_v^(lambda_v+eta,<=tau_v). This discharges A65's point hypothesis conditionally on those automorphic inputs.",
+      "locator": "LLHLM23 TheoremA.4.1 PDF196–198 and its use at level G(O_p)U_1(Q_m)^(S_p) in §A.6 PDF201; CHT Proposition3.3.2 proof PDF100–102; EGH Theorem7.2.1 PDF55.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A75",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A73"
+      ],
+      "proofOutline": "T_i^pr tensor Qpbar is a finite reduced Qpbar-algebra (A75), so its Qpbar-points are the simultaneous eigenvalue systems of the commuting Hecke operators on H_i tensor Qpbar, each with a nonzero eigenvector. H_i tensor Qpbar sits Hecke-equivariantly in S(U_i(Q),W tensor Qpbar), so the eigenvector lies in the isotypic part of an automorphic pi described by A74. Transporting through iota and applying A55 (with A59, A62 and A73 for the base change and the Galois realization) gives the local condition at every v|p. The factorization of f_v through R^D is then A64/A65.",
+      "implementationStatus": "unchecked",
+      "note": "Claude Code — cc-442dc5, 2026-09-23. Source-based planning adapter; no Lean implementation. Conditional on the automorphic inputs still open in A62/A73; no new Galois-side or monodromy-equality claim is made, and E34's monodromy-dominated quotient is kept. Owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity."
     }
   ],
   "prerequisites": [
@@ -17284,7 +17358,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A76"
       ],
       "reason": "Reuse the CEGGPS all-rank patching candidate. The extra source obligation is the exact weak/detectable/minimal functor interface and arbitrary away-from-p-level construction, not another abstract patching roadmap.",
       "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
@@ -17561,7 +17636,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A75"
       ],
       "reason": "Trace descent and gluing actual representations over a reduced integral Hecke algebra refine the existing reconstruction and finite-image-algebra layers. These are suppliers of patching, not a second automorphic construction."
     },
@@ -17602,7 +17678,8 @@
       "roadmap": "AutomorphicFormsOnReductiveGroups",
       "stages": [
         "AutomorphicFormsOnReductiveGroups:AF.2",
-        "AutomorphicFormsOnReductiveGroups:AF.3"
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicFormsOnReductiveGroups:AF.5"
       ],
       "items": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
@@ -17610,9 +17687,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74"
       ],
-      "reason": "Add the GL_n-specific Whittaker integral, mirabolic injectivity and finite-place tensor restriction to the existing automorphic-function/cusp-form direction. AF.3 owns the global construction and cuspidality argument; AF.2 owns restricted tensor products and the one-place restriction adapter. Import AL.0 Fourier uniqueness, AA.2 quotient measures and the existing SR.5 local functional carrier. This is a source refinement, not a claim that the current AF.3 text already explicitly states global genericity for GL_n, and not a genericity claim for every reductive group."
+      "reason": "Add the GL_n-specific Whittaker integral, mirabolic injectivity and finite-place tensor restriction to the existing automorphic-function/cusp-form direction. AF.3 owns the global construction and cuspidality argument; AF.2 owns restricted tensor products and the one-place restriction adapter. Import AL.0 Fourier uniqueness, AA.2 quotient measures and the existing SR.5 local functional carrier. This is a source refinement, not a claim that the current AF.3 text already explicitly states global genericity for GL_n, and not a genericity claim for every reductive group. AF.5 identifies algebraic modular forms on compact-at-infinity groups with coefficient functions on finite adelic double cosets; A74 is its refinement by a smooth K-type factor at p (the sigma(lambda,tau)^* coefficients of LLHLM23 AppendixA)."
     },
     {
       "route": "source",
@@ -18332,6 +18410,32 @@
         "2026-09-23: compared the downloaded PCMI and ICTP displays with the Fields notes; hashes and reading scope recorded under source.continuationReadings.",
         "2026-09-23: exact Cogdell PCMI Whittaker-functional errata search; no separate corrigendum located. The available later correct formula suffices; no novelty claim."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E46",
+      "kind": "misprint",
+      "locator": "§7.2, definition of K^{[0,h],τ}, published PDF142 (checked on the page image); arXiv 2007.05398v2 has the same sentence",
+      "printed": "K^{[0,h],τ} = X^{[0,h],τ} ×_{Φ-Mod^{ét,n}_K} Y^{[0,h],τ} be the pullback of ε_τ : Y^{[0,h],τ} → Φ-Mod^{ét,n}_K along X^{λ,τ} → Φ-Mod^{ét,n}_K.",
+      "correction": "Read \"along X^{[0,h],τ} → Φ-Mod^{ét,n}_K\", the composite X^{[0,h],τ} → X_n → Φ-Mod^{ét,n}_K.",
+      "reason": "The displayed fibre product has first factor X^{[0,h],τ}, and λ is not yet fixed in that sentence: the next sentence introduces λ with λ_j ∈ [0,h]^n to define K^{λ,τ} and K^{≤λ,τ}. The pullback along X^{λ,τ} is K^{λ,τ}, not K^{[0,h],τ}. The display is correct, so nothing downstream changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: the Springer article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E47",
+      "kind": "error",
+      "locator": "§A.4, setup PDF194 and TheoremA.4.1 PDF196–197; the application in §A.6, PDF201, is at level G(O_p)U_1(Q_m)^(S_p)",
+      "printed": "\"If U = U_p U^{∞,p} ≤ G(O_p) × G(A^{∞,p}_{F+}) is a compact open subgroup, and W is a finite O-module endowed with a continuous action of U_p … Let W be an O-lattice in the U_p-module ⊗_{v∈S_p} σ(λ_v, τ_v)^* ∘ ι_v\", with the conclusion that r(U,W)_mQ is of type S with D_v = D_ρ̄_v^{λ_v,τ_v} at v ∈ S_p.",
+      "correction": "Add the hypothesis U_p = ∏_{v∈S_p} G(O_{F_v^+}) (or at least that U_p-invariants detect the K-type σ(τ_v) of GL_n(O_{F_v^+})). With it, A74 and A55 give the stated local conditions at p (with E33–E34's corrected quotient).",
+      "reason": "The typed local condition at p comes from occurrence Hom_{GL_n(O)}(σ(τ_v), π_v) ≠ 0 (Theorem2.5.4; A55). For smaller U_p the coefficient only records Hom_{U_p}(σ(τ_v), π_v). For tame τ_v, σ(τ_v) is inflated from GL_n(k_v), so if U_p lies in the kernel of G(O_p) → ∏ GL_n(k_v), the lattice W is a sum of copies of an algebraic lattice as a U_p-module. Then S(U,W) contains every form of weight λ and level U, for instance ones with π_v unramified, whose Galois representations are crystalline and so not of type ≤ τ_v when τ_v is a nontrivial tame type. The appendix's own application (§A.6, PDF201) is at level G(O_p), so its conclusions stand.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: the Springer article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum."
+      ]
     }
   ],
   "gaps": [
@@ -18848,7 +18952,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
-      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open."
+      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization. Whittaker continuation codex-a71f92: A66-A73 now give the exact global integral, nonzero-last-column Fourier detection, smaller-mirabolic cuspidality, injectivity, nonzero functional, finite-place tensor restriction and twist invariance. Only the finite-place consequence is used. The cusp-form injectivity proof uses compact Fourier uniqueness, not a claimed proof of absolute uniform convergence of the full multiple series. Remaining foundational proof suppliers: compact additive character duality/completeness and compatible quotient Haar/Fubini (AL.0/AA.2/AF.3), smooth globalization continuity (AF.1), and the actual one-finite-place Flath factorization (AF.2). These are requests on existing owners, not hidden hypotheses that count as formal closure. The conditional generic-local consequence is no longer an unexplained leap; the exact Speh algebraic/Galois realization needed to prove cuspidality, the sigma(lambda,tau)^* occurrence dictionary and actual Hecke reducedness/flatness remain open. Continuation cc-442dc5: the σ(λ,τ)^* coefficient/constituent dictionary is now A74 (CHT Proposition3.3.2's proof with the smooth factor kept at p, level G(O_p) at p, E47), with A75 (reduced finite free local projected Hecke image) and A76 (its characteristic-zero points), conditional on A62/A73."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -20756,6 +20860,34 @@
         "changedInputs": [],
         "originalDeliverableBlobsUnchanged": true,
         "intake": "3 files,0 problems; repeated on refreshed snapshot"
+      }
+    },
+    "claudeCc442dc5TypedHecke": {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1254,
+      "claimComment": 5799565155,
+      "base": "586740d6",
+      "status": "partial",
+      "items": 531,
+      "library": 68,
+      "planned": 18,
+      "missing": 445,
+      "routes": 21,
+      "sourceIssues": 47,
+      "definitionsConstructions": 157,
+      "lean": "No Lean file is required for this paper job; none compiled. No formalization claimed.",
+      "scope": "All528 old item statements and statuses retained; A65 alone gains a note. All45 old source findings and all sourceData retained. Routes 9, 16 and 19 gain one item each; route 19 gains stage AF.5. A74-A76 are theorems, so the definition/construction interface count is unchanged.",
+      "checks": {
+        "paperChecker": "passes",
+        "uniqueItemIds": 531,
+        "internalDependencyEdges": 322,
+        "acyclic": true,
+        "missingItemsRoutedExactlyOnce": true,
+        "routedPlannedItems": 15,
+        "definitionLiteralInterfaces": "157/157",
+        "danglingInternalPrerequisites": 0,
+        "limitations": "No finite diagnostics were added; A74-A76 are source-based adapters whose inputs are the cited CHT/EGH statements. Earlier diagnostics are inherited and were not rerun."
       }
     }
   },

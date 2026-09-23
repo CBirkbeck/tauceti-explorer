@@ -1,3 +1,78 @@
+# LLHLM23 continuation: the σ(λ,τ)^* coefficient dictionary and the projected Hecke image
+
+Claude Code, session cc-442dc5, issue #1254, 23 September 2026. This continues merged #2411 at `586740d6`, under claim 5799565155.
+
+**Partial: 531 items (68 library, 18 planned, 445 missing), 21 routes, 47 unreviewed source findings.** All 157 definitions and constructions keep their uses, API and typed tests. No Lean file is required or compiled. This is a source-based plan, not a formalization or an independent review.
+
+## What this checkpoint supplies
+
+The handoff's second resume point asked for:
+- the σ(λ,τ)^* coefficient/type dictionary;
+- the actual reduced, finite flat projected Hecke image.
+
+Both hypotheses of A65 were open. They are now separate items, conditional only on the automorphic inputs that A62 and A73 still need.
+
+1. **A74: the coefficient dictionary.** Let W be a G(O_p)-stable lattice in ⊗_v σ(λ_v,τ_v)^*∘ι_v, where σ(λ,τ) = V(λ) ⊗ σ(τ) (§6.2). Take the level U = G(O_p)U^p.
+   - **The source.** The proof of CHT Proposition 3.3.2 moves only the *algebraic* factor of the coefficient to the infinite places. It keeps the smooth factor (there ρ_v at S(B)) at its finite place.
+   - **The isomorphism.** Applied with the smooth factor σ(τ)^* at p, it gives
+     S(U,W) ⊗_ι ℂ ≅ ⊕_π m(π) (π^{∞,p})^{U^p} ⊗ Hom_{G(O_p)}(σ(τ), π_p),
+     summed over automorphic π with π_∞ ≅ V(λ)_{ι,∞}.
+   - **Semisimplicity.** The isomorphism is Hecke-equivariant, and the characteristic-zero Hecke module is semisimple (CHT Corollary 3.3.3).
+   - **Relation to EGH.** EGH Lemma 7.1.6 is the case without the smooth factor.
+   - **What is not claimed.** The Hodge normalization is left to A55 and E33.
+2. **A75: the projected Hecke image.** T_i^pr on H_i = pr(S(U_i(Q),W)_{m_Q}) is a nonzero, reduced, local O-algebra, finite and free over O. This follows from three facts:
+   - S(U_i(Q),W) is O-free, because the level is sufficiently small.
+   - pr commutes with the Hecke algebra (PDF197–198), so H_i ⊗ K is a Hecke-stable subspace.
+   - CHT's remark in §3.4 (PDF104): "TT(X) is finite and free as an O-module. Also by Corollary 3.3.3 we see that it is reduced."
+
+   Reducedness is a characteristic-zero statement; T ⊗ k need not be reduced.
+3. **A76: characteristic-zero points.** Every O-algebra map T_i^pr → Q̄_p is the eigensystem of a π as in A74, with σ(τ) occurring at G(O_p) level. With A55, and the A59/A62/A73 inputs, every field factor of A63 lands on R^{λ_v+η, ≤τ_v}. That discharges A65's point hypothesis, conditionally.
+
+The graph stays acyclic: A30 already consumes A65, so A75 and A76 are not prerequisites of A65; A65's note records that they discharge its hypotheses.
+
+**Routes (no new route).**
+- A74 joins the AutomorphicFormsOnReductiveGroups source route, which gains stage AF.5 (algebraic modular forms on compact-at-infinity groups).
+- A75 joins IntegralHeckeAndGaloisDeterminants IHG.2 (finite Hecke image algebras).
+- A76 joins the CompletedCohomology Part II route, beside A55 and A65.
+
+## Two new source findings
+
+- **E47** (error, a stated result). Theorem A.4.1 (PDF194–197) allows any U_p ≤ G(O_p), with W a lattice in the U_p-module ⊗σ(λ_v,τ_v)^*. But its typed local conditions at p need K-type occurrence at G(O_p) level.
+  - For tame τ_v, σ(τ_v) is inflated from GL_n(k_v). So for U_p inside the kernel of reduction, W is a sum of copies of an algebraic lattice as a U_p-module.
+  - Then S(U,W) contains unramified-at-p forms, whose crystalline Galois representations are not of type ≤ τ_v for a nontrivial tame τ_v.
+  - The appendix itself applies the theorem at level G(O_p)U_1(Q_m)^{S_p} (§A.6, PDF201), so nothing downstream changes. The fix is the hypothesis U_p = ∏ G(O_{F_v^+}).
+- **E46** (misprint, §7.2, PDF142). K^{[0,h],τ} is described as "the pullback of ε_τ along X^{λ,τ} → Φ-Mod^{ét,n}_K". Both the display and the next sentence make it the pullback along X^{[0,h],τ}; λ is introduced only in the next sentence. This was found in an earlier, unsubmitted pass of this session and re-read at the source for this checkpoint.
+
+All 47 findings still await independent review.
+
+## Sources
+
+- **LLHLM23**, published PDF194–201, freshly read (§§A.4–A.6, including the typed application on PDF201), and PDF142.
+- **CHT**, Publ. Math. IHES 108 (2008), from [numdam](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf), SHA256 `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c`:
+  - §3.3, PDF95–103: Lemma 3.3.1, Proposition 3.3.2 with its full proof, Corollary 3.3.3;
+  - §3.4, PDF103–106, through Proposition 3.4.2 and the statement of 3.4.4.
+- **EGH**, [author PDF](https://math.uchicago.edu/~emerton/pdffiles/egh.pdf), SHA256 `1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0`: §§7.1–7.2, PDF52–56.
+
+## Checks and remaining work
+
+**Checks.**
+- The paper checker passes.
+- 531 unique item IDs; every missing item is routed exactly once. The 15 routed planned items are inherited.
+- The internal prerequisite graph has 322 edges and is acyclic, with no dangling references.
+- 157/157 literal definition interfaces.
+- All 528 prior statements and statuses, the 45 prior findings and the source data are byte-identical. Only A65's note changed.
+- No finite diagnostics were added, because A74–A76 are adapters of cited statements.
+
+**Resume with:**
+- the exact Speh algebraic/Galois twists and Frobenius-polynomial isomorphism assumed by A62;
+- the twelve inherited closure gaps.
+
+The coefficient dictionary and the Hecke-image hypotheses of A65 should not be reopened. Their remaining dependence is only on A62 and A73.
+
+Earlier report follows unchanged.
+
+---
+
 # LLHLM23 continuation: Whittaker injectivity and finite-place genericity
 
 Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2401
