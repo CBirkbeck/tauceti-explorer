@@ -1,4 +1,81 @@
-# Eleventh checkpoint: square minors, monomial derivatives and coordinate fibers
+# Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): bounds on 2-torsion in class groups, extraction and routing
+
+Issue [#1420](https://github.com/CBirkbeck/tauceti-explorer/issues/1420). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints, whose report follows below as history.
+- **The paper.** M. Bhargava, A. Shankar, T. Taniguchi, F. Thorne, J. Tsimerman and Y. Zhao, *Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves*, J. Amer. Math. Soc. 33 (2020), 1087–1099.
+  - Taniguchi's author copy (18 February 2017) was re-fetched.
+  - The JAMS text is not openly available, and arXiv has only v1.
+- **Items.** The result has **152 items: 37 library, 8 planned and 107 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Eleven are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**The seven unrouted items are now routed, with corrected statements.**
+- Index-two case of Theorem 1.1 (E8): through the Klüners–Wang h_2(F)² bound.
+- Theorem 1.3(a) and (b) (E9): with Disc(C) in place of Disc(K).
+- Theorem 7.1, second assertion (E11): recorded as a claim that is not established.
+- Sedunova's bound (E10): with a q-dependent constant.
+- The §5.4 del Pezzo count and Tsimerman's torus transfer, as cited inputs.
+
+**New findings.**
+- **E8 (gap, affects the proof).** §4 asserts h_2(K) ≪ h_2(F)·2^t "by genus theory" when [K:F] = 2. The proved relative bound squares h_2(F). By induction it still gives Theorem 1.1 with δ_n = 1/(2n), but not the claimed D_K^(1/4+ε).
+- **E9 (error, affects a stated result).** Theorem 1.3 with |Disc(K)| is false.
+  - The counterexample: for y² = x³ − N²x, K ≅ Q³ has Disc(K) = 1 and h_2(K) = 1, while the 2-Selmer ranks of the congruent-number curves are unbounded (Heath-Brown).
+  - The correction: the ε-factor must be |Disc(C)|^ε. The Disc(C) form, which the remark after the theorem allows, holds.
+- **E10 (error in the cited Sedunova, Theorem 1).** The printed ≪_{d,ε} is not uniform in q. For Y² = X and n = 2 there are q² points against the bound q^(3/2+3ε).
+- **E11 (gap, affects a stated result).** Theorem 7.1's second assertion is proved in one sentence by analogy with §4 using Sedunova's bound. That input has an ε-loss and a q-dependent constant, so the printed ε-free bound depending only on n is not established.
+
+**Reclassified to affect nothing.** E1–E4, the Bombieri–Pila and volume-formula slips.
+
+**Gaps.**
+- G2, G5 and G9 are recorded as findings.
+- G0 is unavailable.
+- The others are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Bombieri–Pila, The number of integral points on arcs and ovals, Oxford author preprint, Lemma 7 proof, printed p.14 (PDF index 13).. *Printed:* lambda = ell A^(-1/k)/N *Correction:* Use lambda = ell A^(1/k)/N, where ell is the interval length. Then Taylor gives lambda^k≤lambda^(k−1)+...+lambda+2.
+- **E2** (misprint; affects nothing), Bombieri–Pila Oxford author preprint, Theorem 4 proof, printed p.17 (PDF index 16), just before the estimate for H+K.. *Printed:* Since p ≤ q *Correction:* Since q ≤ p.
+- **E3** (gap; affects nothing), Bombieri–Pila Oxford author preprint, Theorem 4 proof, printed p.17 (PDF index 16), final choice of the monomial cutoff δ.. *Printed:* δ = 2 sqrt(log N/(d log log N)) *Correction:* Take the floor of the displayed real number and prove the threshold and error inequalities; supplement BP5 proves δ≥2d and 4 log N/δ+9dδ log δ≤11 sqrt(d log N log log N).
+- **E4** (misprint; affects nothing), BSTTTZ, Taniguchi author copy dated 18 February 2017, proof of Theorem 2.1, printed p.4 (PDF index 3), product formula for the volume of B.. *Printed:* sqrt(pi) |Disc(K)|^(1/(2n)) |alpha|_v^(-1/m) *Correction:* For every complex place, square the whole displayed factor: its disc contributes pi R_v^2, not sqrt(pi) R_v. The body volume is 2^r pi^s sqrt(D_K)/N(I).
+- **E5** (misprint; affects nothing), BSTTTZ, arXiv:1701.02458v1, §5.1, printed p.7, the sentence introducing the curves E_(±,A,B,C); the corresponding place in the February 2017 author copy was not checked. *Printed:* where |A| <= |Disc(K)|^(1/3), B <= |Disc(K)|^(2/3), and C <= |Disc(K)| *Correction:* |B| <= |Disc(K)|^(2/3) and |C| <= |Disc(K)|.
+- **E6** (misprint; affects nothing), BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.2, printed p.10, the displayed class number formula (checked on a page image); the corresponding place in the February 2017 author copy was not checked. *Printed:* |Pic^0(C)(k)| = |k|^g log|k| Res_(s=1) zeta_C(s) *Correction:* |Pic^0(C)(k)| = |k|^g (1 - |k|^(-1)) log|k| Res_(s=1) zeta_C(s).
+- **E7** (misprint; affects nothing), BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.3, printed p.10 (checked on a page image); the corresponding place in the February 2017 author copy was not checked. *Printed:* Pic^0(C)(k)[2] subset Pic^0(C)(kbar)[2] and the latter group has size 2^(2g), or 2^g if the characteristic is 2 *Correction:* ... or at most 2^g if the characteristic is 2.
+- **E8** (gap; affects the proof), Author copy §4, first paragraph, p.6 (index-two case of the proof of Theorem 1.1). *Printed:* by genus theory, the 2-torsion in the class group of K is bounded by the 2-torsion in the class group of F multiplied by O(2^t) … we obtain a bound of O_ε(|Disc(K)|^{1/4+ε}) *Correction:* Use the relative bound that is proved, h_2(K) ≤ 4^{e−1} h_2(F)² (Klüners–Wang, arXiv:2003.12161, Theorem 2.1, with e counting ramified places including real ones). With Theorem 1.1 for F (or Gauss genus theory when F is quadratic) and D_F ≤ D_K^{1/2}, this gives h_2(K) ≪ D_K^{1/2−1/(2n)+ε} for n > 4 and D_K^ε when n = 4, so Theorem 1.1 is unaffected; the D_K^{1/4+ε} bound for this case is not established.
+- **E9** (error; affects a stated result), Author copy Theorem 1.3 and the paragraph before it, pp.2–3; same statement in arXiv v1. *Printed:* |Sel_2(Jac(C))| = O_ε(|Disc(K)|^ε h_2(K)); (a) |Sel_2(Jac(C))| = O_ε(|Disc(K)|^{1/2−δ_n+ε}); (b) rank(Jac(C)) < c_ε + (1/2−δ_n+ε) log_2|Disc(K)| *Correction:* The ε-factor must be |Disc(C)|^ε: |Sel_2(Jac C)| ≪_{n,ε} |Disc(C)|^ε h_2(K) ≪ |Disc(C)|^ε |Disc(K)|^{1/2−δ_n+ε}. Theorem 1.3 holds in the Disc(C) form that the remark after Theorem 1.3 allows.
+- **E10** (error; affects a stated result), Sedunova, On the Bombieri–Pila method over function fields, arXiv:1506.08757v1, Theorem 1, p.1 (cited by BSTTTZ for Theorem 7.1). *Printed:* |S| ≪_{d,ε} |I|^{1/d+ε}, where I is the set of X ∈ F_q[T] with deg X ≤ n and |I| = q^{n+1} *Correction:* Allow the implied constant to depend on q, or state the bound for fixed q.
+- **E11** (gap; affects a stated result), Author copy Theorem 1.7 and Theorem 7.1, second assertion, with its one-sentence proof, pp.3 and 11–12. *Printed:* if C admits a degree n map to P¹ over k, then |Pic⁰(C)(k)[2]| ≪_n |k|^{(1−1/n)g} *Correction:* Treat the second assertion as not established. The cited input has an ε-loss and a q-dependent constant (E10), so the analogy with §4 can give at most an ε-lossy bound whose constant depends on |k|, and the function-field version of §4 is not written out.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G0** (unavailable). The JAMS text is not openly available; the author copy and arXiv v1 were read.
+- **G1** (deferred). The lattice-minimum and free-quotient inputs are cited suppliers.
+- **G2** (recorded). E8; the Klüners–Wang replacement is routed.
+- **G3** (deferred). Brumer–Kramer and Helfgott–Venkatesh are cited suppliers.
+- **G4** (deferred). Tsimerman's torus transfer is a cited supplier, now routed.
+- **G5** (recorded). E9: Theorem 1.3 holds with Disc(C), not Disc(K).
+- **G6** (deferred). §5.4 is a sketch resting on Helfgott–Venkatesh Corollary 3.9, a cited supplier; the item is routed.
+- **G7** (deferred). The determinant-method application declarations are implementation work.
+- **G8** (deferred). Baily, Cohn, Bhargava–Shnidman and Cohen–Morra are cited suppliers.
+- **G9** (recorded). E10 (Sedunova's uniformity) and E11 (Theorem 7.1, second assertion).
+- **G10** (deferred). Exact supplier matching is design work; every numbered statement is an item and every missing item is routed.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## Eleventh checkpoint: square minors, monomial derivatives and coordinate fibers
 
 Codex — codex-c83e7a; issue #1420; 23 September 2026. **Partial checkpoint.**
 
@@ -6,7 +83,7 @@ This continuation supplies three genuinely remaining parts of G7: a complete red
 
 There are **152 items: 37 library, eight planned and 107 missing**. The same six routes take 100 missing items exactly once, leaving the same seven diagnostic claims withheld. Fourteen items are added: seven narrowly scoped library suppliers and seven missing application adapters. All 138 inherited IDs, statuses and statements are retained. Five old items acquire notes/dependencies; 31 old inline API/test blocks are converted to structured lists while retaining the original prose. All 34 definitions/constructions now have structured APIs and at least three tests. The seven sourceIssue objects, paper prerequisites and five unrelated route objects remain unchanged. The full prior report is retained below without alteration.
 
-## Fresh reading and ownership
+### Fresh reading and ownership
 
 Freshly retrieved and read the complete February 18, 2017 [Taniguchi author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf), all thirteen pages and references. SHA-256 is `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec`, 291,000 bytes. It is still not a verified copy of the final 2020 revision. G0 survives; no new publisher-text acquisition is claimed.
 
@@ -14,7 +91,7 @@ Freshly retrieved [Bombieri–Pila's Oxford author preprint](https://people.math
 
 Read the existing completed EffectiveBounds roadmap, SF.5's current description and reviewed AUDIT01 entry, and relevant AUDIT03 EffectiveBounds entries. The completed arithmetic bounds are imports, not work to plan again. SF.5 retains proper intersection and Bézout. No independent accepted owner for the new application adapters was found in the parsed paper inventory. The already proposed `IntegralPointDeterminantMethods` receives them; no new matrix, polynomial, differentiation or interpolation carrier is introduced. Other inherited library classifications remain inherited, not freshly certified wholesale.
 
-## M1. Select a square minor by expanding a retraction
+### M1. Select a square minor by expanding a retraction
 
 Let A have rows indexed by a finite set S and columns by a finite type M of cardinality D, over a field K. Suppose rank(A)=D. Rank-nullity gives ker(A)=0. The exact pinned `LinearMap.exists_leftInverse_of_injective` produces a linear retraction, whose coordinate matrix B satisfies BA=I_D by `LinearMap.toMatrix'_comp`.
 
@@ -28,7 +105,7 @@ When D=0, the unique map M→S is injective and the empty determinant is one. Wh
 
 This proves the exact step left open after the tenth checkpoint's rectangular kernel equivalence. The generic linear algebra stays with Mathlib; the application proof is `bp-full-rank-row-minor`.
 
-## D1. Normalize Leibniz before estimating
+### D1. Normalize Leibniz before estimating
 
 Retain the established setting: N>0, nonempty compact I⊂[0,N], an open neighbourhood U of I, and C^k functions on U. Ordinary derivatives at the endpoints are justified by this neighbourhood hypothesis. For r≤k, divide the pinned binary Leibniz formula by r!:
 
@@ -44,7 +121,7 @@ Taking the maximum over r and x gives the binary product bound. Induction on m�
 
 The base case m=1 is equality. No division by a norm occurs. For k=0 and constant functions the N power is necessary: both sides equal |∏c_j|/N. The empty product is deliberately separate.
 
-## D2. The constant monomial has its own norm
+### D2. The constant monomial has its own norm
 
 The actual iterated derivatives of id are x, one, and then zero. Hence ||id||≤1 on I⊂[0,N], including k=0; equality holds when k≥1. Apply D1 to i copies of id and j copies of f, for i+j≥1:
 
@@ -52,7 +129,7 @@ The actual iterated derivatives of id are x, one, and then zero. Hence ||id||≤
 
 This allows i=0 or j=0. For i=j=0 the norm is exactly 1/N. Substituting zero factors into D1 would incorrectly give 1/((k+1)N). The proof must retain the constant separately even though the determinant endpoint below has the same stated constant as the source.
 
-## D3. Recover the determinant constant without losing the constant column
+### D3. Recover the determinant constant without losing the constant column
 
 Let M consist of D≥2 distinct monomials, with p=Σ(i+j), q=Σj, and let z∈{0,1} record whether the constant monomial occurs. Set k=D−1. By D2,
 
@@ -78,7 +155,7 @@ For integral points the matrix is integral. M1 selects a nonzero square minor fr
 
 If H=0 and q>0, a column containing a positive Y exponent is identically zero, so full rank cannot occur. If q=0 use H^0=1. These checks justify the division and keep the zero-factor case from becoming an unstated hypothesis. Repeated abscissae have zero determinant and are handled before the distinct-node bound.
 
-## S1. An irreducible nonlinear curve has no zero coordinate specialization
+### S1. An irreducible nonlinear curve has no zero coordinate specialization
 
 Let F∈K[X,Y] be irreducible of total degree d≥2 over a field K, and a∈K. Suppose F(a,Y) is identically zero. Use the existing `MvPolynomial.finSuccEquiv` and one-variable `uniqueAlgEquiv` to regard F as a polynomial in X over K[Y]. The ring-valued factor theorem `Polynomial.dvd_iff_isRoot` gives
 
@@ -88,13 +165,13 @@ The factor X−a is not a unit: evaluation at X=a would send an inverse identity
 
 Both hypotheses matter. The degree-one polynomial X−a has a zero vertical specialization, as does the reducible degree-two polynomial (X−a)Y. The singular specialization Y² of the irreducible curve Y²−X at a=0 is nonzero and is allowed.
 
-## S2–S3. Degree control before finite-root counting
+### S2–S3. Degree control before finite-root counting
 
 Write F as the finite sum of its supported monomials c_(i,j)X^iY^j. The pinned `MvPolynomial.le_totalDegree` bounds i+j by d for every supported exponent. The Y^j coefficient of F(a,Y) is Σ_i c_(i,j)a^i; for j>d every term vanishes. The exact `Polynomial.natDegree_le_iff_coeff_eq_zero` therefore gives natDegree(F(a,Y))≤d. This remains true even if specialization is zero; cancellation can lower degree but cannot raise it.
 
 Now use S1 to exclude zero specialization before applying the pinned root-count theorem. More than d distinct roots would imply the specialized polynomial is zero, a contradiction. Thus each finite set of zeros on any vertical or horizontal line has cardinality at most d. This supplies the critical-fiber and boundary-line counts in BP6, including repeated roots and singular points. It supplies neither a smooth root parametrization nor Bézout for two arbitrary curves.
 
-## Exact library evidence and remaining work
+### Exact library evidence and remaining work
 
 The JSON's new `verification.declarationsRead` records the declarations and module/line ranges read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: linear retraction and coordinate composition; determinant alternating multilinearity and finite-sum/scalar expansion; iterated Leibniz and the identity derivatives; the factorial identity; the ring-valued factor theorem; reduced-ring polynomial units; actual polynomial coordinate equivalences; coefficient total-degree bounds; and the finite-root theorem. The missing composite adapters remain classified missing. The Tau Ceti pin is `f790474821cf4256814db967cb154e7af3d0c369`; targeted searches in its matrix/linear-algebra files did not identify a competing application result. Absence of a matching name alone is not proof of global library absence.
 
@@ -102,7 +179,7 @@ G7 now retains proper Bézout in SF.5, smooth root continuation over open strips
 
 The publication guard refreshed 554 input blobs at `db84182bbf4c428cfeab9ed13767aeff7b4e4ae1`. The concurrent Shende–Tsimerman update was screened: its theta/cohomology/Hecke refinements introduce no competing determinant or coordinate-fiber owner. A second guard refresh screened the Anglès–Ngo Dac–Tavares Ribeiro22 regulator/Fitting-ideal refinements; no route or supplier used here changed. The three inherited deliverable blobs still match the claim snapshot.
 
-## Validation
+### Validation
 
 The standalone script below passes **9,520 exact assertions**. It checks finite rectangular matrices and their left-inverse determinant expansions, repeated-row cancellation, normalized truncated derivative products, the factorial constant, the explicit polynomial division identity under specialization, degree bounds and representative finite root counts. These are diagnostics supporting the written general arguments, not proofs of arbitrary smooth-function estimates or final-version identity.
 
@@ -212,7 +289,7 @@ print(json.dumps({'total':sum(counts.values()),'counts':counts},sort_keys=True))
 
 ---
 
-# Historical report retained contiguously
+## Historical report retained contiguously
 
 > Current status (23 September 2026): partial tenth checkpoint, 138 items.
 > See the final report section for the rectangular-kernel, repeated-Rolle and
@@ -225,7 +302,7 @@ print(json.dumps({'total':sum(counts.values()),'counts':counts},sort_keys=True))
 > Historical item counts and “not yet integrated” notices remain attributed
 > to their checkpoints and are superseded by this notice and the final section.
 
-# BSTTTZ: torsion feedback, determinant methods and finite-field sections
+## BSTTTZ: torsion feedback, determinant methods and finite-field sections
 
 > **Fourth-checkpoint notice — 22 September 2026.** ChatGPT Pro, session
 > `cgp-0922-6e8b41`, adds the final section “Fourth checkpoint: primitive bases
@@ -239,7 +316,7 @@ print(json.dumps({'total':sum(counts.values()),'counts':counts},sort_keys=True))
 > repository-checker success, Lean elaboration or independent review are claimed
 > by the fourth checkpoint. Its new proofs require independent checking.
 
-## Third-checkpoint report (preserved)
+### Third-checkpoint report (preserved)
 
 **Partial third checkpoint; not ready for acceptance.** Issue #1420. Codex,
 session `codex-c83e7a`, 21 September 2026. Continues Codex's PR #1636 and
@@ -256,7 +333,7 @@ and the finite-field section-count proof. It replaces several previously
 unexamined prerequisites with actual pinned library imports. Original source
 closure and the final published-version comparison remain incomplete.
 
-## Source identity and reading boundary
+### Source identity and reading boundary
 
 The target is Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao,
 *Bounds on 2-torsion in class groups of number fields and integral points on
@@ -306,7 +383,7 @@ of every prerequisite paper:
   says August 2018. This is recorded rather than silently treated as a later
   arXiv revision.
 
-## Baseline and ownership corrections
+### Baseline and ownership corrections
 
 Pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. This continuation reread the
@@ -357,7 +434,7 @@ lemma; do not treat an unreviewed proposal as an installed supplier. Its target
 is different from the present torsion power saving. Neither candidate may own
 a duplicate general reduced-basis theory.
 
-## Lattice boundary retained from the previous checkpoint
+### Lattice boundary retained from the previous checkpoint
 
 For the §2 weighted body, each complex disc contributes `pi R_v²`; hence
 the volume is `2^r pi^s sqrt(D_K)/N(I)`. It is at least
@@ -374,7 +451,7 @@ remains **unrouted G2**, requiring capitulation, ambiguous-class and unit
 terms. The restricted proof below consumes these recorded lattice inputs;
 it does not settle either gap.
 
-## Preserved no-index-two proof: no subfield of index two
+### Preserved no-index-two proof: no subfield of index two
 
 Here `K` has degree `n ≥ 3`, `D=|Disc(K)| ≥ 1`, and `R=D^(1/n)`. Define
 
@@ -386,7 +463,7 @@ All implicit constants depend only on the displayed degree, scale or epsilon,
 not on the field. The following preserves the detailed proof expansion from PR #1641. Statements described as repairs or expansions are not attributed to
 the source as verbatim named lemmas.
 
-### 3.1 All 2-torsion classes, including the identity
+#### 3.1 All 2-torsion classes, including the identity
 
 The proof of Theorem 2.1 uses only that the chosen class is killed by `m`:
 it starts with `I^m=(α)` and then takes `J=κI`, `β=ακ^m`. It therefore gives
@@ -400,7 +477,7 @@ the nonzero balanced elements of **absolute square norm**. Indeed,
 `|N(β_c)|=N(J_c)²`; there is no reason for the signed field norm itself to
 be nonnegative. Both signs must be retained in the curve count below.
 
-### 3.2 Variable-radius counts and exceptional subfields
+#### 3.2 Variable-radius counts and exceptional subfields
 
 The lattice argument also gives a useful form with a varying radius. For a
 degree-`d` field `F` and `T ≥ D_F^(1/d)`,
@@ -433,7 +510,7 @@ In odd degree it is empty. Neither the discriminant tower nor the subfield
 count is proposed as a new foundational owner; import the genuine supplier
 when completing the library audit.
 
-### 3.3 Keep the unreduced norm curve
+#### 3.3 Keep the unreduced norm curve
 
 For each `β ∈ O_K`, use the **monic** convention
 
@@ -462,7 +539,7 @@ example, for rational `β=a` and odd `n≥3`, `Y²=(X−a)^n` is a singular
 irreducible degree-`n` curve, while its squarefree part is linear. The two
 models must not be confused for a coefficient-uniform plane-degree bound.
 
-### 3.4 Count translation classes without assuming long boundary fibers
+#### 3.4 Count translation classes without assuming long boundary fibers
 
 A direct division of `#B_K(R)` by `R` is unjustified: some fibers of the
 original box can be very short. Instead choose one `β_L ∈ B_K(R)` for
@@ -487,7 +564,7 @@ All these sets are finite by the lattice discreteness and boundedness
 already used in the box count. This proof deals with boundary fibers without
 requiring a new projection-lattice estimate.
 
-### 3.5 The rectangle, both signs, and the final exponent
+#### 3.5 The rectangle, both signs, and the final exponent
 
 Fix a representative `β_0 ∈ B_K(R)` in a coset of odd generated-field
 index. That index is constant on the coset because
@@ -529,8 +606,7 @@ cubic/quartic exponent. The full extraction must still read the original
 relative-genus estimate with its dependence on base class groups, units
 and ramified primes. A quadratic-over-Q API is not that relative theorem.
 
-
-## Original determinant-method proof now extracted
+### Original determinant-method proof now extracted
 
 The selected chain is evaluation rank deficiency → nonzero integer minor →
 Vandermonde/derivative bound → separation of successive blocks → auxiliary
@@ -551,7 +627,7 @@ constants 11 and 12 require a checked rounding argument; the theorem is a
 source target, not a completed formal proof. The selected API and test cases
 now give the next worker concrete proof obligations.
 
-## Cubic feedback and elliptic consequences
+### Cubic feedback and elliptic consequences
 
 For cubic K, the translation count gives O(D_K^(1/6)) signed norm curves.
 Their integral coefficients satisfy `|A|≪D^(1/3)`, `|B|≪D^(2/3)`,
@@ -605,7 +681,7 @@ from the polynomial-order index and twists. A split cubic algebra can stay
 fixed while the curve model's bad primes change. This observation identifies
 an omitted dependency, not a claimed counterexample to the final article.
 
-## Quartic transfer and field counts
+### Quartic transfer and field counts
 
 Tsimerman's selected argument compares the F₂ permutation modules on four
 embeddings and three pair partitions. Quotienting the four-dimensional
@@ -634,7 +710,7 @@ supplies the S₄ variant. The latter constant depends on the quadratic field
 F. A favorable leading constant does not make convergence uniform in F.
 Baily, Cohn and the two fixed-resolvent originals remain to acquire (**G8**).
 
-## Finite-field proof and the gonality boundary
+### Finite-field proof and the gonality boundary
 
 Let C/k be smooth, projective and geometrically integral, k finite of order
 q, with genus g. Use the planned degree-one-divisor theorem to obtain a
@@ -674,7 +750,7 @@ uniformity, epsilon handling, degree convention, bad-reduction exclusions
 and coordinate-change cost; then separately treat inseparable maps and
 characteristic two. The one-line analogy in the main paper is not a proof.
 
-## Proposed ownership and acyclic dependencies
+### Proposed ownership and acyclic dependencies
 
 1. **EffectiveBoundsClassGroupTorsion**, Part II of the completed EffectiveBounds
    roadmap: balanced representatives, the norm-curve bound, cubic feedback,
@@ -696,7 +772,7 @@ endpoints, suppliers, tests and suggested Lean homes. They exclude G1/G2/G4's
 unresolved acquisition nodes and G5/G6/G9's unverified claims. The complete
 G0–G10 register and the handoff are part of the checkpoint, not optional caveats.
 
-## Validation
+### Validation
 
 The unmodified paper checker and intake file checks are run against the full
 available atlas catalogue before submission. Custom structural checks preserve
@@ -711,7 +787,7 @@ No Lean artifact was requested, produced or compiled.
 
 ---
 
-## Fourth checkpoint: primitive bases and quadratic towers
+### Fourth checkpoint: primitive bases and quadratic towers
 
 **Author:** ChatGPT Pro, `cgp-0922-6e8b41`, 22 September 2026.
 **Status:** proof/extraction supplement; machine synchronization pending.
@@ -719,7 +795,7 @@ The following replaces two missing steps in the proposed main-theorem route.
 It is not a claim that every proof input of the paper has now been extracted,
 that the published revision has been checked, or that anything is formalized.
 
-### A. Source and baseline boundary for this supplement
+#### A. Source and baseline boundary for this supplement
 
 The main source passages are §§3–4, printed pp.5–6 of the February 2017
 [Taniguchi author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf).
@@ -761,9 +837,9 @@ not implemented at the pins. The large combined library-coverage file could
 not be read through the browser; the split reviewed audit records were used.
 This is not a new class-field-theory roadmap.
 
-### B. G1: a direct primitive-prefix basis proof
+#### B. G1: a direct primitive-prefix basis proof
 
-#### B1. Fix the metric before declaring that 1 is shortest
+##### B1. Fix the metric before declaring that 1 is shortest
 
 For signature `(r,s)`, put `n=r+2s` and define on the existing mixed space
 
@@ -797,7 +873,7 @@ primitive: an algebraic integer lying in Q is an integer, so
 `O_K ∩ Q·1 = Z·1`. Neither of these assertions should be justified by
 silently using the product sup norm or omitting the complex multiplicity.
 
-#### B2. Primitive-prefix extension in a general lattice
+##### B2. Primitive-prefix extension in a general lattice
 
 Let Λ be a full lattice in a positive-dimensional Euclidean space of
 real dimension n. Let u be a primitive lattice vector and suppose
@@ -851,7 +927,7 @@ earlier stage. Therefore the selected lengths from `b_1` onwards are
 nondecreasing. When u is shortest, the entire basis, including b_0, is
 nondecreasing. No such order claim is needed for a merely A-short u.
 
-#### B3. Product bound and the last minimum
+##### B3. Product bound and the last minimum
 
 Choose `i+1` independent lattice vectors realizing `λ_(i+1)`. One is
 outside the i-dimensional preceding span, so
@@ -908,7 +984,7 @@ invariant under multiplication by the nonrational r; then `[Q(r):Q]`
 would divide both n and n−1. No trace-form/nondegeneracy substitution is
 being made.
 
-### C. G2: replace the unverified genus assertion, rather than hide it
+#### C. G2: replace the unverified genus assertion, rather than hide it
 
 For a number field F let
 `r_2(F)=dim_F2(Cl(F)/2Cl(F))=log_2 #Cl(F)[2]`.
@@ -928,7 +1004,7 @@ The squared base factor is essential to what is actually being used here.
 This does not certify the author's earlier displayed one-factor formula,
 or its advertised `D_E^(1/4+epsilon)` conclusion in arbitrary even degree.
 
-#### C1. The equivariance issue and the correct class-field quotient
+##### C1. The equivariance issue and the correct class-field quotient
 
 Put `A=Cl(E)/2Cl(E)` and let σ be the nontrivial automorphism of E/F.
 Set `T=σ−1` and `V=A/TA`. In characteristic two, `T²=0`. If
@@ -970,7 +1046,7 @@ These field constructions use the existing ordinary Hilbert class field,
 not a narrow-class-field surrogate. In particular M/E is unramified at
 finite places and split at real places.
 
-#### C2. Ramified and unramified branches
+##### C2. Ramified and unramified branches
 
 If `t>0`, choose one ramified place of F. Its inertia group in M/F
 maps isomorphically onto the order-two inertia group in E/F, because
@@ -1001,7 +1077,7 @@ rank bound. This treatment does not drop capitulation or unit factors
 from an ambiguous-class formula; it uses the full ordinary class-field
 correspondence instead.
 
-#### C3. Uniformity as the base field varies
+##### C3. Uniformity as the base field varies
 
 Let `m=[F:Q]`. Every finite ramified prime of F divides the relative
 discriminant Δ_(E/F); over each rational prime there are at most m primes
@@ -1025,7 +1101,7 @@ the relative discriminant, the absolute field discriminant, and the
 number of prime ideals of F are distinct quantities and must stay so
 in the API.
 
-#### C4. Why the squared factor still suffices
+##### C4. Why the squared factor still suffices
 
 Start with `h_2(Q)=1`. Applying C3 to a quadratic field over Q gives
 `h_2(K)≪_η D_K^η`, a weaker-than-optimal genus estimate that is enough
@@ -1058,7 +1134,7 @@ be matched to exact pinned declarations or supplier requests during machine
 synchronization/blueprint closure. They are not falsely marked newly
 implemented by this proof note.
 
-### D. Proposed extraction entries and ownership
+#### D. Proposed extraction entries and ownership
 
 These entries are **not yet in the result JSON**. Each suffix below means
 `PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/<suffix>`. Their locator is the
@@ -1168,7 +1244,7 @@ are 119 items (22 library, 8 planned, 89 missing), six routes and 33
 construction/definition entries. Recompute rather than copy these counts.
 The present unchanged JSON still contains the earlier 110 items.
 
-### E. Regression tests and remaining verification
+#### E. Regression tests and remaining verification
 
 The following local script was actually executed in this session. Its
 finite tests do not certify the infinite lattice or class-field arguments,
@@ -1242,10 +1318,9 @@ This report and the handoff are the submitted checkpoint; the unchanged
 machine extraction must be synchronized and validated before these new
 entries can be regarded as integrated. No Lean file was compiled.
 
-
 ---
 
-## Sixth checkpoint: integer parameters and singular-point coverage
+### Sixth checkpoint: integer parameters and singular-point coverage
 
 **Author:** ChatGPT Pro, `cgp-0922-d4f8c2`, 22 September 2026.
 **Status:** partial paper extraction; proposed proof repairs, not independently
@@ -1255,7 +1330,7 @@ this handoff. The result JSON is not changed by this proof checkpoint. After
 integration the complete earlier report remains before this supplement, with
 its authorship and historical reading/validation claims preserved.
 
-### Source and ownership boundary
+#### Source and ownership boundary
 
 The source is Bombieri–Pila, *The number of integral points on arcs and ovals*,
 [Oxford author preprint](https://people.maths.ox.ac.uk/pila/Ovals.pdf), especially
@@ -1286,7 +1361,7 @@ roadmap documents do not prove that every generic lemma below is implemented;
 exact pinned declaration matching stays in G7. No library/planned item has been
 reclassified or newly asserted present. The old library pins remain unchanged.
 
-### BP1. Normalize by integer translations, and stop below lattice scale
+#### BP1. Normalize by integer translations, and stop below lattice scale
 
 For a compact interval `I` of length at most `N`, let `g` be smooth on a
 neighbourhood of `I` with `|g'|≤1`. Its integral graph points have distinct integer
@@ -1314,7 +1389,7 @@ height-normalization inequality: stop with the elementary one-abscissa bound.
 This gives the hypotheses needed for the recurrence's strict small-scale base
 case, even when original or partition endpoints are not integers.
 
-### BP2. The Taylor argument and its dimensionless parameter
+#### BP2. The Taylor argument and its dimensionless parameter
 
 Let `k≥1` be an integer, `A,N>0`, `a≤b`, and `g∈C^k([a,b])`. Suppose
 
@@ -1342,7 +1417,7 @@ has a strictly positive right-hand sum for `t≥0`, so `t≤2`. Consequently
 empty. The negative exponent in the source's definition of its dimensionless
 parameter is a misprint, not a change to the stated interval estimate.
 
-### BP3. Iteration with an explicit stopping index
+#### BP3. Iteration with an explicit stopping index
 
 Suppose `G:(0,∞)→[0,∞)`, `α>0`, `H≥0`, `K≥1`, and `0<λ<1`, with
 
@@ -1371,7 +1446,7 @@ K^m = 2^(−m) λ^(−mα)
 Thus `G(N)≤(2H+K)N^α≤2(H+K)N^α`. The strict inequality in the stopping
 condition matters when an iterate equals exactly one.
 
-### BP4. All constants in the determinant recurrence
+#### BP4. All constants in the determinant recurrence
 
 For integers `d≥2`, `δ≥2d`, use the source's restricted monomials. Their number
 and total degree sum are
@@ -1446,7 +1521,7 @@ are checks on it, not its proof. The source-level determinant, proper Bézout
 and derivative-level-set suppliers are still explicit inputs, not newly
 formalized theorems asserted by this calculation.
 
-### BP5. Round down without changing the constant eleven
+#### BP5. Round down without changing the constant eleven
 
 Assume `N≥exp(d^6)`. Set
 
@@ -1489,7 +1564,7 @@ at the original threshold and preserves the exact constant 11. It is not an
 asymptotic claim about a negligible rounding error. Combining with BP4 proves
 the stated graph bound, conditional on its extracted proof suppliers.
 
-### BP6. Include singularities and boundaries without an endpoint shortcut
+#### BP6. Include singularities and boundaries without an endpoint shortcut
 
 Let `F∈R[X,Y]` be absolutely irreducible of total degree `d≥2`. Work in the
 closed square `[0,N]²`, `N>0`. The three polynomials
@@ -1554,7 +1629,7 @@ square's boundary. The `8d³` count is an explicit replacement sufficient for
 this theorem, **not** verification of the stronger original `O(d²)` whole-curve
 claim, which remains separately identified in `bp-arc-decomposition`.
 
-### BP7. Four source-issue records, with version and verification limits
+#### BP7. Four source-issue records, with version and verification limits
 
 The proposed result has `sourceIssues` E1–E4 with the protocol's fields. E1 is the
 incorrect exponent in the dimensionless Taylor parameter; E2 is the reversed
@@ -1582,7 +1657,7 @@ the errors survive in every published version. The records themselves still
 need independent verification. No author was contacted, and the broader source
 issue inventory in G10 is not complete merely because four entries now exist.
 
-### BP8. Machine integration, checks and the remaining closure boundary
+#### BP8. Machine integration, checks and the remaining closure boundary
 
 Five theorem entries, all missing and routed only to the existing determinant
 candidate, are specified by the integration patch:
@@ -1637,7 +1712,7 @@ whole-curve decomposition. Source reading, a written replacement argument,
 finite tests, successful structural CI and independent acceptance are different
 things and must remain so in the next handoff.
 
-#### Reproducible regression script
+##### Reproducible regression script
 
 ```python
 """Finite regression checks; not proofs or Lean elaboration."""
@@ -1727,16 +1802,15 @@ print(f'PASS: {constant_tests} high-precision H+K chains')
 
 ```
 
-
 ---
 
-## Seventh checkpoint: integrated proof supplement and exact generic suppliers
+### Seventh checkpoint: integrated proof supplement and exact generic suppliers
 
 Author: Codex, `codex-a71f92`, 22 September 2026. Continues issue #1420 and
 the handoff-only proof checkpoint #1817. This is partial, unreviewed extraction
 work. No Lean file was compiled.
 
-### What changed, and what did not
+#### What changed, and what did not
 
 The four replacement items and five new missing theorem nodes in #1817's
 guarded patch are now in the result JSON. All 119 earlier IDs, the 22 inherited
@@ -1754,7 +1828,7 @@ not a complete dependency graph of the entire paper. No new roadmap owner
 is proposed: determinant methods retains its inherited candidate;
 intersection theory remains with SF.5 and generic basis reduction with GN.5.
 
-### Fresh source checks
+#### Fresh source checks
 
 The [Taniguchi author PDF](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf)
 was downloaded afresh, read through all 13 pages including references, and
@@ -1781,7 +1855,7 @@ Public AMS final-PDF access again failed, and the public author pages did not
 supply a verified final revision. G0 remains: no claim here about the
 typography or mathematical agreement of the revised/published 2020 article.
 
-### Exact supplier interfaces at the prescribed Mathlib pin
+#### Exact supplier interfaces at the prescribed Mathlib pin
 
 All five statements below were read in the source tree at
 `082e2d37e8b0463410cdb532e111cd43d5a66174`. The generic endpoints are already
@@ -1803,7 +1877,7 @@ mean-value norm bound requires actual differentiability at the endpoints
 in the cited version. No wrapper definition or duplicate generic roadmap is
 needed for any of these suppliers.
 
-### Proof audit boundaries
+#### Proof audit boundaries
 
 BP1's interval must be restricted to the hull of integer abscissae and
 translated by integers. Its range diameter is at most N, and translating by
@@ -1833,7 +1907,7 @@ roadmaps. The audit's partial intersection infrastructure is not an exact
 Bézout declaration. The inherited catalogue-wide ownership screen is not
 claimed freshly repeated for unrelated routes.
 
-### Validation
+#### Validation
 
 The reproducible script in the sixth-checkpoint supplement was rerun with
 Python and mpmath 1.3.0 at 80 decimal digits. It passed:
@@ -1871,7 +1945,7 @@ No Lean elaboration or independent review is claimed. G0 and the unresolved
 parts of G1–G10 remain explicit. Passing repository checks does not establish
 mathematical completeness.
 
-## Eighth checkpoint: the Taylor endpoint adapter
+### Eighth checkpoint: the Taylor endpoint adapter
 
 > **Eighth-checkpoint notice — 22 September 2026.** Claude Code, session
 > `cc-7b31c4`. This checkpoint adds one section and edits one item note. No
@@ -1887,7 +1961,7 @@ section closes the first of them, the **Taylor-within endpoint conversion**,
 and shows that the remaining adaptation recorded for `bp-taylor-supplier` in
 the seventh checkpoint's supplier table was over-stated.
 
-### What the previous note said, and what is actually needed
+#### What the previous note said, and what is actually needed
 
 The seventh checkpoint recorded, for `bp-taylor-supplier`:
 
@@ -1918,7 +1992,7 @@ Its own proof converts at `x'`, which is interior, using
 (`Taylor.lean:62`), evaluated at the **endpoint** `x₀`, where `uIcc x₀ x` is
 not a neighbourhood.
 
-### The endpoint is not an obstruction
+#### The endpoint is not an obstruction
 
 The conversion lemma at the pin,
 `Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70`, is
@@ -1968,7 +2042,7 @@ remainder is zero, and no point `x'` is needed. The `x₀ ≠ x` hypothesis of t
 two cited Taylor lemmas is therefore not a gap in BP2; it is discharged by a
 one-line separate case, as the previous note anticipated but did not carry out.
 
-### What genuinely remains, with its suppliers
+#### What genuinely remains, with its suppliers
 
 Only the third clause of the old note survives: the generic remainder is an
 equality at one unknown interior point, whereas BP2 uses the inequality
@@ -1992,7 +2066,7 @@ strip; a blueprint must not silently weaken T1 back to `ContDiffOn` on the
 closed interval, since without `ContDiffAt` at `x₀` the conversion lemma does
 not apply and the coefficients genuinely stay `iteratedDerivWithin`.
 
-### Boundaries of this checkpoint
+#### Boundaries of this checkpoint
 
 No Lean was written or compiled; every citation above is a statement read in
 the source tree at the prescribed pin, with file and line. The three other
@@ -2005,7 +2079,7 @@ not accepted, and this worker did not review them. The regression script of
 the sixth checkpoint was not rerun in this checkpoint; its recorded results
 stand unchanged.
 
-## Ninth checkpoint: the publisher text, and three misprints in arXiv v1
+### Ninth checkpoint: the publisher text, and three misprints in arXiv v1
 
 Claude Code, session `cc-d67081`, 2026-09-22. This checkpoint adds no items and
 changes no item, route, gap (except G0's detail), prerequisite or boundary other
@@ -2013,7 +2087,7 @@ than `sourceIssueBoundary`. It closes resume item 3 of the eighth handoff with a
 negative result, and records three new proposed source issues found by reading
 arXiv v1 independently of the inherited extraction.
 
-### Resume item 3: the final publisher text is not reachable
+#### Resume item 3: the final publisher text is not reachable
 
 The eighth handoff asked for an authorized final 2019-revised or 2020 version,
 noting that public AMS retrieval had failed for the seventh checkpoint and was
@@ -2037,7 +2111,7 @@ So the public route to this paper is exactly the author copies the earlier
 checkpoints used, and G0 stands. G0's detail now carries this evidence. The arXiv
 listing was rechecked at the same time: still only v1, no withdrawal or comment.
 
-### Three misprints in arXiv v1 (E5–E7)
+#### Three misprints in arXiv v1 (E5–E7)
 
 arXiv:1701.02458v1 (12 pp., SHA-256 `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871`,
 accessed 2026-09-22T18:06:05Z) was read in full. Most of what an independent
@@ -2075,7 +2149,7 @@ in **arXiv v1 only**: the February 2017 author copy behind E1–E4 and the
 publisher text were not consulted for them, and a reviewer must re-locate them
 before treating them as errata against another version.
 
-### Boundaries of this checkpoint
+#### Boundaries of this checkpoint
 
 No Lean was written or compiled. No item was added, removed or edited, and the
 item list is byte-identical to the base blob; the checks below were run on the
@@ -2087,7 +2161,7 @@ recomputed independently in passing and agrees with the recorded test intervals
 `1/2 + a = .77843374` of Theorem 1.4; this is a spot check, not a review of that
 item. The four decimal constants printed in the paper are correct.
 
-## Tenth checkpoint: rectangular kernels and analytic determinant adapters
+### Tenth checkpoint: rectangular kernels and analytic determinant adapters
 
 Codex, session `codex-a71f92`, 23 September 2026. This is a partial
 continuation of #1420 and PR #1964, not an independent review. All 129 inherited
@@ -2107,7 +2181,7 @@ Its suggestion that a supremum upper bound completes BP2 requires a
 distinction: BP2's short-interval argument uses a **lower bound** at the
 Taylor witness. Both directions are stated separately below.
 
-### Reading, pins and ownership
+#### Reading, pins and ownership
 
 The freshly retrieved February 18, 2017 author copy was read completely,
 including all §§1–7 and references. Its SHA-256 is
@@ -2143,7 +2217,7 @@ separate accepted owner; the existing six-route split is retained, not
 redesigned. This continuation does not re-audit every inherited library or
 planned item.
 
-### R1. Rectangular evaluation and supported coefficients
+#### R1. Rectangular evaluation and supported coefficients
 
 Let F be a field, M a finite **set** of exponent vectors for two variables,
 S any finite point-index type, and z:S→F². We use MvPolynomial (Fin 2) F,
@@ -2190,7 +2264,7 @@ declaration. It does **not** also claim the distinct assertion that a
 full-column-rank rectangular matrix has a nonzero D-by-D row minor.
 Bombieri–Pila Lemmas 2 and 4 need that selection step, which remains G7.
 
-### R2. Repeated Rolle without a fictitious common point
+#### R2. Repeated Rolle without a fictitious common point
 
 For n≥1 let a_0<...<a_n be real nodes, U an open set containing their closed
 hull, and h a C^n function on U vanishing at every node. For each r<n,
@@ -2213,7 +2287,7 @@ zero at a nondifferentiable point; using that value would not justify the
 analytic argument. For n=0 the original value is zero at the sole node,
 but there need not be an interior point. The zero-order case is separate.
 
-### R3. The factorial-normalized interpolation witness
+#### R3. The factorial-normalized interpolation witness
 
 Let p interpolate f at a_0,...,a_n, with f C^n on the same open U.
 The pinned Lagrange statements give degree p≤n and p(a_i)=f(a_i).
@@ -2242,7 +2316,7 @@ columns, but their derivative witnesses are 1/2 and 1/√3 respectively.
 No common point works. The cubic polynomial test also catches a lost
 factorial: coeff_3 X³=1 but its third derivative is 6.
 
-### R4. Newton factorization and the determinant exponent
+#### R4. Newton factorization and the determinant exponent
 
 Use zero-based indices 0,...,D−1. For arbitrary column values Y_(i,j),
 let p_(r,j) be their interpolant at x_0,...,x_r and set
@@ -2293,7 +2367,7 @@ by a potentially zero norm occurs. The structured proof of
 normalized product/monomial estimates feeding integral determinant
 separation still require their detailed adapter decomposition.
 
-### R5. Taylor endpoints and the lower-bound argument
+#### R5. Taylor endpoints and the lower-bound argument
 
 The eighth checkpoint's T1–T2 become `bp-taylor-endpoint`.
 For unequal a,b and C^(n+1) smoothness on an open U containing uIcc(a,b),
@@ -2339,7 +2413,7 @@ set and its potentially different ordinary endpoint derivatives. The
 compact graph hulls in the chosen proof lie inside smooth open branches;
 constructing those branches is still a separate G7 obligation.
 
-### R6. The genuine absolute-maximum upper bound
+#### R6. The genuine absolute-maximum upper bound
 
 The upper-bound theorem is useful in its own right and for the norm
 interface. Smoothness on the open U makes f^(n+1) continuous there, by
@@ -2367,7 +2441,7 @@ a=1, b=2 and n=1, the remainder has magnitude 4. The maximum of |f''|
 is 12, giving the valid bound 6; the absolute value of the maximum of
 f'' is only 6, giving the false proposed bound 3.
 
-### Exact generic supplier ledger
+#### Exact generic supplier ledger
 
 The result's verification.declarationsRead records the full 34-entry ledger
 with paths, locators, supplied statements and the pin. The main interfaces are:
@@ -2386,7 +2460,7 @@ The three new library items state only rank-nullity, the HasDerivAt Rolle
 theorem and real-valued maximum attainment. The six composed application
 statements retain status missing. No Lean artifact was written or compiled.
 
-### Checks and remaining work
+#### Checks and remaining work
 
 A scratch-only standard-library Python script uses exact rational arithmetic,
 not floating-point sampling, and passes **11,765 diagnostic assertions**.
