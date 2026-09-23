@@ -6997,7 +6997,8 @@
    ],
    "avoidAccountOf": "PAPER-SCHOLZE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-SCHOLZE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1411"
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25",
@@ -7071,8 +7072,9 @@
    ],
    "avoidAccountOf": "PAPER-CALEGARI-DIMITROV-TANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1415"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1415",
+   "finishedAt": "2026-09-23T17:31:03Z"
   },
   {
    "id": "PAPER-LI-ZHANG-22-B",
