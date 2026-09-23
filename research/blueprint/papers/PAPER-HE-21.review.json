@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-HE-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source of ReductiveGroupsPartII RG2.0 for the one completion/Frobenius item (F̆ = the completion of the maximal unramified extension, σ, and its residue field). RG2.0 is the local-field stage of that roadmap and already owns unramified extensions, so importing rather than replanning is right."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of RG2.1 for the two root-datum items (item 2, the relative/échelonnage root system and the identification of the apartment with X_*(T)_{Γ_0}⊗R; item 127, the actual lattice). The paper's own warning that the reduced root system attached to the affine Weyl group need not be the relative root system is exactly the kind of caveat that belongs with the owner of the root datum, and the extraction records it."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of RG2.2 and RG2.3 for the base alcove and the Iwahori Ĭ. Both stages exist and own buildings and parahoric models; one item split across the two is proportionate."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of RG2.4 for the six Iwahori–Weyl-group items: the exact sequence 0 → X_*(T)_{Γ_0} → W̃ → W_0 → 0, the semidirect decomposition at a special vertex, the Iwahori–Bruhat decomposition Ğ = ⊔ Ĭ ẇ Ĭ, the normal form w = x t^μ y with t^μ y ∈ ^S W̃ and the length identity ℓ(w) = ℓ(x) + ℓ(t^μ) − ℓ(y) of (2.1). These refine the existing decomposition stage rather than duplicate it."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of BunGAndNewtonStrata BG0 for B(G) and for J_b together with the defect def(b) = rank_F G − rank_F J_b. The σ-centraliser is already owned there and the defect is a rank interface on it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of BG1 for the κ/ν package: the Kottwitz map, the Newton map, the partial order on B(G), the Levi comparison ν^{M_J}_{b'} ∈ W_0(ν_b) and the explicit warning that σ-conjugacy classes can fuse in a Levi unless [b] is basic (item 88). Recording that warning at the same stage as the functoriality it qualifies is the right placement, and it is the point the GHN erratum turns on (see E14)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of GeometricSatakeAndFusion GS0:loop-geometry and GS0:Witt-geometry, the largest source route at 14 items: the affine flag variety Fl = Ğ/Ĭ, X_w(b) as a locally closed subvariety, the relative-position notation of §5.3, the Deligne–Lusztig reduction fibrations of [GH10, §2.4] and the adjoint comparison. Splitting equal- and mixed-characteristic realisations between the two named stages is right, and it is what makes the misattributed [BS17] sentence (E8) visible as a scope question rather than a mathematical one."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source of SchemeAndStackFoundations SF.0 for the three general dimension facts about finite-type morphisms used in §5.4's fibration arguments. Keeping the ind-scheme/perfect-scheme application at GS0 and only the scheme-theoretic lemma here is the correct division."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems, 28 items, area grouptheory (a galaxy id), brief 286 words. The title 'Root systems, Weyl groups, and the Cartan-Killing classification, Part II: dominant subtraction and Demazure reduction' reproduces the parent's atlas title exactly, hyphen included; PAPER-LE-LEHUNG-LEVIN-ETAL-23 and PAPER-ZHU-17 propose the same roadmap id, and this extraction's title is the one that matches the atlas, so nothing needs changing here. The content — the Demazure monoid ∗, the least dominant subtraction −dom, the twisted minimal-length reduction, ρ^∨_J and η^∨_J — is genuinely absent from the parent, and the brief asks for precisely the three steps Proposition 5.1 leaves out (see E5)."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Part II of HeckeStacksAndLocalShtukas, the main route at 53 items, area langlands (a galaxy id), brief 342 words. The title 'Hecke correspondences and local shtuka cohomology, Part II: cordial elements and affine Deligne–Lusztig dimensions' reproduces the parent's atlas title exactly. The virtual dimension d_w(b), cordiality, the (J,x,σ)-alcove criterion, Theorem 5.5 and Theorem 6.1 all belong together and none of them is in the parent."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Part II of SmoothRepresentationsOfLocalGroups, 10 items, area representations (a galaxy id), brief 189 words. The title reproduces the parent's atlas title exactly. Ω, the length-zero elements, κ on W̃ and the parahoric centre interfaces are the right ten items to send here rather than to the Hecke route."
+    }
+  ],
+  "notes": "Accept, with one repair made in place. Source: the recorded arXiv hash reproduces byte for byte (818873a568bf37ec…, 15 pages) and I re-extracted it in full. The published Cambridge PDF does not: two fresh downloads today gave 101df23b… and 067e44fc…, neither matching the recorded 88927779…, because Cambridge stamps every download with a footer carrying the date and the requesting IP — the extraction's source.version already says so, which is the right way to record it, and it is the third instance I have met in this corpus (PAPER-HE-18 and PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 are the others). Structure: 134 items (115 missing, 10 planned, 9 library), 11 routes (8 source, 3 Part II); every missing item is routed exactly once, every planned id resolves, all eight source stage ids exist, all three Part II parents exist and all three proposed titles reproduce their parents' atlas titles exactly, all three areas are galaxy ids from data/galaxies.json, and check_paper.py and intake.py check-files both pass. Library: all 16 declarations behind the 9 library items resolve at the pins — CoxeterSystem.length, IsReduced, length_inv, length_mul_le in Mathlib's Coxeter/Length.lean, and in Tau Ceti CoxeterSystem.BruhatStep, BruhatLE, bruhatPartialOrder, TauCeti.dominantChamber, openDominantChamber, existsUnique_mem_orbit_inter_dominantChamber, stabilizer_eq_closure_wallReflections, posRootCone, mem_posRootCone, finite_setOf_dominant_sub_mem_posRootCone, ringKrullDim_tensorProduct_field_of_finiteType and finiteRingKrullDim_of_finiteType. Locators: printed page numbers equal PDF page numbers throughout (the running heads read 'Forum of Mathematics, Pi n' and 'n Xuhua He'), and every numbered environment cited with a page of this paper is on that page. The apparent misses are all correct: 'Lemma 2.5.1', 'Lemma 3.2/Corollary 3.12', 'Corollary 5.6', 'Corollary 3.6.1' and 'Lemma 3.6.3' are numbered in GH10, MV20, Vi14 and GHN15, not here; §5.4 'Proof of Theorem 5.5' opens on p. 10 and runs to p. 12, so items citing it at pp. 11–12 are right; and §6.3 opens on p. 13 and its proof continues onto p. 14, which is where E1's sentence actually stands. Findings: all 14 confirmed, none downgraded. Six were checked against the sources they are about — [He15, Theorem 2.27] in arXiv:1511.01386 (f6170c52…) for E1; GHN15's §3.6 notation, Lemma 3.6.3 and Theorem A in arXiv:1211.3784 (c2293924…) for E1 and E2; He14's Proposition 11.6 and its proof in arXiv:1201.4901 (eae8cc00…) for E9, E10 and E11; the Görtz–He–Nie erratum (cf7efbf8…), read in full, for E13 and E14; and He–Zhou–Zhu's Proposition 3.4.2 in arXiv:2109.02594 (b38e3ce9…) for the 'known' notes on E10 and E11, which is indeed a later reformulation rather than an erratum — the text there introduces it as a refinement of [He14, Proposition 11.6] and its induction both avoids the impossible descent and keeps supp_σ throughout. E2 is correctly graded as affecting the proof and not a stated result: W_J lies in the affine Weyl group of M_J and so in ker κ_{M_J}, so κ_{M_J}(η_σ(w) t^λ) = κ_{M_J}(t^λ) = κ_{M_J}(t^λ σ(η_σ(w))) and §6.2's conclusion stands once the alcove datum is repaired. E8's version boundary holds: the [BS17] sentence is in the published §2.2 and absent from the arXiv §2.2. The repair: E5's reason offered μ' = λ − λ' + NΣ_{α∈Δ}α^∨ as the witness for nonemptiness, and the sum of the simple coroots is not dominant in every type — its pairing with a simple root is a column sum of the Cartan matrix, which is −1 for the long simple root of G_2. I replaced it by the paper's own 2ρ^∨ = Σ_{α>0}α^∨, which lies in Σ_{α∈Δ}Nα^∨ and pairs to 2 with every simple root, so the witness now works in every type; the finding itself, that nonemptiness and the existence of a minimum are both missing from the printed proof, stands. Two observations that are not findings about the published paper and so were not added. First, E6 and E13 are linked: recovering the paper's stated generality from the adjoint case runs through GHN15's Proposition 2.2.1, which is one of the two propositions the authors' erratum corrects, and the corrected form also carries the hypothesis that char k not divide |π_1(G_ad)| in equal characteristic. Second, an arXiv-only misprint that print repaired: arXiv §6.4 has 'Note that 2ρ^∨_J − ρ^∨_J − η^∨_J ∈ Σ_{α∈Δ}Q_{≥0}α^∨', where the chain needs 2ρ^∨; the published text reads 2ρ^∨. The published Theorem 5.5 is also stated differently from the arXiv one (shrunken hypothesis and supp_σ(a) ⊃ supp_σ(η_σ(w)) in print, supp_σ(η_σ(w)) = S and supp_σ(a) = S on arXiv), which is a strengthening, not a mistake. No roadmap change, no library claim and no Lean work is proposed by this review."
+}

@@ -58,3 +58,43 @@ Each of the fourteen findings was checked at its locator in the published PDF, a
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, so exactly-once routing of the 115 missing items is enforced and the 14 findings pass `scripts/source_issues.py`; `research/blueprint/intake.py check-files` reports no problems on both deliverables. The three Part II ids are free in `data/atlas.json` and in `research/blueprint/roadmaps/`, and each is a proposal this extraction shares with others, as §15 intends — `HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig` with `PAPER-ZHU-17`, `PAPER-KISIN-17`, `PAPER-VANHOFTEN-24`, `PAPER-GLEASON-LIM-XU-26` and `PAPER-KISIN-PAPPAS-ZHOU-26`, `RootSystemsPartIIDominanceAndDemazure` with `PAPER-HE-18`, `PAPER-ZHU-17` and `PAPER-KISIN-PAPPAS-ZHOU-26`, `SmoothRepresentationsPartIIParahoricCenters` with `PAPER-HE-18`, `PAPER-ZHU-17` and `PAPER-KISIN-PAPPAS-18`; both atlas parents exist and the third parent is the Tau Ceti roadmap `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems`; every `planned` stage id and every source route's stages belong to the roadmap that owns them; and the sixteen declarations cited by the nine `library` items were all located in the pinned libraries (Mathlib 082e2d3, Tau Ceti f790474), including `TauCeti.finite_setOf_dominant_sub_mem_posRootCone` in `TauCeti/LinearAlgebra/RootSystem/DominantCone.lean`, whose statement — only finitely many dominant weights lie below a given one — is the step finding E5 says Proposition 5.1's proof needs. The handoff note is rewritten to say that nothing remains to resume, and to point the review at the two findings that were rejected, since a rejected finding leaves no trace in the file.
+
+## Review (REV-PAPER-HE-21, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1398), **accepted** this
+extraction and all eleven routes, and made one correction. The full record is
+[REV-PAPER-HE-21.md](../reviews/REV-PAPER-HE-21.md).
+
+The recorded arXiv hash reproduces byte for byte. The published hash does not and cannot: two fresh
+downloads gave `101df23b…` and `067e44fc…` against the recorded `88927779…`, because Cambridge stamps
+every download with a footer carrying the date and the requesting IP — which `source.version` already
+records, and which is now documented the same way on `PAPER-HE-18` and
+`PAPER-SHANKAR-SHANKAR-TANG-ETAL-22`. 134 items, all 115 missing routed exactly once; all eight
+source stage ids and all ten planned ids exist; all three Part II parents exist, all three proposed
+titles reproduce their parents' atlas titles character for character, and all three areas are galaxy
+ids. All 16 declarations behind the 9 `library` items resolve at the pins. Printed page numbers equal
+PDF page numbers, and every locator into this paper lands; the apparent misses are all numbers
+belonging to GH10, MV20, Vi14 and GHN15, or the running §5.4 and §6.3 whose proofs cross a page.
+
+All fourteen findings are **confirmed**, six of them against the sources they are about — `[He15]`
+Theorem 2.27 in arXiv:1511.01386, GHN15's §3.6 notation, Lemma 3.6.3 and Theorem A in
+arXiv:1211.3784, `[He14]` Proposition 11.6 in arXiv:1201.4901, the Görtz–He–Nie erratum read in full,
+and He–Zhou–Zhu's Proposition 3.4.2 in arXiv:2109.02594, which is indeed a later reformulation and
+not an erratum. The rewritten `E2` is right in its new direction: GHN15's `η_2(x)` is this paper's
+left factor `x`, so the conjugator is `x` and not `σ^{-1}(y)`, and the printed Kottwitz element is the
+conjugate by `σ^{-1}(y)^{-1}`, which does not match the printed claim either — though, as the audit
+above says, it has the same image under `κ_{M_J}`, so §6.2's conclusion stands. `E6`'s `SL_3` witness
+is confirmed, and the review adds that the descent back from the adjoint case runs through exactly
+the GHN15 proposition that `E13` reports as corrected.
+
+**One correction, in `E5`'s reason.** The witness offered for nonemptiness,
+`μ' = λ − λ' + NΣ_{α∈Δ}α^∨`, is not dominant in every type: `⟨Σ_{α∈Δ}α^∨, β⟩` is a column sum of the
+Cartan matrix, which is `−1` for the long simple root of `G_2`. It is replaced by this paper's own
+`2ρ^∨ = Σ_{α>0}α^∨`, which lies in `Σ_{α∈Δ}Nα^∨` and pairs to `2` with every simple root. The
+finding is unchanged: Proposition 5.1's proof establishes lower directedness and neither
+nonemptiness nor the existence of a minimum, and route 9's brief already asks for all three.
+
+The review also records two things that are not mistakes in the published paper and so were not
+added as findings: arXiv §6.4 prints `2ρ^∨_J − ρ^∨_J − η^∨_J` where the chain needs `2ρ^∨`, which
+print repaired; and the published Theorem 5.5 is stated more strongly than the arXiv one, without
+affecting `E1`.
