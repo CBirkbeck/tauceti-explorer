@@ -5197,8 +5197,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1314"
+   "state": "external",
+   "note": "claimed on GitHub issue #1314"
   },
   {
    "id": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
