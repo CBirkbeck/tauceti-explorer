@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "No layer or pending candidate plans Ramakrishna-style lifting: GlobalGaloisDeformations builds deformation rings for patching (R04, G7, G8) over number fields, and the proposed GValuedDeformationsAndPotentialAutomorphy is the Khare–Wintenberger finiteness method, which Remark 7.8 shows cannot reach reducible ρ̄. So a Part II is right. The review added 19 missing items: oddness ([FKP19, Def. 1.2]), the FKP19 inputs the paper uses without stating them (Notation 5.1, Q_N and L^α_{r,v}, Theorem 6.9 with Claim 6.14, Lemmas 5.13 and 6.15, Claim 6.13, the Lie-theoretic lemma of Proposition 6.8, Appendix A), the paper's implicit lemmas (ramification forces disjointness, root vectors avoid subspaces, the cyclotomic tower, the mod ϖ² lift, trivial-prime duality, the exponential, the semisimplified adjoint representation), the determinant construction of Theorem 7.4, Serre's semisimplification and Steinberg's centraliser theorem. An addendum to the brief records the corrected statements (E8–E44) the design job must use."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "R08.2, R08.6 and L7 plan the local conditions away from p, the local statements for global arguments and the fixed Hodge-type rings in any rank; the G-valued rings and Appendix B extend L7, where the Boxer–Calegari–Gee extraction already sent Lemma B.4. The review added the Nekovář–Patrikis semistability criterion used in Lemma B.4 and recorded the missing central generators in Lemma B.3's ideal (E43)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "R02.3, R02.4 and R02.6 plan the Euler characteristic, Poitou–Tate and Greenberg–Wiles for number fields; §2 needs their function-field cases."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ML.2 ('track compatible systems and descent') owns BLGGT14 Theorem 3.1.2 with the Steinberg modification and the argument of Theorem 5.5.1. The review added, as planned items, the Galois representations of RACSDC representations (AG2.2, AG2.6), compatible systems (R24.5:operations, AG2.6) and CM base change and descent (ML.5, ET.7a), the last as in the review of PAPER-CLOZEL-THORNE-17."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "PolarizedAutomorphyLifting owns Thorne 2015's ι- and ξ-ordinarity and Allen–Newton–Thorne, as in the reviews of the Newton–Thorne and Clozel–Thorne papers. Item 67 was restated from Allen–Newton–Thorne's Theorem 1.1, which the review read, and item 66's Hodge–Tate sign corrected (E33). Proposition 9.1 does not establish their hypothesis (7) when ρ̄ has several constituents (E32)."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against arXiv v5 (SHA-256 6c260021…, the extraction's file) and its TeX source, with four checkers (§§1–3, §§4–6, §§7–9, Appendices A–B); to check imports they also read FKP19 (arXiv 1904.02374v5), Allen–Newton–Thorne (arXiv 1912.11269v2) and Pan (arXiv 1901.07166v2). The coordinator re-derived every substantive finding in the TeX. The published text was again not read; Crossref records no update. 58 items were corrected. The material ones: 17, 21, 22 (§3: quantifier order, local lifts at S, Proposition 3.8's conclusion); 33 (Proposition 5.4 concerns the relative classes); 41, 42, 43 (Corollary 6.6, Remark 6.7, Example 6.8); 66, 67, 71, 72 (§9); 80, 81, 82, 85 (Appendix A). 25 items were added, giving 119 (13 planned, 106 missing). Source issues: E1–E7 are confirmed; E8–E44 are new. The substantive ones:\n- E21, E22: Corollary 6.6 omits oddness, which Theorem 5.2 needs, and the absolute M-irreducibility that its Lemma A.14 alternative needs.\n- E23–E25: Remark 6.7's subtorus claim fails for SL_2; Example 6.8's dihedral case misses the dual invariants (δ = ε_Kκ̄^r), and its criterion uses the wrong character.\n- E32: Proposition 9.1's hypotheses do not give Allen–Newton–Thorne's (7) when ρ̄ has several constituents.\n- E30: Remark 8.2's 'p ≫_n 0' is false (q ≡ −1 mod p).\n- E36–E41: false clauses in Lemmas A.9, A.10, A.11 and Examples A.16, A.17; Lemma A.9's pairwise condition (3) fails for three summands, so Corollary 8.4's proof covers only r = 2 as printed (E37).\n- Proof gaps with routine repairs: E12 (local lifts at S), E16 (FKP19 Cor. B.2 for disconnected G), E17 (γ_2 in Proposition 5.4 for non-simple 𝔤^der), E18–E20 (§6), E28 (the character ω in Theorem 7.4), E31, E35, E42, E43 (Lemma B.3's ideal).\nTheorems 5.2 (= E), 7.4 (= B) and Corollary 8.3 (= C) stand once the proof gaps are repaired."
+}
