@@ -1,5 +1,54 @@
 # LLHLM23 — current handoff
 
+Codex — codex-a71f92, issue #1254, 23 September 2026. Continues merged #2394.
+Confirmed claim5798776543.
+
+Partial: **519 items (67 library,18 planned,434 missing),19 routes,44 unchanged
+unreviewed findings; all156 definitions/constructions retain uses/API/typed tests.**
+No Lean file required or compiled; no formalization or independent review claimed.
+
+A63–A65 isolate the conditional point-to-integral quotient argument.
+L62–L67 import existing Artinian/localization/quotient/topology suppliers.
+The old P02 TypeQuotient.points converse was an extraction overclaim:
+membership in the closure of an exact monodromy stratum does not, from the
+definition alone, imply membership in that stratum. It is weakened to the
+needed forward implication. The rank-drop matrix test is not a constructed
+p-adic Galois family; no paper-source error is asserted.
+
+Resume with:
+1. Exact Speh-factor algebraic/Galois twists and Frobenius-polynomial/direct-sum
+   comparison, global Whittaker/generic-local proof, and sigma(lambda,tau)^*
+   dual-coefficient/type occurrence.
+2. Actual reducedness/finite-flatness and type hypotheses for the projected
+   Hecke image. A65 now proves their conditional integral factorization, not
+   the hypotheses themselves. Do not re-open it as a wholly missing generic
+   field-point-to-ideal argument, or replace the projected image with the full
+   Hecke algebra.
+3. The twelve existing closure gaps: semantic definition/API splitting and
+   sourced lemma promotion, proof suppliers, global descent, analytic regularity,
+   common ownership, and uniform integral AppendixB certificates.
+
+All510 old item statements/statuses,44 sourceIssues and sourceData preserved;
+only P02's API/note/test and A30's prerequisites/proof change. No new route.
+Fresh reads: published PDF124–128,193–198 and rendered126; Stacks00JB/00J8/00EW;
+pinned generic Lean declarations. Main PDF hash unchanged. Current IHG/L7
+contracts and reviewed R03.1 row read; no direct reviewed IHG/L7 row exists.
+
+Checks: paper checker,41 tests,519 unique IDs, one route per missing item,
+300-edge acyclic graph and156/156 literal interfaces. Standard-library finite
+diagnostics pass; limitations are in the report. Three-file intake passes.
+Submit only the result, report and this handoff; scratch diagnostics stay local.
+
+
+Publication refresh: fresh main `0d9a9e0fda317432de1abbc59db4fca0f3fffac7` preserves all three baseline deliverable blobs and all310 guarded content/roadmap/atlas/audit/protocol/checker inputs. The six cited Mathlib source files were byte-verified against the exact remote pin. The same three-file payload and checks were replayed on that fresh snapshot.
+
+Earlier handoff history follows; old counters and the formerly unresolved
+conditional integral-point step are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-7e92bd, issue #1254,23 September2026. Continues merged #2362.
 
 Partial: **510 unchanged items (61 library,18 planned,431 missing),19 unchanged routes,44 unchanged unreviewed findings. All156 definitions/constructions now have literal uses/API/at least three typed tests.** No Lean deliverable required or compiled; no implementation claimed.
