@@ -1249,7 +1249,12 @@
     "the published offprint, J. Amer. Math. Soc. 38 (2025) 509–520 (Calegari's research page)",
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim at both places in the e-print (WeightZeroPublished.tex lines 1023 and 1034). The theorem is stated 'for both n = p-1 and n = p-2' and its proof opens 'Let n = p-1 or p-2, and write G_n = GSp_n if n = p-1 ..., G_n = GO_n if n = p-2', so fixing n = p-1 in the two parameter lists would drop the orthogonal case - which is the one that gives n = 105 in Theorem 2.4. Reading n = n, as the entry says, is the only consistent choice.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E2",
@@ -1266,7 +1271,12 @@
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)",
     "J. Thorne, 'On the automorphy of l-adic Galois representations with small residual image', homepage copy and arXiv 1107.5989v1, §10"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and settled at the source. In Thorne's e-print (arXiv 1107.5989v1, section 'Finiteness theorems') the first theorem of the section carries local conditions R^{C_v}_w and R^{lambda,C_v}_w with the crystalline component fixed, and the second carries R^{lambda,ss-ord}_w: 10.1 is the fixed-component theorem and 10.2 the ordinary one. BLGGT introduce their Theorem 2.4.2 with the words 'The next result is Theorem 10.2 of [jack]', which is the statement the paper is quoting. The proof of Theorem 2.1 is the ordinary case, so its citation should be 10.2; the citation of 10.1 in the proof of Theorem 3.1 (fixed crystalline components) is correct, as the entry says.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E3",
@@ -1285,7 +1295,12 @@
     "J. A. Thorne, 'A 2-adic automorphy lifting theorem for unitary groups over CM fields', author's copy dated 16 March 2016 (Thorne's homepage); the published Math. Z. version is behind a paywall and was not seen",
     "zbMATH 1427.11050 (no review text available)",
     "[GHT17] arXiv 1405.0043v3, §1"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, with the limits of my check recorded. Thorne's Math. Z. 2017 paper is not on arXiv and I could not reach an author copy from here, so I could not read its section 7 directly. The independent evidence is strong: Guralnick-Herzig-Tiep (arXiv 1405.0043v3), citing the same paper, write 'Recently Thorne [T2, Corollary 7.3] has shown that one can relax the condition that p does not divide dim V, still with p odd' - the very statement the paper needs here, cited as a corollary, not as Theorem 7.1. The nearby citations of Defn 2.20 and Prop 2.21 in the same paper are consistent with its numbering. The correction is right in substance; a reader with the Math. Z. text should confirm the absence of a Theorem 7.1.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E4",
@@ -1301,7 +1316,12 @@
     "the published offprint, J. Amer. Math. Soc. 38 (2025) 509–520 (Calegari's research page)",
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the arithmetic is decisive. The source (line 1320) chooses theta and theta' with theta*theta^c = eps^(2-k) and theta'*(theta')^c = eps^(p(2-k)), with Ind theta and Ind theta' crystalline of labelled Hodge-Tate weights {0,1,...,k-2} and {0,p,...,p(k-2)}, then writes Ind(theta ⊗ rho|G_F) where the induced object must be a G_M-representation. With theta' the multiplier is eps^(p(2-k))*eps^(1-p) = eps^(1-(k-1)p) and the weights are {pa+b} = {0,...,(k-1)p-1}, regular, exactly what R_F demands; with theta as printed the multiplier is eps^(3-k-p) and the weights {a+b} repeat. At p = 79, k = 38 (the case Corollary 3.2 uses) that is eps^(-114) against the required eps^(-2922). The restriction should also read rho|G_M, and since theta-bar = theta-bar' the residual s-bar is unchanged, as the entry notes.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E5",
@@ -1318,7 +1338,12 @@
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)",
     "R. Bellovin, T. Gee, arXiv 1708.04885v3, Def. 4.2.1 and Prop. 4.2.6"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source, and the count is right. Bellovin-Gee's Definition 4.2.1 (their e-print, arXiv 1708.04885v3, label 'defn: oddness') reads: rho-bar is 'discrete series and odd' if F is totally real and dim H^0(Gal_{F_v}, g^0) = dim G - dim B at every infinite place; their Proposition 4.2.6 ('prop: global deformation ring with types is positive dimensional') assumes it. I re-derived the numbering from their source: 4.2.1 and 4.2.6 are exactly those two statements. The count also checks: for GO_n with n = 2m+1, dim GO_n - dim B = m(2m+1)+1 - (m^2+m+1) = m^2 = ((n-1)/2)^2, while an involution with eigenvalue multiplicities (a, n-a) has dim so_n^{rho-bar(c)} = a(a-1)/2 + (n-a)(n-a-1)/2, which equals m^2 only for a = (n±1)/2 and equals n(n-1)/2 for rho-bar(c) = ±1. So an even multiplier alone does not give the hypothesis, and Sym^{n-1} of an odd involution does. The gap is real and the entry's repair is the right one.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E6",
@@ -1336,7 +1361,12 @@
     "web search for an erratum or corrigendum (none found)",
     "A. Caraiani, arXiv 1202.4683v1, Thm. 1.1",
     "[BLGGT14] arXiv 1010.2561v4, Thm. 2.1.1 and the paragraph after it"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source, including BLGGT's own caveat. BLGGT Theorem 2.1.1's part (4) reads 'If v|l and pi_v has an Iwahori fixed vector then ...', and the paragraph after the theorem says they quote Caraiani's l = p result 'only in the case that Pi_y has an Iwahori fixed vector, which is the only case we are quoting here'. So local-global compatibility at p is not available from that citation without the Iwahori hypothesis. The entry is also right that Theorem 2.1 is unharmed: the ordinary lifting theorem quoted there (BLGGT Thm 2.4.1) itself concludes 'ordinarily automorphic of level prime to l' for crystalline r, which I read in the same source; in Theorem 3.1 the automorphy is obtained by descent through Lemmas 2.2.1, 2.2.2 and 2.2.4, which say nothing about the level at p.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E7",
@@ -1353,7 +1383,12 @@
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)",
     "C. Citro, A. Ghitza, arXiv 1102.3321v2, appendix table"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I verified the corrected list independently from the cited table. Citro-Ghitza (arXiv 1102.3321v2, appendix table) record for each p the level-one mod p eigensystems of companion type C[k] and non-ordinary type N[k]. Theorem 2.1 requires (p-1, k-1) = 1, f ordinary and rho-bar_f|G_{Q_p} semisimple. The table gives 107: C[26], (106,25) = 1; 139: C[20], (138,19) = 1; 151: C[52], (150,51) = 3; 173: C[68], (172,67) = 1; 179: C[30], (178,29) = 1; 191: C[30], (190,29) = 1; 193: C[48], (192,47) = 1. So 151 fails and 191, 193 belong, exactly as the correction says. The entry's companion observation is also right: k' = p+1-k gives k'-1 = p-k = -(k-1) mod p-1, so the gcd is the same for both members of a pair. The paper's other list is untouched and correct: 79: N[38], (37,80) = 1; 151: N[60], (59,152) = 1; 173: N[24]; 193: N[72] - which is why 151 legitimately appears there and not here. The paper's own cases are in the table too (107 C[26] for Theorem 2.4, 79 N[38] for Corollary 3.2).",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-25/E8",
@@ -1370,7 +1405,12 @@
     "G. Boxer's homepage copy WeightZero.pdf (17 Oct 2024)",
     "web search for an erratum or corrigendum (none found)",
     "J. W. Cogdell, H. H. Kim, I. I. Piatetski-Shapiro, F. Shahidi, Publ. Math. IHÉS 99 (2004), §7 (Numdam)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim at line 1162 of the e-print (cited there as [MR2075885, Thm. 7.2], i.e. CKPSS04). The descent theorem describes the image of the global generic functorial lift; it carries no statement about local components, so 'level one' for the descended representation of Sp_104 - and with it the non-vanishing of H^*_cusp(A_52, C) that the remark deduces - needs the local input the entry names. The remark's own next sentence, that Taibi explained an alternative construction, does not supply it either. Statement expected to hold; recorded as a gap in the proof, which is the right classification.",
+    "by": "REV-PAPER-BOXER-CALEGARI-GEE-25"
+   }
   }
  ]
 }

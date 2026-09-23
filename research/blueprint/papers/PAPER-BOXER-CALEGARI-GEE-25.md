@@ -195,3 +195,32 @@ Three papers the proofs use are already queued: Newton–Thorne 2021 (PAPER-NEWT
   - the generalised Serre conjecture that motivates the method;
   - the comparisons with Odlyzko bounds and class field towers;
   - Taïbi's remark on endoscopic classes of 𝒜_g, which has no precise statement.
+
+## Independent review (`REV-PAPER-BOXER-CALEGARI-GEE-25`, issue #1413)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all ten routes accepted, all
+eight findings confirmed, nothing corrected in place. The full review is in
+[`reviews/REV-PAPER-BOXER-CALEGARI-GEE-25.md`](../reviews/REV-PAPER-BOXER-CALEGARI-GEE-25.md).
+
+Both recorded hashes match byte for byte. Simulating the shared subsection counter independently gives the
+same numbering the locators use — Problems A and C and Theorem B on the lettered counter, 1.1–3.3 for the
+statements, with 1.3 and 2.3 being headings — and **coverage is complete**; Problem A is rightly not an
+item, since it asserts nothing and is the question Theorem B answers. All three `library` items were read
+in the Mathlib source at pinned `082e2d3` and all 20 cited layers exist in `data/atlas.json`. Both Part II
+routes reproduce their parent's title verbatim and join existing proposals rather than opening rivals
+(`PolarizedAutomorphyLifting` with Newton–Thorne and LLHLM; `LevelOneCuspidalCohomologyGLn` is already
+named by Chenevier–Taïbi).
+
+The findings were checked against the cited sources themselves, which is where this paper's mistakes live.
+Thorne's §10 shows 10.1 is the fixed-component theorem and 10.2 the ordinary one, and BLGGT introduce
+their Theorem 2.4.2 as "Theorem 10.2 of [Tho12]" (E2); BLGGT's Theorem 2.1.1(4) carries the Iwahori
+hypothesis, and their own next paragraph says they quote Caraiani only in that case (E6); Bellovin–Gee's
+Definition 4.2.1 demands `dim H⁰ = dim G − dim B` at every infinite place, which an even multiplier alone
+does not give (E5); Guralnick–Herzig–Tiep cite Thorne's 2-adic paper as "Corollary 7.3" for exactly the
+statement needed (E3). Two were settled by computation: with `θ` rather than `θ′` the induced
+representation has multiplier `ε^{3−k−p}` and repeated weights, against the required `ε^{1−(k−1)p}` —
+`ε^{−114}` against `ε^{−2922}` at `p = 79, k = 38` (E4); and the Citro–Ghitza table plus `(p−1, k−1) = 1`
+gives `107, 139, 173, 179, 191, 193`, so 151 must go and the two added primes belong (E7).
+
+One limit is recorded in the review: Thorne's Math. Z. 2017 paper is not on arXiv and no author copy was
+reachable, so E3 rests on Guralnick–Herzig–Tiep's citation rather than on a direct reading of its §7.
