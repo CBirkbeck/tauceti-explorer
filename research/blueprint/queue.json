@@ -834,8 +834,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-ZHOU-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1069"
+   "state": "external",
+   "note": "claimed on GitHub issue #1069"
   },
   {
    "id": "REV-PAPER-KISIN-ZHOU-25",
@@ -1237,8 +1237,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1091"
+   "state": "pending",
+   "note": "released on GitHub issue #1091"
   },
   {
    "id": "REV-PAPER-YU-23",
