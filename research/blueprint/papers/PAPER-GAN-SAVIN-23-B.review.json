@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-GAN-SAVIN-23-B",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "New roadmap, 75 items and the bulk of the extraction. Accepted: nothing in the atlas plans a local Langlands correspondence for G_2, and the paper's whole architecture — the map L, its surjectivity, the description of its fibres, and the characterisation by the properties (i), (ii), (iii) and (ix) of the Main Theorem — is new ground. The name is free and no other paper proposes it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "New roadmap, 25 items. Accepted, and it is a merge rather than a fresh claim: PAPER-GAN-SAVIN-23, the companion paper 'Howe duality and dichotomy for exceptional theta correspondences', proposes the same roadmap. Splitting the exceptional theta machinery out of the G_2 correspondence is right, since the two Gan–Savin papers share it and the dichotomy is used here as an input (Theorem 2.1(ii)) rather than proved. The name is free."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Part II of SmoothRepresentationsOfLocalGroups, 14 items, with a title that is an exact prefix extension of its parent's and a free name. The unitary-dual topology of Appendix B is genuinely in the parent's direction and is not planned by any existing layer."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source addition to ModularityAndLanglandsExtensions at ModularityAndLanglandsExtensions:ML.4 (6 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source addition to MetaplecticAutomorphicForms at MetaplecticAutomorphicForms:MP.3 (2 items). The stage already owns the material consumed here, and the extraction imports rather than rebuilds it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of MetaplecticAutomorphicForms, 1 items, with a title that is an exact prefix extension of its parent's and a free name. Co-proposed with identical id, parent and title by PAPER-GAN-ICHINO-18 and PAPER-ICHINO-PRASANNA-23, so it is a merge."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status, route or locator changed. All 128 items, 6 routes and 15 recorded mistakes were checked against the published open-access text, Forum Math. Pi 11 (2023), e28, 42 pp., re-fetched for this review; printed page = PDF page. All 15 recorded mistakes are confirmed, and four are settled decisively by the paper's own text. E3: the Main Theorem (ix) on p. 4 prints γ(s, std ∘ L(π)) ⊗ φ_τ, ψ), whose brackets do not balance — the close after L(π) shuts γ( prematurely. E6: p. 11 introduces a totally real field k and then takes 'a totally definite octonion algebra over F', although the next sentence speaks of G_v at all archimedean and finite places, which only a global object over k has. E13: p. 36 prints the same formula correctly as L_{Sp_6} eighteen lines before printing it as L_{Sp_6 6}. E5: Theorem 2.1's parts are (i) Howe duality and (ii) theta dichotomy, and it is (ii) that gives the decomposition of Irr(G_2), yet pp. 8 and 10 both cite (i). The two gaps are confirmed with their scope stated. E2 is the more consequential, and the paper's own Theorem 2.1(ii) is what shows a hypothesis is missing: Theorem 9.1(ii) is stated for every π ∈ Irr(G_2), but the theta dichotomy says π has nonzero lift to exactly one of PD^× or PGSp_6, so for those lifting to PD^× the phrase 'its local theta lift θ(π) ∈ Irr(PGSp_6)' has no referent. I confirm that a restriction is needed and leave its exact form — the extraction proposes φ ∈ Φ^♦_ds(G_2) — to the extraction. E1 is confirmed as printed, with the scope of its repair likewise resting on the extraction. Where a finding bundles a principal element with subsidiary ones, or where its correction depends on re-deriving an identity rather than reading the page, the verdict says so explicitly. E10 is the one I could not settle from the text layer at all — the symbol after 'parameterized by' is dropped — and I confirm it on the sentence's own logic rather than on a glyph reading, and say so. A provenance problem was found and recorded: the source block's sha256 for the published PDF is NOT reproducible, because Cambridge stamps each download. Two downloads gave two hashes, neither the recorded one, differing only in the stamp. A reproducible stamp-stripped text hash, f35be3dd…66f5, was recorded in its place; the arXiv hash the source block also carries remains a second anchor. The single library citation was read at the pinned commit and is right: item 114 cites Banach–Alaoglu, and Mathlib's isCompact_closedBall and isCompact_polar in Analysis/Normed/Module/WeakDual.lean say what the item claims. All 4 planned items name atlas layers that exist, all 123 missing items are routed exactly once, and there is no run-together numbering. Both new roadmap names are free and both Part II titles are exact prefix extensions of their parents'. ExceptionalThetaCorrespondencesForG2 is co-proposed by PAPER-GAN-SAVIN-23, the companion paper, which is the right structure: the dichotomy is used here as an input rather than proved, so the two papers sharing one roadmap for it is a merge and not a duplication. Every check is listed in research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23-B.md."
+}
