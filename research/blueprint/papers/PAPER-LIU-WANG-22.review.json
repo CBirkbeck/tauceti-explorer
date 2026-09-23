@@ -1,0 +1,77 @@
+{
+  "paper": "PAPER-LIU-WANG-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Generic relative THH/cyclotomic mathematics belongs to RT.2; the bounded-below comparison is corrected and the spherical Witt primary supplier remains explicit."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The regular-quotient algebraic HH/HP comparison belongs to RT.1, importing the common PD, Koszul and completion owners."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "L.5 is the correct existing owner, but the alternative odd-prime proof of item002 depends on the unresolved sign chain. Preserve the planned status and existing classical target; do not ingest this route as a certified alternative proof yet."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The BMS relative computation and fixed-u_Fp normalization belong to RT.6. The base-change direction and normalization are correctly stated."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "CR.0 owns envelopes; the existing divided-power structures/algebra are separated and imported."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "PR.0 owns the corrected δ-ring law and torsionfree Frobenius-lift equivalence."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "DD.1 owns complete filtered algebra and mixed topology. The graded tensor direction is imported from DGAInfinity rather than duplicated; the false domain claim is corrected."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "H.6 is the shared coefficient/Bockstein/convergence owner; record the two-primary self-map/extension input explicitly. Source routing is not a claim the full supplier is proved."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "L.5 needs this finite-field TC linear-algebra adapter. Its proof from pinned multiplicative Hilbert90, Frobenius and rank-nullity avoids a new generic additive-Hilbert90 development."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The norm-residue, motivic and étale comparison targets already belong to M.5/M.6/M.7. The source pictures are not used as proofs."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "The precise degree−1 λ cokernel is a trace-comparison target for RT.3. Its unproved source assertion is retained as OPEN-TRACE with the required connective comparison contract."
+    },
+    {
+      "route": 12,
+      "verdict": "reject",
+      "reason": "The generic supplier must be separated from local TC, but the flatness, complete comodule-category and Ext/Adams contracts are not sufficiently closed to issue an accepted design brief. Reconcile the existing graded and cofree APIs first."
+    },
+    {
+      "route": 13,
+      "verdict": "reject",
+      "reason": "The correct stack category and QCoh descent comparison are unresolved, and the WCart/motivic equivalences are conjectural in this source. No unconditional design theorem can be claimed."
+    },
+    {
+      "route": 14,
+      "verdict": "reject",
+      "reason": "The local-only scope and imports are repaired, but the corrected sign chain, finite-page conventions, convergence and two-primary suppliers remain unresolved. Do not certify the main calculation from inconsistent intermediate formulas."
+    }
+  ],
+  "notes": "Finished independent review by Codex codex-c83e7a of issue1264. All66 original items,15 original findings and65 source pages checked;90 items,14 routes,36 individually confirmed source findings. Ten pinned Lean blobs verified; every missing item routed once. Four routes rejected. The extraction remains partial with explicit sign, descent, stack and transitive supplier gaps. No Lean file/compilation claimed."
+}
