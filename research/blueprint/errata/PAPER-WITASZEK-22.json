@@ -5,62 +5,243 @@
     {
       "id": "PAPER-WITASZEK-22/E1",
       "kind": "misprint",
-      "locator": "Introduction, the paragraph after Corollary 1.3, p.2, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
-      "printed": "\"A field is locally finite if it is a subfield of F̄_p for some prime number p > 0. When the residue fields of S are not locally finite, we prove that L is EWM.\"",
-      "correction": "\"When the residue fields of S are perfect but not necessarily locally finite, we prove that L is EWM.\"",
-      "reason": "Corollary 6.7, which this sentence summarizes, assumes that S is a mixed characteristic Dedekind scheme \"with perfect residue fields of closed points\" for the EWM conclusion, and proves semiampleness when those residue fields are moreover locally finite. Noted by the extraction (diagnostic 3).",
+      "locator": "Introduction after Corollary 1.3, published p.657 (PDF 3); v2 p.2; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“not locally finite”",
+      "correction": "The informal extension to the EWM conclusion should retain perfect closed residue fields, without requiring them to be locally finite.",
+      "reason": "The actual EWM theorem, Corollary 6.7 on pp.699–700 (v2 pp.41–42), assumes perfect residue fields of closed points. The introductory sentence omits that assumption. This finding does not assert a counterexample over imperfect fields.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
-        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
-        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
-      ]
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing both introductions with the precise corollary. Preserved the errata ID E1; this is E3 in the newer paper extraction. Added the published locator and narrowed the interpretation to the summary of the result proved.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
     },
     {
       "id": "PAPER-WITASZEK-22/E2",
       "kind": "error",
-      "locator": "Lemma 2.1 and its proof, pp.7–8, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
-      "printed": "\"Lemma 2.1. Let f : X → Y be a finite map of integral proper schemes over a Noetherian base scheme S. Let L be a relatively nef line bundle on Y. Then L is relatively big over S if and only if f*L is relatively big over S. Proof. … Since (f*L)^{dim X} = (deg f)L^{dim Y}, the lemma follows.\"",
-      "correction": "Assume that f is surjective, that is finite surjective, so that dim X = dim Y. The proof then applies.",
-      "reason": "The formula (f*L)^{dim X} = (deg f)L^{dim Y} presupposes dim X = dim Y. Without surjectivity the \"if\" direction fails. Let S = Spec k, let Y = P¹_k, let X ⊂ Y be a closed point with f the inclusion (finite), and let L = O_Y. Then L is nef and not big, while f*L = O_X on the zero-dimensional X is big. The lemma is used in the proof of Proposition 5.2 for a component surjecting onto its image (\"a surjective-onto-V integral component V′ ⊆ π^{−1}(V)\"), where the corrected lemma suffices. Noted by the extraction (diagnostic 2, item finite-big).",
-      "affects": "nothing",
+      "locator": "Lemma 2.1 and proof, published p.662 (PDF 8); v2 pp.7–8; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“finite”; (f*L)^(dim X) = (deg f)L^(dim Y).",
+      "correction": "Require f:X→Y to be finite and surjective. After restricting to the common generic image in S, the intersection formula then has equal-dimensional source and target and positive degree.",
+      "reason": "Take S=Spec k, Y=P¹_k, X a k-rational closed point, f its inclusion, and L=O_Y. The pullback has h⁰(X,O_X)=1 and is big in dimension zero (choose 0<c<1 in the definition), whereas h⁰(Y,O_Y^m)=1 does not grow linearly, so L is nef but not big. In Proposition 5.2 the map is a component V′ of π⁻¹(V) chosen to surject onto V, so the repaired lemma suffices there.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
-        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
-        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
-      ]
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the counterexample directly from the paper’s definition of bigness. Changed affects from nothing to a stated result: Lemma 2.1 itself is false as printed. Checked the surjective application in Proposition 5.2; this does not refute the main theorems.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
     },
     {
       "id": "PAPER-WITASZEK-22/E3",
       "kind": "misprint",
-      "locator": "Definition of EWM, p.8, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
-      "printed": "\"… we say that L is relatively EWM (endowed with a map) if there exists a proper S-morphism f : X → Y to an algebraic space Y proper over S such that an integral closed subscheme V ⊆ X is contracted (that is, dim V < dim f(V)) if and only if L|V is not relatively big.\"",
-      "correction": "\"… is contracted (that is, dim f(V) < dim V) …\"",
-      "reason": "A subvariety is contracted when its image has smaller dimension, and dim f(V) ≤ dim V always holds, so the printed inequality dim V < dim f(V) never holds. Read literally, the condition would force L|V to be relatively big for every integral V. The definition follows Keel [Kee99] (cf. [CT17, p.7]), where a contracted V has dim f(V) < dim V. Checked on the page image by the extraction. Noted by the extraction (diagnostic 1).",
+      "locator": "EWM definition, published p.662 (PDF 8); v2 p.8; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“dim V < dim f(V)”",
+      "correction": "Use dim f(V)<dim V for contraction, retaining the quantifier over integral closed subschemes.",
+      "reason": "An image cannot have larger dimension than its source in this proper finite-type setting. For example, the map P¹_k→Spec k contracts P¹, and the trivial line bundle on P¹ is not big, as the intended definition requires.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
-        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
-        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
-      ]
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the published page image and in v2. This is an unambiguous reversed inequality. Preserved errata E3 even though the newer extraction calls it E1.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
     },
     {
       "id": "PAPER-WITASZEK-22/E4",
       "kind": "error",
-      "locator": "Lemma 6.8, p.43, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
-      "printed": "\"Lemma 6.8. Let π_i : D_i → Z_i be the map associated to the semiample line bundle L|D_i and let F be the generic fibre of π_i. Further, let C_i ⊂ D_i be the the reduction of the conductor of the normalisation p_i : D̄_i → D_i. Then C_i|F is a geometrically connected zero-dimensional scheme.\" The proof ends: \"Hence, we get deg C_i|F ≤ deg Δ_{D_i}|F < 2.\"",
-      "correction": "C_i|F is either empty or a single point of degree one over L = H⁰(F, O_F), in particular geometrically a single point. The application, that the relevant fibre meets the gluing locus in at most one point, needs only this.",
-      "reason": "The degree bound deg C_i|F < 2 gives at most one point of degree one, but not that the scheme is nonempty. When D_i is normal the conductor is empty, and the empty scheme is not connected. The following argument, applying Proposition 5.3, uses only that the generic fibre meets the gluing locus in at most one point. Noted by the extraction (diagnostic 4).",
+      "locator": "Lemma 6.8, published p.701 (PDF 47); v2 p.43; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“geometrically connected zero-dimensional scheme”",
+      "correction": "For π_i:D̄_i→Z_i and its generic fibre F, the reduced conductor C_i⊂D̄_i restricts to either the empty scheme or Spec K₀, where K₀=H⁰(F,O_F). The latter has degree one over K₀. State the empty alternative explicitly.",
+      "reason": "The proof gives 0≤deg(C_i|F)<2, hence degree zero or one, not positivity. The paper refers to Stacks for basic definitions at the start of §2; Stacks tag 004R excludes the empty space from connected spaces. Normal D_i has empty conductor. A compatible example is the blowup X of P²_R along a line in its special fibre, for a mixed-characteristic DVR R with perfect residue field. With exceptional divisor E, H the pulled-back hyperplane and m sufficiently large, L=mH, Δ=0 and D=E give L=A+E with A=mH−E relatively ample, L−K_X=(m+3)H−E relatively ample, and L|E pulled back from the line, of Iitaka dimension one. E is a smooth ruled surface, so its normalization conductor is empty. The subsequent gluing only needs at most one point.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the connectedness convention made explicit and a compatible empty-conductor example. Restored the overbars lost in the old transcription: π_i and C_i live on D̄_i. Changed affects to a stated result for the literal nonempty assertion of Lemma 6.8, without claiming a failure of Corollary 6.7. Under an empty-allowed connectedness convention this would instead be a clarification.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E5",
+      "kind": "error",
+      "locator": "Corollary 6.7 proof, published pp.700–701 (PDF 46–47), especially its paraphrase of Keel Lemma 5.2; v2 pp.42–43; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“Q-effective nef”; ν(L)=1 ⇒ L semiample (the implication is a notation summary).",
+      "correction": "For the normal projective surface over an algebraically closed field, require h⁰(L^m)≥2 for some m>0, equivalently positive Iitaka dimension in this numerical-dimension-one setting. In the application, use h⁰(mL)≥χ(mL)−h²(mL)→∞, not mere existence of a section.",
+      "reason": "Let E be an elliptic curve over C and M∈Pic⁰(E) a non-torsion line bundle. On the smooth ruled surface P_E(O_E⊕M), the tautological quotient line bundle N=O(1) is nef, N²=0 and N has degree one on each ruling fibre. Moreover h⁰(N^m)=Σ_{j=0}^m h⁰(M^j)=1 for every m>0. Its unique section has zeros on every fibre, so no positive power is globally generated. This disproves the unqualified algebraically closed field assertion. The same construction works in characteristic p using an elliptic curve over F_p and its generic point over an algebraic closure of F_p(E) to obtain non-torsion M. Witaszek’s preceding Riemann–Roch estimate and the bounded h² in Keel Lemma 5.4 supply growing h⁰, so the stronger, valid surface criterion repairs this application. Keel’s published Lemma 5.2 p.281 itself prints h⁰>0; Witaszek repeats that incorrect form rather than misquoting a correct theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere.",
+        "For the inherited criterion: Keel’s published paper https://emis.de/ft/50731, pp.279–282; its Annals record https://annals.math.princeton.edu/articles/12449 and searches for Keel Lemma 5.2 / basepoint freeness erratum or corrigendum found no separate correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by reading Keel pp.279–282 and reconstructing the ruled-surface counterexample. Added the error in Witaszek’s own paraphrase, which the original errata file excluded as belonging solely to the cited source. The main corollary survives the explicit stronger estimate.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E6",
+      "kind": "error",
+      "locator": "§2.1, characteristic-zero field-extension parenthesis, published p.664 (PDF 10); v2 p.9; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“K ⊗_L K = K^{⊕deg L/K}”",
+      "correction": "For finite separable K/L, choose an algebraic closure Ω of L containing K and use K⊗_L Ω≅Ω^[K:L]. A universal homeomorphism then forces [K:L]=1. Splitting over K itself needs an extra splitting/normality hypothesis.",
+      "reason": "For L=Q and K=Q(a) with real a³=2, K⊗_Q K≅K[T]/(T³−2)≅K×K[T]/(T²+aT+a²). The quadratic has discriminant −3a²<0 in the real field K, so it is irreducible. Thus the tensor product is not K³. Besides the reversed degree notation, characteristic zero gives separability, not splitting over K. After base change to Ω, the universal-homeomorphism claim follows by counting the [K:L] distinct points.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both versions and on the published image: there are no overbars that would already provide an algebraic closure. Checked the cubic factorization and discriminant exactly. The conclusion about characteristic-zero universal homeomorphisms remains valid.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E7",
+      "kind": "misprint",
+      "locator": "Lemma 2.26 proof, published p.673 (PDF 19); v2 p.17; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“q = g⁻¹ ∘ p”",
+      "correction": "Use q=p∘g⁻¹ on the underlying topological spaces.",
+      "reason": "The diagram has p:Y→X and g:Y→Y′, with X′=X topologically. Thus g⁻¹:Y′→Y must be followed by p:Y→X. The displayed order does not have the required domain Y′ and codomain X′.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
-        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
-        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
-      ]
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by tracing the domains in the diagram in both versions. The adjacent verbal construction already specifies the correctly typed map.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E8",
+      "kind": "misprint",
+      "locator": "Lemma 3.4 proof, published p.677 (PDF 23); v2 p.21; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“p^n | p^i binom(p^k,i)”; “0 ≤ i ≤ p^k”",
+      "correction": "Use 1≤i≤p^k, with k sufficiently large (k≥n suffices).",
+      "reason": "At i=0 the term equals one, which is not divisible by p^n for n>0. For 1≤i≤p^k, v_p(binom(p^k,i))=k−v_p(i), so v_p(p^i binom(p^k,i))=i+k−v_p(i)≥k. The displayed sum already begins at i=1 and the i=0 term π(b)^(p^k) is in the image separately.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the endpoints on the page image and proved the corrected bound; 3,730 exact positive-index cases and 16 excluded zero-index cases were also checked as diagnostics, not as a substitute for the valuation argument.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E9",
+      "kind": "misprint",
+      "locator": "Theorem 1.7 proof, end of Step 2, published p.679 (PDF 25); v2 p.22; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“conclude Step 1”",
+      "correction": "Refer to Step 2 at the end of the thickening argument.",
+      "reason": "Step 1 addresses characteristic p. The paragraph in question completes the thickening case announced as Step 2 on p.678. Step 3 correctly cites Step 2 for reduction thickenings.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the surrounding headings and the downstream use in both versions.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E10",
+      "kind": "misprint",
+      "locator": "Lemma 6.3 proof, published p.697 (PDF 43), with conclusion on p.698; v2 pp.39–40; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“m_Z : Z × G”; “with Z endowed with a trivial G-action”",
+      "correction": "Complete the induced action as m_Z:Z×G→Z. In the earlier claim concerning Y→Z→Z′, put the trivial action on the target Z′.",
+      "reason": "The next diagram explicitly supplies codomain Z for m_Z. The construction then equalizes m_Z and the projection only after Z→Z′, and applies Theorem 2.15 to Y→Z′. It is Z′ that must be the target with trivial action; declaring the intermediate Z-action trivial is neither what has been constructed nor what the claim requires.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed both omitted-target and missing-prime slips from the diagrams and conclusion in both versions. The newer extraction recorded only the first; this review adds the second in the same entry.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E11",
+      "kind": "misprint",
+      "locator": "Bibliography, published p.703 (PDF 49), and Fujita citation p.694 (PDF 40); compare v2 bibliography p.45 and citation p.37; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“[Kee03]” (used for two different authors and papers).",
+      "correction": "Use distinct labels for Seán Keel, Polarized pushouts over finite fields, and Dennis S. Keeler, Ample filters of invertible sheaves. The Fujita citation to Theorem 1.5 denotes Keeler, together with his 2018 corrigendum.",
+      "reason": "The published bibliography assigns the same label to both entries. The arXiv v2 bibliography distinguishes Kee03a (Keel) and Kee03b (Keeler), and its Fujita citation explicitly selects Kee03b. Thus the publication introduced an ambiguity absent from the accepted author version.",
+      "affects": "nothing",
+      "known": "Already disambiguated in arXiv:2002.11915v2 (23 January 2022), pp.37 and 45, using Kee03a/Kee03b. This predates the published duplication; no separate published erratum found.",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the published bibliography image and collated the v2 bibliography and Fujita passage. Classified the available disambiguation as known, without pretending it is a later journal erratum.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E12",
+      "kind": "misprint",
+      "locator": "Corollary 6.7 proof, final display, published p.702 (PDF 48), notation introduced on p.701; v2 p.43; Annals of Mathematics 195 (2022), 655–705, DOI 10.4007/annals.2022.195.2.4, compared with arXiv:2002.11915v2 (23 January 2022).",
+      "printed": "“deg Λ|_G ≤ deg Δ_{D̄_i}|_F < 2”",
+      "correction": "In the left-hand degree, restrict Λ to F, the generic fibre upstairs on D̄_i. Then transfer the at-most-one-point conclusion through the finite normalization map F→G.",
+      "reason": "The preceding paragraph defines Λ on D̄_i as the one-dimensional part of p_i⁻¹(U_{i−1}∩D_i), whereas G is a fibre on D_i. F is the fibre on D̄_i where the boundary degree estimate was proved. Thus the left restriction to G uses the wrong space. On F, Λ≤⌊Δ_{D̄_i}⌋ yields the required bound; the finite surjection to the corresponding G sends its at-most-one-point support onto the generic intersection downstairs.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Checked 23 September 2026: https://annals.math.princeton.edu/2022/195-2/p04 links no correction; https://api.crossref.org/works/10.4007/annals.2022.195.2.4 has empty relation and no update-to or updated-by field.",
+        "https://arxiv.org/abs/2002.11915 lists v1 (27 February 2020) and latest v2 (23 January 2022); independently collated v2 with the published PDF https://par.nsf.gov/servlets/purl/10429755.",
+        "Author publication lists https://sites.math.northwestern.edu/lro1793/publications.html and https://web.math.princeton.edu/~jw0269/publications.html; exact-title/Witaszek/Keel erratum searches: no separate correction found. This is a bounded search, not a claim that no correction exists anywhere."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "New finding in this review, independently checked on both PDF page images. This is errata E12; it is unrelated to extraction E12, which concerns an external Stacks prerequisite.",
+        "by": "REV-ERRATA-PAPER-WITASZEK-22"
+      }
     }
   ]
 }
