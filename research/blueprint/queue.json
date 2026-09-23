@@ -4943,8 +4943,9 @@
    ],
    "avoidAccountOf": "PAPER-CLAUSEN-MATHEW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLAUSEN-MATHEW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1291"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1291",
+   "finishedAt": "2026-09-23T22:53:22Z"
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -5173,7 +5174,8 @@
    ],
    "avoidAccountOf": "PAPER-LIU-ZHU-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-LIU-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1303"
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17",
