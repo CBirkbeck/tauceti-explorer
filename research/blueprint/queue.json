@@ -2296,8 +2296,9 @@
    ],
    "avoidAccountOf": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1144"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1144",
+   "finishedAt": "2026-09-23T20:10:54Z"
   },
   {
    "id": "PAPER-YUAN-ZHANG-18",
@@ -2334,7 +2335,8 @@
    ],
    "avoidAccountOf": "PAPER-YUAN-ZHANG-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUAN-ZHANG-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1146"
   },
   {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -2445,7 +2447,8 @@
    ],
    "avoidAccountOf": "PAPER-ZHU-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1152"
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17",
@@ -4211,8 +4214,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5056,8 +5059,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-SCHOLZE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1301"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1301",
+   "finishedAt": "2026-09-23T20:10:57Z"
   },
   {
    "id": "PAPER-LIU-ZHU-17",
@@ -6563,8 +6567,9 @@
    ],
    "avoidAccountOf": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1383"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1383",
+   "finishedAt": "2026-09-23T20:11:00Z"
   },
   {
    "id": "PAPER-LI-LIU-22",
