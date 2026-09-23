@@ -13118,9 +13118,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the residual clause of Definition 1.8.10 prints « with similitude factor ε̄ » while the characteristic-zero clause two lines above uses ε⁻¹ and the displayed matrix has ε̄⁻¹χ̄₂⁻¹ entries."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E002",
@@ -13139,9 +13139,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Definition 2.2.31 prints « M_{r+1} ⊗_{Û(𝔤)_{r+1}} Û(𝔤)_r » for a (left) Û(𝔤)-module, where scalar extension of a left module over a noncommutative ring must put the algebra on the left."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E003",
@@ -13160,9 +13160,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed at tex line 3129: « that 𝔲_{𝔭_w} is abelian, since 𝔲 is abelian by assumption ». The standing assumption is on 𝔲_P (𝔲_𝔭), and the conjugate is abelian because 𝔲_𝔭 is."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E004",
@@ -13181,9 +13181,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed verbatim, in both formulas: « C_w = X_w ∖ ∪_{w′ ≤ w} X_{w′} » and the primed analytic version also with ≤, so every cell is empty as printed. One remark on classification: the sentence names the object as the classical Schubert stratification, so the intended meaning is unambiguous and PROTOCOL's definition of misprint fits better than error; I have left the kind as recorded rather than rewrite it."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E005",
@@ -13202,9 +13202,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed as printed: the proof of Proposition 2.4.9 equates the complex RΓ_c(C_w, O_{C_w}) with a plain graded vector space. That a shift is missing is certain — the parallel computation in Proposition 2.4.10 carries [d − ℓ(w^M)] — but I did not independently confirm the exact degree d_FL − ℓ(w) proposed here."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E006",
@@ -13223,9 +13223,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the final line of Proposition 2.4.10's proof prints (w^M)⁻¹(w^M·(λ+ρ) + 2ρ^M) while the proposition being proved states (w^M)⁻¹(w^M·λ + 2ρ^M). The proof contradicts its own statement, so the +ρ is the slip."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E007",
@@ -13244,9 +13244,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: tex 3607 prints « The map M_{−2−λ} → M_λ sends the basis vector X̄ⁿ … to X̄^{n+λ+2} ». Weights decide it: X̄^m v has weight λ − 2m, and λ − 2m = −2 − λ gives m = λ+1, so the exponent is n+λ+1."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E008",
@@ -13265,9 +13265,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « Fixing a PBW basis gives a decomposition of U(𝔤) into weight spaces and defines the natural topology ». The construction above needs a decomposition indexed by multi-indices with a degree |ν|; the adjoint weight spaces of U(𝔤) are infinite-dimensional (the zero weight space contains all of U(𝔥)) and carry no such degree."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E009",
@@ -13286,9 +13286,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the counterexample is exact. The proof chooses 0 < r₀ ≤ p^m with r₀ ≡ x (mod p^m) and then writes ∏_{r=1}^n |x−r| = |x−r₀|·∏_{r≠r₀}|r₀−r|. For p = 3, x = −1, n = 1 one gets m = 1 and r₀ = 2 > n, so the left side is |−2|₃ = 1 while the right side is |−3|₃·|1| = 1/3. The proposed repair (r₀ minimising |x−r| over 1 ≤ r ≤ n) gives the bound through the ultrametric inequality without the false equality."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E010",
@@ -13307,9 +13307,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed — I re-derived the counterexample and it holds. On V₂ = E ⊕ c₀₀(E) with V₁ = E and the unbounded functional φ(x) = Σ p^{−n}x_n, the norms max(|a|, sup|x_n|) and max(|a+φ(x)|, sup|x_n|) both induce |a| on V₁ and, taking a = 0 resp. a = −φ(x), the sup norm on V₃; yet (0, pⁿeₙ) tends to 0 in the first and has norm 1 in the second. The proof's step is exactly the invalid one: L ∩ V₁ ⊆ L′ ∩ V₁ together with im L ⊆ im L′ does not give L ⊆ L′."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E011",
@@ -13328,9 +13328,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the proof of Proposition 2.7.6 ends « we are done by Lemma [2.7.5] ». Worth adding to the entry's reason: strictness cannot repair it, because in the counterexample to E010 both short exact sequences are strict — the subspace and quotient topologies are the standard ones for both norms."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E012",
@@ -13349,9 +13349,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Remark 3.5.5 prints Loc(M) = ⊕_{w ∈ ᴹW} Loc(M)_{−w_{0,M}(w·λ+2ρᴹ)} immediately after describing Spec as the *set* of such characters. For SL₂ with λ = −ρ both Weyl elements give the same character, so two indices name one idempotent; the paper's own parenthesis already notes that the algebra is non-reduced at singular weights."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E013",
@@ -13370,9 +13370,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the 𝔤-action in Lemma 3.5.2's proof is printed with a factor λ⁻¹(b) although no b is in scope, and the same action is written two lines later without it."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E014",
@@ -13391,9 +13391,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Proposition 3.5.25 states the target as M(𝔪_w)^∨ while its proof computes RHom into M̂^∨_λ, the continuous dual of the completed Verma module."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E015",
@@ -13412,9 +13412,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed as a gap, and the kernel is explicit. The proof expands germs as Σ_{k≥0} a_k x^k and computes Θ_hor(μ) = x∂_x − w/2 + ∂_x, so (Θ_hor(μ) − μ₀)f = Σ_m (m+1)(a_m + a_{m+1})x^m; the condition a_{m+1} = −a_m has the convergent solution f = a₀/(1+x), i.e. the operator (x+1)∂_x + 1 kills 1/(1+x). So injectivity does not follow on the ambient germ space, and as the entry says this is a gap, not a counterexample to Proposition 3.6.15."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E016",
@@ -13433,17 +13433,17 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: (4.5.7) defines the Sen module as (B ⊗_C F_r)^{K_p, pⁿΓ-an}, but the Γ-action is introduced on B_∞ in the almost-purity display immediately above, and (4.5.9) reads B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r) = B_∞ ⊗_C F_r."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E017",
    "kind": "misprint",
    "locator": "Theorem4.5.4 proof, p77; arXiv v1 / identical author copy",
-   "printed": "an injective map … whose kernel is annihilated by p",
-   "correction": "The almost-surjectivity assertion concerns the cokernel; the kernel of an injective map is already zero. Also replace the tautological displayed cohomology equality by the asserted flat base-change map B_∞⊗H^i→H^i(B_∞⊗−).",
-   "reason": "These are the exact properties used to get the Banach presentation and commute cohomology with scalar extension.",
+   "printed": "H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r))",
+   "correction": "Replace the tautological displayed equality by the flat base-change map it is meant to assert, B_∞ ⊗_{B_{K_p,n}} H^i(Lie(Γ), S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)), as in the display immediately below it.",
+   "reason": "Both sides of the printed equality are the same expression character for character, so it says nothing; the flatness of B_∞ over B_{K_p,n} established one line above is what lets the cohomology commute with the scalar extension, and that is the statement the argument uses.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -13454,9 +13454,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed only after correcting the entry, which as submitted misquoted the paper. Page 77 prints « whose **cokernel** is annihilated by p » in both bullets, which is correct mathematics, so the recorded « kernel » claim and the first half of its correction were a misreading and I have removed them. The real slip at the same locator is the sentence that follows: the source literally reads H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)) = H^i(Lie(Γ), B_∞ ⊗_{B_{K_p,n}} S_{K_p,n}(F_r)), character for character identical on both sides, where the flat base change B_∞ ⊗ H^i = H^i(B_∞ ⊗ −) is meant, as the next display and the following sentence both show. `printed` and `correction` have been rewritten accordingly."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E018",
@@ -13475,9 +13475,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Definition 4.6.39(2) writes ℱ₁ = 𝒢₁ ⊗_E (𝒪_E/p𝒪_E)^I, tensoring over the field E, while part (1) of the same definition correctly tensors over 𝒪_E/pⁿ𝒪_E."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E019",
@@ -13496,9 +13496,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Remark 4.6.47 prints « if s ≥ n » and asserts that 1 − p^{s−n}U(pⁿX⁻¹) is invertible with geometric-series inverse. On ℚ_p⟨U, pⁿX, pⁿX⁻¹⟩ the points satisfy −n ≤ v(X) ≤ n, so at s = n one may take v(X) = n and U = Xp^{−n} of norm 1, where the element vanishes. With s > n the factor has norm < 1 and the intended vanishing survives."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E020",
@@ -13517,9 +13517,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « the eigenvalues in either case take the form 1, −1, λ, −λ ». Orthogonality forces the non-real eigenvalues into pairs {λ, λ⁻¹}, and det(1,−1,λ,−λ) = λ², which is not −1 in general; the determinant −1 component of O₄ has eigenvalues 1, −1, λ, λ⁻¹."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E021",
@@ -13538,9 +13538,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Lemma 4.12.1 prints χ⁻¹₂(z)⁻¹ and χ₁⁻¹(z)⁻¹ in the third and fourth diagonal entries, beside the singly inverted χ⁻¹₄(z) and χ⁻¹₃(z) in the first two."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E022",
@@ -13559,9 +13559,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the five-term inflation–restriction sequence (infres) ends → H²(F(S)/F⁺, k). Its last term is H² of the big group with the full coefficients, i.e. ad ρ̄; only the first and fourth terms carry (ad ρ̄)^{G_F} = k, which the paper notes just above."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E023",
@@ -13580,9 +13580,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « Assume without loss of generality that K⁺_{m−1} ⊆ F⁺ ⊊ K⁺_m » with K⁺_m the maximal totally real subfield of ℚ(ζ_{2^m}). F⁺ is an arbitrary totally real field and need not lie in the cyclotomic tower; what the proof can assume, and what makes L⁺ = F⁺K⁺_m/F⁺ quadratic, is minimality of m with K⁺_m ⊄ F⁺."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E024",
@@ -13601,9 +13601,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: (5.7.3) presents T(𝔩) as the kernel of ∏_{v∈S₂} T(O_{F⁺_v}) → ∏_{v∈S₂} k(v)^×. For the diagonal torus of GL_n the prime-to-2 quotient is ∏ T(k(v)) = ∏ (k(v)^×)ⁿ; this is also what makes E025's corrected dimension come out right."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E025",
@@ -13622,9 +13622,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « dim Λ = 1 + [F:ℚ]n » with Λ = ⊗̂_{v ∈ S₂} Λ_v indexed by the places of F⁺ above 2, each contributing n[F⁺_v:ℚ₂], so the total is 1 + n[F⁺:ℚ]."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E026",
@@ -13643,9 +13643,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the descent step replaces R by places of L, chooses v₁′ among places of L⁺, and sets T′ = R′ ∪ {v₁′}, dropping S₂ although §5.7 assigns Λ_v = Λ_{GL_n,v} precisely for v ∈ S₂ and the next tensor product uses those factors. The entry's second observation — that the places are described over L where L⁺ is meant — is also visible in the printed text."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E027",
@@ -13664,9 +13664,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: for an ordinary ρ_x the filtration on ad⁰ = 𝔰𝔭₄ has Fil⁰ the Borel (dim 6) and Fil¹ its nilradical (dim 4), so the two dimensions are 4 and 10 − 6 = 4, not the printed « 6 and 10 − 4 = 6 ». The conclusion — that the inclusion is an equality — is unaffected."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E028",
@@ -13685,9 +13685,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the printed identity is vacuous: Γ′ = ρ̄(G_ℚ) already lies in GSp₄(F₃), so « Γ = Γ′ ∩ GSp₄(F₃) » says nothing. Cutting out ρ̄(G_{ℚ(ζ₃)}), the kernel of the similitude character, is intersection with Sp₄(F₃)."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E029",
@@ -13706,9 +13706,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the failure is total rather than occasional. For S_∞ = O[[T]] and Δ_N = ℤ/p^N the kernel of S_∞ → S_N is ((1+T)^{p^N} − 1), whose linear coefficient p^N is non-zero, so the element lies outside (T)² for every N and the set of N with a_∞ⁿ ⊇ ker(S_∞ → S_N) is empty for n ≥ 2, not cofinite. The mixed (ϖ^m, a_∞ⁿ) truncation of Gee–Newton works exactly because p^N ∈ (ϖ^m) for large N."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E030",
@@ -13727,9 +13727,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed as a gap: the proof says « we can and do lift the morphism S_∞ → (R^patch)^∧ to a morphism S_∞ → (R_∞)^∧ », and lifting along a surjection of complete local rings needs formal smoothness of the source. At p = 2 the weight algebra contains O[μ₂] = O[x]/(x²−1), which is not formally smooth over O, so the appeal to Gee–Newton's power-series base does not transfer verbatim."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E031",
@@ -13748,9 +13748,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Rejected: there is no defect here. « We choose a prime v₀ > 5 such that v₀ ≢ 1 (mod p) and v₀ ≢ 1 (mod 4) if p = 2 » is correct as printed; at p = 2 the first condition is merely redundant, since every odd prime satisfies it, and the operative condition is v₀ ≡ 3 (mod 4), which is what the second gives. The additions the entry asks for are already present: the definition of a neat prime lists v₀ ≠ p explicitly, and v₀ > 5 is stated in the same sentence. A finding must not enter the register of mistakes in published sources unless something in the source is wrong."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E032",
@@ -13769,9 +13769,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by internal contradiction: the statement of Lemma 7.3.8 has Λ[Z^S K^p_2 / Z^S K^p_1] and its proof, three lines later, Λ[Z^S K^p_1 / Z^S K^p_2]."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E033",
@@ -13790,9 +13790,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the two conditions are literally contradictory. Definition 7.4.5 opens « Assume that l ≡ 1 (mod p) », while a neat prime is defined by « v₀ ≢ 1 (mod p), and v₀ ≢ 1 (mod 4) if p = 2 », so the later neat-prime localisation cannot satisfy the definition it is used under."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E034",
@@ -13811,14 +13811,14 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the proof produces ρ′ preserving the form BJBᵗ and then says « by choosing a symplectic basis … ρ′ is ĜSp₄(S)-conjugate to » a representation valued in GSp₄(S). Conjugation by GSp₄ preserves the standard form J and so cannot move BJBᵗ onto it; the basis change belongs to GL₄, after which one checks the composite lies in the right group."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E035",
    "kind": "error",
-   "locator": "Lemma7.4.9 setup, p171; arXiv v1 / identical author copy",
+   "locator": "§7.4, the discussion after Proposition7.4.10 and before Lemma7.4.11, p171 (not Lemma7.4.9, which is the Definition of the Hecke algebras); arXiv v1 / identical author copy",
    "printed": "k[e₁,e₂,(e₃/e₁)^{±1}]; maximal ideal n generated by characteristic-polynomial coefficients",
    "correction": "Use the centre k[e₁,e₂,μ^{±1}], with e₃=μe₁,e₄=μ², and specialize the FULL central character including μ.",
    "reason": "e₁ can be0. Over F7 the distinct roots {2,5,3,4} admit similitudes1 and−1 with the same characteristic polynomial and e₁=e₃=0. Coefficients alone then do not specify one maximal ideal.",
@@ -13832,9 +13832,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and sharper than recorded, but its locator was wrong and I have corrected it in place: 7.4.9 is a *Definition* (of the Hecke algebras 𝕋_S), and the quoted material is in the unnumbered discussion after Proposition 7.4.10 on the same page. On the mathematics: with the paper's normalisation the four parameters are {a, a⁻¹, b, b⁻¹}; over F₇ with a = 2, b = 5 the multiset {2,4,5,3} is pairwise distinct and has e₁ = e₃ = 0, and the pairings 2↔4, 5↔3 and 2↔3, 5↔4 give similitude 1 and −1 with identical e_i. Since e₃ = μe₁ and e₄ = μ² identically, the ideal 𝔫 = (ϖ, e_i − e_i(γ)) then has quotient k[μ^{±1}]/(μ²−1) ≅ k × k, so the printed 𝔫 is not even maximal."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E036",
@@ -13853,9 +13853,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Lemma 7.5.4 reads « Every irreducible component of Spec R_S **containing 𝔮** has dimension at least dim Λ_{GSp₄,ℚ} », while the proof of Proposition 7.5.10 concludes that *every* irreducible component of Spec R_S[1/2] dominates a component of Spec Λ_{GSp₄,ℚ}[1/2]."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E037",
@@ -13874,9 +13874,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed against the paper's own table: p190 says the squares of lifts of 2C and 2D are « I and −I respectively », but the table assigns 2C the characteristic polynomial x⁴+2x²+1 = (x²+1)², whose roots are primitive fourth roots of unity, forcing the square of a lift to be −I."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E038",
@@ -13895,9 +13895,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « H²(G_{ℚ₂}, ρ̄_{A,3}) = 0, so all lifts … ». Obstructions to lifting a representation lie in H² of the adjoint, not of the representation itself."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E039",
@@ -13916,9 +13916,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed in full, and the paper's own material supplies every hypothesis. Lemma 9.2.13 assumes (1) ρ̄_{A,3}|G_{ℚ₂} unramified, (2) projective class 2C or 6G, (3) ρ̄_{A,2} inside S₅(b), and concludes semistable ordinary with purely toric reduction. For Y : y²+y = x⁵−x⁴+x³ the paper itself computes class 6G and notes good reduction at 2; Deuring–Šafarevič gives 2-rank 0 (a single branch point), so the reduction is good and non-ordinary; and the paper proves elsewhere that a rational Weierstrass point is *equivalent* to ρ̄_{A,2} factoring through a conjugate of S₅(b), which Y has. The paper's own remark, « this does not contradict Lemma [9.2.13] because … Y is not ordinary », is circular, since the lemma concludes ordinarity; the missing hypothesis is bad reduction, which the only application supplies (« any specialization … which does not have good reduction »)."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E040",
@@ -13937,9 +13937,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by internal contradiction: p197 says that for a Tate curve with cube parameter « ρ_{X,3} is the trivial representation », while the same proof later states that the action on X[3] is μ₃ ⊕ ℤ/3ℤ « and hence is unramified » — unramified but not trivial, with Frobenius acting by −1 on μ₃, as the paper's next sentence about the unramified quadratic character being cyclotomic makes explicit."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E041",
@@ -13958,9 +13958,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by computation: for Y : y²+y = x⁵−x⁴+x³ over F₂ I counted #Y(F₂) = 3 and #Y(F₄) = 9, which give Q(X) = X⁴+2X²+4. The printed Q(x) = x⁴+2x²+1 is impossible for a genus-2 curve over F₂ on the functional equation alone, whose constant term must be q^g = 4."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E042",
@@ -13979,9 +13979,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Lemma 9.3.4 assumes « a principally quasi-polarized finite flat group scheme of rank 4 » and is applied to A[p] of an abelian surface, which has rank p⁴; the lemma is stated for p > 2, so 4 and p⁴ never agree."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E043",
@@ -14000,9 +14000,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: after twisting to make V̄ trivial the proof takes A₀ = E_{−1} × E_2 over F₃, but −1 ≡ 2 ≡ −1 (mod 3), so both unit roots reduce to −1 and the product realises the scalar −1, not +1. The unramified quadratic twist repairs it and leaves the mod-2 representation untouched."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E044",
@@ -14021,9 +14021,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by counting: #E_{−1}(F₃) = 5 is odd, so Frobenius fixes no non-zero 2-torsion and has order 3; #E_2(F₃) = 2, so it fixes exactly one and has order 2. The printed « order 2 and 3 respectively » is the wrong way round, and the product's order 6 is unaffected."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E045",
@@ -14042,9 +14042,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Lemma 9.4.1 reads « Let Z be a rational variety over ℚ » with no smoothness hypothesis. The acnodal curve y² = x²(x−1) is ℚ-rational (x = t²+1, y = t(t²+1)) and has the isolated real point (0,0); taking Ω_∞ = {(0,0)} leaves only a point of the thin set {(0,0)}. The paper's own applications are to smooth varieties, so nothing downstream breaks."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E046",
@@ -14063,9 +14063,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the printed rates are Hⁿ for the points of height ≤ H in Pⁿ(ℚ) and O(H^{n−1/2} log H) for a thin set. Schanuel gives ~cH^{n+1} and Serre's bound is O(H^{n+1/2} log H); both exponents are one too low, and the comparison the proof needs survives."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E047",
@@ -14084,9 +14084,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Rejected: the quoted text is not at the cited locator, and the claim there is justified. The proof of Lemma 9.4.2 on p205 reads « there exists a point A ∈ P(ρ̄)(ℚ₂) with **either good ordinary or semistable ordinary** reduction (and which is 2-distinguished) … Moreover, all the properties listed hold in any open ball around any such point A by [Kisin, Thm. 5.1] », so it already allows the semistable case, and Kisin's local-constancy theorem keeps the local Galois representation — hence the reduction type — constant on a small ball. The nearest text matching the entry's quote is in the proof of Corollary 9.3.6, where the point does have good reduction and the same argument applies."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E048",
@@ -14105,9 +14105,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: p209 prints a G_{ℚ₂}-equivariant filtration « T₂(B)_t ⊂ T₂(B)_f ⊂ T₂(B) of (saturated) ℤ₃-modules », mixing the 2-adic Tate module with ℤ₃-coefficients."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E049",
@@ -14126,9 +14126,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed against the paper's own tables: §10.1(3) prints x⁴ ± x³ + 2x² ± x + 1 with matching signs, while the tables for classes 4C and 12C print x⁴ ± x³ + 2x² ∓ x + 1. Expanding (X² ± X + 2)² modulo 3 gives cubic coefficient ∓1 and linear coefficient ±1, so the opposite pairing is the right one."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E050",
@@ -14147,9 +14147,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the valuation is exactly as claimed: Hensel-lifting the unit root of X²+X+2 in ℤ₂ to 2²⁴ gives v₂(α²−1) = 3. Purity gives only that the eigenvalues are ≠ 1, hence vanishing after inverting 2; local Tate duality identifies the integral H² with the dual of the invariants in M^∨ ⊗ ℚ₂/ℤ₂, which here have order 8. So « H²(K, M(1)) = 0 » is false integrally."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E051",
@@ -14168,9 +14168,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: on μ₂² ⊕ (ℤ/2)² over ℤ₂ with the perfect symmetric pairing [[0,I],[I,diag(1,0)]] the composite of (10.3.4) is trivial, because the connected-connected block vanishes, while on the generic fibre an étale basis vector pairs with itself to 1 ≠ 0. So triviality of that composite does not make λ alternating on the generic fibre."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E052",
@@ -14189,9 +14189,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the quotient is written φ^{ℤ/q^rℤ} although Gal(F_{q^r}/F_q) is cyclic of order r."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E053",
@@ -14210,9 +14210,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by computation. For the [2,2,2] row, y² = x⁶+4x⁴+6x³−8x²+1 reduces mod 3 to (x²+1)(x²+x+2)(x²+2x+2); I counted #C(F₃) = 8 and #C(F₉) = 14, giving Q(X) = X⁴+4X³+10X²+12X+9 = (X²+2X+3)². The repeated factor means the two unit roots coincide, so the curve is not 3-distinguished. The entry's further point is also right: F₃ has exactly three monic irreducible quadratics, so this is the only squarefree sextic with that factorisation type and no other special fibre can fix the row."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E054",
@@ -14231,9 +14231,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « Ĝ(R) := ker(Ĝ(R) → Ĝ(k)) » defines the symbol in terms of itself; the right-hand side must use G."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E055",
@@ -14252,9 +14252,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « If F is a number field then we say that a representation G_F → GL_n(ℚ̄_p) (or G_F → GSp₄(ℚ̄_p)) if it is pure at all finite places of F » — the predicate being defined is missing."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E056",
@@ -14273,9 +14273,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « To each λ ∈ X_⋆(T) we can associate a representation V_λ … with highest weight λ » needs λ dominant for the chosen Borel."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E057",
@@ -14294,9 +14294,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the evaluation map at e is written 𝒪_{G_{r′}} ⊗ V → V, with r′ never introduced; the surrounding construction uses the radius r."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E058",
@@ -14315,9 +14315,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « for a semi-simple group, the categories of finite dimensional representations of the group and of its Lie algebra are equivalent » is false without simple connectedness — the standard representation of 𝔰𝔩₂ does not integrate to PGL₂ — and it is applied to M^der, which need not be simply connected."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E059",
@@ -14336,9 +14336,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: tex 6388 prints Adm_{(𝔪_w, B_{M_w})}(E)_λ where the surrounding statements (tex 6436, 6439, 6502) all use Adm_{(𝔪_w, Q_{M_w})}."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E060",
@@ -14357,9 +14357,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « Let 𝒳 be a quasi-Stein affinoid adic space » — a quasi-Stein space is an increasing union of affinoids and is not itself affinoid except trivially, so the two hypotheses cannot be combined as printed."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E061",
@@ -14378,9 +14378,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: with Y_n ⊆ F_n ⊆ Y_{n+1}, as the same sentence states, the printed chain RΓ_{F_n}(V_n) → RΓ_c(Y_n) → RΓ_{F_{n+1}}(V_{n+1}) runs its first arrow the wrong way; extension by zero gives RΓ_c(Y_n) → RΓ_{F_n} → RΓ_c(Y_{n+1})."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E062",
@@ -14399,9 +14399,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed by the sentence itself: « (as T_{0,m,r} is the union of ℓ(w) Stein spaces) » sits beside the conclusion that the cohomology is concentrated in degrees [ℓ(w)+1, d], which needs d − ℓ(w) pieces."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E063",
@@ -14420,9 +14420,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: immediately after Definition 6.1.4 the universal symplectic deformation is written ρ_S : G_F → GSp₄(R_S), although §6 works throughout over the totally real field F⁺ (F is the CM field of §5)."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E064",
@@ -14441,9 +14441,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the inertia condition sets ψ_i|_{I_{F_ṽ}} equal to the pushforward of the whole tuple (χ₁,…,χ_n), rather than of the ith universal character."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E065",
@@ -14462,9 +14462,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the algebraic coefficient module is written as a tensor product « over τ ∈ S̃₂ » of representations of highest weight λ_τ, indexing by places where the weights are indexed by p-adic embeddings."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E066",
@@ -14483,9 +14483,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed, and the overstatement is exactly as the entry says. With 𝔪^{n+1} = 0, ρ(σ) = tu and ρ(φ)uρ(φ)⁻¹ = t^{q_v−1}u, regular semisimplicity of ρ̄(φ) makes Ad(φ) − 1 invertible off the Cartan, which kills the off-torus part of u and gives u ∈ T(A) — which is precisely what the lemma needs (« we need to show that ρ(σ) ∈ T(A) »). Nothing forces the torus part to vanish, so « it follows that u = 1 » claims more than the argument gives."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E067",
@@ -14504,9 +14504,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the Selmer group H¹_{S^⊥,T}(F⁺, W^{0*}_m(1)) is defined as the kernel of a map out of H^i(F⁺_S/F⁺, W^{0*}_m(1)) with i unbound."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E068",
@@ -14525,9 +14525,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed on its reference half, which I checked decisively: the text says « Using Lemma 7.3.5 and the identification of T and T̂ » for the conversion of a character of T(ℤ_p) into a cocharacter valued in T(…), which is the content of Lemma 7.3.6 (labelled « converting characters to cocharacters, split torus ») — and Lemma 7.3.5's own proof cites 7.3.6 for exactly that step. I did not separately verify the derived-coinvariants half of the entry."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E069",
@@ -14546,9 +14546,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the proof fixes an isogeny Jac(X) → A and then, from a hypothesis about ρ̄_{Jac(X),3}, states the minimal polynomial of Frob₂ and the invariant subspaces for A[3]; the reference Jacobian's own 3-torsion is what the hypothesis controls."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E070",
@@ -14567,9 +14567,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: Lemma 10.3.1 is stated entirely for the prime 2 — « a 2-torsion finite flat group scheme of order 16 = 2⁴ » over the integers of a finite extension of ℚ₂ — yet concludes « A[p] ≃ G₁ » with p introduced nowhere in the statement. Harmless in substance; `affects: nothing` would fit it better than `a stated result`."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E071",
@@ -14588,9 +14588,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: « the unramified class in H¹_f(ℚ, μ₂) = ℤ₂^×/ℤ₂^{×2} » — the identification on the right is the local group at 2, so the group is H¹_f(ℚ₂, μ₂)."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E072",
@@ -14609,9 +14609,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Rejected: no defect is demonstrated at the cited passage. The text says « If the σθ are distinct, then X : y² = ∏(x − σθ) will be a smooth genus two curve over F », and describes Z(ρ̄) as the complement of finitely many hyperplanes — the conditions σθ = σ′θ are linear in the coordinates of θ, so that description is apt and the primitive-element condition the entry asks for is stated. The entry identifies no false statement, only a request for more explicit coordinates; I make no claim either way about the separate question of whether the ambient projective space should be P⁶."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E073",
@@ -14630,9 +14630,9 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed on the two fragments I located: « beings by recalling » for « begins » and « twisted weighed fundamental lemma » for « weighted ». I did not locate the other two fragments quoted in the entry."
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E074",
@@ -14651,9 +14651,30 @@
    "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
    "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Confirmed: the sets are defined as T_{n,m,r} (three times, in Definition 4.6.31 and the two displays after it) and then used as W_{n,m,r} = π_HT⁻¹(T_{m,n,r})."
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E075",
+   "kind": "misprint",
+   "locator": "Lemma2.7.5 statement, p38; arXiv v1 / identical author copy",
+   "printed": "the induced topologies T_2 and T′_3 on V_3",
+   "correction": "Use T_3 and T′_3 on V_3; the subscript2 belongs to V_2.",
+   "reason": "The hypothesis concerns the topologies induced on the quotient V_3 by the two topologies on V_2, so both subscripts must be3. Found by this review, not by the extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2502.20645 version history (v1, 28 February 2025), checked 23 September 2026",
+    "Calegari research page and author Modular.pdf; downloaded author copy is byte-identical to v1",
+    "Boxer and Pilloni public publication pages; bounded title/erratum/correction searches; no correction located. new means not located by this search, not a priority claim."
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Modularity theorems for abelian surfaces\" (arXiv:2502.20645)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "reviewReason": "Added by this review. The statement of Lemma 2.7.5 reads « Assume that the induced topologies 𝒯₁ and 𝒯′₁ on V₁, as well as the induced topologies 𝒯₂ and 𝒯′₃ on V₃ coincide »: the pair on V₃ must be 𝒯₃ and 𝒯′₃, the subscript 2 being left over from V₂. A misprint whose intended meaning is fixed by the sub/quotient pairing; it affects nothing, and the lemma is false for the independent reason recorded as E010."
   },
   {
    "id": "PAPER-BOXER-PILLONI-26/E1",
@@ -56900,9 +56921,9 @@
    "owner": "PAPER-LANDESMAN-LITT-24",
    "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
    "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "Checked on the p. 35 page image and in the TeX. The display just before defines only H₁(Σ_{g′,b′,p′}, ℂ)^ρ. The sentence describes the action on K^ab ⊗ ℂ = H₁, so the 'characteristic subrepresentation' is a subrepresentation of H₁. H¹(…)^ρ is then used in Theorem 7.2.1 and Lemma 8.6.1 without ever being defined. The paper prints the isotypic index as a superscript ρ; the extraction's transcription renders it as a subscript. H¹(…)^ρ, defined this way, is dual to H₁(…)^{ρ^∨}, not to H₁(…)^ρ. This is harmless: every statement quantifies over all irreducible ρ, dim ρ^∨ = dim ρ, and on the closed surface Σ_{g′} the H- and Γ-equivariant Poincaré duality identifies H¹(Σ_{g′}, ℂ)^ρ with H₁(Σ_{g′}, ℂ)^ρ."
   },
   {
    "id": "PAPER-LANDESMAN-LITT-24/E2",
@@ -56921,9 +56942,9 @@
    "owner": "PAPER-LANDESMAN-LITT-24",
    "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
    "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "Checked on the p. 37 image and in the TeX; both occurrences print ℚ. Theorem 7.2.1 is stated with ℂ coefficients, and ρ is an irreducible complex H-representation, whose isotypic component in rational cohomology is not defined in general. The same paragraph identifies the monodromy action with the action on H¹(𝒳°_m, ℂ)^ρ = H¹(Σ_{g′,0,p′}, ℂ)^ρ, and the proof works throughout with the complex local systems U_ρ ⊗ (π°)^*W_ρ."
   },
   {
    "id": "PAPER-LANDESMAN-LITT-24/E3",
@@ -56942,9 +56963,427 @@
    "owner": "PAPER-LANDESMAN-LITT-24",
    "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
    "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "Checked on the page image of p. 4 and against Notation 1.10.1 on p. 10, which reads 'Call such a family is versal if the induced map ℳ → ℳ_{g,n} is dominant and étale.' The §1.3 sentence says it follows that notation, so the two definitions conflict, and the binding one (used in Proposition 2.1.3, Lemma 2.1.4 and Theorem 1.7.1) includes étaleness. The extraction's reason adds that 'dominance alone would not suffice for Corollary 1.3.1'. That is not right as mathematics. For any dominant ℳ → M_{g,n} from a connected variety, the image of π₁(ℳ) in PMod_{g,n} still has finite index: pass to a finite étale scheme cover as in Lemma 2.1.4, then use that a dominant morphism to a normal variety has finite-index image on π₁. The outer-action argument of Proposition 2.1.3 does not use étaleness either. So Corollary 1.3.1 remains true under the weaker reading, and only the paper's route through Lemma 2.1.4 uses étaleness; Theorem 1.7.1 does genuinely need it, because c^*_m must be an isomorphism. The verdict and 'affects: nothing' stand, and the last sentence of the reason should be dropped or replaced by this."
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E4",
+   "kind": "misprint",
+   "locator": "Notation 1.10.2, p. 11 (arXiv v4)",
+   "printed": "Given a representation ρ : π₁(X, x) → G(ℂ), let ad(ρ) := ρ ∘ Ad : π₁(X, x) → GL(𝔤^der). … unitary representations are exactly those that preserve a positive-definite Hermitian form on ℂ^n, i.e. they are conjugate to a representation that factors through the unitary group U(n).",
+   "correction": "ad(ρ) := Ad ∘ ρ; and '… a positive-definite Hermitian form on ℂ^r … through the unitary group U(r)'.",
+   "reason": "Checked on the page image. Ad: G → GL(𝔤^der) and ρ: π₁(X, x) → G(ℂ), so only Ad ∘ ρ is defined. The representation has rank r (ρ: π₁ → GL_r(ℂ) in the same paragraph), whereas n is the number of punctures throughout. Item 10 already uses the corrected forms.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E5",
+   "kind": "misprint",
+   "locator": "Lemma 2.0.1, p. 12 (arXiv v4)",
+   "printed": "there are isomorphisms π₁(ℳ_{g,n}, m) ≃ PMod_{g,n}, π₁(ℳ_{g,n+1}, m′) ≃ PMod_{g,n} such that the diagram … commutes",
+   "correction": "π₁(ℳ_{g,n+1}, m′) ≃ PMod_{g,n+1}",
+   "reason": "Checked on the page image. The commutative diagram in the same lemma has PMod_{g,n+1} in the column under π₁(ℳ_{g,n+1}, m′), and the Birman exact sequence has PMod_{g,n+1} in the middle. Notation 1.10.3 gives PMod_{g,n+1} = π₁(ℳ_{g,n+1}). Item 11 uses the corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E6",
+   "kind": "misprint",
+   "locator": "proof of Lemma 2.1.5, p. 14 (arXiv v4)",
+   "printed": "The composite map C° → 𝒞 → 𝒞°_{g,n} is the natural inclusion of C° as a fiber of 𝒞°_{g,n} over ℳ_{g,n}.",
+   "correction": "The composite map C° → 𝒞° → 𝒞°_{g,n} …",
+   "reason": "Checked in the PDF text and the TeX ('C^\\circ \\to \\mathscr C \\to \\mathscr{C}^\\circ_{g,n}'). The proper total space 𝒞 does not map to the universal punctured curve 𝒞°_{g,n}, since the sections would have nowhere to go. The next sentence, 'the composition π₁(C°) → π₁(𝒞°) → π₁(𝒞°_{g,n}) is injective', uses 𝒞°.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E7",
+   "kind": "error",
+   "locator": "Lemma 2.2.2 and the last paragraph of its proof, pp. 14–15 (arXiv v4)",
+   "printed": "In the setup of Notation 2.2.1, there exists a unique representation ρ̃ : Γ̃ → PGL_r(ℂ) so that [diagram (2.2)] commutes. … Finally, uniqueness of ρ̃ follows from commutativity of (2.2) and uniqueness of M̄_γ. Indeed, for any γ ∈ Γ̃ and for all η ∈ π₁(Σ_{g,n}, x), we must have ρ̃(γηγ⁻¹) = ρ̃(γ)ρ̃(η)ρ̃(γ)⁻¹, and hence ρ̃(γ) must equal M̄_γ.",
+   "correction": "Existence holds, with ρ̃(γ) = [M_γ] canonical. Uniqueness holds only among representations whose values ρ̃(γ) lift to matrices conjugating ρ to γ(ρ) in GL_r(ℂ), or under the extra hypothesis that the centraliser of Pρ(π₁(Σ_{g,n})) in PGL_r(ℂ) is trivial, i.e. ρ ⊗ χ ≇ ρ for every nontrivial character χ. In general ρ̃ is determined only up to a 1-cocycle of Γ̃ with values in that finite centraliser, trivial on π₁(Σ_{g,n}).",
+   "reason": "The displayed identity says that ρ̃(γ) conjugates Pρ to Pρ∘(γ-action) inside PGL_r(ℂ). Schur's lemma pins down M_γ only when the conjugation is required in GL_r(ℂ). Projectively, ρ̃(γ) is determined only up to the centraliser Z of Pρ(π₁) in PGL_r(ℂ), and if a ∈ Z, then aρ̃a⁻¹ also makes (2.2) commute. A counterexample: g = 2, n = 0, ρ: π₁(Σ₂) → Q₈ ⊂ SL₂(ℂ) with (a₁, b₁, a₂, b₂) ↦ (i, j, i, j), which is surjective and irreducible, and MCG-finite because its image is finite. Here Z = Pρ(π₁) = V₄ ⊂ PGL₂(ℂ). The automorphism (a, b) ↦ (a, ba) applied three times and then (a, b) ↦ (ab, b) applied three times fixes [a, b] and sends (i, j) to (j, k): (i,j) → (i,−k) → (i,−j) → (i,k) → (−j,k) → (−i,k) → (j,k). Doing this in both handles gives γ ∈ Mod_{2,1} with ρ∘γ = ωρω⁻¹, where ω = (1+i+j+k)/2, so γ ∈ Γ̃ and ρ̃(γ) = [ω] acts on V₄ by a 3-cycle. For a = [i] ∈ V₄, the representation aρ̃a⁻¹ agrees with ρ̃ on π₁(Σ₂) but not at γ, since [ω] does not commute with [i]. So uniqueness fails. Nothing later uses uniqueness: Lemma 2.2.3, Corollary 2.3.5 and §8.3 use only existence. The same projective-versus-linear Schur slip recurs in the proof of Lemma 2.4.1, recorded separately.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E8",
+   "kind": "misprint",
+   "locator": "proof of Proposition 2.3.4, p. 18 (arXiv v4)",
+   "printed": "Thus after passing to any component ℳ₂ of this dominant étale scheme over ℳ₂, we have ϵ(ρ̃) = 0. … Let ρ̄ ∈ H¹(π₁(𝒞°₂, c), G) be an element with β(ρ̄) = ρ̃",
+   "correction": "'… of this dominant étale scheme over ℳ, we have ε(ρ̃) = 0', and 'Let ρ̄ ∈ Hom(π₁(𝒞°₂, c), G) be an element with β(ρ̄) = ρ̃'.",
+   "reason": "Checked in the PDF text and the TeX. The scheme is dominant étale over ℳ, and ℳ₂ is one of its components, so 'over ℳ₂' is circular. β is the map Hom(π₁(𝒞°), G) → Hom(π₁(𝒞°), PGL_r(ℂ)) of diagram (2.6), so ρ̄ is a homomorphism, not a class in the non-abelian H¹ (which would be conjugacy classes). The obstruction map is called ε in (2.6) and ϵ here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E9",
+   "kind": "error",
+   "locator": "proof of Lemma 2.4.1(1), p. 19 (arXiv v4)",
+   "printed": "For each g ∈ G, ℙρ(g) is the unique (by Schur's lemma) element of PGL_r(ℂ) such that ℙρ(g)ℙρ(h)ℙρ(g)⁻¹ = ℙρ(ghg⁻¹) for all h ∈ H. … Hence we have ℙρ(g^{t!}) = id by uniqueness.",
+   "correction": "Use Schur's lemma in GL_r(ℂ): the displayed relation ρ(h) = ρ(g^{t!})ρ(h)ρ(g^{−t!}) holds in GL_r(ℂ) for all h ∈ H, so ρ(g^{t!}) commutes with the irreducible ρ(H) and is a scalar; hence ℙρ(g^{t!}) = id.",
+   "reason": "Checked on the page image. The asserted projective uniqueness is false. Take G = H = Q₈ ⊂ SL₂(ℂ) with ρ the inclusion, which is irreducible with det = 1. For g = 1, both id and [i] ∈ PGL₂(ℂ) satisfy X·ℙρ(h)·X⁻¹ = ℙρ(h) for all h, because ℙρ(Q₈) = V₄ is abelian. The conclusion still follows, because the relation the proof actually derives holds in GL_r(ℂ), where Schur's lemma applies. So the lemma and its use in Lemma 2.4.2 are unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E10",
+   "kind": "gap",
+   "locator": "Lemma 2.4.2 and the paragraph before it, p. 19 (arXiv v4)",
+   "printed": "As in Notation 1.10.1, let π : 𝒞 → ℳ be a versal family of n-pointed curves … Lemma 2.4.2. Let A be an Artin local ℂ-algebra with residue field ℂ. …",
+   "correction": "Add the hypothesis g ≥ 1 (as in Proposition 2.3.4 and Corollary 2.3.5).",
+   "reason": "Notation 1.10.1 allows g = 0 (with n ≥ 3), and the lemma states no restriction on g. Its proof extends each irreducible summand ρ_i of 𝕍₀ over a dominant étale cover 'by repeatedly applying Corollary 2.3.5', which is stated and proved only for g ≥ 1. That corollary needs Lemma 2.3.2, and the finiteness of determinants fails in genus 0: every character of π₁(Σ_{0,n}) is PMod_{0,n}-invariant. So the case g = 0 is not proved. It is not used either: Theorem 6.2.1 has rk_A 𝕍 < g with 𝕍 ≠ 0, so g ≥ 2, and §7 has dim ρ < g. Whether the g = 0 case is true (it plausibly is, by a Clifford-theory argument killing a torsion obstruction in H²) is not needed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E11",
+   "kind": "misprint",
+   "locator": "proof of Lemma 2.4.2, pp. 19–20 (arXiv v4)",
+   "printed": "representations ρ′_i : π₁(𝒞′°) → GL_r(ℂ) with finite determinant … ⊕_{i=1}^s Hom(ρ_i, ρ ⊗ A) ⊗ ρ_i → ρ ⊗ A, Σ_{i=1}^s α₁ ⊗ v_i ↦ Σ_{i=1}^s α_i(v_i).",
+   "correction": "ρ′_i : π₁(𝒞′°) → GL_{r_i}(ℂ) with r_i = rk 𝕊_i; and Σ_i α_i ⊗ v_i ↦ Σ_i α_i(v_i).",
+   "reason": "Checked in the PDF text and the TeX. ρ′_i extends the irreducible summand ρ_i of rank rk 𝕊_i, not the whole ρ of rank r. The index on α in the source of the evaluation map must be i, as in its target.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E12",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.2.3 and Remark 5.2.5, p. 31 (arXiv v4)",
+   "printed": "We conclude by applying Proposition 5.2.4(II) to the parabolic bundle (E_⋆)^∨ ⊗ ω_C(D). This is parabolically stable by definition … ; Remark 5.2.5: '… we write \"E_⋆ is parabolically stable\" in place of \"Ê_⋆ is coparabolically stable\" … by definition E_⋆ is parabolically stable if and only if Ê_⋆ is coparabolically stable'.",
+   "correction": "'This is parabolically semistable'; and in Remark 5.2.5, 'semistable' / 'coparabolically semistable' throughout.",
+   "reason": "Checked on the page image. Proposition 5.2.3 assumes E_⋆ only semistable, and (E_⋆)^∨ ⊗ ω_C(D) is then semistable, not stable. Proposition 5.2.4 as printed requires only 'E_⋆ is parabolically semistable', and so does its source [LL22, Proposition 6.3.6], checked in arXiv:2202.00039: 'Suppose Ê_⋆ is coparabolically semistable'. The argument is therefore correct with 'semistable'. Item 48's note repeats 'stable' from Remark 5.2.5 and should also read 'semistable'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E13",
+   "kind": "error",
+   "locator": "Lemma 6.1.1 and its proof, pp. 33–34 (arXiv v4)",
+   "printed": "Suppose 𝕃 ⊂ R¹π°_*𝕍 is a nonzero irreducible sub-local system. After possibly replacing 𝕍 and 𝕃 with their complex conjugates 𝕍̄ and 𝕃̄, there is some nonzero v ∈ 𝕃_m ∩ F¹ℋ_m so that ∇̄_m(v) has rank at most rk 𝕃/2.",
+   "correction": "'… there are a sub-local system 𝕃′ ⊂ R¹π°_*𝕍 isomorphic to 𝕃 (namely ι(q ⊗ 𝕃) for a suitable Hodge-homogeneous q ∈ Q) and a nonzero v ∈ 𝕃′_m ∩ F¹ℋ_m so that ∇̄_m(v) has rank at most rk 𝕃/2'; or simply 'a nonzero v ∈ F¹ℋ_m', which is all the proof of Theorem 1.7.1 uses.",
+   "reason": "The proof takes v := ι_m(q ⊗ ℓ) with q ∈ Q^{i,j} homogeneous, which lies in the copy ι(q ⊗ 𝕃) of 𝕃, not in the given 𝕃. The literal claim can fail. Suppose V is unitary with a real structure and the weight-one part of R¹π°_*𝕍 has a nonzero flat section. Its fixed part is a real Hodge structure of weight 1, so it contains a real y = y^{1,0} + y^{0,1} with both components nonzero. The trivial rank-one 𝕃 = ℂ·y satisfies 𝕃 = 𝕃̄ and 𝕃_m ∩ F¹ℋ_m = 0, because F¹ ∩ W¹ = ℋ^{1,0}. Such flat sections exist: by the translation of §7 they are exactly failures of the Putman–Wieland property, and Marković's genus-2 counterexample to Putman–Wieland gives them for 𝕍 = f_*ℂ over a finite étale cover of M₂. More generally the claim fails whenever an irreducible real 𝕃 of a single Hodge type occurs in weight one through both q and q̄, taking the diagonal copy. The proof of Theorem 1.7.1 needs only v ∈ F¹ℋ_m, with ∇̄_m(v) computed through ι, so Theorem 1.7.1 is unaffected. Only the auxiliary statement is wrong as printed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E14",
+   "kind": "misprint",
+   "locator": "Lemma 7.2.5 and its proof, p. 36 (arXiv v4)",
+   "printed": "Then there exists a finite index Γ″ ⊂ PMod_{g,0,b+p+1} and an isomorphism H₁(Σ_{g′,b′,p′}, ℂ)^ρ → H₁(Σ_{g,0,b′+p′}, ℂ)^ρ … Proof. Define the natural inclusion ι : Σ_{g′,b′,p′} ↪ Σ_{g,0,b′+p′}, shrinking boundary components to punctures. There is a deformation retraction from Σ_{g,0,b′+p′} onto the subspace ι(Σ_{g′,b′,p′}) and so ι induces an isomorphism H₁(Σ_{g′,b′,p′}, ℂ) → H₁(Σ_{g,0,b′+p′}, ℂ). The kernel of the induced surjection PMod_{g,b,p} → PMod_{g,0,b+p} is generated by ℤ^b acting on S_{g,b,p} by rotating the boundary components …",
+   "correction": "Read Σ_{g′,0,b′+p′} (genus g′) in all four places, as the proof's last sentence already does ('The action of Γ′ on H₁(Σ_{g′,0,b′+p′}, ℂ) …'). Read Σ_{g,b,p} for S_{g,b,p}. The capping map whose kernel is described should be PMod_{g,b,p+1} → PMod_{g,0,b+p+1}, the map the proof then uses to define Γ″.",
+   "reason": "Checked on the p. 36 image. Σ_{g′,b′,p′} has genus g′, so the inclusion that shrinks its boundary circles to punctures lands in Σ_{g′,0,b′+p′}. A surface of genus g ≠ g′ cannot deformation-retract onto it or receive a homology isomorphism from it (the first Betti numbers differ). The statement of Lemma 7.2.5 inherits the slip, and so does item 56.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E15",
+   "kind": "misprint",
+   "locator": "End of the proof of Theorem 7.2.1, p. 38 (arXiv v4)",
+   "printed": "Using Poincaré duality and the intersection pairing on H₁(Σ_{g′}, ℂ) we obtain a Mod_{g,n} equivariant isomorphism H¹(Σ_{g′}, ℂ) ≃ H₁(Σ_{g′}, ℂ).",
+   "correction": "'… we obtain a Γ-equivariant and H-equivariant isomorphism H¹(Σ_{g′}, ℂ) ≃ H₁(Σ_{g′}, ℂ).'",
+   "reason": "Mod_{g,n} does not act on H₁(Σ_{g′}, ℂ). Only the stabiliser Γ of ϕ does, through lifts of mapping classes. The step needs the isomorphism to be Γ′-equivariant, and also H-equivariant so that it carries H¹(Σ_{g′}, ℂ)^ρ onto H₁(Σ_{g′}, ℂ)^ρ. Both hold because deck transformations and lifts of mapping classes preserve orientation, hence the fundamental class.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E16",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 8.5.1, p. 42 (arXiv v4)",
+   "printed": "We must verify that for any n and any deformation γ : π₁(𝒞°, c) → GL_r(ℂ[t]/t^{n+1}) of ρ₀ with γ|_{π₁(C°,c)} constant, we have H⁰(𝓜, R¹π_* ad(γ)) = 0.",
+   "correction": "H⁰(𝓜, R¹π°_* ad(γ)) = 0.",
+   "reason": "Checked on the p. 42 image. ad(γ) is a local system on the total space 𝒞° of the punctured family. π : 𝒞 → 𝓜 is the proper family, on which ad(γ) is not defined. Theorem 6.2.1, which the next sentence invokes, is a statement about R¹π°_*.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E17",
+   "kind": "gap",
+   "locator": "Proof of Lemma 8.6.1, p. 44 (arXiv v4)",
+   "printed": "To put ourselves in the setting of Theorem 7.2.1, we choose an additional basepoint v ∈ Σ_{g,n} and let Σ_{g,n+1} := Σ_{g,n} \\ {v}. Let Γ ⊂ Mod_{g,n+1} be a finite index subgroup stabilizing the conjugacy class of each σ_i. … Projecting onto the σ_i-isotypic piece of ρ₂^∨ ⊗ ρ₁ yields a Γ-stable quotient of H₁(Σ_{g′,n′})^{σ_i}, or equivalently a Γ-stable subspace of H¹(Σ_{g′,n′})^{σ_i}, of rank at most (g + 1)/4.",
+   "correction": "Choose Γ ⊂ PMod_{g,n+1} of finite index with three properties. (a) Γ fixes the isomorphism class of ρ; this is possible because ρ is MCG-finite, and it is the only place that hypothesis enters. (b) Γ preserves K = ker(ρ₁ ⊕ ρ₂). This is automatic from (a) when ρ₁ = soc(ρ), because then ρ₁∘γ ≅ ρ₁ and ρ₂∘γ ≅ ρ₂. (c) Γ induces inner automorphisms of H = π₁(Σ_{g,n}, v)/K, so that Γ lies in the group of Notation 7.1.1 for ϕ : π₁ ↠ H and fixes every σ_i. For γ ∈ Γ choose A_γ with ρ∘γ = A_γ^{-1} ρ A_γ. A_γ preserves ρ₁ when ρ₁ is the socle, as in §8.7, since soc(ρ∘γ) = soc(ρ) as subspaces. Writing A_γ = (a₁ b; 0 a₂), the extension class c : K^ab → Hom(ρ₂, ρ₁) satisfies c∘γ = a₁^{-1} c(·) a₂, so ker(c ⊗ ℂ) ⊂ H₁(Σ_{g′,n′}, ℂ) is Γ-stable. Theorem 7.2.1 is then applied to this Γ, a finite-index subgroup of the group of Notation 7.1.1, with σ_i^∨ in place of σ_i for the dual subspace, which is harmless.",
+   "reason": "With Γ as printed, Γ need not preserve K, so it need not even act on H₁(Σ_{g′,n′}). Even when it does, nothing makes the kernel of the extension class Γ-stable. The printed choice never uses the hypothesis that ρ is MCG-finite, and without that hypothesis the lemma is false. Example: g ≥ 4 and ρ(x) = (1 f(x); 0 1) for a nonzero homomorphism f : π₁(Σ_{g,n}) → ℂ pulled back from H¹(Σ_g, ℂ). Here ρ₁ = soc ρ and ρ₂ = ρ/ρ₁ are trivial and rk ρ = 2 < √(g+1), yet ρ has infinite image. It is not MCG-finite. The conjugacy class of ρ determines the line ℂf, and PMod_{g,n} acts on H¹(Σ_g, ℂ) through Sp_{2g}(ℤ), which moves any line through infinitely many others. The printed Γ also sits in Mod_{g,n+1} rather than PMod_{g,n+1}. The lemma itself is true: it follows from Theorem 1.2.1, whose proof uses only the socle case, and the repair above is routine.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E18",
+   "kind": "gap",
+   "locator": "Proof of Lemma 8.3.3, p. 40 (arXiv v4)",
+   "printed": "One may construct a strict normal crossing compactification as follows. C° is a finite étale cover of M_{g,n+1} by construction; let M̄′_{g,n+1} be a strict normal crossing compactification of M_{g,n+1} obtained by blowing up boundary strata of the Deligne-Mumford compactification M̄_{g,n+1} … Let C̄ be the normalization of M̄′_{g,n+1} in the function field of C°. By Proposition 8.3.2, it suffices to check that the local monodromy about the boundary components of C̄ correspond to products of commuting Dehn twists …",
+   "correction": "Replace 𝒞̄ by a good compactification Y of 𝒞° (smooth projective with strict normal crossings boundary), for instance a resolution of 𝒞̄, so that Y still maps to M̄′_{g,n+1}. A small loop around a smooth point of the boundary of Y maps into the local (orbifold) fundamental group of a punctured neighbourhood of a boundary point of M̄′_{g,n+1}. By [LLSS20, Lemma 2.1.1] that group is generated, up to the finite stabiliser, by commuting Dehn twists. So a power of the local monodromy is a product of powers of commuting Dehn twists lying in π₁(𝒞°), and Proposition 8.3.2 gives quasi-unipotence as before.",
+   "reason": "The normalisation 𝒞̄ is in general not a strict normal crossings compactification, and it may not even be a scheme, since M̄′_{g,n+1} is a stack. Near a point where k boundary branches of M̄′ meet, the étale cover 𝒞° restricts to the cover of (Δ*)^k × Δ^m given by a finite-index sublattice Λ of the local fundamental group ℤ^k. Its normalisation is the affine toric variety of the positive orthant with lattice Λ, which is smooth only when Λ is spanned by its intersections with the coordinate rays. For instance, for two disjoint homologous non-separating curves a, b and the level-3 congruence subgroup, T_a^x T_b^y lies in the subgroup iff x + y ≡ 0 mod 3. That lattice is not of this form, before or after blowing up, and gives a cyclic quotient singularity. The Klevdal–Patrikis hypothesis concerns a smooth projective compactification with strict normal crossings boundary. The local monodromy argument works on any such compactification, so Lemma 8.3.3 stands.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E19",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 9.1.4, p. 46 (arXiv v4); also Corollary 9.1.4(4), p. 46",
+   "printed": "To conclude, it remains to show that (4) implies (1) when dim ρ < 2√(g+1). This follows from [LL22, Corollary 1.2.7], by choosing an embedding K ↪ ℂ corresponding to an analytically very general complex point of M_{g,n}. By [LL22, Corollary 1.2.7], a local system on an analytically very general curve underlying an integral PVHS has finite monodromy whenever its dimension is < 2√(g+1).",
+   "correction": "Cite [LL22, Theorem 1.2.5], which has the same number in arXiv:2202.00039v2 and v3. It says: if K is a number field and V an O_K-local system with infinite monodromy on an analytically very general hyperbolic n-pointed genus g curve, all of whose Galois conjugates underlie complex PVHS, then rk V ≥ 2√(g+1). Accordingly, 'underlies an integral PVHS' in (4) should be defined as: is defined over O_L for some number field L, and every Galois conjugate underlies a polarizable complex VHS.",
+   "reason": "In LL22 (arXiv:2202.00039v2, the version in the paper's bibliography, and v3) Corollary 1.2.7 reads: 'If V is a local system on C \\ {x₁, …, x_n} of geometric origin and with infinite monodromy, then dim_ℂ V ≥ 2√(g+1).' That gives (3) ⇒ (1), not (4) ⇒ (1). The statement quoted in the proof is Theorem 1.2.5. The paper never defines 'integral PVHS'. The reading above is the one under which (1) ⇒ (4) and (3) ⇒ (4) hold; under the reading 'underlies a ℤ-PVHS', (1) ⇒ (4) already fails for a character of order 5. The corollary is true once the reference and the definition are fixed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E20",
+   "kind": "misprint",
+   "locator": "Example 9.2.3, p. 48 (arXiv v4)",
+   "printed": "We claim that for any n-pointed genus g curve (C, x₁, ···, x_n), and any p, there exist surjective representations ρ : π₁^ét(C_K̄ \\ {x₁, ···, x_n}) → GL_r(𝔽_p) as in Corollary 9.2.2. In particular these representations do not admit arithmetic lifts to characteristic 0.",
+   "correction": "Surjections exist for every curve and every p. They admit no arithmetic lift when (C, x₁, …, x_n) is as in Theorem 9.1.2 and p ≫_r 0; by the proof of Corollary 9.2.2, any p not dividing Jordan's constant n(r) will do.",
+   "reason": "The non-liftability comes from Corollary 9.2.2, which needs both hypotheses. It fails for small p. Take r = 2 (so g ≥ 4) and p = 2. Reduction mod 2 of the reflection representation of S₃ on {x ∈ ℤ³ : Σxᵢ = 0} is an isomorphism S₃ → GL₂(𝔽₂): the 3-cycle has characteristic polynomial x² + x + 1, irreducible mod 2. Composing a surjection ρ with its inverse gives a lift of ρ to GL₂(ℤ₂) with finite image. That lift is arithmetic, because π₁^ét(C_K̄ \\ {x_i}) is topologically finitely generated and so has only finitely many continuous homomorphisms to S₃.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E21",
+   "kind": "error",
+   "locator": "Remark 9.2.4, p. 49 (arXiv v4), and hence the finite-field half of Remark 9.2.5",
+   "printed": "De Jong's conjecture, proven by Gaitsgory [Gai07], implies that an absolutely irreducible residual 𝔽_q-representations of geometric fundamental groups of smooth curves over finite fields of characteristic not dividing q always lift to arithmetic representations over a field of characteristic zero.",
+   "correction": "'De Jong's conjecture, proven by Gaitsgory [Gai07] when the characteristic ℓ of the coefficients is not 2 …'. The complete-intersection statement of Remark 9.2.5 for curves over finite fields is then likewise for p ≠ 2.",
+   "reason": "[Gai07] (arXiv:math/0402184v4, §1.5) states: 'this paper proves Conjecture 1.2 for l ≠ 2 modulo the theory of F-sheaves, and one more unpublished result'. There X is a smooth projective curve over 𝔽_q, and §1.4 lists two inputs not then in the published literature. The case ℓ = 2 is therefore not covered by the citation. Nothing downstream is affected: Corollary 9.2.2 concerns p ≫_r 0 only, so the contrast drawn in Remarks 9.2.4–9.2.5 needs only large p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E22",
+   "kind": "misprint",
+   "locator": "Notation A.1.3, p. 55 (arXiv v4)",
+   "printed": "For v a C^∞ vector field on an open U ⊂ 𝒞, tangent to 𝒟, and w a C^∞ section of A^i_{log 𝒟}(ℰ) on U, the interior product int(v)(w) ∈ H⁰(U, A^{i−1}_{log 𝒟}(ℰ)) is defined by int(v)(w)(X₁, …, X_{i+j−1}) = w(v, X₁, …, X_{i+j−1}) for any C^∞ vector fields X₁, …, X_{i+j−1} on U tangent to 𝒟.",
+   "correction": "int(v)(w)(X₁, …, X_{i−1}) = w(v, X₁, …, X_{i−1}) for any C^∞ vector fields X₁, …, X_{i−1} on U tangent to 𝒟.",
+   "reason": "Checked on the p. 55 image. w has total degree i (A^i = ⊕_{a+b=i} A^{a,b}) and int(v)(w) has degree i − 1, as the displayed membership in A^{i−1} says. The index j is not defined in this notation; it is left over from the bidegree (i, j) of Notation A.1.2. Item 89 copies the slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2205.15352, 23 September 2026: versions v1 (30 May 2022) to v4 (23 February 2025, 'Updated to fix improperly rendered figure'), and no erratum",
+    "Crossref for doi:10.4007/annals.2024.199.2.6 (Ann. of Math. 199 (2024), 823–897), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2024/199-2/p06), 23 September 2026: no erratum linked",
+    "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v4 here is not established"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LANDESMAN-LITT-24",
+   "reviewReason": "found and checked on the page image or in the TeX source by the review"
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E01",
