@@ -1,0 +1,182 @@
+{
+  "paper": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept. DeformationAndDerivedPatchingAlgebra owns this mathematics in the atlas, the named stages (P7, P8, P9, R03.1, R03.3, R03.4, R03.5, R03.6) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Reusable coefficient, perfect-complex, open-ideal patching and component-support algebra belongs here, including the corrected finite-quotient construction and characteristic-zero freeness interface."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept. PadicHodgeTheory owns this mathematics in the atlas, the named stages (R06.2, R06.3) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own admissible period functors, Sen/Hodge–Tate sign comparison and Weil–Deligne purity interfaces, retaining integral-versus-rational distinctions."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept. A genuine Part II of the upstream Tau Ceti roadmap: its title reproduces the parent's exactly, the parent exists at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, and the brief keeps ordinary highest-weight theory upstream while planning completed category O and analytic localisation here. Nothing in the atlas owns the completed theory, and the overlap with route 19 is resolved in the briefs: the enveloping-algebra completion is that route's, not this one's. 136 items is large but they are one coherent body."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept. LocallyAnalyticDistributions owns this mathematics in the atlas, the named stages (L0, L3, L4) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: The analytic function, character-space and compact-operator inputs lie within these existing layers; the noncommutative representation extension is routed separately."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept. IntegralHeckeAndGaloisDeterminants owns this mathematics in the atlas, the named stages (IHG.1, IHG.3, IHG.4) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own Cayley–Hamilton reconstruction and normalization/interpolation, including the geometric-Frobenius dual-spin conversion and full similitude character."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept. LocalGaloisDeformationRings owns this mathematics in the atlas, the named stages (L7, L8, R08.1, R08.2, R08.3) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own fixed-similitude local deformation rings, flags, scheme images and their component geometry. In particular, ordinary scheme image is not silently replaced by a p-flat quotient."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept. AutomorphicFormsOnReductiveGroups owns this mathematics in the atlas, the named stages (AF.0, AF.1, AF.2, AF.3, AF.4, AF.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Use the common automorphic representation, cohomology and Hecke interfaces for the several reductive groups appearing in the proof."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accept. AutomorphicGaloisRepresentationsPartII owns this mathematics in the atlas, the named stages (AG2.2, AG2.3, AG2.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Regular algebraic polarized Galois representations and local-global compatibility are shared inputs. Singular-weight interpolation has its separate pending nonregular owner."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept. `GSp4NonregularModularityLifting` is already proposed as a new roadmap by PAPER-CALEGARI-GERAGHTY-20 and PAPER-PILLONI-20, and is in no atlas file, so joining that identity is right and avoids a competing roadmap. The brief states the lifting theorem and names what it imports."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Accept. EndoscopicTransferAndUnitaryTraceComparison owns this mathematics in the atlas, the named stages (ET.4, ET.5, ET.6, ET.7) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Apply stable unitary and symplectic transfer with its exact packet/multiplicity normalization; preserve the separate Arthur dependency gate."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Accept. AbelianSchemesAndArithmeticModuli owns this mathematics in the atlas, the named stages (A1, A2, A3, A4, A5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: The relative abelian-scheme, polarization, torsion and Serre–Tate APIs have this owner. Field-valued abelian varieties already exist in Tau Ceti."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Accept, and it is the route the job mandates: issue #2166 fixes `AbelianSurfacesModularity` as DESIGN-BCGP25 building on DESIGN-BCGP18. No other paper proposes the id and nothing in the atlas owns the abelian-surface modularity endpoint. The brief is the longest in the file (424 words) and states the final theorems; with 84 items it is the natural home for the paper's own results."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Accept. AutomorphicLFunctionsAndLocalFactors owns this mathematics in the atlas, the named stages (AL.0, AL.1, AL.2, AL.3, AL.4, AL.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own local factors, twists, global L-functions and the analytic consequences of the available functorial transfers."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Accept. ShimuraCompactifications owns this mathematics in the atlas, the named stages (C2, C3, C4, C5, C6) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own toroidal/minimal compactifications, boundary ideals and their comparison. The new cohomology theories import them."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Accept. ModularityAndLanglandsExtensions owns this mathematics in the atlas, the named stages (ML.0, ML.4) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Register exact conjectural/frontier predicates and the Arthur twisted-weighted-fundamental-lemma dependency. This route does not claim that a general weighted fundamental lemma follows from the ordinary fundamental lemma"
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Accept. VStackSheavesAndLisseCategories owns this mathematics in the atlas, the named stages (VS2) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Supply the corrected solid coefficient category and internal tensor/duality foundations once; the nonarchimedean functional-analysis comparison is a separate consumer."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "Accept, with the title corrected in place. The identity is already proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20 with the same parent, and the brief confines this route to quasi-abelian functional analysis and the solid comparison, leaving distribution algebras to route 18. PROTOCOL section 15 asks a Part II to carry its parent's title, and both this extraction and CDN-20 truncated it to 'Locally analytic distributions'; I have restored 'Locally analytic distributions, growth, and character spaces' here, and CDN-20 needs the same repair."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "Accept. Same identity and parent as PAPER-FU-24's proposal, with the title matching FU-24's verbatim, and the brief separates it cleanly from route 17 (which it imports) and from route 19 (which it declares owns the algebraic completion). It also carries the corrected transition U_r ⊗_{U_{r+1}} M_{r+1} for left modules, which is finding E002."
+    },
+    {
+      "route": 19,
+      "verdict": "accept",
+      "reason": "Accept. Identity, parent and title agree verbatim with PAPER-FU-24, and the brief states the boundary with route 18 explicitly. Three items is small, but they are the Arens–Michael completion layer that two other routes import."
+    },
+    {
+      "route": 20,
+      "verdict": "accept",
+      "reason": "Accept. AutomorphicBundles owns this mathematics in the atlas, the named stages (B1, B2, B3, B4, B5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own finite-dimensional automorphic vector bundles and their classical cohomological comparison; use the pending integral coherent extension where required."
+    },
+    {
+      "route": 21,
+      "verdict": "accept",
+      "reason": "Accept. PerfectoidShimuraVarieties owns this mathematics in the atlas, the named stages (S1, S2, S3, S4, S5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Import Hodge-type perfectoid towers and the Hodge–Tate map, with the chosen compatible compactification data and actions."
+    },
+    {
+      "route": 22,
+      "verdict": "accept",
+      "reason": "Accept. `HigherHidaAndColemanTheory` as a Part II of PadicFamilies matches PAPER-PILLONI-20, the paper that introduces higher Coleman theory, with the identical title; PAPER-BOXER-CALEGARI-GEE-PILLONI-21 proposes the same id as a `new` roadmap with a different title, and the design job will have to pick — this extraction's choice is the better supported one. 99 items, coherent and all from sections 4 and 6."
+    },
+    {
+      "route": 23,
+      "verdict": "accept",
+      "reason": "Accept. HodgeTateAndCanonicalSubgroups owns this mathematics in the atlas, the named stages (T4, T5, T6) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own period-map and logarithmic Hodge–Tate comparison inputs; the higher Coleman/Sen application is a separate consumer."
+    },
+    {
+      "route": 24,
+      "verdict": "accept",
+      "reason": "Accept. AdicSpacesPartII owns this mathematics in the atlas, the named stages (R2, R3) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Coherent finite-cover comparison and formal-model foundations fit the existing R2/R3 scope. Import upstream AdicSpaces Tate acyclicity; the solid and infinite-dimensional coefficient refinements have their functional-ana"
+    },
+    {
+      "route": 25,
+      "verdict": "accept",
+      "reason": "Accept. The id is already proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B, PAPER-COLMEZ-DOSPINESCU-NIZIOL-23 and PAPER-DOSPINESCU-LEBRAS-17, all as `new`, so this joins an established proposal rather than opening a rival one."
+    },
+    {
+      "route": 26,
+      "verdict": "accept",
+      "reason": "Accept. CompletedCohomologyPartII owns this mathematics in the atlas, the named stages (CC.1, CC.2, CC.3, CC.4, CC.5, CC.6) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: The generic completed cohomology/homology tower and its Hecke/duality interface have this owner; no GL2 geometric comparison is treated as a GSp4 theorem."
+    },
+    {
+      "route": 27,
+      "verdict": "accept",
+      "reason": "Accept. IgusaVarietiesAndTorsionConcentration owns this mathematics in the atlas, the named stages (IG.1, IG.6, IG.7) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Import Igusa towers and source-qualified boundary/concentration theorems; decomposed genericity and irreducible localization are distinct conditions."
+    },
+    {
+      "route": 28,
+      "verdict": "accept",
+      "reason": "Accept. ArithmeticGaloisRepresentations owns this mathematics in the atlas, the named stages (R01.1, R01.2, R01.3, R01.4, R01.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own continuous Galois representations, inertia/Frobenius conventions and the foundational cohomology/compatibility interface used in the arithmetic applications."
+    },
+    {
+      "route": 29,
+      "verdict": "accept",
+      "reason": "Accept. GlobalGaloisDeformations owns this mathematics in the atlas, the named stages (G7, R04.1, R04.2, R04.3, R04.4, R04.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own polarized global deformation functors, their tangent/dual-Selmer conditions and auxiliary-prime constructions; near adequacy and integral enormity must retain their distinct hypotheses."
+    },
+    {
+      "route": 30,
+      "verdict": "accept",
+      "reason": "Accept, with the title corrected in place. The parent OrdinaryAutomorphicFormsAndModularityLifting exists and stops at rank 2, while these eleven items are the dyadic unitary and symplectic lifting theorems, so a Part II is right. The title read 'Ordinary automorphic forms and modularity lifting'; the parent is titled 'Ordinary automorphic forms and ordinary modularity lifting', and I have restored that."
+    },
+    {
+      "route": 31,
+      "verdict": "accept",
+      "reason": "Accept. FiniteFlatGroupsAndIntegralPadicHodgeTheory owns this mathematics in the atlas, the named stages (R07.1, R07.2, R07.3, R07.6) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Import the existing Cartier-duality carrier and plan only the missing ordinary BT, finite-flat cohomology and polarized deformation comparisons here."
+    },
+    {
+      "route": 32,
+      "verdict": "accept",
+      "reason": "Accept. SmoothRepresentationsOfLocalGroups owns this mathematics in the atlas, the named stages (SR.1, SR.2, SR.4) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Own convolution, Jacquet modules and Satake. The GSp4 Iwahori calculation is a source within these layers, with its full central character."
+    },
+    {
+      "route": 33,
+      "verdict": "accept",
+      "reason": "Accept. NeronModelsAndSemistableAbelianVarieties owns this mathematics in the atlas, the named stages (R11.1, R11.2, R11.3, R11.4, R11.5) belong to it, and the items routed here are the paper's uses of that layer rather than new theory. The reason delimits scope explicitly, which is what a design job needs: Semistable reduction, torus lattices and specialization are imported into the explicit2–3 switch, not reconstructed there."
+    },
+    {
+      "route": 34,
+      "verdict": "accept",
+      "reason": "Accept. `LocallyAnalyticRepresentationsOfLocalGroups` is proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20, PAPER-DING-25 and PAPER-DOSPINESCU-LEBRAS-17; the brief resolves the foundational overlap by requiring this roadmap to consume route 18's D(G) rather than build its own, which is exactly the duplication PROTOCOL section 15 forbids."
+    },
+    {
+      "route": 35,
+      "verdict": "accept",
+      "reason": "Accept, with the title corrected in place. Same identity and parent as PAPER-BOXER-CALEGARI-GEE-PILLONI-21, which uses the compliant title 'Modularity, automorphy and Langlands endpoint extensions, Part II: GSp_4, its local Langlands correspondence and Galois representations'; this extraction had shortened the parent's title, and I have adopted BCGP-21's wording so the two papers propose one roadmap, not two."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-fb70e5, 23 September 2026, of the extraction by Codex, session codex-c83e7a (issue #2166, PR #2268). Source read: arXiv 2502.20645v1, 230 pp., sha256 51d7eacc…5da4e95c, together with its LaTeX source, which is what made the numbering checkable.\n\nCoverage. Every numbered object in this paper shares one counter — theorem environments, plain subsubsection headings, and 93 displays produced by the authors' \\numequation/\\numalign/\\ssinc macros — so I simulated the counters from the source and calibrated the result against the PDF (1.8.6 a display, 1.8.8 a heading, 1.8.10 a definition, 2.3.33 a corollary, 5.1.1 a definition, 7.2.1 a hypothesis, 10.4.1 a lemma). That gives 617 numbered objects. 152 of them are in no item locator, and every one resolves: Theorems 4.1.6 and 4.1.11 and Corollary 4.1.14 are overview restatements whose originals (4.6.45, 4.6.58, 4.6.60, 4.7.1, 4.7.3, 4.7.5) are all covered; Theorems A and B are covered by name; Hypotheses 5.7.1, 5.7.5, 6.3.1 and 7.1.3 are folded verbatim into every dependent item's statement, which is a deliberate and defensible style here; the rest are remarks, notation and cross-references. No missing mathematics was found.\n\nStatuses. All eight library items were opened at the pinned commits — Mathlib 082e2d3 and Tau Ceti f790474, both available locally — and all fourteen cited declarations exist there, including Condensed.free and Condensed.freeForgetAdjunction (Mathlib/Condensed/Module.lean:51,56), Matrix.symplecticGroup and SymplecticGroup.mem_iff (Mathlib/LinearAlgebra/SymplecticGroup.lean:101,117), and the Tau Ceti Verma, PBW, comodule, abelian-variety and Cartier-duality declarations. All 32 planned items cite layers that exist and that plan what the item needs.\n\nRoutes. All 35 accepted. Eight of the eleven new or Part II identities are already proposed by other papers' routes (Fu-24, Pilloni-20, CDN-20, CDN-20-B, CDN-23, Dospinescu–Le Bras-17, Calegari–Geraghty-20, BCGP-21) and every shared Part II names the same parent as the paper that introduced it; none of the eleven is in an atlas or roadmap file, so `new`/`part-ii` is the right kind throughout. The two pairs of Part IIs that share a parent do not overlap — the briefs assign ownership explicitly. Three Part II titles did not reproduce their parent's title as PROTOCOL section 15 requires; I corrected them in place, adopting BCGP-21's wording for GSp4LocalLanglandsAndGaloisRepresentations. One cross-paper divergence is left for the design job: BCGP-21 routes HigherHidaAndColemanTheory as a new roadmap with a different title, where this extraction and Pilloni-20 make it a Part II of PadicFamilies.\n\nMistakes in the paper. All 74 recorded findings were checked at their locators and 71 are confirmed, several by computation of my own: #Y(F₂) = 3 and #Y(F₄) = 9 give Q(X) = X⁴+2X²+4 (E041); #C(F₃) = 8 and #C(F₉) = 14 give (X²+2X+3)², so the [2,2,2] row is not 3-distinguished (E053); v₂(α²−1) = 3 for the unit root of X²+X+2 (E050); the counterexamples of E010, E015, E029, E035, E044, E045 and E051 all hold as stated. Three are rejected: E031 records no defect (the printed congruence is correct, merely redundant at p = 2); E047 quotes text that is not at its locator and whose claim is justified by Kisin's local-constancy theorem; E072 asks for more explicit coordinates but identifies no false statement. E017 was confirmed only after correction — the paper prints 'cokernel' correctly on p77, so its recorded quotation was a misreading, but the sentence after it is a literal tautology, and the entry now records that. E035's locator was corrected (7.4.9 is a Definition). One finding was added, E075, a subscript slip in the statement of Lemma 2.7.5. A locator audit over all 74 found that single wrong locator.\n\nVerdict: accept. The extraction is accurate, its routing is consistent with the rest of the atlas, and the corrections needed were small enough to make in place."
+}
