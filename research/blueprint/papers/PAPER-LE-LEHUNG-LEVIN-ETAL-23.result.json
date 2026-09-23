@@ -16710,7 +16710,9 @@
         "AutomorphicFormsOnReductiveGroups:AF.0",
         "AutomorphicFormsOnReductiveGroups:AF.3",
         "AdelicAlgebraicGroups:AA.2",
-        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A104",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105"
       ],
       "proofOutline": "Build psi_N from the adjacent-superdiagonal sum, which adds under multiplication; it is trivial on N_n(F). The product phi(ug)psi_N(u)^(-1) descends to the compact homogeneous quotient (not a quotient group in general). Use AF.3's unipotent quotient and AA.2's invariant measure, then differentiation under a compact integral for smoothness. Substitution u↦u u0 in the right-invariant quotient measure proves W(u0 g)=psi_N(u0)W(g). Linearity and right-translation compatibility follow directly. Haar/Fubini/quotient and smooth-globalization suppliers are imported, not newly certified.",
       "implementationStatus": "unchecked",
@@ -16859,7 +16861,8 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A67",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A68",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A104"
       ],
       "proofOutline": "Induct on n for mirabolic functions. P_1 is trivial and its Whittaker transform is the identity. If W_f=0, A68 makes W_(f_p')=0 for every p. The induction hypothesis gives f_p'=0, so C_e f(p)=0 for every p. Apply A67 to obtain f=0. For a cusp form phi on GL_n, restrict each right translate p↦phi(p g) to P_n(A); the cuspidality equations remain valid. Its Whittaker transform is p↦W_phi(p g)=0, so evaluation at p=1 gives phi(g)=0 for every g. This proof needs compact Fourier uniqueness and compact Fubini, not the stronger absolute-uniform-convergence part of Cogdell's expansion theorem.",
       "implementationStatus": "unchecked",
@@ -16892,7 +16895,8 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
-        "AutomorphicFormsOnReductiveGroups:AF.1"
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A106"
       ],
       "proofOutline": "Choose nonzero phi. A69 gives g with W_phi(g)≠0. Right-translation stability and A66 yield Lambda(Pi(g)phi)=W_phi(g)≠0. The unipotent equivariance is A66's identity at g=1. Compact integration is continuous in the smooth automorphic topology supplied by AF.1/AF.0. No uniqueness theorem for Whittaker models is needed to prove nonvanishing. A chosen phi can satisfy Lambda(phi)=0; nonvanishing is a property of the functional on the representation, not of every vector.",
       "implementationStatus": "unchecked",
@@ -16925,7 +16929,8 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
         "AutomorphicFormsOnReductiveGroups:AF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.5"
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107"
       ],
       "proofOutline": "Transport Lambda across the one-place factorization. If it vanished on every x tensor w, L68 would identify it with zero. Choose a detecting pure tensor and freeze its second factor; TensorProduct.mk/curry give linearity, and equivariance holds because the local unipotent acts only on x. Flath's factorization, including the passage from global smooth vectors to the algebraic tensor at one finite place, is imported from AF.2, not proved by L68. Only finite-place genericity is claimed, so no archimedean completed-tensor inference is hidden here. Neither local uniqueness nor an Euler-product factorization of Lambda is needed.",
       "implementationStatus": "unchecked",
@@ -18275,6 +18280,147 @@
       ],
       "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
       "note": "Continuation Codex — codex-hjdg0j, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A104",
+      "kind": "theorem",
+      "name": "Characters of the compact adele-class group and Fourier uniqueness",
+      "statement": "Let F be a number field with adeles A, and fix a nontrivial continuous unitary character psi of A trivial on F. Then gamma↦psi_gamma, psi_gamma(x)=psi(gamma x), is a group isomorphism from F onto the Pontryagin dual of the compact group F\\A. Consequently, if h is a continuous function on F\\A all of whose Fourier coefficients integral_{F\\A} h(x) psi_gamma(x)^(-1) dx vanish for every gamma in F, then h=0. The same holds with F\\A replaced by any of the successive additive quotients (F\\A)^r arising from the unipotent filtration of N_n, the characters there being indexed by F^r. This is the uniqueness half only: no statement about pointwise convergence of the Fourier series is asserted.",
+      "locator": "Cogdell, L-functions and Converse Theorems for GL_n, author-hosted PCMI notes (2002), Lecture1, printed6/PDF10: 'by standard duality theory the additive characters of the compact group k\\A are isomorphic to k via the map gamma in k ↦ psi_gamma', with the parenthetical abelian-Fourier expansion immediately above. Cogdell cites Weil, Basic Number Theory, and Gelfand–Graev–Piatetski-Shapiro for the duality. Author PDF SHA-256 09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a, read 23 September 2026 (printed page = PDF page - 4).",
+      "status": "missing",
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "proofSteps": [
+        "Self-duality of A pairs A with its own dual through psi; the annihilator of the discrete cocompact subgroup F is F itself under that pairing, so the dual of F\\A is F. AL.0 already owns self-duality of the local additive groups and the adelic restricted tensor product, which is what this specialises.",
+        "F\\A is compact abelian, so its characters span a dense subspace of C(F\\A) for the uniform norm by Stone–Weierstrass, the character group separating points. A continuous function orthogonal to every character is therefore orthogonal to a dense subspace of C(F\\A) in L^2, hence is 0 in L^2 and, being continuous, is identically 0.",
+        "For the iterated case, the successive quotients of the unipotent filtration of N_n are F-vector groups of finite rank, so their adelic quotients are finite products of copies of F\\A and the duality is the r-fold product of the rank-one statement. This is the form A67 and A68 consume when they peel one row at a time."
+      ],
+      "tests": [
+        {
+          "name": "A104.rank_one_is_circle",
+          "kind": "computation",
+          "statement": "For F=Q, F\\A is the solenoid whose dual is Q with the discrete topology; a continuous function with all Fourier coefficients zero vanishes."
+        },
+        {
+          "name": "A104.continuity_required",
+          "kind": "non-example",
+          "statement": "An L^1 function on a compact abelian group with all Fourier coefficients zero is zero only almost everywhere, so the pointwise conclusion needs the continuity hypothesis that cusp forms supply."
+        },
+        {
+          "name": "A104.nontrivial_psi_required",
+          "kind": "non-example",
+          "statement": "If psi were trivial then every psi_gamma would be trivial and the map gamma↦psi_gamma would not be injective; the nontriviality hypothesis is used."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Claude Code — cc-d67081, 23 September 2026. Owner: AutomorphicLFunctionsAndLocalFactors."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105",
+      "kind": "theorem",
+      "name": "Compatible invariant probability measures on the unipotent adelic quotients",
+      "statement": "Let N be the unipotent radical of a standard parabolic of GL_n over a number field F. Then N(F)\\N(A) is compact, N(A) and N(F) are unimodular, and there is a unique N(A)-invariant Radon measure on N(F)\\N(A) of total mass 1. For a normal subgroup filtration N=N^(0)⊃N^(1)⊃…⊃N^(r)=1 with abelian successive quotients, the probability measures on the quotients N^(i)(F)\\N^(i)(A) are compatible with the invariant probability measure on N(F)\\N(A) through Weil's integration formula, so iterated integration along the filtration computes the integral over N(F)\\N(A) in any order permitted by the filtration.",
+      "locator": "A66 fixes 'the invariant probability quotient measure, compatible with the successive additive quotients'; this item is that hypothesis made explicit. Cogdell, PCMI notes (2002), Lecture1, printed5–7/PDF9–11, where the integrals over k\\A and over N(k)\\N(A) are taken and iterated without further comment. Author PDF SHA-256 09b82f9a…0932a, read 23 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "AdelicAlgebraicGroups:AA.2"
+      ],
+      "proofSteps": [
+        "N is unipotent, so N(A) is unimodular, and N(F) is discrete hence unimodular. AA.2 already constructs invariant quotient measures by Weil's integral formula and proves their independence of the choice of measurable fundamental domain; specialising it to this pair gives an invariant Radon measure on the quotient, unique up to positive scalar.",
+        "N(F)\\N(A) is compact — the standard fundamental domain is a product of copies of a fundamental domain for F\\A, which is compact — so the invariant measure has finite total mass and may be normalised to 1. Uniqueness of the invariant probability measure follows from uniqueness up to scalar.",
+        "For the filtration, apply Weil's formula to each of the two stages N^(i+1)(F)\\N^(i+1)(A) ⊂ N^(i)(F)\\N^(i)(A). The compatibility is the assertion that the three normalisations agree, which holds because each is the unique invariant probability measure and the pushforward of an invariant probability measure is one. Iterating gives the Fubini statement used in A67 and A68."
+      ],
+      "tests": [
+        {
+          "name": "A105.GL2_case",
+          "kind": "computation",
+          "statement": "For n=2, N_2(F)\\N_2(A) is F\\A and the measure is the invariant probability measure used for the psi-Fourier coefficient in A66."
+        },
+        {
+          "name": "A105.unimodularity_used",
+          "kind": "non-example",
+          "statement": "For the full Borel B of GL_2, B(A) is not unimodular and no invariant quotient measure on B(F)\\B(A) exists; the hypothesis that N is unipotent is what makes the construction available."
+        },
+        {
+          "name": "A105.compactness_for_normalisation",
+          "kind": "non-example",
+          "statement": "GL_n(F)\\GL_n(A) is not compact, so no invariant probability measure exists there; the normalisation is specific to the unipotent quotients."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Claude Code — cc-d67081, 23 September 2026. Owner: AdelicAlgebraicGroups."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A106",
+      "kind": "theorem",
+      "name": "The Whittaker integral is continuous on the smooth globalization",
+      "statement": "Let A^infinity(GL_n(F)\\GL_n(A)) be the space of smooth automorphic forms of uniform moderate growth, and for a compact open L in the finite part let (A^infinity)^L carry the Fréchet topology defined by the uniform moderate-growth seminorms. Then for each g the map phi↦W_psi(phi)(g) of A66 is a continuous linear functional on (A^infinity)^L, and phi↦W_psi(phi) is continuous into the corresponding space of Whittaker functions. In particular the functional Lambda of A70 is continuous, not merely linear, and is defined on the smooth globalization rather than on the K_infinity-finite Harish–Chandra module.",
+      "locator": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), section on smooth automorphic representations, printed24/PDF27: 'The spaces (A^infinity)^L all carry compatible limits of smooth Fréchet topologies coming from the uniform moderate growth semi-norms on A^infinity and the representation of G_infinity on these spaces are limits of smooth Fréchet representation of moderate growth.' Author PDF SHA-256 2c5ec050a6db216dcd2104b7fe266ddc03e4db7c7d300239e60d6ee9c40618a7, read 23 September 2026 (printed page = PDF page - 3).",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
+      ],
+      "proofSteps": [
+        "A105 gives a probability measure on the compact domain N_n(F)\\N_n(A). The integrand is bounded by the supremum of |phi| over the compact set N_n(F)\\N_n(A)·g, so |W_psi(phi)(g)| is bounded by one of the defining seminorms of the Fréchet topology evaluated on a compact set. That is continuity of the functional.",
+        "AF.1 owns the construction of the smooth moderate-growth Fréchet globalization and its uniqueness; this item only records that the Whittaker integral is continuous for that topology, which is what makes 'nonzero continuous functional' meaningful in A70.",
+        "Continuity into the space of Whittaker functions follows because the estimate is uniform for g in a compact set, so convergence in the Fréchet topology gives locally uniform convergence of the transforms."
+      ],
+      "tests": [
+        {
+          "name": "A106.seminorm_bound",
+          "kind": "computation",
+          "statement": "|W_psi(phi)(g)| <= sup over the compact N_n(F)\\N_n(A)·g of |phi|, since the measure is a probability measure and |psi_N|=1."
+        },
+        {
+          "name": "A106.smooth_vs_K_finite",
+          "kind": "non-example",
+          "statement": "A linear functional on the K_infinity-finite subspace need not extend continuously to the globalization, which is why A70 is stated for the smooth globalization; the distinction is the point of this item."
+        },
+        {
+          "name": "A106.moderate_growth_used",
+          "kind": "non-example",
+          "statement": "Without a growth condition the integral over a compact quotient still converges, but the family of seminorms would not control it uniformly in g, so the second conclusion fails."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Claude Code — cc-d67081, 23 September 2026. Owner: AutomorphicFormsOnReductiveGroups."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107",
+      "kind": "theorem",
+      "name": "One-place abstract factorization of a smooth automorphic representation",
+      "statement": "Let Pi be an irreducible smooth automorphic representation of GL_n(A_F) and v a finite place. Then there are an irreducible admissible smooth representation Pi_v of GL_n(F_v) and a complex vector space V^v carrying a smooth action of the away-from-v part, with an isomorphism of GL_n(F_v)-representations V_Pi ≅ V_(Pi_v) tensor_C V^v under which GL_n(F_v) acts only on the first factor. This is the one-place form of Flath's decomposition theorem, and it is an ABSTRACT isomorphism of representations: it does not factor automorphic forms into products of functions on the local groups.",
+      "locator": "Cogdell, Fields Institute notes (2003), Theorem3.2 (Decomposition Theorem) and Corollary3.2.1, printed23–24/PDF27; the caveat is Cogdell's own, immediately after the corollary: 'the decomposition given in this corollary is an abstract decomposition. It does not give a factorization of automorphic forms into a product of functions on the local groups G(k_v)'. The smooth version is Theorem3.4, printed24–25/PDF28, which gives Pi = Pi_infinity tensor-hat Pi_f with Pi_f the restricted tensor product over the finite places. Author PDF SHA-256 2c5ec050…18a7, read 23 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "AutomorphicFormsOnReductiveGroups:AF.2"
+      ],
+      "proofSteps": [
+        "AF.2 already owns restricted tensor-product factorization for irreducible admissible constituents and uniqueness of almost-everywhere spherical vectors. This item extracts the single-place consequence: group the restricted tensor product as the v-factor tensored with the restricted tensor product over the remaining places, and take V^v to be the latter.",
+        "For the smooth globalization the grouping is Theorem3.4's Pi = Pi_infinity tensor-hat Pi_f followed by splitting Pi_f = Pi_v tensor (restricted product away from v); the archimedean factor is absorbed into V^v, which is why V^v is only required to carry a smooth action and no topology is asserted on it.",
+        "Record the caveat explicitly, because A71 uses only the abstract isomorphism: it chooses w in V^v to detect a given global functional, which is legitimate for an abstract tensor decomposition, whereas a factorization of automorphic forms into local functions is not available and is not claimed."
+      ],
+      "tests": [
+        {
+          "name": "A107.grouping_is_associativity",
+          "kind": "computation",
+          "statement": "For a restricted tensor product over all places, grouping off one finite place is an isomorphism of representations of the group at that place, the remaining factor being the restricted product over the complement."
+        },
+        {
+          "name": "A107.abstract_only",
+          "kind": "non-example",
+          "statement": "An automorphic form is not in general a product of local functions; Cogdell states this immediately after the corollary, so no such conclusion may be drawn from this item."
+        },
+        {
+          "name": "A107.spherical_almost_everywhere",
+          "kind": "computation",
+          "statement": "The restricted product is taken with respect to the almost-everywhere spherical vectors whose uniqueness AF.2 supplies; without that choice the restricted product is not defined."
+        }
+      ],
+      "implementationStatus": "Extraction and proof plan only; no Lean implementation.",
+      "note": "Continuation Claude Code — cc-d67081, 23 September 2026. Owner: AutomorphicFormsOnReductiveGroups."
     }
   ],
   "prerequisites": [
@@ -19057,6 +19203,7 @@
       "route": "source",
       "roadmap": "AutomorphicFormsOnReductiveGroups",
       "stages": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
         "AutomorphicFormsOnReductiveGroups:AF.2",
         "AutomorphicFormsOnReductiveGroups:AF.3",
         "AutomorphicFormsOnReductiveGroups:AF.5"
@@ -19068,9 +19215,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A69",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A71",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A106",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107"
       ],
-      "reason": "Add the GL_n-specific Whittaker integral, mirabolic injectivity and finite-place tensor restriction to the existing automorphic-function/cusp-form direction. AF.3 owns the global construction and cuspidality argument; AF.2 owns restricted tensor products and the one-place restriction adapter. Import AL.0 Fourier uniqueness, AA.2 quotient measures and the existing SR.5 local functional carrier. This is a source refinement, not a claim that the current AF.3 text already explicitly states global genericity for GL_n, and not a genericity claim for every reductive group. AF.5 identifies algebraic modular forms on compact-at-infinity groups with coefficient functions on finite adelic double cosets; A74 is its refinement by a smooth K-type factor at p (the sigma(lambda,tau)^* coefficients of LLHLM23 AppendixA)."
+      "reason": "Add the GL_n-specific Whittaker integral, mirabolic injectivity and finite-place tensor restriction to the existing automorphic-function/cusp-form direction. AF.3 owns the global construction and cuspidality argument; AF.2 owns restricted tensor products and the one-place restriction adapter. Import AL.0 Fourier uniqueness, AA.2 quotient measures and the existing SR.5 local functional carrier. This is a source refinement, not a claim that the current AF.3 text already explicitly states global genericity for GL_n, and not a genericity claim for every reductive group. AF.5 identifies algebraic modular forms on compact-at-infinity groups with coefficient functions on finite adelic double cosets; A74 is its refinement by a smooth K-type factor at p (the sigma(lambda,tau)^* coefficients of LLHLM23 AppendixA). Continuation cc-d67081: AF.1 added to the stage list because A106 records that the Whittaker integral is continuous for the smooth moderate-growth Fréchet topology that AF.1 constructs, and A107 is the one-place grouping of the restricted tensor product AF.2 already owns, kept explicitly abstract as Cogdell states it."
     },
     {
       "route": "source",
@@ -19082,6 +19231,28 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A72"
       ],
       "reason": "The determinant-twist identity belongs to the shared local Whittaker-functional API, whose classical complex comparison is already requested by AL.3. It is an elementary identity of the N-action over characteristic zero, not a new integral co-Whittaker theorem, not an invocation of Helm in coefficient characteristic p, and not an automorphic construction."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+      "stages": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A104"
+      ],
+      "reason": "AL.0 owns Schwartz–Bruhat spaces, self-duality of the local additive groups, the restricted tensor-product adelic space, Fourier inversion and adelic Poisson summation. A104 is the specialisation those already imply and that the Whittaker theory consumes: the characters of the COMPACT quotient F\\A are indexed by F, so a continuous function on it with all Fourier coefficients zero vanishes. Route 20's reason already named 'AL.0 Fourier uniqueness' as an import; this route supplies the item that name referred to. Only the uniqueness half is asked for, not pointwise convergence."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdelicAlgebraicGroups",
+      "stages": [
+        "AdelicAlgebraicGroups:AA.2"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A105"
+      ],
+      "reason": "AA.2 states in terms that it will 'construct invariant quotient measures by Weil's integral formula and prove their independence of measurable fundamental-domain choices'. A105 is the specialisation to unipotent radicals: the quotient is compact so the invariant measure normalises to a probability measure, and the normalisations along a filtration with abelian successive quotients agree, which is what licenses the iterated integration of A67 and A68. Route 20's reason already named 'AA.2 quotient measures' as an import; this route supplies that item. The unimodularity hypothesis is recorded, since the Borel gives no invariant quotient measure."
     }
   ],
   "sourceIssues": [
