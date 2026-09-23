@@ -192,3 +192,14 @@ structural checks run while generating the result — every missing item routed 
 item naming layers that exist in the atlas, the source routes naming layers owned by the roadmap they name,
 the Part II title matching its parent's and its area being a galaxy id — do not certify the mathematics.
 No Lean file is authorised or compiled for this job.
+
+
+## Review (REV-PAPER-SKINNER-20, 23 September 2026)
+
+An independent review checked every item against the published article and corrected this extraction in place.
+
+- **Items:** 16 statements and 3 names were corrected, and 16 items were added.
+- **Statuses:** items 3 and 9 moved from planned to missing, each with a new source route (ModularIwasawaMainConjectures L5 and ArithmeticStatistics ST.4). Item 21 moved to planned at SelmerIwasawaCohomology L2.
+- **Source issues:** E1–E4 were confirmed, and seven more were recorded (E5–E11). Among them is a gap in Lemma 2.2.2: injectivity at p is proved only when λ is the only prime of M_f above p, so the proofs of Theorems A and E are incomplete for [M_f:Q] > 1.
+
+The counts above are those before the review. After it there are 78 items: 28 planned and 50 missing. Details are in [the review report](../reviews/REV-PAPER-SKINNER-20.md).
