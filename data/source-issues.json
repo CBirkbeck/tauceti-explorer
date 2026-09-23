@@ -55060,9 +55060,9 @@
    "owner": "PAPER-FENG-YUN-ZHANG-24",
    "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
    "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Confirmed at the page images of Definition 6.6 (arXiv v4 pp. 38–39); the correction is right and affects nothing."
   },
   {
    "id": "PAPER-FENG-YUN-ZHANG-24/E2",
@@ -55080,9 +55080,9 @@
    "owner": "PAPER-FENG-YUN-ZHANG-24",
    "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
    "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Confirmed at the page image of §12.3; F_0, …, F_r is meant."
   },
   {
    "id": "PAPER-FENG-YUN-ZHANG-24/E3",
@@ -55100,9 +55100,534 @@
    "owner": "PAPER-FENG-YUN-ZHANG-24",
    "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
    "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Confirmed at the page image of §12.3; m_v is Definition 2.2."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E4",
+   "kind": "misprint",
+   "locator": "Remark 2.4 (arXiv v4 p. 12), published version not re-read (see searched)",
+   "printed": "\"Den(T, Q) = Σ_{Q′⊂(Q′)^∨⊂Q} T^{2ℓ′(Q′)} m(t′(Q′); T).\"",
+   "correction": "m(t′((Q′)^∨/Q′); T), with (Q′)^∨ = Q′^⊥ the orthogonal of Q′ in Q, as in §5.1 (\"m_v(t′_v(I^⊥/I); T)\").",
+   "reason": "With Q′ = L′/L one has t′(L′) = t′(L′^∨/L′) = t′(Q′^⊥/Q′). Read literally the formula is wrong: for n = 1 inert and Q = O_{F′}/ϖ it gives Den(T, Q) = 1 instead of 1 − T, and at j = 0 a density 4/3 where brute force gives 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 12 and against §5.1."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E5",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 2.3 (arXiv v4 p. 11), published version not re-read (see searched)",
+   "printed": "\"Den(⟨1⟩^m, L) = q^{−dim Rep(⟨1⟩^m,L)_F} Σ_{L⊂L′⊂L′^∨} #(L′/L)^{−(m−n)} #Isom_{⟨1⟩^m_k, L_k}(k)\"",
+   "correction": "#Isom_{⟨1⟩^m_k, L′_k}(k)",
+   "reason": "The summand depends on L′, and (2.7) is then applied with a = t′(L′); brute-force split densities for n = 2 match only the L′_k version.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 11, with the brute-force densities."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E6",
+   "kind": "misprint",
+   "locator": "Split case, §2.3 and Remark 2.5 (arXiv v4 pp. 10–12), published version not re-read (see searched)",
+   "printed": "p. 10: \"L^∨ = (L_1^∨, L_2^∨) where L_1^∨ = {x ∈ L_1 ⊗_{O_F} F : (x, L_2) ⊂ O_F}\"; p. 11: \"t′(L^∨/L) = t(L_2^∨/L_1) = t(L_1^∨/L_2)\"; Remark 2.5: the sum over \"L_1 ⊂ L′_1 ⊂ L′_2^∨ ⊂ L_2^∨\" with \"m(t(L′_2^∨/L′_1); T)\"",
+   "correction": "Use one convention throughout; Remark 2.5 is correct with L_i^∨ := the dual of L_i (lying in the other space).",
+   "reason": "Under the p. 10 definition L_2^∨/L_1 is undefined. Lattice sums built from Remark 2.5 in the second reading reproduce the brute-force densities.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 10–12."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E7",
+   "kind": "misprint",
+   "locator": "(2.1), §2.2 (arXiv v4 p. 9), published version not re-read (see searched)",
+   "printed": "\"For any α ∈ M_n(A) we have E_T(m(α)g, s, Φ) = χ(det(ᾱ))^{−1}|det(α)|_{F′}^{−s+n/2} E_{ᵗᾱTα}(g, s, Φ).\"",
+   "correction": "α ∈ M_n(F) (= GL_n(F′)), where the prefactor is 1 and E_T(m(α)g) = E_{ᵗᾱTα}(g).",
+   "reason": "For adelic α, ᵗᾱTα is not a rational Hermitian matrix, so E_{ᵗᾱTα} is undefined. The only use (§2.6) has α ∈ M_n(F); the local analogue (2.3) is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 9."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E8",
+   "kind": "error",
+   "locator": "Remark 4.8 (arXiv v4 p. 24), published version not re-read (see searched)",
+   "printed": "\"Spr^Herm_{2d}|_{Herm^ε_{2d}(X′/X)_k̄} carries a canonical action of W_{d′} where d′ = (d − Σ_{x∈R} ε(x))/2.\"",
+   "correction": "d′ = (2d − Σ_{x∈R} ε(x))/2.",
+   "reason": "Generically Q_x has length ε(x) at each ramified x and the rest of Q lies in σ-pairs of total length 2d − Σε. For Q supported at one ramified point with ε = 0 the local model has Weyl group W_d, not W_{d/2}. The remark is not used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 24."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E9",
+   "kind": "error",
+   "locator": "§4.1 (arXiv v4 p. 21), published version not re-read (see searched)",
+   "printed": "\"Note that we have an isomorphism (X′_{2d})^σ ≅ X_d, sending a σ-invariant divisor on X′ to its descent on X.\"",
+   "correction": "Add \"when ν is étale\" (as §4.3 does).",
+   "reason": "In §4.1 ν may be ramified; then x′_1 + x′_2 with x′_i two ramification points is σ-invariant of degree 2 but not ν^*D. Remark 4.1 itself describes the parity decomposition. Nothing downstream uses the ramified case of this sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 21."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E10",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.1 (arXiv v4 p. 16), published version not re-read (see searched)",
+   "printed": "\"By definition, π_d^{−1}(D_{d,A¹}) = Σ_{1≤i<j≤d} Δ̃_ij, π_d^{−1}(D_{d,U}) = Σ_{1≤i<j≤d} Δ_ij as divisors on U^d.\"",
+   "correction": "2Σ Δ̃_ij and 2Σ Δ_ij, hence π_d^{−1}(R_{d,f}) = 2Σ R_ij in (3.1).",
+   "reason": "π_d is ramified to order 2 along Δ_ij, so the discriminant pulls back with multiplicity 2 (d = 2: e_1² − 4e_2 ↦ (t_1 − t_2)²). Only supports are used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 16."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E11",
+   "kind": "error",
+   "locator": "(4.1), §4.4 (arXiv v4 p. 25), published version not re-read (see searched)",
+   "printed": "\"γ_{Z♯,y′} : B^Herm_Q(y′) ≅ B_{ν_*(Q|_{Z♯})}(y) ≅ Π_{x∈Z} B_{Q_{x♯}}\"",
+   "correction": "The middle identification holds only for y′ ∈ Σ(Z♯); the composite to Π_x B_{Q_{x♯}}, which is what Propositions 4.11 and 4.13 use, is right.",
+   "reason": "The restricted flag (Q_i ∩ Q|_{Z♯}) generally has a different support sequence: for d = 2 and y′ = (σx′, z′, σz′, x′) with Z♯ = {x′, z′} it lies in B(y ∘ s_1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 25."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E12",
+   "kind": "misprint",
+   "locator": "§§2–5 (arXiv v4 pp. 8–32), published version not re-read (see searched)",
+   "printed": "p. 23: \"The proof is similar to that of Corollary 3.4\"; p. 18: \"B^i_Q(η) ⊂ C̃oh^{i,♡}_{2d}\"; p. 32: \"HSpr_{2d} carries an action of S_d\"; p. 27: \"Q_{v′} ⊕ σ^*Q_{v′} equipped with the canonical Hermitian structure\"; p. 29: \"Stab_{S_d}(Fy)\"; p. 13: \"such that σ^*a = a\"; (2.14): \"|α|_{F′}^{−s+n/2}\"; p. 13: \"By Theorem, 2.3\"",
+   "correction": "Lemma 3.3; C̃oh^{i,♡}_d; HSpr_d; Q_{v′} ⊕ σ^*Q_{v′}^∨; Stab_{S_d}(Fr y); σ^*a^∨ = a; |det(α)|_{F′}; \"By Theorem 2.3\".",
+   "reason": "Reference and notation slips; Corollary 3.4 is quoted from Laumon without proof, and only Q ⊕ σ^*Q^∨ carries a canonical Hermitian structure.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of the pages cited."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E13",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.7 (arXiv v4 p. 39), published version not re-read (see searched)",
+   "printed": "\"If X′ is geometrically disconnected (i.e. it is either X ∐ X or X_{k′}), then we have π_0(Prym(X′/X)_{k̄}) ≅ Z, the Lang map lands in (therefore surjects onto, by Lang's Theorem) the identity component, and the bottom horizontal map hits the identity component if and only if r is even.\"",
+   "correction": "The Lang map lands in (and surjects onto) the components indexed by (τ − 1)π_0: {0} for X ⊔ X and 2Z for X_{k′}; the bottom map lands in components ≡ r mod 2, so the fibre product is nonempty iff r is even.",
+   "reason": "For X′ = X_{k′}, Frobenius swaps the two geometric components of X′_{k̄}, so τ acts by −1 on π_0(Prym_{k̄}) = {(M, M^{−1})} ≅ Z. For F = (L_1, L_2) with deg L_1 + deg L_2 = 2g − 2 the Lang image has index 2g − 2 − 2 deg L_1, which is even and arbitrary. The statement of Lemma 6.7 stands.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 39, with the Frobenius action re-derived."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E14",
+   "kind": "misprint",
+   "locator": "Lemma 6.7, the Cartesian square (arXiv v4 p. 39), published version not re-read (see searched)",
+   "printed": "\"with the bottom horizontal map sending D ↦ O(D − σD)\"",
+   "correction": "D ↦ O(σD − D)",
+   "reason": "By Definition 6.3(3) with n = 1, F_i = F_{i−1}(σ(x′_i) − x′_i), so F_0^{−1} ⊗ ^τF_0 ≅ O(σD − D); otherwise the square does not commute. The parity argument is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 39."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E15",
+   "kind": "misprint",
+   "locator": "Remark 6.2 (arXiv v4 p. 37), published version not re-read (see searched)",
+   "printed": "\"Then F_1 := ν^*ω^{1/2}_{X′} is equipped with the canonical Hermitian structure\"",
+   "correction": "F_1 := ν^*ω_X^{1/2}",
+   "reason": "ν^* pulls back from X; with ∨ = Hom(−, ω_{X′}) and ω_{X′} = ν^*ω_X, ν^*ω_X^{1/2} is self-dual.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 37."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E16",
+   "kind": "misprint",
+   "locator": "§§6–7 (arXiv v4 pp. 38–46), published version not re-read (see searched)",
+   "printed": "Definition 6.5: target \"F|_{X′×S−Γ_x−Γ_y}\"; Definition 7.1 diagram: arrows \"f_0, f_1, …, f_r\"; p. 40: \"the same map E ⊠ O_S → E^∨ ⊠ O_S\"; p. 41: \"a′ := (σ^*ι^∨) ∘ a ∘ ι : E′ → E′^∨\"; Proposition 7.5 proof: bottom row ending \"F_{r−1} ≅ ^τF_0\" with t_{r−1}, and \"t_i ∈ H^0(X′_κ, E^∨_κ ⊗ F_i)\"; Lemma 7.8(1) proof: \"Then s^* factors as\"; §7.6: \"for 1 ≤ i ≤ r\"; Lemma 7.16 proof: \"disjoint from ν(D_0)\" and \"deg L′_i − D_i + 2g′ − 2 < deg L_1\"",
+   "correction": "F′|_{…}; f_1, …, f_r; σ^*E^∨ ⊠ O_S; σ^*E′^∨; F_r ≅ ^τF_0 with t_r, and Hom_{X′_κ}(E_κ, F_i); \"z_s factors\"; 1 ≤ i ≤ n; \"disjoint from D_0\" and deg L′_i − deg D_i + 2g′ − 2 < deg L_1.",
+   "reason": "Notation slips; there are n line bundles in §7.6, which gives virtual dimension rn − n·r = 0, and the last inequality is exactly Ext¹(L_i, L_1) = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 38–46."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E17",
+   "kind": "misprint",
+   "locator": "§§8–9 (arXiv v4 pp. 51–58), published version not re-read (see searched)",
+   "printed": "Proposition 8.12 proof: \"M^♦_d → Lagr^♦_d is smooth … A_d → Herm_d is also smooth\"; Definition 8.15: \"Φ^r_S(ξ_0, ···, ξ_r) = (ξ_0, ξ_1, ξ_1, ξ_2, ξ_2, ···, ξ_{r−1}, ξ_r, ξ_r, Fr(ξ_0))\"; §9.1: \"a line bundle L on X′_{k̄}\" and \"(L, a) ∈ A_d(k)\"; Proposition 9.5(3) proof: \"dim Z[N; I•] = (n − 1)|I_+| + (n − 2)|I_0| + |I_0| + dim D(N; I•)\"",
+   "correction": "Lagr^♦_{2d}, Herm_{2d}; (…, ξ_{r−1}, ξ_{r−1}, ξ_r, ξ_r, Fr(ξ_0)) with each ξ_1, …, ξ_r twice; L on X′ over k and (L, a) ∈ A(1)(k); \"≤\" for \"=\".",
+   "reason": "Index and notation slips; Φ^r_S must have 2r + 2 entries by (8.6). The dimension chain was checked for all partitions.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 51–58."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E18",
+   "kind": "gap",
+   "locator": "Proof of Proposition 7.5 (arXiv v4 p. 42), published version not re-read (see searched)",
+   "printed": "\"the map j is a k^×-torsor onto its image, which is a closed substack of P(Hom(E′, −)^{≤P})\"",
+   "correction": "Argue on ⊔_{a′ ∈ A^{all}_{E′}(k)} Z_{E′}(a′)^*, on which k^× acts; for fixed a′ ≠ 0 the fibres of j are {±1}. The image lies in P(…) ×_{Bun^{≤P}} Sht^{r,≤P}.",
+   "reason": "Rescaling t_0 by λ changes σ^*t_0^∨h_0t_0 to λ²a′. Finiteness of j is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 42."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E19",
+   "kind": "gap",
+   "locator": "Proof of Lemma 7.6 (arXiv v4 p. 43), published version not re-read (see searched)",
+   "printed": "\"By replacing κ with an algebraic closure, it suffices to consider the case when κ is algebraically closed.\"",
+   "correction": "Argue directly: τ-fixed vectors that are F_q-linearly independent are κ-linearly independent (take a shortest relation, apply τ and subtract), so the fixed set has F_q-dimension ≤ dim_κ V_1; injectivity is not needed.",
+   "reason": "Base change need not preserve injectivity of τ when κ is imperfect: for κ = F_q(t) and τ(a, b) = (a^q + tb^q)e_1, τ is injective on κ² but its extension to κ̄ kills (−t^{1/q}, 1). In the paper's application τ is a Frobenius twist, so the reduction is valid there; Lemma 7.6 and Proposition 7.5 stand.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 43, with the counterexample re-derived."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E20",
+   "kind": "error",
+   "locator": "§9, introduction (arXiv v4 p. 53), published version not re-read (see searched)",
+   "printed": "\"In particular, we show that for a ≠ 0, Z^r_E(a) are local complete intersections of dimension r less than Sht^r_{U(n)}.\"",
+   "correction": "\"… Z^r_E(a) has dimension at most dim Sht^r_{U(n)} − r\".",
+   "reason": "§9 proves only the dimension bound (Proposition 9.1(3)); Remark 7.10 defers both the LCI property and pure dimension, and Definition 7.11 says \"we neither prove nor use this in the present paper\".",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 53 and against Remark 7.10."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E21",
+   "kind": "error",
+   "locator": "Proposition 9.5(1) (arXiv v4 p. 57), published version not re-read (see searched)",
+   "printed": "D(N; I•) defined by \"(1) deg(D_0) ≤ N\", and \"(1) For varying N ∈ Z_{≥0} and partitions I• …, the substacks Z[N; I•] give a partition of Z.\"",
+   "correction": "Define D(N; I•) with deg D_0 = N; or say \"cover\".",
+   "reason": "With ≤, Z[N; I•] ⊂ Z[N + 1; I•], so the strata cover Z but are not disjoint. The dimension bound needs only a cover.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 57."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E22",
+   "kind": "error",
+   "locator": "Lemma 10.5 and its proof (arXiv v4 p. 61), published version not re-read (see searched)",
+   "printed": "\"Lemma 10.5. The maps w_1, u_1 and h_1 are étale.\" Proof: \"j = (u_1, j′_{d−e}, j_e) : A_{d,e} → A_d ×_{X_d} (X′_{d−e} × X_e)^♡ …\"; \"To show w_1 is étale, we observe that M_{d,e} ≅ M_d ×_{A_d} A_{d,e}. Since u_1 is étale, so is w_1.\"",
+   "correction": "u_1 is étale only on the open locus where Div(s) ∩ σDiv(s) = ∅. w_1 and h_1 are étale by a different argument: M_{d,e} is an open substack of M_d ×_{X_d} (X_{d−e} × X_e)^{disj} (pairs of divisors with disjoint support), via the divisor D_{a′} of a point of M_d and E := the preimage in F of the part of F/⊕L_i over D_1; the addition map on disjoint pairs is étale, and requiring the legs to lie over D_2 is open and closed for Hk.",
+   "reason": "A very good framing only requires ν(D_s) ∩ D_a = ∅, so j′_{d−e} need not land in the ♡ locus. Counterexample for u_1: n = 2, x ∈ X(k) split into x′, σx′, x ∉ D_a, L_1 locally spanned by ϖe_1 and f_1, L_2 by e_2 and ϖf_2; then (⊕L_i)^∨/⊕L_i is k² at x′ and at σx′, and every line ℓ at x′ with ℓ^⊥ at σx′ gives a self-dual E with the same (L_i, a′), Div(s) and D_a. So the fibre of u_1 contains a curve. The isomorphism M_{d,e} ≅ M_d ×_{A_d} A_{d,e} fails even for n = 1 (2^{deg D′} Hermitian F ⊃ L against the single F = E). The only uses are Lemma 10.7 and the smoothness of M_{d,e}, Hk^1_{M_{d,e}}, which need only w_1 and h_1; Theorems 10.1, 10.2 and 1.1 stand.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 61; the counterexample was re-derived by the reviewer (Lagrangians in the 4-dimensional split local space)."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E23",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.4 (arXiv v4 p. 60), published version not re-read (see searched)",
+   "printed": "\"a vector bundle of rank dim Hom(⊕L_i, F_0 ∩ F_1) = dn − n (using that deg(F_0 ∩ F_1) = n(g′ − 1) − 1)\"",
+   "correction": "dn − n − n²(g′ − 1)",
+   "reason": "Σ_i χ(L_i^∨ ⊗ (F_0 ∩ F_1)) = dn − n²(g′ − 1) − n; the next display uses exactly this value and the final dimension is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 60."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E24",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 10.9 (arXiv v4 p. 64), published version not re-read (see searched)",
+   "printed": "\"Sht_H ×_{S^r} S′^r\" (top-left corner of the first diagram) and \"Factorize u_Sht as the composition Sht′_H → Sht_H ×_{S^r}(S′^r) → Sht_H\"",
+   "correction": "Sht_H ×_{S^{r+1}} S′^{r+1}, twice.",
+   "reason": "The top row maps to S′^{r+1}; (10.10), (10.11) and the second diagram use r + 1 factors, and the codimension (r + 1)D requires them.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 64."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E25",
+   "kind": "misprint",
+   "locator": "§11 (arXiv v4 pp. 69–73), published version not re-read (see searched)",
+   "printed": "Proposition 11.2 proof: \"g*_Hk[(Hk¹_{Lagr_{2d}})^r × Lagr_{2d}] = [(Hk¹_{M_d})^r × Hk¹_{M_d}]\"; (11.5): \"nontrivial on the first i factors of (Z/2Z)^i\"; Lemma 11.1 proof: \"the parabolic subalgebra stabilizing\"; Proposition 11.8 proof: \"Φ^!_{M′}(ζ′_1 × ⋯ × ζ′_r × [M])\"",
+   "correction": "[(Hk¹_{M_d})^r × M_d]; (Z/2Z)^d; parabolic subgroup; [M′].",
+   "reason": "Notation slips.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 69–73."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E26",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 12.3 (arXiv v4 p. 75), published version not re-read (see searched)",
+   "printed": "\"𝔓_{d−i}(T) corresponds to Σ_{j=0}^{d−i}(−1)^j Ind^{W_{d−i}}_{W_j×W_{d−i−j}}(sgn_j ⊠ 1)T^j\" and \"(sgn_j ⊠ 1_{d−i−j}) ⊠ 1_i\"",
+   "correction": "sgn̄_j, the inflation W_j → S_j → {±1}, as in §5.3 and on p. 76.",
+   "reason": "sgn_j is a character of S_j; with the Coxeter sign of W_j the needed identity fails (checked for d = 1, …, 6).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 75, with character computations in W_d."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E27",
+   "kind": "error",
+   "locator": "Proof of Lemma 12.4 (arXiv v4 p. 76), published version not re-read (see searched)",
+   "printed": "\"Σ_{j=0}^d (−1)^j Tr(g, Ind^{W_d}_{S_{d−j}×W_j}(1 × sgn̄_j)) = Σ_{I∈𝔍_g} (−1)^{Σ_{c∈C_g^+}|c|} sgn̄(g″_I)\"",
+   "correction": "exponent d − Σ_{c∈I}|c| (= d − |J|), as in the preceding display.",
+   "reason": "As printed the right side is independent of the signs it should carry: for g = 1 ∈ W_1 it gives 3 while the left side is 1. The per-factor computation that follows uses the correct signs, so (12.6) and Lemma 12.4 are right (checked for d ≤ 6).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 76, with character computations."
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/E28",
+   "kind": "misprint",
+   "locator": "§10 (arXiv v4 pp. 58–67), published version not re-read (see searched)",
+   "printed": "Theorem 10.2: \"Suppose X′ is connected\"; p. 59: \"t′_i : L_i → F is an injective map (fiberwise over the test scheme)\"; Lemma 10.10: \"[Sht^r_{M_d}]|_{Z^r_{E′}(a′)} = ζ^r_{L_1,⋯,L_n}(a′) ∈ Ch_0(Z^r_{E′}(a′))\"; p. 67: \"Σ dim N_{d_i} − (n−1) dim Bun_{U(n)}\"",
+   "correction": "\"geometrically connected\" (§10.5 handles X_{k′} separately); t′ = ⊕t′_i fibrewise injective; Lemma 10.10 on the open part Z^r_{E′}(a′)^♡ where the slope condition (10.3) holds; the rigidified Ṅ_{d_i}.",
+   "reason": "The section works with geometrically connected X′; the relaxed stack of p. 66 is defined by dropping exactly the injectivity of ⊕t′_i; only Z^♡ maps to Sht^r_{M_d}. The proof of Theorem 10.2 is unaffected, since very good framings give Z^r_E(a) ⊂ Z^♡.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 235 (2023), 569–668, DOI 10.1007/s00222-023-01228-y: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2103.11514v4 (29 November 2023), the last arXiv version: it carries the same numbered statements and the same readings at every item below",
+    "Unpaywall (2026-09-23): the published article is open access (CC BY) at Springer, not retrievable here because of bot protection; the eScholarship copy is the author version. The review therefore checked statement, section and equation numbers against arXiv v4 (same SHA-256 as the extraction), not journal pages"
+   ],
+   "owner": "PAPER-FENG-YUN-ZHANG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+   "citation": "Feng–Yun–Zhang, \"Higher Siegel–Weil formula for unitary groups: the non-singular terms\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FENG-YUN-ZHANG-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 58–67."
   },
   {
    "id": "PAPER-FINTZEN-21/E1",
