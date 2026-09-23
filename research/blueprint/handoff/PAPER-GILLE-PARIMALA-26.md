@@ -1,27 +1,29 @@
-# PAPER-GILLE-PARIMALA-26 continuation checkpoint
+# PAPER-GILLE-PARIMALA-26 handoff
 
-Codex — codex-a71f92; issue #1197; 22 September 2026. Builds on codex-c83e7a's checkpoint.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints (codex-c83e7a, then codex-a71f92). Issue #1197. Date: 23 September 2026.
 
-148 items: 7 library, 4 planned, 137 missing. Ten routes cover 133 missing plus one planned item; all 42 definitions/constructions have an API and three tests. Keep `status: partial`. Four assertions remain unrouted: 37, 55, 56, 76.
+## Saved
 
-## Newly completed
+- **Items.** 152 items: 7 library, 4 planned, 141 missing.
+  - Items 37 and 76 are removed. They quoted false printed statements (Proposition 3.3 and the Tits-index formulas), which are now findings E3 and E13. Their corrections remain items 38 and 77.
+  - Items 149–154 are new: Prasad's Theorem (T), Tits' normal subgroup theorem, torus approximation, torsor gluing, finite flat groups with affine quotient, and local linearity of reductive groups on a regular surface.
+  - Items 55 and 56 (the optional Proposition 3.11(2) and Claim 3.12) are now routed to the proposed Part II.
+  - Every missing item is routed exactly once.
+- **Mistakes.** Nineteen are recorded (E1–E19).
+  - E1–E17 are in the manuscript, and E10 and E16 are already in Gille's errata of 26 May 2026.
+  - E18 is in the errata itself: its witness series is t/(x − t).
+  - E19 is in HHKP20.
+- **Gaps.** G1 and G3 became E3 and E13. G2 is closed: Prasad 1982 was read, and the proof's repair is recorded in E8 and item 57. G4 was already resolved.
 
-Read the full author manuscript again and the publisher's publicly exposed final Appendices A and B. The final main body remains inaccessible. Acquired CTS79's original GDZ scan and read printed pp. 109–110 and 127–130 with proofs. This discharges G4, but with an explicit correction: U must contain all codimension-at-most-one points (or retain the integral-surface hypothesis), and the affine quotient must represent the fppf sheaf quotient. X=A²_R disjoint union Spec R with G=PGL_2 is the counterexample to dropping the codimension-zero condition. Main integral-model use is unaffected. Do not reopen G4 just because no separate flatness of G is imposed: the recorded proof uses affine sheaf-quotient reduction and never infers quotient-map flatness.
+## Resume
 
-Items 129–138 extract module reflexivity, Hartogs, coherent reflexive extension, local freeness, vector-bundle extension, affine Isom uniqueness and the reduction-section construction. Reuse Mathlib Module.IsReflexive. The local freeness corollary belongs to DeformationAndDerivedPatchingAlgebra:R03.3, whose accepted decomposition already owns depth/Auslander–Buchsbaum. Import R03.3 → SF.0 → SF.1; avoid a purity/vector-bundle dependency cycle.
+The job is complete. For a reviewer or a later worker:
 
-Read all ten pages of HHKP20 v3. Items 139–148 give the precise nontrivial T-valuation family, rank bound/coarsening, smooth henselian descent, infinite quadratic transforms, henselization colimits, finite bad-point sets and termination. HHKP Theorem 2.5 uses all rank-one T-valuations, not only discrete ones; this subfamily already suffices for flags. Do not assume all residue fields along the blow-up chain coincide: use their colimit. Artin approximation from HHKP Proposition 2.3(b) is not required by this proof.
+1. Check E13 against §1.1(b)'s convention that ∆₀ is the type of a minimal parabolic.
+2. Check E14: Corollary 4.7(1) and a singular component of the special fibre.
+3. If the published main body becomes available, compare E1–E16 there. Published Theorem B.1 was already compared for E17.
+4. Items 150–153 state cited theorems that were not reread: Tits 1964, Harder 1968, Gille–Pianzola 2008, and Bruhat–Tits II with Demazure–Gabriel.
 
-Source URLs, hashes, exact read scopes, corrected statements and attribution are in JSON/report. CTS79 was not read in full; HHKP20 was. Main-paper and both new-source hashes were checked.
+## Validation
 
-## Resume here
-
-1. G1 item 37: obtain final main-body Proposition 3.3 wording to compare the author's V/V derivative typo. The corrected V/W theorem is already routed and justified.
-2. G2 items 55–56: acquire Kaletha–Prasad Proposition 2.14, Harder torus approximation and Tits normal-subgroup hypotheses in the exact possibly imperfect/infinite residue scope. Preserve closure bars, power subgroups and the F1-isotropy distinction. Optional Proposition 3.11 is not needed by the main flag theorem.
-3. G3 item 76: compare the final Tits-index wording. Correct Delta_0 is stable closure of the union of the local minimal types, not the smallest stable subset contained in all local types.
-4. Continue the prerequisite ledger: HH field/model patching, HHK completed-patch spreading, PS elementary independence, Kneser–Tits R comparison, Lipman 1978 SNC resolution, MPW flags, CGP restriction/fixed loci, Raghunathan Lie span, GP1 gluing, Margaux limits, SGA3 and orbit quotient. New explicit HHKP antecedents are Lipman **1969** Theorem 26.2 and smooth henselian implicit-function descent; their original proof interiors are not yet certified read.
-
-Do not confuse a downloaded paywall rendering with the article. Final appendices, unlike the main body, were actually accessible. The errata's geometric series is rational; retain the factorial-pole witness and coefficient recurrence. Complete the local ring before loop arguments. Keep arbitrary residue fields and inseparable Weil restriction.
-
-The candidate ReductiveGroupsPartIISemiglobalFlags is proposed, not accepted. Recheck live routes before continuing. Only this job's JSON, report and handoff are submitted; no Lean deliverable or compilation. Schema, routing, API/test, source-hash and focused exact-boundary checks pass.
-
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
