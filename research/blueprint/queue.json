@@ -4509,8 +4509,9 @@
    ],
    "avoidAccountOf": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1269"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1269",
+   "finishedAt": "2026-09-23T22:24:42Z"
   },
   {
    "id": "PAPER-XIE-YUAN-22",
