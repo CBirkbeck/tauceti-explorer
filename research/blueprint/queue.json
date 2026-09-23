@@ -1007,8 +1007,9 @@
    ],
    "avoidAccountOf": "PAPER-LANDESMAN-LITT-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-LANDESMAN-LITT-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1078"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1078",
+   "finishedAt": "2026-09-23T15:16:38Z"
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24",
@@ -8126,8 +8127,9 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2167"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2167",
+   "finishedAt": "2026-09-23T15:16:42Z"
   },
   {
    "id": "PAPER-PAN-26",
@@ -10193,8 +10195,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #93"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #93",
+   "finishedAt": "2026-09-23T15:16:45Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_GlobalQuadraticForms",
@@ -11109,7 +11112,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #119"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_OptimalTransport",
@@ -41381,8 +41385,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-33.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-33"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-33",
+   "note": "claimed on GitHub issue #868"
   },
   {
    "id": "AUDIT-34",
@@ -41491,9 +41496,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-35.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-35",
-   "note": "claimed on GitHub issue #870"
+   "note": "deliverables arrived from an external worker on issue #870",
+   "finishedAt": "2026-09-23T15:16:48Z"
   },
   {
    "id": "AUDIT-36",
@@ -41604,8 +41610,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-37.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-37"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-37",
+   "note": "claimed on GitHub issue #872"
   },
   {
    "id": "AUDIT-38",
@@ -41714,8 +41721,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-39.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-39"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-39",
+   "note": "claimed on GitHub issue #874"
   },
   {
    "id": "AUDIT-40",
@@ -41822,9 +41830,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-41.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-41",
-   "note": "claimed on GitHub issue #876"
+   "note": "deliverables arrived from an external worker on issue #876",
+   "finishedAt": "2026-09-23T15:16:51Z"
   },
   {
    "id": "AUDIT-42",
