@@ -159,3 +159,22 @@ Every DOI was checked against Crossref. Some works are not re-listed because ear
 - Nikolaus–Scholze, Clausen–Mathew–Morrow and Geisser–Hesselholt 1999 (listed by the Clausen–Mathew–Morrow extraction);
 - Bhatt–Scholze *Prisms* (extracted);
 - Bhatt's derived de Rham papers and Illusie (cited by the DerivedDeRham and Crystalline roadmaps).
+
+## Independent review (`REV-PAPER-BHATT-MORROW-SCHOLZE-19`, issue #1459)
+
+Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, all thirteen routes accepted,
+nothing corrected in place. The full review is in
+[`reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-19.md`](../reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-19.md).
+
+All three recorded artifact hashes match byte for byte, and having both the arXiv and the published text
+mattered: two findings are quoted in the published phrasing and were verified there. Simulating the shared
+per-section counter independently gives the same **173 numbered objects**, and **every one is covered** —
+once locator ranges are expanded. (My first pass flagged Lemmas 4.16 and 4.26 as uncovered; they are cited
+inside "Lemmas 4.15–4.17" and "Lemmas 4.25–4.27", and 4.16's content is also folded into the
+quasisyntomic-site item. Expanding ranges before auditing coverage is the lesson.) The four genuinely
+uncovered objects are introductory remarks, all commentary. The `library` item's three declarations exist
+at Mathlib `082e2d3`, and all 22 `planned` layers exist. The Part II route is exemplary: it adds a single
+item to a roadmap that the Clausen–Mathew–Morrow and Clausen–Mathew extractions already propose with the
+same parent, instead of opening a rival. All **12 findings are confirmed**, two of them by computation —
+the boundary case is `n = i − 1`, as the display's `p^{i−1−n}V` shows, and the coefficient in Remark 10.6
+is `ξ^{i−j}`, since `μ = ξφ^{−1}(μ)`.

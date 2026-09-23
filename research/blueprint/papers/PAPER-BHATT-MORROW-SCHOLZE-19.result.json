@@ -1515,7 +1515,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence is about the t-structure on D(R), so its connective objects are D^{≤0}(R); DF^{≤0}(R) is defined four lines later as a subcategory of the filtered category DF(R).",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E2",
@@ -1530,7 +1535,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The proof of Lemma 4.34 writes L_{S/A} ∈ D(C) with no C in scope, and the next clause of the same sentence writes L_{B/A} ⊗_B S ∈ D(S).",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E3",
@@ -1545,7 +1555,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The exact sequence is about THH(S) throughout, and the divided power is of an S-module, so (Γ^i_R M)^∧_p should read (Γ^i_S M)^∧_p.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E4",
@@ -1560,7 +1575,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both counts: the clause reads « The (degenerate) homotopy fixed point spectral calculating TC^-(R; Z_p) », dropping « sequence », and Theorem 7.2 is a statement about S, as its other parts and the parallel Tate clause show.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E5",
@@ -1575,7 +1595,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. §7.4 defines Z_p(i)(A) := gr^n TC(A; Z_p)[−2i], mixing the two indices; the introduction's version of the same definition uses n throughout, so the body's index should be i.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E6",
@@ -1590,7 +1615,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both counts. The object is named Ŝ^q, so it is the p-adic completion of S^q rather than of S; and « quasisyntomic semiperfectoid » should be « quasiregular semiperfectoid », the class defined in §4 and the one the argument needs.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E7",
@@ -1605,7 +1635,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the display decides it. The isomorphism in the diagram is p^{i−1−n}V, which degenerates exactly when i − 1 − n = 0, that is n = i − 1; the printed « boundary case i = n − 1 » inverts it.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E8",
@@ -1620,7 +1655,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. N is defined as ∏_{i∈I} O_C in the line before, so the sequences (a_i) run over ∏_{i∈I} O_C; the ♭ is a slip.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E9",
@@ -1635,7 +1675,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by the next sentence: the map is displayed as d_R : Δ_S → AΩ_S and then referred to as « the comparison map d_S as above », and its source is Δ_S.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E10",
@@ -1650,7 +1695,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I re-derived the identity. Writing f = μ^j g, we have ξ^i φ^{−1}(μ^j g) = ξ^i φ^{−1}(μ)^j φ^{−1}(g) = ξ^{i−j}(ξ φ^{−1}(μ))^j φ^{−1}(g) = ξ^{i−j} μ^j φ^{−1}(g), using μ = ξ φ^{−1}(μ); dividing by μ^j gives g − ξ^{i−j} φ^{−1}(g) ∈ Ô_X^{♭+}, so the printed coefficient μ^{i−j} is wrong and the integral-closedness argument then runs verbatim.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E11",
@@ -1665,7 +1715,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence's first clause names A_inf(O_{K_∞}), the ring Notation 11.1 embeds 𝔖 into, and its second clause writes A_inf(O_K); O_K is not perfectoid, so A_inf(O_K) is not a ring used in §11. Checked in the published text, where the two halves of the sentence differ as recorded.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19/E12",
@@ -1680,7 +1735,12 @@
     "arXiv 1802.03261 listing (v1 9 February 2018, v2 9 April 2019 'minor updates, final version') and the v2 TeX source bms2.tex and PDF",
     "the published article, Publ. Math. IHÉS 129 (2019) 199–310, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf), compared at the locator",
     "Crossref metadata for DOI 10.1007/s10240-019-00106-9 (no update-to or correction relation) and a Crossref search for a correction (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The definition is written gr^0(TC^-(A; Z_p)[1/u]) while Proposition 11.15, which it cites, and the displays in its proof all use the relative TC^- of A/𝕊[z]; the base is missing.",
+    "by": "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
+   }
   }
  ]
 }
