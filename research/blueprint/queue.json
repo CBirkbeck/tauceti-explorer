@@ -6027,8 +6027,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-VANHOFTEN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1360"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1360",
+   "finishedAt": "2026-09-23T07:50:56Z"
   },
   {
    "id": "REV-PAPER-VANHOFTEN-24",
@@ -7500,8 +7501,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1444"
+   "state": "external",
+   "note": "claimed on GitHub issue #1444"
   },
   {
    "id": "REV-PAPER-BHATT-ETAL-23",
