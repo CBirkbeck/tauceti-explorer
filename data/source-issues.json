@@ -20302,6 +20302,155 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CESNAVICIUS-22/E1",
+   "kind": "error",
+   "locator": "Proof of Lemma 6.3, author PDF p. 20 (the published version p. 18, without the footnote)",
+   "printed": "Consequently, by [BouAC, Chapitre IX, Section 3, numéro 3, Théorème 1], the thickening ε_z := Spec_{O_{C_{k_m}}}(O_{C_{k_m}}/I_z²) is isomorphic to Spec(k_z[u_z]/(u_z²)).",
+   "correction": "The Cohen-structure isomorphism need not be an isomorphism of k_m-schemes when k_m is imperfect, and the construction of j needs one. For imperfect (hence infinite) k_m, embed each ε_z in A¹_{k_m} by the geometric presentation theorem [CTHK97, Theorem 3.1.1] applied in C^sm_{k_m}, and make the images disjoint by translations t ↦ t + α with α ∈ k_m. For perfect k_m the printed argument stands.",
+   "reason": "Example: k_m = F_p(s), C = A¹_{k_m}, z = V(t^p − s), u = t^p − s. The p-th powers in O/I_z² = k_m[t]/(u²) lie in k_m^p[t^p] = k_m^p[s + u]; writing h ∈ k_m^p[x] by exponents mod p, h(s) = s forces h′(s) = 1, so h(s + u) ≡ s + u. No element has p-th power s, so there is no k_m-algebra map k_z = k_m(s^{1/p}) → O/I_z².",
+   "affects": "the proof",
+   "known": "The author's post-publication footnote on p. 20, in arXiv 2009.05299v7 (8 November 2022) and the author's PDF of the same date; the published version lacks it.",
+   "searched": [
+    "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
+    "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
+    "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E2",
+   "kind": "gap",
+   "locator": "Cited input: Gille, Torseurs sur la droite affine, Transform. Groups 7 (2002), proof of Lemme 3.12, p. 239; used in the proof of Proposition 8.4, claim (1), author PDF p. 25",
+   "printed": "On peut donc supposer la classe γ_η isotrope. Il existe donc un k-sous-groupe parabolique j : Q/k = Z_G(S_0)·R_uQ ⊂ G/k (avec S_0 ⊂ S) tel que γ_η = j_*(β) ∈ Im(H¹(k(t), Q)_an → H¹(k(t), G)).",
+   "correction": "First show that G has a k-parabolic of the type I of a minimal parabolic of the twisted group E(G)_{k(t)}: the scheme E(X_I) of parabolics of type I is proper over P¹_k and has a k(t)-point, so it has a P¹_k-point; its fibre at ∞ is X_I because E_∞ is trivial, so X_I(k) ≠ ∅. The rest of the proof is unchanged.",
+   "reason": "The existence of a k-parabolic of G carrying the generic class is asserted without argument; the isotropy of γ_η only gives a parabolic of the twisted group over k(t). CES22 already cites the correction ('see also [Gil05]'), and the lemma's statement is unchanged.",
+   "affects": "the proof",
+   "known": "Gille, Errata: « Torseurs sur la droite affine », Transform. Groups 10 (2005), 267–269, pp. 268–269",
+   "searched": [
+    "Gille's publication list (math.univ-lyon1.fr/~gille): erratum05.pdf, read",
+    "CES22's citation of Gil05 at the locator"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E3",
+   "kind": "gap",
+   "locator": "Cited input: Gille, Le problème de Kneser–Tits, Astérisque 326 (2009), proof of Lemme 4.5(1), p. 54 (page 15 in the errata, which use another pagination); used in the proof of Proposition 8.4, claim (2), author PDF p. 25",
+   "printed": "Vu que Z_ℌ(𝔖)/𝔖 est un schéma en groupe réductif dont la fibre spéciale est anisotrope, la théorie de Bruhat–Tits montre que (Z_ℌ(𝔖)/𝔖)(O) = (Z_ℌ(𝔖)/𝔖)(K) [10, 4.6.33]. […] Par ailleurs, il est bien connu que 𝔖(K) ⊂ ℌ(K)^+ [7, prop. 6.11]. (Symbols transcribed; the text layer is garbled.)",
+   "correction": "For M = Z_ℌ(𝔖)/𝔖, first prove that M_K is anisotropic: Par(M) is smooth and projective, so Par(M)(K) = Par(M)(O) = Par(M)(k) are singletons, and the radical torus of M is K-anisotropic because its cocharacters over K, O and k agree. Then Guo's Proposition 6 gives M(O) = M(K). The Borel–Tits reference is Corollaire 6.8, not Proposition 6.11.",
+   "reason": "Anisotropy of the special fibre does not by itself give M(O) = M(K); the cited Bruhat–Tits result needs M_K anisotropic, which the proof does not establish. The statement of the lemma is unchanged.",
+   "affects": "the proof",
+   "known": "Gille, Errata et compléments (math.univ-lyon1.fr/~gille/prenotes/errata.pdf), dated 26 May 2026, p. 4, pointed out by A. Zidani",
+   "searched": [
+    "Gille's errata page, version of 26 May 2026, read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E4",
+   "kind": "gap",
+   "locator": "Proof of Proposition 8.4, claim (2), author PDF p. 25 (the published version p. 24)",
+   "printed": "For the claim (2), we first note that the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1).",
+   "correction": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair.",
+   "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), since the patching over each local ring is unique. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R.",
+   "affects": "the proof",
+   "known": "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025), p. 26: the post-publication footnotes to the proof of Lemma 3.5.5 (which cites [Čes22, proof of Proposition 8.4]) and to Remark 3.5.6 say that for semilocal A the total isotropy assumption should be strengthened, because it supplies a parabolic 'only after base change to each local ring'.",
+   "searched": [
+    "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
+    "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
+    "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 8.4, last sentence, author PDF p. 25 (the published version p. 24)",
+   "printed": "For this, we combine the surjectivity of the map R((t)) ↠ ∏_m k((t)) with [SGA 3 …]",
+   "correction": "R((t)) ↠ ∏_m k_m((t))",
+   "reason": "No field k is defined in this proof; the product runs over the maximal ideals m with residue fields k_m, as in the display of claim (2) just above.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
+    "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
+    "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E6",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 9.5, author PDF p. 28 (the published version p. 26)",
+   "printed": "y ∈ H¹(R, Out(G, B)) whose image in H¹(R, Out(G)) is also x̄",
+   "correction": "y ∈ H¹(R, Aut(G, B))",
+   "reason": "Out(G, B) is not defined; y is the image of x̄ under the splitting Out(G) ↪ Aut(G, B) of the displayed sequence 1 → B^ad → Aut(G, B) → Out(G) → 1, and twisting by it produces A₀.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
+    "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
+    "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E7",
+   "kind": "error",
+   "locator": "Proof of Corollary 9.6, first sentence, author PDF p. 28 (the published version p. 27)",
+   "printed": "Every inner form of SO_n is an SO(E) for a nondegenerate quadratic space E over R of rank n.",
+   "correction": "Every twist of SO_n by an SO_n-torsor is an SO(E) for such an E; these are the only twists the argument uses.",
+   "reason": "For even n ≥ 4, inner forms also come from central simple algebras with orthogonal involution. Over R = Q (allowed in Theorem 9.1 with O = Q), take H = (−1,−1) and H′ = (−1,3), non-isomorphic quaternion algebras ramified at {2, ∞} and {2, 3}. Then SO(H ⊗ H′, γ ⊗ γ′) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E): for E of trivial discriminant, SO(E) ≅ (SL₁(C) × SL₁(C))/μ₂ with isomorphic factors. For odd n every form is an SO(E), and the proof only twists by H¹(R, SO_n).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
+    "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
+    "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E1",
    "kind": "error",
    "locator": "Theorem 7.1.2, p. 87 (arXiv v3; present in arXiv v3 and the 27 February 2023 revision)",
@@ -51812,7 +51961,6 @@
  "older": [],
  "unchecked": [
   "MordellLawrenceVenkatesh",
-  "PAPER-CESNAVICIUS-22",
   "PAPER-KISIN-17",
   "PAPER-KISIN-PAPPAS-ZHOU-26",
   "PAPER-MERKURJEV-SCAVIA-26"
