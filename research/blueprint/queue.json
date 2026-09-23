@@ -753,7 +753,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KINGS-SPRANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1065"
   },
   {
    "id": "REV-PAPER-KINGS-SPRANG-25",
@@ -1513,8 +1514,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHANG-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1107"
+   "state": "pending",
+   "note": "released on GitHub issue #1107"
   },
   {
    "id": "REV-PAPER-ZHANG-21",
