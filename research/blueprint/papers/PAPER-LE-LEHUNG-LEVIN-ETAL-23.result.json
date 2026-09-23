@@ -87,6 +87,74 @@
         "date": "2026-09-23",
         "scope": "Freshly reread LLHLM23 published PDF68–69 and Elkik §0.2/Lemma 1, printed555–558/PDF4–7; standing Noetherian convention on printed554 was read in the prior continuation. Same hashes as the recorded sources. The original full-paper read is inherited; this continuation makes no new full-212-page reading claim.",
         "result": "Finite Newton correction and the non-Noetherian torsionfree I=A convergence proof decomposed into Z30–Z39, using L24–L33. No new source mistake claimed; E1–E35 unchanged and unreviewed."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-c83e7a",
+        "date": "2026-09-23",
+        "main": "Fresh source download matches the existing published PDF SHA-256. Read PDF31–34,45–48,121–125,190–199 for the tame genericity and Appendix A refinement; proposition page193 also checked visually. Prior full-paper read stays attributed to its original worker. Also read published PDF131–140, with PDF137,139,140 rendered, and compared arXiv v2 PDF98–99,141,143–146; no full preprint reading is claimed. Additionally read published PDF185–189,200–202 (through the first Appendix B page).",
+        "sources": [
+          {
+            "url": "https://arxiv.org/pdf/1107.5989v1",
+            "sha256": "537af0053745f4206157c0441365218285624d95a25ae408149f287372d9ba55",
+            "retrieved": "2026-09-23T13:21:21.224530+00:00",
+            "pages": 59,
+            "readSections": "PDF4–7,13–18,23–25: conventions, adequacy, auxiliary conditions, exact prime-selection theorem and proof, projector statement and proof. Also PDF26–40: projector local representation theory, Proposition5.12 with proof, exactness/freeness Lemmas6.3–6.4, and projected Hecke algebras in Theorem6.8 proof."
+          },
+          {
+            "url": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
+            "readSections": "LLHLM20 published pp15–16; Definition2.2.2 and Remark2.2.4."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00NO",
+            "readSections": "Tags00NO,00NP,00KQ,00K3,00IP, including their full outer proofs; no complete reading of the referenced chapters is claimed.",
+            "retrieved": "2026-09-23"
+          },
+          {
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/egh.pdf",
+            "sha256": "1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0",
+            "retrieved": "2026-09-23",
+            "pages": 66,
+            "readSections": "PDF51–56: §7.1 compact unitary groups/automorphic forms and Theorem7.2.1 with proof; no full-paper reading."
+          },
+          {
+            "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+            "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+            "retrieved": "2026-09-23",
+            "pages": 181,
+            "readSections": "Published PDF104–115: Hecke images, residual and integral Galois representations, full Proposition3.4.4 proof, minimal setup and projected auxiliary patching. Earlier group-scheme descent lemmas are not yet audited."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00NO",
+            "sha256": "dc1ed92007c55bf51a3bd8e3e706758336cd1a3c8d3b205c90eefdf080ab8192",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and complete outer proof; not the whole source chapter."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00NP",
+            "sha256": "5e8fc76f202b603711e5dcd02dbfe673b7452a02be4fed0320e35468e5a60ccd",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and complete outer proof; not the whole source chapter."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00KQ",
+            "sha256": "b78f985c922ea320bc89848fb965b0d67af935eb5466a9fb2b2cacf9d7e1c703",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and complete outer proof; not the whole source chapter."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00K3",
+            "sha256": "ac8819c575b0ea59f037a00f9792ae01b950eb5d70860b81b5bcd1497b7cd45c",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and complete outer proof; not the whole source chapter."
+          },
+          {
+            "url": "https://stacks.math.columbia.edu/tag/00IP",
+            "sha256": "5943ea151fb2d179972b1b821c69da02ceab4a002555e9cddd2759e8ea82b438",
+            "retrieved": "2026-09-23",
+            "readSections": "Statement and complete outer proof; not the whole source chapter."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -105,7 +173,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -576,7 +644,70 @@
       "locator": "Definition2.4.3, PDF47–48",
       "statement": "Regular means each coroot evaluated on a torus-valued conjugate is nontrivial. m-generic means a lowest-alcove presentation(s,mu) with mu m-deep exists. With a chosen presentation set wtilde(tau)=t_(mu+eta)s. These notions apply to F types as well. One-generic implies regular; having a lowest-alcove presentation is equivalent to0-genericity.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+          "how": "Converts a lowest-alcove depth bound into distinct inertia characters."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K44",
+          "how": "Transfers depth through a height-bounded lattice."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K47",
+          "how": "Supplies the semisimplicity bridge for tame consumers."
+        }
+      ],
+      "api": [
+        {
+          "name": "TameType.isRegular_iff_distinct",
+          "role": "characterisation",
+          "statement": "For GL_n, regularity is equivalent to pairwise distinct inertia characters after a finite splitting-field extension."
+        },
+        {
+          "name": "TameType.generic_mono",
+          "role": "compatibility",
+          "statement": "If 0≤m′≤m and τ is m-generic, it is m′-generic with the same presentation."
+        },
+        {
+          "name": "TameType.oneGeneric_regular",
+          "role": "compatibility",
+          "statement": "A 1-generic GL_n type is regular, with the exponent-separation proof K45."
+        },
+        {
+          "name": "TameType.regular_baseChange",
+          "role": "compatibility",
+          "statement": "Regularity and an explicitly given generic lowest-alcove presentation persist and reflect under injective coefficient extension."
+        },
+        {
+          "name": "TameType.presentation_affineElement",
+          "role": "projection",
+          "statement": "A chosen (s,μ) gives w(τ)=t_(μ+η)s; changing a presentation requires the specified affine equivalence, not literal equality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TameType.rankOne",
+          "kind": "degenerate",
+          "statement": "For GL_1, no roots occur; regularity is vacuous and there is a single inertia character."
+        },
+        {
+          "name": "TameType.boundaryCollision",
+          "kind": "non-example",
+          "statement": "For GL_2, f=1, s=1 and μ+η=(p−1,0), the presentation is 0-generic but the two level-one fundamental-character powers coincide. One-genericity fails."
+        },
+        {
+          "name": "TameType.centralShift",
+          "kind": "compatibility",
+          "statement": "Adding the same integer to every coordinate in one embedding changes the common character twist but preserves all exponent differences and regularity."
+        },
+        {
+          "name": "TameType.positiveGap",
+          "kind": "computation",
+          "statement": "For p=7, f=1, s=1 and μ+η=(4,2,0), the inertia exponents 4,2,0 are distinct modulo6 and all positive-root differences lie strictly between1 and6."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N53",
@@ -1865,9 +1996,13 @@
       "kind": "theorem",
       "name": "A nonzero tame deformation ring forces admissibility",
       "locator": "Corollary5.5.8, PDF123–124",
-      "statement": "For tame rho, effective lambda_j in[0,h]^n and tau as in K41, a nonzero R_rho^(lambda,tau) implies a lambda-compatible presentation of rho with w(tau)^-1 w(rho) in Adm(lambda). Check that the genericity used forces the semisimple case needed in the proof; do not invoke the false unqualified tame=semisimple assertion.",
+      "statement": "For tame ρ, effective λ_j∈[0,h]^n and τ with an (h+1)-generic lowest-alcove presentation as in K41, a nonzero R_ρ^(λ,τ) implies a λ-compatible lowest-alcove presentation of ρ with w(τ)^−1 w(ρ)∈Adm(λ). K48 supplies semisimplicity from the actual height and genericity assumptions; unqualified tame=semisimple is not used.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K43",
@@ -1885,7 +2020,12 @@
       "locator": "Corollary5.5.10, PDF125",
       "statement": "For finite F'/F, M in Y^[0,h],tau(F') and tau m-generic with m>=h+1, Tdd*(M)^ss has an(m-h)-generic lowest-alcove presentation. Reduce to K43, then bound the translation difference by the height.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P01",
@@ -2073,9 +2213,75 @@
       "kind": "construction",
       "name": "Family monodromy recurrence",
       "locator": "Proposition7.1.3(1),(2) PDF133–134",
-      "statement": "For an O-flat complete topologically finite type R and an eigenbasis with Frobenius matrices C_j, set N_0,j=0 and N_i,j=E C_j phi(N_{i-1,j-1}) C_j^-1-N_nabla(C_j) C_j^-1. Its coefficientwise limit is the unique family monodromy operator, lies in L^(1-h) Mat(O^rig_R), and satisfies the explicit denominator/convergence estimate (7.4). Cyclic embedding indices are essential.",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. The recurrence N_(0,j)=0, N_(i+1,j)=E C_jφ(N_(i,j−1))C_j^−1−N_nabla(C_j)C_j^−1 defines the finite iterates. G38–G40 separately give uniqueness, the exact integral increment estimate and convergence to the analytic family operator; no evaluation of arbitrary formal series at u′^e′=−p is allowed.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
+          "how": "Supplies finite increments for the integral estimate."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
+          "how": "Constructs the analytic limit and identifies it by uniqueness."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
+          "how": "Gives the ordered expansion consumed by true-versus-truncated monodromy."
+        }
+      ],
+      "api": [
+        {
+          "name": "MonodromyIterate.zero",
+          "role": "constructor",
+          "statement": "N_(0,j)=0 for every embedding j."
+        },
+        {
+          "name": "MonodromyIterate.succ",
+          "role": "example",
+          "statement": "Unfold the exact recurrence with Frobenius acting on coefficients and shifting j to j−1."
+        },
+        {
+          "name": "MonodromyIterate.increment",
+          "role": "compatibility",
+          "statement": "The difference of consecutive iterates transforms by the homogeneous Frobenius-conjugation map and satisfies G39."
+        },
+        {
+          "name": "MonodromyIterate.baseChange",
+          "role": "compatibility",
+          "statement": "Finite iterates commute with continuous O-algebra maps preserving the stipulated coefficient category; then G40 transports the limit."
+        },
+        {
+          "name": "MonodromyIterate.limit_unique",
+          "role": "characterisation",
+          "statement": "The analytic limit is characterized by the commutation equation and its zero u′-constant term."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MonodromyIterate.constantMatrix",
+          "kind": "computation",
+          "statement": "If all C_j are constant in u′, then N_nabla(C_j)=0 and every iterate is zero."
+        },
+        {
+          "name": "MonodromyIterate.cyclicIndex",
+          "kind": "compatibility",
+          "statement": "With two distinct Frobenius matrices, N_(2,0) uses φ(N_(1,1)), while N_(2,1) uses φ(N_(1,0)); replacing both by the same embedding fails the recurrence."
+        },
+        {
+          "name": "MonodromyIterate.heightOne",
+          "kind": "degenerate",
+          "statement": "At h=1, the increment denominator in G39 is p for every i, while its u′-order is p^i; the analytic derivative criterion has no t between0 and−1."
+        },
+        {
+          "name": "MonodromyIterate.noncommuting",
+          "kind": "non-example",
+          "statement": "For noncommuting C_j, the right product in G41 has decreasing order; reversing it is not an equivalent matrix identity."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G05",
@@ -2109,24 +2315,90 @@
       "kind": "construction",
       "name": "Monodromy leading term and error series",
       "locator": "Equations7.5–7.8 PDF136–139",
-      "statement": "Removing tame descent from p^h L^(h-1)N_infty gives -phi(L)^h P_N(A_j) plus the convergent sum phi^(i+1)(L)^h Z_i,j. Define P_N(A)=(-e' v A' -[Diag(s_or^-1 a'),A])(v+p)^h A^-1 and the iterated Frobenius error terms Z_i. Preserve their v-adic and p-denominator estimates, used to obtain the integral precision bound G11.",
+      "statement": "In the notation of G42, descent removal gives equation(7.6), with P_N(A_j)=(-e′v A′_j−[D_j,A_j])(v+p)^h A_j^−1, leading term −φ(L)^h P_N(A_j), and error Σ_{i≥1}φ^(i+1)(L)^h Z_(i,j). G42 records the complete recurrence and exponent/denominator bound, and G43–G44 give the precision argument.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
       "kind": "definition",
       "name": "Truncated monodromy ideal",
-      "locator": "Definition7.1.8 PDF137",
+      "locator": "Definition7.1.8, published PDF138",
       "statement": "Given an eigenbasis beta, I_{M,beta,nabla1} is generated by derivatives of v^(-[k>l])P_N(A_j)_{kl} at v=-p, of orders 0 through h-2, for every j,k,l. This ideal is basis dependent as presented and is not the true ideal by definition.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G10",
+          "how": "Connects derivative vanishing to the local-model differential condition."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G11",
+          "how": "Provides all integral generators for the precision containment."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44",
+          "how": "Separates the lower-triangular one-power precision loss."
+        }
+      ],
+      "api": [
+        {
+          "name": "TruncatedMonodromy.generators",
+          "role": "constructor",
+          "statement": "Form the finite family indexed by j,k,l and 0≤t≤h−2 from the integral v-divided lower entries."
+        },
+        {
+          "name": "TruncatedMonodromy.baseChange",
+          "role": "compatibility",
+          "statement": "For compatible eigenbases, continuous coefficient maps carry the generators to the corresponding generators; this concerns the truncated ideal, not arbitrary base change of the saturated true ideal."
+        },
+        {
+          "name": "TruncatedMonodromy.vanishing_iff",
+          "role": "characterisation",
+          "statement": "An R-algebra map kills the ideal exactly when every listed evaluated derivative vanishes."
+        },
+        {
+          "name": "TruncatedMonodromy.divisibility",
+          "role": "compatibility",
+          "statement": "Under p>h−2, vanishing is equivalent to (v+p)^(h−1) divisibility of the appropriately v-divided entries."
+        },
+        {
+          "name": "TruncatedMonodromy.precision",
+          "role": "compatibility",
+          "statement": "With the explicit genericity/integrality bound, every generator is in I_nabla∞+(p^(m−2h+3))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TruncatedMonodromy.heightOne",
+          "kind": "degenerate",
+          "statement": "At h=1 the generator range is empty and the ideal is zero."
+        },
+        {
+          "name": "TruncatedMonodromy.lowerEntry",
+          "kind": "computation",
+          "statement": "For a lower entry P_kl=vF, the t=0 generator is F(−p), not P_kl(−p)=−pF(−p). Thus omitting the v division changes the ideal."
+        },
+        {
+          "name": "TruncatedMonodromy.factorialBoundary",
+          "kind": "non-example",
+          "statement": "Over F_p, F=(v+p)^p has all ordinary derivatives zero but is not divisible by (v+p)^(p+1); the factorial-unit hypothesis in G10 cannot be omitted."
+        },
+        {
+          "name": "TruncatedMonodromy.precisionZero",
+          "kind": "degenerate",
+          "statement": "When m=2h−3, the stated containment is in I_nabla∞+(1), hence is tautological; it does not assert equality of the two ideals."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G10",
       "kind": "theorem",
       "name": "Truncated differential local-model equation",
-      "locator": "Remark7.1.9 PDF137",
+      "locator": "Remark7.1.9, published PDF138",
       "statement": "If p>h-2, vanishing of the derivatives is equivalent to divisibility by (v+p)^(h-1), and hence to (e'v A'-A Diag(s_or^-1 a'))A^-1 in (v+p)^-1 L^+M. The corresponding local-model parameter is -(s_or^-1 a')/e'.",
       "status": "missing",
       "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
@@ -2138,7 +2410,10 @@
       "locator": "Proposition7.1.10 PDF138–140; application PDF152",
       "statement": "For an m-deep lowest-alcove presentation and a height [0,h] module over allowed O-flat complete R with eigenbasis, I_nabla1 is contained in (I_nabla infinity,p^(m-2h+3)). Use m>=2h-3 for an integral ideal statement, as explicitly imposed in the subsequent application. The theorem gives containment, not equality of ideals.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRingsPartIIMonodromyModels. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G12",
@@ -2944,11 +3219,17 @@
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
       "kind": "theorem",
-      "name": "Adequate Taylor–Wiles prime supply and generator bound",
+      "name": "Adequate Taylor–Wiles prime supply",
       "locator": "PropositionA.3.3 PDF193",
-      "statement": "For polarized adequate data, odd multiplier at infinity, split places outside T and the stated local tangent dimensions, choose q at least the dual Selmer dimension and a prescribed q0. For each N there is a disjoint split set Q of size q with norms 1 modulo p^N and chosen eigenspaces, making the partially framed ring topologically generated over the local tensor by q-sum_{v in T,v divides p}[F_v+:Q_p]n(n-1)/2 elements.",
+      "statement": "Let p>2 and S=(F/F+,S,O,rbar,ξ,{D_v}) be the polarized global datum of Appendix A, with rbar|G_F absolutely irreducible. Require the G_n-version of adequacy for rbar(G_{F+(ζ_p)}) and ξ(c_v)=−1 at every infinite place. Let T⊂S and assume every v∈S\\T splits in F. For every v∈S\\T impose dim_F L_v−dim_F H^0(G_{F_v+},ad rbar)=[F_v+:Q_p]n(n−1)/2 if v|p, and 0 otherwise. Let q=max(dim_F H^1_{L^perp,T}(G_{F+,S},ad rbar(1)),q0), with q0≥0. For every N≥0 choose exactly q split primes Q disjoint from S, with Nv≡1 mod p^N and Nv≡1 mod p, and nonzero full generalized Frobenius eigenspaces ψ_v on which Frobenius acts semisimply, such that the augmented dual Selmer group is zero. For N=0 use the N=1 construction. The generator conclusion is A25.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27"
+      ],
+      "proofOutline": "Thorne Proposition 4.4 supplies primes at positive level; its Lemma 4.3 imposes the displayed local dimension formula only for v∈S\\T. The odd multiplier kills the archimedean correction. Read the G_n adequacy definition, rather than substituting GL_n adequacy or enormous image. Distinct primes can be chosen by Chebotarev while successively killing trace evaluations on dual Selmer. If q exceeds the original dual Selmer dimension, add further eligible primes."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A15",
@@ -2971,20 +3252,98 @@
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
       "kind": "theorem",
-      "name": "Local-global compatibility at auxiliary levels",
+      "name": "Local-global compatibility at original level",
       "locator": "TheoremA.4.1 PDF196–197",
-      "statement": "For the specified algebraic and Weil–Deligne coefficient type, localized Hecke eigensystems at U, U_0(Q), U_1(Q) carry polarized G_n-valued Galois representations of the listed deformation types, with multiplier epsilon^(1-n)delta_{F/F+}^n and the stated Hecke characteristic polynomials. At U_1(Q) the auxiliary scalar-inertia deformation conditions apply; at U and U_0(Q) they are unramified. Use local Hodge weight lambda+eta and monodromy <=tau, correcting the printed definition as E33–E34 explain.",
+      "statement": "Assume the Appendix A.4 setting: p>2, F/F+ CM with F+≠Q, all p-adic places split, a unitary group definite at infinity with the chosen integral model away from N, a sufficiently small compact open U, and S containing the p-adic places, primes dividing N and all non-hyperspecial places of U. Fix a dominant algebraic weight λ, WD inertial types τ_v, a stable O-lattice W in ⊗_{v|p}σ(λ_v,τ_v)^*◦ι_v, and the nonzero localized residual Hecke eigensystem with absolutely irreducible rbar|G_F from the Appendix A setup. Fix a Taylor–Wiles datum Q disjoint from S and the associated ideal m_Q away from S∪Q. Put ξ=ε^(1−n)δ_(F/F+)^n. At p use Hodge weights λ_v+η and WD monodromy dominated by τ_v, as required by E33–E34. At original level there is a polarized representation r(U,W)_mQ:G_{F+,S}→G_n(T_Q(U,W)_mQ), characterized up to strict equivalence by the Hecke polynomials. For each allowed split w away from S∪Q, det(1−r|G_F(Frob_w)X)=Σ_{j=0}^n(−1)^j(Nw)^(j(j−1)/2)α_level(T_w^(j))X^j. It has multiplier ξ, the corrected p-adic local conditions above and the O-flat fixed-multiplier conditions at S\\S_p. In particular it is unramified at Q.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18",
       "kind": "construction",
       "name": "Taylor–Wiles projectors and free diamond modules",
       "locator": "§A.4 PDF197–198",
-      "statement": "Sufficient smallness makes S(U_1(Q),W) free over O[Delta_Q], with augmentation invariants equal to S(U_0(Q),W). Commuting local projectors pr_{varpi_v} select a free summand; its augmentation invariants identify with the image of the original-level localized forms. Import the projector and comparison results from [78].",
+      "statement": "At the Taylor–Wiles levels of A16, put H_i=pr(S(U_i(Q),W)_mQ) with the commuting spectral selection operators of A31–A32 and let T_i^pr be the Hecke image on H_i. Then H_1 is finite free over O[Δ_Q], H_0 identifies with H_1[a_Q] by inclusion, and trace identifies H_1/a_QH_1 with H_0. The map pr from original-level forms to H_0 is an isomorphism. The universal scalar-inertia deformation ring acts through T_1^pr. The polynomial operator pr need not be an idempotent or act as identity on the natural inclusion of original-level vectors.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
+          "how": "Forms finite diamond-level patching modules with the correct Galois action."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+          "how": "Names the image Hecke algebras on which auxiliary local conditions hold."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A20",
+          "how": "Supplies finite free modules and augmentation comparison for patching."
+        }
+      ],
+      "api": [
+        {
+          "name": "AuxiliaryProjector.image",
+          "role": "constructor",
+          "statement": "Define H_i and the Hecke image T_i^pr; export the commuting diamond and Hecke actions."
+        },
+        {
+          "name": "AuxiliaryProjector.originalEquiv",
+          "role": "compatibility",
+          "statement": "The operator pr, composed with level inclusion, is the isomorphism from original-level localized forms onto H_0."
+        },
+        {
+          "name": "AuxiliaryProjector.spectralSummand",
+          "role": "characterisation",
+          "statement": "Show the image is the Hensel-selected generalized eigensummand, with the polynomial operator invertible there. Normalize to an idempotent only by a proved construction."
+        },
+        {
+          "name": "AuxiliaryProjector.diamondFree",
+          "role": "compatibility",
+          "statement": "H_1 is finite free over O[Δ_Q]; distinguish the invariant inclusion from the trace map on coinvariants."
+        },
+        {
+          "name": "AuxiliaryProjector.localGalois",
+          "role": "compatibility",
+          "statement": "The Galois action over T_1^pr has the selected scalar inertia character, identified with the diamond operator."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AuxiliaryProjector.emptyPrimes",
+          "kind": "degenerate",
+          "statement": "For Q empty, the product operator is identity, Δ_Q is trivial and all levels coincide."
+        },
+        {
+          "name": "AuxiliaryProjector.nonIdempotent",
+          "kind": "non-example",
+          "statement": "On Z_5^2 let T=diag(3,2), select the eigenvalue2 and take Q(X)=X−3. Then Q(T)=diag(0,−1), whose image is the selected eigenspace although its square differs from itself."
+        },
+        {
+          "name": "AuxiliaryProjector.inclusionDifferent",
+          "kind": "non-example",
+          "statement": "If a spherical vector decomposes into several parahoric Hecke eigenlines, applying pr selects its component; its raw included line need not equal the selected eigenspace."
+        },
+        {
+          "name": "AuxiliaryProjector.traceCoinvariants",
+          "kind": "compatibility",
+          "statement": "For O[Δ] the invariant module is O times Σδ, and trace sends the coinvariant class of1 to Σδ. This is an isomorphism even when p divides |Δ|."
+        },
+        {
+          "name": "AuxiliaryProjector.fixedRingBoundary",
+          "kind": "non-example",
+          "statement": "A Q-local scalar inertia character may be nontrivial on H_1; it becomes trivial after augmentation. It must not be forced trivial before passing to that quotient."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
@@ -3020,7 +3379,12 @@
       "locator": "§A.5 PDF199–200",
       "statement": "Form R_infty=R_loc[[x_1,...,x_g]] with g given by the Taylor–Wiles generator bound, choose maps to finite-level framed rings, and obtain its action on M_infty. Formal smoothness lifts the S_infty-action. The printed g uses [F:Q] where PropositionA.3.3 gives [F+:Q]; use the corrected degree [F+:Q] as recorded in E24.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A20"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
@@ -3499,7 +3863,7 @@
       "tests": [
         {
           "name": "AffinoidGeometricallyConnected.field",
-          "kind": "example",
+          "kind": "computation",
           "statement": "K satisfies the predicate since K⊗_K L=L for every finite field extension."
         },
         {
@@ -3573,7 +3937,7 @@
       "tests": [
         {
           "name": "PointedAffinoid.dualNumbers",
-          "kind": "example",
+          "kind": "computation",
           "statement": "K[ε]/ε² with ε↦0 is connected and geometrically connected despite not being normal or reduced."
         },
         {
@@ -3722,12 +4086,13 @@
       "kind": "theorem",
       "name": "Krull separation for finite local modules",
       "statement": "If R is Noetherian local, M is a finite R-module and I is a proper ideal of R, then M is I-adically separated.",
-      "locator": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean:26",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean:26; Mathlib/RingTheory/Filtration.lean:431 (ring-valued intersection form), reread at the full pin.",
       "status": "library",
       "prerequisites": [],
       "implementationStatus": "unchecked",
       "library": [
-        "mathlib:IsHausdorff.of_isLocalRing"
+        "mathlib:IsHausdorff.of_isLocalRing",
+        "mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing"
       ],
       "note": "Read at 082e2d3. Apply to quotients M/N to prove closedness, and to the rational-point local ring to prove injectivity into its completion."
     },
@@ -3843,7 +4208,7 @@
         },
         {
           "name": "SaturatedPointJet.genericFiber",
-          "role": "comparison",
+          "role": "compatibility",
           "statement": "Construct the canonical Q_n⊗_O K ≅ A/q^n, compatible in n; see Z18."
         },
         {
@@ -4063,7 +4428,7 @@
         },
         {
           "name": "CompleteLocalTensor.homEquiv",
-          "role": "universal property",
+          "role": "universal-property",
           "statement": "For a complete Noetherian local O-algebra A with the specified residue field, continuous local O-algebra maps C→A correspond to families of such maps R_i→A; prove evaluation on each factor and uniqueness."
         },
         {
@@ -4078,7 +4443,7 @@
         },
         {
           "name": "CompleteLocalTensor.augmentation",
-          "role": "consumer",
+          "role": "compatibility",
           "statement": "A family of continuous local O-algebra retractions R_i→O induces C→O whose composite with O→C is identity; do not assume every coefficient algebra has such a retraction."
         },
         {
@@ -6009,13 +6374,488 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
       "proofSteps": [
-        "The associated graded ring for m is the polynomial ring over the residue field on a minimal set of generators. If f,g are nonzero, Krull separation gives finite m-adic orders a,b.",
-        "Their nonzero initial forms multiply nontrivially in that polynomial ring; hence fg has order a+b and is nonzero. There is no additive ring embedding R→gr_m R being asserted. The associated-graded polynomial theorem still needs its exact atlas/pinned declaration supplier audit."
+        "Z63 identifies gr_m(R) with a polynomial ring over k. Krull separation L03 gives finite maximal-ideal orders a,b for any nonzero f,g∈R.",
+        "Their initial classes are nonzero. Their product in the polynomial graded ring is nonzero, so fg∉m^(a+b+1); in particular fg≠0. This proves the domain conclusion without a purported additive ring map R→gr_m(R)."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+      "kind": "theorem",
+      "name": "One-generic GLn tame inertia has distinct characters",
+      "statement": "Let p be prime, f,n≥1, s=(s_j) in (S_n)^f, and μ a lowest-alcove weight that is 1-deep in every embedding. In formula (2.12), the n characters χ_i of tame inertia are pairwise distinct over a sufficiently large residue field. This is the GLn regularity assertion, with no semisimplicity assumption on an extension to G_K.",
+      "locator": "Definition 2.1.10, Example 2.4.1 and Definition 2.4.3, published PDF33,46–48; LLHLM20 Remark 2.2.4 (rank three)",
+      "status": "missing",
+      "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N52"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Put d=fr where r is the order of s_tau. For distinct indices, the exponent difference D is a sum Σ_{j=0}^{d−1}p^j δ_j. Every δ_j is the difference of two distinct coordinates of a permutation of μ_j+η_j, hence 0<|δ_j|≤p−2. Therefore |D|≤(p−2)(p^d−1)/(p−1)<p^d−1, while D mod p=δ_0 is nonzero. Thus D is not zero modulo p^d−1, the order of the fundamental character. Central shifts cancel; no positivity of the individual coordinates is required."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46",
+      "kind": "theorem",
+      "name": "Multiplicity-free tame inertia gives semisimplicity",
+      "statement": "Let K be a nonarchimedean local field of residue characteristic p and F a finite field of characteristic p large enough to split the finite tame inertia image of a continuous finite-dimensional representation ρ:G_K→GL(V). Suppose wild inertia acts trivially and V restricted to inertia is a sum of pairwise distinct one-dimensional characters. Then V is a direct sum of simple F[G_K]-modules, indexed by Frobenius orbits on the inertia characters. Frobenius itself need not act semisimply.",
+      "locator": "Proof adapter for §5.5, published PDF121–125; correct scope of E19",
+      "status": "missing",
+      "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K36"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Finite tame inertia image is cyclic of order prime to p. Its character idempotents split every invariant subspace into intersections with the one-dimensional character spaces. A Frobenius lift permutes those spaces. The sum over each orbit is stable under inertia and Frobenius, hence under the tame image. Any nonzero invariant subspace of this orbit sum contains one character line and consequently every line in the orbit. Thus each orbit sum is simple. No averaging over the Frobenius group and no division by orbit length is used."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K47",
+      "kind": "theorem",
+      "name": "Generic tame residual representations are semisimple",
+      "statement": "For a continuous tame representation ρ:G_K→GL_n(F), if ρ is m-generic in Definition 5.5.1 with m≥1, then ρ is semisimple. The conclusion is stable under a finite splitting-field extension and descends to F.",
+      "locator": "Definition 5.5.1 and the regularity assertion after Definition 2.4.3; published PDF47–48,122",
+      "status": "missing",
+      "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Restriction to the prime-to-p inertia image is exact and semisimple, so ρ and its G_K-semisimplification have the same inertia constituents with multiplicity. Genericity and K45 make them distinct. Apply K46 after a finite field extension if necessary. An invariant complement descends: its existence is a solvable finite system of linear equations over F (equivariant retraction restricting to identity), whose solvability after field extension implies solvability over F."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K48",
+      "kind": "theorem",
+      "name": "Genericity transfer justifies the tame admissibility argument",
+      "statement": "Under Corollary 5.5.8, let λ_j∈[0,h]^n, let τ have an (h+1)-generic lowest-alcove presentation, and let ρ be tame with R_ρ^(λ,τ) nonzero. After a finite coefficient extension, a characteristic-zero point gives a residual Kisin lattice in Y^[0,h],τ. Corollary 5.5.10 makes ρ 1-generic; hence K47 makes ρ semisimple and Proposition 5.5.7 applies. This supplies the previously missing justification of the semisimple step.",
+      "locator": "Corollaries 5.5.8 and 5.5.10, published PDF123–125",
+      "status": "missing",
+      "note": "Additional source obligation for LocalGaloisDeformationRings; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K41"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Use the fixed-type deformation ring point criterion and lattice comparison to obtain M. The chain K43→K44 is independent of K42: degeneration first replaces any Kisin module by one realizing the residual semisimplification; the height bound then loses at most h from genericity. Apply K47 only after this transfer. Invoke K41 for the original tame ρ, now known semisimple. The residual coefficient extension does not change the inertia-genericity assertion; descent is as in K47."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
+      "kind": "theorem",
+      "name": "Taylor–Wiles partially framed generator bound",
+      "statement": "With the data and Q chosen in A14, there is a continuous surjection R_loc,S,T[[x_1,…,x_g]]→R_SQ^squareT where g=q−Σ_{v∈T,v|p}[F_v+:Q_p]n(n−1)/2 and R_loc,S,T=R_loc,SQ,T. For T=S this is g=q−[F+:Q]n(n−1)/2. All local rings use the fixed multiplier; this is not the unpolarized variable-determinant count.",
+      "locator": "Proposition A.3.3 third conclusion, published PDF193; Thorne Lemma 4.3 and Proposition 4.4, arXiv1107.5989v1 PDF16–18",
+      "status": "missing",
+      "note": "Additional source obligation for GlobalGaloisDeformations; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "Apply the relative tangent comparison and the presentation bound in Thorne Lemma 4.3. The augmented dual Selmer term is zero, and ξ(c_v)=−1 annihilates the infinite-place term nΣ(1+ξ(c_v))/2. The remaining expression is g. Lift a generating set of the relative cotangent space and apply complete local Nakayama to obtain the power-series surjection. This proves g is a valid nonnegative bound for the chosen data; arbitrary q without the dual-Selmer lower bound is not allowed."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+      "kind": "definition",
+      "name": "Adequacy for polarized finite residual images",
+      "statement": "For a finite subgroup H⊂G_n(F), let H0=H∩G_n^0(F) and let ad V=gl_n(F) with the polarized adjoint action. In Thorne Definition 2.3, H is adequate when H^0(H,ad V)=0, H^1(H0,F)=0, H^1(H,ad V)=0, and for every irreducible F[H]-submodule W⊂ad V there exist h∈H0 and an eigenvalue α of its GL_n component such that tr(e_{h,α}W)≠0; e is the projector to the full generalized α-eigenspace. Work over a finite coefficient field containing the relevant eigenvalues. This G_n definition differs from the GL_n definition using ad^0.",
+      "locator": "Thorne arXiv1107.5989v1 Definition 2.3, PDF6–7; imported by Proposition A.3.3",
+      "status": "missing",
+      "note": "Additional source obligation for GlobalGaloisDeformations; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06"
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27",
+          "how": "Provides a nonzero trace functional on a nonzero cohomological image."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+          "how": "Chooses sufficient Taylor–Wiles primes without the stronger big-image hypothesis."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolarizedAdequate.toVanishing",
+          "role": "projection",
+          "statement": "Export the three cohomology vanishings with the correct H or H0 action and gl_n coefficient module."
+        },
+        {
+          "name": "PolarizedAdequate.traceWitness",
+          "role": "compatibility",
+          "statement": "For an irreducible nonzero submodule W of ad V return h,α and a nonzero trace functional on W."
+        },
+        {
+          "name": "PolarizedAdequate.ofBig",
+          "role": "constructor",
+          "statement": "The polarized big-image condition implies adequacy by forgetting eigenvalue multiplicity one, as Thorne Lemma2.4(i)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizedAdequate.trivialImage",
+          "kind": "non-example",
+          "statement": "A trivial subgroup has nonzero adjoint invariants and fails the first adequacy condition."
+        },
+        {
+          "name": "PolarizedAdequate.fullEigenspace",
+          "kind": "computation",
+          "statement": "For a scalar Frobenius block of dimension d>1, e_(h,α) projects onto the entire block; choosing one basis line is not invariant and is not the defining trace functional."
+        },
+        {
+          "name": "PolarizedAdequate.bigForget",
+          "kind": "compatibility",
+          "statement": "A valid big-image witness is an adequate witness, with identical cohomology vanishings; the converse is not assumed."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27",
+      "kind": "theorem",
+      "name": "Trace evaluation kills the auxiliary dual Selmer group",
+      "statement": "In the hypotheses of A14 and for a Taylor–Wiles set Q with the scalar-inertia condition A13, the augmented dual Selmer group is the kernel of H^1_{L^perp,T}(G_{F+,S},ad rbar(1))→⊕_{v∈Q}F given by c↦(tr(e_{Frob_v,α_v}c(Frob_v)))_v. Adequacy and Chebotarev provide a new split prime with nonzero evaluation on any nonzero remaining class, while avoiding a prescribed finite set and enforcing Nv≡1 mod p^N.",
+      "locator": "Thorne Proposition 4.4 proof, arXiv1107.5989v1 PDF17–18",
+      "status": "missing",
+      "note": "Additional source obligation for GlobalGaloisDeformations; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
+        "ArithmeticGaloisDuality:D7",
+        "GlobalGaloisDeformations:R04.5"
+      ],
+      "implementationStatus": "unchecked",
+      "proofOutline": "The scalar-inertia local tangent condition has orthogonal complement consisting of unramified classes with trace-zero projection on the selected eigenspace. Apply the local trace pairing and the global restriction exact sequence. On the extension killing ad rbar, a nonzero cohomology class has nonzero invariant image; adequacy gives a nonzero generalized-eigenspace trace. Multiplying a candidate Frobenius element by an element in that kernel makes the trace nonzero if needed. Chebotarev supplies the prime. Iterate on the finite-dimensional dual Selmer space."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A28",
+      "kind": "theorem",
+      "name": "Local-global compatibility at auxiliary parahoric level",
+      "statement": "Assume the Appendix A.4 setting: p>2, F/F+ CM with F+≠Q, all p-adic places split, a unitary group definite at infinity with the chosen integral model away from N, a sufficiently small compact open U, and S containing the p-adic places, primes dividing N and all non-hyperspecial places of U. Fix a dominant algebraic weight λ, WD inertial types τ_v, a stable O-lattice W in ⊗_{v|p}σ(λ_v,τ_v)^*◦ι_v, and the nonzero localized residual Hecke eigensystem with absolutely irreducible rbar|G_F from the Appendix A setup. Fix a Taylor–Wiles datum Q disjoint from S and the associated ideal m_Q away from S∪Q. Put ξ=ε^(1−n)δ_(F/F+)^n. At p use Hodge weights λ_v+η and WD monodromy dominated by τ_v, as required by E33–E34. At U_0(Q) there is a polarized representation r(U_0(Q),W)_mQ:G_{F+,S}→G_n(T_0^pr), with the same corrected deformation datum as A17; in particular it remains unramified at Q. For each allowed split w away from S∪Q, det(1−r|G_F(Frob_w)X)=Σ_{j=0}^n(−1)^j(Nw)^(j(j−1)/2)α_level(T_w^(j))X^j. Here α_level is α_0. Here T_i^pr is the Hecke image on the projected module H_i of A30, and the local assertions use its explicit local-compatibility hypotheses. The unrestricted full-Hecke version of the printed theorem is not established by the cited argument (E38).",
+      "locator": "Theorem A.4.1 second conclusion, published PDF197",
+      "status": "missing",
+      "note": "Additional source obligation for CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16"
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
+      "kind": "theorem",
+      "name": "Local-global compatibility at diamond level",
+      "statement": "Assume the Appendix A.4 setting: p>2, F/F+ CM with F+≠Q, all p-adic places split, a unitary group definite at infinity with the chosen integral model away from N, a sufficiently small compact open U, and S containing the p-adic places, primes dividing N and all non-hyperspecial places of U. Fix a dominant algebraic weight λ, WD inertial types τ_v, a stable O-lattice W in ⊗_{v|p}σ(λ_v,τ_v)^*◦ι_v, and the nonzero localized residual Hecke eigensystem with absolutely irreducible rbar|G_F from the Appendix A setup. Fix a Taylor–Wiles datum Q disjoint from S and the associated ideal m_Q away from S∪Q. Put ξ=ε^(1−n)δ_(F/F+)^n. At p use Hodge weights λ_v+η and WD monodromy dominated by τ_v, as required by E33–E34. At U_1(Q) there is a polarized representation r(U_1(Q),W)_mQ:G_{F+,S∪Q}→G_n(T_1^pr) with the same corrected p-adic conditions and, at every v∈Q, the scalar-inertia local condition A13 on the selected summand and an unramified complementary summand. For each allowed split w away from S∪Q, det(1−r|G_F(Frob_w)X)=Σ_{j=0}^n(−1)^j(Nw)^(j(j−1)/2)α_level(T_w^(j))X^j. Here α_level is α_1. The domain allows ramification at Q; it cannot in general be G_{F+,S}. Here T_i^pr is the Hecke image on the projected module H_i of A30, and the local assertions use its explicit local-compatibility hypotheses. The unrestricted full-Hecke version of the printed theorem is not established by the cited argument (E38).",
+      "locator": "Theorem A.4.1 third conclusion, published PDF197",
+      "status": "missing",
+      "note": "Additional source obligation for CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13"
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G38",
+      "kind": "theorem",
+      "name": "Uniqueness of the cyclic family monodromy recurrence",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. There is at most one tuple N_j∈Mat_n(R[1/p][[u′]]) with N_j(0)=0 satisfying N_j=E C_j φ(N_(j−1))C_j^−1−N_nabla(C_j)C_j^−1. The j−1 shift is essential.",
+      "locator": "Proposition7.1.3 proof and equation(7.3), published PDF134; arXiv v2 PDF98–99",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K01"
+      ],
+      "proofOutline": "For the difference X of two solutions, X_j=E Ad(C_j)φ(X_(j−1)). Since E and C_j are units/matrices over R[1/p][[u′]], simultaneous divisibility of all X_j by u′^a implies simultaneous divisibility by u′^(pa). Start with a=1; separatedness of formal power series forces every X_j=0. This uses the cyclic system, not an equation with X_j in both slots.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
+      "kind": "theorem",
+      "name": "Integral increment estimate for family monodromy",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. For N_(0,j)=0 and N_(i+1,j)=E C_jφ(N_(i,j−1))C_j^−1−N_nabla(C_j)C_j^−1, one has L^(h−1)(N_(i+1,j)−N_(i,j)) ∈ u′^(p^i)/p^(1+(h−1)(i+1)) · φ^(i+1)(L^h) Mat_n(R[[u′]]) for every i≥0.",
+      "locator": "Equation(7.4) and its induction, published PDF134–135; arXiv v2 PDF99",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01"
+      ],
+      "proofOutline": "At i=0 the expression is φ(L^h)u′/p^h · C′_j E^h C_j^−1. For the inductive step use L=(E/p)φ(L) to rewrite the increment as E^h/p^(h−1) C_j φ(L^(h−1)(N_(i,j−1)−N_(i−1,j−1)))C_j^−1. The two height-integral matrices preserve integrality, Frobenius multiplies u′-order by p, and the displayed denominator increases by h−1.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
+      "kind": "theorem",
+      "name": "The monodromy limit belongs to the analytic coefficient ring",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. The sequence N_(i,j) converges u′-adically in Mat_n(R[1/p][[u′]]), and L^(h−1)N_(∞,j)∈Mat_n(O_R^rig). Its limit is the unique family operator and is compatible with coefficient maps between rings satisfying the stated hypotheses.",
+      "locator": "Proposition7.1.3(1),(2), published PDF133–135",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G01"
+      ],
+      "proofOutline": "The u′-orders p^i tend to infinity. For each fixed analytic chart R[[u′,u′^m/p]][1/p], the exponential numerator order eventually absorbs the denominator p^(1+(h−1)(i+1)) and still leaves u′-order tending to infinity; φ^(i+1)(L^h) is integral on that chart for sufficiently large i. The finitely many initial terms are analytic after a bounded p denominator. Thus the sum lies in every chart, not merely the unrestricted formal power-series ring. Uniqueness glues the eigenbasis charts.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
+      "kind": "theorem",
+      "name": "Ordered Frobenius expansion of the monodromy operator",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. Writing N_(1,j)=L u′(dC_j/du′)C_j^−1, the limit is N_(∞,j)=N_(1,j)+Σ_{i≥1}(∏_{k=0}^{i−1}φ^k(C_(j−k))) φ^i(N_(1,j−i)) (∏_{k=i−1}^{0}φ^k(E C_(j−k)^−1)). The first matrix product is in increasing k order and the second in decreasing k order.",
+      "locator": "Equation(7.5), published PDF137",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40"
+      ],
+      "proofOutline": "Iterate the affine recurrence and telescope successive increments. The Frobenius-twisted linear map is E Ad(C_j)φ with cyclic embedding shift. Expanding its i-th iterate gives the two opposite matrix orders; scalar E factors commute, matrix factors generally do not. G39 justifies passage from finite expansion to the analytic limit.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42",
+      "kind": "theorem",
+      "name": "Exact descent-removed tail estimate",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. Let (s,μ) be an m-deep lowest-alcove presentation and use A_j,a′_j,s′_or,j,v=u′^e′ of §5.1. Put D_j=Diag((s′_or,j)^−1 a′_j), P_N(A_j)=(-e′v A′_j−[D_j,A_j])(v+p)^h A_j^−1 and Z_(0,j)=−P_N(A_j). The descent-removed identity is p^h Ad((s′_or,j)^−1 u′^(−a′_j))(L^(h−1)N_(∞,j))=−φ(L)^h P_N(A_j)+Σ_{i≥1}φ^(i+1)(L)^h Z_(i,j). Its terms obey Z_(i,j)=p^(1−h) A_j Ad(s_j^−1 v^(μ_j+η_j))(φ(Z_(i−1,j−1)))(v+p)^h A_j^−1 and, for i≥1, Z_(i,j)∈p^(−i(h−1)) v^(1+m(p^i−1)/(p−1)) Mat_n(R[[v+p]]).",
+      "locator": "Equations(7.6),(7.8) and the recursion, published PDF137–139; formula pages inspected visually",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05"
+      ],
+      "proofOutline": "Remove descent with the conjugating monomial/permutation matrix using (5.4). The derivative of that conjugation contributes [D_j,A_j]; the derivative of v gives e′v. Apply the recurrence to each Frobenius-transformed error. Entrywise exponent bounds use m+1≤〈μ+η,α∨〉≤p−m−1 and the integral height conditions. The exponent is 1+m(1+p+⋯+p^(i−1)), not (m+1)(1+p+⋯+p^(i−1)); this distinction is retained for the coefficient estimates.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43",
+      "kind": "theorem",
+      "name": "Euler derivatives of the analytic tail have uniform p precision",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. Assume h≥2 and m≥2h−3. At v=−p the error series Σ_{i≥1}φ^(i+1)(L)^h Z_(i,j), together with all its Euler derivatives of orders t≥0, lies in p^(m+2−h)Mat_n(R). The corresponding Euler derivatives of P_N(A_j) vanish modulo (I_nabla∞,p^(m+2−h)) for 0≤t≤h−2.",
+      "locator": "Proof of Proposition7.1.10, equations(7.9),(7.10), published PDF139–140",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G07"
+      ],
+      "proofOutline": "Put D=v d/dv. If F∈v^M R[[v+p]], then D^tF|_(−p)∈p^M R, because Euler differentiation preserves the v^M factor. For k≥1, φ^k(L)(−p) is a p-adic unit, and its positive Euler derivatives are in p^(p−1)Z_p. The ith tail term has valuation at least 1+m(p^i−1)/(p−1)−i(h−1), whose minimum is its i=1 value m+2−h and which tends to infinity. Leibniz gives the same bound for Euler derivatives. Work modulo the saturated true ideal, and recursively divide by the unit φ(L)^h to solve for the derivatives of P_N.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44",
+      "kind": "theorem",
+      "name": "Derivative conversion and the lower-triangular precision loss",
+      "statement": "In §7.1 let R be p-adically complete, topologically of finite type and O-flat, let M∈Y^[0,h],τ(R), and work on an eigenbasis chart indexed cyclically by j∈J′=Z/f′Z. Put E(u′)=u′^e′+p and L=∏_{a≥0}φ^a(E/p), so L=(E/p)φ(L). Write C_j for the Frobenius matrix, with C_j and E^h C_j^−1 integral. Assume h≥2 and m≥2h−3. For 0≤t≤h−2 and 1≤k,l≤n, the generator (d/dv)^t(v^(−[k>l]) P_N(A_j)_(kl))|_(v=−p) lies in (I_nabla∞,p^(m−(h−1)−t)); hence it lies in (I_nabla∞,p^(m−2h+3)). The expression before evaluation is integral because the lower-triangular entries have a v factor.",
+      "locator": "Proof of Proposition7.1.10, published PDF140",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09"
+      ],
+      "proofOutline": "The Stirling-number identity (v d/dv)^t=Σ_{a≤t}S(t,a)v^a(d/dv)^a has leading coefficient1. Induction on t converts the Euler bound to the ordinary derivative bound m+2−h−t after evaluating v=−p and dividing by p^t in the generic fiber. For k>l put P=vQ and use P^(t)=vQ^(t)+tQ^(t−1), losing at most one further p power. The k≤l entries satisfy the stronger bound and thus the displayed common bound. Finally R/I_nabla∞ is O-flat, so an equality with integral p-power error in its localization descends to the integral quotient.",
+      "note": "Exact source obligation in LocalGaloisDeformationRingsPartIIMonodromyModels; continuation codex-c83e7a. No implementation claimed.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+      "kind": "theorem",
+      "name": "Auxiliary Hecke algebra must be restricted to the projector image",
+      "statement": "In the Appendix A.4 global setting, define H_i=pr(S(U_i(Q),W)_mQ) and T_i^pr as the image of the away-from-S∪Q Hecke algebra on H_i, for i=0,1. Assume the raw auxiliary-level Galois representations over the full Hecke algebras, allowing ramification in S∪Q, with the local compatibility and genericity hypotheses of A31–A32. Then the T_0^pr-valued representation is unramified at Q and the T_1^pr-valued representation has local deformation condition A13 at Q. These conclusions follow after projection; no such conclusion over the full auxiliary-level Hecke algebra is inferred.",
+      "locator": "Thorne Theorem6.8 proof, arXiv1107.5989v1 PDF38–39; repair of LLHLM23 TheoremA.4.1 PDF196–198; CHT Proposition3.4.4(8) PDF107–109 and patching PDF114–115; EGH Theorem7.2.1 PDF55–56.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16"
+      ],
+      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y).",
+      "implementationStatus": "unchecked",
+      "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
+      "kind": "theorem",
+      "name": "Parahoric projector compares original-level vectors",
+      "statement": "Let L be a local field of residue cardinality q, with residue characteristic different from the odd coefficient prime p, and q≡1 mod p. Set G=GL_n(L), K=GL_n(O_L), and let P be the standard parahoric for n=n1+n2 (1≤n2≤n). Let O be the coefficient DVR and F its residue field. Let R be a complete local O-algebra with residue F and Π a smooth R[G]-module whose compact-open invariant modules are finite free over O. For each compact open U let R_U be the image of R in End_O(Π^U). Assume Π⊗_O Qpbar is semisimple with generic irreducible constituents and every R_U[1/p] is semisimple. Assume ρ:G_L→GL_n(R_P) is continuous and, at every map R_P→Qpbar and every constituent π generated by the corresponding Π^P specialization, ρ^ss identifies with (r_p(π)^∨(1−n))^ss. Suppose ρbar is unramified and has a Frobenius eigenvalue α with full generalized eigenspace dimension n2. Form the commuting operators V^j (1≤j≤n2), the symmetric-polynomial transforms P_j of the Frobenius characteristic polynomial, and Hensel factorizations P_j=Q_j R_j where R_j mod m_R is a power of X−binom(n2,j)α^j and Q_j at that residue value is a unit. Then pr=∏_j Q_j(V^j) induces an R-linear isomorphism Π^K→pr Π^P. It is the map pr applied to original-level vectors; literal inclusion is not asserted.",
+      "locator": "Thorne Propositions5.8–5.9, arXiv1107.5989v1 PDF23–25",
+      "status": "missing",
+      "prerequisites": [],
+      "proofOutline": "The selected generalized-eigenvalue factors kill the ramified generic parahoric constituents. Compare characteristic-zero ranks. For integral injectivity reduce to an irreducible mod-p unramified quotient; Thorne Lemma5.10 proves its K-fixed line survives the projector. Hensel coprimality makes the operator invertible on the selected image, but the displayed polynomial operator need not itself be idempotent.",
+      "implementationStatus": "unchecked",
+      "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32",
+      "kind": "theorem",
+      "name": "Projected diamond-level representation has scalar inertia",
+      "statement": "Let L be a local field of residue cardinality q, with residue characteristic different from the odd coefficient prime p, and q≡1 mod p. Set G=GL_n(L), K=GL_n(O_L), and let P be the standard parahoric for n=n1+n2 (1≤n2≤n). Let O be the coefficient DVR and F its residue field. Let R be a complete local O-algebra with residue F and Π a smooth R[G]-module whose compact-open invariant modules are finite free over O. For each compact open U let R_U be the image of R in End_O(Π^U). Assume Π⊗_O Qpbar is semisimple with generic irreducible constituents and every R_U[1/p] is semisimple. Let P1 be the kernel of P→GL_n2(k_L)→k_L^×→k_L^×(p). Assume ρ:G_L→GL_n(R_P1) and the same specialization compatibility as A31, using Π^P1, and let pr be its generalized-eigenspace projector. Put R′=image(R→End_O(pr Π^P1)). Then ρ⊗R′ canonically splits as s⊕ψ, lifting the complementary residual subspace and the selected full α-generalized eigenspace: s is unramified and ψ has scalar tame inertia character χ. For u∈O_L^× the diamond operator V_u on pr Π^P1 equals χ(Art_L(u)).",
+      "locator": "Thorne Proposition5.12 and complete proof, arXiv1107.5989v1 PDF29–30",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31"
+      ],
+      "proofOutline": "Proposition5.9 and Lemma5.11 leave only unramified or the specified ramified principal-series constituents on the projector image. Their Galois images are abelian. A coprime Hensel factorization of the Frobenius polynomial splits R′^n canonically. The matching Hecke symmetric functions identify the selected eigenvalues, and the unit double-coset operators compute the common inertia character. The image algebra R′ is indispensable in this argument.",
+      "implementationStatus": "unchecked",
+      "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33",
+      "kind": "theorem",
+      "name": "Diamond freeness and augmentation descent",
+      "statement": "In the sufficiently small definite-unitary setting, let V⊂U be normal compact open subgroups equal at p and let Δ=U/V be a finite abelian p-group. For a finite free O coefficient lattice W with the prescribed action, S(V,W) is finite free over O[Δ]. The natural inclusion identifies S(U,W) with S(V,W)^Δ. The trace induces an isomorphism S(V,W)_Δ→S(U,W), so invariants and coinvariants are both identified with the base level through their respective maps. If a commuting spectral projector cuts out a direct summand, its image is also finite free over the local ring O[Δ].",
+      "locator": "Thorne Lemma6.3–6.4 and proofs, arXiv1107.5989v1 PDF33–35; LLHLM23 PDF197–198",
+      "status": "missing",
+      "prerequisites": [],
+      "proofOutline": "Prime-to-p stabilizers give exactness of coefficient functors. The Δ-action on the finite double-coset cover is free: any stabilizer maps a prime-to-p group into a p-group. On each orbit the module is a regular O[Δ]-module with the coefficient lattice. Trace gives the coinvariant comparison; inclusion gives the invariant comparison. Hensel spectral separation realizes the selected projector image as a direct summand, and finite projective modules over O[Δ], a local ring, are free. Do not use multiplication by |Δ| as an invertible scalar.",
+      "implementationStatus": "unchecked",
+      "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+      "kind": "construction",
+      "name": "Maximal-ideal associated graded algebra",
+      "statement": "For a commutative local ring (R,m,k), construct gr_m(R)=⊕_{n≥0} m^n/m^(n+1) as an N-graded commutative k-algebra. Scalar multiplication uses R→k since m annihilates each quotient; multiplication sends the classes of a∈m^i,b∈m^j to ab modulo m^(i+j+1). No choice of a coefficient-field section k→R is required.",
+      "locator": "Stacks 00NO construction in proof; 00IP supplies separation when R is Noetherian.",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "proofSteps": [
+        "Changing a by an element of m^(i+1), or b by an element of m^(j+1), changes ab by an element of m^(i+j+1). This defines the graded product; the direct-sum ring laws follow from those of R.",
+        "The degree-zero quotient is R/m=k. For any finite generating set x1,…,xe of m, its degree-one classes generate this graded k-algebra, by expanding products of ideal generators."
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63",
+          "how": "Receives the polynomial map on a minimal set of maximal-ideal generators."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
+          "how": "Nonzero initial forms detect the order of a product."
+        }
+      ],
+      "api": [
+        {
+          "name": "MaximalIdealGraded.degreeZeroEquiv",
+          "role": "equivalence",
+          "statement": "The degree-zero piece is canonically isomorphic to the residue field as an algebra."
+        },
+        {
+          "name": "MaximalIdealGraded.mk_mul_mk",
+          "role": "simp",
+          "statement": "For a∈m^i and b∈m^j, the product of their classes is the class of ab in degree i+j."
+        },
+        {
+          "name": "MaximalIdealGraded.mk_eq_zero",
+          "role": "characterisation",
+          "statement": "For a∈m^i its degree-i class is zero exactly when a∈m^(i+1)."
+        },
+        {
+          "name": "MaximalIdealGraded.polynomialMap",
+          "role": "constructor",
+          "statement": "A tuple x1,…,xe∈m defines the graded k-algebra map k[X1,…,Xe]→gr_m(R) sending Xi to the degree-one class of xi."
+        },
+        {
+          "name": "MaximalIdealGraded.polynomialMap_surjective",
+          "role": "universal-property",
+          "statement": "If the tuple generates m, the polynomial map is surjective."
+        },
+        {
+          "name": "MaximalIdealGraded.map",
+          "role": "functoriality",
+          "statement": "A local ring homomorphism R→S sends m_R into m_S and induces a graded ring homomorphism, semilinear over the induced residue-field homomorphism; the construction respects identity and composition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MaximalIdealGraded.field",
+          "kind": "degenerate",
+          "statement": "For a field k all positive-degree pieces vanish and the degree-zero map is the graded algebra equivalence gr_0(k)≅k."
+        },
+        {
+          "name": "MaximalIdealGraded.powerSeriesOneVariable",
+          "kind": "computation",
+          "statement": "For R=k[[t]], the degree-n piece has k-basis the class of t^n, and multiplication of these basis elements gives gr_(t)(R)≅k[T]."
+        },
+        {
+          "name": "MaximalIdealGraded.dualNumbers",
+          "kind": "non-example",
+          "statement": "For R=k[ε]/(ε²), gr_(ε)(R)≅k[T]/(T²), with T in degree one; Noetherian locality alone does not make this a polynomial ring."
+        },
+        {
+          "name": "MaximalIdealGraded.mixedCharacteristic",
+          "kind": "compatibility",
+          "statement": "For R=Z_(p), degree n has F_p-basis the class of p^n; the construction uses no impossible ring section F_p→Z_(p)."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+      "kind": "theorem",
+      "name": "Hilbert–Samuel degree equals local dimension",
+      "statement": "For a nonzero Noetherian local ring (R,m,k) of dimension d, n↦length_R(R/m^(n+1)) eventually agrees with a nonzero rational polynomial of degree d. Consequently, for d≥1, dim_k(m^n/m^(n+1)) eventually agrees with a nonzero polynomial of degree d−1; for d=0 these graded pieces eventually vanish.",
+      "locator": "Stacks 00KQ Proposition10.60.9 with 10.59.10; statement and full outer proof read 23 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "proofSteps": [
+        "Use the finite-length Hilbert polynomial and its invariance under change of ideal of definition. Bound the degree above by the number of generators of an ideal of definition using monomials.",
+        "Induct on dimension, using finite minimal primes and prime avoidance to choose a parameter and lower dimension. In the other direction use a prime chain and multiplication by a nonzero parameter in a domain quotient to lower the Hilbert polynomial degree. These give equality of Krull dimension, polynomial degree and minimal parameter number, as 00KQ.",
+        "Take the first finite difference of the cumulative length polynomial. The d=0 case is treated separately; it does not assert a polynomial of degree minus one. Exact suppliers for finite-length Hilbert polynomial existence and the degree-lowering exact sequence remain in analytic-regularity-suppliers."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65",
+      "kind": "theorem",
+      "name": "A homogeneous relation lowers polynomial-ring growth",
+      "statement": "Let k be a field, d≥1, A=k[X1,…,Xd] with standard grading, and I a homogeneous ideal containing a nonzero homogeneous element f of degree e≥1. For n≥e, dim_k(A/I)_n ≤ binom(n+d−1,d−1)−binom(n−e+d−1,d−1). In particular its eventual Hilbert polynomial, if nonzero, has degree at most d−2 when d≥2; when d=1 the quotient has zero degree-n piece for all n≥e. If I contains a nonzero constant then I=A and all pieces vanish.",
+      "locator": "Stacks 00K3 Lemma10.58.10, proof read 23 September 2026.",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "proofSteps": [
+        "Multiplication by f injects A_(n−e) into I_n because the polynomial ring over a field is a domain. Count the degree-n and degree-(n−e) monomial bases and subtract dimensions in the quotient.",
+        "The leading terms cancel in the difference of the two binomial polynomials. This argument needs only the stated bound; existence of an eventual polynomial is supplied separately in its applications."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63",
+      "kind": "theorem",
+      "name": "Associated graded algebra of a regular local ring",
+      "statement": "Let R be a Noetherian regular local ring of dimension d, residue field k, and x1,…,xd a minimal generating set of its maximal ideal m. The map k[X1,…,Xd]→gr_m(R) sending Xi to the class of xi is an isomorphism of graded k-algebras. For d=0 this is the residue-field identification and m=0.",
+      "locator": "Stacks 00NO Lemma10.106.1, full proof and its 00KQ/00K3 suppliers read 23 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source obligation for SchemeAndStackFoundations:SF.4, shared with its regularity/formal-completion consumers. No matching declaration found in the pinned trees; no implementation claimed.",
+      "proofSteps": [
+        "The map is surjective by expansion of products of maximal-ideal generators. Its kernel is homogeneous. If the kernel is nonzero, select a nonzero homogeneous relation. A constant relation is impossible because the degree-zero map is the identity on k.",
+        "For d≥1, Z65 gives a strict drop in growth, contradicting Z64, whose graded-piece polynomial has degree d−1. Hence the kernel is zero. For d=0 the empty tuple generates m, so m=0 and the map is already an isomorphism."
       ]
     }
   ],
@@ -6177,7 +7017,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32"
       ],
       "reason": "Reuse the existing smooth representation Part II; it already receives depth-zero Deligne–Lusztig types from Newton–Thorne and local type theory from Fintzen/Bushnell–Henniart. These are local K-types, not the modular finite-group reduction theorem.",
       "parent": "SmoothRepresentationsOfLocalGroups",
@@ -6242,7 +7084,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K44",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P01",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K48"
       ],
       "reason": "L7 owns arbitrary-rank bounded-height Frobenius lattice moduli and their maps to fixed Hodge/inertial-type deformation rings. Add these explicit tame-descent, gauge and residual local-model source obligations there; reserve the true-monodromy polynomial comparison and generic domain theorem for the distinct Part II below. Ordinary lifts use the existing local ordinary infrastructure.",
       "stages": [
@@ -6329,7 +7175,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z65",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z63"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained.",
       "stages": [
@@ -6414,7 +7264,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A21",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A24"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33"
       ],
       "reason": "Reuse the CEGGPS all-rank patching candidate. The extra source obligation is the exact weak/detectable/minimal functor interface and arbitrary away-from-p-level construction, not another abstract patching roadmap.",
       "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
@@ -6436,7 +7290,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A15"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27"
       ],
       "reason": "The polarized group, local conditions, Selmer tangent complex, framed global ring and adequate Taylor–Wiles primes are already the direction of G7 and the specified deformation layers. This source adds the exact fixed-multiplier tangent and generator formulas, with corrections E22–E24.",
       "stages": [
@@ -6609,7 +7466,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q11",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q12",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z01",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G44"
       ],
       "reason": "L7 supplies bounded-height lattices and fixed-type rings; the new theorem family is the comparison with differential local models, their generic unibranchness, component geometry and true-monodromy approximation. This differs from the existing unrestricted-ring normality and rank-two Barsotti–Tate candidates.",
       "parent": "LocalGaloisDeformationRings",
@@ -6938,7 +7802,7 @@
       "locator": "Published PDF122 opening of §5.5",
       "printed": "rhobar tame, i.e. rhobar=rhobar^ss.",
       "correction": "Semisimple residual representations are tame; the converse is false in general. Retain explicit semisimplicity where used, or prove the additional generic multiplicity-free inertia condition makes a tame representation semisimple.",
-      "reason": "The unramified two-dimensional representation with Frobenius [[1,1],[0,1]] over F_p has trivial inertia, hence is tame, but is not semisimple. Later domain statements are proved at semisimple points; generic tame applications need the elementary distinct-inertia-character argument.",
+      "reason": "The unramified two-dimensional representation with Frobenius [[1,1],[0,1]] over F_p has trivial inertia, hence is tame, but is not semisimple. Later domain statements are proved at semisimple points; generic tame applications need the elementary distinct-inertia-character argument. Continuation K45–K48 now supplies the regular-inertia bridge for the generic tame applications, using Corollary5.5.10 before K42. This repairs those applications but does not make the unqualified equivalence true.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -7197,6 +8061,51 @@
         "https://www.numdam.org/item/ASENS_1973_4_6_4_553_0/ and the original DOI PDF",
         "Elkik 1973 Lemma1 correction/erratum search, 2026-09-23; no correction of this reference located. Later Newton-lemma generalizations are not treated as errata of this display."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E36",
+      "kind": "misprint",
+      "locator": "Published PDF193 definition of S_Q and PDF197 TheoremA.4.1 third representation; arXiv2007.05398v2 PDF141 and144. Published pages inspected visually.",
+      "printed": "S_Q=(F/F+,S,O,rbar,ξ,{D_v}_{v∈S∪Q}); r(U_1(Q),W)_mQ:G_{F+,S}→G_n(T_empty(U_1(Q),W)_mQ).",
+      "correction": "Use S∪Q in the ramification-set slot of S_Q and G_{F+,S∪Q} as the domain of the diamond-level representation. Keep G_{F+,S} for the original and U_0(Q) levels.",
+      "reason": "The Q-local deformation condition expressly permits ramification by a scalar inertia character on the selected summand. A representation of G_{F+,S} is unramified at Q⊂complement(S), so it cannot encode that general deformation condition or the diamond character. The same theorem already writes S_Q with S∪Q immediately below its third Hecke formula, and Thorne Definition4.1 likewise uses S∪Q. The surrounding construction specifies the intended correction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: article-title erratum/correction search and A.4.1 correction search found no dedicated correction.",
+        "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; freshly downloaded v2 compared at the specific locators.",
+        "2026-09-23: https://math.rice.edu/~bl70/ links the published PDF without an erratum; the separate HNTheory correction concerns a different article. Springer article landing page timed out, so its correction listing was not inspected."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E37",
+      "kind": "misprint",
+      "locator": "Proposition7.1.3 uniqueness proof, published PDF134; arXiv2007.05398v2 PDF99.",
+      "printed": "X_j=E(u′) Ad(C_j)(φ(X_j)).",
+      "correction": "The Frobenius input is X_(j−1), with indices in J′: X_j=E(u′) Ad(C_j)(φ(X_(j−1))).",
+      "reason": "Subtracting the immediately preceding equation(7.3) for two solutions retains its j−1 embedding index. The uniqueness argument is still valid: simultaneous u′^a divisibility of every component implies simultaneous u′^(pa) divisibility. The recurrence itself already has the correct cyclic shift.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: article-title erratum/correction search and A.4.1 correction search found no dedicated correction.",
+        "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; freshly downloaded v2 compared at the specific locators.",
+        "2026-09-23: https://math.rice.edu/~bl70/ links the published PDF without an erratum; the separate HNTheory correction concerns a different article. Springer article landing page timed out, so its correction listing was not inspected."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E38",
+      "kind": "gap",
+      "locator": "TheoremA.4.1, published PDF196–197, and projector assertions PDF197–198; arXiv2007.05398v2 PDF143–144. Compare Thorne Proposition5.12 PDF29–30 and Theorem6.8 proof PDF38–39. The printed field quotes the final sentence on PDF198; the other affected assertions are the auxiliary-level bullets of TheoremA.4.1.",
+      "printed": "Moreover, the image of the natural injection S(U,W)_mQ → S(U_0(Q),W)_mQ is pr(S(U_0(Q),W)_mQ).",
+      "correction": "Restrict to the Hecke image on H_i=pr(S(U_i(Q),W)_mQ) before imposing these Q-local deformation conditions. Identify original-level forms with H_0 by applying pr to the inclusion, as in Thorne Proposition5.9. Alternatively supply a separate proof of the stronger full-Hecke and literal-inclusion assertions; the cited projector results do not give them.",
+      "reason": "Thorne Proposition5.12 explicitly forms R′ as the image on pr Π^P1 before concluding the selected scalar-inertia splitting. Its Theorem6.8 proof first defines H_i,Q and T_i,Q and only then obtains a representation of type S_Q over T_1,Q. Proposition5.9 states that pr:Π^K→pr Π^P is an isomorphism, not that the raw inclusion has that image. LLHLM23 invokes these results after already asserting the stronger unprojected compatibility. The corrected projected interface is sufficient for its subsequent finite patching modules, which explicitly apply pr. This records the missing implication, not a claim of a constructed global counterexample. Directly checking the other cited references gives the same restriction: CHT Proposition3.4.4(8), PDF107–109, requires a selected Vϖ-generalized-eigenspace Y and concludes over T(Y); its PDF115 patching argument explicitly selects H_1,Q first. EGH Theorem7.2.1, PDF55–56, attaches representations and gives local Langlands compatibility for characteristic-zero constituents, but does not select a particular residual auxiliary Frobenius eigenvalue. Thus these citations do not remove the projector requirement.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: article-title erratum/correction search and A.4.1 correction search found no dedicated correction.",
+        "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; freshly downloaded v2 compared at the specific locators.",
+        "2026-09-23: https://math.rice.edu/~bl70/ links the published PDF without an erratum; the separate HNTheory correction concerns a different article. Springer article landing page timed out, so its correction listing was not inspected."
+      ]
     }
   ],
   "gaps": [
@@ -7215,7 +8124,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed."
     },
     {
       "id": "split-and-hypotheses",
@@ -7236,11 +8145,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28"
       ],
-      "detail": "Split the remaining bundled conclusions and finish exact quantifier/hypothesis normalization. In particular recover the full A.3.3 tangent hypotheses, split A.4.1 with the corrected Hodge/monodromy conditions, and give explicit monodromy convergence estimates (7.4)–(7.8). A section-wide inventory is not a complete theorem-level extraction."
+      "detail": "A14/A25 now separate prime supply from the exact partially framed generator bound with the S\\T tangent hypothesis checked against Thorne Proposition4.4. A17/A28/A29 split all three A.4.1 levels with corrected Hodge shift, monodromy dominance and ramification domain. Remaining: split the other bundled conclusions, normalize their exact quantifiers and hypotheses, and give explicit monodromy convergence estimates (7.4)–(7.8). G38–G44 now separate the cyclic uniqueness, exact increment estimate, analytic convergence, ordered series, descent-removed exponent, Euler precision and ordinary-derivative loss in (7.4)–(7.10). The remaining census concerns the other listed bundled results."
     },
     {
       "id": "definition-api",
@@ -7327,7 +8234,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "The supplied definition API groups reference every currently inventoried definition, but grouped coverage is not complete itemwise closure. Refine itemwise APIs and unit tests from all uses, and split compound definitions. Do not replace the missing work by constructor/projection boilerplate. No new definition/construction is introduced in codex-a71f92's atom audit. Existing grouped or untyped tests and per-item two-test entries still require the protocol's itemwise API, consumers and at least three typed tests; passing the paper validator does not certify this. A fresh census finds 84 definitions plus 65 constructions, not 84 combined D/C items: the 26 inherited groups reference the 84 definitions only. This continuation supplies itemwise uses/API/six typed tests for the touched Z24 construction. The other 64 constructions lack such group coverage; audit them explicitly. Z03 is now repaired itemwise with six typed tests and eight API entries; this does not repair the remaining inherited API/test deficits."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement."
     },
     {
       "id": "library-item-audit",
@@ -7681,7 +8588,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G12",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07"
       ],
-      "detail": "Candidate reuse was refreshed after LLHLM20 checkpoint PR2197. Reconcile its finite modular/GL3 pre-lattice foundation with PA.1, ReductiveGroupsIntegralRepresentationsPartII, CEGGPS patching and the all-rank BM additions. The current reuse briefs prevent duplicate construction but need final directed dependency checking and complete atom ownership."
+      "detail": "The current593-item LLHLM20 shared-route briefs have been reconciled at route level in ownershipReconciliation: retain both candidate IDs, common all-rank foundations, GL3 specialization and early weak-functor construction. Still verify the final fine-grained supplier/request graph, PA.1/integral carrier identity and every atom owner; no new duplicate candidate is proposed."
     },
     {
       "id": "appendix-certificates",
@@ -7693,18 +8600,6 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q09"
       ],
       "detail": "Equations and all Table1 rows are transcribed. Q(a,b) consistency checks passed, including Jacobian t^3 membership. Prove uniform statements over Z[a,b,1/P], control denominator exceptional loci, certify minimal primes and specialized Groebner cases. Rational generic checks do not establish all allowed characteristics or all parameter specializations."
-    },
-    {
-      "id": "tame-semisimple-adapter",
-      "neededBy": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K36",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K37",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K42",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G37",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07"
-      ],
-      "detail": "The unqualified tame=semisimple assertion is false (E19). Write the separate regular-inertia/multiplicity-free argument under the actual numerical genericity assumptions before replacing a tame hypothesis by semisimplicity in any proof."
     },
     {
       "id": "remaining-proof-leaves",
@@ -7755,9 +8650,21 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z64",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and the regular-local associated-graded polynomial theorem. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope."
+    },
+    {
+      "id": "auxiliary-projector-global-input",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
+      ],
+      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images."
     }
   ],
   "sourceData": {
@@ -8869,6 +9776,21 @@
         "tauceti:TauCetiRoadmap/AdicSpaces Layer0"
       ],
       "limit": "No direct AdicSpacesPartII:R0/F0 row in the current coverage map. Review overlap rows and actual pinned declarations used. Negative searches are conservative, not a proof that every atom is absent."
+    },
+    "codexC83e7aContinuation": {
+      "date": "2026-09-23",
+      "reviewedRowsRead": [
+        "SchemeAndStackFoundations:SF.4; AUDIT-01 / REV-AUDIT-01"
+      ],
+      "readAtPins": [
+        "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "Mathlib/RingTheory/RegularLocalRing/Polynomial.lean",
+        "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+        "Mathlib/RingTheory/Filtration.lean:415–447"
+      ],
+      "finding": "Reuse IsRegularLocalRing and Krull separation. Full-tree searches did not locate G-rings, Hilbert–Samuel dimension comparison or the general regular-local domain theorem. Tau Ceti word-filtration/PBW associated graded results concern different filtrations and do not prove Z63. Existing atlas/packet searches found no exact Hilbert–Samuel or maximal-ideal-graded supplier; reuse the SF.4 formal/regularity source route.",
+      "atlasCommit": "2d9f4680c097b558c3684dec993a71f78e7913ee",
+      "inputScreen": "Refreshed758 input blobs at 2d9f4680c097b558c3684dec993a71f78e7913ee. Four changed Liu/Venkatesh extraction/report inputs and the new Venkatesh review were screened at route/overlap level. Their specialized level-raising/derived-Hecke additions do not replace the present classical projector interface. No independent review of those papers is claimed."
     }
   },
   "validation": {
@@ -9074,6 +9996,58 @@
         "updatedDefinitionConstructionTests": [
           "Z08:4",
           "Z52:5"
+        ]
+      }
+    },
+    "codexC83e7aContinuation": {
+      "checks": "Paper validator and three-file intake pass; all480 unique items, one route per missing item, acyclic240-edge internal graph. All inherited IDs, finding IDs, route identities and Appendix B sourceData retained. No Lean compilation.",
+      "diagnostics": {
+        "distinct_character_configurations": 5152,
+        "signed_digit_separations": 27300,
+        "zero_generic_collision_controls": 5,
+        "f4_tame_orbit_lines": 5,
+        "f4_frobenius_relation_vectors": 16,
+        "monodromy_tail_parameter_sets": 1750
+      },
+      "scope": "Independent finite formula/hypothesis diagnostics; analytic and Galois claims remain proof plans.",
+      "structuralChecks": {
+        "items": 480,
+        "statuses": {
+          "missing": 412,
+          "planned": 8,
+          "library": 60
+        },
+        "routes": 15,
+        "sourceIssues": 38,
+        "definitions": 85,
+        "constructions": 67,
+        "localDependencyEdges": 240,
+        "missingItemsRoutedOnce": true,
+        "acyclic": true,
+        "priorIdsPreserved": true,
+        "priorSourceIssueIdsPreserved": true,
+        "appendixDataPreserved": true,
+        "itemwiseApiUsesAndThreeTypedTests": 10,
+        "remainingDefinitionConstructionCensus": 142,
+        "changedInheritedItems": [
+          "N52",
+          "K42",
+          "K44",
+          "G04",
+          "G08",
+          "G09",
+          "G10",
+          "G11",
+          "A14",
+          "A17",
+          "A18",
+          "A22",
+          "Z08",
+          "Z10",
+          "L03",
+          "Z15",
+          "Z24",
+          "Z62"
         ]
       }
     }
@@ -9571,5 +10545,32 @@
       ],
       "derivedFrom": "KWII Proposition2.2(ii), explicit saturated-point jet construction and its downstream uses Z17–Z22"
     }
-  ]
+  ],
+  "ownershipReconciliation": {
+    "snapshot": "2d9f4680c097b558c3684dec993a71f78e7913ee",
+    "basis": "Read the current593-item LLHLM20 extraction shared-route briefs; preserve the two shared candidate IDs and all GL3 lattice obligations. This is route-level reconciliation, not an independent review of LLHLM20.",
+    "decisions": [
+      {
+        "owner": "RootSystemsPartIIDominanceAndDemazure",
+        "exports": "All-rank extended-affine orders/alcove depth to the finite modular owner. GL3 combinatorial specializations reuse this base."
+      },
+      {
+        "owner": "ModularRepresentationsOfFiniteReductiveGroups",
+        "exports": "All-rank generic Deligne–Lusztig/Serre-weight common foundation, followed by the existing GL3 Ext/radical/lattice specialization. Import integral rational Weyl modules from PA.1, coordinated with ReductiveGroupsIntegralRepresentationsPartII."
+      },
+      {
+        "owner": "LocalGaloisDeformationRings:L7",
+        "exports": "All-rank tame Kisin lattices, shapes and fixed-type ring maps; the new K45–K48 bridge lives here. The monodromy polynomial/domain extension keeps its separate PartII."
+      },
+      {
+        "owner": "CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity",
+        "exports": "Construct the common exact weak functor before domain-dependent minimality/detectability and before GL3 lattice applications. Use projected auxiliary Hecke actions from A30–A33."
+      },
+      {
+        "owner": "GenericGL3SerreWeightsAndLattices",
+        "exports": "Generic BM/global weight conclusions import the preceding foundation; later GL3 lattice results retain their own stronger bounds and do not feed back into construction/globalization of the weak functor."
+      }
+    ],
+    "remaining": "Convert these directions to final fine-grained supplier/request IDs during shared design; whole-roadmap arrows alone can conceal the known globalization/lattice cycle."
+  }
 }
