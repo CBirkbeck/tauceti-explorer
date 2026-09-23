@@ -721,8 +721,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZAVYALOV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1063"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1063",
+   "finishedAt": "2026-09-23T06:27:14Z"
   },
   {
    "id": "REV-PAPER-ZAVYALOV-25",
@@ -2517,7 +2518,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARAIANI-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1161"
   },
   {
    "id": "REV-PAPER-CARAIANI-SCHOLZE-17",
@@ -3472,8 +3474,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1218"
+   "state": "external",
+   "note": "claimed on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
