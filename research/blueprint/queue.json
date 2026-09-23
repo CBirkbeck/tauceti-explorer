@@ -6174,8 +6174,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1369"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1369",
+   "finishedAt": "2026-09-23T07:46:31Z"
   },
   {
    "id": "REV-PAPER-HACON-WITASZEK-23",
@@ -7093,8 +7094,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1422"
+   "state": "external",
+   "note": "claimed on GitHub issue #1422"
   },
   {
    "id": "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
