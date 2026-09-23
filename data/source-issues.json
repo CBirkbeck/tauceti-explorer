@@ -6177,14 +6177,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read p. 5. Nonflat base change sends the ideal by its image, not by an injective tensor identification: for R=k[x], M=R/(x), S=k, (x) tensor_R k is nonzero but its image ideal in k is zero. The standard image-ideal correction is sufficient. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E2",
@@ -6200,14 +6203,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read p. 5 against §1.1: for a place of degree d_infinity>1 the residue field is F_infinity, so after rational constants the completion is F_infinity(z)((pi)), not F_q(z)((pi)). Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E3",
@@ -6223,14 +6229,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read p. 7: the positive Ore polynomial ring has nonnegative powers; negative Frobenius iterates require an inverse and are not defined over the arbitrary coefficient field used there. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E4",
@@ -6246,14 +6255,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 13: scalar conjugation leaves the full constant matrix partial_E(a), including its nilpotent part. A nonzero 2-by-2 nilpotent differential already contradicts the displayed scalar reduction; the local-factor cancellation survives using the full differential. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E5",
@@ -6269,14 +6281,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 16: k indexes the truncation power in both consecutive formulas, whereas j indexes a basis coefficient. Replace z^j by z^k. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E6",
@@ -6292,14 +6307,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 17: clearing successively more exponential denominators requires xi_n dividing xi_(n+1); the printed opposite divisibility cannot support the exhaustion. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E7",
@@ -6315,14 +6333,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 18: the identity is over rational z-coefficients and applies Proposition 3.6 to the deformed module; its local factors must retain the tildes. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E8",
@@ -6338,21 +6359,24 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 18 and independently read Taelman arXiv:0910.3142v4 Definition 3 and Theorem 2: the regulator generator is in F_q((1/t)), with the asserted valuation, not generally a polynomial. The general Anderson extension is still G4. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E9",
    "kind": "misprint",
    "locator": "HAL hal-02490566v2, Proposition 5.3 proof, p. 23; version of record not collated",
    "printed": "k ≡ k_0-j (mod m)",
-   "correction": "In the final grouped relation retain the earlier k congruent k_0+j condition consistently, and retain tau^(j+l) before reducing modulo tau^m-1. In the reconstruction sum, sum over k_0 rather than an unused k.",
+   "correction": "In the final grouped relation retain the earlier k congruent k_0+j condition consistently, and retain tau^(j+l) before reducing modulo tau^m-1. In the reconstruction sum, sum over k_0 rather than an unused k. Retain z^(k+l) in the expanded relation, group by fixed actual z-degree, and then project to the cyclic residue coordinate. Evaluation at z=1 alone cannot prove a polynomial relation.",
    "reason": "The components were defined using the plus sign, so the displayed final sum with a minus sign need not select the same monomials. Reduction changes j+l modulo m, not to j in every term. These indexing slips are separate from the polynomial divisibility issue E10.",
    "affects": "the proof",
    "known": "new",
@@ -6361,37 +6385,43 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 23: the index residue is k0+j, the expanded Frobenius exponent is j+l, and reconstruction sums over k0. The intermediate expanded relation must also retain z^(k+l); group fixed z-degree and Frobenius residue before projecting. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E10",
-   "kind": "misprint",
+   "kind": "error",
    "locator": "HAL hal-02490566v2, Proposition 5.3 proof, pp. 22–23; version of record not collated",
    "printed": "R = R_0 A_F[z]",
    "correction": "Use homogeneous components for the Z/m grading, whose jth entries have exponents congruent to j+j_0 modulo m, without the extra lower bound; alternatively invert z first and state the Laurent-module generation identity before localizing to F_q(z).",
    "reason": "Take A=F_2[t], F=F_4, d=1, E_t=tau in characteristic (t), so Etilde_t=z tau. In U=F[z]{tau}/(tau^2-1), the relation (-z,t) on generators (1,tau) is zero. Every printed R_0 vector has its second entry divisible by z since j=1 and j_0>=0; so does its A_F[z]-span. The relation's second entry t is not divisible by z. Thus the printed generation equality fails. The intended localized Fitting descent can still hold. (cc-442dc5) Reclassified as a misprint: the proof itself decomposes each relation into the components α_ij^{k0} = Σ_{k ≡ k0+j (mod m)} α_ijk z^k and asserts that these lie in R0, which is true only for the congruence definition; with it, R = R0·A_F[z], the normalized minors lie in A_F[z^m], and the descent from Ã_F to Ã works by comparing coefficients in an F_q-basis of F (faithful flatness). The counterexample shows that the printed lower bound must be read as a congruence.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered pp. 22–23: for A=F_2[t], F=F_4, E_t=tau, the relation (-z,t) is present, but the printed R0 forces its second entry to be divisible by z. Its asserted generation is false. The repair is a congruence grading with no exponent lower bound, as specified in item 74; the full descent remains G5. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E11",
@@ -6407,37 +6437,43 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered pp. 25–26: two Carlitz summands at a linear prime have a quadratic characteristic polynomial in z although r=1. The correct degree bound in z^m is d*r. Retain the weighted-degree estimate or a weaker dimension-dependent bound that still gives convergence. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E12",
-   "kind": "misprint",
+   "kind": "error",
    "locator": "HAL hal-02490566v2, Theorem 6.3 proof, p. 28, definition preceding tau-z sequence; version of record not collated",
    "printed": "Mtilde(E/F_P)=F_P(z)^d",
-   "correction": "The source/target of the tau-z motive presentation must be a skew-polynomial motive module with an explicit z-action convention, not the finite-dimensional point space. Derive the cokernel on that corrected module (G7).",
+   "correction": "Use the untwisted row skew-polynomial motive and the exact rho map of item 111. Merely replacing the finite carrier while retaining a z-twisted action still fails (E16).",
    "reason": "On the printed F_P(z)^d, tau is F_q(z)-linear and tau^m=1. Consequently tau-z is invertible over F_q(z), with determinant a nonzero power of 1-z^m; its cokernel is zero, contrary to the following assertion that it is F_P(z)^d. In the simplest F_P=F_q case it is multiplication by 1-z. (cc-442dc5) Reclassified as a misprint: the text says M(E/F_P) is used 'with column vectors … and twist the Frobenius map τ with z as before', i.e. the carrier is the motive F_P(z){τ}^d, as in (6.1). On it, left multiplication by τ − z has cokernel F_P(z)^d, and the determinant/Fitting argument goes through.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-09-22: publisher article https://link.springer.com/article/10.1007/s00222-022-01110-3 and issue 229(2); no linked correction located in the preview; acknowledgements explicitly mention mistakes corrected in an earlier manuscript; full journal text unavailable.",
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 28: on the finite point space tau^m=1, so (tau-z) is invertible over F_q(z) using 1-z^m. Its cokernel is zero, not the required d-dimensional point module. The row skew-motive carrier in item 111 repairs this, with E16 correcting the separate double twist. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E13",
@@ -6453,14 +6489,17 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 28: applying the printed adjoint formula to a=1 gives zero if i=0 is omitted. Include the constant term; item 111 verifies the full coefficient formula. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E14",
@@ -6476,33 +6515,102 @@
     "2026-09-22: author publications page https://tuan.ngodac.perso.math.cnrs.fr/publications.html links HAL; HAL author CV https://cv.hal.science/ngodac lists hal-02490566v2; no newer deposited version located.",
     "2026-09-22: exact-title searches with erratum/correction and hal-02490566 v3 did not locate an itemized correction. HAL landing page was access-denied, while the public document URL was readable; no access control was bypassed.",
     "Earlier note on correction status: Correction status unresolved: no itemized correction located in the searched sources, but the later journal version explicitly acknowledges corrections to an earlier manuscript. This is not a claim of a new published error.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 29: a normal basis need not be trace self-dual. In F_9=F_3(i), the displayed basis (1+i,1-i) has Gram [[0,1],[1,0]], and multiplication by i has matrix [[0,1],[2,0]]. The adjoint is G^(-1)B^T G. Independently executed 2187 trace identities confirm this example and the twist direction. Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
   },
   {
    "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E15",
    "kind": "gap",
    "locator": "Proof of Theorem 4.3, Step 1, p. 17, HAL hal-02490566v2; version of record not collated",
    "printed": "It implies that the sequence (a_n)_{n∈N} becomes stationary. … Thus, the coefficients of x must belong to A, and this implies that the limit x belongs to Ã.",
-   "correction": "Justify both steps. (1) x_n = u·y_n^{−1} with y_n^{−1} = Π x_P/x_P(0) ∈ K[z] of constant term 1, so ord_z(x_n) = ord_z(u) for every n. (2) By Proposition 4.5 with n = 1, u ∈ z^a F_q[z]_(z) T_z(K∞), and y^{−1} = lim y_n^{−1} ∈ T_z(K∞); so x = z^a h/f with f ∈ F_q[z], f(0) ≠ 0 and h ∈ T_z(K∞). The z-coefficients of h lie in A and tend to 0 ∞-adically, hence vanish eventually, so h ∈ A[z] and x ∈ Ã.",
-   "reason": "Gauss-norm convergence alone does not stabilize the z-adic order (z + π^n → z), and having coefficients in A does not by itself make an element of the completion K̃∞ rational in z. The structure of y_n and of u supplies both facts; the step is then correct.",
+   "correction": "In the normalized case, each inverse local generator is a polynomial with constant term 1, which fixes ord_z(u/y_n). First remove finite exceptional/nonunit factors by scalar conjugation. Then exhibit a single F_q[z] denominator compatible with the approximation congruences; coefficient integrality and restricted-series decay reduce the limit to a polynomial with A coefficients. The full compatibility remains G3, rather than being asserted from Gauss convergence.",
+   "reason": "Read and rendered p. 17: Gauss convergence alone gives no stabilization of z-order. The earlier sequence z+pi^n has stationary order and was an inadequate counterexample to this precise claim. Use x_(2n)=z, x_(2n+1)=z+pi^(2n+1), which converges to z with alternating orders 1 and 0. Structural normalization can repair the argument, but the exceptional-prime and common-denominator compatibility must be proved (G3).",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01110-3 registers no update relation; Unpaywall lists only HAL hal-02490566 (v2) as an open copy, and the Springer PDF is not openly available, so the version of record could not be collated. HAL v2 postdates refereeing (its acknowledgements thank the referee).",
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
    ],
    "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
    "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
    "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "Read and rendered p. 17: Gauss convergence alone gives no stabilization of z-order. The earlier sequence z+pi^n has stationary order and was an inadequate counterexample to this precise claim. Use x_(2n)=z, x_(2n+1)=z+pi^(2n+1), which converges to z with alternating orders 1 and 0. Structural normalization can repair the argument, but the exceptional-prime and common-denominator compatibility must be proved (G3). Confirmation concerns HAL v2 only; journal persistence and novelty are not established."
+  },
+  {
+   "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E16",
+   "kind": "error",
+   "locator": "HAL hal-02490566v2, Theorem 6.3 proof, p. 28, action preceding tau-z sequence; version of record not collated",
+   "printed": "z^i tau^i",
+   "correction": "After changing to the row skew-motive carrier, use the ORIGINAL right E_a action without z^i. The quotient by left tau-z itself produces the z^i in the trace-adjoint deformation; see item 111.",
+   "reason": "The coefficient reduction sends c tau^i to z^i sigma^i(c). Retaining an additional z^i in the action therefore gives z^(2i). For F=F_q,d=1,E_t=tau the repaired quotient must have t=z, whereas the double twist gives t=z^2. The inherited extraction repeated the twist and incorrectly declared G7 closed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
+   ],
+   "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
+   "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "The coefficient reduction sends c tau^i to z^i sigma^i(c). Retaining an additional z^i in the action therefore gives z^(2i). For F=F_q,d=1,E_t=tau the repaired quotient must have t=z, whereas the double twist gives t=z^2. The inherited extraction repeated the twist and incorrectly declared G7 closed. Checked independently against the rendered HAL v2 page; journal text not collated."
+  },
+  {
+   "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E17",
+   "kind": "misprint",
+   "locator": "HAL hal-02490566v2, Proposition 5.3 proof, p. 21, definition of F_a; version of record not collated",
+   "printed": "homomorphism of F[z]-algebras",
+   "correction": "F_a is an F[z]-linear endomorphism of the module V^m.",
+   "reason": "V^m has only the specified module structure, and F_0 is the zero operator, which is not a unital algebra homomorphism on a nonzero algebra. The proof uses linearity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
+   ],
+   "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
+   "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "V^m has only the specified module structure, and F_0 is the zero operator, which is not a unital algebra homomorphism on a nonzero algebra. The proof uses linearity. Checked independently against the rendered HAL v2 page; journal text not collated."
+  },
+  {
+   "id": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22/E18",
+   "kind": "misprint",
+   "locator": "HAL hal-02490566v2, Theorem 5.2 proof, p. 21, first two determinant displays; version of record not collated",
+   "printed": "E_t|F_P(z)[X]",
+   "correction": "Use the deformed action Etilde_t on F_P(z)[X]^d. Form the characteristic polynomial in X over F_q[z], then evaluate X=t to obtain the generator in F_q[z,t].",
+   "reason": "The source allows dimension d, so the scalar carrier cannot carry the matrix action. In the d=1 Carlitz linear-prime case the undeformed action omits z, giving t-a-1 instead of the required t-a-z. After evaluation the remaining polynomial variable is t, not X.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 23 September 2026: read https://link.springer.com/article/10.1007/s00222-022-01110-3 (subscription preview, acknowledges earlier manuscript corrections); the 44-page journal proof text was unavailable for collation.",
+    "Independent review: https://cv.hal.science/ngodac still links hal-02490566v2. Exact-title erratum/correction and hal-02490566 v3 searches found no itemized correction. The author publications page appeared in search but direct retrieval failed; no full-page reading claim.",
+    "Independent review: https://api.crossref.org/works/10.1007/s00222-022-01110-3 returned an empty relation object and no update-to field. This is a bounded search, not proof that the journal retains these errors."
+   ],
+   "owner": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "file": "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
+   "citation": "Anglès–Ngo Dac–Tavares Ribeiro, \"A class formula for admissible Anderson modules\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+   "reviewReason": "The source allows dimension d, so the scalar carrier cannot carry the matrix action. In the d=1 Carlitz linear-prime case the undeformed action omits z, giving t-a-1 instead of the required t-a-z. After evaluation the remaining polynomial variable is t, not X. Checked independently against the rendered HAL v2 page; journal text not collated."
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E1",
