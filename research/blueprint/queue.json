@@ -600,8 +600,9 @@
    ],
    "avoidAccountOf": "PAPER-CALMES-ETAL-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALMES-ETAL-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1056"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1056",
+   "finishedAt": "2026-09-23T16:15:19Z"
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26",
@@ -710,7 +711,8 @@
    ],
    "avoidAccountOf": "PAPER-LESLIE-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-LESLIE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1062"
   },
   {
    "id": "PAPER-ZAVYALOV-25",
