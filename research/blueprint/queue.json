@@ -6171,7 +6171,8 @@
    ],
    "avoidAccountOf": "PAPER-IM-KIM-LE-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1359"
   },
   {
    "id": "PAPER-VANHOFTEN-24",
