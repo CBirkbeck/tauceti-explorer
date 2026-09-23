@@ -1,8 +1,44 @@
-# Ngo Dac (2021): extraction and routing checkpoint
+# PAPER-NGODAC-21: extraction and routing
 
-The paper proves all-weight spanning by Thakur's proposed family, all-weight independence for the smaller family whose entries are strictly below q, and the Thakur basis theorem through weight 2q−2. It does **not** prove the later all-weight basis theorem. This extraction is partial because interpolation, nonvanishing, analytic proof inputs, the norm/divisor bridge and the journal-version comparison remain unresolved, not because the main manuscript was skimmed.
+Issue [#1111](https://github.com/CBirkbeck/tauceti-explorer/issues/1111). Status: **complete**. Implementation and proof closure are not claimed.
 
-This continuation of [PR #1971](https://github.com/CBirkbeck/tauceti-explorer/pull/1971) supplies explicit proofs of the required G1 and G2 instances and identifies the existing Riemann–Roch supplier. The JSON contains 106 items, including 36 definitions/constructions with 105 proposed API entries and 108 discriminating tests. Every missing item has exactly one route. All implementation statuses remain unchecked.
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoints of Codex sessions codex-a71f92 ([#1971](https://github.com/CBirkbeck/tauceti-explorer/pull/1971)) and codex-c83e7a, whose material follows below.
+- **The paper.** Tuan Ngo Dac, *On Zagier–Hoffman's conjectures in positive characteristic*, Annals of Mathematics 194 (2021), 361–392 (doi 10.4007/annals.2021.194.1.6). The version read is the HAL manuscript hal-03298790v1.
+- **Items.** The result has **108 items: 5 library, 3 planned and 100 missing**.
+  - The checkpoint's 106 items are kept; small-product and trivialization-uniqueness are new.
+  - Every missing item is routed exactly once.
+- **Mistakes.** Twelve are recorded under `sourceIssues`:
+  - E1–E6, E11 and E12 are in the manuscript;
+  - E7–E10 are in cited sources.
+
+## This continuation (cc-442dc5)
+
+**What was read.**
+- The HAL manuscript was read in full. HAL now serves a challenge page, but the checkpoint's public copy was found on this machine and matched byte for byte to its recorded SHA-256.
+- Pages 5 and 23 were rendered to settle notation. Theorem B's T⁰_w (entries below q) and §6's T′_w (entries not divisible by q) are different symbols.
+- Chang 2014 was read at Proposition 4.3.1 and Theorem 3.4.5 to check E5.
+
+**What was checked.**
+- E1–E6 were checked at their locators; all six stand. For E5, Chang's Proposition 4.3.1 is the Eulerian descent involving π̃^w, while the same-weight K-to-K̄ descent the proof needs is his Theorem 3.4.5 with ℓ = 1.
+- In §6:
+  - H_w = (t^q − t) + (k−1)(t^q − θ^q) was rederived from the Anderson–Thakur generating series.
+  - The θ-coefficient comparisons were redone in both cases, 1 < k < q − 1 and k = q − 1.
+  - The identity (t^q − t)[(t^q − t) − 2(t^q − θ^q)] = (t − θ^q)² − (t^q − θ^q)² was verified.
+
+**Two new findings.**
+- **E11 (gap), p. 23.** The quoted Kuan–Lin input gives δ₁, δ₂ ∈ K[t], but the coefficient comparison needs δ₁, δ₂ ∈ A[t] = F_q[θ, t]. The checkpoint's worker derivation supplies it (monic-frobenius-descent, theta-degree-bound, degree-descent), so the finding records why that derivation is needed.
+- **E12 (misprint), p. 22.** The base case of Theorem 6.2 should read w ≤ q. As printed, w = q enters the inductive step, which claims 1 < k although k = 1 there.
+
+**Two new items.**
+- small-product: Remark 2.2(2), used in Corollary 2.7.
+- trivialization-uniqueness: Papanikolas §4.1.6, used between (5.6) and (5.7). It is planned in DM.8.
+
+**Why the status is now complete.**
+- Every numbered statement, and every theorem the proofs cite, is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- The checkpoint's gaps are marked in the result:
+  - G3–G7 are deferred. They asked for the proofs of cited suppliers (Thakur's nonvanishing, the Anderson–Thakur interpolation, the internals of the ABP criterion); those theorems are items stated as the paper uses them.
+  - G8 is unavailable: the journal PDF is not open.
 
 ## Source and reading boundary
 
@@ -67,7 +103,6 @@ For small entries, isolated suffixes become Eulerian and their weights divisible
 For the larger weight range, only (w) and (k,q−1) can remain. The second splitting equation is solved explicitly by a multiple of (δ_2,a_2)=(θ^q−t^q,t^q−t). The interior and endpoint coefficient contradictions are separate items. At the endpoint, substituting θ=t into the final polynomial identity handles also the possibility that its prefactor vanishes; no informal divisibility shortcut is needed.
 
 The previous G1 normalization gap is now resolved for these two equations by the direct descent and degree argument below. Kuan–Lin’s publisher PDF still returns HTTP 403; this continuation does not claim to have read its proof or extracted its general theorem. The manuscript’s citation remains recorded. No additional multiplication by an F_q[t] scalar is needed once the displayed polynomial splitting system is available.
-
 
 ## Explicit proof of the required degree and descent input
 
@@ -136,26 +171,41 @@ The classical roadmap PeriodsAndSpecialValues:PS.9 supplies orientation, not cha
 
 Three neighboring-source URL mismatches were caught during acquisition: arXiv:2007.11060 is not this 2021 paper, arXiv:1207.4736 is not Chang's independence paper, and arXiv:1601.01927 is not CPY. The verified links are the HAL source, arXiv:1207.2326 and arXiv:1411.0124. Other jobs' files were not edited.
 
-## Source findings
+## Mistakes found (`sourceIssues`)
 
-The JSON contains ten findings, each with a version, short quotation, correction, argument, reach and correction search:
+Twelve findings are recorded, each with a quotation, a correction and the reason.
 
-- E1: the B* derivation sums R(d) where R(j) is intended.
-- E2: C-operation output coefficients are labelled F_p instead of K.
-- E3: the j=0 reduction branch uses the undefined B*_0.
-- E4: the printed ABP theorem omits c≠0. A concrete rank-two counterexample is given using f=Ω^(−1)=(t−θ)Ω, where the exponent denotes inverse twist, not reciprocal. All matrices actually used in the paper satisfy the corrected hypothesis.
-- E5–E6: the Chang independence locator and Todd's page range are incorrect.
-- E7: Chang's analytic-to-entire argument cites ABP Proposition 3.1.1 instead of Proposition 3.1.3.
-- E8: the external Thakur shuffle article assigns the wrong bibliographic pages to his Relations paper.
-- E9: the external Thakur higher-depth proof has a **known** erroneous concatenation step; Shuhui Shi's replacement proof is recorded and used.
-- E10: the external CPY rational-module proposition prints a polynomial matrix domain; multiplication by 1/t between trivial rationalized modules demonstrates why the domain must be rational.
+- **E1** (misprint; affects nothing), HAL v1, printed p.9, sentence preceding Proposition 2.5. *Printed:* S_d(v) ∑_{j<d} R(d) *Correction:* Replace R(d) in the summand by R(j). *Reason:* The following displayed calculation has S_j and S_{j+1}. Repeating a fixed R(d) over all j<d does not give that calculation.
+- **E2** (misprint; affects nothing), HAL v1, printed p.10, paragraph immediately before Proposition 2.8. *Printed:* f_j, g_ℓ ∈ F_p *Correction:* The resulting binary-relation coefficients lie in K; only the product-expansion structure constants are in F_p. *Reason:* Input a_i,b_i lie in K and are multiplied by the prime-field structure constants. At q=2, C_(1)(R₁) retains θ²−θ as the coefficient of S_{d+1}(1,2).
+- **E3** (gap; affects the proof), HAL v1, printed p.12, proof of Proposition 2.12, j=0 case. *Printed:* B*_{s_j} *Correction:* When j=0 (the proof sets s_0=0), omit this operation and sum the already constructed binary relation (2.11) directly over d. Apply B*_{s_j} only for j>0. *Reason:* B*_v was defined only for v>0. If no preceding entry is below q, the proof's j=0 branch attempts B*_0. Direct summation gives precisely the required first two output classes; the positive-prefix branch remains unchanged.
+- **E4** (error; affects a stated result), HAL v1, printed p.18, Theorem 4.2. *Printed:* c ∈ K̄ *Correction:* Require c∈K̄^× in det Φ=c(t−θ)^s, as in the original ABP criterion. *Reason:* If c=0 is allowed, take f=Ω^(−1)=(t−θ)Ω∈E (the superscript denotes inverse coefficient twist, not reciprocal), Φ=diag(t−θ^(1/q),0), ψ=(f,0)^T and ρ=(1,0). Then ψ^(−1)=Φψ, det Φ=0 and ρψ(θ)=0. Any polynomial row P with Pψ=0 has P_1=0 because f≠0, so P(θ) cannot equal ρ. Actual matrices in the paper have nonzero determinant and are unaffected.
+- **E5** (misprint; affects nothing), HAL v1, printed p.18, first paragraph of §5. *Printed:* [9, Proposition 4.3.1] *Correction:* Use Chang 2014 Theorem 3.4.5 (or the MZV specialization Theorem 2.2.1) for K-to-K̄ linear-independence descent. *Reason:* Chang's Proposition 4.3.1 is the Eulerian descent statement involving the extra period π̃^w; the precise same-weight implication used here is Theorem 3.4.5, proved in §§4.1–4.2. Those proof sections were read.
+- **E6** (misprint; affects nothing), HAL v1, printed p.26, reference [28]. *Printed:* 187:264–28 *Correction:* The page range is 264–287. *Reason:* Todd's own publication list gives Journal of Number Theory 187 (2018), 264–287: https://www.math.union.edu/~toddg/.
+- **E7** (misprint; affects nothing), External source: Chang 2014, arXiv:1207.2326 PDF read 2026-09-22, printed p.15, proof of Lemma 5.3.1. *Printed:* [ABP04, Prop. 3.1.1] *Correction:* Use ABP04 Proposition 3.1.3 for the analytic-to-entire criterion. *Reason:* ABP Proposition 3.1.3 has the exact inputs det Φ(0)≠0 and a Tate-algebra solution and concludes membership in E. ABP 3.1.1 is a theorem lifting relations and is not this proposition. This finding concerns a cited source, not Ngo Dac's text.
+- **E8** (misprint; affects nothing), External source: Thakur 2010, author-hosted published shufflepub.pdf, printed p.1980, reference [11]. *Printed:* 2009, no. 11 (2009): 2038–55 *Correction:* For Thakur's Relations Between Multizeta Values use IMRN 2009 no.12, 2318–2346, DOI 10.1093/imrn/rnp018. *Reason:* The actual author-hosted Relations PDF's first page gives this bibliographic data. The printed pages 2038–2055 belong to Anderson–Thakur's period-interpretation paper, not the title/author of [11]. This finding concerns a cited source, not Ngo Dac's text.
+- **E9** (error; affects the proof), External source: Thakur 2010 published shufflepub.pdf, p.1979, fourth equality of the proof of Theorem 3. *Printed:* S_{d₂}(X_i′, A′) + S_{d₁}(A′, X_i′) *Correction:* Use the simultaneous mixed/fixed power-sum induction in Shuhui Shi's corrected proof reproduced in the author's updates, or the controlled recursion in Ngo Dac Proposition 2.1. Concatenating two tails does not account for their internal degree interleavings. *Reason:* For tails X_i′=(1), A′=(1,1), cutoff d=2, both concatenated depth-three sums vanish, while the omitted unequal-leading-degree term S_0(1)S_1(1,1)=S_1(1) is nonzero. The author explicitly acknowledges the fourth equality as wrong; the theorem remains true with the corrected proof. This finding concerns a cited source, not Ngo Dac's text.
+- **E10** (misprint; affects the proof), External source: CPY author-hosted EulerianJEMS_Corrections1.pdf dated 13 August 2018, p.6, Proposition 2.2.1; rendered page checked. *Printed:* F ∈ Mat_{r₁×r₂}(k̄[t]) *Correction:* The matrix of the rationalized-module homomorphism lies in Mat_{r₁×r₂}(k̄(t)); the conclusion is that its monic common denominator belongs to F_q[t]. *Reason:* Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement. This finding concerns a cited source, not Ngo Dac's text.
+- **E11** (gap; affects the proof), HAL v1, printed p. 23, proof of Theorem 6.2, Step 3, after (6.4). *Printed:* Kuan and Lin showed (see [17, proof of Theorem 2]) that δ1, δ2 belong to K[t], and degθ δi ≤ q(si + · · · + s2)/(q − 1) *Correction:* The comparison of θ-coefficients on p. 24 writes δ1 = (aθ + b)(t − θ)^w, resp. (aθ² + bθ + c)(t − θ)^w, with a, b, c ∈ F_q[t]. This needs δ1, δ2 ∈ A[t] = F_q[θ, t]. It follows from (6.3)–(6.4) themselves: a solution in K̄[t] of δ^(1) = Bδ + F with B monic in t over A lies in A[t] (monic-frobenius-descent), and the θ-degree bound is theta-degree-bound. degree-descent records the instance. *Reason:* Membership in K[t] = F_q(θ)[t] with a bound on θ-degrees does not give polynomial dependence on θ: for example (t − θ)^w/θ lies in K[t], so the displayed affine and quadratic θ-forms would not follow. Whatever Kuan–Lin prove, the statement quoted here is not enough.
+- **E12** (misprint; affects nothing), HAL v1, printed p. 22, proof of Theorem 6.2. *Printed:* For w < q we have Tw = T′w, and we are done by Theorem B. *Correction:* For w ≤ q. *Reason:* At w = q the sets agree too: a tuple of weight q with more than one entry has all entries below q, and (q) lies in neither set. As printed, w = q falls to the inductive step, which asserts 1 < k for k = w − (q − 1), whereas k = 1 there. The argument survives, since the relation then has the single term ζ_A(1, q−1).
 
-“New” means no matching correction was located in the documented searches, not a claim of exhaustive novelty. None of these findings has been independently reviewed here, and nothing was sent to authors.
+## Checks of the earlier checkpoints
 
-## Remaining work and checks
-
-Six gaps remain, G3–G8: the prime-power greedy valuation theorem; original Anderson–Thakur/Carlitz interpolation; generic nonarchimedean analysis and Lang’s isogeny; the norm/divisor and exact-constant-field bridge for ABP’s count; full constant-level signatures for ABP’s auxiliary-function proof; and reconciliation with published versions. A future worker should resume these leaves rather than reread the complete main paper without using this inventory.
+The earlier checkpoints left six gaps, G3–G8: the prime-power greedy valuation theorem; original Anderson–Thakur/Carlitz interpolation; generic nonarchimedean analysis and Lang’s isogeny; the norm/divisor and exact-constant-field bridge for ABP’s count; full constant-level signatures for ABP’s auxiliary-function proof; and reconciliation with published versions. Their status is now recorded in the result: G3–G7 are deferred to the owning layers' blueprints, and G8 is unavailable.
 
 Exact rational-function tests passed for q=2,3,4,5: 336 Chen identities, 32 binary-relation boundary checks, and the counting/block-bijection checks for weights 1–10. F_4 was constructed as F_2[u]/(u²+u+1), not approximated or replaced with arithmetic modulo 4. These are tests of finite cases, not proofs of all-weight identities or independence.
 
 The previous exact rational-function and counting tests were rerun successfully. New exact diagnostics passed: 900 cleared-denominator partial-fraction identities; 800 inverse unit-power sums, including q=4,8,9; 3,584 monic-descent cases over F_4/F_2 and the degree-zero counterexample; 17 interior/endpoint coefficient-rank checks over quadratic finite-field extensions; and 51,968 degree-inequality checks. Finite specializations are diagnostics, not substitutes for the general arguments above. Current schema, intake and structural validation results are recorded in the JSON and handoff. No Lean file was compiled or submitted: this paper job authorizes only the JSON, report and handoff, and claims no formalisation.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, every dependency resolves, and every missing item is routed exactly once.
+- **Findings.** Every `sourceIssues` locator in the manuscript was checked against its text layer.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E4 (the ABP criterion needs c ≠ 0) and E11.
+- Check the planned status of trivialization-uniqueness in DM.8.
