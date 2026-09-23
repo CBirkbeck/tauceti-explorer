@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-YUAN-ZHANG-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Heights of abelian varieties, the component lines N(A, τ) and their pairings belong to R35.1–R35.4. The review added the kernel of the dual isogeny as the Cartier dual of the kernel (erratum, Proposition 6), which the isogeny variation of R35.4 needs."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "CM types, reflex fields and reflex orders belong to CM.0, CM.2 and CM.5. The nearby-pair combinatorics used by Corollary 2.6 is not named in CM.0 and stays with the Part II items."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The quaternionic Shimura curves X, X′, X″ and their integral models are sources for R18.1, R18.2 and R18.5. The review added five items: CM points of X′, the case-2 p-divisible group, the projective system of models over O_F, the induced models of X″ and X′, and the CM points on X_U. Čerednik–Drinfeld uniformization was added as planned at R18.5."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Kisin modules and CM p-divisible groups are sources for R07.1, R07.2, R07.4 and R07.6. kisin-free and kisin-classification are now planned at R07.4, which names them. The review added three items. The τ-quotient arguments at primes of F ramified over Q (§5.2, erratum Proposition 6) and the p = 2 citation in Proposition 5.2 are gaps that the layer must close."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The pseudo-theta series, derivative series, height series and arithmetic adjunction are sources for GZ.0–GZ.2, GZ.6 and GZ.7. Five items are now planned at GZ.6, which names them explicitly. The review added seven missing items and one planned at GZ.2. Lemmas 7.6(2) and 8.7(2) are false at S2, but their errors cancel (E43, E51)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The extended Weil representation and theta series belong to MP.4–MP.6. The review added the restriction of the Weil representation to a subspace, which needs the discriminant characters missing from (6.2.1) (E44)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "L(s, η) and its gamma factors belong to AL.1."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Néron models belong to R11.1. The erratum's Theorem 1 replaces the false exactness of Néron models used in Theorem 2.7."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The CM-height chain (Theorems 2.2, 2.3, 1.6, 1.7 and 1.1) belongs to the proposed Part II. The review added four items, among them the existence of the auxiliary quaternion datum, and a corrections paragraph in the brief: the U hypothesis, compactness, E5, the ramified-prime gaps of §5.2 and p = 2."
+    }
+  ],
+  "notes": "Reviewed against the published paper (Ann. of Math. 187 (2018), 533–638; SHA-256 29dfd5f1…) and the authors' erratum revision of 18 December 2022 (SHA-256 18b46acd…), both read in full again by four checkers. Corrections were made in place: 49 statements, 67 locators and 7 statuses (missing → planned at GZ.6 and R07.4); 24 new items; and a corrections paragraph in the Part II brief. All five repair items are sound. E1–E23 are confirmed. E3, E13, E15 and E17 are reclassified, and E1 and E23 get corrected pages. There are 32 new findings, E24–E55. The most consequential are the following. The proof of Theorem 1.6 has gaps at primes of F ramified over Q (§5.2: 'W(I_y) = 0' fails, E31; the erratum's Proposition 6, E3), and Theorem 1.6 is proved only for compact X_U (E29). Theorems 1.6 and 1.7 need Ô_𝔹 ⊇ Ô_E, which is stronger than the printed hypothesis when a dyadic place with residue field F_2 splits in E (E28). Lemmas 7.6(2) and 8.7(2) are false at S2, but their errors cancel (E43, E51); both checkers found this, and I verified it. Theorem 1.1 still holds, since AGHMP18 prove it independently. On this paper's own route, the U and compactness restrictions are avoided by choosing the auxiliary datum, but the ramified-prime gap of §5.2 remains open until the FiniteFlat and Part II layers close it."
+}

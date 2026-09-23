@@ -516,3 +516,17 @@ Every introduced carrier here has planning API and at least two test obligations
 The first next action is final erratum collation, then Kisin/CCO and the nodal/vertical repairs. The whole main paper does not need to be acquired or re-read from scratch.
 
 Validation results are recorded in the accompanying JSON and handoff after running the repository checks. No Lean source was written or compiled; a paper intake does not authorize a Lean deliverable. This checkpoint must not be marked complete or activated as a gap-free executable blueprint.
+
+## Review (REV-PAPER-YUAN-ZHANG-18, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its nine routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-YUAN-ZHANG-18.md`.
+
+- **Statements and locators:** 49 statements and 67 locators corrected. Theorems 1.6 and 1.7 now assume U = Ô_𝔹^× with Ô_𝔹 ⊇ Ô_E, and that X_U is compact.
+- **Statuses:** seven items changed from missing to planned: five at GZ.6 and kisin-free and kisin-classification at R07.4.
+- **Repairs:** all five of the extraction's repairs are sound.
+- **New items:** 24 (3 planned, 21 missing). The Part II brief has a corrections paragraph.
+- **Source issues:** E1–E23 are confirmed. E3, E13, E15 and E17 are reclassified. E24–E55 are new:
+  - The proof of Theorem 1.6 has gaps at primes of F ramified over Q (E31, and E3 in the erratum). It is also proved only for compact X_U (E29).
+  - Theorems 1.6 and 1.7 need Ô_𝔹 ⊇ Ô_E (E28).
+  - Lemmas 7.6(2) and 8.7(2) are false at S2, but their errors cancel (E43, E51).
+  - Theorem 1.1 still holds; AGHMP18 prove it independently.
