@@ -1,10 +1,10 @@
 # PAPER-CESNAVICIUS-19 — Purity for the Brauer group
 
-Worker: Codex, session codex-a71f92. Refs #1328. Read/check date: 2026-09-22.
+Current worker: Codex, session codex-c83e7a. Refs #1328. Read/check date: 2026-09-23. Earlier checkpoint work by Codex codex-a71f92 and Claude Code cc-fb70e5 / cc-7b31c4 is retained below with its reading boundaries.
 
 Status: **partial checkpoint**. The entire main paper has been read and its named conclusions, constructions, remarks and proof interfaces inventoried. This is not a closed proof plan: the JSON names 25 open source/proof gaps, several requiring further one-declaration decomposition. Nothing in this submission claims a new formalization.
 
-There are 159 items: 11 library imports, 11 existing planned interfaces and 137 missing items (148/126 at the first checkpoint, 149/127 after the G-NONABELIAN continuation, 159/137 after the SGA 2 / Scholze continuation, both recorded below). Every missing item has exactly one route. The 38 definitions carry 114 unexecuted planning tests, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed.
+There are 178 items: 15 library imports, 13 existing planned interfaces and 150 missing items. Every missing item has exactly one route. The 42 definitions/constructions carry 126 unexecuted planning tests with canonical kinds, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed. The 2026-09-23 continuation below records the 19 additions and the narrowed G-ELKIK boundary.
 
 ## Source and reading boundary
 
@@ -14,7 +14,7 @@ SHA-256: a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709.
 
 The JSON records URLs, hashes, dates and precise reading ranges for the supporting PDFs. In particular:
 
-- [Gabber–Ramero](https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf): the selected approximation path through §§5.4.1–5.4.42 and §§5.8.3–5.8.16, including proofs. The available preprint's **Corollary 5.4.42**, not its Lemma 5.4.41, is the projective-module completion theorem cited as GR03 5.4.41 in the main paper. Its Lemma 5.4.41 is the smoothness input. The induction still relies on Elkik's Noetherian approximation and the cotangent obstruction theorem.
+- [Gabber–Ramero](https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf): the selected approximation path through §§5.4.1–5.4.42 and §§5.8.3–5.8.16, including proofs. The available preprint's **Corollary 5.4.42**, not its Lemma 5.4.41, is the projective-module completion theorem cited as GR03 5.4.41 in the main paper. Its Lemma 5.4.41 is the smoothness input. The Elkik proof and GR3.2.16 were freshly read in the 2026-09-23 continuation below; their lower model/étale/cotangent-comparison foundations remain open.
 - [Bhatt–Morrow–Scholze](https://people.mpim-bonn.mpg.de/scholze/integralpadicHodge.pdf): the entire §3.2, Definition 3.5 through Lemma 3.21 and their proofs. This author file is dated 8 January 2019, later than the BMS16 citation; the relevant numbering matches. The earlier θ construction and referenced root-control results remain gaps.
 - [Kedlaya–Liu v5](https://arxiv.org/pdf/1301.0792v5): §3.6 through Remark 3.6.24, including the Banach, localization, finite étale and tilting proofs. The input is general Banach Q_p geometry, not only algebras over a chosen perfectoid field. The étale-site conclusion is **Remark 3.6.23** in this version.
 - [SGA 2, Laszlo's annotated edition](https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf): X §2 definitions and Example 2.1's full proof; XI 2.1–2.2 and XI 3.1–3.18, including the parafactoriality theorem and its proof. The VIII–IX coherence and formal-comparison inputs were read in the second continuation below; what is not read is the layer beneath them (SGA 2 IV–V and VII, and EGA 0_III 13.3.1/13.7.7).
@@ -224,13 +224,7 @@ Proposition 2.2, Corollary 2.5, Lemma 3.1, Theorem 4.10, Theorem 5.3 and Theorem
 
 ### On `sourceIssues`
 
-The result JSON still carries no `sourceIssues` list, deliberately. This paper's §18 record is the
-errata job's file, `research/blueprint/errata/PAPER-CESNAVICIUS-19.json`, which holds E1 (the
-noncommutative case of Proposition 2.2) and which `scripts/errata.py` collects; adding the same finding
-here would enter it twice in `research/errata/REGISTER.md`, and PROTOCOL §18 has the errata job leave
-the earlier work unchanged. This continuation re-read the whole main paper and found nothing to add to
-E1. The one correction it did find is in SGA 2, not in this paper, and is recorded on the item and in
-`supportingSources` as described above.
+This earlier decision to keep findings only in the separate errata file is superseded by the 2026-09-23 continuation below. Issue instruction5a expressly requires the list in the extraction. E1 is preserved unchanged, supporting-source findings E2–E4 are recorded, and the collector duplication caveat is stated explicitly.
 
 ### Checks run
 
@@ -242,3 +236,72 @@ E1. The one correction it did find is in SGA 2, not in this paper, and is record
   the corresponding `prerequisites` entry. Zero errors.
 - Independent reconstruction of the paper's numbering from the LaTeX, checked against the compiled PDF.
 - No Lean file is a deliverable and no compilation or test execution is claimed.
+
+
+## Continuation of 23 September 2026: the Elkik approximation path
+
+Codex, session `codex-c83e7a`, continued the 159-item checkpoint. All 17 pages of the main paper were freshly read again, with the same recorded hash. The fresh supporting-source work is **Elkik's original journal scan, printed pp553–568**, including all of §§0–II, and **GR §§5.4.1–5.4.14 and §§3.2.1–3.2.18** with proofs. GR §3.2.19–23 and Elkik's opening of §III were context only. Earlier SGA 2, Scholze, BMS, Kedlaya–Liu and later GR reading remains inherited, explicitly distinguished in `supportingSources`.
+
+Elkik's scan is [available from Numdam](https://www.numdam.org/item/10.24033/asens.1258.pdf), SHA-256 `74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5`. The GR copy is [the Michigan-hosted preprint](https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf), SHA-256 `c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8`. A fresh download from the unversioned arXiv URL is byte-identical: math/0201175v3, 22 July 2002. Its numbering is not silently identified with the 2003 book. Printed Elkik pages 554, 560, 561 and 564–567 and GR page119 were visually checked to resolve bars and exponents.
+
+The new result has **178 items: 15 library, 13 planned, 150 missing**. All 159 inherited IDs and statuses are preserved. All 17 existing source routes and 25 gap IDs remain. The 42 definitions/constructions have 126 planning tests, now with the canonical test kinds. The four new definition/construction interfaces have use-derived APIs and concrete tests. No Lean declarations were implemented or compiled.
+
+### A finite-conormal proof of the Newton step
+
+Let (F=R[X_1,\ldots,X_N]), (J=(f_1,\ldots,f_q)), (S=F/J), (M=J/J^2), and (d:M\to S^N) be the conormal differential. The pinned `Algebra.Extension.cotangentComplex` already supplies the naive map. Define the ideal
+
+\[
+H_{\rm fac}=\{h\in F:\exists u:S^N\to M,\quad u d=h\,\mathrm{id}_M\}.
+\]
+
+Ideal laws follow by adding and scaling witnesses; (J\subset H_{\rm fac}). GR's low cotangent comparison identifies this ideal with (H_R(F,J)=\operatorname{Ann}_F\operatorname{Ext}^1_S(L_{S/R},M)). The full-L comparison belongs to **DerivedDeRhamCohomology DD.0** and is still an imported prerequisite. The polynomial argument after that identification does not need the full obstruction-theory construction of GR3.2.16.
+
+Suppose (t) is regular, (h_0(a)=t^h) for (h_0\in H_{\rm fac}), and (f_i(a)\in t^nI). Lift each (u(dX_k)) to (b_k\in J). The factorization equation gives
+
+\[
+h_0f_i-\sum_k(\partial_kf_i)b_k\in J^2.
+\]
+
+Write (b_k(a)=t^h\delta_k), with \(\delta_k\in t^{n-h}I\). Evaluating the preceding relation and cancelling the regular element (t^h) yields
+
+\[
+f_i(a)-\sum_k\partial_kf_i(a)\delta_k\in t^{2n-h}I^2
+\subset t^{2n-2h}I^2.
+\]
+
+The multivariate Taylor remainder at (a-\delta) lies in ((t^{n-h}I)^2). Thus (b=a-\delta) proves the precise improvement in GR5.4.8. The argument is finite polynomial algebra over arbitrary (R). It is written out as a worker-derived alternative, not attributed to GR's Ext proof.
+
+For iteration one retains **(n>2h)** and increases the powers of (I) as well as those of (t). This produces a (tI)-adically Cauchy sequence in the complete case. A boundary test uses (X^2+3) at (1\in\mathbf Z_2): (n=2,h=1) satisfies the weak inequality but no root exists because (-3\equiv5\pmod8). Cancellation also fails if (t) is a zero divisor: (t\epsilon=0\ne\epsilon) in (k[t,\epsilon]/(\epsilon^2,t\epsilon)).
+
+Elkik's minor–colon ideal is separately defined by (H_{\rm Jac}=\sum_\alpha\Delta_\alpha(J_\alpha:J)). GR5.4.6 gives (H_{\rm Jac}\subset H_{\rm fac}) by an explicit adjugate matrix factorization. These ideals are not literally interchangeable: for (J=(X^2)\subset k[X]) in characteristic2, (H_{\rm Jac}=0) but (H_{\rm fac}=(X^2)). Their images have the same vanishing locus on \(\operatorname{Spec}S\).
+
+### The original Noetherian approximation proof
+
+The Noetherian convention is printed in **Elkik §0, p554**. It applies to Theorem2bis even though that theorem's local statement omits the word. The extraction now gives separate statements and proof outlines for:
+
+1. **Tougeron's exact-root lemma.** For a Noetherian Henselian pair ((A,\mathfrak a)), maximal Jacobian minors generating an ideal containing \(\mathfrak a^h\), and error in \(\mathfrak a^n\) with (n>2h), adjugate matrices reduce the problem to auxiliary equations with identity Jacobian modulo \(\mathfrak a^{n-2h}\). Henselian smooth lifting solves them and gives correction in \(\mathfrak a^{n-h}\).
+2. **Conormal stabilization.** Replace (B=A[X_1,\ldots,X_N]/J) by (C=\operatorname{Sym}_B(J/J^2)), then add (N) zero coordinates to its embedding. On affine smooth opens the total space has relative dimension (N), and its stabilized conormal is free of rank (N+q), where (q) is the chosen number of generators of (J). Projection takes a solution back to (B). This does not assert that the original conormal is globally free.
+3. **Principal torsion separation.** For Noetherian (A), the (t)-power torsion ideal is killed by one power of (t). Artin–Rees then gives (A[t^\infty]\cap t^nA=0) for sufficiently large (n). This is the substitute for regular cancellation in Elkik's more general principal argument.
+4. **Complete approximation.** Lemma1 uses adjugates, torsion separation and Taylor improvement for a principal ideal. Theorem1 inducts on generators of an ideal of definition; Artin–Rees controls the precision lost when lifting a relation divisible by a fixed power of the first generator.
+5. **Principal Henselian approximation.** After stabilization, choose a principal smooth open containing the formal generic image. Solve a selected set of equations with Tougeron's lemma; a power of the defining element kills the remaining relations. Torsion separation kills those residual relations when the approximation is sufficiently deep.
+6. **Theorem2bis.** Induct on the number of ideal generators, applying the complete theorem in the completion along one generator and then the principal Henselian theorem to return to (A). Nakayama preserves the chosen smooth open under sufficiently high congruence.
+
+These applications refine **SF.4**. They import the pinned Artin–Rees theorem and Tau Ceti's controlled-preimage theorem. The general Henselian smooth-lifting interface coalesces with **PAPER-CLAUSEN-MATHEW-MORROW-21/044 in SF.0**; no second Henselian carrier is proposed. DD.0 remains the owner of the full cotangent complex. Zavyalov25/142 concerns the later algebraization of admissible formal models, and Colmez–Nizioł17/158 consumes approximation in a Galois comparison.
+
+### What this closes, and what it leaves open
+
+The previously unread original Elkik proof and GR3.2.16 are now read; their required source-specific statements are split out. The key Newton calculation has a full written finite-conormal argument. **G-ELKIK remains open** for the finite-data Noetherian Henselian model reduction in GR5.4.13, the EGA Henselian/étale and completion foundations, and the full-L/naive low comparison. Their formal adapters are also unimplemented.
+
+Two pinned near misses are deliberately not treated as completion of that work. `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` assumes global formal smoothness, while the approximation target is only generically smooth. `Algebra.Smooth.exists_subalgebra_fg` descends a smooth algebra to a finite base; it does not on its own preserve the required Henselian pair, arbitrary generically smooth presentation, and all finite witnesses.
+
+The Huber publisher-PDF request returned an HTML page, not the book. G-HUBER stays unread; no paywall workaround or theorem reconstruction is counted as a source reading. Other open proof branches in the earlier sections remain unchanged.
+
+### Source issues and validation
+
+The issue explicitly requires a `sourceIssues` list, including findings mentioned by earlier workers. This continuation therefore copies **E1** unchanged from the dedicated errata file, records **E2–E3** in the supporting GR preprint, and transfers the inherited SGA2 correction as **E4**. None has a new independent verdict.
+
+E2 corrects the finite subideal condition in GR5.4.13 from (t^h\in H) to (t^h\in H+\mathfrak p_a), precisely the condition used later in that proof. The former is too strong: (f=X^2(X-1)) at (a=1) over \(\mathbf Q[[t]]\) is smooth at the selected root but singular at the double root. E3 corrects the completed finite-stage algebra to \(\bar R_\lambda\otimes_{R_\lambda}S_\lambda\) and the final point-ideal coordinate to (X_N-c_N). The latest arXiv download retains the slips. Published-book correction status is unknown. The statements being proved are unchanged.
+
+**Register integration caveat:** `scripts/errata.py` currently does not coalesce matching IDs across the extraction and dedicated errata file. Copying E1 as required by issue5a therefore produces two occurrences of the same finding in the register. `sourceIssuesRegister` identifies the canonical record. Only the three authorized deliverables were edited; the separate errata file and collector require a later authorized integration change.
+
+Validation: `check_paper.py` and the three-file intake check pass. The supplemental audit passed **2,551 structural assertions**, including all **331 dependency edges**, reverse uses, unchanged inherited statuses, exact routes, test kinds and acyclicity. Exact arithmetic passed **6,383 assertions**, covering 1,296 Newton examples over localizations of the integers, 1,200 multivariate Taylor examples, the strict-boundary counterexample, conormal characteristic2 behavior and stabilization rank counts. These finite diagnostics do not prove the general theorems or execute the 126 Lean planning tests.
