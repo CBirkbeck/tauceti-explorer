@@ -63741,17 +63741,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. The weights p + 2q and p + 2q − r + 2 differ exactly when r ≠ 2, so every d_r with r ≥ 3 vanishes, which is what E_∞ = E_3 needs; with only r > 3, d_3 is not covered. In the second sentence the subscript 1 is a slip for r, as the following 'for r ≥ 3' shows."
   },
   {
    "id": "PAPER-JANNSEN-16/E2",
@@ -63763,17 +63763,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. Part (a) concerns β_A : H²(K, A) → ⊕_v H²(K_v, A); α is the map of part (b) on T. The coinvariants are for G_K, the Galois group of the global field K (compare Proposition 1.2)."
   },
   {
    "id": "PAPER-JANNSEN-16/E3",
@@ -63785,17 +63785,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. No property (G) is stated in the published version; the objects are those produced by Gabber's Theorem 2.11 just above (in v2 the alteration property was once called (G))."
   },
   {
    "id": "PAPER-JANNSEN-16/E4",
@@ -63807,17 +63807,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. The beginning of Section 2 defines only RS2(U) (a good compactification of U), and Case 3.17.A uses exactly that property. (RS1) is defined later, in Definition 4.18, as a resolution statement for proper varieties, which is not what is used here."
   },
   {
    "id": "PAPER-JANNSEN-16/E5",
@@ -63829,17 +63829,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. Theorem 3.8 and the map (3.9) it reduces to concern H^{d+2}_nr(−, Q_ℓ/Z_ℓ(d+1)), and the later diagrams of the same case (the exact rows with H^{d+2}(F_(v), d+1)) use that degree. The degree-(d+1), twist-d groups are those of Case 3.17.B over finite fields, from which the display seems to have been copied."
   },
   {
    "id": "PAPER-JANNSEN-16/E6",
@@ -63851,17 +63851,17 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Confirmed the induction is outside the printed irreducibility hypothesis: two transverse smooth divisors can have a disconnected intersection. The componentwise repair is compatible with the Gysin diagram; in dimension one the finite-group H₁ with trivial divisible coefficients vanishes. This is a proof-interface gap, not a counterexample to the Hasse theorem."
   },
   {
    "id": "PAPER-JANNSEN-16/E7",
@@ -63873,17 +63873,17 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Confirmed on published p. 65: the characteristic-zero assertion is incompatible with the theorem's finitely generated positive-characteristic scope. The v2 TeX proof instead invokes the RS hypothesis and explicitly refers the finite-field case to Theorem 5.10. The norm argument with prime-to-ℓ degree repairs this step, assuming the stated RS hypothesis."
   },
   {
    "id": "PAPER-JANNSEN-16/E8",
@@ -63892,42 +63892,350 @@
    "printed": "\"Let K be a finitely generated field with algebraic closure K̄, let X be a smooth proper variety over K, and let n be natural number. Then H_a(C^{0,0}(X ×_K K̄, Z/nZ)_{G_K}) = Z/nZ for a = 0, 0 for a ≠ 0, if resolution of singularities holds over K.\"",
    "correction": "Add 'connected' (equivalently irreducible, X being smooth): \"let X be a connected smooth proper variety over K\".",
    "reason": "For X = Spec K ⊔ Spec K, the complex is concentrated in degree 0 with H_0 = (Z/nZ ⊕ Z/nZ)_{G_K} = (Z/nZ)², not Z/nZ. Theorem 4.19, from which Theorem 0.11 is deduced, assumes X irreducible, and Conjectures 2 and 3 assume X connected.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently checked at the published locator and against the surrounding argument. For X = Spec K ⊔ Spec K, the complex is concentrated in degree 0 with H_0 = (Z/nZ ⊕ Z/nZ)_{G_K} = (Z/nZ)², not Z/nZ. Theorem 4.19, from which Theorem 0.11 is deduced, assumes X irreducible, and Conjectures 2 and 3 assume X connected."
   },
   {
    "id": "PAPER-JANNSEN-16/E9",
    "kind": "misprint",
-   "locator": "Cross-references in the published version: p. 7 (history paragraph), Lemma 4.24 (p. 51), Remark 4.25 (p. 52), Proposition 5.16 (p. 61) and the proof of Theorem 5.12 (p. 64)",
-   "printed": "\"shortly after the proofs of Theorem 0.6 and Corollary 0.4 for number fields and d = 2 in [Jan92]\"; \"let 𝒞 be a category of schemes of finite type over L as in 4.20\"; \"Moreover, we will show that 4.22(ii) holds for H^W\"; \"let Ĥ be the homology theory on V_k derived from C_SP via Theorem 5.12\"; \"we first get it for the homology Ĥ constructed above, which however coincides with H̄ by Lemma 5.17\"",
-   "correction": "\"as in 4.22\" (Definition 4.22); \"4.24(ii)\"; \"via Theorem 5.13\"; \"by Proposition 5.16\" (which rests on the descent Lemma 5.17). The published version has no Corollary 0.4. In arXiv v2 the sentence read \"Theorem 0.4\", which did not exist there either, so the intended statement cannot be recovered from the text.",
-   "reason": "Lemma 4.20 is about finite fields, while the category with open and closed immersions is set up in Definition 4.22. The vanishing property Jannsen proves for H^W in Theorem 5.10 is 4.24(ii); Definition 4.22 has a clause (ii), but it is the localization axiom. Theorem 5.12 is the comparison theorem being proved, while the extension construction is Theorem 5.13. The identification of the two homology theories is Proposition 5.16. All five are mechanical renumbering slips of the kind the published version corrected elsewhere, for example in Proposition 4.10 and Theorem 5.10.",
+   "locator": "Published cross-references: p. 7 history paragraph; Lemma 4.24 p. 51; Remark 4.25 p. 52; Proposition 5.16 p. 61",
+   "printed": "The history paragraph names Corollary 0.4; Lemma 4.24 refers to 4.20; Remark 4.25 names 4.22(ii); Proposition 5.16 invokes Theorem 5.12.",
+   "correction": "Use Definition 4.22, Lemma 4.24(ii), and Theorem 5.13 respectively in the last three references. The published Corollary 0.4 does not exist; the intended historical reference is not determined here.",
+   "reason": "The category is defined in 4.22; the function-field vanishing is 4.24(ii); the extension construction is Theorem 5.13. The v2 history paragraph also mislabels Theorem 0.4. The original finding additionally faulted p. 64's use of Lemma 5.17: this is not confirmed as an error, since 5.17 is the descent lemma directly proving Proposition 5.16.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-    "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-    "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-    "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
    ],
    "owner": "PAPER-JANNSEN-16",
    "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
    "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Confirmed only the four references retained in this revised entry. Withdrawn the claim that citing Lemma 5.17 for its comparison consequence is itself a mistake."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E10",
+   "kind": "error",
+   "locator": "Proposition 5.4, pp. 53–54; same statement in arXiv v2 §5",
+   "printed": "The new divisor is required to be transverse to all strata and connected on strata of index at most d−2; vanishing is then asserted through degree d−1.",
+   "correction": "Require nonempty connected intersections with every component of Y^[j] for j≤d−2, and nonempty intersections with every component of Y^[d−1]. A generic ample hyperplane has these properties.",
+   "reason": "Let X=P¹×P¹ over an algebraically closed field, d=2, Y₁={0}×P¹ and D={∞}×P¹. D is smooth connected; its intersection with Y₁ is empty and therefore transverse. The printed j=0 connectedness condition holds. But the weight complex is 0→A²→A, with differential (a,b)↦±a±b, hence H¹_weight=A and H_1_weight=A for nonzero A, contradicting the claimed vanishing. The proof's map ψ_{d−1}:0→A is not surjective. This does not refute the later ample-hyperplane applications.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Let X=P¹×P¹ over an algebraically closed field, d=2, Y₁={0}×P¹ and D={∞}×P¹. D is smooth connected; its intersection with Y₁ is empty and therefore transverse. The printed j=0 connectedness condition holds. But the weight complex is 0→A²→A, with differential (a,b)↦±a±b, hence H¹_weight=A and H_1_weight=A for nonzero A, contradicting the claimed vanishing. The proof's map ψ_{d−1}:0→A is not surjective. This does not refute the later ample-hyperplane applications."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E11",
+   "kind": "misprint",
+   "locator": "Condition (∗), p. 43, compared with Lemma 4.23(a), p. 51",
+   "printed": "[k(x):k(x)^p] ≤ s",
+   "correction": "[k(x):k(x)^p] ≤ p^s.",
+   "reason": "Lemma 4.23 gives p^s explicitly. With k(x)=F_p(t), r=2,s=1, the p-degree is p: the printed bound would exclude the paper's global-field example for every p, whereas the corrected bound admits it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Lemma 4.23 gives p^s explicitly. With k(x)=F_p(t), r=2,s=1, the p-degree is p: the printed bound would exclude the paper's global-field example for every p, whereas the corrected bound admits it."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E12",
+   "kind": "error",
+   "locator": "Proof of Theorem 2.5(b), p. 23; same in arXiv v2 p. 19",
+   "printed": "Weak approximation is asserted to make K×/(K×)^n→⊕_{v∈S}K_v×/(K_v×)^n surjective for all n.",
+   "correction": "Restrict the argument to n invertible in K, and for this theorem to the ℓ-primary parts with ℓ≠char K.",
+   "reason": "For K=F_p(t), its t-adic completion L=F_p((t)) and n=p, the global quotient is countable but L×/L×p is uncountable. Distinct a,b∈F_p[[t^p]] give distinct p-th-power classes of 1+ta and 1+tb: the derivative of their quotient is (a−b)/(1+tb)², nonzero if a≠b, whereas every p-th power has derivative zero. This is a genuine failure of the all-n auxiliary assertion. Invertible n-th powers are locally open, so ordinary weak approximation gives the needed ℓ-primary version.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: For K=F_p(t), its t-adic completion L=F_p((t)) and n=p, the global quotient is countable but L×/L×p is uncountable. Distinct a,b∈F_p[[t^p]] give distinct p-th-power classes of 1+ta and 1+tb: the derivative of their quotient is (a−b)/(1+tb)², nonzero if a≠b, whereas every p-th power has derivative zero. This is a genuine failure of the all-n auxiliary assertion. Invertible n-th powers are locally open, so ordinary weak approximation gives the needed ℓ-primary version."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E13",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.2, pp. 19–20",
+   "printed": "F^ν/F^{ν−1}; C′=I′⊗Q_ℓ/Z_ℓ; C″=I″⊗Q_ℓ/Z_ℓ; tensoring the lattice extension with Q_ℓ/Z_ℓ(d).",
+   "correction": "Use F^ν/F^{ν+1}, C′=I′⊗Q_ℓ/Z_ℓ(−d), C″=I″⊗Q_ℓ/Z_ℓ(−d), and tensor with twist −d.",
+   "reason": "The filtration is explicitly descending, with F¹/F² in the next display. The endpoint cohomology is H⁰(Y^[d],Q_ℓ/Z_ℓ(−d)), pure of weight 2d, while untwisted permutation modules have weight zero. Proposition 2.2 itself already has the correct −d twist.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: The filtration is explicitly descending, with F¹/F² in the next display. The endpoint cohomology is H⁰(Y^[d],Q_ℓ/Z_ℓ(−d)), pure of weight 2d, while untwisted permutation modules have weight zero. Proposition 2.2 itself already has the correct −d twist."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E14",
+   "kind": "error",
+   "locator": "Case 3.17.B, p. 37, and Lemma 4.20 proof, p. 49; same broad assertion in v2",
+   "printed": "The Frobenius-coinvariant identification with H¹ is stated for every discrete G_k-module.",
+   "correction": "Require M to be a discrete torsion module (in particular the torsion modules actually used here).",
+   "reason": "For M=Z with trivial action and k finite, M_{G_k}=Z but H¹_cont(G_k,Z)=Hom_cont(Zhat,Z)=0: a continuous map from a compact group to discrete Z has finite image. For torsion M every cocycle value has finite orbit and finite exponent, giving the usual evaluation-at-Frobenius description.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: For M=Z with trivial action and k finite, M_{G_k}=Z but H¹_cont(G_k,Z)=Hom_cont(Zhat,Z)=0: a continuous map from a compact group to discrete Z has finite image. For torsion M every cocycle value has finite orbit and finite exponent, giving the usual evaluation-at-Frobenius description."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E15",
+   "kind": "error",
+   "locator": "Proof of Theorem 5.10, p. 57",
+   "printed": "The composite Cor∨∘π is said to be multiplication by (G:H).",
+   "correction": "For π:C_H→C_G and τ=Cor∨:C_G→C_H, the identity is π∘τ=[G:H] on C_G. For left actions use representatives of H\\G in the sum τ([c])=Σ[tc].",
+   "reason": "Take G=C₂, H=1, C=Z² with the two coordinates swapped. Then τπ(a,b)=(a+b,a+b), which is not 2(a,b), while πτ is multiplication by 2 on C_G≅Z. The later Tr∘Res identity uses the corrected order and is valid.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Take G=C₂, H=1, C=Z² with the two coordinates swapped. Then τπ(a,b)=(a+b,a+b), which is not 2(a,b), while πτ is multiplication by 2 on C_G≅Z. The later Tr∘Res identity uses the corrected order and is valid."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E16",
+   "kind": "gap",
+   "locator": "Proof of Theorem 5.13, p. 59",
+   "printed": "C(M(V)_•) is declared well-defined because C(X) depends only on the motive of X.",
+   "correction": "Apply C to chosen actual smooth proper hyperenvelopes and form the cone total complex. Use factorization of H_q(C), not of C, on the spectral sequence's E₂ page to prove quasi-isomorphism under common refinements and then construct the homology theory.",
+   "reason": "The theorem assumes only H_q(C(X)) factors through motives. It does not provide a chain-valued functor on Chow motives. The displayed application of C to an abstract motive complex therefore has no declared domain. The following spectral-sequence comparison indicates a repair, but the extraction must not turn this stronger chain-level premise into an assumption of the theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: The theorem assumes only H_q(C(X)) factors through motives. It does not provide a chain-valued functor on Chow motives. The displayed application of C to an abstract motive complex therefore has no declared domain. The following spectral-sequence comparison indicates a repair, but the extraction must not turn this stronger chain-level premise into an assumption of the theorem."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E17",
+   "kind": "misprint",
+   "locator": "Definition 5.3, p. 53; same in arXiv v2",
+   "printed": "H⁰(−,A) is called covariant; the dual formula and the cochain functor are written with H₀.",
+   "correction": "H⁰(−,A) is contravariant; for a ring A, H⁰(X,A)=Hom_A(H₀(X,A),A), and the cochain complex is C^•H⁰(−,A).",
+   "reason": "Precomposition on Map(π₀(X),A) reverses maps. Remark 5.2 requires exactly this contravariant input. The surrounding definitions determine the superscripts.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Precomposition on Map(π₀(X),A) reverses maps. Remark 5.2 requires exactly this contravariant input. The surrounding definitions determine the superscripts."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E18",
+   "kind": "misprint",
+   "locator": "Isolated statement of Theorem 3.17, p. 35",
+   "printed": "X has dimension d, without saying d>0.",
+   "correction": "Include d>0, as required by its use in the positive-dimensional argument for Theorem 3.8.",
+   "reason": "For X=Spec K with K finitely generated, d=0 and ℓ≠char K, the source is H⁰(K̄,Q_ℓ/Z_ℓ)_{G_K}=Q_ℓ/Z_ℓ while the codimension-one target is zero. Hence the isolated d=0 statement is false. The surrounding application has d>0.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: For X=Spec K with K finitely generated, d=0 and ℓ≠char K, the source is H⁰(K̄,Q_ℓ/Z_ℓ)_{G_K}=Q_ℓ/Z_ℓ while the codimension-one target is zero. Hence the isolated d=0 statement is false. The surrounding application has d>0."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E19",
+   "kind": "misprint",
+   "locator": "Equations (5.14) and (5.18), pp. 59 and 61",
+   "printed": "E¹_{p,q}=H_p(H_q(C(V_•)))",
+   "correction": "With the stated filtration by simplicial degree, E¹_{p,q}=H_q(C(V_p)) and E²_{p,q}=H_p(H_q(C(V_•))).",
+   "reason": "Taking the homology of the simplicial row is the next page after vertical homology. The following paragraph on p. 59 itself calls these the E² terms. This correction concerns only the double-complex sequence, not the paper's independently indexed weight sequence (2.1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Taking the homology of the simplicial row is the next page after vertical homology. The following paragraph on p. 59 itself calls these the E² terms. This correction concerns only the double-complex sequence, not the paper's independently indexed weight sequence (2.1)."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E20",
+   "kind": "misprint",
+   "locator": "Proposition 5.16(i)–(ii), p. 61, and Lemma 5.17, pp. 61–62",
+   "printed": "Open immersions are taken in the proper-map category (V_k)_*; localization uses C(X) for Y⊂Z; descent uses C′ and a target C′(Z_•[n]).",
+   "correction": "Allow all open immersions in V_k, use C(Z) in the localization sequence, use C consistently in the lemma, and use Tot C(Z_•[n]) as the target of the coskeleton comparison.",
+   "reason": "Proper open immersions alone are open-and-closed embeddings and do not provide the required localization for a general open complement. X is not the middle scheme of the displayed pair. Both sides of a quasi-isomorphism of total complexes must be totalized.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: Proper open immersions alone are open-and-closed embeddings and do not provide the required localization for a general open complement. X is not the middle scheme of the displayed pair. Both sides of a quasi-isomorphism of total complexes must be totalized."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E21",
+   "kind": "misprint",
+   "locator": "Theorem 5.9(ii), p. 55",
+   "printed": "The complex starts with the component group of Y^[e].",
+   "correction": "Use Y^[d], where d=dim X; empty strata contribute zero.",
+   "reason": "There is no e in the theorem's context. Definition 5.3 and the SNC codimension convention place the top stratum in degree d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: There is no e in the theorem's context. Definition 5.3 and the SNC codimension convention place the top stratum in degree d."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E22",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.13, pp. 59–60",
+   "printed": "The map of covariant motives is written g*:M(Z_•)→M(W_•), and f_* is written H(π₁)^{-1}H(π₂).",
+   "correction": "In the covariant convention chosen on p. 58 write g_*:M(W_•)→M(Z_•). With standard composition notation write f_*=H(π₂)∘H(π₁)^{-1}.",
+   "reason": "The preceding map (i_•)_*:M(Y_•)→M(Z_•) fixes covariance. In the roof for f, π₁:i_f→i₁ and π₂:i_f→i₂, so a map H(i₁)→H(i₂) must first invert H(π₁), then apply H(π₂).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independent published-text check: The preceding map (i_•)_*:M(Y_•)→M(Z_•) fixes covariance. In the roof for f, π₁:i_f→i₁ and π₂:i_f→i₂, so a map H(i₁)→H(i₂) must first invert H(π₁), then apply H(π₂)."
+  },
+  {
+   "id": "PAPER-JANNSEN-16/E23",
+   "kind": "misprint",
+   "locator": "Equation (4.12) and its following defining sentence, p. 46",
+   "printed": "C̄(X,Q_ℓ/Z) → C′(X,Z/nZ), followed by a definition of C̄(X,Q_ℓ/Z) using the finite-coefficient sequence (4.13).",
+   "correction": "Replace C̄(X,Q_ℓ/Z) in both occurrences by C̄(X,Z/nZ); the target C′(X,Z/nZ) is already the correct completion cokernel.",
+   "reason": "Sequence (4.13) defines the Henselized cokernel with Z/n coefficients. It is that finite-coefficient complex which is quasi-isomorphic to the completion cokernel. The Q_ℓ/Z_ℓ version is only introduced later by a direct limit.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+    "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+    "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+    "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+   ],
+   "owner": "PAPER-JANNSEN-16",
+   "file": "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+   "citation": "Uwe Jannsen, \"Hasse principles for higher-dimensional fields\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JANNSEN-16",
+   "reviewReason": "Independently reread (4.12) and (4.13), p. 46. Sequence (4.13) defines the Henselized cokernel with Z/n coefficients. It is that finite-coefficient complex which is quasi-isomorphic to the completion cokernel. The Q_ℓ/Z_ℓ version is only introduced later by a direct limit."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E1",
@@ -102349,14 +102657,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E1: p.8 image and (2.3.4) endpoints checked. The prose and (2.3.5) contain δ!Λ while the quantified input and diagram require δ!G. The G=0 type/zero test confirms the local correction."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E2",
@@ -102372,14 +102681,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E2: p.16 image checked. Both descriptions in §3.6 dualize F instead of G. At a point, F=Λ and G=Λ² distinguish the rank-two correspondence space from the printed rank-one tensor."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E3",
@@ -102395,14 +102705,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E3: p.21 image checked. The prose after (3.14.5) drops p2*G and uses K_X′/Y; the lower row supplies the correctly typed S-relative evaluation."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E4",
@@ -102418,14 +102729,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E4: p.27 image checked against diagram(4.12.1). Y′ is undefined in this proper-pushforward setup. Use Y. The target ν inverse is a typing clarification; no new source C2 hypothesis is required."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E5",
@@ -102441,14 +102753,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E5: p.28 image checked. f′ and e0 compose as e0∘f′. The displayed adjacent pullbacks have the corrected order."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E6",
@@ -102464,14 +102777,15 @@
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E6: p.50 image checked. For Spec(F4)→Spec(F2) and Λ=F3, Frobenius on the pushforward has swap matrix, trace0 and one-dimensional invariants, unlike Λ². Projection formula, lisse rank twisting and finite étale characteristic-cycle pushforward repair the endpoints. Degree cancellation occurs only in Λ-cohomology."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E7",
@@ -102479,22 +102793,23 @@
    "locator": "Lemma3.2, p.15, final specialization, arXiv v4",
    "printed": "C_X/S(L)=rankL·C_X/S(Λ)",
    "correction": "For the stated general base add Λ_X∈Dctf(X/S,Λ) to this specialization, or restrict to the field-base applications where it holds. For nonlocal coefficient rings specify trace-rank or constant finite-free rank.",
-   "reason": "The preceding formula quantifies F in the ULA subcategory; substituting Λ is not licensed without that hypothesis. Example X={0}→S=A1 with L=Λ: the constant sheaf on X is not ULA over S, so neither relative class in that specialization is defined by(3.1.14). The field-base uses are unaffected. (cc-442dc5) Reclassified to affect nothing: the specialization needs Λ_X ULA over S, which holds over a field base, and the one use of Lemma 3.2 in the paper (Lemma 3.15) is over a perfect field.",
-   "affects": "nothing",
+   "reason": "The main lemma quantifies F in the ULA subcategory. Its final specialization F=Λ omits that domain hypothesis for a general base. The closed origin X→A1 with L=Λ supplies an undefined specialization under (3.1.14), not a counterexample to a correctly defined class equality. The field-base uses remain valid.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Springer article page DOI10.1007/s00222-025-01319-y and its displayed references/notes, 2026-09-22; no linked correction found, full journal text unavailable.",
     "arXiv2209.11086 submission history and final v4; no later version listed as of access.",
     "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
     "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E7: p.15 image and §3.1 domain checked. Substituting Λ into the ULA-only trace formula needs Λ_X ULA over S; the closed origin in A1 fails. This affects the stated general-base specialization, although the field-base uses and main theorem are unaffected. Definition3.5 offers a different extension only under additional H0/H1 support vanishing; it does not justify the unrestricted specialization."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E8",
@@ -102509,14 +102824,15 @@
     "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
     "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
     "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation.",
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E8: p.45 image and §6.1 checked. p=3,Λ=F2 satisfies the coefficient assumptions but Λ× is trivial. Q01–Q10 give a valid conditional repair through a finite faithfully free local character extension and an unnormalized linear retraction. F2→F4 shows that dividing by its degree is invalid. Fourier and geometric proof suppliers remain open."
   },
   {
    "id": "PAPER-YANG-ZHAO-25/E9",
@@ -102530,14 +102846,15 @@
    "searched": [
     "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
     "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared.",
-    "Rechecked by cc-442dc5 on 23 September 2026: arXiv v4 re-fetched (SHA-256 e3da9817…, matching); Unpaywall reports the Inventiones version closed, and Crossref registers no update relation."
+    "Independent review codex-hjdg0j, 2026-09-23: arXiv histories, Springer landing/PDF access, Enlin Yang author page and linked PFF, Saito author bibliography, and bounded title+correction/erratum searches checked. YZ v4 remains latest; PFF is an alternative proof, fully read, not labelled an erratum. No matching correction found. Full journal text unavailable: findings are confirmed only in the inspected public versions, not attributed to uninspected journal passages.",
+    "The inherited cc-442dc5 check of the Yang–Zhao Inventiones DOI was removed from E9: it was not evidence about the Saito paper. The independent check uses Saito’s own v1 history and bibliography."
    ],
    "owner": "PAPER-YANG-ZHAO-25",
    "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
    "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YANG-ZHAO-25",
+   "reviewReason": "E9: Saito1607.03156v1 p.3 image checked, with pp.1–4 including Lemma2’s proof. For F=0 on nonempty smooth X, the base of SS(F) is empty, not the support of X. The following conjecture and lemma use the correct support. This is a harmless version-specific prose slip."
   },
   {
    "id": "PAPER-YU-23/E1",
