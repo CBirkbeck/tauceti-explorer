@@ -1,3 +1,28 @@
+# PAPER-LIU-ETAL-22 — current handoff (codex-a71f92, 2026-09-23)
+
+Continuation of merged PR #2224. Input `fbfe41975f277338d20c2259ea7426696d29df36`.
+Partial checkpoint: **214 items (12 library / 20 planned / 182 missing)**, 21 routes, 371 edges, all 205 inherited items and all 16 findings preserved. No source finding is independently reviewed here, and no new source error is asserted.
+
+Added L11/L12 (existing additive Goursat and integral Smith bases), S23-obstruction/defect/error, S24-rows/bounded, and S25-boundedzero/boundedone. Full statements, proofs, API and six typed construction tests are in the JSON/report.
+
+Key result, for delta=2 and odd ell: with A=K^h, J=im(P_h q), H=im(P_h q,P_h q alpha), common coordinate kernel D and quotient involution tau on C=J/D, the actual Frobenius image G has J/G≃C^-=ker(tau+1) and exact sequence 0→C^-→A/G→A/J→0. Therefore G=A iff J=A and C^-=0. Diagonal paired images can suffice; full-product surjectivity is too strong as a necessary criterion.
+
+If ell^a kills A/J and ell^b kills C^-, the O-span of actual evaluations loses kappa=ord_lambda(ell)(a+b). Do not replace a+b by max(a,b) without a splitting. S24-rows chooses actual evaluations with the same span loss. The source saturation recurrence remains f(1)=1,f(2)=4.
+
+Conditional final thresholds:
+- Rank zero: m>mper+mlat+mSigma+rR+kappa+mdif.
+- Rank one: m>mper+mlat+mSigma+8rR+2kappa+mdif.
+
+**Next mathematical step:** derive vanishing or a uniform-in-m bound for these two obstruction groups from actual GI(T²−1), j=1 tensor hypotheses. This continuation does neither. The Kummer counterexample remains outside the final theorem's actual setting. E1, E13 and all other geometric gates remain. Independent review of the normal-closure formula and E2 replacement still required.
+
+Library/ownership: generic Goursat already exists and is shared with PAPER-WOOD-19/320–322; no new generic route. Read ES roadmap/AUDIT-24 ES.1/ES.4, reuse byte-identical full upstream reads, keep all route identities. K is an additive ell-group, not an assumed O-module. Use Smith bases over O, not O/π^n.
+
+Validation: embedded stdlib program passed 21,134 field cases, 56 higher-torsion cases and 85,880 row sets (84,856 nonvacuous selections). Paper validator and three-file intake pass; all 48 repository tests pass. Internal DAG, unique routes and preservation checks pass. New construction: two consumers, four API entries, six typed tests. **G7 still has 76 inherited two-test D/C entries**; do not claim complete protocol compliance or extraction. Historical CAS/rank-two/normal-closure checks are retained, not rerun or self-reviewed.
+
+Fresh read: targeted §§2.3–2.7, Definition8.1.1/Remark8.1.2 beginning, rank-zero proof pp.310–313. Reused own earlier rank-one proof reading and attributed full-paper history; same main PDF hash reverified. Only the three authorized paper deliverables are submitted; no Lean file.
+
+## Previous handoff (preserved)
+
 # Handoff: PAPER-LIU-ETAL-22
 
 Codex — codex-hjdg0j — 23 September 2026. **Partial continuation of PR #2218.** No independent review or Lean compilation is claimed.

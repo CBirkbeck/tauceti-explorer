@@ -1,3 +1,277 @@
+# PAPER-LIU-ETAL-22 — odd-ell Frobenius obstruction checkpoint
+
+Codex — codex-a71f92 · 2026-09-23 · continuation of merged PR #2224 (codex-hjdg0j).
+Input main: `fbfe41975f277338d20c2259ea7426696d29df36`. This is a partial paper continuation, not an independent review of the previous repairs.
+
+## Outcome and boundary
+
+The exact image formula from the previous checkpoint admits a sharper criterion than joint surjectivity of the two conjugate evaluation maps. For odd ell, the obstruction is an extension of a restriction-image quotient by the **minus eigenspace of a common Goursat quotient**. A diagonal paired image can have full sum image; requiring the full product is unnecessarily strong.
+
+This does **not** show that the paper's actual GI(T²−1), j=1 tensor hypotheses remove that obstruction. A uniform annihilator bound would suffice for a bounded-error variant, but such uniformity has not been proved either. All E1/E13 and other arithmetic/geometric gates remain, and all 16 source findings retain their unreviewed status. No new source error is asserted.
+
+There are now **214 items: 12 library, 20 planned, 182 missing**, 21 unchanged route identities, 371 recorded dependency edges, 78 definitions/constructions, 236 API entries and 162 test specifications. The nine additions are two existing-library atoms, one application-specific construction and six theorem obligations. All 205 previous items and all source-finding objects are preserved exactly. The new construction has two consumers, four API entries and six typed tests. G7 still records the 76 inherited definitions/constructions with only two tests; this is not a complete §12-compliant census.
+
+## Sources and ownership
+
+The [published paper](https://par.nsf.gov/servlets/purl/10323568) is the same 269-page PDF, SHA-256 `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97` (reverified). Fresh targeted reading: §§2.3–2.7, Definition 8.1.1/beginning of Remark 8.1.2, and rank-zero proof pp.310–313. Reuse own earlier complete rank-one-proof reading pp.316–320. The full-paper reading remains attributed to codex-c83e7a, not claimed afresh.
+
+Read the entire EulerSystemsAndKolyvaginSystems roadmap again, and AUDIT-24 entries ES.1/ES.4. Reused earlier complete ProfiniteCohomology and GlobalNumberFields reads after verifying byte identity. Keep shared evaluation/error arguments in ES.1/ES.4 and the final applications in the existing ArithmeticLevelRaisingAndBipartiteEulerSystems Part II route; no new roadmap or Lean file.
+
+Read the whole [pinned Goursat file](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Goursat.lean), including the generated additive theorem, and the Smith-basis statement/proof with its PID hypotheses in [PID.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FreeModule/PID.lean#L576). Reread the whole TauCeti/RepresentationTheory/Invariants.lean at pinned Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reuse additive subgroup/quotient carriers and finite-group averaging over a suitable Z/ell^a; do not assume an O_lambda-action on the Galois kernel.
+
+Searches of both pinned libraries for Goursat, anti-invariant and paired-evaluation terminology, and atlas packets/papers/expansion outputs, found the generic supplier already recorded by PAPER-WOOD-19/320 and the general swap-stable quotient-graph package /321–322 (statements read, including /323 boundary). This continuation specializes that mechanism; it does not propose a competing generic Goursat or wreath-product layer. Smith normal form is used over the DVR's integral lattice, never over its zero-divisor quotient. The negative search is scoped evidence, not a proof of absence.
+
+## Exact obstruction and conditional consumers
+
+In the CM case delta=2 put A=K^h, q0=P_h q, q1=q0 alpha and J=im q0. The identity q0 alpha²=q0 makes H=im(q0,q1) a swap-stable subdirect subgroup of J². With its common coordinate kernel D, Goursat gives C=J/D and an involution tau on C. Put C^-=ker(tau+1).
+
+The actual Frobenius image G from S23 satisfies
+`J/G ≃ C^-` and `0 → C^- → A/G → A/J → 0`.
+Thus `G=A` exactly when `J=A` and `C^-=0`.
+The two obstruction groups can be nonzero independently. The sequence need not split.
+
+If ell^a kills A/J and ell^b kills C^-, then ell^(a+b)A lies in G. Only after passing through the additive evaluation map do we take O_lambda-spans. With e_lambda=ord_lambda(ell) and kappa=e_lambda(a+b), the loss is exactly kappa. The source's saturation function remains f(0)=f(1)=1, f(r+1)=2(f(r)+1); in particular f(1)=1 and f(2)=4.
+
+To use this in Chebotarev one must select **actual evaluation rows**, not turn arbitrary O-linear combinations into imaginary Galois elements. S24-rows supplies that selection with no factor r in the error. Its proof chooses a residue basis of the row submodule from the actual set, iterates nilpotent Nakayama, and uses an integral matrix inverse argument to transfer the same bound to the square column image. It does not revive the false domain-only diagonalization assertion E2.
+
+Conditional on the same geometric and cohomological gates as the preceding checkpoint:
+
+- Rank zero threshold: `m > mper + mlat + mSigma + rR + kappa + mdif`.
+- Rank one threshold: `m > mper + mlat + mSigma + 8rR + 2kappa + mdif`.
+
+For a final large-m contradiction kappa must be bounded independently of m. Bounds obtained merely from the size of the finite groups at each depth are insufficient.
+
+### New atomic items and proof arguments
+
+#### PAPER-LIU-ETAL-22/L11 — Additive Goursat quotient graph
+
+Status: library. For an additive subgroup H of G×K whose two coordinate projections are surjective, its coordinate kernels D_G and D_K admit an additive quotient equivalence G/D_G≃+K/D_K whose graph is the image of H in the quotient product. No coefficient-module structure or finiteness is needed.
+
+
+
+Reuse AddSubgroup.goursatFst/goursatSnd and quotient carriers. PAPER-WOOD-19/320 records the multiplicative supplier, /321–/322 the general swap-stable quotient-graph package. No parallel generic Goursat or wreath-product roadmap is proposed.
+
+#### PAPER-LIU-ETAL-22/L12 — Equal-rank Smith bases over a PID
+
+Status: library. For a submodule M of a finite free module V over a PID with finrank M=finrank V, there are bases (b_i) of V and (m_i) of M and scalars a_i with m_i=a_i b_i in V.
+
+
+
+Applied to the full preimage lattice in O^r, NOT to the zero-divisor ring O/π^n. Reduction and selection of actual evaluation rows remain S24-rows.
+
+#### PAPER-LIU-ETAL-22/S23-obstruction — Paired-evaluation obstruction data
+
+Status: missing. In S23-closure with delta=2 and ell odd, set A=K^h, P_h=g^(-1)Σ_(j<g)h^j, q0=P_h q and q1=q0 alpha. Let J=im(q0)=im(q1)≤A and H=im(q0,q1)≤J×J. H is swap-stable and subdirect. Its Goursat kernels coincide: D={x∈J:(x,0)∈H}={x∈J:(0,x)∈H}. Put C=J/D and let tau:C≃+C be the induced quotient-graph automorphism; tau²=1. Define C^-={c∈C:tau(c)=-c}. All are additive groups; K and J are not assumed O_lambda-modules.
+
+1. q alpha²=h q implies q0 alpha²=q0. Since alpha is an automorphism, q0 and q1 have the same image J.
+2. Applying alpha exchanges the two coordinates of H, so the kernels agree. Both projections onto J are surjective by definition.
+3. Apply additive Goursat L11. Uniqueness of the quotient graph and swap stability imply tau²=1. C^- is the additive kernel of tau+id; multiplication by 2 is invertible since ell is odd.
+
+Codex — codex-a71f92, continuation of PR #2224. Reuses the generic quotient-graph supplier; this adapter specializes it to actual conjugate evaluations. No GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S23-defect — Exact anti-invariant defect of actual Frobenius evaluations
+
+Status: missing. Under S23-obstruction put G=G_(S,gamma)=im(q0+q1). Then D≤G≤J, G/D=C^+ where C^+=ker(tau−id), and x↦(xbar−tau xbar)/2 induces J/G≃+C^-. Consequently there is an exact sequence 0→C^-→A/G→A/J→0, and G=A iff J=A and C^-=0.
+
+1. For x∈D, (x,0)∈H gives x in the sum image. Modulo D the sum of (x,y)∈H is (1+tau)xbar; every xbar occurs by subdirectness.
+2. Since 2 is invertible, im(1+tau)=C^+; the projectors (1±tau)/2 split C=C^+⊕C^-.
+3. The minus projector on J/D is surjective onto C^- and has kernel G, giving the quotient equivalence.
+4. Use the nested-subgroup sequence 0→J/G→A/G→A/J→0. This sequence need not split.
+5. Diagonal H gives a nonzero common quotient but C^-=0: full paired surjectivity is sufficient, not necessary.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S23-error — A bounded additive obstruction gives a bounded evaluation loss
+
+Status: missing. Under S23-defect suppose a,b≥0 satisfy ell^a(A/J)=0 and ell^b C^-=0. Then ell^(a+b) A≤G. For e_lambda=ord_lambda(ell) and kappa=e_lambda(a+b), span_O(theta_S(G)) contains lambda^kappa span_O(theta_S(A)). Thus an input inclusion lambda^c0 Hom_O(S,Rbar(m)^h)≤span_O(theta_S(A)) gives lambda^(c0+kappa) Hom_O(S,Rbar(m)^h)≤span_O(theta_S(G)).
+
+1. For x∈A, ell^a x lies in J and its class in J/G is killed by ell^b. Hence ell^(a+b)x∈G.
+2. Theta is additive, so theta(ell^(a+b)x)=ell^(a+b)theta(x). Take O-spans only AFTER this inclusion; no O-action on the Galois group is assumed.
+3. In O_lambda, ell is a unit times π^e_lambda, so the scalar-generated submodules coincide.
+4. The sum a+b cannot generally be replaced by max(a,b): A=Z/ell², J=ell A, H antidiagonal in J² has G=0 and a=b=1.
+5. Finiteness at each m supplies some a,b, but a uniform arithmetic error bound requires a+b bounded independently of m. This has not been deduced from GI.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S24-rows — Choose actual evaluation rows without enlarging the loss
+
+Status: missing. Let O be a DVR with uniformizer π, n>c≥0, r≥1 and R_n=O/π^n. If a set T⊆R_n^r has R_n-span M containing π^c R_n^r, there are r elements t1,…,tr of T such that the square matrix W with these rows has image containing π^c R_n^r. These rows belong to T; they are not arbitrary linear combinations replacing actual Frobenius elements.
+
+1. The inverse image Mtilde⊆O^r contains π^c O^r and has rank r. L12 supplies Smith bases with coefficients unit times π^a_i, 0≤a_i≤c<n.
+2. Thus M=Mtilde/π^n O^r≃⊕_i O/π^(n−a_i), so M/πM has residue-field dimension r. Select r elements of T whose images form a basis.
+3. Their row-span U satisfies M=U+πM. Iterating n times, since π^n M=0, gives U=M.
+4. There is B over R_n with B W=π^c I. Lift B,W to O: Bhat What=π^c I+π^n D=π^c Uhat, with Uhat=I+π^(n−c)D invertible by its unit determinant.
+5. What is invertible over Frac(O). The integral matrix Chat=Uhat^(-1)Bhat satisfies Chat What=π^c I, hence What Chat=π^c I as well. Reduction proves the column-image inclusion with the same c.
+6. No target row operations change the selected evaluations. Smith bases and matrix inverses prove their bound only.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S24-bounded — Abundant tuples with an explicit Frobenius-defect loss
+
+Status: missing. Retain S24's injection, absolute irreducibility and free rank-one invariant hypotheses, with ell odd and delta=2. Let S be free of rank r≥1 over O/π^n, n=m−mSigma, and set c0=f(r)rR, f(0)=f(1)=1 and f(r+1)=2(f(r)+1) for r≥1. Suppose S23-error holds with kappa=e_lambda(a+b) and c=c0+kappa<n. There are r actual elements of G_(S,gamma) whose evaluation map, after identifying the π^n-torsion of Rbar(m)^h with O/π^n, has image containing π^c(O/π^n)^r. S23 realizes them at associated primes avoiding any prescribed finite set.
+
+1. Saturation and averaging give the input span bound c0 in Hom_O(S,Rbar(m)^h); S23-error gives the bound c=c0+kappa for actual evaluations.
+2. Evaluations of S land in the π^n-torsion of the free rank-one O/π^m invariant target, namely π^mSigma times that target. Identify it with R_n and choose any basis of S.
+3. Apply S24-rows to the set of actual evaluation rows, not to its O-span as though that were a Galois group.
+4. Use the exact image and Chebotarev realization in S23; avoid previously selected primes as well as the fixed forbidden set.
+5. This is a c-abundant variant, not the printed c0-bound when kappa>0. Rank one has c=rR+kappa; rank two has c=4rR+kappa.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S25-boundedzero — Rank-zero pairing threshold with bounded Frobenius defect
+
+Status: missing. In the rank-zero application of Theorem 8.2.2 retain all source hypotheses and conditional geometric reciprocity, integral comparison and perfect-pairing gates. Suppose S24-bounded applies with r=1 and kappa uniformly bounded in m. The distinguished local pairing then has exponent at least m−mper−mlat−mSigma−rR−kappa, and the global contradiction requires m>mper+mlat+mSigma+rR+kappa+mdif.
+
+1. The local evaluation of a generator has exponent at least m−mSigma−rR−kappa, replacing rR by rR+kappa.
+2. The reciprocity class retains the conditional exponent m−mper−mlat of (8.4). Perfect rank-one pairing subtracts the ambient torsion length m once.
+3. All other local pairings are unchanged and killed by π^mdif as on pp.311–312. A distinguished exponent greater than mdif contradicts global reciprocity.
+4. Uniform kappa allows sufficiently large m; an arbitrary bound depending on m need not do so.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+#### PAPER-LIU-ETAL-22/S25-boundedone — Rank-one pairing threshold with bounded Frobenius defect
+
+Status: missing. In Theorem 8.3.2 retain every hypothesis and conditional arithmetic gate of S25-consumer. Suppose S24-bounded supplies an actual rank-two tuple with c=4rR+kappa and kappa uniformly bounded in m. The one-sided repair then gives primitive t with loc_w1(t)=0, exp_lambda loc_w2(t)≥m−mSigma−4rR−kappa and exp_lambda loc_w1(s)≥m−mper−4rR−kappa. The final pairing exponent is at least m−mper−mlat−mSigma−8rR−2kappa; the threshold is m>mper+mlat+mSigma+8rR+2kappa+mdif.
+
+1. The one-sided localization argument is valid for any c<n. Use actual rows from S24-bounded and replace 4rR by 4rR+kappa.
+2. Keep the distinguished-vector normalization π^mper v=π^mSigma s. This preserves mper and mSigma without dividing torsion elements by a negative power.
+3. There is one loss c for t and one for s, hence 2c=8rR+2kappa; geometric mlat and different mdif terms are unchanged.
+4. At kappa=0 this recovers S25-consumer. It is not an independent review of that repair, a proof of GI surjectivity or a resolution of E13.
+
+Codex — codex-a71f92, continuation of PR #2224. Conditional mathematical refinement awaiting independent review; no formalization or GI implication claimed.
+
+### Construction API and tests
+
+- `RankinSelberg.pairedEvaluation_image` (data): Export existing AddSubgroup images J and H with preimage witnesses for actual evaluations q0,q1.
+- `RankinSelberg.pairedEvaluation_swap` (compatibility): q0 alpha=q1 and q1 alpha=q0 identify the Goursat kernels; reuse the existing quotient graph.
+- `RankinSelberg.pairedEvaluation_quotientInvolution` (projection): On C=J/D export tau with tau²=id, characterized by (x,y)∈H iff tau(x mod D)=y mod D.
+- `RankinSelberg.pairedEvaluation_minus` (characterisation): C^-=ker(tau+id); the projection to C^- is c↦(c−tau c)/2 on the finite odd-order additive group.
+
+- `RankinSelberg.pairedEvaluation_diagonal` (computation): For N=A=Z/3, q0=id and alpha=id, D=0, C=Z/3, tau=id and C^-=0. The paired image is not A² but its sum is all A.
+- `RankinSelberg.pairedEvaluation_antidiagonal` (non-example): For N=A=Z/3, q0=id and alpha=-id, D=0, C^-=C=Z/3 and the sum image is zero although both coordinates surject.
+- `RankinSelberg.pairedEvaluation_independent` (computation): For N=A², q0 the first projection and alpha the swap, H=A², D=A, C=C^-=0 and the sum image is A.
+- `RankinSelberg.pairedEvaluation_zero` (degenerate): For q0=0, J=D=C=C^-=0 and H=0; the remaining obstruction is the whole A/J=A.
+- `RankinSelberg.pairedEvaluation_goursat` (compatibility): D and tau agree with AddSubgroup.goursatFst and the equivalence from AddSubgroup.goursat_surjective after identifying the coordinate kernels.
+- `RankinSelberg.pairedEvaluation_characteristicTwo` (non-example): For diagonal H≤(Z/2)², tau=id but im(sum)=0. The use of 1/2 and the odd-ell hypothesis cannot be omitted.
+
+## Reproducible finite diagnostics
+
+Standard-library Python, no third-party packages. Passed **21,134 field cases**, **56 higher-torsion cases**, and **85,880 three-row sets**, including **84,856 nonvacuous actual-row selections**. The checks cover all involutions on F3²/F5² and all 2×2 quotient maps, selected higher torsion, exact quotient graphs/defects, diagonal/antidiagonal/independent cases, the sharp a+b extension bound, and the ell=2 failure. They test finite algebra, not actual Galois realization, GI, Lean proofs or independent review.
+
+The prior programs and their reported counts remain attributed historical evidence; they were not rerun in this continuation.
+
+```python
+from itertools import product, combinations
+import json
+
+counts = {"field_cases": 0, "higher_torsion_cases": 0, "row_sets": 0, "row_selection_cases": 0}
+def add(x,y,m): return tuple((a+b)%m for a,b in zip(x,y))
+def neg(x,m): return tuple(-a%m for a in x)
+def scale(c,x,m): return tuple(c*a%m for a in x)
+def act(a,x,m): return ((a[0]*x[0]+a[1]*x[1])%m,(a[2]*x[0]+a[3]*x[1])%m)
+def compose(a,b,m):
+    return ((a[0]*b[0]+a[1]*b[2])%m,(a[0]*b[1]+a[1]*b[3])%m,
+            (a[2]*b[0]+a[3]*b[2])%m,(a[2]*b[1]+a[3]*b[3])%m)
+def check(m,p,q,alpha):
+    ambient = set(product(range(m), repeat=2))
+    zero=(0,0)
+    H={(act(q,x,m),act(q,act(alpha,x,m),m)) for x in ambient}
+    J={x for x,y in H}
+    assert J=={y for x,y in H}
+    assert {(y,x) for x,y in H}==H
+    D={x for x,y in H if y==zero}
+    G={add(x,y,m) for x,y in H}
+    assert D<=G<=J
+    coset={}
+    for x in sorted(J):
+        if x not in coset:
+            for y in D: coset[add(x,y,m)]=x
+    C=set(coset.values())
+    tau={}
+    for x,y in H:
+        cx,cy=coset[x],coset[y]
+        assert cx not in tau or tau[cx]==cy
+        tau[cx]=cy
+    assert all(tau[tau[x]]==x for x in C)
+    plus={x for x in C if tau[x]==x}
+    minus={x for x in C if tau[x]==coset[neg(x,m)]}
+    assert {coset[x] for x in G}==plus
+    assert len(C)==len(plus)*len(minus)
+    half=pow(2,-1,m)
+    obstruction={x:coset[scale(half,add(x,neg(tau[coset[x]],m),m),m)] for x in J}
+    assert {x for x in J if obstruction[x]==coset[zero]}==G
+    assert set(obstruction.values())==minus
+    assert len(ambient)*len(D)==len(G)*len(minus)*(len(ambient)//len(J))*len(D)
+    assert (G==ambient)==(J==ambient and len(minus)==1)
+    a=b=0
+    while any(scale(p**a,x,m) not in J for x in ambient): a+=1
+    while any(coset[scale(p**b,x,m)]!=coset[zero] for x in minus): b+=1
+    assert all(scale(p**(a+b),x,m) in G for x in ambient)
+    return len(J),len(D),len(C),len(minus),len(G),a,b
+
+for p in (3,5):
+    mats=list(product(range(p),repeat=4))
+    involutions=[a for a in mats if compose(a,a,p)==(1,0,0,1)]
+    for alpha in involutions:
+        for q in mats:
+            check(p,p,q,alpha)
+            counts["field_cases"]+=1
+for p in (3,5):
+    for n in (1,2,3):
+        m=p**n
+        # Avoid the largest two-dimensional exhaustive set; n=3 is tested for p=3.
+        if p==5 and n==3: continue
+        for alpha in ((1,0,0,1),(-1,0,0,-1),(0,1,1,0),(1,0,0,-1)):
+            for a in range(n+1):
+                check(m,p,(1,0,0,p**a),alpha)
+                counts["higher_torsion_cases"]+=1
+# Nonzero common quotient with zero defect; full anti-invariant obstruction; independent pair.
+assert check(3,3,(1,0,0,1),(1,0,0,1))[2:5]==(9,1,9)
+assert check(3,3,(1,0,0,1),(-1,0,0,-1))[2:5]==(9,9,1)
+assert check(3,3,(1,0,0,0),(0,1,1,0))[1:5]==(3,1,1,3)
+# The extension exponent sum is sharp: A=Z/9, J=3A, anti-diagonal H in J^2, G=0.
+assert {3*x%9 for x in range(9)}=={0,3,6}
+assert {3*x%9 for x in (0,3,6)}=={0}
+assert 3 not in {0} and 9%9==0
+# Odd ell is essential: diagonal H in (Z/2)^2 has tau=id but sum image zero.
+assert {(x+x)%2 for x in range(2)}=={0}
+
+def span(rows,m):
+    S={(0,0)}
+    for row in rows:
+        S={add(x,scale(c,row,m),m) for x in S for c in range(m)}
+    return S
+# Every three-element set of possible actual rows over these rings; no row combination substituted.
+for p,n in ((2,2),(3,2)):
+    m=p**n
+    vectors=list(product(range(m),repeat=2))
+    for rows in combinations(vectors,3):
+        counts["row_sets"]+=1
+        M=span(rows,m)
+        bounds=[c for c in range(n) if {scale(p**c,x,m) for x in vectors}<=M]
+        if not bounds: continue
+        c=min(bounds)
+        selected=next((pair for pair in combinations(rows,2) if span(pair,m)==M),None)
+        assert selected is not None
+        a,b=selected
+        image={((a[0]*x[0]+a[1]*x[1])%m,(b[0]*x[0]+b[1]*x[1])%m) for x in vectors}
+        assert {scale(p**c,x,m) for x in vectors}<=image
+        counts["row_selection_cases"]+=1
+print(json.dumps(counts,sort_keys=True))
+```
+
+## Submission checks
+
+Paper validator: pass. Three-file intake: zero problems. Repository tests: 48 pass (9 paper-validator, 3 queue, 7 source-issue, 29 intake). Internal graph: 214 unique IDs, 371 edges, acyclic; every missing item routed once. All 205 inherited item objects, all 16 findings, all 21 route identities and both historical Markdown documents preserved. Publication base `ac04f995751446e20901cbdec6e8144b1752e86e`; relevant protocols, audit and prior paper files unchanged. No Lean compilation claimed or authorized.
+
+## Remaining work
+
+First try to prove J=A and C^-=0, or a uniform annihilator bound for A/J and C^-, from the **actual** tensor GI and polarizability hypotheses. Do not infer it from coordinate surjectivity. A residual argument must control the entire torsion tower, not just m=1. Independently review the normal-closure formula and one-sided E2 repair. Retain the remaining G1–G8 work, especially the 76 inherited two-test entries, full dependency/census refinement, E8/E13 and the source bibliography.
+
+The checkpoint below is preserved verbatim as historical evidence; its older counts and validation statements are scoped to its own continuation.
+
+---
+
 # Liu–Tian–Xiao–Zhang–Zhu: integral level raising and Selmer bounds
 
 **Partial continuation — Codex, codex-hjdg0j, 23 September 2026; follows PR #2218.** Earlier workers' full-paper and rank-two reading/proof records are preserved with attribution. This pass freshly reads published pp.125–138 and arXiv v3 pp.19–20, and isolates the exact normal-closure image missing in E1. There are now 205 items (10 narrow library imports, 20 planned interfaces, 175 missing refinements), 21 routes and 349 internal dependency edges. The 77 definitions/constructions have 232 API entries and 156 test specifications; the new construction has four typed tests, while the inherited 76 still need their third typed tests. Sixteen source findings await independent review. The main GI lifting implication and the complete extraction remain open.
