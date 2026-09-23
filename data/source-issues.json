@@ -23760,16 +23760,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E1",
    "kind": "misprint",
-   "locator": "§3, definition of Pfister forms, p.6, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "locator": "§3, definition of Pfister forms in characteristic two, p. 6 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "⟨⟨a_i⟩⟩ ⊗ … ⟨⟨a_1⟩⟩ ⊗ ⟨⟨a_0]]",
    "correction": "In characteristic 2 the factors ⟨⟨a_j⟩⟩ (j ≥ 1) are the bilinear Pfister forms ⟨1, −a_j⟩_b of [EKM, 9.B], and q_a is their product with the quadratic form ⟨⟨a_0]]: a nonsingular quadratic form of dimension 2^{i+1}.",
    "reason": "With ⟨⟨a⟩⟩ read as the quadratic form x_1² − a x_2² just defined, the tensor product in characteristic 2 is not defined (quadratic forms do not multiply there), and that form is totally singular, being (x_1 + √a x_2)². The reference [EKM, 9.B] has the bilinear factors. Noted by the extraction (item pfister-two).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23781,16 +23782,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E2",
    "kind": "misprint",
-   "locator": "Proof of Claim 1 in the proof of Proposition 3.10, p.12, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "locator": "proof of Proposition 3.10, Claim 1, p. 12 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "a′_i = 1 − 1/u_i + ε_i/u_i²",
    "correction": "a′_i = 1 − 1/u_i − ε_i/u_i².",
    "reason": "Dividing u_i² − u_i − ε_i by u_i² gives the minus sign. Either way a′_i is a principal w̃-unit (w̃(u_i) < 0 and w̃(ε_i) = 0), so the argument is unaffected. Noted by the extraction (item detecting-nonnegative).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23802,16 +23804,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E3",
    "kind": "misprint",
-   "locator": "§5, proof of Proposition 5.1, Case 2 (char K = 0), pp.16–17, and the proof of Lemma 5.3, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "locator": "proof of Proposition 5.1, Case 2, and proof of Lemma 5.3, pp. 16–17 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "w ∈ W_T",
    "correction": "In Case 2 and Lemma 5.3, W_T should denote {w ∈ D^e_{K|κ} : T ⊂ O_w}, the full-rank geometric flags containing T, not the rank-one divisors of p.16.",
    "reason": "For a rank-one geometric prime divisor w the residue field κw has transcendence degree e − 1 over κ, so it is not a number field and the finite primes P_fin(κw) used next do not apply; the construction needs the rank-e flags just introduced. The symbol is reused for two different sets. Noted by the extraction (items maximal-geometric-flags, arithmetic-flags).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23823,16 +23826,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E4",
    "kind": "gap",
-   "locator": "Proof of Lemma 5.3, Claim, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "locator": "proof of Lemma 5.3, Claim, p. 17 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "Then ζ is an e-tuple of roots of unity",
    "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
    "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23844,16 +23848,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E6",
    "kind": "error",
-   "locator": "arXiv v2, Proposition 3.2(3), Case 2 Claim, p.7",
+   "locator": "proof of Proposition 3.2(3), Case 2, Claim, p. 7 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "cd(E′) ⩽ dim(E′) + 1",
    "correction": "Bound the nonreal base change E′k′_v directly by cd_2(k′_v)+trdeg(E′/k′)≤dim(E′)+1, using the nonreal local-field theorem and the transcendence-degree inequality.",
-   "reason": "E′ can be formally real, for example Q. Its absolute Galois group has an order-two subgroup and cd_2(E′)=∞, so the printed intermediate bound is false. The intended vanishing after nonreal base change has the corrected proof input nonreal-local-cd-bound; its general source proof remains explicitly open.",
+   "reason": "E′ can be formally real (it contains ℚ whenever the residue field does, and may have orderings), and then cd₂(E′) = ∞, so the printed intermediate bound is false. What the argument needs holds: for a non-real place v′ of k′, k′_{v′} is a henselian p-adic field (cd₂ = 2) or algebraically closed, and cd₂(E′k′_{v′}) ≤ cd₂(k′_{v′}) + trdeg(E′|k′) ≤ dim(E′) + 1. nonreal-local-cd-bound records this.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23865,16 +23870,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E7",
    "kind": "gap",
-   "locator": "arXiv v2, final deduction, p.18",
+   "locator": "final sentence of §5, p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "[AKNS, Proposition 2.28]",
    "correction": "Apply the finite-language QFA theorem after adjoining total inversion to the field language, and then eliminate that definable function. Retain the existing inverse-language-bridge item.",
-   "reason": "A finitely generated field need not be a finitely generated ring: Q is not. In the finite field language with total inversion, it is finitely generated as a structure; the inverse graph has a unique value for every element. The prior extraction identified this omitted bridge. The AKNS original reading is inherited, not newly reread.",
+   "reason": "AKNS §2.9 works with a finitely generated L-structure A in a finite language L, and Proposition 2.28 gives a formula characterizing A among finitely generated L-structures (read in arXiv 1610.04768, p. 20). A finitely generated field is not a finitely generated ring unless it is finite (ℚ is not), so applied in the ring language the proposition says nothing about finitely generated fields. In the language with total inversion, whose graph is ring-definable, K is a finitely generated structure and remains bi-interpretable with ℤ; the resulting sentence translates back to the ring language. inverse-language-bridge records the bridge.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23886,14 +23892,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E8",
    "kind": "misprint",
-   "locator": "Kuhlmann–Novacoski, arXiv:1311.6155 PDF p.11, Theorem 1.2 proof",
+   "locator": "Kuhlmann–Novacoski, Henselian elements, Theorem 1.2, proof (arXiv 1311.6155, p. 11), as used in the proof of Lemma 3.9(1), p. 11 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "σ_iη ≠ η for 1 ≤ i ≤ n",
    "correction": "Exclude the identity embedding from both nonfixing ranges (choose σ_1=id and use 2≤i≤n, and 2≤i≤k for the residue embeddings).",
-   "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument.",
+   "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument. This slip is in the cited paper [K-No], not in Dittmann–Pop's text.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv https://arxiv.org/abs/1311.6155, publisher https://doi.org/10.1016/j.jalgebra.2014.07.004 and title/author correction searches, 2026-09-22; no correction located. Finding scoped to the downloaded author PDF; published text not collated."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23905,16 +23914,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E9",
    "kind": "misprint",
-   "locator": "arXiv v2, Lemma 3.9(2) proof, p.11",
+   "locator": "proof of Lemma 3.9(2), p. 11 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "q_a",
    "correction": "The open set V_{E|F} is a neighborhood of the valuation w, not of the quadratic form q_a.",
    "reason": "V_{E|F} is a subset of Val_F, and the chosen point is w∈V_a. The immediately preceding argument supplies that neighborhood.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23926,16 +23936,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E10",
    "kind": "misprint",
-   "locator": "arXiv v2, Proposition 3.2(2) proof, p.7",
+   "locator": "proof of Proposition 3.2(2), p. 7 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "q_{π,ε}(y) = ∑_χ π^χ q_ε(x_χ)",
    "correction": "In characteristic different from two insert (−1)^{|χ|} in each summand for the paper’s convention ⟨⟨π_i⟩⟩=⟨1,−π_i⟩. Every block has N+1 coordinates; replace the subsequent F^N by F^{N+1}.",
    "reason": "For one outer factor the tensor is q_ε(x_0)−π_1q_ε(x_1). Signs are valuation units, so the distinct-value anisotropy proof is unchanged. The source defines N=2^{r+1}−1 while q_ε has 2^{r+1} variables.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23947,16 +23958,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E11",
    "kind": "misprint",
-   "locator": "arXiv v2, Proposition 3.10 proof, final sentence p.12",
+   "locator": "proof of Proposition 3.10, p. 12 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "w̃ = w̃_N",
    "correction": "Use the restriction w̃_N|L in V_{a,N}.",
    "reason": "The constructed valuation is on L(α), whereas V_{a,N} consists of valuations on L. Its restriction preserves the inequalities, and anisotropy over the larger henselization implies anisotropy over the restricted one.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23968,16 +23980,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E12",
    "kind": "misprint",
-   "locator": "arXiv v2, bibliography p.18",
+   "locator": "bibliography, entry [Du], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "808–923",
    "correction": "[Du] ends at p.823, not p.923.",
-   "reason": "Checked the original journal’s article metadata: https://doi.org/10.2307/2275432",
+   "reason": "Crossref metadata for doi 10.2307/2275432 gives pages 808–823.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -23989,16 +24002,17 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E13",
    "kind": "misprint",
-   "locator": "arXiv v2, bibliography p.18",
+   "locator": "bibliography, entry [Ka], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "493–51",
    "correction": "[Ka] ends at p.510.",
-   "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/BF01389226",
+   "reason": "Crossref metadata for doi 10.1007/BF01389226 gives pages 493–510.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
@@ -24010,16 +24024,105 @@
   {
    "id": "PAPER-DITTMANN-POP-23/E14",
    "kind": "misprint",
-   "locator": "arXiv v2, bibliography p.18",
+   "locator": "bibliography, entry [P1], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
    "printed": "385–308",
    "correction": "[P1] ends at p.408.",
-   "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/s00222-002-0238-7",
+   "reason": "Crossref metadata for doi 10.1007/s00222-002-0238-7 gives pages 385–408.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E15",
+   "kind": "misprint",
+   "locator": "proof of Proposition 3.10, Claim 3, p. 13 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+   "printed": "Finally, since q_{a_1,a_0} is isotropic over k_{1v} for all archimedean places of k_1, it follows that q_a is isotropic over F_v := F k_{1v} for all archimedean places v of k_1.",
+   "correction": "q_ε is isotropic over F_v, where ε = (a_{d−1}, …, a_1, a_0).",
+   "reason": "F is the relative algebraic closure of k_1(t) in L_{w_L}, so a_d need not lie in F and q_a is not defined over F. The next sentence applies Proposition 3.2(3) to q_ε, which contains q_{a_1,a_0} as a Pfister factor and is therefore isotropic over F_v.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E16",
+   "kind": "misprint",
+   "locator": "Notations/Remarks 4.1(2) and proof of Theorem 4.2(1), p. 14 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+   "printed": "w ∈ D_{K|k_a} are in bijection with the closed points P ∈ C … Since V_a ⊂ D_{K|k_a} is finite",
+   "correction": "D_{K|k_t} in both places.",
+   "reason": "Only k_t = k_u is defined, and D_{K|k_t} is introduced in the same item as the set of prime divisors of K|k_t.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E17",
+   "kind": "gap",
+   "locator": "§4, opening paragraph, p. 13, and Recipe 4.3(1), p. 15 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+   "printed": "1) Consider the uniformly first-order definable k_1, u = (u_i)_{d>i>1}, k_1 ⊂ k_t ⊂ K, and further a := (a_d, …, a_1, a_0) and q_a as in Notations/Remarks 4.1.",
+   "correction": "Add that the conditions of Notations/Remarks 4.1(1)(c) are uniformly first-order: q_{a_1,a_0} is k_1-nice and every ε_i is a v-unit at the finite places v of k_1 with v(a_1) > 0. One way:\n- the finite places of k_1 are uniformly definable (Rumely);\n- isotropy of q_{a_1,a_0} over a henselization k_{1v} is a Hensel-type condition in O_v;\n- at real places, q_{a_1,a_0} = ⟨1, −a_1, −a_0, a_1a_0⟩ is anisotropic exactly where a_1 and a_0 are both negative, and 'no ordering of k_1 makes both negative' is −1 = σ₀ − σ₁a_1 − σ₂a_0 + σ₃a_1a_0 with each σ_i a sum of four squares.\nniceness-definability records this.",
+   "reason": "The opening of §4 lists the first-order inputs used: isotropy of Pfister forms over K and K(√−1), the Kronecker dimension, the global subfields and algebraic independence. Niceness quantifies over all places of k_1 and is not among them. Without it, the family of Recipe 4.3 is not shown to be definable, and Theorem 1.3 rests on that.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E18",
+   "kind": "gap",
+   "locator": "§5, p. 15 (and the final proof, p. 17) (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+   "printed": "We will now prove that every field satisfying Hypothesis (H_d) is bi-interpretable with the ring ℤ",
+   "correction": "Theorem 1.2 also covers infinite finitely generated fields of Kronecker dimension one and two, which (H_d), d ≥ 3, excludes. For them the same argument works:\n- for a number field, R_T = O_K is definable by Rumely;\n- otherwise, run the proof of Proposition 5.1 with Remark 4.4 in place of Theorem 1.3.",
+   "reason": "§5 is written only under (H_d), d ≥ 3. The introduction attributes dimensions one and two to [P2] and [Ru] for the definability of prime divisors, but the paper does not say where Theorem 1.2 is proved in those dimensions. low-dimensional-biinterpretability records the case.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+    "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+    "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
    ],
    "owner": "PAPER-DITTMANN-POP-23",
    "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
