@@ -12158,6 +12158,25 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E1",
+   "kind": "gap",
+   "locator": "arXiv:1802.02637v5, Propositions 3.17 and 3.19 and Corollary 3.21 (§3.6), pp.24–31",
+   "printed": "Proposition 3.17: 'Let σ ∈ Irr(GL_l), τ ∈ Irr_gen,u(GL_k) …'; Proposition 3.19 and Corollary 3.21: 'Suppose that π ∈ Irr_rel(G) and τ ∈ Irr_gen,u(GL_k)'. The proof of Proposition 3.17 applies Lemma 3.16 'for the (k, c) model χ_π W_ψ(ρ_c(τ)) = W_ψ(ρ_c(χ_π τ))' and Theorems A.6 and A.11 to χ_π τ.",
+   "correction": "Either assume χ_π unitary (π ∈ Irr_rel,a.u.(G), as in Theorem 3.12), or reduce to that case: write χ_π = |·|^r χ_0 with r real and χ_0 unitary. Then W_ψ(ρ_c(χ_π τ)) = |det|^r W_ψ(ρ_c(χ_0 τ)), the factor |det a|^r pulls out of Z^2 because r_z is unipotent, and L(s, σ^∨ × χ_π τ) = L(s + r, σ^∨ × χ_0 τ).",
+   "reason": "Lemma 3.16 (through [CFGK23, §3.2]) and Theorem A.11 are stated for unitary τ, but in Propositions 3.17, 3.19 and Corollary 3.21 the relevant representation is χ_π τ, and χ_π need not be unitary for π ∈ Irr_rel(G) when G = GSpin_c (for Sp_c and SO_c, χ_π = 1). The twist above repairs the argument, and the only use, Theorem 3.12, assumes χ_π unitary, so the main results are unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv v5 (SHA-256 dd49d944…), the latest version, read in full by cc-442dc5 on 23 September 2026; Crossref lists no correction or update for 10.4007/annals.2024.200.3.2."
+   ],
+   "owner": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+   "file": "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.result.json",
+   "citation": "Cai–Friedberg–Kaplan, \"Doubling constructions: Global functoriality for non-generic cuspidal representations\", Annals of Mathematics 200 (2024), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E1",
    "kind": "misprint",
    "locator": "Lemma 4.5.11, second line, p.663 (published version; the same in arXiv v3–v4)",
