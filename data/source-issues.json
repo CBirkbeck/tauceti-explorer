@@ -81006,21 +81006,24 @@
    "locator": "Proposition 14, pp.725–727, and Remark 16, p.727, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a); also footnote 4, p.712",
    "printed": "Proposition 14: close CM points of the same type with the same projection to X(1)×X(1) lie on a low-degree Hecke curve, stated for Heegner and anti-Heegner CM points alike. Remark 16: \"Hecke curves do not pass through anti-Heegner CM points. Thus, …\" anti-Heegner CM points repel. Footnote 4: the 2-to-1 ambiguity of [BT13] \"can be rectified by using the stronger repulsion statement found in Proposition 14.\"",
    "correction": "Proposition 14 holds for Heegner CM points (CM⁺) only, with Lemma 15 applied with h₀ = 1 (erratum Proposition 2.1). Close anti-Heegner CM points lie on low-degree conjugate Hecke curves instead. The first clause of Remark 16 (Hecke curves contain no anti-Heegner points) is true; its repulsion claim is false.",
-   "reason": "The real-analytic involution conjugating the second factor preserves the hyperbolic metric and swaps Heegner and anti-Heegner CM points, so anti-Heegner points cannot all repel. In general no h₀ ∈ SL₂(Z) reduces to the non-identity coset of the stabilizer H in its normalizer, which is where the proof fails (erratum §§1–2). The appeal in footnote 4 therefore rests on the withdrawn part; the main theorems hold by the corrected argument of the erratum.",
+   "reason": "The real-analytic involution conjugating the second factor preserves distance and swaps Heegner and anti-Heegner CM points; close pairs on a Hecke curve become close anti-Heegner pairs on its conjugate, contradicting the claimed repulsion. The published proof chooses a fixed integral h₀ representing the other normalizer coset and then conjugates small matrices by it. An arbitrary lift modulo p does not preserve those height bounds. In the nontrivial normalizer action, a fixed integral normalizer would induce complex conjugation on the real elliptic torus and have negative determinant, so the SL₂ lift used uniformly by that argument is unjustified. The author erratum restricts the proposition to Heegner points (h₀=1) and replaces the anti-Heegner argument. Its shorthand about nonexistence of a lift should not be read as denying the surjectivity SL₂(Z)→SL₂(F_p).",
    "affects": "a stated result",
    "known": "Authors' erratum: B. Bakker and J. Tsimerman, Erratum to \"p-torsion monodromy representations of elliptic curves over geometric function fields\", https://benjamin-bakker.github.io/P.torsion.erratum.pdf, §§1–2 and Proposition 2.1",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed against published pp.725–727 and footnote 4 p.712, the full author erratum, and the Heegner-only v1 Proposition 15 p.14. Conjugation of the second factor is an isometry and reverses the CM type, so the same close pairs become anti-Heegner pairs on conjugate Hecke curves. The repair is the restricted Proposition 2.1 of the erratum. Clarified the normalizer explanation: the original proof needs a fixed or suitably small-height lift; arbitrary reduction lifts exist and do not supply the required uniform estimates. This verdict does not certify all other arguments in the paper."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E2",
@@ -81035,36 +81038,42 @@
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed as the known proof failure. Published Proposition 25 p.736 uses Proposition 14 on the whole complement S in CM, including anti-Heegner points. The erratum §4.1 replaces that part by a conjugate-diagonal volume bound. Read its Proposition 3.1 and the proof of 4.1 in full and checked the exponent saving, with the ratio corrected in E4. The statement of Proposition 25 is not thereby disproved."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E3",
    "kind": "gap",
    "locator": "Proof of Proposition 26 (singular bicusps), p.737, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
-   "printed": "The proof concludes with mult_SBC(C) ≪ p^{−1+δ} Deg(C).",
+   "printed": "The last estimate for T=SBC∩⋃_{m<d}T_m, with d=p^δ, is mult_T(C) ≪ p^(−1+3δ) Deg(C), followed by “combining with equation (8), the result follows.”",
    "correction": "The argument needs mult_SBC(C) ≪ p^{−1−δ} Deg(C). Erratum Proposition 4.2 gives mult_S ≪ p^{−1−2δ₂} Deg C and mult_T ≪ p^{−1−2δ₃+3δ₁} Deg C with 3δ₁ < 2δ₃, by a finer analysis of singular bicusps on low-degree Hecke curves.",
-   "reason": "The proof of Theorem 29 uses p·|(π_i∘ψ)^{−1}(SBC)| = o(Deg C_i) (pp.741–742), which needs the exponent −1−δ; the exponent −1+δ gives only O(p^{δ} Deg C_i). The erratum: \"The statement of [3, Prop. 26] is correct, but the proof is incomplete.\"",
+   "reason": "The proof of Theorem 29 uses p·|(π_i∘ψ)^{−1}(SBC)| = o(Deg C_i) (pp.741–742), which needs the exponent −1−δ; the printed exponent −1+3δ gives only O(p^{3δ} Deg C_i). The erratum: \"The statement of [3, Prop. 26] is correct, but the proof is incomplete.\"",
    "affects": "the proof",
    "known": "Authors' erratum: B. Bakker and J. Tsimerman, Erratum to \"p-torsion monodromy representations of elliptic curves over geometric function fields\", https://benjamin-bakker.github.io/P.torsion.erratum.pdf, §1 and §4.2 (Proposition 4.2)",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed. The actual last exponent on published p.737 is −1+3δ, not literally −1+δ; corrected the quotation and locator description. Multiplication by p leaves p^(3δ), which gives no decay. Erratum §4.2 instead gives exponents −1−2δ₂ and −1−2δ₃+3δ₁, with 3δ₁<2δ₃. Those give negative exponents after the ramification factor p in Theorem 29 pp.741–742. This is a known proof gap, repaired by that erratum argument conditional on its other inputs."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E4",
@@ -81079,36 +81088,42 @@
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed from the erratum p.3 page image and its Proposition 3.1 pp.2–3. Monotonicity of V(r)/sinh(r) directly gives V(ε)≤sinh(ε)V(R)/sinh(R). Taking R up to ρ/2 produces the reciprocal of the printed factor. Fixed ε and ρ=2 log p+O(1) give O(p^(−1)), matching the following line. The earlier v1 p.26 already uses the small reciprocal factor; this is not a later correction to the current erratum."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E5",
    "kind": "gap",
    "locator": "Proof of Lemma 15, pp.726–727, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
    "printed": "\"Since M′² = −1, it follows that M′ is either equal to t̃ or −t̃\" … \"Thus g = a + b(0 1; −1 0), … and (x,y) lies on T_m where m = det g = a² + b².\"",
-   "correction": "Treat the order-three case separately: there t̃ satisfies t̃² − t̃ + 1 = 0 (H ∩ M₂(Z) ≅ Z[e^{2πi/3}]), so M′ satisfies the same Eisenstein relation and M′ ∈ {t̃, 1 − t̃}, and g = a + b·t₀ with m = det g = a² + ab + b². The rest of the argument is unchanged.",
-   "reason": "The proof itself notes that H ∩ M₂(Z) is Z[i] or Z[e^{2πi/3}], but the displayed relation M′² = −1 and the formula m = a² + b² hold only in the Z[i] case. The erratum does not revisit this. Found by the extraction (item 46).",
-   "affects": "nothing",
+   "correction": "For the order-three lift actually printed, t₀=[[0,1],[-1,−1]], use t̃²+t̃+I=0. A conjugate M′ in the centralizer algebra is t̃ or −I−t̃ (exclude scalar roots using conjugacy when the polynomial splits modulo p). Lifting the small-coefficient identities still shows M_x,M_y normalize the same elliptic torus, and their positive determinant forces them into its centralizer. In the concluding degree calculation use g=aI+bt₀ and m=a²−ab+b². Equivalently one may replace t₀ by −t₀ and use the trace +1 relation and a²+ab+b², but that change of lift must be explicit.",
+   "reason": "The displayed square relation and Gaussian norm apply only to the order-four lift. The separate order-three matrix on p.725 has trace −1 and determinant 1. Its Cayley–Hamilton relation and direct determinant expansion yield the correction above. Its centralizer is the Eisenstein quadratic algebra, and the same positive-determinant normalizer argument works. The earlier errata correction implicitly changed to the negative lift without saying so. The source proof needs this branch; no counterexample to the Heegner-only conclusion is asserted.",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed, with a corrected repair and reach. The matrix printed on p.725 is t₀=[[0,1],[-1,−1]], with trace −1, so t₀²+t₀+I=0 and det(aI+bt₀)=a²−ab+b². The prior correction used the trace +1 convention without changing the lift. Rewrote it in the actual convention; its conjugate root is −I−t₀. Conjugacy rules out scalar roots in the split finite-field case. The positive-determinant normalizer argument then continues. Changed affects to the proof because the order-three branch was omitted; the missing branch can be supplied."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E6",
@@ -81117,42 +81132,48 @@
    "printed": "T_n is defined (p.716) as the closure of pairs related by a cyclic isogeny of degree n, and then: \"The two projection maps α, β : T_n → X(p) both have degree deg(T_n) = σ₁(n) = Σ_{d|n} d\".",
    "correction": "For the cyclic correspondence deg(T_n) = ψ(n) = n∏_{ℓ|n}(1 + 1/ℓ); σ₁(n) is the degree of the full correspondence over all subgroups of order n.",
    "reason": "For n = 4 there are six cyclic subgroups of order 4 but σ₁(4) = 7 (the extra subgroup is E[2]). The later estimates use only a polynomial bound such as deg(T_m) = O(m²), which both satisfy. Found by the extraction (item 25).",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed. Counted cyclic order-four subgroups of (Z/4Z)²: twelve primitive vectors, two generators per subgroup, hence six, whereas σ₁(4)=7. More generally the count of primitive vectors divided by φ(n) gives ψ(n). Read the cyclic definition p.716 and degree assertion p.717, and polynomial-bound uses pp.737 and erratum pp.3–4. Changed affects to a stated result because the exact degree assertion is false for the correspondence actually defined, despite the coarser downstream estimates remaining valid."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E7",
    "kind": "misprint",
-   "locator": "§2.5, p.717, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
-   "printed": "\"consider the map ξ_d : C_p → C_p that is x ↦ x^d on the smooth part of the identity component, so that ξ_d(x,a) = (x^d,a), (x,a) ∈ G_m × Z/nZ.\"",
-   "correction": "\"(x,a) ∈ G_m × Z/pZ\", since ξ_d is a self-map of the p-gon C_p.",
-   "reason": "The component group of the smooth part of C_p is Z/pZ; Z/nZ belongs to C_{pn} in the preceding map ϕ_n. Found by the extraction (item 26).",
+   "locator": "§2.5, published pp.716–717, the component-group domains in both ϕ_n:C_pn→C_p and ξ_d:C_p→C_p; also arXiv v2 p.7",
+   "printed": "Both displayed smooth-locus formulas use (x,a)∈G_m×Z/nZ: ϕ_n(x,a)=(x^n,a) and ξ_d(x,a)=(x^d,a).",
+   "correction": "For ξ_d use (x,a)∈G_m×Z/pZ. For ϕ_n use (x,a)∈G_m×Z/(pn)Z and interpret the target component as a mod p. In both cases the target is C_p.",
+   "reason": "By the n-gon definition on p.714, the number of connected components of C_m^sm is m. Thus neither occurrence of Z/nZ in these formulas has the stated source component group. In the second formula the source is C_p; in the first it is C_pn. This also corrects the inherited errata explanation, which incorrectly assigned Z/nZ to C_pn.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed and extended the same entry to the adjacent formula. Published pp.716–717 and v2 p.7 put Z/nZ in both formulas. The definition of an n-gon p.714 gives C_p component group Z/pZ and C_pn component group Z/(pn)Z. Thus the old reason that Z/nZ belongs to C_pn is itself wrong. Corrected both domains, with reduction modulo p in the latter map’s target."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E8",
@@ -81160,21 +81181,24 @@
    "locator": "§3.1, p.718, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
    "printed": "\"If we now allow X to have cusps, we define ρ_X to be the infimum of the lengths of closed geodesics with respect to h_X that are homotopically nontrivial in the smooth compactification X′.\"",
    "correction": "\"… half the infimum of the lengths …\", matching the compact case defined just before (half the length of the shortest closed geodesic).",
-   "reason": "The compact definition two sentences earlier includes the factor ½, and Lemma 5 and Corollary 8 (ρ_{X(p)} ~ 2 log p) use the cusped radius with that factor. Found by the review REV-PAPER-BAKKER-TSIMERMAN-16.",
+   "reason": "The compact definition two sentences earlier includes the factor ½, and Lemma 5 and Corollary 8 (ρ_{X(p)} ~ 2 log p) use the cusped radius with that factor. Found by the review REV-PAPER-BAKKER-TSIMERMAN-16. This factor correction does not establish the compactification-homotopy condition for the upper-bound witness; see E12, and see E13 for the distinct length-bound issue in Corollary 8.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed as a missing factor of two in the definition on published p.718 and v2 p.8. The compact convention and trace-length computation use half the translation length: 2 arcosh((p²−2)/2)=4 log p+O(1). This fixes the normalization only. Added E12 for the separate compactification-homotopy defect in the proposed upper-bound witness, and E13 for the separate proof problem in Corollary 8; this verdict does not certify those proofs."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E9",
@@ -81189,14 +81213,17 @@
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed. Published Proposition 7 p.720 gives h_X restricted to Y ≤ h_Y by the holomorphic inclusion and the Kobayashi contraction property. The prose on p.731 reverses the comparison, while its displayed distance estimate uses the correct direction. The intended correction is local."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E10",
@@ -81211,36 +81238,84 @@
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Confirmed. Read the d^c convention on published p.713, χ on p.732 and the page image of the display p.735, and compared v2 p.24. Algebraically f(χ)=log|z−w|²−log((1−|z|²)(1−|w|²)); applying dd^c leaves coefficient −1, not −1/(2π). With d^c=(bar∂−∂)/(4π), the smooth term is ω/(4π), and Poincaré–Lelong gives the diagonal term as printed. The final line and subsequent argument use the intended normalization."
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16/E11",
    "kind": "misprint",
    "locator": "Proof of Theorem 29, p.742, in the published version, Annals of Mathematics 184 (2016), 709–744 (publisher PDF, SHA-256 814976ee…f40a)",
    "printed": "\"Thus, Ram(α) = o(Deg C), and Riemann–Hurwitz applied to α yields 2g(C) − 2 = o(Deg C).\"",
-   "correction": "Riemann–Hurwitz for α : C → P¹ gives 2g(C) − 2 = −2 deg α + Ram(α) ≤ o(Deg C). The inequality is what the contradiction with 2g(C) − 2 ≫ Deg(C) needs.",
-   "reason": "The printed equality drops the term −2 deg α, which is not o(Deg C) in general. Found by the extraction (item 90).",
+   "correction": "No correction is required. The Riemann–Hurwitz inequality plus g(C)≥2 in this setting gives the asserted little-o equality by squeezing. The previously proposed inequality may be used as an expanded intermediate line.",
+   "reason": "Rejected. The equality is justified in this setting, so the entry’s earlier claim that the dropped term need not be little-o was inapplicable. Let D=Deg C. Riemann–Hurwitz gives 2g(C)−2≤Ram(α)=o(D). A nonconstant projection C→X(p) exists, and X(p) is hyperbolic for p>5; hence g(C)≥2 and 0≤2g(C)−2. The squeeze gives 2g(C)−2=o(D), exactly the printed assertion. Alternatively use −2≤2g−2 and D→∞. Both published p.742 and v2 p.30 therefore contain a legitimate compressed inference, not a misprint. The inequality is a useful expanded proof line but is not a required correction.",
    "affects": "nothing",
-   "known": "new",
+   "known": "Not an error: rejected by independent review REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p02, checked 22 September 2026: no erratum is linked there",
     "B. Bakker's homepage https://benjamin-bakker.github.io/ links the authors' erratum (pdf) under this paper; it was read in full",
     "arXiv 1403.7168: v1 (27 March 2014) and v2 (3 May 2016), both before the erratum; no later version",
-    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found"
+    "web search for an erratum or corrigendum, 22 September 2026: only the authors' erratum was found",
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
    ],
    "owner": "PAPER-BAKKER-TSIMERMAN-16",
    "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
    "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Rejected. The equality is justified in this setting, so the entry’s earlier claim that the dropped term need not be little-o was inapplicable. Let D=Deg C. Riemann–Hurwitz gives 2g(C)−2≤Ram(α)=o(D). A nonconstant projection C→X(p) exists, and X(p) is hyperbolic for p>5; hence g(C)≥2 and 0≤2g(C)−2. The squeeze gives 2g(C)−2=o(D), exactly the printed assertion. Alternatively use −2≤2g−2 and D→∞. Both published p.742 and v2 p.30 therefore contain a legitimate compressed inference, not a misprint. The inequality is a useful expanded proof line but is not a required correction."
+  },
+  {
+   "id": "PAPER-BAKKER-TSIMERMAN-16/E12",
+   "kind": "gap",
+   "locator": "Published Lemma 5 proof, p.718, its upper-bound matrix witness; arXiv v2 Lemma 5 p.9, with the compactification condition on p.8",
+   "printed": "The trace bound is attained by γ=[[1−p²,p],[-p,1]], and “The result then follows.”",
+   "correction": "The upper bound for the radius defined using loops nontrivial in the compactification requires a short element of Γ(p) whose image in π₁(X(p)) is nontrivial. The displayed element cannot supply it. Keep the trace lower bound, but supply a different upper-bound witness or a separate geometric argument compatible with that homotopy condition. This review has not supplied that missing argument.",
+   "reason": "The displayed γ factors exactly as [[1,p],[0,1]]·[[1,0],[-p,1]]. Both factors are peripheral unipotents in Γ(p), killed when cusps are filled: the first is a p-th power of the standard cusp generator and the second a conjugate of its inverse. Therefore their product also maps to the identity in the compactified fundamental group. Although γ is hyperbolic with |tr γ|=p²−2, its geodesic is excluded by the definition immediately above Lemma 5. The published proof itself identifies the kernel with the group generated by these unipotents. Thus the exhibited matrix proves an upper bound for the ordinary nonperipheral systole, not the compactification-nontrivial systole being used. The defect remains after inserting E8’s factor one-half. No counterexample to the eventual asymptotic theorem is asserted; the missing upper-bound argument remains open in this review.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
+   ],
+   "owner": "PAPER-BAKKER-TSIMERMAN-16",
+   "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
+   "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Added by this independent review. The displayed γ factors exactly as [[1,p],[0,1]]·[[1,0],[-p,1]]. Both factors are peripheral unipotents in Γ(p), killed when cusps are filled: the first is a p-th power of the standard cusp generator and the second a conjugate of its inverse. Therefore their product also maps to the identity in the compactified fundamental group. Although γ is hyperbolic with |tr γ|=p²−2, its geodesic is excluded by the definition immediately above Lemma 5. The published proof itself identifies the kernel with the group generated by these unipotents. Thus the exhibited matrix proves an upper bound for the ordinary nonperipheral systole, not the compactification-nontrivial systole being used. The defect remains after inserting E8’s factor one-half. No counterexample to the eventual asymptotic theorem is asserted; the missing upper-bound argument remains open in this review."
+  },
+  {
+   "id": "PAPER-BAKKER-TSIMERMAN-16/E13",
+   "kind": "gap",
+   "locator": "Published proof of Corollary 8, p.720; arXiv v2 pp.10–11",
+   "printed": "“γ can be within (log p)/2 of at most one cusp, as ℓ_X(p)(γ) ≤ 2 log p + O(1).”",
+   "correction": "Distinguish the closed-geodesic length ℓ(γ)=2ρ_X(p) from the injectivity radius. Even granting the intended upper bound ρ_X(p)≤2 log p+O(1), the available length bound is 4 log p+O(1). Rework the cusp-avoidance argument to control all cusp neighborhoods visited, with a total O(1) length-comparison error; replacing 2 by 4 alone does not justify the asserted one-cusp claim. This review does not claim to close that geometric step.",
+   "reason": "The compact definition p.718 sets ρ to half the shortest closed-geodesic length, and the last line of this same proof explicitly uses ℓ(γ)=2ρ_X(p). Its preliminary upper-bound argument therefore provides only ℓ(γ)≤4 log p+O(1), not the quoted estimate. The proof then uses the stronger estimate to reduce its detour and integration to one cusp. Lemma 6’s separation >2 log p−O(1), together with the corrected length bound, does not imply this one-cusp assertion. A bounded-number-of-cusps replacement may repair the strategy but needs a proof controlling visits and detours. The claim confirmed here is the missing justification in this step, not a counterexample to Corollary 8. It is separate from the inadmissible witness in E12.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Annals PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf, authors’ five-page erratum https://benjamin-bakker.github.io/P.torsion.erratum.pdf, and arXiv:1403.7168v1/v2; hashes and reading scope are recorded in REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md.",
+    "Independent review, 2026-09-23: https://benjamin-bakker.github.io/ still links the same five-page erratum under the paper; its SHA-256 db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1 matches the input. No date is inferred for the undated file.",
+    "Independent review, 2026-09-23: https://annals.math.princeton.edu/2016/184-3/p02 links no correction; https://arxiv.org/abs/1403.7168 lists v1 (27 March 2014) and latest v2 (3 May 2016). Title/author/erratum searches found the author erratum, but no additional correction. Targeted searches for Lemma 5/Corollary 8 with error, correction and gap found no repair of E12–E13."
+   ],
+   "owner": "PAPER-BAKKER-TSIMERMAN-16",
+   "file": "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
+   "citation": "Bakker–Tsimerman, \"p-torsion monodromy representations of elliptic curves over geometric function fields\", Annals of Mathematics 184 (2016), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
+   "reviewReason": "Added by this independent review. The compact definition p.718 sets ρ to half the shortest closed-geodesic length, and the last line of this same proof explicitly uses ℓ(γ)=2ρ_X(p). Its preliminary upper-bound argument therefore provides only ℓ(γ)≤4 log p+O(1), not the quoted estimate. The proof then uses the stronger estimate to reduce its detour and integration to one cusp. Lemma 6’s separation >2 log p−O(1), together with the corrected length bound, does not imply this one-cusp assertion. A bounded-number-of-cusps replacement may repair the strategy but needs a proof controlling visits and detours. The claim confirmed here is the missing justification in this step, not a counterexample to Corollary 8. It is separate from the inadmissible witness in E12."
   },
   {
    "id": "PAPER-BENNETT-SIKSEK-20/E1",
@@ -90686,186 +90761,243 @@
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E1",
    "kind": "error",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Remark 4.1.5(2), p.31",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Remark 4.1.5(2), p.31",
    "printed": "Consider the normal surface X = Spec k[x, y, x]/(x² + xyz).",
    "correction": "X = Spec k[x, y, z]/(x² + xyz), which is not normal: x² + xyz = x(x + yz), so X is the union of two smooth surfaces meeting along x = yz = 0, and its local ring at the origin is not a domain.",
-   "reason": "Normality is never used. The rest of the remark holds for this X: T_0X is 3-dimensional, a formal curve (f, g, h) with f(f + gh) = 0 has f = 0 or f = −gh, so f has no t-term, and the tangent cone is Spec k[x, y, z]/(x²). This matches the checkpoint's reading of [P95, Ex. 4.5], a special fibre with two smooth components meeting non-transversally.",
+   "reason": "In k[x,y,z]/(x(x+yz)), the two factors give nonzero zero divisors even in the local ring at the origin; a normal local ring must be a domain. Both components are graphs isomorphic to A². Since the defining equation has initial term x², the tangent space has dimension 3 and the reduced tangent cone is the plane x=0. In the domain k[[t]], f(f+gh)=0 forces f=0 or f=-gh; with g,h in (t), f has no linear term. The y- and z-axis arcs span exactly that plane. The example works after deleting 'normal'; no claim about the cited P95 chart is needed for this check.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.31 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Read Remark 4.1.5(2) in both published copies p.31 and v3 p.33 and checked the factorization, tangent cone and formal arcs. The normality assertion is false but unused; retains error/nothing. Removed dependence on an inherited, unverified reading of P95."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E2",
    "kind": "error",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); §4.2.9 and proof of Proposition 4.2.10(2), p.35",
-   "printed": "(ϖ, ϖ′) ∈ W(α) if X_α v_{ϖ′} ≠ 0 for some weight vector … Equivalently, (ϖ, ϖ′) ∈ W(α) if and only if ϖ′ and ϖ′ + α are weights of V(ϖ); … If we let ν and v ∈ V(ν) range over all such pairs with X_α v ≠ 0, then (ϖ, ϖ′ − α) range over all elements of W(α).",
-   "correction": "The equivalence fails in characteristic p, and the printed proof bounds l only over the pairs realised by a nonzero X_α. Every pair with ϖ minuscule is realised, so the argument gives l ≤ j_α (the minimum over ϖ ∈ S of Proposition 4.2.13) for (α, ⟨λ, α⟩ − l) ∈ Φ^FM. With k_α ≥ j_α from the proof of Proposition 4.2.13, this still gives Φ^cur = Φ^tan = Φ^FM, so Theorem 4.2.3 stands.",
-   "reason": "Here k is algebraically closed of characteristic p (§4.1.1). Take G = GL_2, α = e_1 − e_2 and ϖ = (p, 0). The Weyl module V(ϖ) has basis v_0, …, v_p with v_i of weight (p − i, i) and X_α v_i = (p − i + 1) v_{i−1}, so X_α v_1 = p·v_0 = 0 although (p − 1, 1) and (p, 0) are weights. The two readings of W(α) differ, and neither makes the last sentence of the proof true: V(ν)* is the induced module H⁰(ϖ), not V(ϖ). For ν minuscule, adjacent weights span the standard representation of the root SL_2, on which X_α is nonzero in every characteristic, so the pairs with ϖ ∈ S are realised. Proposition 4.2.10(2) for general λ ≼ μ, and the equalities with l_α in (4.2.12), Proposition 4.2.13, Remark 4.2.16 and Corollary 4.2.19, rest on the printed step and are not established by it in characteristic p. The results used later need only k_α = j_α.",
-   "affects": "a stated result",
+   "locator": "Published §4.2.5–4.2.11, pp.34–35 (especially §4.2.9 and both proofs in Proposition 4.2.10); downstream repair in Proposition 4.2.13, pp.36–37. arXiv v3 §§4.2.5–4.2.13, pp.35–39.",
+   "printed": "§4.2.9 defines W(α) using nonzero X_α on a Weyl-module weight space, then asserts equivalence with adjacency of weights and the symmetry (ϖ,β)∈W(α) iff (ϖ,β+α)∈W(−α); Proposition 4.2.10 uses those assertions.",
+   "correction": "Retain the nonzero-action definition of W(α); delete the claimed adjacent-weight equivalence and unrestricted pairwise symmetry in characteristic p. Repair Proposition 4.2.10(2) directly using the RIGHT inclusion of (4.2.7): for g=(1+εt^(⟨λ,α⟩−l)X_α)t^λ and v_β∈V(ϖ), t^⟨μ,ϖ⟩g⁻¹v_β has its X_α-term of exponent ⟨μ,ϖ⟩−⟨λ,β⟩−l. If X_αv_β≠0, integrality gives l≤⟨μ,ϖ⟩−⟨λ,β⟩, hence l≤l_α for ALL dominant weights. Under Proposition 4.2.13's minuscule-set hypothesis, the proof of k_α≥j_α uses only minuscule root strings, for which symmetry holds, and gives k_α=j_α=l_α. Thus its full equality, Remark 4.2.16 and the sign-corrected Corollary 4.2.19 survive, not just k_α=j_α. The printed proof of Proposition 4.2.10(1) outside that hypothesis still needs a valid argument; no counterexample to its numerical statement is claimed.",
+   "reason": "For GL₂ in characteristic p, in the divided-power basis v_i=F^(i)v_0 of Δ(p,0), wt(v_i)=(p−i,i), E v_i=(p−i+1)v_(i−1), F v_i=(i+1)v_(i+1). Thus E v_1=0 although both adjacent weights occur, while F v_0=v_1≠0, disproving also the pairwise symmetry. The proof's final range assertion fails: input v_p has E v_p=v_(p−1)≠0 but is sent to weight (−1,1−p) in Δ(0,−p)=Δ(p,0)⊗det^(−p), whose raising coefficient is p=0. However the omitted right inclusion yields the stated general bound by the inverse-matrix calculation above, without dualizing Weyl modules. For any S as in Proposition 4.2.13, this gives k_α≤l_α≤j_α; the minuscule argument gives the opposite k_α≥j_α. The earlier report overstated the reach by leaving Proposition 4.2.10(2) and the l_α equalities unestablished. V(ν)* is generally induced rather than Weyl, so Remark 4.2.8(3)'s identification with V(−w₀ν) cannot justify discarding the right inclusion.",
+   "affects": "the proof",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.35–37 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Confirmed the false equivalence, false pairwise symmetry and faulty range assertion by explicit divided-power calculations, not merely by a weight diagram. Substantially amended correction and reach: the right-inclusion calculation proves 4.2.10(2) in its stated generality; the minuscule squeeze also restores all equalities in 4.2.13, 4.2.16 and sign-corrected 4.2.19. This is an error in the proof, not evidence of a false main theorem. No conclusion is asserted about the unrestricted numerical identity in 4.2.10(1) beyond its invalid printed proof."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E3",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Definition 4.2.6, §4.2.9 and proof of Proposition 4.2.10(2), pp.34–35; Proposition 4.3.9, p.41",
-   "printed": "ν ∈ X_*(T)^+ a dominant weight; ϖ ∈ X_*(T)^+ is a dominant cocharacter; ϖ = −w_0ν ∈ X_*(T)^+; and, in Proposition 4.3.9, λ ∈ X^*(T)_+",
-   "correction": "ν, ϖ ∈ X^*(T)^+ are dominant weights (characters), and λ ∈ X_*(T)^+ is a dominant cocharacter.",
-   "reason": "ϖ is the highest weight of V(ϖ) and is paired with the cocharacters λ and μ; §4.2.11 uses X^*(T)^+ for the same weights, and elsewhere λ ≼ μ are dominant cocharacters.",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Definition 4.2.6, §4.2.9 and proof of Proposition 4.2.10(2), pp.34–35; Proposition 4.3.9, p.41; also the malformed W-membership at the end of the proof of Proposition 4.2.13, p.37 (v3 p.39 prints the intended membership).",
+   "printed": "ν ∈ X_*(T)^+ a dominant weight; ϖ ∈ X_*(T)^+ is a dominant cocharacter; ϖ = −w_0ν ∈ X_*(T)^+; and, in Proposition 4.3.9, λ ∈ X^*(T)_+; p.37 typesets the membership after ⟨α∨,w⁻¹(ϖ)⟩<0 as '(ϖ,w⁻¹(ϖ))W∨(∈α)'",
+   "correction": "ν, ϖ ∈ X^*(T)^+ are dominant weights (characters), and λ ∈ X_*(T)^+ is a dominant cocharacter. In the p.37 proof the membership is (ϖ,w⁻¹(ϖ))∈W(α).",
+   "reason": "ϖ is the highest weight of V(ϖ) and is paired with the cocharacters λ and μ; §4.2.11 uses X^*(T)^+ for the same weights, and elsewhere λ ≼ μ are dominant cocharacters. The malformed p.37 membership is legible in v3 and follows from a minuscule root string with pairing −1; it is not the invalid general-weight equivalence discussed in E2.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.35, 41 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Checked publisher images pp.34–35,37,41 and the corresponding v3 text. Highest weights are characters, λ is a cocharacter, and the pairings otherwise have no stated type. Added the missed typesetting corruption in the p.37 membership; v3 supplies its ungarbled form, but does not fix the character/cocharacter slips."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E4",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Proof of Theorem 4.2.3 (§4.2.15), types B_n and D_n, pp.37–38",
-   "printed": "Type B_n. We identify P^∨ and P with Z^n … ϖ_n = (1/2, …, 1/2); and, in types B_n and D_n, ϖ_i = Σ_{j=1}^{i} e_i",
-   "correction": "P = Z^n + Z·(1/2, …, 1/2) (P^∨ = Z^n), and ϖ_i = Σ_{j=1}^{i} e_j.",
-   "reason": "The spin weight ϖ_n printed in the same display is not in Z^n. Type C_n prints ϖ_i = Σ e_j correctly. The case check pairs μ − ν with the displayed ϖ_i and is correct with them.",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Proof of Theorem 4.2.3 (§4.2.15), types B_n and D_n, pp.37–38",
+   "printed": "Type B_n. We identify P^∨ and P with Z^n … ϖ_n = (1/2, …, 1/2); and, in types B_n and D_n, ϖ_i = Σ_{j=1}^{i} e_i; type B p.38 gives ⟨μ−ν,ϖ_i⟩=r−Σ_(j=1)^i ν_j 'for all i'; type D p.38 prints Σ_(j=1)^(n−1)ν_i",
+   "correction": "P = Z^n + Z·(1/2, …, 1/2) (P^∨ = Z^n), and ϖ_i = Σ_{j=1}^{i} e_j. In the type-B partial-sum equality restrict i to 1,…,n−1; for i=n the pairing is (r−Σ_(j=1)^nν_j)/2. In the type-D sum with index j, the summand is ν_j.",
+   "reason": "For B_n, the coroot lattice consists of integer vectors of even total sum, so its dual is P=Z^n+Z·(1/2,…,1/2); the root lattice is Z^n, so P∨=Z^n. Pairing the displayed spin weight gives the extra 1/2. The nonnegativity conclusion is unchanged. Pairing the B and D simple coroots with the corrected fundamental weights gives the Kronecker delta; the printed repeated e_i does not. The D half-spin sum has entries (1,…,1,0), hence pairs with r−Σ_jν_j, not r−(n−1)ν_i.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.37–38 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Checked both publications pp.37–38 and v3 pp.39–40, including images. Confirmed the lattice and fundamental-weight slips and added the adjacent missing-half/range and dummy-index slips. With these corrections the displayed nonnegativity case checks are unchanged."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E5",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Proof of Theorem 4.2.3 (§4.2.15), types D^R_n and D^H_n, pp.38–39",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Proof of Theorem 4.2.3 (§4.2.15), types D^R_n and D^H_n, pp.38–39",
    "printed": "α_n = e_{n−1} + e_{n−1}; and, for type D^H_n, μ = sϖ^∨_{n−1} + tϖ^∨_n with q = s − t and μ = (r/2, …, r/2, q/2)",
    "correction": "α_n = e_{n−1} + e_n. With the printed ϖ_{n−1} = (1/2, …, 1/2, −1/2) and ϖ_n = (1/2, …, 1/2), μ = (r/2, …, r/2, −q/2); equivalently take q = t − s.",
-   "reason": "The case check uses only ⟨μ − ν, ϖ_i⟩ for i ≤ n − 2 and the hypotheses for ϖ_{n−1} and ϖ_n, none of which involves the last coordinate of μ, and swapping s and t is the diagram automorphism exchanging the half-spin labels.",
+   "reason": "D_n is simply laced, so the displayed half-spin fundamental coweights have last coordinates −1/2 and +1/2; their s,t combination has last coordinate (t−s)/2. The first n−1 coordinates are r/2. Contrary to the old report's wording, pairings with the half-spin weights DO involve the last coordinate; their nonnegativity is assumed as part of the S-test. The argument only has to deduce the remaining i≤n−2 inequalities from r/2−ν_1≥0 and dominance. That deduction never uses the last coordinate. Swapping the two spin labels exchanges s,t consistently.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.38–39 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Read the type-D calculations pp.38–39 and v3 p.40, checked the final simple root and the linear combination. Amended the reason: the half-spin hypotheses are not independent of the final coordinate, but the deduction of the remaining inequalities is. No change to the theorem follows from these slips."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E6",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Corollary 4.2.19, p.40",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Corollary 4.2.19, p.40",
    "printed": "k_α = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_α",
    "correction": "k_{−α} = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_{−α}.",
    "reason": "Lemma 4.2.18 minimizes over (ϖ, ϖ′) ∈ W(−α), which by Remark 4.2.16 for −α gives k_{−α}; both uses (the proof of Proposition 4.3.9 and Remark 4.3.14) read k_{−α}. As printed it is false whenever ⟨λ, α⟩ ≠ 0: for GL_2 and λ = μ = (1, 0), the minimum is 0 = k_{−α} while k_α = k_{−α} + ⟨λ, α⟩ = 1.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.39–41 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Read Lemma 4.2.18, Corollary 4.2.19 and its use in Proposition 4.3.9 in both versions. For λ=μ=(1,0), (λ−kα∨)^dom≼μ allows k=0,1 for α=e₁−e₂, while k_(−α)=0. The minuscule minimum is 0. The corrected identity with l_(−α) is justified by the repaired squeeze in E2; it is not left unestablished."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E7",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); Proof of Lemma 7.2.8, p.79",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); Proof of Lemma 7.2.8, p.79",
    "printed": "Bil_{H^c}(V) ⊗_Q F ≅ ∏_{σ:F→R} Bil_{H^c_{R,σ}}(V_{R,σ}) … we have h = ∏_{σ:F→R,σ} ×V_{R,σ} → R. We also have an isomorphism Let h ∈ X; then considering h as a H′_{R,σ} is the weight homomorphism for h_σ. … We choose Ψ ∈ Bil_{H^c} ∩ ∏_{σ∈F} U_σ.",
-   "correction": "Bil_{H^c}(V) ⊗_Q R ≅ ∏_σ Bil_{H^c_{R,σ}}(V_{R,σ}). Restore the sentence of arXiv v3 (p.82): h = ∏_σ h_σ for some h_σ: S → H′_{R,σ}, and h_σ(i) is a Cartan involution of H′_{R,σ}/w_σ(R)^×, where w_σ: G_m → H′_{R,σ} is the weight homomorphism of h_σ. Choose Ψ ∈ Bil_{H^c}(V) whose image in Bil_{H^c}(V) ⊗_Q R lies in ∏_σ U_σ.",
-   "reason": "The published sentence was garbled in typesetting (arXiv v3 has it intact, with H′_{F,σ} for H′_{R,σ}). Such a Ψ exists because Bil_{H^c}(V) is dense in its real extension and ∏_σ U_σ is open and non-empty ([De79, 1.1.18(a)]). The argument is otherwise as printed.",
+   "correction": "Replace ⊗_Q F by ⊗_Q R. Restore the factorization h=∏_σ h_σ with h_σ:S→H′_(R,σ), and the statement that Int(h_σ(i)) induces the Cartan involution after quotienting by the weight torus; w_σ:G_m→H′_(R,σ) is the weight homomorphism. arXiv v3 p.82 retains that sentence, apart from its F,σ/R,σ subscript slip. Interpret Ψ as an F-bilinear invariant form through its image in the real base change, indexed by embeddings σ:F→R. For the additional openness issue and the correct alternating subspace in which to choose Ψ, see E9.",
+   "reason": "The right side is a product of real vector spaces, obtained from F⊗_Q R=∏_(σ:F→R)R, not by base change to F. The publisher's page image really contains duplicated/garbled prose, while v3 has the factorization and weight homomorphism. Density of the entire bilinear-form space alone is not the full argument for choosing Ψ: E9 supplies the missing restriction to alternating forms. The intact preprint sentence is a restoration source, not an erratum fixing all of this entry.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction",
-    "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.79 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031.",
-    "arXiv v3 p.82, the same proof, rendered and compared."
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Compared published p.79 and v3 p.82 as images and read the full proof. Confirmed real scalar extension and typesetting defects; corrected the notation for an inner Cartan involution. Removed the inherited claim that the polarization set is open in all invariant bilinear forms, recording that separately in E9."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E8",
    "kind": "misprint",
-   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository copy, SHA-256 b3e4bf8b…); proof of Proposition 5.3.11, second display on p.60",
+   "locator": "published version, Forum Math. Pi 14 (2026) e14 (Cambridge repository and publisher PDFs; full hashes in the companion report); proof of Proposition 5.3.11, second display on p.60",
    "printed": "Hence, the base change of c by the map Ŵ(R_G/𝔞_G) → Ŵ(k[[u]]) → Ŵ(k[ε]) induced by a*_(2): R_G → k[[u]] → k[ε] preserves the tensors s̃_a.",
    "correction": "The base change of c by the map Ŵ(R_G/𝔞_G) → Ŵ(k[ε]) induced by a*_(2): R_G → k[[u]] → k[ε], which factors through R_G/𝔞_G.",
-   "reason": "𝔞_G = 𝔪_G² + π_E R_G does not map to 0 in k[[u]] (𝔪_G² goes into (u²)), so there is no map R_G/𝔞_G → k[[u]] and the middle arrow is not defined. The composite R_G → k[[u]] → k[ε] kills 𝔪_G² and π_E, so it factors through R_G/𝔞_G, and the previous display, c_{Ŵ(k[ε])} = c ⊗_{Ŵ(R_G/𝔞_G), a*_(2)} Ŵ(k[ε]), uses exactly that map. Checked on the page image. The earlier checkpoint's report noted the point in passing.",
+   "reason": "There is in general no factorization of the chosen a*:R_G→k[[u]] through R_G/𝔞_G. On the smooth GL₂ Grassmannian chart R_G=W(k)[[x]], the curve x↦u sends x²∈𝔞_G to u²≠0. By contrast a*_(2) sends it to ε²=0 and kills π_E, so it always factors through R_G/𝔞_G. Functoriality of Zink's Witt rings then gives the single map to Ŵ(k[ε]) already used in the preceding tensor-product formula. Constant curves can factor through the quotient; the defect is the asserted intermediate arrow for an arbitrary chosen curve, not nonexistence for every possible curve.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Forum of Mathematics, Pi article page (cambridge.org, DOI 10.1017/fmp.2026.10031), fetched 23 September 2026: no erratum or corrigendum is linked",
-    "Crossref, 23 September 2026: no update or correction registered for 10.1017/fmp.2026.10031",
-    "arXiv 2409.03689: versions v1–v3; v3 (9 April 2026) is the latest and says 'Final version, to appear in Forum Math. Pi'; no later version",
-    "M. Kisin's preprints page (people.math.harvard.edu/~kisin/preprints.html) lists the paper with no correction; R. Zhou's Cambridge page lists no correction"
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
    ],
    "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
    "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Read the proof setup pp.56–57 and the base-change passages pp.59–60, comparing v3 pp.61–62; the bad arrow is visible in the published image. Amended the overly absolute explanation using a nonconstant smooth-chart counterexample. The composite to dual numbers, and hence the argument using it, remains valid."
+  },
+  {
+   "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E9",
+   "kind": "error",
+   "locator": "Published proof of Lemma 7.2.8, p.79, definition of Bil_Hc(V) and assertion that U_σ is open; arXiv v3 p.82.",
+   "printed": "Bil_Hc(V) is the space of all invariant F-bilinear forms; the subset U_σ consisting of polarization forms is then asserted to be open.",
+   "correction": "Work in Alt_Hc(V), the F-linear subspace of invariant alternating forms. Its real extension is the product of the corresponding local alternating-form spaces. Each polarization cone U_σ is nonempty and open in that subspace, and the rational points of Alt_Hc(V), viewed as a Q-vector space, are dense in its real extension. Thus choose Ψ there with all components polarizations and take Tr_(F/Q)Ψ as in the paper. The conclusion of Lemma 7.2.8 is unchanged.",
+   "reason": "Take F=Q, G=GSp₂≅GL₂ with its usual Shimura datum, Hc=SL₂, and the fundamental Hodge embedding on V=Q²⊗Q² where G acts on the first factor and trivially on the multiplicity factor. With J the standard alternating form, invariant bilinear forms are J⊗A for arbitrary A∈M₂(Q). Such a form is alternating iff A is symmetric; with compatible sign convention the polarization cone is A symmetric positive definite. This is open in Sym₂(R), not in M₂(R): arbitrarily small nonsymmetric perturbations of I leave the cone. In general, h_σ(U(1))⊂Hc_(R,σ) makes b(x,h_σ(i)y) symmetric for invariant alternating b; positive definiteness is open there. Nonemptiness is supplied by the Cartan-involution polarization argument cited in the paper. Deligne 1979 §1.1.10 (p.253) explicitly requires symmetry after applying h(i); §1.1.18(a) (p.256) provides existence, not automatic alternation of every invariant bilinear form.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details.",
+    "Deligne's original article https://publications.ias.edu/sites/default/files/34_VarietesdeShimura.pdf, §§1.1.10,1.1.15,1.1.18, pp.253,255–256, inspected as page images for the definition and existence argument; this is background for the repair, not a correction of KPZ."
+   ],
+   "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
+   "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
+   "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Added on independent review. Checked the doubled-standard-representation example, the symmetry condition, the rational alternating subspace and the density repair. The original E7 explanation repeated the false ambient-space openness assertion. This affects a proof step only and has the explicit repair above."
+  },
+  {
+   "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E10",
+   "kind": "misprint",
+   "locator": "Published §4.2.4, p.33, the two decompositions of Φ^cur and Φ^tan; arXiv v3 p.35.",
+   "printed": "Φ^cur_(λ,μ)=∏_i Φ^(H̃_i,cur)_(λ̃_i,μ̃_i) and Φ^tan_(λ,μ)=∏_i Φ^(H̃_i,tan)_(λ̃_i,μ̃_i).",
+   "correction": "Replace both products by disjoint unions, identifying each factor's roots with the corresponding component of R. The Schubert varieties themselves form a product and their tangent spaces a direct sum; their root-direction index sets form disjoint unions.",
+   "reason": "Each Φ is a subset of R×Z, and a root belongs to exactly one simple factor. Under a product of Schubert varieties a pure root direction occurs in the tangent space of that one factor, not as a tuple choosing a direction in every factor. For G=GL₂×GL₂ and λ=μ=((1,0),(1,0)), each factor has one root direction (α,0), while the product variety P¹×P¹ has two independent root directions. The printed Cartesian product has one element, whereas the correct disjoint union has two. The factorwise reduction of the theorem is valid with this correction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent reviewer, 23 September 2026: journal article https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/integral-models-of-shimura-varieties-with-parahoric-level-structure-ii/6C2640CC5856BDF975AF97EE30CA7906, including visible article text/links: no separate correction found; its §7.3 corrects other papers.",
+    "Crossref https://api.crossref.org/works/10.1017/fmp.2026.10031: relation is empty, no correction/update record; update-policy is a publisher-policy link, not an erratum.",
+    "https://arxiv.org/abs/2409.03689: v3, 9 April 2026, remains latest; the relevant passages of https://arxiv.org/pdf/2409.03689v3 were compared directly.",
+    "Author listings https://people.math.harvard.edu/~kisin/preprints.html and https://www.dpmms.cam.ac.uk/person/rz240: no separate correction located. Kisin's linked 88-page https://people.math.harvard.edu/~kisin/dvifiles/ParahoricII.pdf was spot-checked; it is not a replacement for the 89-page publication or 94-page v3.",
+    "Exact-title/author erratum-correction search on 23 September 2026 found no relevant separate correction. 'New' means none found in these checks, not a claim of exhaustive literature coverage.",
+    "Named Cambridge repository PDF SHA-256 b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31 fetched and compared with the publisher PDF SHA-256 20c4c83efd654e86a9aa41de184b5ea7f7a42672d2adfee81244db141b373bce. Relevant page text agrees after whitespace/footer normalization; publisher formula pages were also inspected as images. See the companion report for exact URLs, read scope and version-specific details."
+   ],
+   "owner": "PAPER-KISIN-PAPPAS-ZHOU-26",
+   "file": "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
+   "citation": "Kisin–Pappas–Zhou, \"Integral models of Shimura varieties with parahoric level structure, II\", Forum of Mathematics, Pi (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "reviewReason": "Added on independent review after reading §4.2.4 and checking the published page image against v3. The root labels, direct-sum tangent decomposition and GL₂×GL₂ small case determine the intended disjoint union. No change to the factorwise theorem reduction is needed."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E1",
