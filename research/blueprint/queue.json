@@ -30855,7 +30855,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1864"
   },
   {
    "id": "REV-ERRATA-PAPER-HE-21",
@@ -30997,7 +30998,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1870"
   },
   {
    "id": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -31104,8 +31106,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENOIST-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1876"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1876",
+   "finishedAt": "2026-09-23T09:25:15Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BENOIST-19",
