@@ -1,0 +1,2818 @@
+{
+  "paper": "PAPER-ZHANG-21",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Weil representation and Arithmetic Fundamental Lemma",
+    "authors": "Wei Zhang",
+    "venue": "Annals of Mathematics 193 (2021), no. 3, 863–978",
+    "doi": "10.4007/annals.2021.193.3.5",
+    "arxiv": "1909.02697",
+    "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf",
+    "version": "Published 116-page journal PDF, read in full; public YMSC mirror verified against publisher metadata. Author preprint collated selectively; Mihatsch–Zhang, DOI10.4171/JEMS/1375, §7.2 footnote5 supplies a published Gaussian correction.",
+    "readSections": [
+      "§1 Introduction and conventions",
+      "§§2–5 local orbits, FL/AFL, Cayley reduction and local constancy",
+      "§§6–10 unitary models, derived CM cycles, modularity and local intersections",
+      "§§11–12 Weil representation, regularized RTF and partial Gaussians",
+      "§§13–15 proofs of FL and AFL",
+      "Appendix A, Appendix B and all 47 references"
+    ],
+    "provenance": {
+      "published": {
+        "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf",
+        "publisher": "https://annals.math.princeton.edu/2021/193-3/p05",
+        "doi": "10.4007/annals.2021.193.3.5",
+        "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45",
+        "pages": 116,
+        "lines": 6061,
+        "version": "Published journal PDF mirrored by YMSC; title, page range, DOI and April2021 metadata match publisher.",
+        "date": "2026-09-23"
+      },
+      "author": {
+        "url": "https://math.mit.edu/~wz2113/math/online/AFL2019.pdf",
+        "sha256": "5aa8f57e1d43abc301f4fc0c6afae3f052995494367c8edb3877eb906721234a",
+        "lines": 5257,
+        "read": "Selective collation of Cayley, KR morphisms, §12 Gaussian/chart formulas and §14 comparison; not a whole-preprint reading.",
+        "readSections": [
+          "Cayley factor and KR morphism collation",
+          "Gaussian/Bessel formulas and partial-Cartan chart",
+          "§14 holomorphic comparison and E definition; §15 nearby-space sentence"
+        ],
+        "pages": 78
+      },
+      "history": "arXiv1909.02697 v1 6Sep2019,v2 9Jun2020,v3 20Dec2020(final). Abstract omits odd-prime/strongly-regular qualifications present in published body. No whole-arXiv reading claim. The author PDF is an earlier 78-page version with shifted lemma numbering, not asserted identical to the journal."
+    },
+    "correctionSource": {
+      "url": "https://ems.press/content/serial-article-files/31452",
+      "doi": "10.4171/JEMS/1375",
+      "sha256": "67c39ae1e0109162aba0e25aff25e6dfa4aa944eb68ca3ada7109a16583ca76e",
+      "readSections": [
+        "metadata and reference identification",
+        "§7.2 Proposition7.4 and footnote5,§7.3 beginning",
+        "§8.5 equations8.18–8.23"
+      ],
+      "finding": "Explicit printed correction to Zhang2021 §12 Gaussian functions, and explicit Whittaker normalization; not a whole-paper reading or substitute for original main theorem."
+    }
+  },
+  "summary": "Whole-paper first extraction of Zhang's modularity-and-induction proof. The published FL is for unramified quadratic p-adic extensions with p odd and residue cardinality q≥n; the AFL endpoint is over Qp, p odd and p≥n, on strongly regular semisimple orbits. Derived fixed loci and fat CM cycles are indispensable. The corrected Gaussian normalization is imported explicitly from Mihatsch–Zhang. This remains partial: the Cartan-chart descent and normalization propagation require replacement proofs, and external geometric/modularity inputs are not yet recursively closed.",
+  "items": [
+    {
+      "id": "PAPER-ZHANG-21/1",
+      "kind": "definition",
+      "name": "Hermitian-to-quadratic convention",
+      "statement": "For a characteristic-zero quadratic extension F/F0, an F/F0-Hermitian form is linear in its first argument. Its F0-quadratic form is q(u)=h(u,u); its associated bilinear form is TrF/F0 h and has diagonal 2q. Norm fibres are Vξ={u:q(u)=ξ}.",
+      "locator": "§1.2 (1.2)–(1.4), pp.869–870",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct scalar restriction, trace bilinear form and norm fibres; distinguish the pairings by type.",
+        "Export orthogonal decomposition and isometry transport."
+      ],
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "unitTests": [
+        "The standard Hermitian line has real bilinear diagonal 2|z|²."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/2",
+      "kind": "definition",
+      "name": "Schwartz spaces and Fourier transform",
+      "statement": "Use locally constant compactly supported functions at nonarchimedean places and algebraically rapidly decreasing smooth functions at infinity. On quadratic vector spaces use ψ(⟨x,y⟩) and the self-dual Haar measure; assemble adelic restricted tensors.",
+      "locator": "§1.2; §11.1",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct partial Fourier transforms and seminorm estimates; compare the positive Fourier sign with Mathlib's convention."
+      ],
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "unitTests": [
+        "Double transform is reflection; an arbitrary Haar measure is not self-dual."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/3",
+      "kind": "definition",
+      "name": "SL2 automorphic and coefficient-valued forms",
+      "statement": "Over totally real F0, use h=n(b)m(a^(1/2))κθ and Wξ^(k)(h)=a^(k/2)exp(2πiξ(b+ia))exp(ikθ). Define fixed-level parallel-weight holomorphic forms, their algebraic q-structure, finite tensor-valued forms, and Aexp whose lowering image is holomorphic of weight k−2.",
+      "locator": "§1.2 (1.5)–(1.13)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct adelic/classical conversion φ↦φ♭, Fourier coefficient and coefficient extension.",
+        "Require smoothness for absolute Fourier reconstruction, not mere continuity."
+      ],
+      "unitTests": [
+        "Wξ(1)=exp(−2πξ).",
+        "Nonzero constants cannot have nonzero weight."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/4",
+      "kind": "definition",
+      "name": "Group, Lie and semi-Lie relative spaces",
+      "statement": "For n≥2 embed GL(n−1) diagonally in GLn. Define Sn={γ:γ conjugate(γ)=1}, sn={y:y+conjugate(y)=0}, and Sn−1×V′n−1, V′r=F0^r⊕(F0^r)*, with action (h⁻¹γh,h⁻¹u1,u2h). For unitary groups use V#=V⊕Fu0 with h(u0,u0)=1.",
+      "locator": "§2.1–2.2 (2.1)–(2.5)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct actions, homogeneous/group adapters and block embeddings; expose ambient and acting ranks separately."
+      ],
+      "unitTests": [
+        "GL1 acts on S2.",
+        "The row transforms contragrediently."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/5",
+      "kind": "theorem",
+      "name": "Relative orbit matching",
+      "statement": "Regular semisimple linear relative orbits correspond to the disjoint union of unitary relative regular semisimple orbits over Hermitian isometry classes. Matching is F-conjugacy after the block embeddings; for semi-Lie pairs it is equality of characteristic coefficients and moments h(g^i u,u)=u2γ^i u1.",
+      "locator": "§2.2 (2.6)–(2.10)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reconstruct the nonsingular Hermitian Gram matrix in a cyclic-vector basis from the moments. Prove the homogeneous, group and Lie adapters independently; this is not stable endoscopic matching."
+    },
+    {
+      "id": "PAPER-ZHANG-21/6",
+      "kind": "definition",
+      "name": "Invariant quotient and reciprocal polynomial",
+      "statement": "An parametrizes monic conjugate-self-reciprocal degree-n polynomials with nonzero constant term; B records characteristic coefficients and moments. Preserve det(T+g) versus det(T−g) conventions. Irreducible α implies nonzero unitary vectors are cyclic; CM compactness is an additional condition.",
+      "locator": "§2.2 (2.10)–(2.11); §§7.4,12.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct quotient map, discriminant open, sign adapter and refined invariants."
+      ],
+      "unitTests": [
+        "T²−3T+1 over Q(i) is reciprocal but its specified fixed field is imaginary."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/7",
+      "kind": "definition",
+      "name": "Orbital integrals and transfer factors",
+      "statement": "Fix ηF/F0 and an extension η̃ to F×. Raw linear orbital integrals integrate Φ(h⁻¹·x)|det h|^sη(det h). §2 special values and derivatives include the cyclic-column transfer factor; unitary integrals are untwisted. Integral GL and hyperspecial U subgroups have volume one.",
+      "locator": "§2.3 (2.12)–(2.17)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Separate raw integral, transferred value and transferred derivative.",
+        "For rank r semi-Lie use ω=η̃(det(γ)^−floor(r/2)det(u1,γu1,…,γ^(r−1)u1)); prove conjugation and measure-change laws."
+      ],
+      "unitTests": [
+        "Scaling u1 by a contributes η(a)^r.",
+        "Do not differentiate ω in s."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/8",
+      "kind": "definition",
+      "name": "Smooth and partial transfer",
+      "statement": "Linear and unitary test functions match when transferred orbital integrals agree on matching regular semisimple orbits; use two local Hermitian classes nonarchimedean and all signatures over R. Partial transfer fixes α and one Hermitian class and requires vanishing on other classes in that fibre.",
+      "locator": "Definitions2.1–2.2,13.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the matching relation on test-function quotient spaces and split-place elementary transfer.",
+        "Existence is a theorem, not data assumed in the definition."
+      ],
+      "unitTests": [
+        "Agreement on the chosen class does not discharge vanishing on other classes."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/9",
+      "kind": "theorem",
+      "name": "Group Jacquet–Rallis FL",
+      "statement": "For unramified quadratic F/F0 of odd residue characteristic and q≥n, 1Sn(OF0) transfers to (1K0#,0) on the n-dimensional unitary spaces, with GL(n−1)(OF0) and K0 volumes one.",
+      "locator": "Conjecture2.3(a), Theorem13.9",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the semi-Lie induction and Proposition2.7(i). Correct the printed target K0 to K0#; q is the residue cardinality, not p."
+    },
+    {
+      "id": "PAPER-ZHANG-21/10",
+      "kind": "theorem",
+      "name": "Semi-Lie Jacquet–Rallis FL",
+      "statement": "Under the same unramified odd hypotheses and q≥n, the unit function on (Sn−1×V′n−1)(OF0) transfers to (1K0×Λ0,0), for the self-dual lattice Λ0 in split dimension n−1.",
+      "locator": "Conjecture2.3(b), Theorem13.9",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Globalize strongly regular data, compare holomorphic generating functions, isolate an invariant at a split place, then use density and local constancy on the full relative regular locus."
+    },
+    {
+      "id": "PAPER-ZHANG-21/11",
+      "kind": "theorem",
+      "name": "Maximal-order FL",
+      "statement": "For a regular semi-Lie pair in the split space, if g is full-group regular semisimple and OF[g] is maximal in the degree-r étale algebra F[g], the unit-function FL holds.",
+      "locator": "Proposition2.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Decompose the étale algebra and count stable self-dual lattices with the prescribed volumes. Correct the printed G0×V0 to the properly ranked semi-Lie space."
+    },
+    {
+      "id": "PAPER-ZHANG-21/12",
+      "kind": "theorem",
+      "name": "FL rank equivalence",
+      "statement": "For q≥n in the unramified odd setting, group FL for Sn is equivalent to semi-Lie FL for Sn−1×V′n−1.",
+      "locator": "Proposition2.7(i)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use central scalars, relative Cayley charts, integral orbit equality and the separate transfer-factor comparison."
+    },
+    {
+      "id": "PAPER-ZHANG-21/13",
+      "kind": "theorem",
+      "name": "FL norm-unit reduction",
+      "statement": "Under Proposition2.7's hypotheses, group FL for Sn−1 implies dimension-(n−1) semi-Lie FL for vectors of unit norm.",
+      "locator": "Proposition2.7(ii)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Split off the unit vector integrally, apply lower-rank group FL and compare measures. This does not cover arbitrary norms."
+    },
+    {
+      "id": "PAPER-ZHANG-21/14",
+      "kind": "definition",
+      "name": "Unitary Rapoport–Zink moduli",
+      "statement": "For unramified F/F0 with odd residue characteristic, Nn classifies strict formal OF0-modules of relative height 2n and dimension n, OF-action of signature (n−1,1), relative principal polarization with conjugate Rosati, and height-zero polarized quasi-isogeny to a fixed supersingular framing object.",
+      "locator": "§3.1 (3.1)–(3.3)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct base change, framing action and the relative/absolute height adapter; retain the relative polarization."
+      ],
+      "unitTests": [
+        "Absolute height is 2n[F0:Qp].",
+        "N1 is Spf O_Fbreve."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/15",
+      "kind": "theorem",
+      "name": "RZ representability and dimension",
+      "statement": "Nn in the preceding unramified odd setting is formally locally of finite type and formally smooth of relative dimension n−1 over Spf O_Fbreve.",
+      "locator": "§3.1; references[38],[31]",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import the precise RZ/RSZ deformation theorem and reconcile relative versus absolute models using the Eisenstein condition. External proof closure remains open."
+    },
+    {
+      "id": "PAPER-ZHANG-21/16",
+      "kind": "construction",
+      "name": "Framings, special Hom and diagonal",
+      "statement": "Choose the signature-(1,0) object E, its conjugate action and canonical lifts as in §3.1. The framing decomposition gives δ:Nn−1→Nn with graph Δ⊂Nn−1×Nn. The polarized special rational Hom space Vn is nonsplit of dimension n with the last-factor unit vector.",
+      "locator": "§3.1 (3.4)–(3.6)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Make conjugate action explicit rather than dropping overbars; construct adjoint, unit vector, orthogonal complement and δ."
+      ],
+      "unitTests": [
+        "The special unit vector has norm one and orthogonal complement Vn−1."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/17",
+      "kind": "definition",
+      "name": "Local KR divisor",
+      "statement": "For nonzero u∈Vn, Z(u)⊂Nn is the locus where the special quasi-homomorphism lifts to an actual homomorphism. It is empty or a relative Cartier divisor, with gZ(u)=Z(gu) and Z(u0)≅Nn−1 for the unit vector.",
+      "locator": "§3.1 (3.9)–(3.10)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct liftability under nilpotent base change, Cartier ideal and equivariance."
+      ],
+      "unitTests": [
+        "Do not apply the Cartier theorem to u=0.",
+        "Unit norm recovers δ."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/18",
+      "kind": "definition",
+      "name": "Derived group intersection",
+      "statement": "For relative regular semisimple g∈U(Vn), Int(g)=χ(OΔ⊗L O(1×g)Δ) on Nn−1×Nn, using proper scheme intersection support and O_Fbreve-length.",
+      "locator": "§3.1 (3.7)–(3.8)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct graph translate, derived support and finite-length Euler characteristic; prove conjugation invariance."
+      ],
+      "unitTests": [
+        "Retain higher Tor at nontransverse intersections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/19",
+      "kind": "definition",
+      "name": "Derived fixed locus and semi-Lie intersection",
+      "statement": "Ng=Γg∩ΔN is the naive fixed locus; LNg is the K-class OΓg⊗L OΔN transported to N. For regular semisimple (g,u), define Int(g,u)=χ(LNg⊗L OZ(u)); its support is a proper scheme.",
+      "locator": "§3.1 (3.11)–(3.13)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Separate naive support from derived class; expose the projection formula on N×N."
+      ],
+      "unitTests": [
+        "Simultaneous conjugation preserves Int; arbitrary nonregular pairs need not have proper support."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/20",
+      "kind": "definition",
+      "name": "Strong regular semisimplicity",
+      "statement": "A semi-Lie regular semisimple pair is strongly regular if its group coordinate is semisimple under full-group conjugation. For relative group orbits require relative regularity and full GLn/U(Vn) semisimplicity. Do not identify these with mere relative regularity.",
+      "locator": "Definitions3.5–3.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the dense loci, cyclic-vector criteria and matching compatibility."
+      ],
+      "unitTests": [
+        "Keep relative and full acting groups distinct."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/21",
+      "kind": "theorem",
+      "name": "Strongly regular group AFL",
+      "statement": "For F0=Qp, unramified quadratic F/F0, p odd and p≥n, matching γ∈Sn(F0)srs and g∈U(Vn)(F0)srs satisfy ∂Orb(γ,1Sn(OF0))=−Int(g)log p in the §2 normalization.",
+      "locator": "Conjecture3.8(a), Theorem15.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Combine Proposition4.12 with the semi-Lie induction. Conjecture3.2 on all regular semisimple elements is not the proved endpoint."
+    },
+    {
+      "id": "PAPER-ZHANG-21/22",
+      "kind": "theorem",
+      "name": "Strongly regular semi-Lie AFL",
+      "statement": "Under Theorem15.1's literal indexed hypotheses p odd, F0=Qp and p≥n, matching strongly regular pairs in Sn−1×V′n−1 and U(Vn−1)×Vn−1 satisfy ∂Orb((γ,u′),1integral)=−Int(g,u)log p.",
+      "locator": "Conjecture3.8(b), Theorem15.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Globalize while preserving the local étale order, apply Corollary14.8 and joint local constancy. Do not silently strengthen the bound by reindexing the proof."
+    },
+    {
+      "id": "PAPER-ZHANG-21/23",
+      "kind": "theorem",
+      "name": "Maximal-order AFL input",
+      "statement": "In the unramified odd local setting, for p>n and (g,u)∈(U(Vn−1)×Vn−1)srs with OF[g] maximal in F[g], semi-Lie AFL holds.",
+      "locator": "Proposition3.9",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import Mihatsch[31] Corollary9.9 and the separate rank-one case. The strict bound and its use in the final induction require external verification; do not weaken p>n by fiat."
+    },
+    {
+      "id": "PAPER-ZHANG-21/24",
+      "kind": "construction",
+      "name": "Cayley and relative Schur maps",
+      "statement": "On the invertibility opens, c(x)=−(1−x)(1+x)⁻¹ and c⁻¹(g)=(1+g)(1−g)⁻¹. For g′=[h u;w* d], set g=h+(1−d)⁻¹uw* and r(g′)=(g,u/((1−d)√ε)), with F=F0(√ε), ε∈OF0×; r♭ instead uses the Cayley vector ũ/√ε.",
+      "locator": "§4.1 (4.1)–(4.10)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Make denominator domains explicit; construct central-scalar variants rξ and inverse chart."
+      ],
+      "unitTests": [
+        "1−c(x)=2/(1+x).",
+        "Both Cayley compositions are identity on their domains."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/25",
+      "kind": "theorem",
+      "name": "Block Cayley identities",
+      "statement": "In Lemma4.1's domain, ũ=2(1−d)⁻¹(1−g)⁻¹u, det(1−g′)=(1−d)det(1−g), and gw=((1−conjugate(d))/(1−d))u, with g the Schur complement above.",
+      "locator": "Lemma4.1 (4.5)–(4.8)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Expand (1+g′)=(1−g′)x′, use unitary block equations and the Schur determinant formula; preserve the conjugation bar."
+    },
+    {
+      "id": "PAPER-ZHANG-21/26",
+      "kind": "theorem",
+      "name": "Relative Cayley open isomorphism",
+      "statement": "Adding the lower-right Lie coordinate e gives an equivariant isomorphism U(Vn)°→(U(Vn−1)×Vn−1×u1)°; the same holds for r♭.",
+      "locator": "Lemma4.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Recover the full Lie block matrix then apply inverse Cayley and verify both determinant predicates. Correct the proof's missing factor 2."
+    },
+    {
+      "id": "PAPER-ZHANG-21/27",
+      "kind": "theorem",
+      "name": "Cayley regularity and generic strong regularity",
+      "statement": "On a unitary or linear chart, relative regularity of the source is equivalent to that of its image. Starting with strongly regular data, the images or inverse lifts are strongly regular for all but finitely many central scalars ξ or lower-right coordinates e.",
+      "locator": "Lemmas4.3(i)–(iii),4.9(i)–(iii)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use triangular cyclic-span comparison and the characteristic-zero P+tQ pencil after removing its squarefree gcd. Six-way atomic splitting remains a completion gate."
+    },
+    {
+      "id": "PAPER-ZHANG-21/28",
+      "kind": "theorem",
+      "name": "RZ graph pullback",
+      "statement": "If 1−d is an OF-unit, (δ×δ)*Γg′=Γg∩π2*Z(u). For u≠0 the corresponding derived pullbacks have no higher Tor and factor through the graph and divisor classes.",
+      "locator": "Lemma4.4 (4.13)–(4.14)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Solve the off-diagonal lifting equations between two possibly different deformations using the unit denominator. Check expected dimension and local complete intersections before AppendixB.2."
+    },
+    {
+      "id": "PAPER-ZHANG-21/29",
+      "kind": "theorem",
+      "name": "Derived rank reduction",
+      "statement": "Under the unit-denominator hypothesis with r(g′)=(g,u), u≠0, the derived class Δ∩L(id×g′)Δ equals LNg∩LZ(u). For relative regular semisimple g′, Int(g′)=Int(g,u).",
+      "locator": "Proposition4.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply derived associativity to the two Cartesian squares, Lemma4.4 and the projection formula. Unit rescaling of the special vector does not change its divisor."
+    },
+    {
+      "id": "PAPER-ZHANG-21/30",
+      "kind": "construction",
+      "name": "Linear Cayley chart",
+      "statement": "For γ′=[a b;c d]∈Sn put γ=a+(1−d)⁻¹bc. Use the Lie blocks y,b̃,c̃,e to define r and r♭ by (4.18)–(4.19), retaining the (1−y²)⁻¹ row correction, √ε factors and c̃ sign. Adjoining e gives the GL(n−1)-equivariant open isomorphism.",
+      "locator": "§4.3, Lemmas4.7–4.8",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct inverse and invariant transport; visually recheck all barred formulas before Lean transcription."
+      ],
+      "unitTests": [
+        "n=2 scalar block case; row/column variance and determinant identity."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/31",
+      "kind": "theorem",
+      "name": "Cayley matching",
+      "statement": "Matching strongly regular inputs have matching rξ and r♭ξ images wherever defined as relative regular orbits. To retain strong regularity of the targets, impose the generic-ξ condition of Lemmas4.3 and4.9.",
+      "locator": "Lemma4.10",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the same block F-conjugacy on the Lie matrices and the (1−x²)⁻¹ row correction. The printed unconditional srs target annotations remain an investigation gate."
+    },
+    {
+      "id": "PAPER-ZHANG-21/32",
+      "kind": "theorem",
+      "name": "Orbital rank reduction",
+      "statement": "For a norm-one ξ with 1−ξd and det(1−ξγ′) units, the raw group unit orbital integral equals the semi-Lie unit integral for every s. Transferred values/derivatives require the separate factor comparison.",
+      "locator": "Lemma4.11",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Identify integral orbit conditions and Haar quotients; import RSZ[37] Lemma11.9 for the transfer factor."
+    },
+    {
+      "id": "PAPER-ZHANG-21/33",
+      "kind": "theorem",
+      "name": "AFL rank equivalence",
+      "statement": "For q≥n in the unramified odd setting, strongly regular group AFL for Sn is equivalent to semi-Lie AFL in dimension n−1.",
+      "locator": "Proposition4.12(i)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Choose among q+1 norm-one residue classes avoiding at most n eigenvalues, then a generic lift; combine orbital and derived-intersection rank reductions."
+    },
+    {
+      "id": "PAPER-ZHANG-21/34",
+      "kind": "theorem",
+      "name": "AFL norm-unit reduction",
+      "statement": "Under Proposition4.12's hypotheses, group AFL for Sn−1 implies semi-Lie AFL in dimension n−1 for vectors of unit norm.",
+      "locator": "Proposition4.12(ii)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Split off the unit vector and identify the derived graph intersection with the lower-rank group model; verify the bound independently of part(i)."
+    },
+    {
+      "id": "PAPER-ZHANG-21/35",
+      "kind": "construction",
+      "name": "Vertex lattices and Deligne–Lusztig strata",
+      "statement": "For the nonsplit unramified Hermitian space, vertex lattices satisfy Λ⊂Λ∨⊂ϖ⁻¹Λ with odd type t=dim(Λ∨/Λ). The closed stratum VΛ in Nred is smooth projective of dimension (t−1)/2; the reduced space is stratified by these loci.",
+      "locator": "§5.1, references[42],[26]",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct containment incidence, strata and group transport; export finite orbit types."
+      ],
+      "unitTests": [
+        "Type1 strata have dimension zero; maximum dimension is floor((n−1)/2)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/36",
+      "kind": "theorem",
+      "name": "Stratum-cycle intersection is locally constant",
+      "statement": "For n≥3, a maximal vertex lattice Λ and C∈CH1,VΛ(Nred), the function u↦χ(C⊗LZ(u)) on nonzero Vn is locally constant, compactly supported, and constant on a punctured neighbourhood of zero.",
+      "locator": "Lemma5.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reduce curve classes to type3 strata and apply Li–Zhang[26] Corollary6.2.2. A higher-dimensional replacement in Remark5.3 avoids unproved formal Adams multiplicativity."
+    },
+    {
+      "id": "PAPER-ZHANG-21/37",
+      "kind": "theorem",
+      "name": "Fixed-g local constancy",
+      "statement": "For full-group regular semisimple g, Int(g,u) is locally constant on vectors making (g,u) regular semisimple.",
+      "locator": "Proposition5.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "The lattice OF{g^i u} and intersection support stabilize locally. Represent the derived class by curves, handle vertical curves with Lemma5.1 and horizontal curves by normalization and Tor vanishing. Use Remark5.3's alternative if formal (B.3) is unavailable."
+    },
+    {
+      "id": "PAPER-ZHANG-21/38",
+      "kind": "theorem",
+      "name": "Characteristic-polynomial submersion",
+      "statement": "At a strongly regular lift, the characteristic map in the relative Cayley coordinates (g,u,e) is a submersion as in Lemma5.4.",
+      "locator": "Lemma5.4",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Pass to Lie invariants char(x), e and u*x^j u, decompose the étale algebra, and show the norm differential is surjective. Record the exact analytic opens and tangent maps before implementation."
+    },
+    {
+      "id": "PAPER-ZHANG-21/39",
+      "kind": "theorem",
+      "name": "Joint local constancy of Int",
+      "statement": "The function (g,u)↦Int(g,u) is locally constant on (U(Vn)×Vn)srs.",
+      "locator": "Theorem5.5, first assertion",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Lift to a strongly regular rank-(n+1) element, hold its conjugacy class fixed via Lemma5.4, and use fixed-g local constancy plus derived rank reduction. Audit any use of Proposition4.12's cardinality bound."
+    },
+    {
+      "id": "PAPER-ZHANG-21/40",
+      "kind": "theorem",
+      "name": "Compact support modulo conjugation",
+      "statement": "The support of Int on the strongly regular semi-Lie locus is compact modulo U(Vn).",
+      "locator": "Theorem5.5, second assertion",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "A point in the intersection determines a minimal closed DL stratum with gΛ=Λ and u∈Λ. Finitely many vertex types give a finite union of compact KΛ×Λ representatives."
+    },
+    {
+      "id": "PAPER-ZHANG-21/41",
+      "kind": "definition",
+      "name": "Unitary Shimura datum with CM torus",
+      "statement": "For CM F/F0 and dimension n, take a CM type Φ and strict fake Drinfeld signature rφ0=n−1, rφ=n elsewhere in Φ. Construct GQ of rational similitudes and G̃=ZQ×GmGQ≅ZQ×ResF0/Q U(V), with reflex field E=EΦEr containing F.",
+      "locator": "§6.1 (6.1)–(6.6)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct h(z), reflex field and product-level comparison; retain the positive CM-torus convention."
+      ],
+      "unitTests": [
+        "Only the distinguished real place has signature(n−1,1)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/42",
+      "kind": "definition",
+      "name": "Integral level and bad-prime data",
+      "statement": "D0 includes residual characteristic2, primes ramified in F/F0 and inert nonsplit V; D is a rational-prime pullback containing D0 and d its rational product. Away d choose self-dual Λv and hyperspecial KG,v; choose KZ maximal away d and small level at d.",
+      "locator": "§6.2.2 (6.8)–(6.11)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct localization, adelic level factors and self-dual choices; prove independence under allowed conjugacy."
+      ],
+      "unitTests": [
+        "A nonsplit place cannot be excluded from d while retaining hyperspecial self-dual data."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/43",
+      "kind": "construction",
+      "name": "Auxiliary CM moduli",
+      "statement": "The principally polarized OF-CM moduli M0 of type Φ is finite étale over OEΦ, under the paper's nonemptiness convention; the global discussion assumes some finite prime ramifies in F/F0 and selects a component. Add the specified level only at d.",
+      "locator": "§6.2.1; Howard[18] Proposition3.1.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Define the CM groupoid, component selection and level; compare its generic fibre with the torus canonical model."
+      ],
+      "unitTests": [
+        "Do not infer nonemptiness from a formal moduli definition."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/44",
+      "kind": "definition",
+      "name": "RSZ integral unitary moduli",
+      "statement": "Over OE[1/d], classify (A0,ι0,λ0,η0,A,ι,λ,η) with A0 in the selected CM moduli, OF[1/d]-action, strict fake Drinfeld determinant condition, prime-to-d principal polarization and KG,d-orbit of polarized rational Tate-Hom isometries. Impose the Eisenstein condition at the required places of F0 ramified over Q.",
+      "locator": "Definition6.1; generic version(6.12)–(6.13)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Define objects and d-isogeny morphisms, π1-invariant level sheaves and base change; compare all-primes generic Tate level."
+      ],
+      "unitTests": [
+        "Unramified F/F0 does not make the F0/Qp Eisenstein condition redundant."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/45",
+      "kind": "theorem",
+      "name": "RSZ smooth integral model",
+      "statement": "The moduli in Definition6.1 is separated, finite type and smooth DM of relative dimension n−1 over OE[1/d]; sufficiently small level at d gives a smooth quasi-projective scheme, assumed thereafter.",
+      "locator": "Theorem6.2 and following paragraph",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Verify RSZ[40] Theorem5.2 and[39] Theorem6.2 under the stated sign/Eisenstein conditions; generic comparison is with the canonical Shimura model."
+    },
+    {
+      "id": "PAPER-ZHANG-21/46",
+      "kind": "definition",
+      "name": "Generic global KR divisors",
+      "statement": "For ξ∈F0,+ and KG-orbit µ in V(A0,f), Z(ξ,µ) classifies the generic moduli point with u∈HomF°(A0,A), h(u,u)=ξ and η(u)∈µ. Weighted Z(ξ,φ) is the finite compact-support sum of proper pushforward divisor classes.",
+      "locator": "Definition7.1, (7.1)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Correct morphisms to u′∘a0=ϕ∘u for the CM-source isomorphism a0 and ϕ:A→A′; define pushforward with multiplicities."
+      ],
+      "unitTests": [
+        "The printed u∘ϕ is not type-correct."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/47",
+      "kind": "definition",
+      "name": "Integral global KR divisors",
+      "statement": "Over OE[1/d] require u∈HomOF(A0,A)⊗Z[1/d], fixed positive norm and KG,d-level orbit. For φ=1Λ^d⊗φd define the weighted integral divisor; its generic fibre is the corresponding generic weighted divisor.",
+      "locator": "Definition7.2, (7.2)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct integral liftability, corrected morphisms, finite orbit sums and generic-fibre compatibility."
+      ],
+      "unitTests": [
+        "Nonintegral special Hom outside d does not define an integral point."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/48",
+      "kind": "theorem",
+      "name": "KR forgetful map",
+      "statement": "The KR forgetful morphism is representable, finite and unramified.",
+      "locator": "Proposition7.3(a)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply KR[25] Proposition2.9 or Liu[30] Proposition4.22 with the actual base and level; retain finite pushforward multiplicities."
+    },
+    {
+      "id": "PAPER-ZHANG-21/49",
+      "kind": "theorem",
+      "name": "Flat Cartier KR divisors",
+      "statement": "Étale locally on the ambient RSZ model, the KR morphism defines a Cartier divisor, flat over OE[1/d].",
+      "locator": "Proposition7.3(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import BHKRY[5] §2.5 and Liu[30] Proposition4.22; distinguish a finite unramified divisor map from a globally embedded divisor."
+    },
+    {
+      "id": "PAPER-ZHANG-21/50",
+      "kind": "theorem",
+      "name": "Basic-locus p-adic uniformization",
+      "statement": "At ν∤d over inert v0, the completed RSZ model is the quotient of the relative unitary RZ space times the away-v0 level cosets by the nearby global unitary group, with the CM-torus component factor as in (7.3)–(7.6).",
+      "locator": "§7.3; RSZ[40] Theorem8.15",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Verify absolute-to-relative RZ comparison via Mihatsch[31] Theorem3.1 and its Eisenstein condition; identify the CM-torus partition and each fibre's quotient."
+    },
+    {
+      "id": "PAPER-ZHANG-21/51",
+      "kind": "theorem",
+      "name": "Formal KR orbit expansion",
+      "statement": "For positive ξ the pullback of Z(ξ,φ) to each CM-torus component of the basic completion is the finite sum over G′(F0)-orbits of (u,g) of φ^v0(g⁻¹u)[Z(u)×1gK^v0].",
+      "locator": "Proposition7.4, (7.7)–(7.8)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Transport the special Hom through uniformization and descend the equivariant orbit sum; verify finiteness and multiplicities, not just equality of supports."
+    },
+    {
+      "id": "PAPER-ZHANG-21/52",
+      "kind": "definition",
+      "name": "Nonmaximal CM order",
+      "statement": "Let α be irreducible, conjugate reciprocal and integral away d. Put F′=F[T]/α, extend conjugation by T↦T⁻¹, and explicitly assume F′ is CM over its totally real fixed field F0′. Set Rα=OF[1/d][T]/α and Ram(α) its nonmaximal-order places outside d.",
+      "locator": "§7.4 (7.9)–(7.10)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct involution and local order, maximality test and finite bad set; the CM assumption is independent."
+      ],
+      "unitTests": [
+        "The reciprocal polynomial T²−3T+1 alone fails the totally-real assertion."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/53",
+      "kind": "definition",
+      "name": "Naive and twisted fat CM moduli",
+      "statement": "CM(α,g) parametrizes integral RSZ objects with ϕ∈EndOF(A)⊗Z[1/d], α(ϕ)=0, ϕ*λ=λ, and level intertwining by g∈G(F0,d). CM(α) is g=1. The order may be nonmaximal and no extra CM signature is imposed.",
+      "locator": "Definitions7.6,7.8; Remark7.7",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct forgetful map and double-coset dependence; retain potentially higher-dimensional special fibres."
+      ],
+      "unitTests": [
+        "Do not identify the naive fat cycle with a finite-flat curve at bad-order primes."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/54",
+      "kind": "theorem",
+      "name": "Fat CM finite forgetful morphism",
+      "statement": "For irreducible α as above, CM(α,g)→M is representable, finite and unramified.",
+      "locator": "Proposition7.9(a)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use bounded endomorphisms, rigidity, Hilbert representability and the abelian-scheme valuative criterion; expand the finite-type argument rather than using α(ϕ)=0 alone without polarization."
+    },
+    {
+      "id": "PAPER-ZHANG-21/55",
+      "kind": "theorem",
+      "name": "Fat CM properness and good-order étaleness",
+      "statement": "CM(α,g) is proper over OE[1/d], and finite étale away from Ram(α).",
+      "locator": "Proposition7.9(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Exclude a nonzero toric degeneration using the CM action's degree; apply formal CM deformation theory when the local order is maximal."
+    },
+    {
+      "id": "PAPER-ZHANG-21/56",
+      "kind": "theorem",
+      "name": "Rational characteristic polynomial",
+      "statement": "For an abelian variety A over any field and rational endomorphism ϕ, det(T−ϕ|Vℓ A) lies in Q[T], has degree2dim A and is independent of ℓ≠char(k).",
+      "locator": "Lemma7.10(a)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Recover the polynomial from deg(m−ϕ) for rational m. Supply the degree polynomial and quasi-endomorphism extension."
+    },
+    {
+      "id": "PAPER-ZHANG-21/57",
+      "kind": "theorem",
+      "name": "F-linear characteristic polynomial",
+      "statement": "With F-action and F-linear rational ϕ, its rank-n characteristic polynomial on Vℓ A lies in F[T] and is independent of ℓ.",
+      "locator": "Lemma7.10(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Recover F-valued traces using the nondegenerate trace pairing and the Q-traces of ι(a)ϕ^j; use Newton identities in characteristic zero."
+    },
+    {
+      "id": "PAPER-ZHANG-21/58",
+      "kind": "theorem",
+      "name": "Characteristic polynomial in connected families",
+      "statement": "For an abelian scheme over a connected locally noetherian base, the rational characteristic polynomial of a quasi-endomorphism is constant; the F-linear polynomial is likewise constant when the F-action is present.",
+      "locator": "Lemma7.11(a)–(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the lisse Tate sheaf where ℓ is invertible and cover the base using two distinct primes. Split the Q/F variants into separate nodes at final atomization."
+    },
+    {
+      "id": "PAPER-ZHANG-21/59",
+      "kind": "definition",
+      "name": "Hecke correspondence and fixed locus",
+      "statement": "For g∈G(F0,d), Hk[KgK] classifies two RSZ objects with common CM factor and a polarized d-quasi-isogeny intertwining level by g. Its map to M×M is finite, each projection finite étale. Its fixed locus is the fibre product with the diagonal.",
+      "locator": "Definition7.12; §7.5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct both projections, finite correspondence and diagonal fixed functor; expose source/target quasi-isogeny direction."
+      ],
+      "unitTests": [
+        "g=1 gives the identity-level correspondence, not arbitrary automorphisms."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/60",
+      "kind": "theorem",
+      "name": "Characteristic decomposition of fixed Hecke loci",
+      "statement": "The Hecke fixed locus has a finite open-and-closed decomposition by F-characteristic polynomial. Each occurring polynomial is conjugate reciprocal and integral away d; for irreducible α its fibre is CM(α,g).",
+      "locator": "Lemmas7.13,7.15; (7.11)–(7.13)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use connected-family constancy and finite type; prove integrality on Tate modules or Dieudonné modules in characteristic ℓ, and use Cayley–Hamilton plus irreducibility for α(ϕ)=0 iff charFϕ=α."
+    },
+    {
+      "id": "PAPER-ZHANG-21/61",
+      "kind": "definition",
+      "name": "Derived CM cycle",
+      "statement": "LCM(α,g) is [OHk⊗L OΔ] restricted to the open-and-closed CM(α,g) support, a rational supported G0-class. Weighted LCM(α,φ0) is the finite double-coset sum for φ0=1K^d⊗φ0,d.",
+      "locator": "§7.6 (7.14)–(7.17)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Define restriction in support K-theory, weighted sum, and finite pushforward; do not replace the derived class by OCM."
+      ],
+      "unitTests": [
+        "Nonmaximal-order higher-dimensional support must still permit a virtual one-cycle."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/62",
+      "kind": "theorem",
+      "name": "Virtual dimension of derived CM",
+      "statement": "LCM(α,g) lies in the dimension≤1 filtration F1G0(CM(α,g)) because the diagonal is regular of codimension n−1 and the correspondence is finite étale over M.",
+      "locator": "§7.6 (7.15), footnote5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use scheme supported rational K-filtration multiplicativity, then dimension-preserving finite pushforward. Expand the footnote's finite-image argument; do not import the unproved formal analogue of (B.3)."
+    },
+    {
+      "id": "PAPER-ZHANG-21/63",
+      "kind": "theorem",
+      "name": "Formal Hecke uniformization",
+      "statement": "On each basic CM-torus component, the completed Hecke correspondence is the nearby-group quotient of the RZ diagonal times the discrete away-v0 Hecke pair correspondence.",
+      "locator": "Proposition7.16",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the uniformization functor to the quasi-isogeny and identify both projection maps; retain the double-coset condition g1⁻¹g2∈KgK."
+    },
+    {
+      "id": "PAPER-ZHANG-21/64",
+      "kind": "theorem",
+      "name": "Naive CM uniformization",
+      "statement": "The basic completion of CM(α) is the disjoint union of descended Nδ×1hK terms, indexed by nearby-group orbits (δ,h) with charδ=α and h⁻¹δh∈K away v0.",
+      "locator": "Proposition7.17(i)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use rigidity of quasi-isogenies and the equality of the action on the away-v0 coset to identify δ with the global endomorphism."
+    },
+    {
+      "id": "PAPER-ZHANG-21/65",
+      "kind": "theorem",
+      "name": "Derived CM uniformization",
+      "statement": "The completed weighted derived CM class is the orbit sum φ0^v0(h⁻¹δh)[LNδ×1hK] on each CM-torus component.",
+      "locator": "Proposition7.17(ii), Remark7.18",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Lift the naive comparison to derived graph-diagonal tensor products with flat base change. The semiglobal variant allows arbitrary away-v0 level but needs its own model comparison."
+    },
+    {
+      "id": "PAPER-ZHANG-21/66",
+      "kind": "definition",
+      "name": "Chow-valued special-divisor generating series",
+      "statement": "Set Z(0,φ)=−φ(0)c1(ω). The adelic generating series sums Z(ξ,ω(hf)φ)Wξ^(n)(h∞) over totally positive ξ and the zero term, in CH1 of the generic unitary Shimura variety.",
+      "locator": "§8.1 (8.1)–(8.2)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the zero coefficient, Weil action and coefficient-valued q-expansion."
+      ],
+      "unitTests": [
+        "Do not omit the negative Hodge-bundle constant term."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/67",
+      "kind": "theorem",
+      "name": "Chow modularity",
+      "statement": "The preceding Chow-valued series is a holomorphic SL2 automorphic form of parallel weight n and level fixing φ, with the stated algebraic coefficient structure, over totally real F0.",
+      "locator": "Theorem8.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import orthogonal Borcherds/Yuan–Zhang–Zhang modularity, the unitary embedding trick of Liu[28], and the CM-torus component comparison. This does not prove integral arithmetic modularity for general F0."
+    },
+    {
+      "id": "PAPER-ZHANG-21/68",
+      "kind": "construction",
+      "name": "Complex KR uniformization",
+      "statement": "At a complex embedding ν of E, use the nearby Hermitian space indefinite only at its real restriction and the negative-line domain D. Each CM-torus component is G′(F0)\\(D×G(Af)/K); positive-norm u gives D_u of negative lines perpendicular to u.",
+      "locator": "§8.2 (8.3)–(8.7)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the component and divisor quotients; compare with formal uniformization."
+      ],
+      "unitTests": [
+        "The negative-line domain is empty for a positive-definite Hermitian space."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/69",
+      "kind": "theorem",
+      "name": "Complex KR orbit expansion",
+      "statement": "For positive ξ, the complex divisor is the weighted descended sum φ(g⁻¹u)[D_u×1gK] over rational unitary orbits; it can be regrouped by stabilizer double cosets.",
+      "locator": "Proposition8.2 and Remark8.3",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Transport special Homs through complex uniformization, descend with multiplicities, and apply orbit-stabilizer regrouping. Correct the component-projection cross-reference."
+    },
+    {
+      "id": "PAPER-ZHANG-21/70",
+      "kind": "definition",
+      "name": "Kudla Green function",
+      "statement": "For a negative line z, R(u,z)=h(u_z,u_z)=|h(u,z̃)|²/h(z̃,z̃)≤0. Put Ei(−r)=−∫r∞e^(−t)dt/t for r>0 and GK(u,h∞)(z)=−Ei(2πa_v R(u,z)) for u≠0 off D_u; set GK(0,h∞)=−log a_v.",
+      "locator": "§8.3 (8.9)–(8.13)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct orthogonal projection, logarithmic singularity and descended orbit sum; preserve the parameter a_v."
+      ],
+      "unitTests": [
+        "Changing the basis z̃ leaves R unchanged.",
+        "For a negative Hermitian line, R(u,z)=−|u|²."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/71",
+      "kind": "construction",
+      "name": "Automorphic Green function and correction",
+      "statement": "Use the automorphic Green function GB from Bruinier/Oda–Tsuzuki/BHKRY with its source-prescribed zero/nonpositive extensions; form the coefficient-wise correction GK−GB with the Whittaker factor as in (8.14).",
+      "locator": "§8.3 (8.14)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Import an actual normalized Green function, not an arbitrary function satisfying modularity.",
+        "Close the source's omitted nonpositive-coefficient conventions before implementation."
+      ],
+      "unitTests": [
+        "The difference must be smooth at a positive divisor after identical singular parts cancel."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/72",
+      "kind": "theorem",
+      "name": "Green-comparison modularity",
+      "statement": "For F0=Q, the correction series evaluated at any complex Shimura point belongs to Aexp of weight n and Weil-stabilizer level.",
+      "locator": "Theorem8.4",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import Ehlen–Sankaran[8] Theorem3.6 and its unitary comparison in the proof of Theorem4.13. The totally real extension is later work, not assumed here."
+    },
+    {
+      "id": "PAPER-ZHANG-21/73",
+      "kind": "definition",
+      "name": "Localized arithmetic divisor group",
+      "statement": "For a regular flat arithmetic model over OE with finitely many places S removed, use Q-divisors plus compatible Green functions modulo (div f,−log|f|²). Removing S is quotienting by the classes supported above S.",
+      "locator": "§8.4; Remark8.5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct principal relations, vertical localization and pullback to proper arithmetic curves; use the same arithmetic-degree normalization as other height roadmaps."
+      ],
+      "unitTests": [
+        "Over Q, a vertical p-fibre corresponds to (0,2log p)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/74",
+      "kind": "construction",
+      "name": "Arithmetic KR series",
+      "statement": "Equip positive KR divisors with GB; define the zero coefficient as −φ(0)c1(ω̂), with Petersson-metrized automorphic line bundle. Form the q-series in localized arithmetic CH1.",
+      "locator": "§8.4 (8.15)–(8.17)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct arithmetic classes and level-dependent q-expansions; import generic metrized degree rather than duplicate it."
+      ],
+      "unitTests": [
+        "The zero coefficient uses the metric, not just the algebraic line bundle."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/75",
+      "kind": "theorem",
+      "name": "Arithmetic KR modularity over Q",
+      "statement": "For F0=Q, the arithmetic series is holomorphic of weight n on Γ(N), with prime factors of N among the inverted primes, in the stated rational/algebraic coefficient space.",
+      "locator": "Theorem8.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Adapt BHKRY[5] TheoremB's Borcherds-divisor calculation from maximal level to the localized smooth model. This adaptation and source hypotheses remain an external closure obligation."
+    },
+    {
+      "id": "PAPER-ZHANG-21/76",
+      "kind": "definition",
+      "name": "Proper-cycle arithmetic pairing",
+      "statement": "Pair arithmetic CH1 with proper one-cycles on a regular flat arithmetic model, quotienting only vertical cycles rationally equivalent to zero on proper special-fibre subschemes. Over OE\\S the value lies in R_S=R/spanQ{log p:S has a place above p}.",
+      "locator": "§9.1 (9.1)–(9.4)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct proper-curve degree and vertical rational-equivalence descent; retain archimedean and residue-degree factors."
+      ],
+      "unitTests": [
+        "Inverting a new prime enlarges the quotient of R by its logarithm."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/77",
+      "kind": "construction",
+      "name": "Derived CM class as a proper one-cycle",
+      "statement": "Push F1G0(CM) to supported G0(M), pass to gr1, identify it rationally with CH1 supported on the CM image, and map to the proper-cycle quotient. Properness and zero-dimensional generic fibre are required.",
+      "locator": "§9.1 after(9.4)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the filtration-preserving finite pushforward and cycle-class map; share the K-to-Chow comparison with SchemeKTheoryOperations."
+      ],
+      "unitTests": [
+        "Discarding F0 is legitimate only for this one-cycle target, not for arbitrary K-classes."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/78",
+      "kind": "definition",
+      "name": "Normalized arithmetic intersection series",
+      "statement": "For Φ=φ0⊗φ, standard away d, set Int(τ,Φ)=(ẐB(τ,φ),LCM(α,φ0))/(τ(ZQ)[E:F]), where τ(ZQ)=#ZQ(Q)\\ZQ(Af)/KZ. Its zero coefficient is the negative metrized Hodge pairing times φ(0).",
+      "locator": "§9.2 (9.5)–(9.10)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the component normalization, coefficientwise pairing and R_S-valued series."
+      ],
+      "unitTests": [
+        "The CM-torus component count and [E:F] must each be divided out exactly once."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/79",
+      "kind": "theorem",
+      "name": "Intersection-series modularity",
+      "statement": "For F0=Q, Int(τ,Φ) is holomorphic of weight n and the specified level, with coefficients in R_S⊗Q Qbar.",
+      "locator": "Remark9.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the proper-cycle pairing linearly to Theorem8.6; justify coefficient extension and finite-dimensional modular-form representation."
+    },
+    {
+      "id": "PAPER-ZHANG-21/80",
+      "kind": "theorem",
+      "name": "No generic intersection",
+      "statement": "For irreducible α and nonzero ξ, the KR divisor and fat CM cycle do not intersect the generic fibre.",
+      "locator": "Theorem9.2(i)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use irreducibility to make the special vector cyclic and apply the CM action to contradict the characteristic-zero signature; compare RSZ[40] Theorem8.5."
+    },
+    {
+      "id": "PAPER-ZHANG-21/81",
+      "kind": "theorem",
+      "name": "No good split intersection",
+      "statement": "Outside the bad set S with standard local test functions, a place split in F/F0 contributes no special-fibre intersection.",
+      "locator": "Theorem9.2(ii), Corollary9.3",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the split local Hom/signature obstruction from RSZ; deduce Int_v(ξ,Φ)=0."
+    },
+    {
+      "id": "PAPER-ZHANG-21/82",
+      "kind": "theorem",
+      "name": "Good inert support is basic",
+      "statement": "Outside S, at an inert place the intersection support is contained in the basic locus.",
+      "locator": "Theorem9.2(iii)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the cyclic CM action to force the relevant isocrystal to be basic. Do not uniformize the whole model as if every point were basic."
+    },
+    {
+      "id": "PAPER-ZHANG-21/83",
+      "kind": "definition",
+      "name": "Local arithmetic intersection decomposition",
+      "statement": "For nonzero ξ, the disjoint-generic-fibre pairing decomposes into local derived Euler lengths times log qν and Green evaluations at complex places with log qν=2, then sums over ν|v and divides by τ(ZQ)[E:F].",
+      "locator": "§9.3 (9.11)–(9.16)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct local terms and finite support; isolate zero coefficient from the positive series."
+      ],
+      "unitTests": [
+        "A complex place carries factor2; a finite extension scales length with ramification."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/84",
+      "kind": "theorem",
+      "name": "Inert local orbit formula",
+      "statement": "At inert v0∤d with Φv0=1K×Λ, Int_v0(ξ,Φ)=2log q_v0 Σ[(δ,u)] Int_v0(δ,u)Orb((δ,u),Φ^v0), over nearby-group rational orbits of characteristic α and norm ξ.",
+      "locator": "Theorem9.4 (9.18)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply both formal orbit expansions, multiply the RZ length by base-change degree, sum CM components, and use Σν|w[Eν:Fw]=[E:F]. The factor2 comes from q_w=q_v²."
+    },
+    {
+      "id": "PAPER-ZHANG-21/85",
+      "kind": "theorem",
+      "name": "Archimedean fixed point and orbit formula",
+      "statement": "For δ of irreducible CM characteristic α in the nearby group, there is a unique fixed negative line zδ, and no nonzero rational u is perpendicular to it. The normalized archimedean Kudla intersection is the rational-orbit sum GK(u,h∞)(zδ)Orb((δ,u),Φ).",
+      "locator": "Theorem10.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Diagonalize the CM action orthogonally; signature singles out the negative eigenline. If u is perpendicular, all δ^i u are, contradicting cyclicity."
+    },
+    {
+      "id": "PAPER-ZHANG-21/86",
+      "kind": "construction",
+      "name": "Refined CM Hermitian invariant",
+      "statement": "The δ-action identifies V with restriction of scalars of a one-dimensional F′/F0′-Hermitian space W whose trace form is V. Define ξ′=q′(u)∈F0′ with TrF0′/F0 ξ′=ξ. The unique negative real embedding v′ gives R(u,zδ)=−|ξ′|v′.",
+      "locator": "§10 (10.5)–(10.7), Remark10.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the trace-form equivalence and refined orbit invariant; relate conjugacy to ker(H1(T)→H1(G))."
+      ],
+      "unitTests": [
+        "A single negative embedding, not merely negative total trace, controls the archimedean derivative."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/87",
+      "kind": "theorem",
+      "name": "Archimedean exponential-integral formula",
+      "statement": "With the h∞-parameter retained, the archimedean local intersection is −Σ Ei(−2πa_v|ξ′|v′)Orb((δ,u),Φ). Equation(10.8) is its a_v=1 specialization.",
+      "locator": "Corollary10.3",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Insert the projection invariant into GK and the orbit formula. The parameter omission must not be propagated to the full adelic function."
+    },
+    {
+      "id": "PAPER-ZHANG-21/88",
+      "kind": "theorem",
+      "name": "Paired Green correction is modular",
+      "statement": "For F0=Q, IntK−B(h,Φ), obtained by pairing the Green correction with the generic CM cycle and dividing by τ(ZQ)[E:F], is in Aexp of weight n and fixed Weil level; no integral model is needed for this correction.",
+      "locator": "(10.9)–(10.10), Corollary10.4",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply Theorem8.4 at each CM point and sum with multiplicities; justify the finite generic CM support."
+    },
+    {
+      "id": "PAPER-ZHANG-21/89",
+      "kind": "construction",
+      "name": "Even-dimensional Weil representation",
+      "statement": "For a nondegenerate even-dimensional quadratic space over the global base field, construct O(V)(A)×SL2(A) on Schwartz functions. Locally m(a) acts by χV(a)|a|^(d/2)φ(ax), n(b) by ψ(bq(x))φ(x), and w by γV times self-dual positive-sign Fourier transform, χV(a)=(a,(−1)^(d/2)det V).",
+      "locator": "§11.1 (11.1)",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Prove generator relations, orthogonal-sum and character changes, and splitting to SL2 in even dimension."
+      ],
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.4"
+      ],
+      "unitTests": [
+        "For Hermitian rank n the real dimension is 2n and m(√a) contributes a^(n/2)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/90",
+      "kind": "theorem",
+      "name": "Theta convergence and rational invariance",
+      "statement": "The theta sum Σu∈V(F)ω(g,h)φ(u) converges absolutely and is invariant under O(V)(F)×SL2(F).",
+      "locator": "§11.1 after(11.1)",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use adelic Schwartz estimates, lattice discreteness and Poisson summation; prove local uniform convergence for differentiation.",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.5"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/91",
+      "kind": "construction",
+      "name": "Partially linearized automorphic kernel",
+      "statement": "For affine X with reductive G-action and quadratic G-module V, fix a semisimple quotient fibre X(α). Define KΦ,α(g,h)=Σ(x,u)∈(X(α)×V)(F)ω(h)Φ(g⁻¹·(x,u)); its G(F)-quotient integral is SL2(F)-invariant when absolutely convergent.",
+      "locator": "§11.2 (11.2)–(11.3)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct partial Weil action commuting with G and the kernel; attach convergence predicates before integration."
+      ],
+      "unitTests": [
+        "Archimedean general Schwartz functions are not assumed finite sums of pure tensors."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/92",
+      "kind": "definition",
+      "name": "Unitary regular and singular orbit terms",
+      "statement": "For irreducible α, split J into u≠0 regular terms and u=0 terms. A singular term carries vol(Gδ(F0)\\Gδ(A0)) and integrates on Gδ(A0)\\G(A0); Gδ is the anisotropic CM centralizer torus.",
+      "locator": "§11.3 (11.4)–(11.7)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct stabilizer measures, unfolding and finite singular support."
+      ],
+      "unitTests": [
+        "Do not integrate the u=0 term over G(A) as if its stabilizer were trivial."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/93",
+      "kind": "theorem",
+      "name": "Unitary orbital-sum convergence",
+      "statement": "For any global Schwartz Φ the sum over relative regular rational orbits of ∫G(A)|Φ(g⁻¹·(δ,u))|dg is finite. For K∞-finite Φ, the fixed-α J is smooth and locally uniformly convergent in h.",
+      "locator": "Lemma11.1(a)–(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the regular quotient torsor, algebraic height bounds, discriminant control and the product formula to reduce to a convergent rational-height sum. Apply the same estimates to derivatives; split the two assertions at final atomization."
+    },
+    {
+      "id": "PAPER-ZHANG-21/94",
+      "kind": "theorem",
+      "name": "Unitary Fourier orbit expansion",
+      "statement": "The fixed-α unitary J unfolds as the sum of regular and centralizer-weighted singular terms. For ξ≠0 its ξ-Fourier coefficient is the orbit sum with q(u)=ξ.",
+      "locator": "(11.15)–(11.16)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use absolute convergence to interchange integrations and sums, then additive-character orthogonality."
+    },
+    {
+      "id": "PAPER-ZHANG-21/95",
+      "kind": "definition",
+      "name": "Linear nilpotent orbit decomposition",
+      "statement": "For irreducible α, the nonregular part of Sn(α)×V′ has three orbits: (0,0), nonzero column with zero row, and zero column with nonzero row. The last two have trivial stabilizers. Discard the zero orbit using nontrivial η on its stabilizer; regularize the other two.",
+      "locator": "§11.4 (11.17)–(11.21)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct split quadratic form q(u1,u2)=u2u1, orbit classification and J_s's separated terms."
+      ],
+      "unitTests": [
+        "q(u′)=0 alone is not equivalent to being in a nilpotent orbit when the refined invariant can have trace zero."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/96",
+      "kind": "theorem",
+      "name": "Linear regular-orbit convergence",
+      "statement": "The regular rational-orbit sum of absolute linear orbital integrals converges locally uniformly for complex s; with K∞-finite Φ′ it is locally uniform in (h,s), and derivatives in s are justified.",
+      "locator": "Lemma11.2(a)–(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Adapt the discriminant-height estimates, absorbing |det g|^Re(s) and logarithmic derivative factors uniformly on compact s-sets."
+    },
+    {
+      "id": "PAPER-ZHANG-21/97",
+      "kind": "definition",
+      "name": "Corrected Gaussian and partial Gaussian transfer",
+      "statement": "Use the corrected positive Hermitian Gaussian exp(−2πq(u)) and rank-one linear φ′(x,y)=½(x+y)exp(−π(x²+y²)), with ψ(b)=exp(2πib). A partial Gaussian matches the positive-definite Gaussian for γ in a fixed compact subset Ω⊂Tnrs and vanishes on other signatures in that fibre.",
+      "locator": "Definitions12.1–12.2,(12.6); Mihatsch–Zhang§7.2(7.6), footnote5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Keep full Gaussian transfer, whose existence is only expected here, separate from the partial construction.",
+        "Implement the published scaling correction before checking weight or q-expansion."
+      ],
+      "unitTests": [
+        "The old Gaussian is not a weight-one vector for the stated ψ.",
+        "For ξ>0 the corrected rank-one orbital value is exp(−2πξ)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/98",
+      "kind": "definition",
+      "name": "Bessel and exponential-integral kernels",
+      "statement": "For c>0 and complex s, Ks(c)=½∫0∞exp(−c(t+t⁻¹)/2)t^s dt/t. Use K−s=Ks, K1/2(c)=sqrt(π/(2c))e^−c and the source's order derivative; distinguish it from differentiation in c.",
+      "locator": "§12.3, reference[35]",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct holomorphic dependence on the order, differentiation bounds and Ei comparison."
+      ],
+      "unitTests": [
+        "At c>0, K1/2(c)>0; Ei(−c)<0."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/99",
+      "kind": "theorem",
+      "name": "Corrected rank-one orbital integral",
+      "statement": "For ξ≠0, raw Orb((1,ξ),φ′,s)=|ξ|^((1−s)/2)[K(1−s)/2(2π|ξ|)+sgn(ξ)K(−1−s)/2(2π|ξ|)] with corrected φ′. At s=0 it is e^−2πξ for ξ>0 and zero for ξ<0; for ξ<0 its derivative is ½e^−2πξ Ei(−4π|ξ|).",
+      "locator": "Lemma12.3 corrected by Mihatsch–Zhang§7.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Substitute t=exp y in the real multiplicative integral, then t² into the Bessel integral. Correct the statement's swapped Bessel orders and use the later Gaussian scaling. Numerical checks accompany, but do not prove, the formulas."
+    },
+    {
+      "id": "PAPER-ZHANG-21/100",
+      "kind": "theorem",
+      "name": "Corrected rank-one Weil action",
+      "statement": "For h=n(b)m(√a)κθ and ξ≠0, the transferred s=0 value is χ1(κθ)a^(1/2)e^(2πiξ(b+ia)) for ξ>0, and zero for ξ<0. For ξ<0 the derivative is half the same Whittaker factor times Ei(−4πa|ξ|).",
+      "locator": "Lemma12.5; Mihatsch–Zhang Proposition7.4",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the three Weil generators to the corrected φ′, then the rank-one integral. Preserve phase, κ-weight and negative ξ; do not reuse the printed old phase formulas."
+    },
+    {
+      "id": "PAPER-ZHANG-21/101",
+      "kind": "construction",
+      "name": "Partial Gaussian descent chart",
+      "statement": "Use GLn(R)=ANK with A=(R×)^n, N upper unipotent and K=SO(n). The proposed construction combines compact N/T cutoffs and a product of rank-one Gaussians. The map NK×Tnrs→Snc,rs has Weyl as well as sign identifications; the printed K∩A-torsor assertion is insufficient.",
+      "locator": "§12.4 (12.7)–(12.11)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Replace the descent by genuine local slices or a proved Weyl-compatible pushforward, with correct multiplicities, sign character and Haar Jacobian.",
+        "Prove the constructed function is Schwartz and has the required orbital integral; this is an explicit open gate."
+      ],
+      "unitTests": [
+        "n=2, t=diag(1,i), t′=diag(i,1), k=[[0,1],[-1,0]] give k⁻¹t′k=t.",
+        "A cutoff that is1 at t and0 at t′ does not descend through that fibre."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/102",
+      "kind": "theorem",
+      "name": "Partial Gaussian orbital factorization, conditional on repaired construction",
+      "statement": "For γ∈Ω and a correctly descended normalized partial Gaussian, the orbital integral factors as the A-orbital integral of the product rank-one function; regular nilpotent terms obey the corresponding regularized formula.",
+      "locator": "Lemma12.6 and Remark12.7",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Integrate N and K with normalized cutoffs, then factor over the diagonal torus. The source's chart proof is not accepted until the descent gate in item101 is closed."
+    },
+    {
+      "id": "PAPER-ZHANG-21/103",
+      "kind": "definition",
+      "name": "Rank-one regularized global distribution",
+      "statement": "For the split plane over F0 and nontrivial quadratic Hecke character η, J(φ′,s) is the regular orbit sum plus two nilpotent Tate terms. The 0+ term is L(s,η) times normalized local zeta integrals; the 0− term uses L(−s,η) and its corresponding signed parameter. The zero orbit contributes zero.",
+      "locator": "§12.5 (12.12)–(12.20)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct analytic continuation of the two nilpotent terms and retain the ±s convention."
+      ],
+      "unitTests": [
+        "Do not interpret the initially divergent full theta integral as an ordinary convergent integral."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/104",
+      "kind": "theorem",
+      "name": "Normalized Tate factors",
+      "statement": "For local Schwartz data, the Tate zeta integral divided by its L-factor extends to an entire function; at finite places it is a Laurent polynomial in q^s, and standard unramified data gives1. For nontrivial global η the completed global L-function is entire.",
+      "locator": "§12.5 (12.17)–(12.19)",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the exact local/global Tate theorem, preserving the trivial-character poles in the general API and specializing only after nontriviality is proved.",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/105",
+      "kind": "theorem",
+      "name": "Rank-one regularized modularity",
+      "statement": "J(ω(h)φ′,s) is smooth in h, entire in s, and left SL2(F0)-invariant.",
+      "locator": "Theorem12.9",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Prove upper-triangular invariance directly. For the Weyl element use Poisson, partial Fourier transform, integrate first over compact norm-one ideles to kill the zero orbit, apply Tate's functional equation in a convergent half-plane, then continue analytically."
+    },
+    {
+      "id": "PAPER-ZHANG-21/106",
+      "kind": "theorem",
+      "name": "Corrected Gaussian nilpotent factor",
+      "statement": "For φ′=½(x+y)e^−π(x²+y²), the normalized archimedean 0+ Tate factor is½, and after h=n(b)m(√a)κθ it is ½χ1(κθ)a^((1−s)/2).",
+      "locator": "Lemma12.11 with the published Gaussian correction",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Evaluate the signed real Gaussian Mellin integral divided by ΓR(s+1). The old function gives2^(s/2−1); scaling changes this to½."
+    },
+    {
+      "id": "PAPER-ZHANG-21/107",
+      "kind": "construction",
+      "name": "Rank-one reduction over the CM fixed field",
+      "statement": "For irreducible compact α, Sn(α)(F0) is one GLn-orbit with centralizer ResF0′/F0 Gm. The vector and covector become rank-one F0′ modules, with q=TrF0′/F0 q′; η∘det restricts to ηF′/F0′.",
+      "locator": "§12.6 (12.24)–(12.25), Definition12.12",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct the centralizer, trace pairing and character norm compatibility; compactness is equivalent to the CM condition."
+      ],
+      "unitTests": [
+        "Distinguish F0′-norm zero from trace-zero q."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/108",
+      "kind": "theorem",
+      "name": "Higher-rank nilpotent continuation",
+      "statement": "The regular nilpotent local integrals divided by L(s,η′v) extend entirely, are Laurent polynomials at finite places, and equal1 at almost all places for fixed α and standard test data.",
+      "locator": "Lemma12.13",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Integrate first over a compact centralizer quotient; express the result as finite Σaiλi^sφi and apply rank-one Tate theory over F0′. Check the quotient measure rather than treating a compact subset as a canonical transversal."
+    },
+    {
+      "id": "PAPER-ZHANG-21/109",
+      "kind": "theorem",
+      "name": "Higher-rank modularity of J_s",
+      "statement": "For the fixed irreducible compact α, finite test data and correctly constructed partial Gaussian archimedean data, J(h,Φ′,s) is entire in s and left SL2(F0)-invariant.",
+      "locator": "Theorem12.14",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reduce to finite combinations of rank-one regularized distributions over F0′, restricting SL2(A_F0′) to SL2(A_F0). This depends on the repaired Gaussian construction."
+    },
+    {
+      "id": "PAPER-ZHANG-21/110",
+      "kind": "construction",
+      "name": "Special-value and derivative expansion",
+      "statement": "At s=0 define J and ∂J. The derivative is the sum of single-place derivative terms plus the derivative of the global nilpotent L-factors. For general rank use η′=ηF′/F0′ and retain the opposite sign when differentiating L(−s,η′).",
+      "locator": "§12.7 (12.31)–(12.38)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct coefficientwise derivative and local decomposition with finite/nonzero support estimates; distinguish raw and transferred local terms."
+      ],
+      "unitTests": [
+        "The global product of transfer factors on a rational orbit is1.",
+        "Differentiate L(−s) as −L′(−s)."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/111",
+      "kind": "theorem",
+      "name": "Holomorphic coherent analytic series",
+      "statement": "For totally positive-definite V, unitary Gaussian data and matching partial linear Gaussians, J(h,Φ) and J(h,Φ′) lie in holomorphic parallel-weight-n fixed-level spaces.",
+      "locator": "Proposition13.3",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use modularity, corrected weight-n Gaussian eigenvectors, explicit nonnegative Fourier coefficients and nilpotent constants at every cusp."
+    },
+    {
+      "id": "PAPER-ZHANG-21/112",
+      "kind": "theorem",
+      "name": "Coherent comparison from lower-rank FL",
+      "statement": "With the finite set S and test functions of §13.2, assume group FL for Sn at every place outside S. Then E=J(Φ′)−J(Φ)=0 and all its nonzero Fourier orbit sums agree.",
+      "locator": "Theorem13.4; Corollary13.5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "For B the nonmaximal-order places, coefficients with ξ a unit at B vanish by norm-unit rank reduction; outside S∪B use maximal-order FL, and at S partial transfer. Apply Lemma13.6. Verify the q≥n hypothesis at every application of Proposition2.7."
+    },
+    {
+      "id": "PAPER-ZHANG-21/113",
+      "kind": "theorem",
+      "name": "Unit-index Fourier vanishing criterion",
+      "statement": "For a continuous SL2(F0)-invariant function right-invariant under K whose components at finite B are the conductor-conjugate hyperspecial groups of (13.3), vanishing of every nonzero ξ-Fourier coefficient with v(ξ)=0 for all v∈B forces the function to be constant; nonzero parallel weight forces zero.",
+      "locator": "Lemma13.6",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Induct on B using a one-step larger unipotent translation, character orthogonality, generation of local SL2 by opposite root groups and strong approximation. Use Fourier uniqueness for continuous functions, not an unjustified absolutely convergent expansion."
+    },
+    {
+      "id": "PAPER-ZHANG-21/114",
+      "kind": "theorem",
+      "name": "Isolation of one rational invariant",
+      "statement": "Fix b0∈B(F0), a split finite place v1 and compact neighbourhood constraints at all other places, standard integral at almost all. A sufficiently small neighbourhood at v1 leaves b0 as the only rational invariant in the adelic product.",
+      "locator": "Lemma13.7",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Embed B in affine space, bound all other coordinates and apply the number-field product formula to the difference from b0."
+    },
+    {
+      "id": "PAPER-ZHANG-21/115",
+      "kind": "theorem",
+      "name": "Individual coherent orbital equality",
+      "statement": "Under Theorem13.4's hypotheses, matching rational regular pairs of irreducible characteristic α and nonzero norm have equal global orbital integrals.",
+      "locator": "Proposition13.8",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use Lemma13.7 and a nonnegative auxiliary split-place matching function to isolate the invariant, then cancel its nonzero local integral."
+    },
+    {
+      "id": "PAPER-ZHANG-21/116",
+      "kind": "construction",
+      "name": "Local-to-global approximation for FL/AFL",
+      "statement": "For strongly regular local data with integral characteristic polynomial, unit det(1−g) and nonzero norm, use Cayley, polynomial weak approximation and a totally real degree-n extension to construct a CM field, a rank-one Hermitian trace form and rational data arbitrarily close locally, preserving the integral étale order.",
+      "locator": "Theorem13.9 proof; Theorem15.1 proof",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Prove field-algebra stability under close separable coefficients, positivity at infinity and simultaneous local Hermitian conditions.",
+        "Track a split versus nonsplit local target separately."
+      ],
+      "unitTests": [
+        "AFL globalizes the nonsplit special-Hom space; the Shimura nearby space must then be split at the distinguished good finite place."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/117",
+      "kind": "theorem",
+      "name": "Final FL induction and density extension",
+      "statement": "The group and semi-Lie FL conclusions hold for q≥n in the unramified odd setting; extension from strongly regular nonzero-norm data to all relative regular orbits uses orbital-integral local constancy.",
+      "locator": "Theorem13.9, proof architecture",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Induct on rank, globalize, choose S containing all q<n and bad-order places, use nonvanishing transfers to cancel away factors, remove the Cayley determinant restriction by central scalars, then apply density. This is the proof dependency item for endpoints9–10, not a second owner."
+    },
+    {
+      "id": "PAPER-ZHANG-21/118",
+      "kind": "theorem",
+      "name": "Split derivative terms vanish",
+      "statement": "In the incoherent test-function setup of §14, a split finite place v has ∂Jv(h,Φ′)=0.",
+      "locator": "Lemma14.2",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the elementary split matching and the incoherent orbit obstruction, as in Zhang[46] Proposition3.6; justify singular as well as regular terms."
+    },
+    {
+      "id": "PAPER-ZHANG-21/119",
+      "kind": "theorem",
+      "name": "Archimedean derivative detects one negative embedding",
+      "statement": "For invertible refined ξ′, the corrected partial-Gaussian value is nonzero only when every local real component is positive; if ξ′ is not totally positive, its first derivative vanishes unless exactly one component is negative. In that case it is ½ times the corrected Whittaker factor times Ei(−4πa|ξ′|negative).",
+      "locator": "Lemma14.3 corrected by Mihatsch–Zhang Proposition7.4",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Factor into rank-one integrals: at least two negative components give two vanishing factors, annihilating the first derivative."
+    },
+    {
+      "id": "PAPER-ZHANG-21/120",
+      "kind": "theorem",
+      "name": "Archimedean arithmetic/analytic comparison obligation",
+      "statement": "The intended identity is IntK_v(ξ,Φ)=−2 times the appropriately Whittaker-normalized archimedean derivative coefficient for matching data. The printed formulas mix parameters and Gaussian scales; the corrected comparison must include the change from Ei(−2πa|ξ′|) to Ei(−4πa|ξ′|) in the revised analytic convention.",
+      "locator": "Lemma14.4; Corollary10.3; later §8.5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Match refined orbits and use the rank-one Green integral. This item is a precise normalization-repair obligation, not a claim that unchanged printed definitions already satisfy the equality."
+    },
+    {
+      "id": "PAPER-ZHANG-21/121",
+      "kind": "theorem",
+      "name": "Holomorphic corrected derivative",
+      "statement": "For F0=Q and compatible corrected conventions, ∂Jhol=2∂J+IntK−B is holomorphic of weight n and common Weil level.",
+      "locator": "Proposition14.5",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use Aexp for both terms and Weil-transfer compatibility for all cusps. Cancel nonconstant nonholomorphic terms by the archimedean comparison and the remaining log a term using Jacquet[19](10.4)'s nilpotent/coherent comparison, whose incoherent adaptation must be proved."
+    },
+    {
+      "id": "PAPER-ZHANG-21/122",
+      "kind": "theorem",
+      "name": "Conditional global arithmetic comparison",
+      "statement": "With F0=Q and §14.3's S and standard good-place data, assume strongly regular group AFL for Sn over Qp at every p∉S. Then E♭=∂Jhol♭+Int vanishes in the fixed-level holomorphic space over R_S⊗Q Qbar.",
+      "locator": "Theorem14.6(a), corrected definition on p.965",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the unit-index Fourier criterion, using norm-unit AFL at nonmaximal-order places and maximal-order AFL elsewhere. Use the author-preprint definition without the extra printed factor2; close the Proposition3.9 bound gate."
+    },
+    {
+      "id": "PAPER-ZHANG-21/123",
+      "kind": "theorem",
+      "name": "Individual local arithmetic comparison",
+      "statement": "Under Theorem14.6's assumptions, for every finite v∉S and ξ≠0, −2∂Jv(ξ,Φ′)=Intv(ξ,Φ) as an equality in Q log pv.",
+      "locator": "Theorem14.6(b)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Take Fourier coefficients of E=0; each local term lies in Q log p, finitely many are nonzero, and distinct prime logarithms remain Q-linearly independent modulo the removed-prime span. This separation uses F0=Q."
+    },
+    {
+      "id": "PAPER-ZHANG-21/124",
+      "kind": "theorem",
+      "name": "Orbitwise AFL from the global comparison",
+      "statement": "Under the same induction assumption, at inert v∉S and for matching rational strongly regular pairs with nonzero norm, −∂Orb((γ,u′),1integral)=Intv(δ,u)log qv.",
+      "locator": "Corollary14.8",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use invariant isolation and Theorem5.5's compact support modulo conjugation; choose nonzero away factors and cancel them. Restore log qv in the proof display."
+    },
+    {
+      "id": "PAPER-ZHANG-21/125",
+      "kind": "theorem",
+      "name": "Final AFL induction obligation",
+      "statement": "Theorem15.1's group and semi-Lie endpoints21–22 follow by rank induction, CM globalization, the corrected global comparison and joint local constancy on the strongly regular locus. No extension to arbitrary p-adic base fields or all relative regular elements is inferred.",
+      "locator": "§15, Theorem15.1 proof",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Correct the nearby Shimura space to split at v0 so v0∤d is possible. Verify maximal-order input bounds and propagate every Gaussian/Green normalization correction before marking this proof closed."
+    },
+    {
+      "id": "PAPER-ZHANG-21/126",
+      "kind": "theorem",
+      "name": "Weil action preserves smooth transfer",
+      "statement": "For a local quadratic extension F/F0 and matching test functions on Sn×V′n and U(V)×V, ω(h) preserves matching for h∈SL2(F0); likewise on fixed-α partial transfers.",
+      "locator": "AppendixA, TheoremA.1",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Check upper unipotents by q equality, Levi by χV=η^n and transfer-factor scaling, and Fourier by Zhang[47]/Xue[43], including the Hermitian discriminant sign explicitly corrected in footnote10."
+    },
+    {
+      "id": "PAPER-ZHANG-21/127",
+      "kind": "theorem",
+      "name": "Hermitian Weil constants",
+      "statement": "For an n-dimensional Hermitian space regarded as a 2n-dimensional quadratic space, χV(a)=η(a)^n and γV=η(detHerm V)ε(η,½,ψ)^n. The split vector/covector quadratic space has χ=γ=1.",
+      "locator": "AppendixA (A.1) and following calculation",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use orthogonal-sum multiplicativity, reduce to Hermitian rank one, and check both norm classes; retain the discriminant sign missing in the cited earlier Fourier theorem.",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.2"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/128",
+      "kind": "definition",
+      "name": "Formal support of a coherent sheaf",
+      "statement": "For a noetherian formal scheme X and closed formal Y defined by J, a coherent sheaf is formally supported on Y if annihilated by some J^m. Affinely, for I-complete A and Y defined by J, this is algebraic support of its finite A-module in Spec(A/J), not only the topological support in Spf A.",
+      "locator": "AppendixB.1, p.971",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct supported coherent categories, change of ideal and finite-thickening equivalence."
+      ],
+      "unitTests": [
+        "On Spf A the topological support can be too coarse to detect J-power torsion."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/129",
+      "kind": "definition",
+      "name": "Coherent and supported perfect Grothendieck groups",
+      "statement": "Define G0(X) from coherent sheaves and K0^Y(X) from bounded complexes of finite locally free sheaves with homology formally supported on Y. Use the existing exact-category Grothendieck group as the algebraic presentation; the formal coherent/perfect categories still require construction.",
+      "locator": "AppendixB.1, pp.971–972",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct relations, class maps, exact functoriality, cup product and support change; distinguish globally strictly perfect from locally perfect unless a resolution property is proved."
+      ],
+      "unitTests": [
+        "The Cartan equivalence is not definitional on singular X."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/130",
+      "kind": "definition",
+      "name": "Dimension and codimension filtrations",
+      "statement": "For supported K0, Fi is generated by supports of codimension at least i; for coherent G0, Fi is generated by sheaves supported in dimension at most i. Form the associated gradeds, with rational coefficients throughout the paper.",
+      "locator": "AppendixB.1 (B.1)–(B.2)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct monotonicity, boundedness and finite-pushforward compatibility; interpret unions through directed finite unions of supports."
+      ],
+      "unitTests": [
+        "Codimension filtration is decreasing; dimension filtration is increasing."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/131",
+      "kind": "theorem",
+      "name": "Regular supported K/G comparison",
+      "statement": "For regular pure-dimensional finite-dimensional X in a category with the required resolution/devissage theorem, K0^Y(X)≅G0(Y) and F^(d−i) corresponds to Fi. The formal-scheme extension requires verification, not an automatic consequence of scheme devissage.",
+      "locator": "AppendixB.1, p.972",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Construct the coherent-to-perfect resolutions and supported devissage; verify global resolution assumptions or use local perfect complexes. The arbitrary formal statement is a closure gate."
+    },
+    {
+      "id": "PAPER-ZHANG-21/132",
+      "kind": "theorem",
+      "name": "Scheme rational Adams decomposition",
+      "statement": "For the regular schemes in Gillet–Soulé's hypotheses, supported rational K0 decomposes into Adams weight spaces, and the codimension filtration is the sum of weights at least its index.",
+      "locator": "AppendixB.1, citing[11] Proposition5.3",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Import Adams operations and prove the rational projectors in the finite weight range; identify the support filtration with the source's one.",
+      "planned": [
+        "SchemeKTheoryOperations:S.4",
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/133",
+      "kind": "theorem",
+      "name": "Scheme support-filtration multiplication",
+      "statement": "Under the scheme hypotheses of Gillet–Soulé[11] Proposition5.5, F^j1K0^Y(X)Q · F^j2K0^Z(X)Q ⊂ F^(j1+j2)K0^(Y∩Z)(X)Q.",
+      "locator": "AppendixB.1 (B.3), scheme case only",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use Adams weights and cup-product compatibility. The paper explicitly only expects the analogous formal assertion; it is not extracted as proved.",
+      "planned": [
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/134",
+      "kind": "construction",
+      "name": "Locally noetherian formal K-groups",
+      "statement": "For an increasing directed cover by noetherian formal opens Xi, define the paper's K0, G0 and supported K0 as inverse limits along restrictions, together with their filtrations. Verify independence of the exhaustion and identify the comparison with a global categorical construction where available.",
+      "locator": "AppendixB.1, p.973",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct restriction systems and canonical comparison maps; do not confuse this open-exhaustion limit with continuous K-theory of nilpotent thickenings."
+      ],
+      "unitTests": [
+        "A one-open exhaustion returns the noetherian group."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/135",
+      "kind": "definition",
+      "name": "Proper torsion Euler degree",
+      "statement": "For W a scheme proper over Spf A, A a complete DVR, define degree([E])=Σi(−1)^i lengthA Riπ*E; the scheme-over-Spf and properness assumptions force finite-length cohomology. For derived intersections sum (−1)^(i+j)length Riπ*Torj.",
+      "locator": "AppendixB.1 (B.4)–(B.5)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Construct additive Euler degree, supported derived pairing and base-change length formula."
+      ],
+      "unitTests": [
+        "A general proper formal scheme can have nontorsion cohomology and is not covered by this degree map."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/136",
+      "kind": "theorem",
+      "name": "Closed-union G0 decomposition modulo overlap",
+      "statement": "For a scheme-theoretic closed union X=X1∪X2 with I1∩I2=0, G0(X) modulo the image of G0(X1∩X2) identifies with the direct sum of the two component quotients. Quotients mean cokernels, not assumed injective embeddings.",
+      "locator": "LemmaB.1, footnote11",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Tensor the closed-union exact sequence; the Tor error and intersection quotient are supported on the overlap. Prove the displayed ordinary restriction formula descends to these cokernels."
+    },
+    {
+      "id": "PAPER-ZHANG-21/137",
+      "kind": "theorem",
+      "name": "Expected-dimensional Tor vanishing",
+      "statement": "Let X be locally noetherian formal of pure finite dimension, Zi pure-dimensional closed subschemes, Z1→X regular and Z2 Cohen–Macaulay. If the intersection has expected codimension at every point, Tori^OX(OZ1,OZ2)=0 for i>0 and derived tensor equals ordinary tensor in G0.",
+      "locator": "LemmaB.2(i)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Resolve Z1 by the Koszul complex of its local regular sequence. Expected height and Cohen–Macaulayness make the restricted sequence regular on Z2; prove the localization/gluing steps and dimension hypotheses."
+    },
+    {
+      "id": "PAPER-ZHANG-21/138",
+      "kind": "theorem",
+      "name": "Tor vanishing on an expected component",
+      "statement": "Under LemmaB.2's ambient hypotheses, if Z1∩Z2=Y∪Y′ with Y of expected dimension, higher Tor restricted to Y vanishes in G0(Y) modulo the image from Y∩Y′.",
+      "locator": "LemmaB.2(ii)",
+      "status": "missing",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply local expected-dimensional Tor vanishing away from the overlap and LemmaB.1's cokernel comparison. Do not claim the sheaf itself vanishes on the overlap."
+    },
+    {
+      "id": "PAPER-ZHANG-21/139",
+      "kind": "theorem",
+      "name": "Supported K-to-Chow comparison",
+      "statement": "For the regular arithmetic schemes used in §9, the rational dimension-one associated graded of coherent K-theory with prescribed support identifies with the corresponding supported Chow group, compatibly with finite proper pushforward.",
+      "locator": "§9.1; Gillet–Soulé[11] Theorem8.2",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Use the shared rational Chern-character/Riemann–Roch construction and verify its grading and support compatibility.",
+      "planned": [
+        "SchemeKTheoryOperations:S.7"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/140",
+      "kind": "construction",
+      "name": "Chow operations for the cycle construction",
+      "statement": "Use rational equivalence, proper pushforward with residue multiplicities, flat/lci pullback, Chern classes and projection/excess-intersection formulas on the actual schemes/stacks in the moduli problem; a finite unramified divisor map need not be a closed immersion.",
+      "locator": "§§7–9, AppendixB consumers",
+      "status": "planned",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Import the generic Chow operations once and verify each morphism's proper/flat/lci conditions."
+      ],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "unitTests": [
+        "A finite degree-d map multiplies the pushed-forward point cycle by d."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/141",
+      "kind": "definition",
+      "name": "Existing abstract exact Grothendieck group",
+      "statement": "TauCeti.ExactK0 E is the free abelian group on object isomorphism classes in an essentially small additive category with exact structure E, modulo conflation relations. It is a reusable carrier, not formal-scheme G0 by itself.",
+      "locator": "AppendixB foundational input; pinned Exact.lean:163",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Reuse the class map and conflation-additive universal property after constructing the appropriate exact category."
+      ],
+      "library": [
+        "tauceti:TauCeti.ExactK0"
+      ],
+      "unitTests": [
+        "A split conflation gives [X⊕Y]=[X]+[Y]."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/142",
+      "kind": "definition",
+      "name": "Existing regular-sequence carrier",
+      "statement": "Mathlib's RingTheory.Sequence.IsRegular M rs requires successive scalar multiplication to be regular on the preceding quotient and the final quotient to be nonzero. It supplies the algebraic predicate, not the Koszul resolution or formal Tor theorem.",
+      "locator": "AppendixB.2 algebraic input; RegularSequence.lean:133–148",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "api": [
+        "Reuse IsWeaklyRegular and IsRegular; prove the source's commutative-algebra consequences separately."
+      ],
+      "library": [
+        "mathlib:RingTheory.Sequence.IsWeaklyRegular",
+        "mathlib:RingTheory.Sequence.IsRegular"
+      ],
+      "unitTests": [
+        "Distinguish weak regularity from the final nonzero-quotient condition."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/143",
+      "kind": "theorem",
+      "name": "Existing real Gaussian Fourier formula",
+      "statement": "For complex b with positive real part, the real Fourier transform of exp(−πbx²) is b^(−1/2)exp(−πt²/b), in Mathlib's real Fourier convention.",
+      "locator": "§12 analytic input; Gaussian/FourierTransform.lean:227",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reuse the pinned theorem and prove the sign/measure/scalar-restriction adapter needed for the paper's Hermitian Fourier transform.",
+      "library": [
+        "mathlib:fourier_gaussian_pi"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/144",
+      "kind": "theorem",
+      "name": "Existing real-line Poisson formula",
+      "statement": "For a complex-valued Schwartz function f on R, Σn∈Z f(x+n)=Σn∈Z Fourier(f)(n)e(nx). This is not the adelic Poisson theorem used in §12.",
+      "locator": "§§11–12 analytic input; PoissonSummation.lean:219",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reuse the real theorem as an archimedean test only; construct the adelic theorem in AL.0.",
+      "library": [
+        "mathlib:SchwartzMap.tsum_eq_tsum_fourier"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/145",
+      "kind": "theorem",
+      "name": "Existing dominated parameter differentiation",
+      "statement": "Under neighbourhood-wise a.e. differentiability, measurability and an integrable bound on the derivatives, differentiation commutes with the integral at the specified parameter, and the derivative integrand is integrable.",
+      "locator": "§§11–12 analytic input; ParametricIntegral.lean:288",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Apply the pinned generic theorem only after proving the local orbital/height domination hypotheses.",
+      "library": [
+        "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/146",
+      "kind": "theorem",
+      "name": "Existing Schur determinant identity",
+      "statement": "For square blocks over a commutative ring, with the bottom-right block D invertible, det([A B;C D])=det(D)det(A−BD⁻¹C).",
+      "locator": "§4.1 input; SchurComplement.lean:384",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reuse Matrix.det_fromBlocks₂₂ for the determinant step; prove the Hermitian/unitary and domain adapters separately.",
+      "library": [
+        "mathlib:Matrix.det_fromBlocks₂₂"
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/147",
+      "kind": "theorem",
+      "name": "Existing Cayley–Hamilton theorem",
+      "statement": "A square matrix over a commutative ring annihilates its characteristic polynomial.",
+      "locator": "§7.5 Lemma7.15 input; Charpoly/Basic.lean:216",
+      "status": "library",
+      "note": "Statement uses the conventions and standing hypotheses explicitly recorded in the report. No formalization is claimed.",
+      "proofOutline": "Reuse the matrix theorem after the F-linear Tate representation and its independence have been constructed.",
+      "library": [
+        "mathlib:Matrix.aeval_self_charpoly"
+      ]
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Rapoport–Smithling–Zhang, Arithmetic diagonal cycles on unitary Shimura varieties (2020)",
+      "link": "https://doi.org/10.1112/S0010437X20007289",
+      "why": "Theorem5.2 models, Theorems8.5/8.15 support and uniformization; existing candidate briefs cite them but source-to-node proof closure is not present."
+    },
+    {
+      "citation": "Rapoport–Smithling–Zhang, On Shimura varieties for unitary groups (2019)",
+      "link": "https://arxiv.org/abs/1906.12346",
+      "why": "Eisenstein/sign conditions and exact global model hypotheses."
+    },
+    {
+      "citation": "Mihatsch, Relative unitary RZ-spaces and the arithmetic fundamental lemma",
+      "link": "https://doi.org/10.1017/S1474748020000079",
+      "why": "Theorem3.1 absolute/relative comparison and Corollary9.9 maximal-order AFL; strict bound/rank compatibility is unresolved."
+    },
+    {
+      "citation": "Kudla–Rapoport, Special cycles on unitary Shimura varieties I (2011)",
+      "link": "https://doi.org/10.1007/s00222-010-0298-z",
+      "why": "Local special divisors and deformation/liftability inputs."
+    },
+    {
+      "citation": "Kudla–Rapoport, Special cycles on unitary Shimura varieties II (2014)",
+      "link": "https://doi.org/10.1515/crelle-2012-0121",
+      "why": "Global KR divisors, finite unramified maps and formal/complex descriptions."
+    },
+    {
+      "citation": "Bruinier–Howard–Kudla–Rapoport–Yang, Modularity of generating series of divisors on unitary Shimura varieties",
+      "link": "https://arxiv.org/abs/1702.07812",
+      "why": "Arithmetic modularity and Borcherds-divisor calculations; verify the localized nonmaximal-level adaptation, not merely the maximal-level theorem."
+    },
+    {
+      "citation": "Ehlen–Sankaran, On two arithmetic theta lifts (2018)",
+      "link": "https://doi.org/10.1112/S0010437X18007327",
+      "why": "Theorem3.6 and the unitary adaptation prove the Q-only Green comparison."
+    },
+    {
+      "citation": "Howard, Complex multiplication cycles and Kudla–Rapoport divisors (2012)",
+      "link": "https://doi.org/10.4007/annals.2012.176.2.9",
+      "why": "CM moduli nonemptiness/étaleness and elementary CM intersection inputs."
+    },
+    {
+      "citation": "Vollaard–Wedhorn, The supersingular locus of GU(1,n−1) II (2011)",
+      "link": "https://doi.org/10.1007/s00222-010-0299-y",
+      "why": "Vertex-lattice stratification of RZ reduction; combine with the already queued Li–Zhang22-B local-modularity input, not a duplicate Li–Zhang paper request."
+    },
+    {
+      "citation": "Gillet–Soulé, Intersection theory using Adams operations (1987)",
+      "link": "https://doi.org/10.1007/BF01388705",
+      "why": "Supported scheme filtration, rational K-to-Chow comparison and exact category hypotheses; source named by owners but not yet closed for this use."
+    },
+    {
+      "citation": "Gillet–Soulé, Arithmetic intersection theory (1990)",
+      "link": "http://www.numdam.org/item/PMIHES_1990__72__93_0/",
+      "why": "Arithmetic divisor/degree normalization and localized proper-cycle pairing, shared with the Arakelov owner."
+    },
+    {
+      "citation": "Beuzart-Plessis, Comparison of local spherical characters and the Ichino–Ikeda conjecture for unitary groups",
+      "link": "https://arxiv.org/abs/1602.06538",
+      "why": "AppendixA.1 norm estimates and height sums used to prove absolute convergence."
+    },
+    {
+      "citation": "Zhang, Fourier transform and the global Gan–Gross–Prasad conjecture for unitary groups (2014)",
+      "link": "https://doi.org/10.4007/annals.2014.180.3.4",
+      "why": "Theorem4.17 Fourier transfer, with the missing Hermitian-discriminant factor corrected by the current AppendixA."
+    },
+    {
+      "citation": "Xue, On the global Gan–Gross–Prasad conjecture for unitary groups: approximating smooth transfer of Jacquet–Rallis (2019)",
+      "link": "https://doi.org/10.1515/crelle-2017-0016",
+      "why": "Archimedean Fourier-transfer proof and its epsilon normalization."
+    },
+    {
+      "citation": "Jacquet, Sur un résultat de Waldspurger (1986)",
+      "link": "https://doi.org/10.24033/asens.1506",
+      "why": "Equation(10.4) and its claimed incoherent adaptation in Proposition14.5 must be checked before the nilpotent log term is considered closed."
+    },
+    {
+      "citation": "Mihatsch–Zhang, On the Arithmetic Fundamental Lemma conjecture over a general p-adic field",
+      "link": "https://doi.org/10.4171/JEMS/1375",
+      "why": "Read selectively here as the published Gaussian correction and explicit Whittaker-normalization source. Its stronger AFL theorem is later work, not imported into the extracted 2021 endpoint."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/1"
+      ],
+      "reason": "Generic Hermitian forms, trace quadratic forms, self-dual lattices and local/global classification belong to GN.2. The relative orbit and RZ applications import them."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+      "stages": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/2",
+        "PAPER-ZHANG-21/98",
+        "PAPER-ZHANG-21/104"
+      ],
+      "reason": "AL.0 owns local/adelic Schwartz, Fourier and parameter-integration tools, including the Bessel/Mellin calculation needed here; AL.1 owns the normalized Tate integrals and functional equations. Existing real Gaussian/Poisson tools are reused, not replanned as absent."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicFormsOnReductiveGroups",
+      "stages": [
+        "AutomorphicFormsOnReductiveGroups:AF.0",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/3",
+        "PAPER-ZHANG-21/113"
+      ],
+      "reason": "The coefficient-valued holomorphic SL2 spaces and Fourier uniqueness/vanishing criterion are generic automorphic infrastructure. Lemma13.6 uses strong approximation and local root-group generation, not an AFL hypothesis."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.4",
+        "MetaplecticAutomorphicForms:MP.5"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/89",
+        "PAPER-ZHANG-21/90",
+        "PAPER-ZHANG-21/127"
+      ],
+      "reason": "The Weil operator, index, global product formula and theta kernel are explicitly inside these existing layers. Relative transfer compatibility and the AFL comparison consume them rather than recreating the representation."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArakelovGeometryAndAbelianHeights",
+      "stages": [
+        "ArakelovGeometryAndAbelianHeights:R35.1"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/73",
+        "PAPER-ZHANG-21/76"
+      ],
+      "reason": "Reuse the generic Green-divisor and arithmetic-degree/pairing interface also requested by PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18. This source supplies localization by bad-prime logarithms and pairing with proper curves inside a nonproper ambient model. The ambient arithmetic-divisor quotient must be shared with GSpinSpecialDivisorHeights and UnitaryKudlaRapoportCycles; audit the precise extension of R35.1 before final acceptance, not a private duplicate in each cycle owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeKTheoryOperations",
+      "stages": [
+        "SchemeKTheoryOperations:S.4",
+        "SchemeKTheoryOperations:S.6",
+        "SchemeKTheoryOperations:S.7"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/132",
+        "PAPER-ZHANG-21/133",
+        "PAPER-ZHANG-21/139"
+      ],
+      "reason": "Scheme supported filtrations, Adams multiplicativity and rational K-to-Chow comparison already belong here. Keep the proved scheme statement distinct from the source's explicitly unproved formal extension."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-ZHANG-21/140"
+      ],
+      "reason": "Use the shared Chow/intersection owner for actual proper pushforward, lci operations and rational equivalence; neither special-cycle proposal constructs a rival generic Chow theory."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PELModuli",
+      "roadmap": "UnitaryRapoportZinkSpacesAndRSZModels",
+      "title": "Siegel and PEL moduli problems, Part II: unitary Rapoport–Zink spaces, RSZ integral models and p-adic uniformization",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-ZHANG-21/14",
+        "PAPER-ZHANG-21/15",
+        "PAPER-ZHANG-21/16",
+        "PAPER-ZHANG-21/41",
+        "PAPER-ZHANG-21/42",
+        "PAPER-ZHANG-21/43",
+        "PAPER-ZHANG-21/44",
+        "PAPER-ZHANG-21/45",
+        "PAPER-ZHANG-21/50",
+        "PAPER-ZHANG-21/56",
+        "PAPER-ZHANG-21/57",
+        "PAPER-ZHANG-21/58"
+      ],
+      "reason": "Coalesce with the identical candidate ID in PAPER-LI-ZHANG-22-B and PAPER-LI-LIU-22, not a second unitary moduli roadmap. PEL M0–M6 supplies generic data/moduli but not these relative formal spaces, Eisenstein conditions or basic-locus uniformization. The existing candidate is still a proposal, not an implemented atlas layer.",
+      "brief": "Extend the existing UnitaryRapoportZinkSpacesAndRSZModels brief without removing its unramified, almost-self-dual or exotic-ramified branches. Import Siegel and PEL moduli problems (PELModuli M0–M4), Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli A1–A4), finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1/R07.2/R07.4/R07.6), and Shimura varieties (ShimuraVarieties V4–V6). Construct the exact Zhang2021 §3 unramified relative unitary Nn with signature(n−1,1), polarized framing and special-Hom space, comparing any reversed signature convention in the earlier brief explicitly. Prove formal smoothness of relative dimension n−1, N1=Spf O_Fbreve and δ:Nn−1→Nn. Construct the positive CM torus, strict fake Drinfeld G̃, finite-étale CM moduli component, localized RSZ model and Eisenstein condition in Definition6.1. Endpoint Theorem6.2 is smooth DM of relative dimension n−1, with the small-level quasi-projective scheme specialization; endpoint(7.4) is basic-locus uniformization by the relative Nn and nearby unitary quotient, including the CM-torus partition. Read Mihatsch DOI10.1017/S1474748020000079 Theorem3.1 and RSZ's actual sign/Eisenstein hypotheses before claiming the comparison. Add Tate characteristic-polynomial independence and connected-family constancy (Lemmas7.10–7.11). This owner is purely moduli-theoretic: special divisors, fat fixed cycles and AFL belong to its consumer. Tests must distinguish absolute height2n[F0:Qp] from relative height2n, retain conjugate E-actions, and reject a nonsplit 'good' self-dual place."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EndoscopicTransferAndUnitaryTraceComparison",
+      "roadmap": "JacquetRallisRelativeTraceComparison",
+      "title": "Endoscopic transfer and unitary trace comparison, Part II: Jacquet–Rallis relative transfer and Weil-equivariant trace comparison",
+      "area": "modular",
+      "items": [
+        "PAPER-ZHANG-21/4",
+        "PAPER-ZHANG-21/5",
+        "PAPER-ZHANG-21/6",
+        "PAPER-ZHANG-21/7",
+        "PAPER-ZHANG-21/8",
+        "PAPER-ZHANG-21/9",
+        "PAPER-ZHANG-21/10",
+        "PAPER-ZHANG-21/11",
+        "PAPER-ZHANG-21/12",
+        "PAPER-ZHANG-21/13",
+        "PAPER-ZHANG-21/20",
+        "PAPER-ZHANG-21/24",
+        "PAPER-ZHANG-21/25",
+        "PAPER-ZHANG-21/26",
+        "PAPER-ZHANG-21/27",
+        "PAPER-ZHANG-21/30",
+        "PAPER-ZHANG-21/31",
+        "PAPER-ZHANG-21/32",
+        "PAPER-ZHANG-21/38",
+        "PAPER-ZHANG-21/91",
+        "PAPER-ZHANG-21/92",
+        "PAPER-ZHANG-21/93",
+        "PAPER-ZHANG-21/94",
+        "PAPER-ZHANG-21/95",
+        "PAPER-ZHANG-21/96",
+        "PAPER-ZHANG-21/97",
+        "PAPER-ZHANG-21/99",
+        "PAPER-ZHANG-21/100",
+        "PAPER-ZHANG-21/101",
+        "PAPER-ZHANG-21/102",
+        "PAPER-ZHANG-21/103",
+        "PAPER-ZHANG-21/105",
+        "PAPER-ZHANG-21/106",
+        "PAPER-ZHANG-21/107",
+        "PAPER-ZHANG-21/108",
+        "PAPER-ZHANG-21/109",
+        "PAPER-ZHANG-21/110",
+        "PAPER-ZHANG-21/111",
+        "PAPER-ZHANG-21/112",
+        "PAPER-ZHANG-21/114",
+        "PAPER-ZHANG-21/115",
+        "PAPER-ZHANG-21/116",
+        "PAPER-ZHANG-21/117",
+        "PAPER-ZHANG-21/118",
+        "PAPER-ZHANG-21/119",
+        "PAPER-ZHANG-21/126"
+      ],
+      "reason": "ET.0/1/3/4 currently plan stable/endoscopic orbital matching, transfer and unitary trace comparison, not the GL(n−1)-relative Sn or GLn-relative Sn×V′ quotients. This is new relative-transfer work in that direction, so a Part II rather than pretending existing stable transfer proves the relative result. A repository-wide candidate search found no separate Jacquet–Rallis owner; the function-field Yun–Zhang relative formula remains its different shtuka/toric application.",
+      "brief": "Start beyond Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), importing only generic conjugacy/measure infrastructure from ET.0–ET.1, not an assumed relative FL from ET.3. Import Hermitian local/global forms from GeometryOfNumbersAndQuadraticArithmetic GN.2, Fourier/Tate theory from AutomorphicLFunctionsAndLocalFactors AL.0–AL.1, Weil operators and theta convergence from MetaplecticAutomorphicForms MP.2/MP.4/MP.5, and automorphic spaces/Fourier uniqueness from AutomorphicFormsOnReductiveGroups AF.0/AF.2/AF.3. Construct the group, Lie and semi-Lie relative quotients and matching; raw versus transferred orbital integrals with ηdet twist; strongly regular loci; relative Cayley charts and integral rank reduction. Prove local smooth/partial transfer and the Fourier compatibility of AppendixA with the Hermitian-discriminant sign. Construct the fixed-α partially linearized RTF, its regular-orbit absolute/local uniform convergence, nilpotent Tate regularization, rank-one and CM-field reduction, and entire SL2-automorphic J_s. Use Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2's corrected Gaussians; repair the Weyl/sign descent in §12.4 before treating Lemma12.6 as proved. Do not assert full archimedean Gaussian-transfer existence, which this paper only expects. Endpoints: Theorem12.14 entire modularity; Proposition13.3 holomorphic coherent weight-n series; Theorem13.4 conditional comparison; Theorem13.9 group/semi-Lie FL for unramified quadratic p-adic fields with odd residue characteristic and q≥n. The FL extends to all relative regular orbits by density; the arithmetic consumer's AFL does not thereby extend. Include the exact residue-cardinality bound and all group/semi-Lie rank shifts. Tests: n=1 corrected Bessel integral and derivative; transfer scaling by η(a)^n; n=2 Weyl-fibre counterexample and repaired descent; norm-unit lower-rank reduction; product of rational transfer factors1. This analytic owner has no dependence on RZ spaces or the AFL, preventing circular proof of its FL input."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SchemeKTheoryOperations",
+      "roadmap": "FormalSupportedIntersections",
+      "title": "K-theory of schemes, localisation and operations, Part II: supported formal K-theory and derived intersection degrees",
+      "area": "motivic",
+      "items": [
+        "PAPER-ZHANG-21/128",
+        "PAPER-ZHANG-21/129",
+        "PAPER-ZHANG-21/130",
+        "PAPER-ZHANG-21/131",
+        "PAPER-ZHANG-21/134",
+        "PAPER-ZHANG-21/135",
+        "PAPER-ZHANG-21/136",
+        "PAPER-ZHANG-21/137",
+        "PAPER-ZHANG-21/138"
+      ],
+      "reason": "AppendixB is reusable formal-scheme intersection infrastructure, not continuous K-theory through p-power thickenings. The existing UnitaryKudlaRapoportCycles brief mentions it as a construction obligation; factor that obligation into this shared supplier and have all cycle consumers import it. SchemeKTheoryOperations currently states scheme results, so do not silently mark the formal extension planned.",
+      "brief": "Import K-theory of schemes, localisation and operations (SchemeKTheoryOperations S.1–S.4/S.6/S.7), the exact-category K0 already in TauCeti.ExactK0, and generic intersection theory from SchemeAndStackFoundations SF.5. Coordinate coherent/perfect sheaf enhancements with EnhancedDerivedSheaves, and take a general Koszul complex/regular-sequence resolution from its common commutative-algebra/derived owner rather than developing it privately here. Build noetherian formal schemes' J-power-supported coherent and perfect categories; rational K0/G0, cup products and dimension/codimension filtrations; regular supported devissage under proved resolution hypotheses; restriction and inverse limits over noetherian open exhaustions; proper scheme-support finite-length Euler degree and its base-change/projection formulas. Endpoints are Zhang2021 AppendixB LemmaB.1 (closed-union cokernel decomposition), LemmaB.2(i) (expected-dimensional regular/CM Tor vanishing), LemmaB.2(ii) (componentwise vanishing modulo overlap), and (B.4)'s derived Euler pairing. Explicitly do not claim formal Adams-filtration multiplicativity from the paper: it says that extension is expected and offers Remark5.3 to bypass it. Prove it independently only if a consumer really needs it. Do not confuse open-exhaustion limits with RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses' continuous K-theory of infinitesimal thickenings. UnitaryKudlaRapoportCycles and any orthogonal cycle consumer import this one supplier, replacing their unexpanded generic AppendixB placeholders. Tests: a DVR torsion module degree; a transverse regular sequence with zero higher Tor; an excess intersection retaining Tor; closed union with noninjective overlap G0 map; a formal sheaf with full Spf topological support but incorrect J-power support."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "UnitaryKudlaRapoportCycles",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: unitary Kudla–Rapoport cycles and the arithmetic Siegel–Weil formula",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-ZHANG-21/17",
+        "PAPER-ZHANG-21/18",
+        "PAPER-ZHANG-21/19",
+        "PAPER-ZHANG-21/21",
+        "PAPER-ZHANG-21/22",
+        "PAPER-ZHANG-21/23",
+        "PAPER-ZHANG-21/28",
+        "PAPER-ZHANG-21/29",
+        "PAPER-ZHANG-21/33",
+        "PAPER-ZHANG-21/34",
+        "PAPER-ZHANG-21/35",
+        "PAPER-ZHANG-21/36",
+        "PAPER-ZHANG-21/37",
+        "PAPER-ZHANG-21/39",
+        "PAPER-ZHANG-21/40",
+        "PAPER-ZHANG-21/46",
+        "PAPER-ZHANG-21/47",
+        "PAPER-ZHANG-21/48",
+        "PAPER-ZHANG-21/49",
+        "PAPER-ZHANG-21/51",
+        "PAPER-ZHANG-21/52",
+        "PAPER-ZHANG-21/53",
+        "PAPER-ZHANG-21/54",
+        "PAPER-ZHANG-21/55",
+        "PAPER-ZHANG-21/59",
+        "PAPER-ZHANG-21/60",
+        "PAPER-ZHANG-21/61",
+        "PAPER-ZHANG-21/62",
+        "PAPER-ZHANG-21/63",
+        "PAPER-ZHANG-21/64",
+        "PAPER-ZHANG-21/65",
+        "PAPER-ZHANG-21/66",
+        "PAPER-ZHANG-21/67",
+        "PAPER-ZHANG-21/68",
+        "PAPER-ZHANG-21/69",
+        "PAPER-ZHANG-21/70",
+        "PAPER-ZHANG-21/71",
+        "PAPER-ZHANG-21/72",
+        "PAPER-ZHANG-21/74",
+        "PAPER-ZHANG-21/75",
+        "PAPER-ZHANG-21/77",
+        "PAPER-ZHANG-21/78",
+        "PAPER-ZHANG-21/79",
+        "PAPER-ZHANG-21/80",
+        "PAPER-ZHANG-21/81",
+        "PAPER-ZHANG-21/82",
+        "PAPER-ZHANG-21/83",
+        "PAPER-ZHANG-21/84",
+        "PAPER-ZHANG-21/85",
+        "PAPER-ZHANG-21/86",
+        "PAPER-ZHANG-21/87",
+        "PAPER-ZHANG-21/88",
+        "PAPER-ZHANG-21/120",
+        "PAPER-ZHANG-21/121",
+        "PAPER-ZHANG-21/122",
+        "PAPER-ZHANG-21/123",
+        "PAPER-ZHANG-21/124",
+        "PAPER-ZHANG-21/125"
+      ],
+      "reason": "Coalesce with PAPER-LI-ZHANG-22-B/PAPER-LI-LIU-22's existing unitary-cycle candidate. Add the derived fixed-point/fat CM and AFL branch to its KR special-divisor branch rather than a rival arithmetic cycle roadmap. GZ.6–GZ.7 provide the curve prototype but not these higher-dimensional unitary RZ intersections.",
+      "brief": "Retain the existing UnitaryKudlaRapoportCycles obligations and add Zhang2021's separate AFL proof branch. Import unitary formal/global models and basic uniformization from UnitaryRapoportZinkSpacesAndRSZModels; analytic matching, Weil-compatible RTF and FL from JacquetRallisRelativeTraceComparison; the generic formal supported Euler/Tor API from FormalSupportedIntersections; generic Chow operations from SchemeAndStackFoundations SF.5; scheme Adams/K-to-Chow from SchemeKTheoryOperations S.4/S.6/S.7; and the shared Green-divisor/proper-curve arithmetic pairing from ArakelovGeometryAndAbelianHeights R35.1, coordinated with GSpinSpecialDivisorHeights. Construct KR liftability divisors; group diagonal and semi-Lie derived fixed intersections; unit-denominator rank reduction; DL-stratum and fixed-g/joint local constancy; compact support modulo conjugation. Construct integral/global KR divisors, nonmaximal fat CM moduli, Hecke fixed loci and their characteristic decomposition, derived virtual one-cycles and formal/complex orbit expansions. Prove Theorems8.1/8.6 from their full modularity sources, preserving the Q-only restriction on arithmetic modularity and Ehlen–Sankaran Green comparison. Construct the normalized pairing divided by τ(ZQ)[E:F], prove good-place support and Theorem9.4's exact2logq factor, then the archimedean comparison with every Gaussian/Whittaker/Green rescaling written out. Prove Proposition14.5, corrected E=∂Jhol+Int, Theorem14.6's local separation in Qlogp, Corollary14.8 and Theorem15.1. Endpoint: unramified F/Qp, p odd,p≥n, strongly regular group Sn and literal indexed semi-Lie dimension n−1 satisfy ∂Orb=−Int logp. Do not promote Conjecture3.2's all-regular version or the later general-p-adic theorem to this paper's result. Close the maximal-order bound/rank compatibility with Mihatsch Corollary9.9 and the q-bound use in local constancy. Tests: n=1, unit special vector, nontransverse derived intersection, split-place zero, basic-only support, base-change residue degree, factor2, nearby Shimura space split at v0, and failure of log-prime separation over a base with several places above the same rational prime. Source corrections and the analytic descent/normalization gates are mandatory before final acceptance."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ZHANG-21/E1",
+      "kind": "misprint",
+      "locator": "§1.2, pp.869–870",
+      "printed": "q : V → F",
+      "correction": "For a quadratic space over F0 the codomain is F0.",
+      "reason": "The next displayed polarization is F0-valued; F is introduced separately for the Hermitian extension.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E2",
+      "kind": "error",
+      "locator": "§1.2 (1.13), p.872",
+      "printed": "φ(h)=Σξ Wφ,ξ(h), absolutely convergent",
+      "correction": "Assume suitable smoothness for absolute Fourier summation, or use Fourier uniqueness/appropriate convergence for merely continuous functions.",
+      "reason": "Continuity on a compact additive quotient does not imply absolutely summable Fourier coefficients. An explicit continuous counterexample is obtained from disjoint shifted Rudin–Shapiro blocks of length 2^(4m), scaled by 2^(−m)/sqrt(2·2^(4m)): their sup norms sum, but the absolute coefficient sums diverge. Smooth functions in the applications permit a repaired statement.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E3",
+      "kind": "misprint",
+      "locator": "Conjecture2.3(a), p.878",
+      "printed": "(1K0,0)",
+      "correction": "Use (1K0#,0) on G0=U(V0#); likewise the full-rank lattice stabilizer must be the one of Λ0#.",
+      "reason": "K0 belongs to U(V0), the smaller acting group, while the test function belongs to G0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E4",
+      "kind": "misprint",
+      "locator": "Proposition2.6, p.879",
+      "printed": "(G0×V0)(F0)rs",
+      "correction": "Use the correctly ranked semi-Lie pair (H0×V0), or rename G0 consistently to U(V0).",
+      "reason": "The preceding notation defines G0=U(V0#) but the semi-Lie action here is on V0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E5",
+      "kind": "misprint",
+      "locator": "Lemma4.2 proof, p.887",
+      "printed": "1−g=1/(1+x)",
+      "correction": "Replace the right side by 2/(1+x).",
+      "reason": "From g=−(1−x)/(1+x), subtraction gives 1−g=2/(1+x); x=0 already gives 2 versus1. The author preprint repeats this slip.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E6",
+      "kind": "misprint",
+      "locator": "Lemma4.3 proof, p.888",
+      "printed": "R(ξ)",
+      "correction": "Use R(λ) in the polynomial pencil.",
+      "reason": "R is the gcd polynomial in the characteristic variable λ; ξ is a central scalar parameter, not the argument of that gcd.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E7",
+      "kind": "misprint",
+      "locator": "Lemma4.9(i), p.892",
+      "printed": "rξ(γ′)",
+      "correction": "Use r(γ′), or quantify ξ and require ξγ′ in the chart.",
+      "reason": "The printed hypothesis only places γ′ in Sn°, and ξ is free; a rational map's definedness must be explicit.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E8",
+      "kind": "misprint",
+      "locator": "Definitions7.1–7.2, p.907",
+      "printed": "u′=u∘ϕ",
+      "correction": "For source-CM isomorphism a0:A0→A0′ use u′∘a0=ϕ∘u; after identifying A0 and A0′ use u′=ϕ∘u.",
+      "reason": "u:A0→A and ϕ:A→A′ cannot compose in the printed order. The same expression occurs in both author-preprint definitions.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E9",
+      "kind": "error",
+      "locator": "§7.4 following(7.9), p.910",
+      "printed": "F0′ is a product of totally real fields",
+      "correction": "Conjugate reciprocity only gives an involution and a fixed étale algebra. Impose the CM/totally-real condition independently, as the next paragraph does for the rest of the paper.",
+      "reason": "Take F=Q(i), α=T²−3T+1. In Q(i,√5), the specified involution sends i↦−i and √5↦−√5, so the fixed field is Q(√−5), not totally real. The later CM assumption protects the intended application.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E10",
+      "kind": "misprint",
+      "locator": "Proposition8.2, p.921",
+      "printed": "(7.5)",
+      "correction": "The complex component projection is (8.4).",
+      "reason": "Equation(7.5) is the formal/basic-locus projection; this proposition concerns complex uniformization.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E11",
+      "kind": "misprint",
+      "locator": "Lemma11.1 proof, p.937, second product in the displayed estimate",
+      "printed": "∏v|∞",
+      "correction": "Use ∏v∤∞ for the second, finite-place factor.",
+      "reason": "The preceding equality separates archimedean and nonarchimedean integrals; (11.11) and compact finite support are applied to the latter.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E12",
+      "kind": "error",
+      "locator": "§12.1–12.4, pp.940–945, especially(12.1),(12.6),(12.11)",
+      "printed": "φ′=2^(−3/2)(x+y)e^(−π(x²+y²)/2)",
+      "correction": "With ψ(b)=e^(2πib), use φ′=½(x+y)e^(−π(x²+y²)) and the positive Hermitian Gaussian e^(−2πq). Propagate the scaling to all orbital, Weil, nilpotent and Green comparisons.",
+      "reason": "Mihatsch–Zhang gives these functions and explicitly says the functions in this paper's §12 should be corrected. The original Gaussian width is incompatible with the stated weight-one Weil eigenvector convention.",
+      "affects": "the proof",
+      "known": "Mihatsch–Zhang, DOI10.4171/JEMS/1375, §7.2 (7.6), Proposition7.4 and footnote5, p.48; §7.3 positive Hermitian Gaussian.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E13",
+      "kind": "misprint",
+      "locator": "§12.1 final display, p.940",
+      "printed": "|a|^(1/2)",
+      "correction": "For Hermitian dimension n the scalar factor is a^(n/2); with corrected Gaussian the exponential has 2πiq(u)(b+ia).",
+      "reason": "Formula(11.1) uses real dimension2n and diagonal entry √a, so its determinant scaling is a^(n/2).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E14",
+      "kind": "error",
+      "locator": "Lemma12.3 statement versus its final proof display, p.942",
+      "printed": "K(s+1)/2+η(ξ)K(s−1)/2",
+      "correction": "For the original Gaussian use K(1−s)/2+η(ξ)K(−1−s)/2, as the proof itself obtains; then apply the published Gaussian rescaling.",
+      "reason": "Kν=K−ν does not permit interchanging the two terms when ξ<0: the swap changes the sign. At s≠0 the printed statement conflicts with its defining integral.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E15",
+      "kind": "error",
+      "locator": "Lemma12.5 displays, p.943",
+      "printed": "e^(πi|ξ|(b−ia))",
+      "correction": "Use the published corrected formulas: χ1(κθ)a^(1/2)e^(2πiξ(b+ia)), and for ξ<0 multiply by ½Ei(−4πa|ξ|). The general-s formula must include the unipotent phase.",
+      "reason": "At pure unipotent h=n(b), (11.1) forces phase e^(2πibξ); the printed general-s formula has none, the positive special value drops κθ, and the negative formula has the wrong ξ-sign in the phase.",
+      "affects": "a stated result",
+      "known": "Mihatsch–Zhang §7.2 Proposition7.4, DOI10.4171/JEMS/1375, with its footnote5 correction.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E16",
+      "kind": "error",
+      "locator": "§12.4 map preceding(12.9), p.944",
+      "printed": "NK×Tnrs → Snc,rs is a K∩A-torsor",
+      "correction": "Include Weyl identifications or replace this map with a correctly normalized local-slice construction. Prove descent of the test function and the orbital formula after this change.",
+      "reason": "For n=2, t=diag(1,i), t′=diag(i,1), k=[[0,1],[-1,0]]∈SO2 give k⁻¹t′k=t. These are different diagonal parameters, not related merely by diagonal signs. An arbitrary torus cutoff need not be constant on this fibre. The author preprint contains the same assertion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E17",
+      "kind": "gap",
+      "locator": "§12.4 after(12.10), p.944",
+      "printed": "Ψ descends by K∩A-invariance",
+      "correction": "In addition to repairing the Weyl fibres, choose the N-cutoff invariant under conjugation by K∩A, or prove an averaging/descent construction with its exact measure factor.",
+      "reason": "The listed assumptions only normalize the N-integral and require invariance of the vector factor. A general smooth N-cutoff need not be invariant under sign conjugation; this is an additional descent obligation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E18",
+      "kind": "misprint",
+      "locator": "§12.7, p.953, definition of the nilpotent L-derivative",
+      "printed": "L(s,η)",
+      "correction": "In general rank use L(s,η′) for F′/F0′; for the 0− term differentiate the corresponding L(−s,η′) with its minus sign.",
+      "reason": "The preceding definition(12.26) is over the CM extension F′/F0′. The base character η suffices only in rank one.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E19",
+      "kind": "misprint",
+      "locator": "§14.1 before Lemma14.3, p.962",
+      "printed": "q′(u′)=TrF0′/F0 q′(u′)",
+      "correction": "The left side is q(u′).",
+      "reason": "q′ is F0′-valued and q is its F0 trace; the printed equality has incompatible codomains.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E20",
+      "kind": "misprint",
+      "locator": "§14.3 definition of E♭, p.965",
+      "printed": "E♭=2∂Jhol♭+Int",
+      "correction": "Use E♭=∂Jhol♭+Int=2∂J♭+IntK−B+Int.",
+      "reason": "Proposition14.5 already defines ∂Jhol=2∂J+IntK−B, and the first line of Theorem14.6's proof uses it only once.",
+      "affects": "the proof",
+      "known": "The public author AFL2019.pdf, §14.2, p.69, has E♭=∂Jhol♭+Int. This is an earlier-version correct formula, not a claim of a later published erratum.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E21",
+      "kind": "misprint",
+      "locator": "Proposition14.5 proof, p.965",
+      "printed": "independent of α",
+      "correction": "Use independent of a.",
+      "reason": "The constant may depend on γ and Φ′, hence on α; the argument cancels the Iwasawa log a parameter.",
+      "affects": "nothing",
+      "known": "Author AFL2019.pdf, p.69, has independent of a.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E22",
+      "kind": "misprint",
+      "locator": "Corollary14.8 proof, p.968",
+      "printed": "−∂Orb·Orbaway=Intv(δ,u)·Orbaway",
+      "correction": "Multiply the right side by log qv.",
+      "reason": "The corollary statement and Theorem9.4 use the logarithmic local degree; cancelling away factors must reproduce that same statement.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E23",
+      "kind": "misprint",
+      "locator": "Theorem15.1 proof, p.968, nearby Shimura space",
+      "printed": "non-split at v0",
+      "correction": "The nearby Shimura Hermitian space V is split at v0; V(v0) is the nonsplit local special-Hom space.",
+      "reason": "Changing from the positive global nearby space to signature(n−1,1) at infinity switches the local invariant at v0. Otherwise v0 belongs to D0 and the next line v0∤d is impossible.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E24",
+      "kind": "misprint",
+      "locator": "AppendixA TheoremA.1, p.970",
+      "printed": "h∈H(F)",
+      "correction": "Use h∈H(F0)=SL2(F0); likewise the base scalars of the generators are in F0.",
+      "reason": "The quadratic spaces and Weil representations here are over the base F0, not the quadratic extension F.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E25",
+      "kind": "misprint",
+      "locator": "AppendixA footnote10, p.971, cited Zhang2014 Theorem4.17",
+      "printed": "η(det(V)F/F0) is missing",
+      "correction": "Include the Hermitian-discriminant sign in the earlier Fourier-transfer constant.",
+      "reason": "The present appendix computes γV=η(detHerm V)ε(η,½,ψ)^n; the footnote explicitly records the earlier missing factor.",
+      "affects": "the proof",
+      "known": "Already recorded by Zhang2021 AppendixA footnote10, correcting Zhang2014 DOI10.4007/annals.2014.180.3.4.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E26",
+      "kind": "gap",
+      "locator": "AppendixB after(B.3), p.972",
+      "printed": "formal-scheme (B.3) expected",
+      "correction": "Do not use formal support-filtration multiplicativity as established. Supply a formal Adams proof with its category hypotheses, or use Remark5.3's alternative for Proposition5.2.",
+      "reason": "The source itself says the formal extension lacks a reference and identifies an alternative proof avoiding it. The scheme assertion and its use for derived CM cycles are separate.",
+      "affects": "the proof",
+      "known": "Explicitly acknowledged in AppendixB and bypassed by Remark5.3.",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    },
+    {
+      "id": "PAPER-ZHANG-21/E27",
+      "kind": "misprint",
+      "locator": "Corollary10.3 (10.8), pp.931–932",
+      "printed": "Ei(−2π|ξ′|v′)",
+      "correction": "Retain a_v in Ei(−2πa_v|ξ′|v′), or explicitly specialize h∞ to a_v=1. Separately perform the later Gaussian/Green normalization conversion.",
+      "reason": "Equations(8.11) and(10.4) retain the h∞ parameter, and (10.7) only computes R; substituting them leaves a_v.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Annals publisher page https://annals.math.princeton.edu/2021/193-3/p05; no correction link found there.",
+        "arXiv1909.02697 version history (v1 2019-09-06, v2 2020-06-09, v3 2020-12-20); history inspected, not every version read.",
+        "Wei Zhang publication list https://math.mit.edu/~wz2113/math/pub.html and selectively collated public AFL2019.pdf.",
+        "Title searches with erratum, correction and typo; Mihatsch–Zhang DOI10.4171/JEMS/1375 §7.2 footnote5 and §8.5 read for published normalization corrections."
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "G1",
+      "priority": 1,
+      "name": "Propagate the published Gaussian correction",
+      "remaining": "Prove a single complete dictionary from ψ,q,self-dual measure and corrected φ′ to Wξ, Ei arguments, nilpotent factors and Green metrics. Reprove Lemma14.4/Proposition14.5 in that dictionary, including zero coefficients. Items97–106 have corrected local formulas; item120 deliberately remains an obligation."
+    },
+    {
+      "id": "G2",
+      "priority": 1,
+      "name": "Repair the partial-Gaussian descent",
+      "remaining": "Replace the false K∩A-torsor description in §12.4. Prove local-slice/Weyl descent with the test-function sign, cutoff invariance, multiplicity and Haar factor. The n=2 counterexample shows a real proof issue; no claim that it disproves the endpoint."
+    },
+    {
+      "id": "G3",
+      "priority": 2,
+      "name": "Close geometry source contracts",
+      "remaining": "Read RSZ model/uniformization theorems, Mihatsch relative comparison and maximal-order Corollary9.9, KR divisor references, and the precise DL local-modularity input. Resolve signature/overbar conventions, not just names."
+    },
+    {
+      "id": "G4",
+      "priority": 2,
+      "name": "Close modularity and nilpotent contracts",
+      "remaining": "Read BHKRY's arithmetic modularity with its level conditions, Ehlen–Sankaran's exact Green normalization and Jacquet's incoherent nilpotent comparison. Verify convergence/derivative bounds from Beuzart-Plessis AppendixA."
+    },
+    {
+      "id": "G5",
+      "priority": 2,
+      "name": "Bounds and stronger-locus checks",
+      "remaining": "Check the literal p>n bound in Proposition3.9 against its rank-n induction use; check q≥n in the uses of Propositions2.7/4.12, including Theorem5.5. Prove or weaken Lemma4.10's printed srs annotations. These are open investigations, not independently verified source errors."
+    },
+    {
+      "id": "G6",
+      "priority": 3,
+      "name": "Final atomic coverage and exact formula completion",
+      "remaining": "Split bundled multipart items27,58,60,93,96 and the construction theorem clauses; expand every external input into source-checked theorem nodes and every routine omitted calculation. Visually transcribe all barred linear Cayley formulas. Whole-paper reading is complete but full recursive proof closure is not."
+    },
+    {
+      "id": "G7",
+      "priority": 3,
+      "name": "Shared foundational ownership and formal hypotheses",
+      "remaining": "Review the common arithmetic-divisor localization extension of R35.1 with GSpin/unitary consumers. Move their generic AppendixB placeholders into FormalSupportedIntersections once accepted, without duplicating continuous K-theory. Verify formal perfect/coherent resolution and inverse-limit assumptions; use Remark5.3 rather than assuming formal(B.3)."
+    }
+  ],
+  "sourceIssueScope": "Findings are unreviewed. 'new' means no correction was located in the listed searches, not a priority claim. Investigations without a proved defect are kept in gates rather than asserted as errors.",
+  "worker": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 1107,
+    "claimComment": 5787132660,
+    "botConfirmation": 5787133841
+  },
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "atlasSnapshot": "4232d60664eb2fbe60e48602aec83895e71ff08f",
+    "searchScope": "Searched both pinned Lean trees, not just Mathlib. Names/phrases: Rapoport, Kudla, Jacquet–Rallis, Weil representation, formal scheme, arithmetic intersection/Chow, regular immersion, Koszul, coherent/perfect Grothendieck group, Bessel and exponential integral. Inspected generic exact K0, regular sequences, matrix Schur/Cayley–Hamilton, real Fourier/Poisson and parameter-integral declarations. Searches locate basic ingredients, not the RZ/relative-transfer/arithmetic-modularity packages.",
+    "reviewedAudits": [
+      "AUDIT-01: SchemeAndStackFoundations SF.5, partly built only at cycle/divisor level",
+      "AUDIT-10: PELModuli M1/M2, not built; existing abelian varieties are not polarized abelian schemes with level",
+      "AUDIT-13: AutomorphicFormsOnReductiveGroups AF.0/AF.1/AF.2, general adelic spaces absent",
+      "AUDIT-14: AutomorphicLFunctionsAndLocalFactors AL.0/AL.1, real tools partly built, adelic Tate/Poisson absent",
+      "AUDIT-15: MetaplecticAutomorphicForms MP.2/MP.3/MP.5/MP.6, not built",
+      "AUDIT-30: SchemeKTheoryOperations S.1–S.7: abstract sheaf complexes and affine degree-zero tools do not provide formal supported K-theory",
+      "ArakelovGeometryAndAbelianHeights R35.1/R35.2 and GrossZagierAndArithmeticHeights GZ.0/GZ.6/GZ.7 reviewed coverage read in the immediately preceding extraction and their stages rechecked here"
+    ],
+    "ownershipEvidence": [
+      "Read PELModuli M0–M6 and existing UnitaryRapoportZinkSpacesAndRSZModels briefs in PAPER-LI-ZHANG-22-B/PAPER-LI-LIU-22.",
+      "Read the full UnitaryKudlaRapoportCycles briefs in those two extractions and the neighboring arithmetic inner-product brief; that latter consumer does not own this AFL.",
+      "Read MetaplecticAutomorphicForms MP.0–MP.8; use only the named source layers.",
+      "Read ET.0/ET.1/ET.3/ET.4 descriptions; stable/endoscopic transfer is not Jacquet–Rallis relative transfer.",
+      "Read SchemeKTheoryOperations S.1–S.4/S.6/S.7, SchemeAndStackFoundations SF.5, and Antieau–Mathew–Morrow–Nikolaus's continuous K-theory brief to separate open-exhaustion formal K0 from thickening-continuous K-theory.",
+      "Read Yun–Zhang17 route briefs: the toric function-field RTF/shtuka cycles do not supply the higher unitary p-adic relative quotient here."
+    ]
+  },
+  "libraryEvidence": [
+    {
+      "item": "PAPER-ZHANG-21/141",
+      "library": "tauceti",
+      "path": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+      "line": 163,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/142",
+      "library": "mathlib",
+      "path": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+      "line": 133,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/143",
+      "library": "mathlib",
+      "path": "Mathlib/Analysis/SpecialFunctions/Gaussian/FourierTransform.lean",
+      "line": 227,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/144",
+      "library": "mathlib",
+      "path": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+      "line": 219,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/145",
+      "library": "mathlib",
+      "path": "Mathlib/Analysis/Calculus/ParametricIntegral.lean",
+      "line": 288,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/146",
+      "library": "mathlib",
+      "path": "Mathlib/LinearAlgebra/Matrix/SchurComplement.lean",
+      "line": 384,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    },
+    {
+      "item": "PAPER-ZHANG-21/147",
+      "library": "mathlib",
+      "path": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+      "line": 216,
+      "read": "Declaration statement and surrounding hypotheses read at the pinned snapshot; not inferred from a name match."
+    }
+  ],
+  "relatedExtractions": [
+    "PAPER-LI-ZHANG-22-B already queues Li–Zhang1908.01701; reuse its unitary proposals and DL-cycle input.",
+    "PAPER-LI-LIU-22 and PAPER-HE-LI-SHI-ETAL-23 extend the same unitary candidates; no duplicate moduli/cycle roadmap.",
+    "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 supplies the immediately preceding shared arithmetic-degree/Green interface audit."
+  ],
+  "coverage": {
+    "wholePublishedPaperRead": true,
+    "readTextLines": "1–6061",
+    "publishedPages": "863–978",
+    "statusReason": "All sections represented, but G1–G7 block complete status. In particular, no claim that the corrected final comparison has been reconstructed.",
+    "counts": {
+      "library": 7,
+      "planned": 10,
+      "missing": 130
+    }
+  },
+  "validation": {
+    "numericalAndFinite": {
+      "count": 816,
+      "description": "12 corrected Gaussian integral comparisons, 2 derivative comparisons, 800 exact rational Cayley tests, one n=2 Weyl-fibre witness and one fixed-field witness. Numerical quadrature is a sanity check, not a proof."
+    },
+    "lean": "No Lean deliverable requested, no Lean file generated or elaborated.",
+    "repositoryChecks": {
+      "paper": "python3 scripts/check_paper.py research/blueprint/papers/PAPER-ZHANG-21.result.json: ok",
+      "intake": "python3 research/blueprint/intake.py check-files: 3 files, 0 problems",
+      "paperUnitTests": "9 tests passed",
+      "sourceIssueUnitTests": "7 tests passed",
+      "coverage": "147 unique items; each of 130 missing items routed exactly once; definition/construction API and unit-test and theorem proof-outline fields checked"
+    }
+  }
+}
