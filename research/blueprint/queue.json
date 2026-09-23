@@ -526,7 +526,8 @@
    ],
    "avoidAccountOf": "PAPER-YUAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1051"
   },
   {
    "id": "PAPER-NEWTON-THORNE-26",
@@ -2680,8 +2681,9 @@
    ],
    "avoidAccountOf": "PAPER-YUN-ZHANG-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUN-ZHANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1164"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1164",
+   "finishedAt": "2026-09-23T21:46:23Z"
   },
   {
    "id": "PAPER-BAKKER-TSIMERMAN-16",
@@ -3843,7 +3845,8 @@
    ],
    "avoidAccountOf": "PAPER-FENG-YUN-ZHANG-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1231"
   },
   {
    "id": "PAPER-BRESCIANI-24",
