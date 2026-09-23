@@ -1,10 +1,114 @@
-# PAPER-TSUZUKI-23: minimal slopes through PBQ and saturation
+# Tsuzuki (2023): extraction and routing
+
+Issue [#1258](https://github.com/CBirkbeck/tauceti-explorer/issues/1258). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoint of codex-a71f92, whose report follows below as history.
+- **The paper.** N. Tsuzuki, *Minimal slope conjecture of F-isocrystals*, Invent. Math. 231 (2023), 39–109.
+  - The journal version is closed access. arXiv v3, the latest version, was read (SHA-256 611090d2…).
+  - All locators refer to arXiv v3.
+- **Items.** The result has **164 items: 7 library, 27 planned and 130 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Twenty-four are recorded under `sourceIssues`. None affects a stated result.
+
+## This continuation (cc-442dc5)
+
+**What was read.** §§1–3 and 7 of arXiv v3 in full, and the other sections at the findings' locators.
+
+**The `known` field.** Every finding had `known` beginning "uncertain: preprint observation", which `scripts/errata.py` would read as "corrected in print". All are now "new", and the note has moved to `searched`.
+
+**Reclassified findings.** The checkpoint had five findings affecting a stated result. On rereading, each has a clear intended form, and the paper's arguments use that form.
+- **E2.** The Gauss norm sup|a_n| is used only on the bounded rings, as in "E and E† are discrete valuation fields under the Gauss norm". Listing the Robba ring is a slip.
+- **E7 and E8 (Theorem 3.12, Proposition 3.18).** They fail only for the zero module; nonzero modules are meant, and Definition 3.13 speaks of the "nontrivial" quotient.
+- **E9 (Theorem 3.19).**
+  - As printed, condition (ii) is impossible: P₁ ⊂ P₂ forces the maximal slope of P₂ to be at least that of P₁.
+  - So the graded pieces P_i/P_{i−1} are meant. The proofs of Theorem 3.19(2) and Proposition 3.29 use exactly that form, as does the cited [10, Cor. 5.5].
+- **E20 (Definition 7.14).**
+  - Weights restricted to Z make Theorem 7.18 false: a Frobenius-2 line over F₃ has weight 2·log₃2.
+  - The paper uses purity only in the real-weight form of Abe–Esnault, so it now affects nothing.
+
+**E12, with a repair.** The proof of Lemma 3.31 is circular: part (1) ends by concluding its own hypothesis. A non-circular proof of (1) is available:
+- PBQ is a property of the generic ϕ-∇-module.
+- Bounded quotients commute with the finite étale generic extension E_{η′}/E_η, by the argument of Proposition 3.14 and Corollary 3.15.
+
+Part (2) then follows as printed. This is recorded in E12's correction and in item 076, and closes G2.
+
+**The other findings.**
+- E6, E18 and E19 are errors in proof steps whose conclusions stand.
+- E17 and E22 concern coefficient-projector normalizations.
+- E24 is Lemma A.1(3)'s Frobenius extension.
+
+These were read at their locators and stand as recorded.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- What remains is suppliers' proofs and design work.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), arXiv:1910.03871v3, §1.1 p.1; journal version not collated. *Printed:* discrete valuation field R *Correction:* Use discrete valuation ring R, with fraction field K.
+- **E2** (misprint; affects nothing), arXiv:1910.03871v3, §2.1 p.4; journal version not collated. *Printed:* Gauss norm *Correction:* Restrict the finite coefficient supremum to the bounded rings; use radius-indexed norms on the full Robba ring.
+- **E3** (misprint; affects nothing), arXiv:1910.03871v3, Definition 2.2(2) p.5; journal version not collated. *Printed:* Kα [[xα ]]0 *Correction:* Use K[[t]]₀ in this local definition.
+- **E4** (misprint; affects nothing), arXiv:1910.03871v3, §2.2 p.6; journal version not collated. *Printed:* well-ordered Abelian group *Correction:* Use ordered abelian group Q; require well ordering of the specified supports.
+- **E5** (misprint; affects nothing), arXiv:1910.03871v3, Proposition 2.9 proof p.8; Proposition 2.11 p.9; journal version not collated. *Printed:* Lemma 2.5 (4) *Correction:* The growth criterion is Lemma 2.6(4); remove or repair the undefined filtration-length symbol s in the following proposition.
+- **E6** (error; affects the proof), arXiv:1910.03871v3, Proposition 3.7 proof p.14; journal version not collated. *Printed:* solvable ∇-module over B is bounded *Correction:* Prove closure of solvable and bounded categories separately by their respective trivializations; do not use solvable⇒bounded.
+- **E7** (misprint; affects nothing), arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated. *Printed:* nonzero and bounded *Correction:* Add M≠0 to the asserted nonzero quotient, and separately define the bounded quotient of zero to be zero.
+- **E8** (misprint; affects nothing), arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated. *Printed:* M is PBQ if and only if M ⊗B N is PBQ *Correction:* Require N≠0 in the unit-root tensor detection assertion.
+- **E9** (misprint; affects nothing), arXiv:1910.03871v3, Theorem 3.19(1–2) pp.16–17; propagated in 3.29, 4.11 and 6.4; journal version not collated. *Printed:* maximal slope of Pi *Correction:* Use graded pieces G_i=P_i/P_(i−1): the decreasing slopes are λmax(G_i), the bounded quotient is ⊕Top(G_i), and the lifting theorems recover saturations of G_i.
+- **E10** (misprint; affects nothing), arXiv:1910.03871v3, Proposition 3.24 and Remark 3.25 p.18; journal version not collated. *Printed:* rankK[[x]]0 L0 = Sol(M0 )(−λmax ) *Correction:* Put dim_K on the solution-space side; use d/dx, not d/dy, in the displayed definition of Sol_λ.
+- **E11** (misprint; affects nothing), arXiv:1910.03871v3, Lemma 3.31 p.19; journal version not collated. *Printed:* on C/K (resp. C ′ /K) *Correction:* Assign M† to C′ and N† to C so that f_*M† and f* N† are typed correctly.
+- **E12** (gap; affects the proof), arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated. *Printed:* N is PBQ by Lemma 3.30 *Correction:* Supply an independent finite-étale generic solution/base-change argument for PBQ preservation by pullback before using it to prove the direct-image detection assertion. (cc-442dc5) A non-circular proof of (1): PBQ is a property of the generic ϕ-∇-module, and for the finite étale f the generic module of f*N† is E_{η′} ⊗_{E_η} N_η. The argument of Proposition 3.14 and Corollary 3.15, applied to the finite extension E_{η′}/E_η in place of E_α/E_η, gives (E_{η′} ⊗ N_η)^b = E_{η′} ⊗ N_η^b, so PBQ is preserved. Part (2) then follows as printed.
+- **E13** (misprint; affects nothing), arXiv:1910.03871v3, §3.9 p.21; journal version not collated. *Printed:* support forgetting map *Correction:* The domain of the displayed support-forgetting map should be H¹_rig,c(C,L†(χ)), with compact support.
+- **E14** (misprint; affects nothing), arXiv:1910.03871v3, Theorem 6.4 p.27; journal version not collated. *Printed:* Mη /Mb *Correction:* Use M/M^b as a convergent F-isocrystal, and say h is a convergent, not necessarily overconvergent, coefficient morphism.
+- **E15** (misprint; affects nothing), arXiv:1910.03871v3, Corollary 6.8 proof p.29; journal version not collated. *Printed:* i∗Cα,M ,X N † → i∗Cα,M ,X N † *Correction:* The target of this intermediate isomorphism is the restriction of M†.
+- **E16** (misprint; affects nothing), arXiv:1910.03871v3, Proposition 7.5 p.30; journal version not collated. *Printed:* θL1 ,L2 = θL2 ,L3 ◦ θL1 ,L2 *Correction:* The left side must be θL₁,L₃, interpreted through the canonical associativity isomorphism.
+- **E17** (gap; affects the proof), arXiv:1910.03871v3, Proposition 7.4 p.30; journal version not collated. *Printed:* perfect pairing *Correction:* Explicitly identify the K-dual with the L-dual through the finite-field trace and apply the multiplication component of L⊗K L before the L-valued evaluation.
+- **E18** (error; affects the proof), arXiv:1910.03871v3, Lemma 7.11(3) proof p.33; journal version not collated. *Printed:* L ⊗K L *Correction:* Use L⊗K Qpbar≅∏_{τ:L→Qpbar}Qpbar, or the trace-of-restriction-of-scalars identity directly.
+- **E19** (error; affects the proof), arXiv:1910.03871v3, Proposition 7.12 proof p.34; journal version not collated. *Printed:* λ *Correction:* For the trace of the nth Frobenius iterate, replacing F by λF multiplies by λ^n, not λ. Finish using nondegeneracy of trace and the fact that nth powers span L over K in characteristic zero.
+- **E20** (error; affects nothing), arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated. *Printed:* w ∈ Z *Correction:* Allow arbitrary real weights, or explicitly normalize by a rank-one twist and then restore its weight. The unrestricted mixedness/purity theorem cannot use integer-only weights.
+- **E21** (misprint; affects the proof), arXiv:1910.03871v3, Proposition 7.15(2) proof p.35; journal version not collated. *Printed:* τm *Correction:* The lifted τ_m is an endomorphism of the pulled-back N† lifting (g′)^−1h on its top quotient; the resulting map N†→M† is g′∘τ_m, not (g′)^−1∘τ_m.
+- **E22** (gap; affects the proof), arXiv:1910.03871v3, Proposition 7.15(2) pp.35–36 versus Lemma B.1 p.40; journal version not collated. *Printed:* 1/m *Correction:* Derive the normalization after the K_m⊗L coefficient projector before using the displayed 1/m average.
+- **E23** (misprint; affects nothing), arXiv:1910.03871v3, Appendix A.1 proof p.38; A.2 p.39; journal version not collated. *Printed:* valuation ring *Correction:* In the comparison with the completed algebraic residue extension use valuation group, not valuation ring; in the tube notation use sp^−1(Z), not sp(Z).
+- **E24** (gap; affects the proof), arXiv:1910.03871v3, Lemma A.1(3) proof p.38; journal version not collated. *Printed:* σ = idL ⊗ σ *Correction:* Supply a σ-compatible action on a sufficiently enlarged L, or a different descent construction. Identity on L does not in general glue to σ on K over K^(σ^n).
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1, Journal/preprint collation** (unavailable). The Inventiones version is closed access; locators refer to arXiv v3, the latest version.
+- **G2, PBQ finite-étale proof** (resolved). E12 records the circular proof of Lemma 3.31, with a repair through the argument of Proposition 3.14 applied to the finite étale generic extension (item 076).
+- **G3, External source closure** (deferred). The cited full-faithfulness, unit-root, local-monodromy and extension results are supplier proofs.
+- **G4, Legendre/Kummer and K3 example** (deferred). The Legendre/Kummer example rests on the Shioda–Inose and Stienstra–Beukers computations, cited suppliers.
+- **G5, Opposite-filtration proof granularity** (deferred). Declaration-level decomposition of the opposite-filtration argument is design work.
+- **G6, Coefficient projectors and normalization** (recorded). E17 and E22 record the coefficient-projector and normalization steps; typing them is design work.
+- **G7, Abe–Esnault/Ohkubo version and proof closure** (deferred). Abe–Esnault and Ohkubo are cited suppliers; E20 records the weight convention.
+- **G8, Final declaration-granularity and ownership reconciliation** (deferred). Declaration granularity and ownership reconciliation are design work.
+- **G9, Independent source-finding verification** (deferred). Independent verification of the findings is the review job's task.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
+- **Findings.** Every finding has `known` equal to "new".
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check the reclassifications of E2, E7, E8, E9 and E20.
+- Check the repair of Lemma 3.31 (E12).
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or classifies E2, E7, E8, E9 or E20 as affecting a stated result, this continuation supersedes it.
+
+## PAPER-TSUZUKI-23: minimal slopes through PBQ and saturation
 
 Status: **partial checkpoint**. Author: Codex, session codex-a71f92. Issue: #1258. Research snapshot: de3c71d7bb5a14a4b0027cb3a46526691ef626e0. Date: 22 September 2026.
 
 The whole public preprint has been read. This is not a claim that the 2023 journal text has been completely collated, that the dependency graph is closed, or that any mathematics has been formalized. The extraction contains 164 items: 7 exact library matches, 27 planned interfaces and 130 missing items, each missing item routed once. There are 339 internal prerequisite edges. All 55 definitions/constructions have three proposed API statements and three discriminating test contracts: 165 of each. The dependency inventory intentionally exposes nine remaining gates. Twenty-four source observations concern the preprint and await independent verification.
 
-## Source and version boundary
+### Source and version boundary
 
 The principal source is [Tsuzuki's public v3](https://arxiv.org/pdf/1910.03871v3), 41 numbered pages, uploaded 19 October 2021 and dated 20 October on its title page. Its SHA-256 is `611090d2e371483ff7996170368255462eeae03e5277c93a2ec406ac47c18457`. All of §§1–7, Appendices A and B and the bibliography were read. PDF pages 16 and 34 were also inspected visually: the PBQ indices, trace-twist factor and integer-weight restriction are genuinely printed, not merely text-extraction artifacts.
 
@@ -12,7 +116,7 @@ The [publisher record](https://doi.org/10.1007/s00222-022-01146-5) identifies In
 
 Three supporting sources were fetched with SHA-256 provenance in the JSON. In [Chiarellotto–Tsuzuki 2011](https://doi.org/10.4171/DM/326), the bounded/split equivalence, maximal PBQ construction, filtration and bounded-disc descent statements were checked at pp.46 and 55–59. [Ohkubo's public v1](https://arxiv.org/abs/1809.04065) §12 pp.44–47 was read through the indicated part of Proposition 12.12; the full log-growth proof was not read. [Abe–Esnault's public v1](https://arxiv.org/abs/1607.07112) was checked for coefficient/weight definitions, mixedness and the Lefschetz theorem. Its mixedness theorem is numbered 2.6, whereas Tsuzuki cites published 2.7. These version differences are preserved, not silently equated.
 
-## What the targets actually say
+### What the targets actually say
 
 Fix a complete discretely valued mixed-characteristic field K with perfect residue field k and a lift σ of q-power Frobenius. In the local and curve sections the coefficient field is not automatically Frac W(k), k need not be finite, and q can be a positive power of p. For a nonzero slope-filtered object write Top(M)=M/M¹ for its maximal-slope quotient in the decreasing filtration. Duality changes this to the minimal-slope subobject and reverses slopes and arrow directions.
 
@@ -22,7 +126,7 @@ The higher-dimensional theorem changes hypotheses and conclusion. In §7, k=Fq, 
 
 Later results mentioned in Remark 1.5 are not used to strengthen Tsuzuki's theorem silently. Nor is a convergent maximal-slope quotient assumed overconvergent.
 
-## The analytic and PBQ chain
+### The analytic and PBQ chain
 
 There are three different analytic coefficient objects. The Amice field E has bounded Laurent coefficients and a negative tail tending to zero. Its bounded Robba subfield E† has exponential negative-tail decay for some inner radius. The full Robba ring allows unbounded coefficients provided the Laurent series converges on an annulus with outer radius one. The bounded power-series ring is different again from all analytic functions on the open disc. A radius-indexed norm belongs on the full Robba ring; its coefficient supremum can be infinite.
 
@@ -36,7 +140,7 @@ PBQ means the nonzero maximal bounded quotient is pure. Nonzero quotients preser
 
 The filtration descends to the bounded-disc lattice and to E† by different external theorems. It globalizes on a curve using lattices at all interior points and boundary points. The gluing theorem uses the unit-root representation correspondence, finite local monodromy, determinant lines and recovery of a rank-r submodule as a wedge-map kernel. These are actual obligations, not consequences of the word “descent”.
 
-## Saturation and global lifting
+### Saturation and global lifting
 
 Saturation here is injectivity of the map from the dagger object into its convergent maximal-slope quotient. It is not the usual saturation of a submodule in an integral lattice. Saturation of an object is the **image quotient** of this map; the natural arrow goes from the original object onto its saturation.
 
@@ -48,7 +152,7 @@ Proposition 6.1 is the delicate passage back to curves. If a surjection N→M on
 
 The extension examples in 6.3 provide useful acceptance cases. Smaller, equal and larger subobject slopes lead to different PBQ/saturation behavior. The splitting conclusion in the larger-slope case has the extra rank-two hypothesis. The Legendre/Kummer example in §3.9 is rank three: its rank-two twisted cohomology object is extended by a rank-one constant Frobenius twist. The K3 calculation and root-of-unity normalization remain explicitly unverified rather than being called a self-extension or a completed example.
 
-## Finite coefficients, weights and Chebotarev
+### Finite coefficients, weights and Chebotarev
 
 An L-structure is an algebra action L→End_F(M†), not just the instruction to tensor everything with L. The tensor product uses the multiplication component of L₁⊗K L₂; its normalized rank is underlying rank divided by [L:K]. The dual is identified through the field-trace pairing. The 2-colimit to Qpbar must preserve the coefficient projector and finite fields of definition.
 
@@ -60,7 +164,7 @@ The arbitrary-coefficient purity theorem must allow real weights. On Spec F3, th
 
 The Chebotarev argument in this paper assumes pure Hom coefficient. Equal local fibers on a dense open yield equal relevant local factors; a weight-zero Hom pole at q^(−d), compact-support weight bounds and Poincaré duality give a nonzero global morphism. The Lefschetz step can use different curves for M and N: opposite rank inequalities force equal ranks and fiber isomorphisms. The extra endomorphism condition is then what recovers the particular given h.
 
-## Library audit and unique owners
+### Library audit and unique owners
 
 The pinned Mathlib and Tau Ceti trees were searched, and each claimed library statement was read. The exact library matches are the Witt-vector point carrier, rank-one classification, residue Hahn-series carrier, finite antidiagonals, union, additive sum and positive-support closure. The additive declarations generated by to_additive were checked against their source statements; the closure name is also used explicitly in HahnSeries/Summable.lean.
 
@@ -80,7 +184,7 @@ The reviewed coverage file has no entries for the three queried related roadmaps
 
 The pending `PadicDifferentialEquationsPartIIRigidCompanions` from PAPER-ESNAULT-GROECHENIG-20 concerns rigid arithmetic connections and companion bijections. It is not the PBQ/minimal-slope owner. Its generic p-adic Chebotarev need should import the precise pure-Hom result here when hypotheses match; no second general companion-existence theory is proposed. Abe's crystalline-companion paper is already in the queue as PAPER-ABE-18 and must not be added again.
 
-## Source observations and proof gates
+### Source observations and proof gates
 
 All E1–E24 entries include locator, printed fragment, correction or missing step, reach, and correction-search record. None claims a new published error. The most substantive issues are E2 (full Robba Gauss norm), E6 (solvability versus boundedness in a proof), E7–E8 (zero cases), E9 (graded PBQ indices), E12 (finite-étale proof), E18–E20 (splitting field, scalar twist, weight range), E22 (projected trace comparison) and E24 (Frobenius tensor compatibility). The remaining entries record type/index/coordinate misprints and the coefficient-dual pairing gap rather than silently repairing them.
 
@@ -106,7 +210,7 @@ The nine gates are:
 
 The prerequisite list in the JSON distinguishes inspected public source passages from citations read only in Tsuzuki's bibliography. The latter bibliography links are deliberately not represented as downloaded independent texts. A parent stage's broad scope or a paper already queued does not close a source proof.
 
-## Inventory index
+### Inventory index
 
 Exact statements, dependencies, API contracts and tests are in the adjacent result JSON. This index makes the coverage and routing auditable without treating every missing item as a new roadmap.
 
@@ -277,7 +381,7 @@ Exact statements, dependencies, API contracts and tests are in the adjacent resu
 | 163 | Full faithfulness from bounded-disc lattices | missing / RD.1 |
 | 164 | Slope filtrations on a dense open | missing / RD.3 |
 
-## Verification
+### Verification
 
 The paper checker and intake file check passed (three files, zero problems). The checker unit tests passed 9/9 and source-issue tests 7/7. The scratch structural audit passed, as did 1,718 exact-arithmetic assertions; results are recorded in the handoff and JSON. The structural audit checks unique routes for every missing item, graph acyclicity and all definition API/test counts. Exact arithmetic tests target the PBQ counterexample, q-slope normalization, cyclic trace degree, field-trace pairing and nth-power spanning repair. These are diagnostic checks of finite examples and extraction structure, not proofs of the paper's theorems.
 
