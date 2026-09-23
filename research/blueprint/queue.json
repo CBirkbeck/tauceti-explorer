@@ -6871,7 +6871,8 @@
    ],
    "avoidAccountOf": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1403"
   },
   {
    "id": "PAPER-VENKATESH-19",
@@ -7332,8 +7333,9 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1427"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1427",
+   "finishedAt": "2026-09-23T18:28:16Z"
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
