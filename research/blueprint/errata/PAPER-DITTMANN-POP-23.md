@@ -28,3 +28,44 @@ On p. 16, W_T is the set of rank-one geometric prime divisors w with T ⊂ O_w. 
 ## E4. The torus in the proof of Lemma 5.3 (gap)
 
 The proof chooses ζ over κv^alg with ḡ(ζ) ≠ 0 and then says "ζ is an e-tuple of roots of unity". That requires every coordinate of ζ to be nonzero. Such a ζ exists, because a nonzero polynomial has non-roots on the torus over an infinite field, but the proof should choose it there.
+
+## Added by the review REV-ERRATA-PAPER-DITTMANN-POP-23
+
+The independent review (Claude Code, session `cc-442dc5`, 23 September 2026) confirmed E1–E4. Reading the rest of the same arXiv v2 text, it added eight further slips. All eight are local, none affects a result, and each has its review verdict in the JSON.
+
+## E5. k for k₁ on p. 4 (misprint)
+
+The paragraph before Fact 2.1 speaks of "the completion of k at v" and "the real closure of k at v" for a place v of the global field k₁. No field k is in play there; both should read k₁.
+
+## E6. The degree of the residue map ∂ₓ (misprint)
+
+On p. 4 the residue map attached to x ∈ X¹ is written ∂ₓ : H^{i+1}(K) → H^d(κ(x)). It is the component of the first map of the Bloch–Ogus complex, which goes from H^{d+1}(K); the index i has no meaning there. It should read H^{d+1}(K).
+
+## E7. The field K_v̂ (misprint)
+
+On p. 4 the paper sets K_v̂ := K k₁v̂ := Quot(K ⊗_{k₁} k₁v). As printed this is the compositum with the henselization, which is the field K_v introduced in the next sentence as a subfield of K_v̂. With the hat restored, Quot(K ⊗_{k₁} k₁v̂) is the compositum with the completion, which is what the notation and Jannsen's theorem (F_v in [Ja]) require. The tensor product is still a domain, because K ⊗ k₁v is the field K k₁v and the completion is regular over k₁v.
+
+## E8. Kw for Fw (misprint)
+
+In the proof of Proposition 3.2 the special fibre is called "the projective smooth Kw-variety V_{q_ε̄} ↪ P^N_{Fw}". The field of the proposition is F, so this is the Fw-variety, as the ambient P^N_{Fw} in the same sentence shows.
+
+## E9. A cohomological-dimension chain (gap)
+
+In Case 2 of Proposition 3.2, 3), the proof bounds cd(E′_{v′}) ⩽ cd(E′) ⩽ dim(E′) + 1 for a non-real place v′. The middle inequality fails when E′ is formally real, because a field with an ordering has infinite 2-cohomological dimension. That case can occur, since k′ may have real places; the second half of the proof exists to handle them.
+
+The needed bound holds directly. For a non-real place, k′_{v′} has 2-cohomological dimension at most 2, and E′_{v′} has transcendence degree dim(E′) − 1 over it. So Serre's inequality gives cd₂(E′_{v′}) ⩽ dim(E′) + 1, and the conclusion H^{r+1}(E′_{v′}) = 0 stands.
+
+## E10. "Neighbourhood of q_a" (misprint)
+
+The proof of Lemma 3.9, 2) says that V_a "contains the neighborhood V_{E|F} of q_a". V_{E|F} is a set of valuations containing w, so it should read "of w".
+
+## E11. D_{K|k_a} for D_{K|k_t} (misprint)
+
+Twice on p. 14 the set of prime divisors is written D_{K|k_a}: in Notations/Remarks 4.1, 2) and in the proof of Theorem 4.2, 1). The set defined, and used in 4.1, 5), is D_{K|k_t}, the prime divisors trivial on the relative algebraic closure k_t of k₁(t).
+
+## E12. Three page ranges in the bibliography (misprint)
+
+Three page ranges are wrong, according to their Crossref records:
+- [Du]: "808–923" should be 808–823.
+- [Ka]: "493–51" should be 493–510.
+- [P1]: "385–308" should be 385–408.
