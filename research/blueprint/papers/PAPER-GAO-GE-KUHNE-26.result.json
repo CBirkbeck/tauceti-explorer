@@ -558,11 +558,11 @@
       "name": "Weil height on projective space over ℚ̄",
       "statement": "The absolute logarithmic Weil height on ℙ^n(ℚ̄), and the height h : A(ℚ̄) → ℝ induced by a projective embedding.",
       "locator": "Appendix A.1, p.227",
-      "status": "library",
-      "library": [
-        "mathlib:Projectivization.logHeight"
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
       ],
-      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) for fields with `Height.AdmissibleAbsValues`; the extension to ℚ̄ and Northcott for bounded degree are RP.0/DT.0 work."
+      "note": "Corrected by REV-PAPER-GAO-GE-KUHNE-26 from library to planned. Mathlib's Projectivization.logHeight (Mathlib/NumberTheory/Height/Projectivization.lean:51 at 082e2d3) is defined only for a field carrying a Height.AdmissibleAbsValues instance, and the only instance in Mathlib at the pin is for number fields (Mathlib/NumberTheory/Height/NumberField.lean:78), so neither the height on P^n(Qbar) nor the induced height on A(Qbar) is in the libraries. RP.0 plans both: it imports normalized absolute heights, the product formula and Northcott, requires independence of the projective coordinates and of the field extension, and compares Neron-Tate and local heights on abelian varieties. Mathlib's definition is the supplier RP.0 will import for a number field."
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/56",
@@ -1156,7 +1156,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 1.3 on p.192 prints 'there exist positive constants c3 = c3(g,d) and c3 = c3(g,d)' and (1.4) then reads '#{P in X°(Qbar) : h(P) <= c3} < c4', with c4 introduced nowhere else.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E2",
@@ -1171,7 +1176,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 2.4 on p.196 reads 'deg_L(Y + Y') <= 4^{dim Y + dim Y'} deg_L Y · deg_L Y'', so for Y = X and Y' = -X, both of dimension r, it gives 16^r (deg_L X)^2 and not the printed 8^r (deg_L X)^2; the k-th step and the displayed 8^{2kr} and 8^{(g+1)^2 r} scale the same way. The conclusion of Lemma 2.5, deg_L A' <<_g (deg_L X)^{2g}, survives with the corrected constants, which is why this affects nothing.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E3",
@@ -1186,7 +1196,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The printed relation on p.209 is strict: 'Notice that deg_L(X') < deg_{L|A}(X') because of 8c1(L) = c1(L|A) and hence deg_L(X') < c'_2'. Since c1(L|A) = 8c1(L), one has deg_{L|A} = 8^{dim} deg_L on each component, so the inequality is an equality on the 0-dimensional components and only <= holds in general. The conclusion is unaffected.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E4",
@@ -1201,7 +1216,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The display on p.210 ends 'deg_{u*L} X'_0 <= c'_2', but Proposition 4.4 bounds deg_{L_0} X'_0 by c'_2, and the same page records u*(L ⊗ [-1]*L) = (L_0 ⊗ [-1]*L_0)^{⊗(l/g!)^2}, so c1(u*L)^k = (l/g!)^{2k} c1(L_0)^k and the u*L-degree of a component of dimension k <= r-1 is (l/g!)^{2k} times its L_0-degree. The missing factor is exactly the (l/g!)^{2(r-1)} the correction inserts, and it still depends only on g, l, r and d.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E5",
@@ -1216,7 +1236,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Proposition 5.2 on p.212 prints 'There exist constants c''_2 = c''_2(r,d,S) > 0 and c'_3 = c''_3(r,d,S) > 0', and (5.3) and the whole proof use c''_3.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E6",
@@ -1231,7 +1256,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The display on p.217 is printed as quoted, with the outer sum running to M. The height is taken with respect to L^{⊠m(M+1)} and D is defined on X^{[m(M+2)]}, so D(x) has M+1 blocks of length m: block 0 and the M differences x_{i·m+j} - x_{m+j}. Summing i = 2,…,M gives only m·M terms, while the bound 4m(M+1)c''_3 that follows counts m(M+1) of them, so M+1 is the intended upper limit.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E7",
@@ -1246,7 +1276,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 4.3 on p.207 produces a constant c(M, dim X, deg_L X, deg_{L^{⊠M}}(Z)) for Z ⊊ X^M, and Step 5 applies it with Z = Z_s ⊊ X_s^{m(M+2)}, so the degree must be taken with respect to L_s^{⊠m(M+2)}; the earlier application on p.206 with M = m correctly uses L_s^{⊠m}, which is where the printed subscript comes from.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E8",
@@ -1261,7 +1296,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 219 prints c_2 := max{c'_2, c''_2}, while the claim on the same page places each small point in the set (6.2) or in the set (6.3), whose exceptional loci have degrees < c'_2 and < c''_2 respectively. The union of two proper closed subsets has degree up to the sum, so c'_2 + c''_2 is the constant the argument gives; it still depends only on g, l, r and d, so nothing downstream changes.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E9",
@@ -1276,7 +1316,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The hypothesis (Hyp pack) on p.220 bounds the count in (7.1) by c_0^{rk Γ + 1}, not by c_0, and the sentence on p.221 states the ball bound as 'at most c elements', a constant that is not defined; (7.4)–(7.6) then carry c_0. The same slip is in (A.12) on p.232. Raising the factor to c_0^{rk Γ + 1} changes only the final constants.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E10",
@@ -1291,7 +1336,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. (Hyp pack) is stated with the threshold c_0^{-1} max{1, h_Fal(A)} and the gap principle of Theorem 1.2 applies below c_1 max{1, h_Fal(A)}, so the proof needs c_0^{-1} <= c_1, that is c_0 >= c_1^{-1}. The printed c_0 = max{c_1, c_3} on p.223 does not give this when c_1 < 1, while max{c_1^{-1}, c_3} does.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E11",
@@ -1306,7 +1356,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 232 prints '#Ξ >= #X°(Qbar) ∩ Γ - #{…} > N''(4c_8 + 1)^{rk Γ}', but not being in case (i) gives #X°(Qbar) ∩ Γ > N''(8c_8 + 1)^{rk Γ} + c_10^{rk Γ + 1}, and (A.11) removes at most c_10^{rk Γ + 1} points, so the bound is N''(8c_8 + 1)^{rk Γ}. That is also what the pigeonhole needs, since the covering on the next line uses (8c_8 + 1)^{rk Γ} balls.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E12",
@@ -1321,7 +1376,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. The proof of Theorem 1.3 on p.226 applies Proposition 5.1 to X inside (A', L|A') and then 'the induction hypothesis to each irreducible component of X''. Theorem 1.3 and Proposition 5.1 both require the subvariety to generate the ambient abelian variety, and a component of X' generates only the abelian subvariety B_i of X_i - X_i, inside which it sits as a translate; the Neron-Tate height is not translation invariant, and Proposition 5.1's constants depend on the exact degree of the ambient abelian variety. The repair recorded here is sound: when a component has a point P_1 of height at most c, work with X_i - P_1 ⊆ B_i, whose degree is bounded through Lemma 2.5, and use the parallelogram law h(P - P_1) <= 2h(P) + 2h(P_1); the constants are then the min/max over the bounded ranges of l and dim B_i, exactly as in the proof of Theorem 1.2. So Theorem 1.3 stands and the defect is in the written induction.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/E13",
@@ -1336,7 +1396,12 @@
         "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
         "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
         "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Proposition A.3(ii) on p.228 prints 'deg X' < (deg_L X)^{2 dim X}', while Step 1 on p.230 states the claim in the non-strict form ('a proper Zariski closed subset X' ⊊ X with deg_L X' <= (deg_L X)^{2 dim X}') and bounds X' by at most (deg_L X)^{2r} components each of degree at most (deg_L X)^{2r}, which yields only <=.",
+        "by": "REV-PAPER-GAO-GE-KUHNE-26"
+      }
     }
   ]
 }
