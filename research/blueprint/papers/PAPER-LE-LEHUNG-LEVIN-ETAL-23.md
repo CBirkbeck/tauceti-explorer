@@ -1,3 +1,112 @@
+# LLHLM23 continuation: normalized Speh factors and inertia power ranks
+
+Codex — codex-c83e7a, issue #1254, 23 September 2026. Claim5800141924 was confirmed by5800144728. This continues the533-item packet at `4e834a2a07b662187378eaea20045dbcacaba0bf`.
+
+**Partial:545 items (74 library,19 planned,452 missing),21 routes,51 unreviewed source findings.** All159 definitions/constructions have individual uses, API outlines and at least three typed tests. This is an extraction and proof plan; no Lean implementation or independent review is claimed.
+
+## Corrected Speh/Galois realization
+
+The former A78 formula used half-integral cyclotomic powers without constructing global characters, and omitted the change from rank-m to rank-n local Langlands normalization. The correction is in the extraction; it is not a new error allegation against LLHLM.
+
+Write the rank-n weak transfer as an isobaric sum of discrete Speh representations `Delta_i=Speh(pi_i,b_i)`, with unitary cuspidal `pi_i` of rank `m_i` and `n=sum_i m_i b_i`. Set
+
+```
+t_i = (m_i + b_i - n - 1)/2,
+Pi_i = pi_i |det|_F^(t_i),
+R_i = r_(p,iota)(Pi_i).
+```
+
+**A79 establishes algebraicity before applying an existence theorem.** The rank-n infinitesimal character has distinct coordinates in `Z+(n-1)/2`. In each Speh segment the top shift is `(b_i-1)/2`, so the raw cuspidal coordinates lie in `Z+(n-b_i)/2`. Adding `t_i` puts them in `Z+(m_i-1)/2`; they remain distinct. Ordering and subtracting rho gives a dominant integral weight of GL_(m_i). Uniqueness of the conjugate self-dual discrete Speh support gives `pi_i^c=pi_i^dual`. The pair `(Pi_i,chi_i)` is polarized for
+
+```
+chi_i = |.|_(F+)^(2t_i) delta_(F/F+)^(m_i).
+```
+
+Here `2t_i` is integral, delta becomes trivial after composition with the norm, and `chi_i,v(-1)=(-1)^(m_i)` at every real place. The automorphic positive-real half-norm is defined; this construction does not require a cyclotomic half-character.
+
+**A80 imports the polarized cuspidal existence theorem from AG2.2.** It applies to the now-proved regular algebraic pair, including when Pi_i is nonunitary. Its polarization gives `R_i^c=R_i^dual epsilon^(b_i-n)`.
+
+**A81 and corrected A78 give the exact integer twists.** Both sources normalize Artin reciprocity using geometric Frobenius. Thus `epsilon(Frob_w)=q_w^(-1)`. The exponent identity
+
+```
+(b_i-1)/2-j+(1-n)/2 = t_i+(1-m_i)/2-j
+```
+
+gives, at good split primes,
+
+```
+det(1-r(Frob_w)X) = product_(i,j) det(1-q_w^j R_i(Frob_w)X),
+r^ss = direct_sum_(i,j=0,...,b_i-1) R_i tensor epsilon^(-j).
+```
+
+For `n=2,m_1=1,b_1=2,pi_1=1`, the result is `1 direct_sum epsilon^(-1)`, with polynomial `(1-X)(1-q_w X)`. The old formula with symmetric square-root powers does not give this rank-normalized answer. The polarization pairs index j with `b_i-1-j`, consistently with the rank-n multiplier.
+
+**A77 supplies uniqueness with the correct topology and group scope.** Add Hausdorffness of the coefficient field. Continuous traces equal on a conjugacy-dense set are equal everywhere, using pinned `Continuous.ext_on`. For arbitrary groups, apply character recognition to the finite-dimensional image algebra acting on the direct sum of the two semisimple representations. Its semisimple quotient is a product of matrix algebras over the algebraically closed field; traces on matrix units recover multiplicities in characteristic zero. The pinned finite-group character theorem is not applied to an infinite Galois group.
+
+Every summand in A78 has positive rank. Residual absolute irreducibility, via A50, therefore leaves a single block with `b=1,m=n,t=0`, as required by A62. A73's finite-place genericity consequence and A74–A76's coefficient/type and Hecke-image interfaces can consume this input. Their named analytic and arithmetic suppliers still require closure.
+
+## Monodromy comparison without a Clifford-orbit assumption
+
+BLGGT compares partitions within an irreducible Weil class modulo unramified twist; LLHLM Definition2.5.3 uses nilpotent partitions on the **whole inertia-isotypic subspaces**. The distinction from multiplicity spaces contributes a factor `dim theta`.
+
+For each Weil class sigma choose a representative `s_sigma`, and put `c_(theta,sigma)=dim Hom_I(theta,s_sigma|I)`. All representatives in the class have identical inertia restrictions. The new special-block adapter A82 gives
+
+```
+rank(N^a on the theta-multiplicity space)
+  = sum_sigma c_(theta,sigma) sum_j max(m_j(rho,sigma)-a,0).
+```
+
+Multiply by `dim theta` for the whole isotypic subspace. The coefficients are nonnegative. Dominance in every Weil class therefore implies each inertia rank inequality by summing, even when distinct Weil classes have overlapping inertia supports. This closes A54's comparison without requiring Clifford orbit classification or a multiplicity-one restriction theorem.
+
+A83 constructs nilpotent Jordan chains over any field by making V the existing `Module.AEval' N` polynomial module. It is finite and killed by a power of X. The pinned PID prime-power decomposition gives summands `k[X]/(X^d)`; discard exponent-zero summands and use the existing monic quotient power basis. The residual work is the explicit specialization and scalar restriction, rather than another general PID theorem. A84 computes the power ranks `r_a=sum_i max(d_i-a,0)` and recovers exact block multiplicities by `r_(d-1)-2r_d+r_(d+1)`.
+
+For a decreasing partition lambda, A58 proves the order comparison using
+
+```
+R_a = max_i (S_i-i*a),       S_i = min_(a>=0) (i*a+R_a),
+S_i = sum_(j<=i) lambda_j,   R_a = sum_j max(lambda_j-a,0).
+```
+
+At i=0 choose a at least the largest part; zero-dimensional spaces use the empty partition. Equality at a=0 supplies the common dimension. This gives both directions of the dominance/rank criterion and explains why multiplying by positive `dim theta` preserves and reflects it.
+
+## Library and ownership decisions
+
+| Items | Decision and owner |
+| --- | --- |
+| A79, A81 | Missing application adapters in existing AutomorphicGaloisRepresentationsPartII AG2.2 |
+| A80 | Planned import from AG2.2, the polarized cuspidal existence theorem |
+| A82 | Missing restriction/rank adapter in the existing AutomorphicGaloisRepresentationsPartII route |
+| A83, A84 | Missing nilpotent specialization/rank adapters beside N57/A58 in the existing SmoothRepresentationsPartII proposal |
+| L69–L71 | Existing Mathlib PID decomposition, polynomial action and monic quotient basis |
+| L72–L74 | Existing Mathlib Maschke, Schur and isotypic decomposition suppliers |
+
+No route is added. Generic representation/system operations retain ArithmeticGaloisRepresentations and PotentialModularityAndCompatibleSystems:R24.5:operations ownership. DWP.0's spectral examples do not become a second nilpotent-conjugacy carrier. The exact pinned declarations and hypotheses were opened, and12 cited files were byte-verified against their pinned blob identities. Searches covered both pinned library trees, the current atlas and proposed roadmaps, and all53 packet/decomposition/reserved-ID records. The reviewed AG2.2/AG2.7 audit rows were checked. Nearby rank-two Hecke normalization and the Faltings–Deligne finite-test-set theorem do not already state these particular adapters.
+
+## Source readings and findings
+
+The fresh LLHLM file has SHA256 `e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`. This continuation read published PDF28,49–50,180–181,196–198; the earlier extraction's remaining readings retain their original attribution. This is not a claim to have freshly reread all212 pages in this pass.
+
+The new bounded supporting readings are BLGGT2014 §2.1, published PDF35–39; EGH Lemma7.1.6 and Theorem7.2.1, author PDF55–56; Labesse Corollary5.3 and its proof, PDF42–44; Mœglin–Waldspurger's introduction, PDF2–4; and BLGGT l=p II, author PDF3,5–6 and published PDF4,6–7. URLs and hashes are in `source.continuationReadings`.
+
+The four additional findings remain **unreviewed**:
+
+- E48: BLGGT2014 p536 calls the pair `(pi,chi)` but uses mu in its following parity sentence. Read chi there; the next independent definition of polarizability may still use mu.
+- E49: BLGGT l=p II's Weil-character twist uses a determinant with the wrong domain. Pull the K× character back through inverse Artin reciprocity, or state an unramified Weil character directly. This persists in published p169–170.
+- E50: the same source's p169 uses n for the fixed rank m in the extreme-regularity set and coefficient representation, and lower-case pi for Pi in the Hodge–Tate display. These are notation slips with fixed surrounding domains.
+- E51: the author copy says GL_(mr) for a special representation formed from s rank-m blocks. The journal already corrects it to GL_(ms), p167; the finding records that known correction.
+
+The relevant page images and published text were checked. The author pages, arXiv version histories and journal records were searched for corrections; findings do not acquire independent-review verdicts here. All47 previous source issues and all Appendix B source data are retained unchanged.
+
+## Validation and remaining work
+
+The paper checker passes. Structural checks give545 unique IDs,159 literal definition interfaces,352 acyclic internal edges and exactly one route for each of452 missing items. Existing item changes are confined to A54,A58,A62,A77,A78; the other original statements/statuses are retained. Exact regressions check2,918 rank transforms,2,918 inverse prefix transforms,12,648 dominance pairs,3,264 isotypic rank cases,2,646 block-recovery formulas and2,427 Speh normalization cases. These finite calculations test the formulas; they are not proofs of the automorphic theorems or Lean elaboration.
+
+The12 recorded gaps remain the work queue. Their descriptions now distinguish the completed normalization, coefficient and monodromy interfaces from still-open analytic/descent suppliers, fine ownership, compound statement splitting, and uniform Appendix B certificates. The withdrawn White source is not used to replace Labesse: LLHLM9.1 supplies Labesse's degree and compactness hypotheses. The stronger external EGH setting is not silently asserted.
+
+The following earlier reports retain the history and extensive inventories. Their numerical censuses and claims that the exact Speh normalization is unresolved are historical; this section and the current JSON supersede them. The incorrect final half-cyclotomic formula from the preceding checkpoint has been replaced by the derivation above.
+
+---
+
 # LLHLM23 continuation: the σ(λ,τ)^* coefficient dictionary and the projected Hecke image
 
 Claude Code, session cc-442dc5, issue #1254, 23 September 2026. This continues merged #2411 at `586740d6`, under claim 5799565155.
@@ -4527,48 +4636,3 @@ for prime in (2,3,5,7):
 print(dict(counts))
 ```
 
-## Speh-block continuation (cc-fb70e5)
-
-This pass closes resume point 1 of the previous handoff: the isomorphism that **A62** assumed but nothing
-supplied. Two items do it.
-
-**A77 — Frobenius characteristic polynomials determine a semisimple representation.** Theorem A.4.1 says
-each of `r(U,W)`, `r(U_0(Q),W)` and `r(U_1(Q),W)` is "uniquely determined by" its displayed
-characteristic-polynomial equations (published PDF 196–197). That uniqueness is a theorem, and this item
-states it in the form the chain needs: for a topological group `Δ`, a subset `C` whose conjugacy
-saturation is dense (A49's hypothesis, satisfied by the Frobenii at unramified split places), and
-continuous **semisimple** `ρ_1, ρ_2 : Δ → GL_n(L)` over an algebraically closed `L` of characteristic
-zero, equality of `det(1 − ρ_i(c)X)` on `C` forces `ρ_1 ≅ ρ_2`. The mechanism is: characteristic
-polynomials give traces, traces are conjugation-invariant and continuous so agreement spreads from `C` to
-`Δ`, and in characteristic zero linear independence of irreducible characters recovers the multiplicities.
-Both hypotheses matter — without semisimplicity only the semisimplifications agree, and nothing modular is
-claimed (the residual statement in this extraction is A50's).
-
-**A78 — the base-changed discrete spectrum realizes as a twisted sum of cuspidal blocks.** With A59's base
-change `σ ↦ ⊞_i Δ_i` and `Δ_i = Speh(π_i, b_i)` (A60, A61), the local component of `Speh(π_i, b_i)` at an
-unramified `w` is the unramified constituent of the induction of
-`π_i|det|^{(b_i−1)/2}, …, π_i|det|^{(1−b_i)/2}`, so its Satake parameters are those of `π_{i,w}` scaled by
-`q_w^{(b_i−1)/2−j}` for `0 ≤ j < b_i`. Hence
-
-    det(1 − r(Frob_w)X) = ∏_i ∏_{j=0}^{b_i−1} det(1 − q_w^{(b_i−1)/2−j} r_i(Frob_w) X),
-
-and A77 upgrades this to `r^ss ≅ ⊕_i ⊕_j r_i ⊗ ε^{(b_i−1)/2−j}`. That is exactly A62's hypothesis, with
-`Q_{i,j} = r_i` of dimension `m_i > 0` and `χ_{i,j} = ε^{(b_i−1)/2−j}`, so A62's conclusion — `r = 1`,
-`b_1 = 1`, the base change is cuspidal — is now reached from stated inputs rather than assumed.
-
-**What is still a hypothesis, deliberately.** Two things, both recorded in the `global-descent-supplier-atoms`
-gap rather than papered over:
-
-1. The **existence** of `r_i` for each conjugate self-dual cohomological cuspidal `π_i`. That is the
-   AG2.1/AG2.2 construction, imported, not proved here.
-2. The **even-`b_i` normalization**. For `b_i` even the twists — and the product above — involve
-   `q_w^{1/2}`: already for `m_i = 1`, `b_i = 2` the product is
-   `1 − (q_w^{1/2} + q_w^{−1/2}) r_i(Frob_w) X + …`. The identity is then read after the compensating
-   half-twist carried by the `ξ = ε^{1−n} δ^n_{F/F+}` of Theorem A.4.1. A62 needs only the block
-   dimensions and the decomposability, which hold either way, so the chain is unaffected; pinning the exact
-   normalization is left open.
-
-**Provenance check.** The author-hosted published PDF was re-downloaded on 23 September 2026 from
-`https://math.rice.edu/~bl70/LocModels.pdf` and its SHA-256 is
-`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`, matching the recorded hash byte for
-byte; pages 196–198 were re-read for this pass.
