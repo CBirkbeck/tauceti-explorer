@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KISIN-17",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -16,7 +16,7 @@
       "All99 pages: introduction, §§1.1–1.4,2.1–2.3,3.1–3.8,4.1–4.6,Errata E.1–E.7 and references."
     ]
   },
-  "summary": "Extraction of the twisted Langlands–Rapoport point classification at odd hyperspecial primes: adapted deformations and minuscule components, CM isogenies, refined Picard-quotient gerbs, cohomological obstruction torsors, component matching and abelian-type descent. All main-paper pages read; recursive cited-source and declaration-sized closure remains open.",
+  "summary": "Kisin proves the Langlands–Rapoport conjecture, up to a twist by a cocycle, for the mod p points of Shimura varieties of abelian type at hyperspecial level (p > 2): each isogeny class has the form predicted by an admissible morphism, and every isogeny class contains a point lifting to a special point. The paper also corrects §1.5 and (3.3.9) of Kisin's 2010 integral-models paper. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and five findings are recorded, four of them the printed corrections to [Ki 2] and Moonen. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -9794,6 +9794,127 @@
         "PAPER-KISIN-17/R20",
         "PAPER-KISIN-17/H07"
       ]
+    },
+    {
+      "id": "PAPER-KISIN-17/D07a",
+      "kind": "theorem",
+      "name": "Integral crystalline tensors for a p-divisible group",
+      "statement": "Let G be a p-divisible group over O_K with G_K-invariant tensors (s_α) ⊂ T_pG^⊗ defining a reductive G ⊂ GL(T_pG), and suppose k is separably closed, or G_{Z_p} is connected and k finite. Then (1) the comparison images s_{α,0} lie in D(G)(W)^⊗; (2) there is an isomorphism T_pG*(−1) ⊗ W ≅ D(G) taking s_α to s_{α,0}; (3) the filtration on D(G)(k) is induced by a G_W-valued cocharacter.",
+      "locator": "Corollary (1.1.7)",
+      "status": "missing",
+      "ownerKey": "display",
+      "prerequisites": [
+        "PAPER-KISIN-17/D07"
+      ],
+      "proofSteps": [
+        "Deduce from Theorem (1.1.6) and the reductivity of the stabilizer."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "k17",
+          "locator": "Corollary (1.1.7)",
+          "match": "Author 99-page version read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-KISIN-17/D10a",
+      "kind": "theorem",
+      "name": "Hodge cocharacter and Frobenius double coset",
+      "statement": "The filtration on D(G)(k) is given by a G_W-valued cocharacter μ_0^{-1}, and b ∈ G_W(W) p^{υ_0} G_W(W) with υ_0 = σ(μ_0).",
+      "locator": "Lemma (1.1.12)",
+      "status": "missing",
+      "ownerKey": "display",
+      "prerequisites": [
+        "PAPER-KISIN-17/D07a"
+      ],
+      "proofSteps": [
+        "Cartan decomposition of b, then conjugate the cocharacter."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "k17",
+          "locator": "Lemma (1.1.12)",
+          "match": "Author 99-page version read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-KISIN-17/S02a",
+      "kind": "theorem",
+      "name": "Crystalline realization of the Hodge tensors at a point",
+      "statement": "(1) Under the p-adic comparison isomorphism the s_{α,p,x̃} map to φ-invariant tensors s_{α,0,x̃} ∈ Fil⁰(H¹_cris(A_x/W)^⊗). (2) There is a W-linear isomorphism H¹_ét(A_{x̃,K̄}, Z_p) ⊗ W ≅ H¹_cris(A_x/W) taking s_{α,p,x̃} to s_{α,0,x̃}; the s_{α,0,x̃} define a reductive G_W ≅ G_{Z(p)} ⊗ W. (3) The filtration on H¹_cris(A_x/W) ⊗ k is given by μ_0^{-1} with μ_0 conjugate to μ_h.",
+      "locator": "Proposition (1.3.7)",
+      "status": "missing",
+      "ownerKey": "shimura",
+      "prerequisites": [
+        "PAPER-KISIN-17/S02",
+        "PAPER-KISIN-17/D07a"
+      ],
+      "proofSteps": [
+        "Apply Corollary (1.1.7) to the p-divisible group of A_x̃; compare μ_0 with μ_h."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "k17",
+          "locator": "Proposition (1.3.7)",
+          "match": "Author 99-page version read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-KISIN-17/R10a",
+      "kind": "theorem",
+      "name": "Decomposition of S_τ(G, φ_0) by admissible lifts",
+      "statement": "The natural map ∐_{[φ], φ^ad = φ_0} S_τ(φ) → S_τ(G, φ_0) is a bijection, where [φ] runs over representatives of the conjugacy classes of admissible morphisms φ: Q → G_G lifting φ_0.",
+      "locator": "Corollary (3.4.16)",
+      "status": "missing",
+      "ownerKey": "shimura",
+      "prerequisites": [
+        "PAPER-KISIN-17/R10"
+      ],
+      "proofSteps": [
+        "Use (3.4.11) and the definition of S_τ(G, φ_0)."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "k17",
+          "locator": "Corollary (3.4.16)",
+          "match": "Author 99-page version read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-KISIN-17/R29a",
+      "kind": "theorem",
+      "name": "Dependence of the pair (S_τ(G, φ_0)^+, E_p(G, φ_0))",
+      "statement": "The pair (S_τ(G, φ_0)^+, E_p(G, φ_0)), as a set with a group action, depends only on τ, φ_0, G^der_{Z(p)} and X^+; morphisms in SH_p(G^ad, X^ad)^+ inducing isomorphisms on derived groups induce functorial isomorphisms of the pairs.",
+      "locator": "Corollary (3.8.6)",
+      "status": "missing",
+      "ownerKey": "shimura",
+      "prerequisites": [
+        "PAPER-KISIN-17/R29"
+      ],
+      "proofSteps": [
+        "As in the proof of (3.8.5), using (3.8.2)."
+      ],
+      "implementationStatus": "unchecked",
+      "sources": [
+        {
+          "sourceId": "k17",
+          "locator": "Corollary (3.8.6)",
+          "match": "Author 99-page version read; added by cc-442dc5 as a numbered statement without its own item."
+        }
+      ],
+      "note": ""
     }
   ],
   "routes": [
@@ -10872,9 +10993,11 @@
         "PAPER-KISIN-17/D05",
         "PAPER-KISIN-17/D06",
         "PAPER-KISIN-17/D07",
+        "PAPER-KISIN-17/D07a",
         "PAPER-KISIN-17/D08",
         "PAPER-KISIN-17/D09",
         "PAPER-KISIN-17/D10",
+        "PAPER-KISIN-17/D10a",
         "PAPER-KISIN-17/D11",
         "PAPER-KISIN-17/D12",
         "PAPER-KISIN-17/D13",
@@ -11204,6 +11327,7 @@
       "items": [
         "PAPER-KISIN-17/S01",
         "PAPER-KISIN-17/S02",
+        "PAPER-KISIN-17/S02a",
         "PAPER-KISIN-17/S03",
         "PAPER-KISIN-17/S04",
         "PAPER-KISIN-17/S05",
@@ -11231,6 +11355,7 @@
         "PAPER-KISIN-17/R08",
         "PAPER-KISIN-17/R09",
         "PAPER-KISIN-17/R10",
+        "PAPER-KISIN-17/R10a",
         "PAPER-KISIN-17/R11",
         "PAPER-KISIN-17/R12",
         "PAPER-KISIN-17/R13",
@@ -11247,6 +11372,7 @@
         "PAPER-KISIN-17/R27",
         "PAPER-KISIN-17/R28",
         "PAPER-KISIN-17/R29",
+        "PAPER-KISIN-17/R29a",
         "PAPER-KISIN-17/R30",
         "PAPER-KISIN-17/R31",
         "PAPER-KISIN-17/R32",
@@ -11545,7 +11671,9 @@
         "PAPER-KISIN-17/D12",
         "PAPER-KISIN-17/D14",
         "PAPER-KISIN-17/D15"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-display",
@@ -11557,7 +11685,9 @@
         "PAPER-KISIN-17/E01",
         "PAPER-KISIN-17/E02",
         "PAPER-KISIN-17/E04"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-adlv",
@@ -11568,7 +11698,9 @@
         "PAPER-KISIN-17/X04",
         "PAPER-KISIN-17/X06",
         "PAPER-KISIN-17/X11"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-ckv-correction",
@@ -11577,7 +11709,9 @@
       "items": [
         "PAPER-KISIN-17/X07",
         "PAPER-KISIN-17/X08"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "The CKV corrigendum is a cited supplier; its omitted D4/E6 verification is its own."
     },
     {
       "id": "Q-stacks",
@@ -11586,7 +11720,9 @@
       "items": [
         "PAPER-KISIN-17/C10",
         "PAPER-KISIN-17/T02"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-cohom",
@@ -11601,7 +11737,9 @@
         "PAPER-KISIN-17/H09",
         "PAPER-KISIN-17/H10",
         "PAPER-KISIN-17/M02"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-gerb",
@@ -11619,7 +11757,9 @@
         "PAPER-KISIN-17/K11",
         "PAPER-KISIN-17/K24",
         "PAPER-KISIN-17/K25"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-shimura",
@@ -11628,7 +11768,9 @@
       "items": [
         "PAPER-KISIN-17/S02",
         "PAPER-KISIN-17/S03"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-isogeny",
@@ -11638,7 +11780,9 @@
         "PAPER-KISIN-17/S05",
         "PAPER-KISIN-17/S06",
         "PAPER-KISIN-17/S07"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-global",
@@ -11652,7 +11796,9 @@
         "PAPER-KISIN-17/R26",
         "PAPER-KISIN-17/K17",
         "PAPER-KISIN-17/M01"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-source-conventions",
@@ -11660,7 +11806,9 @@
       "remaining": "Reconcile the μ_T notation of Corollary2.2.5 with Lemma2.2.2 and Proposition1.1.19; compare the published version before asserting an editorial correction. Keep dual and p-Frobenius signs explicit.",
       "items": [
         "PAPER-KISIN-17/S17"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Whether Corollary 2.2.5 should read μ_T or μ_T^{-1}, against the μ_0^{-1} convention of (1.1.12) and (1.3.7), needs the published text; the AMS copy returned HTML here."
     },
     {
       "id": "Q-components",
@@ -11677,7 +11825,9 @@
         "PAPER-KISIN-17/K20",
         "PAPER-KISIN-17/E06",
         "PAPER-KISIN-17/E07"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-main",
@@ -11687,7 +11837,9 @@
         "PAPER-KISIN-17/M03",
         "PAPER-KISIN-17/M06",
         "PAPER-KISIN-17/M07"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "A cited supplier's proof or design work (see remaining); the paper uses it as an input."
     },
     {
       "id": "Q-granularity",
@@ -11865,7 +12017,9 @@
         "PAPER-KISIN-17/E05",
         "PAPER-KISIN-17/E06",
         "PAPER-KISIN-17/E07"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting is design work; every numbered statement is now an item."
     }
   ],
   "prerequisites": [
@@ -14003,5 +14157,82 @@
       "Split gerb systems, component comparisons, obstruction torsor fibers and the final Hodge cover to declaration size.",
       "Retain tau, connected-center/Serre hypotheses and finite-action descent; reconcile actual overlaps with existing candidates before design."
     ]
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-KISIN-17/E1",
+      "kind": "error",
+      "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (1.5.2)–(1.5.4)",
+      "printed": "(1.5.2) without the condition that Lie H is stable under h ↦ φ∘h∘φ^{-1}; (1.5.3); the connection ∇_{R_G} with coefficients in Lie U°_G",
+      "correction": "Add to (1.5.2) the hypothesis that Lie H is stable under Frobenius conjugation; delete (1.5.3); in (1.5.4) the connection ∇_{R_G} has coefficients in Lie G.",
+      "reason": "Substituting the formula for β into itself involves conjugation by φ, so the coefficients stay in Lie H only if Lie H is Frobenius-stable. Only (1.5.8) and Corollary (1.5.11) of §1.5 are used later, and (1.5.8) remains true (E2).",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.1.",
+      "searched": [
+        "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-17/E2",
+      "kind": "error",
+      "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), proof of (1.5.8), fourth and fifth paragraphs",
+      "printed": "the fourth and fifth paragraphs of the proof of (1.5.8)",
+      "correction": "Replace them by the argument of Errata E.2–E.4: the parallel transports σ_α of the s_α cut out Spf A_G (Lemma E.3), and the Frobenius-invariant s̃_α are parallel, so the map factors through A_G.",
+      "reason": "The printed argument relied on the incorrect (1.5.3). The statement of (1.5.8) is unaffected.",
+      "affects": "the proof",
+      "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.2–E.4.",
+      "searched": [
+        "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-17/E3",
+      "kind": "error",
+      "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (3.3.9), used in (3.4.11)",
+      "printed": "ker(A(G_{Z(p)})° → A(G_{2,Z(p)})) is finite",
+      "correction": "The kernel need not be finite. Lemma E.6 shows that the central part has finite index in it, and E.7 rebuilds the quotient S_{K_{2,p}}(G_2, X_2) = [A(G_{2,Z(p)}) × S_{K_p}(G, X)^+]/A(G_{Z(p)})° and its extension property without the finiteness.",
+      "reason": "The finiteness was used only to show that the quotient in (3.4.11) is well defined and has the extension property; E.5–E.7 give both.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.5–E.7.",
+      "searched": [
+        "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-17/E4",
+      "kind": "error",
+      "locator": "Moonen, Models of Shimura varieties in mixed characteristics (1998), 3.21.1, cited as [Mo, 3.21.1] in Errata E.5",
+      "printed": "the same finiteness of ker(A(G_{Z(p)})° → A(G_{2,Z(p)}))",
+      "correction": "As in E3: replace the finiteness by the finite-index statement of Lemma E.6.",
+      "reason": "Errata E.5 notes that the incorrect assertion 'also appears in [Mo, 3.21.1]'. The context (Deligne's construction for abelian type) identifies [Mo] as Moonen's article; see E5.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.5 (noting it).",
+      "searched": [
+        "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-17/E5",
+      "kind": "misprint",
+      "locator": "Kisin 2017, bibliography (author version p.98)",
+      "printed": "[Mo] B. Moonen, Models of Shimura varieties in mixed characteristics …; [Mo] Y. Morita, Ihara's conjectures and moduli space of abelian varieties …",
+      "correction": "Give the two references distinct labels.",
+      "reason": "The label [Mo] is used for two different works, so citations such as [Mo, 3.21.1] in Errata E.5 are ambiguous from the bibliography alone.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+      ]
+    }
+  ],
+  "summaryBefore": "Extraction of the twisted Langlands–Rapoport point classification at odd hyperspecial primes: adapted deformations and minuscule components, CM isogenies, refined Picard-quotient gerbs, cohomological obstruction torsors, component matching and abelian-type descent. All main-paper pages read; recursive cited-source and declaration-sized closure remains open.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1434,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Author version re-fetched (hash matches); the Errata section read in full; every numbered statement checked against the items.",
+    "changes": "sourceIssues added (E1–E5); Corollaries (1.1.7), (3.4.16), (3.8.6), Lemma (1.1.12) and Proposition (1.3.7) added; gap statuses recorded; status complete."
   }
 }

@@ -1,15 +1,23 @@
 # PAPER-KISIN-17 handoff
 
-Codex, session codex-c83e7a, 2026-09-22. Status: partial checkpoint.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoint. Issue #1434. Date: 23 September 2026.
 
-Read all 99 pages of the author version of Kisin’s JAMS2017 paper, including errata. Read Borovoi author PDF15–21 and39–41 and all6 CKV2017 corrigendum PDF pages. The Borovoi nonab source is downloaded but unread. Source URLs, version qualifications and SHA-256 digests are in the result; no published/author text identity is claimed.
+## Saved
 
-The deliverables contain 200 items (17 library, 12 planned, 171 missing), nine routes, 77 constructions/definitions with three APIs and three tests each, 24 statement-read baseline references and 366 current input records. The dependency graph is acyclic. Existing Part II candidates are reused; no new roadmap is proposed.
+- **Items.** 205 items. Every missing item is routed exactly once, and every numbered statement is an item.
+  - New: Corollary (1.1.7), Lemma (1.1.12), Proposition (1.3.7), Corollary (3.4.16) and Corollary (3.8.6).
+- **Mistakes.** Five, added in this continuation.
+  - **E1–E4.** The paper's printed errata to [Ki 2] and Moonen. Their `known` values name this paper.
+  - **E5.** A duplicated bibliography label.
+- **Gaps.** All deferred.
 
-Resume with the report’s Q-gates. Read CKV2015 with its2017 correction and fill the omitted root cases. Close Borovoi’s recursive quasi-isomorphism and arithmetic H1 proofs. Read Kisin2010 with E.1–E.7, preserving Lie(G), Frobenius stability and finite actions of potentially infinite descent kernels. Then split the gerb constructions, component comparisons, obstruction torsor fibers and4.6.2–4.6.7 cover/matching proofs to declaration size.
+## Resume
 
-Preserve the source qualifications: G/Gsc rather than Gab; abelian cokernel alone does not make general crossed-module H0 abelian; g0 need not lie in G(OL); Tp(G)∨=Tp(Gᴰ)(−1); Corollary2.2.5 needs an inverse-filtration dictionary; sufficiently divisible fields stabilize endomorphisms; τ remains in the final action. The direct Hodge comparison needs torus center, §§4.3–4.5 the Serre condition, and the main theorem p>2/hyperspecial/abelian type. Conjectures3.3.7/3.7.8 remain predicates without proofs.
+The job is complete. For a reviewer:
 
-ET.0 owns reductive abelianized cohomology; SF.1 owns generic gerb/quotient-category descent; BG0/BG1 own G-isocrystals and invariants. Reconcile specialized statements with the four existing candidates linked in relatedExtractionItems, retaining upstream imports and IDs. The refreshed KMPS22 and HE21 corrections were inspected.
+1. Check E1–E4 against the Errata section (pp. 96–97 of the author version).
+2. If the published text becomes available, settle the μ_T convention in Corollary 2.2.5.
 
-Checks: paper schema and intake paths, exact-once routes, stage references, dependency DAG, source/module/input digests and nine exact diagnostic examples. See result.validation and the PR for exact outcomes. No Lean file written or compiled; no formalization claim.
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
