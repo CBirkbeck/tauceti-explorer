@@ -1,4 +1,79 @@
-# Kaletha: compact coefficients and profinite extensions
+# Kaletha (2016): rigid inner forms of real and p-adic groups, extraction and routing
+
+Issue [#1190](https://github.com/CBirkbeck/tauceti-explorer/issues/1190). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints (codex-a71f92, codex-c83e7a), whose report follows below as history.
+- **The paper.** T. Kaletha, *Rigid inner forms of real and p-adic groups*, Ann. of Math. 184 (2016), 559–632.
+  - The published PDF (SHA-256 55fc2ed2…) and the author's errata (errata.pdf, SHA-256 31e5f2d4…) were re-fetched, and both hashes match the checkpoint.
+  - Errata §3, which covers this paper, was re-read in full.
+- **Items.** The result has **157 items: 21 library, 24 planned and 112 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Fifteen are recorded under `sourceIssues`. E01–E06 follow the author's errata and keep `known` values that name it.
+
+## This continuation (cc-442dc5)
+
+**Items.**
+- Fact 5.1 was the one numbered statement without an item. It is now T45: automorphisms of a rigid inner twist are inner by G′(F).
+- D20 cited a "Definition 5.1" that does not exist; its locator is now §5.1.
+- T21 now names Fact 4.3.
+
+**Findings rechecked.**
+- **E07.** The §3.4 claim that H^1 → H^1_ab is an isomorphism whenever H^1(Γ, G_sc) = 1 is false. The equivalence relation divides by Z^1(Γ, G1_sc) for the twist G1, and H^1(R, SU(2)) ≠ 1 although H^1(R, SL2) = 1. The two cases the paper names, p-adic F and tori, are unaffected.
+- **E05.** Corollary 5.4, corrected in the author's errata, is the other finding that affects a stated result.
+
+**Reclassified to affect nothing.**
+- **E08.** A degree slip in a cochain computation.
+- **E10.** An expository remark that no argument uses.
+- **E11.** "Unit circle" should be C^×. The factor is normalized straight afterwards.
+- **E12 and E13.** Slips in recalling Shelstad's Cayley construction. The intended forms are s_α·Ad(φ(σ))(s_α)^(−1) = s_α² and a product over one root from each ± pair, as in [She82, p. 423]; the text's own "nonproportional" signals the latter.
+
+**Gaps.**
+- GAP03 is recorded as findings.
+- The others are deferred as cited suppliers' proofs, design work or review.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E01** (gap; affects the proof), Proposition3.6,printed574–575;published74-page version. *Printed:* a *Correction:* Replace the connected/abelian-only surjectivity argument by the author’s direct cocycle lift for arbitrary affine G.
+- **E02** (error; affects the proof), §4.4 beforeLemma4.4,printed582;published74-page version. *Printed:* ζ_k *Correction:* Choose lifts of the already chosen Weil section first; define zeta_k as their projections, and then extend the next section using the coset product.
+- **E03** (gap; affects the proof), Formula(4.8),printed584;published74-page version. *Printed:* p *Correction:* Extend p and delta_e to the quotient tori Res Gm/Gm before evaluating the displayed non-torsion cochains.
+- **E04** (gap; affects the proof), ProofLemma4.7,printed586;published74-page version. *Printed:* ϕ_(λ̄,k) *Correction:* Extend phi_(lambdabar,k) from u_k to Res_(E_k/F)Gm/Gm with target S by the product of the conjugate n_k*lambdabar cocharacters.
+- **E05** (error; affects a stated result), Corollary5.4,printed598;published74-page version. *Printed:* H¹(u→W,Z→G) *Correction:* Use H1_ab for the left factor when claiming trivial left kernel; pull back to full H1 only as a pairing constant on K-groups.
+- **E06** (misprint; affects the proof), §5.6 before(5.13),printed615;also embedding discussion printed594. *Printed:* g⁻¹z(w)w(g) *Correction:* Apply eta_w^-1 to this cocycle when defining the invariant in H1rig of the abstract parameter torus S; use the analogous eta^-1 in the general embedding construction.
+- **E07** (error; affects a stated result), §3.4,printed577;arXivv5 andauthor ri4 PDF16. *Printed:* H¹(Γ,G_sc)=1 *Correction:* Require H1(F,Gprime_sc)=1 for every inner twist occurring in the equivalence fibers. The claimed conclusion remains valid for p-adic F and for tori.
+- **E08** (misprint; affects nothing), ProofLemma4.5,printed584 final display;rendered publishedPDF26. *Printed:* C²(Γ,S_E/F); =p(ξ_(k+1)) *Correction:* The calculation is in C1, and its last equality to p(xi_(k+1)) must be removed. After differentiating, the xi term occurs in the next coboundary calculation.
+- **E09** (misprint; affects nothing), ProofTheorem4.11 diagram,printed590;rendered publishedPDF32. *Printed:* H¹_sc *Correction:* Use H1_ab in the published diagram.
+- **E10** (error; affects nothing), §5.1,printed592;arXivv5 andauthor ri4 PDF29. *Printed:* an infinite set *Correction:* Say that the all-Z fibers may become infinite, not that they always do.
+- **E11** (error; affects nothing), §5.3,printed600;arXivv5 andauthor ri4 PDF36. *Printed:* unit circle *Correction:* The stated ratio condition determines an absolute factor up to C units. Restrict the ambiguity to the unit circle only after imposing a modulus normalization.
+- **E12** (misprint; affects nothing), §5.6 Cayley calculation,printed616;rendered publishedPDF58;author/arXivPDF49. *Printed:* s_α Ad(φ(j))(s_α)=s_α² *Correction:* Use s_alpha Ad(phi(j))(s_alpha)^-1=s_alpha². Its IMAGE in the Weyl group is the reflection; the representative itself may have order4.
+- **E13** (misprint; affects nothing), §5.6 Cayley product,printed616;rendered publishedPDF58;author/arXivPDF49. *Printed:* ∏_(α∈Δ_φ^∨) s_α *Correction:* Take a product over a positive subsystem, equivalently one root from each opposite pair, as in Shelstad1982 printed423.
+- **E14** (misprint; affects nothing), ProofProposition5.6,printed605,relative cochain formula;published text. *Printed:* σ(g) *Correction:* Use sigma(g_i) in each cochain indexed by i.
+- **E15** (misprint; affects nothing), §5.7,printed626,local refined datum;rendered publishedPDF68;author ri4 PDF57. *Printed:* Z(Ĝ_sc) *Correction:* Use Z(Gsc), the physical finite central subgroup used by the local rigidifications.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **GAP01, Declaration-sized and recursive closure** (deferred). Every numbered statement is now an item (Fact 5.1 added as T45; the locators of D20 and T21 fixed). Declaration-sized splitting of bundled interfaces is design work.
+- **GAP02, Continuous profinite and local duality suppliers** (deferred). Finite local duality, norm existence and the relative Weil transfer are cited suppliers' proofs.
+- **GAP03, Explicit cochain proof closure** (recorded). The paper's own cochain slips are E01–E04 and E08. The elementary derivations the source leaves to the reader are implementation work.
+- **GAP04, Reductive cohomology and relevance** (deferred). Kneser, Kottwitz, Borovoi and Arthur inputs are cited suppliers' proofs.
+- **GAP05, Full real classification and transfer corpus** (deferred). Langlands, Shelstad and Kostant–Vogan inputs are cited suppliers' proofs; E12 and E13 record the recollection of Shelstad's Cayley construction.
+- **GAP06, Global original-source extraction** (deferred). The global theory is in Kal15b, a separate paper; the global multiplicity formula is Conjecture 5.11.
+- **GAP07, Independent source-finding review** (deferred). Independent review of the findings is the review pipeline's job, not the extraction's.
+- **GAP08, Design and Lean checks** (deferred). Design and Lean are later work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every `dependsOn` target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E08 or E10–E13, this continuation supersedes it.
+
+## Kaletha: compact coefficients and profinite extensions
 
 Codex — codex-c83e7a, 23 September 2026. Refs #1190. Continues [PR #1968](https://github.com/CBirkbeck/tauceti-explorer/pull/1968). **Partial**: the remaining original-source, cochain and implementation obligations are stated below. No formalization is claimed.
 
@@ -6,13 +81,13 @@ This continuation supplies the precise inverse-limit hypotheses behind Theorem 3
 
 The extraction now has **156 items: 21 library, 24 planned and 111 missing**. The 59 definitions and constructions have 177 API contracts, 177 proposed tests and concrete uses. There are 336 internal prerequisite edges and one external stage edge; the internal graph is acyclic. Every missing item has exactly one route. All 142 inherited IDs, 168 API names, 168 test names, seven routes and 15 unreviewed source findings are preserved.
 
-## Source scope
+### Source scope
 
 The earlier complete reading of the [published 74-page paper](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf), pp559–632, remains the primary extraction. This continuation freshly reread pp566–575, including all of §§3.1–3.2 and the first §3.3 proofs. It does not claim another complete reading. The current [author errata](https://www.math.uni-bonn.de/people/kaletha/errata.pdf), §3 on PDF pages6–7, was fetched and reread; its SHA256 is unchanged from the preceding checkpoint. All 15 source findings retain their previous content and unreviewed status.
 
 The new original source is [Neukirch–Schmidt–Wingberg, corrected electronic second edition, version2.3](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf?download=1). The exact acquisition hash and scopes appear below. Read in full were II §7 through Theorem2.7.7, pp136–143; the referenced Schreier proof1.2.4, pp17–20; and I §1, pp5–11, including exercise4 on continuous quotient sections. Local pp375–384 were also read, including the finiteness and duality statements and proofs. The book as a whole was not read. The unqueried PDF URL redirected to HTML; the query link supplied the verified PDF.
 
-## The inverse-limit obstruction
+### The inverse-limit obstruction
 
 For a countable tower of abelian groups B_n with maps f_n:B_(n+1)→B_n, put
 
@@ -39,7 +114,7 @@ The continuous cochain complex remains the existing canonical one. The usual hom
 
 Two boundaries are useful. For G=∏ C2 with trivial C2 coefficients, the coordinate characters already give an infinite H¹, despite finite coefficients. For the tower Z←×2 Z, lim=0 and lim¹=Z2/Z. The alternating binary sequence (1,0,1,0,…) represents −1/3 in Z2 and hence a nonzero quotient class. A hypothetical integral solution of Δx=y would make 3x_0+1 divisible by every power of2, forcing x_0=−1/3. Every finite truncation is solvable, so finite enumeration alone cannot settle this infinite obstruction.
 
-## The local finiteness input
+### The local finiteness input
 
 The [ClassFieldTheory Layer5](https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/tau-ceti/ClassFieldTheory/README.md) owner explicitly keeps local duality independent of reciprocity. NSW’s full duality proof uses reciprocity, so this continuation supplies a smaller degree-one argument compatible with that order.
 
@@ -53,7 +128,7 @@ Thus U^(2v(n)+1) is contained in the n-th powers, including when p divides n. Th
 
 For a finite G_F-module M, choose a finite Galois K/F splitting its action and containing the roots of unity of its exponent. Over K it is a finite sum of mu_d modules. Kummer theory and the preceding finiteness give finite H¹(K,M). The **already-built** degree-one inflation–restriction exactness then gives finite H¹(F,M): its kernel comes from cohomology of a finite group with finite coefficients, and its image is contained in finite H¹(K,M). For F=R, all finite-coefficient cochain groups of C2 are finite directly. This establishes precisely the hypothesis used in the degree-two limit comparison, without the full Hochschild–Serre spectral sequence.
 
-## Profinite Schreier theory on the existing carrier
+### Profinite Schreier theory on the existing carrier
 
 Tau Ceti already constructs the algebraic factor-set extension and proves its abstract classification. It also already supplies normalized continuous sections E/H→E for a closed subgroup H of a profinite group. The new interfaces add the topology and continuous coboundary witnesses.
 
@@ -69,7 +144,7 @@ The existing algebraic rescaleEquiv supplies this map; continuity of b makes bot
 
 An automorphism fixing A and G has the same form with b a continuous one-cocycle. Conjugation by a_0∈A gives b(g)=a_0−g·a_0. Its kernel is A^G and the quotient of all extension automorphisms by these inner automorphisms is H¹_cts(G,A). Thus Kaletha’s H¹(Gamma,u)=0 makes every such automorphism inner; the conjugating element is determined modulo u^Gamma, not uniquely. Raw cocycles still do not acquire a canonical identification between extension realizations.
 
-## Library and ownership evidence
+### Library and ownership evidence
 
 Freshly read pinned statements include:
 
@@ -81,8 +156,7 @@ Freshly read pinned statements include:
 
 The reviewed coverage for ArithmeticGaloisDuality R02.1/D7, ProfiniteCohomology Layer0, ClassFieldTheory Layer5 and the relevant LocalFieldsRamification Layer1 targets was read before assigning statuses. The new limit interfaces refine the existing R02.1 plan. The three new missing profinite extension interfaces use its existing source route. Local finite H¹ and power classes import their existing upstream stages. No new roadmap or duplicate continuous cohomology carrier is proposed.
 
-## Main theorem context retained from the earlier extraction
-
+### Main theorem context retained from the earlier extraction
 
 | Scope | Result | Status in this source |
 |---|---|---|
@@ -101,7 +175,7 @@ The torus lattice is `Ybar/IY`, with `Y=X_*(S)` inside `Ybar=X_*(S/Z)`. Its tors
 
 The ordinary transfer-factor package receives a rigid character correction. The unprimed convention uses the inverse character; the prime convention used by the real character identity uses the positive character. Testing only real order-two characters hides this difference, so the diagnostic uses an order-three character as well. A relative-ratio identity alone does not fix the modulus of an absolute factor.
 
-## Proof architecture and ownership
+### Proof architecture and ownership
 
 The cohomology chain runs from finite local duality and continuous inverse-limit comparisons, through u and its canonical extension, to the explicit enlarged Tate–Nakayama map. The unbalanced cup operation is a reusable cochain construction under ArithmeticGaloisDuality. It is not a new private copy of ordinary Tate cohomology. Weil sections must be chosen in the corrected order, and finite maps must be extended to quotient tori before evaluating the root-extracted cochains.
 
@@ -109,7 +183,7 @@ The real chain starts with discrete-series parameter tori and admissible embeddi
 
 One continuation, `EndoscopicTransferRigidInnerFormsPartII`, owns the rigid gerbe, refined data and full real packet theorem, with a later global rigid interface. Its parent’s ET.0 and ET.1 continue to own ordinary conjugacy, ordinary Tate–Nakayama, z-pairs, transfer factors and global products. The existing `EndoscopicTransferAndUnitaryTraceComparisonPartII` candidate from Groechenig–Wyss–Ziegler is geometric stabilization through p-adic integration; its full brief was inspected and is a different direction. These candidate identifiers are not existing stages.
 
-### Route 1: ReductiveGroupsPartII
+#### Route 1: ReductiveGroupsPartII
 
 `source` → `ReductiveGroupsPartII`. Reuse Weil restriction, multiplicative-type quotients, dual groups and central isogenies. Add the precise augmentation and coroot-coinvariant adapters as source contracts; do not rebuild the pinned torus and lattice carriers.
 
@@ -117,7 +191,7 @@ Existing stages: `ReductiveGroupsPartII:RG2.0a`, `ReductiveGroupsPartII:RG2.5`.
 
 Items: P09, P14, P15.
 
-### Route 2: ArithmeticGaloisDuality
+#### Route 2: ArithmeticGaloisDuality
 
 `source` → `ArithmeticGaloisDuality`. The existing compact-coefficient, Hochschild–Serre and Tate-duality owner supplies the generic cochain comparisons. Place the new reusable unbalanced cochain product and its Leibniz proof here. Import ordinary finite local duality and real Brauer invariants from ClassFieldTheory; no second Poitou–Tate or continuous-cohomology carrier.
 
@@ -125,7 +199,7 @@ Existing stages: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2
 
 Items: P03, P04, P06, D14, T21, T22.
 
-### Route 3: EndoscopicTransferAndUnitaryTraceComparison
+#### Route 3: EndoscopicTransferAndUnitaryTraceComparison
 
 `source` → `EndoscopicTransferAndUnitaryTraceComparison`. Ordinary nonabelian H1, fundamental tori, abelianization, stable conjugacy, ordinary endoscopic data, z-pairs and the torus-complex transfer comparison are already in ET.0. The rigid gerbe and refined real packets are the separate continuation below.
 
@@ -133,7 +207,7 @@ Existing stages: `EndoscopicTransferAndUnitaryTraceComparison:ET.0`.
 
 Items: P10, P11, P12, P13, D30, D34.
 
-### Route 4: EndoscopicTransferAndUnitaryTraceComparison
+#### Route 4: EndoscopicTransferAndUnitaryTraceComparison
 
 `source` → `EndoscopicTransferAndUnitaryTraceComparison`. ET.1 already owns absolute normalizations, conventions, central extension transport and the global product formula. Add the rigid correction, its two convention signs, its relative-factor proof and the global rigid product/globalization adapters here; the full real packet classification remains in the continuation.
 
@@ -141,7 +215,7 @@ Existing stages: `EndoscopicTransferAndUnitaryTraceComparison:ET.1`.
 
 Items: D32, D33, T51, T52, D36, G05, G09.
 
-### Route 5: AutomorphicFormsOnReductiveGroups
+#### Route 5: AutomorphicFormsOnReductiveGroups
 
 `source` → `AutomorphicFormsOnReductiveGroups`. Use the existing real admissible (g,K)-module, globalization and character foundation. The real local Langlands and Shelstad packet theorems are additional results, not credited to this basic representation stage.
 
@@ -149,7 +223,7 @@ Existing stages: `AutomorphicFormsOnReductiveGroups:AF.1`.
 
 Items: P16, P18.
 
-### Route 6: SmoothRepresentationsOfLocalGroups
+#### Route 6: SmoothRepresentationsOfLocalGroups
 
 `source` → `SmoothRepresentationsOfLocalGroups`. Reuse smooth admissible complex representations, normalized induction and temperedness for the p-adic conjecture and SL2 example; no second representation category is proposed.
 
@@ -157,7 +231,7 @@ Existing stages: `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentatio
 
 Items: P17.
 
-### Route 7: Endoscopic transfer and unitary trace comparison, Part II: rigid inner forms and real tempered packets
+#### Route 7: Endoscopic transfer and unitary trace comparison, Part II: rigid inner forms and real tempered packets
 
 `part-ii` → `EndoscopicTransferRigidInnerFormsPartII`. ET.0–1 own ordinary cohomological and transfer foundations but the existing endpoint is a unitary stable trace comparison, not the universal rigid gerbe or all real tempered packets. The existing GWZ20-B candidate EndoscopicTransferAndUnitaryTraceComparisonPartII is geometric stabilization via p-adic integration; its full brief was read and is a distinct lane. One rigid continuation owns the shared local/global rigid carriers and exports them to existing transfer layers.
 
@@ -177,10 +251,9 @@ Tests must include mu_n in the real norm-one torus giving C_(2n), split-torus va
 
 Items: D01, T01, T02, T03, D02, T04, D03, T05, D04, D05, D06, T06, T07, T08, T09, T10, T11, T12, T13, T14, D07, T15, D10, D11, T20, D12, D13, D15, T23, D16, D17, T24, T25, D18, T26, T27, T28, T29, T30, T31, D20, D21, T40, D22, D23, T41, D24, D25, D26, T42, D27, T43, T44, D31, T50, D35, C01, C02, T53, T54, R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, G01, G02, G03, G04, G06, G07, G08, G10, T03R, T04S, T12F, T14R, T23B, T24X, T40E, R10I.
 
+### Current routes
 
-## Current routes
-
-### 1. ReductiveGroupsPartII — source
+#### 1. ReductiveGroupsPartII — source
 
 Reuse Weil restriction, multiplicative-type quotients, dual groups and central isogenies. Add the precise augmentation and coroot-coinvariant adapters as source contracts; do not rebuild the pinned torus and lattice carriers.
 
@@ -188,7 +261,7 @@ Stages: ReductiveGroupsPartII:RG2.0a, ReductiveGroupsPartII:RG2.5.
 
 Items: P09, P14, P15.
 
-### 2. ArithmeticGaloisDuality — source
+#### 2. ArithmeticGaloisDuality — source
 
 The existing compact-coefficient, Hochschild–Serre and Tate-duality owner supplies the generic cochain comparisons. Place the new reusable unbalanced cochain product and its Leibniz proof here. Import ordinary finite local duality and real Brauer invariants from ClassFieldTheory; no second Poitou–Tate or continuous-cohomology carrier. The generic profinite extension topology, continuous Schreier classification and extension-automorphism interface also belong to this compact-coefficient owner. They reuse the pinned abstract factor-set carrier and normalized quotient sections.
 
@@ -196,7 +269,7 @@ Stages: ArithmeticGaloisDuality:R02.1, ArithmeticGaloisDuality:R02.2, Arithmetic
 
 Items: P03, P04, P06, D14, T21, T22, P24, P25, P26.
 
-### 3. EndoscopicTransferAndUnitaryTraceComparison — source
+#### 3. EndoscopicTransferAndUnitaryTraceComparison — source
 
 Ordinary nonabelian H1, fundamental tori, abelianization, stable conjugacy, ordinary endoscopic data, z-pairs and the torus-complex transfer comparison are already in ET.0. The rigid gerbe and refined real packets are the separate continuation below.
 
@@ -204,7 +277,7 @@ Stages: EndoscopicTransferAndUnitaryTraceComparison:ET.0.
 
 Items: P10, P11, P12, P13, D30, D34.
 
-### 4. EndoscopicTransferAndUnitaryTraceComparison — source
+#### 4. EndoscopicTransferAndUnitaryTraceComparison — source
 
 ET.1 already owns absolute normalizations, conventions, central extension transport and the global product formula. Add the rigid correction, its two convention signs, its relative-factor proof and the global rigid product/globalization adapters here; the full real packet classification remains in the continuation.
 
@@ -212,7 +285,7 @@ Stages: EndoscopicTransferAndUnitaryTraceComparison:ET.1.
 
 Items: D32, D33, T51, T52, D36, G05, G09.
 
-### 5. AutomorphicFormsOnReductiveGroups — source
+#### 5. AutomorphicFormsOnReductiveGroups — source
 
 Use the existing real admissible (g,K)-module, globalization and character foundation. The real local Langlands and Shelstad packet theorems are additional results, not credited to this basic representation stage.
 
@@ -220,7 +293,7 @@ Stages: AutomorphicFormsOnReductiveGroups:AF.1.
 
 Items: P16, P18.
 
-### 6. SmoothRepresentationsOfLocalGroups — source
+#### 6. SmoothRepresentationsOfLocalGroups — source
 
 Reuse smooth admissible complex representations, normalized induction and temperedness for the p-adic conjecture and SL2 example; no second representation category is proposed.
 
@@ -228,7 +301,7 @@ Stages: SmoothRepresentationsOfLocalGroups:SR.0, SmoothRepresentationsOfLocalGro
 
 Items: P17.
 
-### 7. EndoscopicTransferRigidInnerFormsPartII — part-ii
+#### 7. EndoscopicTransferRigidInnerFormsPartII — part-ii
 
 ET.0–1 own ordinary cohomological and transfer foundations but the existing endpoint is a unitary stable trace comparison, not the universal rigid gerbe or all real tempered packets. The existing GWZ20-B candidate EndoscopicTransferAndUnitaryTraceComparisonPartII is geometric stabilization via p-adic integration; its full brief was read and is a distinct lane. One rigid continuation owns the shared local/global rigid carriers and exports them to existing transfer layers.
 
@@ -246,7 +319,7 @@ Tests must include mu_n in the real norm-one torus giving C_(2n), split-torus va
 
 Items: D01, T01, T02, T03, D02, T04, D03, T05, D04, D05, D06, T06, T07, T08, T09, T10, T11, T12, T13, T14, D07, T15, D10, D11, T20, D12, D13, D15, T23, D16, D17, T24, T25, D18, T26, T27, T28, T29, T30, T31, D20, D21, T40, D22, D23, T41, D24, D25, D26, T42, D27, T43, T44, D31, T50, D35, C01, C02, T53, T54, R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, G01, G02, G03, G04, G06, G07, G08, G10, T03R, T04S, T12F, T14R, T23B, T24X, T40E, R10I.
 
-## Remaining gaps
+### Remaining gaps
 
 - **GAP01 — Declaration-sized and recursive closure**: All74 primary published pages were read. Several original-source interfaces and bundled definitions still need exact declaration-sized splitting. In particular T11’s full pointed diagram, P10/P11’s arithmetic hypotheses, R02/R06/R09/R18’s parameter and representation data, and G01/G02/G06/G09’s global interfaces are not closed by this checkpoint.
 - **GAP02 — Continuous profinite and local duality suppliers**: NSW2.7.3–2.7.7 and the full referenced Schreier proof have now been read and decomposed. P19–P22 supply the exact countable finite-coefficient limit hypotheses, P23/P27 give a direct degree-one local finiteness route, and L29/P24–P26 supply profinite extension realization and automorphisms. Remaining: typed comparison with the canonical cohomology carrier, finite local duality, local norm existence and relative Weil transfer at their original sources. The latter arithmetic tasks are not closed by reading NSW statements, and the local-duality owner must not acquire a reciprocity dependency.
@@ -257,7 +330,7 @@ Items: D01, T01, T02, T03, D02, T04, D03, T05, D04, D05, D06, T06, T07, T08, T09
 - **GAP07 — Independent source-finding review**: Review E01–E15 at the exact versions. E01–E06 follow author errata; E07–E15 are worker findings requiring independent verdicts. The source-version note on already-corrected Lemma4.7 must be preserved. No main theorem is claimed refuted by the identified proof/notation defects.
 - **GAP08 — Design and Lean checks**: Routes and the candidate continuation are proposals. No Lean file was supplied or compiled for this paper issue. A later design must make the suggested APIs and tests elaborate, choose planets and complete the proof DAG. Schema and finite diagnostics are not formalization.
 
-## Source findings awaiting independent review
+### Source findings awaiting independent review
 
 All 15 inherited findings are preserved exactly. Author corrections and worker findings retain their distinct provenance. No new source error is claimed by this continuation, and no independent verdict is supplied.
 
@@ -561,11 +634,11 @@ All 15 inherited findings are preserved exactly. Author corrections and worker f
 }
 ```
 
-## Complete interface ledger
+### Complete interface ledger
 
 Every implementation status remains unchecked.
 
-### L06 — Connected reductive group predicate
+#### L06 — Connected reductive group predicate
 
 **definition · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -585,7 +658,7 @@ Library: tauceti:TauCeti.reductiveCommHopfAlgProperty, tauceti:TauCeti.reductive
 - Proposed test `L06.test2`: GL_n is reductive in characteristic zero.
 - Proposed test `L06.test3`: The additive group is not reductive.
 
-### L07 — Algebraic torus predicate
+#### L07 — Algebraic torus predicate
 
 **definition · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -605,7 +678,7 @@ Library: tauceti:TauCeti.torusCommHopfAlgProperty, tauceti:TauCeti.torusCommHopf
 - Proposed test `L07.test2`: A norm-one quadratic torus need not be split.
 - Proposed test `L07.test3`: G_a is not a torus.
 
-### L08 — Geometric character lattice
+#### L08 — Geometric character lattice
 
 **definition · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -625,7 +698,7 @@ Library: tauceti:TauCeti.CommHopfAlgCat.additiveCharacterGroup, tauceti:TauCeti.
 - Proposed test `L08.test2`: Conjugation acts by minus one on a real norm-one torus.
 - Proposed test `L08.test3`: The trivial torus has zero character group.
 
-### L09 — Cocharacter lattice and pairing
+#### L09 — Cocharacter lattice and pairing
 
 **definition · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -645,7 +718,7 @@ Library: tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.cocharacterLattice, ta
 - Proposed test `L09.test2`: The zero cocharacter pairs to zero.
 - Proposed test `L09.test3`: Simultaneous sign reversal on a norm-one torus preserves the pairing.
 
-### L10 — Perfect character-cocharacter pairing
+#### L10 — Perfect character-cocharacter pairing
 
 **theorem · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -659,7 +732,7 @@ Library: tauceti:TauCeti.TorusCommHopfAlgCat.instCharacterCocharacterPairingIsPe
 
 - Use: §§3.1 and4.1 — Build multiplicative-type quotients and character/cocharacter lattices; no local duality or rigid gerbe is supplied by this carrier.
 
-### L16 — Finite free cocharacter lattice
+#### L16 — Finite free cocharacter lattice
 
 **theorem · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -673,7 +746,7 @@ Library: tauceti:TauCeti.TorusCommHopfAlgCat.cocharacterLattice_module_free, tau
 
 - Use: §§3.1 and4.1 — Build multiplicative-type quotients and character/cocharacter lattices; no local duality or rigid gerbe is supplied by this carrier.
 
-### L17 — Galois invariance of the pairing
+#### L17 — Galois invariance of the pairing
 
 **theorem · library**. §§2,3.1,4.1: algebraic group and lattice prerequisites
 
@@ -687,7 +760,7 @@ Library: tauceti:TauCeti.MultiplicativeTypeCommHopfAlgCat.characterCocharacterPa
 
 - Use: §§3.1 and4.1 — Build multiplicative-type quotients and character/cocharacter lattices; no local duality or rigid gerbe is supplied by this carrier.
 
-### L20 — Absolute Galois group
+#### L20 — Absolute Galois group
 
 **definition · library**. §2
 
@@ -707,7 +780,7 @@ Library: tauceti:TauCeti.AbsoluteGaloisGroup, tauceti:TauCeti.absoluteGaloisGrou
 - Proposed test `Kaletha16.L20.test2`: Gamma_C is trivial.
 - Proposed test `Kaletha16.L20.test3`: The abstract discrete topology on an infinite absolute Galois group is not substituted.
 
-### L21 — Discrete units and Kummer coefficients
+#### L21 — Discrete units and Kummer coefficients
 
 **definition · library**. §3.1
 
@@ -729,7 +802,7 @@ Prerequisites: PAPER-KALETHA-16/L20.
 - Proposed test `Kaletha16.L21.test2`: mu_1 is trivial.
 - Proposed test `Kaletha16.L21.test3`: Constant Z/n coefficients cannot replace mu_n when the action is nontrivial.
 
-### L22 — Discrete Kummer short exact sequence
+#### L22 — Discrete Kummer short exact sequence
 
 **theorem · library**. §3.1
 
@@ -743,7 +816,7 @@ Prerequisites: PAPER-KALETHA-16/L21.
 
 1. The pin proves root extraction in the separable closure, equivariance and exactness; no Kummer H1 surjectivity is credited here.
 
-### L23 — Continuous cohomology carrier
+#### L23 — Continuous cohomology carrier
 
 **definition · library**. §3.1
 
@@ -763,7 +836,7 @@ Library: mathlib:TopRep.homogeneousCochains, mathlib:continuousCohomology.
 - Proposed test `Kaletha16.L23.test2`: Zero coefficients have zero cohomology.
 - Proposed test `Kaletha16.L23.test3`: The cohomology of an inverse limit is not identified with a limit without a comparison theorem.
 
-### L24 — Explicit continuous abelian H1 and H2
+#### L24 — Explicit continuous abelian H1 and H2
 
 **definition · library**. §§3.1,4.5
 
@@ -785,7 +858,7 @@ Prerequisites: PAPER-KALETHA-16/L23.
 - Proposed test `Kaletha16.L24.test2`: Zero coefficients give singleton quotients.
 - Proposed test `Kaletha16.L24.test3`: Nonabelian G-valued cocycles cannot be inserted into these additive quotient groups.
 
-### L25 — Finite-extension Hilbert 90
+#### L25 — Finite-extension Hilbert 90
 
 **theorem · library**. §3.1 prerequisite
 
@@ -797,7 +870,7 @@ Library: mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to
 
 1. Read the finite-extension theorem; the continuous absolute-Galois reduction remains a separate planned import.
 
-### L26 — Tate degree-zero norm quotient
+#### L26 — Tate degree-zero norm quotient
 
 **theorem · library**. §4.1
 
@@ -809,7 +882,7 @@ Library: tauceti:TauCeti.TateCohomology.H0IsoNormQuotient.
 
 1. Import the exact pinned isomorphism; local invariant maps are additional arithmetic results.
 
-### L27 — Tate degree-minus-one norm kernel
+#### L27 — Tate degree-minus-one norm kernel
 
 **theorem · library**. §§4.1,4.3
 
@@ -821,7 +894,7 @@ Library: tauceti:TauCeti.TateCohomology.HNegOneIsoNormKernelQuotient.
 
 1. Import the exact isomorphism; this is not the unbalanced cup pairing.
 
-### L28 — Abstract extension classification by H2
+#### L28 — Abstract extension classification by H2
 
 **theorem · library**. §3.2 prerequisite
 
@@ -833,7 +906,7 @@ Library: tauceti:TauCeti.FactorSet.cohomologyClassEquiv, tauceti:TauCeti.GroupEx
 
 1. The pinned factor-set and extension equivalences provide the algebraic model; the profinite realization and continuity are missing suppliers.
 
-### P01 — Continuous Hilbert 90 and Kummer comparison
+#### P01 — Continuous Hilbert 90 and Kummer comparison
 
 **theorem · planned**. §§3.1,4.6
 
@@ -845,7 +918,7 @@ Prerequisites: PAPER-KALETHA-16/L20, PAPER-KALETHA-16/L21, PAPER-KALETHA-16/L22,
 
 1. Descend each continuous cocycle to a finite Galois extension, apply Hilbert90 and the continuous long exact sequence.
 
-### P02 — Finite quotient and Shapiro comparisons
+#### P02 — Finite quotient and Shapiro comparisons
 
 **theorem · planned**. §3.1
 
@@ -857,7 +930,7 @@ Prerequisites: PAPER-KALETHA-16/L23.
 
 1. Use the existing profinite-cohomology owner, not a private copy in endoscopy.
 
-### P03 — Compact-coefficient derived inverse-limit comparison
+#### P03 — Compact-coefficient derived inverse-limit comparison
 
 **theorem · planned**. Theorem3.1,NSW2.7.6–2.7.7
 
@@ -869,7 +942,7 @@ Prerequisites: PAPER-KALETHA-16/P22.
 
 1. Apply the precise NSW2.7.5–2.7.6 interfaces P19–P22, now read at source. For H1 reuse CHT item154 at the same R02.1 owner; finite coefficients do not imply all cohomology groups finite for arbitrary profinite G. The existing canonical carrier is retained and its typed comparison is an implementation obligation.
 
-### P04 — Continuous Hochschild–Serre and transgression
+#### P04 — Continuous Hochschild–Serre and transgression
 
 **theorem · planned**. §3.3 Lemma3.3
 
@@ -881,7 +954,7 @@ Prerequisites: PAPER-KALETHA-16/L24.
 
 1. Prove the edge map by a chosen section and then show independence; nonabelian pointed-set variants require their own contract.
 
-### P05 — Local finite-module duality
+#### P05 — Local finite-module duality
 
 **theorem · planned**. Theorem3.1,Proposition3.2
 
@@ -893,7 +966,7 @@ Prerequisites: PAPER-KALETHA-16/L21, PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27.
 
 1. Import the arithmetic invariant and finite duality from ClassFieldTheory; do not infer them from the Tate-complex carrier.
 
-### P06 — Real Tate duality
+#### P06 — Real Tate duality
 
 **theorem · planned**. Theorem3.1
 
@@ -905,7 +978,7 @@ Prerequisites: PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27, tauceti:TauCetiRoadma
 
 1. Retain the real Tate modification instead of extending ordinary positive-degree p-adic formulas blindly.
 
-### P07 — Local class formations and relative Weil extensions
+#### P07 — Local class formations and relative Weil extensions
 
 **theorem · planned**. §4.4
 
@@ -917,7 +990,7 @@ Prerequisites: PAPER-KALETHA-16/P05.
 
 1. Use the existing class formation and local Weil-group roadmaps; section choices are later data.
 
-### P08 — Norm subgroups and local existence
+#### P08 — Norm subgroups and local existence
 
 **theorem · planned**. Theorem3.1
 
@@ -930,7 +1003,7 @@ Prerequisites: PAPER-KALETHA-16/P07, PAPER-KALETHA-16/P27.
 1. Use local class-field existence with its topological norm statement, not only an abstract Artin homomorphism.
 2. P27 gives the required open finite-index subgroup of n-th powers, even when p divides n. Local existence then produces an abelian extension whose norm group is contained in it. Local existence itself remains an upstream arithmetic supplier.
 
-### P09 — Weil restriction and finite central quotients
+#### P09 — Weil restriction and finite central quotients
 
 **definition · planned**. §3.1
 
@@ -950,7 +1023,7 @@ Prerequisites: PAPER-KALETHA-16/L07, PAPER-KALETHA-16/L08, PAPER-KALETHA-16/L21.
 - Proposed test `Kaletha16.P09.test2`: For quadratic E/F,n=2 its geometric order is2.
 - Proposed test `Kaletha16.P09.test3`: An arbitrary noncentral subgroup quotient is outside this contract.
 
-### P10 — Local finiteness of ordinary nonabelian H1
+#### P10 — Local finiteness of ordinary nonabelian H1
 
 **theorem · planned**. Lemma3.4,PR6.14
 
@@ -964,7 +1037,7 @@ Prerequisites: PAPER-KALETHA-16/L20.
 
 1. The finite component group and connected case need separate reductions; an abelian cochain implementation does not prove this.
 
-### P11 — Fundamental tori and cohomology surjectivity
+#### P11 — Fundamental tori and cohomology surjectivity
 
 **theorem · planned**. Corollary3.7,Lemma4.9,PR6.14/Kneser/Kottwitz
 
@@ -978,7 +1051,7 @@ Prerequisites: PAPER-KALETHA-16/P10.
 
 1. Read the original local H1 and fundamental-torus theorems; the real simply connected assertion is not p-adic vanishing.
 
-### P12 — Ordinary Tate–Nakayama for tori
+#### P12 — Ordinary Tate–Nakayama for tori
 
 **theorem · planned**. §4 introduction;§5.3
 
@@ -990,7 +1063,7 @@ Prerequisites: PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27, PAPER-KALETHA-16/P07,
 
 1. Expose the exact normalization and two-term complex maps; do not identify all relative transfer classes with H1 of a single torus.
 
-### P13 — Ordinary inner twists and abelianized H1
+#### P13 — Ordinary inner twists and abelianized H1
 
 **definition · planned**. §§2,3.4
 
@@ -1010,7 +1083,7 @@ Prerequisites: PAPER-KALETHA-16/P10.
 - Proposed test `Kaletha16.P13.test2`: A torus has ordinary abelianization equal to its H1.
 - Proposed test `Kaletha16.P13.test3`: H1(R,SL2)=1 does not imply H1 for its compact inner twist is trivial.
 
-### P14 — Dual groups and central isogenies
+#### P14 — Dual groups and central isogenies
 
 **definition · planned**. §§4.1,5.3
 
@@ -1030,7 +1103,7 @@ Prerequisites: PAPER-KALETHA-16/L06, PAPER-KALETHA-16/L09.
 - Proposed test `Kaletha16.P14.test2`: For Z=1 the dual cover is identity.
 - Proposed test `Kaletha16.P14.test3`: The original finite subgroup Z over F is not the center of a complex dual group.
 
-### P15 — Weyl action on cocharacters modulo coroots
+#### P15 — Weyl action on cocharacters modulo coroots
 
 **theorem · missing**. Lemma4.2
 
@@ -1040,7 +1113,7 @@ Prerequisites: PAPER-KALETHA-16/P14.
 
 1. Each simple reflection differs from identity by a coroot; then check Galois conjugacy and functoriality.
 
-### P16 — Real representation foundation
+#### P16 — Real representation foundation
 
 **theorem · planned**. §§5.1,5.6
 
@@ -1050,7 +1123,7 @@ Planned: AutomorphicFormsOnReductiveGroups:AF.1.
 
 1. Import AF.1; the classification and endoscopic character identities are additional suppliers, not consequences of the carrier alone.
 
-### P17 — Smooth p-adic representation foundation
+#### P17 — Smooth p-adic representation foundation
 
 **theorem · planned**. §5.4
 
@@ -1060,7 +1133,7 @@ Planned: SmoothRepresentationsOfLocalGroups:SR.0, SmoothRepresentationsOfLocalGr
 
 1. Import the existing smooth representation stages and preserve characteristic-zero coefficients.
 
-### D01 — Projective multiplicative group u
+#### D01 — Projective multiplicative group u
 
 **definition · missing**. §3.1
 
@@ -1078,7 +1151,7 @@ Prerequisites: PAPER-KALETHA-16/P09.
 - Proposed test `Kaletha16.D01.test2`: The n=1 level is trivial.
 - Proposed test `Kaletha16.D01.test3`: Using restriction instead of the norm reverses the character transition and is rejected.
 
-### T01 — Finite-level homomorphism identification
+#### T01 — Finite-level homomorphism identification
 
 **theorem · missing**. (3.3)
 
@@ -1088,7 +1161,7 @@ Prerequisites: PAPER-KALETHA-16/D01.
 
 1. Dualize the augmentation sequence, then identify the invariant homomorphism by its identity-coordinate value.
 
-### T02 — Vanishing of H1(F,u)
+#### T02 — Vanishing of H1(F,u)
 
 **theorem · missing**. Theorem3.1(1)
 
@@ -1099,7 +1172,7 @@ Prerequisites: PAPER-KALETHA-16/D01, PAPER-KALETHA-16/P01, PAPER-KALETHA-16/P02,
 1. Compute each finite-level group by Shapiro and Kummer; show the relevant transitions eventually kill classes using norm neighborhoods and control lim1 separately.
 2. For the coefficient-limit step use P03 in degree one: H0(Gamma,u_k) is finite, so lim¹ vanishes without assuming finite H1. The eventual-zero H1 transition argument remains the local-norm calculation; the limit comparison no longer has an unspecified hypothesis.
 
-### T03 — Second cohomology of u
+#### T03 — Second cohomology of u
 
 **theorem · missing**. Theorem3.1(2),p-adic case
 
@@ -1110,7 +1183,7 @@ Prerequisites: PAPER-KALETHA-16/D01, PAPER-KALETHA-16/P03, PAPER-KALETHA-16/P05,
 1. Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification.
 2. For degree two, P23 supplies finite H1(Gamma,u_k), including the real case. P03 therefore gives H2(Gamma,u)=lim H2(Gamma,u_k). Finiteness of u_k alone would not justify this for an arbitrary profinite Gamma.
 
-### D02 — Canonical gerbe class
+#### D02 — Canonical gerbe class
 
 **construction · missing**. §3.1 afterTheorem3.1
 
@@ -1128,7 +1201,7 @@ Prerequisites: PAPER-KALETHA-16/T03, PAPER-KALETHA-16/T03R.
 - Proposed test `Kaletha16.D02.test2`: Over R the two signs coincide modulo2.
 - Proposed test `Kaletha16.D02.test3`: Replacing -1 by1 changes the p-adic normalization for odd denominators.
 
-### T04 — Universal finite central obstruction class
+#### T04 — Universal finite central obstruction class
 
 **theorem · missing**. Proposition3.2,surjectivity
 
@@ -1138,7 +1211,7 @@ Prerequisites: PAPER-KALETHA-16/T01, PAPER-KALETHA-16/D02, PAPER-KALETHA-16/P05,
 
 1. Use local finite duality and the augmentation character description; split here concerns the character action, not a chosen constant group presentation.
 
-### D03 — Rigid Galois extension W
+#### D03 — Rigid Galois extension W
 
 **construction · missing**. §3.2
 
@@ -1158,7 +1231,7 @@ Prerequisites: PAPER-KALETHA-16/D02, PAPER-KALETHA-16/L28, PAPER-KALETHA-16/P24,
 - Proposed test `Kaletha16.D03.test2`: The C4 extension of C2 by C2 realizes the nontrivial finite shadow.
 - Proposed test `Kaletha16.D03.test3`: An abstract section with discontinuous factor set does not construct a profinite realization.
 
-### T05 — Extension automorphisms are inner by u
+#### T05 — Extension automorphisms are inner by u
 
 **theorem · missing**. §3.2
 
@@ -1168,7 +1241,7 @@ Prerequisites: PAPER-KALETHA-16/D03, PAPER-KALETHA-16/T02, PAPER-KALETHA-16/P26.
 
 1. P26 identifies automorphisms fixing u and Gamma with continuous Z1(Gamma,u). T02 makes every class a coboundary, hence an inner conjugation by u. The conjugating element is determined modulo u^Gamma; no unique representative or canonical raw-cocycle identification is claimed.
 
-### D04 — Central-pair categories
+#### D04 — Central-pair categories
 
 **definition · missing**. §3.2
 
@@ -1186,7 +1259,7 @@ Prerequisites: PAPER-KALETHA-16/L06, PAPER-KALETHA-16/L07.
 - Proposed test `Kaletha16.D04.test2`: 1->1 is a T-object.
 - Proposed test `Kaletha16.D04.test3`: A noncentral finite subgroup of SL2 is not an A-object.
 
-### D05 — Rigid continuous cocycles
+#### D05 — Rigid continuous cocycles
 
 **definition · missing**. §3.2
 
@@ -1204,7 +1277,7 @@ Prerequisites: PAPER-KALETHA-16/D03, PAPER-KALETHA-16/D04.
 - Proposed test `Kaletha16.D05.test2`: For G=1 only the trivial cocycle exists.
 - Proposed test `Kaletha16.D05.test3`: A continuous abstract u->Z homomorphism without algebraicity evidence is insufficient.
 
-### D06 — Barred rigid cocycles and rigid H1
+#### D06 — Barred rigid cocycles and rigid H1
 
 **definition · missing**. §3.2
 
@@ -1222,7 +1295,7 @@ Prerequisites: PAPER-KALETHA-16/D05.
 - Proposed test `Kaletha16.D06.test2`: For Z=1 recover ordinary H1(Gamma,G).
 - Proposed test `Kaletha16.D06.test3`: Full rigid H1(R,SL2) cannot be treated as an abelian group from its cardinality alone.
 
-### T06 — Inflation and restriction exactness
+#### T06 — Inflation and restriction exactness
 
 **theorem · missing**. §3.3
 
@@ -1232,7 +1305,7 @@ Prerequisites: PAPER-KALETHA-16/D06.
 
 1. A G-coboundary between inflated cocycles descends; a cocycle with trivial u-restriction factors continuously through Gamma.
 
-### T07 — Abelian transgression sign
+#### T07 — Abelian transgression sign
 
 **theorem · missing**. Lemma3.3
 
@@ -1242,7 +1315,7 @@ Prerequisites: PAPER-KALETHA-16/T06, PAPER-KALETHA-16/P04, PAPER-KALETHA-16/D02.
 
 1. Compute the section defect in D03 and align the sign of the Hochschild–Serre transgression. Do not append abelian H2 to a nonabelian pointed sequence.
 
-### T08 — Finiteness of rigid H1
+#### T08 — Finiteness of rigid H1
 
 **theorem · missing**. Lemma3.4
 
@@ -1252,7 +1325,7 @@ Prerequisites: PAPER-KALETHA-16/T06, PAPER-KALETHA-16/P10, PAPER-KALETHA-16/T01.
 
 1. The restriction image is finite; each nonempty fiber is a quotient of H1 of the corresponding twisted G, which is finite.
 
-### T09 — Split torus vanishing
+#### T09 — Split torus vanishing
 
 **theorem · missing**. Proposition3.5
 
@@ -1262,7 +1335,7 @@ Prerequisites: PAPER-KALETHA-16/T07, PAPER-KALETHA-16/T04, PAPER-KALETHA-16/P01,
 
 1. Use Hilbert90 and the injection on finite central obstructions furnished by the split character calculation.
 
-### T10 — Lifting all ordinary quotient cocycles
+#### T10 — Lifting all ordinary quotient cocycles
 
 **theorem · missing**. Proposition3.6;author errata§3
 
@@ -1272,7 +1345,7 @@ Prerequisites: PAPER-KALETHA-16/T04, PAPER-KALETHA-16/D05, PAPER-KALETHA-16/T04S
 
 1. Lift a quotient cocycle to a continuous cochain ztilde. Its defect alpha lies in Z2(Gamma,Z). Choose phi with [alpha]=phi_*xi and adjust ztilde by a central cochain to obtain equality. Then z(x,sigma)=phi(x)ztilde(sigma) is the required cocycle; the erratum replaces the connected-only proof.
 
-### T11 — Central-cohomology exact diagram
+#### T11 — Central-cohomology exact diagram
 
 **theorem · missing**. Proposition3.6 remaining diagram
 
@@ -1284,7 +1357,7 @@ Prerequisites: PAPER-KALETHA-16/T06, PAPER-KALETHA-16/T10.
 
 1. Write every arrow on cocycles and distinguish exact pointed sets from exact sequences of groups.
 
-### T12 — Anisotropic and fundamental torus reductions
+#### T12 — Anisotropic and fundamental torus reductions
 
 **theorem · missing**. Corollary3.7(1)
 
@@ -1294,7 +1367,7 @@ Prerequisites: PAPER-KALETHA-16/P11, PAPER-KALETHA-16/T10.
 
 1. Apply ordinary torus cohomology surjectivity to the quotient cocycle and then match the central restriction; retain the source torus hypotheses.
 
-### T13 — Every reductive inner form rigidifies
+#### T13 — Every reductive inner form rigidifies
 
 **theorem · missing**. Corollary3.8(1)
 
@@ -1304,7 +1377,7 @@ Prerequisites: PAPER-KALETHA-16/T10, PAPER-KALETHA-16/P13.
 
 1. Use the induced central quotient and the simply connected/central cohomology comparison of the source.
 
-### T14 — Split-group fiber qualifications
+#### T14 — Split-group fiber qualifications
 
 **theorem · missing**. Corollary3.8(2),p-adic case
 
@@ -1314,7 +1387,7 @@ Prerequisites: PAPER-KALETHA-16/T13, PAPER-KALETHA-16/P11.
 
 1. Use p-adic H1 vanishing for all simply connected inner twists; for R only the specified neutral-kernel argument applies. SL2(R) has three rigid classes over two inner-form classes.
 
-### D07 — Abelianized rigid cohomology
+#### D07 — Abelianized rigid cohomology
 
 **definition · missing**. §3.4
 
@@ -1332,7 +1405,7 @@ Prerequisites: PAPER-KALETHA-16/D06, PAPER-KALETHA-16/P13.
 - Proposed test `Kaletha16.D07.test2`: Over p-adic F it changes nothing by H1 vanishing for every inner twist.
 - Proposed test `Kaletha16.D07.test3`: Over R the two compact SL2 rigidifications become one abelianized class.
 
-### T15 — When rigid H1 equals its abelianization
+#### T15 — When rigid H1 equals its abelianization
 
 **theorem · missing**. §3.4 corrected criterion
 
@@ -1342,7 +1415,7 @@ Prerequisites: PAPER-KALETHA-16/D07, PAPER-KALETHA-16/P11.
 
 1. Each equivalence fiber is then a singleton. The real SL2/SU2 counterexample in E07 disproves the unrestricted printed criterion.
 
-### D10 — Torus quotient lattices and finite duality
+#### D10 — Torus quotient lattices and finite duality
 
 **definition · missing**. §4.1
 
@@ -1360,7 +1433,7 @@ Prerequisites: PAPER-KALETHA-16/L09, PAPER-KALETHA-16/L10, PAPER-KALETHA-16/L16.
 - Proposed test `Kaletha16.D10.test2`: Z=1 gives trivial quotients.
 - Proposed test `Kaletha16.D10.test3`: The pairing is Q/Z-valued, not canonically integer-valued on the quotient.
 
-### D11 — Enlarged coinvariant torsion for tori
+#### D11 — Enlarged coinvariant torsion for tori
 
 **definition · missing**. §4.1 Fact4.1
 
@@ -1378,7 +1451,7 @@ Prerequisites: PAPER-KALETHA-16/D10, PAPER-KALETHA-16/L27.
 - Proposed test `Kaletha16.D11.test2`: For a split torus the torsion group is zero.
 - Proposed test `Kaletha16.D11.test3`: Replacing IY with IYbar changes the real mu2 example from Z/4 to Z/2.
 
-### T20 — Lattice norm exact sequence
+#### T20 — Lattice norm exact sequence
 
 **theorem · missing**. Fact4.1
 
@@ -1388,7 +1461,7 @@ Prerequisites: PAPER-KALETHA-16/D11, PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27.
 
 1. Check lift independence modulo N(Y), then compute each kernel; use the norm-kernel characterization of torsion.
 
-### D12 — Finite central restriction from cocharacters
+#### D12 — Finite central restriction from cocharacters
 
 **construction · missing**. (4.1)–(4.2)
 
@@ -1406,7 +1479,7 @@ Prerequisites: PAPER-KALETHA-16/D10, PAPER-KALETHA-16/T01.
 - Proposed test `Kaletha16.D12.test2`: An integral cocharacter restricts trivially.
 - Proposed test `Kaletha16.D12.test3`: A class whose norm is nonzero does not define the required equivariant map without the norm condition.
 
-### D13 — Reductive enlarged lattice quotient
+#### D13 — Reductive enlarged lattice quotient
 
 **definition · missing**. §4.1 afterLemma4.2
 
@@ -1424,7 +1497,7 @@ Prerequisites: PAPER-KALETHA-16/D11, PAPER-KALETHA-16/P15.
 - Proposed test `Kaletha16.D13.test2`: For Z=1 recover the ordinary abelianized lattice input.
 - Proposed test `Kaletha16.D13.test3`: One cannot quotient Ybar by IYbar or discard coroots before checking the specified maps.
 
-### D14 — Unbalanced cochain product
+#### D14 — Unbalanced cochain product
 
 **definition · missing**. §4.3
 
@@ -1442,7 +1515,7 @@ Prerequisites: PAPER-KALETHA-16/L23, PAPER-KALETHA-16/L27.
 - Proposed test `Kaletha16.D14.test2`: Zero in either coefficient gives zero.
 - Proposed test `Kaletha16.D14.test3`: A cochain not factoring through the required last variables is rejected as an input.
 
-### T21 — Unbalanced Leibniz identity
+#### T21 — Unbalanced Leibniz identity
 
 **theorem · missing**. §4.3
 
@@ -1452,7 +1525,7 @@ Prerequisites: PAPER-KALETHA-16/D14.
 
 1. Expand finite sums, cancel interior faces and retain the boundary terms. The exact cochain subspaces and all sign cases remain a recursive proof obligation.
 
-### T22 — Unbalanced finite-level compatibility
+#### T22 — Unbalanced finite-level compatibility
 
 **theorem · missing**. §4.3 inhomogeneous formula and coefficient/quotient naturality
 
@@ -1462,7 +1535,7 @@ Prerequisites: PAPER-KALETHA-16/D14, PAPER-KALETHA-16/T21.
 
 1. Verify each contraction after changing representatives; expose the finite sum rather than treating this operation as ordinary cup product.
 
-### D15 — Compatible relative Weil sections
+#### D15 — Compatible relative Weil sections
 
 **construction · missing**. §4.4;author errata§3
 
@@ -1480,7 +1553,7 @@ Prerequisites: PAPER-KALETHA-16/P07, PAPER-KALETHA-16/R01, PAPER-KALETHA-16/P06.
 - Proposed test `Kaletha16.D15.test2`: Identity cosets have the normalized lift1.
 - Proposed test `Kaletha16.D15.test3`: Arbitrarily fixing coset representatives first need not admit the prescribed compatible sections.
 
-### T23 — Relative Weil section product identities
+#### T23 — Relative Weil section product identities
 
 **theorem · missing**. Lemma4.4 first equality
 
@@ -1490,7 +1563,7 @@ Prerequisites: PAPER-KALETHA-16/D15.
 
 1. Prove by multiplying the chosen Weil lifts and reindexing cosets; the corrected choice order is required. Split the two identities into separate declarations in the design.
 
-### D16 — Coherent roots and quotient-torus extensions
+#### D16 — Coherent roots and quotient-torus extensions
 
 **construction · missing**. §4.5,(4.8);author errata§3
 
@@ -1508,7 +1581,7 @@ Prerequisites: PAPER-KALETHA-16/D15, PAPER-KALETHA-16/P09.
 - Proposed test `Kaletha16.D16.test2`: At the trivial E=F quotient the map is trivial.
 - Proposed test `Kaletha16.D16.test3`: Applying p defined only on u_(k+1) to a non-torsion quotient-torus point is ill typed.
 
-### D17 — Explicit fundamental cocycles and transitions
+#### D17 — Explicit fundamental cocycles and transitions
 
 **construction · missing**. §4.5,(4.7)–(4.8)
 
@@ -1526,7 +1599,7 @@ Prerequisites: PAPER-KALETHA-16/D14, PAPER-KALETHA-16/D16.
 - Proposed test `Kaletha16.D17.test2`: A constant compatible level has alpha=1.
 - Proposed test `Kaletha16.D17.test3`: The degree-one equality in Lemma4.5 cannot end in a degree-two xi term.
 
-### T24 — Explicit cocycles represent negative one
+#### T24 — Explicit cocycles represent negative one
 
 **theorem · missing**. Lemma4.5(1)
 
@@ -1536,7 +1609,7 @@ Prerequisites: PAPER-KALETHA-16/D17, PAPER-KALETHA-16/T21, PAPER-KALETHA-16/T23,
 
 1. Use Leibniz and Weil transfer for the coboundary identity, then evaluate the finite-level local invariant as the negative normalized fraction. The degree error E08 is corrected before differentiation.
 
-### T25 — Functorial evaluation of xi
+#### T25 — Functorial evaluation of xi
 
 **theorem · missing**. Fact4.6
 
@@ -1546,7 +1619,7 @@ Prerequisites: PAPER-KALETHA-16/T24, PAPER-KALETHA-16/T22, PAPER-KALETHA-16/T24X
 
 1. Use coefficient functoriality of the finite contraction; factorization through a finite level is part of the algebraicity input.
 
-### D18 — Explicit enlarged Tate–Nakayama cocycle
+#### D18 — Explicit enlarged Tate–Nakayama cocycle
 
 **construction · missing**. §4.6,(4.9)
 
@@ -1564,7 +1637,7 @@ Prerequisites: PAPER-KALETHA-16/D12, PAPER-KALETHA-16/D17, PAPER-KALETHA-16/T25.
 - Proposed test `Kaletha16.D18.test2`: The zero cocharacter gives the neutral class.
 - Proposed test `Kaletha16.D18.test3`: Omitting the n_k multiplier or using a finite-only phi on a non-torsion torus point fails the formula.
 
-### T26 — Cocycle and level independence
+#### T26 — Cocycle and level independence
 
 **theorem · missing**. Lemma4.7
 
@@ -1574,7 +1647,7 @@ Prerequisites: PAPER-KALETHA-16/D18, PAPER-KALETHA-16/T24, PAPER-KALETHA-16/T24X
 
 1. Check d z=1 from the xi equation and calculate the adjacent-level ratio. The published penultimate display already uses n_k*lambdabar; retain that fixed version.
 
-### T27 — Torus enlarged Tate–Nakayama isomorphism
+#### T27 — Torus enlarged Tate–Nakayama isomorphism
 
 **theorem · missing**. Theorem4.8
 
@@ -1584,7 +1657,7 @@ Prerequisites: PAPER-KALETHA-16/T20, PAPER-KALETHA-16/T26, PAPER-KALETHA-16/P12,
 
 1. Show IY maps to coboundaries, compare the four-term norm and cohomology exact sequences, and use the outer ordinary Tate–Nakayama identifications and five-lemma argument.
 
-### T28 — Uniqueness of enlarged Tate–Nakayama
+#### T28 — Uniqueness of enlarged Tate–Nakayama
 
 **theorem · missing**. §4.2
 
@@ -1594,7 +1667,7 @@ Prerequisites: PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T12,
 
 1. First use anisotropic tori, then their maximal anisotropic subtorus and split quotient, then a fundamental torus surjecting onto the reductive target.
 
-### T29 — Maximal-torus fibers of abelianized rigid cohomology
+#### T29 — Maximal-torus fibers of abelianized rigid cohomology
 
 **theorem · missing**. Lemma4.9
 
@@ -1604,7 +1677,7 @@ Prerequisites: PAPER-KALETHA-16/P12, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T27.
 
 1. Use the Kottwitz central component character comparison and the simply connected torus image; this is not a claim that H1(G) is a group.
 
-### T30 — Conjugacy independence of reductive classes
+#### T30 — Conjugacy independence of reductive classes
 
 **theorem · missing**. Lemma4.10
 
@@ -1614,7 +1687,7 @@ Prerequisites: PAPER-KALETHA-16/P15, PAPER-KALETHA-16/D18, PAPER-KALETHA-16/D07.
 
 1. Lift the conjugation to the appropriate simply connected twist and explicitly compare its two cocycles; their difference belongs to the abelianization equivalence relation.
 
-### T31 — Reductive enlarged Tate–Nakayama duality
+#### T31 — Reductive enlarged Tate–Nakayama duality
 
 **theorem · missing**. Theorem4.11
 
@@ -1624,7 +1697,7 @@ Prerequisites: PAPER-KALETHA-16/T27, PAPER-KALETHA-16/T28, PAPER-KALETHA-16/T29,
 
 1. Reduce through a fundamental torus, identify the coroot quotient using H1(Ssc), and use the relevant Tate H0 vanishing. The target is H1_ab throughout, including the corrected proof diagram.
 
-### D20 — Rigid inner twists
+#### D20 — Rigid inner twists
 
 **definition · missing**. Definition5.1
 
@@ -1642,7 +1715,7 @@ Prerequisites: PAPER-KALETHA-16/P13, PAPER-KALETHA-16/D05, PAPER-KALETHA-16/T13.
 - Proposed test `Kaletha16.D20.test2`: The neutral pair is (G,id,1).
 - Proposed test `Kaletha16.D20.test3`: An inner form with no specified lift is not a rigid inner twist.
 
-### D21 — Rigid inner-twist groupoid
+#### D21 — Rigid inner-twist groupoid
 
 **definition · missing**. §5.1
 
@@ -1660,7 +1733,7 @@ Prerequisites: PAPER-KALETHA-16/D20.
 - Proposed test `Kaletha16.D21.test2`: The identity is (id,1).
 - Proposed test `Kaletha16.D21.test3`: Equal adjoint cocycles without the rigid cocycle equation do not define a morphism.
 
-### T40 — Finite fixed-Z classes and enlargement
+#### T40 — Finite fixed-Z classes and enlargement
 
 **theorem · missing**. §5.1 finiteness
 
@@ -1670,7 +1743,7 @@ Prerequisites: PAPER-KALETHA-16/D21, PAPER-KALETHA-16/T08.
 
 1. Use the H1 classification for finiteness and the unchanged cocycle morphism equations for full faithfulness.
 
-### D22 — All rigid twists and K-groups
+#### D22 — All rigid twists and K-groups
 
 **definition · missing**. §5.1
 
@@ -1688,7 +1761,7 @@ Prerequisites: PAPER-KALETHA-16/D21, PAPER-KALETHA-16/D07.
 - Proposed test `Kaletha16.D22.test2`: A split torus has a singleton H1rig union.
 - Proposed test `Kaletha16.D22.test3`: Distinct K-groups can contain the same underlying inner forms, as for odd unitary groups.
 
-### D23 — Rigid stable-conjugacy invariant
+#### D23 — Rigid stable-conjugacy invariant
 
 **construction · missing**. §5.1
 
@@ -1706,7 +1779,7 @@ Prerequisites: PAPER-KALETHA-16/D20, PAPER-KALETHA-16/D06.
 - Proposed test `Kaletha16.D23.test2`: For a torus the centralizer is the whole group.
 - Proposed test `Kaletha16.D23.test3`: For a nonneutral twist the target condition is a fiber over [z], not necessarily a neutral kernel.
 
-### T41 — Stable classes across rigid forms
+#### T41 — Stable classes across rigid forms
 
 **theorem · missing**. §5.1 stable-conjugacy discussion
 
@@ -1716,7 +1789,7 @@ Prerequisites: PAPER-KALETHA-16/D23, PAPER-KALETHA-16/D21.
 
 1. Construct a rigid G-cocycle from each S-cocycle and reverse the stable-conjugacy invariant. Track automorphisms before passing to isomorphism classes.
 
-### D24 — Invariant of admissible torus embeddings
+#### D24 — Invariant of admissible torus embeddings
 
 **construction · missing**. §5.1 p594 and§5.6 p615;author errata
 
@@ -1734,7 +1807,7 @@ Prerequisites: PAPER-KALETHA-16/D23, PAPER-KALETHA-16/P14.
 - Proposed test `Kaletha16.D24.test2`: The identity embedding in the neutral twist gives1.
 - Proposed test `Kaletha16.D24.test3`: Without eta^-1 the displayed cocycle lives in eta(S), not in S.
 
-### D25 — Representations of rigid inner twists
+#### D25 — Representations of rigid inner twists
 
 **definition · missing**. §5.1
 
@@ -1752,7 +1825,7 @@ Prerequisites: PAPER-KALETHA-16/D21, PAPER-KALETHA-16/P16, PAPER-KALETHA-16/P17.
 - Proposed test `Kaletha16.D25.test2`: The trivial representation transports to itself under inner automorphisms.
 - Proposed test `Kaletha16.D25.test3`: Isomorphic underlying groups with different rigid cocycles are not silently identified.
 
-### D26 — Strong real forms
+#### D26 — Strong real forms
 
 **definition · missing**. §5.2
 
@@ -1770,7 +1843,7 @@ Prerequisites: PAPER-KALETHA-16/P13, PAPER-KALETHA-16/D22.
 - Proposed test `Kaletha16.D26.test2`: The element sigma gives the original real form.
 - Proposed test `Kaletha16.D26.test3`: An element with noncentral square does not define an involution by Ad(delta).
 
-### T42 — Strong real forms equal all rigid real twists
+#### T42 — Strong real forms equal all rigid real twists
 
 **theorem · missing**. Theorem5.2
 
@@ -1780,7 +1853,7 @@ Prerequisites: PAPER-KALETHA-16/D26, PAPER-KALETHA-16/D22, PAPER-KALETHA-16/D17.
 
 1. Choose the real tower/roots so the transition correction is1, compute the square of z(1,sigma)*sigma, and reconstruct the algebraic u-restriction from that finite-order square. Prove full faithfulness and essential surjectivity, not only a class bijection.
 
-### D27 — Plus dual central subgroup
+#### D27 — Plus dual central subgroup
 
 **definition · missing**. §5.3
 
@@ -1798,7 +1871,7 @@ Prerequisites: PAPER-KALETHA-16/P14.
 - Proposed test `Kaletha16.D27.test2`: Z=1 gives Z(G_hat)^Gamma.
 - Proposed test `Kaletha16.D27.test3`: The plus sign is an inverse image, not merely the Gamma-fixed subgroup of the covering group.
 
-### T43 — Lattice map to dual component characters
+#### T43 — Lattice map to dual component characters
 
 **theorem · missing**. Proposition5.3
 
@@ -1808,7 +1881,7 @@ Prerequisites: PAPER-KALETHA-16/D27, PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D10.
 
 1. Dualize the character-lattice exact sequence, compute torsion and retain the real norm correction. General real surjectivity is not asserted.
 
-### T44 — Abelianized rigid dual pairing
+#### T44 — Abelianized rigid dual pairing
 
 **theorem · missing**. Corollary5.4 corrected by author errata
 
@@ -1818,7 +1891,7 @@ Prerequisites: PAPER-KALETHA-16/T31, PAPER-KALETHA-16/T43, PAPER-KALETHA-16/D22.
 
 1. Compose enlarged Tate–Nakayama with the character injection. The source left factor must be H1_ab; the full real SL2 rigid set has a nontrivial fiber.
 
-### D30 — Ordinary endoscopy and z-pairs
+#### D30 — Ordinary endoscopy and z-pairs
 
 **definition · planned**. §5.3
 
@@ -1838,7 +1911,7 @@ Prerequisites: PAPER-KALETHA-16/P14.
 - Proposed test `Kaletha16.D30.test2`: A matching domain may be empty.
 - Proposed test `Kaletha16.D30.test3`: A geometric match need not have a rational representative.
 
-### D31 — Refined endoscopic data
+#### D31 — Refined endoscopic data
 
 **definition · missing**. §5.3
 
@@ -1856,7 +1929,7 @@ Prerequisites: PAPER-KALETHA-16/D30, PAPER-KALETHA-16/D27.
 - Proposed test `Kaletha16.D31.test2`: The identity refined datum has its distinguished lift.
 - Proposed test `Kaletha16.D31.test3`: Ordinary equivalence modulo the dual center alone does not imply refined equivalence.
 
-### T50 — Finite refinements and enlargement compatibility
+#### T50 — Finite refinements and enlargement compatibility
 
 **theorem · missing**. §5.3 andFact5.5
 
@@ -1866,7 +1939,7 @@ Prerequisites: PAPER-KALETHA-16/D31, PAPER-KALETHA-16/T44.
 
 1. Use finiteness of the relevant component groups and functoriality of the perfect torus pairing.
 
-### D32 — Transfer factors with explicit convention
+#### D32 — Transfer factors with explicit convention
 
 **definition · planned**. §5.3
 
@@ -1886,7 +1959,7 @@ Prerequisites: PAPER-KALETHA-16/D30, PAPER-KALETHA-16/P12.
 - Proposed test `Kaletha16.D32.test2`: A fixed Whittaker datum fixes the prescribed quasi-split normalization.
 - Proposed test `Kaletha16.D32.test3`: Mixing Delta and Delta-prime without changing the dual element or pairing sign is rejected.
 
-### D33 — Rigid normalized absolute transfer factor
+#### D33 — Rigid normalized absolute transfer factor
 
 **construction · missing**. (5.1)
 
@@ -1904,7 +1977,7 @@ Prerequisites: PAPER-KALETHA-16/D23, PAPER-KALETHA-16/T44, PAPER-KALETHA-16/D31,
 - Proposed test `Kaletha16.D33.test2`: For a torus central character of order3 the inverse changes the primitive root to its inverse.
 - Proposed test `Kaletha16.D33.test3`: Independently rescaling only one transported base factor breaks the claimed invariance.
 
-### T51 — Independence of the matching quasi-split representative
+#### T51 — Independence of the matching quasi-split representative
 
 **theorem · missing**. Proposition5.6 first assertion
 
@@ -1914,7 +1987,7 @@ Prerequisites: PAPER-KALETHA-16/D33, PAPER-KALETHA-16/P12, PAPER-KALETHA-16/D34.
 
 1. Compare the two stable-conjugacy cocycles through the torus-complex relative factor. Cancellation uses the inverse character convention.
 
-### T52 — Rigid and refined isomorphism invariance
+#### T52 — Rigid and refined isomorphism invariance
 
 **theorem · missing**. Proposition5.6 remaining assertions
 
@@ -1924,7 +1997,7 @@ Prerequisites: PAPER-KALETHA-16/D33, PAPER-KALETHA-16/T50, PAPER-KALETHA-16/D21.
 
 1. Compute the central coboundary and conjugation changes in the torus pairing and cancel them against the transported base factor.
 
-### D34 — Relative-transfer comparison tori
+#### D34 — Relative-transfer comparison tori
 
 **construction · missing**. ProofProposition5.6 pp604–607
 
@@ -1942,7 +2015,7 @@ Prerequisites: PAPER-KALETHA-16/P12, PAPER-KALETHA-16/P14, PAPER-KALETHA-16/D23.
 - Proposed test `Kaletha16.D34.test2`: For torus G the simply connected terms are trivial.
 - Proposed test `Kaletha16.D34.test3`: Using the same symbol g without the index i in each centralizer cochain leaves the expression ill typed.
 
-### D35 — Tempered parameters and lifted centralizers
+#### D35 — Tempered parameters and lifted centralizers
 
 **definition · missing**. §5.4
 
@@ -1960,7 +2033,7 @@ Prerequisites: PAPER-KALETHA-16/P14, PAPER-KALETHA-16/D27, PAPER-KALETHA-16/R01,
 - Proposed test `Kaletha16.D35.test2`: For a torus the centralizer is the whole dual torus.
 - Proposed test `Kaletha16.D35.test3`: The lifted component group need not be abelian in the p-adic case.
 
-### C01 — Refined local Langlands conjecture
+#### C01 — Refined local Langlands conjecture
 
 **construction · missing**. §5.4,diagram(5.7)
 
@@ -1978,7 +2051,7 @@ Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/D25, PAPER-KALETHA-16/T44.
 - Proposed test `Kaletha16.C01.test2`: An irrelevant inner form has an empty packet fiber.
 - Proposed test `Kaletha16.C01.test3`: A conjectural packet bijection cannot be used as an unconditional p-adic theorem.
 
-### C02 — Stable and endoscopic packet distributions
+#### C02 — Stable and endoscopic packet distributions
 
 **construction · missing**. §5.4,(5.8),(5.11)
 
@@ -1996,7 +2069,7 @@ Prerequisites: PAPER-KALETHA-16/C01, PAPER-KALETHA-16/D32, PAPER-KALETHA-16/P16,
 - Proposed test `Kaletha16.C02.test2`: An empty packet yields zero.
 - Proposed test `Kaletha16.C02.test3`: Replacing every character trace by1 fails for the two-dimensional Q8 representation.
 
-### D36 — Prime-convention rigid transfer
+#### D36 — Prime-convention rigid transfer
 
 **construction · missing**. (5.10);§5.6
 
@@ -2014,7 +2087,7 @@ Prerequisites: PAPER-KALETHA-16/D33, PAPER-KALETHA-16/D32.
 - Proposed test `Kaletha16.D36.test2`: For trivial rigid invariant both equal their respective base factors.
 - Proposed test `Kaletha16.D36.test3`: The real order2 case alone cannot detect the sign convention.
 
-### T53 — Quaternion component-group example
+#### T53 — Quaternion component-group example
 
 **theorem · missing**. §5.4 example pp610–611
 
@@ -2024,7 +2097,7 @@ Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/C01.
 
 1. Compute the lift in SL2(C) and its character table. The identification of the local packets uses the cited SL2 classification; the finite character computation alone is not a proof of that LLC example.
 
-### T54 — Relevance and central-character annihilator
+#### T54 — Relevance and central-character annihilator
 
 **theorem · missing**. Lemma5.7
 
@@ -2034,7 +2107,7 @@ Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/T44, PAPER-KALETHA-16/D22,
 
 1. Enlarge Z to contain the derived center, reduce to a minimal Levi for phi and compute the component kernel. Import Arthur1.1 and Kottwitz6.2 with their precise relevance hypotheses.
 
-### R01 — Real Weil group and real parameters
+#### R01 — Real Weil group and real parameters
 
 **definition · missing**. §§2,5.6
 
@@ -2052,7 +2125,7 @@ Prerequisites: PAPER-KALETHA-16/P14.
 - Proposed test `Kaletha16.R01.test2`: The trivial dual-group parameter is allowed.
 - Proposed test `Kaletha16.R01.test3`: Replacing W_R by Gamma_R loses the j squared=-1 condition.
 
-### R02 — Discrete real parameter torus and weights
+#### R02 — Discrete real parameter torus and weights
 
 **definition · missing**. §5.6 pp614–615
 
@@ -2070,7 +2143,7 @@ Prerequisites: PAPER-KALETHA-16/R01, PAPER-KALETHA-16/P14.
 - Proposed test `Kaletha16.R02.test2`: Changing lambda by its stated lattice ambiguity preserves the parameter class.
 - Proposed test `Kaletha16.R02.test3`: Singular mu belongs to the later tempered reduction, not this discrete contract.
 
-### R03 — Discrete series from admissible torus embeddings
+#### R03 — Discrete series from admissible torus embeddings
 
 **theorem · missing**. §5.6 discrete case
 
@@ -2082,7 +2155,7 @@ Prerequisites: PAPER-KALETHA-16/R02, PAPER-KALETHA-16/P16, PAPER-KALETHA-16/D24,
 
 1. Read Langlands and Shelstad for existence, irreducibility and the exact equivalence of embedding classes. This supplier is not closed by the character notation alone.
 
-### R04 — Whittaker-normalized discrete member
+#### R04 — Whittaker-normalized discrete member
 
 **theorem · missing**. §5.6 p615
 
@@ -2092,7 +2165,7 @@ Prerequisites: PAPER-KALETHA-16/R03, PAPER-KALETHA-16/P16.
 
 1. Import the Kostant/Vogan genericity result and its compatibility with the chosen positive roots; no generic member is assumed for every inner form.
 
-### R05 — Discrete compound packet bijection
+#### R05 — Discrete compound packet bijection
 
 **theorem · missing**. §5.6 diagram(5.13)
 
@@ -2102,7 +2175,7 @@ Prerequisites: PAPER-KALETHA-16/R03, PAPER-KALETHA-16/R04, PAPER-KALETHA-16/D24,
 
 1. Apply the all-rigid embedding classification and torus duality; explicitly transport through eta_w^-1 in the invariant.
 
-### R06 — Minimal cuspidal Levi and R-group roots
+#### R06 — Minimal cuspidal Levi and R-group roots
 
 **definition · missing**. §5.6 pp615–616
 
@@ -2122,7 +2195,7 @@ Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/R02.
 - Proposed test `Kaletha16.R06.test2`: For a rank-one singular parameter it can be A1.
 - Proposed test `Kaletha16.R06.test3`: Vanishing on mu alone does not impose the orbit-sum condition.
 
-### R07 — Orthogonal A1 root subsystem
+#### R07 — Orthogonal A1 root subsystem
 
 **theorem · missing**. §5.6 p616;Shelstad1982
 
@@ -2132,7 +2205,7 @@ Prerequisites: PAPER-KALETHA-16/R06.
 
 1. Use the parameter centralizer/R-group analysis in Shelstad. Orthogonality makes the positive-root Cayley factors commute; it does not authorize multiplying both signs of each root.
 
-### R08 — Corrected Cayley transform
+#### R08 — Corrected Cayley transform
 
 **construction · missing**. §5.6 p616, corrected usingShelstad1982 p423
 
@@ -2150,7 +2223,7 @@ Prerequisites: PAPER-KALETHA-16/R07.
 - Proposed test `Kaletha16.R08.test2`: For an empty subsystem s=1.
 - Proposed test `Kaletha16.R08.test3`: Multiplying over both alpha and -alpha squares the Weyl reflection and destroys the rank-one reduction.
 
-### R09 — Limit-discrete parameter and coherent continuation
+#### R09 — Limit-discrete parameter and coherent continuation
 
 **construction · missing**. §5.6 pp616–617
 
@@ -2170,7 +2243,7 @@ Prerequisites: PAPER-KALETHA-16/R08, PAPER-KALETHA-16/R03.
 - Proposed test `Kaletha16.R09.test2`: A compact imaginary obstruction can make the continuation zero.
 - Proposed test `Kaletha16.R09.test3`: One cannot declare every coherent continuation nonzero.
 
-### R10 — Noncompact-root criterion
+#### R10 — Noncompact-root criterion
 
 **theorem · missing**. §5.6 pp617–618 nonvanishing criterion
 
@@ -2180,7 +2253,7 @@ Prerequisites: PAPER-KALETHA-16/R09, PAPER-KALETHA-16/P16.
 
 1. Use the original limit-discrete-series and irreducibility results, with the special enlarged cuspidal Levi M1, not arbitrary tempered parabolic induction.
 
-### R11 — Real tempered packet embedding classification
+#### R11 — Real tempered packet embedding classification
 
 **theorem · missing**. Theorem5.8
 
@@ -2190,7 +2263,7 @@ Prerequisites: PAPER-KALETHA-16/R10, PAPER-KALETHA-16/R03, PAPER-KALETHA-16/R10I
 
 1. Combine coherent continuation, the irreducible induction theorem and Langlands classification; retain the root condition when passing across rigid twists.
 
-### R12 — Levi injectivity in rigid cohomology
+#### R12 — Levi injectivity in rigid cohomology
 
 **theorem · missing**. §5.6 afterTheorem5.8
 
@@ -2200,7 +2273,7 @@ Prerequisites: PAPER-KALETHA-16/T06, PAPER-KALETHA-16/R09.
 
 1. Use injectivity of ordinary Levi H1 together with the central restriction sequence. Supply the original ordinary Levi proof as a recursive leaf.
 
-### R13 — Parity description of the packet image
+#### R13 — Parity description of the packet image
 
 **theorem · missing**. §5.6 pp618–619
 
@@ -2210,7 +2283,7 @@ Prerequisites: PAPER-KALETHA-16/R11, PAPER-KALETHA-16/R12, PAPER-KALETHA-16/R05,
 
 1. Translate the noncompact imaginary-root condition by real Tate–Nakayama. Check that parity is independent of the lattice representative.
 
-### R14 — Root-sign component subgroup
+#### R14 — Root-sign component subgroup
 
 **definition · missing**. §5.6 p619
 
@@ -2228,7 +2301,7 @@ Prerequisites: PAPER-KALETHA-16/R07, PAPER-KALETHA-16/D27, PAPER-KALETHA-16/R13.
 - Proposed test `Kaletha16.R14.test2`: An empty subsystem contributes the trivial subgroup.
 - Proposed test `Kaletha16.R14.test3`: The target component group may contain elements of order4, so it is not identified wholesale with a sign vector space.
 
-### R15 — Exact real component-group sequence
+#### R15 — Exact real component-group sequence
 
 **theorem · missing**. Proposition5.9
 
@@ -2238,7 +2311,7 @@ Prerequisites: PAPER-KALETHA-16/R14, PAPER-KALETHA-16/T54.
 
 1. Shelstad supplies representatives meeting every component. Show alpha(-1) lies in the identity component using the explicit path alpha(exp(i pi t)); identify the full kernel by the K-group/relevance and packet cardinality argument.
 
-### R16 — Refined real tempered packet theorem
+#### R16 — Refined real tempered packet theorem
 
 **theorem · missing**. §5.6 conclusion afterProposition5.9
 
@@ -2248,7 +2321,7 @@ Prerequisites: PAPER-KALETHA-16/R13, PAPER-KALETHA-16/R15, PAPER-KALETHA-16/R04,
 
 1. Dualize the exact component sequence, identify the parity image, and carry the discrete normalization through the Cayley/induction construction. This is the proved real case, not a proof of C01 for p-adic G.
 
-### R17 — Stable real packet character
+#### R17 — Stable real packet character
 
 **theorem · missing**. §5.6,invokingShelstad1979/2008
 
@@ -2258,7 +2331,7 @@ Prerequisites: PAPER-KALETHA-16/R16, PAPER-KALETHA-16/C02, PAPER-KALETHA-16/P18.
 
 1. Use Shelstad stable-character theorems, first discrete then coherent continuation and Levi induction; stability is a separate theorem from the labeling bijection.
 
-### R18 — Real spectral transfer factor
+#### R18 — Real spectral transfer factor
 
 **definition · missing**. §5.6 pp621–623
 
@@ -2278,7 +2351,7 @@ Prerequisites: PAPER-KALETHA-16/D36, PAPER-KALETHA-16/R16, PAPER-KALETHA-16/D30,
 - Proposed test `Kaletha16.R18.test2`: The quasi-split generic member has the Whittaker-normalized value.
 - Proposed test `Kaletha16.R18.test3`: Changing geometric normalization while keeping the spectral factor fixed violates the compatibility identity.
 
-### R19 — Spectral factor equals rigid packet character
+#### R19 — Spectral factor equals rigid packet character
 
 **theorem · missing**. Proposition5.10
 
@@ -2288,7 +2361,7 @@ Prerequisites: PAPER-KALETHA-16/R18, PAPER-KALETHA-16/D34, PAPER-KALETHA-16/R16.
 
 1. Convert Delta-prime to inverse endoscopic data, descend to M1, use Whittaker descent and e(M1prime)=e(Gprime), then compare the toral III terms via D34. Exact original descent discriminants and signs remain a source-closure gate.
 
-### R20 — Real endoscopic character identities
+#### R20 — Real endoscopic character identities
 
 **theorem · missing**. §5.6 final conclusion
 
@@ -2298,7 +2371,7 @@ Prerequisites: PAPER-KALETHA-16/R19, PAPER-KALETHA-16/R17, PAPER-KALETHA-16/C02.
 
 1. Insert R19 into Shelstad spectral transfer and retain the zero convention outside the related domain. No global trace formula or non-tempered ABV comparison is asserted.
 
-### G01 — Global rigid gerbe and localization interface
+#### G01 — Global rigid gerbe and localization interface
 
 **definition · missing**. §5.7 pp624–625
 
@@ -2318,7 +2391,7 @@ Prerequisites: PAPER-KALETHA-16/D05, PAPER-KALETHA-16/D06.
 - Proposed test `Kaletha16.G01.test2`: At almost all places the appropriate integral/unramified statement requires its original theorem.
 - Proposed test `Kaletha16.G01.test3`: Localization is not asserted canonical on raw local Z1 without quotienting central coboundaries.
 
-### G02 — Global Tate–Nakayama interface
+#### G02 — Global Tate–Nakayama interface
 
 **theorem · missing**. §5.7 p625
 
@@ -2330,7 +2403,7 @@ Prerequisites: PAPER-KALETHA-16/G01, PAPER-KALETHA-16/T31.
 
 1. Read and split the original global coefficient and lattice conditions before treating this summary as a closed theorem contract; the local theorem alone does not imply it.
 
-### G03 — Global rigid lift of an inner twist
+#### G03 — Global rigid lift of an inner twist
 
 **theorem · missing**. §5.7,Kal15b Lemma3.29
 
@@ -2340,7 +2413,7 @@ Prerequisites: PAPER-KALETHA-16/G01, PAPER-KALETHA-16/P13.
 
 1. Apply the original global lifting theorem and track the induced map Gsc->G. This is the overview hypothesis package, not a claim for arbitrary global G without reduction.
 
-### G04 — Localized refined endoscopic lifts
+#### G04 — Localized refined endoscopic lifts
 
 **construction · missing**. §5.7 p626
 
@@ -2358,7 +2431,7 @@ Prerequisites: PAPER-KALETHA-16/D31, PAPER-KALETHA-16/G03.
 - Proposed test `Kaletha16.G04.test2`: The central subgroup used to rigidify lies in G, over F.
 - Proposed test `Kaletha16.G04.test3`: Z of the complex dual simply connected group is not a central F-subgroup of G.
 
-### G05 — Adelic product of rigid transfer factors
+#### G05 — Adelic product of rigid transfer factors
 
 **theorem · missing**. §5.7 pp626–627
 
@@ -2368,7 +2441,7 @@ Prerequisites: PAPER-KALETHA-16/G04, PAPER-KALETHA-16/D33, PAPER-KALETHA-16/G02.
 
 1. Import the actual global product theorem and its unramified normalization. If no rational related pair exists the adelic factor is identically zero; do not apply the displayed nonzero product argument without its hypothesis.
 
-### G06 — Conditional adelic packet and global label group
+#### G06 — Conditional adelic packet and global label group
 
 **construction · missing**. §5.7 pp627–628
 
@@ -2388,7 +2461,7 @@ Prerequisites: PAPER-KALETHA-16/C01, PAPER-KALETHA-16/G04.
 - Proposed test `Kaletha16.G06.test2`: An inadmissible local factor prevents membership in the packet.
 - Proposed test `Kaletha16.G06.test3`: The conjectural global Langlands group is not claimed as an existing mathematical construction.
 
-### G07 — Conditional adelic character pairing
+#### G07 — Conditional adelic character pairing
 
 **theorem · missing**. §5.7,Kal15b Proposition4.2
 
@@ -2398,7 +2471,7 @@ Prerequisites: PAPER-KALETHA-16/G06, PAPER-KALETHA-16/G02, PAPER-KALETHA-16/T44.
 
 1. Use the global Tate–Nakayama product relation and almost-everywhere triviality; this theorem remains conditional on the packet/global-parameter assumptions.
 
-### G08 — Conjectural discrete multiplicity formula
+#### G08 — Conjectural discrete multiplicity formula
 
 **construction · missing**. Conjecture5.11
 
@@ -2416,7 +2489,7 @@ Prerequisites: PAPER-KALETHA-16/G07, PAPER-KALETHA-16/G06.
 - Proposed test `Kaletha16.G08.test2`: A nontrivial one-dimensional character has invariant dimension0.
 - Proposed test `Kaletha16.G08.test3`: The equality with automorphic multiplicity is not inferred from the finite character identity.
 
-### G09 — Unconditional mediating functions and globalization
+#### G09 — Unconditional mediating functions and globalization
 
 **theorem · missing**. §5.7 pp629–630
 
@@ -2428,7 +2501,7 @@ Prerequisites: PAPER-KALETHA-16/G05.
 
 1. Read the original globalization statement and all place/auxiliary-data restrictions; it is independent of the unproved local packet bijections. The precise statement remains a recursive-source gap.
 
-### G10 — Conditional spectral mediating formula
+#### G10 — Conditional spectral mediating formula
 
 **theorem · missing**. §5.7 p630
 
@@ -2440,7 +2513,7 @@ Prerequisites: PAPER-KALETHA-16/G09, PAPER-KALETHA-16/C01, PAPER-KALETHA-16/G07.
 
 1. Separate the geometric product proof from the use of local spectral transfer. The paper states a conditional application, not a global multiplicity theorem.
 
-### P18 — Real distribution characters
+#### P18 — Real distribution characters
 
 **definition · missing**. §§5.1,5.6 prerequisite
 
@@ -2458,7 +2531,7 @@ Prerequisites: PAPER-KALETHA-16/P16.
 - Proposed test `Kaletha16.P18.test2`: The zero virtual representation has zero character distribution.
 - Proposed test `Kaletha16.P18.test3`: Pointwise traces of an arbitrary infinite-dimensional operator are not substituted for the distribution theorem.
 
-### T03R — Real second cohomology of u
+#### T03R — Real second cohomology of u
 
 **theorem · missing**. Theorem3.1(2),real case
 
@@ -2469,7 +2542,7 @@ Prerequisites: PAPER-KALETHA-16/D01, PAPER-KALETHA-16/P03, PAPER-KALETHA-16/P05,
 1. Dualize finite levels, identify invariant augmentation characters and pass to limits; real invariants use the Tate modification.
 2. For degree two, P23 supplies finite H1(Gamma,u_k), including the real case. P03 therefore gives H2(Gamma,u)=lim H2(Gamma,u_k). Finiteness of u_k alone would not justify this for an arbitrary profinite Gamma.
 
-### T04S — Split finite central obstruction comparison
+#### T04S — Split finite central obstruction comparison
 
 **theorem · missing**. Proposition3.2,split case
 
@@ -2479,7 +2552,7 @@ Prerequisites: PAPER-KALETHA-16/T01, PAPER-KALETHA-16/D02, PAPER-KALETHA-16/P05,
 
 1. Use local finite duality and the augmentation character description; split here concerns the character action, not a chosen constant group presentation.
 
-### T12F — Fundamental torus rigid surjectivity
+#### T12F — Fundamental torus rigid surjectivity
 
 **theorem · missing**. Corollary3.7(2)
 
@@ -2489,7 +2562,7 @@ Prerequisites: PAPER-KALETHA-16/P11, PAPER-KALETHA-16/T10.
 
 1. Apply ordinary torus cohomology surjectivity to the quotient cocycle and then match the central restriction; retain the source torus hypotheses.
 
-### T14R — Split real rigid fibers
+#### T14R — Split real rigid fibers
 
 **theorem · missing**. Corollary3.8(2),real case
 
@@ -2499,7 +2572,7 @@ Prerequisites: PAPER-KALETHA-16/T13, PAPER-KALETHA-16/P11.
 
 1. Use p-adic H1 vanishing for all simply connected inner twists; for R only the specified neutral-kernel argument applies. SL2(R) has three rigid classes over two inner-form classes.
 
-### T23B — Relative Weil second product identity
+#### T23B — Relative Weil second product identity
 
 **theorem · missing**. Lemma4.4 second equality
 
@@ -2509,7 +2582,7 @@ Prerequisites: PAPER-KALETHA-16/D15.
 
 1. Prove by multiplying the chosen Weil lifts and reindexing cosets; the corrected choice order is required. Split the two identities into separate declarations in the design.
 
-### T24X — Explicit canonical gerbe class
+#### T24X — Explicit canonical gerbe class
 
 **theorem · missing**. Lemma4.5(2)
 
@@ -2519,7 +2592,7 @@ Prerequisites: PAPER-KALETHA-16/D17, PAPER-KALETHA-16/T21, PAPER-KALETHA-16/T23,
 
 1. Use Leibniz and Weil transfer for the coboundary identity, then evaluate the finite-level local invariant as the negative normalized fraction. The degree error E08 is corrected before differentiation.
 
-### T40E — Full faithfulness of central enlargement
+#### T40E — Full faithfulness of central enlargement
 
 **theorem · missing**. §5.1 central enlargement
 
@@ -2529,7 +2602,7 @@ Prerequisites: PAPER-KALETHA-16/D21, PAPER-KALETHA-16/T08.
 
 1. Use the H1 classification for finiteness and the unchanged cocycle morphism equations for full faithfulness.
 
-### R10I — Irreducible induction of the limit-discrete representation
+#### R10I — Irreducible induction of the limit-discrete representation
 
 **theorem · missing**. §5.6 pp617–618 induction theorem
 
@@ -2539,7 +2612,7 @@ Prerequisites: PAPER-KALETHA-16/R09, PAPER-KALETHA-16/P16.
 
 1. Use the original limit-discrete-series and irreducibility results, with the special enlarged cuspidal Levi M1, not arbitrary tempered parabolic induction.
 
-### L29 — Normalized continuous sections of profinite quotients
+#### L29 — Normalized continuous sections of profinite quotients
 
 **theorem · library**. NSW I §1 exercise4 p11; TauCeti/Topology/Algebra/Group/Profinite/Section.lean226–260
 
@@ -2547,7 +2620,7 @@ For a profinite group E and a closed subgroup H, the quotient E→E/H has a cont
 
 Library: tauceti:TauCeti.exists_continuous_section, tauceti:TauCeti.exists_continuous_section_of_le.
 
-### L30 — Finite towers have Mittag–Leffler stable images
+#### L30 — Finite towers have Mittag–Leffler stable images
 
 **theorem · library**. NSW II §7 pp138–142; Mathlib/CategoryTheory/CofilteredSystem.lean230–265
 
@@ -2555,7 +2628,7 @@ A cofiltered set-valued diagram with an eventually finite image at every index i
 
 Library: mathlib:CategoryTheory.Functor.isMittagLeffler_of_exists_finite_range, mathlib:CategoryTheory.Functor.surjective_toEventualRanges, mathlib:CategoryTheory.Functor.toEventualRangesSectionsEquiv.
 
-### L31 — Existing factor-set group extension
+#### L31 — Existing factor-set group extension
 
 **construction · library**. NSW I §2 pp18–20; TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean155–350
 
@@ -2573,7 +2646,7 @@ Library: tauceti:TauCeti.FactorSet.Extension, tauceti:TauCeti.FactorSet.groupExt
 - Proposed test `Kaletha16.L31.test2`: The identity factor set recovers the existing semidirect product.
 - Proposed test `Kaletha16.L31.test3`: For a nontrivial action, the kernel need not be central.
 
-### L32 — Continuous cochains lift through a discrete quotient
+#### L32 — Continuous cochains lift through a discrete quotient
 
 **theorem · library**. TauCeti/RepresentationTheory/Homological/ContCohomology/ShortExact.lean132–157; NSW II §7 proof2.7.5
 
@@ -2581,7 +2654,7 @@ For a surjection p:B→C of underlying types, topological B and discrete C, ever
 
 Library: tauceti:TauCeti.ContCohomology.exists_continuous_lift.
 
-### L33 — Built degree-one inflation–restriction exactness
+#### L33 — Built degree-one inflation–restriction exactness
 
 **theorem · library**. TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean188–248,331–361
 
@@ -2589,7 +2662,7 @@ For a topological group G, normal subgroup N and continuous topological additive
 
 Library: tauceti:TauCeti.ContCohomology.explicitInfl1_injective, tauceti:TauCeti.ContCohomology.explicitInfRes_exact.
 
-### P19 — The shift-difference presentation of lim and lim¹
+#### P19 — The shift-difference presentation of lim and lim¹
 
 **construction · planned**. NSW2.7.4 pp140–141; exact proof read, with ordinary-group Delta description below
 
@@ -2612,7 +2685,7 @@ Planned: ArithmeticGaloisDuality:R02.1.
 - Proposed test `Kaletha16.P19.test2`: Identity transitions give lim=B_0 and lim¹=0; zero transitions give both zero.
 - Proposed test `Kaletha16.P19.test3`: Every finite truncation of Delta is surjective, but this does not imply surjectivity of the infinite operator.
 
-### P20 — Mittag–Leffler kills the shift-difference cokernel
+#### P20 — Mittag–Leffler kills the shift-difference cokernel
 
 **theorem · planned**. NSW2.7.3–2.7.4 pp139–141; direct Delta proof
 
@@ -2627,7 +2700,7 @@ Prerequisites: PAPER-KALETHA-16/P19, PAPER-KALETHA-16/L30.
 3. For ML-zero B″ the coordinatewise finite sum x_n=Σ_(j≥n) f_(n,j)(y_j) solves Delta x=y. Uniqueness follows by propagating a compatible x from a sufficiently far zero map.
 4. Lift a solution modulo B′ to the product of B_n. Its Delta differs from y by a product of B′_n; solve this error recursively in B′. Thus Delta is surjective. This is also the six-term argument of P19.
 
-### P21 — Milnor sequence for a surjective finite-coefficient tower
+#### P21 — Milnor sequence for a surjective finite-coefficient tower
 
 **theorem · planned**. NSW2.7.5 pp141–142; surjective case of its proof
 
@@ -2642,7 +2715,7 @@ Prerequisites: PAPER-KALETHA-16/P19, PAPER-KALETHA-16/L23, PAPER-KALETHA-16/L24,
 3. Products commute with ordinary cohomology: cycles are coordinatewise cycles; a tuple of boundaries has a tuple of chosen primitives. Apply the long exact sequence of these ordinary complexes to obtain P19 applied to the tower of cohomology groups.
 4. Use the homogeneous/inhomogeneous comparison on the existing canonical continuous cochain complex. The formulas evaluate at (1,g1,g1g2,...) and invert this by g0 acting on consecutive ratios. The result concerns underlying abelian groups; a pointwise quotient-topology isomorphism is not claimed. Typed comparison remains implementation work.
 
-### P22 — Stable-image reduction for arbitrary finite coefficient towers
+#### P22 — Stable-image reduction for arbitrary finite coefficient towers
 
 **theorem · planned**. NSW2.7.5–2.7.6 pp141–142
 
@@ -2657,7 +2730,7 @@ Prerequisites: PAPER-KALETHA-16/P20, PAPER-KALETHA-16/P21, PAPER-KALETHA-16/L30,
 3. The cohomology exact sequence shows that the kernel and cokernel of H^q(G,A′_n)→H^q(G,A_n) are ML-zero towers. P19–P20, applied to image, kernel and cokernel sequences, identify both lim and lim¹ for these two cohomology towers. Transport P21.
 4. For q=1 the obstruction uses the finite groups A_n^G. The degree-one case already has the direct finite-fibre proof in CHT item154 at the same R02.1 owner; import it, rather than proposing another implementation.
 
-### P23 — Finite local H¹ for finite coefficients
+#### P23 — Finite local H¹ for finite coefficients
 
 **theorem · planned**. NSW7.1.8(iii), pp376–377; degree-one proof without local reciprocity; Kaletha Theorem3.1
 
@@ -2672,7 +2745,7 @@ Prerequisites: PAPER-KALETHA-16/P01, PAPER-KALETHA-16/L33, PAPER-KALETHA-16/P27.
 3. The built L33 exactness embeds the quotient of H¹(F,M) by the image of H¹(Gal(K/F),M) into H¹(K,M). The former finite-group cochain set is finite, so both the kernel and possible image are finite. No reciprocity theorem, perfect pairing or full Hochschild–Serre spectral sequence is used.
 4. For the real case the cochain sets Maps(C2^q,M) are finite directly. In particular all H¹ groups needed in the degree-two comparison are finite.
 
-### P24 — Profinite topology on the existing factor-set extension
+#### P24 — Profinite topology on the existing factor-set extension
 
 **construction · missing**. NSW2.7.7 p143 and1.2.4 pp18–20; continuity adaptation of the pinned factor-set carrier
 
@@ -2695,7 +2768,7 @@ Prerequisites: PAPER-KALETHA-16/L31.
 - Proposed test `Kaletha16.P24.test2`: Zero coefficients recover G and zero c recovers A semidirect G.
 - Proposed test `Kaletha16.P24.test3`: Forgetting continuity of c does not justify continuity of the multiplication in the product topology.
 
-### P25 — Continuous H² classifies profinite extensions
+#### P25 — Continuous H² classifies profinite extensions
 
 **theorem · missing**. NSW2.7.7 p143; full Schreier proof1.2.4 pp17–20
 
@@ -2709,7 +2782,7 @@ Prerequisites: PAPER-KALETHA-16/L24, PAPER-KALETHA-16/L28, PAPER-KALETHA-16/L29,
 4. Equality in continuous H² supplies a continuous coboundary witness. P24 rescaling gives the equivalence; conversely evaluate an equivalence on the canonical section to recover a continuous witness. Abstract H² equality alone is not used to infer continuity.
 5. Zero class gives the continuous semidirect-product splitting. A continuous homomorphic section has zero factor set and therefore gives zero class.
 
-### P26 — Extension automorphisms and continuous one-cocycles
+#### P26 — Extension automorphisms and continuous one-cocycles
 
 **theorem · missing**. Kaletha §3.2 p573; direct calculation on the NSW Schreier model
 
@@ -2721,7 +2794,7 @@ Prerequisites: PAPER-KALETHA-16/P24, PAPER-KALETHA-16/L24.
 2. Comparing multiplication on two section elements gives b(gh)=b(g)+g·b(h). Conversely this equation makes the displayed map an automorphism with inverse obtained by −b. Composition is pointwise addition.
 3. Conjugate (a,g) by (a0,1) to obtain (a+a0−g·a0,g). The kernel of this map from A consists precisely of A^G; its image is the one-coboundaries, with the displayed sign convention.
 
-### P27 — Deep powers and finite power classes over p-adic fields
+#### P27 — Deep powers and finite power classes over p-adic fields
 
 **theorem · planned**. LocalFieldsRamification Layer1 power subgroup/finite-index targets; elementary complete-DVR contraction proof supplied here
 
@@ -2735,7 +2808,7 @@ Planned: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtra
 4. The compact unit group has finite quotient by its open n-th-power subgroup. The valuation sequence gives quotient Z/nZ, while a unit which is an n-th power in K has a unit root. Hence the full power-class quotient is finite. This consumes the existing complete-DVR, valuation and compact-unit interfaces of LocalFieldsRamification.
 5. Characteristic zero cannot be dropped at n=p: in Fp((t)), p-th powers have Laurent exponents divisible by p, and arbitrarily deep 1+t^m with p not dividing m are omitted. No local reciprocity or logarithm theorem is used in this proof.
 
-## Acquisition and verification
+### Acquisition and verification
 
 ```json
 {
@@ -2787,7 +2860,7 @@ The new integer certificate passed **365,395 exact checks**. It exhausts the ind
 }
 ```
 
-### Reproducible new certificate
+#### Reproducible new certificate
 
 ```python
 """Exact finite checks for the limit and profinite-extension interfaces.
@@ -2901,7 +2974,7 @@ result={'status':'PASS','counts':dict(checks),'total':sum(checks.values()),
 print(json.dumps(result,indent=2))
 ```
 
-## Original-source queue
+### Original-source queue
 
 - Neukirch–Schmidt–Wingberg, Cohomology of Number Fields, second edition: https://doi.org/10.1007/978-3-540-37889-1. Compact inverse-limit cohomology2.7.6–2.7.7, finite Tate cup conventions and local duality; exact original statements remain open. The exact limit and profinite-extension sections are now read; the remaining arithmetic and global supplier chapters are not thereby closed.
 - Tate, The cohomology groups of tori in finite Galois extensions of number fields (1966): https://projecteuclid.org/euclid.nmj/1118801784. Ordinary Tate–Nakayama and norm conventions; reuse the existing ordinary owner.
