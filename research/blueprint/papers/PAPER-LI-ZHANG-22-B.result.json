@@ -1372,7 +1372,12 @@
         "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
         "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Page 59 prints 'Then we have Int_{L^♭,V}(x) = Int_{L′^♭,V}(x′), and ∂Den_{L^♭,V}(x) = ∂Den_{L′^♭,V}(x′)'. Only the full functions depend on the lattice L^♭ + ⟨x⟩ alone; their horizontal and vertical parts depend on the hyperplane, so the two equalities as printed do not follow, while the difference φ = Int − ∂Den does transfer, which is what the induction uses and what the correction records.",
+        "by": "REV-PAPER-LI-ZHANG-22-B"
+      }
     },
     {
       "id": "PAPER-LI-ZHANG-22-B/E2",
@@ -1387,7 +1392,12 @@
         "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
         "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the sign is decidable from the resolution. Page 38 prints the two-term complex [O(−Z(x))|_{V(Λ)} → O|_{V(Λ)}] and then ch(V(Λ) ∩^L Z(x)) = ch(O(−Z(x))|_{V(Λ)}) − ch(O_{V(Λ)}), whereas the class of that complex is [O] − [O(−Z(x))], as the resolution 0 → O(−Z) → O → O_Z → 0 shows. The d = 1 test confirms it: for x ∈ Λ^∨ ∖ Λ with val(x) ≥ 0, Lemma 6.2.1 gives Int_{V(Λ)}(x) = 1, so Z(x) meets the curve in one reduced point and O(−Z(x))|_{V(Λ)} has degree −1, against the +1 the printed formula produces. Every downstream sign in Lemmas 6.4.6–6.4.7 and Corollary 6.4.8 flips with it, as the correction sets out.",
+        "by": "REV-PAPER-LI-ZHANG-22-B"
+      }
     },
     {
       "id": "PAPER-LI-ZHANG-22-B/E3",
@@ -1402,7 +1412,12 @@
         "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
         "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 42 prints 'Corollary 6.4.8. … Proof. It follows immediately from Lemmas 6.4.8 and 6.3.1', citing the corollary being proved; the input is Lemma 6.4.7. In the proof of Lemma 6.4.7 the value 1 − q² on Λ′ is Lemma 6.2.1, not the Fourier-transform statement Lemma 6.3.1.",
+        "by": "REV-PAPER-LI-ZHANG-22-B"
+      }
     },
     {
       "id": "PAPER-LI-ZHANG-22-B/E4",
@@ -1417,7 +1432,12 @@
         "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
         "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Example 3.5.2 on p.18 is about a rank-one L and prints 'if val(L^♭) is odd', where L^♭ is reserved for the rank n − 1 lattice and the following sentences say 'if val(L) is odd'. The two theorem statements name lattices in 𝕍 where Definitions 10.1.1 and 10.2.3 put them in the split space 𝕎_n, and the n = 1 case of Theorem 10.4.3 states the emptiness threshold for Y(x) one step too low.",
+        "by": "REV-PAPER-LI-ZHANG-22-B"
+      }
     },
     {
       "id": "PAPER-LI-ZHANG-22-B/E5",
@@ -1432,7 +1452,12 @@
         "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
         "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 3 attributes the basis-independence of Int(L) to '[Ter13a, Proposition 3.2] (or [How18, Corollary D])'. Terstiege's paper is the GU(1,2) case, that is n = 3, and Howard's introduction says so explicitly ('When n = 3 Corollary D is [Ter13, Proposition 3.2]'); §2.8 of this paper likewise describes itself as generalising Terstiege. So the general-n citation is Howard's Corollary D, with Terstiege for n = 3.",
+        "by": "REV-PAPER-LI-ZHANG-22-B"
+      }
     }
   ]
 }
