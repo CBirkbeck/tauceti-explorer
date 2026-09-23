@@ -1,0 +1,1215 @@
+{
+  "paper": "PAPER-DOSPINESCU-LEBRAS-17",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+    "authors": "Gabriel Dospinescu, Arthur-César Le Bras",
+    "venue": "Annals of Mathematics (2) 186 (2017), no. 2, 321–411",
+    "doi": "10.4007/annals.2017.186.2.1",
+    "arxiv": "1509.00606",
+    "url": "https://arxiv.org/abs/1509.00606v2",
+    "readSections": [
+      "arXiv 1509.00606v2 (28 April 2017, 'Final version, to appear in the Annals of Math'), read in full: 76 pages, SHA-256 bdf8f14fb4bfb4fe43980fdbff088b33469a16a9c0260616a0630de48de8cd68, fetched from https://arxiv.org/pdf/1509.00606v2 on 23 September 2026 (v1: 2 September 2015). Item locators are v2's pages. The published Annals PDF (91 pages, pp. 321–411, SHA-256 00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094, from http://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf; received 19 October 2015, revised 3 March 2017, accepted 5 April 2017, published online 9 August 2017) was used to check every recorded mistake: all five are in the published text, whose pages are also given.",
+      "Read: §1 (Définition 1.1, Théorèmes 1.2, 1.4, 1.7, 1.9, 1.10, Remarques 1.3, 1.5, 1.6, 1.8, 1.11), §2 (conventions), §3 (Proposition 3.1 to Remarque 3.7), §4 (Théorème 4.1 to the end of §4.2, Théorème 4.8), §5 (Théorème 5.1 to §5.3), §6 (Définition 6.1 to Définition 6.7), §7 (Théorème 7.1 to Théorème 7.11), §8 (Théorème 8.1 to Théorème 8.8), §9 (Proposition 9.1 to Proposition 9.16), §10 (Théorème 10.1 to Proposition 10.11), §11 (Proposition 11.1 to Remarque 11.13), §12 (§12.1 to Conjecture 12.4), §13 (Lemme 13.1 to the end of the proof of Théorème 5.4) and the references. Recorded mistakes were checked on the page images of both versions.",
+      "Cited inputs were not read; items resting on Colmez [17], [19], [21], Colmez–Dospinescu [24], Colmez–Dospinescu–Paškūnas [23], Dospinescu [28], [29], [30], [31], Berger [1], [2], Kohlhaase [56], Emerton [33], Schneider–Teitelbaum [70], [72], Frommer [44], Morita [60], Kedlaya [53], Henniart [51], Carayol [11], Boutot–Zink [5], Teitelbaum [81], Grosse-Klönne [46]–[48] and Saito [66] state them as the paper uses them."
+    ]
+  },
+  "summary": "Dospinescu and Le Bras prove the Breuil–Strauch conjecture: for π a supercuspidal representation of GL_2(Q_p) with trivial central character and ρ = JL(π), the ρ-isotypic de Rham complex of the Drinfeld tower Σ_n realizes the locally analytic vectors of the p-adic local Langlands correspondence. Theorem 1.2: (O(Σ_n)^ρ)^* ≅ Π^an/Π^lisse for every Π ∈ V(π), unique up to scalar. Theorem 1.4: H^1_dR(Σ_n)^ρ ≅ M_dR(π)^* ⊗ π^*, and the preimage of ℒ^⊥ ⊗ π^* in Ω^1(Σ_n)^ρ is (Π_ℒ^an)^*, so the Hodge filtration ℒ of the Galois representation is read off the de Rham complex. The proof builds a nonzero Φ globally (Čerednik–Drinfeld uniformization and Emerton's local–global compatibility for a definite quaternion algebra), then works locally: Colmez's (φ,Γ)-module theory gives Π(π, 0) = Π^an/Π^lisse, an operator ∂ with a^+ − 1 = u^+∂ (the analogue of multiplication by z), and an O(Ω)-module structure on Π(π, 0)^* via Morita duality (Theorem 1.7); surjectivity of Φ uses Kohlhaase's equivalence between Drinfeld and Lubin–Tate bundles and a functional-analysis lemma on Stein spaces; injectivity and Theorem 1.4 use Π(π, 2) and Colmez's Kirillov model. Corollaries: Theorems 1.9 (Iwasawa cohomology) and 1.10 (infinitely primitivable functions come from Ω), Proposition 12.2. The main line coalesces with the pending Part II of PadicLocalLanglandsForGL2Qp for the geometric realisation in the Drinfeld tower (proposed by Colmez–Dospinescu–Nizioł, whose étale work quotes this paper); the tower's analytic and de Rham geometry joins the pending ProetaleCohomologyOfPAdicCurvesAndTowers, Schneider–Teitelbaum inputs the pending LocallyAnalyticRepresentationsOfLocalGroups, and trianguline representations the pending TriangulineVarietyAndItsLocalModel; the quaternionic local–global compatibility, Berger's differential equations, Colmez's Iwasawa-theoretic results, Kedlaya's duality and Henniart's types are sources of R31, R06.3, PG.5, RD.1 and R16.2. Five misprints are recorded.",
+  "items": [
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/1",
+      "kind": "construction",
+      "name": "Admissible Banach representations and their locally analytic, locally algebraic and smooth vectors",
+      "statement": "Ban^adm(G) is the category of representations of G = GL_2(Q_p) on L-Banach spaces Π with an open bounded G-stable lattice whose reduction mod p is smooth admissible. For a Banach representation B, B^an (resp. B^alg, B^lisse) is the subspace of vectors whose orbit map is locally analytic (resp. locally polynomial, locally constant); B^alg is the image of ⊕_{W∈Alg(G)} W ⊗ Hom_𝔤(W, B^an) and B^lisse = (B^an)^{𝔤=0}; B^{K_p−alg} is the image of ⊕_W W ⊗ Hom_{K_p}(W, B).",
+      "locator": "§1.1, p. 4; §2 (9), p. 13",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.2"
+      ],
+      "note": "R30.2 plans the admissible unitary Banach and locally analytic categories for GL_2(Q_p); the density of Π^an is Schneider–Teitelbaum's (item of the locally analytic route)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/2",
+      "kind": "theorem",
+      "name": "Classical local Langlands correspondence for GL_2(Q_p) (Tate normalization)",
+      "statement": "The classical local Langlands correspondence for G, normalized as Tate does, attaches to the supercuspidal π a Frobenius-semisimple Weil–Deligne representation; π is defined over a finite extension L of Q_p.",
+      "locator": "§1.1, pp. 3, 5; §2 (5), (10), pp. 13–14",
+      "status": "planned",
+      "planned": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+      ],
+      "note": "R16.3 imports ET.6's correspondence and compares it with the explicit GL_2 description."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/3",
+      "kind": "theorem",
+      "name": "Local Jacquet–Langlands correspondence for D^*",
+      "statement": "To a supercuspidal π of G with trivial central character, the local Jacquet–Langlands correspondence attaches an irreducible finite-dimensional smooth representation ρ = JL(π) of D^*, also with trivial central character and defined over a finite extension L; for π supercuspidal dim ρ > 1.",
+      "locator": "§1.1, p. 3; §2 (5), p. 13",
+      "status": "planned",
+      "planned": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+      ],
+      "note": "R17.1 imports local Jacquet–Langlands and proves the quaternionic rank-two description."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/4",
+      "kind": "theorem",
+      "name": "Fontaine's functor from (φ, N, Gal(K′/K))-modules to Weil–Deligne representations is an equivalence",
+      "statement": "For K′/K finite Galois and L with |Hom_{Q_p}(K′_0, L)| = [K′_0 : Q_p], Fontaine's functor from (φ, N, Gal(K′/K), L)-modules (free K′_0 ⊗ L-modules with bijective semilinear φ, nilpotent N with Nφ = pφN and a commuting semilinear Gal(K′/K)-action) to Weil–Deligne representations of W(Q̄_p/K) unramified on W(Q̄_p/K′) is an equivalence of categories (Breuil–Schneider, Prop. 4.1). Combined with classical local Langlands this attaches to π a (φ, G_{Q_p})-module M(π), free of rank 2 over L ⊗ Q_p^nr.",
+      "locator": "§1.1, p. 5; §2 (10), pp. 13–14",
+      "status": "planned",
+      "planned": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "note": "R06.3 defines the Weil–Deligne parameter from D_pst and compares conventions; the essential surjectivity is [8, Prop. 4.1]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/5",
+      "kind": "theorem",
+      "name": "Colmez–Fontaine: weakly admissible implies admissible",
+      "statement": "Every weakly admissible filtered (φ, N, G_{Q_p})-module comes from a potentially semistable representation; in particular, since the Weil representation attached to M(π) is irreducible, every filtration on M(π) is weakly admissible and gives a potentially crystalline V.",
+      "locator": "§1.1, p. 5; Ex. 6.6, p. 34",
+      "status": "planned",
+      "planned": [
+        "PadicHodgeTheory:R06.2"
+      ],
+      "note": "R06.2 plans weak admissibility versus admissibility."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/6",
+      "kind": "theorem",
+      "name": "Locally algebraic vectors in p-adic local Langlands (Colmez–Dospinescu–Paškūnas)",
+      "statement": "Colmez's functor Π ↦ V(Π) induces a bijection between V(π) and the absolutely irreducible 2-dimensional L-representations V of G_{Q_p} that are potentially crystalline with Hodge–Tate weights 0, 1 and D_pst(V) ≅ M(π); and det V(Π) = χ_cyc for Π ∈ V(π) since π has trivial central character.",
+      "locator": "§1.1, p. 5; Ex. 6.6, p. 34",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.4"
+      ],
+      "note": "Cited from [23] (Colmez–Dospinescu–Paškūnas, Camb. J. Math. 2014), which uses Emerton's local–global compatibility; R30.4 plans the comparison of locally algebraic vectors with classical local Langlands."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/7",
+      "kind": "definition",
+      "name": "Definition 1.1: the set V(π)",
+      "statement": "V(π) is the set of (isomorphism classes of) absolutely irreducible Π ∈ Ban^adm(G) with Π^lisse ≅ π, for π supercuspidal of trivial central character.",
+      "locator": "§1.1, Définition 1.1, p. 4",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/8",
+      "kind": "construction",
+      "name": "M(π), M_dR(π), N_rig(π) and the parametrization V(π) ≅ Proj(M_dR(π))",
+      "statement": "M_dR(π) = (Q̄_p ⊗_{Q_p^nr} M(π))^{G_{Q_p}} is 2-dimensional over L. For K/Q_p finite Galois containing L with I_K acting trivially on M(π), N_rig(π) = (R_K ⊗_{K_0} M(π)^{Gal(Q̄_p/K)})^{Gal(K^cyc/Q_p^cyc)} (Definition 6.7) is a (φ, Γ)-module over R, free of rank 2 and independent of K, with (N_rig(π))^+_dif,n ≅ L_n[[t]] ⊗_L M_dR(π). An L-line ℒ ⊂ M_dR(π) gives the filtration Fil^{−1} = M_dR(π), Fil^0 = ℒ, Fil^1 = 0. The map V ↦ ℒ(V) = Fil^0 D_dR(V) ⊂ M_dR(π) (via D_pst(V) ≅ M(π), unique up to scalar) is a bijection V(π) ≅ Proj(M_dR(π)), with inverse ℒ ↦ Π_ℒ. For V ∈ V(π) a choice of D_pst(V) ≅ M(π) gives N_rig(V) ≅ N_rig(π) (5), N^+_dif,n(V) ≅ L_n[[t]] ⊗ M_dR(π), D_dR(V) ≅ (M_dR(π), Fil_{ℒ(V)}), D^+_dif,n(V) ≅ tN^+_dif,n(V) + L_n[[t]] ⊗ ℒ(V), and inclusions tN_rig(π) ⊂ D_rig(V) ⊂ N_rig(π), all canonical up to scalar.",
+      "locator": "§1.1, p. 5; Example 6.6, Définition 6.7, pp. 33–34",
+      "status": "missing",
+      "note": "The bijection combines Colmez–Fontaine, weak admissibility and [23, Th. 1.3]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/9",
+      "kind": "construction",
+      "name": "Drinfeld's moduli of special formal O_D-modules and the half-plane",
+      "statement": "A special formal O_D-module over a Z̆_p-scheme S is a formal p-divisible group of dimension 2 and height 4 with O_D-action whose Lie algebra is locally free of rank 1 over O_S ⊗ Z_{p²}; there is a unique isogeny class over F̄_p, and the deformation functor by O_D-equivariant quasi-isogenies is representable by a p-adic formal scheme over Z̆_p [Rapoport–Zink]. Drinfeld's theorem gives M̆_0 ≅ Ω̆ × ℤ for its rigid generic fibre, g.(X, ρ) = (X, ρ ∘ g^{-1}) corresponding to homographies and the shift by −v_p(det g), and the Weil descent datum to the canonical one composed with the shift by 1.",
+      "locator": "§1.1, p. 3; §3.1, pp. 14–15",
+      "status": "planned",
+      "planned": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.5"
+      ],
+      "note": "R18.5 plans the Drinfeld upper half-plane, formal moduli and Drinfeld's theorem after Boutot–Carayol."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/10",
+      "kind": "construction",
+      "name": "The Drinfeld tower Σ_n and its G × D^* action",
+      "statement": "With X^un the universal rigid p-divisible group on M̆_0, M̆_n = X^un[p^n] − X^un[ϖ_D^{2n−1}] is an étale Galois covering of M̆_0 with group O_D^*/(1 + p^n O_D), with commuting left G- and right D^*-actions; the Weil descent datum is effective on p^{tℤ}\\M̆_n, and Σ_n is the model of p^ℤ\\M̆_n over Q_p. Σ_0 is two copies of Ω (ϖ_D swaps them; g swaps them or not according to the parity of v_p(det g)), Σ_n → Σ_0 is finite étale with Gal(Σ_n/Σ_0) = O_D^*/(1 + p^n O_D), and O(Ω) ≅ O(Σ_0)^{D^*}.",
+      "locator": "§1.1, p. 3; §3.1, p. 15; footnote 16, p. 9",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/11",
+      "kind": "theorem",
+      "name": "Stein spaces: Fréchet structure, de Rham cohomology and duality",
+      "statement": "For X Stein over a complete discretely valued field K of characteristic 0 (an admissible increasing affinoid cover with dense restriction maps): O(X) = lim O(X_n) is a Fréchet(–Stein) algebra; coherent sheaves have no higher cohomology (Kiehl); for X smooth, de Rham cohomology is computed by global sections, the differentials are strict with closed image and H^k_dR(X) is Fréchet; H^k_c(X, F) = 0 for k < d = dim X and H^{k+d}_dR,c(X) is the k-th cohomology of H^d_c(X, Ω^•); Serre duality for Stein spaces gives, for X pure of dimension d, H^k_dR(X) ≅ H^{2d−k}_dR,c(X)^* and H^k_dR,c(X) = H^{2d−k}_dR(X)^*; H^k_dR(X) is an inverse limit of finite-dimensional spaces, reflexive, and the algebraic dual of H^{2d−k}_dR,c(X).",
+      "locator": "§3.2, pp. 15–16",
+      "status": "missing",
+      "note": "Cited from Grosse-Klönne [46, cor. 3.2], [47, th. 4.11], Chiarellotto [13] and Kiehl [54]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/12",
+      "kind": "theorem",
+      "name": "Proposition 3.1: the Drinfeld tower is Stein",
+      "statement": "For every n ≥ 0 the rigid space Σ_n is Stein. With τ_n the composite of Σ_n → Σ_0 and the retraction onto the Bruhat–Tits tree and B_i the ball of radius i about the standard vertex, U_i = τ_n^{-1}(B_i) is a Stein cover of Σ_n with U_i stable under G_i = 1 + p^i M_2(Z_p).",
+      "locator": "§3.2, Proposition 3.1, pp. 15–16",
+      "status": "missing",
+      "note": "Ω is Stein and Σ_n → Σ_0 is finite étale."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/13",
+      "kind": "construction",
+      "name": "The twisted equivariant bundles O(k) on Σ_n",
+      "statement": "For k ∈ ℤ, O^{(k)}(Σ_n) is O(Σ_n) with g.f = (a − cz)^{-k}·(g.f) for g = (a, b; c, d), using the O(Ω)-module structure of O(Σ_n); it is the space of global sections of a G-equivariant bundle O(k), and O(2) ⊗ det = Ω^1 at every level (Ω^1(Σ_n) = O(Σ_n)dz since Σ_n is étale over Σ_0).",
+      "locator": "§3.3, pp. 16; §1.2, p. 9",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/14",
+      "kind": "theorem",
+      "name": "Lemma 3.3 (the G_i-action on O(U_i) is differentiable)",
+      "statement": "For X ∈ 𝔤 and f ∈ O(U_i), X.f = lim_n (e^{p^nX}.f − f)/p^n exists in O(U_i); this makes O(U_i) a 𝔤-module on which f ↦ X.f are continuous endomorphisms of the Banach space O(U_i) (spectral norm).",
+      "locator": "§3.3, Lemme 3.3, pp. 17–18",
+      "status": "missing",
+      "note": "Proved on O(U_{0,i}) and lifted along the finite étale U_i → U_{0,i} via minimal polynomials; continuity uses Elkik's theorem [77, lemma 2.5]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/15",
+      "kind": "theorem",
+      "name": "Theorem 3.2 (the G-action on O^{(k)}(Σ_n)^* is locally analytic)",
+      "statement": "For every k ∈ ℤ the action of G on O^{(k)}(Σ_n)^* is locally analytic; equivalently O^{(k)}(Σ_n) is a separately continuous D(G)-module. In particular H^1_dR(Σ_n) is a separately continuous D(G)-module.",
+      "locator": "§3.3, Théorème 3.2, pp. 16–18",
+      "status": "missing",
+      "note": "Via the Mahler-type expansions of D(G_2), Frommer's description of D_h(G_i) over U_h(𝔤) and Lemma 3.3. Remark 3.4: the same argument works for coverings of Drinfeld spaces in every dimension [73, Prop. 1]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/16",
+      "kind": "theorem",
+      "name": "Lemma 3.5 (the Lie algebra action on O(Σ_n) in terms of z and d/dz)",
+      "statement": "With ∂ the multiplication by z and u^+ = −d/dz on O(Σ_n), and basis a^+, a^−, u^+, u^− of 𝔤𝔩_2: (a) on O^{(k)}(Σ_n), a^+ = u^+∂ + 1 − k, a^− = −∂u^+, u^− = −∂²u^+ + k∂; (b) on O^{(k)}(Σ_n)^*, a^+ = ∂u^+ + k − 1, a^− = −u^+∂, u^− = −k∂ − u^+∂²; (c) on Ω^1(Σ_n)^*, a^+ = ∂u^+, a^− = −∂u^+, u^− = −∂²u^+; and ∂u^+ − u^+∂ = 1 on all these spaces.",
+      "locator": "§3.4, Lemme 3.5, pp. 18–19",
+      "status": "missing",
+      "note": "(a) at level 0 is a direct computation with (gf)(z) = f((dz − b)/(a − cz)) (footnote 25), extended along the étale cover; checked by hand."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/17",
+      "kind": "theorem",
+      "name": "Proposition 3.6 and Remark 3.7 (compactly supported de Rham cohomology is smooth)",
+      "statement": "The G-representation H^1_dR,c(Σ_n) is smooth. More generally (Remark 3.7) if a p-adic Lie group acts locally analytically on a smooth Stein curve X, H^1_dR,c(X) is smooth, because X.(f dg) = d(f·(X.g)) for X ∈ Lie(G).",
+      "locator": "§3.4, Proposition 3.6, Remarque 3.7, p. 19",
+      "status": "missing",
+      "note": "Proof of 3.6 (Colmez): by Lemma 3.5(c), any element of Ω^1(Σ_n)^* killed by u^+ is killed by 𝔤𝔩_2."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/18",
+      "kind": "construction",
+      "name": "p-adic automorphic forms on the definite quaternion algebra B̄",
+      "statement": "For B̄ a quaternion algebra over Q split at p and ramified at ∞, B̄^*(Q_p) ≅ G and K^p = ∏_{ℓ≠p}K_ℓ with some K_{ℓ_0} torsion-free: X = X(K^p) = B̄^*(Q)\\B̄^*(A_f)/K^p and X(K_p) = X/K_p. B̄^*(Q)\\B̄^*(A_f^p)/K^p = ∐_{i=1}^r B̄^*(Q)y_i is finite, the stabilizers Γ_i are discrete cocompact in G and X ≅ ∐_i Γ_i\\G, a compact p-adic manifold with locally analytic G-action (Lemma 4.4). C^0(X) is the space of p-adic automorphic forms; for W ∈ Alg(G), A_{K_p}(W) = {f : X → W continuous, f(xk) = k^{-1}.f(x)} and Hom_{K_p}(W^*, C^0(X)) ≅ A_{K_p}(W) (Lemma 4.5).",
+      "locator": "§4.1, Définition 4.3, Lemmes 4.4–4.5, pp. 20–21",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/19",
+      "kind": "theorem",
+      "name": "Lemmas 4.6–4.7 (classical automorphic forms inside p-adic ones)",
+      "statement": "Fix ι : Q̄_p ≅ ℂ. A_{K_p}(W) ⊗_{L,ι} ℂ ≅ Hom_{B̄^*(ℝ)}(W^*_∞, Aut(K^pK_p)), and Hom_{K_p}(W, C^0(X)) ⊗_{L,ι} ℂ ≅ ⊕_π π_f^{K^pK_p} over automorphic π = π_∞ ⊗ π_f of B̄^*(𝔸) with π_∞ ≅ W_∞; hence C^0(X)^{K_p−alg} ⊗_{L,ι} ℂ ≅ ⊕_{W∈Alg(G)} ⊕_{π_∞≅W_∞} W_∞ ⊗ π_f^{K^p}.",
+      "locator": "§4.1, Lemmes 4.6–4.7, pp. 21–22",
+      "status": "missing",
+      "note": "As in Taylor [80, §1]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/20",
+      "kind": "theorem",
+      "name": "Global Jacquet–Langlands for quaternion algebras over Q",
+      "statement": "For a quaternion algebra B over Q with ramification set S(B), the global Jacquet–Langlands correspondence is a bijection π ↦ π′ between infinite-dimensional automorphic representations of B^*(𝔸) and automorphic representations of GL_2(𝔸) with π′_v discrete series at every v ∈ S(B).",
+      "locator": "§4.1, p. 22",
+      "status": "planned",
+      "planned": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+      ],
+      "note": "R17.3 plans global Jacquet–Langlands."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/21",
+      "kind": "theorem",
+      "name": "Theorem 4.8 (Čerednik–Drinfeld uniformization)",
+      "statement": "Let B be a quaternion algebra over Q split at ∞ with discriminant pℓ, B ⊗ Q_p ≅ D, K = K^pK_p with K_p = 1 + p^nO_D, and Sh_K the Shimura curve. For K^p small enough there is an isomorphism of rigid spaces over Q̆_p compatible with Weil descent data B̄^*(Q)\\(M̆_n × B̄^*(A_f^p)/K^p) ≅ (Sh_K ⊗_{Q_p} Q̆_p)^an, with B̄ ≅ B away from {p, ∞}, split at p and ramified at ∞.",
+      "locator": "§4.2, Théorème 4.8, p. 22",
+      "status": "planned",
+      "planned": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.5"
+      ],
+      "note": "Cited from Boutot–Zink [5, Theorem 3.1]; R18.5 plans the uniformization theorem in the Shimura-curve cases."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/22",
+      "kind": "theorem",
+      "name": "Theorem 4.1 (multiplicity of π in the de Rham cohomology of Σ_n)",
+      "statement": "For n with ρ = JL(π) trivial on 1 + p^nO_D: dim_L Hom_G(H^1_dR,c(Σ_n)^{ρ^∨}, π) = 2; equivalently dim_L Hom_G(π^*, H^1_dR(Σ_n)^ρ) = 2.",
+      "locator": "§4, Théorème 4.1, p. 19; proof §4.2, pp. 22–24",
+      "status": "missing",
+      "note": "Global proof after Harris [49] and Fargues [38]: Čerednik–Drinfeld and the Hochschild–Serre spectral sequence E_2^{p,q} = Ext^p_G(H^{2−q}_dR,c(Σ_{n,N}), LC(X(K^p))) ⇒ H^{p+q}_dR(Sh_K) (independent of the y_i [38, prop. 4.3.11], D^*-equivariant), whose ρ-part degenerates because H^k_dR,c(Σ_n)^{ρ^∨} = 0 for k ≠ 1 (D^* acts on geometric components through the reduced norm: Strauch [79] with Faltings–Fargues), giving Hom_G(H^1_dR,c(Σ_n)^{ρ^∨}, LC(X(K^p))) ≅ H^1_dR(Sh_K)^ρ (2)–(3); then the π(f)^p-isotypic part with Theorem 5.5. Remark 4.2: [68, 78, 62] for Ω; a local proof for the first cover via Teitelbaum's model [81], [61]. Later H^1_dR(Σ_n)^ρ ≅ π^* ⊕ π^*."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/23",
+      "kind": "construction",
+      "name": "Hecke algebras, modular residual representations and the Galois representations over A",
+      "statement": "For Σ ∋ p a finite set of primes containing those where K^p ramifies, T_Σ = ⊗′_{ℓ∉Σ} ℋ(K_ℓ\\B̄(Q_ℓ)^*/K_ℓ, O_L) with ℋ ≅ O_L[T_ℓ, S_ℓ^{±1}]; T̃_Σ(K_p) its image in End(C^0(X(K_p), O_L)) (commutative, free of finite type over O_L) and T̃_Σ = lim T̃_Σ(K_p) (compact, reduced, commutative). r : G_{Q,Σ} → GL_2(R) is associated with φ : T̃_Σ → R if det(X − r(Frob_ℓ)) = X² − φ(T_ℓ)X + ℓφ(S_ℓ) for ℓ ∉ Σ (Definition 5.2); r̄ is modular of tame level K^p if associated with T̃_Σ → T̃_Σ/m. Under the hypothesis r̄|G_{Q_p} absolutely irreducible, A = the m-adic completion of T̃_Σ (flat, local, noetherian, reduced, a direct factor; Definition 5.3), r_m = lim r_m(K_p) : G_{Q,Σ} → GL_2(A) lifts r̄, and for each maximal ideal 𝔭 of A[1/p], r(𝔭) is its specialization and Π(𝔭) the Banach representation attached to r(𝔭)|G_{Q_p} by p-adic local Langlands.",
+      "locator": "§5.1, Définitions 5.2–5.3, pp. 25–26",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/24",
+      "kind": "theorem",
+      "name": "Carayol: Galois representations over localized Hecke algebras",
+      "statement": "If r̄ is absolutely irreducible, then for every sufficiently small K_p there is a unique continuous r_m(K_p) : G_{Q,Σ} → GL_2(T̃_Σ(K_p)_m) associated with T̃_Σ → T̃_Σ(K_p)_m.",
+      "locator": "§5.1, pp. 25–26",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentations:R19.6"
+      ],
+      "note": "Cited from Carayol [11, th. 3]; R19.6 plans representability over localized Hecke algebras under residual irreducibility."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/25",
+      "kind": "theorem",
+      "name": "Families of p-adic local Langlands (Π^univ)",
+      "statement": "When r̄|G_{Q_p} is absolutely irreducible there is an orthonormalizable A-module Π^univ with continuous G-action such that Π^univ ⊗_A k(𝔭) ≅ Π(𝔭) for every maximal ideal 𝔭 of A[1/p], and π̄ = Π^univ/mΠ^univ is an irreducible smooth representation of G over k_L.",
+      "locator": "§13, p. 69",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.5"
+      ],
+      "note": "Cited ([7], [17], [55]); R30.5 plans projective envelopes and their deformation-ring comparison."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/26",
+      "kind": "theorem",
+      "name": "Lemmas 13.1–13.2 (freeness of the GL_2(Z_p)-action and density of algebraic vectors)",
+      "statement": "GL_2(Z_p) acts freely on X with finitely many orbits, so C^0(X, M) ≅ C^0(GL_2(Z_p), M)^{⊕s} for every topological Z_p-module M; and for B a topological direct factor of C^0(X) as a G-module, B^{GL_2(Z_p)−alg} is dense in B.",
+      "locator": "§13, Lemmes 13.1–13.2, p. 69",
+      "status": "missing",
+      "note": "Density by Mahler's theorem ([63, prop. A.3], [23, prop. 2.12])."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/27",
+      "kind": "theorem",
+      "name": "Proposition 13.5 and Lemmas 13.6–13.9 (the weak local–global statement)",
+      "statement": "Let M = Hom^cont_{A[G]}(Π^univ, C^0(X, O_L)_m) (flat, p-adically separated and complete) with Schikhof dual M^*. Then M^* is a finitely generated A-module (13.6); M[𝔭][1/p] is finite-dimensional, dual to M^* ⊗_A k(𝔭), and nonzero iff 𝔭 ∈ Supp M^*[1/p] (13.7); the set 𝒞 of 𝔭_σ attached to automorphic σ unramified outside Σ with σ_f^{K^p} ≠ 0, σ_p^{GL_2(Z_p)} ≠ 0 and r̄_σ = r̄ is Zariski dense in Spec A[1/p] (13.8); for 𝔭 ∈ 𝒞, Hom^cont_G(Π(𝔭), C^0(X)[𝔭]) ≠ 0 and the locally algebraic vectors LP(X)[𝔭] lie in the image of Π(𝔭) ⊗ Hom^cont_G(Π(𝔭), C^0(X)[𝔭]) (13.9, via Berger–Breuil [3]); hence Hom^cont_G(Π(𝔭), C^0(X)[𝔭]) ≠ 0 for every maximal 𝔭 of A[1/p] (Proposition 13.5).",
+      "locator": "§13, Définition 13.3, Remarque 13.4, Proposition 13.5, Lemmes 13.6–13.9, pp. 69–71",
+      "status": "missing",
+      "note": "After Emerton [33] (p-adic interpolation)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/28",
+      "kind": "theorem",
+      "name": "Theorem 5.4 (Emerton's local–global compatibility for B̄)",
+      "statement": "Under the hypothesis that r̄|G_{Q_p} is absolutely irreducible, for every maximal ideal 𝔭 of A[1/p], C^0(X)[𝔭] ≅ Π(𝔭)^{⊕r} as G-representations for some integer r > 0.",
+      "locator": "§5.1, Théorème 5.4, p. 26; proof §13, pp. 72–73",
+      "status": "missing",
+      "note": "Due to Emerton [33]; the appendix proves (Π^univ ⊗̂_A M)[1/p] ≅ C^0(X)_m (12) using [33, Lemmas 3.1.16, 3.1.17, B.6, Prop. 3.1.3] and takes 𝔭-parts."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/29",
+      "kind": "theorem",
+      "name": "Breuil's mod p local Langlands correspondence for GL_2(Q_p) (used for Serre weights)",
+      "statement": "The explicit mod p local Langlands correspondence for G: if r̄_p = Ind_{Q_{p²}}^{Q_p} ω_2^{r+1} (up to an unramified twist) with 0 ≤ r ≤ p − 1, the corresponding smooth π̄ has Sym^r F̄_p² in its GL_2(Z_p)-socle.",
+      "locator": "§5.1, proof of Lemme 5.6, pp. 26–27",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.2"
+      ],
+      "note": "R30.2 plans the mod p classification."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/30",
+      "kind": "theorem",
+      "name": "Henniart: unicity of types for GL_2",
+      "statement": "If a minimal GL_2(Z_p)-type σ of the supercuspidal π embeds in an irreducible smooth representation π′ of G, then π′ ≅ π ⊗ ξ ∘ det with ξ unramified.",
+      "locator": "§5.1, proof of Théorème 5.5, p. 27",
+      "status": "missing",
+      "note": "Cited from Henniart [51] (appendix to Breuil–Mézard)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/31",
+      "kind": "theorem",
+      "name": "Theorem 5.5 and Lemma 5.6 (globalizing π with a residually irreducible form)",
+      "statement": "There is a quaternionic modular form f of weight 2 for B̄^* whose automorphic representation satisfies π(f)_p = π ⊗ ξ ∘ det with ξ unramified and whose residual representation r̄_f : G_Q → GL_2(F̄_p) is absolutely irreducible on G_{Q_p}. Lemma 5.6: for a Serre weight W ⊂ soc(σ̄°) of a minimal type σ of π there is a quaternionic form g with r̄_p absolutely irreducible and W ⊂ soc_{GL_2(Z_p)}(π̄), π̄ the mod p correspondent of r̄_p.",
+      "locator": "§5.1, Théorème 5.5, Lemme 5.6, pp. 26–27",
+      "status": "missing",
+      "note": "Lemma 5.6 uses a CM form from an imaginary quadratic F with p, ℓ inert and a Hecke character with prescribed reduction at p; the proof prints η̄_p where χ̄_p is meant (sourceIssues E2). The theorem then uses Theorem 5.4 (or Proposition 13.5), exactness of Hom_{GL_2(Z_p)}(−, C^0(X(K^p), O_L/π^n)_m) (Lemma 13.1) and Henniart's unicity of types. After Emerton [33] and [7, Thm 5.1]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/32",
+      "kind": "theorem",
+      "name": "Theorem 5.7 and Lemma 5.8 (a reformulation of Čerednik–Drinfeld uniformization)",
+      "statement": "There is an isomorphism of Hecke modules Hom_G(LA(X(K^p))^*, Ω^1(Σ_n)^ρ) ≅ Ω^1(Sh_K)^ρ. More precisely ⊕_i ((Ω^1(Σ_n))^ρ)^{Γ_i} ≅ Hom_G(W, LA(X)) with W = (Ω^1(Σ_n)^ρ)^*, ω ↦ (ℓ ↦ (Γ_ig ↦ ℓ(g^{-1}.ω_i))).",
+      "locator": "§5.2, Théorème 5.7, Lemme 5.8, pp. 27–29",
+      "status": "missing",
+      "note": "Uses Theorem 3.2 (W is locally analytic of compact type) and Lemma 5.9."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/33",
+      "kind": "theorem",
+      "name": "Remark 5.11 (the Hodge filtration under uniformization)",
+      "statement": "The map Hom_G((Ω^1(Σ_n)^ρ)^*, LA(X(K^p))) → Hom_G(H^1_dR,c(Σ_n)^ρ, LC(X(K^p))) induced by Ω^1(Σ_n)^ρ → H^1_dR(Σ_n)^ρ is identified, via Theorem 5.7 and (2), with the Hodge filtration Ω^1(Sh_K)^ρ → H^1_dR(Sh_K)^ρ.",
+      "locator": "§5.2, Remarque 5.11, p. 29",
+      "status": "missing",
+      "note": "Reduced to X_Γ = Γ\\M̆_n with the Hodge filtration Im(H^1(Γ, Ω^1(M̆_n)[1]) → H^1(Γ, Ω^•(M̆_n)))."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/34",
+      "kind": "theorem",
+      "name": "Theorem 5.1 = Theorem 8.8 (a nonzero G-equivariant map Φ)",
+      "statement": "There are Π ∈ V(π) and a nonzero continuous G-equivariant Φ : (Π^an/Π^lisse)^* = Π(π, 0)^* → O(Σ_n)^ρ.",
+      "locator": "§5, Théorème 5.1, p. 24; proof §5.3, pp. 29–30; Théorème 8.8, p. 44",
+      "status": "missing",
+      "note": "From Theorems 5.5, 5.7 and 5.4: Φ_0 : (Π^an)^* → Ω^1(Σ_n)^ρ nonzero; its restriction to (Π^an/Π^lisse)^* is nonzero because u^+ kills nothing in Ω^1(Σ_n)^ρ, and factors through O(Σ_n)^ρ because H^1_dR,c(Σ_n)^ρ is smooth and Π^an/Π^lisse has no nonzero smooth vectors."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/35",
+      "kind": "construction",
+      "name": "D_rig(V) over the Robba ring",
+      "statement": "The Robba ring R = lim E^{]0,r_n]} ⊂ L[[T, T^{-1}]] with φ(T) = (1 + T)^p − 1 and σ_a(T) = (1 + T)^a − 1; a (φ, Γ)-module over R is a free R-module of finite type with commuting continuous semilinear φ, Γ and R ⊗_{φ(R)} φ(∆) ≅ ∆ (Definition 6.1). Fontaine's theory and Cherbonnier–Colmez overconvergence attach to every L-representation V of G_{Q_p} an étale (φ, Γ)-module D_rig(V) of rank dim V, and V ↦ D_rig(V) is fully faithful (Berger). The Γ-action differentiates to a connection ∇ (Berger [1, lemme 4.1]); on R, ∇ = t∂ with ∂ = (1 + T)d/dT and t = log(1 + T), φ(t) = pt, γ(t) = χ(γ)t.",
+      "locator": "§6, Définition 6.1, Exemple 6.2(a), pp. 30–31",
+      "status": "planned",
+      "planned": [
+        "PhiGammaModulesAndIwasawaCohomology:PG.2"
+      ],
+      "note": "PG.2 plans overconvergence and the Robba realization; P7:annulus-foundations the Robba ring."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/36",
+      "kind": "construction",
+      "name": "Berger's p-adic differential equation N_rig(V)",
+      "statement": "For V de Rham there is a unique sub-(φ, Γ)-module N_rig(V) ⊂ D_rig(V)[1/t] with N_rig(V)[1/t] = D_rig(V)[1/t] and ∇(N_rig(V)) ⊂ t·N_rig(V); with ∂ = t^{-1}∇ it is a p-adic differential equation with Frobenius structure (the construction behind Berger's p-adic monodromy theorem). V ↦ N_rig(V) is not fully faithful: it forgets the Hodge filtration.",
+      "locator": "§6, Exemple 6.2(b), p. 31",
+      "status": "planned",
+      "planned": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "note": "Cited from Berger [1]; R06.3 plans the p-adic-representation to differential-module bridge and the monodromy theorem (RD.2 exports the analytic local monodromy theorem to it)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/37",
+      "kind": "theorem",
+      "name": "Fontaine–Berger descriptions of D^+_dif, N^+_dif and N_rig",
+      "statement": "For ∆ over R, Berger's models ∆^{]0,r_n]} (for n large, unique with R ⊗ ∆^{]0,r_n]} ≅ ∆ and E^{]0,r_{n+1}]} ⊗ ∆^{]0,r_n]} having a basis in φ(∆^{]0,r_n]})) are stable under Γ and ∇; with φ^{-n} : E^{]0,r_n]} → L_n[[t]], f ↦ f(ζ_{p^n}e^{t/p^n} − 1), ∆^+_dif,n = L_n[[t]] ⊗ ∆^{]0,r_n]} and ∆^+_dif = lim ∆^+_dif,n carry Γ and a connection with ∇(fz) = t(df/dt)z + f∇z. For V de Rham: D^+_dif,n(V) = Fil^0(L_n((t)) ⊗ D_dR(V)) (Fontaine), N^+_dif,n(V) = L_n[[t]] ⊗ D_dR(V) (Berger), N_rig(V) = {z ∈ D_rig(V)[1/t] : φ^{-n}(z) ∈ N^+_dif,n(V) ∀n ≫ 0}, similarly N^{]0,r_n]}(V), and D_rig(V) = {z ∈ N_rig(V)[1/t] : φ^{-n}(z) ∈ Fil^0(L_n((t)) ⊗ D_dR(V)) ∀n ≫ 0}. For V potentially crystalline, crystalline over K, R_K ⊗_R N_rig(V) = R_K ⊗_{K_0} D_cris,K(V) and N_rig(V) = (R_K ⊗_{K_0} D_pst(V)^{Gal(Q̄_p/K)})^{Gal(K^cyc/Q_p^cyc)} (4), which depends only on D_pst(V).",
+      "locator": "§6, Exemple 6.5, pp. 32–33",
+      "status": "missing",
+      "note": "Cited from Berger [1, 2, th. I.3.3], Fontaine [43] and Marmora [59]; R_K is Berger's B^†_rig,K (field of norms)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/38",
+      "kind": "definition",
+      "name": "Trianguline representations and Colmez's eigenvector criterion",
+      "statement": "A 2-dimensional L-representation V of G_{Q_p} is trianguline if D_rig(V) is an extension of rank-one (φ, Γ)-modules over R (after a finite extension of L); if V is absolutely irreducible and not trianguline, φ has no eigenvector on D_rig(V), even after extending L.",
+      "locator": "§6, Lemme 6.3 and its proof, p. 31",
+      "status": "missing",
+      "note": "Cited from Colmez [19] (definition; lemme 3.2)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/39",
+      "kind": "theorem",
+      "name": "Lemma 6.3 (∇ has no polynomial kernel on non-trianguline D_rig)",
+      "statement": "For P ∈ L[X] nonzero and V an absolutely irreducible 2-dimensional non-trianguline L-representation of G_{Q_p}, P(∇) is injective on D_rig(V).",
+      "locator": "§6, Lemme 6.3, p. 31",
+      "status": "missing",
+      "note": "The kernel is finite-dimensional ([30, prop. 2.1]) and φ-stable, so it would contain a φ-eigenvector."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/40",
+      "kind": "theorem",
+      "name": "Kedlaya's duality for p-adic differential equations",
+      "statement": "For a p-adic differential equation N over R with dual Ň, there is a perfect pairing N/∂(N) ⊗ Ň^{∂=0} → L.",
+      "locator": "§6, proof of Proposition 6.4, pp. 31–32",
+      "status": "missing",
+      "note": "Cited from Kedlaya [53, prop. 20.4.2]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/41",
+      "kind": "theorem",
+      "name": "Proposition 6.4 (Colmez: ∂ is bijective on N_rig of a non-trianguline representation)",
+      "statement": "If V is a de Rham, absolutely irreducible, 2-dimensional, non-trianguline L-representation of G_{Q_p}, then ∂ = t^{-1}∇ is bijective on N_rig(V).",
+      "locator": "§6, Proposition 6.4, pp. 31–32",
+      "status": "missing",
+      "note": "Injectivity by Lemma 6.3 (with t^hN_rig ⊂ D_rig); surjectivity by Kedlaya's duality and the injectivity for the Cartier dual V^* ⊗ χ_cyc. A key observation of Colmez [21]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/42",
+      "kind": "theorem",
+      "name": "Theorem 7.1 (Colmez: the sheaf D_rig(V) ⊠ U and its locally analytic duality)",
+      "statement": "For a 2-dimensional L-representation V of G_{Q_p} there is a G-equivariant sheaf U ↦ D_rig(V) ⊠ U on P^1(Q_p) with D_rig(V) ⊠ Z_p = D_rig(V), P^+ acting by (p^ka, b; 0, 1)z = (1 + T)^bφ^k(σ_a(z)), global sections D_rig(V) ⊠ P^1 an LF space of central character δ_V = χ_cyc^{-1} det V, and D_rig(V) ⊠ P^1 = {(z_1, z_2) : Res_{Z_p^*}(z_2) = w(Res_{Z_p^*}(z_1))}. (a) The G-action extends to a topological D(G)-module structure; (b) there is a perfect pairing of D(G)-modules {}_{P^1} : (D_rig(V̌) ⊠ P^1) × (D_rig(V) ⊠ P^1) → L, V̌ = V^* ⊗ χ_cyc; (c) there is a canonical exact sequence of D(G)-modules 0 → (Π(V̌)^an)^* → D_rig(V) ⊠ P^1 → Π(V)^an → 0 in which (Π(V̌)^an)^* is the orthogonal of (Π(V)^an)^*. If det V = χ_cyc then δ_V = 1, V̌ ≅ V and (Π(V)^an)^* is its own orthogonal (Remark 7.2).",
+      "locator": "§7.1, Théorème 7.1, Remarque 7.2, pp. 35–36",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.3"
+      ],
+      "note": "Cited from Colmez [17, ch. II, IV, V]; R30.3 plans Colmez's construction."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/43",
+      "kind": "theorem",
+      "name": "Theorem 7.3 (Dospinescu: the infinitesimal action of G on D_rig(V))",
+      "statement": "Let a, b be the generalized Hodge–Tate weights of V and k = a + b. As operators on D_rig(V): a^+ = ∇, a^− = k − 1 − ∇, u^+ = t, u^− = −(∇ − a)(∇ − b)/t, and the Casimir C = u^+u^− + u^−u^+ + h²/2 acts by ((a − b)² − 1)/2. For (a, b) = (0, 1): a^+ = ∇ = −a^−, C = 0, u^+ = t, u^− = −∇(∇ − 1)/t = −t∂² with ∂ = t^{-1}∇.",
+      "locator": "§7.2, Théorème 7.3, p. 36",
+      "status": "missing",
+      "note": "Cited from Dospinescu [28] (Math. Ann. 2012), its main result."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/44",
+      "kind": "definition",
+      "name": "P-finite vectors, infinite slope and the spaces LP(Q_p^*, X)^Γ",
+      "statement": "For V absolutely irreducible of dimension 2, v ∈ Π(V) is P-finite if ((1, p^n; 0, 1) − 1)^k v = 0 for some n, k ≥ 1 and L[(Z_p^*, 0; 0, 1)]v is finite-dimensional, and of infinite slope if moreover (Σ_{i=0}^{p^n−1}(1, i; 0, 1))^k ∘ (p^m, 0; 0, 1)v = 0 for some n, k ≥ 1, m ∈ ℤ (Definition 7.4); for u ∈ (1, Q_p; 0, 1), (1 − u)^k v is of infinite slope (Remark 7.5, left to the reader). For an L_∞[[t]]-module X with semilinear Γ-action, LP(Q_p^*, X)^Γ is the space of φ : Q_p^* → X with compact support in Q_p and φ(ax) = σ_a(φ(x)), LP_c the subspace vanishing near 0 (≅ ⊕_{i∈ℤ} X via φ ↦ (φ(p^i))_i), with P acting by ((a, b; 0, 1)φ)(x) = ε(bx)e^{tbx}φ(ax), ε the additive character ε(b) = ζ_{p^n}^{p^nb}.",
+      "locator": "§7.3, Définition 7.4, Remarque 7.5, pp. 36–37",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/45",
+      "kind": "theorem",
+      "name": "Proposition 7.6 (Colmez's Kirillov model)",
+      "statement": "Π(V)^{P−fini} and Π(V)^{P−fini}_c are P-stable, and there is a canonical P-equivariant injection v ↦ φ_v : Π(V)^{P−fini} → LP(Q_p^*, D^−_dif(V))^Γ, D^−_dif(V) = lim D^+_dif,n(V)[1/t]/D^+_dif,n(V), inducing Π(V)^{P−fini}_c ≅ LP_c(Q_p^*, D^−_dif(V))^Γ ≅ ⊕_{i∈ℤ} D^−_dif(V).",
+      "locator": "§7.3, Proposition 7.6, pp. 37–38",
+      "status": "missing",
+      "note": "Colmez [17, §VI.5]; this form is in Dospinescu [29, Props. 4.6, 4.8, 4.11, Lemme 4.12, Cor. 4.13]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/46",
+      "kind": "theorem",
+      "name": "Proposition 7.7 (the pairing {}_dif)",
+      "statement": "With ⟨ ⟩ : D^+_dif(V̌)[1/t] × D^+_dif(V)[1/t] → L_∞((t))dt induced by V̌ × V → L(1), {ž, z}_dif = lim_n p^{-n} res_0(Tr_{L_n((t))/L((t))}⟨σ_{−1}(ž), z⟩). (a) {}_dif is a perfect Γ-equivariant pairing; for n large the orthogonal of D^+_dif,n(V̌) is D^+_dif,n(V), so it is perfect between D^+_dif(V̌) and D^−_dif(V). (b) If V is de Rham with Hodge–Tate weights 0 and k ≥ 1, for n large the orthogonal of N^+_dif,n(V̌) is t^kN^+_dif,n(V).",
+      "locator": "§7.4, Proposition 7.7, p. 38",
+      "status": "missing",
+      "note": "From [17, before Lemme VI.3.3, Lemme VI.4.16]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/47",
+      "kind": "theorem",
+      "name": "Colmez–Dospinescu: universal completions and the dual of Π(V)^an",
+      "statement": "Π(V)^an determines Π(V); there is m(V) such that (Π(V)^an)^* ⊂ D_rig(V̌) ⊠ P^1 factors through D^{]0,r_{m(V)}]}(V̌) ⊠ P^1 := {z : Res_{Z_p}(z), Res_{Z_p}(wz) ∈ D^{]0,r_{m(V)}]}(V̌)}; Π(V)^an is an increasing union of (1, Z_p; 0, 1)-stable Banach spaces Π^{(h)} by radius of analyticity; Res_{Z_p} induces (Π(V)^*)^{(p,0;0,1)=1} ≅ D(V)^{ψ=1} as Λ(Γ)-modules.",
+      "locator": "§1.1, p. 5; §7.4, p. 38; §8.1, p. 41; §9.2, p. 49; §11.2, p. 62",
+      "status": "planned",
+      "planned": [
+        "PadicLocalLanglandsForGL2Qp:R30.3"
+      ],
+      "note": "Cited from [24] (Algebra Number Theory 2014: cor. VI.13, ch. IV, th. IV.6, rem. IV.15, rem. V.14). R30.3 is where the universal completion theorem lives (as PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B's brief imports it)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/48",
+      "kind": "theorem",
+      "name": "Theorem 7.8 (Colmez's duality formula in the Kirillov model)",
+      "statement": "Π(V)^{P−fini}_c ⊂ Π(V)^an, and for n ≥ m(V), v ∈ Π(V)^{P−fini}_c and l ∈ (Π(V)^an)^*, {l, v}_{P^1} = Σ_{j∈ℤ} {i_{j,n}(l), φ_v(p^{−j})}_dif, where i_{j,n} = φ^{−n} ∘ Res_{Z_p} ∘ (p^{n−j}, 0; 0, 1) : (Π(V)^an)^* → D^+_dif,n(V̌).",
+      "locator": "§7.4, Théorème 7.8, p. 38",
+      "status": "missing",
+      "note": "Generalizes [17, Prop. VI.5.12]; proved in [29, th. 5.3]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/49",
+      "kind": "theorem",
+      "name": "Proposition 7.9, Remark 7.10 and Theorem 7.11 (the smooth vectors of Π(V) for V ∈ V(π))",
+      "statement": "For V ∈ V(π): Π(V)^{P−lisse}_c = {v ∈ Π(V)^{P−fini}_c : u^+v = a^+v = 0} ⊂ Π(V)^lisse and it is ≅ LP_c(Q_p^*, N^+_dif(V)/D^+_dif(V))^Γ (7.9); N^+_dif(V)/D^+_dif(V) ≅ L_∞ ⊗ D_dR(V)/Fil^0 D_dR(V), so this is the usual Kirillov model of π ⊗ L_∞ (7.10, Hilbert 90); and Π(V)^lisse = {v ∈ Π(V)^an : u^+v = a^+v = 0} = Π(V)^{P−lisse}_c ≅ LC_c(Q_p^*, N^+_dif(V)/D^+_dif(V))^Γ as P-modules (7.11).",
+      "locator": "§7.5, Proposition 7.9, Remarque 7.10, Théorème 7.11, pp. 39–40",
+      "status": "missing",
+      "note": "7.9 from [28, Th. 5.6, Prop. 5.4]; 7.11 uses u^−(1, x; 0, 1) = (1, x; 0, 1)(−x²u^+ + u^− − xh), Π^{(1,Q_p;0,1)} = 0 [29, lemme 7.1] and supercuspidality (identity checked)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/50",
+      "kind": "theorem",
+      "name": "Proposition 8.2 ((Π^an/Π^lisse)^* lies in tN_rig ⊠ P^1)",
+      "statement": "For V ∈ V(π) there is n such that (Π(V)^an)^* ⊂ D_rig(V) ⊠ P^1 induces (Π(V)^an/Π(V)^lisse)^* ⊂ tN^{]0,r_n]}(V) ⊠ P^1, where tN_rig(V) ⊠ P^1 = {z ∈ D_rig(V) ⊠ P^1 : Res_{Z_p}(z), Res_{Z_p}(wz) ∈ tN_rig(V)}.",
+      "locator": "§8.1, Proposition 8.2, pp. 40–41",
+      "status": "missing",
+      "note": "From Theorems 7.8, 7.11 and Proposition 7.7."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/51",
+      "kind": "theorem",
+      "name": "The ψ operator on (φ, Γ)-modules over R",
+      "statement": "Every (φ, Γ)-module ∆ over R carries a unique operator ψ commuting with Γ, vanishing on Σ_{i=1}^{p−1}(1 + T)^iφ(∆) and with ψ ∘ φ = id; on D_rig(V) ⊠ P^1, Res_{Z_p} ∘ (p^{−1}, 0; 0, 1) = ψ ∘ Res_{Z_p}.",
+      "locator": "§8.1, p. 41",
+      "status": "planned",
+      "planned": [
+        "PhiGammaModulesAndIwasawaCohomology:PG.4"
+      ],
+      "note": "PG.4 plans ψ with its continuity and Γ-compatibility."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/52",
+      "kind": "theorem",
+      "name": "Colmez: ψ-invariants over the Robba ring and Iwasawa cohomology",
+      "statement": "(1) The natural map D(Γ) ⊗_{Λ(Γ)} D(V)^{ψ=1} → D_rig(V)^{ψ=1} is an isomorphism of D(Γ)-modules [17, prop. V.1.18]. (2) For V ∈ V(π), the image of (tN_rig(V))^{ψ=1} under 1 − φ is {µ ∈ H^1(G_{Q_p}, D(Γ) ⊗_L V) : ∫_{1+p^nZ_p} µ ∈ H^1_e(G_{F_n}, V) ∀n ≥ 0}, with F_n = Q_p(µ_{p^n}) and H^1_e the image of the Bloch–Kato exponential [17, pp. 20, 174].",
+      "locator": "§8.1, proof of Théorème 8.3, p. 41; §12.1, p. 66",
+      "status": "missing",
+      "note": "Cited from Colmez [17]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/53",
+      "kind": "theorem",
+      "name": "Theorem 8.3 ((p, 0; 0, 1)-invariants of (Π^an/Π^lisse)^*)",
+      "statement": "For V ∈ V(π), [(Π(V)^an)^*]^{(p,0;0,1)=1} ⊂ D_rig(V)^{ψ=1} (via Res_{Z_p}) is an isomorphism of D(Γ)-modules, and it induces [(Π(V)^an/Π(V)^lisse)^*]^{(p,0;0,1)=1} ≅ (tN_rig(V))^{ψ=1}; composing with Res_{Z_p^*}, [(Π(V)^an/Π(V)^lisse)^*]^{(p,0;0,1)=1} ≅ (1 − φ)(tN_rig(V))^{ψ=1}.",
+      "locator": "§8.1, Théorème 8.3, pp. 41–42",
+      "status": "missing",
+      "note": "Uses D_rig(V)^{φ=1} = 0 (V non-trianguline)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/54",
+      "kind": "theorem",
+      "name": "Proposition 8.4 (G-stability of tN_rig(V) ⊠ P^1)",
+      "statement": "For V ∈ V(π): (a) tN_rig(V) ⊠ Z_p^* := (tN_rig(V))^{ψ=0} is stable under the involution w on D_rig(V) ⊠ Z_p^* = D_rig(V)^{ψ=0}; (b) tN_rig(V) ⊠ P^1 is G-stable in D_rig(V) ⊠ P^1.",
+      "locator": "§8.1, Proposition 8.4, p. 42",
+      "status": "missing",
+      "note": "(a) via Theorem 8.3, trivial central character, generation of (tN_rig)^{ψ=0} by (1 − φ)(tN_rig)^{ψ=1} as a D(Γ)-module ([52, prop. 4.3.8]) and w ∘ σ_a = σ_{a^{-1}} ∘ w; previously proved in [17, ch. VI] and [21]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/55",
+      "kind": "theorem",
+      "name": "Theorem 8.5 (Colmez: the involution on (tN_rig(π))^{ψ=0} is independent of V)",
+      "statement": "For V ∈ V(π) and D_pst(V) ≅ M(π) (inducing N_rig(V) ≅ N_rig(π)), the involution of (tN_rig(π))^{ψ=0} induced by w on (tN_rig(V))^{ψ=0} depends neither on V nor on the isomorphism.",
+      "locator": "§8.2, Théorème 8.5, p. 42",
+      "status": "missing",
+      "note": "Cited: Colmez [17, §VI.9] (indirectly) and [21] (directly, via the infinitesimal action)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/56",
+      "kind": "construction",
+      "name": "Colmez's sheaf U ↦ tN_rig(π) ⊠ U and the embeddings of (Π(V)^an/Π(V)^lisse)^*",
+      "statement": "The involution of Theorem 8.5 and Colmez's recipe [17, §II.2] give a G-equivariant sheaf U ↦ tN_rig(π) ⊠ U on P^1(Q_p) with sections tN_rig(π) on Z_p and P^+ acting by (p^ka, b; 0, 1)z = (1 + T)^bσ_a(φ^k(z)) (a priori equivariant for the free group on P^+ and w; the relations of G hold because they hold for D_rig(V)). A choice D_pst(V) ≅ M(π) gives, up to scalar, G-isomorphisms tN_rig(V) ⊠ P^1 ≅ tN_rig(π) ⊠ P^1 and G-embeddings tN_rig(π) ⊠ P^1 ⊂ D_rig(V) ⊠ P^1 and (Π(V)^an/Π(V)^lisse)^* ⊂ tN_rig(π) ⊠ P^1.",
+      "locator": "§8.2, pp. 42–43",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/57",
+      "kind": "theorem",
+      "name": "Theorem 8.6 = Theorem 8.1 (Colmez: Π^an/Π^lisse is independent of Π ∈ V(π))",
+      "statement": "For V_1, V_2 ∈ V(π), (Π(V_1)^an/Π(V_1)^lisse)^* = (Π(V_2)^an/Π(V_2)^lisse)^* inside tN_rig(π) ⊠ P^1; hence Π(V_1)^an/Π(V_1)^lisse ≅ Π(V_2)^an/Π(V_2)^lisse, canonically up to scalar.",
+      "locator": "§8, Théorème 8.1, p. 40; §8.2, Théorème 8.6, pp. 43–44",
+      "status": "missing",
+      "note": "Due to Colmez [17, th. VI.6.43], [21]; new proof: u^+(Π_1^an)^* and (Π_2^an)^* are orthogonal by rescaling with (p^n, 0; 0, 1) on unit balls (a trick from [21]), then Theorems 7.8, 7.11, Propositions 7.6, 7.7."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/58",
+      "kind": "definition",
+      "name": "Definition 8.7: Π(π, 0)",
+      "statement": "Π(π, 0)^* is the sub-G-module of tN_rig(π) ⊠ P^1 which is the image of (Π(V)^an/Π(V)^lisse)^* for any V ∈ V(π) and any D_pst(V) ≅ M(π); Π(π, 0) is its topological dual with the dual G-action, a locally analytic representation on a space of compact type, with Π(V)^an/Π(V)^lisse ≅ Π(π, 0) canonically up to scalar.",
+      "locator": "§8.2, Définition 8.7, p. 44",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/59",
+      "kind": "theorem",
+      "name": "Colmez: Π(π, 0) is topologically irreducible",
+      "statement": "The locally analytic representation Π(π, 0) is topologically irreducible.",
+      "locator": "§1.2, Remarque 1.8, p. 10; Remarque 10.9, p. 55",
+      "status": "missing",
+      "note": "Cited from Colmez [21]; it gives the injectivity of Φ directly, but the paper's own proof of injectivity avoids it."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/60",
+      "kind": "theorem",
+      "name": "Proposition 9.1 and Corollary 9.3 (u^+ has closed image)",
+      "statement": "u^+ has closed image on (Π^an)^* and is a homeomorphism onto u^+((Π^an)^*); u^+ has closed image on Π(π, 0)^* and Π(π, 0)^*/u^+(Π(π, 0)^*) ≅ (Π(π, 0)^{u^+=0})^*.",
+      "locator": "§9.1, Proposition 9.1, Corollaire 9.3, pp. 45–46",
+      "status": "missing",
+      "note": "Uses u^+(x, y) = (tx, −t∂²y) (Theorem 7.3), Proposition 6.4 and open mapping theorems. Remark 9.2 asserts, with a sketched counterexample via [70, ch. 5], that aM need not be closed in a coadmissible module over a noncommutative Fréchet–Stein algebra."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/61",
+      "kind": "theorem",
+      "name": "Theorem 9.4 and Lemma 9.5 (the operator ∂ on Π(π, 0)^*)",
+      "statement": "There is a unique continuous linear ∂ : Π(π, 0)^* → Π(π, 0)^* with a^+ − 1 = u^+ ∘ ∂. Lemma 9.5: if v ∈ Π^an and u^+v ∈ Π^lisse then a^+v + v ∈ Π^lisse.",
+      "locator": "§9.1, Théorème 9.4, Lemme 9.5, p. 46",
+      "status": "missing",
+      "note": "Due to Colmez [21]; new proof via Corollary 9.3, the vanishing Casimir and Theorem 7.11 (Casimir identity checked)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/62",
+      "kind": "theorem",
+      "name": "Proposition 9.6 (u^+ and ∂ determine the 𝔰𝔩_2-action)",
+      "statement": "(a) On Π(π, 0)^*: a^+ = ∂u^+, ∂u^+ − u^+∂ = 1 and u^− = −∂a^+ = −∂²u^+. (b) For Π ∈ V(π), an isomorphism Π(π, 0) ≅ Π^an/Π^lisse gives 𝔤(Π^an)^* ⊂ Π(π, 0)^* and on (Π^an)^*, a^+ = ∂u^+ and u^− = −∂a^+ = −∂²u^+.",
+      "locator": "§9.1, Proposition 9.6, pp. 46–47",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/63",
+      "kind": "theorem",
+      "name": "Theorem 9.7 and Lemma 9.8 (G conjugates ∂ by homographies)",
+      "statement": "For g = (a, b; c, d) ∈ G, a − c∂ is invertible on Π(π, 0)^*, g∂g^{-1} = (d∂ − b)(a − c∂)^{-1} and gu^+g^{-1} = (det g)^{-1}(a − c∂)²u^+; also g∂g^{-1}(a − c∂) = d∂ − b and (c·g∂g^{-1} + d)(a − c∂) = det g.",
+      "locator": "§9.1, Théorème 9.7, Lemme 9.8, pp. 47–48",
+      "status": "missing",
+      "note": "From the identities ga^+g^{-1} = (ad a^+ − ab u^+ + cd u^− − bc a^−)/det g and gu^+g^{-1} = (−ac h + a²u^+ − c²u^−)/det g in D(G) (checked)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/64",
+      "kind": "theorem",
+      "name": "Proposition 9.10 and Lemma 9.11 (resolvent matrix coefficients are locally analytic)",
+      "statement": "For v ∈ Π(π, 0) and l ∈ Π(π, 0)^*, φ_{l,v}(x) = ⟨(∂ − x)^{-1}l, v⟩ extends to a locally analytic function on P^1(Q_p) vanishing at ∞, and φ_{l,v}(gx) = ((cx + d)/det g)·φ_{(c∂+d)g^{-1}l, g^{-1}v}(x).",
+      "locator": "§9.2, Proposition 9.10, Lemme 9.11, pp. 48–49",
+      "status": "missing",
+      "note": "Analyticity near 0 uses the filtration Π(π, 0)^{(h)} by radius of analyticity ([24, ch. IV, th. IV.6, rem. IV.15]); Lemma 9.11 checked."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/65",
+      "kind": "theorem",
+      "name": "Proposition 9.12 (Morita duality)",
+      "statement": "(a) For λ ∈ O(Ω)^*, f_λ(x) = λ(1/(z − x)) extends to a locally analytic function on P^1(Q_p) vanishing at ∞, and λ ↦ f_λ is a topological isomorphism O(Ω)^* ≅ St^an = LA(P^1(Q_p))/L (G-equivariant after replacing O(Ω) by Ω^1(Ω)); (b) its transpose is µ ↦ f_µ(z) = ∫_{P^1(Q_p)} µ(x)/(z − x). The span S of the 1/(z − x), x ∈ Q_p, is dense in O(Ω), and for f = Σa_x/(z − x) ∈ S, µ_f = Σ a_xδ_x − (Σ a_x)δ_∞.",
+      "locator": "§1.2, p. 9; §9.2, Proposition 9.12, pp. 49–50",
+      "status": "missing",
+      "note": "Cited from Morita [60] (see also [69])."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/66",
+      "kind": "construction",
+      "name": "The operators T_f on Π(π, 0)^*",
+      "statement": "For f = Σ a_x/(z − x) ∈ S, T_f(l) = Σ a_x(∂ − x)^{-1}(l) (Definition 9.13), with ⟨T_f(l), v⟩ = ∫ φ_{l,v}µ_f (7). If f_n ∈ S tends to f ∈ O(Ω), T_{f_n} converges weakly to a continuous T_f (Proposition 9.14); for all f ∈ O(Ω), ⟨T_f(l), v⟩ = ∫_{P^1(Q_p)} φ_{l,v}µ_f, and f_n → f implies T_{f_n}(l) → T_f(l) (Proposition 9.15).",
+      "locator": "§9.2, Définition 9.13, Propositions 9.14–9.15, pp. 50–51",
+      "status": "missing",
+      "note": "Uses Lemma 5.10, Banach–Steinhaus and reflexivity of Π(π, 0)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/67",
+      "kind": "theorem",
+      "name": "Theorem 9.9 = Theorem 1.7 (the O(Ω)-module structure on Π(π, 0)^*)",
+      "statement": "For every Π ∈ V(π) there is a unique O(Ω)-module structure on Π(π, 0)^* extending its L-vector space structure in which z ∈ O(Ω) acts as ∂; explicitly (∫ µ(x)/(z − x))·l = ∫_{P^1(Q_p)} (∂ − x)^{-1}(l)µ(x). As a corollary of the final result, Π(π, 0)^* is a locally free O(Ω)-module of rank dim_L ρ.",
+      "locator": "§1.2, Théorème 1.7, p. 9; §9.2, Théorème 9.9, pp. 48, 51",
+      "status": "missing",
+      "note": "Multiplicativity from (∂ − x)^{-1}(∂ − y)^{-1} = (x − y)^{-1}((∂ − x)^{-1} − (∂ − y)^{-1})."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/68",
+      "kind": "theorem",
+      "name": "Proposition 9.16 (G-equivariant maps are O(Ω)-linear)",
+      "statement": "Every continuous G-equivariant Φ : Π(π, 0)^* → O(Σ_n)^ρ is O(Ω)-linear.",
+      "locator": "§9.2, Proposition 9.16, p. 51",
+      "status": "missing",
+      "note": "Both sides satisfy a^+ − 1 = u^+∂ and u^+ is injective on O(Σ_n)^ρ."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/69",
+      "kind": "theorem",
+      "name": "Lemma 10.2 (dense image descends from Q̆_p)",
+      "statement": "If F : X → Y is a continuous map of Fréchet spaces over Q_p such that F̆ : X̆ → Y̆ (completed base change to Q̆_p) has dense image, then F has dense image.",
+      "locator": "§10.1, Lemme 10.2, p. 52",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/70",
+      "kind": "construction",
+      "name": "Kohlhaase's Lubin–Tate and Drinfeld bundles",
+      "statement": "Let M̆_0^{(0)} be the height-0 component of M̆_0 with coverings M̆_n^{(0)}, and L̆_0^{(0)} the Lubin–Tate space (an open unit ball) with Galois coverings L̆_n^{(0)} of group G_0/G_n; O(M̆_n^{(0)}) is (F̆_n, G_n)-regular and O(L̆_n^{(0)}) is (F̆_n, D_n)-regular. For a G_0-equivariant bundle N on M̆_0^{(0)} with sections N, Λ_n(N) = (O(M̆_n^{(0)}) ⊗ N)^{G_n} and O(M̆_n^{(0)}) ⊗_{F̆_n} Λ_n(N) → O(M̆_n^{(0)}) ⊗ N (8) is injective; N is Lubin–Tate if (8) is an isomorphism for some n, and then D_LT(N) is the D_0-equivariant bundle on L̆_0^{(0)} with sections (O(L̆_n^{(0)}) ⊗_{F̆_n} Λ_n(N))^{G_0}; symmetrically ∆_n, (9), Drinfeld bundles and D_Dr (Definition 10.4). A G-equivariant bundle on Ω̆ (resp. D^*-equivariant bundle on P̆^1) is Lubin–Tate (resp. Drinfeld) if its pullback along the period map π_Dr^{(0)} (resp. the Gross–Hopkins period map π_LT^{(0)}) is; then D_LT(N) (resp. D_Dr(N)) is D^*- (resp. G-) equivariant and descends to P̆^1 (resp. Ω̆).",
+      "locator": "§10.1, Définition 10.4, pp. 53–54",
+      "status": "missing",
+      "note": "After Kohlhaase [56]; the Lubin–Tate tower's construction is ET.6a's, the Gross–Hopkins period map is [45]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/71",
+      "kind": "theorem",
+      "name": "Theorem 10.5 (Kohlhaase: Lubin–Tate and Drinfeld bundles are equivalent)",
+      "statement": "(a) D_LT and D_Dr are quasi-inverse equivalences between G-equivariant Lubin–Tate bundles on Ω̆ and D^*-equivariant Drinfeld bundles on P̆^1; (b) for ρ a smooth finite-dimensional representation of D^*, ρ^* ⊗ O_{P̆^1} is a Drinfeld bundle and D_Dr(ρ^* ⊗ O_{P̆^1}) = O(M̆_n)^ρ; (c) both categories are stable under subobjects and quotients and the functors preserve exact sequences. Moreover O(Σ_n) is a finitely generated projective O(Ω)-module.",
+      "locator": "§10.1, Théorème 10.5, Remarque 10.6, p. 54; footnote 50, p. 57",
+      "status": "missing",
+      "note": "Cited from Kohlhaase [56] (elementary, without the Faltings–Fargues isomorphism; projectivity [56, prop. A5]). Remark 10.7: the smoothness of ρ is essential, cf. 0 → O(−1) → V(X) ⊗ O → O(1) → 0 on P^1 for the Dieudonné module V(X) [45]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/72",
+      "kind": "theorem",
+      "name": "Propositions 10.3, 10.8 and 10.10 (irreducibility of O(Σ_n)^ρ as an equivariant O(Ω)-module)",
+      "statement": "Every nonzero closed G-stable O(Ω̆)-submodule of O(M̆_n)^ρ is the whole space (so the image of Φ̆ is dense, Proposition 10.3); the O(Ω)-module O(Σ_n)^ρ with semilinear G-action is topologically irreducible (10.8); every O(Ω)-linear G-equivariant endomorphism of O(Σ_n)^ρ is scalar (10.10).",
+      "locator": "§10.1, Propositions 10.3, 10.8, 10.10, pp. 52–55",
+      "status": "missing",
+      "note": "Via coadmissible O(Ω̆)-modules, torsion-freeness of G-equivariant coherent sheaves on Ω̆, Theorem 10.5, a twist by O(λ) and the irreducibility of ρ^* ⊗ Sym^λ(L²). Remark 10.9: O(Σ_n)^ρ is irreducible as a G-module (from [21] and Theorem 1.2), not proved here."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/73",
+      "kind": "theorem",
+      "name": "Proposition 10.11 (dense image implies surjective over a Stein space)",
+      "statement": "Let X be Stein over Q_p, N a finitely generated projective O(X)-module and Y an O(X)-module which is a Fréchet space. Every continuous O(X)-linear F : Y → N with dense image is surjective.",
+      "locator": "§10.2, Proposition 10.11, pp. 55–57",
+      "status": "missing",
+      "note": "Reduce to a dense ideal I; build f_1, …, f_m ∈ I with no common zero by lowering dim V(f_1, …, f_i) using convergent series in Y and the affinoid Nullstellensatz; finitely generated ideals are closed [72]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/74",
+      "kind": "theorem",
+      "name": "Theorem 10.1 (every nonzero Φ is surjective) and coadmissibility of O(Σ_n)",
+      "statement": "Every nonzero continuous G-equivariant Φ : Π(π, 0)^* → O(Σ_n)^ρ is surjective. Consequently ([72, lemma 3.6] with Theorem 8.8) O(Σ_n)^ρ, and then O(Σ_n), is a coadmissible D(G)-module.",
+      "locator": "§10, Théorème 10.1, p. 52; proof p. 57",
+      "status": "missing",
+      "note": "From Propositions 9.16, 10.3 and 10.11 (X = Ω, Y = Π(π, 0)^*, N = O(Σ_n)^ρ)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/75",
+      "kind": "construction",
+      "name": "The representation Π(π, 2) and the differential d",
+      "statement": "Π(π, 2)^* = Π(π, 0)^* dz with g(l dz) = (det g·(a − c∂)^{-2}(g.l))dz for g = (a, b; c, d) (10), the analogue of twisting O(Σ_n) by the cocycle c(g) = det g·(a − cz)^{-2} to get Ω^1(Σ_n). Proposition 11.1: Π(π, 2)^* is a representation of G and d : Π(π, 0)^* → Π(π, 2)^*, d(l) = −u^+(l)dz, is G-equivariant with closed image.",
+      "locator": "§11.1, (10), Proposition 11.1, pp. 57–58",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/76",
+      "kind": "theorem",
+      "name": "Proposition 11.2 (the Kirillov embedding of (Π^an/Π^lisse)^{u^+=0})",
+      "statement": "For V ∈ V(π), v ↦ φ_v induces a P-equivariant embedding Ψ_V : (Π(V)^an/Π(V)^lisse)^{u^+=0} → LP(Q_p^*, t^{-1}N^+_dif(V)/N^+_dif(V))^Γ.",
+      "locator": "§11.2, Proposition 11.2, p. 58",
+      "status": "missing",
+      "note": "Via (Π^an)^{a^+u^+=(u^+)²=0} ⊂ LP(Q_p^*, (t^{-2}D^+_dif/D^+_dif)^{∇t=0})^Γ and t^{-1}N^+_dif/D^+_dif ≅ (t^{-2}D^+_dif/D^+_dif)^{∇t=0}."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/77",
+      "kind": "theorem",
+      "name": "Theorem 11.3 and Lemmas 11.4–11.5 (a canonical embedding of Π(π, 2)^{u^+=0})",
+      "statement": "For V ∈ V(π) and α : D_pst(V) ≅ M(π), ι_{V,α} = α_dif ∘ Ψ_V ∘ ξ_{V,α} : Π(π, 0)^{u^+=0} → LC(Q_p^*, L_∞(−1) ⊗ M_dR(π)) is independent of (V, α) up to homothety, the evident square of P-representations commutes up to scalar, and there is a P-equivariant embedding ι : Π(π, 2)^{u^+=0} → LC(Q_p^*, L_∞ ⊗ M_dR(π))^Γ, canonical up to scalar. Lemma 11.4: for L ∈ Π(π, 0)^* and v ∈ Π(π, 0)^{u^+=0}_c, L(v) = Σ_j {α_dif^{-1}(i_{j,n}(L)), α_dif^{-1}(ι_{V,α}(v))(p^{−j})}_dif,V; Lemma 11.5: a finitely supported (x_j) orthogonal to all i_{j,n}(L) vanishes.",
+      "locator": "§11.2, Théorème 11.3, Lemmes 11.4–11.5, pp. 58–60",
+      "status": "missing",
+      "note": "The pairings {}_dif,V_j come from ∧²D_pst(V_j) ≅ L, so change of V rescales them. The proof of 11.4 prints i_{V,α} for ι_{V,α} (sourceIssues E3)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/78",
+      "kind": "theorem",
+      "name": "Proposition 11.6 ((Π^an)^* inside Π(π, 2)^*)",
+      "statement": "For Π ∈ V(π), an isomorphism Π(π, 0) ≅ Π^an/Π^lisse determines a G-equivariant embedding of (Π^an)^* into Π(π, 2)^* (l ↦ −u^+(l)dz), making (Π^an)^* a G-stable subspace containing d(Π(π, 0)^*).",
+      "locator": "§11.2, Proposition 11.6, pp. 60–61",
+      "status": "missing",
+      "note": "Borel-equivariance from u^+(a, b; 0, d) = (d/a)(a, b; 0, d)u^+ and w-equivariance from w∂^{−2}w = ∂² and u^− = −∂²u^+ (checked); the proof calls the map F for d (sourceIssues E4)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/79",
+      "kind": "theorem",
+      "name": "Theorem 11.7 and Lemma 11.8 (the kernel of u^+ on Π(π, 2))",
+      "statement": "Π(π, 2)^{u^+=0} is G-stable, smooth, and isomorphic to π ⊗ M_dR(π) canonically up to scalar. Lemma 11.8: for v ∈ Π(π, 2), (a, b, c, d) ↦ (a, b; c, d).v is locally analytic in each variable near (1, 0, 0, 1); on Π(π, 2), a^+ = ∂u^+, a^− = −∂u^+ and u^− = −∂²u^+.",
+      "locator": "§11.2, Théorème 11.7, Lemme 11.8, pp. 61–62",
+      "status": "missing",
+      "note": "Two non-isomorphic V_1, V_2 ∈ V(π) give distinct subspaces X_j ≅ π^* by Colmez–Dospinescu [24], hence Π(π, 2)^{u^+=0} ↠ π^{⊕2}, split since π is supercuspidal; the complement vanishes by the Kirillov model (Theorem 11.3). The proof writes Π(V_1)^an/Π(V_2)^lisse for Π(V_1)^an/Π(V_1)^lisse (sourceIssues E5)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/80",
+      "kind": "theorem",
+      "name": "Corollary 11.9 (the position of (Π_ℒ^an)^* in Π(π, 2)^*)",
+      "statement": "For an L-line ℒ ⊂ M_dR(π) with Π_ℒ ∈ V(π), the preimage of ℒ^⊥ ⊗ π^* ⊂ (Π(π, 2)^{u^+=0})^* in Π(π, 2)^* is (Π_ℒ^an)^*, embedded by Proposition 11.6.",
+      "locator": "§11.2, Corollaire 11.9, p. 63",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/81",
+      "kind": "theorem",
+      "name": "Proposition 11.10 (injectivity of Φ)",
+      "statement": "Viewed as Φ : Π(π, 2)^* → Ω^1(Σ_n)^ρ (Proposition 9.16), Φ is injective.",
+      "locator": "§11.3, Proposition 11.10, Remarque 11.11, pp. 63–64",
+      "status": "missing",
+      "note": "The composite to H^1_dR(Σ_n)^ρ factors through ((Π(π, 2))^{u^+=0})^* ≅ (π^*)^{⊕2}, which must map isomorphically since H^1_dR(Σ_n)^ρ has (π^*)^{⊕2} as a quotient (Theorem 4.1; footnote 52: π supercuspidal is projective among smooth representations with trivial central character); a kernel element is then infinitely t-divisible in tN_rig(π) ⊠ P^1, hence 0. Remark 11.11: ∩_j Im((u^+)^j) = 0 needs [31]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/82",
+      "kind": "theorem",
+      "name": "Theorem 1.2 (the dual of the ρ-isotypic functions on the Drinfeld tower)",
+      "statement": "Let π be a supercuspidal representation of G = GL_2(Q_p) with trivial central character and ρ = JL(π). For every Π ∈ V(π) and every n large enough (ρ trivial on 1 + p^nO_D suffices) there is an isomorphism of topological G-modules, unique up to scalar, (O(Σ_n)^ρ)^* ≅ Π^an/Π^lisse.",
+      "locator": "§1.1, Théorème 1.2, p. 4; proof §11.3, pp. 63–64",
+      "status": "missing",
+      "note": "Theorems 8.8, 10.1, Proposition 11.10; uniqueness from Propositions 9.16 and 10.10. Consequence (Remark 1.3(b)): (O(Σ_n)^ρ)^* is an admissible locally analytic representation."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/83",
+      "kind": "theorem",
+      "name": "Theorem 1.4 (the de Rham complex of Σ_n: the Breuil–Strauch conjecture)",
+      "statement": "There is a canonical (up to scalar) isomorphism of Fréchet G-modules H^1_dR(Σ_n)^ρ ≅ M_dR^* ⊗_L π^* such that, for every L-line ℒ ⊂ M_dR, the preimage of ℒ^⊥ ⊗_L π^* ⊂ H^1_dR(Σ_n)^ρ in Ω^1(Σ_n)^ρ is isomorphic to (Π_ℒ^an)^*, and the resulting exact sequence 0 → O(Σ_n)^ρ → (Π_ℒ^an)^* → ℒ^⊥ ⊗_L π^* ≅ π^* → 0 is dual to the one given by Theorem 1.2. Here 0 → O(Σ_n)^ρ → Ω^1(Σ_n)^ρ → H^1_dR(Σ_n)^ρ → 0 is the ρ-isotypic part of the de Rham complex (H^0_dR(Σ_n)^ρ = 0 since dim ρ > 1).",
+      "locator": "§1.1, Théorème 1.4, p. 6; proof §11.3, p. 64",
+      "status": "missing",
+      "note": "Conjectured by Breuil and Strauch [9] (unpublished; for the first cover). Φ gives (Π(π, 2)^{u^+=0})^* ≅ H^1_dR(Σ_n)^ρ; combine with Theorem 11.7 and Corollary 11.9."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/84",
+      "kind": "theorem",
+      "name": "Remark 11.12 (twisted coefficients: Hodge–Tate weights 0, k + 1)",
+      "statement": "All results extend to the bundles O(k): Theorem 1.2 with Π(π, 0) replaced by the representation whose dual is Π(π, 0)^* with G-action twisted by (a − c∂)^{−k}, and Theorem 1.4 using, for k ≥ 0, the exact sequence 0 → O(−k)(Σ_n)^ρ →^{(u^+)^{k+1}} O(k + 2)(Σ_n)^ρ ⊗ det^{k+1} → H^1_dR(Σ_n)^ρ ⊗ Sym^k → 0, describing locally analytic vectors for Galois weights 0, k + 1.",
+      "locator": "§11.3, Remarque 11.12, p. 64; Remarque 1.3(a), p. 4",
+      "status": "missing",
+      "note": "Asserted without details; the exact sequence 'se justifie comme dans [68, pp. 95–97]'."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/85",
+      "kind": "theorem",
+      "name": "Remark 11.13 (the Breuil–Strauch conjecture in its original formulation)",
+      "statement": "For the first cover Σ_{1+ϖ_DO_D} (with Teitelbaum's semistable model over K = Q_{p²}((−p)^{1/(p²−1)}) [81] and the Hyodo–Kato cohomology of non-proper rigid spaces [48]), H^1_dR(Σ_{1+ϖ_DO_D})^ρ = π^* ⊗ M_dR(π)^* compatibly with (φ, N, G_{Q_p})-structures (Saito [66]), and Breuil–Strauch's BS(ℒ), the dual of the preimage of ℒ^⊥ ⊗ π^* in Ω^1(Σ_{1+ϖ_DO_D})^ρ, equals Π_ℒ^an for every admissible ℒ.",
+      "locator": "§11.3, Remarque 11.13, pp. 65–66",
+      "status": "missing",
+      "note": "Argued via two global lines ℒ, ℒ′ from quaternionic forms and linearity of [BS(ℒ″)] and [Π_ℒ″^an] in Ext^1_G((O(Σ_n)^ρ)^*, π); relies on Remark 5.11."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/86",
+      "kind": "theorem",
+      "name": "Theorem 1.9 ((p, 0; 0, 1)-invariants of O(Σ_n)^ρ and Iwasawa cohomology)",
+      "statement": "For V ∈ V(π) there is an isomorphism of free rank-2 D(Γ)-modules (O(Σ_n)^ρ)^{(p,0;0,1)=1} ≅ {µ ∈ H^1(G_{Q_p}, D(Γ) ⊗_L V) : ∫_{1+p^nZ_p} µ ∈ H^1_e(G_{F_n}, V) ∀n ≥ 0}.",
+      "locator": "§1.3, Théorème 1.9, p. 11; proof §12.1, p. 66",
+      "status": "missing",
+      "note": "From Theorem 8.3 and Colmez [17, pp. 20, 174]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/87",
+      "kind": "theorem",
+      "name": "Theorem 1.10 (infinitely primitivable functions come from the half-plane)",
+      "statement": "If f ∈ O(Σ_n) is infinitely primitivable, i.e. f ∈ ∩_{k≥0}(u^+)^k(O(Σ_n)) (in the image of (d/dz)^k for every k), then f ∈ O(Ω).",
+      "locator": "§1.3, Théorème 1.10, p. 11; proof §12.1, p. 66",
+      "status": "missing",
+      "note": "Decompose f along the ρ_i; for ρ_i nontrivial, O(Σ_n)^{ρ_i} = Π(π_i, 0)^* and ∩ Im((u^+)^j) = 0 on (Π^an)^* because u^+-power-torsion vectors are dense in Π^an for non-trianguline V ([31, th. 8.4.3]; alternatively injectivity of Res_{Z_p} [21], Remark 12.1)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/88",
+      "kind": "theorem",
+      "name": "Proposition 12.2 (the de Rham complex in the derived category of coadmissible D(G)-modules)",
+      "statement": "With RΓ_dR(Σ_n) = [O(Σ_n) →^d Ω^1(Σ_n)] in D^b(D(G)) (coadmissible by Theorem 10.1) and its stupid filtration (F^0RΓ_dR = [0 → Ω^1(Σ_n)]), for every V ∈ V(π) and n large there is an isomorphism of filtered vector spaces, canonical up to scalar, Hom_{D^b(D(G))}((Π(V)^an)^*, RΓ_dR(Σ_n)^ρ[1]) = D_dR(V).",
+      "locator": "§12.2, Proposition 12.2, Remarque 12.3, pp. 67–68",
+      "status": "missing",
+      "note": "From Theorem 1.4 (the complex is split with H^1 = (Π(π, 2)^{u^+=0})^*); the level-0 analogue for the Steinberg (ρ = 1) is Schraen's theorem [74], refined to filtered (φ, N)-modules. Remark 12.3 records a hoped-for Hyodo–Kato refinement recovering V, a suggested argument of Scholze via Emerton's local–global compatibility and the p-adic Poincaré lemma [76, cor. 6.13], and the twisted complexes RΓ_dR(Σ_n, k)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/89",
+      "kind": "theorem",
+      "name": "Schneider–Teitelbaum: distribution algebras, Fréchet–Stein algebras and admissible locally analytic representations",
+      "statement": "For a p-adic Lie group H, D(H) is the strong dual of LA(H); for compact H it is a Fréchet–Stein algebra, coadmissible modules form an abelian category in which continuous maps have closed image and finitely generated ideals are closed, and a finitely generated submodule of a coadmissible module is coadmissible ([72, lemma 3.6]); admissible locally analytic representations are those with coadmissible dual; for Π ∈ Ban^adm(G), Π^an is dense in Π; O(X) of a Stein space is Fréchet–Stein.",
+      "locator": "§1.1, pp. 4; §2 (8), p. 13; §3.2, p. 15; §10, pp. 52, 55–56",
+      "status": "missing",
+      "note": "Cited from Schneider–Teitelbaum [72]; PAPER-DING-25's brief plans the distribution algebra and the anti-equivalence with coadmissible modules."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/90",
+      "kind": "theorem",
+      "name": "Frommer's description of D_h(G_i)",
+      "statement": "For G_i = 1 + p^iM_2(Z_p) with a minimal generating family g_{i,1}, …, g_{i,4}, elements of D(G_i) are uniquely Σ_α a_αb_i^α with b_i^α = ∏(g_{i,j} − 1)^{α_j}; the completion D_h(G_i) for ‖Σ a_αb_i^α‖_h = sup |a_α|p^{−|α|/p^h} is free of finite type (left and right) over the closure U_h(𝔤) of U(𝔤), with a basis in Z_p[G_i], and elements of U_h(𝔤) are uniquely Σ a_αX^α with v_p(a_α) − c_h|α| → ∞.",
+      "locator": "§3.3, proof of Théorème 3.2, pp. 16–17",
+      "status": "missing",
+      "note": "Cited from Frommer [44, 1.4, lemma 3, corollaries 1–3]."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/91",
+      "kind": "theorem",
+      "name": "Lemma 5.9 (continuity of matrix-coefficient maps)",
+      "statement": "For a locally analytic representation W of a p-adic Lie group G on a space of compact type and λ ∈ W^*, F : W → LA(G), w ↦ (g ↦ λ(g.w)), is continuous.",
+      "locator": "§5.2, Lemme 5.9, pp. 28–29",
+      "status": "missing",
+      "note": "Via reflexivity and [70, prop. 3.2] (continuity of µ ↦ µ ∗ w)."
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/92",
+      "kind": "theorem",
+      "name": "Lemma 5.10 (weak and strong convergence of sequences)",
+      "statement": "In a locally convex space over a spherically complete field, a sequence converges to 0 if and only if it converges weakly to 0.",
+      "locator": "§5.2, Lemme 5.10, p. 29",
+      "status": "missing",
+      "note": "Stated without proof."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "P. Colmez, Correspondance de Langlands locale p-adique et changement de poids, J. Eur. Math. Soc. 21 (2019), 797–838",
+      "link": "https://doi.org/10.4171/jems/851",
+      "why": "The source of Π(π, 0), the operator ∂ and its existence (Théorème 9.4), the independence of Π^an/Π^lisse (Théorèmes 8.5–8.6) and the irreducibility of Π(π, 0) (Remarque 1.8); the paper reproves several of its results."
+    },
+    {
+      "citation": "P. Colmez, G. Dospinescu, Complétés universels de représentations de GL_2(Q_p), Algebra Number Theory 8 (2014), 1447–1519",
+      "link": "https://doi.org/10.2140/ant.2014.8.1447",
+      "why": "Π^an determines Π, the factorization of (Π^an)^* through D^{]0,r_m]} ⊠ P^1 and the filtration by radius of analyticity (§§7.4, 9.2, 11.2)."
+    },
+    {
+      "citation": "P. Colmez, G. Dospinescu, V. Paškūnas, The p-adic local Langlands correspondence for GL_2(Q_p), Camb. J. Math. 2 (2014), 1–47",
+      "link": "https://doi.org/10.4310/cjm.2014.v2.n1.a1",
+      "why": "The bijection between V(π) and the potentially crystalline representations with D_pst ≅ M(π) (§1.1, Exemple 6.6)."
+    },
+    {
+      "citation": "G. Dospinescu, Actions infinitésimales dans la correspondance de Langlands locale p-adique, Math. Ann. 354 (2012), 627–657",
+      "link": "https://doi.org/10.1007/s00208-011-0736-2",
+      "why": "Théorème 7.3 and the smooth vectors of Proposition 7.9."
+    },
+    {
+      "citation": "G. Dospinescu, Extensions de représentations de de Rham et vecteurs localement algébriques, Compos. Math. 151 (2015), 1462–1498",
+      "link": "https://doi.org/10.1112/s0010437x14007921",
+      "why": "The Kirillov-model statements Proposition 7.6 and Théorème 7.8."
+    },
+    {
+      "citation": "J. Kohlhaase, Lubin–Tate and Drinfeld bundles, Tohoku Math. J. 63 (2011), 217–254",
+      "link": "https://doi.org/10.2748/tmj/1309952087",
+      "why": "Théorème 10.5 and the projectivity of O(Σ_n) over O(Ω) (surjectivity of Φ)."
+    },
+    {
+      "citation": "P. Schneider, J. Teitelbaum, Algebras of p-adic distributions and admissible representations, Invent. Math. 153 (2003), 145–196",
+      "link": "https://doi.org/10.1007/s00222-002-0284-1",
+      "why": "Fréchet–Stein algebras, coadmissible modules and admissible locally analytic representations throughout §§3, 10, 12."
+    },
+    {
+      "citation": "L. Berger, Représentations p-adiques et équations différentielles, Invent. Math. 148 (2002), 219–284",
+      "link": "https://doi.org/10.1007/s002220100202",
+      "why": "N_rig(V) and the Fontaine–Berger descriptions of §6."
+    },
+    {
+      "citation": "B. Schraen, Représentations p-adiques de GL_2(L) et catégories dérivées, Israel J. Math. 176 (2010), 307–361",
+      "link": "https://doi.org/10.1007/s11856-010-0031-z",
+      "why": "The level-0 (Steinberg) analogue of Proposition 12.2."
+    },
+    {
+      "citation": "J. Teitelbaum, Geometry of an étale covering of the p-adic upper half plane, Ann. Inst. Fourier 40 (1990), 68–78",
+      "link": "https://doi.org/10.5802/aif.1203",
+      "why": "The semistable model of the first cover used in Remarque 11.13."
+    },
+    {
+      "citation": "E. Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel'd's symmetric space, J. Algebraic Geom. 14 (2005), 391–437",
+      "link": "https://doi.org/10.1090/s1056-3911-05-00402-9",
+      "why": "Hyodo–Kato cohomology of non-proper rigid spaces in Remarque 11.13."
+    },
+    {
+      "citation": "L. Pan, First covering of the Drinfel'd upper half-plane and Banach representations of GL_2(Q_p), Algebra Number Theory 11 (2017), 405–503",
+      "link": "https://doi.org/10.2140/ant.2017.11.405",
+      "why": "The purely local treatment of the first cover (Remarques 1.6, 4.2)."
+    },
+    {
+      "citation": "M. Emerton, Local–global compatibility in the p-adic Langlands programme for GL_2/Q (preprint)",
+      "link": "http://www.math.northwestern.edu/~emerton/preprints.html",
+      "why": "Théorème 5.4 and the appendix follow it verbatim."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "PadicLocalLanglandsForGL2Qp",
+      "roadmap": "PadicLocalLanglandsForGL2QpPartIIGeometricRealisation",
+      "title": "P-adic local Langlands for GL₂(Q_p), Part II: the geometric realisation in the Drinfeld tower",
+      "area": "langlands",
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/7",
+        "PAPER-DOSPINESCU-LEBRAS-17/8",
+        "PAPER-DOSPINESCU-LEBRAS-17/34",
+        "PAPER-DOSPINESCU-LEBRAS-17/39",
+        "PAPER-DOSPINESCU-LEBRAS-17/41",
+        "PAPER-DOSPINESCU-LEBRAS-17/43",
+        "PAPER-DOSPINESCU-LEBRAS-17/44",
+        "PAPER-DOSPINESCU-LEBRAS-17/45",
+        "PAPER-DOSPINESCU-LEBRAS-17/46",
+        "PAPER-DOSPINESCU-LEBRAS-17/48",
+        "PAPER-DOSPINESCU-LEBRAS-17/49",
+        "PAPER-DOSPINESCU-LEBRAS-17/50",
+        "PAPER-DOSPINESCU-LEBRAS-17/53",
+        "PAPER-DOSPINESCU-LEBRAS-17/54",
+        "PAPER-DOSPINESCU-LEBRAS-17/55",
+        "PAPER-DOSPINESCU-LEBRAS-17/56",
+        "PAPER-DOSPINESCU-LEBRAS-17/57",
+        "PAPER-DOSPINESCU-LEBRAS-17/58",
+        "PAPER-DOSPINESCU-LEBRAS-17/59",
+        "PAPER-DOSPINESCU-LEBRAS-17/60",
+        "PAPER-DOSPINESCU-LEBRAS-17/61",
+        "PAPER-DOSPINESCU-LEBRAS-17/62",
+        "PAPER-DOSPINESCU-LEBRAS-17/63",
+        "PAPER-DOSPINESCU-LEBRAS-17/64",
+        "PAPER-DOSPINESCU-LEBRAS-17/66",
+        "PAPER-DOSPINESCU-LEBRAS-17/67",
+        "PAPER-DOSPINESCU-LEBRAS-17/68",
+        "PAPER-DOSPINESCU-LEBRAS-17/74",
+        "PAPER-DOSPINESCU-LEBRAS-17/75",
+        "PAPER-DOSPINESCU-LEBRAS-17/76",
+        "PAPER-DOSPINESCU-LEBRAS-17/77",
+        "PAPER-DOSPINESCU-LEBRAS-17/78",
+        "PAPER-DOSPINESCU-LEBRAS-17/79",
+        "PAPER-DOSPINESCU-LEBRAS-17/80",
+        "PAPER-DOSPINESCU-LEBRAS-17/81",
+        "PAPER-DOSPINESCU-LEBRAS-17/82",
+        "PAPER-DOSPINESCU-LEBRAS-17/83",
+        "PAPER-DOSPINESCU-LEBRAS-17/84",
+        "PAPER-DOSPINESCU-LEBRAS-17/85",
+        "PAPER-DOSPINESCU-LEBRAS-17/86",
+        "PAPER-DOSPINESCU-LEBRAS-17/87",
+        "PAPER-DOSPINESCU-LEBRAS-17/88"
+      ],
+      "brief": "This route coalesces with PadicLocalLanglandsForGL2QpPartIIGeometricRealisation, proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B and extended by PAPER-COLMEZ-DOSPINESCU-NIZIOL-23; keep its id, title, parent, area and brief. Dospinescu–Le Bras, 'Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique' (Ann. of Math. 186 (2017), 321–411; arXiv:1509.00606), is the de Rham layer of that roadmap: the Breuil–Strauch conjecture that PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B quotes as its Proposition 2.9 is proved here.\n\nFinal theorems, as the paper states them (π supercuspidal of GL_2(Q_p) with trivial central character, ρ = JL(π), n with ρ trivial on 1 + p^nO_D). Theorem 1.2: for every Π ∈ V(π) there is an isomorphism of topological G-modules, unique up to scalar, (O(Σ_n)^ρ)^* ≅ Π^an/Π^lisse. Theorem 1.4: there is a canonical (up to scalar) isomorphism of Fréchet G-modules H^1_dR(Σ_n)^ρ ≅ M_dR^* ⊗_L π^* such that for every L-line ℒ ⊂ M_dR the preimage of ℒ^⊥ ⊗ π^* in Ω^1(Σ_n)^ρ is isomorphic to (Π_ℒ^an)^*, the resulting sequence 0 → O(Σ_n)^ρ → (Π_ℒ^an)^* → π^* → 0 being dual to Theorem 1.2's. Theorem 1.7 (= 9.9): Π(π, 0)^* carries a unique O(Ω)-module structure in which z acts as the operator ∂ with a^+ − 1 = u^+∂. Theorem 1.9: (O(Σ_n)^ρ)^{(p,0;0,1)=1} is isomorphic to the D(Γ)-module of µ ∈ H^1(G_{Q_p}, D(Γ) ⊗ V) with ∫_{1+p^nZ_p} µ ∈ H^1_e(G_{F_n}, V) for all n. Theorem 1.10: an infinitely primitivable function on Σ_n lies in O(Ω).\n\nAdd, as the de Rham layer that the étale layers build on: (1) V(π), M(π), M_dR(π), N_rig(π) and the parametrization V(π) ≅ Proj(M_dR(π)) with the identifications (5); (2) for non-trianguline V, Lemma 6.3 and Colmez's Proposition 6.4 (∂ = t^{-1}∇ bijective on N_rig(V)); (3) the local tools: Dospinescu's infinitesimal action (Theorem 7.3) and Colmez's Kirillov model (Definition 7.4, Proposition 7.6, the pairing {}_dif of Proposition 7.7, Colmez's duality formula Theorem 7.8, Proposition 7.9 and Theorem 7.11); (4) Π(π, 0): Proposition 8.2, Theorem 8.3, Proposition 8.4, Colmez's Theorem 8.5, the sheaf U ↦ tN_rig(π) ⊠ U, Theorem 8.6 and Definition 8.7, with Colmez's topological irreducibility of Π(π, 0) as a cited input; (5) the operator ∂ and the O(Ω)-module structure (Proposition 9.1, Theorem 9.4, Propositions 9.6, 9.10, Theorem 9.7, the operators T_f, Theorem 9.9, Proposition 9.16); (6) Φ: its existence (Theorem 5.1 = 8.8), surjectivity (Theorem 10.1, with the coadmissibility of O(Σ_n) over D(G)) and injectivity (Π(π, 2), Propositions 11.1–11.2, Theorem 11.3, Proposition 11.6, Theorem 11.7, Corollary 11.9, Proposition 11.10); (7) the corollaries: Remark 11.12 (weights 0, k + 1), Remark 11.13 (the conjecture as Breuil and Strauch formulated it, for the first cover, via Teitelbaum's model, Grosse-Klönne's Hyodo–Kato theory and Saito) and Proposition 12.2 (Hom_{D^b(D(G))}((Π(V)^an)^*, RΓ_dR(Σ_n)^ρ[1]) = D_dR(V) as filtered spaces). Record as expectations, not targets: Conjecture 12.4 (the boundary-function sheaf F_π on P^1(Q_p) is Colmez's U ↦ tN_rig(π) ⊠ U, and 0 → Π(π, 0)^* → tN_rig(π) ⊠ P^1 → Π(π, 2) → 0 is 0 → O(Σ_n)^ρ → F_π(P^1) → (Ω^1(Σ_n)^ρ)^* → 0), the announced description of O(Σ_n)^ρ_∞ through B̃^+_rig (Remark 1.11), the Hyodo–Kato refinement of Remark 12.3, and the GL_2(F), GL_n(F) questions of Remark 1.3(b). Keep the hypotheses: π supercuspidal (essential, Remark 1.5; the trivial central character is not), Hodge–Tate weights 0 and 1.\n\nImport, never re-plan: PadicLocalLanglandsForGL2Qp R30.2–R30.5 (the Banach and locally analytic categories, the mod p correspondence, Colmez's D_rig(V) ⊠ P^1 with Theorem 7.1, the Colmez–Dospinescu–Paškūnas description of locally algebraic vectors, Colmez–Dospinescu's universal completions, Π^univ); PadicHodgeTheory R06.2–R06.3 (Colmez–Fontaine, Fontaine's Weil–Deligne functor, Berger's N_rig, with the Fontaine–Berger descriptions routed to R06.3); PhiGammaModulesAndIwasawaCohomology PG.2, PG.4, PG.5 (D_rig, ψ, and Colmez's Iwasawa-cohomology statements routed to PG.5); the proposed ProetaleCohomologyOfPAdicCurvesAndTowers (the tower Σ_n, Stein and de Rham theory, Theorem 4.1, the uniformisation Theorem 5.7, Morita duality, Kohlhaase's bundles, Proposition 10.11); the proposed LocallyAnalyticRepresentationsOfLocalGroups (Schneider–Teitelbaum, Frommer, Lemmas 5.9–5.10); CompletedCohomologyAndLocalGlobalCompatibility R31 (quaternionic local–global compatibility and Theorem 5.5); the proposed TriangulineVarietyAndItsLocalModel (trianguline representations); GL2AutomorphicRepresentationsAndTransfer R16.3, R17.1, R17.3 (classical local Langlands, local and global Jacquet–Langlands). Prerequisites: Colmez's JEMS paper on change of weight [21], Colmez–Dospinescu [24], Colmez–Dospinescu–Paškūnas [23], Dospinescu [28], [29]. Tests: Lemma 3.5's formulas on O(Ω); Theorem 9.7 for g = w (w∂w = ∂^{-1}); Theorem 1.4 for two distinct lines ℒ, ℒ′ recovering two non-isomorphic Π.",
+      "reason": "The pending Part II owns the geometric realisation of the p-adic correspondence for GL_2(Q_p) in the Drinfeld tower, and its étale statement quotes this paper's theorem as an input; the de Rham realisation is the first layer of the same roadmap, not a new direction."
+    },
+    {
+      "route": "new",
+      "roadmap": "ProetaleCohomologyOfPAdicCurvesAndTowers",
+      "title": "Pro-étale cohomology of p-adic curves and of the Drinfeld tower",
+      "area": "padic",
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/10",
+        "PAPER-DOSPINESCU-LEBRAS-17/11",
+        "PAPER-DOSPINESCU-LEBRAS-17/12",
+        "PAPER-DOSPINESCU-LEBRAS-17/13",
+        "PAPER-DOSPINESCU-LEBRAS-17/14",
+        "PAPER-DOSPINESCU-LEBRAS-17/15",
+        "PAPER-DOSPINESCU-LEBRAS-17/16",
+        "PAPER-DOSPINESCU-LEBRAS-17/17",
+        "PAPER-DOSPINESCU-LEBRAS-17/22",
+        "PAPER-DOSPINESCU-LEBRAS-17/32",
+        "PAPER-DOSPINESCU-LEBRAS-17/33",
+        "PAPER-DOSPINESCU-LEBRAS-17/65",
+        "PAPER-DOSPINESCU-LEBRAS-17/69",
+        "PAPER-DOSPINESCU-LEBRAS-17/70",
+        "PAPER-DOSPINESCU-LEBRAS-17/71",
+        "PAPER-DOSPINESCU-LEBRAS-17/72",
+        "PAPER-DOSPINESCU-LEBRAS-17/73"
+      ],
+      "brief": "This route coalesces with ProetaleCohomologyOfPAdicCurvesAndTowers, proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B and extended by PAPER-COLMEZ-DOSPINESCU-NIZIOL-23; keep its id, title, area and brief. Dospinescu–Le Bras (Ann. of Math. 186 (2017)), §§3–5, 9.2 and 10, supply the analytic and de Rham geometry of the Drinfeld tower over Q_p that the roadmap's tower layer and its global method use. Add: (1) the tower Σ_n, the model over Q_p of p^ℤ\\M̆_n with M̆_n = X^un[p^n] − X^un[ϖ_D^{2n−1}], its commuting G- and D^*-actions and Gal(Σ_n/Σ_0) = O_D^*/(1 + p^nO_D); (2) Stein spaces in any dimension: Fréchet(–Stein) structure, Kiehl's theorem, de Rham and compactly supported de Rham cohomology with Serre duality H^k_dR(X) ≅ H^{2d−k}_dR,c(X)^* (Grosse-Klönne, Chiarellotto), Proposition 3.1 and the G_i-stable Stein cover τ_n^{-1}(B_i); (3) the representation theory of functions on the tower: the twisted bundles O(k) with O(2) ⊗ det = Ω^1, Theorem 3.2 (O^{(k)}(Σ_n)^* is locally analytic) with Lemma 3.3, the formulas of Lemma 3.5, Proposition 3.6 and Remark 3.7 (H^1_dR,c of a smooth Stein curve with locally analytic action is smooth); (4) Theorem 4.1, dim Hom_G(π^*, H^1_dR(Σ_n)^ρ) = 2, by Čerednik–Drinfeld and the Hochschild–Serre spectral sequence with the degeneration of its ρ-part; (5) Theorem 5.7 with Lemma 5.8 (Hom_G(LA(X(K^p))^*, Ω^1(Σ_n)^ρ) ≅ Ω^1(Sh_K)^ρ) and Remark 5.11 (the Hodge filtration); (6) Morita duality O(Ω)^* ≅ St^an and its transpose µ ↦ ∫ µ(x)/(z − x); (7) Kohlhaase's Lubin–Tate and Drinfeld bundles and Theorem 10.5, the projectivity of O(Σ_n) over O(Ω), Lemma 10.2 and Propositions 10.3, 10.8, 10.10 (O(Σ_n)^ρ is topologically irreducible as a G-equivariant O(Ω)-module with scalar endomorphisms); (8) Proposition 10.11: a continuous O(X)-linear map with dense image from a Fréchet O(X)-module to a finitely generated projective module over a Stein space X is surjective. Import Drinfeld's theorem and the Čerednik–Drinfeld uniformisation from HilbertModularVarietiesAndShimuraCurves R18.5, the Lubin–Tate tower from EndoscopicTransferAndUnitaryTraceComparison ET.6a, the Schneider–Teitelbaum theory from the proposed LocallyAnalyticRepresentationsOfLocalGroups, and the Steinberg representations from the proposed DrinfeldSymmetricSpacesAndSteinbergCohomology.",
+      "reason": "The pending roadmap already plans the tower M^ϖ_n, the analysis of Stein curves (Kiehl, Serre duality, Steinberg descriptions of O(Ω) and Ω^1(Ω)), the de Rham computations of the tower and the global method by p-adic uniformisation; the paper's §§3–5 and 10 are the same objects over Q_p."
+    },
+    {
+      "route": "new",
+      "roadmap": "LocallyAnalyticRepresentationsOfLocalGroups",
+      "title": "Locally analytic representations of p-adic reductive groups",
+      "area": "representations",
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/89",
+        "PAPER-DOSPINESCU-LEBRAS-17/90",
+        "PAPER-DOSPINESCU-LEBRAS-17/91",
+        "PAPER-DOSPINESCU-LEBRAS-17/92"
+      ],
+      "brief": "This route coalesces with LocallyAnalyticRepresentationsOfLocalGroups, proposed by PAPER-DING-25 and extended by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20; keep its id, title, area and brief. Dospinescu–Le Bras (Ann. of Math. 186 (2017)) uses the Schneider–Teitelbaum theory for GL_2(Q_p) and needs four statements that belong in this roadmap in their general form: (1) the distribution algebra D(H), Fréchet–Stein algebras and coadmissible modules, with Schneider–Teitelbaum's Lemma 3.6 (a finitely generated submodule of a coadmissible module is coadmissible), closed images and closedness of finitely generated ideals, and the density of locally analytic vectors in admissible Banach representations; (2) Frommer's description of D_h(G) as a finite free module over the closure U_h(𝔤) of U(𝔤) for uniform pro-p G, which the paper uses to show that a differentiable action with bounded derivatives on a Banach space is locally analytic (proof of Theorem 3.2); (3) Lemma 5.9: for a locally analytic representation W of compact type and λ ∈ W^*, w ↦ (g ↦ λ(g.w)) is continuous W → LA(G) (via Schneider–Teitelbaum, JAMS 2002, Prop. 3.2); (4) Lemma 5.10: in a locally convex space over a spherically complete field a sequence tends to 0 if and only if it tends weakly to 0. Import the underlying locally convex functional analysis rather than re-plan it.",
+      "reason": "The pending roadmap plans the Schneider–Teitelbaum distribution algebra and coadmissible modules; the paper's uses of them are instances, and Frommer's theorem and Lemmas 5.9–5.10 are general facts of the same theory."
+    },
+    {
+      "route": "new",
+      "roadmap": "TriangulineVarietyAndItsLocalModel",
+      "title": "The trianguline variety and its local model",
+      "area": "padic",
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/38"
+      ],
+      "brief": "This route coalesces with TriangulineVarietyAndItsLocalModel, proposed by PAPER-BREUIL-HELLMANN-SCHRAEN-19 and extended by PAPER-DING-25 and PAPER-NEWTON-THORNE-21; keep its id, title, area and brief. Dospinescu–Le Bras (Ann. of Math. 186 (2017)) needs only the two-dimensional base case over Q_p, from Colmez's 'Représentations triangulines de dimension 2' (Astérisque 319, 2008): the definition of a trianguline representation (D_rig(V) an extension of rank-one (φ, Γ)-modules after a finite extension of coefficients) and Colmez's lemme 3.2, that for an absolutely irreducible non-trianguline V the Frobenius φ has no eigenvector on D_rig(V). Plan it as the dimension-two case of the roadmap's trianguline (φ, Γ)-modules.",
+      "reason": "The pending roadmap plans trianguline (φ, Γ)-modules and triangulations; Colmez's two-dimensional definition and eigenvector criterion are its base case, which no layer of the atlas owns."
+    },
+    {
+      "route": "source",
+      "roadmap": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "stages": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.2",
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4"
+      ],
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/18",
+        "PAPER-DOSPINESCU-LEBRAS-17/19",
+        "PAPER-DOSPINESCU-LEBRAS-17/23",
+        "PAPER-DOSPINESCU-LEBRAS-17/26",
+        "PAPER-DOSPINESCU-LEBRAS-17/27",
+        "PAPER-DOSPINESCU-LEBRAS-17/28",
+        "PAPER-DOSPINESCU-LEBRAS-17/31"
+      ],
+      "reason": "R31.1–R31.4 plan completed cohomology of modular and Shimura curves, its classical specialisations and Emerton's local–global compatibility (R31.4 names Emerton's unpublished manuscript). The paper writes out the same argument for the definite quaternion algebra B̄ split at p (the p-adic automorphic forms C^0(X) and Lemmas 4.4–4.7, the Hecke algebra and A, Theorem 5.4 with its appendix) and a globalisation of π (Theorem 5.5): the zero-dimensional case of those layers."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicHodgeTheory",
+      "stages": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/36",
+        "PAPER-DOSPINESCU-LEBRAS-17/37"
+      ],
+      "reason": "R06.3 plans the p-adic monodromy theorem and the bridge from de Rham representations to differential modules (RD.2 exports the analytic monodromy theorem to it). Berger's N_rig(V) and the Fontaine–Berger descriptions of D^+_dif, N^+_dif, N_rig and D_rig recalled in §6 are that bridge; the paper is a compact source for them."
+    },
+    {
+      "route": "source",
+      "roadmap": "PhiGammaModulesAndIwasawaCohomology",
+      "stages": [
+        "PhiGammaModulesAndIwasawaCohomology:PG.5"
+      ],
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/52"
+      ],
+      "reason": "PG.5 plans the ψ-complex and H^1_Iw ≅ D(T)^{ψ=1}. Colmez's D(Γ)-version over the Robba ring and his identification of (1 − φ)(tN_rig)^{ψ=1} with the Bloch–Kato-exponential subspace of H^1(G_{Q_p}, D(Γ) ⊗ V) are its analytic refinement."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "stages": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/40"
+      ],
+      "reason": "RD.1 plans differential modules over the Robba ring; Kedlaya's duality between the cokernel and the kernel of ∂ is a statement of that layer."
+    },
+    {
+      "route": "source",
+      "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+      "stages": [
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+      ],
+      "items": [
+        "PAPER-DOSPINESCU-LEBRAS-17/30"
+      ],
+      "reason": "R16.2 specialises local smooth representation theory to GL_2, including the explicit supercuspidal descriptions; Henniart's unicity of types for GL_2 is a statement of that layer."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/E1",
+      "kind": "misprint",
+      "locator": "§1.2, pp. 9–10 (arXiv v2); pp. 331–332 (Annals)",
+      "printed": "il induit un morphisme G-équivariant continu et surjectif Φ : Π(π, 2)^* → Ω^1(Σ_n) […] le morphisme Φ : Π(π, 2)^*/u^+(Π(π, 0))^* → Ω^1(Σ_n)/d(O(Σ_n)^ρ) est forcément un isomorphisme",
+      "correction": "Ω^1(Σ_n)^ρ in both places",
+      "reason": "Φ takes values in the ρ-isotypic part: it is induced by Φ : Π(π, 0)^* → O(Σ_n)^ρ, and the second display divides by d(O(Σ_n)^ρ). Ω^1(Σ_n) has the other isotypic components too, onto which Φ is not surjective. §11.3 (p. 63; Annals p. 383) writes Φ : Π(π, 2)^* → Ω^1(Σ_n)^ρ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+        "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+        "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+      ]
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/E2",
+      "kind": "misprint",
+      "locator": "§5.1, proof of Lemme 5.6, p. 27 (arXiv v2); p. 351 (Annals)",
+      "printed": "Soit χ un caractère de Hecke χ de F tel que η̄_p = ω_2^{r+1}, χ_∞(z) = z^{−1} et χ_ℓ choisi de sorte que […]",
+      "correction": "χ̄_p = ω_2^{r+1} (a condition on the reduction of χ's component at p)",
+      "reason": "The only character in the construction is χ, and η is not defined anywhere in the proof; the condition must prescribe χ at p so that the induced representation has r̄_p = Ind ω_2^{r+1}, which is what the preceding sentence asks for.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+        "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+        "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+      ]
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/E3",
+      "kind": "misprint",
+      "locator": "§11.2, proof of Lemme 11.4, p. 59 (arXiv v2); p. 391 (Annals)",
+      "printed": "On conclut en utilisant les égalités i_{j,n}(L) = α_dif(i_{j,n}(l)) et Ψ_V(v_1) = α_dif^{−1}(i_{V,α}(v)).",
+      "correction": "Ψ_V(v_1) = α_dif^{−1}(ι_{V,α}(v))",
+      "reason": "The embedding defined on p. 58 (Annals p. 390) and used in the statement of the lemma is ι_{V,α} = α_dif ∘ Ψ_V ∘ ξ_{V,α}; no map i_{V,α} is defined, and the i_{j,n} in the same line are different maps.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+        "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+        "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+      ]
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/E4",
+      "kind": "misprint",
+      "locator": "§11.2, proof of Proposition 11.6, p. 61 (arXiv v2); p. 392 (Annals)",
+      "printed": "Ainsi, F est équivariante pour l'action du Borel B de G et il suffit de tester que d(wl) = wd(l) pour l ∈ (Π^an)^*.",
+      "correction": "Ainsi, d est équivariante pour l'action du Borel B de G […]",
+      "reason": "The map being checked is d : (Π^an)^* → Π(π, 2)^*, so named at the start of the proof and in the same sentence; no F occurs in this proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+        "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+        "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+      ]
+    },
+    {
+      "id": "PAPER-DOSPINESCU-LEBRAS-17/E5",
+      "kind": "misprint",
+      "locator": "§11.2, proof of Théorème 11.7, p. 62 (arXiv v2); p. 393 (Annals)",
+      "printed": "Fixons des isomorphismes Π(π, 0) ≃ Π(V_1)^an/Π(V_2)^lisse et Π(π, 0) ≃ Π(V_2)^an/Π(V_2)^lisse.",
+      "correction": "Π(π, 0) ≃ Π(V_1)^an/Π(V_1)^lisse",
+      "reason": "Π(V_2)^lisse is not a subspace of Π(V_1)^an; the isomorphisms meant are those of Définition 8.7 and Proposition 11.6 for each V_j, as the next sentence uses them.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2017.186.2.1: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2017.186.2.1, 23 September 2026)",
+        "arXiv 1509.00606: v1 (2 September 2015) and v2 (28 April 2017, 'Final version, to appear in the Annals of Math'); v2 has the recorded passages",
+        "The Annals article page (Ann. of Math. 186 (2017), no. 2, 321–411), 23 September 2026: no erratum listed; the published PDF was compared and has every recorded passage"
+      ]
+    }
+  ]
+}
