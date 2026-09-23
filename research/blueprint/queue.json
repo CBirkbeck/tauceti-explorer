@@ -2446,8 +2446,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1157"
+   "state": "external",
+   "note": "claimed on GitHub issue #1157"
   },
   {
    "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -6596,8 +6596,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1395"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1395",
+   "finishedAt": "2026-09-23T06:35:57Z"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
