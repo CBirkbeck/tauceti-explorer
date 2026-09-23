@@ -4129,8 +4129,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -6716,8 +6716,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1400"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1400",
+   "finishedAt": "2026-09-23T10:45:09Z"
   },
   {
    "id": "REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -6752,8 +6753,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1402"
+   "state": "pending",
+   "note": "released on GitHub issue #1402"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
@@ -8080,7 +8081,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2166"
   },
   {
    "id": "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
@@ -8262,8 +8264,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2182"
+   "state": "pending",
+   "note": "released on GitHub issue #2182"
   },
   {
    "id": "REV-PAPER-BHATT-18",
@@ -8372,8 +8374,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2188"
+   "state": "external",
+   "note": "claimed on GitHub issue #2188"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
