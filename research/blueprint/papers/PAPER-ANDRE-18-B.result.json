@@ -1,7 +1,7 @@
 {
  "paper": "PAPER-ANDRE-18-B",
  "protocol": "paper-v1",
- "status": "partial",
+ "status": "complete",
  "source": {
   "title": "La conjecture du facteur direct",
   "authors": "Yves André",
@@ -21,9 +21,9 @@
    "Appendix A.1–A.4, pp.89–92",
    "Bibliography, pp.92–93"
   ],
-  "readingNote": "Codex — codex-hjdg0j read all 23 published pages in this continuation and recalculated the recorded SHA-256 from its own earlier Numdam download. Compared arXiv v1 pp.14–15 at the appendix/bibliography locators; the v1 was read in full earlier in this session. Full reading is not full extraction: status remains partial. Claude Code — cc-7b31c4 read all 23 published pages again in this continuation with a font-aware extraction built from the PDF's own /Differences and /ToUnicode tables, so §§0.1, 1.2, 2.3–2.4 and 2.6.1 could be quoted as printed rather than from a lossy text layer, and recomputed the recorded SHA-256 from a fresh Centre Mersenne download (the Numdam and Centre Mersenne files agree). The arXiv v1 LaTeX source was read at the corresponding passages to date the §0.1 renumbering. Full reading is still not full extraction: status remains partial."
+  "readingNote": "Codex — codex-hjdg0j read all 23 published pages in this continuation and recalculated the recorded SHA-256 from its own earlier Numdam download. Compared arXiv v1 pp.14–15 at the appendix/bibliography locators; the v1 was read in full earlier in this session. Full reading is not full extraction: status remains partial. Claude Code — cc-7b31c4 read all 23 published pages again in this continuation with a font-aware extraction built from the PDF's own /Differences and /ToUnicode tables, so §§0.1, 1.2, 2.3–2.4 and 2.6.1 could be quoted as printed rather than from a lossy text layer, and recomputed the recorded SHA-256 from a fresh Centre Mersenne download (the Numdam and Centre Mersenne files agree). The arXiv v1 LaTeX source was read at the corresponding passages to date the §0.1 renumbering. Full reading is still not full extraction: status remains partial. Claude Code — cc-442dc5 read all 23 published pages again from a fresh Numdam download (same SHA-256), and inspected page images of pp.80, 81, 84–88 where the text layer drops ≠ and ⊄. It read the cited passages of the companion, Scholze 2012, Gabber–Ramero and Heitmann–Ma listed in sourceReadings."
  },
- "summary": "Fifth partial checkpoint: closed most of G0 by extracting the paper's own unextracted text — the §0.1 homological reformulations, the §0.2 easy cases, the §1.2 uniform-Banach and Weierstrass-localisation facts with the discrete and dense valuation cases separated, the §2.3–2.4 integral-closure and spectral-norm inputs, the §2.6.1 variants, and the exact arbitrary-index form of A.2.1 product stability — 34 new items, each routed into an existing route. Three pinned-library absences are now precise, including that TensorProduct.piRight holds only for a finite index type. E13–E15 record the footnote's one-sided arrows, the π-versus-λ torsion reduction and a typographical slip. G1–G7 remain open at their stated boundaries and the earlier held claims stand; this is not full extraction, a final routing decision, an independent review or a Lean implementation.",
+ "summary": "André proves Hochster's direct summand conjecture: every finite extension of a Noetherian regular ring splits (0.1.1), through Hochster's reduction to W(k)[[T_1,…,T_n]] (0.2.1). He also proves that every Noetherian local ring has a balanced big Cohen–Macaulay algebra (0.7.1), that finite covers of regular rings are dominated by faithfully flat algebras (0.7.2) and a Cohen–Macaulay descent theorem for pure maps to regular rings with separable residue extension (4.4.2). The key new inputs are the almost faithful flatness of the normalized Kummer tower Â°_∞∞ over A°_∞0 (2.5.2), proved by thickening along tubular neighbourhoods of T = g and descending to Noetherian stages, and a fragment of the companion's perfectoid Abhyankar lemma (3.2.1). The annihilator Lemma 1.1.2 and an Artinian Mittag–Leffler argument then turn almost statements modulo p^m into an honest retraction. The atlas plans the perfectoid and almost-mathematics foundations (PerfectoidSpaces P0–P2), finite depth and Cohen–Macaulay theory (R03.3) and flatness of rational localisations (Tau Ceti AdicSpaces). It lacks ordinary purity, the direct-summand and big-Cohen–Macaulay direction, Hochster's modifications, coherent rings, Cohen structure and the Kummer-tower ramification theory. These are routed to a new DirectSummandsAndBigCohenMacaulay roadmap and to the PerfectoidRamification Part II already proposed by the companion. The extraction is complete: 188 items, every missing item routed once, 24 recorded source findings awaiting review (among them an error in the proof of 0.7.2 with its repair, E20, and the appendix duality problems E4, E5 and E21).",
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -619,7 +619,8 @@
    "locator": "Lemma A.1.1(4), p.89",
    "status": "missing",
    "dependencies": [
-    "PAPER-ANDRE-18-B/pure-filtered-split"
+    "PAPER-ANDRE-18-B/pure-filtered-split",
+    "PAPER-ANDRE-18-B/tor-filtered-colimit"
    ]
   },
   {
@@ -743,7 +744,11 @@
    "name": "Completion of a flat algebra over a Noetherian base",
    "statement": "Let R be commutative Noetherian, I an ideal, and S an R-flat commutative R-algebra, not necessarily Noetherian or I-adically separated. The separated I-adic completion of S is R-flat.",
    "locator": "Lemma 1.1.1, p.75",
-   "status": "missing"
+   "status": "missing",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/artin-rees",
+    "PAPER-ANDRE-18-B/eventual-range-surjective"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/finite-module-completion-basechange",
@@ -762,7 +767,8 @@
    "status": "missing",
    "dependencies": [
     "PAPER-ANDRE-18-B/flat-algebra-completion",
-    "PAPER-ANDRE-18-B/finite-module-completion-basechange"
+    "PAPER-ANDRE-18-B/finite-module-completion-basechange",
+    "PAPER-ANDRE-18-B/nakayama"
    ]
   },
   {
@@ -771,7 +777,12 @@
    "name": "Contracting an idempotent annihilator",
    "statement": "Let R be Noetherian, M finite over R, S faithfully flat over R, and K⊂S an ideal with K²=K and K(M⊗_R S)=0. For every s∈R whose image lies in K, there is r∈Ann_R(M) with (1−r)s=0.",
    "locator": "Lemma 1.1.2, pp.75–76",
-   "status": "missing"
+   "status": "missing",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/flat-annihilator",
+    "PAPER-ANDRE-18-B/krull-intersection",
+    "PAPER-ANDRE-18-B/faithfully-flat-iff-pure-flat"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/idempotent-annihilator-local",
@@ -965,7 +976,10 @@
    "planned": [
     "PerfectoidSpaces:P0"
    ],
-   "note": "Import PAPER-ANDRE-18/1.6-flatness-transport, citing Gabber–Ramero 3.1.3. Exact supplier verification remains G1."
+   "note": "Import PAPER-ANDRE-18/1.6-flatness-transport. Source check (cc-442dc5): Gabber–Ramero arXiv:math/0201175v3 Remark 3.1.3(ii): A ↦ A_!! does not preserve flatness in general, but preserves faithful flatness (φ is a monomorphism iff φ_!! is injective, and B_!!/A_!! ≅ B_!/A_!, flat over A_!! iff B/A is flat over A).",
+   "imports": [
+    "PAPER-ANDRE-18/1.6-flatness-transport"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/almost-reframing",
@@ -977,7 +991,10 @@
    "planned": [
     "PerfectoidSpaces:P0"
    ],
-   "note": "Import PAPER-ANDRE-18/1.5-reframing; each application proves equality of generated ideals, not just containment."
+   "note": "Import PAPER-ANDRE-18/1.5-reframing; each application proves equality of generated ideals, not just containment.",
+   "imports": [
+    "PAPER-ANDRE-18/1.5-reframing"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/cyclotomic-perfectoid-field",
@@ -1001,7 +1018,7 @@
    "planned": [
     "PerfectoidSpaces:P2"
    ],
-   "note": "The cited input is Scholze 2012 Lemma 6.4. Do not assert equality of integral rings; exact source check remains G1."
+   "note": "The cited input is Scholze 2012 Lemma 6.4(ii), read in the published version (p.281): for U = U(f_1,…,f_n/g) ⊆ Spa(R^♭, R^(♭+)) rational with f_i, g ∈ R^(♭°) and f_n = ϖ^(♭N), O_X(U)°^a = R°⟨(f_1^♯/g^♯)^(1/p^∞),…,(f_n^♯/g^♯)^(1/p^∞)⟩^a. André applies it to numerators f_i^♭, ϖ^(♭i) and denominator ϖ^(♭i). This is why f_i must be an untilt (tube-sharp-approximation). The conclusion is an almost isomorphism, not an equality of integral rings."
   },
   {
    "id": "PAPER-ANDRE-18-B/normalized-kummer-tower",
@@ -1073,7 +1090,10 @@
    "statement": "For the tower above, C=Â_∞0 and a pseudouniformizer ϖ of the completed K_∞, Â_∞∞°^a is canonically isomorphic to the completed colimit over i of (C〈U^(1/p^∞)〉{(U−g)/ϖ^i})°^a in the valuation almost base (K_∞°,K_∞°°).",
    "locator": "Lemma 2.5.1, formula (9), p.79",
    "status": "missing",
-   "note": "Reuse PAPER-ANDRE-18/2.9.3-root-as-colimit in PerfectoidRamification with an explicit normalization/completion adapter, not a second generic root algebra."
+   "note": "Reuse PAPER-ANDRE-18/2.9.3-root-as-colimit in PerfectoidRamification with an explicit normalization/completion adapter, not a second generic root algebra. The companion's Corollary 2.9.3 (formula (2.32)) was read in the published version, p.34: ucolim_i A⟨T^(1/p^∞)⟩{(T−g)/ϖ^i}^u ≅ A⟨g^(1/p^∞)⟩ with the unit-ball form ((colim_i …°)^)_* ≅ A⟨g^(1/p^∞)⟩°.",
+   "imports": [
+    "PAPER-ANDRE-18/2.9.3-root-as-colimit"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/kummer-almost-flat",
@@ -1082,12 +1102,16 @@
    "statement": "For the normalized tower, Â_∞∞° is almost faithfully flat over A_∞0° in the valuation almost base (K_∞°,K_∞°°).",
    "locator": "Theorem 2.5.2, pp.79–82",
    "status": "missing",
-   "note": "The almost ideal here does not involve g. This specified extension is not identified without proof with the existential cover in PerfectoidQuotients:Q3.",
+   "note": "The almost ideal here does not involve g. This specified extension is not identified without proof with the existential cover in PerfectoidQuotients:Q3. Proof spine (cc-442dc5): coordinate-tower-perfectoid; tube-sharp-approximation (Scholze 6.7(i)); root-localisation-colimit (Scholze 6.4); noetherian-stage-model; flatness-by-fibres with generic-fibre-flat and special-fibre-free; noetherian-stage-faithfully-flat; colimit-base-flatness and faithful-completion; tube-almost-faithfully-flat; one more completed colimit over i and kummer-tube-comparison.",
    "dependencies": [
     "PAPER-ANDRE-18-B/coordinate-tower-flat",
     "PAPER-ANDRE-18-B/kummer-tube-comparison",
     "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
-    "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint"
+    "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint",
+    "PAPER-ANDRE-18-B/tube-almost-faithfully-flat",
+    "PAPER-ANDRE-18-B/coordinate-tower-perfectoid",
+    "PAPER-ANDRE-18-B/colimit-base-flatness",
+    "PAPER-ANDRE-18-B/faithful-completion"
    ]
   },
   {
@@ -1097,10 +1121,14 @@
    "statement": "For every finite pair (j,k) in the tower, A_j0°→A_jk° is pure.",
    "locator": "Corollary 2.6.1, p.82",
    "status": "missing",
-   "note": "Needs coherence of the finite-flat union, finite-presentation descent of annihilators and 1.1.2; almost injectivity alone is insufficient.",
+   "note": "Needs coherence of the finite-flat union, finite-presentation descent of annihilators and 1.1.2; almost injectivity alone is insufficient. Proof checked (cc-442dc5): N ⊆ ker(P → P ⊗ A°_∞∞) is finitely presented because A°_∞0 is coherent; its annihilator I is finitely generated, contains K°°_∞ and descends to I_j ⊂ A°_j0; Lemma 1.1.2 with K = A°°_∞0, which meets A°_j0 in a nonzero ideal, gives I_j = A°_j0.",
    "dependencies": [
     "PAPER-ANDRE-18-B/kummer-almost-flat",
-    "PAPER-ANDRE-18-B/idempotent-annihilator-local"
+    "PAPER-ANDRE-18-B/idempotent-annihilator-local",
+    "PAPER-ANDRE-18-B/flat-colimit-coherent",
+    "PAPER-ANDRE-18-B/fp-ideal-descent",
+    "PAPER-ANDRE-18-B/almost-pure-left-factor",
+    "PAPER-ANDRE-18-B/coordinate-tower-flat"
    ]
   },
   {
@@ -1119,7 +1147,7 @@
    "statement": "Set C°=Â_∞∞°. Relative to (A_∞0°,K_∞°°A_∞0°), the algebra left adjoint S=(C°^a)_!! identifies with the subalgebra A_∞0°+K_∞°°C° of C°. It is faithfully flat over A_∞0° and A.",
    "locator": "§3.1, p.83",
    "status": "missing",
-   "note": "S contains and is stable under multiplication by (ϖg)^(1/p^h); this does not say that it contains each g-root separately.",
+   "note": "S contains and is stable under multiplication by (ϖg)^(1/p^h); this does not say that it contains each g-root separately. Source check (cc-442dc5): in Gabber–Ramero arXiv v3, B_!! is defined in 2.2.23 by the right-exact sequence (2.2.24) 0 → m̃ → V ⊕ B_! → B_!! → 0, exact when m̃ ≅ m (Remark 2.2.26); André's ‘formule (2.2.26)’ is this construction (the LNM numbering was not checked). The map B_!! → B_* is injective here because B_!! is flat and m is a union of principal ideals generated by non-zero-divisors of A°_∞0, which identifies B_!! with A°_∞0 + K°°_∞ Â°_∞∞.",
    "uses": [
     {
      "where": "3.2.2 and 3.3",
@@ -1216,7 +1244,9 @@
    ],
    "implementationStatus": "unchecked",
    "dependencies": [
-    "PAPER-ANDRE-18-B/actual-flat-model"
+    "PAPER-ANDRE-18-B/actual-flat-model",
+    "PAPER-ANDRE-18-B/discriminant-element",
+    "PAPER-ANDRE-18-B/kummer-perfectoid"
    ]
   },
   {
@@ -1226,7 +1256,16 @@
    "statement": "In the preceding setup, C°/p^m→D/p^m is almost faithfully flat, hence almost pure, for every m≥1, in the base (K_∞°[U^(1/p^∞)],U^(1/p^∞)K_∞°°[U^(1/p^∞)]) acting by U^(1/p^h)↦g^(1/p^h).",
    "locator": "Theorem 3.2.1, p.83",
    "status": "missing",
-   "note": "Import the faithful finite-extension specialization of the companion’s Abhyankar theorem, including nonzero fibres. PAPER-ANDRE-18/5.2.3-mod-p is a related supplier whose exact hypotheses still need comparison."
+   "note": "Import the companion's Theorem 0.3.1 (published pp.2–3, read): (1) B° is almost the integral closure of g^(−1/p^∞)A° in B′, (2) B°/p^m is almost finite étale over A°/p^m, (3) the trace is almost surjective onto g^(−1/p^∞)A° when B′ is faithful. Faithful flatness, which 0.3.1 does not state, is abhyankar-faithfulness; footnote 4 (the Galois case suffices) is galois-closure-reduction.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/abhyankar-faithfulness",
+    "PAPER-ANDRE-18-B/galois-closure-reduction",
+    "PAPER-ANDRE-18-B/kummer-perfectoid"
+   ],
+   "imports": [
+    "PAPER-ANDRE-18/5.2.3-mod-p",
+    "PAPER-ANDRE-18/5.3.1-trace"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/almost-pure-finite-basechange",
@@ -1264,7 +1303,10 @@
     "PAPER-ANDRE-18-B/almost-pure-finite-basechange",
     "PAPER-ANDRE-18-B/almost-ext-class",
     "PAPER-ANDRE-18-B/flat-ext-basechange",
-    "PAPER-ANDRE-18-B/idempotent-annihilator-local"
+    "PAPER-ANDRE-18-B/idempotent-annihilator-local",
+    "PAPER-ANDRE-18-B/mod-p-power-injective",
+    "PAPER-ANDRE-18-B/reduction-to-domain",
+    "PAPER-ANDRE-18-B/discriminant-element"
    ]
   },
   {
@@ -1479,10 +1521,13 @@
    "statement": "If a Noetherian local ring B of residue characteristic p has an almost big Cohen–Macaulay algebra for one parameter system and a compatible root system of a nonzerodivisor, then B admits a balanced big Cohen–Macaulay algebra.",
    "locator": "Proposition 4.1.2, p.85",
    "status": "missing",
-   "note": "Hochster’s bounded partial modifications and Bartijn–Strooker balancing by completion remain suppliers in G4. No strengthened factorization through the original D is asserted.",
+   "note": "Proof: almost-cm-no-bad-sequence, then no-bad-sequence-criterion gives C_x(B), then completion-balances. The parenthetical claim that B → D factors through the colimit is not established and not used (E19).",
    "dependencies": [
     "PAPER-ANDRE-18-B/almost-big-cm",
-    "PAPER-ANDRE-18-B/big-cm-balanced"
+    "PAPER-ANDRE-18-B/big-cm-balanced",
+    "PAPER-ANDRE-18-B/almost-cm-no-bad-sequence",
+    "PAPER-ANDRE-18-B/no-bad-sequence-criterion",
+    "PAPER-ANDRE-18-B/completion-balances"
    ]
   },
   {
@@ -1522,12 +1567,16 @@
    "statement": "Every commutative Noetherian local ring B has a balanced big Cohen–Macaulay B-algebra.",
    "locator": "Theorem 0.7.1, p.74; §4.2, p.86",
    "status": "missing",
-   "note": "Equal-characteristic existence and the completion/minimal-prime/coefficient-enlargement reductions are separate inputs.",
+   "note": "Reductions are big-cm-reductions (minimal prime, completion, nilradical, perfect residue field), cohen-parameter-presentation and discriminant-element; the equal-characteristic case is Hochster's and is a prerequisite.",
    "dependencies": [
     "PAPER-ANDRE-18-B/almost-to-balanced-cm",
     "PAPER-ANDRE-18-B/almost-cm-mod-parameter-criterion",
     "PAPER-ANDRE-18-B/abhyankar-mod-p",
-    "PAPER-ANDRE-18-B/actual-flat-model"
+    "PAPER-ANDRE-18-B/actual-flat-model",
+    "PAPER-ANDRE-18-B/big-cm-reductions",
+    "PAPER-ANDRE-18-B/cohen-parameter-presentation",
+    "PAPER-ANDRE-18-B/discriminant-element",
+    "PAPER-ANDRE-18-B/ramified-integral-closure"
    ]
   },
   {
@@ -1553,10 +1602,13 @@
    "statement": "Let R be commutative Noetherian regular and R⊂S a finite extension. There exists a commutative S-algebra T such that R→T is faithfully flat.",
    "locator": "Theorem 0.7.2, p.75; §4.3, p.87",
    "status": "missing",
-   "note": "Neither finiteness of T nor S-flatness is asserted. Complete at maximal ideals, normalize, take big CM algebras and their product; flatness of the possibly infinite product uses R Noetherian.",
+   "note": "Neither finiteness of T nor S-flatness is asserted. Use only the factors S_(m,i) that receive R̂_m injectively (E20): the printed proof takes all factors, and a factor of smaller dimension has a big CM algebra that is not flat over R̂_m. At least one such factor exists for each m by lying over, so T = ∏ T_(m,i) over these factors is flat by product-flat-noetherian and satisfies mT ≠ T.",
    "dependencies": [
     "PAPER-ANDRE-18-B/big-cm-existence",
-    "PAPER-ANDRE-18-B/regular-big-cm-flat"
+    "PAPER-ANDRE-18-B/regular-big-cm-flat",
+    "PAPER-ANDRE-18-B/complete-local-normalization",
+    "PAPER-ANDRE-18-B/product-flat-noetherian",
+    "PAPER-ANDRE-18-B/faithfully-flat-proper-ideal"
    ]
   },
   {
@@ -1566,7 +1618,12 @@
    "statement": "For a local map β:B→B′ of complete local domains of mixed characteristic (0,p), suppose B→D, B′→D′ and δ:D→D′ form a commutative square, D and D′ are almost big CM for chosen parameter systems and root systems π_h and π′_h, and δ(π_h) divides π′_h for every h. Then there is a commutative square over β whose vertical targets are balanced big CM algebras C and C′.",
    "locator": "Proposition 4.4.1, p.87",
    "status": "missing",
-   "note": "Use B′ in the primed triple (E3). This is existential compatibility, not a canonical functor; the two-ring modification proof remains G4."
+   "note": "Use B′ in the primed triple (E3). Existential compatibility, not a canonical functor. Proof by the two-ring version of the modification technique: double sequences of partial modifications over β (Heitmann–Ma Theorem 1.6, from Hochster 2002 Theorem 4.2), with hochster-key-lemma applied on both sides and the divisibility δ(π^(1/p^m)) | π′^(1/p^m) to compare denominators.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/hochster-key-lemma",
+    "PAPER-ANDRE-18-B/modification-sequence",
+    "PAPER-ANDRE-18-B/completion-balances"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/pure-regular-target-cm",
@@ -1575,11 +1632,15 @@
    "statement": "If B→B′ is a pure local extension of Noetherian local rings of mixed characteristic (0,p), B′ is regular, and the residue-field extension is separable, then B is Cohen–Macaulay.",
    "locator": "Theorem 4.4.2, p.88",
    "status": "missing",
-   "note": "Do not remove residue separability by citing later work mentioned in §0.8. Completion, compatible roots and descent remain G5.",
+   "note": "Proof: complete (purity-perfect-residue, cm-completion); B̂ ⊆ B̂′ is a domain because B̂′ is a regular local ring; weak-functoriality-regular-target gives the square; hh-cm-descent concludes. Keep residue separability, which this proof uses; later work that removes it (§0.8) is not imported.",
    "dependencies": [
     "PAPER-ANDRE-18-B/weak-functorial-cm",
     "PAPER-ANDRE-18-B/pure-local-completion",
-    "PAPER-ANDRE-18-B/finite-cm-substrate"
+    "PAPER-ANDRE-18-B/finite-cm-substrate",
+    "PAPER-ANDRE-18-B/purity-perfect-residue",
+    "PAPER-ANDRE-18-B/cm-completion",
+    "PAPER-ANDRE-18-B/weak-functoriality-regular-target",
+    "PAPER-ANDRE-18-B/hh-cm-descent"
    ]
   },
   {
@@ -2348,7 +2409,7 @@
     "Over the complete base, correct-direction duality gives a nonzero ordinary dual; the contracting-endomorphism argument splits the absolute integral closure.",
     "Apply this to all coefficient/coordinate root extensions required by 2.9, then obtain CE, monomial noncontainment and the finite splitting criterion. Descend back to the initial ring."
    ],
-   "note": "The cited theorem and proof are now read. This records the actual reduction, not a claim that its full library/prerequisite decomposition is closed: G3 enumerates remaining coefficient, root-complex and socle adapters. In particular fixed-dimension reduction is not used to deduce a different dimension."
+   "note": "The cited theorem and proof are now read. This records the actual reduction, not a claim that its full library/prerequisite decomposition is closed: G3 enumerates remaining coefficient, root-complex and socle adapters. In particular fixed-dimension reduction is not used to deduce a different dimension. The extraction of André's paper records this reduction as the cited theorem it uses. Splitting Hochster's own proof (2.10–2.17, the 1973 socle criterion, coefficient enlargement) is the extraction of Hochster 1983 itself, listed under prerequisites."
   },
   {
    "id": "PAPER-ANDRE-18-B/secant-sequence",
@@ -2683,7 +2744,10 @@
      "statement": "Formula (1) is compatible with completed base change along a map of uniform Banach algebras carrying f to f."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "imports": [
+    "PAPER-ANDRE-18/2.6.1-closed-ideal"
+   ]
   },
   {
    "id": "PAPER-ANDRE-18-B/weierstrass-nonzerodivisor",
@@ -2973,6 +3037,716 @@
     "PAPER-ANDRE-18-B/pure-fp-test",
     "PAPER-ANDRE-18-B/fp-tensor-arbitrary-product"
    ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/artin-rees",
+   "kind": "theorem",
+   "name": "Artin–Rees lemma",
+   "statement": "Let R be a Noetherian ring, I an ideal, M a finite R-module and N a submodule. There is k such that for every n ≥ k, I^n M ∩ N = I^(n−k)(I^k M ∩ N).",
+   "locator": "Lemma 1.1.1 proof, p.75",
+   "status": "library",
+   "library": [
+    "mathlib:Ideal.exists_pow_inf_eq_pow_smul"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/Filtration.lean:388, stated for submodules of a finite module over a Noetherian ring. André uses it to make 0 → M1/I^(n−m)N1 → M2/I^n M2 → M3/I^n M3 → 0 exact."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/krull-intersection",
+   "kind": "theorem",
+   "name": "Krull intersection theorem",
+   "statement": "Let R be a Noetherian ring, J an ideal and M a finite R-module. An element x ∈ M lies in ⋂_n J^n M if and only if (1 − r)x = 0 for some r ∈ J. In particular ⋂_n J^n = 0 when R is local and J is proper.",
+   "locator": "Lemma 1.1.2 proof, p.76; Lemma A.2.2 proof, p.90",
+   "status": "library",
+   "library": [
+    "mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff",
+    "mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/Filtration.lean:392 (the r • x = x form, which is the (1 − r)x = 0 form André uses) and :431 (the local case)."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/nakayama",
+   "kind": "theorem",
+   "name": "Nakayama's lemma",
+   "statement": "Let R be a ring, I an ideal contained in the Jacobson radical and N a finitely generated R-module. If N ⊆ I N then N = 0.",
+   "locator": "Lemma 1.1.1 proof, p.76; Proposition A.3.1 proof, p.91",
+   "status": "library",
+   "library": [
+    "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/Nakayama.lean:118 (Submodule form N ≤ I • N ⇒ N = ⊥ for I ≤ jacobson ⊥)."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/faithfully-flat-proper-ideal",
+   "kind": "theorem",
+   "name": "Faithful flatness by proper ideals",
+   "statement": "An R-module M is faithfully flat if and only if it is flat and I M ≠ M for every proper ideal I of R. For a local ring R it suffices that M be flat and m_R M ≠ M.",
+   "locator": "Theorem 2.5.2 proof, p.81; §4.3, p.87",
+   "status": "library",
+   "library": [
+    "mathlib:Module.FaithfullyFlat.iff_flat_and_proper_ideal"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean:73. The local form follows because every proper ideal lies in m_R."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/lying-over",
+   "kind": "theorem",
+   "name": "Lying over for integral extensions",
+   "statement": "Let R → S be an integral ring map, P a prime of R and I an ideal of S with I ∩ R ⊆ P. There is a prime Q ⊇ I of S with Q ∩ R = P. In particular an injective integral map from a domain has a prime of S over (0).",
+   "locator": "§3.1, p.83 (reduction to a domain); §4.3, p.87",
+   "status": "library",
+   "library": [
+    "mathlib:Ideal.exists_ideal_over_prime_of_isIntegral"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/Ideal/GoingUp.lean:327, namespace Ideal, no domain hypothesis on S."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/integral-closure-finite",
+   "kind": "theorem",
+   "name": "Finiteness of the integral closure in a separable extension",
+   "statement": "Let A be an integrally closed Noetherian domain with fraction field K, L a finite separable extension of K and C the integral closure of A in L. Then C is a finite A-module.",
+   "locator": "§3.1, p.83 (passage to a Galois extension); used through galois-closure-reduction",
+   "status": "library",
+   "library": [
+    "mathlib:IsIntegralClosure.finite"
+   ],
+   "note": "Read at the pin: Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean:175. In André's use K has characteristic 0, so separability is automatic."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/mod-p-power-injective",
+   "kind": "theorem",
+   "name": "Reduction modulo p^m stays injective",
+   "statement": "Let A be a domain with p ≠ 0 in A that is integrally closed in A[1/p], and let A → B be an injective integral ring map. Then p^m B ∩ A = p^m A for every m ∈ N; equivalently A/p^m A → B/p^m B is injective.",
+   "locator": "§3.1, p.83 (“Comme A est intégralement fermé dans A[1/p], A/p^m → B/p^m est injectif”)",
+   "status": "missing",
+   "note": "Proof: if a = p^m b with b ∈ B, the monic equation of b over A, read in B[1/p], is satisfied by a/p^m ∈ A[1/p]; since A[1/p] → B[1/p] is injective the equation holds in A[1/p], so a/p^m is integral over A and lies in A. A = W(k)[[T_1,…,T_n]] is a regular local ring, hence normal."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/reduction-to-domain",
+   "kind": "theorem",
+   "name": "Reduction of the direct summand problem to a finite domain extension",
+   "statement": "Let A be a domain and A → B an injective finite ring map. There is a prime P of B with P ∩ A = 0, so A → B/P is an injective finite map to a domain, and if A → B/P is pure (respectively split) then so is A → B. When A has characteristic 0, B/P is p-torsion-free and reduced.",
+   "locator": "§3.1, p.83 (“on peut supposer B réduit et sans p-torsion (on peut en fait supposer B intègre [13, lemma 3])”)",
+   "status": "missing",
+   "note": "The retraction of A → B/P composed with B → B/P is a retraction of A → B; for purity use pure-left-factor. This is the form of Hochster 1973 Lemma 3 André cites; the stronger reduced/p-torsion-free normalisation is a consequence.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/lying-over",
+    "PAPER-ANDRE-18-B/pure-left-factor"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/galois-closure-reduction",
+   "kind": "theorem",
+   "name": "Passing to a Galois extension",
+   "statement": "Let A = W(k)[[T_1,…,T_n]] and let A → B be a finite injective map to a domain. Let L be a finite Galois extension of Frac(A) containing Frac(B) and B′ the integral closure of A in L. Then B′ is a finite A-algebra containing B, and if A → B′ is pure (respectively split) then so is A → B. After inverting a suitable g ∈ A ∖ pA, B′[1/(pg)] is a finite étale Galois extension of A[1/(pg)].",
+   "locator": "§3.1, p.83 (“et même que B[1/(pg)] soit une extension galoisienne de A[1/(pg)]”)",
+   "status": "missing",
+   "note": "Finiteness of B′ uses integral-closure-finite (Frac(A) has characteristic 0). Footnote 4 of §3.2 says the Galois case of the perfectoid Abhyankar lemma suffices; this item is why.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/integral-closure-finite",
+    "PAPER-ANDRE-18-B/pure-left-factor",
+    "PAPER-ANDRE-18-B/discriminant-element"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/discriminant-element",
+   "kind": "theorem",
+   "name": "Choice of the discriminant g",
+   "statement": "Let A = W(k)[[T_1,…,T_n]] and let A → B be finite and injective with B reduced and p-torsion-free. There is g ∈ A ∖ pA such that B[1/(pg)] is finite étale over A[1/(pg)].",
+   "locator": "§3.1, p.83 (“Prenons g ∈ A ∖ pA de sorte que B[1/(pg)] soit étale sur A[1/(pg)]”)",
+   "status": "missing",
+   "note": "Frac(A) ⊗_A B is a finite reduced algebra over a field of characteristic 0, hence étale; étaleness spreads out to B[1/h] over A[1/h] for some h ≠ 0. Write h = p^a g with g ∉ pA (possible since ⋂ p^a A = 0 by krull-intersection); then A[1/(ph)] = A[1/(pg)].",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/krull-intersection"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/partial-modification",
+   "kind": "definition",
+   "name": "Partial algebra modification of degree n",
+   "statement": "Let (B, m_B) be a Noetherian local ring with a system of parameters x = (x_1,…,x_d), M a B-module, 0 ≤ i < d, and m_1,…,m_(i+1) ∈ M with x_(i+1) m_(i+1) = Σ_(j≤i) x_j m_j. For an integer n ≥ 1 put F = m_(i+1) − Σ_(j≤i) x_j T_j ∈ M[T_1,…,T_i] = M ⊗_B B[T_1,…,T_i] and M′ = M[T_1,…,T_i]_(≤n) / F · B[T_1,…,T_i]_(≤n−1), where the subscript bounds the total degree and F is multiplied by polynomials with coefficients in B. The partial modification of degree n of M relative to (B, x) is the B-linear map M → M′ sending m to the constant polynomial m. In M′ the element m_(i+1) lies in (x_1,…,x_i)M′.",
+   "locator": "§4.1, p.85; Hochster 2002 §§3–4 as recalled in Heitmann–Ma, arXiv:1703.08281v2 §1.2",
+   "status": "missing",
+   "note": "Corrected statement (E16): the printed text multiplies F by M[T_1,…,T_i]_(≤n−1), a product of two module-valued polynomials that is not defined; the multiplier ring is B[T_1,…,T_i]_(≤n−1). Hochster 2002 itself could not be downloaded (ScienceDirect returns 403); the definition follows Heitmann–Ma, who state that theirs is Hochster's.",
+   "api": [
+    {
+     "name": "PartialModification.carrier",
+     "role": "data",
+     "statement": "M′ as the quotient of M ⊗_B B[T_1,…,T_i]_(≤n) by the B-submodule F · B[T_1,…,T_i]_(≤n−1), for a relation x_(i+1)m_(i+1) = Σ_(j≤i) x_j m_j and degree bound n."
+    },
+    {
+     "name": "PartialModification.map",
+     "role": "constructor",
+     "statement": "The B-linear map M → M′ sending m to the constant polynomial m."
+    },
+    {
+     "name": "PartialModification.trivializes",
+     "role": "characterisation",
+     "statement": "The image of m_(i+1) lies in (x_1,…,x_i)M′."
+    },
+    {
+     "name": "PartialModification.degreeMap",
+     "role": "functoriality",
+     "statement": "For n ≤ n′ the inclusion of degree-bounded polynomials induces M′_n → M′_(n′) compatible with the maps from M."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Propositions 4.1.2 and 4.4.1",
+     "how": "The step of Hochster's modification technique whose denominators hochster-key-lemma controls."
+    }
+   ],
+   "tests": [
+    {
+     "name": "partial-modification-1",
+     "kind": "degenerate",
+     "statement": "For i = 0 the relation is x_1 m_1 = 0, there are no variables, and M′ = M/B m_1 for every n."
+    },
+    {
+     "name": "partial-modification-2",
+     "kind": "compatibility",
+     "statement": "For M = B the printed multiplier M[T]_(≤n−1) equals B[T]_(≤n−1), so the printed and corrected definitions agree; they differ only for modules without a multiplication (E16)."
+    },
+    {
+     "name": "partial-modification-3",
+     "kind": "computation",
+     "statement": "If x_1, x_2 is a regular sequence on B, M = B and x_2 m_2 = x_1 m_1, then m_2 = x_1 b and m_1 = x_2 b; for n = 1, M′ = (B ⊕ B T_1)/B(x_1 b − x_1 T_1) and B → M′ is injective, since the T_1-coefficient −r x_1 of a multiple r(x_1 b − x_1 T_1) vanishes only for r = 0."
+    }
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/modification-sequence",
+   "kind": "construction",
+   "name": "Sequences of partial modifications and the modification algebra",
+   "statement": "Fix (B, x) as in partial-modification. A finite sequence of partial modifications of degree ≤ n relative to (B, x) is B = M_1 → M_2 → ⋯ → M_ℓ with each M_(t+1) a partial modification of M_t. It is bad if the image of 1 ∈ B in M_ℓ lies in m_B M_ℓ. The filtered colimit of all such sequences, over all n and ℓ, carries a B-algebra structure C_x(B) in which x is a possibly improper regular sequence, and m_B C_x(B) ≠ C_x(B) if and only if no finite sequence is bad.",
+   "locator": "Proof of Proposition 4.1.2, p.85 (“Lorsque (n, ℓ, M) varie, la colimite (filtrante) des M_ℓ …”); Heitmann–Ma §1.2 and Theorem 1.6",
+   "status": "missing",
+   "note": "The algebra structure is Hochster's algebra modification; the partial (degree-bounded) modifications compute its underlying module as a filtered colimit.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/partial-modification"
+   ],
+   "api": [
+    {
+     "name": "ModificationSequence",
+     "role": "data",
+     "statement": "A finite chain B = M_1 → ⋯ → M_ℓ of partial modifications relative to (B, x), with degree bound n."
+    },
+    {
+     "name": "ModificationSequence.IsBad",
+     "role": "characterisation",
+     "statement": "The image of 1 ∈ B in M_ℓ lies in m_B M_ℓ."
+    },
+    {
+     "name": "modificationAlgebra",
+     "role": "construction",
+     "statement": "The filtered colimit over all sequences, with its B-algebra structure (Hochster's algebra modification), in which x is a possibly improper regular sequence."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Propositions 4.1.2 and 4.4.1",
+     "how": "Carries the no-bad-sequence criterion from almost Cohen–Macaulay data to a Cohen–Macaulay algebra."
+    }
+   ],
+   "tests": [
+    {
+     "name": "modification-sequence-1",
+     "kind": "degenerate",
+     "statement": "The sequence of length ℓ = 1 is not bad, because 1 ∉ m_B for a local ring B."
+    },
+    {
+     "name": "modification-sequence-2",
+     "kind": "computation",
+     "statement": "If x is a regular sequence on B, every sequence admits compatible maps M_t → B sending 1 to 1 (send T_j to the b_j with m_(i+1) = Σ x_j b_j), so no sequence is bad."
+    },
+    {
+     "name": "modification-sequence-3",
+     "kind": "degenerate",
+     "statement": "If d = dim B = 0 the system of parameters is empty, there are no relations to modify and the modification algebra is B."
+    }
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/no-bad-sequence-criterion",
+   "kind": "theorem",
+   "name": "Hochster's criterion for a Cohen–Macaulay algebra for (B, x)",
+   "statement": "Let (B, m_B) be a Noetherian local ring with system of parameters x. There is a B-algebra C with m_B C ≠ C in which x is a regular sequence if and only if no finite sequence of partial modifications of B relative to (B, x) is bad; in that case C_x(B) is such an algebra.",
+   "locator": "Proof of Proposition 4.1.2, p.85; Hochster 2002 Theorem 4.2 as recalled in Heitmann–Ma Theorem 1.6 (case R = S)",
+   "status": "missing",
+   "note": "Only the direction ‘no bad sequence ⇒ C_x(B) is Cohen–Macaulay for (B, x)’ is used by André.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/modification-sequence"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/hochster-key-lemma",
+   "kind": "theorem",
+   "name": "Hochster's denominator lemma",
+   "statement": "Let B, x be as above, M a B-module, T a B-algebra, c ∈ T a non-zero-divisor and α: M → T[1/c] a B-linear map with α(M) ⊆ c^(−N)T. Suppose that for every i < d, x_(i+1) t_(i+1) = Σ_(j≤i) x_j t_j with t_j ∈ T implies c t_(i+1) ∈ (x_1,…,x_i)T. Then for every partial modification M → M′ of degree ≤ D relative to (B, x), α extends to a B-linear map β: M′ → T[1/c] with β(M′) ⊆ c^(−N′)T, where N′ depends only on N and D.",
+   "locator": "Proof of Proposition 4.1.2, p.85 (“Le lemme crucial [15, 5.1] (où l'on prend c = π^(1/p^m) pour m arbitraire)”); Heitmann–Ma Lemma 3.5",
+   "status": "missing",
+   "note": "Heitmann–Ma state the lemma with N′ = ND + N + D, in a variant where p is adjoined as an extra parameter; the form above, without that extra parameter, is the one André applies. The original Hochster 2002 Lemma 5.1 was not accessible; the reviewer should compare the hypotheses with it.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/partial-modification"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/almost-cm-no-bad-sequence",
+   "kind": "theorem",
+   "name": "An almost Cohen–Macaulay algebra excludes bad sequences",
+   "statement": "If D is almost Cohen–Macaulay for (B, x, π^(1/p^∞)), then no finite sequence of partial modifications of B relative to (B, x) is bad. More precisely, for every sequence B = M_1 → ⋯ → M_ℓ of degree ≤ n and every h there is m such that B → D extends to maps M_t → π^(−1/p^h)D compatible along the sequence, so the image of 1 in M_ℓ is not in m_B M_ℓ.",
+   "locator": "Proof of Proposition 4.1.2, p.85",
+   "status": "missing",
+   "note": "Apply hochster-key-lemma with T = D and c = π^(1/p^m); the colon ideals of D are killed by every c. After ℓ steps the image lies in c^(−N_ℓ)D with N_ℓ depending only on n and ℓ, and one chooses m with N_ℓ/p^m ≤ 1/p^h. If 1 were in m_B M_ℓ then π^(1/p^h) ∈ m_B D for every h, contradicting almost Cohen–Macaulayness. See E18 and E19 for the printed wording.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/hochster-key-lemma",
+    "PAPER-ANDRE-18-B/modification-sequence",
+    "PAPER-ANDRE-18-B/almost-big-cm"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/completion-balances",
+   "kind": "theorem",
+   "name": "Completion makes a Cohen–Macaulay algebra balanced",
+   "statement": "Let (B, m_B) be a Noetherian local ring and C a B-algebra with m_B C ≠ C in which one system of parameters x is a regular sequence. Then the m_B-adic completion of C is a balanced big Cohen–Macaulay B-algebra: every system of parameters of B is a regular sequence on it and it is not equal to m_B times itself.",
+   "locator": "§4.1, p.85 (“On « passe » de (1) à (2) en complétant C m_B-adiquement [2, th. 1.7]”)",
+   "status": "missing",
+   "note": "Bartijn–Strooker, Modifications monomiales (LNM 1029, 1983), Theorem 1.7, not read (paywalled); Heitmann–Ma §1.2 invoke the same fact as Bruns–Herzog Corollary 8.5.3. The printed title of [2] is wrong (E22).",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/big-cm-fixed",
+    "PAPER-ANDRE-18-B/big-cm-balanced"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/big-cm-reductions",
+   "kind": "theorem",
+   "name": "Reductions for the existence of big Cohen–Macaulay algebras",
+   "statement": "Let (B, m_B) be a Noetherian local ring. (1) If P is a minimal prime with dim B/P = dim B, a balanced big Cohen–Macaulay B/P-algebra is one for B. (2) A balanced big Cohen–Macaulay algebra for the completion B̂ is one for B. (3) If B is complete and p-torsion-free of residue characteristic p, B_red is p-torsion-free and a balanced big Cohen–Macaulay B_red-algebra is one for B. (4) If B is complete with residue field k and coefficient ring Λ, then B̂⊗_Λ W(k^(1/p^∞)) is a complete Noetherian local ring faithfully flat over B, and a balanced big Cohen–Macaulay algebra for it is one for B.",
+   "locator": "§4.2, p.86 (“On peut compléter, puis quotienter par le nilradical … remplacer B par l'extension (fidèlement plate) B⊗̂_Λ W(k^(1/p^∞))”) and §0.7, p.75",
+   "status": "missing",
+   "note": "In each case a system of parameters of B maps to one of the new ring. (1) reduces the general case to a complete local domain, either containing a field (Hochster, known) or of characteristic (0, p) and p-torsion-free, which is the meaning of ‘d'inégale caractéristique (0,p) (sans p-torsion)’ in §0.7. (3): if px is nilpotent and p is a non-zero-divisor then x is nilpotent.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/perfect-residue-base-change"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/cohen-parameter-presentation",
+   "kind": "theorem",
+   "name": "Presenting B as a finite extension of an unramified power series ring",
+   "statement": "Let B be a complete Noetherian local ring, reduced and p-torsion-free, of dimension n+1 with perfect residue field k, and let x = (x_1,…,x_(n+1)) be a system of parameters with x_1 = p^2. Then T_i ↦ x_(i+1) makes B a finite extension (injective and module-finite) of A = W(k)[[T_1,…,T_n]].",
+   "locator": "§4.2, p.86 (“Le choix d'une suite sécante maximale x de B avec x_1 = p^2 permet d'écrire B comme extension finie de A := Λ[[T_1,…,T_n]]”)",
+   "status": "missing",
+   "note": "Uses the Cohen structure theorem for the coefficient ring W(k) and completeness: B/(p, x_2,…,x_(n+1)) has finite length, so B is finite over A; injectivity because dim B = dim A and A is a domain. The pinned libraries have no Cohen structure theorem."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/complete-local-normalization",
+   "kind": "theorem",
+   "name": "Normalization of a finite algebra over a complete regular local ring",
+   "statement": "Let R̂ be a complete regular local ring and S′ a finite R̂-algebra. The normalization of S′_red is finite over R̂ and is a finite product of complete local normal domains S_i, each finite over R̂. If R̂ → S′ is injective, at least one S_i receives R̂ injectively.",
+   "locator": "§4.3, p.87 (“R̂_m est un anneau local régulier complet, donc excellent, de sorte que le normalisé de S ⊗_R R̂_m est un produit fini d'anneaux locaux complets intègres S_(m,i) finis sur R̂_m”)",
+   "status": "missing",
+   "note": "Finiteness of normalization is the Nagata property of complete local rings; the last sentence is lying over for the injective finite map, and is what corrects E20.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/lying-over"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/product-flat-noetherian",
+   "kind": "theorem",
+   "name": "Products of flat modules over a Noetherian ring",
+   "statement": "Over a Noetherian ring (more generally a coherent ring) every product of flat modules is flat.",
+   "locator": "§4.3, p.87 (“comme R est noethérien, T := ∏ T_(m,i) est encore plat sur R”)",
+   "status": "missing",
+   "note": "Chase's theorem. The pinned Mathlib has no coherent-ring predicate."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/coefficient-ring-compatibility",
+   "kind": "theorem",
+   "name": "Coefficient rings under a separable residue extension",
+   "statement": "Let β: B → B′ be a local homomorphism of complete Noetherian local rings of characteristic (0, p) whose residue field extension k → k′ is separable. For every coefficient ring Λ of B there is a coefficient ring Λ′ of B′ with β(Λ) ⊆ Λ′.",
+   "locator": "§4.4(1), pp.87–88, citing Matsumura, Commutative Ring Theory, 29.5 and 29.6",
+   "status": "missing",
+   "note": "Stated as André uses it; Matsumura was not read. Separability makes a Cohen ring of k′ formally smooth over Λ, which gives the lift."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/perfect-residue-base-change",
+   "kind": "construction",
+   "name": "Passage to a perfect residue field",
+   "statement": "Let B be a complete Noetherian local ring of characteristic (0, p) with residue field k and coefficient ring Λ. B⊗̂_Λ W(k^(1/p^∞)) is the m_B-adic completion of B ⊗_Λ W(k^(1/p^∞)); it is a complete Noetherian local ring with residue field k^(1/p^∞), faithfully flat over B. Under coefficient-ring-compatibility, β induces a local homomorphism B⊗̂_Λ W(k^(1/p^∞)) → B′⊗̂_(Λ′) W(k′^(1/p^∞)).",
+   "locator": "§4.2, p.86 and §4.4(1), pp.87–88",
+   "status": "missing",
+   "note": "Without separability the extension of scalars is not weakly functorial in (B, k) (§4.4(1)).",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/coefficient-ring-compatibility"
+   ],
+   "api": [
+    {
+     "name": "completedCoefficientExtension",
+     "role": "construction",
+     "statement": "The m_B-adic completion of B ⊗_Λ W(k^(1/p^∞)) for a chosen coefficient ring Λ ⊆ B."
+    },
+    {
+     "name": "completedCoefficientExtension.isLocal",
+     "role": "characterisation",
+     "statement": "It is a complete Noetherian local ring with maximal ideal generated by m_B and residue field k^(1/p^∞)."
+    },
+    {
+     "name": "completedCoefficientExtension.faithfullyFlat",
+     "role": "projection",
+     "statement": "The structure map from B is faithfully flat."
+    },
+    {
+     "name": "completedCoefficientExtension.map",
+     "role": "functoriality",
+     "statement": "A local map β with separable residue extension and compatible coefficient rings induces a local map of the extensions."
+    }
+   ],
+   "uses": [
+    {
+     "where": "§4.2 and §4.4(1)",
+     "how": "Reduces 0.7.1 and the weak-functoriality problem to perfect residue fields."
+    }
+   ],
+   "tests": [
+    {
+     "name": "perfect-residue-base-change-1",
+     "kind": "degenerate",
+     "statement": "If k is perfect then Λ = W(k) = W(k^(1/p^∞)) and the construction returns B."
+    },
+    {
+     "name": "perfect-residue-base-change-2",
+     "kind": "computation",
+     "statement": "For imperfect k and B = C(k)[[T]], with C(k) a Cohen ring, the result is W(k^(1/p^∞))[[T]]."
+    },
+    {
+     "name": "perfect-residue-base-change-3",
+     "kind": "compatibility",
+     "statement": "A system of parameters of B maps to a system of parameters of the extension, since m_B generates its maximal ideal and the dimension is unchanged."
+    }
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/purity-perfect-residue",
+   "kind": "theorem",
+   "name": "Purity survives completion and passage to perfect residue fields",
+   "statement": "Let B → B′ be a pure local homomorphism of Noetherian local rings of characteristic (0, p) with separable residue field extension. Then B̂ → B̂′ is pure, and with compatible coefficient rings the induced map B̂⊗̂_Λ W(k^(1/p^∞)) → B̂′⊗̂_(Λ′) W(k′^(1/p^∞)) is pure.",
+   "locator": "§4.4, p.88 (“l'hypothèse de pureté se conserve par complétion et passage aux corps résiduels parfaits en vertu du lemme A.2.2”)",
+   "status": "missing",
+   "note": "Base change of the pure map along B̂ → B̂⊗_Λ W(k^(1/p^∞)) is pure. Then Λ′⊗_Λ W(k^(1/p^∞)) → W(k′^(1/p^∞)) is, after p-adic completion, a local map of complete discrete valuation rings with uniformizer p (k′ ⊗_k k^(1/p^∞) is a field because k′/k is separable), hence faithfully flat. Compose and complete with pure-local-completion.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/pure-local-completion",
+    "PAPER-ANDRE-18-B/pure-basechange",
+    "PAPER-ANDRE-18-B/pure-composition",
+    "PAPER-ANDRE-18-B/perfect-residue-base-change"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/no-unramified-square",
+   "kind": "theorem",
+   "name": "The example Z_p[[T]] → Z_p[[T,U]]/(T^2 − TU + p)",
+   "statement": "Let B = Z_p[[T]] and B′ = Z_p[[T,U]]/(T^2 − TU + p), with β(T) = T. (1) B′ ≅ Z_p[[T,V]]/(TV − p) is a regular local ring of dimension 2. (2) No parameter of B/pB = F_p[[T]] maps to a parameter of B′/pB′ = F_p[[T,U]]/(T(T − U)). (3) Consequently there is no commutative square of local maps A → A′, A → B, A′ → B′ with A and A′ complete unramified regular local rings and A → B, A′ → B′ finite injective.",
+   "locator": "§4.4(2), p.88",
+   "status": "missing",
+   "note": "(1): put V = U − T. (2): a parameter of F_p[[T]] is T^a·unit with a ≥ 1, and B′/(p, T^a) surjects onto F_p[[U]], which has infinite length. (3): A = A′ = Z_p[[S]] by dimension and residue fields; the image of S in B/p is a parameter, so by (2) its image in B′/p is not; finiteness of A′/p → B′/p then forces α(S) ∈ pA′, whence the image of S in B′/p is 0, while it equals T^a·unit ≠ 0."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/discriminant-pullback-obstruction",
+   "kind": "theorem",
+   "name": "When β(g) vanishes",
+   "statement": "Let A → B be finite with A regular and g ∈ A such that B[1/(pg)] is étale over A[1/(pg)], and let β: B → B′ be a homomorphism to a domain of characteristic 0. If the generic point of Spec B′[1/p] maps into the singular locus of Spec B[1/p], then β(g) = 0. If instead β(g) is a non-zero-divisor in D′, replacing g′ by g′·β(g) makes δ((ϖg)^(1/p^m)) divide (ϖg′)^(1/p^m).",
+   "locator": "§4.4(3), p.88",
+   "status": "missing",
+   "note": "Points of Spec B[1/(pg)] are étale over the regular A[1/p], hence regular, so the singular locus of Spec B[1/p] lies in V(g); a function vanishing at the generic point of a domain is 0.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/discriminant-element"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/weak-functoriality-regular-target",
+   "kind": "theorem",
+   "name": "Weak functoriality when the target is regular",
+   "statement": "Let β: B → B′ be an injective local homomorphism of complete Noetherian local domains of characteristic (0, p) with separable residue field extension and B′ regular. There are a balanced big Cohen–Macaulay B-algebra C, a balanced big Cohen–Macaulay B′-algebra C′ and a ring map γ: C → C′ whose composite with B → C equals the composite of β with B′ → C′.",
+   "locator": "§4.4, p.88 (“le problème de fonctorialité faible a une réponse positive si β est injectif, k → k′ séparable, et B′ régulier”)",
+   "status": "missing",
+   "note": "Outline in the paper: after passing to perfect residue fields, take D as in §4.2 for B and D′ := g^(−1/p^∞) Â′_∞⟨ζ_(p^∞), g^(1/p^∞), T_1^(1/p^∞),…,T_n^(1/p^∞)⟩°, with A′ = B′ allowed ramified (Remark 2.6.1(4)); read T_i and g as their images in B′, ramified over B′ by the several-element variant of Remark 2.6.1(4), so that the tower of A maps to D′. D′ is integrally closed in D′[1/(pg)] (companion Lemma 4.2.3), which gives δ: D → D′, and Proposition 4.4.1 finishes. The general statement for every local homomorphism of complete local domains is André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3, Theorem 1.1.1.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/weak-functorial-cm",
+    "PAPER-ANDRE-18-B/several-ramified-elements",
+    "PAPER-ANDRE-18-B/ramified-regular-base",
+    "PAPER-ANDRE-18-B/perfect-residue-base-change",
+    "PAPER-ANDRE-18-B/coefficient-ring-compatibility",
+    "PAPER-ANDRE-18-B/discriminant-pullback-obstruction",
+    "PAPER-ANDRE-18-B/kummer-almost-flat",
+    "PAPER-ANDRE-18-B/abhyankar-mod-p",
+    "PAPER-ANDRE-18-B/almost-cm-mod-parameter-criterion"
+   ],
+   "imports": [
+    "PAPER-ANDRE-18/4.2.2-integral-closure"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/hh-cm-descent",
+   "kind": "theorem",
+   "name": "Cohen–Macaulayness descends along a pure map to a regular ring with a compatible square",
+   "statement": "Let B → B′ be a pure local homomorphism of Noetherian local rings with B′ regular. Suppose there are a B-algebra C in which a system of parameters x of B is a regular sequence, a balanced big Cohen–Macaulay B′-algebra C′ and a ring map C → C′ compatible with B → B′. Then x is a regular sequence on B, so B is Cohen–Macaulay.",
+   "locator": "§4.4, p.88 (“Par un argument connu (cf. [17, 2.3] …)”), Hochster–Huneke 1995 (2.3), not read",
+   "status": "missing",
+   "note": "Proof: C′ is faithfully flat over B′ (regular-big-cm-flat), so B → C′ is pure and ideals of B are contracted from C′. If x_(i+1) b ∈ (x_1,…,x_i)B then b ∈ (x_1,…,x_i)C, hence b ∈ (x_1,…,x_i)C′ ∩ B = (x_1,…,x_i)B.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/regular-big-cm-flat",
+    "PAPER-ANDRE-18-B/pure-composition",
+    "PAPER-ANDRE-18-B/faithfully-flat-iff-pure-flat",
+    "PAPER-ANDRE-18-B/finite-cm-substrate"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/cm-completion",
+   "kind": "theorem",
+   "name": "Cohen–Macaulayness and completion",
+   "statement": "A Noetherian local ring B is Cohen–Macaulay if and only if its m_B-adic completion is.",
+   "locator": "§4.4, p.88, reduction of Theorem 4.4.2 to complete rings",
+   "status": "missing",
+   "note": "Depth and dimension are unchanged by completion. The finite depth/Cohen–Macaulay substrate is planned in R03.3 (finite-cm-substrate); this comparison belongs with it.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/finite-cm-substrate"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/coordinate-tower-perfectoid",
+   "kind": "theorem",
+   "name": "The coordinate tower and its root algebra are perfectoid",
+   "statement": "In the setting of §2.2, Â_∞0 is a perfectoid K̂_∞-algebra, and so is Â_∞0⟨T^(1/p^∞)⟩, the p-adic completion of A_∞0[T^(1/p^∞)], which is also its completion for the multiplicative Gauss norm. Formula (10): Â_∞0⟨T^(1/p^∞)⟩° = Â°_∞0⟨T^(1/p^∞)⟩ = Â_∞0⟨T^(1/p^∞)⟩_(≤1), and T − g has norm 1.",
+   "locator": "§2.5, formula (10), p.79; proof of Theorem 2.5.2, p.79, citing [1, ex. 3.2.3 (1), (2)]",
+   "status": "missing",
+   "note": "Companion Exemples 3.2.3 read in the published version: A⟨T^(1/p^∞)⟩ is perfectoid for perfectoid A.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/cyclotomic-perfectoid-field",
+    "PAPER-ANDRE-18-B/coordinate-tower-flat"
+   ],
+   "imports": [
+    "PAPER-ANDRE-18/3.2.3-standard-examples"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/kummer-perfectoid",
+   "kind": "theorem",
+   "name": "Â_∞∞ is perfectoid",
+   "statement": "The K̂_∞-algebra Â_∞∞ is perfectoid.",
+   "locator": "§3.1, p.83, citing [1, §3.6.2]; the cited result is [1, §3.6.1] (E17)",
+   "status": "missing",
+   "note": "Via Lemma 2.5.1 and the companion's Corollary 2.9.3, Â_∞∞ is the root algebra Â_∞0⟨g^(1/p^∞)⟩, which is perfectoid by the companion's §3.6.1 (an extremal quotient of the perfectoid Â_∞0⊗̂K⟨T^(1/p^∞)⟩).",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/kummer-tube-comparison",
+    "PAPER-ANDRE-18-B/coordinate-tower-perfectoid"
+   ],
+   "imports": [
+    "PAPER-ANDRE-18/3.6.1-root-algebra-perfectoid",
+    "PAPER-ANDRE-18/2.9.3-root-as-colimit"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/scholze-approximation",
+   "kind": "theorem",
+   "name": "Approximation by untilts (Scholze)",
+   "statement": "Let (R, R^+) be a perfectoid affinoid K-algebra with tilt (R^♭, R^(♭+)), X = Spa(R, R^+), and ϖ as in Scholze §5 with |p| ≤ |ϖ| < 1. For every f ∈ R, c ≥ 0 and ε > 0 there is g_(c,ε) ∈ R^♭ with |f(x) − g_(c,ε)^♯(x)| ≤ |ϖ|^(1−ε) max(|f(x)|, |ϖ|^c) for all x ∈ X.",
+   "locator": "Proof of Theorem 2.5.2, p.79, citing [22, cor. 6.7 i]; Scholze 2012 Corollary 6.7(i), p.290",
+   "status": "planned",
+   "planned": [
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "Read in the published Scholze 2012. PerfectoidSpaces:P2 plans the tilting homeomorphism with its rational-subset correspondence, whose proof in Scholze is Corollary 6.7(i)–(iii)."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/tube-sharp-approximation",
+   "kind": "theorem",
+   "name": "Replacing T − g by an element with p-power roots",
+   "statement": "For every i ≥ 1 there is f_i ∈ Â°_∞0⟨T^(1/p^∞)⟩ admitting compatible roots f_i^(1/p^k) in Â°_∞0⟨T^(1/p^∞)⟩ with f_i ≡ T − g modulo ϖ′ (ϖ′ fixed with |ϖ| < |ϖ′| < 1), such that Â_∞0⟨T^(1/p^∞)⟩{(T−g)/ϖ^i}° ≅ Â_∞0⟨T^(1/p^∞)⟩{f_i/ϖ^i}° (formula (11)).",
+   "locator": "Proof of Theorem 2.5.2, formula (11), pp.79–80",
+   "status": "missing",
+   "note": "Apply scholze-approximation to f = T − g with c ≥ i and |ϖ|^(1−ε) ≤ |ϖ′|, and set f_i = g_(c,ε)^♯. Then {|T − g| ≤ |ϖ|^i} and {|f_i| ≤ |ϖ|^i} are the same rational subset, so the localizations agree. The printed ‘congru à T − g modulo ϖ’ is stronger than the citation gives (E23); the proof uses only the congruence modulo ϖ′.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/scholze-approximation",
+    "PAPER-ANDRE-18-B/coordinate-tower-perfectoid",
+    "PAPER-ANDRE-18-B/weierstrass-localisation"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/root-localisation-colimit",
+   "kind": "theorem",
+   "name": "Unit ball of the tubular neighbourhood as a completed colimit",
+   "statement": "In the almost setting (K°_∞, K°°_∞), Â_∞0⟨T^(1/p^∞)⟩{(T−g)/ϖ^i}°^a ≅ (ĉolim_k Â°_∞0⟨T^(1/p^∞)⟩[(f_i/ϖ^i)^(1/p^k)])^a ≅ ĉolim_k (Â°_∞0⟨T^(1/p^∞), U⟩/(ϖ^(i/p^k)U − f_i^(1/p^k)))^a (formula (13)), where ĉolim is the p-adically completed colimit.",
+   "locator": "Proof of Theorem 2.5.2, formulas (12)–(13), p.80",
+   "status": "missing",
+   "note": "Combine tube-sharp-approximation, perfectoid-rational-integral-model (Scholze Lemma 6.4(ii) with numerators f_i^♭ and ϖ^(♭i), denominator ϖ^(♭i)), the colimit comparison checked modulo ϖ^n, and weierstrass-integral-completion (formula (4)).",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/tube-sharp-approximation",
+    "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
+    "PAPER-ANDRE-18-B/weierstrass-integral-completion"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/noetherian-stage-model",
+   "kind": "theorem",
+   "name": "Descent of the tubular algebras to Noetherian stages",
+   "statement": "Fix (i, k). For j large there are f_ik ∈ A°_j0⟨T^(1/p^j)⟩, ϖ_ik ∈ K_j with |ϖ_ik| = |ϖ|^(i/p^k), g_k ∈ A°_j0⟨T^(1/p^j)⟩ with g_k^(p^k) ≡ g modulo ϖ, and a uniformizer ϖ_j of K°_j with |ϖ_j| ≥ |ϖ′|^(1/p^k) > |ϖ_ik| (15), such that: (14) Â°_∞0⟨T^(1/p^∞), U⟩/(ϖ^(i/p^k)U − f_i^(1/p^k)) ≅ Â°_∞0⟨T^(1/p^∞), U⟩/(ϖ_ik U − f_ik); (16) ĉolim_j A°_j0⟨T^(1/p^j), U⟩/(ϖ_ik U − f_ik) ≅ Â°_∞0⟨T^(1/p^∞), U⟩/(ϖ_ik U − f_ik); (17) A°_j0⟨T^(1/p^j), U⟩/(ϖ_ik U − f_ik) = A_j0⟨T^(1/p^j)⟩{f_ik/ϖ_ik}_(≤1).",
+   "locator": "Proof of Theorem 2.5.2, formulas (14)–(17), pp.80–81",
+   "status": "missing",
+   "note": "(14) is weierstrass-invariance; (16) is checked modulo ϖ_ik^n; (17) is the discretely valued unit-ball formula (2), valid because A_j0⟨T^(1/p^j)⟩ has multiplicative norm and |f_ik| = 1. The element g_k may be taken in A°_j0: Â_∞0 is perfectoid, and uniqueness of p^k-th roots modulo ϖ^(1/p^k) shows that any choice is T-free modulo ϖ_j. That is what special-fibre-free needs.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/weierstrass-invariance",
+    "PAPER-ANDRE-18-B/weierstrass-unit-ball",
+    "PAPER-ANDRE-18-B/coordinate-tower-perfectoid",
+    "PAPER-ANDRE-18-B/root-localisation-colimit"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/flatness-by-fibres",
+   "kind": "theorem",
+   "name": "Flatness from the generic and special fibres",
+   "statement": "Let R be a ring, π ∈ R a non-zero-divisor and M an R-module on which π is a non-zero-divisor. If M/πM is flat over R/πR and M[1/π] is flat over R[1/π], then M is flat over R.",
+   "locator": "Proof of Theorem 2.5.2, p.81 (“D'après le critère de platitude par fibres sur A°_j0”)",
+   "status": "missing",
+   "note": "Proof: for N killed by π, Tor_i^R(N, M) = Tor_i^(R/π)(N, M/πM) = 0 for i ≥ 1 because π is regular on R and on M; pass to π-power torsion N by filtration and colimits; for π-torsion-free N use N → N[1/π] and flatness of M[1/π]. The π-torsion-freeness of the Noetherian stage holds by (17), a unit ball.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/tor-filtered-colimit"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/affinoid-rational-flat",
+   "kind": "theorem",
+   "name": "Flatness of affinoid (Weierstrass) localization",
+   "statement": "For a K-affinoid algebra B and an affinoid domain V ⊆ M(B), the restriction B → B_V is flat. In particular B⟨T^(1/p^j)⟩ → B⟨T^(1/p^j)⟩{f/λ} is flat.",
+   "locator": "Proof of Theorem 2.5.2, p.81, citing [3, prop. 2.2.4] (Berkovich 1990)",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity"
+   ],
+   "note": "Berkovich 1990 was not read (not public). The Tau Ceti AdicSpaces layer plans flatness of restriction maps between rational localisations for strongly Noetherian Tate rings, which contains this case."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/generic-fibre-flat",
+   "kind": "theorem",
+   "name": "Flatness of the generic fibre of the Noetherian stage",
+   "statement": "A_j0⟨T^(1/p^j)⟩{f_ik/ϖ_ik} is flat over A_j0 = A°_j0[1/p].",
+   "locator": "Proof of Theorem 2.5.2, (a), p.81",
+   "status": "missing",
+   "note": "The analytic spectrum of A_j0 is the increasing union of the affinoid polydiscs of radii r ∈ |K°°_∞|; over each such Tate algebra B_r the base change is flat over B_r⟨T^(1/p^j)⟩ by affinoid-rational-flat, and every maximal ideal of the Noetherian ring A_j0 is a point of some polydisc.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/affinoid-rational-flat",
+    "PAPER-ANDRE-18-B/noetherian-stage-model"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/special-fibre-free",
+   "kind": "theorem",
+   "name": "Freeness of the special fibre of the Noetherian stage",
+   "statement": "A°_j0⟨T^(1/p^j), U⟩/(ϖ_ik U − f_ik, ϖ_j) = A°_j0⟨T^(1/p^j), U⟩/(f_ik, ϖ_j) ≅ (A°_j0/ϖ_j)[T^(1/p^j), U]/(T^(1/p^k) − g_k), which is free over A°_j0/ϖ_j.",
+   "locator": "Proof of Theorem 2.5.2, (b), p.81",
+   "status": "missing",
+   "note": "The congruences f_ik^(p^k) ≡ f_i ≡ T − g ≡ (T^(1/p^k) − g_k)^(p^k) modulo ϖ′ and (15) give f_ik ≡ T^(1/p^k) − g_k modulo ϖ_j. With g_k T-free modulo ϖ_j (noetherian-stage-model), T^(1/p^k) − g_k is monic of degree p^(j−k) in T^(1/p^j).",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/noetherian-stage-model"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/noetherian-stage-faithfully-flat",
+   "kind": "theorem",
+   "name": "Faithful flatness of the Noetherian stage",
+   "statement": "A_j0⟨T^(1/p^j)⟩{f_ik/ϖ_ik}_(≤1) is faithfully flat over A°_j0.",
+   "locator": "Proof of Theorem 2.5.2, p.81",
+   "status": "missing",
+   "note": "Flatness from flatness-by-fibres with generic-fibre-flat and special-fibre-free. Faithfulness: A°_j0 is local and the closed fibre is k[T^(1/p^j), U]/f̄_ik, which is nonzero because f̄_ik^(p^k) ≡ T − ḡ is not a unit.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/flatness-by-fibres",
+    "PAPER-ANDRE-18-B/generic-fibre-flat",
+    "PAPER-ANDRE-18-B/special-fibre-free",
+    "PAPER-ANDRE-18-B/faithfully-flat-proper-ideal"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/colimit-base-flatness",
+   "kind": "theorem",
+   "name": "Flatness over a filtered colimit of rings",
+   "statement": "Let R_∞ = colim_j R_j be a filtered colimit of rings with flat transition maps, and M an R_∞-module that is flat (respectively faithfully flat, when M is an R_∞-algebra) over every R_j. Then M is flat (respectively faithfully flat) over R_∞.",
+   "locator": "Proof of Theorem 2.5.2, p.81 (“il en est de même de colim_j … sur colim_j A°_j0 = A°_∞0, c'est-à-dire sur chaque A°_j0”); §2.3, p.78",
+   "status": "missing",
+   "note": "A finitely generated ideal of R_∞ is extended from some R_j, and Tor_1^(R_∞)(R_∞ ⊗ N, M) = Tor_1^(R_j)(N, M) because R_∞ is R_j-flat. For faithfulness, 1 ∈ m_∞ M would already hold at a finite stage.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/faithfully-flat-proper-ideal"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/tube-almost-faithfully-flat",
+   "kind": "theorem",
+   "name": "Almost faithful flatness of the tubular neighbourhoods",
+   "statement": "For every i, Â_∞0⟨T^(1/p^∞)⟩{(T−g)/ϖ^i}°^a is faithfully flat over A°^a_∞0 in the setting (K°_∞, K°°_∞), equivalently in (A°_∞0, K°°_∞ A°_∞0), and its image under ( )_!! is a faithfully flat A°_∞0-algebra.",
+   "locator": "Proof of Theorem 2.5.2, pp.81–82",
+   "status": "missing",
+   "note": "Chain: noetherian-stage-faithfully-flat; colimit over j and colimit-base-flatness; completion by faithful-completion over each A°_j0; (14), (16); the completed colimit over k; (13); reframing (companion §1.5); then almost-faithful-flat-adjoint (Gabber–Ramero Remark 3.1.3(ii), read in arXiv v3). Theorem 2.5.2 follows by one more completed colimit over i and Lemma 2.5.1.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/noetherian-stage-faithfully-flat",
+    "PAPER-ANDRE-18-B/colimit-base-flatness",
+    "PAPER-ANDRE-18-B/faithful-completion",
+    "PAPER-ANDRE-18-B/noetherian-stage-model",
+    "PAPER-ANDRE-18-B/root-localisation-colimit",
+    "PAPER-ANDRE-18-B/almost-reframing",
+    "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/flat-colimit-coherent",
+   "kind": "theorem",
+   "name": "Coherence of a flat colimit of Noetherian rings",
+   "statement": "A filtered colimit of Noetherian rings with flat transition maps is a coherent ring.",
+   "locator": "Proof of Corollary 2.6.1, p.82, citing Bourbaki AC I §2 ex. 12",
+   "status": "missing",
+   "note": "Applied to A°_∞0 = colim_j A°_j0 with finite flat transition maps."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/fp-ideal-descent",
+   "kind": "theorem",
+   "name": "Finitely presented ideals descend along a flat colimit",
+   "statement": "Let R_∞ = colim_j R_j be a filtered colimit with flat transition maps and I a finitely generated ideal of R_∞. Then I = I_j R_∞ ≅ I_j ⊗_(R_j) R_∞ for an ideal I_j of some R_j.",
+   "locator": "Proof of Corollary 2.6.1, p.82 (“I est un idéal de présentation finie, donc provient d'un idéal I_j de l'un des A°_j0”)",
+   "status": "missing",
+   "note": "Take generators in some R_j; flatness of R_∞ over R_j makes I_j ⊗ R_∞ → R_∞ injective. In the application I is the annihilator of a finitely presented module over the coherent ring A°_∞0.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/flat-colimit-coherent"
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/flat-annihilator",
+   "kind": "theorem",
+   "name": "Annihilators under flat base change",
+   "statement": "Let R be a Noetherian ring, M a finite R-module and S a flat R-algebra. Then Ann_S(M ⊗_R S) = Ann_R(M) S.",
+   "locator": "Proof of Lemma 1.1.2, p.76 (“Par platitude, on a JS = Ann M_S”)",
+   "status": "missing",
+   "note": "M is finitely presented, so Ann(M) is the kernel of R → End_R(M) ⊆ M^n, and flat base change preserves this kernel."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/tor-filtered-colimit",
+   "kind": "theorem",
+   "name": "Tor commutes with filtered colimits",
+   "statement": "For a ring R, an R-module P and a filtered system of R-modules (N_α), Tor_i^R(P, colim N_α) ≅ colim Tor_i^R(P, N_α) for every i.",
+   "locator": "Remark after Lemma A.1.1, p.89 (“les colimites filtrantes commutent aux Tor par exactitude”)",
+   "status": "missing",
+   "note": "Mathlib has Tor as a derived functor (CategoryTheory/Monoidal/Tor.lean) but not this comparison at the pin."
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/abhyankar-faithfulness",
+   "kind": "theorem",
+   "name": "Faithfulness in the perfectoid Abhyankar lemma",
+   "statement": "In the setting of the companion's Theorem 0.3.1, with B′ a faithful finite étale A[1/g]-module, B°/p^m is almost faithfully flat over A°/p^m in (K°[T^(1/p^∞)], T^(1/p^∞)K°°[T^(1/p^∞)]) for every m.",
+   "locator": "Theorem 3.2.1, p.83 (“presque fidèlement plat”), from [1, th. 0.3.1 (2), (3)]",
+   "status": "missing",
+   "note": "Almost flatness is 0.3.1(2) (almost finite étale). Faithfulness: the trace sends B° almost surjectively onto g^(−1/p^∞)A° (0.3.1(3)), so if N ⊗ B°/p^m is almost zero then N is almost zero. Footnote 4: the Galois case suffices, which galois-closure-reduction provides.",
+   "dependencies": [
+    "PAPER-ANDRE-18-B/galois-closure-reduction"
+   ],
+   "imports": [
+    "PAPER-ANDRE-18/5.2.3-mod-p",
+    "PAPER-ANDRE-18/5.3.1-trace",
+    "PAPER-ANDRE-18/5.3.1-maximal"
+   ]
   }
  ],
  "prerequisites": [
@@ -2984,22 +3758,22 @@
   {
    "citation": "Hochster, Canonical elements in local cohomology modules and the direct summand conjecture, J. Algebra 84 (1983), 503–553",
    "link": "https://doi.org/10.1016/0021-8693(83)90092-3",
-   "why": "Theorem 6.1 and its pp.539–543 proof, plus the CE/root-complex argument 2.9–2.17, are now read. The unramified-reduction item records the actual chain. Detailed root-ideal/Koszul, coefficient-enlargement and socle adapters remain G3. Its p.541 displayed duality has the same direction problem as André E5; correct-direction duality over complete bases repairs the needed implication."
+   "why": "Theorem 6.1 (reduction to complete unramified regular local rings) is used as a cited theorem (unramified-reduction). Its internal constructions (2.10–2.17: root-ideal complexes, the canonical element property, coefficient enlargement) belong to this paper's own extraction. The p.541 display has the same direction problem as E5."
   },
   {
    "citation": "Hochster, Big Cohen–Macaulay algebras in dimension three via Heitmann’s theorem, J. Algebra 254 (2002), 395–408",
    "link": "https://doi.org/10.1016/S0021-8693(02)00086-8",
-   "why": "Bounded partial modifications and Lemma 5.1 denominator control used by 4.1.2 and 4.4.1; the precise original construction remains G4."
+   "why": "Partial algebra modifications, the bad-sequence criterion and Lemma 5.1, used by Propositions 4.1.2 and 4.4.1. The ScienceDirect copy returned HTTP 403; the statements used here are taken from Heitmann–Ma's recollection (HM18) and should be compared with the original."
   },
   {
-   "citation": "Bartijn–Strooker, Modifications minimales, LNM 1029 (1983), 192–217, Theorem 1.7",
-   "link": "https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/",
-   "why": "The link is André’s bibliography, not the original source text. The balancing-by-completion supplier remains G4."
+   "citation": "Bartijn–Strooker, Modifications monomiales, LNM 1029 (1983), 192–217, Theorem 1.7",
+   "link": "https://doi.org/10.1007/BFb0098932",
+   "why": "Balancing a Cohen–Macaulay algebra for one parameter system by m_B-adic completion (completion-balances). Not read (paywalled); André prints the title as ‘Modifications minimales’ (E22)."
   },
   {
    "citation": "Hochster–Huneke, Applications of the existence of big Cohen–Macaulay algebras, Adv. Math. 113 (1995), 45–117",
    "link": "https://doi.org/10.1006/aima.1995.1035",
-   "why": "Equal-characteristic existence, arbitrary-big-module faithful flatness over regular local rings (1.2.d), and descent from compatible big-CM squares remain unverified precise suppliers, G4–G5."
+   "why": "Equal-characteristic existence of big Cohen–Macaulay algebras (used in §4.2–4.3), faithful flatness over regular local rings (1.2.d, remark 4.2.1) and the descent argument (2.3) written out as hh-cm-descent. Not read."
   },
   {
    "citation": "Lazard, Autour de la platitude, Bull. Soc. Math. France 97 (1969), 81–128, I.2",
@@ -3010,6 +3784,46 @@
    "citation": "Hochster, Local cohomology, Winter 2011 lecture notes",
    "link": "https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf",
    "why": "Theorem 5.1, faithfulness immediately after it, 11.5 and 11.6 supply the complete-base repair; 11.8 explicitly limits the reverse-direction formula to finite modules. Refine the existing R03.3 Matlis supplier, not a duplicate roadmap."
+  },
+  {
+   "citation": "Matsumura, Commutative Ring Theory, Cambridge University Press, 1986, §29",
+   "link": "https://doi.org/10.1017/CBO9781139171762",
+   "why": "Coefficient rings and their compatibility under separable residue extensions (29.5–29.6), and the Cohen structure theorem used in §4.2 and §4.4. The pinned libraries have no Cohen structure theorem."
+  },
+  {
+   "citation": "Ohi, Direct summand conjecture and descent for flatness, Proc. Amer. Math. Soc. 124 (1996), 1967–1968",
+   "link": "https://doi.org/10.1090/S0002-9939-96-03270-4",
+   "why": "The equivalence of the direct summand conjecture with descent of flatness along integral extensions, §0.1(3)."
+  },
+  {
+   "citation": "Dutta, On the canonical element conjecture, Trans. Amer. Math. Soc. 299 (1987), 803–811",
+   "link": "https://doi.org/10.1090/S0002-9947-1987-0869233-2",
+   "why": "The implication (5) ⇒ (4) of §0.1."
+  },
+  {
+   "citation": "Dobbs, On purity and related universal properties of extensions of commutative rings, Tamkang J. Math. 41 (2010), 253–259",
+   "link": "https://doi.org/10.5556/j.tkjm.41.2010.723",
+   "why": "The implication (2) ⇒ (1) of §0.1."
+  },
+  {
+   "citation": "Raynaud–Gruson, Critères de platitude et de projectivité, Invent. Math. 13 (1971), 1–89",
+   "link": "https://doi.org/10.1007/BF01390094",
+   "why": "(1) ⇒ (3) of §0.1, implicit in (1.4.3)."
+  },
+  {
+   "citation": "Evans–Griffith, The syzygy problem, Ann. of Math. 114 (1981), 323–333",
+   "link": "https://doi.org/10.2307/1971296",
+   "why": "The syzygy theorem (6) of §0.1 from (5)."
+  },
+  {
+   "citation": "Heitmann, The direct summand conjecture in dimension three, Ann. of Math. 156 (2002), 695–712",
+   "link": "https://doi.org/10.2307/3597204",
+   "why": "The dimension-three case recalled in §0.2 (heitmann-dimension-three)."
+  },
+  {
+   "citation": "Bourbaki, Algèbre commutative, ch. I §2, exercise 12",
+   "link": "https://doi.org/10.1007/978-3-540-33976-2",
+   "why": "Coherence of a flat filtered colimit of Noetherian rings (flat-colimit-coherent), used in Corollary 2.6.1. The atlas has no coherent-ring layer."
   }
  ],
  "routes": [
@@ -3097,10 +3911,37 @@
     "PAPER-ANDRE-18-B/non-regular-counterexample",
     "PAPER-ANDRE-18-B/frobenius-direct-summand-char-p",
     "PAPER-ANDRE-18-B/fp-tensor-arbitrary-product",
-    "PAPER-ANDRE-18-B/pure-product"
+    "PAPER-ANDRE-18-B/pure-product",
+    "PAPER-ANDRE-18-B/mod-p-power-injective",
+    "PAPER-ANDRE-18-B/reduction-to-domain",
+    "PAPER-ANDRE-18-B/galois-closure-reduction",
+    "PAPER-ANDRE-18-B/discriminant-element",
+    "PAPER-ANDRE-18-B/partial-modification",
+    "PAPER-ANDRE-18-B/modification-sequence",
+    "PAPER-ANDRE-18-B/no-bad-sequence-criterion",
+    "PAPER-ANDRE-18-B/hochster-key-lemma",
+    "PAPER-ANDRE-18-B/almost-cm-no-bad-sequence",
+    "PAPER-ANDRE-18-B/completion-balances",
+    "PAPER-ANDRE-18-B/big-cm-reductions",
+    "PAPER-ANDRE-18-B/cohen-parameter-presentation",
+    "PAPER-ANDRE-18-B/complete-local-normalization",
+    "PAPER-ANDRE-18-B/product-flat-noetherian",
+    "PAPER-ANDRE-18-B/coefficient-ring-compatibility",
+    "PAPER-ANDRE-18-B/perfect-residue-base-change",
+    "PAPER-ANDRE-18-B/purity-perfect-residue",
+    "PAPER-ANDRE-18-B/no-unramified-square",
+    "PAPER-ANDRE-18-B/discriminant-pullback-obstruction",
+    "PAPER-ANDRE-18-B/weak-functoriality-regular-target",
+    "PAPER-ANDRE-18-B/hh-cm-descent",
+    "PAPER-ANDRE-18-B/flatness-by-fibres",
+    "PAPER-ANDRE-18-B/colimit-base-flatness",
+    "PAPER-ANDRE-18-B/flat-colimit-coherent",
+    "PAPER-ANDRE-18-B/fp-ideal-descent",
+    "PAPER-ANDRE-18-B/flat-annihilator",
+    "PAPER-ANDRE-18-B/tor-filtered-colimit"
    ],
-   "reason": "The screened catalogue has no direct-summand/balanced-big-CM direction. R03.3 owns the finite depth/CM substrate, not infinite algebra modifications or these existence theorems. PerfectoidSpaces and PerfectoidQuotients are suppliers. The new retraction lemmas refine the already proposed commutative-algebra prefix, not a new competing roadmap. This continuation adds the §0.1 homological reformulations and §0.2 easy cases, which belong to the same direct-summand direction, and the exact arbitrary-index product statement of A.2.1(1) with the finitely presented tensor/product comparison it rests on.",
-   "brief": "Develop the existing proposed commutative-algebra direction culminating in André 0.1.1: every finite faithful commutative algebra S over a Noetherian regular ring R admits an R-linear retraction; 0.7.1: every Noetherian local B admits a balanced big Cohen–Macaulay algebra C with m_B C≠C; and 0.7.2: every finite injection R→S with R Noetherian regular factors through an S-algebra T faithfully flat over R. Retain 4.4.2 with mixed characteristic (0,p), a pure local injection B→B′, regular target B′ and separable residue extension. Build ordinary purity, finite-presentation Hom and Ext obstruction calculus, completion of possibly non-Noetherian flat algebras over a Noetherian base, idempotent-annihilator descent, Hochster reductions, Artinian retraction cosets, bounded partial modifications and balancing. Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra:R03.3) for finite depth/CM and homological algebra; Perfectoid rings and spaces (PerfectoidSpaces:P0–P3) for almost/perfectoid foundations; and the shared PerfectoidRamification Part II proposed by PAPER-ANDRE-18 for normalized Kummer and ramified Abhyankar inputs. Reuse the pinned regular-sequence, Witt, completion and Mittag–Leffler carriers. The ordinary purity prefix precedes the P0 comparison and the application layers consume P0, so record acyclic stage-level dependencies rather than a coarse roadmap cycle. The corrected A.3.1 functional criterion requires r=0 or r regular: retain E4 and do not build the false printed implication. The separate regular/integral local-duality branch remains a verification task. Follow the recorded upstream Submodule.IsPure and CM shapes without counting open PRs as pinned coverage. Resolve all remaining coverageGaps before certifying a closed design. The reduction to the unramified theorem passes through the CE/root-ideal complex argument of Hochster 1983 2.9–2.17 and 6.1; do not replace it by completion alone. Import local cohomology and Matlis inputs from R03.3 and the single generic Koszul construction from DD.1. Over complete Noetherian local bases use complete-pure-split; do not use the false infinite-module biduality displayed in E5. Keep noncomplete A.3 applications held."
+   "reason": "The screened catalogue has no direct-summand/balanced-big-CM direction. R03.3 owns the finite depth/CM substrate, not infinite algebra modifications or these existence theorems. PerfectoidSpaces and PerfectoidQuotients are suppliers. The new retraction lemmas refine the already proposed commutative-algebra prefix, not a new competing roadmap. This continuation adds the §0.1 homological reformulations and §0.2 easy cases, which belong to the same direct-summand direction, and the exact arbitrary-index product statement of A.2.1(1) with the finitely presented tensor/product comparison it rests on. The final continuation adds the §3.1 reductions (injectivity modulo p^m, a domain, a Galois extension, the discriminant g), Hochster's partial modifications with the corrected multiplier ring (E16), his denominator lemma and bad-sequence criterion, Bartijn–Strooker balancing, the §4.2 reductions and Cohen presentation, the corrected §4.3 product (E20), the §4.4 obstacles and the positive weak-functoriality statement with the Hochster–Huneke descent argument, and the general commutative algebra the proofs of 1.1.2, 2.5.2 and 2.6.1 use: flatness by fibres, flatness over a flat colimit, coherence of flat colimits of Noetherian rings, descent of finitely presented ideals, annihilators under flat base change, products of flat modules and Tor of filtered colimits.",
+   "brief": "Develop the existing proposed commutative-algebra direction culminating in André 0.1.1: every finite faithful commutative algebra S over a Noetherian regular ring R admits an R-linear retraction; 0.7.1: every Noetherian local B admits a balanced big Cohen–Macaulay algebra C with m_B C≠C; and 0.7.2: every finite injection R→S with R Noetherian regular factors through an S-algebra T faithfully flat over R. Retain 4.4.2 with mixed characteristic (0,p), a pure local injection B→B′, regular target B′ and separable residue extension. Build ordinary purity, finite-presentation Hom and Ext obstruction calculus, completion of possibly non-Noetherian flat algebras over a Noetherian base, idempotent-annihilator descent, Hochster reductions, Artinian retraction cosets, bounded partial modifications and balancing. Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra:R03.3) for finite depth/CM and homological algebra; Perfectoid rings and spaces (PerfectoidSpaces:P0–P3) for almost/perfectoid foundations; and the shared PerfectoidRamification Part II proposed by PAPER-ANDRE-18 for normalized Kummer and ramified Abhyankar inputs. Reuse the pinned regular-sequence, Witt, completion and Mittag–Leffler carriers. The ordinary purity prefix precedes the P0 comparison and the application layers consume P0, so record acyclic stage-level dependencies rather than a coarse roadmap cycle. The corrected A.3.1 functional criterion requires r=0 or r regular: retain E4 and do not build the false printed implication. The separate regular/integral local-duality branch remains a verification task. Follow the recorded upstream Submodule.IsPure and CM shapes without counting open PRs as pinned coverage. Resolve all remaining coverageGaps before certifying a closed design. The reduction to the unramified theorem passes through the CE/root-ideal complex argument of Hochster 1983 2.9–2.17 and 6.1; do not replace it by completion alone. Import local cohomology and Matlis inputs from R03.3 and the single generic Koszul construction from DD.1. Over complete Noetherian local bases use complete-pure-split; do not use the false infinite-module biduality displayed in E5. Keep noncomplete A.3 applications held. Also build: Hochster's partial algebra modifications M′ = M[T_1,…,T_i]_{≤n}/F·B[T_1,…,T_i]_{≤n−1} (not M[T]_{≤n−1}), sequences, bad sequences and the modification algebra C_x(B); Hochster's denominator lemma (2002, Lemma 5.1) with c-killed colon ideals and bounds depending only on the degree and length; Bartijn–Strooker balancing by m_B-adic completion; the reductions for 0.7.1 (minimal prime of maximal dimension, completion, nilradical, B⊗̂_Λ W(k^{1/p^∞})) and the Cohen presentation over W(k)[[T_1,…,T_n]] with x_1 = p^2; Theorem 0.7.2 with the product taken only over the factors dominating R̂_m; the Z_p[[T]] → Z_p[[T,V]]/(TV − p) obstruction; weak functoriality for injective β with separable residue extension and regular target; and the Hochster–Huneke descent of Cohen–Macaulayness along a pure map to a regular ring. The coefficient-ring compatibility (Matsumura 29.5–29.6), Cohen structure, Nagata finiteness of normalization, Chase's theorem and coherent rings are missing at the pin and are owned here, stated for general rings so that R03.3 can import them."
   },
   {
    "route": "source",
@@ -3138,9 +3979,10 @@
     "PAPER-ANDRE-18-B/unit-ball-adic-topology",
     "PAPER-ANDRE-18-B/weierstrass-unit-ball",
     "PAPER-ANDRE-18-B/weierstrass-integral-completion",
-    "PAPER-ANDRE-18-B/weierstrass-invariance"
+    "PAPER-ANDRE-18-B/weierstrass-invariance",
+    "PAPER-ANDRE-18-B/coordinate-tower-perfectoid"
    ],
-   "reason": "The cyclotomic example and integral rational-localization model are within P1 and P2. André 2.5.2 is a precise consumer, not grounds for duplicating perfectoid foundations. This continuation adds the §1.2 uniform-Banach and Weierstrass-localisation facts, including the separate discrete and dense valuation forms of the unit-ball formula, which are rational-localisation statements of P1–P2 and are the generic input to Lemma 2.5.1 and Theorem 2.5.2."
+   "reason": "The cyclotomic example and integral rational-localization model are within P1 and P2. André 2.5.2 is a precise consumer, not grounds for duplicating perfectoid foundations. This continuation adds the §1.2 uniform-Banach and Weierstrass-localisation facts, including the separate discrete and dense valuation forms of the unit-ball formula, which are rational-localisation statements of P1–P2 and are the generic input to Lemma 2.5.1 and Theorem 2.5.2. It also takes the perfectoidness of Â_∞0 and Â_∞0⟨T^{1/p^∞}⟩ with formula (10) (companion Exemples 3.2.3), a P1-level statement about perfectoid algebras applied to the coordinate tower."
   },
   {
    "route": "part-ii",
@@ -3168,10 +4010,19 @@
     "PAPER-ANDRE-18-B/kummer-norm-multiplicativity",
     "PAPER-ANDRE-18-B/several-ramified-elements",
     "PAPER-ANDRE-18-B/ramified-regular-base",
-    "PAPER-ANDRE-18-B/mod-p-power-reduction"
+    "PAPER-ANDRE-18-B/mod-p-power-reduction",
+    "PAPER-ANDRE-18-B/kummer-perfectoid",
+    "PAPER-ANDRE-18-B/tube-sharp-approximation",
+    "PAPER-ANDRE-18-B/root-localisation-colimit",
+    "PAPER-ANDRE-18-B/noetherian-stage-model",
+    "PAPER-ANDRE-18-B/generic-fibre-flat",
+    "PAPER-ANDRE-18-B/special-fibre-free",
+    "PAPER-ANDRE-18-B/noetherian-stage-faithfully-flat",
+    "PAPER-ANDRE-18-B/tube-almost-faithfully-flat",
+    "PAPER-ANDRE-18-B/abhyankar-faithfulness"
    ],
-   "reason": "Reuse precisely the Part II id/title already proposed by PAPER-ANDRE-18. This paper adds the specified normalized Kummer flatness theorem and application adapters without duplicating the generic root algebra, tubular comparison or Abhyankar theorem. The original ownership screen found no actual roadmap definition yet, so the proposed imports remain missing, not falsely planned. It also adds the §2.3–2.4 integral-closure, spectral-norm and idempotent-prime inputs of the normalized tower and the §2.6.1 variants — normality, the Capelli–Vahlen domain criterion, multiplicativity of the norm, several ramified elements, a possibly ramified regular base and the modulo-p^m reduction — all of which are ramification statements about this tower and not generic perfectoid theory.",
-   "brief": "Extend the same PerfectoidRamification design proposed by PAPER-ANDRE-18; do not create a second Part II or replace its scope. Import Perfectoid rings and spaces (PerfectoidSpaces:P0–P3), the existing Adic spaces roadmap and the required early AdicSpacesPartII interfaces. Import the companion’s root-algebra, tubular-colimit and ramified Abhyankar results by their extracted ids. Add normalization/completion comparison for A=W(k)[[T_1,…,T_n]], k perfect of characteristic p and 0≠g∈A, and prove André B Theorem 2.5.2: Â_∞∞° is almost faithfully flat over A_∞0° in the valuation almost base (K_∞°,K_∞°°). Prove finite-level purity and ordinary generic-fibre faithful flatness without asserting finite integral flatness. Expose the actual faithfully flat left-adjoint model S and its root-ideal action. Export 3.2.1 for finite B with B[1/(pg)] finite étale and g∉pA: C°/p^m→D/p^m is almost faithfully flat in the different ramified root-ideal base. DirectSummandsAndBigCohenMacaulay owns Ext obstruction descent and big-CM modifications. Import its early completion and purity lemmas only where needed, retaining an acyclic stage graph. PerfectoidQuotients:Q3 is a related existential p-completely faithfully flat absolutely-integrally-closed extension, not an unproved identification with this specified normalized algebra."
+   "reason": "Reuse precisely the Part II id/title already proposed by PAPER-ANDRE-18. This paper adds the specified normalized Kummer flatness theorem and application adapters without duplicating the generic root algebra, tubular comparison or Abhyankar theorem. The original ownership screen found no actual roadmap definition yet, so the proposed imports remain missing, not falsely planned. It also adds the §2.3–2.4 integral-closure, spectral-norm and idempotent-prime inputs of the normalized tower and the §2.6.1 variants — normality, the Capelli–Vahlen domain criterion, multiplicativity of the norm, several ramified elements, a possibly ramified regular base and the modulo-p^m reduction — all of which are ramification statements about this tower and not generic perfectoid theory. The final continuation adds the proof spine of Theorem 2.5.2 at declaration size: the untilt approximation of T − g (Scholze 6.7(i), planned in P2), the colimit description of the tubular unit balls (Scholze 6.4), descent to Noetherian stages, flatness of their generic and special fibres, their faithful flatness, and the almost faithful flatness of each tubular neighbourhood; also the perfectoidness of Â_∞∞ (companion §3.6.1, cited as §3.6.2, E17) and the faithfulness adapter for the Abhyankar lemma.",
+   "brief": "Extend the same PerfectoidRamification design proposed by PAPER-ANDRE-18; do not create a second Part II or replace its scope. Import Perfectoid rings and spaces (PerfectoidSpaces:P0–P3), the existing Adic spaces roadmap and the required early AdicSpacesPartII interfaces. Import the companion’s root-algebra, tubular-colimit and ramified Abhyankar results by their extracted ids. Add normalization/completion comparison for A=W(k)[[T_1,…,T_n]], k perfect of characteristic p and 0≠g∈A, and prove André B Theorem 2.5.2: Â_∞∞° is almost faithfully flat over A_∞0° in the valuation almost base (K_∞°,K_∞°°). Prove finite-level purity and ordinary generic-fibre faithful flatness without asserting finite integral flatness. Expose the actual faithfully flat left-adjoint model S and its root-ideal action. Export 3.2.1 for finite B with B[1/(pg)] finite étale and g∉pA: C°/p^m→D/p^m is almost faithfully flat in the different ramified root-ideal base. DirectSummandsAndBigCohenMacaulay owns Ext obstruction descent and big-CM modifications. Import its early completion and purity lemmas only where needed, retaining an acyclic stage graph. PerfectoidQuotients:Q3 is a related existential p-completely faithfully flat absolutely-integrally-closed extension, not an unproved identification with this specified normalized algebra. Prove 2.5.2 along the recorded spine: choose f_i = g_{c,ε}^♯ with {|T − g| ≤ |ϖ|^i} = {|f_i| ≤ |ϖ|^i}; identify the unit balls with completed colimits of Â°_∞0⟨T^{1/p^∞},U⟩/(ϖ^{i/p^k}U − f_i^{1/p^k}); descend to A°_j0⟨T^{1/p^j},U⟩/(ϖ_{ik}U − f_{ik}) with g_k taken T-free modulo ϖ_j; prove faithful flatness over A°_j0 by the generic fibre (affinoid flatness) and the free special fibre; pass to colimits and completions over each Noetherian stage; apply ( )_!! and conclude by Lemma 2.5.1. Export the faithful form of the Abhyankar fragment: almost finite étale plus almost surjective trace gives almost faithful flatness modulo p^m."
   },
   {
    "route": "source",
@@ -3186,9 +4037,10 @@
     "PAPER-ANDRE-18-B/matlis-detects-zero",
     "PAPER-ANDRE-18-B/top-local-cohomology-tensor",
     "PAPER-ANDRE-18-B/regular-top-injective-hull",
-    "PAPER-ANDRE-18-B/arbitrary-module-top-dual"
+    "PAPER-ANDRE-18-B/arbitrary-module-top-dual",
+    "PAPER-ANDRE-18-B/cm-completion"
    ],
-   "reason": "Add the paper’s exact parameter-system consumer to the existing shared CM/depth direction; do not move infinite big-CM existence into a finite-module patching layer. Also refine the existing R03.3 Matlis/local-cohomology supplier already proposed by PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23; reuse the pinned localCohomology and Tau Ceti envelope carriers."
+   "reason": "Add the paper’s exact parameter-system consumer to the existing shared CM/depth direction; do not move infinite big-CM existence into a finite-module patching layer. Also refine the existing R03.3 Matlis/local-cohomology supplier already proposed by PAPER-BHATT-ETAL-23 and PAPER-HACON-WITASZEK-23; reuse the pinned localCohomology and Tau Ceti envelope carriers. It also takes the invariance of Cohen–Macaulayness under completion, used to reduce Theorem 4.4.2 to complete rings; it belongs with the finite depth theory."
   }
  ],
  "sourceIssues": [
@@ -3399,16 +4251,23 @@
   {
    "id": "PAPER-ANDRE-18-B/E12",
    "kind": "misprint",
-   "locator": "arXiv v1 bibliography [2] p.14 and [11] p.15; corrected published [2],[12] pp.92–93",
-   "printed": "Modifications mnimales; R. Heitman",
-   "correction": "Modifications minimales; R. Heitmann.",
-   "reason": "The published bibliography supplies both corrected spellings.",
+   "locator": "arXiv v1 bibliography [11], p.15; corrected published [12], p.92",
+   "printed": "R. Heitman",
+   "correction": "R. Heitmann.",
+   "reason": "The published bibliography [12], p.92, spells the name correctly. The arXiv v1 title 'Modifications mnimales' is also wrong, but so is its published replacement 'Modifications minimales'; see E22.",
    "affects": "nothing",
-   "known": "Corrected in the published bibliography [2] and [12], p.92.",
+   "known": "Corrected in the published bibliography [12], p.92.",
    "searched": [
     "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked correction found.",
     "2026-09-23: arXiv 1609.00345 history lists only v1; compared v1 appendix p.14 and bibliography pp.14–15.",
     "2026-09-23: author institutional page https://webusers.imj-prg.fr/~yves.andre/ and exact-title erratum/corrigendum plus A.3.1/duality searches; no correction located. This is a bounded search, not an exhaustive novelty claim."
+   ],
+   "assessmentHistory": [
+    {
+     "agent": "Claude Code — cc-442dc5",
+     "issue": 2188,
+     "assessment": "The former correction 'Modifications minimales' is not the title of the cited work: Crossref DOI 10.1007/BFb0098932 gives Bartijn and Strooker, 'Modifications monomiales', LNM 1029, pp.192–217. The title part therefore moves to E22, which records the published misprint; this finding now covers only the author's name, which the published bibliography does correct."
+    }
    ]
   },
   {
@@ -3461,6 +4320,143 @@
     "Crossref record for 10.1007/s10240-017-0097-9, fetched 23 September 2026: no update, correction or erratum is registered against it.",
     "No published erratum is known to this extraction; recorded as new and awaiting independent review."
    ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E16",
+   "kind": "misprint",
+   "locator": "Published §4.1, definition of a partial modification, p.85",
+   "printed": "M′ := M[T_1, …, T_i]_{≤n}/(m_{i+1} − Σ_1^i x_j T_j) · M[T_1, …, T_i]_{≤n−1}",
+   "correction": "M′ := M[T_1, …, T_i]_{≤n}/(m_{i+1} − Σ_1^i x_j T_j) · B[T_1, …, T_i]_{≤n−1}: the degree-one element F = m_{i+1} − Σ x_j T_j of M[T] is multiplied by polynomials with coefficients in B.",
+   "reason": "M is only a B-module, so the product of F ∈ M[T] with an element of M[T]_{≤n−1} is not defined. M[T] is a B[T]-module, and the definition Heitmann and Ma recall from Hochster 2002 (arXiv:1703.08281v2 §1.2) is M′ = M[X_1,…,X_s]_{≤N}/F · R[X_1,…,X_s]_{≤N−1}. With B-coefficients, m_{i+1} = F + Σ x_j T_j lies in (x_1,…,x_i)M′, which is the purpose of the construction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E17",
+   "kind": "misprint",
+   "locator": "Published §3.1, p.83, citation [1, §3.6.2]",
+   "printed": "La K̂_∞-algèbre Â_∞∞ est perfectoïde [1, §3.6.2].",
+   "correction": "[1, §3.6.1]",
+   "reason": "In the published companion (PMIHES 127, 2018) §3.6.1, p.48, proves that A⟨g^{1/p^∞}⟩ is perfectoid for a perfectoid spectral A, as an extremal quotient of A⊗̂_K K⟨T^{1/p^∞}⟩, and that is the result used here, through Lemma 2.5.1. §3.6.2 (p.49) is a Remark on epimorphisms that begins ‘Signalons quelques résultats … que nous n'utiliserons pas dans la suite’. The numbering is the same in the companion's arXiv v1 (1609.00320v1, §3.6.1 and §3.6.2), so the slip is not an artefact of renumbering.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E18",
+   "kind": "gap",
+   "locator": "Published proof of Proposition 4.1.2, p.85",
+   "printed": "Comme m_B D ne contient pas π^{1/p^∞}, on a donc M_ℓ ≠ m_B M_ℓ.",
+   "correction": "The image of 1 ∈ B in M_ℓ does not lie in m_B M_ℓ. In the same proof, the ‘entier n arbitrairement grand’ in the exponent π^{−1/p^n} must be a new letter h, distinct from the degree n of the modifications. It is attained by choosing m, the exponent in c = π^{1/p^m}, large compared with n and ℓ.",
+   "reason": "M_ℓ is a module, and M_ℓ ≠ m_B M_ℓ does not prevent 1 ∈ m_B M_ℓ, which is what makes a sequence bad and what the colimit algebra must avoid (m_B C ≠ C). The displayed diagram gives the stronger statement at once: 1 ↦ 1 ∈ π^{−1/p^h}D, so 1 ∈ m_B M_ℓ would give π^{1/p^h} ∈ m_B D. With the degree n fixed, Hochster's lemma bounds the denominators by c^{−N_ℓ} with N_ℓ depending on n and ℓ, and one must then choose m, not n, large.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E19",
+   "kind": "gap",
+   "locator": "Published proof of Proposition 4.1.2, p.85",
+   "printed": "la colimite (filtrante) des M_ℓ est alors une algèbre de Cohen-Macaulay pour (B, x) (à travers laquelle B → D se factorise)",
+   "correction": "Drop the parenthesis, or prove it separately. The argument gives maps M_ℓ → π^{−1/p^h}D ⊂ D[1/π] depending on the choices of m and h, not a B-algebra map from the colimit to D.",
+   "reason": "Hochster's lemma extends B → D only into D[1/c] with bounded denominators, and the extensions for different c are not asserted to be compatible or to land in D. Proposition 4.1.2 asserts only the existence of C, and neither §4.2 nor Proposition 4.4.1 uses the factorization.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E20",
+   "kind": "error",
+   "locator": "Published §4.3, proof of Theorem 0.7.2, p.87",
+   "printed": "D'après la remarque précédente, T_{m,i} est fidèlement plat sur R̂_m, donc plat sur R, et comme R est noethérien, T := ∏_{m,i} T_{m,i} est encore plat sur R",
+   "correction": "Take the product only over the factors S_{m,i} of the normalization of S ⊗_R R̂_m that receive R̂_m injectively (equivalently have the same dimension); for each m at least one exists by lying over, because R̂_m → S ⊗_R R̂_m is injective and finite. For those factors Remark 4.2.1 applies, and the rest of the proof goes through.",
+   "reason": "Remark 4.2.1 needs the base to be a subring over which the algebra is finite, so that a system of parameters of R̂_m is one of S_{m,i}. Take R = k[[x,y]] and S = R × R/(x), with R embedded diagonally, a finite extension. Then S ⊗_R R̂ = R̂ × k[[y]], the second factor S_{m,2} = k[[y]] has T_{m,2} = k[[y]] as a Cohen–Macaulay algebra, and k[[y]] is killed by x, so it is not flat over R̂. A product containing it as a direct factor is not flat over R.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E21",
+   "kind": "gap",
+   "locator": "Published Appendix A.3, Applications, p.91",
+   "printed": "soit R := V[[T_1, …, T_n]] (où V est un anneau de valuation discrète quelconque d'uniformisante r, ou un corps) … l'implication (a) ⇒ (b) de la proposition entraîne alors que R → R^+ admet une rétraction R-linéaire.",
+   "correction": "Proved when V is complete (so that R is complete): complete-pure-split, or the corrected functional criterion with the correct-direction duality, gives the retraction. For a noncomplete V, R is not complete, and the published argument gives only a nonzero R-linear map R^+ → R̂. The retraction R → R^+ is then not established here.",
+   "reason": "The only argument offered for (a) ⇒ (b) in the regular integral case passes through (a) ⇒ (c), whose proof uses the false identification H^d_m(S) ≅ Hom_R(S^∨, E) (E5). The correct duality Hom_R(H^d_m(S), E) ≅ Hom_R(S, R̂) yields Hom_R(S, R̂) ≠ 0. For noncomplete R, maps into R̂ need not produce maps into R: for a noncomplete discrete valuation ring V, the pure extension V → V̂ has Hom_V(V̂, V) = 0, since V̂/V is divisible. That example is not integral, so it does not refute the claim; it shows that the gap is real.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E22",
+   "kind": "misprint",
+   "locator": "Published bibliography [2], p.92 (arXiv v1 [2], p.14, has ‘Modifications mnimales’)",
+   "printed": "J. BARTIJN and J. STROOKER, Modifications minimales",
+   "correction": "J. Bartijn and J. R. Strooker, Modifications monomiales, in Séminaire d'Algèbre Paul Dubreil et Marie-Paule Malliavin, Lecture Notes in Math. 1029, Springer, 1983, pp.192–217 (DOI 10.1007/BFb0098932).",
+   "reason": "The Crossref record for DOI 10.1007/BFb0098932 (queried 2026-09-23) gives the title ‘Modifications monomiales’, with the same volume and pages. The earlier checkpoint's E12 took the published ‘minimales’ as the correction of the preprint's ‘mnimales’; both are wrong.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "2026-09-23: Crossref API query for Bartijn–Strooker 1983."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E23",
+   "kind": "gap",
+   "locator": "Published proof of Theorem 2.5.2, sentence before formula (11), pp.79–80",
+   "printed": "selon [22, cor. 6.7 i], il existe un élément f_i ∈ Â°_∞0⟨T^{1/p^∞}⟩, congru à T − g modulo ϖ et admettant des racines f_i^{1/p^k}",
+   "correction": "Scholze's Corollary 6.7(i) gives |f_i − (T − g)| ≤ |ϖ|^{1−ε}, that is a congruence modulo ϖ^{1−ε} for any ε > 0, not modulo ϖ. The proof uses only the congruence modulo ϖ′ (step (b) on p.81), which holds once |ϖ|^{1−ε} ≤ |ϖ′|, and the equality of rational subsets (11), which holds for c ≥ i.",
+   "reason": "Scholze 2012 Corollary 6.7(i), p.290: for f ∈ R, c ≥ 0 and ε > 0 there is g_{c,ε} ∈ R^♭ with |f(x) − g_{c,ε}^♯(x)| ≤ |ϖ|^{1−ε} max(|f(x)|, |ϖ|^c). Since ϖ may have |ϖ| = |p|, ε cannot be removed by changing ϖ. With c ≥ i, |f| ≤ |ϖ|^i holds exactly when |g^♯| ≤ |ϖ|^i, so (11) is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage."
+   ]
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E24",
+   "kind": "misprint",
+   "locator": "Published bibliography [21], p.93",
+   "printed": "T. MIHARA, On Tate acyclicity and uniformity of Berkovich spectra and adic spectra",
+   "correction": "T. Mihara, On Tate's acyclicity and uniformity of Berkovich spectra and adic spectra, Israel J. Math. 216 (2016), 61–105 (DOI 10.1007/s11856-016-1404-8).",
+   "reason": "The Crossref record for DOI 10.1007/s11856-016-1404-8 (queried 2026-09-23) has ‘Tate’s Acyclicity’.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/ and the Numdam item page; no linked erratum or corrigendum.",
+    "2026-09-23: arXiv 1609.00345 lists only v1 (1 September 2016); it is earlier than the published text and corrects nothing in it.",
+    "2026-09-23: later work by the author on the same material, André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3; it cites [2] (this paper) and gives no correction of the passage.",
+    "2026-09-23: Crossref API query for Mihara 2016."
+   ]
   }
  ],
  "heldClaims": [
@@ -3471,81 +4467,93 @@
    "neededBy": [
     "PAPER-ANDRE-18-B/almost-to-balanced-cm",
     "PAPER-ANDRE-18-B/weak-functorial-cm"
-   ]
+   ],
+   "status": "resolved",
+   "resolution": "Resolved by cc-442dc5 with partial-modification (corrected definition, E16) and hochster-key-lemma, read from Heitmann–Ma's recollection of Hochster 2002; comparison with Hochster's original text is left to the review."
   },
   {
    "id": "PAPER-ANDRE-18-B/held-hochster-criterion",
    "locator": "Appendix A.3.1, pp.90–91",
    "claim": "Use functional-retraction-regular-r for the corrected (c)⇒(b). For complete Noetherian local R, complete-pure-split establishes (a)⇒(b) with no integrality or regularity assumption, and arbitrary-module-top-dual supplies the correct-direction duality. The noncomplete regular/integral branch and noncomplete-DVR R+ application remain held; do not replace Rhat by R.",
-   "neededBy": []
+   "neededBy": [],
+   "status": "recorded",
+   "resolution": "Recorded as source findings E4, E5 and E21. The complete-base branch is proved (complete-pure-split); the noncomplete regular branch and the noncomplete-DVR Applications claim remain unestablished and are not used by any main theorem."
   }
  ],
  "coverageGaps": [
   {
    "id": "G0",
-   "status": "open",
-   "detail": "Narrowed by Claude Code — cc-7b31c4. Now extracted at declaration size: the §0.1 equivalences (contracted ideals, flat descent, monomial, complex/dimension, syzygies) with the parameter-system and finite-projective-rank definitions they need; the §0.2 easy cases (divided trace in invertible degree, finite flat splitting, dimension ≤ 2, Heitmann in dimension 3, the K[x,y]/(xy) counterexample, characteristic p); the §1.2 Banach/Weierstrass facts with the discrete and dense valuation cases separated, the π-adic topology of the unit ball, the completed-subring identification and the approximation invariance; the §2.3–2.4 integral closure, complete integral closedness, spectral-norm unit ball, isometric transitions and idempotent prime; §2.6.1(2) normality, the Capelli–Vahlen domain criterion and multiplicativity of the norm, and §2.6.1(4) several ramified elements, the possibly ramified regular base and the modulo-p^m reduction; and A.2.1 product stability with its exact arbitrary-index statement over a fixed base, together with the finitely presented tensor/product comparison it rests on, which is missing at the pin. Still open: Remark 2.6.1(3) is a pointer to Koh and Ranganathan rather than a statement and is not extracted; the reduction of §3.1 to a reduced, p-torsion-free, even integral B, and the choice of a discriminant g, are recorded only inside the application items and want their own declarations; and §4.4's three obstacles to weak functoriality, including the Z_p[[T]] example, are described in the report but not split into items."
+   "status": "closed",
+   "detail": "Narrowed by Claude Code — cc-7b31c4. Now extracted at declaration size: the §0.1 equivalences (contracted ideals, flat descent, monomial, complex/dimension, syzygies) with the parameter-system and finite-projective-rank definitions they need; the §0.2 easy cases (divided trace in invertible degree, finite flat splitting, dimension ≤ 2, Heitmann in dimension 3, the K[x,y]/(xy) counterexample, characteristic p); the §1.2 Banach/Weierstrass facts with the discrete and dense valuation cases separated, the π-adic topology of the unit ball, the completed-subring identification and the approximation invariance; the §2.3–2.4 integral closure, complete integral closedness, spectral-norm unit ball, isometric transitions and idempotent prime; §2.6.1(2) normality, the Capelli–Vahlen domain criterion and multiplicativity of the norm, and §2.6.1(4) several ramified elements, the possibly ramified regular base and the modulo-p^m reduction; and A.2.1 product stability with its exact arbitrary-index statement over a fixed base, together with the finitely presented tensor/product comparison it rests on, which is missing at the pin. Still open: Remark 2.6.1(3) is a pointer to Koh and Ranganathan rather than a statement and is not extracted; the reduction of §3.1 to a reduced, p-torsion-free, even integral B, and the choice of a discriminant g, are recorded only inside the application items and want their own declarations; and §4.4's three obstacles to weak functoriality, including the Z_p[[T]] example, are described in the report but not split into items.",
+   "closedBy": "Closed by cc-442dc5. The §3.1 reductions are now items (mod-p-power-injective, reduction-to-domain, galois-closure-reduction, discriminant-element), and so are the §4.4 obstacles (coefficient-ring-compatibility, perfect-residue-base-change, no-unramified-square with a checked proof, discriminant-pullback-obstruction) and the positive weak-functoriality statement. Remark 2.6.1(3) and footnote 3 are qualitative remarks with pointers to Koh, Ranganathan and Williamson; they state nothing that a later step uses and have no item."
   },
   {
    "id": "G1",
-   "status": "open",
+   "status": "closed",
    "neededBy": [
     "PAPER-ANDRE-18-B/kummer-tube-comparison",
     "PAPER-ANDRE-18-B/kummer-almost-flat",
     "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
     "PAPER-ANDRE-18-B/abhyankar-mod-p"
    ],
-   "detail": "Read the exact companion published passages 2.9.3, 3.6.1 and 5.2–5.3; Scholze 2012 6.4 and 6.7(i); Gabber–Ramero 2.2.26 and 3.1.3. Split the application adapters, including nonzero fibres in faithful Abhyankar. Extraction ids are ownership leads, not formalized declarations."
+   "detail": "Read the exact companion published passages 2.9.3, 3.6.1 and 5.2–5.3; Scholze 2012 6.4 and 6.7(i); Gabber–Ramero 2.2.26 and 3.1.3. Split the application adapters, including nonzero fibres in faithful Abhyankar. Extraction ids are ownership leads, not formalized declarations.",
+   "closedBy": "Closed by cc-442dc5. Read in the published companion: Theorem 0.3.1, Corollary 2.9.3, §3.6.1–3.6.2, Remarques 3.4.5 and Lemma 4.2.3. Read in Scholze 2012: Lemma 6.4 and Corollary 6.7. Read in Gabber–Ramero arXiv v3: 2.2.23–2.2.27, 2.4.35, Remark 3.1.3 and 3.4.2. Cited results are items or imports of the companion's extraction ids: kummer-perfectoid (with E17), coordinate-tower-perfectoid, scholze-approximation, tube-sharp-approximation (E23), abhyankar-faithfulness (the nonzero-fibre adapter), and notes on perfectoid-rational-integral-model, almost-faithful-flat-adjoint and actual-flat-model."
   },
   {
    "id": "G2",
-   "status": "open",
+   "status": "closed",
    "neededBy": [
     "PAPER-ANDRE-18-B/kummer-almost-flat",
     "PAPER-ANDRE-18-B/kummer-finite-purity"
    ],
-   "detail": "Split the 2.5.2 proof into approximation preserving the tubular domain, finite-stage presentation, Berkovich 2.2.4 generic flatness, special-fibre monic freeness and nonvanishing, completed colimits over each Noetherian stage and the final !!/completion step. Split coherence and finitely presented annihilator descent in 2.6.1. Never apply 1.1.1 with A_∞0° asserted Noetherian."
+   "detail": "Split the 2.5.2 proof into approximation preserving the tubular domain, finite-stage presentation, Berkovich 2.2.4 generic flatness, special-fibre monic freeness and nonvanishing, completed colimits over each Noetherian stage and the final !!/completion step. Split coherence and finitely presented annihilator descent in 2.6.1. Never apply 1.1.1 with A_∞0° asserted Noetherian.",
+   "closedBy": "Closed by cc-442dc5. The proof of 2.5.2 is split into root-localisation-colimit, noetherian-stage-model, flatness-by-fibres, affinoid-rational-flat (planned), generic-fibre-flat, special-fibre-free, noetherian-stage-faithfully-flat, colimit-base-flatness and tube-almost-faithfully-flat. Completion is applied over each Noetherian A°_j0 (faithful-completion), never over the non-Noetherian union. The proof of 2.6.1 is split into flat-colimit-coherent and fp-ideal-descent, with the annihilator descent checked."
   },
   {
    "id": "G3",
-   "status": "open",
+   "status": "closed",
    "neededBy": [
     "PAPER-ANDRE-18-B/direct-summand"
    ],
-   "detail": "Hochster 1983 Theorem 6.1 and pp.539–543 proof now read: the unramified reduction runs through A+, top local cohomology, complete-base duality, contracting endomorphisms, CE and the monomial criterion, not just completion. New items expose this chain. Still split 2.10–2.17 into the root-ideal complex construction/API, distributivity/acyclicity, comparison homotopy and finite-stage equation; complete the original 1973 socle criterion proof, coefficient-DVR/unramified finite-subring and residue-enlargement proofs, and finite-extension-to-domain reductions. No claim of closed source/prerequisite coverage."
+   "detail": "Hochster 1983 Theorem 6.1 and pp.539–543 proof now read: the unramified reduction runs through A+, top local cohomology, complete-base duality, contracting endomorphisms, CE and the monomial criterion, not just completion. New items expose this chain. Still split 2.10–2.17 into the root-ideal complex construction/API, distributivity/acyclicity, comparison homotopy and finite-stage equation; complete the original 1973 socle criterion proof, coefficient-DVR/unramified finite-subring and residue-enlargement proofs, and finite-extension-to-domain reductions. No claim of closed source/prerequisite coverage.",
+   "closedBy": "Closed as out of scope by cc-442dc5. André uses Hochster 1983 Theorem 6.1 as a cited theorem, and it is an item (unramified-reduction) with the chain of statements its application needs. Splitting Hochster's internal constructions 2.10–2.17, the 1973 socle criterion and the coefficient enlargement belongs to the extraction of Hochster 1983 itself, which is listed under prerequisites. The reduction is recorded as cited, not as formalized or re-proved here."
   },
   {
    "id": "G4",
-   "status": "open",
+   "status": "closed",
    "neededBy": [
     "PAPER-ANDRE-18-B/almost-to-balanced-cm",
     "PAPER-ANDRE-18-B/big-cm-existence",
     "PAPER-ANDRE-18-B/weak-functorial-cm"
    ],
-   "detail": "Read Hochster 2002 Lemma 5.1 and Bartijn–Strooker 1.7; specify bounded modifications with distinguished elements, denominator estimates, the filtered algebra, no-bad-chain argument and balancing completion. Clarify the printed factorization phrase without assuming a stronger factorization through D. Check the two-ring version."
+   "detail": "Read Hochster 2002 Lemma 5.1 and Bartijn–Strooker 1.7; specify bounded modifications with distinguished elements, denominator estimates, the filtered algebra, no-bad-chain argument and balancing completion. Clarify the printed factorization phrase without assuming a stronger factorization through D. Check the two-ring version.",
+   "closedBy": "Closed by cc-442dc5. Hochster 2002 is blocked (ScienceDirect 403). The definition and Lemma 5.1 were read in Heitmann–Ma arXiv:1703.08281v2 §1.2 and Lemma 3.5, which recall them. Items: partial-modification (corrected, E16), modification-sequence, no-bad-sequence-criterion, hochster-key-lemma, almost-cm-no-bad-sequence, completion-balances. The printed factorization phrase is E19 and is not asserted; the conclusion of the proof is sharpened in E18. The two-ring version of Proposition 4.4.1 is weak-functorial-cm, with double sequences as in Heitmann–Ma Theorem 1.6. Bartijn–Strooker 1983 was not read (paywalled)."
   },
   {
    "id": "G5",
-   "status": "open",
+   "status": "closed",
    "neededBy": [
     "PAPER-ANDRE-18-B/pure-local-completion",
     "PAPER-ANDRE-18-B/finite-cover-flat-domination",
     "PAPER-ANDRE-18-B/pure-regular-target-cm"
    ],
-   "detail": "Check pure completion using arbitrary finitely presented modules over the completed base, not just descended modules. Extract coefficient-ring/perfect-residue enlargement, pure base change, excellent normalization and product-flatness. Split the compatible almost-CM construction and final ordinary-CM descent, retaining regular target and residue separability in 4.4.2."
+   "detail": "Check pure completion using arbitrary finitely presented modules over the completed base, not just descended modules. Extract coefficient-ring/perfect-residue enlargement, pure base change, excellent normalization and product-flatness. Split the compatible almost-CM construction and final ordinary-CM descent, retaining regular target and residue separability in 4.4.2.",
+   "closedBy": "Closed by cc-442dc5. Theorem 4.4.2 is split into purity-perfect-residue (Lemma A.2.2 plus the perfect-residue base change, with a proof sketch), cm-completion, weak-functoriality-regular-target and hh-cm-descent (the Hochster–Huneke argument written out). Regular target and residue separability are retained."
   },
   {
    "id": "G6",
-   "status": "open",
-   "detail": "E4 retains the zero-divisor counterexample and corrected functional criterion. E5 now disproves the printed reverse-direction duality even for an infinite integral algebra over F_p. Correct-direction arbitrary-module duality is proved from the source-read HLC11 5.1 and 11.5–11.6; for complete R it gives the needed nonzero ordinary dual. More strongly, complete-pure-split proves a retraction directly for any pure algebra over a complete Noetherian local base. This closes the mathematical complete-base branch and the conditional complete-base R+ application, but NOT the printed claim for possibly noncomplete regular R, or V[[T]] for an arbitrary noncomplete DVR V. For such R the corrected duality gives Hom(S,Rhat), not Hom(S,R). Retain this boundary without asserting the noncomplete conclusion false. E1–E4 former confirmed fields are preserved as informal assessments, since PR2233 was a paper continuation, not a finished review job; all E1–E12 await independent review."
+   "status": "closed",
+   "detail": "E4 retains the zero-divisor counterexample and corrected functional criterion. E5 now disproves the printed reverse-direction duality even for an infinite integral algebra over F_p. Correct-direction arbitrary-module duality is proved from the source-read HLC11 5.1 and 11.5–11.6; for complete R it gives the needed nonzero ordinary dual. More strongly, complete-pure-split proves a retraction directly for any pure algebra over a complete Noetherian local base. This closes the mathematical complete-base branch and the conditional complete-base R+ application, but NOT the printed claim for possibly noncomplete regular R, or V[[T]] for an arbitrary noncomplete DVR V. For such R the corrected duality gives Hom(S,Rhat), not Hom(S,R). Retain this boundary without asserting the noncomplete conclusion false. E1–E4 former confirmed fields are preserved as informal assessments, since PR2233 was a paper continuation, not a finished review job; all E1–E12 await independent review.",
+   "closedBy": "Closed as an extraction gap by cc-442dc5. The mathematics is recorded: E4 (zero-divisor counterexample), E5 (duality direction), complete-pure-split and complete-plus-retraction for complete bases, and E21 for the noncomplete Applications claim, which is recorded as unestablished. Whether (a) ⇒ (b) holds for noncomplete regular R is an open verification question about the paper, not missing extraction."
   },
   {
    "id": "G7",
-   "status": "open",
-   "detail": "Finish fine baseline/API audits for Ext, Tor, Artin–Rees, Krull intersection, coherent colimits, annihilator base change, normalization, parameters and Banach facts. Nine inherited positive library items and two new statement-read eventual-range items are recorded; this is not a closed declaration-level blueprint. Reuse the generic Mittag–Leffler carrier and do not apply finite-type inverse-limit lemmas merely because the modules have finite length. Compare ordinary generator/purity predicates with categorical APIs before implementation. New positive suppliers include the existing local-cohomology functor/radical comparison, tensor-Hom equivalence, injective extension property, integralClosure, and Tau Ceti injective-envelope predicate/uniqueness. Generic envelope existence, Artinian Matlis endomorphisms, Ext-to-Čech comparison, change of base ring and filtered-colimit local cohomology remain explicit missing adapters. Complete-base mathematical proofs do not certify Lean closure."
+   "status": "closed",
+   "detail": "Finish fine baseline/API audits for Ext, Tor, Artin–Rees, Krull intersection, coherent colimits, annihilator base change, normalization, parameters and Banach facts. Nine inherited positive library items and two new statement-read eventual-range items are recorded; this is not a closed declaration-level blueprint. Reuse the generic Mittag–Leffler carrier and do not apply finite-type inverse-limit lemmas merely because the modules have finite length. Compare ordinary generator/purity predicates with categorical APIs before implementation. New positive suppliers include the existing local-cohomology functor/radical comparison, tensor-Hom equivalence, injective extension property, integralClosure, and Tau Ceti injective-envelope predicate/uniqueness. Generic envelope existence, Artinian Matlis endomorphisms, Ext-to-Čech comparison, change of base ring and filtered-colimit local cohomology remain explicit missing adapters. Complete-base mathematical proofs do not certify Lean closure.",
+   "closedBy": "Closed by cc-442dc5. The standard inputs are now items, and six cite pinned declarations read at the pin: artin-rees, krull-intersection, nakayama, faithfully-flat-proper-ideal, lying-over and integral-closure-finite. The rest are recorded as missing and routed: flat-annihilator, tor-filtered-colimit, flat-colimit-coherent, fp-ideal-descent, product-flat-noetherian, flatness-by-fibres, colimit-base-flatness, cohen-parameter-presentation and complete-local-normalization. The pinned trees have no Cohen–Macaulay, coherent-ring, excellent/Nagata or Cohen-structure carrier."
   }
  ],
- "graphNote": "dependencies records a selected proof spine, not an exhaustive graph. New Artinian adapters expose the substantive limit steps. Remaining suppliers and omitted source material are explicit coverageGaps. All API/test entries are planning contracts; no formalization or closed blueprint is certified.",
+ "graphNote": "dependencies records a selected proof spine, not an exhaustive graph. New Artinian adapters expose the substantive limit steps. Remaining suppliers and omitted source material are explicit coverageGaps. All API/test entries are planning contracts; no formalization or closed blueprint is certified. Items may carry `imports`: ids from the companion extraction PAPER-ANDRE-18 whose statements they use, so the design jobs share one owner.",
  "upstreamDevelopment": [
   {
    "url": "https://github.com/leanprover-community/mathlib4/pull/22909",
@@ -3582,6 +4590,54 @@
    "sha256": "e8dda8d32793d5257b3e2c51f68e0fc61ea02bbca23117f2adacbc3bb7ce8ed0",
    "accessed": "2026-09-23",
    "read": "Printed pp.7–8,19–21,35–36,40–42, especially 1.6,5.1,8.3–8.4,11.4–11.8. Not the whole 85-page notes."
+  },
+  {
+   "id": "A18-PUB",
+   "citation": "André, Le lemme d'Abhyankar perfectoïde, Publ. Math. IHÉS 127 (2018), 1–70 (the companion [1])",
+   "url": "https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf",
+   "sha256": "087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a",
+   "accessed": "2026-09-23",
+   "read": "Theorem 0.3.1 (pp.2–3), Corollary 2.9.3 (p.34), §3.4.5 (p.44), §3.6.1–3.6.2 (pp.48–49), Theorem 4.2.2 and Lemma 4.2.3 (pp.55–56). The hash agrees with the one recorded by the companion's extraction."
+  },
+  {
+   "id": "A18-V1",
+   "citation": "André, Le lemme d'Abhyankar perfectoïde, arXiv:1609.00320v1",
+   "url": "https://arxiv.org/pdf/1609.00320v1",
+   "sha256": "485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e",
+   "accessed": "2026-09-23",
+   "read": "Section numbering of §2.9 and §3.6, to date E17."
+  },
+  {
+   "id": "SCH12",
+   "citation": "Scholze, Perfectoid spaces, Publ. Math. IHÉS 116 (2012), 245–313",
+   "url": "https://www.numdam.org/item/10.1007/s10240-012-0042-x.pdf",
+   "sha256": "7e7f7a3b6309ead9d8ee376106c92c644f25b22d75ffa6d7382508a36cf7814a",
+   "accessed": "2026-09-23",
+   "read": "Lemma 6.4 and Corollary 6.7 with its proof of (i), pp.281–291."
+  },
+  {
+   "id": "GR-V3",
+   "citation": "Gabber–Ramero, Almost ring theory, arXiv:math/0201175v3 (LNM 1800)",
+   "url": "https://arxiv.org/pdf/math/0201175",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+   "accessed": "2026-09-23",
+   "read": "2.2.21–2.2.27, Proposition 2.4.35, Remark 3.1.3 and 3.4.2. The LNM numbering André cites was not compared."
+  },
+  {
+   "id": "HM18",
+   "citation": "Heitmann–Ma, Big Cohen–Macaulay algebras and the vanishing conjecture for maps of Tor in mixed characteristic, arXiv:1703.08281v2",
+   "url": "https://arxiv.org/pdf/1703.08281",
+   "sha256": "91264d904a494520a7b4eb1e0fd1520d6e052440f08e46a93b126aab07bee5e0",
+   "accessed": "2026-09-23",
+   "read": "§1.2 (Hochster's partial algebra modifications, Theorem 1.6) and Lemma 3.5 (Hochster 2002 Lemma 5.1), used because Hochster 2002 itself returned HTTP 403 from ScienceDirect."
+  },
+  {
+   "id": "A20",
+   "citation": "André, Weak functoriality of Cohen–Macaulay algebras, arXiv:1801.10010v3 (J. Amer. Math. Soc. 33, 2020)",
+   "url": "https://arxiv.org/pdf/1801.10010",
+   "sha256": "c66d1f60ab3ca8f3a65f2c837687636039786e0226c7f4aadfa4da577898080b",
+   "accessed": "2026-09-23",
+   "read": "Abstract and Theorem 1.1.1, to place the §4.4 outline; not a source of this paper."
   }
  ],
  "continuationHistory": [
@@ -3614,23 +4670,41 @@
     "Recorded new source findings E5–E12 without review verdicts."
    ],
    "lean": "No Lean deliverable was requested; none created or compiled. All APIs and tests are planning contracts."
+  },
+  {
+   "agent": "Claude Code — cc-7b31c4",
+   "issue": 2188,
+   "fromPullRequests": [
+    2210,
+    2222,
+    2233,
+    2243
+   ],
+   "changes": [
+    "Re-read all 23 published pages with a font-aware PDF extraction, so §§0.1, 1.2, 2.3–2.4 and 2.6.1 are quoted as printed.",
+    "Added 34 declaration-sized items for the parts of the paper G0 named as unextracted, and routed every one of them into an existing route: the §0.1 equivalences and §0.2 easy cases and the exact A.2.1 product statement to the proposed DirectSummandsAndBigCohenMacaulay roadmap, the §1.2 uniform-Banach and Weierstrass facts to PerfectoidSpaces P1–P2, and the §2.3–2.4 and §2.6.1 tower statements to the PerfectoidRamification Part II.",
+    "Searched the pinned trees for the carriers these items need and recorded three precise absences: no system-of-parameters predicate, no completely-integrally-closed predicate, and TensorProduct.piRight proved only for a finite index type, so the arbitrary-index comparison A.2.1 rests on is missing.",
+    "Recorded three new source findings E13–E15 without review verdicts: the §0.1 footnote's one-sided arrows for the two renumbered statements, the π-versus-λ torsion reduction in §1.2.1, and the “et”/“est” slip in formula (2).",
+    "Narrowed G0 to what is still unextracted and preserved every prior item, route, held claim, gap and finding."
+   ],
+   "lean": "No Lean deliverable was requested; none created or compiled. All APIs and tests are planning contracts."
   }
  ],
  "continuation": {
-  "agent": "Claude Code — cc-7b31c4",
+  "agent": "Claude Code — cc-442dc5",
   "issue": 2188,
   "fromPullRequests": [
    2210,
    2222,
    2233,
-   2243
+   2243,
+   2255
   ],
   "changes": [
-   "Re-read all 23 published pages with a font-aware PDF extraction, so §§0.1, 1.2, 2.3–2.4 and 2.6.1 are quoted as printed.",
-   "Added 34 declaration-sized items for the parts of the paper G0 named as unextracted, and routed every one of them into an existing route: the §0.1 equivalences and §0.2 easy cases and the exact A.2.1 product statement to the proposed DirectSummandsAndBigCohenMacaulay roadmap, the §1.2 uniform-Banach and Weierstrass facts to PerfectoidSpaces P1–P2, and the §2.3–2.4 and §2.6.1 tower statements to the PerfectoidRamification Part II.",
-   "Searched the pinned trees for the carriers these items need and recorded three precise absences: no system-of-parameters predicate, no completely-integrally-closed predicate, and TensorProduct.piRight proved only for a finite index type, so the arbitrary-index comparison A.2.1 rests on is missing.",
-   "Recorded three new source findings E13–E15 without review verdicts: the §0.1 footnote's one-sided arrows for the two renumbered statements, the π-versus-λ torsion reduction in §1.2.1, and the “et”/“est” slip in formula (2).",
-   "Narrowed G0 to what is still unextracted and preserved every prior item, route, held claim, gap and finding."
+   "Closed G0–G7 and set the status to complete: 46 new items (6 library, 2 planned, 38 missing, every missing one routed exactly once), and notes, dependencies or companion imports on existing items.",
+   "Split the proof of Theorem 2.5.2 into its Scholze, Berkovich and Noetherian-stage steps, and the proofs of Proposition 4.1.2, Theorem 0.7.2 and Theorem 4.4.2 into Hochster's modifications, balancing, normalization, weak functoriality and the Hochster–Huneke descent.",
+   "Recorded E16–E24 without review verdicts, among them an error in the proof of Theorem 0.7.2 (E20, with a counterexample and repair) and an unestablished noncomplete case of the A.3 Applications (E21). Corrected E12, whose ‘Modifications minimales’ is itself a misprint for ‘Modifications monomiales’ (E22).",
+   "Read the cited passages of the companion, Scholze 2012, Gabber–Ramero and Heitmann–Ma, and recorded them in sourceReadings."
   ],
   "lean": "No Lean deliverable was requested; none created or compiled. All APIs and tests are planning contracts."
  }
