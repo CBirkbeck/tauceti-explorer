@@ -40524,7 +40524,7 @@
    "locator": "v1 p.30 proof of Theorem 4.2; final journal text not obtained",
    "printed": "C has a point over F_q",
    "correction": "Use a degree-one divisor class with its descent, not an assumed rational point.",
-   "reason": "A finite-field curve need not have a rational point. What is required here is that the two degree-parity Picard components have the same cardinality; the index-one/Picard-descent supplier is still needed.",
+   "reason": "A rational point is not guaranteed. N5 gives a genus-four F₅ example meeting q>4, with no rational points but the degree-one divisor P₅−2P₂. N1–N3 now derive index one and equal parity cardinalities from the existing curve-bound and descent suppliers. This repairs the finite counting step without claiming its formal implementation.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -40587,7 +40587,7 @@
    "locator": "v1 p.33, joint-tail count display; final journal text not obtained",
    "printed": "μ_i((a+1+2N)×(b+1+2N))=#X(F_q)",
    "correction": "For the unconditional two-parity Picard quotient, divide by 2#J(F_q); on a fixed parity component use its conditional normalization.",
-   "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality.",
+   "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality. N4 now gives a typed event bijection with its unique degree-normalizing κ-twist and distinguishes unconditional from conditional denominators. N5 gives the finite example with a tail of mass 1/8.",
    "affects": "the proof",
    "known": "new",
    "searched": [
