@@ -6465,7 +6465,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1389"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-22",
@@ -7119,8 +7120,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1426"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1426",
+   "finishedAt": "2026-09-23T04:38:54Z"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-20",
