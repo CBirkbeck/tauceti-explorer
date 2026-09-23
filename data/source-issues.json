@@ -32193,9 +32193,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed at the source. Line 397 of rigidity_final.tex reads 'it relies heavily on the calculations of Geisser--Levine \\cite{GH} and Geisser--Hesselholt \\cite{GH}', so the same key is used twice; §1.1 (line 275) and Theorem 1.5 cite \\cite{GL} correctly. In the .bbl the entries are numbered GH = [30] and GL = [34], exactly as the correction says."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E2",
@@ -32213,9 +32213,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed. Condition (Law) at line 1467 asks for a functor U with 'a left adjoint F : Sets -> C', and the sentence four lines later calls the free-object functor 'its right adjoint F'. The free functor is left adjoint to the forgetful functor, so the misprint is in the second mention and nothing depends on it."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E3",
@@ -32233,9 +32233,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed, all three slips and the index shift. The source reads 'let b_1^{(j)},...,b_{w_j}^{(j)},c_1^{(j)},...,c_{w_j}^{(j)} \\in k_i', 'dlog(1+t^jb) \\wedge dlog(1+t^jc) \\equiv t^{2j} da \\wedge db' and 'tau_{2s-2} \\equiv \\sum_{i=1}^{w_s} b_i^{(s)} \\wedge c_i^{(s)}'. The elements belong to k_j, the two-form is db ∧ dc (a and b do not occur), and since the block j contributes at t^{2j}, the block s matches tau_{2s} rather than tau_{2s-2}. The recorded knock-on to the growth condition is right: Bloch–Esnault–Kerz bound w(tau_j) by N·C(j+2,j), which at index 2j is N·C(2j+2,2j) instead of the printed N·C(2j,2j-2), and C(2j+2,2j)/C(2j,2j-2) = (2j+2)(2j+1)/(2j(2j-1)) is at most 6 for j >= 1, so a sequence w_j defeating one bound defeats the other and the proof is unaffected."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E4",
@@ -32253,9 +32253,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed. In the proof of Lemma 5.30 the two diagram arrows and the display of relative terms are labelled {R^{r-s}}_s, while the statement of the lemma and Illusie's sequence recalled just before it are labelled {R^{s-r}}_s. Restriction lowers the level by one, so the map W_s -> W_r for s >= r is R^{s-r}; r - s is non-positive."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E5",
@@ -32273,9 +32273,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed, and it is not a harmless restatement. The preceding sentence sets the goal — find a Zariski neighbourhood U of x_0 with x_0^*alpha = x^*alpha for all sections x of U — so 'we can assume x^*alpha = 0' as printed assumes what is to be proved. Subtracting q^*x_0^*alpha gives exactly x_0^*alpha = 0, which is what the next step uses when it applies rigidity at the henselization of X at x_0 to make alpha vanish on an etale neighbourhood of x_0."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E6",
@@ -32293,9 +32293,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed at the source: 'K(\\mathcal{O}_C; \\mathbb{Z}_p) \\simeq K(C; \\mathbb{C}_p)'. The coefficients are p-adic on both sides, and the same sentence continues that this is p-adic connective topological K-theory by Suslin, which is a statement about K(C; Z_p)."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E7",
@@ -32313,9 +32313,9 @@
    "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
    "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "reviewReason": "Confirmed at the source (line 3887): 'pi_{n+1}(\\mathcal{TC}/p^r) denotes the etale sheafification of the presheaf pi_n(TC(-)/p^r)'. The summand comes from the E_2^{1,-(n+1)} term of the etale descent spectral sequence, so the sheafified presheaf is pi_{n+1}, as the proof of Theorem 6.11 and Theorem 4.29 confirm."
   },
   {
    "id": "PAPER-CLOZEL-THORNE-17/E1",
@@ -42800,6 +42800,116 @@
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
+  },
+  {
+   "id": "PAPER-FINTZEN-21/E1",
+   "kind": "misprint",
+   "locator": "arXiv:1810.04198v2, Theorem 8.1 proof, p.36, the compact induction immediately before the citation to MP96 Proposition 6.6; no claim about the journal version",
+   "printed": "ind^{G(k)}_{(G_{n+1})_[x]} ρ̃|_{(G_{n+1})_[x]}",
+   "correction": "The superscript of this depth-zero compact induction is G_{n+1}(k). The later compact induction of π_K̃ to G(k) is unchanged.",
+   "reason": "This sentence verifies the depth-zero input for Yu on the terminal group G_{n+1}. MP96 is invoked before adding the positive-depth oscillator factors; induction to G(k) occurs only after that construction. When G_{n+1} is a proper twisted Levi, its point stabilizer is not the open subgroup of G(k) required for this depth-zero assertion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+    "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+    "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+    "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+   ],
+   "owner": "PAPER-FINTZEN-21",
+   "file": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+   "citation": "Jessica Fintzen, \"Types for tame p-adic groups\", Annals of Mathematics 193 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FINTZEN-21",
+   "reviewReason": "Checked in the rendered PDF page against the adjoining definitions and proof: This sentence verifies the depth-zero input for Yu on the terminal group G_{n+1}. MP96 is invoked before adding the positive-depth oscillator factors; induction to G(k) occurs only after that construction. When G_{n+1} is a proper twisted Levi, its point stabilizer is not the open subgroup of G(k) required for this depth-zero assertion."
+  },
+  {
+   "id": "PAPER-FINTZEN-21/E2",
+   "kind": "misprint",
+   "locator": "arXiv:1810.04198v2, Lemma 7.8 proof, p.31, opening sentence; no claim about the journal version",
+   "printed": "K_{0+}=G_{x,0+}K^H_{0+}; G_{x,0+}⊂K_+",
+   "correction": "Replace G_{x,0+} in this opening sentence, including its character restriction, by (G_{n+1})_{x,0+}.",
+   "reason": "Lemma 7.5 gives exactly K_{0+}=(G_{n+1})_{x,0+}K^H_{0+}; the same terminal-group positive parahoric lies in K_+ by its definition on p.28. The proof only uses this smaller scalar-acting subgroup. G_{x,0+} is not generally contained in the deeper half-depth product.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+    "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+    "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+    "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+   ],
+   "owner": "PAPER-FINTZEN-21",
+   "file": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+   "citation": "Jessica Fintzen, \"Types for tame p-adic groups\", Annals of Mathematics 193 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FINTZEN-21",
+   "reviewReason": "Checked in the rendered PDF page against the adjoining definitions and proof: Lemma 7.5 gives exactly K_{0+}=(G_{n+1})_{x,0+}K^H_{0+}; the same terminal-group positive parahoric lies in K_+ by its definition on p.28. The proof only uses this smaller scalar-acting subgroup. G_{x,0+} is not generally contained in the deeper half-depth product."
+  },
+  {
+   "id": "PAPER-FINTZEN-21/E3",
+   "kind": "misprint",
+   "locator": "arXiv:1810.04198v2, Theorem 6.1 proof, p.24, first line of Case 1; no claim about the journal version",
+   "printed": "X_j∈(g_j)*_{x,r_j}",
+   "correction": "Read X_j∈(g_j)*_{x_j,−r_j}.",
+   "reason": "The function f on p.22 chooses a dual element at negative depth −r_j. The ensuing pairing is with the positive-depth quotient of h_j, and the same p.24 proof explicitly uses g_j*_{x_j+ελ,−r_j}. Both the missing minus sign and the unspecialized point are notational slips.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+    "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+    "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+    "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+   ],
+   "owner": "PAPER-FINTZEN-21",
+   "file": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+   "citation": "Jessica Fintzen, \"Types for tame p-adic groups\", Annals of Mathematics 193 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FINTZEN-21",
+   "reviewReason": "Checked in the rendered PDF page against the adjoining definitions and proof: The function f on p.22 chooses a dual element at negative depth −r_j. The ensuing pairing is with the positive-depth quotient of h_j, and the same p.24 proof explicitly uses g_j*_{x_j+ελ,−r_j}. Both the missing minus sign and the unspecialized point are notational slips."
+  },
+  {
+   "id": "PAPER-FINTZEN-21/E4",
+   "kind": "misprint",
+   "locator": "arXiv:1810.04198v2, Corollary 5.2 proof, p.20, first sentence and final quotient calculation; no claim about the journal version",
+   "printed": "depth r_j; (H_j)_{x,r_i−ε,d+}; (h_j)_{x,r_ji+}",
+   "correction": "The generic element has depth −r_j; the numerator index is r_j−ε, and the final Lie denominator is (h_j)_{x,r_j+}.",
+   "reason": "Definition 4.1 and the invocation of Lemma 5.1 use depth −r_j. Corollary 5.2’s hypothesis on p.19 has numerator r_j−ε and denominator r_j+. The index i is not bound in the last sentence and r_ji is undefined; the correction agrees with the adjacent group quotient and the stated conclusion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+    "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+    "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+    "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+   ],
+   "owner": "PAPER-FINTZEN-21",
+   "file": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+   "citation": "Jessica Fintzen, \"Types for tame p-adic groups\", Annals of Mathematics 193 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FINTZEN-21",
+   "reviewReason": "Checked in the rendered PDF page against the adjoining definitions and proof: Definition 4.1 and the invocation of Lemma 5.1 use depth −r_j. Corollary 5.2’s hypothesis on p.19 has numerator r_j−ε and denominator r_j+. The index i is not bound in the last sentence and r_ji is undefined; the correction agrees with the adjacent group quotient and the stated conclusion."
+  },
+  {
+   "id": "PAPER-FINTZEN-21/E5",
+   "kind": "misprint",
+   "locator": "arXiv:1810.04198v2, Lemma 7.7 proof, p.31, notation for the scalar extension and its polarized quotient; no claim about the journal version",
+   "printed": "K^H_0(E); K^H_{0+}/K^H_0",
+   "correction": "The occurrences of K^H_0 and K^H_0(E) in the polarization quotient refer to K^H_+ and K^H_+(E); the kernel denoted N(E) in the setup is N^H(E) in the subsequent formulas.",
+   "reason": "Only K^H_{0+}, K^H_+ and N^H were defined. The symplectic quotient is K^H_{0+}/K^H_+ on p.30; quotienting the Heisenberg group by its center must give that same space over E. No subgroup K^H_0 was introduced.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1810.04198 — v1/v2 listed, no later version",
+    "2026-09-23: https://annals.math.princeton.edu/2021/193-1/p04 — no linked correction seen; published PDF not inspected",
+    "2026-09-23: https://www.math.uni-bonn.de/people/fintzen/research.html — no correction listed for this paper",
+    "2026-09-23: title/arXiv-id searches with erratum and correction found no matching correction"
+   ],
+   "owner": "PAPER-FINTZEN-21",
+   "file": "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+   "citation": "Jessica Fintzen, \"Types for tame p-adic groups\", Annals of Mathematics 193 (2021), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FINTZEN-21",
+   "reviewReason": "Checked in the rendered PDF page against the adjoining definitions and proof: Only K^H_{0+}, K^H_+ and N^H were defined. The symplectic quotient is K^H_{0+}/K^H_+ on p.30; quotienting the Heisenberg group by its center must give that same space over E. No subgroup K^H_0 was introduced."
   },
   {
    "id": "PAPER-FRESAN-SABBAH-YU-22/E1",
@@ -64996,6 +65106,27 @@
     "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 dated15 June2022 as latest. Version metadata checked, not a full version diff.",
     "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
     "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E45",
+   "kind": "misprint",
+   "locator": "PCMI notes printed11/PDF15, display immediately before the multiplicity-one theorem; same display in the earlier ICTP notes. Compared with Fields Institute2003 notes printed33/PDF37.",
+   "printed": "Λ(φ) = W_φ(e) = ∫ φ(ng)ψ⁻¹(n) dn.",
+   "correction": "At evaluation at e, the integrand is φ(n)ψ⁻¹(n); alternatively retain g and label the value W_φ(g)=Λ(R(g)φ).",
+   "reason": "The defining transform is W_φ(g)=∫φ(ng)ψ⁻¹(n)dn, so evaluation at e requires g=e. If W_φ were a fixed scalar for all g, its nontrivial N-equivariance would force it to vanish; A69/A70 give nonzero examples on cuspidal representations. The later author notes explicitly print φ(n).",
+   "affects": "nothing",
+   "known": "The corresponding formula is already correct in Cogdell's Fields Institute2003 lecture notes, printed33/PDF37, https://people.math.osu.edu/cogdell.1/fields-www.pdf . This is an already-corrected supplier-note typo, not a new LLHLM error.",
+   "searched": [
+    "2026-09-23: inspected author page https://people.math.osu.edu/cogdell.1/ listing ICTP, corrected/expanded PCMI, and Fields notes.",
+    "2026-09-23: compared the downloaded PCMI and ICTP displays with the Fields notes; hashes and reading scope recorded under source.continuationReadings.",
+    "2026-09-23: exact Cogdell PCMI Whittaker-functional errata search; no separate corrigendum located. The available later correct formula suffices; no novelty claim."
    ],
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
