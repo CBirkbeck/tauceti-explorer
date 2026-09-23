@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-KOYMANS-MILOVIC-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SV.5 plans advanced sieves as separate developments with their own bilinear and parity-breaking inputs. The spin development fits that description: FIMR's type I/type II sieve for primes in a number field, the linear estimate with Lemmas 3.1–3.2, the bilinear estimate with Lemma 4.1, and Theorems 1–2. Nothing else in the atlas plans spins. The fundamental domains (item 10) leave this route, because Tau Ceti GlobalNumberFields 3C plans them."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "ST.2's uniform tail estimates are the home of Bhargava's geometric sieve. ST.3 owns class-group distribution; the Koymans–Pagano extraction's Part II brief already relies on ST.3 carrying governing fields and 2^k-ranks through this paper. Theorem 3's hypothesis (Conjecture C_n for all n) must be kept, as ST.3's acceptance requires."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "CA.1 owns reciprocity and residue symbols in number fields. The route is accepted with the amendment now in its reason: Hilbert reciprocity is imported from Tau Ceti ClassFieldTheory Layer 14 and the local symbol from QuadraticFormInvariants 6C. Only the number-field residue-symbol law with its μ₂, μ_∞ factors and the norm compatibility are CA.1's."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "GN.4 owns lattice-point estimates with error terms. The route is accepted with the amendment in its reason: GN.4 builds on Tau Ceti GlobalNumberFields 3A (Lipschitz-parametrisable sets and the fixed-lattice count), and Widmer's Theorem 5.4 is the version uniform in the lattice that Lemma 3.1 needs."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AN.6 keeps the register of conjectural analytic inputs, and Conjecture C_n and its progression form belong there so that Theorems 1–3 expose the hypothesis. The note's Burgess remark checks out: FIMR prove C_3 with δ = 1/48."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5. The whole of arXiv v1 was read (SHA-256 d56a738a…f433, the only public version; the Duke version is not openly accessible), and FIMR arXiv:1110.6331v2 was read for Proposition 5.2 (exponent ϑθ/(2+θ)) and the Burgess remark. All 28 statements and locators match the paper; no definition or key theorem on the way to Theorems 1–3 is missing, the FIMR factorisation (4.3) and the boundary estimate being kept inside items 20 and 14. The two Mathlib citations were read at 082e2d3 and provide the items. Corrections made in place: Item 2 (Hilbert symbols): the planned layers now include Tau Ceti QuadraticFormInvariants 6C and ClassFieldTheory Layer 14, which own the local Hilbert symbol and the Hilbert invariants; CA.1 kept. Item 3 (Lemma 2.1): note now names the Tau Ceti inputs (ClassFieldTheory Layer 14's hilbertProductFormula, QuadraticFormInvariants 6C) that CA.1 imports; route unchanged. Item 7 (Chebotarev): planned layer changed from AnalyticNumberTheory AN.4 to Tau Ceti Chebotarev Layer 14 (natural density), which owns the theorem; Tau Ceti roadmaps are never re-planned. Item 10 (fundamental domains): status missing → planned by Tau Ceti GlobalNumberFields Layer 3C (ray fundamental domains with sign conditions); removed from the SV.5 route. Mathlib's fundamentalCone is the trivial-modulus case. Item 17 (Widmer's count): note records that GN.4 builds on Tau Ceti GlobalNumberFields 3A's Lipschitz lattice count, Widmer adding uniformity in the lattice. Item 21 (Lemma 4.1): note records E8 (γ's domain printed as S_f × O_F). Routes: SV.5 loses item 10; the CA.1 and GN.4 reasons name the Tau Ceti layers they import (ClassFieldTheory 14 and QuadraticFormInvariants 6C; GlobalNumberFields 3A). Source issues: E1–E5 confirmed (E5 with a qualification of its reason); new misprints E6 ('real quadratic' for 'totally real', PDF18–19), E7 (δ in (2.5) should be δ(|S|n)) and E8 (γ : S_f × O_F for S_f × O_K) added and confirmed. check_paper.py reports ok; every missing item is routed exactly once."
+}
