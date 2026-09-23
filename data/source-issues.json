@@ -78877,6 +78877,173 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E54",
+   "kind": "misprint",
+   "locator": "Supplementary source Bosch Münster notes §1.3 Corollary10 proof, printed22/PDF24, first paragraph; April2008 PDF",
+   "printed": "x_i, i = 1, …, s",
+   "correction": "The generator index runs from 1 to r. The symbol s is the ambient free-module rank, whereas x₁,…,x_r are the generators selected on the preceding page.",
+   "reason": "The preceding construction selects r generators, and the following sentence again uses x₁,…,x_r. For N=(X,Y)⊂T₂ one may take s=1 and r=2; considering only x₁ does not cover the coefficients of the selected generators. This is a local index slip, with no change to the theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+    "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+    "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E55",
+   "kind": "misprint",
+   "locator": "Supplementary source Bosch Münster notes §1.4 Lemma11 proof, printed25/PDF27, first formula; April2008 PDF",
+   "printed": "q = Σ_(j=0)^n a_j ζ^(n−j)",
+   "correction": "Use b_j as the coefficients of q, retaining a_i for p.",
+   "reason": "The line declares a₀=b₀=1 and the next displayed convolution uses a_i b_j. Distinct p and q do not have the same coefficient family. All subsequent estimates already use b_j for q, so the intended proof is unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+    "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+    "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E56",
+   "kind": "error",
+   "locator": "Supplementary source Bosch Münster notes §1.4 Definition1/Proposition2(iii), printed22/PDF24, and Theorem14, printed28/PDF30; April2008 PDF",
+   "printed": "finite monomorphism T_d ↪ A; exists a point x ∈ Max A",
+   "correction": "Require A≠0 in the Noether-normalization and maximum-attainment assertions, or explicitly adopt a convention excluding the zero affinoid. Keep arbitrary quotient and closed-ideal statements valid for the zero quotient.",
+   "reason": "Definition1 allows the quotient T_n/(1)=0. Since T_d contains the nonzero field K, it cannot inject into the zero ring; Max(0) is empty, so it contains no point attaining a maximum. Noetherianity and Jacobsonness remain true for the zero ring. Z50 already assumes a proper ideal; Z51 starts with a nonempty clopen, so the LLHLM domain argument is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+    "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+    "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E57",
+   "kind": "misprint",
+   "locator": "Supplementary source Conrad AWS Exercise2.2.3(1), PDF/printed13, displayed domain of h; current author PDF",
+   "printed": "h : T_(n+n′)/J → B",
+   "correction": "The map h has domain T_(n+n′)/(J+J′), as in the factor maps immediately preceding it and the universal triple following it.",
+   "reason": "The factor maps ι,ι′ take values in the quotient by J+J′, so the printed composites h∘ι and h∘ι′ are not typed with the displayed domain. For I=0 and I′=(Y), retaining only J leaves an unwanted free Y. Item Z52 already uses both ideals, and its proof now records this source slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current Stanford author PDF https://math.stanford.edu/~conrad/papers/aws.pdf, Exercise2.2.3(1) inspected as image.",
+    "23 September 2026: author-domain searches for Several approaches corrections and Conrad 2.2.3 J; no correction to this line located. The author PDF is the version checked, not an independently matched AMS printing."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E58",
+   "kind": "misprint",
+   "locator": "Supplementary source Bosch Münster notes §1.2 Proposition3 proof, printed9/PDF11, definition of c_ν; April2008 PDF",
+   "printed": "c_ν = Σ_(i=1)^∞ c_(iν)",
+   "correction": "Start the coefficient sum at i=0, matching the series Σ_(i=0)^∞ f_i being summed.",
+   "reason": "Take f₀=1 and f_i=0 for i≥1. The printed coefficient rule produces zero, while the asserted sum is one. Adding the omitted initial coefficient repairs the proof and does not change completeness. Z81 uses the corrected coefficientwise limit.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+    "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+    "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E59",
+   "kind": "gap",
+   "locator": "Supplementary source Bosch Münster notes §1.4 Theorem14 proof, printed28/PDF30, simultaneous coefficient-maximization step; April2008 PDF",
+   "printed": "|a₁(x)|⋯|a_r(x)| = |a₁|⋯|a_r|",
+   "correction": "Apply the Tate-algebra maximum principle to the product of the nonzero coefficients only. Zero coefficients already attain norm zero everywhere. If all coefficients vanish, treat f=0 in the reduced domain separately and choose any maximal point, using A≠0.",
+   "reason": "When a coefficient is zero, the displayed product equality is 0=0 and does not imply equality for the other factors. Such minimal equations occur, for example f=X in K⟨X⟩ finite over K⟨T⟩ by T↦X² has equation f²−T=0 with zero linear coefficient. The proof step is repaired by omitting zero factors; the corrected maximum principle survives. The topology proof in Z86 uses closed graphs and does not depend on this maximum step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: current author-hosted Münster April2008 notes at https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf; the cited pages were checked as images. This is not a claim to have compared the 2014 Springer book.",
+    "23 September 2026: web searches for Bosch heft378 errata, Lectures on Formal and Rigid Geometry Corollary10 erratum, and Lemma11 corrections; no identified correction to these passages was found.",
+    "23 September 2026: targeted uni-muenster.de Bosch errata rigid search; no matching author correction located. Novelty is limited to this search, not asserted absolutely."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E60",
+   "kind": "gap",
+   "locator": "Supplementary Stacks07PV, Proposition15.51.10, characteristic-zero paragraph after the regularity of the completed local polynomial ring; version accessed 23 September2026",
+   "printed": "is regular as a localization of R[x]_q̂",
+   "correction": "Separate r=0 from r≠0. After inverting the nonzero elements of R, write C=R[x]_q̂⊗_R Frac(R). For nonzero r, the fibre is C/(g) for a separable irreducible polynomial g over Frac(R). Extend d/dx to C, use that g′ is a unit modulo g, and apply the regular-hypersurface derivation criterion. Item Z99 records the proof and its remaining formal suppliers.",
+   "reason": "The asserted canonical localization description fails when r is nonzero. Take R=k[[t]] in characteristic zero, q=(t,x) and r=(x). The completion is the domain k[[t,x]], whereas the fibre is k((t)) and the canonical map kills the nonzero element x; no nonzero localization of a domain does this. This refutes that proof step, not finite-type stability of G-rings. The zero-prime fibre really is a localization.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September2026: current tag statement, complete outer proof and comments read at https://stacks.math.columbia.edu/tag/07PV and /07PR.",
+    "23 September2026: both tag history pages read. The 07PV history lists January2026 q/r and May2026 notation changes; 07PR lists May2026 n/m and earlier field-extension notation changes. No entry identifies either correction recorded here.",
+    "23 September2026: targeted searches for 07PV localization correction and 07PR mathfrak r typo found no identified correction. The novelty assessment is limited to these checks."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E61",
+   "kind": "misprint",
+   "locator": "Supplementary Stacks07PR, Lemma15.51.5, second completed-ring comparison display (the one with C); version accessed 23 September2026",
+   "printed": "C_r̂",
+   "correction": "Use C_q̂. The prime of C defined in the preceding paragraph is q; r is the prime of B.",
+   "reason": "The immediately preceding setup defines B and its prime r, then C and its prime q. The B display correctly completes at r; the C display repeats r even though its specified local ring is C_q. The rest of the argument uses the intended base change and is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September2026: current tag statement, complete outer proof and comments read at https://stacks.math.columbia.edu/tag/07PV and /07PR.",
+    "23 September2026: both tag history pages read. The 07PV history lists January2026 q/r and May2026 notation changes; 07PR lists May2026 n/m and earlier field-extension notation changes. No entry identifies either correction recorded here.",
+    "23 September2026: targeted searches for 07PV localization correction and 07PR mathfrak r typo found no identified correction. The novelty assessment is limited to these checks."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
