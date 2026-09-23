@@ -1,0 +1,122 @@
+{
+  "paper": "PAPER-CALEGARI-GERAGHTY-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "GL2ModularityLifting follows KW II with defect l0 = 0; nothing in the atlas proves R = T for weight-one forms or Bianchi forms, where l0 = 1 and the Hecke modules are balanced, not free. So a Part II is justified. The distinct id beside PAPER-IYENGAR-KHARE-MANNING-24's GL2ModularityLiftingPositiveDefect is right: IKM's is the non-minimal continuation and imports this route, and make_queue.py does not merge two papers' routes with the same id. The review added the deduction of Theorem 1.2 from Theorem 1.3, the cartesian degeneracy squares and two steps of Theorem 3.30(4). An addendum to the brief records E221 (L_σ at level V), E224 (Steinberg quotient at v ≡ −1 mod p Steinberg primes) and E226."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "PotentialAutomorphyInfrastructure plans the unconditional CM-field descendant; the conditional GL_n theory over arbitrary F (Conjecture B as hypotheses, Lemma 9.6, the complexes D̃_N, Theorem 9.19) is planned nowhere. The review added 'Serre modular of minimal level' and corrected Lemma 9.6's key step (E229). The brief's addendum records E229, E213 and E214."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AutomorphicBundles stops at characteristic-zero sections; the integral coherent complexes of §7.2 are new in its direction, and PAPER-CALEGARI-GERAGHTY-20 routes to the same id."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "R03.3, R03.5 and P7 own depth, patching and perfect complexes; the reviewed R03.5 node transcribes §2 from this paper. The duplicate item canonical-module-regular-sequence-facts was removed and Lemma 4.2 corrected (E72)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "L7, L8, R08.1 and R08.2 own the local rings. The review added the classification of non-smooth cases behind Lemma 4.11 and moved tw-local-selmer-dimension here, since its cited layers disown it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "R15.2 and R15.3 own integral Hecke theory and Edixhoven's duality on geometric forms. The Fricke map w_x, planned nowhere, joins W_x here, with Edixhoven's Kodaira–Spencer isogeny lemma."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "R20.1–R20.3 own the J₁(N*) inputs and m∅, consistently with PAPER-IYENGAR-KHARE-MANNING-24."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "R04.2 and R04.5 own Lemma 4.14 and the rank-one Taylor–Wiles primes."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "R02.3, R02.5 and R02.6 own the Selmer numerics."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "R01.2 and G7 own λ(α) and oddness in rank n."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "ALS.0, ALS.3 and ALS.4 own the level subgroups, degeneracy maps and Eisenstein ideals."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "AF.1 and AF.4 own l0, q0 and Borel–Wallach."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "IHG.1 and IHG.2 own the localising operator and Boston–Lenstra–Ribet."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "R16.2 and R16.3 own the Conrad–Diamond–Taylor types."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "SR.0 and SR.5 own the regular-block ℓ ≠ p theory of §9.4.1. The review added the parahoric-invariants computation behind Theorem 9.16 and the Ext vanishing between distinct torus characters."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "ML.0–ML.3 register Theorem 1.1 as a conditional endpoint. The review added the twisted modular curve X_E(q) and aligned the §10 items with N₂ > 2n + 1 (E213), the E216 relabelling, BLGHT II's Proposition 6.2 as printed and HSBT's simultaneous reduction (E214)."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "SF.2 owns the flat Kummer sequence."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "A0-extension owns coherent cohomology and duality for proper flat O-schemes; the review added dévissage and cofiniteness for K/O coefficients."
+    },
+    {
+      "route": 19,
+      "verdict": "accept",
+      "reason": "U.4 owns the congruence subgroup property from Bass–Milnor–Serre."
+    },
+    {
+      "route": 20,
+      "verdict": "accept",
+      "reason": "R14.4 owns Lyndon's sequence as used in Ihara-type arguments."
+    },
+    {
+      "route": 21,
+      "verdict": "accept",
+      "reason": "RG2.2 owns the SL₂ tree and Ihara's amalgam."
+    },
+    {
+      "route": 22,
+      "verdict": "accept",
+      "reason": "AA.5 owns the GL₁ validation of the adelic quotient."
+    },
+    {
+      "route": 23,
+      "verdict": "accept",
+      "reason": "R24.1 owns Thorne's finiteness theorem."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against the published PDF (CG.pdf, SHA-256 c0ba8de0…), arXiv v2 and its TeX source, with ten checkers splitting pp. 297–433; they opened every cited declaration, read every cited layer description and checked every recorded mistake on the page image. The coordinator re-derived the substantive new findings in the TeX. Items: 78 corrected; 16 added and one duplicate removed, giving 510 (8 library, 224 planned, 278 missing). Status changes: fricke-w-x and tw-local-selmer-dimension are missing (their cited layers do not plan them); several planned lists were corrected (prop-2-3-R-presentation, rem-3-10-stacks, assumption-3-9, prop-6-6 and others). Source issues: E1–E217 are all confirmed. Duplicated scope was removed from E2, E14, E21, E24, E81 (re-scoped to the p. 361 slip), E84, E96, E146, E148, E155, E176 and E208, and E26, E147 and E180 had kind or affects changed. E218–E230 are new:\n- E221 (error, the proof): the p. 344 claim that flat pullback of L_σ equals the level-V invariant sheaf fails at cusps where both covers ramify (the fibre product O⟦s,r⟧/(s^x − r^e) is not normal).\n- E224 (error, the proof): at v ≡ −1 mod p with ρ̄|G_v a ramified twist of (ω̄ ∗; 0 1), R_{v,φ} has components of conductor v² outside the support of S_φ, so the §4.1 R = T isomorphisms fail as printed; the Steinberg quotient repairs them.\n- E229 (gap, the proof): Lemma 9.6's intermediate isomorphism at the anaemic m is unproved; localizing at m̃ = (m, U_x − α_x) repairs it.\n- The rest are misprints.\nNo main theorem changes. All 23 routes are accepted; the three Part II briefs gained addenda."
+}
