@@ -1,10 +1,75 @@
-# PAPER-KISIN-17: twisted mod-p point classification
+# Kisin (2017): mod p points on Shimura varieties of abelian type, extraction and routing
+
+Issue [#1434](https://github.com/CBirkbeck/tauceti-explorer/issues/1434). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint, whose report follows below as history.
+- **The paper.** M. Kisin, *Mod p points on Shimura varieties of abelian type*, J. Amer. Math. Soc. 30 (2017), 819–914.
+  - The 99-page author version was re-fetched; its SHA-256 (d3c19cdd…) matches the checkpoint.
+  - The AMS copy of the published version returned HTML to this environment.
+- **Items.** The result has **205 items: 17 library, 12 planned and 176 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Five are recorded under `sourceIssues`. The checkpoint had none.
+
+## This continuation (cc-442dc5)
+
+**Findings.** The paper ends with "Errata for [Ki 2]", correcting Kisin's 2010 integral-models paper. These are printed corrections, recorded with `known` values that name this paper:
+- **E1.** [Ki 2] (1.5.2) lacks the hypothesis that Lie H is Frobenius-stable. (1.5.3) is deleted, and ∇_{R_G} has coefficients in Lie G.
+- **E2.** The proof of [Ki 2] (1.5.8) is replaced (E.2–E.4); its statement stands.
+- **E3.** The finiteness claimed in [Ki 2] (3.3.9) is false. Lemma E.6 and E.7 rebuild the quotient in (3.4.11) without it.
+- **E4.** The same assertion in Moonen's [Mo, 3.21.1], which E.5 notes.
+- **E5 (new).** The bibliography uses the label [Mo] for both Moonen and Morita.
+
+**New items.** Five numbered statements had no items: Corollary (1.1.7), Lemma (1.1.12), Proposition (1.3.7), Corollary (3.4.16) and Corollary (3.8.6).
+
+**Gaps.**
+- All fourteen are deferred as cited suppliers' proofs or design work.
+- Q-source-conventions is among them: whether Corollary 2.2.5 should read μ_T^{-1} needs the published text.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the printed corrections are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (1.5.2)–(1.5.4). *Printed:* (1.5.2) without the condition that Lie H is stable under h ↦ φ∘h∘φ^{-1}; (1.5.3); the connection ∇_{R_G} with coefficients in Lie U°_G *Correction:* Add to (1.5.2) the hypothesis that Lie H is stable under Frobenius conjugation; delete (1.5.3); in (1.5.4) the connection ∇_{R_G} has coefficients in Lie G.
+- **E2** (error; affects the proof), Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), proof of (1.5.8), fourth and fifth paragraphs. *Printed:* the fourth and fifth paragraphs of the proof of (1.5.8) *Correction:* Replace them by the argument of Errata E.2–E.4: the parallel transports σ_α of the s_α cut out Spf A_G (Lemma E.3), and the Frobenius-invariant s̃_α are parallel, so the map factors through A_G.
+- **E3** (error; affects a stated result), Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (3.3.9), used in (3.4.11). *Printed:* ker(A(G_{Z(p)})° → A(G_{2,Z(p)})) is finite *Correction:* The kernel need not be finite. Lemma E.6 shows that the central part has finite index in it, and E.7 rebuilds the quotient S_{K_{2,p}}(G_2, X_2) = [A(G_{2,Z(p)}) × S_{K_p}(G, X)^+]/A(G_{Z(p)})° and its extension property without the finiteness.
+- **E4** (error; affects a stated result), Moonen, Models of Shimura varieties in mixed characteristics (1998), 3.21.1, cited as [Mo, 3.21.1] in Errata E.5. *Printed:* the same finiteness of ker(A(G_{Z(p)})° → A(G_{2,Z(p)})) *Correction:* As in E3: replace the finiteness by the finite-index statement of Lemma E.6.
+- **E5** (misprint; affects nothing), Kisin 2017, bibliography (author version p.98). *Printed:* [Mo] B. Moonen, Models of Shimura varieties in mixed characteristics …; [Mo] Y. Morita, Ihara's conjectures and moduli space of abelian varieties … *Correction:* Give the two references distinct labels.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **Q-comparison** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-display** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-adlv** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-ckv-correction** (deferred). The CKV corrigendum is a cited supplier; its omitted D4/E6 verification is its own.
+- **Q-stacks** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-cohom** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-gerb** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-shimura** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-isogeny** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-global** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-source-conventions** (deferred). Whether Corollary 2.2.5 should read μ_T or μ_T^{-1}, against the μ_0^{-1} convention of (1.1.12) and (1.3.7), needs the published text; the AMS copy returned HTML here.
+- **Q-components** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-main** (deferred). A cited supplier's proof or design work (see remaining); the paper uses it as an input.
+- **Q-granularity** (deferred). Declaration-sized splitting is design work; every numbered statement is now an item.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-KISIN-17: twisted mod-p point classification
 
 This is a full-main-paper extraction checkpoint for Mark Kisin, *Mod p points on Shimura varieties of abelian type*, JAMS 30 (2017), 819–914, DOI [10.1090/jams/867](https://doi.org/10.1090/jams/867). All 99 pages of the author's version were read, including the integral-model errata and bibliography. The result remains `partial`: the original cited-source proofs and several multi-part arguments still need recursive, declaration-sized decomposition. Nothing in this submission claims a Lean formalization.
 
 The principal result gives a point-tower description at an odd hyperspecial prime for an abelian-type Shimura datum. Its rational automorphism-group action is modified by an adelic inner twist τ. That qualification is part of the theorem. The paper's stronger untwisted Langlands–Rapoport assertions are retained as conjecture predicates, not supplied with proof fields.
 
-## Source identity and actual reading
+### Source identity and actual reading
 
 The source used is the [author's 99-page PDF](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1). The [author's publication list](https://people.math.harvard.edu/~kisin/preprints.html) associates that file with the published JAMS article, and the Crossref DOI record confirms author, title, volume and pages. The PDF metadata dates this author version to 2016-08-27. Its printed page numbers equal PDF page numbers. The published page range has 96 pages; text identity between the versions has not been asserted. The author PDF's SHA-256 is recorded in the result so a continuation can inspect exactly the version used. Direct AMS and repository access attempts did not supply a journal PDF.
 
@@ -14,7 +79,7 @@ Two additional primary sources were inspected. The [Borovoi author PDF](https://
 
 The [Chen–Kisin–Viehmann corrigendum](https://doi.org/10.1112/S0010437X1600782X), Compositio 153 (2017), 218–222, was read completely: six PDF pages including the cover. Its repairs affect the component theorem used in §1.2. The original 2015 CKV paper remains an original-source gate. Full published KP18 and KPZ26 papers were read in preceding jobs of this session; their extraction proposals supply ownership and correction links, not implemented lemmas.
 
-## What the theorem requires
+### What the theorem requires
 
 The geometric side begins with a reductive integral Hodge embedding and a hyperspecial subgroup at p>2. An integral model is the normalization of a closure inside a sufficiently small good-level Siegel model. A point carries crystalline and away-p étale tensors. A quasi-isogeny belongs to its tensor isogeny class only when it preserves those tensors and the weak polarization; an isogeny of the underlying abelian varieties is insufficient.
 
@@ -36,7 +101,7 @@ The direct Hodge-type matching assumes the center is a torus. A permitted Hodge-
 
 The resulting theorem is a Frobenius, center and arithmetic-action-equivariant bijection of geometric special-fiber point towers. It does not assert an isomorphism of schemes, perfect spaces or stacks. It retains p>2, hyperspecial level, abelian type and the τ-twisted action. The original theorem is not silently generalized to parahoric level by borrowing a later paper's terminology.
 
-## Corrections and convention gates that change the plan
+### Corrections and convention gates that change the plan
 
 **Crossed-module abelianity.** Author §3.2.7(4), page42, states a general abelianity implication from abelian cokernel. That implication is too broad. Let Δ=C3 act trivially on the crossed module F=C3→H=C2, with zero boundary and the inversion action of C2 on C3. Equivariance and Peiffer hold, and the cokernel is abelian. The degree-zero cocycles modulo F gauge are C3⋊C2, which is nonabelian. The finite diagnostic verifies this explicitly. This does not refute the reductive application: Borovoi identifies Gsc→G with the center complex and the maximal-torus complex, whose hypercohomology is abelian. The plan uses that specific comparison, not the false general implication.
 
@@ -62,7 +127,7 @@ A separate lattice example illustrates why invariant lifts cannot be assumed: sw
 
 **Twists and actions.** A right torsor acts on its functions by (zf)(x)=f(xz). The evaluation frame has the inverse cocycle in its Galois transformation formula. Twisting a level by ω changes it to ωKω⁻¹. The arithmetic action on the parameter uses i_h⁻¹gh. Reflex Frobenius uses the ordered product bσ(b)…σ^(r−1)(b); noncommutative factors cannot be reordered. Tests address these choices directly.
 
-## Ownership and baseline decisions
+### Ownership and baseline decisions
 
 The pinned commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Declaration statements and their enclosing hypotheses were read before use, with module digests recorded. Existing carriers include Witt vectors and their fraction-field Frobenius, reductive and torus predicates, character/cocharacter lattices and perfect pairing, dominant chambers, abelian varieties over fields and divided powers. These carrier imports do not establish integral Shimura models, tensor displays, gerbs or the LR theorem.
 
@@ -78,8 +143,7 @@ The four Part II routes reuse candidates already identified by other papers: Fin
 
 The detailed route briefs below state their producer/consumer boundaries, final theorems, imports, suggested Lean homes and unresolved proof gates. The file paths are suggestions for later design/blueprint work. This paper issue did not authorize a Lean deliverable, so no suggested file was created or compiled.
 
-
-## Inventory and route map
+### Inventory and route map
 
 The checkpoint contains **200 items**: 17 library imports, 12 items assigned to existing planned stages, and 171 missing items. Its 77 definitions/constructions have 231 API statements and 231 specified examples. Every missing item has exactly one route. The result records 24 statement-read baseline declarations and 366 current input records.
 
@@ -106,8 +170,7 @@ The final input refresh also inspected the updated KMPS22 normalizer and fiber-p
 
 | ShimuraVarietiesHondaTatePartII | part-ii | 85 | ShimuraVarieties |
 
-
-### SchemeAndStackFoundations
+#### SchemeAndStackFoundations
 
 SF.1 owns gerbs, descent and the reusable quotient-category/torsor interfaces. Add strict monoidal crossed modules and invertible two-fiber adapters to its existing categorical foundations; preserve ordinary Mathlib carriers.
 
@@ -119,8 +182,7 @@ Suggested future Lean file: `TauCeti/AlgebraicGeometry/Stacks/GaloisGerb.lean`. 
 
 Prior extraction ownership screened in this direction: PAPER-BAKKER-TSIMERMAN-16, PAPER-BENOIST-19, PAPER-BENOIST-WITTENBERG-20, PAPER-BHATT-ETAL-23, PAPER-BRESCIANI-24, PAPER-CARO-PASTEN-23, PAPER-CESNAVICIUS-19, PAPER-CESNAVICIUS-22, PAPER-CHARLES-16, PAPER-COUVEIGNES-20, PAPER-DIMITROV-GAO-HABEGGER-21, PAPER-GAO-GE-KUHNE-26, PAPER-GAO-HABEGGER-19, PAPER-GILLE-PARIMALA-26, PAPER-HACON-WITASZEK-23, PAPER-HARPAZ-WITTENBERG-20, PAPER-HARPAZ-WITTENBERG-23, PAPER-HE-21, PAPER-KISIN-PAPPAS-18, PAPER-LAWRENCE-SAWIN-25, PAPER-MERKURJEV-SCAVIA-26, PAPER-MOK-PILA-TSIMERMAN-19, PAPER-RICHARD-YAFAEV-25, PAPER-SCHROER-23, PAPER-SHENDE-TSIMERMAN-17, PAPER-WITASZEK-22. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### EndoscopicTransferAndUnitaryTraceComparison
+#### EndoscopicTransferAndUnitaryTraceComparison
 
 ET.0 explicitly owns rational/stable conjugacy, inner forms, torus complexes and abelianized reductive cohomology. It owns these Borovoi statements and obstruction kernels; use its shared localization API.
 
@@ -132,8 +194,7 @@ Suggested future Lean file: `TauCeti/GroupTheory/GaloisCohomology/ReductiveAbeli
 
 Prior extraction ownership screened in this direction: PAPER-ATOBE-KONDO-YASUDA-22. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### ReductiveGroupsPartII
+#### ReductiveGroupsPartII
 
 Existing local integral reductive-group layers own Cartan cosets, Kottwitz maps and invariant-class lifting. Import upstream reductive/root constructions without replanning them.
 
@@ -145,8 +206,7 @@ Suggested future Lean file: `TauCeti/Algebra/AlgebraicGroup/Unramified/Kottwitz.
 
 Prior extraction ownership screened in this direction: PAPER-CESNAVICIUS-19, PAPER-CESNAVICIUS-22, PAPER-FINTZEN-21, PAPER-GILLE-PARIMALA-26, PAPER-HARPAZ-WITTENBERG-20, PAPER-HE-18, PAPER-HE-21, PAPER-KISIN-PAPPAS-18, PAPER-KISIN-PAPPAS-ZHOU-26, PAPER-KISIN-ZHOU-25. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### BunGAndNewtonStrata
+#### BunGAndNewtonStrata
 
 BG0 already plans G-isocrystals and J_b, and BG1 their Newton/Kottwitz invariants. Add the exact invariant-π1 surjectivity of J_b(Qp) as a source theorem, importing ET.0 cohomology.
 
@@ -158,8 +218,7 @@ Suggested future Lean file: `TauCeti/Algebra/Isocrystal/ReductiveAutomorphisms.l
 
 Prior extraction ownership screened in this direction: PAPER-HE-21, PAPER-KISIN-MADAPUSIPERA-SHIN-22, PAPER-KISIN-ZHOU-25. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### AbelianSchemesAndArithmeticModuli
+#### AbelianSchemesAndArithmeticModuli
 
 Abelian-scheme up-to-isogeny descent and twisting are already in the reviewed family scope. Add the exact realization comparison and conjugated adelic level adapter used by Kisin; generic torsor descent stays in SF.1.
 
@@ -171,8 +230,7 @@ Suggested future Lean file: `TauCeti/AlgebraicGeometry/AbelianScheme/TorsorTwist
 
 Prior extraction ownership screened in this direction: PAPER-CARO-PASTEN-23, PAPER-CHARLES-16, PAPER-DIMITROV-GAO-HABEGGER-21, PAPER-GAO-GE-KUHNE-26, PAPER-GAO-HABEGGER-19, PAPER-KISIN-MADAPUSIPERA-SHIN-22, PAPER-KISIN-PAPPAS-18, PAPER-LIPNOWSKI-TSIMERMAN-18, PAPER-TSIMERMAN-18, PAPER-YUAN-26. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### FiniteFlatGroupsWithTensorsPartII
+#### FiniteFlatGroupsWithTensorsPartII
 
 Reuse the existing candidate in this direction; these are additional source obligations, not a second roadmap or implemented stages.
 
@@ -184,8 +242,7 @@ Suggested future Lean file: `TauCeti/ArithmeticGeometry/IntegralPadicHodge/Adapt
 
 Prior extraction ownership screened in this direction: PAPER-KISIN-PAPPAS-18, PAPER-KISIN-PAPPAS-ZHOU-26, PAPER-KISIN-ZHOU-25. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig
+#### HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig
 
 Reuse the existing candidate in this direction; these are additional source obligations, not a second roadmap or implemented stages.
 
@@ -197,8 +254,7 @@ Suggested future Lean file: `TauCeti/ArithmeticGeometry/AffineDeligneLusztig/Min
 
 Prior extraction ownership screened in this direction: PAPER-HE-21. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### ReductiveGroupsArithmeticPartII
+#### ReductiveGroupsArithmeticPartII
 
 Reuse the existing candidate in this direction; these are additional source obligations, not a second roadmap or implemented stages.
 
@@ -210,8 +266,7 @@ Suggested future Lean file: `TauCeti/Algebra/AlgebraicGroup/Arithmetic/QuasiMoti
 
 Prior extraction ownership screened in this direction: PAPER-KISIN-MADAPUSIPERA-SHIN-22, PAPER-KISIN-ZHOU-25. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-### ShimuraVarietiesHondaTatePartII
+#### ShimuraVarietiesHondaTatePartII
 
 Reuse the existing candidate in this direction; these are additional source obligations, not a second roadmap or implemented stages.
 
@@ -223,8 +278,7 @@ Suggested future Lean file: `TauCeti/ArithmeticGeometry/ShimuraVariety/Langlands
 
 Prior extraction ownership screened in this direction: PAPER-KISIN-MADAPUSIPERA-SHIN-22, PAPER-KISIN-PAPPAS-18, PAPER-KISIN-PAPPAS-ZHOU-26, PAPER-KISIN-ZHOU-25. Exact prior item IDs are recorded in the JSON; same owner is an overlap lead, not an assertion that every pair of items is identical.
 
-
-## Item statements
+### Item statements
 
 The JSON is the authoritative machine-readable inventory: it includes prerequisites, consumers, source locators, ambient hypotheses, proof steps, API specifications, examples and closure gates. The table makes each result reviewable without requiring a reader to infer the mathematics from its identifier. Library status is limited to the stated carrier; planned status is limited to the named existing stage.
 
@@ -631,15 +685,13 @@ The JSON is the authoritative machine-readable inventory: it includes prerequisi
 
 | L22 | library; baseline | Pinned Hilbert90.lean:107 | **Finite field-extension Hilbert 90.** For fields K⊂L with [FiniteDimensional K L], H1 of the representation of Aut_K(L) on L× has a unique element. This is the finite algebra-automorphism/unit-module theorem; profinite nonabelian GLn and arbitrary tori need separate adapters. |
 
-
-## API and example design
+### API and example design
 
 Each construction exports a constructor, a usable characterization and a transport/functoriality statement. Its uses name its located source and consuming items. The API is a plan for future declarations; the examples are specified tests, not existing Lean theorems. The constructors deliberately retain comparison witnesses, actions, levels, filtrations and local compatibility data that a plausible oversimplified definition would forget.
 
 The most consequential examples are the nonabelian crossed-module H0 with abelian cokernel, PGL2 torsion, the rank-one Tate dual twist, the Gm nonintegral specialized frame, ordered Frobenius norms, conjugated compact levels and finite actions by an infinite group. Degenerate and invalid-input examples accompany the ordinary examples for all constructions. Nine exact finite/arithmetic diagnostics were also run independently to check these traps; they do not verify the general source theorems.
 
-
-## Unfinished closure and continuation
+### Unfinished closure and continuation
 
 All main-paper pages have been read, but a full source read is not a proof-closure certificate. Some entries summarize multi-part results or several steps of a long argument. The next worker should preserve the stable IDs, split those entries with explicit child dependencies, and acquire the original cited proofs in the following order.
 
@@ -671,7 +723,6 @@ All main-paper pages have been read, but a full source read is not a proof-closu
 
 - **Q-granularity — Declaration-sized recursive closure.** This is a full-main-paper checkpoint. Several multi-part lemmas and long proofs still bundle more than one declaration; split them and their cited facts to PROTOCOL §§3–4 density before status complete.
 
-
 The original-source acquisition list follows. Sources already represented elsewhere in the atlas are linked as imports or continuation evidence; a citation does not itself establish coverage.
 
 - **Kisin, Crystalline representations and F-crystals (2006); Integral models of Shimura varieties of abelian type (2010).** Integral comparison and corrected deformation/model foundations;2010 must be read with the present E.1–E.7. Reference: Kisin17 bibliography, Kisin crystalline-representation and integral-model entries.
@@ -696,8 +747,7 @@ The original-source acquisition list follows. Sources already represented elsewh
 
 - **Kisin–Pappas (2018); Kisin–Pappas–Zhou (2026).** Read full published sources in preceding jobs of this session; reuse candidate ownership and later correction links, not completed formal proofs. Reference: https://doi.org/10.1007/s10240-018-0100-0.
 
-
-## Validation and handoff
+### Validation and handoff
 
 Validation checks the paper schema, authorized paths, JSON, stage IDs, exact-once routing of missing items, unique identifiers, the dependency DAG, API/example cardinalities, source hashes, pinned declaration module digests and current input blobs. The nine executable diagnostics check conventions and counterexamples only. No Lean file was written or compiled. Exact check outcomes are recorded in the result and PR.
 
