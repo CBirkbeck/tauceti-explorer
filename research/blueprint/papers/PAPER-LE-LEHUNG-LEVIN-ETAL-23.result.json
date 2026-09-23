@@ -157,6 +157,58 @@
         ]
       },
       {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-23",
+        "main": "LLHLM23 PDF189–190,196–198 freshly reread; original full-paper reading retained.",
+        "sources": [
+          {
+            "name": "lg2",
+            "url": "https://virtualmath1.stanford.edu/~rltaylor/lg2.pdf",
+            "sha256": "9badc24926b69c0c606fad193b4705b9cbb21c6081a544f082c18c78031bc67f",
+            "pages": 13,
+            "retrieved": "2026-09-23T14:09:41.463448+00:00",
+            "readSections": "PDF1–12, including the whole proofs of Theorems2.1 and3.1; cited eigenvariety and p-adic-family inputs not separately read."
+          },
+          {
+            "name": "caraiani",
+            "url": "https://www.ma.imperial.ac.uk/~acaraian/papers/lgc2.pdf",
+            "sha256": "0539dcc7d375273325187478779d43433c0e8391498c5f8d74715bd800848e63",
+            "pages": 34,
+            "retrieved": "2026-09-23T14:09:41.877077+00:00",
+            "readSections": "PDF1–5 only; statement and setup, not the complete proof. Existing AG2.6 supplier inspected; no duplicate construction planned."
+          },
+          {
+            "name": "sign-published",
+            "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D778DCD413972E114657F69ACC7BB6BC/S0010437X11005264a.pdf/the-sign-of-galois-representations-attached-to-automorphic-forms-for-unitary-groups.pdf",
+            "sha256": "911a77a0abeb02812f4572a7d0ad48dadf213169ca838750015814a17f76190d",
+            "pages": 17,
+            "retrieved": "2026-09-23",
+            "readSections": "PDF2–9,15–17; statement, sign algebra, specialization and final proof steps. Not a complete reading of the eigenvariety proof."
+          },
+          {
+            "title": "CHT Automorphy for some l-adic lifts",
+            "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+            "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+            "readSections": "Fresh PDF7–16 and104–108; exact descent proofs, group law, and integral Hecke gluing. PDF16 checked visually; previous bounded reading is inherited."
+          },
+          {
+            "title": "EGH Weight cycling",
+            "url": "https://math.uchicago.edu/~emerton/pdffiles/egh.pdf",
+            "sha256": "1a5f6d23149f530603d961e239ef9990bd02e9aca912a6e4483978da6f2689b0",
+            "readSections": "Fresh PDF51–56; coefficient conventions and7.2.1. Not a full-paper reading."
+          },
+          {
+            "name": "cht-author",
+            "url": "https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf",
+            "sha256": "622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2",
+            "pages": 182,
+            "retrieved": "2026-09-23",
+            "readSections": "PDF16–17, same scalar conjugation display and following fixed-multiplier conventions."
+          }
+        ]
+      },
+      {
         "agent": "Claude Code",
         "session": "cc-442dc5",
         "date": "2026-09-23",
@@ -174,8 +226,22 @@
         "agent": "Claude Code",
         "session": "cc-442dc5",
         "date": "2026-09-23",
-        "main": "Third pass: published PDF162–180 (§8) freshly read in the text layer of the same PDF; PDF173 checked as a page image (finding E39).",
+        "main": "Third pass: published PDF162–180 (§8) freshly read in the text layer of the same PDF; PDF173 checked as a page image (finding E41).",
         "sources": []
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "main": "Fourth pass: published PDF188–201 (Appendix A.1–A.5) freshly read in the text layer of the same PDF; the §A.3.3 sentence behind E42 compared with arXiv 2007.05398v2.",
+        "sources": [
+          {
+            "url": "https://arxiv.org/pdf/2007.05398v2",
+            "sha256": "3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af",
+            "retrieved": "2026-09-23",
+            "readSections": "§A.3.3 only (the ad r̄ sentence), located by text search."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -194,7 +260,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E39 (Lemma 8.4.9 notation).",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n).",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -2470,72 +2536,69 @@
       "uses": [
         {
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
-          "how": "Theorem 2.5.4(1) bounds rec_K(π)|_{I_K} ⪯ τ."
+          "how": "K-type occurrence gives this bound."
         },
         {
-          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
-          "how": "Theorem 2.5.4(3) uses maximality for ⪯."
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
+          "how": "Receives a Weil–Deligne dominance comparison."
         },
         {
-          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
-          "how": "R_ρ^{λ,⪯τ} is the union over τ′ ⪯ τ (Definition 2.5.3 used on PDF126)."
-        },
-        {
-          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
-          "how": "Extremal types are maximal or minimal for ⪯ (PDF163)."
-        },
-        {
-          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
-          "how": "The corrected Theorem A.4.1 uses the quotient with monodromy ⪯ τ (E34)."
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+          "how": "Composes automorphic and Galois monodromy bounds."
         }
       ],
       "api": [
         {
-          "name": "Partition.DominanceLE_def",
+          "name": "InertialType.le_refl",
+          "role": "relation",
+          "statement": "Every type is below itself."
+        },
+        {
+          "name": "InertialType.le_trans",
+          "role": "relation",
+          "statement": "For τ1≤τ2 and τ2≤τ3, τ1≤τ3 with the shared inertia representation."
+        },
+        {
+          "name": "InertialType.le_antisymm",
+          "role": "extensionality",
+          "statement": "On isomorphism classes, τ1≤τ2 and τ2≤τ1 imply τ1=τ2."
+        },
+        {
+          "name": "InertialType.zeroMonodromy_le",
           "role": "characterisation",
-          "statement": "P₁ ⪯ P₂ iff Σ_{i≤k}P₁(i) ≤ Σ_{i≤k}P₂(i) for all k."
+          "statement": "For fixed semisimple inertia, the zero-monodromy type is minimal."
         },
         {
-          "name": "Nilpotent.DominanceLE_def",
+          "name": "InertialType.le_iff_rankPowers",
           "role": "characterisation",
-          "statement": "For nilpotent N₁, N₂ ∈ M_n(E), N₁ ⪯ N₂ iff their Jordan partitions satisfy P_{N₁} ⪯ P_{N₂}."
+          "statement": "For each inertia multiplicity space and each a≥1, τ≤τ′ is equivalent to rank(N_τ^a)≤rank(N_τ′^a), with the same inertia representation."
         },
         {
-          "name": "WDInertialType.LE_def",
-          "role": "characterisation",
-          "statement": "τ ⪯ τ′ iff ρ_τ ≅ ρ_τ′ and N_τ(τ₀) ⪯ N_τ′(τ₀) for every irreducible inertial type τ₀; for L-parameters, componentwise over v ∈ S_p."
-        },
-        {
-          "name": "WDInertialType.le_partialOrder",
-          "role": "structure",
-          "statement": "⪯ is a partial order on WD inertial types."
-        },
-        {
-          "name": "WDInertialType.zero_le",
-          "role": "example",
-          "statement": "(ρ_τ, 0) ⪯ (ρ_τ, N) for every N."
+          "name": "InertialType.le_directSum",
+          "role": "compatibility",
+          "statement": "Dominance of two pairs is preserved by direct sum with their respective inertia types."
         }
       ],
       "tests": [
         {
-          "name": "WDInertialType.GL3_chain",
+          "name": "InertialType.zeroBelowJordan",
           "kind": "computation",
-          "statement": "For GL₃ with trivial ρ_τ, the Jordan types (1,1,1) ⪯ (2,1) ⪯ (3)."
+          "statement": "For trivial inertia in dimension2, partition(1,1) lies below(2), and the reverse fails."
         },
         {
-          "name": "WDInertialType.GL1",
-          "kind": "degenerate",
-          "statement": "For GL₁, N = 0 always and ⪯ is equality."
-        },
-        {
-          "name": "WDInertialType.different_rho",
+          "name": "InertialType.incomparablePartitions",
           "kind": "non-example",
-          "statement": "Types with non-isomorphic ρ_τ are incomparable, even when both have N = 0."
+          "statement": "For trivial inertia in dimension6, partitions(4,1,1) and(3,3) are incomparable: first partial sums4>3, first two5<6."
         },
         {
-          "name": "WDInertialType.orbit_closure",
-          "kind": "compatibility",
-          "statement": "For GL_n, N₁ ⪯ N₂ iff the orbit of N₁ lies in the closure of the orbit of N₂ (Gerstenhaber–Hesselink)."
+          "name": "InertialType.differentCharacters",
+          "kind": "non-example",
+          "statement": "Two rank-one types with different inertia characters are incomparable even though both N are zero."
+        },
+        {
+          "name": "InertialType.rankOne",
+          "kind": "degenerate",
+          "statement": "For a fixed rank-one inertia character there is one nilpotent type, with N=0."
         }
       ]
     },
@@ -7005,7 +7068,65 @@
       "locator": "§A.3 PDF189",
       "statement": "For a continuous residual representation into a split possibly disconnected reductive group, define A-valued liftings over complete Noetherian local O-algebras with residue F, strict conjugacy by the reduction kernel, deformation classes and composition to the abelianized group. These are prerequisites imported once from the deformation owner.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
+          "how": "Local deformation problems are subfunctors of liftings, stable under strict equivalence."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+          "how": "Global deformations are strict-equivalence classes of liftings of type S."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A08",
+          "how": "Fixed-determinant problems use det r_A : Γ → G^ab(A)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Lifting.def",
+          "role": "constructor",
+          "statement": "For r̄ : Γ → G(F) and A ∈ C_O, an A-valued lifting is a continuous r_A : Γ → G(A) with r_A ≡ r̄ mod m_A."
+        },
+        {
+          "name": "Lifting.strictEquiv",
+          "role": "structure",
+          "statement": "ker(G(A) → G(F)) acts on A-valued liftings by conjugation; deformations are the orbits."
+        },
+        {
+          "name": "Lifting.det",
+          "role": "projection",
+          "statement": "det r_A : Γ → G^ab(A) is the composite with G → G^ab; it depends only on the deformation class."
+        },
+        {
+          "name": "Lifting.map",
+          "role": "functoriality",
+          "statement": "A morphism A → B in C_O maps liftings to liftings and deformations to deformations, compatibly with det."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Lifting.residue",
+          "kind": "degenerate",
+          "statement": "For A = F the only lifting is r̄ itself."
+        },
+        {
+          "name": "Lifting.GL1_dual_numbers",
+          "kind": "computation",
+          "statement": "For G = GL₁ and A = F[ε], the liftings of χ̄ are χ̄·(1 + εc) with c ∈ Hom_cont(Γ, F), and strict equivalence is trivial because G is abelian."
+        },
+        {
+          "name": "Lifting.strict_only",
+          "kind": "non-example",
+          "statement": "Equivalence uses only ker(G(A) → G(F)): conjugating by an element with nontrivial image in G(F) can give a lifting of a different residual representation, which is not a strict equivalence."
+        },
+        {
+          "name": "Lifting.det_invariant",
+          "kind": "compatibility",
+          "statement": "det(βr_Aβ⁻¹) = det r_A for β ∈ ker(G(A) → G(F))."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06",
@@ -7013,8 +7134,79 @@
       "name": "Polarized group G_n and multiplier",
       "locator": "§A.3 PDF189",
       "statement": "G_n=(GL_n times GL_1) semidirect {1,j}, with j(g,a)j=(a transpose(g)^-1,a), multiplier nu(g,a)=a and nu(j)=-1. Import the abelianization description and the adjoint action used by the global deformation complex.",
-      "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "status": "planned",
+      "note": "Actual representation carrier supplied by ArithmeticGaloisRepresentations G7; GlobalGaloisDeformations G7 imports it. The LLHLM abelianization claim is retained as a separate supplier obligation, not inferred from the semidirect-product formulas.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+          "how": "Encodes pairings as actual G_n representations."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+          "how": "Defines the polarized adjoint action."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+          "how": "Fixes the value of the multiplier at complex conjugation."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolarizedGroup.inl_mul",
+          "role": "simp",
+          "statement": "The identity-component inclusion sends ((g,a),(h,b)) to (gh,ab)."
+        },
+        {
+          "name": "PolarizedGroup.j_conj",
+          "role": "relation",
+          "statement": "j(g,a)j⁻¹=(a g⁻ᵗ,a), and j²=1."
+        },
+        {
+          "name": "PolarizedGroup.multiplier_j",
+          "role": "simp",
+          "statement": "ν(j)=−1 and ν(g,a)=a."
+        },
+        {
+          "name": "PolarizedGroup.scalar_conj_outside",
+          "role": "relation",
+          "statement": "Conjugation of (A,b)j by (cI,1) gives (c²A,b)j."
+        },
+        {
+          "name": "PolarizedGroup.ad_j",
+          "role": "compatibility",
+          "statement": "On gl_n, Ad(j)(X)=−Xᵗ; the GL_n action is ordinary conjugation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizedGroup.rankOneInvolution",
+          "kind": "computation",
+          "statement": "For n=1, j(g,a)j=(a/g,a); applying twice returns(g,a)."
+        },
+        {
+          "name": "PolarizedGroup.multiplierOutside",
+          "kind": "computation",
+          "statement": "ν((A,b)j)=−b, including over F5."
+        },
+        {
+          "name": "PolarizedGroup.scalarSquare",
+          "kind": "non-example",
+          "statement": "Over F7, conjugating(I,1)j by(2I,1) yields(4I,1)j, not(2I,1)j."
+        },
+        {
+          "name": "PolarizedGroup.characteristicTwo",
+          "kind": "degenerate",
+          "statement": "Over F2, ν(j)=1 although j is in the nonidentity component; ν alone does not detect the component."
+        },
+        {
+          "name": "PolarizedGroup.adjoint_j",
+          "kind": "non-example",
+          "statement": "On Lie G_n = gl_n × gl_1, Ad(j)(X, b) = (bI − ᵗX, b), so the coordinate projection (X, b) ↦ X is not j-equivariant; ad r̄ lives on ker(dν) = gl_n × 0, where j acts by X ↦ −ᵗX (E42)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
@@ -7023,7 +7215,60 @@
       "locator": "DefinitionA.3.1 PDF190",
       "statement": "A nonempty strict-conjugacy-invariant subfunctor of framed local liftings is a local deformation problem when it preserves the specified Artinian fiber products, inverse limits and descent along injective coefficient maps. It is represented by a quotient of the framed deformation ring.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+          "how": "Global data carry a local deformation problem at each place of S."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
+          "how": "Taylor–Wiles conditions are local deformation problems ([78, Lemma 4.2])."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+          "how": "Theorem A.4.1 uses the local problems D_v^{λ_v,τ_v} at p."
+        }
+      ],
+      "api": [
+        {
+          "name": "LocalDefProblem.def",
+          "role": "characterisation",
+          "statement": "A local deformation problem for ρ̄ is a nontrivial subfunctor D ⊆ D_ρ̄^□ such that D(R₁ ×_{R₀} R₂) is the equalizer of D(R₁) × D(R₂) ⇉ D(R₀) for surjections R₁, R₂ ↠ R₀, which is invariant under ker(G(A) → G(F))-conjugation, commutes with inverse limits, and satisfies r_A ∈ D(A) iff i_*(r_A) ∈ D(B) for injections i : A → B."
+        },
+        {
+          "name": "LocalDefProblem.represent",
+          "role": "universal-property",
+          "statement": "Every local deformation problem is represented by a quotient R_ρ̄^D of R_ρ̄^□."
+        },
+        {
+          "name": "LocalDefProblem.locRing",
+          "role": "constructor",
+          "statement": "For local deformation problems D_v, v ∈ T, the completed tensor product R^loc_{S,T} := ⊗̂_{v∈T,O} R_v of their representing rings is the local base of the partially framed global ring (A10)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LocalDefProblem.all",
+          "kind": "degenerate",
+          "statement": "D_ρ̄^□ itself is a local deformation problem, represented by R_ρ̄^□."
+        },
+        {
+          "name": "LocalDefProblem.unramified",
+          "kind": "computation",
+          "statement": "For v ∤ p and unramified ρ̄, the unramified lifts form a local deformation problem."
+        },
+        {
+          "name": "LocalDefProblem.not_invariant",
+          "kind": "non-example",
+          "statement": "The subfunctor of lifts taking a prescribed non-scalar value at a fixed Frobenius lift is not invariant under ker(G(A) → G(F))-conjugation, so it is not a local deformation problem."
+        },
+        {
+          "name": "LocalDefProblem.quotient",
+          "kind": "characterisation",
+          "statement": "R_ρ̄^□ → R_ρ̄^D is surjective, and D(A) = Hom(R_ρ̄^D, A)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A08",
@@ -7032,7 +7277,55 @@
       "locator": "§A.3.1 PDF190",
       "statement": "Fix a lift xi of the abelianized determinant. Define its framed quotient and then the maximal O-flat quotient. If the residual image lies in the identity component, projection to GL_n identifies the intended fixed-multiplier lifting problem with the GL_n problem; verify the paper's distinction between flat and unrestricted quotients before treating this as a literal ring identity.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+          "how": "Global data fix ξ and use the local problems D^{ξ_v}_{r̄_v}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+          "how": "Theorem A.4.1 uses D_v^{ξ_v} away from p."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "R^loc_{S,S} is built from these rings in §A.5."
+        }
+      ],
+      "api": [
+        {
+          "name": "FixedDet.def",
+          "role": "constructor",
+          "statement": "For a lift ξ : G_L → G_n^ab(O) of det ρ̄, D_ρ̄^{ξ,□}(A) := {ρ_A : det ρ_A = ξ}, represented by R_ρ̄^{ξ,□}; R_ρ̄^ξ is its maximal O-flat quotient."
+        },
+        {
+          "name": "FixedDet.GL_iso",
+          "role": "compatibility",
+          "statement": "If ρ̄(G_L) ⊆ G_n⁰(F), then ρ_A ↦ ρ_A| (projection to GL_n) identifies the fixed-multiplier lifting problem with the GL_n lifting problem."
+        },
+        {
+          "name": "FixedDet.flat",
+          "role": "other",
+          "statement": "R_ρ̄^ξ := R_ρ̄^{ξ,□}/(ϖ^∞-torsion) is the maximal O-flat quotient; D_ρ̄^ξ is the local deformation problem it represents, kept distinct from D_ρ̄^{ξ,□}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FixedDet.condition",
+          "kind": "characterisation",
+          "statement": "A lift has fixed determinant exactly when its composite with G_n → G_n^ab equals ξ."
+        },
+        {
+          "name": "FixedDet.flat_quotient",
+          "kind": "characterisation",
+          "statement": "R_ρ̄^{ξ,□} ↠ R_ρ̄^ξ is an isomorphism exactly when R_ρ̄^{ξ,□} has no ϖ-power torsion."
+        },
+        {
+          "name": "FixedDet.split_place",
+          "kind": "compatibility",
+          "statement": "At a place of F⁺ split in F, ρ̄ lands in G_n⁰ and the fixed-multiplier ring is the GL_n framed lifting ring of ρ̄|."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
@@ -7041,7 +7334,55 @@
       "locator": "§A.3.2 PDF190–191",
       "statement": "A datum consists of F/F+, finite ramification set S, O, residual G_n-valued r inducing the quadratic component character, a fixed determinant lift xi and local deformation problems. Absolute irreducibility on G_F gives representability of global deformation classes and their local-condition quotient.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A10",
+          "how": "Partially framed rings are defined for a datum S."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+          "how": "Taylor–Wiles primes are chosen for a datum S (Proposition A.3.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+          "how": "Theorem A.4.1 produces representations of type S, S and S_Q."
+        }
+      ],
+      "api": [
+        {
+          "name": "GlobalDatum.def",
+          "role": "structure",
+          "statement": "S = (F/F⁺, S, O, r̄, ξ, {D_v}_{v∈S}), with r̄ : G_{F⁺,S} → G_n(F) inducing G_{F⁺}/G_F ≅ G_n/G_n⁰, ξ a lift of det r̄, and D_v local deformation problems for r̄_v inside D^{ξ_v}_{r̄_v}."
+        },
+        {
+          "name": "GlobalDatum.type",
+          "role": "characterisation",
+          "statement": "A lifting r_A is of type S iff det r_A = ξ and r_A|_{G_{F⁺_v}} ∈ D_v(A) for all v ∈ S; a deformation is of type S iff some (equivalently every) lifting in it is."
+        },
+        {
+          "name": "GlobalDatum.represent",
+          "role": "universal-property",
+          "statement": "If r̄|_{G_F} is absolutely irreducible, deformations of type S are represented by R_S, and liftings of type S by R_S^□."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GlobalDatum.any_lift",
+          "kind": "characterisation",
+          "statement": "Being of type S is independent of the lifting chosen in a strict-equivalence class."
+        },
+        {
+          "name": "GlobalDatum.irreducible_needed",
+          "kind": "non-example",
+          "statement": "Without absolute irreducibility of r̄|_{G_F}, the deformation functor of type S need not be representable."
+        },
+        {
+          "name": "GlobalDatum.unrestricted",
+          "kind": "degenerate",
+          "statement": "With D_v = D^{ξ_v,□}_{r̄_v} for every v ∈ S, R_S^□ = R_r̄^{□,ξ}: only the determinant condition remains."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A10",
@@ -7050,7 +7391,60 @@
       "locator": "§A.3.2 PDF191",
       "statement": "For T contained in S, introduce frames alpha_v reducing to identity and simultaneous strict equivalence. Construct the representing ring R_S^{square T}, its map from the completed tensor of local rings at T, and the power-series frame comparison after choosing a universal lifting. For a nonempty framing set and p>2 the polarized centralizer is trivial; avoid treating an unframed torsor as canonically trivial.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12",
+          "how": "The relative tangent space of R_S^T (Proposition A.3.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+          "how": "Generator bounds over R^loc_{S,T} (Proposition A.3.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "R∞ maps onto R^S_{S_{Q_m}} (§A.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "PartialFramed.def",
+          "role": "constructor",
+          "statement": "For T ⊆ S, a T-framed lifting is (r_A, (α_v)_{v∈T}) with α_v ∈ ker(GL_n(A) → GL_n(F)); equivalence is simultaneous conjugation β·(r_A, α_v) = (βr_Aβ⁻¹, βα_v); R_S^T represents T-framed deformations."
+        },
+        {
+          "name": "PartialFramed.localMap",
+          "role": "constructor",
+          "statement": "[(r_A, α_v)] ↦ (Ad(α_v⁻¹) r_A|_{G_{F⁺_v}})_v gives R^loc_{S,T} := ⊗̂_{v∈T,O} R_v → R_S^T."
+        },
+        {
+          "name": "PartialFramed.frameIso",
+          "role": "relation",
+          "statement": "After choosing a universal lifting, R_S^T ≅ R_S ⊗̂_O O_T with O_T = O[[z_{v,i,j}]]_{v∈T, 1≤i,j≤n}; this uses p > 2 and absolute irreducibility, which make the centralizer of r̄ in ker(GL_n(A) → GL_n(F)) trivial."
+        },
+        {
+          "name": "PartialFramed.liftRing",
+          "role": "compatibility",
+          "statement": "T-framed liftings are represented by R_{S,T} ≅ R_S^□ ⊗̂_O O_T."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PartialFramed.empty",
+          "kind": "degenerate",
+          "statement": "For T = ∅, R_S^∅ = R_S."
+        },
+        {
+          "name": "PartialFramed.count",
+          "kind": "computation",
+          "statement": "O_T is a power series ring in n²·#T variables."
+        },
+        {
+          "name": "PartialFramed.noncanonical",
+          "kind": "non-example",
+          "statement": "The isomorphism R_S^T ≅ R_S ⊗̂_O O_T depends on the chosen universal lifting; it is not canonical."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A11",
@@ -7059,7 +7453,60 @@
       "locator": "§A.3.3 PDF192",
       "statement": "Use the relative tangent m/(m^2+varpi A) for maps to F[epsilon]/epsilon^2. Form the global cochain cone with local subcomplexes C^0 and permitted local cocycles L_v at unframed places. The source's displayed tangent identification omits the relative base term and writes all 1-cochains where liftings give 1-cocycles; these are recorded in E22–E23 after image verification. The full Lie algebra of G_n has an additional multiplier summand; identify it with gl_n only for the fixed-multiplier problem.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12",
+          "how": "Proposition A.3.2 identifies the relative tangent space with H¹_{S,T}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+          "how": "Selmer and dual Selmer dimensions control the Taylor–Wiles count."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27",
+          "how": "Trace evaluation kills the auxiliary dual Selmer group."
+        }
+      ],
+      "api": [
+        {
+          "name": "RelTangent.def",
+          "role": "constructor",
+          "statement": "For (A, m_A) ∈ C_O, the relative tangent space is Hom_F(m_A/(m_A² + ϖA), F), identified with Hom_{C_O}(A, F[ε]/ε²) (E22)."
+        },
+        {
+          "name": "SelmerComplex.def",
+          "role": "constructor",
+          "statement": "C^i_{S,T}(G_{F⁺,S}, ad r̄) := C^i(G_{F⁺,S}, ad r̄) ⊕ ⊕_{v∈S} C^{i−1}(G_{F⁺_v}, ad r̄)/M_v^{i−1}, with M_v⁰ = C⁰ and M_v¹ = L_v for v ∈ S ∖ T and 0 otherwise; ∂(φ, (ψ_v)) = (∂φ, (φ|_{G_{F⁺_v}} − ∂ψ_v))."
+        },
+        {
+          "name": "SelmerComplex.H1",
+          "role": "characterisation",
+          "statement": "H¹_{S,T}(G_{F⁺,S}, ad r̄) ≅ Hom_F(m_{R_S^T}/(m²_{R_S^T} + m_{R^loc_{S,T}}), F) (Proposition A.3.2)."
+        },
+        {
+          "name": "LocalTangent.cocycles",
+          "role": "relation",
+          "statement": "The tangent space of the framed local lifting ring is Z¹(G_{F⁺_v}, ad ρ̄), the 1-cocycles, not all 1-cochains (E23)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RelTangent.E22",
+          "kind": "non-example",
+          "statement": "Hom_F(m_A/m_A², F) is not the relative tangent space when ϖ ∉ m_A²: the ϖA term must be quotiented."
+        },
+        {
+          "name": "LocalTangent.E23",
+          "kind": "non-example",
+          "statement": "C¹(G, ad ρ̄) is too large: framed first-order liftings are exactly the 1-cocycles."
+        },
+        {
+          "name": "SelmerComplex.T_eq_S",
+          "kind": "degenerate",
+          "statement": "If T = S, no local conditions M_v are imposed and C_{S,S} is the cone of the restriction to all v ∈ S."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A12",
@@ -7077,7 +7524,55 @@
       "locator": "§A.3.4 PDF192–193",
       "statement": "At a split auxiliary place with norm 1 modulo p, choose a nonzero generalized Frobenius eigenspace on which Frobenius acts semisimply and its stable complement. Lift the complement unramified and require inertia on the selected summand to be scalar. This defines the auxiliary local deformation problem.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
+          "how": "Taylor–Wiles data consist of such places and eigenspaces (Proposition A.3.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A15",
+          "how": "Scalar inertia characters on ψ_v give O[Δ_Q] → R_{S_Q}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
+          "how": "The diamond-level representation has type S_Q."
+        }
+      ],
+      "api": [
+        {
+          "name": "TWCondition.def",
+          "role": "characterisation",
+          "statement": "For v split with Nv ≡ 1 mod p and ψ_v a nonzero generalized eigenspace of r̄(Frob_v) on which it acts semisimply, D_v(A) consists of liftings preserving a decomposition s_v ⊕ ψ_v lifting the residual one, with s_v unramified and inertia acting on ψ_v by scalars."
+        },
+        {
+          "name": "TWCondition.problem",
+          "role": "relation",
+          "statement": "D_v is a local deformation problem ([78, Lemma 4.2])."
+        },
+        {
+          "name": "TWCondition.scalar_char",
+          "role": "constructor",
+          "statement": "The scalar inertia action on ψ_v gives a character k_v^× → R_{S_Q}^× factoring through k_v^×(p)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TWCondition.whole_space",
+          "kind": "characterisation",
+          "statement": "If ψ_v is the whole space (d_v = n), the condition says inertia acts by scalars."
+        },
+        {
+          "name": "TWCondition.nonzero",
+          "kind": "degenerate",
+          "statement": "ψ_v must be nonzero; the empty summand is excluded."
+        },
+        {
+          "name": "TWCondition.semisimple",
+          "kind": "non-example",
+          "statement": "A generalized eigenspace on which r̄(Frob_v) is not semisimple cannot be chosen as ψ_v."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
@@ -7101,7 +7596,55 @@
       "locator": "§A.3.4 PDF193–194",
       "statement": "Define Delta_Q as the product of maximal p-quotients of residue-field units at Q. Scalar inertia characters give O[Delta_Q]->R_{S_Q}; quotient by its augmentation ideal recovers the original deformation ring, including the partially framed variant.",
       "status": "missing",
-      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GlobalGaloisDeformations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18",
+          "how": "Diamond modules are free over O[Δ_Q] (§A.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
+          "how": "O_∞ maps onto O[Δ_{Q_m}] in the patching construction."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33",
+          "how": "Diamond freeness and augmentation descent (Thorne Lemmas 6.3–6.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Diamond.group",
+          "role": "constructor",
+          "statement": "Δ_Q := ∏_{v∈Q} k_v^×(p), with k_v^×(p) the maximal p-quotient of k_v^×."
+        },
+        {
+          "name": "Diamond.map",
+          "role": "constructor",
+          "statement": "The scalar inertia characters give O[Δ_Q] → R_{S_Q}, and O[Δ_Q] → R_{S_Q}^T."
+        },
+        {
+          "name": "Diamond.descent",
+          "role": "relation",
+          "statement": "R_{S_Q}/a_Q ≅ R_S and R_{S_Q}^T/a_Q ≅ R_S^T, with a_Q the augmentation ideal of O[Δ_Q]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Diamond.empty",
+          "kind": "degenerate",
+          "statement": "For Q = ∅, Δ_Q = 1 and R_{S_Q} = R_S."
+        },
+        {
+          "name": "Diamond.cyclic",
+          "kind": "computation",
+          "statement": "If Nv − 1 = p^N·u with p ∤ u, then k_v^×(p) ≅ Z/p^N."
+        },
+        {
+          "name": "Diamond.augmentation",
+          "kind": "non-example",
+          "statement": "The descent is by the augmentation ideal a_Q, not by the ideal generated by p."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
@@ -7110,7 +7653,55 @@
       "locator": "§A.4 PDF195–196",
       "statement": "From the selected eigenspace dimensions form the block parahoric levels U_0(Q), their determinant-kernel levels U_1(Q), and the quotient U_0(Q)/U_1(Q)=Delta_Q. Preserve the chosen split-place identifications and original arbitrary away-from-p level.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+          "how": "Theorem A.4.1 is stated at levels U, U_0(Q) and U_1(Q)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18",
+          "how": "Taylor–Wiles projectors act on S(U_i(Q), W)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
+          "how": "Finite patching modules use level K_pU_1(Q_m)^{S_p}."
+        }
+      ],
+      "api": [
+        {
+          "name": "AuxLevel.parahoric",
+          "role": "constructor",
+          "statement": "For v ∈ Q with d_v = dim ψ_v, p_v ⊆ GL_n(O_{F⁺_v}) is the block upper-triangular parahoric of type (n − d_v) + d_v, and p_{v,1} := ker(p_v → GL_{d_v}(k_v) →det k_v^× → k_v^×(p))."
+        },
+        {
+          "name": "AuxLevel.U",
+          "role": "constructor",
+          "statement": "U_0(Q) := (∏_{v∈Q} ι_v⁻¹(p_v))·U^Q and U_1(Q) := (∏_{v∈Q} ι_v⁻¹(p_{v,1}))·U^Q, keeping the original level away from Q."
+        },
+        {
+          "name": "AuxLevel.quotient",
+          "role": "characterisation",
+          "statement": "U_0(Q)/U_1(Q) ≅ ∏_{v∈Q} k_v^×(p) = Δ_Q."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AuxLevel.full",
+          "kind": "degenerate",
+          "statement": "If d_v = n, then p_v = GL_n(O_{F⁺_v}) and p_{v,1} is the kernel of det onto k_v^×(p)."
+        },
+        {
+          "name": "AuxLevel.GL2",
+          "kind": "computation",
+          "statement": "For n = 2 and d_v = 1, p_v is the Iwahori subgroup (upper triangular mod v), and p_v/p_{v,1} ≅ k_v^×(p) via the lower-right diagonal entry."
+        },
+        {
+          "name": "AuxLevel.delta",
+          "kind": "compatibility",
+          "statement": "The quotient U_0(Q)/U_1(Q) is identified with the diamond group Δ_Q of §A.3.4."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
@@ -7123,7 +7714,11 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ]
     },
     {
@@ -7215,7 +7810,60 @@
       "locator": "§A.5 PDF198–199",
       "statement": "Define the projected Pontryagin-dual finite modules M_{m,K_p,r}, then adjoin S-frames and quotient augmentation powers to obtain M^square. Choose generators of each auxiliary Delta and maps O[[y_1,...,y_q]] to its group ring. S_infty combines these diamond variables with the frame variables, with fixed augmentation quotient.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A20",
+          "how": "The ultraproduct patches these finite modules."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "R∞ acts through the finite-level rings."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
+          "how": "The patching functor is defined on M∞."
+        }
+      ],
+      "api": [
+        {
+          "name": "PatchModule.finite",
+          "role": "constructor",
+          "statement": "M_{m,K_p,r} := pr(S(K_pU_1(Q_m)^{S_p}, W/ϖ^r)_{m_{Q_m}})^∨ / a^r_{Q_m}, with (−)^∨ the Pontryagin dual."
+        },
+        {
+          "name": "PatchModule.framed",
+          "role": "constructor",
+          "statement": "M^□_{m,K_p,r} := M_{m,K_p,r} ⊗_{R_{S_{Q_m}}} R^S_{S_{Q_m}}/a_S^r, with a_S the augmentation ideal of the frame ring O_S."
+        },
+        {
+          "name": "PatchModule.Sinf",
+          "role": "constructor",
+          "statement": "O_∞ := O[[y_1, …, y_q]] maps onto O[Δ_{Q_m}] by y_i ↦ [g_i] − 1 for chosen generators g_i; S_∞ := O_∞ ⊗̂_O O_S with augmentation ideal a_∞."
+        },
+        {
+          "name": "PatchModule.aug",
+          "role": "characterisation",
+          "statement": "M^□_{m,K_p,r}/a_∞ ≅ S(K_pU^{S_p}, W/ϖ^r)^∨_m."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PatchModule.q0",
+          "kind": "degenerate",
+          "statement": "If q = 0 (Q_m = ∅), then O_∞ = O and Δ_{Q_m} = 1."
+        },
+        {
+          "name": "PatchModule.surj",
+          "kind": "characterisation",
+          "statement": "O_∞ → O[Δ_{Q_m}] is surjective, because each factor k_v^×(p) is cyclic and generated by g_i."
+        },
+        {
+          "name": "PatchModule.projected",
+          "kind": "non-example",
+          "statement": "The module uses the projected space pr(S(…)), not the full auxiliary space; the projector restriction is essential (E38, A30)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A20",
@@ -7224,7 +7872,60 @@
       "locator": "§A.5 PDF199",
       "statement": "Choose a nonprincipal ultrafilter on the auxiliary levels. The localized product of O modulo varpi^r has completion O; use this to form the inverse limit of the tensor of products of finite patching modules. Its augmentation quotient is completed localized automorphic forms. This choice-dependent construction must precede any later independence theorem.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A21",
+          "how": "Projectivity and regular sequences of M∞."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "R∞ acts on M∞ through the ultraproduct of finite-level rings."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
+          "how": "M∞(−) is defined from M∞."
+        }
+      ],
+      "api": [
+        {
+          "name": "Ultrapatch.ring",
+          "role": "constructor",
+          "statement": "For a non-principal ultrafilter F on N, R := ∏_{m∈N} O, and S_F ⊂ R the multiplicative set of idempotents e_I with I ∈ F, the diagonal gives O ≅ lim_r S_F⁻¹R/(ϖ^r)."
+        },
+        {
+          "name": "Ultrapatch.module",
+          "role": "constructor",
+          "statement": "M∞ := lim_{K_p ⊆ U_{S_p}, r} (O ⊗_R ∏_{m∈N} M^□_{m,K_p,r})."
+        },
+        {
+          "name": "Ultrapatch.aug",
+          "role": "characterisation",
+          "statement": "M∞/a∞ ≅ lim_{K_p,r} S(K_pU^{S_p}, W/ϖ^r)^∨_m (A.4)."
+        },
+        {
+          "name": "Ultrapatch.choice",
+          "role": "other",
+          "statement": "The construction depends on the ultrafilter and on the chosen data at each level; independence statements come later."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Ultrapatch.principal",
+          "kind": "non-example",
+          "statement": "A principal ultrafilter would select a single level m and patch nothing."
+        },
+        {
+          "name": "Ultrapatch.O",
+          "kind": "characterisation",
+          "statement": "O ⊗_R ∏_m O/ϖ^r ≅ O/ϖ^r for every r, via the ultrafilter."
+        },
+        {
+          "name": "Ultrapatch.completed_forms",
+          "kind": "compatibility",
+          "statement": "Modulo a∞, M∞ recovers the dual of the completed localized automorphic forms (A.4)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A21",
@@ -7247,6 +7948,59 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A20"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
+          "how": "M∞(−) takes values in R∞-modules."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A24",
+          "how": "Support and maximal Cohen–Macaulay properties over R∞(λ,τ)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
+          "how": "R∞ has the shape R_ρ ⊗̂ R^p of §6.2."
+        }
+      ],
+      "api": [
+        {
+          "name": "PatchedDefRing.def",
+          "role": "constructor",
+          "statement": "R∞ := R^loc_{S,S}[[x_1, …, x_g]] with g = q − [F⁺:Q]·n(n−1)/2 (E24; the paper prints [F:Q])."
+        },
+        {
+          "name": "PatchedDefRing.surj",
+          "role": "constructor",
+          "statement": "Proposition A.3.3 gives surjections R∞ ↠ R^S_{S_{Q_m}} for each m, hence R∞ → O ⊗_R ∏_m R^S_{S_{Q_m}} acting on M∞."
+        },
+        {
+          "name": "PatchedDefRing.Sinf_lift",
+          "role": "relation",
+          "statement": "S∞ is formally smooth over O, so its action lifts to a map S∞ → R∞ compatible with the action on M∞."
+        },
+        {
+          "name": "PatchedDefRing.shape",
+          "role": "compatibility",
+          "statement": "R∞ ≅ R_{r̄_p} ⊗̂_O R^p with R^p := (⊗̂_{v∈S∖S_p,O} R_v^{ξ_v})[[x_1, …, x_g]], equidimensional ([5, Theorem 3.3.3], [12, Theorem 1])."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PatchedDefRing.GL2",
+          "kind": "computation",
+          "statement": "For n = 2 and [F⁺:Q] = d, g = q − d."
+        },
+        {
+          "name": "PatchedDefRing.E24",
+          "kind": "non-example",
+          "statement": "Using the printed [F:Q] = 2[F⁺:Q] would give g = q − [F:Q]n(n−1)/2, which does not match the generator bound of Proposition A.3.3 for T = S."
+        },
+        {
+          "name": "PatchedDefRing.no_vars",
+          "kind": "degenerate",
+          "statement": "If q = [F⁺:Q]·n(n−1)/2, then R∞ = R^loc_{S,S}."
+        }
       ]
     },
     {
@@ -7256,7 +8010,60 @@
       "locator": "§A.5 PDF200",
       "statement": "Set M_infty(W)=Hom_cont,O[[G_0(Z_p)]](M_infty,W^vee)^vee. Projectivity makes it exact and covariant on finite coefficient modules, with finite R_infty- and S_infty-values. For a Serre weight its augmentation quotient identifies with the dual localized automorphic space of dual coefficients.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A01",
+          "how": "Lemma A.1.1(1): M∞(σ) ≠ 0 iff σ ∈ W(r̄)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A24",
+          "how": "M∞(σ°(λ,τ)) is maximal Cohen–Macaulay over R∞(λ,⪯τ)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04",
+          "how": "It is the weak patching functor of Definition 6.2.1."
+        }
+      ],
+      "api": [
+        {
+          "name": "PatchFunctor.def",
+          "role": "constructor",
+          "statement": "M∞(W) := Hom^cont_{O[[G_0(Z_p)]]}(M∞, W^∨)^∨ for finite O[G_0(Z_p)]-modules W."
+        },
+        {
+          "name": "PatchFunctor.exact",
+          "role": "relation",
+          "statement": "M∞ is projective over S∞[[G_0(Z_p)]] ([82, Theorem 6.2]), so M∞(−) is exact and covariant, with values finitely generated over S∞ and R∞."
+        },
+        {
+          "name": "PatchFunctor.aug",
+          "role": "characterisation",
+          "statement": "M∞(σ)/a∞ ≅ S(G(O_p)U^{S_p}, σ^∨)^∨_m for a Serre weight σ."
+        },
+        {
+          "name": "PatchFunctor.nonzero_iff",
+          "role": "relation",
+          "statement": "By Nakayama, M∞(σ) ≠ 0 iff σ ∈ W(r̄) (Lemma A.1.1(1))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PatchFunctor.zero",
+          "kind": "degenerate",
+          "statement": "M∞(0) = 0."
+        },
+        {
+          "name": "PatchFunctor.modular",
+          "kind": "characterisation",
+          "statement": "For a Serre weight σ, M∞(σ) ≠ 0 exactly when σ is a modular weight of r̄."
+        },
+        {
+          "name": "PatchFunctor.induced",
+          "kind": "compatibility",
+          "statement": "M∞(Ind_{U_{S_p}}^{G_0(Z_p)} F)/a∞ ≅ S(U, F)^∨_m ≠ 0, so the functor is nonzero."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A24",
@@ -10327,8 +11134,8 @@
       "name": "Adequacy for polarized finite residual images",
       "statement": "For a finite subgroup H⊂G_n(F), let H0=H∩G_n^0(F) and let ad V=gl_n(F) with the polarized adjoint action. In Thorne Definition 2.3, H is adequate when H^0(H,ad V)=0, H^1(H0,F)=0, H^1(H,ad V)=0, and for every irreducible F[H]-submodule W⊂ad V there exist h∈H0 and an eigenvalue α of its GL_n component such that tr(e_{h,α}W)≠0; e is the projector to the full generalized α-eigenspace. Work over a finite coefficient field containing the relevant eigenvalues. This G_n definition differs from the GL_n definition using ad^0.",
       "locator": "Thorne arXiv1107.5989v1 Definition 2.3, PDF6–7; imported by Proposition A.3.3",
-      "status": "missing",
-      "note": "Additional source obligation for GlobalGaloisDeformations; read in continuation codex-c83e7a, 23 September 2026. No implementation claimed.",
+      "status": "planned",
+      "note": "Polarized adequacy is an actual representation-image condition owned by ArithmeticGaloisRepresentations G7; GlobalGaloisDeformations imports it for prime selection.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06"
       ],
@@ -10376,6 +11183,9 @@
           "kind": "compatibility",
           "statement": "A valid big-image witness is an adequate witness, with identical cohomology vanishings; the converse is not assumed."
         }
+      ],
+      "planned": [
+        "ArithmeticGaloisRepresentations:G7"
       ]
     },
     {
@@ -10545,9 +11355,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
-      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y).",
+      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem.",
       "implementationStatus": "unchecked",
       "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
     },
@@ -10720,6 +11535,563 @@
         "The map is surjective by expansion of products of maximal-ideal generators. Its kernel is homogeneous. If the kernel is nonzero, select a nonzero homogeneous relation. A constant relation is impossible because the degree-zero map is the identity on k.",
         "For d≥1, Z65 gives a strict drop in growth, contradicting Z64, whose graded-piece polynomial has degree d−1. Hence the kernel is zero. For d=0 the empty tuple generates m, so m=0 and the map is already an isomorphism."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+      "kind": "construction",
+      "name": "Polarized representation and perfect pairing dictionary",
+      "statement": "Let R be a commutative ring, n≥1, Δ an index-two subgroup of Γ, and γ0∈Γ\\Δ. A homomorphism r:Γ→G_n(R) inducing Γ/Δ≅C2 is equivalent to data ρ:Δ→GL_n(R), μ:Γ→R× and a perfect bilinear pairing B:R^n×R^n→R satisfying B(x,ρ(γ0²)y)=−μ(γ0)B(y,x) and B(ρ(δ)x,ρ(γ0δγ0⁻¹)y)=μ(δ)B(x,y). If r(γ0)=(A,−μ(γ0))j then B(x,y)=xᵗA⁻¹y. For topological rings and groups with Δ open, require continuous ρ and μ; the constructed r is continuous.",
+      "locator": "CHT Lemma2.1.1, published PDF7; LLHLM23 AppendixA.3 PDF189",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Check the conjugation relation and the square of γ0 in the two cosets. The multiplier must be part of the data; continuity is checked separately on the two open cosets.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36",
+          "how": "Constructs field-valued extensions."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+          "how": "Turns a self-dual stable lattice into an integral G_n representation."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
+          "how": "Translates descent into an intertwiner problem."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolarizedPairing.toRepresentation",
+          "role": "constructor",
+          "statement": "From the stated ρ,μ,B construct r with exactly those data."
+        },
+        {
+          "name": "PolarizedPairing.restrict",
+          "role": "projection",
+          "statement": "The restriction of the constructed r to Δ is(ρ,μ|Δ)."
+        },
+        {
+          "name": "PolarizedPairing.value_coset",
+          "role": "simp",
+          "statement": "If B(x,y)=xᵗA⁻¹y, r(γ0)=(A,−μ(γ0))j."
+        },
+        {
+          "name": "PolarizedPairing.equiv",
+          "role": "equivalence",
+          "statement": "The two constructions from representations and pairings are inverse for the chosen γ0."
+        },
+        {
+          "name": "PolarizedPairing.baseChange",
+          "role": "functoriality",
+          "statement": "A coefficient-ring map sends the perfect pairing and representation to the base-changed ones and preserves both defining identities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizedPairing.trivialLine",
+          "kind": "computation",
+          "statement": "For Γ=C2, Δ=1, n=1, B(x,y)=xy and μ(c)=−1, the corresponding r(c)=(1,1)j squares to1."
+        },
+        {
+          "name": "PolarizedPairing.alternatingPlane",
+          "kind": "computation",
+          "statement": "Over Q with Γ=C2, Δ=1 and B matrix J=[[0,1],[-1,0]], take μ(c)=1; r(c)=(J⁻¹,−1)j squares to1."
+        },
+        {
+          "name": "PolarizedPairing.wrongSymmetricMultiplier",
+          "kind": "non-example",
+          "statement": "Over Q a nonzero symmetric perfect pairing with c²=1 cannot have μ(c)=1."
+        },
+        {
+          "name": "PolarizedPairing.noninvolutionCoset",
+          "kind": "characterisation",
+          "statement": "For general γ0 the relation includes ρ(γ0²); replacing it by the identity is valid only if ρ(γ0²)=1."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A35",
+      "kind": "definition",
+      "name": "Sign of a polarized absolutely irreducible representation",
+      "statement": "Let k have characteristic different from2, let c be an involution of Γ, let χ:Γ→k× satisfy χ◦c=χ, and let ρ:Γ→GL_n(k) be absolutely irreducible with ρ⊥≅ρχ, where ρ⊥(g)=ρ(c(g))⁻ᵗ. For any intertwiner A with ρ⊥=AρA⁻¹χ there is a unique s∈{1,−1} such that Aᵗ=sA. Define sign(ρ,χ)=s. It is independent of A and of the basis, and invariant under extension of the coefficient field. The character χ is an essential argument.",
+      "locator": "Bellaïche–Chenevier, published §1.1 PDF2–3/pp1337–1338",
+      "status": "planned",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Schur gives a one-dimensional intertwiner space; applying transpose twice gives s²=1. Congruence A↦QᵗAQ preserves s. This is an algebraic sign, before any automorphic sign theorem.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+          "how": "States the automorphic sign theorem."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+          "how": "Determines the extension of the multiplier from G_F to G_F+."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolarizationSign.transpose",
+          "role": "characterisation",
+          "statement": "Every intertwiner A satisfies Aᵗ=sign(ρ,χ)A."
+        },
+        {
+          "name": "PolarizationSign.conjugate",
+          "role": "compatibility",
+          "statement": "Replacing ρ by Q⁻¹ρQ replaces A by QᵗAQ and preserves the sign."
+        },
+        {
+          "name": "PolarizationSign.baseChange",
+          "role": "functoriality",
+          "statement": "An injective field extension preserves the sign."
+        },
+        {
+          "name": "PolarizationSign.oddRank",
+          "role": "example",
+          "statement": "For odd n and characteristic≠2, the sign is+1 by the determinant of Aᵗ=−A."
+        },
+        {
+          "name": "PolarizationSign.twist",
+          "role": "compatibility",
+          "statement": "Twisting ρ by ψ preserves its sign when χ is replaced by χ ψ⁻¹ ψ⊥, where ψ⊥(g)=ψ(c(g))⁻¹."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizationSign.rankOne",
+          "kind": "degenerate",
+          "statement": "A one-dimensional polarized representation over a field of characteristic≠2 has sign+1."
+        },
+        {
+          "name": "PolarizationSign.sl2",
+          "kind": "computation",
+          "statement": "For the standard absolutely irreducible SL2(Q) representation with c=id and χ=1, the invariant alternating form gives sign−1."
+        },
+        {
+          "name": "PolarizationSign.characterMatters",
+          "kind": "non-example",
+          "statement": "For the inclusion of the diagonal normalizer G⊂GL2(Q), c(g)=g/det(g): χ=1 has sign−1, while χ equal to the diagonal/antidiagonal component character has sign+1, as the alternating and exchange matrices show."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36",
+      "kind": "theorem",
+      "name": "Field-valued polarized extension with its determined sign",
+      "statement": "Let Δ⊂Γ have index2, γ0∈Γ\\Δ, k be a field of characteristic≠2, χ:Γ→k×, and ρ:Δ→GL_n(k) absolutely irreducible with ρ^γ0≅χ|Δ⊗ρ∨. There is an extension r:Γ→G_n(k) with r|Δ=(ρ,χ|Δ). Its multiplier μ restricts to χ|Δ; its value on γ0 is determined by the pairing, so μ is one of χ and χδ_(Γ/Δ), not a freely prescribed choice. For fixed restriction (ρ,χ|Δ), extension classes up to GL_n(k)-conjugacy form a torsor for k×/(k×)² by scaling A in r(γ0)=(A,−μ(γ0))j; all have the same μ. Over algebraically closed k the class is unique.",
+      "locator": "CHT Lemma2.1.4 and proof, PDF9–10",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Compare B and (x,y)↦B(y,ρ(γ0²)x). Their scalar ratio determines μ(γ0). Scalar conjugation changes A by a square. Do not infer μ=χ solely from conjugate self-duality."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37",
+      "kind": "theorem",
+      "name": "Finite coefficient field for a compact polarized image",
+      "statement": "If Γ is profinite and r:Γ→G_n(Qpbar) is continuous for the p-adic subspace topology, then its image lies in G_n(K) for some finite extension K/Qp.",
+      "locator": "CHT Lemma2.1.5 first paragraph of proof, PDF10–11",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "The compact image is Baire. Its intersections with G_n(K), as K ranges through the countably many finite extensions inside Qpbar, are closed subgroups covering it. One has interior, hence finite index. Adjoining the entries of finitely many coset representatives gives a common finite K. Baire and countability of finite p-adic extensions remain named proof suppliers."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+      "kind": "theorem",
+      "name": "Invariant self-dual lattice after coefficient extension",
+      "statement": "Let Γ be profinite and r:Γ→G_n(Qpbar) continuous with Δ the inverse image of the identity component. After a finite extension K/Qp and GL_n(Qpbar)-conjugation, r is valued in G_n(O_K). Thus both the Δ-action and the perfect pairing in A34 are integral and unimodular in the chosen basis. The coefficient extension is allowed to be ramified.",
+      "locator": "CHT Lemma2.1.5 and complete proof, PDF10–11",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Compactness first gives a stable lattice. Enlarge an integral lattice maximally inside its dual; the residual dual quotient is semisimple by the maximality argument. After a ramified quadratic extension repeat to obtain a self-dual lattice. This last lattice lemma and its termination/duality details remain explicit implementation suppliers, not an assertion that an arbitrary stable lattice is self-dual."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39",
+      "kind": "theorem",
+      "name": "Scalar centralizer over a complete local ring",
+      "statement": "Let R be complete Noetherian local and ρ:Δ→GL_n(R) continuous with absolutely irreducible reduction. The centralizer of ρ in GL_n(R) consists exactly of scalar matrices R×.",
+      "locator": "CHT Lemma2.1.8 and proof, PDF13",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Reduce through Artinian quotients. At a small extension I killed by m_R, normalize a centralizer element to 1+Y with Y∈M_n(I); residual Schur forces Y scalar. Pass to the complete inverse limit. Residual Schur and compatible inverse limits are supplier obligations."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A40",
+      "kind": "theorem",
+      "name": "Descent of conjugacy in the residually absolutely irreducible case",
+      "statement": "Let S⊂R be complete Noetherian local rings with m_R∩S=m_S and identical residue field. If continuous representations ρ,ρ′:Δ→GL_n(S) of a profinite group are conjugate over R and their common residual representation is absolutely irreducible, they are conjugate over S.",
+      "locator": "CHT Lemma2.1.9 and proof, PDF13",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "The scalar centralizer gives surjectivity under quotient maps. Induct across small extensions: the conjugacy cocycle with coefficients I∩S becomes zero in H¹(Δ,ad ρbar)⊗I and is already zero in H¹⊗(I∩S), since both are vector spaces over the common residue field. The complete-ring passage needs the compatible quotient topology; retain that adapter in the gap record."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41",
+      "kind": "theorem",
+      "name": "Inner derivation formula for the matrix algebra",
+      "statement": "For a field k, n≥1, and a k-linear derivation d:M_n(k)→M_n(k), fix an index1 and put A=Σ_j d(E_j1)E_1j. Then d(X)=AX−XA for every X. This formula uses no division by n and applies when char(k) divides n.",
+      "locator": "CHT Lemma2.1.10 proof, PDF14–15",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Use E_ijE_kl=δ_jkE_il and the derivation rule to check the identity on every matrix unit; extend linearly. This is the explicit matrix-algebra adapter used in trace descent, not a claim that every derivation of an arbitrary algebra is inner."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42",
+      "kind": "theorem",
+      "name": "Trace descent over dual numbers",
+      "statement": "Let k be a field, R=k[ε]/(ε²), and ρ:Δ→GL_n(R) a representation with absolutely irreducible reduction ρ0. If trρ(δ)∈k for every δ∈Δ, then some A∈M_n(k) satisfies (1−εA)ρ(δ)(1+εA)=ρ0(δ) for every δ.",
+      "locator": "CHT Lemma2.1.10 proof, PDF14–15",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Extend to k[Δ]. Absolute irreducibility makes ρ0(k[Δ])=M_n(k) by the density theorem. If y∈kerρ0, trace of ρ(x)ρ(y)/ε is zero for every x; nondegeneracy of tr(XY), checked on matrix units, gives ρ(y)=0. The ε-coefficient is therefore a matrix-algebra derivation; A41 kills it by conjugation. Keep algebraic density as a named supplier; no n! invertibility is used."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+      "kind": "theorem",
+      "name": "Carayol trace descent with prescribed congruence",
+      "statement": "Let S⊂R be complete Noetherian local rings with m_R∩S=m_S and common residue field. Let Δ be profinite and ρ:Δ→GL_n(R) continuous with absolutely irreducible reduction and trρ(Δ)⊂S. If an ideal I⊂R satisfies ρ mod I∈GL_n(S/(I∩S)), a conjugate by 1+M_n(I) is valued in GL_n(S). In particular I=m_R gives a strict conjugate over S.",
+      "locator": "CHT Lemma2.1.10 and complete proof, PDF13–15",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Inductively reduce to a length-one ideal I killed by m_R, replace R by the preimage of S/(I∩S), and dispose of I⊂S. Otherwise R=S⊕I and R/m_S is the dual-number algebra. Apply A42 and iterate through compatible Artinian approximations. The recursion/cofinality and inverse-limit conjugator are not certified by finite diagnostics."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A44",
+      "kind": "theorem",
+      "name": "Square root of a principal unit",
+      "statement": "Let R be a complete Noetherian local ring with residue characteristic≠2. Every α∈1+m_R has a unique β∈1+m_R with β²=α.",
+      "locator": "CHT Lemma2.1.12 proof, PDF16; Hensel adapter for X²−α",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Lift the simple residue root1: derivative2 is a unit. Alternatively Newton iteration improves the m-adic error quadratically. If β and β′ are roots in1+m, then (β−β′)(β+β′)=0 and β+β′ is a unit. No assertion at residue characteristic2."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
+      "kind": "theorem",
+      "name": "Fixed-multiplier polarized trace descent",
+      "statement": "Let S⊂R be complete Noetherian local rings with common residue field of characteristic p>2 and m_R∩S=m_S. Let Γ be profinite, Δ an open index-two subgroup, and r:Γ→G_n(R) continuous inducing Γ/Δ≅C2. Assume r|Δ has absolutely irreducible reduction, tr(r|Δ(δ))∈S for every δ∈Δ, and fix a continuous μ:Γ→S× with νr=μ after inclusion. Then r is GL_n(R)-conjugate to a continuous G_n(S)-valued representation with multiplier μ.",
+      "locator": "CHT Lemma2.1.12 and proof, PDF15–16; fixed-multiplier specialization needed in LLHLM23 A.4.1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A44"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "First apply A43 to the GL_n restriction. A40 descends its polarization intertwiner to B∈GL_n(S). A39 writes the original A=αB; rescale B so α∈1+m_R. Choose β²=α by A44 and conjugate by β⁻¹I, which sends A to B. The printed βI conjugation has the inverse on the wrong side (E39). The multiplier is explicitly S-valued throughout; no unrestricted multiplier-descent theorem is inferred from traces alone."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A46",
+      "kind": "construction",
+      "name": "Common-residue product of integral coefficient rings",
+      "statement": "Let O be a complete DVR with finite residue field k. For a finite nonempty family of finite extensions K_i/Frac(O), write O_i for their rings of integers and k_i for their residue fields, with fixed embeddings k→k_i. Define A={(a,(x_i))∈k×∏O_i : x_i mod m_i is the image of a for every i}. Its coordinatewise operations make it a complete Noetherian local O-algebra with residue k and maximal ideal0×∏m_i. It is O-finite and O-torsionfree; projections to O_i and k are continuous.",
+      "locator": "CHT Proposition3.4.4 proof, PDF108; explicit finite-O algebra adapter",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "The congruence condition defines an O-submodule of a finite O-module, hence a finite algebra. A tuple is a unit exactly when its common residue is nonzero; componentwise inverses have the same residue. Completeness follows from finite O-module completeness and equivalence of its adic topologies.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+          "how": "Supplies a single local coefficient ring for constituent representations with the same residual representation."
+        }
+      ],
+      "api": [
+        {
+          "name": "CommonResidueProduct.mk",
+          "role": "constructor",
+          "statement": "Construct a tuple from a∈k and x_i∈O_i whose residues are the specified images of a."
+        },
+        {
+          "name": "CommonResidueProduct.ext",
+          "role": "extensionality",
+          "statement": "Tuples are equal if all O_i coordinates agree; the nonempty family and injective residue embeddings determine a."
+        },
+        {
+          "name": "CommonResidueProduct.proj",
+          "role": "projection",
+          "statement": "Each coordinate map A→O_i is an O-algebra homomorphism."
+        },
+        {
+          "name": "CommonResidueProduct.unit_iff",
+          "role": "characterisation",
+          "statement": "A tuple is a unit if and only if its common residue a is nonzero."
+        },
+        {
+          "name": "CommonResidueProduct.lift",
+          "role": "universal-property",
+          "statement": "A ring map B→A is equivalent to maps B→k and B→O_i with the prescribed residue equalities."
+        },
+        {
+          "name": "CommonResidueProduct.residue",
+          "role": "compatibility",
+          "statement": "A/(0×∏m_i)≅k canonically."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CommonResidueProduct.oneFactor",
+          "kind": "compatibility",
+          "statement": "For one O_i=O and k_i=k, projection identifies A with O."
+        },
+        {
+          "name": "CommonResidueProduct.twoFactors",
+          "kind": "computation",
+          "statement": "For O=Z5 and two identical factors, A={(x,y)∈Z5²:x≡y mod5};(1,0) is not an element."
+        },
+        {
+          "name": "CommonResidueProduct.properResidue",
+          "kind": "non-example",
+          "statement": "If O_i/O is unramified of residue degree2 and there is one factor, A is the subring of O_i with residue in k; projection is not surjective onto O_i."
+        },
+        {
+          "name": "CommonResidueProduct.scalarUnit",
+          "kind": "computation",
+          "statement": "In the two-Z5 example,(2,7) is a unit, whereas(5,0) is not."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47",
+      "kind": "theorem",
+      "name": "Alignment of integral polarized reductions",
+      "statement": "Assume p>2, fix an absolutely irreducible residual GL_n representation ρbar over k and a G_n(k)-extension rbar. Suppose integral G_n(O_i)-representations r_i have reductions whose GL_n restrictions become isomorphic to ρbar after residue extension, and whose multipliers are the same fixed lift μ. After finite coefficient extensions and GL_n(O_i)-conjugation their reductions equal the images of rbar as G_n representations.",
+      "locator": "CHT Proposition3.4.4 proof, PDF107–108; Lemma2.1.4 PDF9–10",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "First conjugate the residual GL_n representations. A36 makes the remaining difference a scalar square class on the nonidentity component. Enlarge the residue field to contain its square root, lift the residual conjugating matrix integrally, and conjugate. Equality of characteristic polynomials is converted to the residual isomorphism by Brauer–Nesbitt, a separate supplier; traces alone in arbitrary modular characteristic are not substituted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+      "kind": "theorem",
+      "name": "Gluing over a reduced finite integral Hecke algebra",
+      "statement": "Let O be a complete DVR with finite residue k of characteristic p>2. Let T be a reduced finite flat local O-algebra with residue k, embedded in the common-residue ring A of A46 using one finite coefficient extension for each minimal prime of T. Suppose continuous r_i:Γ→G_n(O_i) have identical residual rbar, with rbar|Δ absolutely irreducible, and share a fixed multiplier μ:Γ→O×. If tr(r_A|Δ(δ)) belongs to T for every δ∈Δ, where r_A is the tuple representation, then r_A is GL_n(A)-conjugate to a continuous r_T:Γ→G_n(T) with multiplier μ. One can choose its reduction equal to rbar.",
+      "locator": "CHT Proposition3.4.4 proof, PDF107–108, isolated descent step",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Reducedness and flatness embed T into the product of the characteristic-zero fraction fields; integral coordinates give T⊂A. A45 gives descent. Its residual conjugator lies in GL_n(k) and can be lifted over T to restore the chosen reduction. Frobenius polynomial data supply the trace hypothesis only after the density/continuity adapter A49; this is not gluing from an arbitrary finite set of Hecke operators."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49",
+      "kind": "theorem",
+      "name": "Dense Frobenius traces suffice for integral trace descent",
+      "statement": "Let T⊂A be a closed subring of a topological ring and ρ:Δ→GL_n(A) continuous. If a subset C⊂Δ has dense conjugacy saturation and trρ(c)∈T for all c∈C, then trρ(Δ)⊂T. In the CM application C consists of Frobenius elements at the unramified split primes outside a finite set; the required density is the split-prime Chebotarev statement, not an assumption about all Frobenius elements being dense as selected representatives.",
+      "locator": "CHT Proposition3.4.4 proof, PDF107–108; explicit continuity adapter",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Trace is continuous and conjugation invariant, so its inverse image of T is closed and contains a dense subset. For finite-O T⊂A, compactness makes T closed in the Hausdorff A. Split-prime Chebotarev remains an imported arithmetic supplier."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
+      "kind": "theorem",
+      "name": "Residual irreducibility forces characteristic-zero irreducibility",
+      "statement": "Let O be the ring of integers of a finite extension K/Qp and Λ an O-free Γ-stable lattice of rank n. If Λ/mΛ is absolutely irreducible, then Λ⊗K is absolutely irreducible.",
+      "locator": "CHT3.4.4/EGH7.2.1 application; elementary stable-lattice adapter",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "If an invariant proper nonzero subspace exists after a finite extension K′, intersect it with Λ⊗O_K′. This is a saturated free sublattice of intermediate rank, so its reduction injects as a nonzero proper invariant subspace. Absolute irreducibility excludes it. A subspace over Qpbar descends to a finite field extension by its finitely many basis coordinates."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+      "kind": "theorem",
+      "name": "Automorphic polarization has positive pairing sign",
+      "statement": "Let F be CM and Π a regular algebraic conjugate-self-dual cuspidal automorphic representation of GL_n(A_F). For its associated semisimple p-adic representation ρ_Π, every irreducible constituent r satisfying r⊥≅r ε^(n−1) has sign(r,ε^(n−1))=+1. In particular if ρ_Π is absolutely irreducible its polarization is symmetric.",
+      "locator": "Bellaïche–Chenevier published Theorem1.2, PDF4/p1339; context PDF2–3; conclusion of proof PDF15–17",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII.",
+      "proofOutline": "Import the automorphic sign theorem from AG2.2. Its proof uses eigenvariety deformation, odd-rank signs, specialization of polarized matrix algebras, and solvable base change preserving irreducible constituents. The older arXiv0804.2860v1 text states an expected construction as a hypothesis; the published theorem is the reference here. This continuation has not decomposed the entire eigenvariety proof.",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+      "kind": "theorem",
+      "name": "Symmetric pairing selects the LLHLM multiplier",
+      "statement": "Let F/F+ be CM, c a complex conjugation, and ρ:G_F→GL_n(k) absolutely irreducible over a field of characteristic≠2, with ρ^c≅ρ∨ε^(1−n) and positive pairing sign. Its G_n extension has multiplier ξ=ε^(1−n)δ_(F/F+)^n. In particular ξ(c)=−1 for every n.",
+      "locator": "CHT Lemma2.1.1 plus Bellaïche–Chenevier §1.4, published PDF6/p1341; LLHLM23 A.4.1 PDF196",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "A symmetric perfect B forces μ(c)=−1. The character ξ restricts to ε^(1−n) on G_F and has ξ(c)=(−1)^(1−n)(−1)^n=−1; these two values determine the extension. Use A51 only after the constituent has been identified with a cuspidal automorphic system."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
+      "kind": "theorem",
+      "name": "Coefficient-prime monodromy bound",
+      "statement": "Let F be an imaginary CM field, (Π,χ) a regular algebraic essentially conjugate-self-dual cuspidal representation of GL_n(A_F), ι:Qpbar≅C, and v|p. Then ι WD(r_p,ι(Π)|G_Fv)^F-ss ≺ rec(Π_v⊗|det|^((1−n)/2)). Here ≺ means equality of semisimplified Weil representations and, in every irreducible Weil representation class modulo unramified twist, dominance of the decreasing special-block lengths (all initial partial sums on the left ≤ those on the right). This includes n=1 via local class field theory. Shin regularity is not required for the bound.",
+      "locator": "BLGGT Local-global compatibility for l=p, II, author PDF5–6 and Theorem3.1/full proof PDF7–11",
+      "status": "planned",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII.",
+      "proofOutline": "Theorem2.1 treats the extremely regular Shin-regular case using base change and a second coefficient prime. Theorem3.1 interpolates through an eigenvariety with local Bernstein idempotents, constructs a family of WD modules, and specializes bounds on monodromy. These large named suppliers remain with AG2.3/AG2.5/AG2.6; they are not inferred from EGH7.2.1(iv).",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
+      "kind": "theorem",
+      "name": "Weil-block dominance restricts to inertia dominance",
+      "statement": "For two Frobenius-semisimple Weil–Deligne representations over an algebraically closed characteristic-zero field with the same semisimplified Weil representation, dominance of special-block partitions in each irreducible Weil class modulo unramified twist implies the inertia-isotypic nilpotent dominance of N57 after restriction.",
+      "locator": "BLGGT l=p II PDF5 definition of ≺; LLHLM23 Definition2.5.3 PDF49–50; explicit adapter",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: AutomorphicGaloisRepresentationsPartII.",
+      "proofOutline": "Restriction of an irreducible Weil representation to finite inertia is a semisimple orbit of irreducible inertia types with equal multiplicities; unramified twists have identical restriction. The contribution of each special block is the same Jordan length repeated with those multiplicities. Dominance survives repetition and concatenation: equivalently rank(N^a) on each multiplicity space is monotone for every a≥1. The required Clifford-theory and Jordan-rank facts are named supplier gaps; no matching of Frobenius eigenvalues is erased before checking Weil-class membership."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+      "kind": "theorem",
+      "name": "At-p deformation condition from compatibility and K-type occurrence",
+      "statement": "Assume the AppendixA.4 setting and a characteristic-zero automorphic constituent whose Galois representation is identified with r_p,ι(Π) for a RACSDC cuspidal Π, with the local and weight normalization of EGH7.2.1. Suppose Hom_GL_n(O_Fv)(σ(τ_v),Π_v)≠0 and the algebraic coefficient has highest weight λ_v in the convention giving Hodge multiset λ_v+η. Then WD(r_p,ι(Π)|G_Fv)|I_v≤τ_v and the representation has the required Hodge weights. It lies on the corresponding monodromy-bounded potentially semistable deformation condition; if N_(τ_v)=0 it is potentially crystalline.",
+      "locator": "LLHLM23 Theorem2.5.4 PDF50 and repaired A.4.1; BLGGT l=p II Theorem1.1; EGH7.2.1(ii)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A57"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity.",
+      "proofOutline": "N58 bounds the automorphic WD inertia parameter by τ_v. The unramified |det| twist leaves its inertia parameter unchanged. A53 and A54 bound Galois monodromy by the automorphic one. Use transitivity of N57. The type-occurrence/dual coefficient dictionary and the integral deformation-ring point criterion are separate suppliers; semisimplified compatibility alone cannot prove this assertion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56",
+      "kind": "theorem",
+      "name": "Disjoint base change preserves absolute irreducibility",
+      "statement": "Let K be a number field, L/Qp finite, and ρ:G_K→GL_n(L) a continuous absolutely irreducible representation. There exists a finite Galois extension M/K such that for every finite K′/K linearly disjoint from M, ρ|G_K′ is absolutely irreducible. K′ need not be Galois.",
+      "locator": "Bellaïche–Chenevier Lemma3.5, published PDF16/p1351, with E40 proof repair",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Choose n² group elements whose matrices span M_n(L). Continuity of the determinant gives an open normal U such that every choice from the same U-cosets still spans. Set M=Kbar^U. Linear disjointness gives the surjection G_K′→Gal(M/K) directly, so choose coset representatives in G_K′. Their matrices span M_n(L), hence the restriction is absolutely irreducible. Do not replace K′ by its Galois closure: disjointness may fail after that replacement. Matrix-algebra density and the finite-Galois restriction map are named suppliers."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L61",
+      "kind": "theorem",
+      "name": "Pinned dominance partial order on partitions",
+      "statement": "For partitions μ,ν,ξ of the same natural number, TauCeti.Dominates μ ν means every decreasing-part prefix sum of ν is at most that of μ. This relation is reflexive, transitive and antisymmetric. Its scoped order has ν≤μ exactly when μ dominates ν.",
+      "locator": "TauCeti/Combinatorics/Enumerative/Partition/Dominance.lean at f790474821cf4256814db967cb154e7af3d0c369: Dominates, dominates_iff, dominates_refl, Dominates.trans, Dominates.antisymm, DominanceOrder.partition_le_iff",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statements read at the full Tau Ceti pin. This is the existing partition order; the WD/inertia adapter remains separate.",
+      "library": [
+        "tauceti:TauCeti.Dominates",
+        "tauceti:TauCeti.dominates_iff",
+        "tauceti:TauCeti.dominates_refl",
+        "tauceti:TauCeti.Dominates.trans",
+        "tauceti:TauCeti.Dominates.antisymm",
+        "tauceti:TauCeti.DominanceOrder.partition_le_iff"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A57",
+      "kind": "theorem",
+      "name": "Transitivity of inertial monodromy dominance",
+      "statement": "For GL_n Weil–Deligne inertial types τ1,τ2,τ3 over an algebraically closed characteristic-zero field, τ1≤τ2 and τ2≤τ3 imply τ1≤τ3. The inertia representations are identified transitively, and the inequality is independent of the chosen intertwining identifications.",
+      "locator": "LLHLM23 Definition2.5.3 PDF49–50; API fact consumed in A55",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L61"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: SmoothRepresentationsPartII.",
+      "proofOutline": "Use the canonical isotypic decomposition up to equivariant isomorphism; transport nilpotent endomorphisms to each multiplicity space. Apply pinned partition dominance transitivity. Promote N57.le_trans for the theorem consumer, without rebuilding the partition order."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58",
+      "kind": "theorem",
+      "name": "Inertial dominance is equivalent to power-rank inequalities",
+      "statement": "For two GL_n WD inertial types with the same semisimple inertia representation over an algebraically closed characteristic-zero field, τ≤τ′ if and only if, on each irreducible-inertia multiplicity space, rank(N_τ^a)≤rank(N_τ′^a) for every integer a≥1.",
+      "locator": "LLHLM23 Definition2.5.3; explicit linear-algebra adapter for A54",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L61"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: SmoothRepresentationsPartII.",
+      "proofOutline": "For a decreasing Jordan partition λ set S_i=Σ_(j≤i)λ_j and R_a=Σ_j max(λ_j−a,0). Then R_a=max_i(S_i−ia) and S_i=min_(a≥0)(ia+R_a), so prefix-sum order is equivalent to all R_a inequalities. A Jordan block of size d contributes max(d−a,0) to rank(N^a). The Jordan-basis supplier remains to audit at the pins; only the partition order is imported as already implemented."
     }
   ],
   "prerequisites": [
@@ -10777,6 +12149,21 @@
       "citation": "[14],[16],[78],[82] CEGGPS patching; CHT automorphy; Thorne adequate patching; Venjakob completed group algebras",
       "link": "https://arxiv.org/abs/1310.0831",
       "why": "AppendixA projectors, globalization, local-global comparison, projectivity and adequate prime supply. Reuse the existing all-rank CEGGPS, polarized deformation and automorphy candidates; do not replan abstract patching."
+    },
+    {
+      "citation": "CHT(2008) §2.1 and Proposition3.4.4",
+      "link": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+      "why": "Exact trace descent, polarized integral lattice and Hecke-algebra assembly refined as A34–A50. Remaining leaf suppliers are explicit."
+    },
+    {
+      "citation": "Bellaïche–Chenevier(2011), The sign of Galois representations attached to automorphic forms for unitary groups, Theorem1.2",
+      "link": "https://doi.org/10.1112/S0010437X11005264",
+      "why": "Positive automorphic pairing sign supplies the prescribed multiplier, subject to the unitary/cuspidal transfer interface. Existing AG2.2 owns the theorem."
+    },
+    {
+      "citation": "BLGGT, Local-global compatibility for l=p, II, Theorem1.1",
+      "link": "https://virtualmath1.stanford.edu/~rltaylor/lg2.pdf",
+      "why": "The non-Shin-regular monodromy bound, stronger than EGH7.2.1(iv), combines with the inertial type inequality. Existing AG2.5/AG2.6 owns its eigenvariety proof."
     }
   ],
   "routes": [
@@ -10882,7 +12269,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N60",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N61",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A31",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A58"
       ],
       "reason": "Reuse the existing smooth representation Part II; it already receives depth-zero Deligne–Lusztig types from Newton–Thorne and local type theory from Fintzen/Bushnell–Henniart. These are local K-types, not the modular finite-group reduction theorem.",
       "parent": "SmoothRepresentationsOfLocalGroups",
@@ -11131,7 +12520,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A28",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
       "reason": "Reuse the CEGGPS all-rank patching candidate. The extra source obligation is the exact weak/detectable/minimal functor interface and arbitrary away-from-p-level construction, not another abstract patching roadmap.",
       "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
@@ -11144,7 +12534,6 @@
       "roadmap": "GlobalGaloisDeformations",
       "items": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A05",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A08",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
@@ -11155,7 +12544,6 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A15",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A25",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A27"
       ],
       "reason": "The polarized group, local conditions, Selmer tangent complex, framed global ring and adequate Taylor–Wiles primes are already the direction of G7 and the specified deformation layers. This source adds the exact fixed-multiplier tangent and generator formulas, with corrections E22–E24.",
@@ -11368,6 +12756,65 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
       ],
       "reason": "The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They are distinct from complete local coefficient tensors in R03.1. These precise additional statements import the upstream AdicSpaces carrier. The analytic continuation imports upstream AdicSpaces Layer0.5 Weierstrass division (Z49), pinned restricted-series comparison/iteration, and SchemeAndStackFoundations:SF.0/SF.4 algebraic descent/regularity. Z48/Z50–Z56/Z60 refine the existing R0/F0 product and model targets; Z52 reuses their carrier."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisRepresentations",
+      "stages": [
+        "ArithmeticGaloisRepresentations:G7",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56"
+      ],
+      "reason": "Actual polarized representations, their signs and integral lattices precede polarized deformation functors. Reuse this existing common carrier and import it into GlobalGaloisDeformations G7."
+    },
+    {
+      "route": "source",
+      "roadmap": "IntegralHeckeAndGaloisDeterminants",
+      "stages": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49"
+      ],
+      "reason": "Trace descent and gluing actual representations over a reduced integral Hecke algebra refine the existing reconstruction and finite-image-algebra layers. These are suppliers of patching, not a second automorphic construction."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicGaloisRepresentationsPartII",
+      "stages": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54"
+      ],
+      "reason": "The automorphic sign and coefficient-prime monodromy comparison belong to the existing polarized automorphic-system layers. The LLHLM consumer still needs the explicit unitary-to-cuspidal transfer hypotheses."
     }
   ],
   "sourceIssues": [
@@ -11973,6 +13420,36 @@
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E39",
       "kind": "misprint",
+      "locator": "Adjacent source CHT(2008), Lemma2.1.12 proof, printed/PDF16; both displayed conjugations. Published page checked visually.",
+      "printed": "α=β² followed by (β1_n,1) r(γ0) (β1_n,1)⁻¹ ∈ G_n(S).",
+      "correction": "Replace β1_n by β⁻¹1_n in both conjugations (or instead choose β²=α⁻¹).",
+      "reason": "Conjugation by(cI,1) sends the first coordinate A of(A,b)j to c²A. With A=αB and α=β², the printed conjugation gives α²B; the inverse conjugation gives B. Over S=F5⊂R=F5[ε]/(ε²), n=1, Γ=C2 and r(c)=(1+ε,1)j, choose B=1 and β=1+3ε. The printed first coordinate is1+2ε, which does not lie in S; inverse conjugation gives1. The theorem and subsequent application are repaired by this inverse.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: exact lemma-number and article-title correction/erratum searches found no correction for this scalar inverse.",
+        "https://www.numdam.org/item/PMIHES_2008__108__1_0/ and the published DOI PDF inspected.",
+        "https://virtualmath1.stanford.edu/~rltaylor/ lists the author version; no separate correction listed. The known Thorne2012 erratum in the later 2-adic paper concerns a different theorem."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E40",
+      "kind": "gap",
+      "locator": "Adjacent source Bellaïche–Chenevier(2011), Lemma3.5 proof, published PDF16/p1351; page checked visually.",
+      "printed": "If K′ is a finite extension of K which is linearly disjoint from M, so is its Galois closure.",
+      "correction": "Omit the reduction to Galois K′. Since M/K is Galois and K′ is linearly disjoint from M, restriction G_K′→Gal(M/K) is surjective directly; lift the chosen cosets using this map.",
+      "reason": "Disjointness does not generally pass to the Galois closure. For the CM base K=Q(i), take K′=K(cuberoot(2)) of degree3 and M=K(ζ3) of degree2. Coprime degrees give linear disjointness, but the Galois closure of K′ is K′M and contains M. The elementary S3 subgroup calculation gives the same counterexample. The corrected restriction-map argument proves the stated lemma without any Galois hypothesis on K′.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: exact article-title correction/erratum and Lemma3.5 searches found no dedicated correction for this step.",
+        "https://doi.org/10.1112/S0010437X11005264 and the Cambridge published PDF inspected; the cited sentence appears in the published proof.",
+        "The older arXiv0804.2860v1 introduction was compared for the theorem version; no complete preprint proof audit is claimed."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E41",
+      "kind": "misprint",
       "locator": "Lemma 8.4.9, statement and proof, published PDF173 (checked on the page image)",
       "printed": "Lemma 8.4.9 The set P_ss meets all components of S_{Λ,τ}. Any tame ρ̄ ∈ X^{λ,τ}(F) where (λ,τ) ∈ S_{Λ,τ} is (6n − 2)-generic. Proof: If C_σ is a component of X^{λ+η,τ} for (λ+η,τ) ∈ S_{Λ,τ}, …",
       "correction": "Read S_{Λ,t}, the type system defined at the start of §8.4, in all three places, and X^{λ+η,τ}(F) with (λ+η,τ) ∈ S_{Λ,t} in the second sentence.",
@@ -11981,6 +13458,20 @@
       "known": "new",
       "searched": [
         "2026-09-23: the article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E42",
+      "kind": "error",
+      "locator": "§A.3.3, definition of ad r̄, published PDF192",
+      "printed": "Note that Lie G_n ≅ gl_n × gl_1. Let ad r̄ : Γ → Aut_A(gl_n(A)) be the representation obtained by the projection Lie G_n ↠ gl_n.",
+      "correction": "Take ad r̄ on the G_n-stable summand gl_n × 0 = ker(dν) of Lie G_n, where (g,a) acts by X ↦ gXg⁻¹ and j by X ↦ −ᵗX (the usual convention for G_n). Equivalently, for p > 2, project along the G_n-stable line spanned by (½·I, 1), not along 0 × gl_1.",
+      "reason": "Differentiating j(g,a)j = (a·ᵗg⁻¹, a) at (1 + εX, 1 + εb) gives Ad(j)(X, b) = (b·I − ᵗX, b). So Ad(j) sends (0, b) to (b·I, b): the kernel 0 × gl_1 of the coordinate projection is not j-stable, and that projection gives no action of Γ once r̄(Γ) meets the non-identity component, as it does for every r̄ in §A.3.2. The G_n⁰-action alone is compatible with the coordinate projection. The paper's later arguments cite [16] and [78], which use the correct representation, so no result changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: the article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum.",
+        "2026-09-23: arXiv 2007.05398v2 (SHA-256 3cdae0b1…61af), §A.3.3, has the same sentence."
       ]
     }
   ],
@@ -12000,7 +13491,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50."
     },
     {
       "id": "split-and-hypotheses",
@@ -12060,13 +13551,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G22",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A05",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A11",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain. A second cc-442dc5 pass supplied the same for the sixteen §6 and §9 entries P01–P08, V01–V06, V08 and V10 (published PDF125–131 and PDF180–186); 56 of 152 now have literal itemwise uses/API/three typed tests and 96 remain. A third cc-442dc5 pass did the same for the seventeen §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (published PDF162–180); 73 of 152 now have literal itemwise uses/API/three typed tests and 79 remain."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. A06,A34,A35,A46,N57 now have separate consumer-derived APIs and at least three typed tests. The latest validation census supersedes earlier numerical counts. Current literal census: 15 of 155 entries complete in that form; 140 remain. Continuation cc-442dc5 (Claude Code), in four passes, supplied itemwise uses, API and at least three typed tests for the §2 entries N01–N66 that lacked them (published PDF24–53), the §6/§9 entries P01–P08, V01–V06, V08 and V10 (PDF125–131, PDF180–186), the §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (PDF162–180) and the Appendix A entries A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23 (PDF188–201). Its N57 and A06 interfaces were superseded by the concurrent codex-7e92bd versions from #2317, which are kept. After merging #2317, the literal census is 90 of 155 entries complete in that form; 65 remain."
     },
     {
       "id": "library-item-audit",
@@ -12497,6 +13984,25 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
       "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images."
+    },
+    {
+      "id": "global-descent-supplier-atoms",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
+      ],
+      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation."
     }
   ],
   "sourceData": {
@@ -13623,6 +15129,31 @@
       "finding": "Reuse IsRegularLocalRing and Krull separation. Full-tree searches did not locate G-rings, Hilbert–Samuel dimension comparison or the general regular-local domain theorem. Tau Ceti word-filtration/PBW associated graded results concern different filtrations and do not prove Z63. Existing atlas/packet searches found no exact Hilbert–Samuel or maximal-ideal-graded supplier; reuse the SF.4 formal/regularity source route.",
       "atlasCommit": "2d9f4680c097b558c3684dec993a71f78e7913ee",
       "inputScreen": "Refreshed758 input blobs at 2d9f4680c097b558c3684dec993a71f78e7913ee. Four changed Liu/Venkatesh extraction/report inputs and the new Venkatesh review were screened at route/overlap level. Their specialized level-raising/derived-Hecke additions do not replace the present classical projector interface. No independent review of those papers is claimed."
+    },
+    "globalDescentContinuation": {
+      "date": "2026-09-23",
+      "atlasCommit": "588e4e8",
+      "reviewedRows": [
+        "ArithmeticGaloisRepresentations:G7",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6"
+      ],
+      "searches": "At the full inherited pins, Carayol/PolarizedRepresentation/polarized Galois/inner-matrix-derivation searches found no exact suppliers. Generic adjoint and inner-derivation constructions are not cited as these stronger theorems. L61 adds the exact pinned partition dominance import; no polarized descent declaration is asserted already implemented.",
+      "ownership": "Read existing G7/R01.1, IHG.1/IHG.2, AG2.0–AG2.3/AG2.5–AG2.7 stage descriptions and relevant integrated decomposition statements. A06 moved to its foundational owner; source-only routes added without modifying any external roadmap file.",
+      "exactLibraryImport": {
+        "path": "TauCeti/Combinatorics/Enumerative/Partition/Dominance.lean",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "item": "L61",
+        "read": "Definition, partial-sum characterization, reflexivity, transitivity, antisymmetry, and scoped-order direction read in source.",
+        "verification": {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Combinatorics/Enumerative/Partition/Dominance.lean",
+          "sha256": "3ae9c23a01c7fe7165896759bea018cb913b2c6b4b78b2aa62f4a169a7218c9f",
+          "date": "2026-09-23",
+          "byteVerified": true
+        }
+      }
     }
   },
   "validation": {
@@ -13883,6 +15414,49 @@
         ]
       }
     },
+    "globalDescentContinuation": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-23",
+      "structural": {
+        "items": 506,
+        "statuses": {
+          "missing": 431,
+          "planned": 14,
+          "library": 61
+        },
+        "routes": 18,
+        "sourceIssues": 40,
+        "definitionsAndConstructions": 155,
+        "itemwiseApiComplete": 15,
+        "remainingItemwiseApis": 140,
+        "internalEdges": 282,
+        "acyclic": true,
+        "all480InheritedStatementsPreserved": true,
+        "all38InheritedFindingsPreserved": true,
+        "appendixDataPreserved": true,
+        "all15RouteIdentitiesPreserved": true,
+        "exactlyOneRoutePerMissing": true,
+        "changedInheritedItems": [
+          "N57",
+          "A06",
+          "A17",
+          "A26",
+          "A30"
+        ]
+      },
+      "diagnostics": {
+        "matrix_derivation_basis_identities": 3141,
+        "scalar_inverse_corrections": 26,
+        "dyadic_square_root_obstruction": 1,
+        "principal_unit_roots": 596,
+        "partition_rank_comparisons": 3582,
+        "direct_sum_dominance": 6876,
+        "common_residue_tuples": 495,
+        "normalizer_two_signs": 2
+      },
+      "meaning": "Finite algebra diagnostics and source-level proof plans only. No formal proof, Lean compilation or independent errata verdict. Earlier diagnostics are inherited, not rerun.",
+      "validators": "scripts/check_paper.py, intake.py check-files on the three authorized paths, and git diff --check are run for this checkpoint."
+    },
     "claudeCc442dc5Continuation": {
       "agent": "Claude Code — cc-442dc5",
       "date": "2026-09-23",
@@ -13908,12 +15482,30 @@
         "handChecks": "GL1 framed and typed lifting rings over Q_p (p odd), the completed-tensor dimension formula, the GL2 Hecke characteristic polynomial, the decomposition of S(U,W) by double cosets, the dual of Sym^r⊗det^a for GL2(F_p) and P_m for n = 1."
       },
       "thirdPass": {
-        "scope": "Itemwise uses/API/typed tests for B01–B07, B09, B12–B14, B18, B19, B22, B27, B34, B36; one new unreviewed finding E39 (Lemma 8.4.9 notation). No statements, statuses, routes or IDs changed.",
+        "scope": "Itemwise uses/API/typed tests for B01–B07, B09, B12–B14, B18, B19, B22, B27, B34, B36; one new unreviewed finding E41 (Lemma 8.4.9 notation). No statements, statuses, routes or IDs changed.",
         "itemwiseApiUsesAndThreeTypedTests": 73,
         "remainingDefinitionConstructionCensus": 79,
         "newlyCompleted": 17,
         "sourceIssues": 39,
         "handChecks": "GL1 component count p^f−1, the two-component module cycle over F[[x,y]]/(xy), the lattice points of Conv((1,0)) for n = 2, ℓ(t_η) = 4 for GL3, the GL1 Breuil–Mézard system and the extremality of GL3 Jordan types."
+      },
+      "fourthPass": {
+        "scope": "Itemwise uses/API/typed tests for A05–A11, A13, A15, A16, A19, A20, A22 and A23; one new unreviewed finding E42 (the adjoint representation of G_n). No statements, statuses, routes or IDs changed.",
+        "itemwiseApiUsesAndThreeTypedTests": 87,
+        "remainingDefinitionConstructionCensus": 65,
+        "newlyCompleted": 14,
+        "sourceIssues": 40,
+        "handChecks": "Ad(j) on Lie G_n and its stable line (½I, 1) for p > 2, the involution j(j(g,a)j)j = (g,a), GL1 liftings to F[ε], the Iwahori case n = 2, d_v = 1 of p_v/p_{v,1} ≅ k_v^×(p), cyclicity of k_v^×(p), O ⊗_R ∏_m O/ϖ^r ≅ O/ϖ^r for the ultrafilter, and g = q − [F⁺:Q] for n = 2."
+      },
+      "mergeWithMain": {
+        "date": "2026-09-23",
+        "scope": "Merged main after #2317 (codex-7e92bd), which ran concurrently on the same issue. That PR's items, routes, findings E39–E40 and other changes are kept unchanged. This continuation's two findings are renumbered E41 (Lemma 8.4.9 notation; E39 in earlier commits of this PR) and E42 (the adjoint representation of G_n; E40 in the unpushed fourth pass). #2317's own N57 and A06 interfaces are kept in place of this continuation's; A06 gains one non-example test tied to E42.",
+        "itemsApplied": 75,
+        "itemwiseApiUsesAndThreeTypedTests": 90,
+        "definitionsConstructions": 155,
+        "remainingDefinitionConstructionCensus": 65,
+        "sourceIssues": 42,
+        "note": "The per-pass counts above were taken on the pre-#2317 base of 152 entries; this subkey supersedes them."
       }
     }
   },
@@ -14434,8 +16026,30 @@
       {
         "owner": "GenericGL3SerreWeightsAndLattices",
         "exports": "Generic BM/global weight conclusions import the preceding foundation; later GL3 lattice results retain their own stronger bounds and do not feed back into construction/globalization of the weak functor."
+      },
+      {
+        "topic": "Polarized integral descent suppliers",
+        "decision": "A06 carrier, A26 adequacy and A34–A38/A47/A50/A52 use ArithmeticGaloisRepresentations G7/R01.1; A39–A46/A48–A49 use IntegralHeckeAndGaloisDeterminants IHG.1/IHG.2; A51/A53/A54 use AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5/AG2.6. GlobalGaloisDeformations keeps deformation conditions and adequate-prime applications. The three new routes are source routes to existing owners, not new roadmaps.",
+        "evidence": "Reviewed AUDIT-31 rows for ArithmeticGaloisRepresentations G7/R01.1 and AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5/AG2.6; current stage text and integrated decompositions read. No exact polarized trace-descent node found in the read decompositions; the existing AG2.6 coefficient-prime node is the supplier, not an independent construction."
       }
     ],
-    "remaining": "Convert these directions to final fine-grained supplier/request IDs during shared design; whole-roadmap arrows alone can conceal the known globalization/lattice cycle."
+    "remaining": "Convert these directions to final fine-grained supplier/request IDs during shared design; whole-roadmap arrows alone can conceal the known globalization/lattice cycle.",
+    "globalDescentSnapshot": {
+      "commit": "588e4e8d80127ebd4f0accebceedfc87cabd177f",
+      "inputs": {
+        "data/library-coverage.json": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+        "data/decompositions/ArithmeticGaloisRepresentations.json": "bcacc398841cbb34c3d72c7f66b89f6aa27e7823",
+        "data/decompositions/AutomorphicGaloisRepresentationsPartII.json": "dce64c4f76cf3b1c647e35d9b5fa1be79f6744e8",
+        "research/blueprint/atlas/roadmaps/ArithmeticGaloisRepresentations.json": "bb81dc9523867f37d571ddc40646fdd57481f7ca",
+        "research/blueprint/atlas/roadmaps/IntegralHeckeAndGaloisDeterminants.json": "a95e85bb07ee6f361653d32afd6927846c4a4084",
+        "research/blueprint/atlas/roadmaps/AutomorphicGaloisRepresentationsPartII.json": "e96f2f92b77a576b8036dc45db5bc774633fc703",
+        "research/blueprint/atlas/roadmaps/GlobalGaloisDeformations.json": "9ddeb2ea46c2027bb480c4eec54353aaee72feee",
+        "research/blueprint/atlas/roadmaps/PotentialAutomorphyInfrastructure.json": "d1b7ad4a497e530af8d40e61093df9eb1bfbd0d4",
+        "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json": "d0a72743d6ab8ac44effa2a876890f4608959a2b",
+        "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md": "1e97cbcf434da1360193216e202c38cf152a7af4",
+        "research/blueprint/handoff/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md": "3195914fcaa5c89f144df43688ae3b4876bfdb4c"
+      },
+      "scope": "Fresh source-owner and relevant decomposition/audit reads. Earlier 758-input snapshot remains historical; these are the current continuation guards."
+    }
   }
 }

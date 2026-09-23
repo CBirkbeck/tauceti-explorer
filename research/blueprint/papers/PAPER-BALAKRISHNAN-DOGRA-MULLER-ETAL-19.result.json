@@ -911,10 +911,11 @@
       "library": [
         "tauceti:TauCeti.normalizedFrickeOperatorCusp",
         "tauceti:TauCeti.normalizedFrickeOperatorCusp_involutive",
-        "tauceti:TauCeti.isCompl_eigenspace_normalizedFrickeOperatorCusp"
+        "tauceti:TauCeti.isCompl_eigenspace_normalizedFrickeOperatorCusp",
+        "tauceti:TauCeti.frickeOperatorCusp_mem_cuspFormCharSpace"
       ],
       "planned": [],
-      "note": "Read at Tau Ceti f790474, TauCeti/NumberTheory/ModularForms/Fricke/Normalized.lean (lines 136, 211, 442); the operator is defined on Γ_1(N) cusp forms and the eigenspace splitting needs Even k."
+      "note": "Read at Tau Ceti f790474, TauCeti/NumberTheory/ModularForms/Fricke/Normalized.lean (lines 136, 211, 442); the operator is defined on Γ_1(N) cusp forms and the eigenspace splitting needs Even k. The paper applies W_169 to S_2(Γ_0(169)) ⊂ S_2(Γ_1(169)); that subspace is the trivial-character space, and its stability under W_N is frickeOperatorCusp_mem_cuspFormCharSpace (Fricke/CharacterSpace.lean, line 106), which the Γ_1(N) declarations alone do not give."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/82",
@@ -1297,8 +1298,8 @@
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E3",
       "kind": "error",
       "locator": "Published §5.3.2, display after 'Using the parallel transport formula from Section 5.3.1', p.923, and §5.3.1 ('When applied to the integrals I(x, x_0) and I(b_0, b) …'); arXiv v1 (24), p.25",
-      "printed": "s_0(b,x)^{-1}∘s^φ(b,x) is the product of [[1,0,0],[∫_x^{x_0}ω,1,0],[∫_x^{x_0}η + ∫_x^{x_0}ω^T Zω, ∫_x^{x_0}ω^T Z, 1]], [[1,0,0],[∫_{b_0}^b ω,1,0],[∫_{b_0}^b η + ∫_{b_0}^b ω^T Zω, −∫_{b_0}^b ω^T Z, 1]] and the matrix at (b_0, x_0).",
-      "correction": "By (41), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0). The first two factors are left multiplication by I(x_0,x) and right multiplication by I(b,b_0): all limits are swapped (∫_{x_0}^x and ∫_b^{b_0}).",
+      "printed": "s_0(b,x)^{-1}∘s^φ(b,x) is the product of [[1,0,0],[∫_x^{x_0}ω,1,0],[∫_x^{x_0}η + ∫_{x_0}^x ω^T Zω, ∫_x^{x_0}ω^T Z, 1]], [[1,0,0],[∫_{b_0}^b ω,1,0],[∫_{b_0}^b η + ∫_{b_0}^b ω^T Zω, −∫_{b_0}^b ω^T Z, 1]] and the matrix at (b_0, x_0).",
+      "correction": "By (41), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0). The first two factors are left multiplication by I(x_0,x) and right multiplication by I(b,b_0), so their limits are swapped throughout: ∫_{x_0}^x in the first and ∫_b^{b_0} in the second. The one integral already printed in the corrected orientation is the iterated ∫_{x_0}^x ω^T Zω in the (3,1) entry of the first matrix, which therefore disagrees with its own first summand ∫_x^{x_0} η.",
       "reason": "s^φ(b,x) = τ_{b,x}∘s^φ(b_0,x_0). As printed, the (2,1) block gives α_φ(b,x) = α_φ(b_0,x_0) − ∫_{x_0}^x ω − ∫_b^{b_0} ω. But α_φ(b_0,x_0) = (I−F)^{-1}f(x_0) = ∫_{b_0}^{x_0} ω by Frobenius-equivariance of Coleman integration, and the Frobenius-invariant path from b to x has α_φ(b,x) = ∫_b^x ω = ∫_b^{b_0} + ∫_{b_0}^{x_0} + ∫_{x_0}^x. The printed product also fails to compose as paths. The authors' code transports the other way: Cartan13 U1.m parallel_transport(teichpoints[i], Qppoints[i], …)*frob_equiv_iso(…), and QCMod qc_modular.m pti*PhiAZb_to_b0*isoi with parallel_transport(bQ, b0, …), where parallel_transport(P1, P2) has (2,1) block ∫_{P1}^{P2} ω. The same orientation is printed in arXiv v1 (24) and in BDMTV 2023 (4.18).",
       "affects": "the proof",
       "known": "new",
@@ -1332,7 +1333,8 @@
       "known": "BDMTV, Quadratic Chabauty for modular curves: algorithms and examples, Compositio Math. 159 (2023), §3.5.2: 'need not equal the dimension of ∧²H^1_dR(X_{Q_p})^{φ=p} ∩ Fil¹, as was erroneously claimed in [BDM+19, Lemma 4.5]' (arXiv numbering; Lemma 4.7 in print)",
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
-        "The lemma is not used in the paper ('Though we will not need it in the sequel'); §6 takes Z_1, Z_2 from the Hecke operators T_7 and T_11."
+        "The lemma is not used in the paper ('Though we will not need it in the sequel'); §6 takes Z_1, Z_2 from the Hecke operators T_7 and T_11.",
+        "Checked in the LaTeX e-print of arXiv v1 by cc-7b31c4 (Cartan.tex, line 1363): there the lemma concludes 'there exists a nice element of Pic(X × X) ⊗ Q_p mapping to Z'. The published Lemma 4.7 drops the ⊗ Q_p, so the last sentence of the correction is about the published text only."
       ]
     },
     {

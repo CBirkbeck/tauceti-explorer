@@ -745,6 +745,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#lane-f1-the-cauchyriemann-elliptic-package-shared-with-the-pde-roadmap",
        "note": "That lane needs the two-dimensional slice of exactly this package (`W^{k,p}`, Sobolev multiplication, trace, Calderón–Zygmund) and its own text directs it to consume this lane."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+       "note": "That layer says it 'consumes ... the weak PDE infrastructure in the PDE roadmap' and that 'where the PDE roadmap does not provide a needed continuity-equation, Sobolev, or compactness lemma, build and expose the bridge here before using it' — an explicit licence to build parts of this lane elsewhere, so the two should be kept in step."
       }
      ]
     },
@@ -1048,7 +1052,7 @@
      ]
     },
     "tauceti:TauCetiRoadmap/PDE#milestone-c-12": {
-     "verdict": "not built",
+     "verdict": "partly built",
      "targets": [
       {
        "target": "The mean-value property of harmonic functions on `ℝⁿ` (sphere/ball averages), and its converse characterization",
@@ -1619,6 +1623,20 @@
          "fit": "exact"
         },
         {
+         "name": "TauCeti.PDE.UniformlyEllipticOn.garding_energyFormIntegral_self_of_mass_lower_bound_on",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Integrated/Basic.lean",
+         "line": 509,
+         "fit": "exact"
+        },
+        {
+         "name": "TauCeti.PDE.garding_energyFormIntegral_self_of_mass_lower_bound_of_bounds",
+         "library": "tauceti",
+         "file": "TauCeti/Analysis/PDE/EnergyForm/Integrated/Basic.lean",
+         "line": 395,
+         "fit": "exact"
+        },
+        {
          "name": "TauCeti.PDE.UniformlyEllipticOn.mul_norm_sq_le_energyFormH1_self_of_poincare",
          "library": "tauceti",
          "file": "TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean",
@@ -1626,7 +1644,7 @@
          "fit": "related"
         }
        ],
-       "note": "`garding_energyFormH1_self_norm` is literally the roadmap's form `(λ/2)‖u‖²_{H¹} − (λ/2 + β²/2λ)‖u‖²_{L²} ≤ a(u,u)`, for bounded measurable coefficients with `c ≥ 0`."
+       "note": "`garding_energyFormH1_self_norm` is literally the roadmap's form `(λ/2)‖u‖²_{H¹} − (λ/2 + β²/2λ)‖u‖²_{L²} ≤ a(u,u)`, for bounded measurable coefficients with `c ≥ 0`. The `c ≥ 0` restriction is only in that `W1p`-packaged form: `garding_energyFormIntegral_self_of_mass_lower_bound_on` proves the same bound from a mass floor `mu ≤ c` with `mu` of either sign, giving `∫ (λ/2‖∇u‖² + (mu − β²/2λ)u²) ≤ a(u,u)`, and `energyFormH1 a b c u v` is by definition `energyFormIntegral (mu.restrict Ω) a b c (jetField u) (jetField v)`, so the general bounded-`c` case is available on `H¹` by instantiation."
       }
      ],
      "duplicates": []
@@ -2077,6 +2095,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/HeegaardFloer#milestone-f1-2",
        "note": "Asks for the Calderón–Zygmund inequality and interior elliptic bootstrapping for the ∂̄ operator, the same estimate in the two-dimensional first-order case."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity",
+       "note": "Its item 9 plans the same estimate for the Monge--Ampère equation: VMO or continuity control of `f` giving `W²,p` for every finite `p` on normalized convex sections, which is this milestone's variable-VMO-coefficient `W^{2,p}` theory applied to the linearised equation."
       }
      ]
     },
@@ -2117,7 +2139,12 @@
        "note": "Absent; only the weak `H¹₀` solvability of Lane D exists."
       }
      ],
-     "duplicates": []
+     "duplicates": [
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-6-monge--ampère-measures-equations-and-regularity",
+       "note": "Its item 9 plans `f ∈ C⁰,α ⟹ C²,α` and then, for `k ≥ 1`, 'the ordinary interior Schauder bootstrap on relatively compact subdomains' once the differentiated equation is uniformly elliptic — the interior Schauder estimates of this milestone, consumed rather than restated."
+      }
+     ]
     },
     "tauceti:TauCetiRoadmap/PDE#milestone-e-23": {
      "verdict": "not built",
@@ -2417,6 +2444,10 @@
       {
        "layer": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-a--strongly-continuous-semigroups",
        "note": "Owns the semigroup half of item 26; it is a declared prerequisite roadmap of PDE and is already built."
+      },
+      {
+       "layer": "tauceti:TauCetiRoadmap/OptimalTransport#layer-11-entropy-wasserstein-differential-calculus-jko-and-pde-flows",
+       "note": "Its JKO and PDE-flow items are linear evolution equations on measures and it routes each linear flow 'through the abstract C₀/contraction-semigroup API of the one-parameter-semigroups roadmap', the same semigroup half of item 26 that this lane consumes."
       }
      ]
     }

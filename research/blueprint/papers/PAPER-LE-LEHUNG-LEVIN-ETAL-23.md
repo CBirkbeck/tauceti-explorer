@@ -1,6 +1,36 @@
 # LLHLM23 continuation — Claude Code, cc-442dc5, 23 September 2026
 
-This is a **partial checkpoint**, continuing PR #2301. It keeps the 480 items (60 library, 8 planned, 412 missing), the 15 route identities and the 38 unreviewed source findings unchanged. No statement, status, route, finding or ID was altered, and no Lean file was written or compiled.
+This is a **partial checkpoint**, continuing PR #2301. It is now merged with the concurrent codex-7e92bd checkpoint #2317. It keeps that checkpoint's 506 items (61 library, 14 planned, 431 missing), 18 routes and 40 unreviewed source findings unchanged, and adds two new unreviewed findings, E41 and E42. No statement, status, route, inherited finding or ID was altered, and no Lean file was written or compiled.
+
+## Merge with #2317 (same issue, concurrent)
+
+#2317 (codex-7e92bd) ran on the same issue at the same time and was merged first; its handoff records how the claims crossed. Main was merged into this branch, and the two sets of changes were combined as follows:
+- **#2317 is kept unchanged.** Its 26 new items, routes and findings are kept, and so are its own itemwise interfaces for A06 and N57. They replace the ones this continuation had written for those two entries.
+- **A06 gains one test.** The only addition to #2317's A06 is the non-example test `PolarizedGroup.adjoint_j`, which goes with E42.
+- **Findings renumbered.** #2317 took the IDs E39 and E40, so this continuation's findings are now E41 (Lemma 8.4.9 notation; E39 in the earlier commits of this PR) and E42 (the adjoint representation of G_n).
+- **Census.** After the merge it stands at **90 of 155** definitions and constructions, with **65 remaining**.
+
+## Fourth pass (same session): Appendix A deformation and patching definitions
+
+A fourth pass read published PDF188–201 (Appendix A.1–A.5) afresh. It supplied itemwise interfaces for thirteen entries (its A06 interface gave way to #2317's in the merge):
+- **Deformation theory.** A05 (liftings, strict equivalence and det), A07 (Definition A.3.1, local deformation problems), A08 (fixed-determinant quotients and their O-flat quotients), A09 (global G_n-deformation data and type S), A10 (T-framed deformations, R^loc_{S,T} → R_S^T and the frame isomorphism) and A11 (relative tangent spaces and the Selmer cone C_{S,T}, with E22 and E23).
+- **Taylor–Wiles data.** A13 (the ψ_v ⊕ s_v condition), A15 (Δ_Q, O[Δ_Q] → R_{S_Q} and augmentation descent) and A16 (the block parahorics p_v, p_{v,1} and U_0(Q)/U_1(Q) ≅ Δ_Q).
+- **Patching.** A19 (the projected finite modules M_{m,K_p,r}, their framed versions and O_∞, S_∞), A20 (the ultrafilter module M_∞ and (A.4)), A22 (R_∞ with the corrected g of E24, and the lift S_∞ → R_∞) and A23 (the exact covariant functor M_∞(−), its augmentation quotients and the nonvanishing criterion of Lemma A.1.1(1)).
+
+The `uses` entries point to the Appendix A theorems that consume each object (A01, A12, A14, A17, A18, A21, A24, A26, A27, A29, A33) and, for the patching data, to the §6 interfaces P03 and P04.
+
+**Hand-checked cases behind the tests:**
+- Ad(j) on Lie G_n and the j-stable line spanned by (½I, 1) for p > 2;
+- j(j(g,a)j)j = (g,a), and the case n = 1;
+- GL₁ liftings to F[ε], and the failure of Hom(m/m², F) for A = O (E22);
+- the Iwahori case n = 2, d_v = 1, where p_v/p_{v,1} ≅ k_v^×(p) through the lower-right entry;
+- k_v^×(p) ≅ Z/p^N when Nv − 1 = p^N·u with p ∤ u;
+- O ⊗_R ∏_m O/ϖ^r ≅ O/ϖ^r for the ultrafilter;
+- g = q − [F⁺:Q] for n = 2.
+
+**A new finding, E42 (error, unreviewed; affects nothing).** §A.3.3 defines ad r̄ as the representation "obtained by the projection Lie G_n ↠ gl_n" after writing Lie G_n ≅ gl_n × gl_1. Differentiating j(g,a)j = (a·ᵗg⁻¹, a) gives Ad(j)(X, b) = (b·I − ᵗX, b). So Ad(j)(0, b) = (b·I, b), and the kernel of the coordinate projection is not j-stable. The intended representation is the summand ker(dν) = gl_n × 0, on which j acts by X ↦ −ᵗX. For p > 2 this equals the quotient along the stable line spanned by (½I, 1). The cited sources [16] and [78] use this representation, so no result changes. The same sentence appears in arXiv 2007.05398v2.
+
+**Census.** After the merge it stands at **90 of 155**; **65 remain**. They are 16 U entries (§3), 14 M (§4), 17 K (§5) and 12 G (§7), with Q01, Q02, Q07, Z02, L05 and Z15.
 
 ## Third pass (same session): §8 Breuil–Mézard definitions
 
@@ -20,9 +50,9 @@ A third pass read published PDF162–180 (§8) afresh. It supplied itemwise inte
 - the GL₁ Breuil–Mézard system;
 - the extremality of GL₃ Jordan types.
 
-**A new finding, E39 (misprint, unreviewed).** Lemma 8.4.9 writes S_{Λ,τ} three times for the system S_{Λ,t} defined in §8.4, and X^{λ,τ} for X^{λ+η,τ}. This was checked on the page image of PDF173.
+**A new finding, E41 (misprint, unreviewed; E39 before the merge).** Lemma 8.4.9 writes S_{Λ,τ} three times for the system S_{Λ,t} defined in §8.4, and X^{λ,τ} for X^{λ+η,τ}. This was checked on the page image of PDF173.
 
-**Census.** It now stands at **73 of 152**; **79 remain**.
+**Census.** Before the merge it stood at **73 of 152**, with **79 remaining**.
 
 ## Second pass (same session): §6 and §9 definitions
 
@@ -45,7 +75,7 @@ A second pass read published PDF125–131 (§6) and PDF180–186 (§9) afresh (s
 - The dual of Sym^r⊗det^a.
 - P_m = (−1)^m m! for n = 1.
 
-**Census.** It now stands at **56 of 152**; **96 remain**.
+**Census.** Before the merge it stood at **56 of 152**, with **96 remaining**.
 
 ## What this continuation does
 
@@ -54,7 +84,7 @@ It closes the §2 part of the definition-API gap. The thirty §2 definitions and
 - an `api` outline in the protocol's roles;
 - at least three typed unit tests.
 
-The thirty entries are N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66. The literal census now counts **40 of 152** definitions and constructions with itemwise uses, API and three typed tests; **112 remain**. The `definition-api` gap lists them.
+The thirty entries are N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66; N57's interface later gave way to #2317's. Before the merge the literal census counted **40 of 152** definitions and constructions with itemwise uses, API and three typed tests.
 
 ## How the interfaces were derived
 
@@ -95,12 +125,159 @@ These are hand computations recorded as planning contracts, not machine certific
 
 ## Validation and resume point
 
-- **Checks.** `check_paper.py` and the three-file intake pass. A structural comparison with `origin/main` confirms that exactly the thirty items changed, and only in `uses`, `api` and `tests`. The top-level `source.continuationReadings`, `summary`, `gaps` (the `definition-api` entry) and `validation` (the new `claudeCc442dc5Continuation` entry) were extended. Findings, routes and Appendix B data are byte-for-byte unchanged.
+- **Checks.** `check_paper.py` and the three-file intake pass after each pass. After each pass, a structural comparison with the previous commit confirmed two things. The only items that changed were the ones listed for that pass. They changed only in `uses`, `api` and `tests`.
+- **Other changes.** Only these top-level parts were extended:
+  - `source.continuationReadings`;
+  - `summary`;
+  - `gaps` (the `definition-api` entry);
+  - `validation` (the `claudeCc442dc5Continuation` entry, with a subkey for each later pass);
+  - `sourceIssues`, where E41 and E42 were appended.
+
+  Inherited findings, routes and Appendix B data are unchanged.
+- **Merge check.** Against merged main, the only changes are the 75 items listed in the passes (in `uses`, `api` and `tests` only), the added A06 test, the two appended findings and the extended top-level entries.
 - **Vocabulary.** Every API role and test kind is in the protocol vocabulary, and every `uses` reference to an item resolves.
 
-Resume with the handoff's list, with item 4 narrowed to the 112 remaining entries. The largest families are §3 (U), §4 (M), §5 (K), §6 (P), §7 (G), §8 (B), §9 (V), Appendix A (A) and Appendix B (Q). The §6 patching-functor definitions P04–P08 are a natural next batch, because their consumers (Propositions 6.2.3–6.2.9 and §8.3) are compact.
+Resume with the handoff's list, with item 4 narrowed to the 65 remaining entries listed above. The §7 entries (G) are a natural next batch, because G04 and G09 already have itemwise interfaces to follow.
 
-## Earlier checkpoint report (historical, preserved)
+## Earlier checkpoint reports (historical, preserved)
+
+The concurrent codex-7e92bd report from #2317 and the older reports follow unchanged.
+
+# LLHLM23 global-descent continuation — Codex, codex-7e92bd
+
+This partial checkpoint continues PR #2301 with **506 items (61 library, 14 planned, 431 missing), 18 routes and 40 unreviewed source findings**. All 480 inherited item statements, all 38 inherited findings and the Appendix B data are preserved. No Lean file was required or compiled; none of the mathematics is claimed formalized.
+
+A34–A58/L61 separate the integral and local compatibility suppliers of Appendix A. The primary references are [CHT §2.1 and Proposition 3.4.4](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf), the published [Bellaïche–Chenevier sign theorem](https://doi.org/10.1112/S0010437X11005264), and [BLGGT's coefficient-prime comparison](https://virtualmath1.stanford.edu/~rltaylor/lg2.pdf). The exact hypotheses, locators, reading boundaries and hashes are in the JSON.
+
+## Integral descent and the sign
+
+The descent construction keeps three distinct steps. A37–A38 put each polarized constituent over an integral coefficient ring after a permitted finite extension. A39–A45 descend its matrices from a larger complete local ring using absolute residual irreducibility and traces. A46–A49 assemble the constituents over a common-residue ring and descend to the reduced finite flat local Hecke algebra. The fixed multiplier is explicitly valued in the smaller ring. No theorem asserting multiplier descent from traces alone is used.
+
+A46 is not the unrestricted product of the coefficient rings: their residues must come from one specified element of the Hecke residue field. This also means that a coordinate projection need not be surjective when that coefficient ring has a larger residue field. Its itemwise tests check that boundary. The Hecke trace argument uses closedness and density of the conjugacy saturation of split Frobenius classes; it does not assume a chosen set of Frobenius representatives is itself dense.
+
+A34–A36 keep the pairing and its sign in the actual representation carrier. Conjugate self-duality supplies an extension to G_n but does not choose an arbitrary value for the multiplier on complex conjugation. A51 imports the positive automorphic pairing sign; A52 then computes ν(c)=−1 and ξ=ε^(1−n)δ^n. The published sign theorem is used: the old arXiv v1 still described the automorphic construction as expected. Its eigenvariety proof is not claimed fully read or decomposed in this continuation.
+
+The small-extension descent adapter A42 retains absolute irreducibility. Its matrix-algebra derivation formula A41 divides by neither n nor n!, including when the residue characteristic divides n. The complete-local recursion and the self-dual-lattice argument still have leaf-level proof obligations listed in `global-descent-supplier-atoms`.
+
+## At-p comparison and the remaining automorphic interface
+
+EGH7.2.1(iv) forgets monodromy. A53 instead imports BLGGT's bound without Shin regularity, and A54 spells out the passage from Weil-block partitions to inertia-isotypic nilpotent partitions. With type occurrence N58, transitivity gives A55. No equality of monodromy is inferred from equality of semisimplifications. The existing stronger Caraiani coefficient-prime supplier was inspected, but this checkpoint uses only the bound needed here.
+
+A50 proves that an integral representation with absolutely irreducible reduction is absolutely irreducible in characteristic zero. This does **not** by itself identify an arbitrary compact-unitary constituent with a RACSDC cuspidal GL_n system or prove local genericity. The White/Labesse strong base-change decomposition, its twists, and that cuspidality/genericity passage remain required inputs to A30/A55. Likewise the dual coefficient/type-occurrence dictionary and integral local-deformation point criterion remain explicit. The corrected projector restriction from A30–A33/E38 is preserved.
+
+## Shared ownership and APIs
+
+The actual polarized group A06 and polarized adequacy A26 now use **ArithmeticGaloisRepresentations G7**, which GlobalGaloisDeformations G7 already imports. IntegralHeckeAndGaloisDeterminants IHG.1/IHG.2 owns trace reconstruction and the finite Hecke image; AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5/AG2.6 owns automorphic sign and local compatibility. Three source routes to those existing owners are added; every previous route identity remains. No new roadmap is proposed. The existing AG2.6 coefficient-prime node is reused at its recorded scope, while the finer comparison adapter is an additional source obligation.
+
+A06, A34, A35, A46 and N57 have consumer-derived APIs and three or more typed tests. The literal itemwise census is now **15 of 155** definitions/constructions; the other **140** still require refinement. The earlier grouped plans are retained but do not count as complete individual APIs.
+
+A57 and A58 promote the transitivity and power-rank API facts used by A55 and A54. L61 imports the existing Tau Ceti partition dominance order at its full pin; the inertia and nilpotent-operator adapters remain separate.
+
+## Two adjacent-source corrections
+
+E39 records the scalar conjugation in CHT2.1.12. If A=αB and α=β², conjugation by β⁻¹I removes α; the printed βI instead multiplies by another β². The example over F5[ε]/(ε²) in the JSON checks the direction and repairs the proof without changing the theorem. The author version has the same display. This finding awaits independent review.
+
+E40 records the passage to a Galois closure in the sign paper's Lemma3.5 proof. Linear disjointness need not survive that passage: K=Q(i), K′=K(cuberoot(2)), M=K(ζ3) gives a cubic/quadratic example. A56 gives the repaired proof directly from the restriction surjection G_K′→Gal(M/K). The theorem needs no Galois hypothesis on K′. This too awaits independent review.
+
+## Validation and reading limits
+
+The structural check verifies unique IDs, one route per missing item and an acyclic **282-edge** internal graph. It preserves the original statements and Appendix B data. Paper and three-file intake validators and whitespace checks are run. No repository implementation changed; this checkpoint's mathematical diagnostics do not replace source proofs.
+
+The finite diagnostics pass: 3,141 matrix-derivation identities on basis elements (including characteristics dividing n), 26 scalar inverse calculations, 596 principal-unit roots in finite p-adic approximations, 3,582 partition/rank comparisons, 6,876 direct-sum dominance comparisons, 495 common-residue tuples and two sign examples. The characteristic-two square-root obstruction is a separate negative control. General analytic, Galois and complete-ring statements are not certified by these tests.
+
+Fresh readings: LLHLM23 PDF189–190,196–198; CHT published PDF7–16,104–108; EGH PDF51–56; BLGGT l=p II PDF1–12, including the two main proof arguments; Bellaïche–Chenevier published PDF2–9,15–17; Caraiani PDF1–5 only. The original 212-page full reading and all earlier diagnostics retain their original attribution. No full reading of CHT, EGH, the sign paper or Caraiani is claimed here. The relevant published pages for both new corrections were also checked visually.
+
+The following diagnostic code is reproducible with Python and SymPy; it is kept here because scratch files are not deliverables.
+
+```python
+from itertools import product
+import json
+from pathlib import Path
+checks={}
+def mat(n,fn):return tuple(tuple(fn(i,j) for j in range(n)) for i in range(n))
+def add(A,B,p):return mat(len(A),lambda i,j:(A[i][j]+B[i][j])%p)
+def sub(A,B,p):return mat(len(A),lambda i,j:(A[i][j]-B[i][j])%p)
+def mul(A,B,p):return mat(len(A),lambda i,j:sum(A[i][k]*B[k][j] for k in range(len(A)))%p)
+def tr(A,p):return sum(A[i][i] for i in range(len(A)))%p
+c=0
+for p in [2,3,5]:
+ for n in [1,2,3]:
+  E=[[mat(n,lambda a,b:int((a,b)==(i,j))) for j in range(n)] for i in range(n)]
+  Z=mat(n,lambda i,j:0)
+  # Exhaustive small matrices, plus spanning matrix units for rank 3.
+  mats=[mat(n,lambda i,j:a[i*n+j]) for a in product(range(p),repeat=n*n)] if n<3 else [E[i][j] for i in range(n) for j in range(n)]
+  for C in mats:
+   d=lambda X:sub(mul(C,X,p),mul(X,C,p),p)
+   A=Z
+   for j in range(n):A=add(A,mul(d(E[j][0]),E[0][j],p),p)
+   for row in E:
+    for X in row:assert d(X)==sub(mul(A,X,p),mul(X,A,p),p);c+=1
+   for row in E:
+    for X in row:assert tr(d(X),p)==0
+checks['matrix_derivation_basis_identities']=c
+# Dual number scalar correction, including a control at characteristic 2.
+c=0
+for p in [3,5,7,11]:
+ for a in range(p):
+  b=a*pow(2,-1,p)%p
+  assert (2*b)%p==a
+  # beta^-2 * alpha has epsilon coefficient 0; beta^2 * alpha has 2a.
+  assert (-2*b+a)%p==0
+  if a:assert (2*b+a)%p!=0
+  c+=1
+checks['scalar_inverse_corrections']=c
+assert all((2*b)%2!=1 for b in range(2));checks['dyadic_square_root_obstruction']=1
+# Principal roots in finite p-adic approximations: uniqueness among 1 mod p.
+c=0
+for p in [3,5,7]:
+ for e in [1,2,3,4]:
+  q=p**e;roots={}
+  for b in range(1,q,p):roots.setdefault(b*b%q,[]).append(b)
+  for a in range(1,q,p):assert len(roots.get(a,[]))==1;c+=1
+checks['principal_unit_roots']=c
+# Rank characterization of nilpotent dominance and direct-sum stability.
+def parts(n,hi=None):
+ if n==0:yield ();return
+ for k in range(min(n,n if hi is None else hi),1-1,-1):
+  for tail in parts(n-k,k):yield (k,)+tail
+def rank(a,k):return sum(max(x-k,0) for x in a)
+def dom(a,b):return all(sum(a[:i])<=sum(b[:i]) for i in range(1,max(len(a),len(b))+1))
+c=s=0
+for n in range(1,11):
+ for a in parts(n):
+  for b in parts(n):
+   assert dom(a,b)==all(rank(a,k)<=rank(b,k) for k in range(1,n+1));c+=1
+   if dom(a,b):
+    for extra in [(),(1,),(2,1),(3,2,1)]:
+     assert dom(tuple(sorted(a+extra,reverse=True)),tuple(sorted(b+extra,reverse=True)));s+=1
+assert not dom((4,1,1),(3,3)) and not dom((3,3),(4,1,1))
+checks['partition_rank_comparisons']=c;checks['direct_sum_dominance']=s
+# Common-residue products at finite level: exclude arbitrary product idempotents.
+c=0
+for p in [3,5,7]:
+ q=p*p
+ A=[(x,y) for x in range(q) for y in range(q) if (x-y)%p==0]
+ assert (1,0) not in A
+ for x,y in A:
+  if x%p:
+   assert (pow(x,-1,q)-pow(y,-1,q))%p==0
+  assert bool(x%p)==bool(y%p);c+=1
+checks['common_residue_tuples']=c
+# Exact SL2/normalizer polarization-sign examples over Q via SymPy.
+import sympy as sp
+J=sp.Matrix([[0,-1],[1,0]]);X=sp.Matrix([[0,1],[1,0]])
+for g in [sp.diag(2,3),sp.Matrix([[0,2],[3,0]])]:
+ gc=g/g.det();perp=gc.inv().T
+ assert perp==J*g*J.inv()
+ chi=1 if g[0,1]==0 else -1
+ assert perp==chi*X*g*X.inv()
+checks['normalizer_two_signs']=2
+print(json.dumps(checks,indent=2));Path(__file__).with_suffix('.json').write_text(json.dumps(checks,indent=2)+'\n')
+```
+
+---
+
+The previous report follows as historical evidence. Its counts and remaining-work list are superseded by this continuation and the current handoff.
 
 # LLHLM23 continuation — Codex, codex-c83e7a, 23 September 2026
 

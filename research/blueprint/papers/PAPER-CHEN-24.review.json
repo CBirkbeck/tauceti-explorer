@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-CHEN-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ClassicalArithmeticCompletion CA.4 is already the owner of the Markoff carrier through the accepted extractions of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22; the three items (the trace-coordinate surface and its twist, Markoff's theorem) belong there."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The Markoff-modulo-p endpoints are exactly what the pending Part II of Arithmetic dynamics (proposed by PAPER-MARTIN-25) was created for, and its title and parent are consistent with that route. The review restricted the connectedness endpoint to p ≥ 5 in the brief and corrected items 94 (the Meiri–Puder constant is 32√(p+1)) and 95 (the hypothesis is ord_ℓ(q(q²−1)) = r+s)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Nielsen equivalence, T_r-systems and the Wiegold–Garion and McCullough–Wanderley conjectures are statements about Out(F_r)-orbits on generating tuples, in the direction of IG.3/IG.5. The review corrected item 7, which reproduced the paper's misstatement of [MW13] (weak trace invariant, non-exceptional q, verified for q ≤ 101)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The general stack technology (coarse schemes, ACV rigidification, dualizing sheaves, degrees on 1-dimensional stacks, the local tools of the appendix) is the subject of R09.4–R09.6 and not specific to this paper. The review added one item (rigidity and representability of M_{g,n} for many markings) and corrected the hypotheses of Lemma 6.1.3 and Proposition 6.1.4 (items 101, 102)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "NC.0 plans tangential base points and fundamental groupoids with the P¹ − {0,1,∞} acceptance case; the specialization bijection and the good symmetric paths are that layer's subject. Item 57 was corrected (the garbled clause of Proposition 4.2.3) and item 58 now states the existence of symmetric good paths."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans moduli of elliptic curves with nonabelian G-structures, the stacks Adm(G)‾, their cusps or the degree congruence; a Part II of Modular curves or of Inverse Galois theory was rightly rejected. The brief states the final theorems and names its imports. The review added five items to it, including Nielsen's theorem Out(F₂) ≅ GL₂(ℤ), which no stage plans, and appended the corrections its layers must respect: the reversed condition in Theorem 1.1.2, the j ≥ 1 gap in Lemma 4.12.2, p ≥ 5, and the non-injectivity of Tr_*. The two routes 2 and 6 import from each other at different layers (congruence → finiteness of E_bgs → connectedness and genus), which the design jobs must order."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-7b31c4. The published version (Ann. of Math. 199 (2024), 301–443) is paywalled, so the review read arXiv v2 (the version the extraction read) and its TeX source in full again, with two checkers splitting the paper and the coordinator verifying every substantive finding. Statements: 51 corrected, among them items 4 and 7 (which copied the paper's reversed Theorem 1.1.2 and misquoted conjecture), 71 (φ(k)/2 copies, not φ(k)²), 94, 95, 96 (the E1 count) and 65 (I(G) is over generating pairs). Locators: 40 corrected (E1 and E2 are on p. 83, not p. 85). Statuses: item 108 cited a nonexistent mathlib:EllipticCurve (now WeierstrassCurve.IsElliptic); item 110 changed from library to planned (IG.3), since the paper uses the algebraic three-point Galois correspondence, not permutation triples; item 107 was restricted to what Mathlib provides and Nielsen's theorem split off as a new missing item. Eight new items (2 planned, 6 missing). E1 and E2 confirmed (E1 recomputed independently). 36 new source issues: a reversed condition in Theorem 1.1.2, a misstatement of [MW13], gaps in Lemmas 2.4.1(a), 4.12.2 (j ≥ 1) and Proposition 3.4.3(a), false-as-stated Proposition 5.2.5, Theorem 5.5.7(b), Lemma 6.1.3(c),(d) and Proposition 6.1.4, and misprints; none affects the Markoff results, which use j = 0 and p ≥ 5."
+}
