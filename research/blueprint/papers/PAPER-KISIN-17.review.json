@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-KISIN-17",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations SF.1 plans gerbs, descent and the torsor interfaces; §3.1–3.2's strictly monoidal crossed-module adapters and §4.1's torsor twists are instances of that foundation, not a new theory."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "EndoscopicTransferAndUnitaryTraceComparison ET.0 owns abelianized reductive Galois cohomology, localization and torus complexes; Borovoi's obstruction kernels, Kneser, Steinberg, Lang and the Hasse principle for adjoint groups (added by this review) belong with it."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ReductiveGroupsPartII RG2.3–RG2.4 plan the integral reductive groups, Cartan decompositions and κ-lifting the paper uses. (Its item P02, Bruhat–Tits parahorics, is removed: the paper never uses them.)"
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "BunGAndNewtonStrata BG0–BG1 plan B(G), J_b and the Kottwitz/Newton invariants; the added Kottwitz and Rapoport–Richartz inputs are sources of BG1."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AbelianSchemesAndArithmeticModuli A2/A3/A6 plan abelian schemes up to isogeny, twisting and Hom groups; Faltings–Chai extension of homomorphisms (added) belongs there."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans p-divisible groups with crystalline tensors, adapted deformations or the corrected [Ki 2] §1.5; the id is shared with five other extractions. Title corrected to the parent's exact atlas title."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "No atlas layer plans affine Deligne–Lusztig varieties or their connected components (searched: no stage mentions them); the id is shared with four other extractions. Title corrected to the parent's exact atlas title; the brief no longer lists the CKV corrigendum lemmas as the paper's own imports."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "No layer plans the quasi-motivic and Weil-torus gerbs, the Langlands–Rapoport ψ_μ or the global torus arithmetic of §§3.1, 3.5; the existing ReductiveGroupsPartII is local structure and integral models, a different direction. Title corrected to 'Reductive algebraic groups, Part II: …'."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "No layer plans integral canonical models' isogeny classes, special lifts, the Langlands–Rapoport conjecture or Kottwitz triples (searched: no stage mentions Langlands–Rapoport or Honda–Tate); the id is shared with eight other extractions. Title corrected to 'Complex Shimura varieties and canonical models, Part II: …', the parent's atlas title; the brief now names the confirmed corrections (E53, E34, E70, E104, E98)."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-KISIN-17 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a) and completed by Claude Code (cc-442dc5). The author's version read by the extraction (99 pages, SHA-256 d3c19cdd…, re-fetched and matching) was read again in full on page images, in six ranges, against every item. Corrected in place: 97 item fields (75 statements, 19 locators, 2 names, 1 kind); 4 items removed as not in the paper (P02, P04, X07, X08); 96 items added for definitions, constructions and cited inputs the proofs use (6 planned, 90 routed by section); 4 Part II titles set to their parents' exact atlas titles; the prerequisites rebuilt as 18 cited papers with DOIs. Statuses: all 17 library declarations opened at the pinned commits (Mathlib 082e2d3, Tau Ceti f790474) and all planned stages read. Mistakes: E1–E5 confirmed (E2's reason and E4's 'known' corrected); 104 further claims were checked a second time, independently, on the page image: 102 confirmed (7 of them reclassified), 2 rejected; the 102 are added as E6–E107 with review verdicts. The most serious: the definition in (3.6.1) admits ramified twists, so Lemma 3.6.2(2),(3), Corollary 3.6.4 and Proposition 3.6.10 fail as printed when G^der is not simply connected (E53); Corollary (2.3.5) fails at a non-neat level over a small field (E34); Corollary 3.8.6 omits the reflex degree (E70); (1.1.14) needs G_Z_p connected (E8); Theorem 4.6.7 as printed omits p > 2 (E104). None of them is shown to make the main theorem false. Checks: scripts/check_paper.py ok; intake check-files ok."
+}
