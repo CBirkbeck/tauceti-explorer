@@ -6776,7 +6776,8 @@
    ],
    "avoidAccountOf": "PAPER-ATOBE-KONDO-YASUDA-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1396"
   },
   {
    "id": "PAPER-HE-21",
@@ -7893,8 +7894,9 @@
    ],
    "avoidAccountOf": "PAPER-BENOIST-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BENOIST-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1455"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1455",
+   "finishedAt": "2026-09-23T19:07:37Z"
   },
   {
    "id": "PAPER-BREUIL-HELLMANN-SCHRAEN-19",
