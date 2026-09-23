@@ -146,3 +146,15 @@ The paper itself notes a typo in its earlier [JZ14, (3.36)] and a gap in Ginzbur
 - `python3 research/blueprint/intake.py check-files` on the three files: 3 files, 0 problems.
 - Every prerequisite link was checked against Crossref, arXiv or the publisher. Several recalled DOIs turned out to be wrong and were corrected.
 - The misprints were confirmed on page images of v4 and in the text of v1 and v3.
+
+## Review (REV-PAPER-JIANG-ZHANG-20, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its seven routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-JIANG-ZHANG-20.md`.
+
+- **Source read:** the published version, now free on the Annals site, in full. Every item now gives its published locator with the arXiv v4 page.
+- **Statements:** 25 corrected.
+- **New items:** 10 (1 planned, 9 missing).
+- **Source issues:** E1–E5 are confirmed and still in print. E6–E26 are new, including:
+  - Theorem 5.7's conclusion for unitary groups: the argument gives L(1/2, τ × σ^∨) ≠ 0, not L(1/2, τ × σ) ≠ 0;
+  - y_κ in Proposition 2.5;
+  - the ℓ = 0 Bessel module.
