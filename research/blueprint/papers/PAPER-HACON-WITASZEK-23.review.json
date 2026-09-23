@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-HACON-WITASZEK-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source of SchemeAndStackFoundations SF.0, 4 items: divisorial and reflexive extension and the absolute-integral-closure indexing. SF.0 owns the foundational scheme layer and the stage id exists."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of SF.4, 16 items — the largest source route — for formal lifting, coherent algebraization adapters, obstruction theory and local Q-Cartier deformation. That is where §6 of the paper lives, and it is the right owner: E6's counterexample is about exactly the hypotheses of the local deformation lemma, which belongs at a general formal-lifting stage rather than in a fourfold-specific layer."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of SF.5 for one item, constancy of fibre intersection numbers. Keeping it at the general intersection-theory supplier rather than inside the fourfold argument is right."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of DeformationAndDerivedPatchingAlgebra R03.3 for Matlis duality, one item, as a refinement of the depth and Serre-condition material that stage already plans."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of AnalyticStacks AS.1, 2 items, for the Noetherian singular dualizing complex and finiteness. AS.1 is a designed roadmap stage — it lives in research/blueprint/roadmaps/AnalyticStacks.json, whose stages are keyed by `key` rather than `id`, so a checker that looks only for `id` will report it missing; it resolves."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of SchemeAndStackFoundations, the main route at 103 items, area algebraicgeometry (a galaxy id), brief 267 words. The title reproduces the parent's atlas title exactly. This is the relative MMP itself — flips, flops, dlt modifications, the difficulty function and special termination in positive and mixed characteristic — and none of it is in the parent, which stops at the foundations."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Part II of CrystallineCohomology for rational Witt cohomology on singular schemes, 5 items, brief 142 words. Corrected: the title was `Crystalline cohomology, Part II: …', which truncates the parent's atlas title, and the area was `cohomology', which is an atlas group and not a galaxy id. The title now reproduces the parent exactly and the area is `padic', which is what PAPER-ESNAULT-GROECHENIG-20 uses for its Part II of the same parent and what the content — Witt and rigid cohomology, slopes of Frobenius — calls for."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Part II of SchemeAndStackFoundations for mixed-characteristic positivity and contractions, 6 items, area arithmeticgeometry (a galaxy id), brief 417 words. The title reproduces the parent exactly. Separating positivity and contraction existence from route 6's birational machinery is a real division of labour, not a split of one subject."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Part II of AlgebraicModuliForArithmeticGeometry for numerical Picard groups and contraction descent, 10 items, area algebraicgeometry, brief 253 words, title exact. This is where E7 belongs: the surjectivity of N¹(X/S) → N¹(X) and what it does and does not supply is a statement about numerical Picard groups, and the design job will have to state it in the form the proof needs."
+    }
+  ],
+  "notes": "Accept, with two corrections made in place on route 7 and a source note added. Source: the published Cambridge hash does not reproduce and cannot — a fresh download today gave 32da0efb… against the recorded d7ba34ec…, and every page of my copy carries the stamp 'Downloaded from https://www.cambridge.org/core. IP address: 178.33.239.142, on 23 Sep 2026 at 20:39:46'. I added a `sha256Note` recording that and naming the arXiv v2 e-print as the reproducible pin; this is the fifth instance in the corpus, after PAPER-HE-18, PAPER-HE-21, PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 and PAPER-BHATT-MATHEW-23. I read the published PDF in full (35 pages, printed page = PDF page) and the arXiv v2 LaTeX source (extending-sections-char-p-1-16-2020.tex, 2145 lines), which carries every passage the findings quote outside §§4 and 6 — the 2021 preprint and the 2023 article differ substantially in those two sections, which is why the extraction collated only the difficulty and Lemma 2.16 passages against it. Structure: 163 items (148 missing, 5 planned, 10 library), 9 routes (5 source, 4 Part II). Every missing item is routed exactly once, all five source stage ids resolve, all 5 planned ids resolve, all four Part II parents exist, and check_paper.py passes. All 18 declarations behind the 10 library items resolve — Tau Ceti's InvertibleSheaf with its trivial and SheafOfModules.IsInvertible, and Mathlib's IsIntegralHom, IsProper, Scheme.Hom.isClosedMap, IsFinite, DerivedCategory with Q, localCohomology, the four WittVector declarations, frobenius and iterateFrobenius, ModuleCat.exists_isRegular_tfae and Submodule.eq_bot_of_le_smul_of_le_jacobson_bot. The two corrections, both on route 7. Its title was `Crystalline cohomology, Part II: rational Witt cohomology on singular schemes', which truncates the parent's atlas title; PROTOCOL §16 asks for the parent's title verbatim, and the three sibling Part IIs of the same parent in this corpus — PAPER-ESNAULT-GROECHENIG-20, PAPER-BHATT-SCHOLZE-17 and PAPER-KISIN-MADAPUSIPERA-SHIN-22 — all write `Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: …'. It now does too. And its area was `cohomology', which is an atlas group and not a galaxy id of data/galaxies.json; it is now `padic`, matching PAPER-ESNAULT-GROECHENIG-20's Part II of the same parent and the content, which is Witt and rigid cohomology and slopes of Frobenius. This is the same defect class I reported corpus-wide when reviewing PAPER-CLAUSEN-MATHEW-MORROW-21, where 33 of 502 route areas were group names; PAPER-KISIN-MADAPUSIPERA-SHIN-22 still carries `cohomology` on its Part II of this same parent and should be fixed the same way. One provenance gap I did not fill: no `libraryPins` are recorded, so there is no commit against which the 18 declarations were checked. I verified them against the index this lane uses and they are all there, but have not invented a pin the extraction did not use. PAPER-BHATT-MATHEW-23 and PAPER-WOOD-19, reviewed today, have the same gap. Locators: 11 of 15 name-and-page checks on the findings land exactly, and the four others are right — Proposition 2.15 is stated on p. 11 with its proof, and the difficulty definition, on p. 12, and Corollary 1.3 is stated on pp. 2–3 with its proof on pp. 19–20. The item locators are terse statement references without pages ('Proof2.11', 'Lem3.2 mixed case'); 115 of the 139 internal statement references resolve in the text, and every one of the 24 that do not carries an explicit external key (BMP, AHK, Wit21b) and belongs to another paper's numbering. No locator error. Findings: all eleven confirmed, none downgraded. The two errors in stated results are the substantial ones and both counterexamples check out. E1's Lemma 2.2 uses the Cartier index of K_X where plt adjunction needs the index of K_X + S: on the A_1 cone with its ruling, K_X is Cartier so the printed m is 1, yet the ruling is not Cartier at the vertex, and with the log index m = 2 one gets the classical (K_X+S)|_S = K_S + ½ P, which the minimal resolution confirms. E6's Lemma 6.6 is false as stated: Spec Z_p[x,y,z,w]/(xy−zw) with the special vertex removed satisfies every hypothesis — normal, flat, excellent, smooth special fibre, the only singular point a closed point of X disjoint from X — and its ruling restricts to a Cartier divisor on the special fibre while failing to be Q-Cartier at the generic node. E2's Lemma 2.16 is false for the same A_1 surface with boundary bC, 0 < b < ½, where the single exceptional discrepancy −b/2 varies continuously while m = 1 and the pair stays ½-lc. E3 and E8 are two distinct sign slips in one proof, both against that proof's own convention C_i² = −r_i c_i. E4 and E5 are settled by the definitions printed two lines above them. E7 is a real gap: surjectivity of N¹ gives numerical representatives, not line bundles with prescribed restrictions. E9, E10 and E11 are confirmed verbatim, and E11's point is sharp — the degree-zero slope-zero term is exactly the contribution that produces the congruence being proved. No roadmap change beyond the two route-7 fields, no library claim and no Lean work is proposed by this review."
+}

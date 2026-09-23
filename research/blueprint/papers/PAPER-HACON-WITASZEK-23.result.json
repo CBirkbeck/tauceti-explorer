@@ -17,7 +17,8 @@
       "Third checkpoint Codex codex-c83e7a: all35 published pages read, every proof and reference; pp.13,17,20,29,30,33 visually inspected. Published bytes copied from the prior public-source acquisition and hash checked; the new direct Cambridge request returned non-PDF bytes and was rejected."
     ],
     "sha256": "d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b",
-    "acquired": "2026-09-22"
+    "acquired": "2026-09-22",
+    "sha256Note": "Cambridge stamps each download of this article with a footer carrying the date and the requesting IP — the reviewer's own copy carries 'Downloaded from https://www.cambridge.org/core. IP address: 178.33.239.142, on 23 Sep 2026 at 20:39:46' on every page — so the byte stream and its hash differ between downloads and this sha256 is not reproducible: a fresh download on 2026-09-23 gave 32da0efb9d00570b929e2b5db0f9272145381cc15b84af2c4503ce7b94d06088, 35 pages, printed page = PDF page. The reproducible pin for this paper is the arXiv v2 e-print, whose LaTeX source (extending-sections-char-p-1-16-2020.tex, 2145 lines) carries every passage the findings quote outside §§4 and 6. Added by the reviewer (issue #1370)."
   },
   "summary": "Hacon–Witaszek run two special fourfold MMPs in positive and mixed characteristic p > 5 (over a Q-factorial target with exceptional locus in the boundary, Theorem 1.1, and semistable over a DVR, Theorem 1.2), via section extension and pl-flips, and derive W O-rationality and dlt modifications for fourfolds and conditional lifting of threefold minimal models to characteristic zero. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and eleven findings are recorded. Lemma 2.2's index clause (E1), the unrestricted Lemma 2.16 (E2) and the global form of Lemma 6.6 (E6) are false as printed, and the proof of Theorem 6.1(2b) has a gap (E7); the main MMP theorems are unaffected. Not formalised.",
   "baseline": {
@@ -8631,8 +8632,8 @@
       "route": "part-ii",
       "parent": "CrystallineCohomology",
       "roadmap": "CrystallineCohomologySingularWittRationality",
-      "title": "Crystalline cohomology, Part II: rational Witt cohomology on singular schemes",
-      "area": "cohomology",
+      "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: rational Witt cohomology on singular schemes",
+      "area": "padic",
       "reason": "CR.4 supplies ordinary Witt complexes, and RD.7 supplies smooth proper crystalline comparison. Neither presently exports the rational Witt ideal, singular proper low-slope or quasi-resolution independence results used here. The birational singularity predicate stays in the birational extension; its general cohomological suppliers belong here.",
       "brief": "Start from Crystalline cohomology (CrystallineCohomology), importing CR.4's degree-zero Witt sheaf and derived foundations from EnhancedDerivedSheaves. Import rigid cohomology, compact support, q-Frobenius trace and smooth proper comparison from P-adic differential equations, rigid cohomology and p-adic weights (PadicDifferentialEquationsAndRigidCohomology:RD.4,RD.6,RD.7). Read BBE07, CR12 and the exact NT20/GNH19 ideal and universal-homeomorphism lemmas to closure. Construct rational Witt ideal sheaves, their exact sequences, higher direct images, finite-UH invariance and the proper singular comparison with the slope-below-one part of rigid cohomology. Prove the one-quasi-resolution criterion in its exact source class and the positive-degree Witt vanishing for the RCC resolutions required by Cor1.3. Do not assert singular crystalline equals smooth de Rham–Witt, or exchange inverse limits and rationalization without proofs. Export these cohomological theorems to the birational extension, which owns Q-factorial klt fourfold W O-rationality and its finite-field point-count application. Keep H⁰'s slope-zero contribution distinct from the positive-degree slope≥1 conclusion.",
       "items": [
@@ -9253,7 +9254,12 @@
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an error in a stated result, in both versions. Lemma 2.2 reads `Let $P\\in S$ be any codimension 1 point on S and m the Cartier index of $K_X$ at P. Then on a neighbourhood of $P\\in X$, $mD$ is Cartier for any divisor D, and S is normal, and $(K_X+S)|_S=K_S+(1-\\frac1m)P$.' The counterexample is exactly right. Take $X=\\Spec k[x,y,z]/(xy-z^2)$, the $A_1$ cone, $S=V(x,z)$, $\\Delta=S$, $P$ the vertex. $X$ is $\\Q$-factorial (local class group $\\Z/2$) and $(X,S)$ is plt, hence dlt: the minimal resolution has one $(-2)$-curve $E$, $K_{X'}+S'+\\tfrac12E=f^*(K_X+S)$. Since $A_1$ is Gorenstein, $K_X$ is Cartier and $m=1$, so the lemma asserts that every divisor is Cartier at $P$; but $\\operatorname{div}(x)=2S$ and $(x,z)$ is not principal there, so $S$ is not. With the log index instead, $m=2$, $2D$ is Cartier and $(K_X+S)|_S=K_S+\\tfrac12P$ — which is the standard plt adjunction coefficient and matches the resolution computation. The recorded correction is therefore not just a repair but the classical statement.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E2",
@@ -9269,7 +9275,12 @@
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an error in a stated result. Lemma 2.16 reads `Fix $m\\in\\N$ and $\\epsilon>0$. Consider all $\\epsilon$-lc excellent two-dimensional pairs $(S,B)$ with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite', with nothing constraining the coefficients of $B$. The counterexample checks out: on the $A_1$ surface with $C=V(x,z)$ and $B=bC$ for $0<b<\\tfrac12$, the minimal resolution is the single $(-2)$-curve $E$ and $(K_{S'}+bC'+aE)\\cdot E=0$ gives $b-2a=0$, so $a=b/2$ and there is exactly one exceptional discrepancy, $-b/2$. The log discrepancies $1-b/2$ and $1-b$ both exceed $\\tfrac12$, so the pair is $\\tfrac12$-lc, and $m=1$ throughout; yet $-b/2$ ranges over an interval. Fixing a finite coefficient set, as the correction does, is what Proposition 2.15's use of the lemma actually has available, since the boundaries along a flip sequence all have the coefficients of $B$.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E3",
@@ -9285,7 +9296,12 @@
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim: the proof sets $C_i^2=-r_ic_i$ with $r_i>0$ and derives $a_iC_i^2=(K_{S'}+B_{S'}+a_iC_i)\\cdot C_i\\geq-2r_i$, then writes `and so $-c_i\\leq\\frac{2}{a_i}$ is bounded'. The inequality delivered is $-a_ir_ic_i\\geq-2r_i$, that is $c_i\\leq2/a_i$; and the printed form is vacuous, since $c_i>0$ makes $-c_i$ negative. The next clause, `and so $-C_i^2$ is bounded', needs the corrected form.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E4",
@@ -9302,7 +9318,12 @@
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
         "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and the surrounding definitions settle it. The difficulty is printed as $d^+_\\alpha(Y,B_Y)=\\sum_{b_i\\leq0}W^+_\\alpha(b_i)\\rho(\\tilde B_i)+\\sum_vw^+_\\alpha(a_v)-\\sum_{\\tilde C_{i,j}}W^+_\\alpha(b_i)$, and two lines above, $w^+_\\alpha(x)=1-x$ for $x<\\alpha$ and $0$ otherwise with $\\alpha\\in(0,1)$, while $W^+_\\alpha(b)=\\sum_{k\\geq1}w^+_\\alpha(k(1-b))$. For $b\\leq0$ every argument $k(1-b)\\geq1>\\alpha$, so $W^+_\\alpha(b)=0$ and the printed first sum is identically zero — the difficulty would lose its boundary term, which is exactly the term that drops when a flip changes $\\rho$. [AHK07, Definition 2.3] indexes by $a(B_j)\\leq0$ with $a=-b$, i.e. by $b_i\\geq0$.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E5",
@@ -9318,7 +9339,12 @@
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim: `Define the following functions $w^-_\\alpha,w^+_\\alpha,W^-_\\alpha,W^+_\\alpha\\colon(-\\infty,1)\\to\\R_{\\geq0}$ for $\\alpha\\in(0,1)$'. The lower-case weights are evaluated at $k(1-b)\\in(0,\\infty)$ inside $W^\\pm_\\alpha$ and at discrepancies $a_v\\in(-1,\\infty)$ in the difficulty, both of which exceed 1 routinely; only the upper-case $W^\\pm_\\alpha$ have $(-\\infty,1)$ as their natural domain, $b$ being a klt coefficient. The `otherwise' clause of each definition already assigns the value 0 above $\\alpha$, so the intended domain is clear.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E6",
@@ -9334,7 +9360,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an error in a stated result, and the counterexample satisfies every printed hypothesis. Lemma 6.6 assumes only that $\\XX$ is a normal scheme over a DVR of characteristic $(0,p)$ with normal $S_3$ central fibre $X$, a Weil divisor $\\mathcal D$ whose support does not contain $X$ with $D=\\mathcal D|_X$ $\\Q$-Cartier, and a closed $Z\\subset\\XX$ with $\\codim(Z\\cap X,X)\\geq3$ off which $D$ is $\\Q$-Cartier; it concludes that $\\mathcal D$ is $\\Q$-Cartier. Take $R=\\Z_p$, $p>5$, and $\\XX=\\Spec R[x,y,z,w]/(xy-zw)$ with the closed point of the special fibre removed. Then $\\XX$ is integral, flat, normal and excellent; its special fibre is the cone minus its vertex, hence smooth and so $S_3$; its only singular point is the vertex of the generic fibre, which is a closed point $Z$ of $\\XX$ disjoint from $X$, so $\\codim(Z\\cap X,X)\\geq3$ holds vacuously and $\\XX\\setminus Z$ is regular. The ruling $\\mathcal D=V(x,z)$ restricts to a Cartier divisor on the smooth $X$, but is not $\\Q$-Cartier at the generic node. So the conclusion fails. The same unrestricted form is what Corollary 6.7(1)'s global $\\Q$-factoriality clause inherits, which is why the recorded correction asks for a neighbourhood of the special fibre locally and properness globally.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E7",
@@ -9350,7 +9381,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. The step reads `Since $N^1(\\XX/S)\\to N^1(X)$ is surjective, there exist Cartier divisors $\\mathcal A$ and $\\mathcal H$ on $\\XX$ such that $\\mathcal A|_X=A$ and $\\mathcal H|_X=H$.' Surjectivity is a statement about numerical classes: it produces divisors whose restrictions are numerically equivalent to $A$ and $H$, and only after rational scaling, not line bundles with the prescribed restrictions. The recorded correction is the right shape — work with $\\Q$-Cartier numerical representatives and build the effective boundary separately — and the item is right to grade the reach as the proof rather than the theorem.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E8",
@@ -9366,7 +9402,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and it is a second, independent sign slip: `it follows easily from the same proof that if $2a_2=a_1+a_3$, then $c_2=-2$, $f^{-1}_*B\\cdot C_2=0$ and $C_2\\cdot C_1=C_2\\cdot C_3=r_2$.' With the same proof's convention $C_i^2=-r_ic_i$ and $r_i>0$, an exceptional curve on the minimal resolution has $C_2^2<0$, so $c_2>0$; the printed $c_2=-2$ would make $C_2^2=2r_2>0$. The intended value is $c_2=2$, that is $C_2^2=-2r_2$, the $(-2)$-curve that the equality case of convexity produces.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E9",
@@ -9382,7 +9423,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim: `since the flipping contraction $f\\colon X\\to Z$ is relatively F-regular (resp. completely relatively $+$-regular) over a neighbourhood of the image of the flipping locus and $\\phi$ is an isomorphism in codimension two, the flipped contraction $f^+\\colon X^+\\to Z$ is also relatively F-regular'. A flip is an isomorphism in codimension one; a small fourfold flip can and does change a codimension-two surface, so the printed property is false of the map at hand. Lemma 2.7, which is what is being applied, asks for agreement on opens containing all codimension-one points, so the weaker and correct property is exactly what is needed.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E10",
@@ -9398,7 +9444,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim: `trace formula for crystalline cohomology $|Y(\\F_q)|=\\sum_i(-1)^i\\mathrm{Trace}(F\\mid H^i_{\\mathrm{crys}}(X/K))$'. The left-hand side counts points of the resolution $Y$ and the right-hand side is written for $X$; the preceding sentences have already reduced $|X(\\F_q)|$ to $|Y(\\F_q)|$ modulo $q$, and it is $Y$ that is smooth and proper, which is what the trace formula and Esnault's theorem require.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/E11",
@@ -9414,7 +9465,12 @@
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
         "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
         "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim: `given that Y is rationally chain connected, and so all the slopes of Frobenius are $\\geq1$ by [Esn03, Theorem 1.1]'. For a geometrically connected smooth proper $Y$, $H^0_{\\mathrm{crys}}$ has Frobenius eigenvalue 1 and slope 0, so the assertion cannot be for all degrees — and that degree-zero term is precisely the contribution that makes $|Y(\\F_q)|\\equiv1\\pmod q$, which is the conclusion being drawn. The claim is the positive-degree one, as the recorded correction says.",
+        "by": "Claude Code, session cc-7b31c4, issue #1370"
+      }
     }
   ],
   "continuationChecks": {

@@ -332,3 +332,43 @@ with 138 mathematical test contracts. An exact 2061-case diagnostic checked the
 node charts and transition, the proper closed-image possibilities and the
 rational Cartier-index inequality. Those diagnostics are not a proof of
 geometric existence or a Lean test. No Lean file was written or compiled.
+
+## Review (REV-PAPER-HACON-WITASZEK-23, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1370), **accepted** this
+extraction and all nine routes, and made two corrections. The full record is
+[REV-PAPER-HACON-WITASZEK-23.md](../reviews/REV-PAPER-HACON-WITASZEK-23.md).
+
+**Source.** The published Cambridge hash does not reproduce and cannot: a fresh download gave
+`32da0efb…` against the recorded `d7ba34ec…`, and every page of the new copy carries a footer with
+the date and the requesting IP. A `sha256Note` now records that and names the arXiv v2 e-print as the
+reproducible pin — the fifth instance of this in the corpus. The review read the published PDF in
+full (35 pages, printed page = PDF page) and the arXiv v2 LaTeX source, which carries every passage
+the findings quote outside §§4 and 6.
+
+**The two corrections, both on route 7** (the Part II of `CrystallineCohomology`). Its title read
+"Crystalline cohomology, Part II: …", truncating the parent's atlas title, where PROTOCOL §16 asks
+for it verbatim and the three sibling Part IIs of the same parent all write it in full; it now does
+too. And its area was `cohomology`, which is an atlas group and not a galaxy id; it is now `padic`,
+as in `PAPER-ESNAULT-GROECHENIG-20`'s Part II of the same parent. `PAPER-KISIN-MADAPUSIPERA-SHIN-22`
+still carries `cohomology` on its Part II of this parent and should be fixed the same way.
+
+**Structure.** 163 items with all 148 missing ones routed exactly once; all five source stage ids and
+all five planned ids resolve; all 18 declarations behind the 10 library items resolve, in Mathlib and
+Tau Ceti. A note for future checkers: route 5's `AnalyticStacks:AS.1` resolves, but only in
+`research/blueprint/roadmaps/AnalyticStacks.json`, whose stages are keyed by `key` and not `id`. No
+`libraryPins` are recorded, so there is no commit against which the library claims were checked.
+
+**All eleven findings are confirmed.** The two errors in stated results are the substantial ones and
+both counterexamples check out. `E1`: Lemma 2.2 uses the Cartier index of `K_X` where plt adjunction
+needs the index of `K_X + S` — on the `A₁` cone with its ruling, `K_X` is Cartier so the printed `m`
+is 1, yet the ruling is not Cartier at the vertex, and the log index `m = 2` gives the classical
+`(K_X+S)|_S = K_S + ½P`. `E6`: Lemma 6.6 is false as stated, since
+`Spec Z_p[x,y,z,w]/(xy−zw)` with the special vertex removed meets every hypothesis while its ruling
+fails to be `Q`-Cartier at the generic node. `E2`: the same `A₁` surface with boundary `bC`,
+`0 < b < ½`, keeps `m = 1` and `½`-lc while its single exceptional discrepancy `−b/2` sweeps an
+interval. `E3` and `E8` are two distinct sign slips against the same proof's convention
+`C_i² = −r_i c_i`; `E4` and `E5` are settled by the definitions two lines above them; `E7` is a real
+gap, since surjectivity of `N¹` gives numerical representatives and not prescribed line bundles; and
+`E9`, `E10`, `E11` are confirmed verbatim, with `E11`'s degree-zero slope-zero term being exactly the
+contribution that produces the congruence being proved.
