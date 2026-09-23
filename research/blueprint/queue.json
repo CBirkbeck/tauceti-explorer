@@ -2479,8 +2479,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DOSPINESCU-LEBRAS-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1159"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1159",
+   "finishedAt": "2026-09-23T05:58:26Z"
   },
   {
    "id": "REV-PAPER-DOSPINESCU-LEBRAS-17",
