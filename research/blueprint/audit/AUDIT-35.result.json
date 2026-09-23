@@ -3801,5 +3801,21 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-35",
+  "date": "2026-09-23",
+  "checked": 212,
+  "corrections": [
+   {
+    "layer": "MotivesAndAlgebraicCycles:MC.1",
+    "target": "Universal extension of additive functors through idempotent completion",
+    "was": "note: \"karoubiUniversal : (Karoubi C => Karoubi D) = (C => Karoubi D)\", with no hypothesis on D",
+    "now": "note rewritten: karoubiUniversal₁ : (C ⥤ Karoubi D) ≌ (Karoubi C ⥤ Karoubi D) is the unconditional form, while karoubiUniversal : (C ⥤ D) ≌ (Karoubi C ⥤ D), functorExtension and karoubiUniversal₂ carry [IsIdempotentComplete D]; functorExtension₁ and karoubiUniversal₂ added as citations",
+    "why": "FunctorExtension.lean puts karoubiUniversal, karoubiUniversal₂ and functorExtension inside `section IsIdempotentComplete` (line 198). The hypothesis is what makes functors out of the idempotent completion land in D itself, which is the form a realization functor into an idempotent-complete target needs; the status (mathlib) and the layer verdict are unchanged because karoubiUniversal₁ is unconditional."
+   }
+  ],
+  "notes": "Re-checked all 224 declaration citations: every one matches declarations.tsv on name, library, file and line, and none of the 80 cited files contains a sorry. Layer coverage is exact (38 of 38, none extra) and all 136 duplicates resolve to atlas stages. All eleven targets claimed present were read in the source; ten hold as stated, including BDeRhamPlus/BDeRham as the ker-theta-adic completion of A_inf[1/p] and its localization (with the theta extension, the DVR property and principality of ker theta still Mathlib TODOs), Tau Ceti's spaAnalytic with its Tate charts for a non-Tate pair, closedPolydisc, and Wedhorn Proposition 6.18(1) in full — the Hausdorff clause in FiniteModuleTopology.lean and the other three re-exported from TauCeti.Topology.Algebra.Module.Finite, with uniqueness from IsTateRing.isModuleTopology. Independently re-searched the absent and partial claims by concept over both trees: no Chow groups, motives, Weil cohomology, numerical equivalence, crystalline or de Rham cohomology, de Rham-Witt, prismatic cohomology, A_cris/B_cris/B_st, Breuil-Kisin twists, Spf, formal schemes, analytification, dagger algebras, AdicSpace as an object, completed tensor products, Lη or Hyodo-Kato. Where something does exist the audit places it correctly: AlgebraicCycle.map with only map_id proved (the file has exactly four declarations), Scheme.EllAdicCohomology as pro-étale l-adic cohomology of schemes whose comparison with étale cohomology is the file's own future work, etaleTopology/proetaleTopology as sites on schemes rather than adic carriers, and TauCeti.kummerMap. The summary's warning that MotivesAndAlgebraicCycles must be reconciled with SchemeAndStackFoundations SF.5 and MotivicEtaleKTheory M.4/M.5a is already recorded in MC.0's duplicate list rather than left as prose."
  }
 }

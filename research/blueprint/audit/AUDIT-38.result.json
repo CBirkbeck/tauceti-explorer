@@ -4886,5 +4886,35 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-38",
+  "date": "2026-09-23",
+  "checked": 258,
+  "corrections": [
+   {
+    "layer": "PhiGammaModulesAndIwasawaCohomology:PG.3",
+    "target": "Cup products, restriction and corestriction on continuous Galois cohomology",
+    "was": "note: \"Already built for continuous cohomology of a topological group on a discrete module\"",
+    "now": "note rewritten: the coefficients are any topological abelian group with a continuous action, the cup products take any G-equivariant pairing with `Continuous fun p : M x N => mu p.1 p.2`, and only the comparison with Mathlib's continuousCohomology carries [DiscreteTopology M]",
+    "why": "Cup/Product.lean, Corestriction.lean and LowDegree.lean assume no discreteness; ContinuousCohomologyIso.lean is the only cited file that does. PG.3's coefficients are p-adic, so as written the note would have sent a planner to rebuild a calculus that is already available in the generality needed. The Tau Ceti roadmap states its Layer 8 in the discrete setting, which is presumably where the wording came from."
+   },
+   {
+    "layer": "PerfectoidSpaces:P1",
+    "target": "Perfectoid Tate ring (ECD 3.1): complete uniform Tate ring with a pseudouniformizer",
+    "was": "note said there is no uniformity predicate for a Huber ring",
+    "now": "note adds that the condition is one line from Huber.IsBounded applied to powerBoundedSubring; TauCeti.Huber.IsBounded (TauCeti/RingTheory/Huber/Bounded.lean:87) added as related",
+    "why": "True that no predicate is defined, but uniformity is not a theory to build here: IsBounded S is defined and A° is powerBoundedSubring, so `IsBounded (powerBoundedSubring A)` states it."
+   },
+   {
+    "layer": "PrismaticCohomology:PR.7",
+    "target": "(duplicates)",
+    "was": "PG.6, RT.3b and AI.7 listed",
+    "now": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4 added",
+    "why": "PR.7's last target compares evaluation on the Breuil-Kisin prism with the Kisin functor, and R07.4 is the layer that builds S = W(k)[[u]], the Frobenius modules with their Eisenstein height bound and the classification of finite flat and p-divisible groups. AI.7, already listed, owns only the cohomological descent side and says so: 'R07 owns the representation/group classification, not this cohomology functor.'"
+   }
+  ],
+  "notes": "Re-checked all 328 declaration citations (142 distinct over 116 files): every one matches declarations.tsv on name, library, file and line, and no cited file contains a sorry. Layer coverage is exact (42 of 42, none extra) and all 136 duplicates resolve to atlas stages. The three targets claimed present were read in the source and hold: SerreClassLocalization.abelian proves the localization of an abelian category at a Serre class abelian (and the 'Future work' note in SerreClass/Basic.lean really is stale), fontaineTheta with surjective_fontaineTheta and fontaineTheta_teichmuller are as described, and Tau Ceti's explicit continuous-cochain package has all six low-degree cup products, corestriction in degrees 0-2 with transversal independence and cor o res = index. Independently re-searched the absent and partial claims by concept over both trees: no perfectoid predicate, prism, delta-ring, p-derivation, Nygaard, quasisyntomic, semiperfectoid, perfectoidization, animated ring, derived completion, Lη, Robba, Herr, Wach, overconvergent, field of norms, Shimura variety, modular curve, AdicSpace object, IsSheafyPair, completed tensor product or IsStablyUniform. False friends checked in context: the diamond hits are diamond operators and typeclass diamonds, WittVector.Isocrystal is the Dieudonné notion, Algebra.Extension.cotangentComplex is the naive two-term complex, and Mathlib's pro-étale material is a topology on schemes. Sites/SheafCohomology/Cech.lean defines only the Čech complex functor, with no comparison theorem, so the P2 note is right; Mathlib's own TODO that ker theta is principal is in Perfectoid/BDeRham.lean, not FontaineTheta.lean."
  }
 }

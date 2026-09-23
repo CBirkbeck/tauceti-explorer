@@ -3220,5 +3220,21 @@
     }
    }
   }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "REV-AUDIT-37",
+  "date": "2026-09-23",
+  "checked": 160,
+  "corrections": [
+   {
+    "layer": "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+    "target": "Local toric Kummer towers with the required roots of unity, their transition maps and cofinality/local chart statements",
+    "was": "IsPrimitiveRoot cited at Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean:68",
+    "now": "line corrected to 63",
+    "why": "The structure is declared at line 63 (62 is its @[mk_iff] attribute); line 68 falls inside the docstring of the next declaration. The citation is `related` on a target that is absent for other reasons, so nothing else changes."
+   }
+  ],
+  "notes": "Re-checked all 202 declaration citations: 197 match declarations.tsv on name, library, file and line. Of the five that do not, four are the audit's and are right: TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality and cartierDualDualNatIso do carry the TauCeti prefix — CartierDuality/FiniteLocallyFree.lean opens `namespace TauCeti` at line 65 and closes it at 350, with `namespace FiniteLocallyFreeCommAffineGroupSchemeCat` at 220 inside it — and declarations.tsv drops it because index_declarations.py matches `namespace` only when the name is on the same line, while that file writes the name on the next line and closes the block with a bare `end`, popping TauCeti off the indexer's stack. The fifth was a wrong line number and is corrected. No cited file (73 of them) contains a sorry. Layer coverage is exact (39 of 39, none extra) and all 115 duplicates resolve to atlas stages. The four targets claimed present were read in the source and hold: Tau Ceti's Cartier duality is an anti-equivalence over an arbitrary CommRing with double-dual and base-change natural isomorphisms, and Mathlib's PadicComplex/Tilt, fontaineTheta with its surjectivity and Teichmüller formula, and BDeRhamPlus/BDeRham are as described — including the note's caveat that the docstring's claim of agreement with the classical de Rham period ring is not itself proved. Independently re-searched the absent and partial claims by concept over both trees: no p-divisible or Barsotti-Tate groups, no Dieudonné module or ring, no Fontaine-Laffaille or Breuil-Kisin modules, no canonical subgroups, Hasse invariants or Igusa towers, no Tate curve, no B_cris/B_st or weak admissibility, no rigid cohomology, dagger algebras, log adic spaces or Newton polygons. The audit's own false-friend checks hold: the only Dieudonné in either tree is Cartan-Dieudonné, the 130 monodromy declarations are covering-space monodromy, and the 264 slope declarations are convexity, derivatives and Dehn-surgery slopes. R07.4's duplicate list already names PrismaticCohomology:PR.7, the mirror of a duplicate added to PR.7 in REV-AUDIT-38 on the same day, so the two audits agree in both directions."
  }
 }
