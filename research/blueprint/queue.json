@@ -7131,7 +7131,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-ZHANG-22-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-ZHANG-22-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1417"
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21",
@@ -31179,8 +31180,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1798"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1798",
+   "finishedAt": "2026-09-23T18:14:32Z"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
