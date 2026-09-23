@@ -3337,7 +3337,8 @@
    ],
    "avoidAccountOf": "PAPER-MAO-WAN-ZHANG-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-MAO-WAN-ZHANG-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1202"
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
@@ -3525,8 +3526,9 @@
    ],
    "avoidAccountOf": "PAPER-BINDA-KATO-VEZZANI-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BINDA-KATO-VEZZANI-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1212"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1212",
+   "finishedAt": "2026-09-23T22:58:14Z"
   },
   {
    "id": "PAPER-ABE-25",
