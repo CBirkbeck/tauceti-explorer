@@ -5,11 +5,11 @@
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
       "kind": "gap",
-      "locator": "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)",
-      "printed": "Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible.",
-      "correction": "Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked).",
-      "reason": "Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.",
-      "affects": "a stated result",
+      "locator": "Remarque4.5, author manuscript and arXiv1802.09605v2, PDF17; compare standing assumptions at the start of §4, PDF15, and Theorem4.2, PDF16–17. Journal wording unverified.",
+      "printed": "le théorème 4.2 (i)",
+      "correction": "Make explicit the generalization of Theorem4.2(i) used here: the printed theorem carries a rationally connected generic-fibre hypothesis which the remark has not established. Adding rational connectedness of X is a sufficient restricted repair, not a demonstrated necessary hypothesis for the original implication. To retain the full implication, justify the section-based fibration variant; Proposition3.3(i) already provides a geometric section without rational connectedness.",
+      "reason": "Theorem4.2 inherits the rational-connectedness assumption fixed for §4 on PDF15. In Remark4.5 the new fibration π′ compactifies universal torsors of V; after geometric base change such a torus torsor is birational to V times a split torus. The remark does not establish rational connectedness for these fibres. This verifies a literal theorem-application scope mismatch. It does not disprove the implication. Proposition3.3(i), PDF14, obtains a section by splitting a free character-module sequence and has no rational-connectedness hypothesis. Moreover Sko90 Theorem1 uses a geometric section condition along general lines, rather than rational connectedness itself. Thus the earlier assertion that the missing rational-connectedness condition changes a stated result was too strong; a fully stated extension of the cited fibration argument is the remaining proof obligation.",
+      "affects": "the proof",
       "known": "new",
       "searched": [
         "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
@@ -19,17 +19,36 @@
         "Published version, J. Amer. Math. Soc. 33 (2020), 775–805: not openly available here (AMS), so the published wording was not compared",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/943",
         "arXiv 1802.09605: versions up to v2 (15 October 2019); no later version",
-        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))"
+        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))",
+        "Independent review, Codex codex-hjdg0j, 2026-09-23: freshly fetched author zceh.pdf and arXiv1802.09605v2; normalized text agrees on PDF4 and PDF12–17. The author PDF4/17 passages were also rendered and inspected.",
+        "Independent review, 2026-09-23: arXiv submission history still ends at v2 (15 October 2019); Wittenberg publication page lists no correction for this paper; the listed erratum is for the Benoist–Wittenberg intermediate-Jacobian paper.",
+        "Independent review, 2026-09-23: Crossref DOI10.1090/jams/943 has no update-to/updated-by entries and an empty relation object. Exact-title correction/erratum searches located no correction. This is a bounded search, not a claim of priority.",
+        "Independent review, 2026-09-23: the correct AMS published PDF and viewer URLs with article identifier S0894-0347-2020-00943-2 returned HTTP403. JSTOR stable26937518 did not supply readable full text. Published wording remains unverified; the verdict is limited to the author manuscript and arXiv v2."
       ],
-      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E1"
+      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E1",
+      "assessmentHistory": [
+        {
+          "by": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+          "correction": "Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked).",
+          "reason": "Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.",
+          "affects": "a stated result",
+          "note": "Superseded where specified by the independent review; retained as history, not a current verdict."
+        }
+      ],
+      "versionScope": "Confirmed only in the identified public author manuscript and arXiv1802.09605v2. No assertion that the journal version retains the wording: its full text was unavailable during this review.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+        "reason": "Confirmed with narrowed reach and correction. Read the author/arXiv statements and the complete proofs of Propositions3.1/3.3 and Theorem4.2. The citation to Theorem4.2(i) omits checking one of its standing hypotheses. Changed affects from a stated result to the proof: no counterexample to the implication was found, and the geometric section already supplied in Proposition3.3(i) is relevant to the weaker classical criterion. Adding rational connectedness is only a sufficient restricted repair. Read Sko90 Theorem1/proof in a public transcription, but did not certify the full split-fibre generalization from Sko96; this verdict does not assert that the broad remark is false. Limited to the public manuscript versions, not the unread journal full text."
+      }
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
       "kind": "misprint",
-      "locator": "Introduction, author manuscript p. 4",
-      "printed": "si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1",
-      "correction": "m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined).",
-      "reason": "The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.",
+      "locator": "Introduction, author manuscript and arXiv1802.09605v2, PDF4, quaternion-group paragraph. Journal wording unverified. Compare Demarche author manuscript BMgroupes.pdf, §8, PDF26.",
+      "printed": "pour un entier m ≥ 1",
+      "correction": "Use m ≥ 2 if following the convention in the cited Demarche author manuscript, which includes Q_4≅C_4. Use m ≥ 3 only if explicitly restricting the terminology to nonabelian generalized quaternion groups. The m=1 case needs a separate convention not supplied by that presentation.",
+      "reason": "Demarche BMgroupes.pdf §8, PDF26, explicitly defines Q_(2^n) for n≥2 and discusses n=2 as a valid rational case. At m=2 the presentation gives x²=1 and y²=x, hence x=y², y⁴=1 and the group C4; it is deliberately included, not a reason to exclude m=2. At m=1 the exponent 2^(m−2) is not an integer, so that presentation does not define Q2. The earlier correction m≥3 and its appeal to the known cases m≤4 unnecessarily discarded Demarche’s cyclic endpoint. No weak-approximation conclusion for the actual quaternion groups is changed.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -40,9 +59,63 @@
         "Published version, J. Amer. Math. Soc. 33 (2020), 775–805: not openly available here (AMS), so the published wording was not compared",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/943",
         "arXiv 1802.09605: versions up to v2 (15 October 2019); no later version",
-        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))"
+        "O. Wittenberg's homepage, 23 September 2026: no erratum for this paper (the only erratum listed there concerns a different paper, Ann. Sci. ÉNS 58 (2025))",
+        "Independent review, Codex codex-hjdg0j, 2026-09-23: freshly fetched author zceh.pdf and arXiv1802.09605v2; normalized text agrees on PDF4 and PDF12–17. The author PDF4/17 passages were also rendered and inspected.",
+        "Independent review, 2026-09-23: arXiv submission history still ends at v2 (15 October 2019); Wittenberg publication page lists no correction for this paper; the listed erratum is for the Benoist–Wittenberg intermediate-Jacobian paper.",
+        "Independent review, 2026-09-23: Crossref DOI10.1090/jams/943 has no update-to/updated-by entries and an empty relation object. Exact-title correction/erratum searches located no correction. This is a bounded search, not a claim of priority.",
+        "Independent review, 2026-09-23: the correct AMS published PDF and viewer URLs with article identifier S0894-0347-2020-00943-2 returned HTTP403. JSTOR stable26937518 did not supply readable full text. Published wording remains unverified; the verdict is limited to the author manuscript and arXiv v2."
       ],
-      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E2"
+      "extraction": "PAPER-HARPAZ-WITTENBERG-20/E2",
+      "assessmentHistory": [
+        {
+          "by": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+          "correction": "m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined).",
+          "reason": "The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.",
+          "affects": "nothing",
+          "note": "Superseded where specified by the independent review; retained as history, not a current verdict."
+        }
+      ],
+      "versionScope": "Confirmed only in the identified public author manuscript and arXiv1802.09605v2. No assertion that the journal version retains the wording: its full text was unavailable during this review.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+        "reason": "Confirmed as an endpoint/notation slip, with the correction amended from m≥3 to m≥2 in the cited source’s convention. Freshly read and rendered HW author PDF4 and Demarche author §8 PDF26; the latter explicitly includes n=2. Algebraically the m=2 presentation is C4. Exact finite group checks at m=2,3,4 verify orders4,8,16, the defining relations and 4672 associativity triples; only the first is abelian. A convention restricted to nonabelian generalized quaternion groups may use m≥3, but the source does not force that exclusion. Manuscript confirmation only; journal wording was not accessible."
+      }
     }
-  ]
+  ],
+  "reviewScope": {
+    "job": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+    "worker": "Codex — codex-hjdg0j",
+    "date": "2026-09-23",
+    "status": "complete",
+    "independence": "The errata file was written by Claude Code cc-442dc5; this worker did not write it or the underlying extraction.",
+    "sourceVersions": [
+      {
+        "url": "https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf",
+        "sha256": "2e425ee63d77e6fc53ddd76aca8c8b7ab36be95b078fbcec5e2a8d7f325e6ad9",
+        "read": "PDF4,12–18; PDF4/17 rendered"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1802.09605v2",
+        "sha256": "54cd8757102b7e67437486c35e26a48597a6686c117031ff57c09c433f19f1de",
+        "read": "PDF4,12–17 compared with author text"
+      },
+      {
+        "url": "https://webusers.imj-prg.fr/~cyril.demarche/articles/BMgroupes.pdf",
+        "sha256": "3b4b0665958266bf8e79f10989dcc30be1c59c3711201727a380c25877dbe929",
+        "read": "PDF12,26; PDF26 rendered. This public author manuscript has different numbering from the journal citation."
+      },
+      {
+        "url": "https://www.math.univ-paris13.fr/~wittenberg/slc.pdf",
+        "sha256": "30f4bdcf95ad848ff133f71903fd7541bc3f160e650fe09359e0f10e4bd5923a",
+        "read": "PDF21–22: Theorem3.7, Corollary3.8 and Remark3.9"
+      },
+      {
+        "url": "https://dokumen.pub/seminaire-de-theorie-des-nombres-paris-1988-89-3764334932-9783764334932.html",
+        "sha256": "f4d20f4c717e3821c9c0d1d77d1e58c88f8498e3dab6e78a49ea47643519dfbb",
+        "read": "Transcription of Skorobogatov1990 pp205–209: Theorem1 and proof. No scan-image comparison; no claim to have read Sko96."
+      }
+    ],
+    "limits": "Both recorded findings reviewed and corrected. No fresh full-paper census; no additional source finding established. Published-version comparison remains unavailable and is not treated as agreement. The broader section-based repair of E1 was not certified in this errata review."
+  }
 }
