@@ -30851,8 +30851,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1796"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1796",
+   "finishedAt": "2026-09-23T13:03:08Z"
   },
   {
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
