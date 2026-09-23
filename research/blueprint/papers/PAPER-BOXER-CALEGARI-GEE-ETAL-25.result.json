@@ -1,0 +1,1631 @@
+{
+  "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "The Ramanujan and Sato–Tate conjectures for Bianchi modular forms",
+    "authors": "George Boxer, Frank Calegari, Toby Gee, James Newton and Jack A. Thorne",
+    "venue": "Forum of Mathematics, Pi 13 (2025), e10, 65 pp.",
+    "doi": "10.1017/fmp.2024.29",
+    "arxiv": "2309.15880",
+    "url": "https://doi.org/10.1017/fmp.2024.29",
+    "readSections": [
+      "The published version, read in full: the open-access (CC BY 4.0) PDF from Cambridge Core (65 pages; SHA-256 dbdd78b20008402caf296803503203f6dcc80df5dc2802b7a696ec0ee0d515f5; fetched 23 September 2026; received 27 September 2023, revised 26 September 2024, accepted 27 October 2024, published online 21 February 2025). Read: §1 (Theorems A–G, §§1.1–1.5, Definition 1.5.1), §2 (Breuil modules, Theorems 2.1.4–2.1.5, §2.2 Definitions 2.2.1–2.2.2, Lemmas 2.2.3, 2.2.7, 2.2.13, 2.2.15, 2.2.18, 2.2.19, Proposition 2.2.4, Definition 2.2.26 and Remarks 2.2.27–2.2.29, §2.3, §2.4 Proposition 2.4.1 and Theorem 2.4.3, §2.5 Theorems 2.5.2 and 2.5.5 and Remarks 2.5.4–2.5.7), §3 (Theorem 3.2.1, Proposition 3.2.3, Lemma 3.2.4, Theorem 3.2.5), §4 (the Dwork family, Theorem 4.2.1, Lemma 4.2.4, Propositions 4.2.5–4.2.6, §4.3, Definition 4.4.1, Proposition 4.4.2, Remark 4.4.3, Lemma 4.4.4, Proposition 4.5.1), §5 (Definition 5.1.1, Lemmas 5.1.3–5.1.5, Definition 5.2.1, Lemmas 5.2.2–5.2.6, Lemmas 5.3.1 and 5.3.3, Remark 5.3.2), §6 (Definitions 6.1.1–6.1.2, Lemmas 6.1.3–6.1.5, Theorem 6.2.1, Proposition 6.2.3, Theorem 6.2.4), §7 (Theorems 7.1.1, 7.2.1, 7.2.3, Lemma 7.2.2) and the references. Page numbers are the journal's; every recorded mistake was checked on the page images.",
+      "arXiv 2309.15880 v2 (6 November 2024) and v3 (27 March 2025) were compared word by word. v2 is the accepted text; v3, posted after publication, rewrites Remark 2.1.1 and carries the constant c through §2.2 (sourceIssues E2) and changes nothing else of substance.",
+      "Cited inputs were not read; items resting on them (ACC+ 2023, Caraiani–Newton, Emerton–Gee 2023 and its errata, Gee–Liu–Savitt, Emerton–Gee–Herzig, Herzig–Le–Morra, Liu, Caruso, CEGS, Qian, Katz, Drinfeld–Kedlaya, Katz–Messing, Miagkov–Thorne, Geraghty, Kisin, Berger, Marshall, Harder, Jacquet–Shalika, Artin–Tate, Steinberg) state them as the paper uses them."
+    ]
+  },
+  "summary": "The paper proves the Ramanujan conjecture (Theorem A) and the Sato–Tate conjecture (Theorem B) for regular algebraic cuspidal representations of GL_2 of parallel weight over imaginary CM fields, hence for all Bianchi modular forms of weight ≥ 2 (Theorems E–G). Both follow from purity and potential automorphy of all symmetric powers of rank-2 compatible systems with Hodge–Tate weights {0, m} (Theorems C, 6.2.1, 7.2.1). Three new ingredients: (1) Theorem D: for p > n the special fibre of every weight-0 crystalline lifting ring is generically reduced, proved on the Emerton–Gee stack by computing extensions of rank-one Breuil modules (§2); (2) an automorphy lifting theorem in weight 0 with p arbitrarily ramified (Theorem 3.2.1), from Caraiani–Newton's local–global compatibility and derived Ihara avoidance, where Theorem D supplies the unique generalisation of generic points; (3) a p–r switch between Sym^{n−1}R ⊗ R_aux and Sym^{n−1}R ⊗ R_CM, where R_aux and S_UA come from Qian's non-self-dual Dwork motives in the new unitary case p ≡ −1 mod N, made crystalline ordinary by Drinfeld–Kedlaya (§§4, 6). The endpoints are planned in ModularityAndLanglandsExtensions (ML.2, ML.3). §2 goes to a new Part II of LocalGaloisDeformationRings, §3 to a new Part II of PotentialAutomorphyInfrastructure, and §4 with the switching construction to the pending Dwork Part II of PAPER-QIAN-23. The remaining lemmas are sources of existing layers (ML, ArithmeticGaloisRepresentations, ArithmeticGaloisDuality, PA.5, R23.1, L7). Thirteen source issues are recorded, one already corrected by the authors.",
+  "items": [
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/1",
+      "kind": "theorem",
+      "name": "Theorem A (Theorem 7.1.1): the Ramanujan conjecture in parallel weight over imaginary CM fields",
+      "statement": "Let F be an imaginary CM field and π a regular algebraic cuspidal automorphic representation of GL_2(𝔸_F) of parallel weight (Definition 1.5.1). Then for every finite place v of F, π_v is (essentially) tempered. In the normalisation of Theorem A (π cuspidal algebraic of parallel weight k ≥ 2): π_v is tempered for all finite v, and for v prime to the level the Satake parameters satisfy |α_v| = |β_v| = N(v)^{(k−1)/2}.",
+      "locator": "§1, Theorem A, p. 3; §7.1, Theorem 7.1.1, p. 61",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "note": "ModularityAndLanglandsExtensions ML.3 integrates symmetric-power automorphy and its analytic consequences; purity of the compatible system is deduced from potential automorphy of all symmetric powers (Lemma 6.1.3, Theorem 6.2.1). Proof: twist to weight (m − 1, 0) using Clozel's purity lemma, make ψ∘N_{F′/F} a square after a quadratic CM extension (as in ACC+ Theorem 7.1.1), reduce to unramified π_v by solvable base change (ACC+ Corollary 7.1.15), then use the trichotomy of ACC+ Lemma 7.1.2 (induced: purity of rank one; Artin up to twist: excluded by distinct Hodge–Tate weights; strongly irreducible: Theorem 6.2.1)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/2",
+      "kind": "theorem",
+      "name": "Theorem B (Theorem 7.2.3): the Sato–Tate conjecture in parallel weight over imaginary CM fields",
+      "statement": "Let F be an imaginary CM field and π a non-CM regular algebraic cuspidal automorphic representation of GL_2(𝔸_F) of weight λ and parallel weight, with λ_{τ,1} + λ_{τc,2} = w and central character |·|^{−w}ψ, ψ unitary of type A_0. Let S_π be the set of finite places at which π is ramified (printed: 'unramified'; see sourceIssues E13). Then the classes [π_v] ∈ ST(π), v ∉ S_π, are equidistributed with respect to the Haar probability measure μ_ST of ST(π): for every continuous conjugation-invariant f : ST(π) → ℂ, lim_{X→∞} Σ_{v∉S_π, q_v<X} f([π_v]) / #{v ∉ S_π : q_v < X} = ∫_{ST(π)} f dμ_ST. Theorem B is the case where the normalised a_v are real: they are equidistributed for (2/π)√(1 − x²)dx.",
+      "locator": "§1, Theorem B, p. 3; §7.2, Theorem 7.2.3, p. 62",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3",
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "note": "ML.3 plans Sato–Tate via symmetric powers, with the analytic inputs for the Weyl criterion supplied separately (AnalyticNumberTheory AN.4). Proof: Serre's criterion; the L-functions L^{S_π}(π, ρ, s) are handled from potential automorphy of Sym^{n−1}R as in Gee 2009 §7 and BLGHT11 §8, R being strongly irreducible by ACC+ Lemma 7.1.2 and non-CM."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/3",
+      "kind": "theorem",
+      "name": "Theorem C (Theorem 7.2.1): purity and potential automorphy of symmetric powers of rank-2 compatible systems",
+      "statement": "Let F be a CM field and R = (M, S, {Q_v(X)}, {r_λ}, {H_τ}) a very weakly compatible system of rank 2 representations of G_F with H_τ = {0, m} for all τ, for some m ≥ 1. (1) If R is strongly irreducible, then R is pure of weight m, and for each n ≥ 1 there is a finite CM extension F′/F, Galois over ℚ, such that Sym^{n−1}R|_{G_{F′}} is automorphic. (2) If R is irreducible but not strongly irreducible, then R is pure of weight m and for each n ≥ 1, Sym^{n−1}R is a direct sum of automorphic compatible systems of dimension at most 2. (The introduction's Theorem C states this for systems whose Frobenius polynomials are independent of λ — printed 'of v', sourceIssues E1 — and adds potential automorphy of R itself.)",
+      "locator": "§1, Theorem C, p. 4; §7.2, Theorem 7.2.1 and proof, pp. 61–62",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.2",
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "note": "ML.2 assembles potential automorphy and ML.3 owns the symmetric-power endpoints. Proof: reduce to det r_λ = ε^{−m} as in Theorem 7.1.1 and apply Theorem 6.2.1; the non-strongly-irreducible case is induced from algebraic Hecke characters of a quadratic extension (ACC+ Lemma 7.1.2)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/4",
+      "kind": "theorem",
+      "name": "Theorem 6.2.1: purity and potential automorphy for det r_λ = ε^{−m}",
+      "statement": "Let F be an imaginary CM field and R a very weakly compatible system of rank 2 representations of G_F. Let m ≥ 1 and suppose (1) H_τ = {0, m} for each τ; (2) det r_λ = ε^{−m}; (3) R is strongly irreducible. Then R is pure of weight m, and for each n ≥ 1 there is a finite CM extension F_n/F, Galois over ℚ, such that Sym^{n−1}R|_{G_{F_n}} is automorphic.",
+      "locator": "§6.2, Theorem 6.2.1 and proof, p. 53",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.2",
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "note": "ML.2/ML.3. For m = 1 this is ACC+ Corollary 7.1.12. For m ≥ 2: Theorem 6.2.4 gives weak automorphy of level prime to {v | v_0}; Lemma 6.1.3 gives purity at v_0, arbitrary; Lemma 6.1.4 upgrades weak automorphy to automorphy."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/5",
+      "kind": "definition",
+      "name": "Definition 1.5.1: parallel weight, and Clozel's purity lemma for GL_2 over CM fields",
+      "statement": "A regular algebraic π of GL_2(𝔸_F) of weight λ is of parallel weight if λ_{τ,1} − λ_{τ,2} is independent of τ, equivalently if π has a regular algebraic twist of weight μ = (m − 1, 0)_τ for some m ≥ 1; it has parallel weight k ≥ 2 if μ = (k − 2, 0)_τ. For F imaginary CM and π cuspidal regular algebraic of weight λ there is w ∈ ℤ with λ_{τ,1} + λ_{τc,2} = w for all τ (Clozel's purity lemma [Clo90, Lemma 4.9]); hence λ_{τ,1} − λ_{τ,2} = λ_{τc,1} − λ_{τc,2}, and every such π over an imaginary quadratic field has parallel weight.",
+      "locator": "§1.5, Definition 1.5.1 and the following paragraph, p. 10",
+      "status": "missing",
+      "note": "Routed to ML.0 (the registry of automorphic objects, infinity types and normalisations). Regular algebraic weights are planned in AutomorphicGaloisRepresentationsPartII AG2.0; the parallel-weight condition and Clozel's purity lemma are not."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/6",
+      "kind": "definition",
+      "name": "Bianchi modular forms, their Fourier coefficients and parabolic cohomology with Hecke operators",
+      "statement": "For F imaginary quadratic, a cuspidal Bianchi modular eigenform f of level 𝔫 and weight k (a collection of h_F functions on hyperbolic 3-space, or adelically a vector in a regular algebraic cuspidal π) has Fourier coefficients c(𝔭, f) [Wil17 §1.2, Hid94 §6]. For k, l ≥ 2, H = H¹(Γ_1(𝔫), Sym^{k−2}ℂ² ⊗ Sym^{l−2}ℂ²) with parabolic subspace H_par (classes vanishing on every parabolic subgroup, i.e. on the Borel–Serre boundary of Y_1(𝔫) = ℍ³/Γ_1(𝔫)); Hecke operators T_𝔭 for principal 𝔭 = (π) ∤ 𝔫 via A = diag(π, 1); for h_F > 1 replace Y_1(𝔫) by the union of Y_1(𝔫; 𝔞), 𝔞 ∈ Cl(O_F). H_par = 0 unless k = l [Har87, 3.6.1], and the Eichler–Shimura isomorphism [Har87 §3.6] sends f to a Hecke eigenclass η_f ∈ H_par with T_𝔭-eigenvalue c(𝔭, f).",
+      "locator": "§1.3, pp. 8–9",
+      "status": "missing",
+      "note": "Routed to ML.0 with Theorems E–G. The cohomology of arithmetic groups with Hecke correspondences and Borel–Serre boundary is planned in ArithmeticLocallySymmetricSpaces (ALS.1, ALS.3, ALS.4); the Bianchi Fourier expansion and Harder's Eichler–Shimura comparison are not."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/7",
+      "kind": "theorem",
+      "name": "Theorem E: the Ramanujan bound for Fourier coefficients of Bianchi eigenforms",
+      "statement": "Let f be a cuspidal Bianchi modular eigenform of level 𝔫 and weight k, and 𝔭 a prime of O_F not dividing 𝔫. Then |c(𝔭, f)| ≤ 2N(𝔭)^{(k−1)/2}.",
+      "locator": "§1.3, Theorem E, p. 8",
+      "status": "missing",
+      "note": "Corollary of Theorem A; routed to ML.3 with the Bianchi applications."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/8",
+      "kind": "theorem",
+      "name": "Theorem F: the Ramanujan bound for Hecke eigenvalues on parabolic cohomology of Bianchi manifolds",
+      "statement": "Let 𝔭 be a principal prime of O_F not dividing 𝔫 and a_𝔭 an eigenvalue of T_𝔭 on H_par. Then |a_𝔭| ≤ 2N(𝔭)^{(k−1)/2}.",
+      "locator": "§1.3, Theorem F, p. 9",
+      "status": "missing",
+      "note": "From Theorem E by the Eichler–Shimura isomorphism [Har87]; routed to ML.3."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/9",
+      "kind": "theorem",
+      "name": "Theorem G: mass equidistribution for level-one Bianchi eigenforms",
+      "statement": "Assume F has class number one. For any sequence of Bianchi modular eigenforms f of level one and weight tending to ∞, the measures μ_f [Mar11 §3] converge weakly to the hyperbolic volume on Y = SL_2(O_F)\\ℍ³.",
+      "locator": "§1.3, Theorem G and proof, p. 10",
+      "status": "missing",
+      "note": "Marshall's [Mar11, Cor. 3] assumed the Ramanujan conjecture ([Mar12]); Theorem E supplies it. Routed to ML.3 as an analytic application; Marshall's theorem is a prerequisite."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/10",
+      "kind": "definition",
+      "name": "Hodge–Tate conventions, weight 0 and the lifting rings R^□ and R^{crys,0,O}",
+      "statement": "For K/ℚ_p finite and σ : K ↪ ℚ̄_p, HT_σ(ρ) is the multiset with i of multiplicity dim (W ⊗_{σ,K} K̂(i))^{G_K}; ε has HT_σ(ε) = {−1}. A d-dimensional ρ has weight 0 if HT_σ(ρ) = {0, 1, …, d − 1} for all σ. For ρ̄ : G_K → GL_d(𝔽) and E/ℚ_p containing the Galois closure of K, R^{□,O}_{ρ̄} is the universal lifting ring and R^{crys,0,O}_{ρ̄} its unique O-flat quotient whose ℚ̄_p-points are the weight-0 crystalline lifts [Kis08]; formation is compatible with finite extension of coefficients [BLGGT14, Lemma 1.2.1].",
+      "locator": "§1.5, pp. 10–11",
+      "status": "planned",
+      "planned": [
+        "PadicHodgeTheory:R06.2",
+        "LocalGaloisDeformationRings:L7",
+        "LocalGaloisDeformationRings:R08.1",
+        "LocalGaloisDeformationRings:R08.3"
+      ],
+      "note": "Hodge–Tate weights: PadicHodgeTheory R06.2. Kisin's potentially semistable lifting rings of fixed labelled Hodge type in rank n, with characteristic-zero points, flatness and dimension: LocalGaloisDeformationRings L7 (rank 2: R08.3); unrestricted lifting rings: R08.1."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/11",
+      "kind": "definition",
+      "name": "Local Langlands normalisations rec_K and rec^T_K",
+      "statement": "rec_K is the local Langlands correspondence of Harris–Taylor; rec^T_K(π) = rec_K(π ⊗ |det|^{(1−n)/2}) is its Tate-normalised form [CT14 §2.1], used for Hecke polynomials and in Definition 6.1.2 and Lemma 7.2.2.",
+      "locator": "§1.5, p. 11",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "ModularityAndLanglandsExtensions:ML.0"
+      ],
+      "note": "The arbitrary-rank local Langlands construction and its normalisations are EndoscopicTransferAndUnitaryTraceComparison ET.6; ML.0 keeps the normalisation register."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/12",
+      "kind": "definition",
+      "name": "Breuil–Kisin modules with 𝔽-coefficients and étale φ-modules",
+      "statement": "For K/ℚ_p with residue field k, ramification index e, uniformiser π and Eisenstein polynomial E(u) with E(0) = p, and K_∞ = K(π^{1/p^∞}): a Breuil–Kisin module of height ≤ h with 𝔽-coefficients is a finite projective 𝔖_𝔽 = (k ⊗ 𝔽)[[u]]-module 𝔐 with φ-semilinear φ such that the cokernel of the linearisation is killed by E(u)^h = u^{eh}; T_∞(M) = (M ⊗ k((u))^sep)^{φ=1} is an equivalence from étale φ-modules to G_{K_∞}-representations [Fon90, Kis09 1.1.12].",
+      "locator": "§2.1, pp. 12–14",
+      "status": "planned",
+      "planned": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "PadicHodgeTheory:P7"
+      ],
+      "note": "Breuil–Kisin modules and the height bound from the Eisenstein polynomial: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4; the étale φ-module equivalence over K_∞ is part of the same comparison (with PadicHodgeTheory P7 owning étale (φ,Γ)-modules)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/13",
+      "kind": "definition",
+      "name": "Quasi-Breuil modules, Breuil modules with monodromy and crystalline Breuil modules",
+      "statement": "Let S_𝔽 = 𝔖_𝔽/u^{ep} and 0 ≤ h ≤ p − 2. A quasi-Breuil module of height h is a finite free S_𝔽-module M with a submodule M_h ⊇ u^{eh}M and a φ-semilinear φ_h : M_h → M whose image generates M; 𝔐 ↦ S_𝔽 ⊗_{φ,𝔖_𝔽} 𝔐 is an equivalence from Breuil–Kisin modules of height ≤ h [Bre99, Thm. 4.1.1]. Let c be the image of φ(E(u))/p in S_𝔽 (a unit, c = φ(d)). A Breuil module is a quasi-Breuil module with N : M → M satisfying N(sx) = sN(x) + N(s)x (N = −u d/du on S_𝔽), u^eN(M_h) ⊆ M_h and φ(u^eN(x)) = cN(φ(x)) for x ∈ M_h; it is crystalline if N(M) ⊆ uM. The published text takes c = 1 (Remark 2.1.1); its footnote 2 and arXiv v3 correct this (sourceIssues E2).",
+      "locator": "§2.1, pp. 13–14, Remarks 2.1.1–2.1.2",
+      "status": "missing",
+      "note": "Routed to the new Part II WeightZeroCrystallineLiftingRings. R07.4 plans Breuil–Kisin modules but not Breuil's S-modules with monodromy."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/14",
+      "kind": "theorem",
+      "name": "Theorem 2.1.4: exactness and the subobject correspondence for crystalline Breuil modules",
+      "statement": "(1) The categories FBrMod^cr and FqBrMod are exact categories [Qui10], and the functors T (T(M) = Hom(M, Â)^∨ [HLM17 (A.3.1)]) and T_∞ are exact. (2) For M in FBrMod^cr, N ↦ image of T(N) ↪ T(M) is an order-preserving bijection Θ from Breuil submodules of M to G_K-subrepresentations of T(M), with Θ(M_2)/Θ(M_1) ≅ T(M_2/M_1).",
+      "locator": "§2.1, Theorem 2.1.4 and proof, p. 14",
+      "status": "missing",
+      "note": "Proof from [Car11, Thm. 2.1.2] and [HLM17, Props. 2.3.4, 2.3.5], with the duality of [EGH13, Def. 3.2.8]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/15",
+      "kind": "theorem",
+      "name": "Theorem 2.1.5: reductions of crystalline lattices come from crystalline Breuil modules",
+      "statement": "Let ρ : G_K → GL_n(O) be a lattice in a crystalline representation with Hodge–Tate weights in [0, h], 0 ≤ h ≤ p − 2, and ρ̄ its reduction. Then there is a crystalline Breuil module M with 𝔽-coefficients with ρ̄ ≅ T(M); its underlying Breuil–Kisin module has height ≤ h and is the reduction of the Breuil–Kisin module with O-coefficients of ρ|_{G_{K_∞}}.",
+      "locator": "§2.1, Theorem 2.1.5 and proof, pp. 15–16",
+      "status": "missing",
+      "note": "Proof via strongly divisible modules [Liu08 Thm. 2.3.5, Cor. 3.3.2], [EGH13 Prop. 3.1.4, Lem. 3.2.2], [GLS14]: N vanishes modulo u on the crystalline strongly divisible module. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/16",
+      "kind": "definition",
+      "name": "Rank-one Breuil–Kisin modules 𝔐(s; a) and the invariants α_i",
+      "statement": "For s = (s_i) ∈ ℤ_{≥0}^f and a ∈ 𝔽^×, 𝔐(s; a) is the rank-one Breuil–Kisin module with basis e_i of 𝔐_i and φ(e_{i−1}) = (a)_i u^{s_i} e_i [GLS14, Lem. 6.2]; α_i(𝔐(s; a)) = (1/(p^f − 1)) Σ_j p^{f−j} s_{j+i}; nonzero maps 𝔐(s; a) → 𝔐(t; b) exist exactly under the criterion of [GLS15, Lem. 5.1.2].",
+      "locator": "§2.2, Definitions 2.2.1–2.2.2, p. 17",
+      "status": "missing",
+      "note": "Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/17",
+      "kind": "theorem",
+      "name": "Lemma 2.2.3: rank-one crystalline Breuil modules",
+      "statement": "If each s_i ∈ [0, e(p − 2)], the rank-one Breuil–Kisin module 𝔐(s; a) underlies a unique height-(p − 2) Breuil module M(s; a), with M^{p−2}_j = ⟨u^{e(p−2)−s_j}(1 ⊗ e_{j−1})⟩, φ(u^{e(p−2)−s_j}(1 ⊗ e_{j−1})) = (a)_j(1 ⊗ e_j) and N(1 ⊗ e_{j−1}) = 0; in particular it is crystalline.",
+      "locator": "§2.2, Lemma 2.2.3 and proof, pp. 17–18",
+      "status": "missing",
+      "note": "The proof uses the φ–N commutation (with the unit c of sourceIssues E2, as in arXiv v3). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/18",
+      "kind": "theorem",
+      "name": "Proposition 2.2.4: normal form of extensions of rank-one Breuil–Kisin modules",
+      "statement": "Every extension 𝔐 of 𝔐(s; a) by 𝔐(t; b) has bases e_i, f_i of 𝔐_i with φ(e_{i−1}) = (b)_i u^{t_i} e_i and φ(f_{i−1}) = (a)_i u^{s_i} f_i + y_i e_i, where y_i ∈ 𝔽[u] has degree < s_i, except that when there is a nonzero map 𝔐(s; a) → 𝔐(t; b) one y_j may also have a term of degree s_j + α_j(𝔐(s; a)) − α_j(𝔐(t; b)).",
+      "locator": "§2.2, Proposition 2.2.4 and Remark 2.2.6, p. 18",
+      "status": "missing",
+      "note": "This is [GLS15, Prop. 5.1.3]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/19",
+      "kind": "theorem",
+      "name": "Lemma 2.2.7: crystallinity constrains the extension polynomials",
+      "statement": "Let M be a crystalline Breuil module which is an extension of M(s; a) by M(t; b), with underlying Breuil–Kisin module as in Proposition 2.2.4. Then each y_j has no nonzero terms of degree l with l < s_j − e + max(n_{j+1}, 1) and l ≢ t_j (mod p), where the n_i are defined by (2.2.8).",
+      "locator": "§2.2, Lemma 2.2.7, (2.2.8)–(2.2.9) and proof, pp. 18–20",
+      "status": "missing",
+      "note": "The proof solves the φ–N commutation relation degree by degree (the constants c and d of sourceIssues E2 enter (2.2.9)). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/20",
+      "kind": "theorem",
+      "name": "Lemma 2.2.13 and the invariants n_i, r_i",
+      "statement": "With n_i as in (2.2.8) and r_i defined by (2.2.14) (so that s_i + ⌊n_{i+1}⌋ − e + 1 ≡ t_i + r_i mod p), one has r_i ∈ [1, p] for every i.",
+      "locator": "§2.2, Lemma 2.2.13, (2.2.12), (2.2.14), p. 20",
+      "status": "missing",
+      "note": "Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/21",
+      "kind": "theorem",
+      "name": "Lemma 2.2.15: restriction to K_∞ and its image",
+      "statement": "For characters χ_1 = T(M(t; b)), χ_2 = T(M(s; a)): (1) res_{K_∞} : Ext¹_{G_K}(χ_2, χ_1) → Ext¹_{G_{K_∞}}(χ_2, χ_1) is injective unless χ_1χ_2^{−1} = ε̄, when its kernel is the très ramifiée line of the Kummer extension of the chosen π; (2) its image has dimension [K : ℚ_p], or [K : ℚ_p] + 1 if χ_1 = χ_2; (3) the étale φ-modules in the image are exactly those with a basis in which φ(e_{i−1}) = (b)_i u^{t_i} e_i and φ(f_{i−1}) = (a)_i u^{s_i} f_i + y_i e_i with y_i ∈ 𝔽[u, u^{−1}] supported in degrees [s_i + ⌊n_{i+1}⌋ − e + 1, s_i + ⌊n_{i+1}⌋] (with one extra degree allowed when χ_1 = χ_2).",
+      "locator": "§2.2, Lemma 2.2.15, (2.2.16) and proof, pp. 21–22",
+      "status": "missing",
+      "note": "Proof from [GLS15 Lem. 5.4.2, Thm. 5.1.5, Prop. 5.3.4, Thm. 5.4.1, Thm. 6.1.18], [CEGM17 Thm. 3.3.2], [Ste22 Thm. 4.2], [CEGS22b Lem. A.4]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/22",
+      "kind": "theorem",
+      "name": "Lemma 2.2.18: a combinatorial consequence of Σ(s_j − t_j − e) < 0",
+      "statement": "If Σ_{j=1}^f (s_j − t_j − e) < 0 then there is i with either ⌊n_{i+1}⌋ = −1 and r_i ≠ p, or ⌊n_{i+1}⌋ ≤ −2.",
+      "locator": "§2.2, Lemma 2.2.18 and proof, pp. 22–23",
+      "status": "missing",
+      "note": "Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/23",
+      "kind": "theorem",
+      "name": "Lemma 2.2.19: crystalline rank-one Breuil extensions do not exhaust Ext¹",
+      "statement": "If Σ_{j=1}^f (s_j − t_j − e) < 0, then the restriction map Ext¹_{BrMod^cr}(M(s; a), M(t; b)) → Ext¹_{G_K}(χ_2, χ_1) is not surjective.",
+      "locator": "§2.2, Lemma 2.2.19 and proof, pp. 23–24",
+      "status": "missing",
+      "note": "The key local computation: an explicit étale φ-module in the image of res_{K_∞} (Lemma 2.2.15(3)) has a term forbidden by Lemma 2.2.7. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/24",
+      "kind": "definition",
+      "name": "Definition 2.2.26: generic extension classes",
+      "statement": "For characters χ_1, χ_2 : G_K → 𝔽̄_p^×, a class in Ext¹_{G_K}(χ_2, χ_1) is generic if it is not in the image of Ext¹_{BrMod^cr}(M(s; a), M(t; b)) → Ext¹_{G_K}(χ_2, χ_1) for any rank-one Breuil modules with T(M(t; b)) = χ_1, T(M(s; a)) = χ_2 and Σ_j (s_j − t_j − e) < 0. By Lemma 2.2.19 the generic classes form the complement of finitely many proper subspaces (Remark 2.2.27).",
+      "locator": "§2.2, Definition 2.2.26 and Remarks 2.2.27–2.2.29, pp. 24–25",
+      "status": "missing",
+      "note": "Remark 2.2.29 explains why p > d is needed (a (φ, Ĝ)-module example with Hodge–Tate weights 0, p + 2). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/25",
+      "kind": "definition",
+      "name": "Definition 2.3.1: generic residual representations",
+      "statement": "ρ̄ : G_K → GL_d(𝔽) is generic if it is upper triangular with diagonal characters χ_d, χ_{d−1}, …, χ_1 (top to bottom) and each off-diagonal extension class in Ext¹_{G_K}(χ_i, χ_{i+1}), i = 1, …, d − 1, is generic in the sense of Definition 2.2.26.",
+      "locator": "§2.3, Definition 2.3.1, p. 23",
+      "status": "missing",
+      "note": "Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/26",
+      "kind": "theorem",
+      "name": "Theorem 2.3.2: weight-0 crystalline lifts of generic ρ̄ are ordinary",
+      "statement": "Suppose p > d and ρ : G_K → GL_d(O) is weight 0 crystalline with ρ̄ generic. Then ρ is upper triangular with diagonal ur_{λ_d}, ur_{λ_{d−1}}ε^{−1}, …, ur_{λ_1}ε^{1−d} for some λ_1, …, λ_d ∈ O^×.",
+      "locator": "§2.3, Theorem 2.3.2 and proof, pp. 24–25",
+      "status": "missing",
+      "note": "Induction on d using Theorem 2.1.5, Theorem 2.1.4(2) and Lemma 2.2.19, with [Kis09 Prop. 1.2.11], [Liu07 §3.1], [Kis06 Prop. 1.3.15], [Kis10 Thm. 1.2.1]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/27",
+      "kind": "theorem",
+      "name": "Corollary 2.3.3: generic ρ̄ with a weight-0 crystalline lift",
+      "statement": "If ρ̄ : G_K → GL_d(𝔽) is generic and has a weight-0 crystalline lift, then ρ̄ is upper triangular with diagonal ur_{λ̄_d}, ur_{λ̄_{d−1}}ε̄^{−1}, …, ur_{λ̄_1}ε̄^{1−d}, and the off-diagonal extensions are peu ramifiées.",
+      "locator": "§2.3, Corollary 2.3.3 and proof, p. 25",
+      "status": "missing",
+      "note": "Peu ramifiée from [CEGS22b, Lem. A.4]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/28",
+      "kind": "theorem",
+      "name": "Proposition 2.4.1: the Emerton–Gee stack of weight-0 crystalline representations",
+      "statement": "Let 𝒳_d be the Emerton–Gee stack of rank-d étale (φ, Γ)-modules for K [EG23 Def. 3.2.1] and 𝒳_d^{crys,0} = 𝒳^{crys,λ,τ}_{K,d} with λ_{σ,i} = d − i and τ trivial [EG23 Def. 4.8.8]. (1) 𝒳_d^{crys,0} is a p-adic formal algebraic stack, flat and of finite type over Spf O; its special fibre 𝒳̄_d^{crys,0} is algebraic. (2) For A° finite flat over O, 𝒳_d^{crys,0}(A°) consists of the G_K-representations that are crystalline of weight 0 after inverting p. (3) 𝒳̄_d^{crys,0} is equidimensional of dimension [K : ℚ_p]d(d − 1)/2. (4) For every point x : Spec 𝔽′ → 𝒳̄_d^{crys,0} there is a versal morphism Spf R^{crys,0,O′}_{ρ̄} → 𝒳_d^{crys,0} at x.",
+      "locator": "§2.4, Proposition 2.4.1 and proof, p. 25",
+      "status": "missing",
+      "note": "Imported from [EG23 Thm. 4.8.12, Thm. 4.8.14, Prop. 4.8.10]; the Emerton–Gee stacks are not planned in the atlas (EG23 is a prerequisite). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/29",
+      "kind": "definition",
+      "name": "Serre weights, fundamental characters and maximally nonsplit representations of niveau one",
+      "statement": "A Serre weight k is a tuple {k_{σ,i}}_{σ : k ↪ 𝔽̄_p, 1 ≤ i ≤ d} with p − 1 ≥ k_{σ,i} − k_{σ,i+1} ≥ 0 and p − 1 ≥ k_{σ,d} ≥ 0, not all k_{σ,d} = p − 1. ω_σ is the fundamental character I_K → O_K^× → k^× → 𝔽^× via σ; one chooses ω_{k,i} : G_K → 𝔽^× with ω_{k,i}|_{I_K} = Π_σ ω_σ^{−k_{σ,i}}, such that k_{σ,i} − k_{σ,i+1} = p − 1 for all σ forces ω_{k,i} = ω_{k,i+1}; ur_ν is the unramified character sending a geometric Frobenius to ν (printed 'to λ', sourceIssues E3). ρ̄ is maximally nonsplit of niveau one if it has a unique filtration with one-dimensional graded pieces; it has weight k if it is upper triangular as in (2.4.2) with diagonal ur_{ν_d}ω_{k,d}, ur_{ν_{d−1}}ε̄^{−1}ω_{k,d−1}, …, ur_{ν_1}ε̄^{1−d}ω_{k,1}. When ω_{k,i} = ω_{k,i+1}, k_{σ,i} − k_{σ,i+1} = p − 1 for all σ (printed with indices d − i, d + 1 − i; sourceIssues E4) exactly when ν_i = ν_{i+1} and the extension class in H¹(G_K, ε̄) is très ramifiée.",
+      "locator": "§2.4, pp. 25–26, (2.4.2)",
+      "status": "missing",
+      "note": "From [EG23 §5.5] as corrected in the errata [EG] (the paper notes that EG23 §5.5 erroneously claimed further constraints on the ω_{k,i}). FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5 plans only the rank-2 residual types. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/30",
+      "kind": "theorem",
+      "name": "Theorem 2.4.3: the irreducible components of 𝒳_{d,red}",
+      "statement": "(1) 𝒳_{d,red} is an algebraic stack of finite presentation over 𝔽. (2) It is equidimensional of dimension [K : ℚ_p]d(d − 1)/2. (3) Its irreducible components are the 𝒳^k_{d,red}, indexed by Serre weights k, each containing a dense open 𝒰_k all of whose 𝔽̄_p-points are maximally nonsplit of niveau one and weight k. (4) There is an open T ⊂ (G_m)^d_k such that for all (t_1, …, t_d) ∈ T(𝔽̄_p) some 𝔽̄_p-point of 𝒰_k corresponds to a representation (2.4.2) with ν_i = t_i that is generic in the sense of Definition 2.3.1.",
+      "locator": "§2.4, Theorem 2.4.3 and proof, pp. 26–27",
+      "status": "missing",
+      "note": "(1)–(3) are [EG23 Thm. 5.5.12, Thm. 6.5.1]; (4) follows from the corrected [EG23 Thm. 5.5.12] of [EG] and a cup-product argument (with help from M. Emerton, per the acknowledgements). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/31",
+      "kind": "theorem",
+      "name": "Theorem 2.5.2: the weight-0 Breuil–Mézard cycle, and generic reducedness of the special fibre of the stack",
+      "statement": "Suppose p > d. Then Z^{crys,0} = 𝒳^0_{d,red}, where Z^{crys,0} = Σ_k μ_k 𝒳^k_{d,red} is the cycle of 𝒳̄_d^{crys,0} (2.5.1) and 0 is the Serre weight with all k_{σ,i} = 0. In particular 𝒳̄_d^{crys,0} is generically reduced.",
+      "locator": "§2.5, (2.5.1), Theorem 2.5.2 and proof, pp. 27–28; Remark 2.5.4, p. 29",
+      "status": "missing",
+      "note": "Proof: by Corollary 2.3.3 only k = 0 occurs; at a generic point of 𝒰_0 satisfying (2.5.3) the lifting ring is the ordinary crystalline ring of [CHT08 2.4.2], formally smooth [CHT08 Lem. 2.4.7], using Proposition 2.4.1(4) (printed 'Theorem 2.4.1', sourceIssues E5) and [Sta13 0DR0, 00MC, 033F, 04YH]. Remark 2.5.4: this computes the cycle Z_0 of the geometric Breuil–Mézard conjecture [EG23 Conj. 8.2.2] for p > d. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/32",
+      "kind": "theorem",
+      "name": "Theorem D (Theorem 2.5.5): generic reducedness of weight-0 crystalline lifting rings",
+      "statement": "Suppose p > d, K/ℚ_p finite and E/ℚ_p finite containing the Galois closure of K, with ring of integers O, uniformiser ϖ and residue field 𝔽. Then for every ρ̄ : G_K → GL_d(𝔽), the special fibre R^{crys,0,O}_{ρ̄}/ϖ of the weight-0 crystalline lifting ring is generically reduced.",
+      "locator": "§1, Theorem D, p. 8; §2.5, Theorem 2.5.5 and proof, p. 29",
+      "status": "missing",
+      "note": "Proof as in [CEGS22a Thm. 4.6]: a smooth chart V → 𝒳̄_d^{crys,0} with Ô_{V,v} ≅ R^{crys,0,O}_{ρ̄}/ϖ [Sta13 0DR0]; the reduced dense open of Theorem 2.5.2 pulls back to a dense reduced open [Sta13 0CMK]; complete local rings of generically reduced finite-type schemes are generically reduced [CEGS22a Lem. 4.5]. Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/33",
+      "kind": "theorem",
+      "name": "Remarks 2.5.6–2.5.7: comparison with d = 2 and sharpness",
+      "statement": "For d = 2, Theorem 2.5.5 is a case of [CEGS22a Thm. 4.6], proved there through the Kisin resolution. The analogous statement fails for potentially crystalline weight-0 rings of generic tame type when d ≥ 4 (Breuil–Mézard multiplicities > 1 [LLHLM23 Rem. 8.1.4]), and for any parallel Serre weight k > 0 the stack 𝒳_d^{crys,k} is not generically reduced once K is sufficiently ramified. The authors expect Theorem 2.5.2 to hold for p ≤ d as well.",
+      "locator": "§2.5, Remarks 2.5.6–2.5.7, p. 29",
+      "status": "missing",
+      "note": "Context for the brief (what the Part II must not claim). Routed to WeightZeroCrystallineLiftingRings."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/34",
+      "kind": "definition",
+      "name": "Decomposed generic residual representations",
+      "statement": "ρ̄ : G_F → GL_n(𝔽̄_p) is decomposed generic [ACC+ Def. 4.3.1] if there is a prime l ≠ p splitting completely in F such that for every v | l, ρ̄ is unramified at v and the eigenvalues α_1, …, α_n of ρ̄(Frob_v) satisfy α_i/α_j ≠ l for i ≠ j.",
+      "locator": "§3.1.1, p. 30 (citing ACC+ Definition 4.3.1)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ],
+      "note": "AutomorphicGaloisRepresentationsPartII AG2.7 (decomposed-generic API), as for PAPER-QIAN-23."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/35",
+      "kind": "definition",
+      "name": "Adequate subgroups",
+      "statement": "Adequacy of a subgroup H ⊂ GL_n(𝔽) in the sense of [MT23 Def. 1.1.1] (Thorne's condition [Tho12] as refined there: vanishing of the relevant H¹ and End(𝔽^n) spanned by the semisimple elements of H).",
+      "locator": "§3.1.1, p. 30",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "note": "ArithmeticGaloisRepresentations G7 plans adequacy and the strengthened image conditions."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/36",
+      "kind": "definition",
+      "name": "Local deformation problems D^□_v, D^{crys,0}_v and D^χ_v",
+      "statement": "A local deformation problem is a P̂GL_n-stable subfunctor of D^□_v = D^{□,O}_{ρ̄|_{G_{F_v}}} represented by a quotient R_v of R^□_v [ACC+ §6.2.1]. Used: D^□_v itself; for v | p the weight-0 crystalline lifts D^{crys,0}_v (R^{crys,0,O}); and D^χ_v [ACC+ §6.2.15] for q_v ≡ 1 mod p, ρ̄|_{G_{F_v}} trivial, p > n, and characters χ_i : O_{F_v}^× → O^× trivial mod ϖ: lifts with char ρ(σ)(X) = Π_i (X − χ_i(Art^{−1}_{F_v}(σ))) for σ ∈ I_{F_v}; with the component properties of [ACC+ Props. 6.2.16, 6.2.17].",
+      "locator": "§3.1.1, p. 30; proof of Lemma 3.2.4, pp. 33–34",
+      "status": "planned",
+      "planned": [
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "note": "LocalGaloisDeformationRings L7 constructs rank-n local conditions away from p and exports the component input used in ACC+ §6.2."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/37",
+      "kind": "definition",
+      "name": "Global deformation problems and framed global deformation rings",
+      "statement": "S = (ρ̄, S, {O}_{v∈S}, {D_v}_{v∈S}) as in [ACC+ Def. 6.2.2] with Λ_v = O; D_S is represented by R_S, T-framed deformations by R^T_S, which receives R^{T,loc}_S = ⊗̂_{v∈T} R_v.",
+      "locator": "§3.1.1, p. 30",
+      "status": "planned",
+      "planned": [
+        "GlobalGaloisDeformations:G8"
+      ],
+      "note": "GlobalGaloisDeformations G8 (ACC+ Definition 6.2.2)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/38",
+      "kind": "definition",
+      "name": "Locally symmetric spaces X_K, Hecke algebras T^S(K, V) and the Hecke polynomial P_v(X)",
+      "statement": "For F imaginary CM and a good (neat, compact open, factorisable) K ⊂ GL_n(𝔸_F^∞), X_K = GL_n(F)\\(X_∞ × GL_n(𝔸_F^∞)/K) with X_∞ = GL_n(F_∞)/ℝ_{>0}K_∞. A finite O-module V with G(F) × K_S-action gives a local system on X_K and an action of H(GL_n(𝔸_F^{∞,S}), K^S) ⊗ O on RΓ(X_K, V) [ACC+ §2.1.2]; its image is T^S(K, V). P_v(X) = X^n − T_{v,1}X^{n−1} + ⋯ + (−1)^i q_v^{i(i−1)/2}T_{v,i}X^{n−i} + ⋯ + (−1)^n q_v^{n(n−1)/2}T_{v,n}, with T_{v,i} the double coset of diag(ϖ_v (i times), 1, …, 1).",
+      "locator": "§3.1.2, pp. 30–31",
+      "status": "planned",
+      "planned": [
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3"
+      ],
+      "note": "ArithmeticLocallySymmetricSpaces ALS.0, ALS.1, ALS.3 (spaces, local systems, Hecke correspondences on complexes); IntegralHeckeAndGaloisDeterminants IHG.2 (Hecke algebras on complexes) and IHG.3 (the integral spherical normalisation of T_{v,i} and P_v)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/39",
+      "kind": "theorem",
+      "name": "Galois representations attached to maximal ideals of T^S(K, V)",
+      "statement": "If 𝔪 ⊂ T^S(K, V) is maximal there is a semisimple ρ̄_𝔪 : G_{F,S′} → GL_n(k(𝔪)) with char ρ̄_𝔪(Frob_v) equal to the image of P_v(X) for v ∉ S′ [ACC+ Thm. 2.3.5].",
+      "locator": "§3.1.2, p. 31",
+      "status": "planned",
+      "planned": [
+        "TorsionCohomologyInfrastructure:TC.4",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5"
+      ],
+      "note": "The torsion Galois determinants through nilpotent descent: TorsionCohomologyInfrastructure TC.4 and IntegralHeckeAndGaloisDeterminants IHG.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/40",
+      "kind": "theorem",
+      "name": "Cohomology localised at non-Eisenstein 𝔪 is described by regular algebraic cuspidal representations of weight 0",
+      "statement": "If ρ̄_𝔪 is absolutely irreducible, H^i(X_K, O)_𝔪 ⊗_O E is described in terms of cuspidal automorphic representations of GL_n(𝔸_F) that are regular algebraic of weight 0 (π_∞ has the infinitesimal character of the trivial representation) [ACC+ Thm. 2.4.10].",
+      "locator": "§3.1.2, p. 31",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ],
+      "note": "AutomorphicSpectralTheory AS.5 (weighted cohomology and the automorphic comparison); regular algebraic weights in AG2.0."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/41",
+      "kind": "definition",
+      "name": "The relation 'connects' (∼) of BLGGT14",
+      "statement": "Continuous ρ_1, ρ_2 : G_K → GL_n(O_{ℚ̄_l}) connect, ρ_1 ∼ ρ_2 [BLGGT14 §1.4], if they have equivalent reductions, are potentially crystalline with the same labelled Hodge–Tate weights, and define points of the same irreducible component of the corresponding lifting ring over ℚ̄_l (for weight 0 crystalline: of R^{crys,0,O}_{ρ̄} ⊗_O ℚ̄_p, Remark 3.2.2). It is compatible with restriction, direct sums and tensor products ([BLGGT14 p. 530 (5)]).",
+      "locator": "§3.2, Theorem 3.2.1(5c) and Remark 3.2.2, pp. 31–32; proof of Proposition 6.2.3, p. 56",
+      "status": "missing",
+      "note": "Routed as a source of LocalGaloisDeformationRings L7 (components of potentially semistable lifting rings), as PAPER-BOXER-CALEGARI-GEE-25 routed its own 'connects' item."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/42",
+      "kind": "theorem",
+      "name": "Caraiani–Newton local–global compatibility at p in weight 0",
+      "statement": "For π regular algebraic cuspidal of weight 0 on GL_n(𝔸_F), F imaginary CM, with π_v unramified at v | p, r_ι(π)|_{G_{F_v}} is crystalline with the same labelled Hodge–Tate weights {0, …, n − 1} [CN23 Thm. 4.3.1]; the torsion version [CN23 Thm. 4.2.15] shows that the Hecke-algebra-valued Galois representations satisfy the crystalline weight-0 local condition at v | p, with arbitrary ramification of p in F.",
+      "locator": "§3.1, p. 30; Remark 3.2.2, Proposition 3.2.3 and proof of Theorem 3.2.5, pp. 32–34",
+      "status": "missing",
+      "note": "Imported from Caraiani–Newton (arXiv 2301.10509), a prerequisite; the atlas plans local–global compatibility at p only in the Fontaine–Laffaille and ordinary cases (PotentialAutomorphyInfrastructure PA.1, PA.2). Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/43",
+      "kind": "theorem",
+      "name": "Theorem 3.2.1: automorphy lifting in weight 0 with p arbitrarily ramified",
+      "statement": "Let F be an imaginary CM or totally real field and p > n prime. Let ρ : G_F → GL_n(ℚ̄_p) be continuous with (1) ρ unramified almost everywhere; (2) ρ|_{G_{F_v}} crystalline of weight 0 for every v | p; (3) ρ̄ absolutely irreducible and decomposed generic, with ρ̄|_{G_{F(ζ_p)}} of adequate image; (4) some σ ∈ G_F − G_{F(ζ_p)} with ρ̄(σ) scalar; (5) a cuspidal π of GL_n(𝔸_F), regular algebraic of weight 0, with ρ̄ ≅ r̄_ι(π) and, for v | p, π_v unramified and r_ι(π)|_{G_{F_v}} ∼ ρ|_{G_{F_v}}. Then ρ is automorphic: ρ ≅ r_ι(Π) for a cuspidal Π of weight 0, and Π_v is unramified whenever v | p or both ρ and π are unramified at v.",
+      "locator": "§3.2, Theorem 3.2.1, pp. 31–32; proof, p. 35",
+      "status": "missing",
+      "note": "A version of [ACC+ Thm. 6.1.1] and [MT23 Thm. 1.2] allowing arbitrary ramification at p in weight 0. Deduced from Theorem 3.2.5 by the base change argument of [ACC+ §6.5.12]. Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/44",
+      "kind": "construction",
+      "name": "The setting of §3.2: hypotheses (1)–(8), the level K and the problems S_χ",
+      "statement": "F imaginary CM with maximal totally real F⁺, p > n odd, π cuspidal regular algebraic of weight 0, S ⊇ S_p and R ⊂ S − S_p with: (1) every prime below S or ramified in F splits in an imaginary quadratic subfield of F; (2) the degree condition Σ_{v″≠v̄,v̄′}[F⁺_{v″} : ℚ_p] > ½[F⁺ : ℚ_p]; (3) r̄_ι(π) absolutely irreducible, decomposed generic, adequate on G_{F(ζ_p)}; (4) π_v unramified for v | p; (5) for v ∈ R, π_v^{Iw_v} ≠ 0, q_v ≡ 1 mod p, r̄_ι(π)|_{G_{F_v}} trivial; (6) for v ∈ S − (R ∪ S_p), π_v unramified, v ∉ R^c, H²(F_v, ad r̄_ι(π)) = 0; (7) two places of S − (R ∪ S_p) of distinct residue characteristics; (8) π unramified outside S. K_v = GL_n(O_{F_v}) (v ∉ S or v | p), Iw_v (v ∈ R), Iw_{v,1} (otherwise); 𝔪 with ρ̄_𝔪 ≅ r̄_ι(π); S_χ = (ρ̄_𝔪, S, {O}, {D^{crys,0}_v}_{S_p} ∪ {D^χ_v}_R ∪ {D^□_v}_{S−(R∪S_p)}), with χ trivial or pairwise distinct at each v ∈ R, and the module O(χ^{−1}).",
+      "locator": "§3.2, pp. 32–33",
+      "status": "missing",
+      "note": "Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/45",
+      "kind": "theorem",
+      "name": "Proposition 3.2.3: Galois representations valued in the Hecke algebra with the crystalline condition",
+      "statement": "There are δ ≥ 1 depending only on n and [F : ℚ], an ideal J ⊂ T^S(RΓ(X_K, O(χ^{−1})))_𝔪 with J^δ = 0, and a continuous surjection f_{S_χ} : R_{S_χ} → T^S(RΓ(X_K, O(χ^{−1})))_𝔪/J such that char(f_{S_χ} ∘ ρ_{S_χ}(Frob_v)) is the image of P_v(X) for every finite v ∉ S.",
+      "locator": "§3.2, Proposition 3.2.3 and proof, p. 33",
+      "status": "missing",
+      "note": "A version of [ACC+ Prop. 6.5.3], using [CN23 Thm. 4.2.15] for the condition at v ∈ S_p. Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/46",
+      "kind": "theorem",
+      "name": "Lemma 3.2.4: the completed tensor products of local deformation rings",
+      "statement": "Fix χ trivial, or pairwise distinct at each v ∈ R. (1) R^{S,loc}_{S_χ} is equidimensional of dimension 1 + n²|S| + (n(n − 1)/2)[F : ℚ], with every generic point of characteristic 0. (2) Every generic point of Spec R^{S,loc}_{S_χ}/ϖ specialises from a unique generic point of Spec R^{S,loc}_{S_χ}. (3) If the χ_{v,i} are pairwise distinct, Spec R^{S,loc}_{S_χ} → Spec R^{S_p,loc}_{S_χ} = Spec R^{S_p,loc}_{S_1} is a bijection on irreducible components. (4) Each characteristic-zero point of Spec R^{S_p,loc}_{S_1} lies on a unique irreducible component. (5) With χ pairwise distinct and C a component of Spec R^{S,loc}_{S_1} with image C_p, the generic points of C ∩ Spec R^{S,loc}_{S_1}/ϖ generalise to the generic point of Spec R^{S,loc}_{S_χ} corresponding to C_p.",
+      "locator": "§3.2, Lemma 3.2.4 and proof, pp. 33–34",
+      "status": "missing",
+      "note": "Inputs: [BLGHT11 Lem. 3.3], [ACC+ Lem. 6.2.25, Props. 6.2.16–6.2.17], [Kis08 Thms. 3.3.4, 3.3.8], and Theorem 2.5.5 with [CN23 Lem. 5.3.3] (generically reduced special fibre ⇒ unique generalisations). Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/47",
+      "kind": "theorem",
+      "name": "Generic reducedness of the special fibre implies unique generalisation of its generic points",
+      "statement": "If R is a complete local Noetherian O-flat ring whose special fibre R/ϖ is generically reduced, then every generic point of Spec R/ϖ is the specialisation of a unique generic point of Spec R [CN23 Lem. 5.3.3].",
+      "locator": "§3.2, proof of Lemma 3.2.4(2), pp. 33–34",
+      "status": "missing",
+      "note": "The bridge from Theorem D to derived Ihara avoidance. Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/48",
+      "kind": "theorem",
+      "name": "Theorem 3.2.5: change of the component at p preserves support (derived Ihara avoidance)",
+      "statement": "Let f_1, f_2 : R_{S_1} → O have associated lifts ρ_1, ρ_2 : G_{F,S} → GL_n(O). If ker(f_1) ∈ Supp_{R_{S_1}}(H*(X_K, O)_𝔪) and ρ_1|_{G_{F_v}} ∼ ρ_2|_{G_{F_v}} for each v ∈ S_p, then ker(f_2) ∈ Supp_{R_{S_1}}(H*(X_K, O)_𝔪).",
+      "locator": "§3.2, Theorem 3.2.5 and proof, pp. 34–35",
+      "status": "missing",
+      "note": "Calegari–Geraghty patching as in [ACC+ §§6.4–6.5] and [MT23 §8] with the crystalline weight-0 condition at p; the support argument uses [CN23 Prop. 5.4.2, Cor. 5.4.3] and Lemma 3.2.4. PotentialAutomorphyInfrastructure PA.3–PA.4 and DeformationAndDerivedPatchingAlgebra P8–P9 plan the generic patching and support machinery; this weight-0 instance is routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/49",
+      "kind": "construction",
+      "name": "The patched objects in weight 0",
+      "statement": "Patching supplies: S_∞ = O[[X_1, …, X_r]] with augmentation ideal 𝔞_∞; perfect complexes C_∞, C′_∞ of S_∞-modules with C_∞ ⊗^L S_∞/ϖ ≅ C′_∞ ⊗^L S_∞/ϖ and C_∞ ⊗^L S_∞/𝔞_∞ ≅ RHom_O(RΓ(X_K, O)_𝔪, O)[−d]; S_∞-subalgebras T_∞, T′_∞ with common image modulo ϖ, T_∞ → T(K, O)_𝔪; complete local S_∞-algebras R_∞, R′_∞, power series over R^{S,loc}_{S_1}, R^{S,loc}_{S_χ}, with R_∞ ↠ T_∞/I_∞, R′_∞ ↠ T′_∞/I′_∞ (nilpotent I) and a commutative square to R_{S_1} → T(K, O)^red_𝔪; R_∞/ϖ ≅ R′_∞/ϖ compatibly; and q_0, l_0 with H*(X_K, E)_𝔪 ≠ 0 exactly in [q_0, q_0 + l_0] and dim R_∞ = dim R′_∞ = dim S_∞ − l_0.",
+      "locator": "§3.2, proof of Theorem 3.2.5, items (1)–(6), pp. 34–35",
+      "status": "missing",
+      "note": "ACC+ §§6.4–6.5 with the weight-0 crystalline condition at p. Routed to WeightZeroCrystallineAutomorphyLifting."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/50",
+      "kind": "theorem",
+      "name": "Ordinary automorphy lifting with adequate image (Miagkov–Thorne)",
+      "statement": "[MT23 Thm. 1.3]: an ordinary analogue of Theorem 3.2.1 over CM fields with adequate (rather than enormous) residual image; its conclusion includes that the automorphic representation is unramified wherever the residual and characteristic-zero representations are.",
+      "locator": "§6.2, proof of Theorem 6.2.4, p. 60",
+      "status": "missing",
+      "note": "Used to show S_UA weakly automorphic from the automorphy of Sym^{nm−1} of an elliptic curve. Imported (MT23 is a prerequisite); routed to WeightZeroCrystallineAutomorphyLifting with the other ACC+-style lifting theorems of the paper."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/51",
+      "kind": "construction",
+      "name": "The Dwork family and the character χ",
+      "statement": "Let n > 2 and N > 100n + 100 be integers, N odd and (N, n) = 1. Over T_0 = Spec R_0[t, (1 − t^N)^{−1}], R_0 = ℤ[ζ_N, N^{−1}], let Z ⊂ ℙ^{N−1}_{T_0} be X_1^N + ⋯ + X_N^N = NtX_1⋯X_N, smooth of degree N and dimension N − 2, π : Z → T_0. H = μ_N^N/Δ(μ_N) acts on ℙ^{N−1}; H_0 = ker(Π : H → μ_N) preserves Z, and H acts on the Fermat fibre Z_0. With M = ℚ(e^{2πi/N}), X = Hom(H, M^×) ≅ ker(Σ : (ℤ/Nℤ)^N → ℤ/Nℤ) (via a choice of τ). Choose χ = (χ_1, …, χ_N) ∈ X (printed 'χ ∈ (χ_1, …, χ_N)', sourceIssues E6) in which the trivial character occurs n + 1 times and every other at most once, such that the stabiliser in Gal(M/ℚ) of the set {ρ_1, …, ρ_n} of missing nontrivial characters is trivial; it exists by [Qia23 Lem. 3.1].",
+      "locator": "§4.1, pp. 35–36",
+      "status": "missing",
+      "note": "Qian's non-self-dual Dwork motives. Coalesced into PotentialAutomorphyDworkMotivesPartII (PAPER-QIAN-23), which owns this family."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/52",
+      "kind": "construction",
+      "name": "The eigensheaves V_λ and their stalks",
+      "statement": "For a place λ of M of characteristic l, V_λ = (R^{N−2}π[1/l]_* O_{M_λ})^{H_0 = χ|_{H_0}} (printed with π_*), a lisse sheaf of finite free O_{M_λ}-modules on T_0[1/l]; V_{t,λ} is its stalk at a geometric point over t ∈ T_0(k).",
+      "locator": "§4.1, p. 36",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/53",
+      "kind": "construction",
+      "name": "Katz's hypergeometric sheaf E_λ",
+      "statement": "On T_1 = Spec R_0[t, t^{−1}, (1 − t)^{−1}], with j : T_1 → G_m and f : t ↦ 1 − t, L_i the rank-one sheaf of ρ_i and the Kummer μ_N-torsor, F_i = j_! f^* L_i, set E_λ = j_*(F_1 ∗_! F_2 ∗_! ⋯ ∗_! F_n)[n − 1] (multiplicative convolution with compact support) [Kat90 Ch. 8, Kat09].",
+      "locator": "§4.1, p. 36",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/54",
+      "kind": "theorem",
+      "name": "Theorem 4.2.1: properties of E_λ and comparison with the Dwork family",
+      "statement": "(1) E_λ is lisse of rank n on T_1[1/l], geometrically irreducible after ⊗ M̄_λ, pure of weight n − 1, with det E_λ ≅ M_λ(n(1 − n)/2). (2) For x ∈ T_1(k), k finite with q elements, tr(Frob_k | E_{λ,x}) = (−1)^{n−1} Σ_{x_1⋯x_n = x} Π_i ρ_i((1 − x_i)^{(q−1)/N}) (4.2.2), with ρ_i(0) = 0. (3) There is a unique character Ψ_λ of π_1(Spec R_0[1/l]) such that, with g : T′_0 = T_0[1/t] → T_1, t ↦ t^{−N}, (j′)^*V_λ ⊗ M̄_λ ≅ g^*E_λ ⊗ M̄_λ(Ψ_λ) (4.2.3).",
+      "locator": "§4.2, Theorem 4.2.1 and proof, pp. 36–37",
+      "status": "missing",
+      "note": "From [Kat09], [Kat90 Ch. 8, Thm. 8.12.2(1a)], [DK17 §A.1.6] and [Kat09 Thm. 5.3]. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/55",
+      "kind": "theorem",
+      "name": "Lemma 4.2.4: the twisting character Ψ comes from an algebraic Hecke character",
+      "statement": "There is a Hecke character Ψ : ℚ(ζ_N)^×\\𝔸^×_{ℚ(ζ_N)} → ℂ^× of type A_0, unramified away from N, defined over M, with Ψ_λ associated to Ψ for every λ; and Ψ·c(Ψ) = |·|^{N−n−1} (printed |·|^{N−n}; sourceIssues E7).",
+      "locator": "§4.2, Lemma 4.2.4 and proof, p. 37",
+      "status": "missing",
+      "note": "Proof: λ-independence of Frobenius traces as in [Kat09 Question 5.5], Henniart's theorem [Hen82], and c-linear isomorphisms V_{c(λ)} ≅ V_λ^∨(2 − N) (printed (1 − N)) and E_{c(λ)} ≅ E_λ^∨(1 − n) with Schur's lemma. Algebraic Hecke characters and their Galois realisations are planned in ComplexMultiplicationAndExplicitReciprocity CM.4. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/56",
+      "kind": "construction",
+      "name": "The twisted local systems W_λ",
+      "statement": "W_λ = V_λ ⊗ O_{M_λ}(Ψ_λ^{−1}): W_λ ⊗ M_λ is lisse of rank n, pure of weight n − 1, geometrically irreducible, with determinant M_λ(n(1 − n)/2); W_{t,λ} is the stalk at t and W̄_λ = W_λ ⊗ k(λ).",
+      "locator": "§4.2, p. 37",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/57",
+      "kind": "theorem",
+      "name": "Katz–Messing: independence of ℓ for Frobenius twisted by automorphisms",
+      "statement": "For a smooth proper variety over a finite field with an action of a finite group H, the characteristic polynomial of h·Frob on H^i_ét(−, ℚ̄_λ) has coefficients in O_M independent of λ ∤ char, and agrees with that on crystalline cohomology [KM74 Thm. 2(2)], applicable to crystalline cohomology by [GM87].",
+      "locator": "§4.2, proof of Proposition 4.2.5, p. 38",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/58",
+      "kind": "theorem",
+      "name": "Proposition 4.2.5: the compatible system W_{t,λ}",
+      "statement": "Let F/ℚ(ζ_N) be a number field. (1) If v ∤ Nl (char v = l′ ≠ l) and t ∈ T_0(O_{F_v}), W_{t,λ} is unramified at v and Q_v(X) = det(X − Frob_v | W_{t,λ}) ∈ O_M[X] is independent of λ. (2) If char v = char λ = l and t ∈ T_0(F_v), W_{t,λ} is de Rham with HT_τ(W_{t,λ}) = {0, 1, …, n − 1}; if moreover l ∤ N and t ∈ T_0(O_{F_v}), it is crystalline, Frob_v on WD(W_{t,λ}) has characteristic polynomial Q_v(X), and W_{t,λ} is ordinary iff the roots of Q_v have l-adic valuations 0, [k(v) : 𝔽_l], …, (n − 1)[k(v) : 𝔽_l]. (3) For t ∈ T_0(F) and S the places dividing N or where t is not integral, (M, S, {Q_v(X)}, {W^ss_{t,λ}}, {{0, …, n − 1}}) is a weakly compatible system of rank n, pure of weight n − 1 [BLGGT14 §5.1].",
+      "locator": "§4.2, Proposition 4.2.5 and proof, pp. 37–38",
+      "status": "missing",
+      "note": "Uses smooth proper base change, [KM74], the crystalline comparison (CohomologyComparisons CP.2) with [GM87], [Qia23 Lem. 3.10] and [Ger19 Lem. 2.32]. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/59",
+      "kind": "theorem",
+      "name": "Drinfeld–Kedlaya: generic slopes of indecomposable F-isocrystals",
+      "statement": "[DK17 Thm. 1.3.3]: for the relevant overconvergent F-isocrystal on a smooth irreducible variety over a finite field there is a nonempty open on which the generic Newton slopes s_1 ≥ ⋯ ≥ s_n are constant and satisfy s_i ≤ s_{i+1} + 1.",
+      "locator": "§4.2, proof of Proposition 4.2.6, p. 38",
+      "status": "missing",
+      "note": "Imported (DK17 is a prerequisite). Overconvergent F-isocrystals are planned in PadicDifferentialEquationsAndRigidCohomology RD.3, the slope theorem is not. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/60",
+      "kind": "theorem",
+      "name": "Proposition 4.2.6: generic crystalline ordinarity of the Dwork family",
+      "statement": "Let v be a place of ℚ(ζ_N) of characteristic l ∤ N and λ a place of M of the same characteristic. There is a nonempty Zariski open U(v; λ) ⊂ T_{0,k(v)} such that for every finite F_w/ℚ(ζ_N)_v and every t ∈ T_0(O_{F_w}) reducing into U(v; λ)(k(w)), W_{t,λ} is a crystalline ordinary representation of G_{F_w}.",
+      "locator": "§4.2, Proposition 4.2.6 and proof, pp. 38–40",
+      "status": "missing",
+      "note": "Proof: by Drinfeld–Kedlaya and the determinant it suffices that s_n(x) = 0 generically; by (4.2.3) and (4.2.2) this reduces to tr(Frob_x | E_{μ,x}) ≢ 0 mod λ off the zeros of u(T) = Σ_r (−1)^{nr} Π_i C(c_i, r) T^r, via the norm identity N_{k/k(v)}(u(x)) = Σ_r (−1)^{nr} Π_i C(c̃_i, r) x^r (sourceIssues E8 in one exponent). Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/61",
+      "kind": "theorem",
+      "name": "Power sums over the units of a finite field",
+      "statement": "For a finite field of cardinality q, Σ_{z ∈ k^×} z^r = 0 unless (q − 1) | r (then it is −1).",
+      "locator": "§4.2, proof of Proposition 4.2.6, p. 39",
+      "status": "library",
+      "library": [
+        "mathlib:FiniteField.sum_pow_units"
+      ],
+      "note": "Used to collapse the character sum."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/62",
+      "kind": "theorem",
+      "name": "Lucas's congruence for binomial coefficients",
+      "statement": "For a prime l, C(n, k) ≡ Π_i C(n_i, k_i) mod l where n_i, k_i are the base-l digits; iterating gives the base-q_v form C(c̃_i, r) ≡ Π_j C(c_i, r_j) mod l used in the proof (from (1 + X)^{c̃_i} = Π_j (1 + X^{q_v^j})^{c_i} in 𝔽_l[X]).",
+      "locator": "§4.2, proof of Proposition 4.2.6, p. 40",
+      "status": "library",
+      "library": [
+        "mathlib:Choose.choose_modEq_choose_mul_prod_range_choose",
+        "mathlib:Choose.choose_modEq_prod_range_choose"
+      ],
+      "note": "Mathlib's Lucas theorem (with the mixed-radix form)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/63",
+      "kind": "definition",
+      "name": "Definitions 4.3.1–4.3.2: finite unitary groups and Hermitian forms",
+      "statement": "For a quadratic extension l/k of finite fields with Galois generator c and M† = (M^c)^t, GU_n(l) = {M ∈ GL_n(l) : M†M = λ ∈ k^×}, with multiplier ν(M) = M†M and SU_n(l) = ker ν. A Hermitian form on an l-space V is k-bilinear with ⟨ax, y⟩ = a⟨x, y⟩, ⟨x, ay⟩ = c(a)⟨x, y⟩ and ⟨y, x⟩ = c⟨x, y⟩; scaling by η with cη = −η gives the skew version (Remark 4.3.3).",
+      "locator": "§4.3, Definitions 4.3.1–4.3.2 and Remark 4.3.3, p. 40",
+      "status": "missing",
+      "note": "Routed with the Dwork monodromy it serves (Proposition 4.4.2, Remark 4.4.3). Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/64",
+      "kind": "theorem",
+      "name": "Lemma 4.3.4: conjugate-self-dual absolutely irreducible representations are unitary",
+      "statement": "Let V be an l-vector space with an absolutely irreducible representation of a group G and an l-linear isomorphism V^∨ ≅ V^c ⊗ χ^{−1} (4.3.4) for some χ : G → k^×. Then in a suitable basis G → GL_n(l) has image in GU_n(l) (with multiplier χ).",
+      "locator": "§4.3, Lemma 4.3.4 and proof, pp. 40–41",
+      "status": "missing",
+      "note": "Proof by Schur's lemma, Hilbert 90 and the uniqueness of nondegenerate Hermitian forms over finite fields [Lew82 §4]. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/65",
+      "kind": "theorem",
+      "name": "Hilbert's Theorem 90 for a cyclic extension",
+      "statement": "If L/K is a finite cyclic Galois extension with generator g and N_{L/K}(x) = 1, then x = y/g(y) for some y ∈ L^×.",
+      "locator": "§4.3, proof of Lemma 4.3.4, p. 41",
+      "status": "library",
+      "library": [
+        "mathlib:groupCohomology.exists_div_of_norm_eq_one"
+      ],
+      "note": "Used for λ = c(η)/η."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/66",
+      "kind": "construction",
+      "name": "Definition 4.4.1: the moduli spaces T({U_{λ_i}}) of level structures on W̄",
+      "statement": "For distinct primes l_1, l_2 ∤ 2N, places λ_i of ℚ(ζ_N) above them and data (1) étale sheaves U_{λ_i} of rank-n k(λ_i)-modules on Spec F, (2) isomorphisms η_i : ∧^n W̄_{λ_i} → ∧^n U_{λ_i}, (3) when −1 mod N ∈ ⟨l_i⟩ a perfect pairing U × U → k(λ_i)(1 − n) that is Hermitian up to η with cη = −η (the Dwork side has the matching pairing from Poincaré duality), the functor F({U_{λ_i}}) of pairs of isomorphisms φ_i : W̄_{λ_i,S} → U_{λ_i,S} with ∧^n φ_i = η_i and preserving the pairings is represented by a finite étale T_{0,F}-scheme T({U_{λ_i}}).",
+      "locator": "§4.4, Definition 4.4.1, pp. 41–42",
+      "status": "missing",
+      "note": "New relative to Qian: the unitary case −1 mod N ∈ ⟨l⟩ is allowed. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/67",
+      "kind": "theorem",
+      "name": "Proposition 4.4.2: T({U_{λ_i}}) is geometrically irreducible",
+      "statement": "With notation as above, T({U_{λ_i}}) is a geometrically irreducible smooth F-scheme.",
+      "locator": "§4.4, Proposition 4.4.2 and proof, p. 42",
+      "status": "missing",
+      "note": "Proof: the geometric monodromy of W̄_{λ_i} is SU_n(k(λ_i)) when −1 mod N ∈ ⟨l_i⟩ (a variant of [Qia23 Lem. 3.7]: a subgroup of index dividing N, coprime to n) and SL_n(k(λ_i)) otherwise; Lemma 5.2.3 and Goursat's lemma give the product. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/68",
+      "kind": "theorem",
+      "name": "Goursat's lemma",
+      "statement": "A subgroup of G × H surjecting onto both factors is the preimage of the graph of an isomorphism G/G′ ≅ H/H′ for normal subgroups G′, H′.",
+      "locator": "§4.4, proof of Proposition 4.4.2, p. 42",
+      "status": "library",
+      "library": [
+        "mathlib:Subgroup.goursat_surjective",
+        "mathlib:Subgroup.goursat"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/69",
+      "kind": "definition",
+      "name": "Remark 4.4.3: the level-structure data as residual representations",
+      "statement": "If l ≡ 1 mod N and λ | l, the data (1)–(3) amount to r̄_l : G_F → GL_n(𝔽_l) with determinant ε̄^{−n(n−1)/2}; if l ≡ −1 mod N, to r̄_l : G_F → GU_n(𝔽_{l²}) with multiplier ε̄^{1−n} (Lemma 4.3.4). For l_1, l_2 ≡ ±1 mod N one writes T(r̄_{λ_1}, r̄_{λ_2}), and T(r̄_λ) for one prime l ≡ 1 mod N; T(r̄_λ) is geometrically irreducible.",
+      "locator": "§4.4, Remark 4.4.3, p. 42",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/70",
+      "kind": "theorem",
+      "name": "Lemma 4.4.4: the Fermat fibre at primes l ≡ −1 mod N",
+      "statement": "Let l > n be prime with l ≡ −1 mod N, v, λ places of ℚ(ζ_N), M above l, τ, cτ : k(v) → k(λ) the two isomorphisms and ω_τ = τ ∘ Art^{−1} on inertia. Then W̄_{0,λ} ≅ ⊕_{i=1}^n ω_τ^{i−1} ω_{cτ}^{n−i}.",
+      "locator": "§4.4, Lemma 4.4.4 and proof, pp. 42–43",
+      "status": "missing",
+      "note": "Proof: the H-eigenspace decomposition of the middle cohomology H^{N−2}(Z_{0,ℚ̄}) of the Fermat fibre (printed H^{N−1}; sourceIssues E9) into lines [DMOS82 I.7.4], orthogonal for the pairing. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/71",
+      "kind": "theorem",
+      "name": "Proposition 4.5.1, first part: Moret-Bailly over CM fields with prescribed local points",
+      "statement": "Let F be imaginary CM, Galois over ℚ, T/F smooth and geometrically irreducible; given F^avoid/F finite, a finite set S_0 of rational primes, for l ∈ S_0 and v | l Galois extensions L_v/F_v with σ(L_v) = L_{σ(v)} for σ ∈ G_{ℚ_l}, and nonempty Gal(L_v/F_v)-stable open Ω_v ⊂ T(L_v): there is a finite CM extension F′/F, Galois over ℚ and linearly disjoint from F^avoid, and P ∈ T(F′), such that F′_w ≅ L_v and P ∈ Ω_v for all w | v | l ∈ S_0.",
+      "locator": "§4.5, Proposition 4.5.1 and first paragraph of proof, p. 43",
+      "status": "planned",
+      "planned": [
+        "PotentialModularityAndCompatibleSystems:R23.1"
+      ],
+      "note": "A special case of [BLGGT14 Prop. 3.1.1] with F′ = FE, E totally real ([Cal12 Thm. 3.1]); PotentialModularityAndCompatibleSystems R23.1 plans Moret-Bailly with prescribed local opens, splitting and linear disjointness (as for PAPER-QIAN-23's item)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/72",
+      "kind": "theorem",
+      "name": "Proposition 4.5.1, last part: surjectivity onto a finite quotient of π_1",
+      "statement": "Given further a finite group G and a surjection f : π_1^ét(T) → G, the point P can be chosen so that f ∘ P_* : G_{F′} → G is surjective.",
+      "locator": "§4.5, Proposition 4.5.1 and second paragraph of proof, pp. 43–44",
+      "status": "missing",
+      "note": "Proof: spread T out over O_F and add local conditions at places of large norm, one per conjugacy class, from the Chebotarev density theorem for schemes of finite type [Ser12 Cor. 9.12]; Jordan's theorem gives surjectivity (cf. [Cal12 Prop. 3.2]). Routed as a source of PotentialModularityAndCompatibleSystems R23.1."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/73",
+      "kind": "definition",
+      "name": "Definition 5.1.1: the representations ρ_{n,m,0}",
+      "statement": "For n, m ≥ 1 let ε_2, ε′_2 : G_{ℚ_{p²}} → ℤ̄_p^× be the two Lubin–Tate characters trivial on Art(p), and ρ_{n,m,0} = ⊕_{i=1}^n ε_2^{m(n−i)}(ε′_2)^{m(i−1)} : G_{ℚ_{p²}} → GL_n(ℤ̄_p); for p > nm it is Fontaine–Laffaille; ρ_0 = ρ_{n,1,0}.",
+      "locator": "§5.1, Definition 5.1.1, p. 44",
+      "status": "missing",
+      "note": "Level-2 fundamental characters are planned in ArithmeticGaloisRepresentations R01.2; this local model is routed as a source of LocalGaloisDeformationRings L7 with the connectedness lemmas."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/74",
+      "kind": "theorem",
+      "name": "Lemma 5.1.3: crystalline lifts of ρ̄_{n,m,0} connect to ρ_{n,m,0}",
+      "statement": "Let K_0/ℚ_{p²} be unramified and ρ : G_{K_0} → GL_n(ℤ̄_p) crystalline with Hodge–Tate weights {0, m, …, (n − 1)m} and ρ̄|_{I_{K_0}} = ρ̄_{n,m,0}|_{I_{K_0}}. Then (1) ρ̄|_{G_{K_1}} = ρ̄_{n,m,0}|_{G_{K_1}} for some finite unramified K_1/K_0; (2) for every finite K/K_0 with ρ̄|_{G_K} = ρ̄_{n,m,0}|_{G_K}, ρ|_{G_K} ∼ ρ_{n,m,0}|_{G_K}.",
+      "locator": "§5.1, Lemma 5.1.3 and proof, p. 44",
+      "status": "missing",
+      "note": "Proof: the Fontaine–Laffaille lifting ring is formally smooth (p > nm), planned in L7. Routed as a source of LocalGaloisDeformationRings L7."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/75",
+      "kind": "theorem",
+      "name": "Lemma 5.1.4: ordinary weight-0 crystalline lifts of the trivial representation connect",
+      "statement": "If ρ_1, ρ_2 are ordinary crystalline weight-0 representations of G_K with ρ̄_1 = ρ̄_2 trivial, then ρ_1 ∼ ρ_2.",
+      "locator": "§5.1, Lemma 5.1.4 and proof, p. 44",
+      "status": "missing",
+      "note": "The ordinary weight-0 crystalline lifting ring of the trivial representation is irreducible [Ger19 Lem. 3.14]. Routed as a source of L7 (ordinary deformation functors and components)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/76",
+      "kind": "theorem",
+      "name": "Lemma 5.1.5: nearby weight-0 crystalline lifts lie on the same component",
+      "statement": "Let ρ : G_K → GL_n(ℤ̄_p) be crystalline of weight 0. There is c = c(K, ρ, n) such that every crystalline weight-0 t : G_K → GL_n(ℤ̄_p) with t ≡ ρ mod p^c satisfies t ∼ ρ.",
+      "locator": "§5.1, Lemma 5.1.5 and proof, pp. 44–45",
+      "status": "missing",
+      "note": "Proof: the generic fibre of the lifting ring is formally smooth at ρ [Kis08 Thm. 3.3.8], so ρ lies on a unique minimal prime; the finitely many other minimal primes contain elements with nonzero constant term. Routed as a source of L7."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/77",
+      "kind": "definition",
+      "name": "Definition 5.2.1: the Taylor–Wiles big image conditions",
+      "statement": "s̄ : G_F → GL_n(𝔽̄_p) satisfies the Taylor–Wiles big image conditions if (1) s̄ is decomposed generic, (2) s̄|_{G_{F(ζ_p)}} has adequate image, and (3) there is σ ∈ G_F − G_{F(ζ_p)} with s̄(σ) scalar.",
+      "locator": "§5.2, Definition 5.2.1, p. 45",
+      "status": "missing",
+      "note": "The combination of hypotheses (3)–(4) of Theorem 3.2.1. Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/78",
+      "kind": "theorem",
+      "name": "Lemma 5.2.2: the big image conditions survive disjoint base change",
+      "statement": "Let s̄ satisfy the Taylor–Wiles big image conditions, F/ℚ Galois, and H/F finite with Galois closure over ℚ linearly disjoint over F from the composite of F(ζ_p) and the Galois closure of the fixed field of ker s̄. Then s̄|_{G_H} satisfies the Taylor–Wiles big image conditions.",
+      "locator": "§5.2, Lemma 5.2.2 and proof, p. 45",
+      "status": "missing",
+      "note": "Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/79",
+      "kind": "theorem",
+      "name": "Lemma 5.2.3: simplicity and automorphisms of PSL_n and PSU_n over finite fields",
+      "statement": "For G = PSL_n(𝔽_{p^k}) or PSU_n(𝔽_{p^{2k}}) (n ≥ 2): G is simple unless (n, p) ∈ {(2, 2), (2, 3), (3, 2)}; these groups are pairwise non-isomorphic except PSL_2(𝔽_{p^k}) ≅ PSU_2(𝔽_{p^{2k}}), PSL_2(𝔽_5) ≅ PSL_2(𝔽_4), PSL_2(𝔽_7) ≅ PSL_3(𝔽_2). For G = PSL_2(𝔽_{p^k}) or PSU_n(𝔽_{p^{2k}}) and A ∈ G the image of a matrix with eigenvalues in 𝔽_p, every automorphism of G preserves these eigenvalues up to scalar.",
+      "locator": "§5.2, Lemma 5.2.3 and proof, pp. 45–46",
+      "status": "missing",
+      "note": "From [Ste68 Thm. 37], [Car72], [Ste60], [Car72 Thm. 12.5.1]. R01.4 consumes general finite-group classification results. Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/80",
+      "kind": "theorem",
+      "name": "Lemma 5.2.4: big image for Sym^{n−1}r̄_A ⊗ r̄_B with r̄_B unitary",
+      "statement": "Let F/ℚ be Galois, r̄_A : G_F → GL_2(𝔽̄_p) and r̄_B : G_F → GU_m(𝔽̄_{p²}) with r̄_A(G_{F(ζ_p)}) = SL_2(𝔽_p) and r̄_B(G_{F(ζ_p)}) = SU_m(𝔽_{p²}); let s̄ = Sym^{n−1}r̄_A ⊗ r̄_B, p > 2mn + 1, and if m = 2 assume the projective kernel fields of r̄_A and r̄_B are linearly disjoint over F(ζ_p). (1) s̄ is decomposed generic and s̄|_{G_{F(ζ_p)}} has adequate image. (2) If det r̄_A = ε̄^{−m} and r̄_B has multiplier ε̄^{1−m}, then s̄ has image in GU_{mn}(𝔽_{p²}) with multiplier ε̄^{1−mn}. (3) If moreover ε̄(G_F) = 𝔽_p^×, s̄ satisfies the Taylor–Wiles big image conditions.",
+      "locator": "§5.2, Lemma 5.2.4 and proof, pp. 46–47",
+      "status": "missing",
+      "note": "Proof via Chebotarev with Frobenius (A, …, A) × (B, …, B), [Tho12 Thm. A.9] and Lemma 4.3.4 (sourceIssues E10, E11 in the proof). Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/81",
+      "kind": "theorem",
+      "name": "Absolutely irreducible images are adequate for large p",
+      "statement": "[GHTT12 / Tho12, Thm. A.9]: an absolutely irreducible subgroup of GL_n(𝔽̄_p) is adequate when p is large relative to n (the paper uses p > 2mn + 1 and q > 2nm + 1).",
+      "locator": "§5.2, proof of Lemma 5.2.4, p. 47; proof of Theorem 6.2.4, p. 60",
+      "status": "missing",
+      "note": "Routed as a source of ArithmeticGaloisRepresentations G7, which plans adequacy and its verification lemmas."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/82",
+      "kind": "theorem",
+      "name": "Lemma 5.2.5: Frobenius eigenvalues of an induced representation",
+      "statement": "Let E/ℚ be cyclic of degree m, linearly disjoint from F, L = EF, ψ : G_L → 𝔽̄_p^× and r̄_B = Ind_{G_L}^{G_F} ψ. If q splits completely in F, r̄_B is unramified above q and Frob_q generates Gal(E/ℚ), then for v | q the eigenvalues of r̄_B(Frob_v) are λ, ζλ, …, ζ^{m−1}λ with ζ a primitive m-th root of unity.",
+      "locator": "§5.2, Lemma 5.2.5 and proof, pp. 47–48",
+      "status": "missing",
+      "note": "Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/83",
+      "kind": "theorem",
+      "name": "Lemma 5.2.6: big image for Sym^{n−1}r̄_A ⊗ r̄_B with r̄_B induced",
+      "statement": "Let F/ℚ be Galois, r̄_A : G_F → GL_2(𝔽̄_p) with r̄_A(G_{F(ζ_p)}) = SL_2(𝔽_p), and r̄_B ≅ Ind_{G_L}^{G_F} ψ with E/ℚ cyclic of degree m linearly disjoint from F, L = EF and r̄_B|_{G_{F(ζ_p)}} irreducible. Let s̄ = Sym^{n−1}r̄_A ⊗ r̄_B and p > 2mn + 1. (1) s̄ is decomposed generic with adequate image on G_{F(ζ_p)}. (2) If det r̄_A = ε̄^{−m}, det r̄_B = ε̄^{−m(m−1)/2} and ε̄(G_L) = 𝔽_p^×, s̄ satisfies the Taylor–Wiles big image conditions.",
+      "locator": "§5.2, Lemma 5.2.6 and proof, pp. 48–49",
+      "status": "missing",
+      "note": "Routed as a source of ArithmeticGaloisRepresentations (R01.4, G7)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/84",
+      "kind": "theorem",
+      "name": "Lemma 5.3.1: globalising local characters",
+      "statement": "Let F be a number field, S a finite set of places containing no place above 2, and ψ_v : G_{F_v} → ℤ/nℤ for v ∈ S. Then there is χ : G_F → ℤ/nℤ with χ|_{G_{F_v}} = ψ_v for all v ∈ S.",
+      "locator": "§5.3, Lemma 5.3.1 and proof, p. 49",
+      "status": "missing",
+      "note": "From the Grunwald–Wang theorem [AT09 §X Thm. 5] ([Con11 App. A]); Tau Ceti's class field theory roadmap explicitly excludes Grunwald–Wang. Routed as a source of ArithmeticGaloisDuality (R02.2, R02.4), as PAPER-QIAN-23 routed its character-root obstruction."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/85",
+      "kind": "theorem",
+      "name": "Remark 5.3.2: the Grunwald–Wang obstruction",
+      "statement": "The hypothesis on S cannot be dropped (F = ℚ, v = 2, n = 8, ψ_2 unramified of order 8), and for general F one cannot even globalise ψ_v up to an unramified twist: for F = ℚ(√−5) there is ψ_2 : F_2^× → ℤ/8ℤ nontrivial on 16 with no global χ and unramified φ_2 such that χ_2 = ψ_2φ_2, since 16 is an 8th power at every odd place and at ∞ but not in F_2 ≅ ℚ_2(√−5).",
+      "locator": "§5.3, Remark 5.3.2, pp. 49–50",
+      "status": "missing",
+      "note": "The argument that 16 is not an 8th power in F_2 also needs −2 to be a nonsquare (sourceIssues E12). Routed as a source of ArithmeticGaloisDuality."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/86",
+      "kind": "theorem",
+      "name": "Lemma 5.3.3: roots of finite-order characters after a totally real base change",
+      "statement": "Let η be a finite-order character of G_F, F CM, m an integer and F^avoid/F finite. There is a totally real Galois M/ℚ, linearly disjoint from F^avoid, and a character ψ of G_{MF} with η|_{G_{MF}} = ψ^m. If η is unramified above a finite set T of primes not containing 2, M can be taken totally split above T and ψ unramified above T.",
+      "locator": "§5.3, Lemma 5.3.3 and proof, p. 50",
+      "status": "missing",
+      "note": "Proof: reduce to m prime; the obstruction ∂η ∈ H²(F, ℤ/m) ↪ Br(F(ζ_m))[m] (Hochschild–Serre), Albert–Brauer–Hasse–Noether, local degree killing [CF86 §VI Thm. 3], [AT09 §X Thm. 6], [CHT08 Lem. 4.1.2], then Lemma 5.3.1. As in [ACC+ Thm. 7.1.11]. Routed as a source of ArithmeticGaloisDuality (R02.2, R02.4)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/87",
+      "kind": "theorem",
+      "name": "Linear disjointness of field extensions",
+      "statement": "The linear disjointness of intermediate fields and its characterisations used throughout (e.g. Lemma 5.2.2, Proposition 4.5.1, Theorem 6.2.4).",
+      "locator": "§§4.5, 5.2, 6.2",
+      "status": "library",
+      "library": [
+        "mathlib:IntermediateField.LinearDisjoint"
+      ],
+      "note": "As cited by PAPER-QIAN-23."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/88",
+      "kind": "definition",
+      "name": "Definition 6.1.1: very weakly compatible systems, restriction and tensor product",
+      "statement": "A very weakly compatible system R = (M, S, {Q_v(X)}, {r_λ}, {H_τ}) of rank n [ACC+ §7]: M a number field, S a finite set of places, monic degree-n Q_v(X) ∈ M[X] for v ∉ S, multisets H_τ for τ : F ↪ M̄, and continuous semisimple r_λ : G_F → GL_n(M̄_λ) with (a) r_λ unramified at v ∉ S, v ∤ l, with char r_λ(Frob_v) = Q_v(X); (b) for l outside a density-0 set, r_λ crystalline with HT_τ = H_τ; (c) HT_τ(det r_λ) = Σ_{h∈H_τ} h. Restriction to F′/F and tensor products over a common M are defined.",
+      "locator": "§6.1, Definition 6.1.1, pp. 50–51",
+      "status": "planned",
+      "planned": [
+        "PotentialAutomorphyInfrastructure:PA.5",
+        "PotentialModularityAndCompatibleSystems:R24.5:operations"
+      ],
+      "note": "PotentialAutomorphyInfrastructure PA.5 and PotentialModularityAndCompatibleSystems R24.5:operations (rank-n systems, restriction and tensor operations)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/89",
+      "kind": "definition",
+      "name": "Definition 6.1.2 (1), (2), (4), (5): pure, automorphic, irreducible and strongly irreducible systems",
+      "statement": "R is pure of weight m if |ια|² = q_v^m for the roots of Q_v and H_{cτ} = {m − h : h ∈ H_τ}; automorphic if some regular algebraic cuspidal π of GL_n(𝔸_F) and ι : M ↪ ℂ give π_v unramified with rec^T_{F_v}(π_v)(Frob_v) of characteristic polynomial ι(Q_v(X)) for all v ∉ S; irreducible if r_λ is irreducible for l outside a density-0 set; strongly irreducible if R|_{G_{F′}} is irreducible for every finite F′/F.",
+      "locator": "§6.1, Definition 6.1.2, pp. 51–52",
+      "status": "planned",
+      "planned": [
+        "PotentialAutomorphyInfrastructure:PA.5",
+        "PotentialModularityAndCompatibleSystems:R24.5:operations"
+      ],
+      "note": "PA.5 and R24.5:operations."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/90",
+      "kind": "definition",
+      "name": "Definition 6.1.2 (3): weakly automorphic of level prime to T",
+      "statement": "For T a finite set of finite places disjoint from S, R is weakly automorphic of level prime to T if there are a regular algebraic cuspidal π of GL_n(𝔸_F) and ι : M ↪ ℂ such that for all but finitely many v ∉ S and for every v ∈ T, π_v is unramified and rec^T_{F_v}(π_v)(Frob_v) has characteristic polynomial ι(Q_v(X)); weakly automorphic means T = ∅.",
+      "locator": "§6.1, Definition 6.1.2(3), p. 52",
+      "status": "missing",
+      "note": "New in this paper (tensor products with poorly controlled ramification). Routed as a source of PotentialAutomorphyInfrastructure PA.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/91",
+      "kind": "theorem",
+      "name": "The compatible system of a regular algebraic cuspidal π of GL_2 over a CM field",
+      "statement": "For F CM and π regular algebraic cuspidal of GL_2(𝔸_F) of weight λ there is an associated very weakly compatible system R = (M, S, {Q_v(X)}, {r_{π,λ}}, {H_τ}) with H_τ = {λ_{τ,1} + 1, λ_{τ,2}} [ACC+ Lem. 7.1.10].",
+      "locator": "§6.1, p. 52",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.4",
+        "PotentialAutomorphyInfrastructure:PA.5"
+      ],
+      "note": "The HLTT non-self-dual Galois representations are AutomorphicGaloisRepresentationsPartII AG2.4; the compatible-system packaging is PA.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/92",
+      "kind": "theorem",
+      "name": "Lemma 6.1.3: purity from potential weak automorphy of symmetric powers",
+      "statement": "Let R be a very weakly compatible system of rank 2 with H_τ = {0, m} for all τ, and v_0 ∉ S. If for infinitely many n there is a finite Galois F_n/F with Sym^{n−1}R|_{F_n} weakly automorphic of level prime to {v | v_0}, then the roots α_1, α_2 of Q_{v_0}(X) satisfy |ια|² = q_{v_0}^m for every ι : M ↪ ℂ.",
+      "locator": "§6.1, Lemma 6.1.3 and proof, p. 52",
+      "status": "missing",
+      "note": "Proof: the central character of Π is |·|^{n(m−1)(1−n)/2} up to finite order, so Π|·|^{(m−1)(n−1)/2} is unitary; the Jacquet–Shalika bound gives |ια_i| ≤ q_{v_0}^{m/2 + 1/(2(n−1))}; let n → ∞. As in [ACC+ Cor. 7.1.13]. Routed as a source of ModularityAndLanglandsExtensions (ML.3)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/93",
+      "kind": "theorem",
+      "name": "The Jacquet–Shalika bound",
+      "statement": "For a unitary cuspidal automorphic representation of GL_n(𝔸_F) unramified at v, the Satake parameters have absolute value < q_v^{1/2} [JS81 Cor. 2.5].",
+      "locator": "§6.1, proof of Lemma 6.1.3, p. 52",
+      "status": "missing",
+      "note": "Imported analytic input (JS81 is a prerequisite). Routed as a source of ML.3 with the other analytic inputs of the endpoints."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/94",
+      "kind": "theorem",
+      "name": "Lemma 6.1.4: weakly automorphic and pure implies automorphic",
+      "statement": "Let F be CM and R a very weakly compatible system of rank n that is weakly automorphic, via π, and pure of weight m. Then R is automorphic.",
+      "locator": "§6.1, Lemma 6.1.4 and proof, p. 52",
+      "status": "missing",
+      "note": "Proof: at v ∈ S′ − S, r_λ ≅ r_ι(π) (Chebotarev) and Varma's local–global compatibility makes π_v a subquotient of the unramified principal series with Satake parameter from Q_v; purity makes it irreducible. Routed as a source of PotentialAutomorphyInfrastructure PA.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/95",
+      "kind": "theorem",
+      "name": "Varma's local–global compatibility away from p",
+      "statement": "[Var24 Thm. 1]: for π regular algebraic cuspidal on GL_n over a CM field and v ∤ p, r_ι(π)|^ss_{W_{F_v}} ≅ ι^{−1}rec^T_{F_v}(π_v)^ss.",
+      "locator": "§6.1, proof of Lemma 6.1.4, p. 52",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "note": "AutomorphicGaloisRepresentationsPartII AG2.5 (as for PAPER-QIAN-23)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/96",
+      "kind": "theorem",
+      "name": "Lemma 6.1.5: primes of large image have density one",
+      "statement": "Let R be a strongly irreducible very weakly compatible system of rank 2 over a number field F. The set L(R) of primes l ∉ S such that r_λ is crystalline with Hodge–Tate weights H_τ and r̄_λ(G_{F̃}) contains a conjugate of SL_2(𝔽_l) for every λ | l (F̃ the Galois closure of F/ℚ) has Dirichlet density 1.",
+      "locator": "§6.1, Lemma 6.1.5 and proof, p. 53",
+      "status": "missing",
+      "note": "From [ACC+ Lem. 7.1.3]. Routed as a source of PotentialAutomorphyInfrastructure PA.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/97",
+      "kind": "theorem",
+      "name": "The trichotomy for rank-2 compatible systems",
+      "statement": "[ACC+ Lem. 7.1.2]: an irreducible very weakly compatible system of rank 2 is strongly irreducible, Artin up to twist, or induced from a quadratic extension (from algebraic Hecke characters); distinct Hodge–Tate weights exclude the second case.",
+      "locator": "§7.1, proof of Theorem 7.1.1, p. 61; proof of Theorem 7.2.1, pp. 61–62",
+      "status": "missing",
+      "note": "Routed as a source of PotentialAutomorphyInfrastructure PA.5."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/98",
+      "kind": "theorem",
+      "name": "Proposition 6.2.3: the p–r switch",
+      "statement": "Let F be imaginary CM, m ≥ 2, n ≥ 1, X_0 finite, and R of rank 2 with H_τ = {0, m}, det r_λ = ε^{−m}, strongly irreducible, X_0 ∩ S = ∅, F/ℚ Galois containing an imaginary quadratic F_0. Suppose given: (6) E/ℚ cyclic totally real of degree m, disjoint from F, and Ψ : 𝔸_L^× → M^× (L = EF) with Ψ(α) = Π_i τ_i(N_{L/EF_0}α)^{m−i}cτ_i(N_{L/EF_0}α)^{i−1} and R_CM = Ind Ψ_λ with det = ε^{−m(m−1)/2}; (7) primes p ≠ r away from S with places 𝔭, 𝔯; (8) R_aux of rank m, pure of weight m − 1, det ε^{−m(m−1)/2}, H = {0, …, m − 1}; (9) S_UA of rank nm, pure of weight nm − 1, det ε^{−nm(nm−1)/2}, H = {0, …, nm − 1}, weakly automorphic of level prime to X_0 ∪ {v | pr}; and (10)–(17): unramifiedness at X_0 ∪ {v | pr}, p, r > 2nm + 1 with [F(ζ_p) : F] = p − 1, r split in EF_0 and [L(ζ_r) : L] = r − 1, the residual images (SL_2 ⊂ r̄_𝔭(G_F) ⊂ GL_2 and likewise at 𝔯; r̄_{aux,𝔭}(G_F) = GU_m(𝔽_{p²}) with multiplier ε̄^{1−m} if m > 2, GL_2(𝔽_p) if m = 2; r̄_{CM,𝔯}|_{G_{F(ζ_r)}} irreducible), s̄_{UA,𝔭} ≅ s̄_{aux,𝔭} and r̄_{aux,𝔯} ≅ r̄_{CM,𝔯}, and the local conditions at v | p (ordinary or ∼ ρ_{2,m,0}, with r_aux ∼ ρ_{m,1,0} and s_UA ∼ ρ_{nm,1,0}) and at v | r (trivial residually, r_aux ordinary). Then Sym^{n−1}R is weakly automorphic of level prime to X_0.",
+      "locator": "§6.2, Proposition 6.2.3 and proof, pp. 54–57",
+      "status": "missing",
+      "note": "Proof: Theorem 3.2.1 at 𝔭 (Lemmas 5.2.4, 5.1.4) makes S_aux = Sym^{n−1}R ⊗ R_aux weakly automorphic; Theorem 3.2.1 at 𝔯 (Lemmas 5.2.6, 5.1.4, [BLGGT14 p. 530 (5)]) does the same for S_CM = Sym^{n−1}R ⊗ R_CM; cyclic base change [AC89 Ch. 3 Thm. 4.2] and descent as in [ACC+ Prop. 6.5.13] remove R_CM. Routed as a source of ModularityAndLanglandsExtensions ML.2 (potential automorphy assembly)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/99",
+      "kind": "theorem",
+      "name": "Theorem 6.2.4: potential weak automorphy of Sym^{n−1}R",
+      "statement": "Let F be imaginary CM and R a very weakly compatible system of rank 2 with H_τ = {0, m} for some m ≥ 2, det r_λ = ε^{−m}, strongly irreducible. For v_0 ∉ S and each n ≥ 1 there is a CM extension F_n/F, Galois over ℚ, with Sym^{n−1}R|_{G_{F_n}} weakly automorphic of level prime to {v | v_0}.",
+      "locator": "§6.2, Theorem 6.2.4 and proof, pp. 57–61",
+      "status": "missing",
+      "note": "Proof: construct the data of Proposition 6.2.3 over a tower F_1 ⊂ ⋯ ⊂ F_6 (the construction items below, coalesced with the Dwork Part II) and verify (1)–(17). Routed as a source of ML.2."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/100",
+      "kind": "construction",
+      "name": "Construction in Theorem 6.2.4: the CM character Ψ and R_CM",
+      "statement": "Choose E/ℚ totally real cyclic of degree m, disjoint from F_1 (the Galois closure of FF_0), with p_0 unramified; an odd prime q_1 splitting completely in L_1 = EF_1 and v_1 | q_1 split as w_1⋯w_m in L_1; by [HSBT10 Lem. 2.2] a Ψ_0 : 𝔸^×_{L_1} → M^× of the infinity type of Proposition 6.2.3(6a), unramified above X_1, with the Ψ_0|_{O^×_{L_{w_i}}} wildly ramified, pairwise distinct and of product 1; then by Lemma 5.3.3 a CM F_2/F_1 and a finite-order twist Ψ_2 of Ψ_0 ∘ N_{L_2/L_1} with det Ind Ψ_{2,λ} = ε^{−m(m−1)/2}; R_CM = {Ind Ψ_{2,λ}}.",
+      "locator": "§6.2, proof of Theorem 6.2.4, pp. 57–58",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII (the switching data)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/101",
+      "kind": "construction",
+      "name": "Construction in Theorem 6.2.4: the primes N, p, r, q and the fields F_3",
+      "statement": "Choose primes N, p, r (p, r ∈ L(R|_{G_{F_2}}), prime to v_0v_1) with N > 100nm + 100 unramified in L_2 and M, p ≡ −1 mod N, r ≡ 1 mod N, p, r > 2nm + 1, p split in L_2 and M, r split in L_2(ζ_p) and M, Ψ_2 unramified above p and r; then r̄_𝔭, r̄_𝔯 have images between SL_2 and GL_2, r̄_{CM,𝔯}|_{G_{F_2(ζ_N,ζ_r)}} is absolutely irreducible, and the p-adic places split into Σ^ord and Σ^ss (Berger's theorem). Take a solvable CM F_3/F_2(ζ_N) disjoint from the field B cut out by r̄_𝔭 × r̄_𝔯 × r̄_{CM,𝔯}, adjoin e^{2πi/N} to M, and choose a semistable elliptic curve A/ℚ with good reduction at p, r, p_0 and a prime q > 2nm + 1 split in M with ρ̄_{A,q}(G_{F_3}) = GL_2(𝔽_q) and A good ordinary at q.",
+      "locator": "§6.2, proof of Theorem 6.2.4, pp. 58–59",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/102",
+      "kind": "theorem",
+      "name": "Berger's reduction of two-dimensional crystalline representations of small weight",
+      "statement": "[Ber10 Thm. 3.2.1]: a crystalline r : G_{ℚ_p} → GL_2(ℚ̄_p) with Hodge–Tate weights {0, m}, 1 ≤ m ≤ p − 1, is either ordinary or has r̄|_{G_{ℚ_{p²}}} ≅ ρ̄_{2,m,0} (up to unramified twist).",
+      "locator": "§6.2, proof of Theorem 6.2.4, p. 58",
+      "status": "missing",
+      "note": "Imported (Ber10 is a prerequisite through Theorem 6.2.4). Coalesced into PotentialAutomorphyDworkMotivesPartII with the switching construction."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/103",
+      "kind": "theorem",
+      "name": "Kisin's local constancy (a Krasner lemma for families)",
+      "statement": "[Kis99 Thm. 5.1]: for t ∈ T_0(O_{F_v}) and c > 0 there is an open ball U_t ∋ t such that for t′ ∈ U_t the representations W_{t,λ} and W_{t′,λ} are isomorphic modulo λ^c (for the finitely many λ considered).",
+      "locator": "§6.2, proof of Theorem 6.2.4, p. 59",
+      "status": "missing",
+      "note": "Imported (Kis99 is a prerequisite). Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/104",
+      "kind": "construction",
+      "name": "Construction in Theorem 6.2.4: the local data (i)–(v)",
+      "statement": "There is a CM F_4 = K⁺F_3 (K⁺/ℚ totally real Galois with K⁺_v large), disjoint from B′F_3, such that for v | prp_0q the residual representations r̄_𝔭, r̄_𝔯, r̄_{CM,𝔯}, ρ̄_{A,q} are trivial on G_{F_{4,v}} and for k ∈ {m, nm} there are nonempty opens _kΩ_v ⊂ T_0(O_{F_{4,v}}) with: (i) v ∈ Σ^ord: _kW̄_{t,𝔭} trivial, _kW_{t,𝔭} crystalline ordinary, _kW̄_{t,𝔯}, _kW̄_{t,𝔮} trivial; (ii) v ∈ Σ^ss: _kW_{t,𝔭} crystalline with _kW_{t,𝔭} ∼ ρ_{k,1,0}, residuals trivial; (iii) v | r: _kW_{t,𝔯} crystalline ordinary, residuals trivial; (iv) v | p_0: all residuals trivial; (v) v | q: _kW_{t,𝔮} crystalline ordinary, residuals trivial.",
+      "locator": "§6.2, proof of Theorem 6.2.4, p. 59",
+      "status": "missing",
+      "note": "Proof: Propositions 4.2.5–4.2.6 give an ordinary point, Kisin's local constancy with Lemmas 5.1.4–5.1.5 an open ball; for (ii), Lemma 4.4.4 and Lemma 5.1.3 at t = 0. Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/105",
+      "kind": "construction",
+      "name": "Construction in Theorem 6.2.4: R_aux and S_UA by Moret-Bailly",
+      "statement": "For m > 2, apply Proposition 4.5.1 to T(r̄_{CM,𝔯}|_{G_{F_4}}) (r ≡ 1 mod N) with f : π_1(T) → GU_m(𝔽_{p²}) from W̄_𝔭, F^avoid = B′F_4, S_0 = {p, r, p_0, q} and Ω_v the preimages of _mΩ_v: this gives F_5 and R_aux = {W_{t,λ}} with r̄_{aux,𝔭}(G_{F_5}) = GU_m(𝔽_{p²}), r̄_{aux,𝔯} ≅ r̄_{CM,𝔯} and the local properties (m = 2 uses a modular curve with level-r structure, left to the reader). Then apply Proposition 4.5.1 to T(s̄_{aux,𝔭}, Sym^{nm−1}ρ̄_{A,q}|_{G_{F_5}}) (a Hermitian structure being unique over a finite field) to get F_6 and S_UA with s̄_{UA,𝔭} ≅ s̄_{aux,𝔭}, s̄_{UA,𝔮} ≅ Sym^{nm−1}ρ̄_{A,q} and the local properties.",
+      "locator": "§6.2, proof of Theorem 6.2.4, pp. 59–60",
+      "status": "missing",
+      "note": "Coalesced into PotentialAutomorphyDworkMotivesPartII."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/106",
+      "kind": "theorem",
+      "name": "Automorphy of Sym^{nm−1} of an elliptic curve over F_6",
+      "statement": "For a semistable elliptic curve A/ℚ and F_6 CM Galois over ℚ, Sym^{nm−1}ρ_{A,q}|_{G_{F_6}} is automorphic, associated to a regular algebraic cuspidal representation that is ι-ordinary at q, by [BCDT01], [Die15] (base change to totally real fields), [NT22] (symmetric powers of Hilbert modular forms) and [AC89], or by [CNT23].",
+      "locator": "§6.2, proof of Theorem 6.2.4, p. 60",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "note": "ModularityAndLanglandsExtensions ML.3 (Newton–Thorne symmetric powers; NT22 is PAPER-NEWTON-THORNE-26) and ML.5 (base change)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/107",
+      "kind": "theorem",
+      "name": "Cyclic base change and descent for GL_n",
+      "statement": "[AC89 Ch. 3 Thm. 4.2]: a cuspidal π of GL_{nm}(𝔸_F) with π ≅ π ⊗ (η ∘ det) for η of order m cutting out a cyclic L/F is automorphically induced from a cuspidal Π of GL_n(𝔸_L), with rec_{F_v}(π)|_{W_{L_w}} = ⊕_i rec_{L_w}(Π^{σ^i}).",
+      "locator": "§6.2, proof of Proposition 6.2.3, pp. 56–57",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "note": "ModularityAndLanglandsExtensions ML.5 registers cyclic base change and automorphic induction with exact hypotheses."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/108",
+      "kind": "definition",
+      "name": "The Sato–Tate group ST(π) and Lemma 7.2.2",
+      "statement": "For π non-CM regular algebraic of weight λ with λ_{τ,1} + λ_{τc,2} = w and ω_π = |·|^{−w}ψ (ψ unitary of type A_0): ST(π) = U_2(ℝ)_a = {g ∈ U_2(ℝ) : det(g)^a = 1} if ψ has finite order a, and U_2(ℝ) otherwise. Lemma 7.2.2: ST(π) is compact, and if π_v is unramified and essentially tempered the GL_2(ℂ)-class of q_v^{−w/2}rec_{F_v}(π_v)(Frob_v) meets ST(π) in a unique ST(π)-class [π_v].",
+      "locator": "§7.2, definition, Lemma 7.2.2 and proof, p. 62",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "note": "ML.3 (Sato–Tate groups and equidistribution)."
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/109",
+      "kind": "theorem",
+      "name": "Serre's equidistribution criterion",
+      "statement": "[Ser98 Ch. I App.]: the classes [π_v] are equidistributed for μ_ST if for every nontrivial irreducible ρ of ST(π) the partial L-function L^{S_π}(π, ρ, s) = Π_{v∉S_π} det(1 − q_v^{−s}ρ([π_v]))^{−1} (absolutely convergent for Re s > 1) continues meromorphically to ℂ, holomorphic and nonvanishing on Re s = 1.",
+      "locator": "§7.2, proof of Theorem 7.2.3, p. 62",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.3",
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "note": "ML.3 with AnalyticNumberTheory AN.4 (the analytic inputs of the Weyl criterion)."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton, P. Scholze, R. Taylor and J. A. Thorne, Potential automorphy over CM fields, Ann. of Math. 197 (2023), 897–1113",
+      "link": "10.4007/annals.2023.197.3.2",
+      "why": "Theorems 2.3.5 and 2.4.10, Definition 4.3.1, §6 (local problems 6.2.15–6.2.17, Lemma 6.2.25, Proposition 6.5.3, Theorem 6.1.1, patching §§6.4–6.5, §6.5.12) and §7 (Lemmas 7.1.2, 7.1.3, 7.1.10, Corollaries 7.1.12–7.1.15, Theorem 7.1.11)."
+    },
+    {
+      "citation": "A. Caraiani and J. Newton, On the modularity of elliptic curves over imaginary quadratic fields, preprint, arXiv:2301.10509 (v3, 27 March 2025)",
+      "link": "https://arxiv.org/abs/2301.10509",
+      "why": "Theorems 4.2.15 and 4.3.1 (local–global compatibility at p in weight 0), Lemma 5.3.3, Proposition 5.4.2 and Corollary 5.4.3 in §3."
+    },
+    {
+      "citation": "M. Emerton and T. Gee, Moduli stacks of étale (φ, Γ)-modules and the existence of crystalline lifts, Ann. of Math. Stud. 215 (Princeton, 2023), with the authors' errata (moduli-errata.pdf)",
+      "link": "10.1515/9780691241364",
+      "why": "Definitions 3.2.1 and 4.8.8, Theorems 4.8.12, 4.8.14, 5.5.12 and 6.5.1, Proposition 4.8.10, §5.5 and Conjecture 8.2.2 in §2.4–2.5."
+    },
+    {
+      "citation": "T. Gee, T. Liu and D. Savitt, The weight part of Serre's conjecture for GL(2), Forum Math. Pi 3 (2015), e2",
+      "link": "10.1017/fmp.2015.1",
+      "why": "Lemma 5.1.2, Proposition 5.1.3, Lemma 5.4.2, Theorems 5.1.5, 5.4.1, 6.1.18 and Proposition 5.3.4 in §2.2."
+    },
+    {
+      "citation": "M. Emerton, T. Gee and F. Herzig, Weight cycling and Serre-type conjectures for unitary groups, Duke Math. J. 162 (2013), 1649–1722",
+      "link": "10.1215/00127094-2266365",
+      "why": "Proposition 3.1.4, Lemma 3.2.2 and Definition 3.2.8 (Breuil modules) in §2.1."
+    },
+    {
+      "citation": "F. Herzig, D. Le and S. Morra, On mod p local-global compatibility for GL_3 in the ordinary case, Compos. Math. 153 (2017), 2215–2286",
+      "link": "10.1112/S0010437X17007357",
+      "why": "Appendix A, Propositions 2.3.4–2.3.5 and Lemma 2.3.2 (Breuil modules and T) in §2.1."
+    },
+    {
+      "citation": "T. Liu, On lattices in semi-stable representations: a proof of a conjecture of Breuil, Compos. Math. 144 (2008), 61–88",
+      "link": "10.1112/S0010437X0700317X",
+      "why": "Theorem 2.3.5 and Corollary 3.3.2 (strongly divisible lattices) in Theorem 2.1.5."
+    },
+    {
+      "citation": "X. Caruso, 𝔽_p-représentations semi-stables, Ann. Inst. Fourier 61 (2011), 1683–1747",
+      "link": "10.5802/aif.2656",
+      "why": "Theorem 2.1.2 (exactness for quasi-Breuil modules) in Theorem 2.1.4."
+    },
+    {
+      "citation": "A. Caraiani, M. Emerton, T. Gee and D. Savitt, The geometric Breuil–Mézard conjecture for two-dimensional potentially Barsotti–Tate Galois representations, Algebra Number Theory 19 (2025), 287–312 (cited as arXiv:2207.05235)",
+      "link": "10.2140/ant.2025.19.287",
+      "why": "Lemma 4.5 and Theorem 4.6 in Theorem 2.5.5 and Remark 2.5.6."
+    },
+    {
+      "citation": "V. Drinfeld and K. S. Kedlaya, Slopes of indecomposable F-isocrystals, Pure Appl. Math. Q. 13 (2017), 131–192",
+      "link": "10.4310/PAMQ.2017.v13.n1.a5",
+      "why": "Theorem 1.3.3, §A.1.6 and §A.3 in Proposition 4.2.6."
+    },
+    {
+      "citation": "N. M. Katz, Exponential sums and differential equations, Ann. of Math. Stud. 124 (Princeton, 1990), and Another look at the Dwork family, in Algebra, arithmetic, and geometry II, Progr. Math. 270 (2009), 89–126",
+      "link": "10.1007/978-0-8176-4747-6_4",
+      "why": "Chapter 8 (Theorem 8.12.2) and Theorem 5.3 of the 2009 paper: the hypergeometric sheaves of Theorem 4.2.1."
+    },
+    {
+      "citation": "K. Miagkov and J. A. Thorne, Automorphy lifting with adequate image, Forum Math. Sigma 11 (2023), e8",
+      "link": "10.1017/fms.2023.3",
+      "why": "Definition 1.1.1, Theorems 1.2 and 1.3 and §8 in §3 and Theorem 6.2.4."
+    },
+    {
+      "citation": "D. Geraghty, Modularity lifting theorems for ordinary Galois representations, Math. Ann. 373 (2019), 1341–1427",
+      "link": "10.1007/s00208-018-1742-4",
+      "why": "Lemma 2.32 (Proposition 4.2.5) and Lemma 3.14 (Lemma 5.1.4)."
+    },
+    {
+      "citation": "M. Kisin, Local constancy in p-adic families of Galois representations, Math. Z. 230 (1999), 569–593",
+      "link": "10.1007/PL00004706",
+      "why": "Theorem 5.1 in the local data of Theorem 6.2.4."
+    },
+    {
+      "citation": "L. Berger, Représentations modulaires de GL_2(ℚ_p) et représentations galoisiennes de dimension 2, Astérisque 330 (2010), 263–279",
+      "link": "",
+      "why": "Théorème 3.2.1 (reductions of crystalline representations) in Theorem 6.2.4."
+    },
+    {
+      "citation": "N. M. Katz and W. Messing, Some consequences of the Riemann hypothesis for varieties over finite fields, Invent. Math. 23 (1974), 73–77",
+      "link": "10.1007/BF01405203",
+      "why": "Theorem 2(2) in Proposition 4.2.5."
+    },
+    {
+      "citation": "S. Marshall, Mass equidistribution for automorphic forms of cohomological type on GL_2, J. Amer. Math. Soc. 24 (2011), 1051–1103, and Erratum, J. Amer. Math. Soc. 25 (2012), 615–616",
+      "link": "10.1090/S0894-0347-2011-00700-5",
+      "why": "Corollary 3 (with the erratum's Ramanujan hypothesis) gives Theorem G."
+    },
+    {
+      "citation": "G. Harder, Eisenstein cohomology of arithmetic groups. The case GL_2, Invent. Math. 89 (1987), 37–118",
+      "link": "10.1007/BF01404673",
+      "why": "3.6.1 and §3.6 (vanishing of H_par unless k = l; Eichler–Shimura) for Theorem F."
+    },
+    {
+      "citation": "H. Jacquet and J. A. Shalika, On Euler products and the classification of automorphic representations I, Amer. J. Math. 103 (1981), 499–558",
+      "link": "10.2307/2374103",
+      "why": "Corollary 2.5 in Lemma 6.1.3."
+    },
+    {
+      "citation": "L. Dieulefait, Automorphy of Symm⁵(GL(2)) and base change, J. Math. Pures Appl. 104 (2015), 619–656",
+      "link": "10.1016/j.matpur.2015.03.010",
+      "why": "Base change of elliptic curves to totally real fields in Theorem 6.2.4."
+    },
+    {
+      "citation": "G. Henniart, Représentations l-adiques abéliennes, in Séminaire de Théorie des Nombres, Paris 1980–81, Progr. Math. 22 (1982), 107–126",
+      "link": "",
+      "why": "The main result gives the type A_0 character Ψ of Lemma 4.2.4."
+    },
+    {
+      "citation": "M. Harris, N. Shepherd-Barron and R. Taylor, A family of Calabi–Yau varieties and potential automorphy, Ann. of Math. 171 (2010), 779–813",
+      "link": "10.4007/annals.2010.171.779",
+      "why": "Lemma 2.2 (existence of Ψ_0) in Theorem 6.2.4."
+    },
+    {
+      "citation": "T. Barnet-Lamb, T. Gee, D. Geraghty and R. Taylor, Potential automorphy and change of weight, Ann. of Math. 179 (2014), 501–609",
+      "link": "10.4007/annals.2014.179.2.3",
+      "why": "§1.4 ('connects'), Lemma 1.2.1, Proposition 3.1.1 (Moret-Bailly) and §5.1 (compatible systems)."
+    },
+    {
+      "citation": "F. Calegari, Even Galois representations and the Fontaine–Mazur conjecture II, J. Amer. Math. Soc. 25 (2012), 533–554",
+      "link": "10.1090/S0894-0347-2011-00721-2",
+      "why": "Theorem 3.1 and Proposition 3.2 in Proposition 4.5.1."
+    },
+    {
+      "citation": "J.-P. Serre, Lectures on N_X(p), Chapman & Hall/CRC Res. Notes Math. 11 (2012)",
+      "link": "10.1201/b11315",
+      "why": "Corollary 9.12 (Chebotarev for schemes of finite type) in Proposition 4.5.1."
+    },
+    {
+      "citation": "E. Artin and J. Tate, Class field theory (AMS Chelsea, 2009)",
+      "link": "10.1090/chel/366",
+      "why": "Chapter X, Theorems 5 and 6 (Grunwald–Wang) in Lemmas 5.3.1 and 5.3.3."
+    },
+    {
+      "citation": "J. A. Thorne, On the automorphy of l-adic Galois representations with small residual image, J. Inst. Math. Jussieu 11 (2012), 855–920, with an appendix by R. Guralnick, F. Herzig, R. Taylor and J. A. Thorne",
+      "link": "10.1017/S1474748012000023",
+      "why": "Theorem A.9 (absolutely irreducible images are adequate) in Lemma 5.2.4 and Theorem 6.2.4."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ModularityAndLanglandsExtensions",
+      "stages": [
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ModularityAndLanglandsExtensions:ML.2",
+        "ModularityAndLanglandsExtensions:ML.3"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/1",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/2",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/3",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/4",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/106",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/107",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/108",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/109",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/5",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/6",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/7",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/8",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/9",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/92",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/93",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/98",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/99"
+      ],
+      "reason": "ML.2 assembles potential automorphy, ML.3 owns symmetric powers, Sato–Tate and their analytic consequences, and ML.0 registers infinity types and normalisations. Theorems A–C and 6.2.1, the Sato–Tate group, Serre's criterion, symmetric powers of elliptic curves and cyclic base change are planned there, and this paper is a source for them. Its missing items of the same kind are routed here too: the p–r switch (Proposition 6.2.3, Theorem 6.2.4, as PAPER-QIAN-23 routed its endpoints to ML.2), purity from symmetric powers (Lemma 6.1.3, the Jacquet–Shalika bound), parallel weight with Clozel's purity lemma, and the Bianchi applications E–G with their definitions."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisRepresentations",
+      "stages": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "ArithmeticGaloisRepresentations:G7"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/77",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/78",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/79",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/80",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/81",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/82",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/83"
+      ],
+      "reason": "R01.4 owns residual-image facts and consumes the finite-group classification results; G7 owns adequacy and the image conditions in rank n. The Taylor–Wiles big-image conditions (Definition 5.2.1), Lemmas 5.2.2–5.2.6 and the adequacy theorem of Guralnick–Herzig–Taylor–Thorne belong inside these layers, where PAPER-QIAN-23 and PAPER-NEWTON-THORNE-26 routed their image lemmas."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:R02.2",
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/84",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/85",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/86"
+      ],
+      "reason": "Globalising local characters (Grunwald–Wang) and the Brauer-group obstruction to m-th roots of characters are Hochschild–Serre and Poitou–Tate statements; PAPER-QIAN-23 routed the same obstruction to R02.2 and R02.4. Tau Ceti's class field theory roadmap excludes Grunwald–Wang."
+    },
+    {
+      "route": "source",
+      "roadmap": "PotentialAutomorphyInfrastructure",
+      "stages": [
+        "PotentialAutomorphyInfrastructure:PA.5"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/90",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/94",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/96",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/97"
+      ],
+      "reason": "PA.5 owns very weakly compatible systems and their transport. Weak automorphy of level prime to T (Definition 6.1.2(3)), its upgrade under purity (Lemma 6.1.4), the density of large-image primes (Lemma 6.1.5) and the trichotomy of ACC+ Lemma 7.1.2 are statements about such systems."
+    },
+    {
+      "route": "source",
+      "roadmap": "PotentialModularityAndCompatibleSystems",
+      "stages": [
+        "PotentialModularityAndCompatibleSystems:R23.1"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/71",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/72"
+      ],
+      "reason": "R23.1 plans Moret-Bailly's theorem with prescribed local opens, splitting and linear disjointness, which is the first part of Proposition 4.5.1. Its refinement making a given finite quotient of π_1 surjective (Chebotarev for schemes of finite type and Jordan's theorem) belongs in the same layer."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocalGaloisDeformationRings",
+      "stages": [
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/41",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/73",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/74",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/75",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/76"
+      ],
+      "reason": "L7 owns rank-n potentially semistable and Fontaine–Laffaille lifting rings, ordinary conditions and their component maps. The relation 'connects', the local models ρ_{n,m,0} and Lemmas 5.1.3–5.1.5 are component statements about these rings; PAPER-BOXER-CALEGARI-GEE-25 routed its 'connects' item to L7 as well."
+    },
+    {
+      "route": "part-ii",
+      "parent": "LocalGaloisDeformationRings",
+      "roadmap": "WeightZeroCrystallineLiftingRings",
+      "title": "Local Galois deformation rings and their components, Part II: generic reducedness of weight-zero crystalline lifting rings via Emerton–Gee stacks",
+      "area": "padic",
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/13",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/14",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/15",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/16",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/17",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/18",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/19",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/20",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/21",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/22",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/23",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/24",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/25",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/26",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/27",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/28",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/29",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/30",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/31",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/32",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/33"
+      ],
+      "brief": "Build on Local Galois deformation rings and their components (LocalGaloisDeformationRings), whose L7 constructs Kisin's rank-n potentially semistable lifting rings of fixed labelled Hodge type, their characteristic-zero points and dimension, and whose L8 separates ordinary conditions. This Part II owns §2 of Boxer–Calegari–Gee–Newton–Thorne, 'The Ramanujan and Sato–Tate conjectures for Bianchi modular forms' (Forum Math. Pi 13 (2025) e10). Final theorems, as the paper states them. Theorem 2.5.5 (Theorem D): if p > d, K/ℚ_p is finite and E/ℚ_p contains the Galois closure of K, then for every ρ̄ : G_K → GL_d(𝔽) the special fibre R^{crys,0,O}_{ρ̄}/ϖ of the weight-0 crystalline lifting ring (Hodge–Tate weights {0, 1, …, d − 1} at every embedding) is generically reduced. Theorem 2.5.2: for p > d the Breuil–Mézard cycle of the special fibre of the Emerton–Gee stack 𝒳_d^{crys,0} is Z^{crys,0} = 𝒳^0_{d,red} (the component of Serre weight 0), so the special fibre is generically reduced. Theorem 2.3.2: a weight-0 crystalline lift of a generic ρ̄ (Definition 2.3.1) is ordinary, upper triangular with diagonal ur_{λ_d}, ur_{λ_{d−1}}ε^{−1}, …, ur_{λ_1}ε^{1−d}. Layers: (1) quasi-Breuil and Breuil modules with 𝔽-coefficients, height ≤ p − 2, monodromy N and the unit c = φ(E(u))/p (use the corrected commutation φ(u^eN(x)) = cN(φ(x)) of sourceIssues E2 and arXiv v3), crystalline Breuil modules, the functor T, Theorem 2.1.4 (exactness, subobject correspondence) and Theorem 2.1.5 (reductions of crystalline lattices of weights in [0, p − 2], through strongly divisible modules); (2) rank-one modules 𝔐(s; a) and M(s; a) (Definitions 2.2.1–2.2.2, Lemma 2.2.3), the extension normal form (Proposition 2.2.4), the crystallinity constraint (Lemma 2.2.7), the invariants n_i, r_i (Lemma 2.2.13), restriction to K_∞ (Lemma 2.2.15), Lemmas 2.2.18–2.2.19 and generic classes (Definition 2.2.26); (3) generic ρ̄, Theorem 2.3.2 and Corollary 2.3.3 (peu ramifiée extensions); (4) the Emerton–Gee stack 𝒳_d, its weight-0 crystalline substack and versal rings (Proposition 2.4.1), Serre weights, maximally nonsplit representations of niveau one (with the index correction of sourceIssues E4 and the ur_ν convention of E3) and the classification of components with generic points (Theorem 2.4.3, using the Emerton–Gee errata); (5) the cycle Z^{crys,0} and Theorem 2.5.2 (sourceIssues E5); (6) the passage from the stack to lifting rings (smooth charts, flat base change of scheme-theoretic images, CEGS Lemma 4.5) and Theorem 2.5.5; record the sharpness remarks 2.5.6–2.5.7 as non-claims. The Emerton–Gee stacks are imported from Emerton–Gee's monograph (a prerequisite); do not re-plan them here. Imports: FiniteFlatGroupsAndIntegralPadicHodgeTheory (R07.3 Fontaine–Laffaille, R07.4 Breuil–Kisin modules, R07.5 residual types); PadicHodgeTheory (R06.2 Hodge–Tate weights, P7 étale (φ, Γ)-modules); LocalGaloisDeformationRings (L7, L8, R08.1, R08.3); Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry R09.4, R09.6: algebraic stacks and versal deformations); Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1). Consumer: WeightZeroCrystallineAutomorphyLifting (Lemma 3.2.4(2)).",
+      "reason": "The atlas plans the lifting rings themselves (L7, R08.3) and Breuil–Kisin modules (R07.4), but not Breuil's S-modules with monodromy, the rank-one extension computations, the Emerton–Gee stacks or any generic-reducedness statement for crystalline lifting rings. These extend the local-deformation direction of LocalGaloisDeformationRings, so they form its Part II. The lifting theorem that consumes Theorem D is global and goes to a separate Part II of PotentialAutomorphyInfrastructure."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PotentialAutomorphyInfrastructure",
+      "roadmap": "WeightZeroCrystallineAutomorphyLifting",
+      "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: weight-zero crystalline automorphy lifting with p arbitrarily ramified",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/42",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/43",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/44",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/45",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/46",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/47",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/48",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/49",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/50"
+      ],
+      "brief": "Build on Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure), whose PA.3 compares patched complexes and proves the generic support implication of derived Ihara avoidance, and whose PA.4 constructs Taylor–Wiles data and ultrapatching. This Part II owns §3 of Boxer–Calegari–Gee–Newton–Thorne (Forum Math. Pi 13 (2025) e10). Final theorem, as the paper states it. Theorem 3.2.1: let F be an imaginary CM or totally real field, p > n prime, and ρ : G_F → GL_n(ℚ̄_p) continuous with (1) ρ unramified almost everywhere; (2) ρ|_{G_{F_v}} crystalline of weight 0 (HT_τ = {0, …, n − 1}) for every v | p; (3) ρ̄ absolutely irreducible and decomposed generic, with ρ̄|_{G_{F(ζ_p)}} of adequate image; (4) some σ ∈ G_F − G_{F(ζ_p)} with ρ̄(σ) scalar; (5) a cuspidal π of GL_n(𝔸_F), regular algebraic of weight 0, with ρ̄ ≅ r̄_ι(π) and, for v | p, π_v unramified and r_ι(π)|_{G_{F_v}} ∼ ρ|_{G_{F_v}}. Then ρ ≅ r_ι(Π) for a cuspidal Π of weight 0, unramified at every v | p and wherever ρ and π are both unramified. Layers: (1) Caraiani–Newton's local–global compatibility at p in weight 0 with arbitrary ramification (their Theorems 4.2.15 and 4.3.1), imported from arXiv 2301.10509 as a prerequisite; (2) the setting of §3.2 (hypotheses (1)–(8), level K, problems S_χ with D^{crys,0}_v at S_p and D^χ_v at R) and Proposition 3.2.3 (Hecke-valued Galois representations with a nilpotent ideal of exponent δ(n, [F:ℚ])); (3) Lemma 3.2.4 on the completed tensor products of local rings, where part (2) takes Theorem D from the sibling Part II WeightZeroCrystallineLiftingRings together with Caraiani–Newton Lemma 5.3.3 (generically reduced special fibre gives unique generalisation of generic points); (4) the weight-0 patched objects and Theorem 3.2.5 (support is preserved when ρ_1|_{G_{F_v}} ∼ ρ_2|_{G_{F_v}} for v | p), with Caraiani–Newton Proposition 5.4.2 and Corollary 5.4.3; (5) the base change argument of ACC+ §6.5.12 giving Theorem 3.2.1; (6) the adequate-image ordinary theorem of Miagkov–Thorne (Theorem 1.3), used in §6. Imports: PotentialAutomorphyInfrastructure PA.3, PA.4; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra P8, P9); Global Galois deformation rings (GlobalGaloisDeformations G8); LocalGaloisDeformationRings L7 (D^χ_v, 'connects'); Arithmetic locally symmetric spaces (ArithmeticLocallySymmetricSpaces ALS.0–ALS.4); Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants IHG.2, IHG.3, IHG.5); Reusable infrastructure for torsion in arithmetic cohomology (TorsionCohomologyInfrastructure TC.4); AutomorphicSpectralTheory AS.5; AutomorphicGaloisRepresentationsPartII AG2.4, AG2.7; ArithmeticGaloisRepresentations G7. Coordinate with the pending AutomorphyLiftingBeyondTaylorWiles (conditional lifting over arbitrary number fields) and PolarizedAutomorphyLifting.",
+      "reason": "The atlas plans generic patching and support (PA.3, PA.4, P8, P9) and local–global compatibility at p only in the Fontaine–Laffaille and ordinary cases (PA.1, PA.2). It has no layer for Caraiani–Newton's weight-0 crystalline compatibility with arbitrary ramification, nor for the lifting theorem built on it. The two pending Part IIs of PotentialAutomorphyInfrastructure are conditional lifting over arbitrary number fields (AutomorphyLiftingBeyondTaylorWiles) and polarized lifting (PolarizedAutomorphyLifting); neither is this unconditional, unpolarized CM-field theorem. The review may merge the three lifting Part IIs into one."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PotentialAutomorphyInfrastructure",
+      "roadmap": "PotentialAutomorphyDworkMotivesPartII",
+      "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: Dwork switching motives",
+      "area": "modular",
+      "items": [
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/51",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/52",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/53",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/54",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/55",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/56",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/57",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/58",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/59",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/60",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/63",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/64",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/66",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/67",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/69",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/70",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/100",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/101",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/102",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/103",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/104",
+        "PAPER-BOXER-CALEGARI-GEE-ETAL-25/105"
+      ],
+      "brief": "This route coalesces with PotentialAutomorphyDworkMotivesPartII, proposed by PAPER-QIAN-23; keep its id, title, parent, area and brief. Boxer–Calegari–Gee–Newton–Thorne (Forum Math. Pi 13 (2025) e10) use Qian's non-self-dual Dwork motives (N > 100n + 100, N odd, (N, n) = 1, the character χ of [Qia23 Lem. 3.1]) and add the following, to be planned as further layers of the same package. (a) The unitary case −1 mod N ∈ ⟨l⟩: finite unitary groups and Hermitian forms (§4.3, Lemma 4.3.4), the moduli spaces T({U_{λ_i}}) with Hermitian level structure (Definition 4.4.1, Remark 4.4.3) and their geometric irreducibility from monodromy SU_n (Proposition 4.4.2, a variant of Qian's Lemma 3.7 and Proposition 3.8). (b) Katz's hypergeometric description E_λ of the eigensheaves (Theorem 4.2.1), the twisting character Ψ of type A_0 (Lemma 4.2.4, with the corrected twist of sourceIssues E7) and W_λ = V_λ(Ψ^{−1}). (c) Proposition 4.2.5 (the compatible system, Hodge–Tate weights {0, …, n − 1}, crystallinity and the slope criterion for ordinarity) and Proposition 4.2.6: generic crystalline ordinarity at good reduction through Drinfeld–Kedlaya's slope theorem, where Qian uses semistable ordinarity near ∞. (d) The Fermat fibre at l ≡ −1 mod N (Lemma 4.4.4). (e) The switching data of Theorem 6.2.4: R_CM from a CM Hecke character (via Lemma 5.3.3), the primes N, p ≡ −1, r ≡ 1, q, the local data (i)–(v) (Kisin's local constancy, Berger's reduction theorem, Lemmas 5.1.3–5.1.5), and R_aux, S_UA from Moret-Bailly (Proposition 4.5.1 in PotentialModularityAndCompatibleSystems R23.1). Theorem 6.2.4 and Proposition 6.2.3 are ModularityAndLanglandsExtensions ML.2 endpoints, as Qian's were.",
+      "reason": "The candidate owns Qian's Dwork switching family and its monodromy, Hodge and ordinarity layers. This paper uses the same family and extends those layers (unitary monodromy, crystalline ordinarity, a second switch). A second Dwork roadmap would duplicate the candidate, whose brief already forbids a second shared Dwork implementation."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E1",
+      "kind": "misprint",
+      "locator": "§1, Theorem C, hypothesis (1), p. 4",
+      "printed": "For any v not in this set, the characteristic polynomial P_v(X) = X² + a_vX + b_v of ρ_λ(Frob_v) lies in M[X] and is independent of v.",
+      "correction": "… lies in M[X] and is independent of λ.",
+      "reason": "The polynomial of Frob_v obviously depends on v; the compatibility condition is independence of λ, as in Definition 6.1.1(5a) (char r_λ(Frob_v) = Q_v(X) for all λ) and in the precise Theorem 7.2.1 that Theorem C summarises.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E2",
+      "kind": "error",
+      "locator": "§2.1, Remark 2.1.1, p. 13, with the φ–N commutation relation (p. 13) and the proofs of Lemmas 2.2.3 and 2.2.7 and (2.2.9)",
+      "printed": "Because we chose E(u) so that E(0) = p, the constant c that sometimes appears in the Breuil module literature is equal to 1 in our case. […] φ(u^eN(x)) = N(φ(x)) for all x ∈ M_h.",
+      "correction": "c, the image of φ(E(u))/p in S_𝔽, is a unit (indeed c = φ(d) for a unit d) but need not be 1; the relation is φ(u^eN(x)) = cN(φ(x)), and c and d enter the computations of Lemma 2.2.3, Lemma 2.2.7 and (2.2.9).",
+      "reason": "E(0) = p only fixes the constant term; φ(E(u)) = φ(E)(u^p) has other terms that survive in S_𝔽 = 𝔖_𝔽/u^{ep}. The authors say so in footnote 2 of the published version and prove in arXiv v3 that the conclusions are unchanged because c is a unit and a p-th power; the published proofs are written with c = 1.",
+      "affects": "the proof",
+      "known": "Corrected by the authors: footnote 2 of the published version (p. 13) and arXiv 2309.15880 v3 (27 March 2025), which rewrites Remark 2.1.1 and inserts c and d into Lemmas 2.2.3 and 2.2.7 and (2.2.9); both thank Dat Pham.",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice",
+        "The published footnote 2 and the arXiv v2–v3 comparison"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E3",
+      "kind": "misprint",
+      "locator": "§2.4, p. 26 (definition of ur_ν)",
+      "printed": "For any ν ∈ 𝔽̄_p, we write ur_ν : G_K → 𝔽̄_p^× for the unramified character taking a geometric Frobenius to λ.",
+      "correction": "… taking a geometric Frobenius to ν.",
+      "reason": "The character is indexed by ν, and (2.4.2) and Theorem 2.4.3(4) use ur_{ν_i} with ν_i = t_i.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E4",
+      "kind": "misprint",
+      "locator": "§2.4, p. 26 (the très ramifiée convention after (2.4.2))",
+      "printed": "if ω_{k,i} = ω_{k,i+1}, then we set k_{σ,d−i} − k_{σ,d+1−i} = p − 1 for all σ if and only if ν_i = ν_{i+1} and the element of Ext¹_{G_K}(ur_{ν_i}ε̄^{i−d}ω_{k,i}, ur_{ν_{i+1}}ε̄^{i+1−d}ω_{k,i+1}) = H¹(G_K, ε̄) determined by ρ̄ is très ramifiée.",
+      "correction": "… then we set k_{σ,i} − k_{σ,i+1} = p − 1 for all σ if and only if …",
+      "reason": "Since ω_{k,i}|_{I_K} = Π_σ ω_σ^{−k_{σ,i}}, ω_{k,i} = ω_{k,i+1} is ambiguous exactly between k_{σ,i} − k_{σ,i+1} = p − 1 for all σ and = 0 for all σ, as the preceding sentence says; the extension class concerned sits between the i-th and (i+1)-st diagonal characters. For d = 2 the printed and corrected indices agree; for d = 3, i = 1 the printed text constrains k_{σ,2} − k_{σ,3}, which ω_{k,1} = ω_{k,2} does not concern.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E5",
+      "kind": "misprint",
+      "locator": "§2.5, proof of Theorem 2.5.2, p. 28",
+      "printed": "By Theorem 2.4.1, we have a versal morphism Spec R^{crys,0,O}_{ρ̄}/ϖ → 𝒳̄_d^{crys,0} at x",
+      "correction": "By Proposition 2.4.1(4), …",
+      "reason": "There is no Theorem 2.4.1; the versal morphism is part (4) of Proposition 2.4.1, which the proof of Theorem 2.5.5 cites correctly ('By Proposition 2.4.1').",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E6",
+      "kind": "misprint",
+      "locator": "§4.1, p. 36",
+      "printed": "We do choose a character χ ∈ (χ_1, …, χ_N) ∈ X with the following properties",
+      "correction": "We do choose a character χ = (χ_1, …, χ_N) ∈ X …",
+      "reason": "χ is the tuple (χ_1, …, χ_N) itself; the bullets then speak of the entries χ_1, …, χ_N.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E7",
+      "kind": "error",
+      "locator": "§4.2, Lemma 4.2.4 and its proof, p. 37",
+      "printed": "Moreover, Ψ is defined over M, and we have Ψc(Ψ) = |·|^{N−n}. […] There are c-linear isomorphisms V_{c(λ)} ≅ V_λ^∨(1 − N) and E_{c(λ)} ≅ E_λ^∨(1 − n), so the final part is again a consequence of Schur's lemma.",
+      "correction": "V_{c(λ)} ≅ V_λ^∨(2 − N), and hence Ψ·c(Ψ) = |·|^{N−n−1} (in the paper's normalisation).",
+      "reason": "V_λ is an eigenpiece of the middle cohomology H^{N−2} of the fibres of Z, smooth hypersurfaces of dimension N − 2 (§4.1; Proposition 4.2.5 uses H^{N−2}), so it is pure of weight N − 2 and Poincaré duality pairs it into O(2 − N). Weights confirm it: V^∨(1 − N) has weight N, not N − 2. Since E_λ is pure of weight n − 1, (4.2.3) gives Ψ weight N − n − 1; comparing V^c ≅ V^∨(2 − N) with E^c ≅ E^∨(1 − n) through (4.2.3) gives Ψ·c(Ψ) ↔ ε^{n+1−N}, one less in absolute value than the printed exponent. Nothing later uses the exponent: W_λ = V_λ(Ψ_λ^{−1}) and its pairing into k(λ)(1 − n) are stated directly and are consistent with either value.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E8",
+      "kind": "misprint",
+      "locator": "§4.2, proof of Proposition 4.2.6, p. 40",
+      "printed": "Σ_{r_0,…,r_{d−1}≥0} (−1)^{n(r_0+⋯+r_{d−1}q_v^{d−1})} Π_i Π_{j=0}^{d−1} C(c_i, r_j) x^{r_0+r_1q_v+⋯+r_dq_v^{d−1}}",
+      "correction": "… x^{r_0+r_1q_v+⋯+r_{d−1}q_v^{d−1}}",
+      "reason": "The summation variables are r_0, …, r_{d−1}; the sign exponent in the same term and the next sentence ('each value of r = r_0 + r_1q_v + ⋯ + r_{d−1}q_v^{d−1}') use r_{d−1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E9",
+      "kind": "misprint",
+      "locator": "§4.4, proof of Lemma 4.4.4, p. 43",
+      "printed": "where W_{0,λ,j} is the Ψ_λ^{−1}-twist of the H-eigenspace in H^{N−1}(Z_{0,ℚ̄}, O_{M_λ}) for the character (χ_1ρ_j^{−1}, …, χ_Nρ_j^{−1})",
+      "correction": "… the H-eigenspace in H^{N−2}(Z_{0,ℚ̄}, O_{M_λ}) …",
+      "reason": "Z_0 is a smooth hypersurface of dimension N − 2 in ℙ^{N−1}, whose odd-degree cohomology outside the middle degree vanishes; W_λ is built from H^{N−2} (§4.1, proof of Proposition 4.2.5).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E10",
+      "kind": "misprint",
+      "locator": "§5.2, proof of Lemma 5.2.4, p. 46",
+      "printed": "Since F/ℚ is Galois and PSL_2(𝔽_p) and PSU_n(𝔽_{p²}) are simple (as p ≥ 5)",
+      "correction": "… PSL_2(𝔽_p) and PSU_m(𝔽_{p²}) are simple …",
+      "reason": "r̄_B has rank m; the surrounding lines use Gal(H_B/F(ζ_p)) ≃ PSU_m(𝔽_{p²}) and PSU_m(𝔽_{p²})^s.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E11",
+      "kind": "misprint",
+      "locator": "§5.2, proof of Lemma 5.2.4(2), p. 47",
+      "printed": "Assume that det(r̄_A) = ε̄^{−m} and that r̄_B has multiplier character ε̄^{1−m}. Then r̄_A ⊗ r̄_B is absolutely irreducible and self-dual […] with multiplier character ε̄^{−m(n−1)} · ε̄^{1−m} = ε̄^{1−mn}",
+      "correction": "Then s̄ = Sym^{n−1}r̄_A ⊗ r̄_B is absolutely irreducible and self-dual …",
+      "reason": "The claim is about s̄, and the multiplier ε̄^{−m(n−1)} is that of Sym^{n−1}r̄_A (det(r̄_A)^{n−1}); r̄_A ⊗ r̄_B would have multiplier ε̄^{−m}·ε̄^{1−m}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E12",
+      "kind": "gap",
+      "locator": "§5.3, Remark 5.3.2, pp. 49–50",
+      "printed": "Since neither 2 nor −1 is a square in F_2 ≃ ℚ_2(√−5), it follows that 16 is not a perfect 8th power in F_2^×",
+      "correction": "One must also note that −2 is not a square in F_2 (−2 ∉ ℚ_2^{×2} ∪ −5ℚ_2^{×2}, since 2/5 has odd valuation).",
+      "reason": "If x^8 = 16 then (x²/2)^4 = 1; as −1 is not a square, i ∉ F_2 and x² = ±2. The case x² = 2 is excluded by the stated fact, but x² = −2 is not: 2 and −1 can both be nonsquares while −2 is a square, as in ℚ_2(√−2). In ℚ_2(√−5) an element of ℚ_2^× is a square only if it lies in ℚ_2^{×2} ∪ −5ℚ_2^{×2}, which excludes −2, so the conclusion holds.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    },
+    {
+      "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25/E13",
+      "kind": "misprint",
+      "locator": "§7.2, Theorem 7.2.3, p. 62",
+      "printed": "Let S_π denote the set of finite places of F at which π is unramified. With notation as above, the classes of elements [π_v] ∈ ST(π) (v ∉ S_π) are equidistributed",
+      "correction": "Let S_π denote the set of finite places of F at which π is ramified.",
+      "reason": "[π_v] is defined only for unramified π_v (Lemma 7.2.2 and the sentence before the theorem), and the proof's partial L-function L^{S_π}(π, ρ, s) = Π_{v∉S_π} det(1 − q_v^{−s}ρ([π_v]))^{−1} is a product over unramified places. As printed, the theorem would concern the finitely many ramified places.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1017/fmp.2024.29: no update-to, updated-by or relation entries, and no work declaring an update of it (23 September 2026)",
+        "arXiv 2309.15880: v1 (27 September 2023), v2 (6 November 2024) and v3 (27 March 2025); v3 corrects only Remark 2.1.1 and the §2.2 formulas depending on it",
+        "The article page on Cambridge Core, 23 September 2026: no correction, erratum or retraction notice"
+      ]
+    }
+  ]
+}
