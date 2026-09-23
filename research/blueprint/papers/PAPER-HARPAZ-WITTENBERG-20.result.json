@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-HARPAZ-WITTENBERG-20",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
     "authors": "Yonatan Harpaz; Olivier Wittenberg",
@@ -24,7 +24,7 @@
     },
     "continuationAccessed": "2026-09-21"
   },
-  "summary": "Continuation of the full 31-page extraction: 150 items (7 library, 12 planned, 131 missing). Borovoi Proposition 3.4 is read in its original author version and resolves the broader ambient-unipotent good-property interface G2; the report supplies the compactification and all-finite-extension argument. Fourteen routes cover 130 missing items and 10 planned source items exactly once. Only Remark 4.5 (item 75, G1) remains unrouted, so status stays partial. Theorem A is unconditional; general solvable rational-point density remains conditional, while outer-supersolvable and abelian cases are unconditional.",
+  "summary": "Continuation of the full 31-page extraction: 150 items (7 library, 12 planned, 131 missing). Borovoi Proposition 3.4 is read in its original author version and resolves the broader ambient-unipotent good-property interface G2; the report supplies the compactification and all-finite-extension argument. Fourteen routes cover 130 missing items and 10 planned source items exactly once. Only Remark 4.5 (item 75, G1) remains unrouted, so status stays partial. Theorem A is unconditional; general solvable rational-point density remains conditional, while outer-supersolvable and abelian cases are unconditional. Complete (cc-442dc5): Remark 4.5 is routed with the rational connectedness its argument needs, and two findings are recorded (E1 on Remark 4.5, E2 a misprint in the quaternion range).",
   "items": [
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/1",
@@ -876,12 +876,12 @@
       "id": "PAPER-HARPAZ-WITTENBERG-20/75",
       "kind": "theorem",
       "name": "Weak approximation for universal torsors on an open and its compactification",
-      "statement": "The paper states: if X is smooth proper, V⊂X is dense with kbar[V]^×=kbar^×, Pic(X_kbar) and Pic(V_kbar) are torsion-free, and every universal torsor on V has weak approximation, then every universal torsor on X has weak approximation. Interpret universal torsors only when the character modules are finitely generated.",
-      "locator": "Remark 4.5 p.17",
+      "statement": "Let X be a smooth proper rationally connected variety over a number field k and V ⊂ X a dense open subset with k̄[V]^× = k̄^×, such that Pic(X_k̄) and Pic(V_k̄) are torsion-free (they are finitely generated since X is rationally connected). If every universal torsor of V satisfies weak approximation, then every universal torsor of X satisfies weak approximation.",
+      "locator": "Remark 4.5 p.17, with the rational connectedness the argument needs (E1)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G1, unresolved source-scope bridge: the proof invokes Theorem 4.2(i), whose §4 standing hypotheses include geometrically rationally connected generic fibre, absent from the remark. Wit18 Remark 3.9 states the general claim too. Determine whether Sko90’s more general fibration theorem supplies the needed version, or give a separate proof; no counterexample is claimed. This item remains unrouted; the RC applications of Theorems 6.1/6.6 do not depend on this remark. Continuation checked Har97 Theorem 3.2.1 and §3.2's final remark: its geometric Brauer finiteness, torsion-free Picard and general-line-section hypotheses prevent substituting it without verification. Sko90 original not acquired; no source theorem inferred from a search snippet."
+      "note": "Corrected statement (cc-442dc5). The printed remark omits that X is rationally connected. The argument applies Theorem 4.2(i) to a fibration Z → P^n whose generic fibre is a universal torsor of V, and §4 assumes that generic fibre rationally connected; that holds when X is rationally connected (a torus torsor over a rationally connected base). Proposition 3.3(i) supplies the section over k̄, and CTS87 Théorème 2.1.2 gives Br₁(Z) = Br₀(Z). The remark is not used elsewhere in the paper. Whether Skorobogatov's fibration theorem (Sko90, Theorem 1; Sko96, Theorem 2.1) gives the printed generality was not checked; Sko90 was not obtained."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/76",
@@ -2028,7 +2028,8 @@
         "PAPER-HARPAZ-WITTENBERG-20/145",
         "PAPER-HARPAZ-WITTENBERG-20/146",
         "PAPER-HARPAZ-WITTENBERG-20/147",
-        "PAPER-HARPAZ-WITTENBERG-20/148"
+        "PAPER-HARPAZ-WITTENBERG-20/148",
+        "PAPER-HARPAZ-WITTENBERG-20/75"
       ],
       "reason": "Reuse the same candidate owner proposed in PAPER-HARPAZ-WITTENBERG-23 for its HW20 Theorem B input. Its completed continuation (PR #1664) is still a candidate, not an accepted roadmap, so these items stay missing, not planned. This paper supplies the general homogeneous-space foundation required by that candidate; do not create another copy of the supersolvable theorem or finite-stabilizer Picard/Brauer interfaces.",
       "brief": "Extend the existing candidate design brief with the complete HW20 foundation, while retaining its Massey consumers. Over a number field prove that a smooth proper geometrically integral X birational to a homogeneous space of a semisimple simply connected G with finite geometric stabilizer H has rational points dense in its full Brauer–Manin set when H has an outer-Galois-invariant normal flag with cyclic factors (Theorem 6.6). For finite solvable H retain HW16 Conjecture 9.1 explicitly in Theorem 6.1; for finite abelian H prove the unconditional Br₁ version. Construct multiplicative-type torsor types, universal torsors, the boundary-Picard pullback, their quasitrivial-base fibrations, finite étale homogeneous covers, Pic(Vbar)=Hom(Hab,kbar×), and the compatible stabilizer sequence. Prove Propositions 3.1 and 3.3, norm-base-change Lemmas 4.3–4.4, split/geometrically split fibration Theorems 4.1–4.2, the conditional Theorem 4.6, property (⋆), and both rational-point inductions. Include LA19 good-place evaluation and Dem10 quaternion Brauer vanishing for the IG.4 consumers. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3) for adelic/Brauer/torsor descent; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1–SF.4); Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups, Layers 3–6) for the group and character theory; Reductive groups, Part II (ReductiveGroupsPartII, RG2.0a) for Weil restriction; Adelic algebraic groups (AdelicAlgebraicGroups, AA.4); Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2/R02.4); Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory); and Inverse Galois and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0–IG.2). The generic RC geometry exported by HeightsRationalPointsPartIIZeroCycles precedes this homogeneous layer; that roadmap’s final arithmetic induction then consumes the homogeneous layer, so specify stage-level order without a cycle. All definitions receive APIs and three discriminating tests. Keep nonconstant stabilizers, twist signs, real places, transcendental Brauer classes and field-extension hypotheses. G1 Remark 4.5 is not a closed proof input. Retain the earlier candidate’s Massey-specific layers and import this one general proof of HW20 rather than rebuilding it. For the E⁺ consumer, export Bor96 Proposition 3.4 in its full ambient G=G^ssu range with G^ss simply connected, splitting real-solubility existence and weak approximation. Extract its normal-subgroup quotient and unipotent homogeneous-space lemmas as items 145–148; import existing radical/quotient/group foundations, and do not build a second generic group API."
@@ -2088,6 +2089,47 @@
       ],
       "reason": "The existing rational-point roadmap and Chow foundations have no layers for the completed zero-cycle complex, E⁺, universal-torsor descent for cycles, or the prime-to-p reduction proving Theorem A. All 211 current atlas roadmap descriptions were screened for these targets; six new roadmaps and the existing packet do not supply them.",
       "brief": "Prove HW20 Theorem A: for every number field, every smooth proper variety birational to a homogeneous space of a linear algebraic group satisfies E, and in the rationally connected case its uncompleted modified local zero-cycle complex is exact. Derive the degree-one zero-cycle corollary on the open homogeneous space; do not assert effectiveness or a rational point. Begin with reusable characteristic-zero rational connectedness, the curve section theorem and composition theorem, geometric étale H¹/A₀ vanishing and Picard/Brauer finiteness. Export these to the homogeneous-space candidate before constructing the arithmetic E/E⁺ layers. Build modified infinite-place CH₀, completion by M/nM, cycle Brauer pairing via the RP.2 owner, defect h_X, the degree comparison in Rappel 1.3, and stable-birational/section invariance. Import all cycle/rational-equivalence and Chow functoriality from SchemeAndStackFoundations SF.5, and resolution from SF.4; do not reproduce them. Decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2 with closed points, finite extensions and generic cohomological hypotheses retained. Prove E⁺ closure under admissible fibrations, prime-to-p generically finite maps for every p, universal-torsor descent, and projective-base closed-fibre fibrations; handle irreducible varieties that are not geometrically irreducible and prove the finite-field-extension reinterpretation dictionary, not a Weil-restriction substitute. Import Sylow existence and the image theorem from Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 2), finite étale covers from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1, and universal-torsor/stabilizer fibrations from HeightsRationalPointsPartIIHomogeneousMassey. Induct on solvable stabilizer order unconditionally, then use Sylow covers and DLA19 to reach all connected linear groups. Use DLA19's broader good-property predicate (item 149). Import Bor96's full character-free connected-stabilizer (⋆) theorem from the shared homogeneous owner. Establish the compactification/finite-extension admissibility lemma (150) and apply HW20 Lemma 7.4 to obtain broader ascent (115); G2 is thereby discharged for E⁺, without claiming equivalence for arbitrary good properties. Import RP.2–RP.3, ArithmeticGaloisDuality and ClassFieldTheory for the shared arithmetic objects. Finish with Hilbert-subset moving and export the collective-coprime-degree Galois consequence to IG.4. Every new definition must include its API and three meaningful tests; distinguish E from E⁺ and closed-point fibre hypotheses from rational-point ones."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
+      "kind": "gap",
+      "locator": "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)",
+      "printed": "Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible.",
+      "correction": "Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked).",
+      "reason": "Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
+        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
+        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
+      ]
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
+      "kind": "misprint",
+      "locator": "Introduction, author manuscript p. 4",
+      "printed": "si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1",
+      "correction": "m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined).",
+      "reason": "The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
+        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
+        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
+      ]
+    }
+  ],
+  "continuations": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-442dc5",
+      "issue": 1426,
+      "date": "2026-09-23",
+      "readingBoundary": "The author manuscript (SHA-256 2e425ee6…, re-downloaded and matched) was read in full, §§1–7. Crossref and the author's publication page were checked for corrections."
     }
   ]
 }
