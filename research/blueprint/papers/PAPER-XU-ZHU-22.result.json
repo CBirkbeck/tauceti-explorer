@@ -892,7 +892,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at arXiv v2 line 540: the p=2 branch carries $-\\frac{1}{\\sqrt{q}}$. The paper's own normalisation at line 311 is $\\Kl(n;a)=(-1/\\sqrt q)^{n-1}\\sum\\cdots$, so the printed left side is $q(\\Kl(2;a)^2-1)$ and the corrected right side is $q\\Kl(3;a)$, i.e. the clean identity $\\Kl(2)^2-1=\\Kl(3)$. With the printed factor the two sides have different weights, so the correction is right.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E2",
@@ -906,7 +911,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at lines 552-555: the right side is $-\\frac{1}{\\sqrt q}(\\sum\\cdots-q^{n-1})$. Same normalisation slip as E1 in the next display, and the constant is $q$ rather than $q^{n-1}$ once the factor is removed.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E3",
@@ -920,7 +930,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 4121: $\\Be^{\\dagger}_{\\SO_{2n+1},\\Std}\\simeq \\Be^{\\dagger}_{\\SO_3,\\Std}\\star \\Be^{\\dagger}_{2n-2}$, with no Tate twist. The missing $(1/2)$ and the corresponding $-1/\\sqrt q$ in the trace identity belong to the same family as E1 and E2.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E4",
@@ -934,7 +949,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 3988, and the arithmetic is decisive: the printed constant is $(q-1)q^{n-2}=q^{n-1}-q^{n-2}$, while the correct one is $q^{n-1}-q$. These agree exactly when $q^{n-2}=q$, that is $n=3$ — so the printed formula is right only in the first case covered by the statement and wrong for every $n\\ge 4$. The proof at line 3994 subdivides the sum, and the correction is also right that the subdivision omits the points with $p_n\\neq 0$ and some $p_{n+j}=0$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E5",
@@ -948,7 +968,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and it is a genuine inconsistency rather than a slip of notation. Line 3478 reads \"if $\\cG$ is not type $A_{2n}$ ($n\\ge 2$) or $B_3$ or $D_{2n}$ ($n\\ge 2$)\" and line 3479 reads \"$G_{\\geo}=\\cG$, if $\\cG$ is of type $A_{2n}$\" with no restriction, so type $A_2$ satisfies the hypotheses of **both** bullets. Reading $(n\\ge 1)$ in the first bullet, as the correction says, puts $A_2$ in the second only.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E6",
@@ -962,7 +987,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 3573. The decomposition $\\Ad\\simeq\\oplus_{i=1}^r S^{2\\ell_i}$ under the principal $\\PGL_2$ has the $\\ell_i$ equal to the exponents of $\\check{\\gg}$; the $\\ell_i+1$ are the degrees of the basic invariants. So the printed $\\{\\ell_1+1,\\cdots,\\ell_r+1\\}$ names the wrong set.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E7",
@@ -976,7 +1006,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 3832. The context at lines 3825-3826 defines the hypergeometric sheaf with **n** trivial multiplicative characters, so it has rank $n$; with maximal unipotent $I_0$-action the Frobenius eigenvalue set has $n$ elements. The printed $\\{\\alpha,q\\alpha,\\cdots,q^{2n}\\alpha\\}$ has $2n+1$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E8",
@@ -990,7 +1025,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 3709: the second argument is $\\varphi$ where it must be $\\varphi'$, the generic linear function of $G'$ fixed at line 3701.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E9",
@@ -1004,7 +1044,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 3752: \"We lift $\\phi$ to be a generic linear function of $G'$ over $R$ and take $\\phi'$ as in \\ref{functoriality}\" — $\\phi$ and $\\phi'$ are interchanged relative to lines 3701 and 3746, where $\\phi'$ is the function attached to $G'$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E10",
@@ -1018,7 +1063,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and the paper's own neighbouring displays settle it twice over. Line 4578 prints $\\sum_{\\mu=0}^{1}\\sum_{i=0}^{2^{s-t-1}} B^{(t+1)}(\\mu+2i+m2^{s-i})H_a(\\mu+2i,t,N)/B^{(t+1)}(\\mu+2i)$: the upper limit lacks the $-1$ and the exponent reads $s-i$ for $s-t$. Line 4544 gives $\\beta_{t,s}$ as a sum over $j=0,\\dots,2^{s-t}-1$ of $B^{(t+1)}(j+m2^{s-t})\\cdots$, so substituting $j=\\mu+2i$ forces $i\\le 2^{s-t-1}-1$ and the shift $m2^{s-t}$; line 4582 then writes $B^{(t+1)}(\\mu+2i+m2^{s-t})$ and line 4604 writes $\\sum_{i=0}^{2^{s-t-1}-1}$, both in the corrected form.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E11",
@@ -1032,7 +1082,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 4237: \"where the last term is the Frobenius trace of $\\DHyp(2n+1;\\rho)$\". The correction is right that it is minus that trace, by the $(-1)^{n+m-1}$ of Theorem 5.2.2(iii), and right that the underlying identity $S_m(f_2)=S_m(f_1)+H_\\psi(2n+1,\\rho)(a)$ is itself correct — so the entry is properly classified as a misprint.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E12",
@@ -1046,7 +1101,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2209: \"In the non-empty case, $\\Gr_{G,\\mu}\\cap S_{\\lambda}$ (resp. $\\Gr_{G,\\mu}\\cap T_{\\lambda}$) has pure dimension $\\rho(\\lambda+\\mu)$\" — one formula offered for both intersections. Mirkovic-Vilonen give $\\langle\\rho,\\lambda+\\mu\\rangle$ for the attractor and $\\langle\\rho,\\mu-\\lambda\\rangle$ for the repeller, so the \"resp.\" clause is wrong as printed.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E13",
@@ -1060,7 +1120,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2208: \"equivalently there exists $w\\in W$ such that $w\\lambda\\le\\mu$\". Since every $W$-conjugate of $\\lambda$ is $\\le$ its dominant conjugate, $L_\\lambda\\in\\Gr_{G,\\le\\mu}$ is equivalent to $w\\lambda\\le\\mu$ for **every** $w$; the existential form is strictly weaker.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E14",
@@ -1074,7 +1139,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and this is the most consequential of the thirty. Line 1743 states the standing hypothesis of the paper's Braden setup: \"Let $X$ be a quasi-projective $k$-scheme such that $X\\otimes_k\\overline{k}$ is connected and **normal**.\" Line 2243 then asserts \"$\\Gr_{G,\\le\\mu,X}\\simeq\\Gr_{G,\\le\\mu}\\times X$ is normal for $\\mu\\in\\cwX(T)^+$\" unconditionally, and line 2246 deduces normality of $\\Gr_{G,\\le(\\mu,\\nu),X^2}$ from flatness with reduced fibre at $0$. Normality of $\\Gr_{\\le\\mu}$ and reducedness of the special fibre are theorems requiring $p\\nmid|\\pi_1(G_{\\mathrm{der}})|$ (Faltings, Pappas-Rapoport, Zhu), and the section applies Braden for every split reductive $G$ over any finite field. The gap is real and the proposed repair — an equivariant embedding into a normal $\\Gm$-stable ambient scheme — is the right shape.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E15",
@@ -1088,7 +1158,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 1173. Two refinements are needed and the correction names both: the dimension counts the irreducible components of $X\\otimes\\overline{k}$ **of dimension $d$**, not all of them, and Frobenius acts by $q^d$ times the permutation of those components, so it is multiplication by $q^d$ only when each top-dimensional component is defined over $k$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E16",
@@ -1102,7 +1177,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at lines 2274-2279: the stalk of $\\mathcal{L}^i_\\lambda$ is given as $\\rH^i_{\\rc}(S_\\lambda,\\mathcal{A}_1\\star\\mathcal{A}_2)$ for $x_1=x_2$. The degree shift the correction asks for is the same normalisation question as E20, where the fusion product is defined without its Tate twist, so treating the two together is right.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E17",
@@ -1116,7 +1196,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2315: \"$p:\\cwX(T)\\to\\mathbb{Z}/2\\mathbb{Z},~\\mu\\mapsto(-1)^{2\\rho(\\mu)}$\". The formula takes values in $\\{\\pm1\\}$ while the stated target is the additive group $\\Z/2\\Z$; $\\langle 2\\rho,\\mu\\rangle \\bmod 2$ is the map meant.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E18",
@@ -1130,7 +1215,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in all three places the entry names — line 2250 for $C_\\lambda(X^2)$ and line 2254 twice for $S_\\lambda(X^2)$ and $T_\\lambda(X^2)$ — each printing $\\prod_{\\lambda_1+\\lambda_2=\\lambda}$ where the fibre is a disjoint union over the decompositions.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E19",
@@ -1144,7 +1234,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2567, and the paper contradicts itself two hundred lines earlier: line 1857 defines $\\IC_\\mu:=j_{\\mu,!+}(L_{\\Gr_\\mu}[2\\rho(\\mu)])$ with the shift inside, while line 2567 writes $\\IC^{\\Weil}_\\mu=j_{\\mu,!+}(L_{\\Gr_\\mu})[2\\rho(\\mu)](\\rho(\\mu))$ with it outside. The correction's second point is also right: the quantifier should be $\\mu\\in\\cwX(T)^+$, since $\\IC_\\mu$ is indexed by dominant coweights.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E20",
@@ -1158,7 +1253,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2029: $\\Delta^{+}[-1](\\cA_1\\boxast\\cA_2)\\xrightarrow{\\sim}\\Delta^{!}[1](\\cA_1\\boxast\\cA_2)$, with no Tate twist, followed at line 2031 by \"We denote one of the above module by $\\cA_1\\circledast\\cA_2$\", which does not say which. Both points of the correction stand, and the missing twist is the same bookkeeping as E29.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E21",
@@ -1172,7 +1272,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 2074: \"$(\\mathcal{A}_1\\star \\mathcal{A}_2)\\star \\mathcal{A}_2$\" for $(\\cA_1\\star\\cA_2)\\star\\cA_3$, and the companion slip $S_{\\lambda_1}$ for $S_{\\lambda_2}$ in the second tensor factor.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E22",
@@ -1186,7 +1291,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 743: the Dwork isocrystal is defined by $\\nabla = d+\\pi\\,dt$. With that sign the horizontal Frobenius is multiplication by $\\theta_\\pi^{-1}$ and the trace function is $\\psi^{-1}\\circ\\Tr$, not the $\\psi\\circ\\Tr$ asserted a few lines later; $\\nabla=d-\\pi\\,dt$ is the convention that makes the stated trace correct.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E23",
@@ -1200,7 +1310,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim. The Kummer paragraph fixes $k$ with $q=p^s$ elements and then says \"With the lifting of Frobenius as in (i)\" — but (i) fixed $k=\\mathbb{F}_p$ and the lift $t\\mapsto t^p$. Printing $\\nabla^\\sigma=d-ap\\frac{dx}{x}$ carries a $p$-power lift into a $q$-element setting; with $x\\mapsto x^q$ it is $d-aq\\frac{dx}{x}$, and the induced trace is $\\chi^{-1}\\circ N$, as the correction says.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E24",
@@ -1214,7 +1329,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at lines 1268-1273, and the proof at line 1276 is exactly where the missing hypothesis bites: \"The essential surjectivity follows from smooth descent\". Descent along the $H_1$-torsor gives an equivalence only once $H_1$ has geometrically connected fibres; without it $H_1$-equivariance is extra data and the functor need not be essentially surjective.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E25",
@@ -1228,7 +1348,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 1221: \"By smooth base change and \\ref{constructible t-structure}, to prove \\eqref{iso adj constructible H0}, we can reduce to the case where $Y$ is a point.\" Restriction to a closed point is not a smooth base change, so the reduction is not justified as stated; the entry is correctly classified as a gap rather than a misprint.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E26",
@@ -1242,7 +1367,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 1783, where a chain of two isomorphisms ends \"$\\simeq\\mathscr{F}^{!+}$\". The paper's own line 1778 records that $i=(f,f'):X^0\\to Z=X^+\\times_X X^-$ is both an open and a closed immersion, so $X^0$ is a direct summand of $Z$ and the last step supplies only a canonical morphism, obtained by restricting to that summand. That is precisely Braden's construction, and it is also why 2.10.2(i) states $\\iota_{\\mathscr{F}}$ as a morphism that is an isomorphism only under weak equivariance.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E27",
@@ -1256,7 +1386,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at lines 1769-1772. Since $\\pi f=\\id$, the counit $f_!f^!\\to\\id$ gives $f^!\\to\\pi_!$, not the printed $\\pi_!\\to f^!$; and the two induced arrows are correspondingly printed backwards, $\\pi_!g^+\\mathscr{F}\\to\\mathscr{F}^{!+}$ for $\\mathscr{F}^{!+}\\to\\pi_!g^+\\mathscr{F}$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E28",
@@ -1270,7 +1405,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim on both counts. Line 1358 states $j_{!+}(\\mathscr{F}|_U)\\simeq\\mathscr{F}$ with no density hypothesis on $U$, which fails as soon as $U$ misses a component; line 1391 writes $\\oplus_{n\\in\\Z}\\hH^n(\\mathscr{F})[n]$ where the decomposition of an $\\iota$-pure complex is $\\oplus_n\\hH^n(\\mathscr{F})[-n]$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E29",
@@ -1284,7 +1424,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at line 1538, and the same proof contradicts it five lines earlier: line 1533 correctly writes $(\\id_X\\times\\Delta)^!(\\cdots)(d_S)[2d_S]$, while line 1538 writes $\\mathscr{N}\\to\\Delta^!(p_2^+(\\mathscr{N}))(2d_S)[2d_S]$ with the twist doubled.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-XU-ZHU-22/E30",
@@ -1298,7 +1443,12 @@
       "searched": [
         "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
         "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim at lines 1697-1699: \"there exists a canonical isomorphism between $\\Coker(N)$ and the solution space $\\Sol(M)$\", displayed as $\\Coker(N)\\xrightarrow{\\sim}\\Sol(M)=\\Hom_{K\\{x\\}}((M,\\nabla),(K\\{x\\},d))^{\\nabla=0}$. $\\Sol$ is a Hom out of $M$ and so is contravariant in $M$; the canonical identification is with the **dual** $\\Coker(N)^\\vee=(V/NV)^\\vee$, as the correction says.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     }
   ]
 }
