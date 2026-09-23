@@ -3496,8 +3496,9 @@
    ],
    "avoidAccountOf": "PAPER-ABDURRAHMAN-VENKATESH-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-ABDURRAHMAN-VENKATESH-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1210"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1210",
+   "finishedAt": "2026-09-23T23:30:14Z"
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25",
@@ -4282,8 +4283,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
