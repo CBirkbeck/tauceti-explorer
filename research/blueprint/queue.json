@@ -2916,8 +2916,9 @@
    ],
    "avoidAccountOf": "PAPER-TREUMANN-VENKATESH-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-TREUMANN-VENKATESH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1178"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1178",
+   "finishedAt": "2026-09-23T22:29:06Z"
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-16",
@@ -3219,7 +3220,8 @@
    ],
    "avoidAccountOf": "PAPER-HOWE-KLEVDAL-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-HOWE-KLEVDAL-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1196"
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26",
@@ -3521,7 +3523,8 @@
    ],
    "avoidAccountOf": "PAPER-BINDA-KATO-VEZZANI-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BINDA-KATO-VEZZANI-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1212"
   },
   {
    "id": "PAPER-ABE-25",
