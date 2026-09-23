@@ -17,16 +17,40 @@ Census unchanged in size: **580 items (86 library, 23 planned, 471 missing), 23 
 
 ## Resume in order
 
-1. **A71 is now the frontier of this chain.** A69 and A70 are proved and A107 supplies the one-place factorization, so A71 (the nonzero finite-place functional, hence genericity of `Π_v`) should be provable in the same style against Cogdell printed 33–34 — Corollary 4.1.2 and the factorization Corollary 4.1.3. After A71, A73's conditional split-place genericity is the only step of the chain still resting on an outline.
-2. Other queues, unchanged: `analytic-regularity-suppliers`, `approximation-and-tensor-adapter-closure`, `remaining-proof-leaves`, `closure-external-inputs`, per-item audit and shared-owner reconciliation.
-3. Appendix B: uniform integral-parameter certificates, exceptional denominator loci, minimal primes and specialized Gröbner cases.
+1. **A73 is now the only step of the Whittaker chain still resting on an outline.** A66–A72 and
+   A104–A107 all carry proofs or explicit suppliers; A71 was proved this pass. A73's conditional
+   split-place genericity assumes "the exact Galois realization of all discrete Speh constituents
+   needed by A62 has been proved and the stable residual lattice is absolutely irreducible", and
+   that conditional shape should be made explicit as hypotheses rather than prose before it is
+   proved. The valid Labesse branch uses [F+:Q]>1 and compactness at infinity.
+2. Other queues, unchanged: `analytic-regularity-suppliers`,
+   `approximation-and-tensor-adapter-closure`, `remaining-proof-leaves`,
+   `closure-external-inputs`, per-item audit and shared-owner reconciliation.
+3. Appendix B: uniform integral-parameter certificates, exceptional denominator loci, minimal
+   primes and specialized Gröbner cases.
 
 Last IDs: **A107**, **L86**, **E52**.
 
+## This pass (third, cc-d67081)
+
+A71 gained five proof steps, read against Cogdell's Fields notes printed 33. The frozen-vector
+step is the one that matters: `Λ ≠ 0` plus the spanning of elementary tensors gives `x_0, w` with
+`Λ(x_0 ⊗ w) ≠ 0`, and **for a general `w` the functional `x ↦ Λ(x ⊗ w)` can be identically
+zero**, which is why the item's warning about an arbitrary reference tensor is load-bearing.
+Equivariance then needs only A107's hypothesis that `N_n(F_v)` acts on the first factor and
+`ψ_N|_{N_n(F_v)} = ψ_v`.
+
+**Do not strengthen A71 to the factorization.** Cogdell's Corollary 4.1.3 factorises `W_φ` only
+for decomposable `φ` and only for a *suitable* family, meaning `Λ_v(ξ_v^0) = 1` for the
+distinguished `K_v`-fixed vectors. A71 claims existence at one place and neither the product
+formula nor that normalisation. Cogdell's caveat on the same page — "the cusp form `φ(g)` itself
+does not factor … Only `W_φ` factors for decomposable `φ`" — is the same one A107 carries, and
+the two now agree in terms.
+
 ## Checks
 
-- `scripts/check_paper.py`: ok. 580 unique item ids; every missing item routed exactly once (no duplicate route entries); prerequisite graph re-checked acyclic at 437 edges; 78 items now carry `proofSteps`.
-- Only A69 and A70 changed: their `proofSteps` and `note`, plus one added test on A70. All other statements, statuses, routes, findings and source data are byte-identical.
+- `scripts/check_paper.py`: ok. 580 unique item ids; every missing item routed exactly once (no duplicate route entries); prerequisite graph re-checked acyclic at 416 internal edges; **79** items now carry `proofSteps`.
+- Only **A71** changed this pass: its `proofSteps` and `note`. All other statements, statuses, routes, findings and source data are byte-identical to the inherited file.
 - Submit only the result, report and this handoff.
 
 Earlier handoff history follows; its counters are superseded above.
