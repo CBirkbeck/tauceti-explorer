@@ -4129,8 +4129,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -31131,7 +31131,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1862"
   },
   {
    "id": "REV-ERRATA-PAPER-CESNAVICIUS-22",
