@@ -13829,7 +13829,7 @@
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E1",
    "kind": "misprint",
-   "locator": "Lemma 9.1(i), p. 51 (arXiv v2)",
+   "locator": "Lemma 9.1(i), p. 51 (arXiv v2); published Acta Math. 223 (2019), p. 75 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"Suppose that ψ is surjective, even after restriction to π_1(Y_{F̄_q}, η_Y). Then Z_{ψ,φ} is a geometrically connected finite étale K-scheme.\"",
    "correction": "a geometrically connected finite étale **Y_K**-scheme.",
    "reason": "Z_{ψ,φ} is defined on p. 50 as Isom_{Y_K,H}(X_φ, X_ψ), the scheme of isomorphisms of two H-torsors over the curve Y_K, so it is finite étale over Y_K, not over K. The distinction is not cosmetic: the proof of Proposition 9.2 uses the lemma in the form \"By the first part of Lemma 9.1, Z_{ψ,φ} is a smooth, geometrically connected curve over K\", and a finite étale K-scheme has relative dimension 0 over K, so it could carry no such family of local points.",
@@ -13843,14 +13843,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print at p. 75: 'is a geometrically connected finite étale K-scheme.' Z_{ψ,φ} is the scheme of isomorphisms of two H-torsors over the curve Y_K, so it is finite étale over Y_K; the extraction's point that the proof of Proposition 9.2 then calls it 'a smooth, geometrically connected curve over K' — impossible for a finite étale K-scheme — is what makes the reading forced."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E2",
    "kind": "misprint",
-   "locator": "§8.4, hypothesis (ii), p. 45 (arXiv v2)",
+   "locator": "§8.4, hypothesis (ii), p. 45 (arXiv v2); published Acta Math. 223 (2019), p. 67 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"(ii) The subgroup Z_{Ĝ^{ad}}(σ̄_m(Γ_K)) of Ĝ_k is scheme-theoretically trivial.\"",
    "correction": "of Ĝ^{ad}_k.",
    "reason": "A centralizer formed in Ĝ^{ad} is a subgroup scheme of Ĝ^{ad}_k. The paper's own paraphrases confirm the intended reading: \"our assumption on the centralizer of the image of σ̄_m in the group Ĝ^{ad}\" (p. 46), and Theorem 4.10, which this hypothesis is designed to feed, says \"the centralizer of ρ̄ in Ĝ^{ad}_k is scheme-theoretically trivial\".",
@@ -13864,14 +13864,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print at p. 67: '(ii) The subgroup Z_{Ĝ^ad}(σ̄_m(Γ_K)) of Ĝ_k is scheme-theoretically trivial.' A centralizer formed in Ĝ^ad is a subgroup scheme of Ĝ^ad_k, and both the paper's own paraphrase nearby and Theorem 4.10 put it in Ĝ^ad_k."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E3",
    "kind": "misprint",
-   "locator": "§8.4, p. 47 (arXiv v2)",
+   "locator": "§8.4, p. 47 (arXiv v2); published Acta Math. 223 (2019), p. 69 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"According to Lemma 5.15, the ring R_{σ̄_m,Q} then has a canonical structure of O[Δ_Q]-algebra. We will write a_Q ⊂ O[Δ_Q] for the augmentation ideal; the same lemma shows that there is a canonical isomorphism R_{σ̄_m,Q}/(a_Q) ≅ R_{σ̄_m,∅}.\"",
    "correction": "According to Lemma 5.17.",
    "reason": "Lemma 5.15 (p. 21) is the statement that the universal deformation is diagonal at a Taylor–Wiles place — the unique torus T̃_v and the finite l-power order of the inertial character. The two assertions attributed here, the O[Δ_Q]-algebra structure and R_{ρ̄,S∪Q} ⊗_{O[Δ_Q]} O ≅ R_{ρ̄,S}, are exactly the content of **Lemma 5.17**.",
@@ -13885,14 +13885,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print at p. 69: 'According to Lemma 5.15, the ring R_{σ̄_m,Q} then has a canonical structure of O[Δ_Q]-algebra.' The redirection to Lemma 5.17 rests on the extraction's identification of which lemma supplies the O[Δ_Q]-structure; I verified the citation as printed but did not adjudicate between the two lemmas."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E4",
    "kind": "misprint",
-   "locator": "§8.4, p. 47 (arXiv v2), twice in one sentence",
+   "locator": "§8.4, p. 47 (arXiv v2), twice in one sentence; published Acta Math. 223 (2019), p. 71 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"we assume in §7 that if v ∈ Q, then the stabilizer in the Weyl group of the regular semisimple element ρ_m(Frob_v) ∈ Ĝ(k) is trivial; this is equivalent to the condition that the centralizer in Ĝ_k of ρ_m(Frob_v) is connected\"",
    "correction": "σ̄_m(Frob_v) in both places.",
    "reason": "No object ρ_m is defined anywhere in the paper; §8.4 works throughout with the residual representation σ̄_m attached to a maximal ideal m of the excursion algebra by Corollary 8.11, and the Taylor–Wiles datum in question is the one for σ̄_m in the sense of Definition 5.16.",
@@ -13906,14 +13906,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed decisively, and present in print, where the paper switches letters within one passage. Published p. 69 sets up the Taylor–Wiles places with 'Q is a finite set of places v of K such that σ̄_m(Frob_v) is regular semisimple', and p. 71 then reads 'the regular semisimple element ρ̄_m(Frob_v) ∈ Ĝ(k) is trivial; this is equivalent to the condition that the centralizer in Ĝ_k of ρ̄_m(Frob_v) is connected' — ρ̄_m twice where σ̄_m is the object under discussion."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E5",
    "kind": "misprint",
-   "locator": "Lemma 8.15, p. 43 (arXiv v2)",
+   "locator": "Lemma 8.15, p. 43 (arXiv v2); published Acta Math. 223 (2019), p. 62 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"Let t ∈ H(G(A_K^S), U^S) ⊗_Z C be an operator such that for any character χ : Z_M(K)\\Z_M(A_K) → C^×, t·A_0(N(A_K)M(K)\\G(A_K))^U_χ = 0. Then t·C_c(G(K)\\G(A_K))^U ⊂ A_0(G(K)\\G(A_K))^U.\"",
    "correction": "\"… such that **for every proper standard parabolic subgroup P = MN of G** and for any character χ …\".",
    "reason": "The letters M and N are not introduced in the statement — the last parabolic fixed before it, on p. 42, is a single one — yet the proof begins \"We therefore need show that for each proper standard parabolic P = MN of G\", and the application in Lemma 8.16 supplies the vanishing for every proper P. As stated the hypothesis is about one unspecified parabolic and the conclusion does not follow.",
@@ -13927,14 +13927,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print. Lemma 8.15's hypothesis names M and N without introducing them, while its proof begins 'We therefore need show that for each proper standard parabolic P = M N of G' — which I located in the published text — and Lemma 8.16 supplies the vanishing for every proper P. So the statement must quantify over all proper standard parabolics, as the correction says; as printed the hypothesis concerns one unspecified parabolic and the conclusion does not follow. This is the only one of the sixteen the extraction classes as affecting the proof, and that is the right classification."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E6",
    "kind": "misprint",
-   "locator": "Proof of Lemma 8.16, p. 44 (arXiv v2)",
+   "locator": "Proof of Lemma 8.16, p. 44 (arXiv v2); published Acta Math. 223 (2019), p. 65 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"If P = MN is a standard parabolic subgroup of G, let I_P denote the set of all irreducible constituents of A_0(N(A_K)M(K)\\G(A_K))_χ with non-zero U-invariants, as χ ranges over X_P.\"",
    "correction": "irreducible constituents of A_0(M(K)\\M(A_K))_χ, i.e. cuspidal automorphic representations of M(A_K).",
    "reason": "Proposition 8.12, which this paragraph invokes (\"We are now in the situation of Proposition 8.12\"), requires I_P to consist of irreducible admissible C[M(A_K)]-modules π_i with (i^G_Pπ_i)^U ≠ 0; the next sentence induces them, i^{G(A_K)}_{P(A_K)}(π ⊗ ψ) for π ∈ I_P, which is meaningless for constituents of a space of functions on G(A_K). A_0(N(A_K)M(K)\\G(A_K)) is a G(A_K)-module, and by [MW95, I.2.17] it is already the induction of A_0(M(K)\\M(A_K)).",
@@ -13948,9 +13948,9 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print at p. 65: 'let I_P denote the set of all irreducible constituents of A_0(N(A_K)M(K)\\G(A_K))_χ with non-zero U-invariants'. The correction to A_0(M(K)\\M(A_K))_χ follows the extraction's reading of how I_P is used; I verified the quotation but did not re-derive the correction."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E7",
@@ -13969,14 +13969,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Located, and the H_0 / H′_0 notation appears in the published text in the region of Theorem 8.20 and Corollary 8.21 as the finding describes. The specific claim — that pp. 46–47 of v2 use H_0 and H^*_0 in the senses that p. 48 assigns to H′_0 and H_0 — rests on the extraction's collation of the three passages rather than on a check of mine."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E8",
    "kind": "misprint",
-   "locator": "Proof of Proposition 5.19, p. 23 (arXiv v2)",
+   "locator": "Proof of Proposition 5.19, p. 23 (arXiv v2); published Acta Math. 223 (2019), p. 34 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"we obtain h^1(Γ_{K,S∪Q}, ĝ_k) = r#Q = h^1(Γ_{K,S∪Q}, ĝ_k) + (r − 1)#Q, hence the third point in the statement of the proposition.\"",
    "correction": "the second occurrence should be h^1(Γ_{K,S}, ĝ_k).",
    "reason": "As printed the identity forces (r − 1)#Q = 0, which is false for r > 1. The intended chain uses the equalities just established, h^1(Γ_{K,S}, ĝ_k) = h^1(Γ_{K,S}, ĝ^∨_k(1)) = #Q, and it is what produces the generator count g = h^1(Γ_{K,S}, ĝ_k) + (r − 1)#Q of part (iii) — the number that makes dim R_∞ = dim S_∞ in the patching argument.",
@@ -13990,14 +13990,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed decisively, and present in print at p. 34, which reads 'h¹(Γ_{K,S∪Q}, ĝ_k) = r#Q = h¹(Γ_{K,S∪Q}, ĝ_k) + (r−1)#Q, and hence the third point in the statement of the proposition.' The same group appears on both sides, so as printed the identity forces (r−1)#Q = 0, false for r > 1. The line immediately above gives the intended reading: 'the case Q = ∅ gives the equality h¹(Γ_{K,S}, ĝ_k) = h¹(Γ_{K,S}, ĝ^∨_k(1))', so the second occurrence should be Γ_{K,S}."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E9",
    "kind": "misprint",
-   "locator": "Proposition 5.19, p. 23, and its proof, p. 24 (arXiv v2)",
+   "locator": "Proposition 5.19, p. 23, and its proof, p. 24 (arXiv v2); published Acta Math. 223 (2019), p. 35 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "\"and that for each v ∈ S, the group H^0(K_v, g^∨_k(1)) is trivial\" (no hat on the Lie algebra), and \"the element Res_{L_N}[φ] determines a non-zero, Γ_{K_N}-equivariant homomorphism f : Γ_{L_N} → ĝ^∨_k(1)\"",
    "correction": "H^0(K_v, ĝ^∨_k(1)); and Res_{L_N}[ψ].",
    "reason": "The coefficient module throughout §5 is the dual of the Lie algebra of the **dual** group, written ĝ^∨_k everywhere else in the same proposition; g is the Lie algebra of the automorphic group G, which plays no role in §5. In the proof the cohomology class fixed at the start of the induction is [ψ], used two lines later as ψ(σ_0) and ψ(τσ_0) = f(τ) + ψ(σ_0); no class φ is introduced (the only φ in §5.3 are the inner isomorphisms φ_v and the Frobenius lift).",
@@ -14011,14 +14011,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed, and present in print at p. 35: 'the element Res_{L_N}[φ] determines a non-zero, Γ_{K_N}-equivariant homomorphism'. The class fixed at the start of the induction is [ψ], as the published text confirms two lines earlier, so [φ] is the slip. The companion element, the missing hat in H^0(K_v, g^∨_k(1)), rests on the extraction's page-image reading, since the text layer flattens hats."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E10",
    "kind": "misprint",
-   "locator": "§§5–6, pp. 21, 25, 26, 32 (arXiv v2): four hat- and index-slips",
+   "locator": "§§5–6, pp. 21, 25, 26, 32 (arXiv v2): four hat- and index-slips; published Acta Math. 223 (2019), p. 31 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "(a) p. 21: \"This is the same argument we have already applied in the case G = SL_n in the proof of Theorem 5.13\"; (b) p. 25: \"Let W denote the Weyl group of G, let Λ = ZΦ(H,T) ⊂ X^*(T)\"; (c) p. 26: \"we have a tautological isomorphism j_0 : Ĝ_{Q̄_λ} ≅ G_{λ_0}\"; (d) p. 32: \"conjugating ρ_{U_0} by an element of Ĝ(R_U) with trivial image in Ĝ(k), that ρ_{U_0}|_{W_K} = ιχ^∨ for some character χ^∨ : W_K → T̂(R_U)\"",
    "correction": "(a) Ĝ = SL_n, the hypothesis of Theorem 5.13; (b) the Weyl group of H; (c) j_0 : Ĝ_{Q̄_{λ_0}} ≅ G_{λ_0}; (d) Ĝ(R_{U_0}) and T̂(R_{U_0}).",
    "reason": "(a) G is the automorphic group over F_q and plays no role in §5. (b) The whole paragraph works with the reductive group H over an algebraically closed field of characteristic zero — Φ(H,T), H⫽H ≅ T/W, the Dynkin diagram of H. (c) G_{λ_0} is the Zariski closure of the image of α_{λ_0} = R∘ρ inside GL(V)(Q̄_{λ_0}), and φ_{λ_0}∘j_0 is formed three lines later, so the source must be Ĝ over Q̄_{λ_0}. (d) ρ_{U_0} is valued in Ĝ(R_{U_0}), of which R_U is a quotient; the parallel statement in Proposition 7.9 correctly writes Ĝ(R_{U_1}) and T(K) → R^×_{U_1}.",
@@ -14032,9 +14032,9 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed for the elements I located in print: (a) at p. 31, 'argument we have already applied in the case G = SL_n in the proof of Theorem 5.13', where the hypothesis of Theorem 5.13 is on Ĝ; and (b) at p. 37, 'the Weyl group of G, let Λ = ZΦ(H,T) ⊂ X^*(T)', where the root system named is that of H. Elements (c) and (d) rest on the extraction's page-image readings, reasonably so, since they turn on hats the text layer drops."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E11",
@@ -14053,14 +14053,14 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed for the element I located: the published text prints 'Since QN_P is a parabolic subgroup of G, we obtain n(δ) = N ≤ dim QN_P', where the ambient group in that argument is Ĝ_k. The other three elements turn on hats and rest on the extraction's page-image readings."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E12",
    "kind": "misprint",
-   "locator": "§§2–3, pp. 5, 10, 11, 12, 13 (arXiv v2): five slips with mathematical content",
+   "locator": "§§2–3, pp. 5, 10, 11, 12, 13 (arXiv v2): five slips with mathematical content; published Acta Math. 223 (2019), p. 7 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "(a) p. 5: \"We write Art_{K_v} : K^× → Γ^{ab}_{K_v} for the Artin map of local class field theory\"; (b) p. 10: \"self-dual as a representation of G (because there exists a non-degenerate G-invariant symmetric bilinear form on G; see for example [SS70, Lemma I.5.3])\"; (c) p. 11: \"let f(T) = T^n + a_1T^{n−1} + ⋯ + a_n ∈ K[X] denote the characteristic polynomial of multiplication by a\"; (d) p. 12: \"S is an integral locally closed subscheme of X, smooth over O, such that O_{S,x}/(λ) = O_{S_0,x}\"; (e) p. 13: \"Indeed, G_k·φ(x) is closed inside X, by hypothesis, and η is finite, so η^{-1}(G_k·φ(x)) is a closed subset of X′_k\"",
    "correction": "(a) Art_{K_v} : K_v^× → Γ^{ab}_{K_v}; (b) a symmetric bilinear form on 𝔤; (c) ∈ K[T]; (d) O_{S,x}/(̟) = O_{S_0,x}; (e) G_k·x, twice.",
    "reason": "(a) The local Artin map has the local multiplicative group as its source; K^× is the global one. (b) The assertion being justified is that the **Lie algebra** 𝔤 is self-dual as a G-representation, which needs an invariant form on 𝔤; [SS70, Lemma I.5.3] is about the Lie algebra. (c) The polynomial is in the variable T over K, whereas K[X] would be functions on the scheme X being acted on. (d) One divides by the uniformizer ̟ of O fixed in §2 to pass to the special fibre; λ is never introduced as an element of O and denotes a cocharacter in Proposition 3.6. (e) Here φ : G × S → X and x ∈ X(k), so φ(x) is not defined; the hypothesis of Proposition 3.13 is that G_k·x is closed, and the point of G × S in play is (1, x), as the last line of the same proof writes.",
@@ -14074,9 +14074,9 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed for the two elements I located in print: (a) at p. 7, 'We write Art_{K_v} : K^× → Γ^ab_{K_v} for the Artin map of local class field theory' — the source of the LOCAL Artin map is K_v^×, not K^×; and (b) at p. 14, 'there exists a non-degenerate G-invariant symmetric bilinear form on G' — a bilinear form lives on the Lie algebra 𝔤, not on the group. The remaining three elements rest on the extraction."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E13",
@@ -14095,16 +14095,16 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Located in the published text in the proof of Proposition 10.2, which prints the chain ending 'dim_k ĝ^ẇ_k = #R = r'. The correction — that the premise should read dim_k ĝ^ẇ_k ≥ r rather than dim_k ĝ_k ≥ r — follows the extraction's reading of the inequality in use, which I did not re-derive."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E14",
    "kind": "misprint",
-   "locator": "Proposition 11.2 and its proof, pp. 59–60 (arXiv v2)",
+   "locator": "Proposition 11.2 and its proof, pp. 59–60 (arXiv v2); published Acta Math. 223 (2019), p. 87 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "(a) \"Proposition 11.2. Let η : G → H denote the adjoint group of G, and let l ∤ q be a prime.\"; (b) \"Taking K-points in the diagram (11.1) and applying Theorem 90 leads to a commutative diagram\"; (c) \"P : Y^* → Hom(Γ_{K,∅}, ker(Z_Ĥ(Q̄_l) → Z_Ĝ(Q̄_l)).\"",
-   "correction": "(a) \"let H denote the adjoint group of G and η : G → H the canonical isogeny\", as the proof of Theorem 11.1 puts it one paragraph earlier; (b) Hilbert's Theorem 90; (c) one closing parenthesis is missing.",
+   "correction": "(a) \"let H denote the adjoint group of G and η : G → H the canonical isogeny\", as the proof of Theorem 11.1 puts it one paragraph earlier; (b) Hilbert's Theorem 90; (c) one closing parenthesis is missing. [REV note by REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19: element (b), the bare 'Theorem 90' is corrected in the published Acta text and is a slip of arXiv v2 only; it must not be counted as a mistake in published work.]",
    "reason": "(a) η is a morphism, not a group. (b) There is no \"Theorem 90\" in the paper; the intended reference is Hilbert's Theorem 90, which is what makes the top row of the displayed diagram end in 1 (H^1(K, T_G) = 1 for a split torus). (c) Four opening delimiters against three closing ones.",
    "affects": "nothing",
    "known": "new",
@@ -14116,9 +14116,9 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed in part, and this is one of two findings the published version partly repairs. Element (a) IS present in print: published p. 87 reads 'Proposition 11.2. Let η : G → H denote the adjoint group of G', while the proof of Theorem 11.1 on the SAME published page has it right — 'Let H denote the adjoint group of G and η : G → H be the canonical isogeny'. Element (b) is NOT present in print: where arXiv v2 has 'applying Theorem 90', published p. 88 reads 'applying Hilbert's Theorem 90'. Copyediting fixed it, so element (b) is a slip of v2 only and is not a mistake in the published work; the correction field has been annotated accordingly."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E15",
@@ -14137,16 +14137,16 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed as located: Theorem 11.8 is present in the published text in the form quoted, with the restriction written ρ|Γ_{K′}. The correction — that it must be ρ_λ|Γ_{K′} for each prime-to-q place λ — follows from the theorem quantifying over a compatible system (ρ_λ)_λ, and is the extraction's reading of the statement rather than a separate check of mine."
   },
   {
    "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E16",
    "kind": "misprint",
-   "locator": "Conjecture 11.6, p. 64, and a group of typographical slips (arXiv v2)",
+   "locator": "Conjecture 11.6, p. 64, and a group of typographical slips (arXiv v2); published Acta Math. 223 (2019), p. 83 (located by review REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19)",
    "printed": "(a) \"Conjecture 11.6. Let E/K be a cyclic extension of global fields, as above, and let ρ : Γ_K → Ĝ(Q̄_l) be …\"; (b) \"they correspond under the unramified local Langlands correspondenec.\"; (c) p. 56 \"up to Ĝ(k)-conjuation\"; (d) p. 58 \"Our goal in this section the following result\"; (e) p. 66 \"We can reduce, as in at the beginning of §11\"; (f) p. 46 \"in facts takes values in O\"; (g) p. 71 \"Whit ∘ Eis^G_T can calculated be calculated by\"; (h) p. 22 \"Q is a finite set of place K, disjoint from S\"; (i) p. 12 \"We let G act on G × S be left multiplication on G\"; (j) p. 16 \"Suppose that Γ a profinite group\"; (k) bibliography, [Ric88]: \"Duke Math. J., 1988\" with no volume or pages, unlike every other journal entry.",
-   "correction": "(a) delete \"as above\" or make it a reference to the cyclic layers of K′/K_0; (b) \"correspondence\"; (c) \"conjugation\"; (d) \"is the following result\"; (e) \"as at the beginning\"; (f) \"in fact takes values\"; (g) \"can be calculated by\"; (h) \"a finite set of places of K\"; (i) \"by left multiplication\"; (j) \"Suppose that Γ is a profinite group\"; (k) Duke Math. J. 57 (1988), 1–35.",
+   "correction": "(a) delete \"as above\" or make it a reference to the cyclic layers of K′/K_0; (b) \"correspondence\"; (c) \"conjugation\"; (d) \"is the following result\"; (e) \"as at the beginning\"; (f) \"in fact takes values\"; (g) \"can be calculated by\"; (h) \"a finite set of places of K\"; (i) \"by left multiplication\"; (j) \"Suppose that Γ is a profinite group\"; (k) Duke Math. J. 57 (1988), 1–35. [REV note by REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19: element (b), the misspelling 'correspondenec' is corrected in the published Acta text and is a slip of arXiv v2 only; it must not be counted as a mistake in published work.]",
    "reason": "\"as above\" in (a) has no antecedent: no extension E/K appears earlier in §11.1, whose fields are F, K, K′ and K_0, and the conjecture is applied on the next page to \"the abelian layers of this soluble extension\" K′/K_0. The rest are doubled or dropped words and a truncated bibliography entry.",
    "affects": "nothing",
    "known": "new",
@@ -14158,9 +14158,9 @@
    "owner": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
    "file": "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
    "citation": "Böckle–Harris–Khare–Thorne, \"Ĝ-local systems on smooth projective curves are potentially automorphic\", Acta Mathematica (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+   "reviewReason": "The published Acta Mathematica text IS available: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher PDF (111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page) was fetched by this review on 23 September 2026. The extraction recorded that it 'could not be consulted'; that is not so, and every finding has now been re-checked against the published text. Confirmed in part, the second finding the published version partly repairs. Element (c) IS present in print: published p. 83 reads 'up to Ĝ(k)-conjuation'. Elements (a) and (d) are present too. Element (b), the misspelling 'correspondenec', does NOT occur anywhere in the published text — copyediting fixed it — so it is a slip of v2 only and not a mistake in the published work; the correction field has been annotated accordingly."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E1",
