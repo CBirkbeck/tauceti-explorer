@@ -1995,7 +1995,7 @@
    "summary": "The p-adic local Langlands correspondence for GL₂(Q_p) has no part of itself in either library, and neither does the coefficient theory it rests on: there is no Robba ring, no (φ,Γ)-module, no Herr complex, no smooth or admissible or locally analytic representation of a p-adic group, and no block decomposition of such a category (`grep -rn -i 'robba|phi.gamma|locally analytic representation|smooth representation'` over both Lean trees returns nothing but unrelated differential-geometry hits). Two genuine ingredients do exist. First, Mathlib's p-adic distribution theory: `AbstractMeasure`/`D(ℤ_[p], R)` with Dirac measures, pushforward and Fubini-style contractions, the Mahler basis (`mahler`, `PadicInt.mahlerEquiv`), and the Amice transform `AbstractMeasure.amiceTransformEquiv : D(ℤ_[p], ℤ_[p]) ≃ ℤ_[p]⟦X⟧` — the coefficient ring on which a (φ,Γ)-module over Q_p is built, though only as a linear equivalence (the ring/convolution structure and the general base are TODOs in the file). Second, Tau Ceti's projective covers and injective envelopes of modules (`TauCeti.IsProjectiveCover`, `TauCeti.IsInjectiveEnvelope`, with existence and minimal-presentation comparisons), the module-theoretic prototype of R30.5's projective envelopes. Everything the roadmap actually names — Colmez's functor, locally algebraic vectors, blocks, Breuil–Mézard multiplicities, and the Paškūnas / Hu–Tan / Tung theorems — is missing.",
    "layers": {
     "PadicLocalLanglandsForGL2Qp:R30.1": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "Import the analytic Robba/annulus coefficient rings from PadicHodgeTheory P7:annulus-foundations",
@@ -2028,7 +2028,7 @@
        "target": "Fix the GL₂(Q_p) covariance convention and prove the normalization bridge with R16.3",
        "library": "absent",
        "declarations": [],
-       "note": "Convention-fixing plus a bridge theorem between the p-adic and classical normalizations; neither side exists, since there is no local Langlands correspondence for GL₂ in either library."
+       "note": "Convention-fixing plus a bridge theorem between the p-adic and classical normalizations; neither side exists, since there is no local Langlands correspondence for GL₂ in either library. Note that this target is a theorem to prove, not an import obligation, which is why the layer is graded 'not built' rather than 'process' even though its other two targets are imports."
       }
      ],
      "duplicates": [
