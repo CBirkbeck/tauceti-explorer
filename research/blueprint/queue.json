@@ -1445,7 +1445,8 @@
    ],
    "avoidAccountOf": "PAPER-DITTMANN-POP-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1100"
   },
   {
    "id": "PAPER-WITASZEK-22",
@@ -4172,8 +4173,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
