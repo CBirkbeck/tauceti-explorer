@@ -55568,16 +55568,17 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same computation ((7.6) as printed; the passage predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 21 image and the full restriction-of-scalars setup checked. Retaining −n gives a character of order d=(q−1)/gcd(n,q−1). In the actual A2 weight list for q=7,n=2, weights 2 and −1 have identical character; the attempted isolation fails. This confirms a gap in this proof, not a counterexample to Theorem 7.2. The suggested alternative arguments in the old correction remain unproved proposals."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E2",
@@ -55589,16 +55590,17 @@
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: not compared"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "The cross-references and standing hypotheses were traced. The proofs cited for Theorem 7.12 and the depth-zero case use q>5; no proof for the omitted small fields is certified here. GL₁ with an unramified character is an actual counterexample to unconditional ramification. Separate those two kinds of finding."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E3",
@@ -55610,16 +55612,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: not compared"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 8 image confirms N rather than N^i. The opposite graded indices require the i-th iterate; at i=0 the intended map is identity. This repairs the linear definition only; E15 is a separate issue with part (b)."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E4",
@@ -55631,16 +55634,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: not compared"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 6 image confirms the G/A glyph. The domain is the cuspidal automorphic representation set A₀, as used in the preceding statement."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E5",
@@ -55652,16 +55656,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the identity is printed in the β-notation of (4.5); not compared further"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 13 image confirms az. Kummer classes are multiplicative: specialization of T^a at z gives z^a; a=p would make the printed additive reading zero, outside k×."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E6",
@@ -55673,16 +55678,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Pages 19–20 checked: W_k is the acting Weil group on the summands. W_i is not a separately defined group there."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E7",
@@ -55694,16 +55700,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 25 image checked against (5.3). The misplaced parenthesis, nonexistent part (ii) and swapped filtration indices are slips. This does not validate Lemma 5.1’s underlying proof, which has E19–E21."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E8",
@@ -55715,16 +55722,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 26 image and Theorem 8.1 checked. Both the theorem label and local group G(F) are unambiguous. The extraction now also retains all inherited hypotheses."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E9",
@@ -55736,16 +55744,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 30 image checked: the principal-series result is Theorem 7.12. This reference correction does not resolve the torus exception in E22."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E10",
@@ -55757,37 +55766,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: 'block-diagonal' is the same; the rest was not compared"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Pages 33 and 35 images checked. The block size, nonzero off-diagonal blocks, inducing group and global intersection have the corrected meanings. The claim about the entire restricted representation being trivial is not a notation change and is separated as E25."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E11",
    "kind": "misprint",
    "locator": "§11, after Definition 11.1, p. 36",
    "printed": "The depth of a parameter φ ∈ G^{ss}(G,F) is defined to be the maximum n such that φ is trivial on the subgroup I^n_{F^?} of the inertia group I_{F^?}, where we are using the upper numbering.",
-   "correction": "… the least n such that φ is trivial on I^n_{F^?} …",
-   "reason": "The upper-numbering subgroups I^n decrease as n grows, and every such φ is trivial on I^n for all large n, so no maximum exists. 'Depth at most n' in the next sentence, and the bijection (11.3) for n-close fields, need the least such n.",
+   "correction": "Use the subset of parameters trivial on I_F^n for each positive integer n. The least such positive integer is an integer cutoff when it exists. Usual real depth requires an infimum and a right-limit convention; it is not this integer and need not be an attained minimum.",
+   "reason": "The upper-numbering subgroups decrease, so the set of cutoffs on which a parameter is trivial is upward closed and has no maximum. Positive integer n is the parameter in n-closeness. Replacing maximum by a real minimum without specifying endpoints would create a second error.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 36 image checked. A decreasing filtration gives an upward-closed set of triviality cutoffs, so there is no maximum. The repair is now explicitly an integer cutoff for n-close fields; it does not claim the infimum defining real depth is attained."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E12",
@@ -55799,16 +55810,17 @@
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: not compared"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 37 image checked. The conjectural square acts only on A_n. For Q_p the ring Z_p/p^n has characteristic p^n, so it cannot be n-close to a characteristic-p field for n>1; the missing domain is substantive."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E13",
@@ -55820,16 +55832,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 37 image checked. Definition 11.1 and the conjecture use positive n; equal residue fields give n=1. The depth-zero-to-I₁ adapter is retained as an explicit building/filtration obligation rather than confused with Iwahori invariants."
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E14",
@@ -55841,16 +55854,281 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1017/fmp.2024.10: no correction, erratum, update-to or relation entries (23 September 2026)",
-    "arXiv 2109.07737: v3 (13 June 2022) is the last version and predates the journal revision (10 April 2024); the published version, read here, is the version of record",
-    "arXiv v3 at this locator: the same text (the mistake predates the revision)"
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
    ],
    "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
    "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
    "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Page 39 image checked against all four preceding conditions. Isolation of an elliptic orbit is condition (iv)."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E15",
+   "kind": "error",
+   "locator": "Definition 2.5 pp.7–8 and Definition 3.3(b) p.8; published 2024 version",
+   "printed": "some (equivalently, for all) faithful representations / some (equivalently every) faithful representation",
+   "correction": "The single-weight predicate is relative to a specified representation. Supply a central-weight-compatible intrinsic definition before asserting invariance or essential-temperedness equivalence. Removing just the word every is not a proved replacement for the subsequent theory.",
+   "reason": "For Ĝ=G_m take an unramified parameter with geometric Frobenius q. The standard one-dimensional faithful representation has weight 2. The equally faithful representation x↦diag(x,1) has weights 2 and 0 and N=0, hence is not pure of a single weight. A common twist shifts both weights equally and cannot fix the discrepancy. The corresponding unramified character is available by the torus correspondence.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "For Ĝ=G_m take an unramified parameter with geometric Frobenius q. The standard one-dimensional faithful representation has weight 2. The equally faithful representation x↦diag(x,1) has weights 2 and 0 and N=0, hence is not pure of a single weight. A common twist shifts both weights equally and cannot fix the discrepancy. The corresponding unramified character is available by the torus correspondence. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E16",
+   "kind": "error",
+   "locator": "Remark 3.10 p.11; published 2024 version",
+   "printed": "L^{ss}(π′), composed with the adjoint representation, is irreducible.",
+   "correction": "Use irreducibility of the group-valued parameter (noncontainment in a proper parabolic), with an actual proof from the local monodromy theorem. Do not assert linear irreducibility of Ad. HNY Theorem 2 instead gives zero adjoint inertia invariants, with its stated hypotheses.",
+   "reason": "Already for split G=SL₂×SL₂, the dual is PGL₂×PGL₂ and Lie(Ĝ)=sl₂⊕sl₂ has two nonzero proper invariant ideals under every parameter. Thus the claimed adjoint irreducibility is impossible in the allowed reductive scope. Independently, HNY pp.17–18 explicitly give zero invariants and describe simple wild inertia in a torus normalizer; neither is linear irreducibility. The globalization theorem itself is not refuted.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Already for split G=SL₂×SL₂, the dual is PGL₂×PGL₂ and Lie(Ĝ)=sl₂⊕sl₂ has two nonzero proper invariant ideals under every parameter. Thus the claimed adjoint irreducibility is impossible in the allowed reductive scope. Independently, HNY pp.17–18 explicitly give zero invariants and describe simple wild inertia in a torus normalizer; neither is linear irreducibility. The globalization theorem itself is not refuted. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E17",
+   "kind": "error",
+   "locator": "Lemma 4.7 p.14; published 2024 version",
+   "printed": "For L a rank 1 local system on G_m,k ... tr(Frob_z,L)=tr(Frob_1,L) tr(m_z^{-1},L).",
+   "correction": "Require L tamely ramified at both 0 and ∞. Both supplied proofs then use the tame abelian geometric quotient and the Kummer description.",
+   "reason": "Take k=F₃ and the Artin–Schreier sheaf L_ψ(t) for a nontrivial additive character ψ. It extends over 0, so m_z acts trivially. Its Frobenius traces at 1 and 2 are distinct ψ-values, contrary to the claimed constant trace. It is wildly ramified at ∞. The later use following Corollary 4.3 already satisfies the missing tameness condition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Take k=F₃ and the Artin–Schreier sheaf L_ψ(t) for a nontrivial additive character ψ. It extends over 0, so m_z acts trivially. Its Frobenius traces at 1 and 2 are distinct ψ-values, contrary to the claimed constant trace. It is wildly ramified at ∞. The later use following Corollary 4.3 already satisfies the missing tameness condition. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E18",
+   "kind": "misprint",
+   "locator": "§4.2 p.13, before (4.4); published 2024 version",
+   "printed": "Let K′ denote the union of all abelian extensions of K of degree dividing q−1.",
+   "correction": "Take the compositum of cyclic extensions of degree dividing q−1, equivalently the maximal abelian extension of exponent dividing q−1; use continuous characters.",
+   "reason": "For q=3, K=F₃(t), both √t and √(t−1) lie in quadratic extensions, but their sum has degree 4: the two square classes are independent by their odd valuations at t=0 and t=1, and the sum has trivial stabilizer in the biquadratic Galois group. Thus the stated union is not closed under addition. The compositum is the intended Kummer carrier.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "For q=3, K=F₃(t), both √t and √(t−1) lie in quadratic extensions, but their sum has degree 4: the two square classes are independent by their odd valuations at t=0 and t=1, and the sum has trivial stabilizer in the biquadratic Galois group. Thus the stated union is not closed under addition. The compositum is the intended Kummer carrier. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E19",
+   "kind": "error",
+   "locator": "Proof of Lemma 5.1 pp.16–17; published 2024 version",
+   "printed": "ψ(w)=b·w−s; ... ns≥ns+nψ(c); ... ns≥ns+nψ(c)+nr",
+   "correction": "Use a coherent affine-root convention, for example ψ(w)=s−b·w with v(u)≥s. Then ψ(c)≥0 gives ns≥nb·c; ψ(c)>r gives ns>nb·c+nr≥nb·c+r for n≥1,r≥0. At degree zero the matrix coefficient is δ_ij, not identically 1 for every i,j. A root-group proof in this convention remains required.",
+   "reason": "The printed inequality ns≥ns+nψ(c) is false whenever n>0 and ψ(c)>0; n=1,s=0,b·c=1 is a numerical instance. The strict-bound chain has an additional erroneous +nr. For degree-zero off-diagonal entries the value at the identity is 0, so the asserted constant 1 cannot be right. These arithmetic repairs do not solve the lifting or nonreduced-root issues.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "The printed inequality ns≥ns+nψ(c) is false whenever n>0 and ψ(c)>0; n=1,s=0,b·c=1 is a numerical instance. The strict-bound chain has an additional erroneous +nr. For degree-zero off-diagonal entries the value at the identity is 0, so the asserted constant 1 cannot be right. These arithmetic repairs do not solve the lifting or nonreduced-root issues. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E20",
+   "kind": "error",
+   "locator": "Proof of Lemma 5.1 p.16, characteristic-zero lifting paragraph; published 2024 version",
+   "printed": "we may lift the representation V from the field k to its ring of Witt vectors W(k)",
+   "correction": "Prove the required matrix-weight homogeneity directly in characteristic p or restrict to a representation with a separately constructed finite-free lift. Classification by highest weights does not imply that an arbitrary characteristic-p representation lifts with the same rank.",
+   "reason": "For k=F_p, p≥5, take the faithful SL₂-representation Std⊕Std^(Frob), of rank 4 and torus weights 1,−1,p,−p. A finite-free W(k) lift would preserve the torus weight ranks. Its characteristic-zero fiber would contain weight p and therefore an irreducible constituent of highest weight at least p, of dimension at least p+1>4. This is impossible. The matrix-bound statement may have a different valid proof.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "For k=F_p, p≥5, take the faithful SL₂-representation Std⊕Std^(Frob), of rank 4 and torus weights 1,−1,p,−p. A finite-free W(k) lift would preserve the torus weight ranks. Its characteristic-zero fiber would contain weight p and therefore an irreducible constituent of highest weight at least p, of dimension at least p+1>4. This is impossible. The matrix-bound statement may have a different valid proof. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E21",
+   "kind": "error",
+   "locator": "Proof of Lemma 5.1 p.16, restricted root group; published 2024 version",
+   "printed": "i_b: U_b ≃ Res_{k_b/k} G_a",
+   "correction": "Treat multipliable relative roots separately using their actual root groups and weighted coordinates. Only appropriate reduced-root cases can be described by a vector group in this way.",
+   "reason": "The unramified quasi-split SU₃ over F₃((t)), split over F₉((t)), is in scope. Its positive short-root group consists of upper unipotent matrices with entries (1,x,z;0,1,−bar(x);0,0,1), z+bar(z)+x bar(x)=0. Over F₉=F₃[i], i²=−1, take (x,z)=(1,1) and (i,1). Both preserve the anti-diagonal Hermitian form and their products differ in the upper-right entry, so U_b is nonabelian. Every Res G_a is abelian. The exact finite-field matrix regression checks this obstruction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "The unramified quasi-split SU₃ over F₃((t)), split over F₉((t)), is in scope. Its positive short-root group consists of upper unipotent matrices with entries (1,x,z;0,1,−bar(x);0,0,1), z+bar(z)+x bar(x)=0. Over F₉=F₃[i], i²=−1, take (x,z)=(1,1) and (i,1). Both preserve the anti-diagonal Hermitian form and their products differ in the upper-right entry, so U_b is nonabelian. Every Res G_a is abelian. The exact finite-field matrix regression checks this obstruction. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E22",
+   "kind": "error",
+   "locator": "Proposition 10.5 p.30; interpretation of Corollary 10.11 p.35; published 2024 version",
+   "printed": "Then no pure supercuspidal representation of G(F) is incorrigible.",
+   "correction": "Exclude tori and state tempered base change in both alternatives, with the necessary compact-induction/purity hypotheses along the entire tower. Corollary 10.11’s principal-series conclusion does not imply loss of supercuspidality for GL₁.",
+   "reason": "Take G=G_m and π=1. The Weyl group is trivial, the parameter is pure, every irreducible character is supercuspidal, and standard base change along a finite extension is composition with the norm. The trivial character stays trivial through every cyclic tower. It is therefore incorrigible in Definition 10.3. G is compact modulo its own center, so the compact-mod-center condition does not exclude this example.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "Take G=G_m and π=1. The Weyl group is trivial, the parameter is pure, every irreducible character is supercuspidal, and standard base change along a finite extension is composition with the norm. The trivial character stays trivial through every cyclic tower. It is therefore incorrigible in Definition 10.3. G is compact modulo its own center, so the compact-mod-center condition does not exclude this example. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E23",
+   "kind": "misprint",
+   "locator": "Lemma A.3 proof p.39, sum over finite quotient representations; published 2024 version",
+   "printed": "Σ_δ (1/dim δ) Θ_{π_v⊗δ}",
+   "correction": "Use Σ_{δ∈Irr(Q)} (dim δ) Θ_{π_v⊗δ}, where Q=G(K_v)/H_v. These are the regular-character multiplicities; the positive integral combination is what the orthogonality argument uses.",
+   "reason": "For Q=S₃ at a 3-cycle, the irreducible character values are 1,1,−1 and dimensions 1,1,2. Reciprocal weighting gives 1+1−1/2=3/2, whereas dimension weighting gives 1+1−2=0. Thus the displayed reciprocal-weight sum is not the regular-character identity that makes the function vanish outside H_v. This checks the algebraic step, not the full elliptic-orthogonality supplier.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "For Q=S₃ at a 3-cycle, the irreducible character values are 1,1,−1 and dimensions 1,1,2. Reciprocal weighting gives 1+1−1/2=3/2, whereas dimension weighting gives 1+1−2=0. Thus the displayed reciprocal-weight sum is not the regular-character identity that makes the function vanish outside H_v. This checks the algebraic step, not the full elliptic-orthogonality supplier. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E24",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.8 p.34, basis of F_{q^{e/k}}; published 2024 version",
+   "printed": "v₁,...,v_k",
+   "correction": "Write v₁,...,v_{e/k} for an F_q-basis of F_{q^{e/k}} wherever the basis index is used.",
+   "reason": "The field has dimension e/k, which is also the number of scalar parameters and columns in the displayed companion-matrix construction. k and e/k are independent quantities; for e=6,k=2 the stated two vectors cannot be a basis of a degree-three field.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "The field has dimension e/k, which is also the number of scalar parameters and columns in the displayed companion-matrix construction. k and e/k are independent quantities; for e=6,k=2 the stated two vectors cannot be a basis of a degree-three field. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E25",
+   "kind": "gap",
+   "locator": "§10.4 p.35, choice of χ_S and the Poincaré series; published 2024 version",
+   "printed": "the representation λ⊗χ ... is trivial by construction on S",
+   "correction": "Choose an S-invariant vector in the appropriate tensor product, using a χ_S-eigenvector of Λ|S and the inverse character. Construct the matrix coefficient/test function from this vector; do not infer the entire representation is trivial on S.",
+   "reason": "The preceding choice only says χ_S occurs in Λ|S. Twisting kills that character on its eigenspace, not on other constituents. Even 1⊕sgn on C₂ with the chosen character 1 shows the logical distinction. Additional scalar-action information or the explicit invariant-vector construction is needed for this step; the example is a test of the inference, not a counterexample to Proposition 10.10.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "The preceding choice only says χ_S occurs in Λ|S. Twisting kills that character on its eigenspace, not on other constituents. Even 1⊕sgn on C₂ with the chosen character 1 shows the logical distinction. Additional scalar-action information or the explicit invariant-vector construction is needed for this step; the example is a test of the inference, not a counterexample to Proposition 10.10. The locator was checked in the fresh published PDF and page image."
+  },
+  {
+   "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24/E26",
+   "kind": "gap",
+   "locator": "Corollary 2.4(iii) and its proof p.7; published 2024 version",
+   "printed": "the third assertion is obvious",
+   "correction": "Supply a torality argument using an additional property of these particular automorphic parameters, or an appropriate connectedness hypothesis. Abelian semisimple image alone does not imply containment in a maximal torus of a reductive group.",
+   "reason": "In PGL₂(ℂ), the classes of diag(1,−1) and [[0,1],[1,0]] commute (their lifts anticommute), generate a Klein four group, and are semisimple. In any faithful algebraic representation their finite abelian action is completely reducible into characters. They cannot lie in a rank-one torus, whose finite subgroups are cyclic. This refutes the general algebraic inference used as obvious; it does not construct a cuspidal automorphic Π with that parameter, so the verdict is a proof gap rather than a claimed counterexample to the automorphic corollary.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Cambridge published article and landing page, DOI 10.1017/fmp.2024.10; revised 10 April 2024, accepted 14 May 2024, published 9 September 2024. No linked correction found.",
+    "2026-09-23: https://arxiv.org/abs/2109.07737 version history: latest listed v3, 13 June 2022, predates the journal revision; no new main-paper arXiv PDF read by this reviewer.",
+    "2026-09-23: https://www.math.columbia.edu/~harris/website/publications entry 94 and linked publications-with-errata PDF (all five pages read); no correction of this article found. The errata PDF ends with older publications, so absence there is only bounded evidence.",
+    "2026-09-23: exact-title searches with erratum, correction, Lemma 5.1 and Kummer; returned the published article and source records, no correction found. This is not an exhaustive search of every author archive."
+   ],
+   "owner": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+   "citation": "Gan–Harris–Sawin–Beuzart-Plessis, \"Local parameters of supercuspidal representations\", Forum of Mathematics, Pi (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24",
+   "reviewReason": "In PGL₂(ℂ), the classes of diag(1,−1) and [[0,1],[1,0]] commute (their lifts anticommute), generate a Klein four group, and are semisimple. In any faithful algebraic representation their finite abelian action is completely reducible into characters. They cannot lie in a rank-one torus, whose finite subgroups are cyclic. This refutes the general algebraic inference used as obvious; it does not construct a cuspidal automorphic Π with that parameter, so the verdict is a proof gap rather than a claimed counterexample to the automorphic corollary. The locator was checked in the fresh published PDF and page image."
   },
   {
    "id": "PAPER-GAN-ICHINO-18/E1",
@@ -102735,7 +103013,7 @@
    "kind": "error",
    "locator": "Theorem 4.19, p. 101, read together with the definition of maximal variation in section 1.6, p. 16 (author manuscript dated 21 August 2024; identical in arXiv:2108.05625v4)",
    "printed": "Theorem 4.19. Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let pi : X -> S be a smooth relative curve over S of genus g > 1 with maximal variation. [...] Then the following morphisms satisfy the relative Bogomolov conjecture: (1) the S-morphism i^m_alpha : X^m_{/S} -> J^m_{/S} for any m >= dim S + 1. [...] -- where section 1.6 defines: \"Let S be a quasi-projective integral scheme over a noetherian base ring R [...] We say that pi : X -> S has maximal variation (or maximal variation of moduli) if the moduli morphism S -> M_{g,R} associated to pi is generically finite\"",
-   "correction": "In the function-field case the hypothesis must be maximal variation over the field of constants k, not over K: the moduli morphism must be generically finite on a projective model of S over k, equivalently the family must not become isotrivial over the constant field. The number-field case needs no change.",
+   "correction": "In the function-field case the hypothesis must be maximal variation over the field of constants k, not over K: the moduli morphism must be generically finite on a projective model of S over k. (Corrected by REV-PAPER-YUAN-26: the clause 'equivalently the family must not become isotrivial over the constant field' overstated this. Generic finiteness of the moduli morphism on a k-model implies non-isotriviality over k but is strictly stronger as soon as dim S > 0 - a family over a surface whose moduli image is a curve is non-isotrivial and not maximally varying - and the two agree only in the case dim S = 0 of the counterexample below. What the proof of Theorem 4.19 actually needs is the bigness input of Theorem 4.5 over k, for which maximal variation over k is a sufficient hypothesis; the paper does not prove it necessary.) The number-field case needs no change.",
    "reason": "As stated the theorem is false in the function-field case. Because S is a quasi-projective variety over K, the base ring in the section 1.6 definition is R = K, so 'maximal variation' means that S -> M_{g,K} is generically finite. Take k any field, K = k(t), and S = Spec K, so that dim S = 0. Let C be a smooth projective curve of genus g >= 2 over k and let X = C x_k K be the constant family, with alpha any line bundle of positive degree. The hypothesis is then satisfied vacuously: S = Spec K is its own dense open and Spec K -> M_{g,K} is quasi-finite, so the family has maximal variation over K. Part (1) with m = 1 >= dim S + 1 therefore asserts the relative Bogomolov conjecture for i_alpha : X -> J. But that fails: by the definition recalled on p. 100 the canonical height is the one attached to the adelic extension of L over k, and every point of C(kbar), viewed in X(Kbar), is a constant section of a constant family and so has canonical height 0; C(kbar) is infinite, hence Zariski dense in the curve X_{Kbar}. So for every epsilon > 0 the set of points of height at most epsilon is Zariski dense, contradicting the conclusion. The defect is only in the hypothesis, and the paper's own proof shows what the hypothesis should be: it states 'Similar to Proposition 4.18, we need the bigness of the adelic line bundles over k instead of over K, where k = Z if K is a number field and k is the field of constants if K is a function field of one variable', and the bigness input it invokes, Theorem 4.5, requires maximal variation over that same k. Proposition 4.18, on p. 100, is stated correctly and carries bigness on S/k as an explicit hypothesis; it is Theorem 4.19 that fails to upgrade 'maximal variation' to match. The number-field case is unaffected: there k = Z, and for S a variety over a number field K generic finiteness of S -> M_{g,K} is equivalent to that of the induced morphism on a Z-model, since passing to the model adds one to the dimension of the source and of the image alike. Consistently with this, the paper's main uniform theorem is stated with an explicit non-isotriviality condition of its own (section 4.3.2), so the isotrivial case is excluded there and that theorem is not affected.",
    "affects": "a stated result",
    "known": "new",
@@ -102748,9 +103026,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed, and the counterexample is decisive. Every element of it is verbatim on the page. Theorem 4.19 (p. 101) reads ‘Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let π : X → S be a smooth relative curve over S of genus g > 1 with maximal variation … (1) the S-morphism i^m_α for any m ⩾ dim S + 1’, and §1.6 (p. 16) defines maximal variation as generic finiteness of the moduli morphism S → M_{g,R}, ‘i.e. there is an open and dense subscheme U of S such that the induced morphism U → M_{g,R} is quasi-finite’. With K = k(t) and S = Spec K the hypothesis holds vacuously, S being its own dense open and a morphism from a point being quasi-finite, and m = 1 ⩾ dim S + 1 is allowed; but for a constant family X = C ×_k K of genus g ⩾ 2 the points of C(k̄) are constant sections of canonical height 0 and are Zariski dense in X_{K̄}, so the relative Bogomolov conclusion fails. This is the familiar reason function-field Bogomolov statements exclude isotrivial families. The paper’s own proof shows what was meant, in the same paragraph: ‘Similar to Proposition 4.18, we need the bigness of the adelic line bundles over k instead of over K, where k = Z if K is a number field and k is the field of constants if K is a function field of one variable.’ One clause of the recorded correction overstated the repair and this review has corrected it in place: generic finiteness of the moduli morphism on a k-model implies non-isotriviality over k but is strictly stronger once dim S > 0, and the two coincide only in the dim S = 0 case of the counterexample. That distinction matters here, because the open handoff on the errata register for this paper (PR #2299) raises the same objection against the parallel clause in the register’s own E1, and the two should be reconciled together. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E2",
@@ -102770,9 +103048,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 50 reads ‘By the integration formula, the total Green’s function g̃_{Φ_S} on S^an at any discrete or archimedean valuation v ∈ S^an is given by’, followed by an integral over X^an_v of a form built from O(Δ)_a, which lives on X ×_S X; c₁(·)² is a top-degree measure only on a two-dimensional analytic space, so the integral is ill-typed over the analytic fibre of a curve. The parallel definition in §3.3.1 integrates over the product, and the same page concludes that the value ‘is exactly the ϕ-invariant of X_{H_v}’, so the domains have to agree. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E3",
@@ -102792,9 +103070,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed, and the sentence refutes itself. Page 49 states both that δ(C) is the number of nodes of the minimal regular model when C has split semistable reduction over K, and that δ(C) = δ(C_{K′})/[K′ : K] for any K′ over which such reduction exists. Take K′/K unramified of degree f > 1: the reduction stays split semistable, the minimal regular model base-changes étale-locally so the node count is unchanged, and the second clause then forces δ(C) = δ(C)/f, i.e. δ(C) = 0 always. With the ramification index in place of the degree it is consistent, a node t₁t₂ = π^m becoming t₁t₂ = π′^{em}. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E4",
@@ -102814,9 +103092,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed on the page. The display on p. 48 reads ‘r(x, w) ⩽ r(x, z) + r(z, w),      x, y, z ∈ Γ_v’: the quantifier list names y, which does not occur in the inequality, and omits w, which does. The surrounding derivation uses x, z and w. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E5",
@@ -102836,9 +103114,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The sentence on p. 57 carries three slips at once, all visible: ‘at any discrete or archimedean valuation v ∈ S^an_v’ is self-referential; S and X are not in scope in the proof of Theorem 3.10, which fixes M and a tautological curve C and writes Div^(M/Z) in the same sentence; and the construction cited, Theorem 3.6, is the triple Deligne-pairing identity, whereas what computes this total Green function is §3.3.2. The source sentence in §3.3.2 reads ‘v ∈ S^an’ correctly. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E6",
@@ -102858,9 +103136,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed as a gap in the exposition. The display on p. 57 is ‘π_*⟨ω_{X/S,a}, ω_{X/S,a}⟩ = (2/(3g−1))O(Φ_S) + nef = (2/(3g−1))O(c₀) + nef + eff’, and the second equality says that Φ_S − O(c₀) is effective, which needs g̃_{Φ_S} ⩾ 0 at every non-archimedean place as well as the archimedean bound. What is cited, Theorem 3.10, gives only the archimedean half. The non-archimedean half is true and the paper has it — Cinkir’s ϕ(Γ_v) ⩾ ℓ(Γ_v)/39 ⩾ 0, quoted as Theorem 3.7 — but that theorem is stated over a base field, §3.2 having excluded k = Z, so nothing at this point supplies it. The extraction is right to call this an exposition gap rather than a mathematical one. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E7",
@@ -102880,9 +103158,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed, and the counterexample is correct. Page 16 reads ‘curve is called stable if it is semistable with arithmetic genus g > 1, and any rational irreducible component of C_k̄ intersects other irreducible components at three or more points’, with no smoothness qualifier. An irreducible rational curve with two self-nodes is reduced with ordinary double points, has arithmetic genus 0 + 2 = 2 > 1, is stable in the sense of Deligne–Mumford — its only component is singular, so DM’s condition on nonsingular rational components is vacuous — and is a boundary point of M̄₂; but its unique component meets other components in 0 < 3 points, so the printed condition excludes it. The recorded correction, ‘any SMOOTH (nonsingular) rational irreducible component, as in Deligne–Mumford Definition 1.1(iii)’, is exactly right, and for a connected curve of arithmetic genus ⩾ 2 it is equivalent to the branch count 2s + r ⩾ 3 on each rational component. It is worth recording that this is the correct form of the same point: the errata register’s E4 for this paper carries instead the clause ‘a rational component with a self-node meets them in at least one’, which the two-self-node curve refutes, and which the open handoff PR #2299 objects to on exactly that ground. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E8",
@@ -102902,9 +103180,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed, and the author records the mismatch himself. Theorem 2.3 (p. 28) assumes ‘a smooth relative curve of genus g > 0’, while the normalization in §2.2.3 that pins down β̄₂ is the display ‘p_{1*}⟨O(Δ)⁰_a, p*₂ω⁰_{X/S,a}⟩ + (2g − 2)β₂ ⟶ ω⁰_{X/S,a}’ on p. 32, whose coefficient vanishes at g = 1, and the only proof of nefness, Theorem 2.10(1), carries 1/(4g(g−1)) and opens by assuming g > 1. Page 40 says in terms: ‘we require g > 1 in this section, while we only require g > 0 in the previous section.’ Appendix A flags the same degeneration, noting that the first two characterizing properties are equivalent to the ω-version only for g > 1. Every application in §§3–4 has g > 1, so the reach is the g = 1 case of Theorem 2.3 and of what rests on it. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E9",
@@ -102924,9 +103202,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 20 defines strongly nef as a limit ‘of nef hermitian line bundles (resp. adelic divisors)’, so the divisor half defines a strongly nef adelic divisor as a limit of nef adelic divisors, which is circular; two lines above, the same page uses the right word for the model-level objects, ‘a limit of effective arithmetic divisors’, and §1.2 states the intended notion with ‘hermitian (or usual) line bundles on projective models’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E10",
@@ -102946,9 +103224,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 29 says the constructions ‘will be used in the proof of Theorem A.1 and elsewhere of this paper’, but what §2.2.1 builds — the relative Jacobian, i_α, (i_α,i_α), the Poincaré bundle and Θ — is used in Proposition 2.6 and §2.2.3, i.e. in the proof of Theorem 2.3, whereas Appendix A works over a single complete valued field from Theorem A.3 and cites no part of §2. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E11",
@@ -102968,9 +103246,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The map displayed on p. 31 goes Pic⁰⁰(J ×_S J) → Pic⁰⁰(X ×_S X), which i_α : X → J cannot induce; the morphism named in the preceding sentence, (i_α, i_α) : X ×_S X → J ×_S J, is the one that does, and it was introduced on p. 29 for this purpose. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E12",
@@ -102990,9 +103268,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed decisively by the parallel display. On p. 32 the β₂ display reads ‘p_{1*}⟨O(Δ)⁰_a, p*₂ω⁰_{X/S,a}⟩ + (2g − 2)β₂ ⟶ ω⁰_{X/S,a}’, with β₂ bare, while the β₁ display four lines above ends ‘⟶ π*β₁’. Every other term lives on X and β̄₂ lies in Pic(S), so the pullback is needed. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E13",
@@ -103012,9 +103290,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 29 introduces i_α : X → J for a line bundle of degree d on the fibres and calls it a finite S-morphism with no condition on d; at d = 0 it is the constant section determined by −α and is not finite once dim X > dim S. Every later use imposes what is needed: p. 31 says ‘degree d > 0’, and Theorems 4.5, 4.17 and 4.19 say ‘of positive degree on fibers’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E14",
@@ -103034,9 +103312,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed decisively. The recall on p. 50 ends ‘in Pic(X)_Q’ for the identity j*Θ = 2O(Δ)_a + p*₁ω + p*₂ω, which is an identity on X ×_S X; Theorem 2.10(2) on p. 37 states that same identity ‘in Pic(X ×_S X)_Q’ and reserves ‘in Pic(X)_Q’ for its second identity, the one for p_{1*}⟨j*Θ, j*Θ⟩. The recall carried over the wrong one of the two. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E15",
@@ -103056,9 +103334,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Both sentences in §4.4.3 name Theorem 4.2, but what is being made uniform is the ‘depending only on g’ clause, which belongs to Theorem 4.7; Theorem 4.2(2) is over a base field with dim S > 0 and contains no field K, so ‘the constants in Theorem 4.2 are uniform for all K/k’ is not a statement about it, and the inequality displayed just before is the function-field form of Theorem 4.7, with h_Fal, which Theorem 4.2 does not mention. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E16",
@@ -103078,9 +103356,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Theorem 4.5(4) introduces T as the image of Y → S precisely so that T may be a proper subvariety, and then the proof closes ‘The proof is similar to (3), as Θ|_Y is ample on the generic fiber of Y → S’ — vacuous when dim T < dim S, since the fibre of Y → S over the generic point of S is then empty. The extraction’s diagnosis of the imported argument is right: the positive term of part (3) is pulled back from T on Y, so its (dim T + 1)-st power vanishes, and with dim T throughout the term is positive by Theorem 3.2 over T — which is what the hypothesis on T is for. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E17",
@@ -103100,9 +103378,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The sentence on p. 72 defines deg_{B′/k} on Div(C′) while describing v as a closed point of B′ with residue field k(v) in B′, and applies the map to ω_{B′} and λ_{B′}, which live on B′; C′ = C_{K′} is a curve over K′. The number-field analogue a page later is written with the base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E18",
@@ -103122,9 +103400,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Lemma 4.9 and its proof introduce only K, k, C and g, and the next sentence says ‘C has semistable reduction over K′’, so J is the Jacobian of C; X is the paper’s letter for a relative curve over a base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E19",
@@ -103144,9 +103422,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Clause (3) of the definition of a triple over a field F hard-codes k in μ_N(k) and ‘N-th roots of unity of k̄’, while clauses (1) and (2) use F, the Weil pairing of Pic(C)[N] for C over F lands in μ_N(F), and the definition is applied immediately with F = k̄ and F = K̄ and on p. 75 ‘for any algebraically closed field F over k’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E20",
@@ -103166,9 +103444,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 66 prints ‘If x ∉ Z_y(K̄) or equivalently x̃ ∉ Z_y’ inside the proof of Theorem 4.2(2), the geometric case, whose data are S over a field k with no K anywhere; the claim being verified is displayed a page earlier with k̄(y), and the conclusion counts points of X_y(k̄(y)). Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E21",
@@ -103188,9 +103466,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The display on p. 65 reads ‘{x ∈ (X^m)_y(k̄(y)) : h_{L_m}(x) ⩽ ε d deg(M|y)} ⊆ Z_y(k̄(y))’ with a non-strict inequality, whereas a nonzero effective section yields only 0 ⩽ deg(π_x)(h_{L_m}(x) − ε d deg(M|y)) outside Z_y, which excludes nothing on the boundary. Since ε is an arbitrary positive rational the step is repaired by halving it, but it is a genuine off-by-boundary slip and it occurs in both parallel proofs. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E22",
@@ -103210,9 +103488,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed, and the circularity is plain on the page. Lemma 4.3 (p. 66) begins ‘Let Σ be a finite subset of C(F) such that Σ^m ⊂ Z(F)’, and its proof sets n = #Σ and uses n as a multiplier of a line bundle; the proof of Theorem 4.2(1) on p. 65 invokes it to conclude ‘forces Σ(y) to be finite’, which the lemma presupposes. The repair is the one the extraction gives and costs one line, the bound being independent of Σ: apply the lemma to every finite subset of Σ(y). Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E23",
@@ -103232,9 +103510,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The sketch in §4.5 fixes S = M_{g,N,Q} over Q and says ‘We only take the number field case for example’, and the preceding display quantifies over (S ∖ Z)(Q̄), while the line in question ends ‘∀s ∈ S(K̄)’ with no K introduced. Harmless, K̄ = Q̄ for a number field. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E24",
@@ -103254,9 +103532,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The identity on p. 102 is (i/π)∂∂̄g_D = dμ_Ar − δ_D; the left side is exact, so it integrates to 0 over the compact surface, while the right side integrates to 1 − deg(D), the paper’s μ_Ar being a probability measure. The factor deg(D) is also forced by the two neighbouring definitions, admissibility of a metric being c₁(L, ‖·‖) = deg(L)dμ_Ar three lines earlier and the non-archimedean twin, Proposition A.2, carrying deg(L). Every later use has deg(D) = 1. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E25",
@@ -103276,9 +103554,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Page 94 announces ‘The key is that D̃_S − Δ̃_S is effective on S/Q’, while the display that follows establishes only φ_v ⩾ c(g)δ_v and the sentence closing it, and the paragraph after it, both carry the factor c(g). Since c(g) ⩽ 1/14 and Δ̃_S is effective, the announced form is strictly stronger than what is proved. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E26",
@@ -103298,9 +103576,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Both propositions print ‘(π|_Y)_*⟨L̄|_Y, ⋯, L̄|_Y⟩ is big on S/k’, but π is introduced only in §4.6.2, after Proposition 4.16 and for a different object, a relative curve π : X → S; the sections in question set up ψ : A → S and ι : Y → A, and ι is not assumed a closed immersion, so a literal restriction of π to Y does not exist. The propositions are otherwise correct as printed. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E27",
@@ -103320,9 +103598,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. Appendix A works throughout with the curve C, and X is never introduced there; p. 106 makes the slip self-evident, the preceding clause reading ‘we can assume C(K) is non-empty and take a point x₀ ∈ X(K)’. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E28",
@@ -103342,9 +103620,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The step on p. 118 is c₁(ω_{C/K}, ‖·‖_a) = i_*((2g − 2)μ), which is compared with the defining equation of dμ_a for L = ω, namely c₁(ω, ‖·‖_a) = (2g − 2)dμ_a; at g = 1 this reads 0 = 0 and determines nothing, so the appendix’s standing hypothesis g > 0 does not carry the argument. The extraction is careful to call this a gap rather than a false statement and to note that the formula does appear to hold at g = 1, and its repair — run the argument with a degree-1 line bundle — is the natural one. The second step it identifies, the passage from the ω-version of property (2) to the stated one, is equivalent only under the paper’s own proviso ‘if g > 1’ on p. 105. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E29",
@@ -103364,9 +103642,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed. The plan on p. 111 distinguishes the two: ‘(2) holds … up to an additive constant … and (3) holds … up to a multiplicative constant’. Property (2) is an equation on a Green function and shifts additively, so the closing sentence on p. 114 contradicts the plan. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-26/E30",
@@ -103386,9 +103664,9 @@
    "owner": "PAPER-YUAN-26",
    "file": "research/blueprint/papers/PAPER-YUAN-26.result.json",
    "citation": "Xinyi Yuan, \"Arithmetic bigness and a uniform Bogomolov-type result\", Annals of Mathematics 203 (2026), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-YUAN-26",
+   "reviewReason": "Confirmed on rendered page images, since the text layer does not resolve the subscript. Page 89 prints ‘12 deg^(λ̄_{O_K}) = ω̄²_{C/O_K,Ar} + δ(C) − 4g[K : Q]log(2π)’ and defines ‘the Hodge bundle λ_{O_K} = det π_*ω_{C/O_K}’, while p. 93 prints ‘ω̄²_{C/O_K,Ar} = 12 deg^(λ̄_K) − δ(C) + 4g[K : Q]log(2π)’. λ̄_K is nowhere defined and the Hodge bundle lives on the arithmetic base. Checked at the locator in the author manuscript of 21 August 2024, which this review re-downloaded from the author’s page: its SHA-256 is b36f4860…a813e, the hash the extraction records, so the text is the same one. The published Annals version (203 (2026), no. 1, 15–119) is subscription-only and was not obtained by this review either, as the extraction’s own `gaps` entry says; arXiv:2108.05625 ends at v4, which is older than this manuscript."
   },
   {
    "id": "PAPER-YUAN-ZHANG-18/E1",
