@@ -1,194 +1,260 @@
 {
- "paper": "PAPER-HACON-WITASZEK-23",
- "protocol": "errata-v1",
- "sourceIssues": [
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E1",
-   "kind": "error",
-   "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
-   "printed": "index of K_X",
-   "correction": "m should be the Cartier index of K_X + S at P, the log index. For the plt surface germ obtained by localising at P, this equals the order of the local class group, and the conclusions then hold.",
-   "reason": "Counterexample. Take X = Spec k[x,y,z]/(xy − z²), the A1 surface singularity with char k > 5, S = V(x, z), Δ = S and P the vertex. Then X is Q-factorial, (X, S) is plt and hence dlt, and P is a codimension-one point of the curve S. The minimal resolution (charts (x,z,y) = (u,uv,uv²) and (st²,st,s)) is crepant, so K_X is Cartier and m = 1. But div(x) = 2S and the ideal (x, z) is not principal at P, so S is not Cartier. Since f*S = S′ + E/2, adjunction gives (K_X + S)|_S = K_S + ½P, not K_S. With m = index(K_X + S) = 2 every clause holds. For a threefold example, multiply by A¹. The only other use is Lemma 4.2 (p.16), which needs only that the different of a plt pair with standard coefficients has standard coefficients; that is unaffected. Checked on the page image. Noted by the extraction (gap-index, item adjunction-index-diagnostic).",
-   "affects": "a stated result",
-   "known": "new",
-   "searched": [
-    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
-    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.2 there is the same statement, and its second paragraph reads \"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X+S)|_S = K_S + (1 − 1/m)P.\""
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E2",
-   "kind": "error",
-   "locator": "Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14)",
-   "printed": "all these discrepancies",
-   "correction": "Also fix a finite set I ⊂ [0, 1) and require the coefficients of B to lie in I. Then, over the minimal resolution, the exceptional discrepancies take finitely many values. This is what the proof of Proposition 2.15 needs, since the boundaries B_n of a flip sequence all have the coefficients of B.",
-   "reason": "Counterexample. On the A1 surface S = {xy = z²} with C = V(x, z) and B = bC, 0 < b < 1/2, the minimal resolution is one (−2)-curve E, and K_{S′} + bC′ + (b/2)E = f*(K_S + bC). The pair is ½-lc for every such b (log discrepancies 1 − b/2 and 1 − b on an snc model with coefficients < 1/2), and there is one exceptional discrepancy, −b/2, so m = 1. That value varies infinitely. The proof fails because the right-hand sides B_{S′}·C_i of its linear system contain f^{-1}_*B·C_i, which varies with B. With coefficients in I the right-hand sides lie in a finite set, since f^{-1}_*B·C_i = 2r_i + a_iC_i² − Σ_{j≠i}(1 − a_j)C_j·C_i < 2r_i ≤ 8. Proposition 2.15 is unaffected. Noted by the extraction (gap-surface, item surface-finiteness-diagnostic); the corrected statement is proved in fixed-boundary-surface by this continuation.",
-   "affects": "a stated result",
-   "known": "new",
-   "searched": [
-    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
-    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.16 there reads \"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S,B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\", with no condition on the coefficients of B."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E3",
-   "kind": "misprint",
-   "locator": "Proof of Lemma 2.16, p.13 of the published version (arXiv v2 p.15)",
-   "printed": "−c_i ≤ 2/a_i",
-   "correction": "c_i ≤ 2/a_i ≤ 2/ε.",
-   "reason": "The proof writes C_i² = −r_ic_i, so c_i > 0 and −c_i ≤ 2/a_i is vacuous. The displayed inequality −a_ir_ic_i ≥ −2r_i gives c_i ≤ 2/a_i, which is the bound the proof then uses (\"and so −C_i² is bounded\"). Checked on the page image. Noted by the extraction (item fixed-boundary-surface, 'correct the printed c_i signs').",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
-    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"and so −c_i ≤ 2/a_i is bounded\", two lines after C_i² = −r_ic_i and the displayed a_iC_i² ≥ −2r_i."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E4",
-   "kind": "misprint",
-   "locator": "Proof of Proposition 2.15, definition of the difficulty d⁺_α, p.12 of the published version (arXiv v2, same passage)",
-   "printed": "b_i ≤ 0",
-   "correction": "The first sum is over b_i ≥ 0, which is AHK07 Definition 2.3's index a(B_i) ≤ 0 with a(B_i) = −b_i.",
-   "reason": "W⁺_α(b) = Σ_{k≥1} w⁺_α(k(1 − b)), and for b ≤ 0 every argument k(1 − b) ≥ 1 > α, so W⁺_α(b) = 0. The printed first sum is therefore identically zero, and the difficulty would lose its boundary term, which is exactly what drops when a flip changes ρ. AHK07 Definition 2.3 indexes the sum by a(B_j) ≤ 0. Checked on the page image and against AHK07 (arXiv math/0605137v2). Noted by the extraction (gap-difficulty).",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
-    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there defines d^+_α(Y,B_Y) = Σ_{b_i ≤ 0} W^+_α(b_i)ρ(B̃_i) + Σ_v w^+_α(a_v) − Σ_{C̃_{i,j}} W^+_α(b_i), with the first sum indexed by b_i ≤ 0."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E5",
-   "kind": "misprint",
-   "locator": "Proof of Proposition 2.15, p.12 of the published version",
-   "printed": "(−∞,1)",
-   "correction": "W^±_α is defined on (−∞, 1). The weights w^±_α must be defined on all of R, or at least on (−1, ∞), with value 0 at arguments above α, as in AHK07 Definition 2.2.",
-   "reason": "w^±_α is evaluated at k(1 − b) ∈ (0, ∞) in W^±_α and at discrepancies a_v ∈ (−1, ∞), both of which can be ≥ 1. The printed domain excludes these, while the formula's 'otherwise' clause shows the intended value 0 there. Checked on the page image. Noted by the extraction (gap-difficulty).",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
-    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there reads \"Define the following functions w^-_α, w^+_α, W^-_α, W^+_α : (−∞, 1) → R_{≥0} for α ∈ (0,1)\"."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E6",
-   "kind": "error",
-   "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
-   "printed": "also Q-Cartier",
-   "correction": "Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.",
-   "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem. (cc-442dc5) Rechecked in arXiv v2 (there Lemma 6.4): the proof is only a citation of [KM92, 12.1.8] and [dFH11, Proposition 3.1], which are local statements near the special fibre, so the unrestricted global formulation is not supported by its proof either.",
-   "affects": "a stated result",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding local lemma there ends \"Then 𝒟 is also Q-Cartier\", with the hypothesis that D|_{𝒳∖Z} is Q-Cartier for a closed Z with codim(Z ∩ X, X) ≥ 3 but no neighbourhood-of-the-special-fibre or properness hypothesis, and its global application in the following corollary reads \"pick a divisor 𝒟 whose support does not contain X and such that 𝒟|_X is Q-Cartier. We claim that then 𝒟 is also Q-Cartier.\""
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E7",
-   "kind": "gap",
-   "locator": "Published version, Theorem6.1(2b) proof p.33, choice of Acal,Hcal",
-   "printed": "A|_X=A",
-   "correction": "Use Q-Cartier numerical representatives, with restrictions numerically equivalent after rational scaling; construct the needed effective boundary separately.",
-   "reason": "The hypothesis is surjectivity of Pic⊗Q modulo numerical equivalence, which does not supply prescribed line bundles. The representative/nef-big/primitive-section argument in this checkpoint supplies the effective perturbation and its intersection signs without completeness or H² vanishing. The boundary version of special-step identification remains an explicit proof task.",
-   "affects": "the proof",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding passage there reads \"Since N^1(𝒳/S) → N^1(X) is surjective, there exist Cartier divisors 𝒜 and ℋ on 𝒳 such that 𝒜|_X = A and ℋ|_X = H.\" An earlier passage of the same section makes the weaker and correct numerical statement, \"there exists an ample Q-divisor 𝒜 on 𝒳 such that 𝒜|_X ≡ A\", so the two readings sit side by side in the preprint."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E8",
-   "kind": "misprint",
-   "locator": "Published version, Lemma2.16 proof p.13, equality case in the convexity paragraph",
-   "printed": "c_2=−2",
-   "correction": "c_2=2, equivalently C_2²=−2r_2.",
-   "reason": "The same proof defines C_i²=−r_i c_i with r_i>0. An exceptional curve on the minimal resolution has negative self-intersection. The printed c_2=−2 would instead give positive self-intersection. This is a second sign slip, distinct from E3.",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"if 2a_2 = a_1 + a_3, then c_2 = −2, f^{-1}_*B·C_2 = 0, and C_2·C_1 = C_2·C_3 = r_2\", and a commented-out paragraph of the same source repeats \"and thus c_2 = −2\"."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E9",
-   "kind": "misprint",
-   "locator": "Published version, Theorem4.3 proof p.17, last paragraph",
-   "printed": "codimension two",
-   "correction": "The flip is an isomorphism in codimension one, equivalently off subsets of codimension at least two.",
-   "reason": "Lemma2.7 used at this step assumes equality on opens containing all codimension-one points. A small fourfold flip may change a codimension-two surface, so it need not be an isomorphism at codimension-two points. The weaker standard property suffices.",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the last paragraph of the proof of the special flip theorem there reads \"since the flipping contraction f : X → Z is relatively F-regular (resp. completely relatively +-regular) over a neighbourhood of the image of the flipping locus and φ is an isomorphism in codimension two, the flipped contraction f⁺ : X⁺ → Z is also relatively F-regular\", citing the lemma whose hypothesis is that φ is an isomorphism at every codimension one point."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E10",
-   "kind": "misprint",
-   "locator": "Published version, Corollary1.3 proof p.20, crystalline trace display",
-   "printed": "H^i_crys(X/K)",
-   "correction": "Use H^i_crys(Y/K) for the smooth proper resolution Y whose point count appears on the left.",
-   "reason": "The argument has already compared point counts of X and Y modulo q; its next trace formula computes |Y(F_q)|. The resolution supplies the smooth proper crystalline cohomology in that formula.",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The crystalline trace argument in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it."
-   ]
-  },
-  {
-   "id": "PAPER-HACON-WITASZEK-23/E11",
-   "kind": "misprint",
-   "locator": "Published version, Corollary1.3 proof p.20, sentence after the trace display",
-   "printed": "all the slopes",
-   "correction": "The slope≥1 assertion is for positive cohomological degrees. Degree zero supplies the contribution1.",
-   "reason": "For geometrically connected smooth proper Y, H⁰ has Frobenius eigenvalue1 and slope0. Including it in a slope≥1 assertion would remove the very contribution needed for the congruence1 modulo q.",
-   "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
-    "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-    "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
-    "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
-    "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The slope assertion in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it."
-   ]
-  }
- ]
+  "paper": "PAPER-HACON-WITASZEK-23",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E1",
+      "kind": "error",
+      "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
+      "printed": "index of K_X",
+      "correction": "Use the local Cartier index of K_X + S at P, rather than the index of K_X. This is the log index of the localized plt surface pair; it gives the denominator of the different and kills local Weil divisor classes.",
+      "reason": "Over k = F_7, take X = Spec k[x,y,z]/(xy-z²), S = V(x,z), and P the vertex. The two resolution charts (u,uv²,uv) and (st²,s,st), in coordinates (x,y,z), are crepant and have one exceptional (-2)-curve E. Thus K_X is Cartier. The strict transform S′ meets E once, and f*S=S′+E/2; the snc pullback S′+E/2 proves that (X,S) is plt. Since div(x)=2S and (x,z) needs two generators at P, S is not Cartier. Adjunction gives different P/2. Hence the printed m=1 fails, whereas index(K_X+S)=2 works. More generally, for the plt surface chain with determinant d, the different coefficient is 1-1/d and d annihilates local divisor classes, forcing the log index to equal d. This is the surface adjunction calculation, not a claim about the canonical index. Lemma 4.2 only needs the standard-coefficient different.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.2 there is the same statement, and its second paragraph reads \"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X+S)|_S = K_S + (1 − 1/m)P.\"",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 2.2 p.6."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from published p.5 and v2 p.6. Recomputed the crepant A1 charts, ruling pullback, non-principal ideal and different. The canonical index is 1 while the required log index is 2. Compared the general chain/different calculation in Kollár’s public surface notes, §§75–76 and 85–87. Rephrased the correction in terms of the log index and its actual roles, without needing a separate abstract class-group-order assertion.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E2",
+      "kind": "error",
+      "locator": "Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14)",
+      "printed": "all these discrepancies",
+      "correction": "For the version needed in Proposition 2.15, fix a finite set I ⊂ [0,1), require coeff(B) ⊂ I, and formulate both the bound of m distinct exceptional log discrepancies and the conclusion on the minimal resolution of the surface germ. The printed statement says minimal log resolution; the source proof and this repair concern the minimal resolution. No finiteness theorem for all discrepancies on all higher models is asserted.",
+      "reason": "On the A1 surface over F_7, put B=bC for the ruling C=V(x,z) and rational 0<b<1/2. Its one-curve minimal resolution is also a log resolution of this pair, and K_{S′}+bC′+(b/2)E=f*(K_S+bC). Thus the exceptional discrepancy is -b/2 (log discrepancy 1-b/2), varying infinitely even for b=1/n, n≥3. The snc model is 1/2-lc. There is one exceptional value, so m=1 under the exceptional convention; if strict boundary components are counted, the uniform bound m=2 still disproves the statement. For the repaired minimal-resolution version, write T=f^{-1}_*B and a_i for exceptional log discrepancies. Minimality and negativity give 0≤1-a_i. Adjunction gives T.C_i=2r_i+a_i C_i²-Σ_{j≠i}(1-a_j)C_j.C_i<2r_i≤8. With finite I these nonnegative sums of integer multiples of positive elements of I lie in a finite set. Together with the source’s bounded intersection coefficients, convexity and compression of constant runs on the at-most-three-legged graph, only finitely many bounded-size linear systems remain. Negative definiteness gives uniqueness. The fixed boundary of a flip sequence supplies I, so this repair addresses the cited use in Proposition 2.15. Merely bounding arbitrary real right-hand sides would not prove finiteness.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: Lemma 2.16 there reads \"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S,B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\", with no condition on the coefficients of B.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 2.16 pp.14–15."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from published p.13 and v2 pp.14–15. Recomputed the A1 boundary family, including log versus ordinary discrepancy and the 1/2-lc bound. Made the correction’s scope explicit: minimal resolution and exceptional values, which is the version the proof treats and Proposition 2.15 uses. Checked the finite-coefficient right-hand-side argument and why bounded real values alone do not suffice. Added m=2 as a convention-independent counterexample bound when strict transforms are counted. The source’s surface classification is an input to the general repaired proof, not a computational result of this review.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E3",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.16, p.13 of the published version (arXiv v2 p.15)",
+      "printed": "−c_i ≤ 2/a_i",
+      "correction": "c_i ≤ 2/a_i ≤ 2/ε.",
+      "reason": "The proof writes C_i² = −r_ic_i, so c_i > 0 and −c_i ≤ 2/a_i is vacuous. The displayed inequality −a_ir_ic_i ≥ −2r_i gives c_i ≤ 2/a_i, which is the bound the proof then uses (\"and so −C_i² is bounded\"). Checked on the page image. Noted by the extraction (item fixed-boundary-surface, 'correct the printed c_i signs').",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"and so −c_i ≤ 2/a_i is bounded\", two lines after C_i² = −r_ic_i and the displayed a_iC_i² ≥ −2r_i.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.15."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both PDF versions (published p.13, v2 p.15), including the published page image. Dividing -a_i r_i c_i≥-2r_i by the positive a_i r_i gives c_i≤2/a_i≤2/ε. The printed negative sign gives no bound.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E4",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.15, definition of the difficulty d⁺_α, p.12 of the published version (arXiv v2, same passage)",
+      "printed": "b_i ≤ 0",
+      "correction": "The first sum is over b_i ≥ 0, which is AHK07 Definition 2.3's index a(B_i) ≤ 0 with a(B_i) = −b_i.",
+      "reason": "W⁺_α(b) = Σ_{k≥1} w⁺_α(k(1 − b)), and for b ≤ 0 every argument k(1 − b) ≥ 1 > α, so W⁺_α(b) = 0. The printed first sum is therefore identically zero, and the difficulty would lose its boundary term, which is exactly what drops when a flip changes ρ. AHK07 Definition 2.3 indexes the sum by a(B_j) ≤ 0. Checked on the page image and against AHK07 (arXiv math/0605137v2). Noted by the extraction (gap-difficulty).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there defines d^+_α(Y,B_Y) = Σ_{b_i ≤ 0} W^+_α(b_i)ρ(B̃_i) + Σ_v w^+_α(a_v) − Σ_{C̃_{i,j}} W^+_α(b_i), with the first sum indexed by b_i ≤ 0.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.13."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published p.12 image and v2 p.13. Read AHK07 v2 Definition 2.3, p.5, and its sign convention: a(B_i)=-b_i. Thus its nonpositive-discrepancy index becomes b_i≥0. Directly checked W(b)=0 for b≤0 and W^+_(3/4)(1/2)=1/2, so the wrong index deletes a nonzero intended term.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E5",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.15, p.12 of the published version",
+      "printed": "(−∞,1)",
+      "correction": "Keep W^±_α on (-∞,1), but extend w^±_α to all real arguments by the displayed piecewise formulas, in particular by zero above α (also at α for w^+). Defining w on (-1,∞) is sufficient for the discrepancies used here. AHK07 §2 distinguishes the domains of w and W; its Definition 2.2 supplies the same piecewise weights.",
+      "reason": "w^±_α is evaluated at k(1 − b) ∈ (0, ∞) in W^±_α and at discrepancies a_v ∈ (−1, ∞), both of which can be ≥ 1. The printed domain excludes these, while the formula's 'otherwise' clause shows the intended value 0 there. Checked on the page image. Noted by the extraction (gap-difficulty).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Proposition 2.15 there reads \"Define the following functions w^-_α, w^+_α, W^-_α, W^+_α : (−∞, 1) → R_{≥0} for α ∈ (0,1)\".",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.13."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.12 and v2 p.13. Even b=0 asks for w(1), outside the printed domain. AHK07 v2 pp.4–5 separates w:(0,∞) from W:(-∞,1); extending the printed w formula to R accommodates this paper’s ordinary discrepancies as well. Refined the source attribution so it does not falsely attribute the larger domain (-1,∞) to AHK’s Definition 2.2.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E6",
+      "kind": "error",
+      "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
+      "printed": "also Q-Cartier",
+      "correction": "Conclude that the divisor is Q-Cartier on a neighbourhood of the special fibre. For a global conclusion, add properness over the DVR; the same repair is needed for the unrestricted Q-factoriality assertion in Corollary 6.7(1). This globalization is conditional on the local deformation result, whose proof is a separate input.",
+      "reason": "Let R=Z_p, p>5, and let T be Spec R[x,y,z,w]/(xy-zw) with only its closed special vertex removed. It is integral, flat, normal and excellent. The special fibre is the punctured threefold node, hence smooth, S3, terminal and Q-factorial. The remaining generic vertex Z is closed in T and disjoint from that fibre, so codim(Z∩X,X)≥3. The ruling D=V(x,z) is Cartier on T\\Z, restricts to a Cartier divisor on X, and does not contain X. Over K=Frac(R), use the small resolution xt=zs, wt=ys in N×P¹. On its charts z=ux,y=uw and x=vz,w=vy, with v=1/u, the strict transform of D has equations x and z. Since z=ux, its divisor line bundle restricts to O_{P¹}(-1) on the exceptional fibre. There is no exceptional divisor, so any Cartier multiple mD would pull back to that strict-transform multiple and also restrict trivially to the fibre, contradicting degree -m. Thus both stated global conclusions fail. dFH11 Proposition 3.1 explicitly retains a neighbourhood of the Cartier fibre. Under properness the closed complement of the Q-Cartier locus of a fixed D has closed image in Spec R; if it misses the closed point, it must be empty. The projective lifts in Theorem 6.1 have this properness. This example does not refute its other conclusions.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding local lemma there ends \"Then 𝒟 is also Q-Cartier\", with the hypothesis that D|_{𝒳∖Z} is Q-Cartier for a closed Z with codim(Z ∩ X, X) ≥ 3 but no neighbourhood-of-the-special-fibre or properness hypothesis, and its global application in the following corollary reads \"pick a divisor 𝒟 whose support does not contain X and such that 𝒟|_X is Q-Cartier. We claim that then 𝒟 is also Q-Cartier.\"",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Lemma 6.4 and Corollary 6.5 p.31."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against published pp.28–29 and v2 p.31. Independently checked all hypotheses of the punctured-node family and both small-resolution charts, including the degree -1 obstruction. Read dFH11 v3 Proposition 3.1 and proof, p.5: its conclusion is explicitly near S. Added the closed-image globalization proof and retained the narrow refuted scope (the global divisor and Q-factorial clauses); the counterexample is not evidence against the projective lifting theorem.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E7",
+      "kind": "gap",
+      "locator": "Published Theorem 6.1(2b), proof p.33, choice of 𝒜 and ℋ; arXiv v2 proof of Theorem 1.3(2b), p.35",
+      "printed": "𝒜|_X = A",
+      "correction": "Choose Q-Cartier representatives with 𝒜|_X ≡ A and ℋ|_X ≡ H; clear denominators when constructing sections. For large m choose a primitive section of a divisible multiple of mℋ+𝒜, giving an effective 𝒟 that omits X and has 𝒟|_X ≡ mH+A. This repairs the claimed literal lifts and the effective perturbation construction. The subsequent application of the lifted-step argument to the perturbed boundary must still be justified; this correction does not claim to prove the whole of (2b).",
+      "reason": "Theorem 6.1 defines N¹ as Pic⊗Q modulo numerical equivalence. Its surjectivity supplies rational numerical classes, not specified line bundles or integral representatives of prescribed classes. The proof of (2a), p.31, correctly uses ≡; p.33 uses literal equality. The needed construction can be made numerically: H is nef and big on X, hence its lift is nef and big on the generic fibre; choose m so mℋ+𝒜 is generically big. For a sufficiently divisible multiple L, the nonzero finite torsion-free R-module H⁰(𝒳,L) has a primitive section. The kernel of restriction to X is πH⁰(𝒳,L), so the primitive section does not vanish identically on X. Its divisor restricts with the desired numerical class and is negative on the chosen ray because H.Σ=0 and A.Σ<0. The fixed-resolution hypothesis permits a sufficiently small boundary coefficient. These steps require neither completeness nor H²(X,O_X)=0. They do not by themselves identify the prescribed special flop or prove numerical descent after the perturbed step; those are separate proof obligations. The finding is retained as a local proof gap, not a counterexample to the theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the corresponding passage there reads \"Since N^1(𝒳/S) → N^1(X) is surjective, there exist Cartier divisors 𝒜 and ℋ on 𝒳 such that 𝒜|_X = A and ℋ|_X = H.\" An earlier passage of the same section makes the weaker and correct numerical statement, \"there exists an ample Q-divisor 𝒜 on 𝒳 such that 𝒜|_X ≡ A\", so the two readings sit side by side in the preprint.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Theorem 1.3(2b) proof p.35."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof-level defect at published p.33 and v2 p.35, with the explicit N¹ definition on published p.26 and numerical use on p.31. Rechecked the rational-representative, nef/big and primitive-section construction. Expanded the correction to show exactly what is repaired and explicitly retained the separate obligation of adapting the lifted-step argument to the perturbed pair. No counterexample to Theorem 6.1(2b) is claimed.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E8",
+      "kind": "misprint",
+      "locator": "Published version, Lemma2.16 proof p.13, equality case in the convexity paragraph",
+      "printed": "c_2=−2",
+      "correction": "c_2=2, equivalently C_2²=−2r_2.",
+      "reason": "The same proof defines C_i²=−r_i c_i with r_i>0. An exceptional curve on the minimal resolution has negative self-intersection. The printed c_2=−2 would instead give positive self-intersection. This is a second sign slip, distinct from E3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the proof of Lemma 2.16 there reads \"if 2a_2 = a_1 + a_3, then c_2 = −2, f^{-1}_*B·C_2 = 0, and C_2·C_1 = C_2·C_3 = r_2\", and a commented-out paragraph of the same source repeats \"and thus c_2 = −2\".",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 p.15."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.13 image and v2 p.15. The defining C_i²=-r_i c_i and r_i>0 rule out c_2=-2. With zero boundary intersection and neighbour intersections r_2, adjunction gives c_2 a_2=a_1+a_3; equality in convexity and a_2>0 force c_2=2.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E9",
+      "kind": "misprint",
+      "locator": "Published Theorem 4.3, proof p.17, last paragraph; arXiv v2 Theorem 4.2, proof p.19",
+      "printed": "codimension two",
+      "correction": "The flip is an isomorphism in codimension one, equivalently off subsets of codimension at least two.",
+      "reason": "Lemma2.7 used at this step assumes equality on opens containing all codimension-one points. A small fourfold flip may change a codimension-two surface, so it need not be an isomorphism at codimension-two points. The weaker standard property suffices.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This finding is already in arXiv v2: the last paragraph of the proof of the special flip theorem there reads \"since the flipping contraction f : X → Z is relatively F-regular (resp. completely relatively +-regular) over a neighbourhood of the image of the flipping locus and φ is an isomorphism in codimension two, the flipped contraction f⁺ : X⁺ → Z is also relatively F-regular\", citing the lemma whose hypothesis is that φ is an isomorphism at every codimension one point.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: v2 Theorem 4.2 proof p.19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in published p.17 image and v2 p.19. Read the actual hypothesis of Lemma 2.7 on published p.7: isomorphism at codimension-one points. Smallness gives precisely the corrected condition, not isomorphism at codimension-two points. Corrected the preprint theorem number to 4.2.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E10",
+      "kind": "misprint",
+      "locator": "Published version, Corollary1.3 proof p.20, crystalline trace display",
+      "printed": "H^i_crys(X/K)",
+      "correction": "Use H^i_crys(Y/K) for the smooth proper resolution Y whose point count appears on the left.",
+      "reason": "The argument has already compared point counts of X and Y modulo q; its next trace formula computes |Y(F_q)|. The resolution supplies the smooth proper crystalline cohomology in that formula.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The crystalline trace argument in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: absent from v2."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in the published p.20 image, with the resolution and point-count comparison on p.19. The left side counts Y but the right side labels crystalline cohomology by X. Y is the smooth proper scheme used by the argument. No crystalline trace argument occurs in v2, so the published verification is essential.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E11",
+      "kind": "misprint",
+      "locator": "Published version, Corollary1.3 proof p.20, sentence after the trace display",
+      "printed": "all the slopes",
+      "correction": "The slope≥1 assertion is for positive cohomological degrees. Degree zero supplies the contribution1.",
+      "reason": "For geometrically connected smooth proper Y, H⁰ has Frobenius eigenvalue1 and slope0. Including it in a slope≥1 assertion would remove the very contribution needed for the congruence1 modulo q.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference).",
+        "Rechecked 23 September 2026 by the errata job. Crossref registers no update, correction or erratum against doi:10.1017/fmp.2023.6. arXiv:2009.02631 has only v1 (6 September 2020) and v2 (16 August 2021); v2 is the latest and predates publication, and no journal reference is recorded there. The Cambridge Core version-of-record PDF could not be re-fetched: the endpoint returned HTTP 504 and then HTTP 404 on repeated attempts, the core-reader view is rendered client-side and serves no body text, Unpaywall lists that same Cambridge endpoint as the only publisher open-access copy, and the DOAJ record returns HTTP 403. The published text was therefore not re-read today; the published page locators are the earlier worker's, who read all 35 pages and inspected pp. 13, 17, 20, 29, 30 and 33 as images. What this job could check is the preprint: the LaTeX source of arXiv v2 (e-print sha256 d1378136d3e9088ff509bcb52a777a3262e281a30d2b5527e72bdf2303158b23, one file, 2145 lines) was read at each locator. This passage is NOT in arXiv v2: the string \"crys\" does not occur anywhere in its source, and there is no point-counting or trace-formula argument there. The slope assertion in the proof of Corollary 1.3 is material added between v2 (August 2021) and publication (2023), so the finding can only be checked in the published version, where the earlier worker read it.",
+        "Independent review by Codex codex-7e92bd, 2026-09-23: personally read the published PDF at this locator (35 pages, SHA-256 d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b; public Cambridge bytes preserved by an earlier worker), including the relevant rendered page. Public article: https://doi.org/10.1017/fmp.2023.6. Compared freshly downloaded https://arxiv.org/pdf/2009.02631v2 (38 pages, SHA-256 161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66). The arXiv history https://arxiv.org/abs/2009.02631 still lists only v1 and v2. Fresh Crossref DOI metadata https://api.crossref.org/works/10.1017/fmp.2023.6 has relation={} and no update-to or updated-by field. The Cambridge article search record, Witaszek publication list https://sites.math.northwestern.edu/lro1793/publications.html and bounded title/DOI searches with erratum/correction yielded no matching correction. A fresh direct Cambridge HTML read failed, so no claim of an exhaustive publisher-errata search is made. known=new means no correction located in these checks, not proof that none exists. Version comparison: absent from v2."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly in published p.20. H⁰ of a geometrically connected smooth proper Y contributes eigenvalue 1, of slope 0. Read Esnault’s published Theorem 1.1, p.188, which explicitly asserts the vanishing of slopes below 1 only for i>0; its surrounding trace argument uses the q-power Frobenius. The intended conclusion retains the degree-zero contribution 1. Absent from v2.",
+        "by": "REV-ERRATA-PAPER-HACON-WITASZEK-23"
+      }
+    }
+  ]
 }
