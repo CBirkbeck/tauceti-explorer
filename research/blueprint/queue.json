@@ -942,7 +942,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARAIANI-SCHOLZE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1075"
   },
   {
    "id": "REV-PAPER-CARAIANI-SCHOLZE-24",
@@ -2520,8 +2521,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARAIANI-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1161"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1161",
+   "finishedAt": "2026-09-23T06:51:15Z"
   },
   {
    "id": "REV-PAPER-CARAIANI-SCHOLZE-17",
