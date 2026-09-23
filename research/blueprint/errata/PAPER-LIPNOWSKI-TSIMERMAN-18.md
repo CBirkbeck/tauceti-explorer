@@ -1,0 +1,273 @@
+# Errata: Lipnowski–Tsimerman, *How large is A_g(F_q)?*
+
+Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*, [Duke Math. J. 167 (2018), no. 18, 3403–3453](https://doi.org/10.1215/00127094-2018-0029); arXiv [1511.02212](https://arxiv.org/abs/1511.02212).
+
+Errata job `ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18` (issue #1853), by Claude Code, session `cc-39fac3`, 23 September 2026. The machine-readable list is [PAPER-LIPNOWSKI-TSIMERMAN-18.json](PAPER-LIPNOWSKI-TSIMERMAN-18.json): **22 findings**, 16 errors, 3 gaps and 3 misprints.
+
+## What was read and where corrections were looked for
+
+**The text read is arXiv v1.** The published article (51 pages) could not be read: Project Euclid returned a bot-check page. The only arXiv version is v1 (6 November 2015, 38 pages), and it is also what both authors' pages link. Every locator below is therefore a v1 page, and every finding was checked on the v1 page images. The published text may have fixed some of these, and should be compared when it becomes readable.
+
+**No existing correction was found:**
+
+- Crossref records no update or erratum for the DOI.
+- Neither author's page links a correction.
+- arXiv has no later version.
+
+So every finding is recorded as `new`.
+
+**Where the findings came from.**
+
+- 16 were recorded by the paper's extraction, `PAPER-LIPNOWSKI-TSIMERMAN-18` (its E1–E17). Earlier E3 is **rejected** here: the printed '⊂' between two finite quotients holds up to isomorphism, and only the cardinality is used.
+- 3 were noted in passing in that extraction's report and notes.
+- 3 are new.
+- Every finding was re-derived from the paper's own definitions, and every counterexample was checked by hand or by a short computation.
+
+## What this does to the main results
+
+**Theorem 0.1, the exponent 17/2 is not established.**
+
+Theorem 0.1 states that for fixed p, B(p,g) = o(p^{(17/2+ε)g²}). Four independent slips each break the constant 17/2 in its proof:
+- a square is lost between the §3.1.6 display and (14) (E5);
+- the discriminant bound (26) misses a square (E9);
+- the degree count in (27) treats Σ[K:Q] as at most g, when it can be 2g (E10);
+- in (28), powers of 2 of size 2^{O(g²)} are absorbed into p^{o(g²)}, which is impossible for fixed p (E11).
+
+What the argument does prove is log B(p,g) = O(g² log p), the order of magnitude. This is all that the paper's later sections use.
+
+**Other stated results that fail or are unproved:**
+
+- Lemma 2.1 and Corollary 2.2 are false as stated, already for g = 1, q = 2 (E1). The corrected count differs by a factor e^{O(g)}.
+- Theorem 0.2 (= Corollary 5.13) is conditional on Conjecture 5.2, and has a gap even so (E19). Varieties with the quaternionic factor B₀ lie outside the conjecture and are never bounded. Corollaries 5.14 and 5.20 inherit this.
+- Lemma 5.11 is off by a factor ½ in the exponent, by the paper's own mass formula (39) (E17). Halving the thresholds repairs the downstream argument.
+- Lemma 5.19 is false for p = 2 (E22). Its F₂ counterexample matters, because 2 is among the primes that the proof of Lemma 5.11 produces.
+- Definition 5.16 defines a limit whose existence is not proved (E21).
+
+**Proof-level problems where the conclusions survive:**
+
+- (11)–(13) in §3.1.5 (E2, E3, E4);
+- the orbit map and (19) in §3.2.1 (E6, E7);
+- the narrow class group in (21) (E8);
+- (49) (E16).
+
+## The findings
+
+### E1 (error; affects a stated result; earlier E5)
+
+**Where:** §2, Lemma 2.1 (statement and proof) and Corollary 2.2, p. 5 (arXiv v1).
+
+**The paper says:** Lemma 2.1. The number of degree 2g monic integer polynomials p(x) all of whose roots have absolute value √q is at most (2g)^g q^{(1/4)g(g+1)}. … Every s_k is an integer lying in the interval [−g√q^k, g√q^k]. … Corollary 2.2. There are at most (2g)^g q^{(1/4)g(g+1)} isogeny classes of abelian varieties over F_q.
+
+**Why it is wrong or incomplete:** For g = 1, q = 2 there are six monic integer quadratics whose roots all have absolute value √2 (x² + bx + 2 with |b| ≤ 2, and x² − 2), and elliptic curves over F₂ realize all five traces −2, …, 2, giving five isogeny classes; both counts exceed (2g)^g q^{g(g+1)/4} = 2√2. The proof undercounts twice: |s_k| can be as large as 2g q^{k/2}, and an interval of length L can contain L + 1 integers. The identity q^g f(x) = x^{2g} f(q/x) also fails for x² − q, where x² f(q/x) = −q f(x). Reach: Lemma 2.1 and Corollary 2.2 are false as stated, already for g = 1 and q = 2. The corrected bound differs by a factor e^{O(g)}, so the isogeny-class count p^{(g²/4)(1+o(1))}, Theorem 0.1 and all later results are unaffected.
+
+**Correction:** s_k is a sum of 2g numbers of absolute value q^{k/2}, so it lies in [−2g q^{k/2}, 2g q^{k/2}], which contains at most 4g q^{k/2} + 1 integers. For polynomials with q^g f(x) = x^{2g} f(q/x) (this includes every Frobenius characteristic polynomial) the bound is (4g+1)^g q^{g(g+1)/4}. For the lemma as literally stated, where f(0) = −q^g can occur (e.g. x² − q), the bound is 2(4g+1)^g q^{g(g+1)/4}. Corollary 2.2 holds with (4g+1)^g q^{g(g+1)/4}.
+
+### E2 (error; affects the proof; noted in passing (the linear bound ℓ^{4nδ}))
+
+**Where:** §3.1.5, display (11) and the sentence after it, together with (13), p. 10 (arXiv v1).
+
+**The paper says:** #{R-lattices L ⊂ V : length_{Z_ℓ}(R^{⊕n}/L) ≤ δn} ≤ Σ_{a₁+⋯+a_n≤δn} Σ_{length(O_F ē_i/U_i)=a_i} #{R-lattices L ⊂ V : L_i = U_i} ≤ ℓ^{nδ} Σ_{a₁+⋯+a_n≤δn} ∏_{i=1}^n #{R-ideals of colength a_i} … The second inequality in (11) follows from §3.1.4 and an induction argument. … (13) ≤ ℓ^{4nδ}.
+
+**Why it is wrong or incomplete:** For E/F₇ with 6 points (trace 2), ℓ = 3 and A = E^{17}, f = x² − 2x + 7 has discriminant −24, so R = Z₃[x]/(f) is the ring of integers of the ramified field Q₃(√−6), with δ = 1 and R/𝔪 = F₃. Every L with 𝔪R^{17} ⊂ L ⊂ R^{17} is an R-lattice of colength at most 17 = δn. There are more than 3^{73} of them (one per F₃-subspace of F₃^{17}), against ℓ^{4nδ} = 3^{68}, and the largest Schubert cell alone gives 3^{72} with the same graded pieces L_i, against ℓ^{nδ} = 3^{17}. Here R is a discrete valuation ring and there is only one orbit, so what matters is the orbit count, and for it the cited induction gives only the quadratic exponent above. Reach: The linear bound (13) and the first line of the display in §3.1.6 are unproved. Count the pairs λ ≠ μ with order and multiplicity. Each isotypic block then contributes n_i²δ_i to Σ_{λ≠μ} val_ℓ(λ − μ), so the quadratic orbit bound still gives the last line of that display. The bound B(p,g) ≤ p^{O(g²)} of Theorem 0.1 therefore survives, and Theorems 0.2 and 0.3 are untouched.
+
+**Correction:** As a count of lattices, (11) and (13) are false. What §3.1.6 needs is a bound on the number of GL_n(F)-orbits. Apply §3.1.4 along the flag V_{≤1} ⊂ ⋯ ⊂ V_{≤n}. At step i the pairs of unequal eigenvalues between V_{≤i−1} ≅ F^{i−1} and V_{≤i}/V_{≤i−1} ≅ F bound the shear classes by ℓ^{(i−1)δ}. The induction therefore gives ℓ^{n(n−1)δ/2} per graded type, not ℓ^{nδ}. Each isotypic block then has ℓ^{O(n²δ)} orbits (for instance at most ℓ^{4n²δ}), not the linear ℓ^{4nδ}.
+
+### E3 (error; affects the proof; earlier E4)
+
+**Where:** §3.1.5, sentence before (12), p. 10 (arXiv v1).
+
+**The paper says:** A keen insight of Yun [28, §4.12] is that #Hilb^j_R ≤ #Hilb^j_{Z_ℓ[[x]]} because R is a quotient of the power series ring Z_ℓ[[x]].
+
+**Why it is wrong or incomplete:** Z_ℓ[[x]] is local with residue field F_ℓ, so every nonzero quotient ring of it has residue field F_ℓ; this excludes R whenever f mod ℓ is a power of an irreducible polynomial of degree s > 1. For example, take E/F₃ with 3 points (trace 1) and ℓ = 2: then f = x² − x + 3 ≡ x² + x + 1 mod 2, and R = Z₂[x]/(f) is unramified with residue field F₄. Ideals of R have Z_ℓ-colength divisible by s, and the count over O₀ gives Σ_{λ ⊢ j/s} ℓ^{s(j/s − len λ)} ≤ ℓ^j·p(j/s) ≤ ℓ^j 2^j. Reach: The justification of (12) fails when s > 1, but the bound (12) itself survives, so nothing downstream changes.
+
+**Correction:** R is local with residue field k_R = F_{ℓ^s}, and it is a quotient of Z_ℓ[[x]] only when s = 1. In general R is a quotient of O₀[[T]], where O₀ = W(k_R) ⊂ R is the unramified coefficient ring and T ↦ θ − ω with ω ∈ O₀ lifting the residue of θ. Count ideals of O₀[[T]], whose residue field has ℓ^s elements, as Yun does after reducing to the residue field. This still gives #Hilb^j_R ≤ ℓ^j·2^j.
+
+### E4 (error; affects the proof; earlier E1)
+
+**Where:** §3.1.5, (13), second to fifth lines, p. 10 (arXiv v1).
+
+**The paper says:** ≤ ℓ^{nδ}ℓ^{nδ}2^{nδ} Σ_{a₁+⋯+a_n≤δn} 1 ≤ ℓ^{2nδ}2^{nδ}(nδ)^n/n! ≤ ℓ^{2nδ}2^{nδ}e^nδ^n ≤ ℓ^{2nδ}2^{2nδ}
+
+**Why it is wrong or incomplete:** C(N + n, n) = ∏_{i=1}^n (N + i)/n! exceeds N^n/n! for every N ≥ 0 and n ≥ 1. For example, n = 1, δ = 0 gives 1 ≤ 0, and n = 1, δ = 1 gives 2 ≤ 1. The next step, e^nδ^n ≤ 2^{nδ}, needs eδ ≤ 2^δ, which fails for δ = 1, 2, 3. So (13) is not proved as written, even granting the first line. Reach: The exponent 4 in (13) is not established at ℓ = 2. Independently, the factor ℓ^{nδ} has its own problem (see the entry on (11)–(13)). The last line of the display in §3.1.6 can be obtained without (13), so no stated result changes.
+
+**Correction:** The number of (a₁, …, a_n) ∈ Z_{≥0}^n with Σ a_i ≤ nδ is C(nδ + n, n) ≤ 2^{nδ+n}. The chain then gives ℓ^{2nδ}2^{2nδ+n}. For δ ≥ 1 this is at most ℓ^{2nδ}8^{nδ}, which is ≤ ℓ^{4nδ} for ℓ ≥ 3 but only ≤ 2^{5nδ} for ℓ = 2. For δ = 0 the count is 1.
+
+### E5 (error; affects a stated result; new)
+
+**Where:** §3.1.6, display and (14), p. 11 (arXiv v1).
+
+**The paper says:** #{γ-stable lattices L ⊂ V_ℓ(A₀)}/G(Q_ℓ) ≤ ℓ^{Σ_{i=1}^j 4n_iδ_i} · ℓ^{Σ_{k≠k′} n_k n_{k′} δ_{k,k′}} ≤ ℓ^{4 Σ_{λ≠μ} val_ℓ(λ−μ)}, where λ, μ run over all pairs of unequal roots of the characteristic polynomial χ_γ of γ. … (14) … ≤ (∏_{λ≠μ} |λ − μ|_∞)^4 ≤ (2p^{1/2})^{4·C(2g,2)},
+
+**Why it is wrong or incomplete:** Take g = 1, p = 5 and E with trace 1: χ = x² − x + 5 has discriminant −19 and is irreducible over Q₁₉, so at ℓ = 19 the first bound is 19^{4δ₁} = 19⁴. With unordered pairs the next bound is 19^{4·(1/2)} = 19², which is smaller than 19⁴. With ordered pairs, (∏|λ − μ|)^4 = 19⁴ = 130321 exceeds (2√5)^{4·C(2,2)} = 400. Either way the passage from the display to (14) loses a square. Reach: The same doubling propagates through (15) into (28), so as derived the constant 17/2 of Theorem 0.1 is not obtained. The bound B(p,g) ≤ p^{O(g²)} is unaffected.
+
+**Correction:** δ_i = val_ℓ disc(f_i) counts each unordered pair of roots of f_i twice, so the middle inequality needs the pairs (λ, μ) to be ordered. Then ∏_{λ≠μ} |λ − μ| has up to 2g(2g − 1) factors, and (14) should end with (2p^{1/2})^{8·C(2g,2)}.
+
+### E6 (error; affects the proof; earlier E2)
+
+**Where:** §3.2.1, first bullet, displayed map, p. 12 (arXiv v1).
+
+**The paper says:** Suppose that g ∈ GL_n(R). There is an injective map GL_n(R)-orbit of M → Hom_R(M, (R^∨/R)^{⊕n}), gM ↦ (m ↦ g(m) mod R^n).
+
+**Why it is wrong or incomplete:** The printed assignment is not well defined on the points of the orbit. Take ℓ = 3, f = x² + 9, R = Z₃[3i], F = Q₃(i), n = 1 and M = O_F = Z₃[i], so that R ⊂ M ⊂ O_F ⊂ R^∨. Then g = 1 and g = −1 in GL₁(R) give the same point gM = M, but the corresponding maps send i to i and to −i, which differ by 2i ∉ R = Z₃ + 3iZ₃. Reach: A one-line repair gives the same bound, so (17), (19), (20) and all stated results are unaffected.
+
+**Correction:** The formula defines a map on GL_n(R), not on the orbit: put Ψ(g) = (m ↦ g(m) mod R^n). If Ψ(g) = Ψ(h), then gM ⊆ hM + R^n = hM, because R^n = hR^n ⊆ hM, and by symmetry gM = hM. So gM is a function of Ψ(g), and #(GL_n(R)·M) ≤ #Hom_R(M, (R^∨/R)^{⊕n}), which is all that is used.
+
+### E7 (error; affects the proof; new)
+
+**Where:** §3.2.1, second bullet, step to (19), p. 13 (arXiv v1).
+
+**The paper says:** (17) #{GL_n(R)-orbit of M} ≤ ℓ^{3δn²}. … ≤ ℓ^{(1+δ)n²}. Together with (17), this yields that (19) #{GL_n(O_F)-orbit of M} ≤ ℓ^{4δn²}.
+
+**Why it is wrong or incomplete:** The product of the two displayed bounds has exponent (1 + 4δ)n², not 4δn². Since N_{F/Q_ℓ}(f′(θ)) = ±disc f, we have #(O_F/f′(θ)O_F) = ℓ^δ, and the congruence-subgroup argument proves (19) directly. Reach: (19) holds as stated, so nothing downstream changes.
+
+**Correction:** (17) and the index bound give ℓ^{3δn²}·ℓ^{(1+δ)n²} = ℓ^{(1+4δ)n²}. The bound (19) is nevertheless true, even in the stronger form ℓ^{δn²}. Every g ∈ GL_n(O_F) with g ≡ 1 mod f′(θ)O_F fixes M, since (g − 1)M ⊂ f′(θ)O_F^n ⊂ R^n ⊂ M, using O_F ⊂ R^∨ = f′(θ)^{−1}R. This congruence subgroup has index at most #(O_F/f′(θ)O_F)^{n²} = ℓ^{δn²}.
+
+### E8 (error; affects the proof; noted in passing (Cl⁺ versus Cl))
+
+**Where:** §3.2.2, (21), case d > 1, p. 14; also the constant C₀ after (28), p. 16 (arXiv v1).
+
+**The paper says:** By strong approximation, the product of reduced norm maps in every factor G(Q)\G(A^fin)/U_{0,d} × ∏_{i=1}^m G_i(Ẑ) → Cl(O_{Q(√p)}) × ∏_{i=1}^m Cl(O_{K_i}) if d > 1 [; Cl(U_{0,1}) × ∏ Cl(O_{K_i}) if d = 1; ∏ Cl(O_{K_i}) if d = 0] induces a bijection.
+
+**Why it is wrong or incomplete:** For d ≥ 2, strong approximation for SL_d(D₀) identifies the double cosets with Nrd(GL_d(D₀)(Q))\A^×_{K,f}/Ô_K^×, where K = Q(√p). D₀ is ramified at both real places of K, so by the Hasse–Schilling norm theorem Nrd(GL_d(D₀)(Q)) is the group of totally positive elements of K, and the quotient is Cl⁺(O_K), not Cl(O_K). For p = 3, Q(√3) has class number 1, but its fundamental unit 2 + √3 has norm +1, so #Cl⁺ = 2. For A isogenous to B₀^d with d ≥ 2, the left side therefore has two elements, while Cl(O_{Q(√3)}) has one. Reach: Only the constant C₀ changes (#Cl⁺ ≤ 2·#Cl, which depends only on p), so (28), Theorem 0.1 and the later results are unaffected.
+
+**Correction:** For d > 1 the target should be Cl⁺(O_{Q(√p)}) × ∏_{i=1}^m Cl(O_{K_i}), where Cl⁺ is the narrow class group of Q(√p). Correspondingly, C₀ := max{#Cl(U_{0,1}), #Cl⁺(O_{Q(√p)})}.
+
+### E9 (error; affects a stated result; earlier E6)
+
+**Where:** §3.2.2, (26), p. 15 (arXiv v1).
+
+**The paper says:** |D_K| ≤ disc(some p-Weil number of degree d) ≤ (2√p)^{C(d,2)}
+
+**Why it is wrong or incomplete:** The discriminant of a degree-d algebraic integer is the square of the Vandermonde product, so each of the C(d,2) pairs contributes |w_i − w_j|² ≤ 4p. The printed bound already fails for p = 2, d = 2: w = √−2 is a 2-Weil number and K = Q(√−2) has |D_K| = 8, but (2√2)^{C(2,2)} = 2√2. Reach: With the correct exponent, the factor ∏√D_K in (27) has twice the exponent, so the paper's argument does not give the constant 17/2 of Theorem 0.1. The bound B(p,g) ≤ p^{O(g²)} is unaffected, and so are the uses of (27) in §4, which need only exp(O(g²)).
+
+**Correction:** |D_K| ≤ |disc(w)| = ∏_{i<j} |w_i − w_j|² ≤ (2√p)^{d(d−1)}.
+
+### E10 (error; affects a stated result; new)
+
+**Where:** §3.2.2, (27), second and third lines, p. 15 (arXiv v1).
+
+**The paper says:** # ∏ Cl(O_K) ≤ (∏ (2√p)^{(1/2)C(d,2)} (C(d,2) log(2√p))^{d−1}) · 500^g e^g ≤ (2√p)^{g²/2} · C(g,2)^g · (log(2√p))^g 500^g e^g = (2√p)^{(g²/2)(1+o(1))}.
+
+**Why it is wrong or incomplete:** The fields are the centres Q(π_i) of End⁰(A_i), together with Q(√p). For A_i simple over F_p with commutative End⁰, [Q(π_i):Q] = 2 dim A_i. A single simple factor of dimension g thus has d = 2g, and (1/2)C(2g,2) = g² − g/2 > g²/2. The printed bound treats Σ d as if it were at most g. Reach: The p-exponent of the class-number factor in (28) at least doubles, so the constant 17/2 of Theorem 0.1 is not obtained. Example 4.13 and Proposition 4.16 quote (27) but need only exp(O(g²)), so they are unaffected.
+
+**Correction:** The degrees d = [K:Q] of the fields in the product sum to at most 2g, so ∏ (2√p)^{(1/2)C(d,2)} ≤ (2√p)^{(1/2)C(2g,2)} = (2√p)^{g² − g/2}. So (27) should read (2√p)^{g²(1+o(1))}, and (2√p)^{2g²(1+o(1))} once (26) is corrected.
+
+### E11 (error; affects a stated result; earlier E7)
+
+**Where:** §3.2.3, (28), last step, p. 16 (arXiv v1).
+
+**The paper says:** ≤ C₀ · (2p^{1/2})^{4·C(2g,2)} · (2p^{1/2})^{(g²/2)(1+o(1))} · (2p^{1/2})^{4·C(2g,2)} = p^{(33/4)g²(1+o(1))}.
+
+**Why it is wrong or incomplete:** For fixed p the factor 2^{(33/2)g²} equals p^{(33/2)(log_p 2)g²}, and (33/2)·log_p 2 is a positive constant. So it cannot be absorbed into the o(1) of p^{(33/4)g²(1+o(1))}; the power of 2 disappears only as p → ∞. Reach: Theorem 0.1 as stated (for fixed p and every ε > 0, B(p,g) = o(p^{(17/2+ε)g²})) does not follow from the proof; log B(p,g) = O(g² log p) does. Theorems 0.2 and 0.3 and Corollary 5.13 use only exp(O(g²)) and are unaffected.
+
+**Correction:** Since 8·C(2g,2) = 16g² − 8g, the product equals (2√p)^{(33/2)g²(1+o(1))} = 2^{(33/2)g²(1+o(1))} p^{(33/4)g²(1+o(1))}. With Corollary 2.2 this gives B(p,g) ≤ (2^{33/2} p^{17/2})^{g²(1+o(1))}. That is Theorem 0.1 with exponent 17/2 + (33/2)·log_p 2 + ε in place of 17/2 + ε.
+
+### E12 (error; affects nothing; earlier E8)
+
+**Where:** §4.1, paragraph before Remark 4.2 (Mumford's construction), p. 16 (arXiv v1).
+
+**The paper says:** There is therefore a homomorphism φ_L : A → A^∨ for which (1, φ_L)^*(P_A) = L.
+
+**Why it is wrong or incomplete:** The map (1, φ_L) is (1 × φ_L) composed with the diagonal, and the diagonal pulls m^*L back to [2]^*L. By the theorem of the cube, [2]^*L ≅ L^{⊗3} ⊗ [−1]^*L. For ample L the class 2[L] differs from [L]. The paper's later normalizations (the factor ½ in Φ_f, and D_f(a,a) = (a^*L₀)^{⊗2}) agree with the corrected formula. Reach: Definition 4.1 is correct with the corrected formula, since L ⊗ [−1]^*L is ample exactly when L is, and the false identity is not used later.
+
+**Correction:** (1 × φ_L)^*P_A ≅ m^*L ⊗ π₁^*L^{−1} ⊗ π₂^*L^{−1}, hence (1, φ_L)^*P_A ≅ [2]^*L ⊗ L^{−2} ≅ L ⊗ [−1]^*L. This is ≅ L^{⊗2} when L is symmetric, and its class in NS(A) is 2[L].
+
+### E13 (misprint; affects nothing; earlier E9)
+
+**Where:** §4.2, definitions of Φ_f (p. 17) and D_f, and Lemma 4.6, p. 18 (arXiv v1).
+
+**The paper says:** Φ_f : NS(A) = Pic(A)/Pic⁰(A) → S⁰(A), L ↦ ½ f^{−1}φ_L. … D_f : End⁰(A) × End⁰(A) → NS(A), (a,b) ↦ (a+b)^*L₀ ⊗ a^*(L₀)^{−1} ⊗ b^*(L₀)^{−1}. … Lemma 4.6. Φ_f and D_f : a ↦ D_f(a, 1) are inverse isomorphisms.
+
+**Why it is wrong or incomplete:** NS(A) is a finitely generated abelian group, while S⁰(A) ∋ 1 is a nonzero Q-vector space, so the two cannot be isomorphic; also a^*L₀ has no meaning for a ∈ End⁰(A) ∖ End(A). On all of End⁰(A) the map a ↦ D_f(a,1) is not injective, because (30) gives φ_{D_f(a,1)} = f(a + a′). For a ∈ S⁰(A) this equals 2fa, so Φ_f(D_f(a,1)) = a and the rational statement holds. Reach: Only the rational statement is used later.
+
+**Correction:** Replace NS(A) by NS(A) ⊗ Q, extending D_f from End(A) by bilinearity, and restrict a ↦ D_f(a, 1) to S⁰(A). Then Φ_f : NS(A) ⊗ Q → S⁰(A) and D_f(·, 1) : S⁰(A) → NS(A) ⊗ Q are inverse isomorphisms of Q-vector spaces.
+
+### E14 (error; affects nothing; earlier E10)
+
+**Where:** §4.3, Remark 4.8, p. 18 (arXiv v1).
+
+**The paper says:** Remark 4.8. If A/k is simple with endomorphism algebra D, then t = reduced trace_{D/Q}.
+
+**Why it is wrong or incomplete:** By Definition 4.7, t(h) is the trace of h on the 2g-dimensional space V_ℓ(A), so t(1) = 2g, whereas Trd_{D/Q}(1) = e·[Z:Q]. For an elliptic curve with End(E) = Z over a general field k, as in Example 4.12, t(1) = 2 but Trd_{Q/Q}(1) = 1. Reach: The remark is not used later. For simple abelian varieties over F_p, the only case the paper applies it to, the identity is true.
+
+**Correction:** t = (2g/(e·[Z:Q]))·Trd_{D/Q}, where Z is the centre of D and [D:Z] = e². Over a finite field 2g = e·[Z:Q] (Tate), so t = Trd_{D/Q} there.
+
+### E15 (misprint; affects nothing; earlier E11)
+
+**Where:** §5.4.1, sentence before (41), p. 27, and (41), p. 28 (arXiv v1).
+
+**The paper says:** The discriminant of the ring extension O_K[w]/O_K equals p sin²θ₀. … (41) |Norm_{K/Q}(D_{L/K})| ≤ |Norm_{K/Q}(Disc_{O_K[w]/O_K})| = p^{[K:Q]} ∏ sin²θ_j
+
+**Why it is wrong or incomplete:** Over O_K, w is a root of x² − (w + w̄)x + p with w + w̄ = 2√p cos θ₀, so the discriminant is (w + w̄)² − 4p = −4p sin²θ₀. The extra factor 4^{[K:Q]} leaves the logarithm O([K:Q]) for fixed p. Reach: (42) and everything after it are unchanged.
+
+**Correction:** The discriminant is (w − w̄)² = −4p sin²θ₀, and (41) should end with 4^{[K:Q]} p^{[K:Q]} ∏ sin²θ_j.
+
+### E16 (gap; affects the proof; earlier E12)
+
+**Where:** §5.4.2, (49), p. 29 (arXiv v1).
+
+**The paper says:** log L(1, χ_{L/K}) = log(Res_{s=1}ζ_L(s)) − log(Res_{s=1}ζ_K(s)) = O([K : Q] log[K : Q]), where we've used the bound (24) to reach the second line.
+
+**Why it is wrong or incomplete:** (24) is an upper bound for residues only. It controls the first term, but says nothing about −log Res_{s=1}ζ_K(s), which is large when that residue is small. Without a lower bound for Res ζ_K, the second line does not follow. Reach: (50) needs only L(1, χ_{L/K}) = exp(O(n[K:Q]²)). Standard explicit estimates for L-values at s = 1 are expected to give this, but the paper supplies none. No stated result is known to change.
+
+**Correction:** (48) and (50) use only an upper bound for log L(1, χ_{L/K}). Deriving one from the residue ratio needs a lower bound for Res_{s=1}ζ_K(s) as well as (24) for Res_{s=1}ζ_L(s). Alternatively, L(1, χ_{L/K}) can be bounded directly.
+
+### E17 (error; affects a stated result; earlier E13)
+
+**Where:** §5.4.3, (51), p. 30; also (53)–(55), p. 31, and Lemma 5.11 with (56), p. 33 (arXiv v1).
+
+**The paper says:** (51) log(Σ_{M∈C_σ} 1/#Aut(M)) = [K : Q]n² log n + O(n²[K : Q]²). … Lemma 5.11. For some density ≥ 1 − 2^{−9} subset of the primes, there exists an elliptic curve E/F_p for which the number of principal polarizations on E^g equals exp(g² log g + O(g²)).
+
+**Why it is wrong or incomplete:** In (39) the main term is (∏_{d=1}^n (d−1)!/(2π)^d)^{[K:Q]}; §§5.4.1–5.4.2 show that the other factors are exp(O(n²[K:Q]²)). Moreover Σ_{d=1}^n log (d−1)! = (1/2)n² log n − (3/4)n² + O(n log n). For fixed K the missing (1/2)[K:Q]n² log n is not O(n²[K:Q]²). Reach: By the paper's own formula (39), Lemma 5.11 is false: the count on E^g is exp((1/2)g² log g + O(g²)), not exp(g² log g + O(g²)). The hypothesis of Proposition 5.10, log n_{L,n} ≥ 0.99g² log g, can then never hold. Halving the thresholds consistently (0.99g² log g → 0.495g² log g in Proposition 5.10 and in the proof of Corollary 5.13) restores both arguments. Hence this item alone does not affect the conclusions of Theorem 0.2 and Corollaries 5.14 and 5.20, Theorems 0.1 and 0.3, or the lower bound log A(p,g) ≫ g² log g.
+
+**Correction:** By (39) the main term is (1/2)[K:Q]n² log n. So (51), (53) and (54) should read (1/2)[K:Q]n² log n + O(n²[K:Q]²), and (55) should read (1/2)Σ[K_i:Q]n_i² log n_i + O(g²). Lemma 5.11 and (56) should read exp((1/2)g² log g + O(g²)).
+
+### E18 (misprint; affects nothing; noted in passing (the interval [0, ε]^k))
+
+**Where:** §5.5, proof of Lemma 5.9, p. 32 (arXiv v1).
+
+**The paper says:** The maximum must occur at one of the k(k + 1) extreme points of the polyhedron [0, ε]^k ∩ {x : Σ x_i = g}.
+
+**Why it is wrong or incomplete:** The hypothesis is 0 ≤ x_i ≤ εg, and [0, ε]^k meets {Σ x_i = g} only when kε ≥ g. Since 1/2 < ε < 1, a vertex has exactly one coordinate equal to εg: two would sum to more than g, and none would force some x_i = g > εg. Another coordinate equals (1 − ε)g and the rest are 0. This gives k(k − 1) vertices, each with ||y||² = g²(ε² + (1 − ε)²) as stated. Reach: Lemma 5.9 and its use in Proposition 5.10 are correct.
+
+**Correction:** The maximum must occur at one of the k(k − 1) extreme points of the polytope [0, εg]^k ∩ {x : Σ x_i = g}.
+
+### E19 (gap; affects a stated result; earlier E14)
+
+**Where:** §5.5, proof of Corollary 5.13 (= Theorem 0.2), p. 33 (arXiv v1).
+
+**The paper says:** Call an abelian variety bad if it does not admit an isogeny factor as large as stipulated in the Corollary statement. If an isomorphism class A of abelian varieties is bad, then Conjecture 5.2 and Proposition 5.10 imply that n_A ≤ exp(0.99g² log g + O(g²)),
+
+**Why it is wrong or incomplete:** Conjecture 5.2 and Proposition 5.10 concern A whose simple factors have End⁰(A_i) ≅ L_i, a CM field. But End⁰(B₀) = D₀ is a quaternion algebra over Q(√p) (§3.2.2, Proposition 4.14), and a bad A may contain B₀^d. The paper bounds the principal polarizations on such A nowhere, and they are not negligible a priori: End⁰(B₀^{g/2}) = M_{g/2}(D₀) has the same Q-dimension 2g² as End⁰(E^g) = M_g(L). Reach: Theorem 0.2 (Corollary 5.13) is not proved as stated, and Corollaries 5.14 and 5.20, which rely on it, inherit the gap. Theorems 0.1 and 0.3 are unaffected: Theorem 0.3 excludes factors of x² − p, and so B₀, by hypothesis.
+
+**Correction:** The bound is justified only for bad A with no isogeny factor B₀, the simple abelian surface whose Frobenius field is Q(√p). Bad A containing B₀^d need a separate estimate, for example an extension of Conjecture 5.2 and Proposition 5.10 to factors with End⁰(B₀^d) = M_d(D₀). Otherwise Corollary 5.13 must be stated with that restriction.
+
+### E20 (error; affects a stated result; earlier E15)
+
+**Where:** §5.6, proof of Corollary 5.14, p. 34 (arXiv v1).
+
+**The paper says:** But then for α = h/g ≥ 0.99, the normalized spacing measure is αδ₀ + weighted sum of point masses of total mass 1 − α. Therefore, discrep(μ_g, μ_GUE) ≥ 0.99.
+
+**Why it is wrong or incomplete:** Among 2g eigenangles on the circle, a value repeated h times accounts for h − 1 of the gaps between neighbours. If h = ⌈0.99g⌉ and all other eigenvalues are simple, the mass at 0 is (h − 1)/g < 0.99. Reach: Corollary 5.14 holds only in the limit g → ∞. Like Theorem 0.2, it is conditional and inherits the gap in the proof of Corollary 5.13. No main theorem is affected.
+
+**Correction:** An eigenvalue of multiplicity h produces h − 1 zero spacings, not h. So z and z̄ give mass at least (2h − 2)/(2g) = α − 1/g at 0 with the 2g eigenangles, or (h − 1)/(g − 1) with g angles in [0, π]. This holds for a proportion 1 − o(1) of A, not for all. The argument yields lim inf_{g→∞} discrep(μ_g, μ_GUE) ≥ 0.99, not ≥ 0.99 for each g.
+
+### E21 (gap; affects a stated result; earlier E16)
+
+**Where:** §5.7.2, Definition 5.16 (p. 35) and Example 5.17, pp. 35–36 (arXiv v1).
+
+**The paper says:** CL_{n,ℓ}(H₁, …, H_k) := lim_{g→∞} Haar_g(F ∈ End_g(Z_ℓ) : coker(1 − F^{n_j}) ≅ H_j, 1 ≤ j ≤ k) … Suppose ℓ ≠ 2. The proability that F ∈ End_g(F_ℓ) does not have ±1 as an eigenvalue is uniformly bounded below across all g.
+
+**Why it is wrong or incomplete:** A definition by a limit presupposes that the limit exists. The paper proves this only for CL_{(1,2),2}(0,0), and relies on Friedman–Washington for n = (1). Even where the pointwise limits exist, without tightness they need not form a probability distribution, as Conjecture 5.18 treats CL_{n,S}. Reach: Definition 5.16 and Conjecture 5.18 are not well posed as written. Corollary 5.20 uses only CL_{(1,2),S}(0,0) > 0; if the conjecture is read with lim inf, the uniform lower bound supplies this. Theorems 0.1–0.3 are unaffected.
+
+**Correction:** Definition 5.16 needs a proof that each limit exists and that the limiting values sum to 1 over all (H₁, …, H_k). Failing that, define CL_{n,ℓ} with lim inf, or restrict to the cases where the limit is known. For ℓ odd, Example 5.17 proves only that Haar_g(1 − F² invertible mod ℓ) ≥ 0.12025… for all g. That is a positive lim inf, not a value of CL_{(1,2),ℓ}(0,0).
+
+### E22 (error; affects a stated result; earlier E17)
+
+**Where:** §5.7.3, Lemma 5.19 and its proof, p. 36 (arXiv v1).
+
+**The paper says:** Lemma 5.19. Let E/F_p be an elliptic curve. Then E(F_p) and E(F_{p²}) are not both p-groups. … If both E(F_p) and E(F_{p²}) are p-groups, then a = 1 and b = 1.
+
+**Why it is wrong or incomplete:** Over F₂, the curve E : y² + xy = x³ + x² + 1 is smooth (its discriminant −557 is odd). It has 2 points over F₂ (trace 1) and 4 + 1 − (1 − 4) = 8 points over F₄, both 2-groups. Its twist y² + xy = x³ + 1 has 4 and 8 points. The step 'a = 1 and b = 1' overlooks that, for p ≤ 3, a p-group in the Hasse intervals can also have order 1, p² or p³. Reach: Lemma 5.19 fails for p = 2. The prime 2 is among those produced in the proof of Lemma 5.11, since it splits in Q(√−7), and the proof of Corollary 5.20 applies the lemma to every E/F_p. So Corollary 5.20 is unproved for p = 2; for odd p the argument stands. Theorems 0.1–0.3 do not use the lemma.
+
+**Correction:** The lemma holds exactly for odd p. For p ≥ 5 the Hasse interval forces #E(F_p) = p, so a = 1; then b = a² − 2p = 1 − 2p and #E(F_{p²}) = p(p + 2), which is not a power of p. For p = 3, a ∈ {1, 3} gives #E(F₉) ∈ {15, 7}. For p = 2 the lemma is false.
