@@ -11,27 +11,27 @@
     "url": "https://doi.org/10.4007/annals.2017.186.3.2",
     "readSections": [
       "The whole published article (§§1–9, Appendices A–B and the references), 145 pp., from the author's copy at https://math.mit.edu/~zyun/Taylor_Expansion_published.pdf, SHA-256 b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111, fetched and read 2026-09-22. Locators are journal pages (journal page = pdf page + 766).",
-      "arXiv 1512.02683v3 (24 January 2017), SHA-256 76bb3576bc75dc1c5214597197e3d8ef62abc10784e2b2625657a0e7ea1821ff: the two versions carry the same 112 numbered statements, and every recorded misprint was compared with it.",
+      "arXiv 1512.02683v3 (11 April 2017), SHA-256 76bb3576bc75dc1c5214597197e3d8ef62abc10784e2b2625657a0e7ea1821ff: the two versions carry the same 112 numbered statements, and every recorded misprint was compared with it.",
       "Pages 902, 903, 887 and 905 were additionally read as rendered images, because a text layer flattens the superscripts on which items E1, E2 and E4 turn."
     ]
   },
-  "summary": "Yun and Zhang prove the first higher-derivative Gross–Zagier formula: every Taylor coefficient of an automorphic L-function, not only the first, is an intersection number. Let X be a smooth proper geometrically connected curve over F_q (p > 2), ν : X′ → X an étale double cover with X′ geometrically connected, G = PGL_2 and T = (Res_{F′/F}G_m)/G_m the associated nonsplit torus. For r even and an everywhere unramified cuspidal automorphic representation π of G(A), Theorem 1.2 reads\n\n  (1/(2(log q)^r|ω_X|))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_π, [Sht^μ_T]_π)_π,\n\nwhere ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1) is self-dual under s ↦ 1−s, and [Sht^μ_T]_π is the π-component of the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] — the class of the moduli of T-shtukas with r legs, a smooth proper Deligne–Mumford stack of dimension r, inside the moduli Sht′^r_G of PGL_2-shtukas with r legs on X′, of dimension 2r. For r = 0 it is Waldspurger's formula (Remark 1.3) and for r = 1 the Gross–Zagier formula; Theorem 1.6 is the same identity in ℓ-adic cohomology, Theorem 1.7 deduces that the intersection pairing is positive definite on the cuspidal part, and Theorem 1.8 is a Kronecker limit formula for the Eisenstein part, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩ = 2^{r+2}(log q)^{−r}L^{(r)}(η, 0).\n\nThe proof compares two relative trace formulae and is global throughout — no local orbital integrals are matched (Remark 1.10).\n- **Analytic side (§§2–4).** The regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1, h_2)|h_1h_2|^sη(h_2) is a Laurent polynomial in q^s (Propositions 2.1, 2.3); it has an orbital expansion over u = inv(γ) ∈ P¹(F) ∖ {1}, computed explicitly for f = 1_K (Proposition 2.4), and, after killing the Eisenstein part with the Eisenstein ideal (Theorem 4.3), a spectral expansion J(f, s) = (1/2|ω_X|)Σ_π ℒ(π_{F′}, s+1/2)λ_π(f) — Waldspurger's formula via Jacquet's relative trace formula (Proposition 4.5, Theorem 4.7).\n- **Geometric side (§§5–7).** The Hecke action on Sht^r_G is defined by cycles on the whole stack rather than by étale correspondences away from bad points (Proposition 5.10), so I_r(f) = ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩ makes sense; it is rewritten, through the Octahedron Lemma, as a trace on a Hitchin-type moduli stack M_d (Theorems 6.5–6.6); and a finiteness analysis of the H-action on H^{2r}_c(Sht_G) makes the image of the Hecke algebra a finitely generated algebra of Krull dimension one, giving an orthogonal spectral decomposition (Theorems 7.14, 7.16).\n- **Comparison (§§3, 8–9).** Both sides become traces of Frobenius on direct images over the same base: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with the Hecke correspondence acting by (d−2j) (Propositions 8.2–8.3), and Rf_{N_d,*}L_d ≅ K_{d_{11}} ⊠ K_{d_{12}} as a middle extension (Proposition 8.5). This gives (log q)^{−r}J_r(u, h_D) = I_r(u, h_D) for every orbit and every divisor of large degree (Theorem 8.1), hence for all f ∈ H by a density argument (Theorem 9.2).\n\nAppendix A develops the intersection theory this needs on Deligne–Mumford stacks locally of finite type: Chow groups of proper cycles, a corrected filtration on K′_0 defined through finite flat presentations, the compatibility of refined Gysin maps with derived pullback (Proposition A.5), the **Octahedron Lemma** (Theorem A.10) allowing intersections to be taken in any order, and a Lefschetz trace formula for the intersection with the graph of Frobenius (Proposition A.12). Appendix B proves the **super-positivity** Λ^{(r)}(π, 1/2) ≥ 0 for self-dual cuspidal π of GL_n under the Riemann hypothesis — unconditional over function fields — which is what makes Theorem 1.7 unconditional.",
+  "summary": "Yun and Zhang prove the first higher-derivative Gross–Zagier formula: every Taylor coefficient of an automorphic L-function, not only the first, is an intersection number. Let X be a smooth proper geometrically connected curve over F_q (p > 2), ν : X′ → X an étale double cover with X′ geometrically connected, G = PGL_2 and T = (Res_{F′/F}G_m)/G_m the associated nonsplit torus. For r even and an everywhere unramified cuspidal automorphic representation π of G(A), Theorem 1.2 reads\n\n  (|ω_X|/(2(log q)^r))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_π, [Sht^μ_T]_π)_π,\n\nwhere ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1) is self-dual under s ↦ 1−s, and [Sht^μ_T]_π is the π-component of the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] — the class of the moduli of T-shtukas with r legs, a smooth proper Deligne–Mumford stack of dimension r, inside the moduli Sht′^r_G of PGL_2-shtukas with r legs on X′, of dimension 2r. For r = 0 it is Waldspurger's formula (Remark 1.3) and for r = 1 the Gross–Zagier formula; Theorem 1.6 is the same identity in ℓ-adic cohomology, Theorem 1.7 deduces that the intersection pairing is positive definite on the cuspidal part, and Theorem 1.8 is a Kronecker limit formula for the Eisenstein part, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩ = 2^{r+1}(log q)^{−r}L^{(r)}(η, 0) (the paper prints 2^{r+2}; sourceIssues E9).\n\nThe proof compares two relative trace formulae and is global throughout — no local orbital integrals are matched (Remark 1.10).\n- **Analytic side (§§2–4).** The regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1, h_2)|h_1h_2|^sη(h_2) is a Laurent polynomial in q^s (Propositions 2.1, 2.3); it has an orbital expansion over u = inv(γ) ∈ P¹(F) ∖ {1}, computed explicitly for f = 1_K (Proposition 2.4), and, after killing the Eisenstein part with the Eisenstein ideal (Theorem 4.3), a spectral expansion J(f, s) = (1/2)|ω_X|Σ_π ℒ(π_{F′}, s+1/2)λ_π(f) — Waldspurger's formula via Jacquet's relative trace formula (Proposition 4.5, Theorem 4.7).\n- **Geometric side (§§5–7).** The Hecke action on Sht^r_G is defined by cycles on the whole stack rather than by étale correspondences away from bad points (Proposition 5.10), so I_r(f) = ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩ makes sense; it is rewritten, through the Octahedron Lemma, as a trace on a Hitchin-type moduli stack M_d (Theorems 6.5–6.6); and a finiteness analysis of the H-action on H^{2r}_c(Sht_G) makes the image of the Hecke algebra a finitely generated algebra of Krull dimension one, giving an orthogonal spectral decomposition (Theorems 7.14, 7.16).\n- **Comparison (§§3, 8–9).** Both sides become traces of Frobenius on direct images over the same base: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with the Hecke correspondence acting by (d−2j) (Propositions 8.2–8.3), and Rf_{N_d,*}L_d ≅ K_{d_{11}} ⊠ K_{d_{12}} as a middle extension (Proposition 8.5). This gives (log q)^{−r}J_r(u, h_D) = I_r(u, h_D) for every orbit and every divisor of large degree (Theorem 8.1), hence for all f ∈ H by a density argument (Theorem 9.2).\n\nAppendix A develops the intersection theory this needs on Deligne–Mumford stacks locally of finite type: Chow groups of proper cycles, a corrected filtration on K′_0 defined through finite flat presentations, the compatibility of refined Gysin maps with derived pullback (Proposition A.5), the **Octahedron Lemma** (Theorem A.10) allowing intersections to be taken in any order, and a Lefschetz trace formula for the intersection with the graph of Frobenius (Proposition A.12). Appendix B proves the **super-positivity** Λ^{(r)}(π, 1/2) ≥ 0 for self-dual cuspidal π of GL_n under the Riemann hypothesis — unconditional over function fields — which is what makes Theorem 1.7 unconditional. The independent review found the |ω_X| factor of Theorems 1.2 and 1.6 inverted in this extraction (corrected: it multiplies ℒ^{(r)}), confirmed E1–E7, rejected E8, and added E9–E37: Theorem 1.8 and Corollary 2.5 have 2^{r+2} for 2^{r+1} (E9), Theorem B.2 fails for n = 1 over function fields (E15), Proposition B.1's second part fails for polynomials (E16), Remark B.5 fails over function fields (E17), and a series of proof gaps and misprints. None affects Theorems 1.1–1.7.",
   "items": [
     {
       "id": "PAPER-YUN-ZHANG-17/1",
       "kind": "theorem",
       "name": "Theorem 1.2 (the higher Gross–Zagier/Waldspurger formula: cycle-theoretic form)",
-      "statement": "Let X be a smooth proper geometrically connected curve over k = F_q (p > 2), ν : X′ → X an étale double cover with X′ geometrically connected, G = PGL_2, and r an even integer. For an everywhere unramified cuspidal automorphic representation π of G(A) with coefficient field E_π, let [Sht^μ_T]_π ∈ W_π be the projection of the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] to the π-eigenspace of W. Then, in E_π, (1/(2(log q)^r|ω_X|))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_π, [Sht^μ_T]_π)_π, where ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1) satisfies ℒ(π_{F′}, s) = ℒ(π_{F′}, 1−s) and |ω_X| = q^{−deg ω_X}.",
+      "statement": "Let X be a smooth proper geometrically connected curve over k = F_q (p > 2), ν : X′ → X an étale double cover with X′ geometrically connected, G = PGL_2, and r an even integer. For an everywhere unramified cuspidal automorphic representation π of G(A) with coefficient field E_π, let [Sht^μ_T]_π ∈ W_π be the projection of the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] to the π-eigenspace of W. Then, in E_π, (|ω_X|/(2(log q)^r))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_π, [Sht^μ_T]_π)_π, where ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1) satisfies ℒ(π_{F′}, s) = ℒ(π_{F′}, 1−s) and |ω_X| = q^{−deg ω_X}.",
       "locator": "Theorem 1.2, p. 772; proof completed in §9.3.2, p. 879, published version",
       "status": "missing",
-      "note": "Remark 1.3: for r = 0 this is exactly Waldspurger's formula for an everywhere unramified π, (1/2|ω_X|)ℒ(π_{F′}, 1/2) = |∫_{T(F)\\T(A)}φ(t)dt|²/⟨φ, φ⟩_Pet. Remark 1.4 compares the E_π-valued pairing with the Néron–Tate height with coefficients of Yuan–Zhang–Zhang. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "The constant depends on the measure normalizations vol(K) = 1 and vol(T(O)) = 1 (p. 773). Remark 1.3: for r = 0 this is exactly Waldspurger's formula for an everywhere unramified π, (1/2)|ω_X|ℒ(π_{F′}, 1/2) = |∫_{T(F)\\T(A)}φ(t)dt|²/⟨φ, φ⟩_Pet. Remark 1.4 compares the E_π-valued pairing with the Néron–Tate height with coefficients of Yuan–Zhang–Zhang. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/2",
       "kind": "theorem",
       "name": "Theorem 1.6 (the same formula in ℓ-adic cohomology)",
-      "statement": "With V′ = H^{2r}_c((Sht′^r_G) ⊗_k k̄, Q_ℓ)(r) and λ a place of E_π above ℓ, let [Sht^μ_T]_{π,λ} ∈ V′_{π,λ} be the projection of the cycle class cl(θ^μ_*[Sht^μ_T]) under the decomposition (1.7). Then (1/(2(log q)^r|ω_X|))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_{π,λ}, [Sht^μ_T]_{π,λ})_{π,λ} in E_{π,λ}; in particular the right-hand side lies in E_π.",
-      "locator": "Theorem 1.6, p. 774; proof completed in §9.2, pp. 878–879, published version",
+      "statement": "Setting of Theorem 1.2 (r even, π everywhere unramified cuspidal, ℓ ≠ p). With V′ = H^{2r}_c((Sht′^r_G) ⊗_k k̄, Q_ℓ)(r) and λ a place of E_π above ℓ, let [Sht^μ_T]_{π,λ} ∈ V′_{π,λ} be the projection of the cycle class cl(θ^μ_*[Sht^μ_T]) under the decomposition (1.7). Then (|ω_X|/(2(log q)^r))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_{π,λ}, [Sht^μ_T]_{π,λ})_{π,λ} in E_{π,λ}; in particular the right-hand side lies in E_π.",
+      "locator": "Theorem 1.6, p. 774; proof completed in §9.2, pp. 877–879, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -39,7 +39,7 @@
       "id": "PAPER-YUN-ZHANG-17/3",
       "kind": "theorem",
       "name": "Theorem 1.1 and Theorem 1.5 = 7.16 (spectral decompositions of the cycle and cohomology modules)",
-      "statement": "Theorem 1.1: the quotient W = W̃/W̃_0 of the H-module generated by the Heegner–Drinfeld cycle by the kernel of the intersection pairing decomposes orthogonally as W = W_Eis ⊕ (⊕_π W_π), π running over the finitely many everywhere unramified cuspidal automorphic representations, with each W_π an E_π-vector space of dimension at most one. Theorem 1.5 (made precise in Theorem 7.16): V′_{Q_ℓ} = V′_{Q_ℓ,Eis} ⊕ (⊕_m V′_{Q_ℓ,m}) orthogonally, m running over a finite set of maximal ideals of H_{Q_ℓ} with finite residue fields E_m, each summand finite dimensional and supported at m; the pairings lift to E_m-bilinear pairings.",
+      "statement": "Theorem 1.1: the quotient W = W̃/W̃_0 of the H-module generated by the Heegner–Drinfeld cycle by the kernel of the intersection pairing decomposes orthogonally as W = W_Eis ⊕ (⊕_π W_π), π running over the finitely many everywhere unramified cuspidal automorphic representations, with each W_π an E_π-vector space of dimension at most one. Theorem 1.5 (made precise in Theorem 7.16): V′_{Q_ℓ} = V′_{Q_ℓ,Eis} ⊕ (⊕_m V′_{Q_ℓ,m}) orthogonally, m running over a finite set of maximal ideals of H_{Q_ℓ} with residue fields E_m finite extensions of Q_ℓ, each summand finite dimensional and supported at m; the pairings lift to E_m-bilinear pairings.",
       "locator": "Theorems 1.1 and 1.5, pp. 772–773; proof of 1.1 in §9.3.1, p. 879; Theorem 7.16, pp. 867–868, published version",
       "status": "missing",
       "note": "Unlike (1.5), the m occurring in (1.7) are not known to be automorphic. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -51,13 +51,13 @@
       "statement": "The restriction of the intersection pairing (·,·) to the orthogonal complement W_cusp of W_Eis in W is positive definite. The proof uses that E_π is totally real (the Hecke operators are self-adjoint for the Petersson product), Theorem 1.2 for each real embedding, L(π_ι, Ad, 1) > 0, and the super-positivity ℒ^{(r)}(π_{ι,F′}, 1/2) ≥ 0 of Theorem B.2.",
       "locator": "Theorem 1.7 and proof, pp. 774–775, published version",
       "status": "missing",
-      "note": "Evidence for the Hodge standard conjecture for a subquotient of the Chow group of middle-dimensional cycles on Sht′^r_G. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Evidence for the Hodge standard conjecture for a subquotient of the Chow group of middle-dimensional cycles on Sht′^r_G. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The printed proof ends with \"≥ 0\", and it applies Theorem B.2 to π_{F′}, which is not cuspidal when π ≅ π ⊗ η. Both points have one-line repairs (E12)."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/5",
       "kind": "theorem",
       "name": "Theorem 1.8 (a Kronecker limit formula: the Eisenstein part of the self-intersection)",
-      "statement": "For r > 0 even, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G} = (2^{r+2}/(log q)^r)·L^{(r)}(η, 0), where L(η, s) is the complete L-function of the quadratic idele class character η = η_{F′/F}. Remark 1.9: odd-order derivatives would need the analogous spaces for odd r.",
+      "statement": "For r > 0 even, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G} = (2^{r+1}/(log q)^r)·L^{(r)}(η, 0), where L(η, s) is the complete L-function of the quadratic idele class character η = η_{F′/F}. The paper prints 2^{r+2}, which is wrong: the u = ∞ orbital integrals of Proposition 2.4 do not depend on s (sourceIssues E9). Remark 1.9: odd-order derivatives would need the analogous spaces for odd r.",
       "locator": "Theorem 1.8 and Remark 1.9, p. 775; proof in §9.1.1, pp. 874–876; the r = 0 case in Remark 9.3, pp. 876–877, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -84,25 +84,25 @@
       "id": "PAPER-YUN-ZHANG-17/8",
       "kind": "theorem",
       "name": "Propositions 2.1, 2.3 and Lemma 2.2 (finiteness and the definition of J(f, s))",
-      "statement": "Proposition 2.1: J_{n_1,n_2}(f, s) vanishes when |n_1| + |n_2| is large, so J(f, s) := Σ_{(n_1,n_2) ∈ Z²}J_{n_1,n_2}(f, s) is defined and is a Laurent polynomial in q^s. Lemma 2.2: the sum defining K_{f,γ} has finitely many nonzero terms, since for all but finitely many u ∈ P¹(F) ∖ {0, 1, ∞} the kernel vanishes identically on A(A) × A(A). Proposition 2.3: for every γ ∈ G(F) the integral J_{n_1,n_2}(γ, f, s) vanishes for |n_1| + |n_2| large, treated separately for regular semisimple and non-regular-semisimple orbits.",
+      "statement": "Proposition 2.1: J_{n_1,n_2}(f, s) vanishes when |n_1| + |n_2| is large, so J(f, s) := Σ_{(n_1,n_2) ∈ Z²}J_{n_1,n_2}(f, s) is defined and is a Laurent polynomial in q^s. Lemma 2.2: the sum (2.7), K_f = Σ_γ K_{f,γ} over γ ∈ A(F)\\G(F)/A(F), has finitely many nonzero terms, since for all but finitely many u ∈ P¹(F) ∖ {0, 1, ∞} the kernel vanishes identically on A(A) × A(A). Proposition 2.3: for every γ ∈ G(F) the integral J_{n_1,n_2}(γ, f, s) vanishes for |n_1| + |n_2| large, treated separately for regular semisimple and non-regular-semisimple orbits.",
       "locator": "Propositions 2.1 and 2.3, Lemma 2.2, §§2.3–2.5, pp. 783–787, published version",
       "status": "missing",
-      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source. The finiteness for u ∈ {0, ∞} (§2.5) uses that η is nontrivial on F^×\\A^1, i.e. that X′ is geometrically connected."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/9",
       "kind": "theorem",
       "name": "Proposition 2.4 and Corollary 2.5 (the orbital integrals for f = 1_K, and J_r(1_K))",
-      "statement": "For f = 1_K: J(u, 1_K, s) = L(η, 2s) + L(η, −2s) for u ∈ {0, ∞}, = 1 for u ∈ k ∖ {0, 1}, and 0 otherwise. Hence J_r(1_K) = 4L(η, 0) + q − 2 = 4·#Jac_{X′}(k)/#Jac_X(k) + q − 2 for r = 0; = 2^{r+2}(d/ds)^r|_{s=0}L(η, s) for r > 0 even; and 0 for r > 0 odd.",
+      "statement": "For f = 1_K: J(u, 1_K, s) = L(η, 2s) + L(η, −2s) for u = 0, J(u, 1_K, s) = 2L(η, 0) (a constant) for u = ∞, 1 for u ∈ k ∖ {0, 1}, and 0 otherwise. Hence J_r(1_K) = 4L(η, 0) + q − 2 = 4·#Jac_{X′}(k)/#Jac_X(k) + q − 2 for r = 0; 2^{r+1}(d/ds)^r|_{s=0}L(η, s) for r > 0 even; and 0 for r > 0 odd. The paper prints the u = 0 value also for u = ∞ (\"The case for u = ∞ is analogous\") and 2^{r+2} for r > 0 even; both are wrong (sourceIssues E9). The r = 0 value is right.",
       "locator": "Proposition 2.4 and Corollary 2.5, pp. 787–788, published version",
       "status": "missing",
-      "note": "Corollary 2.5 is the analytic input for the Kronecker limit formula, Theorem 1.8. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Corollary 2.5 is the analytic input for the Kronecker limit formula, Theorem 1.8, and is used nowhere else. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/10",
       "kind": "construction",
       "name": "§3.1–3.3 (the moduli N_d, the local systems L_d and Proposition 3.1)",
-      "statement": "For d = (d_{11}, d_{12}, d_{21}, d_{22}) ∈ Σ_d (quadruples of non-negative integers with d_{11} + d_{22} = d = d_{12} + d_{21}), N_d is a moduli space of pairs of effective divisors with a section, mapping to the base A_d = X̂_d ×_{Pic^d_X} X̂_d. Proposition 3.1: the morphism d is an open embedding and N_d is a geometrically connected k-scheme; for d ≥ 2g′ − 1 = 4g − 3 it is smooth of dimension 2d − g + 1; and there is a commutative diagram exhibiting f_{N_d} : N_d → A_d as proper. Each N_d carries a rank one local system L_d coming from the double cover X′/X.",
+      "statement": "For d = (d_{11}, d_{12}, d_{21}, d_{22}) ∈ Σ_d (quadruples of non-negative integers with d_{11} + d_{22} = d = d_{12} + d_{21}), N_d classifies (K_1, K_2, K′_1, K′_2, φ : K_1 ⊕ K_2 → K′_1 ⊕ K′_2) with deg K′_i − deg K_j = d_{ij} and the non-vanishing conditions of §3.2.2, modulo Pic_X, and maps to the base A_d = (X̂_d ×_{Pic^d_X} X̂_d) − Z_d (triples (Δ, a, b) with a, b not both zero). Proposition 3.1: the morphism ȷ_d is an open embedding and N_d is a geometrically connected k-scheme; for d ≥ 2g′ − 1 = 4g − 3 it is smooth of dimension 2d − g + 1; and there is a commutative diagram exhibiting f_{N_d} : N_d → A_d as proper. Each N_d carries a rank one local system L_d coming from the double cover X′/X.",
       "locator": "§§3.1–3.3, Proposition 3.1, pp. 788–793, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -111,10 +111,10 @@
       "id": "PAPER-YUN-ZHANG-17/11",
       "kind": "theorem",
       "name": "Proposition 3.2 and Corollary 3.3 (orbital integrals as Frobenius traces)",
-      "statement": "For an effective divisor D on X of degree d and the Hecke function h_D: if u is not in the image of inv_D then J(γ, h_D, s) = 0 for every γ with inv(γ) = u; if u = inv_D(a) with a ∈ A_D(k) = Γ(X, O_X(D)) and u ∉ {0, 1, ∞}, then J(γ(u), h_D, s) = Σ_{d ∈ Σ_d}q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a). Corollary 3.3: consequently J_r(u, h_D) = (log q)^rΣ_{d ∈ Σ_d}(2d_{12} − d)^rTr(Frob_a, (Rf_{N_d,*}L_d)_a) when u = inv_D(a), and 0 otherwise.",
+      "statement": "For an effective divisor D on X of degree d and the Hecke function h_D: if u is not in the image of inv_D then J(γ, h_D, s) = 0 for every γ with inv(γ) = u; if u = inv_D(a) with a ∈ A_D(k) = Γ(X, O_X(D)) and u ∉ {0, 1, ∞}, then J(γ(u), h_D, s) = Σ_{d ∈ Σ_d}q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a). Proposition 3.2(3): for d ≥ 2g′ − 1 = 4g − 3 the same holds for u ∈ {0, ∞} (a = 1, a = 0). Corollary 3.3: consequently, for d ≥ 4g − 3 when u ∈ {0, ∞}, J_r(u, h_D) = (log q)^rΣ_{d ∈ Σ_d}(2d_{12} − d)^rTr(Frob_a, (Rf_{N_d,*}L_d)_a) when u = inv_D(a), and 0 otherwise.",
       "locator": "Proposition 3.2 and Corollary 3.3, pp. 793–797, published version",
       "status": "missing",
-      "note": "This is the analytic side turned into a sheaf-theoretic trace, in the style of the geometric proofs of fundamental lemmas (Ngô, Yun). Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "This is the analytic side turned into a sheaf-theoretic trace, in the style of the geometric proofs of fundamental lemmas (Ngô, Yun). Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The paper states Corollary 3.3 without the degree hypothesis for u ∈ {0, ∞}, where it fails for D = 0 (E11); Theorem 8.1 assumes large degree."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/12",
@@ -138,10 +138,10 @@
       "id": "PAPER-YUN-ZHANG-17/14",
       "kind": "theorem",
       "name": "Proposition 4.5, Lemma 4.6 and Theorem 4.7 (the spectral expansion: Waldspurger's formula)",
-      "statement": "Proposition 4.5: for an everywhere unramified cuspidal π with Hecke character λ_π, J_π(f, s) = (1/2|ω_X|)ℒ(π_{F′}, s + 1/2)λ_π(f); the proof computes the product of the two toric periods P(φ, s)P_η(φ, s) against the Petersson norm, whence the adjoint L-value in the normalization of ℒ. Lemma 4.6 records the change of the local Whittaker/zeta normalization under a change of additive character. Theorem 4.7: for f ∈ I_Eis, J(f, s) = (1/2|ω_X|)Σ_π ℒ(π_{F′}, s + 1/2)λ_π(f), an identity in E[q^{−s}, q^s].",
+      "statement": "Proposition 4.5: for an everywhere unramified cuspidal π with Hecke character λ_π, J_π(f, s) = (1/2)|ω_X|ℒ(π_{F′}, s + 1/2)λ_π(f); the proof computes the product of the two toric periods P(φ, s)P_η(φ, s) against the Petersson norm, whence the adjoint L-value in the normalization of ℒ. Lemma 4.6 records the change of the local Whittaker/zeta normalization under a change of additive character. Theorem 4.7: for f ∈ I_Eis, J(f, s) = (1/2)|ω_X|Σ_π ℒ(π_{F′}, s + 1/2)λ_π(f), an identity in E[q^{−s}, q^s].",
       "locator": "Proposition 4.5, Lemma 4.6, Theorem 4.7, pp. 803–807, published version",
       "status": "missing",
-      "note": "This is Waldspurger's formula in the everywhere unramified function-field case, obtained from Jacquet's relative trace formula. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Lemma 4.6 is ξ_{x,ψ_{x,c_x}}(χ_x, s) = χ_x^{−1}(c_x)|c_x|^{−2s+1/2}ξ_{x,ψ_x}(χ_x, s). This is Waldspurger's formula in the everywhere unramified function-field case, obtained from Jacquet's relative trace formula. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/15",
@@ -154,14 +154,14 @@
         "GlobalShtukasAndFunctionFieldLanglands:GS.1",
         "GlobalShtukasAndFunctionFieldLanglands:GS.2"
       ],
-      "note": "GS.1 plans global Hecke stacks and GS.2 multi-leg shtuka stacks with their representability and smoothness for a general reductive G; PGL_2 and GL_n are instances."
+      "note": "GS.1 plans global Hecke stacks and GS.2 multi-leg shtuka stacks with their representability and smoothness for a general reductive G; PGL_2 and GL_n are instances. The balance condition is needed only for Sht^μ_n (Definition 5.3), not for Hk^μ_n. Sht^r_G is Sht^μ_2/Pic_X(k) through the Cartesian square of Lemma 5.6, which a general-G GS.2 must match."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/16",
       "kind": "construction",
       "name": "§5.3 (Hecke correspondences on Sht^r_G and their action on Chow groups)",
-      "statement": "For an effective divisor D, Sht^r_G(h_D) is the moduli of shtukas with an extra modification of degree D, giving a self-correspondence (←p, →p) of Sht^r_G. Lemma 5.8: ←p, →p and (←p, →p) are representable and proper; Lemma 5.9: the geometric fibres of Sht^r_G(h_D) → X^r have dimension r (proved in §6.4.4), so dim Sht^r_G(h_D) = 2r and the fundamental cycle pushes forward to cCh_{2r}(Sht^r_G × Sht^r_G)_Q. Proposition 5.10: h_D ↦ H(h_D) is a ring homomorphism H → cCh_{2r}(Sht^r_G × Sht^r_G)_Q. Remark 5.11 compares this with the traditional correspondence Γ(g) defined only away from the bad points. Lemma 5.12: the action of any f ∈ H on Ch_{c,*}(Sht^r_G)_Q and Ch_{c,*}(Sht′^r_G)_Q is self-adjoint for the intersection pairing.",
-      "locator": "§5.3, Lemmas 5.8–5.9, Proposition 5.10, Remark 5.11, Lemma 5.12, pp. 811–814, published version",
+      "statement": "For an effective divisor D, Sht^r_G(h_D) is the moduli of shtukas with an extra modification of degree D, giving a self-correspondence (←p, →p) of Sht^r_G. Lemma 5.8: ←p, →p and (←p, →p) are representable and proper; Lemma 5.9: the geometric fibres of Sht^r_G(h_D) → X^r have dimension r (proved in §6.4.4), so dim Sht^r_G(h_D) = 2r and the fundamental cycle pushes forward to cCh_{2r}(Sht^r_G × Sht^r_G)_Q. Proposition 5.10: h_D ↦ H(h_D) is a ring homomorphism H → cCh_{2r}(Sht^r_G × Sht^r_G)_Q. Remark 5.11 compares this with the traditional correspondence Γ(g) defined only away from the bad points. Lemma 5.12: the action of any f ∈ H on Ch_{c,*}(Sht^r_G)_Q and Ch_{c,*}(Sht′^r_G)_Q is self-adjoint for the intersection pairing. §5.3.2 defines the separate ring homomorphism H′ : H → cCh_{2r}(Sht′^r_G × Sht′^r_G)_Q, which is the action used in I_r(f).",
+      "locator": "§5.3, Lemmas 5.8–5.9, Proposition 5.10, Remark 5.11, Lemma 5.12, pp. 811–815, published version",
       "status": "missing",
       "note": "Defining the Hecke action by cycles on the whole of Sht^r_G, rather than by étale correspondences away from bad points, is what allows intersection numbers over all of X^r. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -169,16 +169,16 @@
       "id": "PAPER-YUN-ZHANG-17/17",
       "kind": "construction",
       "name": "§5.4–5.5 (the torus shtukas Sht^μ_T, the Heegner–Drinfeld cycle and I_r(f))",
-      "statement": "For the nonsplit torus T = (Res_{F′/F}G_m)/G_m, Sht^μ_T is the moduli of T-shtukas with legs on X′; Lemma 5.13: π^μ_T : Sht^μ_T → X′^r is a torsor under the finite groupoid Pic_{X′}(k)/Pic_X(k), hence finite étale, so Sht^μ_T is a smooth proper Deligne–Mumford stack of pure dimension r. The finite morphism θ^μ : Sht^μ_T → Sht′^r_G := Sht^r_G ×_{X^r}X′^r gives the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] ∈ Ch_{c,r}(Sht′^r_G)_Q, and I_r(f) := ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G}. Lemma 5.16: I_r(f) does not depend on the choice of μ.",
-      "locator": "§§5.4–5.5, Lemma 5.13, Lemma 5.16, pp. 814–821, published version",
+      "statement": "For the nonsplit torus T = (Res_{F′/F}G_m)/G_m, Sht^μ_T is the moduli of T-shtukas with legs on X′; Lemma 5.13: π^μ_T : Sht^μ_T → X′^r is a torsor under the finite groupoid Pic_{X′}(k)/Pic_X(k), hence finite étale, so Sht^μ_T is a smooth proper Deligne–Mumford stack of pure dimension r. The proper morphism θ^μ : Sht^μ_T → Sht′^r_G := Sht^r_G ×_{X^r}X′^r gives the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] ∈ Ch_{c,r}(Sht′^r_G)_Q, and I_r(f) := ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G}. Lemma 5.16: I_r(f) does not depend on the choice of μ.",
+      "locator": "§§5.4–5.5, Lemma 5.13, Definitions 5.14–5.15, Lemma 5.16, pp. 816–820, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. §1.3 calls θ^μ finite, but only properness (from the properness of Sht^μ_T) is proved and used."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/18",
       "kind": "construction",
       "name": "§6.1–6.2 (the moduli M_d, the map f_M, and the Hecke self-correspondence H)",
-      "statement": "Proposition 6.1: the moduli stack M_d (of a rank two bundle with a line subbundle and extra data) is a proper Deligne–Mumford stack, smooth of pure dimension 2d − g + 1 for d ≥ 2g′ − 1, with a proper map f_M : M_d → A_d and ν̂_d : X̂′_d → X̂_d proper, fitting into a Cartesian diagram. Lemma 6.2: the Hecke stack Hk^μ_{M,d}, as a self-correspondence of M_d, is the r-fold composition of a single correspondence H. Lemma 6.3: over the open locus A♦_d there is a natural map H♦ → I′_d to the incidence scheme. Lemma 6.4: γ_0 : Hk^μ_{M♦,d} → M♦_d is finite surjective, so dim Hk^μ_{M♦,d} = dim M♦_d = 2d − g + 1, and the image of the complement in M_d × M_d has dimension at most d + 2g − 2.",
+      "statement": "Proposition 6.1: the moduli stack M_d of (L, L′, α : L → L′, β : L → σ^*L′) with L, L′ line bundles on X′, deg L′ − deg L = d, α and β not both zero, modulo Pic_X (equivalently O_X-maps ν_*L → ν_*L′; M_d ≅ X̂′_d ×_{Pic^d_X} X̂′_d − Z′_d) is a proper Deligne–Mumford stack, smooth of pure dimension 2d − g + 1 for d ≥ 2g′ − 1, with a proper map f_M : M_d → A_d and ν̂_d : X̂′_d → X̂_d proper, fitting into a Cartesian diagram. Lemma 6.2: the Hecke stack Hk^μ_{M,d}, as a self-correspondence of M_d, is the r-fold composition of a single correspondence H. Lemma 6.3: over the open locus A♦_d the square (6.8) relating H♦ to the incidence scheme I′_d is Cartesian. Lemma 6.4 (for d ≥ 2g′ − 1, which the paper omits, E29): γ_0 : Hk^μ_{M♦,d} → M♦_d is finite surjective, so dim Hk^μ_{M♦,d} = dim M♦_d = 2d − g + 1, and the image of the complement in M_d × M_d has dimension at most d + 2g − 2.",
       "locator": "§§6.1–6.2, Proposition 6.1, Lemmas 6.2–6.4, pp. 821–827, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -187,8 +187,8 @@
       "id": "PAPER-YUN-ZHANG-17/19",
       "kind": "theorem",
       "name": "Theorem 6.5 and Theorem 6.6 (the intersection number as a trace, and as a Gysin intersection)",
-      "statement": "Theorem 6.5: for an effective divisor D of degree d ≥ max{2g′ − 1, 2g}, I_r(h_D) = Σ_{a ∈ A_D(k)}Tr((f_{M,!}[H♦])^r_a ∘ Frob_a, (Rf_{M,!}Q_ℓ)_a). Theorem 6.6: there is a class ζ ∈ Ch_{2d−g+1}(Hk^μ_{M,d})_Q restricting to the fundamental cycle over Hk^μ_{M,d}|_{A♥_d ∩ A♦_d} with I_r(h_D) = ⟨ζ, Γ(Fr_{M_d})⟩_D, the local intersection number with the graph of Frobenius in the sense of §A.4.5. Lemma 6.7 shows that for d ≥ 3g − 2 the endomorphism f_{M,!}cl(ζ♥) of Rf_{M,!}Q_ℓ|_{A♥_d} is independent of the choice of such a class.",
-      "locator": "Theorems 6.5–6.6, Lemma 6.7, pp. 828–830; proof of 6.6 in §6.3.6, pp. 839–840, published version",
+      "statement": "Theorem 6.5: for an effective divisor D of degree d ≥ max{2g′ − 1, 2g}, I_r(h_D) = Σ_{a ∈ A_D(k)}Tr((f_{M,!}[H♦])^r_a ∘ Frob_a, (Rf_{M,!}Q_ℓ)_a). Theorem 6.6: there is a class ζ ∈ Ch_{2d−g+1}(Hk^μ_{M,d})_Q restricting to the fundamental cycle over Hk^μ_{M,d}|_{A♥_d ∩ A♦_d} with I_r(h_D) = ⟨ζ, Γ(Fr_{M_d})⟩_D, the local intersection number with the graph of Frobenius in the sense of §A.4.5. Lemma 6.7: for d ≥ 3g − 2, f_{M,!}cl(ζ♥) = (f_{M,!}[H♦])^r as endomorphisms of Rf_{M,!}Q_ℓ|_{A♥_d}, which turns Theorem 6.6 into Theorem 6.5. The orbital terms I_r(u, h_D) of (6.10)–(6.11), used in Theorem 8.1, are the contributions of the a ∈ A_D(k) with inv_D(a) = u.",
+      "locator": "Theorems 6.5–6.6, Lemma 6.7, pp. 828–831; proof of 6.6 in §6.3.6, pp. 839–840, published version",
       "status": "missing",
       "note": "This is the most technical part of the paper: the intersection of the Heegner–Drinfeld cycle with its Hecke translate is rewritten, through the Octahedron Lemma, as a Lefschetz-type trace on a Hitchin-like moduli stack. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -196,8 +196,8 @@
       "id": "PAPER-YUN-ZHANG-17/20",
       "kind": "theorem",
       "name": "§6.3–6.4 (the auxiliary moduli stacks and the verification of the intersection-theoretic hypotheses)",
-      "statement": "Lemma 6.8: ←p, →p : H_d → Bun_G are representable and smooth of pure relative dimension 2d, so H_d is smooth of pure dimension 2d + 3g − 3, and M♥_d ↪ M_d is the open preimage of A♥_d. Lemma 6.9 identifies Hk^μ_{M♥,d} with the preimage of A♥_d. Lemma 6.10 computes the dimensions of Hk^{r,◦}_{G,d} and of the fibres of s : Hk^r_{G,d} → X_d × X^r. Lemma 6.11: for d ≥ max{2g′ − 1, 2g} the diagram (6.26) satisfies the conditions of §A.2.8, so the refined Gysin map (Π^μ × Π^μ)^! is defined and ζ♥ = (Π^μ × Π^μ)^![Hk′^r_{G,d}] restricts to the fundamental cycle. Lemma 6.12 decomposes Sht^r_{G,d} and Sht′^r_{G,d} over the k-points of X_d; Corollary 6.13 identifies Sht^μ_{M♥,d}; Lemma 6.14: the diagram (6.31) satisfies the conditions of §A.2.10 and (id, Fr_{H_d})^![Hk′^r_{G,d}] = [Sht′^r_{G,d}], which also proves Lemma 5.9; Lemma 6.15 computes dim H′ = d + r through the affine Schubert variety Gr_{1^r,d}.",
-      "locator": "§§6.3–6.4, Lemmas 6.8–6.15, Corollary 6.13, pp. 830–845, published version",
+      "statement": "Lemma 6.8: ←p, →p : H_d → Bun_G are representable and smooth of pure relative dimension 2d, so H_d is smooth of pure dimension 2d + 3g − 3, and M♥_d ↪ M_d is the open preimage of A♥_d. Lemma 6.9 identifies Hk^μ_{M♥,d} with the preimage of A♥_d. Lemma 6.10 computes the dimensions of Hk^{r,◦}_{G,d} and of the fibres of s : Hk^r_{G,d} → X_d × X^r, and (3) the codimension estimate used in Lemma 6.11(2). Lemma 6.11: for d ≥ max{2g′ − 1, 2g} the diagram (6.26) satisfies the conditions of §A.2.8, so the refined Gysin map (Π^μ × Π^μ)^! is defined and ζ♥ = (Π^μ × Π^μ)^![Hk′^r_{G,d}] restricts to the fundamental cycle. Lemma 6.12 decomposes Sht^r_{G,d} and Sht′^r_{G,d} over the k-points of X_d; Corollary 6.13 identifies Sht^μ_{M♥,d}; Lemma 6.14: the diagram (6.31) satisfies the conditions of §A.2.10 and (id, Fr_{H_d})^![Hk′^r_{G,d}] = [Sht′^r_{G,d}], using Lemma 5.9, which is proved separately in §6.4.4 from Lemma 6.15, the smoothness of H_{D,D} and V. Lafforgue's Lemme 2.13; Lemma 6.15 computes dim H′ = d + r through the affine Schubert variety Gr_{1^r,d}.",
+      "locator": "§§6.3–6.4, Lemmas 6.8–6.15, Corollary 6.13, pp. 831–845, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -215,7 +215,7 @@
       "kind": "theorem",
       "name": "§7.2–7.3 (the stratification by instability and the cohomological constant term)",
       "statement": "Sht_G is exhausted by the open substacks Sht^{≤d}_G indexed by functions d ∈ D recording the instability of the chain. Lemma 7.4: for d ∈ D_+ the map p_d : Sht^d_B → Sht_G induces an isomorphism onto Sht^d_G. Lemma 7.5: if d(i) > 2g − 2 for all i, then q_d : Sht^d_B → Sht^d_H is smooth of relative dimension r/2 with fibres [G^{r/2}_a/Z]. Corollary 7.6: then the cone of Rπ^{<d}_{G,!}Q_ℓ → Rπ^{≤d}_{G,!}Q_ℓ is π^d_{H,!}Q_ℓ[−r](−r/2), a local system concentrated in degree r. Lemma 7.7 (Drinfeld, Varshavsky): p_{d,η} is finite and unramified on generic fibres, so the fundamental cycle of Sht^d_{B,η} defines the cohomological constant term γ_δ, and Lemma 7.8: γ_δ intertwines the H-action with the H_H-action through the Satake transform.",
-      "locator": "§§7.2–7.3, Lemmas 7.4–7.5, 7.7–7.8, Corollary 7.6, pp. 849–857, published version",
+      "locator": "§§7.2–7.3, Lemmas 7.4–7.5, 7.7–7.8, Corollary 7.6, pp. 850–860, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -223,17 +223,17 @@
       "id": "PAPER-YUN-ZHANG-17/23",
       "kind": "theorem",
       "name": "§7.4 (finiteness: Lemmas 7.9–7.13)",
-      "statement": "With V = H^{2r}_c(Sht_G ⊗_k k̄, Q_ℓ)(r) filtered by L_{≤i}V coming from the truncations τ_{≤i}: Lemma 7.9: each L_{≤i}V is H-stable; Lemma 7.10: Gr^L_iV is finite dimensional for i ≠ r; Lemma 7.11: I_Eis·(L_{≤r}V) is finite dimensional; Lemma 7.13: V is a finitely generated H_x ⊗ Q_ℓ-module for every x ∈ |X|, and the image H_ℓ of H ⊗ Q_ℓ in End(V) is a finitely generated Q_ℓ-algebra of Krull dimension one.",
-      "locator": "§7.4, Lemmas 7.9–7.13, pp. 857–865, published version",
+      "statement": "With V = H^{2r}_c(Sht_G ⊗_k k̄, Q_ℓ)(r) filtered by L_{≤i}V coming from the truncations τ_{≤i}: Lemma 7.9: each L_{≤i}V is H-stable; Lemma 7.10: Gr^L_iV is finite dimensional for i ≠ r; Lemma 7.11: I_Eis·(L_{≤r}V) is finite dimensional; Lemma 7.13: V is a finitely generated H_x ⊗ Q_ℓ-module for every x ∈ |X|, and the image H_ℓ of H ⊗ Q_ℓ in End_{Q_ℓ}(V) × Q_ℓ[Pic_X(k)]^{ι_Pic} (Definition 7.12) is a finitely generated Q_ℓ-algebra of Krull dimension one.",
+      "locator": "§7.4, Lemmas 7.9–7.13, Definition 7.12, pp. 860–865, published version",
       "status": "missing",
-      "note": "The authors note that this method should apply to moduli of shtukas for more general groups, giving information on their cohomology. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "The Eisenstein factor in Definition 7.12 is what makes Z_{Eis,Q_ℓ} ↪ Spec H_ℓ a closed embedding. In §1.7 (p. 777) the authors note that this method should apply to moduli of shtukas for more general groups, giving information on their cohomology. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/24",
       "kind": "theorem",
       "name": "Theorem 7.14, Lemma 7.15, Theorem 7.16 and Corollary 7.17 (the cohomological spectral decomposition)",
-      "statement": "Theorem 7.14: (Spec H_ℓ)^{red} = Z_{Eis,Q_ℓ} ⊔ Z^r_{0,ℓ} with Z^r_{0,ℓ} a finite set of closed points, giving the decomposition of V; for r = 0 this reads Spec H^{red}_{aut,Q_ℓ} = Z_{Eis,Q_ℓ} ⊔ Z^0_{0,ℓ}. Lemma 7.15: H_aut ≅ Q[Pic_X(k)]^{ι_Pic} × H_cusp, i.e. Spec H_aut = Z_Eis ⊔ Z_cusp, and Z^0_{0,ℓ} = Z_{cusp,Q_ℓ}. Theorem 7.16 is the same statement for V′ on Sht′^r_G, and Corollary 7.17: the decomposition is orthogonal for the cup product, and I_r(f) = ([Sht_T]_Eis, f ∗ [Sht_T]_Eis) + Σ_{m ∈ Z′^r_{0,ℓ}(Q̄_ℓ)}I_r(m, f) with I_r(m, f) = ([Sht_T]_m, f ∗ [Sht_T]_m).",
-      "locator": "§7.5, Theorem 7.14, Lemma 7.15, Theorem 7.16, Corollary 7.17, pp. 865–869, published version",
+      "statement": "Theorem 7.14: (Spec H_ℓ)^{red} = Z_{Eis,Q_ℓ} ⊔ Z^r_{0,ℓ} with Z^r_{0,ℓ} a finite set of closed points, giving the decomposition of V; for r = 0 this reads Spec H^{red}_{aut,Q_ℓ} = Z_{Eis,Q_ℓ} ⊔ Z^0_{0,ℓ}. Lemma 7.15: H_aut ≅ Q[Pic_X(k)]^{ι_Pic} × H_cusp, i.e. Spec H_aut = Z_Eis ⊔ Z_cusp, and Z^0_{0,ℓ} = Z_{cusp,Q_ℓ}. Theorem 7.16 is the same statement for V′ on Sht′^r_G, and Corollary 7.17: the decomposition is orthogonal for the cup product, and I_r(f) = ([Sht_T]_Eis, f ∗ [Sht_T]_Eis) + Σ_{m ∈ Z′^r_{0,ℓ}(Q̄_ℓ)}I_r(m, f) with I_r(m, f) = ([Sht_T]_m, f ∗ [Sht_T]_m). Theorems 7.14(2) and 7.16(4): the complementary parts V_0 and V′_0 are finite-dimensional.",
+      "locator": "§7.4, Theorem 7.14 and Lemma 7.15, pp. 865–867; §7.5, Theorem 7.16 and Corollary 7.17, pp. 867–869, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -241,8 +241,8 @@
       "id": "PAPER-YUN-ZHANG-17/25",
       "kind": "theorem",
       "name": "Theorem 8.1 (the key identity for the Hecke functions h_D of large degree)",
-      "statement": "For an effective divisor D on X of degree d ≥ max{2g′ − 1, 2g} and every u ∈ P¹(F) ∖ {1}, (log q)^{−r}J_r(u, h_D) = I_r(u, h_D); in particular (log q)^{−r}J_r(h_D) = I_r(h_D).",
-      "locator": "Theorem 8.1, p. 869; proof in §8.3, pp. 874, published version",
+      "statement": "For r even and D ∈ X_d(k) an effective divisor of degree d ≥ max{2g′ − 1, 2g} and every u ∈ P¹(F) ∖ {1}, (log q)^{−r}J_r(u, h_D) = I_r(u, h_D); in particular (log q)^{−r}J_r(h_D) = I_r(h_D).",
+      "locator": "Theorem 8.1, p. 869; proof in §8.3, p. 874, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -250,7 +250,7 @@
       "id": "PAPER-YUN-ZHANG-17/26",
       "kind": "theorem",
       "name": "Propositions 8.2–8.3 and Corollary 8.4 (the direct image of f_M and the Hecke action on it)",
-      "statement": "Proposition 8.2: for d ≥ 2g′ − 1 there is a canonical isomorphism of shifted perverse sheaves Rf_{M,*}Q_ℓ ≅ ⊕_{i,j=0}^d (K_i ⊠ K_j)|_{A_d}, where K_i is built from the local systems L(ρ_i) on X̂_d attached to the double cover. Proposition 8.3: the action of f_{M,!}[H♦] preserves each summand and acts on K_i ⊠ K_j by the scalar (d − 2j). Corollary 8.4: hence I_r(u, h_D) = Σ_{i,j}(d − 2j)^rTr(Frob_a, (K_i)_a ⊗ (K_j)_a) when u = inv_D(a), and 0 otherwise.",
+      "statement": "Proposition 8.2: for d ≥ 2g′ − 1 there is a canonical isomorphism of shifted perverse sheaves Rf_{M,*}Q_ℓ ≅ ⊕_{i,j=0}^d (K_i ⊠ K_j)|_{A_d}, where K_i is built from the local systems L(ρ_i) on X̂_d attached to the double cover. Proposition 8.3: the action of f_{M,!}[H♦] preserves each summand and acts on K_i ⊠ K_j by the scalar (d − 2j). Corollary 8.4 (for d ≥ max{2g′ − 1, 2g} and D ∈ X_d(k)): hence I_r(u, h_D) = Σ_{i,j}(d − 2j)^rTr(Frob_a, (K_i)_a ⊗ (K_j)_a) when u = inv_D(a), and 0 otherwise.",
       "locator": "§8.1, Propositions 8.2–8.3, Corollary 8.4, pp. 869–872, published version",
       "status": "missing",
       "note": "Proposition 8.3 is the computation that PAPER-FENG-YUN-ZHANG-24 reuses (its Proposition 11.7). Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -259,8 +259,8 @@
       "id": "PAPER-YUN-ZHANG-17/27",
       "kind": "theorem",
       "name": "Proposition 8.5 and Corollary 8.6 (the direct image of f_{N_d} and the matching of the two complexes)",
-      "statement": "Proposition 8.5: for d ≥ 2g′ − 1 and d ∈ Σ_d, Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}})|_{A_d}, proved by showing that this complex is the middle extension from the open locus B = X_d ×_{Pic^d_X}X_d, using the smallness of the relevant maps and Verdier self-duality. Corollary 8.6: therefore Rf_{M,*}Q_ℓ ≅ ⊕_{d ∈ Σ_d}Rf_{N_d,*}L_d, matching the (i, j)-grading with the (d_{11}, d_{12})-grading — the perverse continuation principle that identifies the two sides.",
-      "locator": "§8.2, Proposition 8.5, Corollary 8.6, pp. 872–874, published version",
+      "statement": "Proposition 8.5: for d ≥ 2g′ − 1 and d ∈ Σ_d, Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}})|_{A_d}, proved by showing that this complex is the middle extension from the open locus B = X_d ×_{Pic^d_X}X_d, using stalk-dimension bounds over the complement of B (from H^*(X_n, L_n) = ∧^nH^1(X, L)[−n], concentrated in one degree ≤ 2g − 2 < d − g + 1) and Verdier self-duality; the paper notes that f_{N_d} is not small. Corollary 8.6: therefore Rf_{M,*}Q_ℓ ≅ ⊕_{d ∈ Σ_d}Rf_{N_d,*}L_d, matching the (i, j)-grading with the (d_{11}, d_{12})-grading, which is Propositions 8.2 and 8.5 combined.",
+      "locator": "§8.2, Proposition 8.5, Corollary 8.6, pp. 872–873, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
     },
@@ -268,16 +268,16 @@
       "id": "PAPER-YUN-ZHANG-17/28",
       "kind": "theorem",
       "name": "Lemma 9.1, Theorem 9.2 and Corollary 9.4 (the key identity for all Hecke functions)",
-      "statement": "Lemma 9.1: for any field E ⊇ Q, any nonzero ideal I of H_{x,E} and any m > 0, I + Span_E{h_{mx}, h_{(m+1)x}, …} = H_{x,E}. Theorem 9.2: (log q)^{−r}J_r(f) = I_r(f) for every f ∈ H, deduced from Theorem 8.1 by a density argument in the finitely generated algebra H̃_ℓ. Corollary 9.4: the action of H on W factors through H_aut, so W is a cyclic H_aut-module, finitely generated over each H_x.",
+      "statement": "Lemma 9.1: for any field E ⊇ Q, any nonzero ideal I of H_{x,E} and any m > 0, I + Span_E{h_{mx}, h_{(m+1)x}, …} = H_{x,E}. Theorem 9.2 (r even): (log q)^{−r}J_r(f) = I_r(f) for every f ∈ H, deduced from Theorem 8.1 by a density argument in the finitely generated algebra H̃_ℓ. Corollary 9.4: the action of H on W factors through H_aut, so W is a cyclic H_aut-module, finitely generated over each H_x.",
       "locator": "Lemma 9.1, Theorem 9.2, Corollary 9.4, pp. 874–879, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The last step of the proof of Theorem 9.2 needs that products of large-degree h_{n x} at distinct places stay in the span (E19)."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/29",
       "kind": "theorem",
       "name": "§9.1–9.3 (the proofs of Theorems 1.8, 1.6, 1.1 and 1.2)",
-      "statement": "Theorem 1.8 follows from Theorem 9.2 with f = 1_K and Corollary 2.5 (§9.1.1). Theorem 1.6 follows by comparing the spectral decompositions: Σ_{m ∈ Z^r_{0,ℓ}}([Sht_T]_m, h ∗ [Sht_T]_m) = Σ_{π ∈ Z_cusp}(log q)^{−r}J_r(π, h) for h in a suitable ideal (§9.2). Theorem 1.1 follows from Corollary 9.4 and Lemma 7.15 (§9.3.1), and Theorem 1.2 from Theorem 1.6 and the compatibility of the intersection pairing with the cup product under the cycle class map (§9.3.2).",
+      "statement": "Theorem 1.8 follows from Theorem 9.2 with f = 1_K and Corollary 2.5 (§9.1.1), so it inherits the corrected constant 2^{r+1} (E9). Theorem 1.6 follows by comparing the spectral decompositions: Σ_{m ∈ Z′^r_{0,ℓ}}([Sht_T]_m, h ∗ [Sht_T]_m) = Σ_{π ∈ Z_cusp}(log q)^{−r}J_r(π, h) for h in a suitable ideal (§9.2). Theorem 1.1 follows from Corollary 9.4 and Lemma 7.15 (§9.3.1), and Theorem 1.2 from Theorem 1.6 and the compatibility of the intersection pairing with the cup product under the cycle class map (§9.3.2).",
       "locator": "§§9.1–9.3, pp. 874–879, published version",
       "status": "missing",
       "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -304,7 +304,7 @@
       "id": "PAPER-YUN-ZHANG-17/32",
       "kind": "theorem",
       "name": "Proposition A.5 and Corollary A.6 (refined Gysin maps versus Riemann–Roch)",
-      "statement": "In a Cartesian square (A.3) in which X′ is a DM stack with a finite flat presentation and f factors as a regular local immersion of pure codimension e followed by a smooth morphism of relative DM type and pure relative dimension e − d (§A.2.8; Remark A.4: any morphism of smooth DM stacks factors this way), the derived pullback f^* sends K′_0(Y′)^{naive}_{Q,≤n} into K′_0(X′)_{Q,≤n−d} and the resulting square with the refined Gysin map f^! and the maps supp, ψ commutes (A.5); if Y′ also admits a finite flat presentation the same holds for the full filtration. Corollary A.6: for a smooth DM stack with a finite flat presentation, ψ_X is a graded ring homomorphism.",
+      "statement": "In a Cartesian square (A.3) in which X′ is a DM stack with a finite flat presentation and f factors as a regular local immersion of pure codimension e followed by a smooth morphism of relative DM type and pure relative dimension e − d (§A.2.8; Remark A.4: any morphism of smooth DM stacks factors this way), the derived pullback f^* sends K′_0(Y′)^{naive}_{Q,≤n} into K′_0(X′)_{Q,≤n−d} and the resulting square with the refined Gysin map f^! and the maps supp, ψ commutes (A.5); if Y′ is also a Deligne–Mumford stack admitting a finite flat presentation the same holds for the full filtration. Corollary A.6: for a smooth DM stack with a finite flat presentation, ψ_X is a graded ring homomorphism.",
       "locator": "§§A.2.8–A.2.9, Remark A.4, Proposition A.5, Corollary A.6, pp. 885–888, published version",
       "status": "missing",
       "note": "The proof uses deformation to the normal cone for stacks and Fulton's Theorem 18.3(4). Corollary A.6 is not used in the paper. Routed to SchemeAndStackFoundations SF.5 as a source."
@@ -313,7 +313,7 @@
       "id": "PAPER-YUN-ZHANG-17/33",
       "kind": "theorem",
       "name": "§A.2.10, Remark A.7 and Lemma A.8 (the case of proper intersection)",
-      "statement": "Under the alternative hypotheses of §A.2.10 — h (hence g) representable, the normal cone stack of f a vector bundle stack of constant virtual rank d, a smooth chart (A.8) by schemes in which the immersion is regular, and dim Y′ = n with dim X′ = n − d — the top-degree refined Gysin map f^! : Ch_n(Y′)_Q → Ch_{n−d}(X′)_Q is defined, and Lemma A.8: it is compatible with the derived pullback through the naive support maps, supp_{X′}∘f^* = f^!∘supp_{Y′}. Remark A.7: a morphism of smooth stacks always admits such a chart.",
+      "statement": "Under the alternative hypotheses of §A.2.10 — X′ a Deligne–Mumford stack, h (hence g) representable, the normal cone stack of f a vector bundle stack of constant virtual rank d, a smooth chart (A.8) by schemes in which the immersion is regular, and dim Y′ = n with dim X′ = n − d — the top-degree refined Gysin map f^! : Ch_n(Y′)_Q → Ch_{n−d}(X′)_Q is defined, and Lemma A.8: it is compatible with the derived pullback through the naive support maps, supp_{X′}∘f^* = f^!∘supp_{Y′}. Remark A.7: a morphism of smooth stacks always admits such a chart.",
       "locator": "§A.2.10, Remark A.7, Lemma A.8, pp. 889–890, published version",
       "status": "missing",
       "note": "Routed to SchemeAndStackFoundations SF.5 as a source."
@@ -334,32 +334,32 @@
       "statement": "For a self-correspondence C of M over S with cohomological correspondences ζ : ←c^*F → →c^!F, the pushforward h_! and the trace map τ_C : Hom(←c^*F, →c^!F) → H^{BM}_0(Fix(C) ⊗_k k̄) are those of Varshavsky. Lemma A.11: for M smooth separated of pure dimension n and F = Q_ℓ, the refined Gysin map Δ^!_M : Ch_n(C)_Q → Ch_0(Fix(C))_Q is compatible with τ_C through the cycle class maps. Proposition A.12: if moreover k is finite, S is a scheme, f : M → S is proper and ←c is representable and proper, then for every ζ ∈ Ch_n(C)_Q and every s ∈ S(k), ⟨ζ, Γ(Fr_M)⟩_s = Tr((f_!cl_C(ζ))_s ∘ Frob_s, (f_!Q_ℓ)_s), where the left side is the degree of the s-component of (id, Fr_M)^!ζ.",
       "locator": "§A.4, Lemma A.11, Proposition A.12, pp. 895–901, published version",
       "status": "missing",
-      "note": "The proof uses the excess intersection formula and Varshavsky's theorem that a contracting correspondence has naive local terms. Routed to EtaleDualityAndPerverseSheaves EDC.8 as a source."
+      "note": "The proof uses the excess intersection formula and Varshavsky's theorem that a contracting correspondence has naive local terms. Routed to EtaleDualityAndPerverseSheaves EDC.8 as a source. The proof also uses Varshavsky's Prop. 1.2.5 (trace maps are compatible with proper pushforward of correspondences)."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/36",
       "kind": "theorem",
       "name": "§B.1 and Proposition B.1 (super-positivity for entire functions with RH)",
-      "statement": "After recalling the Weierstrass product, genus, order and Hadamard's theorem g(φ) ≤ ρ(φ) ≤ g(φ) + 1: Proposition B.1. Let φ be entire with (1) φ(−s) = ±φ(s), (2) φ(s) ∈ R_{>0} for real s ≫ 0, (3) ρ(φ) ≤ 1, and (4) all zeros on the imaginary axis. Then φ^{(r)}(0) ≥ 0 for all r ≥ 0, and if φ is not constant, φ^{(r_0)}(0) ≠ 0 implies φ^{(r_0+2i)}(0) ≠ 0 for every i ≥ 0. The proof pairs the roots α ↔ −α = ᾱ and writes φ(s) = s^me^h∏_{i≥1}(1 + s²/(α_iᾱ_i)) with e^h > 0.",
+      "statement": "After recalling the Weierstrass product, genus, order and Hadamard's theorem g(φ) ≤ ρ(φ) ≤ g(φ) + 1: Proposition B.1. Let φ be entire with (1) φ(−s) = ±φ(s), (2) φ(s) ∈ R_{>0} for real s ≫ 0, (3) ρ(φ) ≤ 1, and (4) all zeros on the imaginary axis. Then φ^{(r)}(0) ≥ 0 for all r ≥ 0, and if φ is not a polynomial (the paper says \"not a constant\", which is false: φ = 1 + s², E16), φ^{(r_0)}(0) ≠ 0 implies φ^{(r_0+2i)}(0) ≠ 0 for every i ≥ 0. The proof pairs the roots α ↔ −α = ᾱ and writes φ(s) = s^me^h∏_{i≥1}(1 + s²/(α_iᾱ_i)) with e^h > 0.",
       "locator": "§B.1, Proposition B.1, pp. 901–903, published version",
       "status": "missing",
-      "note": "Stark and Zagier obtained a similar result. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
+      "note": "The printed \"equivalent\" formula for the order divides by r instead of log r (E18); the superscripts (r) are misprinted (E1). Stark and Zagier obtained a similar result. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/37",
       "kind": "theorem",
       "name": "Theorem B.2, Lemma B.3 and Remarks B.4–B.7 (super-positivity of automorphic L-functions)",
-      "statement": "For a nontrivial self-dual cuspidal automorphic representation π of GL_n(A) over a global field, with Λ(π, s) = N_π^{−(s−1/2)/2}L(π, s) and assuming the Riemann hypothesis for L(π, s) when F is a number field: (1) Λ^{(r)}(π, 1/2) ≥ 0 for all r ≥ 0; (2) if Λ is not constant, Λ^{(r_0)}(π, 1/2) ≠ 0 implies Λ^{(r_0+2i)}(π, 1/2) ≠ 0. Over a function field the hypothesis is a theorem (Deligne; Drinfeld and L. Lafforgue). Lemma B.3: if π_v is unitary and self-dual then L(π_v, s) has real coefficients, proved by showing L(π̄_v, s) = L(π̃_v, s) through the Godement–Jacquet local zeta integrals and complex conjugation of matrix coefficients. Remark B.4 gives an elementary function-field proof through the factorization λ(π, s) = (q^{s/2} − q^{−s/2})^a(q^{s/2} + q^{−s/2})^b∏_iA_i(s); Remarks B.5–B.7 record the cases known unconditionally (the Riemann zeta function; Sarnak's positive definite L-functions; Goldfeld–Huang; Lapid–Rallis for central values; Gross–Zagier and Yuan–Zhang–Zhang for first derivatives).",
+      "statement": "For a nontrivial self-dual cuspidal automorphic representation π of GL_n(A) over a global field whose L-function L(π, s) is entire (the paper omits this; it fails for n = 1 over a function field, e.g. π = (−1)^{deg}, E15), with Λ(π, s) = N_π^{−(s−1/2)/2}L(π, s) and assuming the Riemann hypothesis for L(π, s) when F is a number field: (1) Λ^{(r)}(π, 1/2) ≥ 0 for all r ≥ 0; (2) if Λ is not constant, Λ^{(r_0)}(π, 1/2) ≠ 0 implies Λ^{(r_0+2i)}(π, 1/2) ≠ 0. Over a function field the hypothesis is a theorem (Deligne; Drinfeld and L. Lafforgue). Lemma B.3: if π_v is unitary and self-dual then L(π_v, s) has real coefficients, proved by showing L(π̄_v, s) = L(π̃_v, s) through the Godement–Jacquet local zeta integrals and complex conjugation of matrix coefficients. Remark B.4 gives an elementary function-field proof through the factorization λ(π, s) = (q^{s/2} − q^{−s/2})^a(q^{s/2} + q^{−s/2})^b∏_iA_i(s); Remark B.5's claim that s(s−1)Λ is super-positive for the trivial representation holds over number fields but not over function fields (E17). Remarks B.5–B.7 record the cases known unconditionally (the Riemann zeta function; Sarnak's positive definite L-functions; Goldfeld–Huang; Lapid–Rallis for central values; Gross–Zagier and Yuan–Zhang–Zhang for first derivatives).",
       "locator": "§B.2, Theorem B.2, Lemma B.3, Remarks B.4–B.7, pp. 903–906, published version",
       "status": "missing",
-      "note": "Theorem B.2 is what makes Theorem 1.7 (positivity of the intersection pairing) unconditional over function fields. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
+      "note": "Theorem 1.7 only uses the GL_2 cuspidal L(π, s) and L(π ⊗ η, s), which are entire, so it is unaffected by E15. Theorem B.2 is what makes Theorem 1.7 (positivity of the intersection pairing) unconditional over function fields. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/38",
       "kind": "construction",
       "name": "Bun_G, Bun_T and the adelic description of their points",
       "statement": "The moduli stacks Bun_G of G-bundles and Bun_T of T-bundles on X, their level structures, the identification Bun_G(k) ≅ G(F)\\G(A)/K, and the exhaustion of Bun_G by finite-type open substacks by instability; also the Picard stacks Pic_X, Pic_{X′} and the Prym.",
-      "locator": "§§1.1, 5.1, 5.4, 7.2, published version",
+      "locator": "(1.1), p. 768; §5.1.3, p. 807; §5.2, p. 809; §5.4.1, p. 816; the instability truncation §7.1.1, p. 846; level structures pp. 835, 844, published version",
       "status": "planned",
       "planned": [
         "GlobalShtukasAndFunctionFieldLanglands:GS.0"
@@ -408,7 +408,7 @@
       "kind": "construction",
       "name": "Everywhere unramified automorphic forms and the spherical Hecke algebra over a function field",
       "statement": "The space A = C^∞_c(G(F)\\G(A)/K, Q) of everywhere unramified automorphic functions with its H-module structure, the decomposition into cuspidal, residual and Eisenstein parts, the coefficient field E_π = End_H(A_π) of an irreducible H-submodule, the Satake isomorphism and the Petersson inner product.",
-      "locator": "§§1.2, 4.1–4.2, published version",
+      "locator": "§§1.2, 4.1–4.3, published version",
       "status": "planned",
       "planned": [
         "FunctionFieldArithmetic:FA.6"
@@ -419,14 +419,16 @@
       "id": "PAPER-YUN-ZHANG-17/43",
       "kind": "construction",
       "name": "Standard and adjoint L-functions of automorphic representations over a function field, with the Riemann hypothesis",
-      "statement": "For an everywhere unramified cuspidal π of PGL_2 over F: L(π, s) is a polynomial of degree 4(g−1) in q^{−s−1/2} with coefficients in O_{E_π}; the base change satisfies L(π_{F′}, s) = L(π, s)L(π ⊗ η_{F′/F}, s) with functional equation and epsilon factor ε(π_{F′}, s) = q^{−8(g−1)(s−1/2)}; the adjoint L-value L(π, Ad, 1); and the Riemann hypothesis for these L-functions, known over function fields by Deligne together with Drinfeld and L. Lafforgue.",
+      "statement": "For an everywhere unramified cuspidal π of PGL_2 over F: L(π, s) is a polynomial of degree 4(g−1) in q^{−s−1/2} with coefficients in O_{E_π}; the base change satisfies L(π_{F′}, s) = L(π, s)L(π ⊗ η_{F′/F}, s) with functional equation and epsilon factor ε(π_{F′}, s) = q^{−8(g−1)(s−1/2)}; the adjoint L-value L(π, Ad, 1); and the Riemann hypothesis for these L-functions, known over function fields by Deligne together with Drinfeld and L. Lafforgue. Also the complete Hecke L-function L(η, s) of η = η_{F′/F}: a polynomial of degree 2g − 2 in q^{−s} with ε(η, s) = q^{(g−1)(1−2s)} and L(η, 0) = #Jac_{X′}(k)/#Jac_X(k); η is nontrivial on F^×\\A^1 because X′ is geometrically connected.",
       "locator": "§1.2 and §B.2, pp. 769–770, 904, published version",
       "status": "planned",
       "planned": [
         "AutomorphicLFunctionsAndLocalFactors:AL.2",
-        "FunctionFieldArithmetic:FA.5"
+        "FunctionFieldArithmetic:FA.5",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "DeligneWeightsAndPurity:DWP.7"
       ],
-      "note": "AL.2 plans the Godement–Jacquet standard factors and FA.5 the function-field zeta and Artin factors with the Weil theorem; the global Langlands input for GL_n over function fields is cited by name only in the paper."
+      "note": "AL.2 plans the Godement–Jacquet standard factors and FA.5 the function-field zeta and Artin factors with the Weil theorem. The Riemann hypothesis for cuspidal L(π, s) over function fields, used by Theorem B.2, needs L. Lafforgue's GL_n correspondence (GS.6) and Deligne's weight theorem (DWP.7); these are added to the planned list."
     }
   ],
   "prerequisites": [
@@ -448,7 +450,7 @@
     {
       "citation": "V. Lafforgue, Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale, arXiv:1209.5352 [15]",
       "link": "https://arxiv.org/abs/1209.5352",
-      "why": "Shtukas for general reductive groups: the framework the authors expect the finiteness method of §7 to extend to."
+      "why": "Lemme 2.13, used in the proof of Lemma 5.9 (which feeds Proposition 5.10, Lemma 6.14 and Proposition 7.1); Construction 2.20 (Remark 5.11); Lemme 8.13 (Lemma 7.15); and the framework the authors expect the finiteness method of §7 to extend to."
     },
     {
       "citation": "L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math. 147 (2002), 1–241 (cited by name in §B.2, not in the bibliography)",
@@ -503,7 +505,7 @@
     {
       "citation": "G. Laumon, Correspondance de Langlands géométrique pour les corps de fonctions, Duke Math. J. 54 (1987), no. 2, 309–359 [18]",
       "link": "https://doi.org/10.1215/S0012-7094-87-05418-4",
-      "why": "Geometric Langlands over function fields: automorphic sheaves, the Eisenstein/constant-term formalism used in §§4 and 7 and the Whittaker normalizations of Lemma 4.6."
+      "why": "Geometric Langlands over function fields: automorphic sheaves, the Eisenstein/constant-term formalism used in §§4 and 7 and the Whittaker normalizations of Lemma 4.6. Also (3.1): Coh^d_0 is smooth of dimension 0, used in Lemma 6.8."
     },
     {
       "citation": "A. A. Beĭlinson, J. Bernstein and P. Deligne, Faisceaux pervers, Astérisque 100 (1982), 5–171 [3]",
@@ -617,7 +619,7 @@
         "PAPER-YUN-ZHANG-17/28",
         "PAPER-YUN-ZHANG-17/29"
       ],
-      "brief": "This **joins the Part II proposed by PAPER-FENG-YUN-ZHANG-24**, whose brief already says to plan it together with “the Yun–Zhang PGL_2 theory it generalizes, whose Octahedron Lemma and Hecke-action computation it imports”. Yun–Zhang, Ann. of Math. 186 (2017), 767–911, is that theory and the first higher-derivative formula of the programme: for an everywhere unramified cuspidal π of PGL_2 over a function field, an étale double cover X′ → X and any even r, the r-th derivative of the normalized base-change L-function equals the self-intersection of the Heegner–Drinfeld cycle in the middle-dimensional Chow group of the moduli of PGL_2-shtukas with r legs (Theorems 1.2 and 1.6). r = 0 recovers Waldspurger's formula and r = 1 the Gross–Zagier formula over function fields.\n\nImport, never re-plan:\n- GS.0–GS.2 for Bun_G, the Hecke stacks and the multi-leg shtuka stacks Sht^μ_n, Sht^r_G with their Deligne–Mumford property and smoothness (Theorem 5.4 and Corollary 5.7 are the GL_n/PGL_2 case);\n- SchemeAndStackFoundations SF.5 for Chow groups of stacks, refined Gysin maps and intersection products, **including the two general results of Appendix A** (Proposition A.5 on refined Gysin maps versus Riemann–Roch, and the Octahedron Lemma A.10), which this same extraction routes there as a source: they are statements about intersection theory on Deligne–Mumford stacks, not about shtukas, and the Part II should import them rather than restate them;\n- EtaleDualityAndPerverseSheaves EDC.5 and EDC.7 for the perverse t-structure, middle extension, smallness and the decomposition theorem; EDC.8 for cohomological correspondences and trace classes, together with the Frobenius-graph trace formula of §A.4 (Lemma A.11 and Proposition A.12), also routed as a source of EDC.8 here;\n- FunctionFieldArithmetic FA.6 for everywhere unramified automorphic forms, the spherical Hecke algebra and the Satake isomorphism, and AutomorphicLFunctionsAndLocalFactors AL.2 with FA.5 for the standard and adjoint L-functions and the Riemann hypothesis over function fields;\n- GrossZagierAndArithmeticHeights GZ.5 for Waldspurger's period formula, whose relative-trace-formula proof in the everywhere unramified function-field case (§§2 and 4 here) is routed there as a source; this Part II needs only its conclusion, Theorem 4.7.\n\nConstruct, in the order the proof uses them:\n- the geometrization of the analytic orbital integrals: the moduli N_d with its local systems L_d and the identity J(γ, h_D, s) = Σ_d q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a) (§3);\n- the Hecke self-correspondences Sht^r_G(h_D) as cycle classes on Sht^r_G × Sht^r_G, the ring homomorphism H → cCh_{2r} and the self-adjointness of the action (§5.3), the torus shtukas Sht^μ_T, the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] and I_r(f) with its independence of μ (§§5.4–5.5);\n- the Hitchin-type moduli M_d with f_M : M_d → A_d, the identification of I_r(h_D) with a trace of (f_{M,!}[H♦])^r ∘ Frob and with a local intersection number against the graph of Frobenius (Theorems 6.5–6.6), and the auxiliary stacks and dimension estimates that make the refined Gysin maps defined (§§6.3–6.4, including Lemma 5.9);\n- the cohomological spectral decomposition: the H-action on H^*_c(Sht_G), the stratification by instability with the cohomological constant term and the Satake intertwining (§§7.2–7.3), the finiteness theorems making H_ℓ a finitely generated algebra of Krull dimension one, and the resulting orthogonal decomposition of V and V′ (Theorems 7.14 and 7.16);\n- the comparison: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with f_{M,!}[H♦] acting by (d − 2j), Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}}) as a middle extension, and hence Theorem 8.1 for h_D of large degree, extended to all f ∈ H by the density Lemma 9.1 (Theorem 9.2).\n\nKeep the hypotheses visible: p > 2; X′ → X étale with X′ geometrically connected (so T is nonsplit and F′/F unramified everywhere); π everywhere unramified; r even for Theorems 1.2 and 1.8 (Remark 1.9 explains what odd r would need); and E_π totally real in Theorem 1.7.\n\nTests:\n- r = 0 must reproduce Waldspurger's formula (Remark 1.3) and r = 1 the Gross–Zagier formula;\n- f = 1_K must give the Kronecker limit formula 2^{r+2}(log q)^{−r}L^{(r)}(η, 0) (Corollary 2.5 and Theorem 1.8), and 4L(η,0) + q − 2 for r = 0 (Remark 9.3);\n- I_r(f) must be independent of μ (Lemma 5.16), and both sides must vanish for odd r;\n- the intersection pairing must be positive definite on the cuspidal part (Theorem 1.7), which consumes the super-positivity of Appendix B.\n\nThen plan the sequel, Yun–Zhang II (Ann. of Math. 189 (2019), 393–526), which removes the unramifiedness restriction — it is a prerequisite of this file, not of the Feng–Yun–Zhang part.",
+      "brief": "This **joins the Part II proposed by PAPER-FENG-YUN-ZHANG-24**, whose brief already says to plan it together with “the Yun–Zhang PGL_2 theory it generalizes, whose Octahedron Lemma and Hecke-action computation it imports”. Yun–Zhang, Ann. of Math. 186 (2017), 767–911, is that theory and the first higher-derivative formula of the programme: for an everywhere unramified cuspidal π of PGL_2 over a function field, an étale double cover X′ → X and any even r, the r-th derivative of the normalized base-change L-function equals the self-intersection of the Heegner–Drinfeld cycle in the middle-dimensional Chow group of the moduli of PGL_2-shtukas with r legs (Theorems 1.2 and 1.6). r = 0 recovers Waldspurger's formula and r = 1 the Gross–Zagier formula over function fields.\n\nImport, never re-plan:\n- GS.0–GS.2 for Bun_G, the Hecke stacks and the multi-leg shtuka stacks Sht^μ_n, Sht^r_G with their Deligne–Mumford property and smoothness (Theorem 5.4 and Corollary 5.7 are the GL_n/PGL_2 case);\n- SchemeAndStackFoundations SF.5 for Chow groups of stacks, refined Gysin maps and intersection products, **including the two general results of Appendix A** (Proposition A.5 on refined Gysin maps versus Riemann–Roch, and the Octahedron Lemma A.10), which this same extraction routes there as a source: they are statements about intersection theory on Deligne–Mumford stacks, not about shtukas, and the Part II should import them rather than restate them;\n- EtaleDualityAndPerverseSheaves EDC.5 and EDC.7 for the perverse t-structure, middle extension, smallness and the decomposition theorem; EDC.8 for cohomological correspondences and trace classes, together with the Frobenius-graph trace formula of §A.4 (Lemma A.11 and Proposition A.12), also routed as a source of EDC.8 here;\n- FunctionFieldArithmetic FA.6 for everywhere unramified automorphic forms, the spherical Hecke algebra and the Satake isomorphism, and AutomorphicLFunctionsAndLocalFactors AL.2 with FA.5 for the standard and adjoint L-functions, and GlobalShtukasAndFunctionFieldLanglands GS.6 with DeligneWeightsAndPurity DWP.7 for the Riemann hypothesis over function fields;\n- GrossZagierAndArithmeticHeights GZ.5 for Waldspurger's period formula, whose relative-trace-formula proof in the everywhere unramified function-field case (§§2 and 4 here) is routed there as a source; this Part II needs only its conclusion, Theorem 4.7.\n\nConstruct, in the order the proof uses them:\n- the geometrization of the analytic orbital integrals: the moduli N_d with its local systems L_d and the identity J(γ, h_D, s) = Σ_d q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a) (§3);\n- the Hecke self-correspondences Sht^r_G(h_D) as cycle classes on Sht^r_G × Sht^r_G, the ring homomorphism H → cCh_{2r} and the self-adjointness of the action (§5.3), the torus shtukas Sht^μ_T, the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] and I_r(f) with its independence of μ (§§5.4–5.5);\n- the Hitchin-type moduli M_d with f_M : M_d → A_d, the identification of I_r(h_D) with a trace of (f_{M,!}[H♦])^r ∘ Frob and with a local intersection number against the graph of Frobenius (Theorems 6.5–6.6), and the auxiliary stacks and dimension estimates that make the refined Gysin maps defined (§§6.3–6.4, including Lemma 5.9);\n- the cohomological spectral decomposition: the H-action on H^*_c(Sht_G), the stratification by instability with the cohomological constant term and the Satake intertwining (§§7.2–7.3), the finiteness theorems making H_ℓ a finitely generated algebra of Krull dimension one, and the resulting orthogonal decomposition of V and V′ (Theorems 7.14 and 7.16);\n- the comparison: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with f_{M,!}[H♦] acting by (d − 2j), Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}}) as a middle extension, and hence Theorem 8.1 for h_D of large degree, extended to all f ∈ H by the density Lemma 9.1 (Theorem 9.2).\n\nKeep the hypotheses visible: p > 2; X′ → X étale with X′ geometrically connected (so T is nonsplit and F′/F unramified everywhere); π everywhere unramified; r even for Theorems 1.2 and 1.8 (Remark 1.9 explains what odd r would need); and E_π totally real in Theorem 1.7.\n\nTests:\n- r = 0 must reproduce Waldspurger's formula (Remark 1.3) and r = 1 the Gross–Zagier formula;\n- f = 1_K must give the Kronecker limit formula 2^{r+1}(log q)^{−r}L^{(r)}(η, 0) (Corollary 2.5 and Theorem 1.8 as corrected by E9: the printed 2^{r+2} is wrong because the u = ∞ orbital integrals are constant in s), and 4L(η,0) + q − 2 for r = 0 (Remark 9.3);\n- I_r(f) must be independent of μ (Lemma 5.16), and both sides must vanish for odd r;\n- the intersection pairing must be positive definite on the cuspidal part (Theorem 1.7), which consumes the super-positivity of Appendix B, applied to L(π, s) and L(π ⊗ η, s) separately (E12); state Theorem B.2 for entire L(π, s) (E15), Proposition B.1's second part for non-polynomial φ (E16), and Remark B.5 only over number fields (E17).\n\nThen plan the sequel, Yun–Zhang II (Ann. of Math. 189 (2019), 393–526), which removes the unramifiedness restriction — it is a prerequisite of this file, not of the Feng–Yun–Zhang part.",
       "reason": "The objects are the moduli of PGL_2-shtukas with r legs, a finite cycle on it coming from a nonsplit torus, and the Chow/cohomology groups of that stack with their Hecke action: this is the direction of GlobalShtukasAndFunctionFieldLanglands, which owns Bun_G, the Hecke stacks, the shtuka stacks and their cohomology (GS.0–GS.7) but plans no cycles on them, no Hitchin-type comparison and no higher Gross–Zagier formula. It is deliberately the same Part II as the one PAPER-FENG-YUN-ZHANG-24 proposed: that paper's generalization to U(n) imports this paper's Octahedron Lemma and Hecke-action computation, and its brief already names this theory as the one to plan with it, so a second roadmap would duplicate the cycle theory. It is not GrossZagierAndArithmeticHeights work: there is no height pairing and no Shimura variety here — the pairing is an intersection number of middle-dimensional cycles on a function-field moduli stack — although the r = 0 specialization, Waldspurger's formula, is routed to GZ.5 as a source, and GZ.5's number-field formula is what Remark 1.4 compares with."
     },
     {
@@ -634,7 +636,7 @@
         "PAPER-YUN-ZHANG-17/13",
         "PAPER-YUN-ZHANG-17/14"
       ],
-      "reason": "GZ.5 plans the Waldspurger period formula for GL_2/quaternionic toric data, and asks for “the actual pairing identity including adjoint L-value, zeta/eta factors and normalized local toric forms” — but by the coherent theta-kernel route, importing Weil representations from MetaplecticAutomorphicForms MP.0–6. This source supplies the other proof, Jacquet's relative trace formula, in the everywhere unramified function-field case, where it is elementary and complete: the regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1,h_2)|h_1h_2|^sη(h_2) with the finiteness theorems (Propositions 2.1 and 2.3) that make it a Laurent polynomial in q^s, its orbital expansion indexed by inv(γ) ∈ P¹(F) ∖ {1} with the explicit unramified computation J(u, 1_K, s) = L(η, 2s) + L(η, −2s) (Proposition 2.4), the Eisenstein ideal and the vanishing of the Eisenstein contribution to the kernel (Definition 4.1, Theorem 4.3), and the spectral expansion J_π(f, s) = (1/2|ω_X|)ℒ(π_{F′}, s + 1/2)λ_π(f) (Proposition 4.5, Theorem 4.7), which is Waldspurger's formula with exactly the adjoint L-value normalization GZ.5 requires (ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1)). It also fixes the Whittaker/additive-character normalization (Lemma 4.6) that the eta and measure factors depend on. The higher-derivative content of the paper is not routed here: it is geometric and belongs to the Part II above."
+      "reason": "GZ.5 plans the Waldspurger period formula for GL_2/quaternionic toric data, and asks for “the actual pairing identity including adjoint L-value, zeta/eta factors and normalized local toric forms” — but by the coherent theta-kernel route, importing Weil representations from MetaplecticAutomorphicForms MP.0–6. This source supplies the other proof, Jacquet's relative trace formula, in the everywhere unramified function-field case, where it is elementary and complete: the regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1,h_2)|h_1h_2|^sη(h_2) with the finiteness theorems (Propositions 2.1 and 2.3) that make it a Laurent polynomial in q^s, its orbital expansion indexed by inv(γ) ∈ P¹(F) ∖ {1} with the explicit unramified computation J(u, 1_K, s) = L(η, 2s) + L(η, −2s) (Proposition 2.4), the Eisenstein ideal and the vanishing of the Eisenstein contribution to the kernel (Definition 4.1, Theorem 4.3), and the spectral expansion J_π(f, s) = (1/2)|ω_X|ℒ(π_{F′}, s + 1/2)λ_π(f) (Proposition 4.5, Theorem 4.7), which is Waldspurger's formula with exactly the adjoint L-value normalization GZ.5 requires (ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1)). It also fixes the Whittaker/additive-character normalization (Lemma 4.6) that the eta and measure factors depend on. The higher-derivative content of the paper is not routed here: it is geometric and belongs to the Part II above."
     },
     {
       "route": "source",
@@ -687,9 +689,14 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page images of pp. 902–903: no exponent on d/ds in either definition; identical in arXiv v3.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E2",
@@ -698,13 +705,18 @@
       "printed": "A_i(s) = q^s(1 − α_iq^{−s})(1 − α_i^{−1}q^{−s}) = q^s + q^{−s} − α_i − ᾱ_i = (2 − α_i − ᾱ_i) + 2Σ_{j≥1}(s log q)^{2j}/j!",
       "correction": "2Σ_{j≥1}(s log q)^{2j}/(2j)!",
       "reason": "q^s + q^{−s} = 2cosh(s log q) = 2Σ_{j≥0}(s log q)^{2j}/(2j)!, so subtracting the constant 2 gives 2Σ_{j≥1}(s log q)^{2j}/(2j)!, not /j!. With /j! the identity fails already at j = 1: the coefficient of s² in q^s + q^{−s} is (log q)², while 2(s log q)²/1! contributes 2(log q)².",
-      "affects": "the proof",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 905 and numerically (q = 3, s = 0.3: true value 2.10961, corrected series 2.10961, printed series 2.22949). Affects changed from \"the proof\" to \"nothing\": the proof of Remark B.4 uses only that every even-degree coefficient is strictly positive, which holds for the corrected series. The printed coefficient is off by (2j)!/j!, not by a constant factor 2.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E3",
@@ -717,9 +729,14 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page image of p. 901; identical in arXiv v3.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E4",
@@ -727,14 +744,19 @@
       "locator": "Proof of Proposition A.5, §A.2.9, p. 887, the sentence after the decomposition of diagram (A.5) (published; also arXiv v3)",
       "printed": "Therefore, it remains to show that the image of s^* lands K_0(X′)_{Q,≤n−d} and that the right square is commutative.",
       "correction": "lands in K′_0(X′)_{Q,≤n−d}",
-      "reason": "Six lines earlier the same condition is stated correctly: \"the dotted arrow is conditional on showing that the image of s^* (where s is the embedding X ↪→ C_XY) lands in K′_0(X′)_{Q,≤n−d}\", and the dotted arrow of the displayed diagram has target K′_0(X′)_{Q,≤n−d}. The group K_0 of vector bundles is never filtered this way in the paper; it is K′_0, the Grothendieck group of coherent sheaves, that carries the filtration of §A.2.3. The preposition is also missing. (arXiv v3 has the same defect here, and additionally omits \"in\" at the first occurrence.)",
+      "reason": "Four lines earlier the same condition is stated correctly: \"the dotted arrow is conditional on showing that the image of s^* (where s is the embedding X ↪→ C_XY) lands in K′_0(X′)_{Q,≤n−d}\", and the dotted arrow of the displayed diagram has target K′_0(X′)_{Q,≤n−d}. The group K_0 of vector bundles is never filtered this way in the paper; it is K′_0, the Grothendieck group of coherent sheaves, that carries the filtration of §A.2.3. The preposition is also missing. (arXiv v3 has the same defect here, and additionally omits \"in\" at the first occurrence.)",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page image of p. 887. The earlier sentence is four lines up, not six; it contains a further misprint of its own (E23).",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E5",
@@ -747,9 +769,14 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the page image of p. 887; identical in arXiv v3.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E6",
@@ -762,9 +789,14 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 882; identical in arXiv v3.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E7",
@@ -777,9 +809,14 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 909; arXiv v3 has \"Timothy S. Norfolk\".",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E8",
@@ -792,9 +829,652 @@
       "known": "new",
       "searched": [
         "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
-        "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
         "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "\"by Pólya [4]\" is the ordinary idiom for a result of Pólya treated in [4] (Csordas–Norfolk–Varga, which does treat Pólya's positivity results for the Riemann Ξ kernel). The mathematical claim is right unconditionally: ξ(1/2 + z) = ∫Φ(u)cosh(zu)du with Φ > 0.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E9",
+      "kind": "error",
+      "locator": "Proposition 2.4 (2.18), p. 787, and its proof, p. 788; Corollary 2.5, p. 788; Theorem 1.8, p. 775; §9.1.1, p. 876 (published version; also arXiv v3 unless stated)",
+      "printed": "(2.18) \"J(u, 1_K, s) = L(η, 2s) + L(η, −2s) if u ∈ {0, ∞}\"; proof: \"The case for u = ∞ is analogous.\"; Corollary 2.5: \"J_r(1_K) = … 2^{r+2}(d/ds)^r|_{s=0}L(η, s), r > 0 even\"; Theorem 1.8: \"When r > 0 is even, we have ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G} = (2^{r+2}/(log q)^r)L^{(r)}(η, 0).\"",
+      "correction": "J(∞, 1_K, s) = 2L(η, 0), independent of s. Hence J_r(1_K) = 2^{r+1}L^{(r)}(η, 0) for r > 0 even, and Theorem 1.8 reads ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩ = (2^{r+1}/(log q)^r)L^{(r)}(η, 0). The r = 0 value 4L(η, 0) + q − 2 (Corollary 2.5, Remark 9.3) is unchanged.",
+      "reason": "On the u = ∞ orbits (a = 0 or d = 0 in γ) the conditions g_{ij}²/det g ∈ O for g = diag(x,1)^{−1}γ diag(y,1) force xy ∈ O^×, so |xy|^s = 1 on the support. For γ = [[0,1],[1,1]] or [[1,1],[1,0]] the sum is Σ_{E ≥ 0}η(E) = L(η, 0), and the orbit of w contributes 0 (η is nontrivial on its stabilizer). Structurally, γ ↦ γw swaps u = 0 and u = ∞ but turns the weight |h_1h_2|^s into |h_1||h_2|^{−s}, under which the n_± orbits give constants; the two cases are not analogous. The r = 0 case agrees: 2L(η, 0) + 2L(η, 0) + (q − 2). A worked example (y² = (x² − 2)(x⁴ + x + 1) over F_5, L(η, T) = 1 + 3T + 5T²) gives J_2(1_K)/(log q)² = 184, against 368 from the printed formula. Theorem 1.8 is (log q)^{−r}J_r(1_K) by Theorem 9.2 (§9.1.1), so it inherits the factor 2. Proposition 3.2(3), used by Theorem 8.1 at u = ∞, is still true. Also in arXiv v3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 775, 787, 788 and 876, and by re-deriving the u = ∞ orbital integrals by hand.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E10",
+      "kind": "misprint",
+      "locator": "§1.2, p. 770 (published version; also arXiv v3 unless stated)",
+      "printed": "\"ℒ^{(r)}(π_{F′}, 1/2) = (d^r/ds^r)|_{s=0}(ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1))\"",
+      "correction": "(d^r/ds^r)|_{s=1/2}",
+      "reason": "The display defines the Taylor coefficients at the central point s = 1/2, as the preceding expansion says. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 770.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E11",
+      "kind": "error",
+      "locator": "Corollary 3.3, p. 797 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Corollary 3.3. For D ∈ X_d(k) and u ∈ P¹(F) − {1}, we have J_r(u, h_D) = (log q)^r Σ_{d∈Σ_d}(2d_{12} − d)^r Tr(Frob_a, (Rf_{N_d,*}L_d)_ā) if u = inv_D(a), a ∈ A_D(k); 0 otherwise.\"",
+      "correction": "For u ∈ {0, ∞} add the hypothesis d ≥ 2g′ − 1 = 4g − 3 of Proposition 3.2(3), from which the corollary is drawn.",
+      "reason": "For D = 0, r = 0, u = 0 (a = 1) the right-hand side is 1 (N_{0,1} is one point), while Proposition 2.4 gives J_0(0, 1_K) = 2L(η, 0) (18 in the genus-2 example). The only use is in §8.3, where Theorem 8.1 assumes deg D ≥ max{2g′ − 1, 2g}, so nothing downstream is affected. Also in arXiv v3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 797, with the counterexample re-derived.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E12",
+      "kind": "gap",
+      "locator": "Proof of Theorem 1.7, p. 775 (published version; also arXiv v3 unless stated)",
+      "printed": "\"By Theorem B.2, we have ℒ^{(r)}(π_{ι,F′}, 1/2) ≥ 0. It follows that ([Sht^μ_T]_{π,ι}, [Sht^μ_T]_{π,ι})_{π,ι} ≥ 0. This completes the proof.\"",
+      "correction": "(a) Positive definiteness needs (w, w)_π ≠ 0 for a generator w of W_π, which holds because the pairing on W = W̃/W̃_0 is nondegenerate and (1.5) is orthogonal; then ι((w, w)_π) > 0. (b) Apply Theorem B.2 to L(π, s) and L(π ⊗ η, s) separately, since ℒ(π_{F′}, s) = Λ(π, s)Λ(π ⊗ η, s)/L(π, Ad, 1) and a product of functions with nonnegative Taylor coefficients at 1/2 has nonnegative coefficients.",
+      "reason": "The printed conclusion is only \"≥ 0\", while Theorem 1.7 asserts positive definiteness. And π_{F′} is not cuspidal when π ≅ π ⊗ η (π dihedral from F′, possible for unramified π), so Theorem B.2 does not apply to it literally. Both repairs are one line; the theorem is true. Also in arXiv v3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 774–775.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E13",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.2, p. 784 (published version; also arXiv v3 unless stated)",
+      "printed": "\"There is exactly one (three, resp.) (A × A)(F)-orbit in G(F)_a when u ∈ …\"; \"Since the intersection of a compact set supp(f) with a discrete set F in A must have finite cardinality\"",
+      "correction": "G(F)_u; the compact set τ(supp f) ⊂ A, with τ = bc/det g.",
+      "reason": "The orbit set is indexed by u; supp f lies in G(A), and it is its image under τ that meets F. Both in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 784.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E14",
+      "kind": "misprint",
+      "locator": "pp. 770, 786, 806 (published version; also arXiv v3 unless stated)",
+      "printed": "p. 770: \"see the proof of Theorem 4.5\" and \"where the the square root is understood as\"; p. 786: \"the the integral\"; p. 806: \"Let E be algebraic closed field containing Q.\"",
+      "correction": "Proposition 4.5; \"the square root\"; \"the integral\"; \"an algebraically closed field\".",
+      "reason": "Typographical slips; 4.5 is a proposition. All in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 770 and in the text.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E15",
+      "kind": "error",
+      "locator": "§B.2, Theorem B.2 and its proof, p. 904 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Theorem B.2. Let π be a nontrivial cuspidal automorphic representation of GL_n(A). Assume that it is self-dual\" … \"Since π is cuspidal and nontrivial, its standard L-function L(π, s) is entire in s ∈ C.\"",
+      "correction": "Add the hypothesis that L(π, s) is entire. It is automatic for n ≥ 2; for n = 1 over a function field it excludes the unitary characters factoring through the degree, such as (−1)^{deg}.",
+      "reason": "π = (−1)^{deg} on GL_1 over a function field (the quadratic character of the constant-field extension) is nontrivial, cuspidal and self-dual, but L(π, s) = Z_X(−q^{−s}) has poles. For X = P¹, Λ(π, 1/2 + t) = 1/(q^t + q^{−t} + q^{1/2} + q^{−1/2}), so Λ″(π, 1/2) = −2(log q)²/(2 + q^{1/2} + q^{−1/2})² < 0 (−0.1300 for q = 3), contradicting (1). Theorem 1.7 uses only GL_2 cuspidal L-functions and is unaffected. Also in arXiv v3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 904, and the counterexample recomputed numerically.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E16",
+      "kind": "error",
+      "locator": "Proposition B.1, p. 902; proof p. 903 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Moreover, if φ(s) is not a constant function, we have φ^{(r_0)}(0) ≠ 0 ⟹ φ^{(r_0+2i)}(0) ≠ 0 for all r_0 and i ∈ Z_{≥0}.\"",
+      "correction": "\"if φ(s) is not a polynomial\" (equivalently, has infinitely many zeros). Theorem B.2(2) still holds, since a nonconstant Λ(π, s) is never a polynomial in s, but its proof needs this remark.",
+      "reason": "φ(s) = 1 + s² satisfies (1)–(4) (even, positive on R, order 0, zeros ±i), yet φ(0) = 1 ≠ 0 and φ^{(4)}(0) = 0. In the product s^me^h∏(1 + s²/|α_i|²) the coefficient of s^{m+2k} vanishes for k beyond the number of zero pairs. Also in arXiv v3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 902.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E17",
+      "kind": "error",
+      "locator": "Remark B.5, p. 906 (published version; also arXiv v3 unless stated)",
+      "printed": "\"In the statement of the theorem, we excludes the trivial representation. In this case the complete L-function has a pole at s = 1. If we replace Λ(π, s) by s(s − 1)Λ(π, s), the theorem still holds by the same proof.\"",
+      "correction": "Restrict the claim to number fields. Over a function field use q^{s−1/2}(1 − q^{−s})(1 − q^{1−s})Λ(1, s) = q^{g(s−1/2)}P_X(q^{−s}), which is symmetric under s ↦ 1 − s and to which Remark B.4 applies.",
+      "reason": "Over a function field ζ_F has poles on the whole lines (2πi/log q)Z and 1 + (2πi/log q)Z; s(s − 1) removes only two of them. For F_q(t) the second derivative of s(s − 1)Λ at 1/2 is negative (−0.160 for q = 3).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 906, and the value recomputed numerically.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E18",
+      "kind": "misprint",
+      "locator": "§B.1, p. 902 (published version; also arXiv v3 unless stated)",
+      "printed": "\"If φ is a nonconstant entire function, an equivalent definition is ρ(φ) = limsup_{r→∞} log log‖φ‖_{∞,B_r}/r\"",
+      "correction": "divide by log r",
+      "reason": "For φ = e^s, log log M(r) = log r; the printed formula gives 0 instead of the order 1. Only the first definition and Hadamard's theorem are used. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 902.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E19",
+      "kind": "gap",
+      "locator": "Proof of Theorem 9.2, p. 876 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Therefore, a(H† ⊗ Q_ℓ) contains a(H_x ⊗ Q_ℓ) for all x ∈ |X|. Since a is surjective, a(H_x ⊗ Q_ℓ) (all x ∈ |X|) generate the image H̃_ℓ/I as an algebra, hence a(H† ⊗ Q_ℓ) = H̃_ℓ/I.\"",
+      "correction": "Add: for distinct places x_1, …, x_k and n_i deg x_i ≥ N, h_{n_1x_1}⋯h_{n_kx_k} = h_{Σn_ix_i} ∈ H†, so a(H†) ⊇ a(H_{x_1})⋯a(H_{x_k}) by Lemma 9.1, and these products span.",
+      "reason": "H† (the span of the h_D of large degree) is not a subalgebra (h_x² = h_{2x} + q_xh_0), so containing algebra generators does not give the whole algebra. The conclusion is right. Also in arXiv v3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 876.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E20",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 8.3, pp. 871–872 (published version; also arXiv v3 unless stated)",
+      "printed": "\"The fiber ν_d^{−1}(η) consists of points ξ_ε where ε ∈ {±}^r\"; \"Span{1_ε; ε ∈ {±}^r}\"; \"δ runs over those elements δ = (δ_1, …, δ_d) ∈ {±}^d with exactly i minuses.\"",
+      "correction": "{±}^d in both places; \"exactly j minuses\".",
+      "reason": "d is the degree and r the number of legs; the stalk in question is L(ρ_j)_η, spanned by the P_δ with |δ| = j, as the text says two lines later. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 871–872.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E21",
+      "kind": "misprint",
+      "locator": "§8.3, p. 874 (published version; also arXiv v3 unless stated)",
+      "printed": "\"By Corollary 3.3 and (2.16), both J_r(u, h_D) and I_r(u, h_D) vanish …\"; \"By (2.14) and (6.10), (8.1) implies (8.2).\"",
+      "correction": "The vanishing of I_r(u, h_D) is the definition (6.11); and the u-decomposition of J_r is (2.17).",
+      "reason": "Corollary 3.3 and (2.16) concern only J. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 874.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E22",
+      "kind": "misprint",
+      "locator": "§9.2, (9.7)–(9.8), p. 878 (published version; also arXiv v3 unless stated)",
+      "printed": "(9.8): \"( [Sht_T]_m, h ∗ Sht_T]_m )\" summed over \"m ∈ Z^r_{0,ℓ}(Q̄_ℓ)\"; (9.7): \"J_π((0, h))\"",
+      "correction": "([Sht_T]_m, h ∗ [Sht_T]_m) over m ∈ Z′^r_{0,ℓ}(Q̄_ℓ); J_π((0, h), s).",
+      "reason": "The index set is that of (9.6) and of the cohomology of Sht′_G. The equation numbers differ from arXiv v3 ((9.9) there).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 878.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E23",
+      "kind": "misprint",
+      "locator": "Proof of Proposition A.5, p. 887 (published version only) (published version; also arXiv v3 unless stated)",
+      "printed": "\"(where s is the embedding X ↪ C_XY)\"",
+      "correction": "X′ ↪ C_{X′}Y′",
+      "reason": "s is the zero section over X′, and s^* lands in K′_0(X′). arXiv v3 has no such parenthetical.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 887 and in arXiv v3.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E24",
+      "kind": "misprint",
+      "locator": "Proof of Lemma A.8, (A.9), p. 890 (published version; also arXiv v3 unless stated)",
+      "printed": "\"u′^*(supp_{X′}(f′^*α) − f^!supp_{Y′}(α))\"",
+      "correction": "supp_{X′}(f^*α)",
+      "reason": "The sentence before and the right-hand side use the refined pullback f^* of (A.4); f′^* would be the derived pullback along f′, which differs without Tor-independence. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 890.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E25",
+      "kind": "misprint",
+      "locator": "Appendix A and B, pp. 882, 894, 899, 900, 906 (published version; also arXiv v3 unless stated)",
+      "printed": "\"to be the the image of\" (p. 882); \"Combing the isomorphisms (A.20) and (A.21)\" (p. 894); \"to emphasize that it is supported on C′\" (p. 899); \"Combining the with the commutative diagram\" (p. 900); \"we excludes the trivial representation\" (p. 906)",
+      "correction": "\"the image\"; \"Combining\"; supported on ′C; \"Combining this with\"; \"exclude\".",
+      "reason": "Typographical slips.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text layer.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E26",
+      "kind": "misprint",
+      "locator": "Theorem 5.4 and the paragraph after it, p. 809 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Theorem 5.4 (Drinfeld [5] for r = 2; Varshavsky [24, Prop 2.16, Th. 2.20] in general)\"; \"By [24, Prop 2.16(a)], Sht^μ_n|_{(X−{x})^r} is an increasing union …\"",
+      "correction": "[23] in both places.",
+      "reason": "[24] is Varshavsky's Lefschetz–Verdier trace-formula paper (GAFA 2007); Proposition 2.16 and Theorem 2.20 are in [23], Moduli spaces of principal F-bundles (Selecta 2004), which the paper cites correctly on p. 807 and in Lemma 7.7. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 809, against Varshavsky arXiv math/0205130v2.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E27",
+      "kind": "misprint",
+      "locator": "§5.4, (5.17), pp. 817–818 (published version; also arXiv v3 unless stated)",
+      "printed": "the right column of (5.17) \"id − Fr\" with \"φ(x′_1, …, x′_r) = O_{X′}(Σ sgn(μ_i)x′_i)\", and \"the right vertical map id − Fr : Pic_{X′}/(Pic_X(k)) → Pic⁰_{X′} is a torsor\"",
+      "correction": "Fr − id (L ↦ ^τL ⊗ L^{−1}), or keep id − Fr and replace sgn by −sgn in φ.",
+      "reason": "By §5.4.3, ^τL ⊗ L^{−1} ≅ O(Σ sgn(μ_i)x′_i). The torsor property holds with either sign. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 817–818.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E28",
+      "kind": "misprint",
+      "locator": "pp. 820, 823, 824 (published version; also arXiv v3 unless stated)",
+      "printed": "p. 820: \"are proper cycle classes in Sht^r_G of complementary dimension\"; p. 823: \"Prym_{X′/X} := ker(Nm), which classifies a line bundle K on X′ together with a trivialization of Nm(L)\"; p. 824: \"Therefore, both … are smooth over X′_d of relative dimension d − g + 1\"",
+      "correction": "Sht′^r_G; Nm(K); smooth over X̂′_d.",
+      "reason": "The classes live in Ch_{c,r}(Sht′^r_G), as the same sentence says; the line bundle is K; and the base change of X′_d → Pic^d_X gives smoothness over X̂′_d. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 820–824.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E29",
+      "kind": "error",
+      "locator": "Lemma 6.4, p. 827 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Lemma 6.4. We have (1) the map γ_0 : Hk^μ_{M♦,d} → M♦_d is finite and surjective; in particular, we have dim Hk^μ_{M♦,d} = dim M♦_d = 2d − g + 1\"",
+      "correction": "Add d ≥ 2g′ − 1 (the standing assumption d ≥ max{2g′ − 1, 2g} is imposed only on p. 828). For finiteness of γ_0 cite the description of points in the proof of Lemma 6.3; the square (6.8) is Cartesian along γ_1, not γ_0.",
+      "reason": "For d = 0 and g ≥ 2, M♦_0 has dimension g − 1, not 1 − g, and γ_0 has empty fibres because div β_0 = 0. Every use (Lemma 6.7, Lemma 6.11(2)) is under the standing assumption. Also in arXiv v3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 827.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E30",
+      "kind": "misprint",
+      "locator": "pp. 827, 830, 840, 841 (published version; also arXiv v3 unless stated)",
+      "printed": "p. 830: \"hence on Hk^μ_{M,d} by Lemma (6.2). We have two cycle ζ♥\"; p. 840: \"Since M_d is a smooth Deligne–Mumford stack by Lemma 6.1(2)\"; p. 827: \"classifies diagrams (6.5) only because all the β_i are zero\"; p. 841: \"(s, p_0) : Hk^r_{G,d} → X_d × X^r × Bun_G sending the diagram (6.25) to (D; x_i; E′_r)\"",
+      "correction": "Lemma 6.2; two cycles; Proposition 6.1(2); \"such that all the β_i are zero\"; a different symbol for the E′_r-component (p_0 means E_0 elsewhere).",
+      "reason": "Reference and wording slips. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 827–841.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E31",
+      "kind": "error",
+      "locator": "Proof of Lemma 6.8(1), pp. 832–833 (published version; also arXiv v3 unless stated)",
+      "printed": "\"Then the map (←p, q) : H_d → Bun_G × Coh^d_0 is a vector bundle of rank 2d whose fiber over (E, Q) is Ext¹(Q, E).\"",
+      "correction": "It is an open substack of the rank-2d vector bundle Ext¹(Q, E): the extensions whose middle term is locally free. The argument should also be run on H̃_d = H_d ×_{Bun_G} Bun_2, since Pic_X acts non-trivially on Coh^d_0.",
+      "reason": "The split extension E ⊕ Q is not locally free, so for d = 1 the fibre is Ext¹(k_x, E) ∖ {0}. Smoothness and relative dimension 2d still follow. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 832–833.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E32",
+      "kind": "error",
+      "locator": "Proof of Lemma 6.11(1), p. 836 (published version; also arXiv v3 unless stated)",
+      "printed": "\"a canonical decomposition End^{x′,y}(ν_*L) = ν_*O_{X′} ⊕ K for some line bundle K on X with deg(K) < 0\"",
+      "correction": "K = ν_*K′ for a line bundle K′ ⊂ L ⊗ σ^*L^{−1}(−y″) on X′ with deg K′ < 0; so K has rank two and H⁰(X, K) = H⁰(X′, K′) = 0.",
+      "reason": "Ad has rank 3 and ν_*O_{X′}/O_X rank 1, so K has rank 2; and \"deg K < 0\" for a rank-two bundle would not give the vanishing of H⁰ the proof needs for the Deligne–Mumford property. The conclusion is right. Also in arXiv v3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 836.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E33",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 6.15, p. 842 (published version; also arXiv v3 unless stated)",
+      "printed": "\"hence dim Y^i_m = m − 2i and codim_{Gr_m} Y^i_m = i.\"",
+      "correction": "codim_{Gr_m} Y^i_m = 2i.",
+      "reason": "dim Gr_m = m. The bound proved, fibre dimension ≤ i, is half the codimension (semismallness); exact point counts over F_2, F_3, F_5 give #Y^i_m = q^{m−2i} + q^{m−2i−1} for i < m/2. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 842, with the point counts.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E34",
+      "kind": "error",
+      "locator": "§7.1.6, p. 849 (published version; also arXiv v3 unless stated)",
+      "printed": "\"The cup product gives a symmetric bilinear pairing on H^*_c(Sht_G ⊗_k k̄): (−,−) : H^i_c × H^{4r−i}_c → H^{4r}_c(Sht_G ⊗_k k̄) ≅ Q_ℓ(−2r).\"",
+      "correction": "Compose with the trace (degree) map H^{4r}_c(Sht_G ⊗ k̄) → Q_ℓ(−2r), which sums over geometric connected components; \"symmetric\" holds up to the sign (−1)^i.",
+      "reason": "deg E_0 mod 2 is locally constant and invariant under Pic_X(k), and both parities occur, so Sht^r_G has at least two open-and-closed pieces of dimension 2r and H^{4r}_c has dimension ≥ 2 (for r = 0 it is infinite-dimensional). Lemma 7.2, (7.22) and Corollary 7.17 only use the trace pairing. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 849.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E35",
+      "kind": "misprint",
+      "locator": "pp. 852, 855, 858, 866 (published version; also arXiv v3 unless stated)",
+      "printed": "p. 852: \"d′(i + 1) := 2L′_{i+1} − deg E_{i+1}\"; (7.9), p. 855: \"B(H) × B(H_r)\"; p. 858: \"an exact sequence 0 → L_i(x) → E_i(x) → M_i → 0\"; p. 866: \"a positive definitive quadratic form\"",
+      "correction": "2 deg L′_{i+1}; B(H_0) × B(H_r); 0 → L_i(x) → E′_i → M_i → 0; \"positive definite\".",
+      "reason": "Slips; the next sentence of p. 858 uses L_i(x) ↪ E′_i, and E_i(x)/L_i(x) = M_i(x). Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 852–866.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E36",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.13(1), p. 864 (published version; also arXiv v3 unless stated)",
+      "printed": "\"We have a commutative diagram for n ≥ n_0 … implies that Gr^F_n C(h_x) is surjective for n ≥ n_0. Therefore, the action map H_x ⊗_Q F_{≤n_0}V … → V is surjective\"",
+      "correction": "n ≥ n_0 + 1 and F_{≤n_0+1}V.",
+      "reason": "The surjection H^{2r}(C_n)(r) ↠ Gr^F_nV comes from right-exactness of H^{2r}(K_{n−1}) → H^{2r}(K_n) → H^{2r}(C_n), established only for n − 1 ≥ n_0. Harmless since n_0 can be enlarged. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 864.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E37",
+      "kind": "misprint",
+      "locator": "§7.5, (7.25), p. 868 (published version; also arXiv v3 unless stated)",
+      "printed": "\"cl(θ^μ_*[Sht^μ_T]) = [Sht_T]_Eis + Σ_{m ∈ Z^r_{0,ℓ}(Q̄_ℓ)} [Sht_T]_m\"",
+      "correction": "m ∈ Z′^r_{0,ℓ}(Q̄_ℓ)",
+      "reason": "Z^r_{0,ℓ} belongs to Sht_G, not Sht′_G, and [Sht_T]_m ∈ V′_m; (7.24) and (7.26) use Z′. Also in arXiv v3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+        "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+        "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+        "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+        "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 868.",
+        "by": "REV-PAPER-YUN-ZHANG-17"
+      }
     }
   ]
 }
