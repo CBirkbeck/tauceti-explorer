@@ -1,0 +1,87 @@
+{
+  "paper": "PAPER-QIAN-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accepted. ML.2, the potential automorphy assembly, owns the paper's two final theorems and every step of their proof that uses the Dwork family together with automorphy: 'Apply PotentialAutomorphyInfrastructure with full regularity, polarization, residual-image, local and field-extension hypotheses; track compatible systems and descent. ML.2 must add PA.2, PA.4 and the Dwork Part II as prerequisites; none depends on ML.2."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accepted. G7, the dimension-general arithmetic API, plans the enormous-image definition verbatim (ACC+ Definition 6.2.29) and 'residual-image criteria … with separate verification lemmas'. It covers Lemma 2.6(1) (item 026), which is ACC+ Lemma 7.1.6(2) under the stronger bound l > 2n + 5; the ACC+ extraction places that lemma in G7 as well. The decomposed-genericity lemmas go to PA.5 instead, since AG2.7, which defines decomposed genericity, requires G7."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accepted. R06.2 plans 'D_HT, D_dR, D_cris and D_st and their comparison maps … descent under finite extension, and base change of coefficients … filtered (φ,N)-modules … weak admissibility versus admissibility'. It covers the pointwise definition of an ordinary representation of regular weight (item 002, Definition 1.2, which is word for word condition (2) of ACC+ Theorem 6.1.2), the crystalline slope criterion (item 025, Lemma 2.4 = BLGHT Lemma 2.2(1)), the semistable maximal-monodromy criterion with its Hodge–Tate hypothesis (item 103, BLGHT Lemma 2.2(2), in the form E11 requires), and descent of regular ordinarity (item 104)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accepted. PA.2 owns the ordinary tower, 'its commuting positive-monoid operators and the ordinary summand … Track positive monoids, normalization, central characters'. It takes the notion of an ι-ordinary automorphic representation (item 134, Geraghty's Definition 5.3), the resulting notion of an ordinarily automorphic representation (item 005, Definition 1.3), and the general criterion for a twisted Steinberg component to be ι-ordinary (item 135, split out of the proof of Lemma 4.3, generalizing Geraghty's Lemmas 5.2 and 5.6)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accepted. ACC+ Theorem 6.1.2, with the hypothesis p > n and the scalar element outside G_{F(ζ_p)} (item 072), is the output of the patching layers of PotentialAutomorphyInfrastructure: ACC+ prove it from Theorem 6.6.2 by soluble base change (§6.6, pp. 1074–1084), using PA.4's Taylor–Wiles primes and ultrapatching, PA.2's ordinary local–global compatibility (Theorem 5.5.1) and PA.5's base-change checklist. PA.4 must add PA.2 and PA.5 as prerequisites; neither depends on PA.4."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accepted. PA.5 provides 'comparison lemmas for restriction to field extensions, tensor products, duals, characters and symmetric powers' and 'a reusable checklist theorem which records that the input package for a chosen lifting argument survives a specified base change'. PA.5 must add AutomorphicGaloisRepresentationsPartII AG2.7, which defines decomposed genericity, as a prerequisite; this closes no cycle."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accepted. R23.1, Moret–Bailly's theorem, plans the rational-point theorem 'with prescribed nonempty local open sets and a finite extension satisfying the required disjointness and real-place conditions', and asks to 'Include the geometric and approximation prerequisites of the theorem'; the description of R23.1 in R24.5:operations adds 'Construct the field-extension selection'."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accepted. R02.2 plans 'restriction/corestriction identities and the precise descent consequences for finite extensions of number fields', and R02.4 'the finite-module duality … local invariant maps and their sum'. They cover the general duality statements used in Lemmas 2.1 and 2.2: the inflation identification of the Kummer local–global kernel (item 021), the fact that it is 0 or Z/2Z (item 106), and the computation of H¹ of the cyclotomic Galois group with coefficients μ_{p^r} (item 117, Neukirch–Schmidt–Wingberg Proposition 9.1.6)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accepted. SF.4 plans 'formal schemes, algebraization, semistable reduction and alterations … a model records its base, generic fiber and allowable base extension'. It owns the general mixed-characteristic toroidal semistable reduction theorem that the companion preprint applies (item 142, Kempf–Knudsen–Mumford–Saint-Donat, Chapters II–IV), with its two inputs, toroidal embeddings over a discrete valuation ring with their subdivision blowups (item 140) and Knudsen's unimodular subdivision after scaling (item 141)."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Accepted. CR.5 plans the log crystalline site and 'the log PD Poincare lemma and its descent', and CR.6 'Construct Frobenius and monodromy N … Construct the Hyodo–Kato-to-log-de-Rham map … Prove its comparison theorem'; the log algebra is the separate stage CR.5:log-algebra."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Accepted. Complex Comparison PartII owns coherent GAGA and the algebraic–analytic de Rham comparison: C2 'Construct the cohomology comparison in every degree, naturally in the sheaf', C3 'Export the exact coherent categorical equivalence and cohomology comparison with all properness hypotheses', and C5 the algebraic de Rham complex and its analytification."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Accepted. LPV.1 plans 'For a proved unipotent action, define N through the finite logarithm and prove nilpotence' and the monodromy filtration with its linear algebra. It covers maximal unipotence and maximal nilpotence (item 048, Definition 3.6), including dim ker N^j = j."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Accepted with the review's corrections. Nothing in the atlas, the draft roadmaps or the decompositions plans the Dwork family, its eigensheaves, their monodromy or the switching torsor, and the family is reusable infrastructure for potential automorphy over CM fields, so a Part II of PotentialAutomorphyInfrastructure is justified; the title is the parent's title followed by ', Part II: Dwork switching motives'. The review changed the area from 'modular', which is not a galaxy, to 'langlands'; removed the claim that layers of the parent consume it, which would be a cycle; moved the choice of the auxiliary data (items 073, 074) to ML.2 and restated the switching theorem with the auxiliary prime and the seed as hypotheses; added Lemma 2.1 with its proof steps, the finite-group inputs of Lemma 3.7 and Proposition 3.8, and the companion's Dwork models; and rewrote the brief so that it states the final theorems exactly, with the corrections E1, E3, E4, E5, E6, E7, E8, E9, E11, E19, E20, E24, E25, E27, E28, E31, E32, E33, E35, E36, E37, and names what to import."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Accepted. The residue–monodromy theorem for semistable degenerations (item 101) is complex-analytic and has no owner in the atlas; LefschetzPencilsAndVanishingCycles LPV.1, where the extraction routed it, is ℓ-adic. The proposed Hodge-structures Part II already plans the Deligne canonical extension and its logarithmic de Rham comparison; the route joins it with the same id, parent, title and area, and its brief states the theorem exactly."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Accepted. Geraghty's Lemma 5.9 (item 133), which the proof of Theorem 1.1 uses on p. 1273, compares Galois and automorphic ordinarity for polarizable representations; the proposed Part II PolarizedAutomorphyLifting already draws on Geraghty's ordinary lifting paper, and the route joins it with the same id, parent, title and area."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Accepted. Serre's open-image theorem and the density of supersingular primes (items 137, 138), used in Proposition 4.1, have no owner in the atlas (FaltingsFinitenessAndIsogenyTheorems R28.6 explicitly avoids the open-image theorem); the route joins the Part II that the Calegari–Geraghty (2020) extraction proposes for Serre's open-image theorems, with the same id, parent, title and area."
+    }
+  ],
+  "notes": "The extraction was corrected in place, and this verdict applies to the corrected file; research/blueprint/reviews/REV-PAPER-QIAN-23.md lists every change. Items: every one of the 112 submitted items was corrected: all 112 locators (every locator in the paper now gives the statement and published page; items from the companion preprint or other sources cite those), 108 statements, 9 names and the planning stages or library citations of 16 items; 2 statuses changed (item 018: missing to planned, item 019: missing to planned). 33 new items (113–145) add the definitions and cited results on the way to Theorems 1.1 and 1.4 that the extraction lacked. Routes: of the 16 submitted routes, routes 2 (ML.3), 8 (PA.5 for item 083) and 11 (SF.4 for the Dwork models) were rejected; the others were accepted with corrections. The corrected file has 12 source routes, the Dwork Part II (area langlands, brief rewritten) and joins of three proposals of other extractions (HodgeStructuresPartII, PolarizedAutomorphyLifting, OpenImageTheoremsForAbelianVarieties). Planned items no longer sit in source routes. Mistakes: E1–E9, E11–E13 are confirmed (E5 reclassified as a misprint, E12 as an error in a stated result of the companion preprint); E10 is withdrawn; the review adds E14–E49. Theorem 1.4 remains unproved for odd l < n (E2), and Lemma 3.7's first assertion is false for n = 2 (E31). For the maintainer: the Boxer–Calegari–Gee–Newton–Thorne extraction joins the Dwork Part II with the area 'modular', which is not a galaxy id; the Calegari–Geraghty (2018) extraction's Dwork family items should join the Dwork Part II when that extraction is reviewed; the ACC+ extraction places Theorem 6.1.2 at PA.3 and Lemmas 7.1.5–7.1.7 at G7, which close cycles. The routing needs new stage dependencies that close no cycle: AG2.7 → PA.5, PA.2 and PA.5 → PA.4, and PA.2, PA.4 and the Dwork Part II → ML.2."
+}
