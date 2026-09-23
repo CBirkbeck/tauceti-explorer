@@ -2,7 +2,7 @@
 
 Robert Lemke Oliver, Jiuya Wang and Melanie Matchett Wood, *The average size of 3-torsion in class groups of 2-extensions*, [Forum of Mathematics, Pi 13 (2025), e19](https://doi.org/10.1017/S2050508625000009); arXiv [2110.07712](https://arxiv.org/abs/2110.07712).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1352). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json](PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json): 35 items (3 library, 3 planned, 29 missing), 2 routes, 15 prerequisite entries and 6 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1352). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json](PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json): 35 items (3 library, 3 planned, 29 missing), 2 routes, 15 prerequisite entries and 16 recorded source issues. The independent review (REV-PAPER-LEMKEOLIVER-WANG-WOOD-25) corrected it in place; its changes are listed at the end.
 
 **Source.** The published open-access article (CC BY 4.0), 43 pages, SHA-256 `7fe1974e52052c23fe63697e7255de8e59f9dffcfee6d58ef71858289ebcf0e8`, read in full on 2026-09-22.
 
@@ -21,7 +21,7 @@ Let G ⊂ S_{2^m} be a transitive permutation 2-group containing a transposition
    - large X: the Shintani zeta function over F, with a uniform convexity bound (Lemmas 3.10–3.11);
    - intermediate X: "propagation of orders". The Shintani count also counts nonmaximal orders, and each field contributes many of them (Lemmas 3.13–3.14), so too many fields would overrun Proposition 3.6.
 2. **§2, Lemma 2.1.** A relative Ellenberg–Venkatesh lemma bounding |Cl_{L/K}[ℓ]| when there are many small split primes.
-3. **§4.** A log-free zero-density estimate for ray class L-functions (Theorem 4.2) and Zaman's lower bound (Lemma 4.4). Together they show that most quadratic extensions have many small split primes (Lemma 4.3). This handles the critical range Disc(F₁) ≈ X^{1/3} (Lemma 5.9).
+3. **§4.** A zero-density estimate for ray class L-functions (Theorem 4.2) and Zaman's lower bound (Lemma 4.4). Together they show that most quadratic extensions have many small split primes (Lemma 4.3). This handles the critical range Disc(F₁) ≈ X^{1/3} (Lemma 5.9).
 4. **§6.** Wreath-product bookkeeping (Lemmas 6.6–6.9) and thin families without a transposition (Theorems 6.4–6.5), whose 3-torsion contributes o(X).
 
 **§7** compares the proven averages with Cohen–Lenstra–Martinet, via Wang–Wood. The average of h₃(K) is a weighted average of h₃(F) against Res ζ_F/(ζ_F(2)Disc(F)²). It is biased by small-discriminant F, as in Bartel–Lenstra.
@@ -52,9 +52,9 @@ Let G ⊂ S_{2^m} be a transitive permutation 2-group containing a transposition
    - Theorem 4.2 and Lemma 4.3 (AN.3, zero density);
    - Lemma 4.4 and the Landau, Brauer–Siegel and Friedman–Skoruppa bounds (AN.4).
 
-## Source issues (`sourceIssues` E1–E6)
+## Source issues (`sourceIssues` E1–E16)
 
-None affects the main theorems.
+None affects the main theorems. E7–E16 were added by the review and are described at the end.
 
 - **E1** (gap, affects the proof of Lemma 2.1).
   - **The problem.** The height bound uses "u, α_r, α_s all have norm 1" to get Σ max(x_v, 0) = O(1). The boxes control only differences within each block of places above w_i, not the block sums t_i. The t_i of α_r/α_s are logarithms of the unit Nm_{L/K}(α_r/α_s) of K, which is not controlled. Absolute norm ±1 gives only Σ t_i = 0.
@@ -69,8 +69,8 @@ None affects the main theorems.
 
 **Also checked and correct:**
 - the continuity of the five ranges of Theorem 3.1, and Corollary 3.2;
-- the Phragmén–Lindelöf step of Lemma 3.11;
-- the Dirichlet-series identity of Lemma 3.13;
+- the Phragmén–Lindelöf step of Lemma 3.11, away from the poles (see E9);
+- the Dirichlet-series identity of Lemma 3.13, once its weight is corrected (see E10);
 - the exponent bookkeeping of Lemmas 5.7 and 5.9 and of the induction;
 - (6.7);
 - the D₄ table of Example 7.2. The proven averages 1.1155, 1.3386, 2.0078 and 1.4066 reproduce the printed ≈ 1.12, 1.34, 2.01 and 1.41.
@@ -103,3 +103,47 @@ Links and reasons are in the JSON.
   - `NumberTheory/NumberField/Units/DirichletTheorem.lean:506`.
 - Layer ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-LEMKEOLIVER-WANG-WOOD-25, 23 September 2026)
+
+The review read the published article in full, together with the Ellenberg–Venkatesh preprint for its Lemmas 2.2–2.3. The review's download has a different SHA-256 (`1e4d93b2…780b`), because Cambridge Core stamps each download with a watermark line. The text is the same.
+
+The review confirmed every status, every Mathlib citation and both routes. It confirmed E1–E6:
+- E3 with a qualification of its reason;
+- E4 with a further slip (L/F written for K/F);
+- E6 with an independent PARI reproduction of 1.4230 against 1.4167.
+
+The extraction was corrected in place:
+- **Item 7 (Ellenberg–Venkatesh).** Restated as [EV07] has it. The statement is relative to K/K₀, the height bound is Norm(D_{K/K₀})^{1/(2(d−1))}, the torsion lemma needs δ < 1/(2ℓ(d − 1)), and the small primes must be unramified.
+- **Item 8 (Lemma 2.1).** The a_i, b_i are positive (E7). Condition (3) is reworded as printed: each of ℘_i and ℘̄_i has a power extended from a prime of H.
+- **Items 14–17.**
+  - Lemma 3.11 is stated away from its poles (E9).
+  - Lemma 3.13 carries the weight |Aut_{O_F}(R)|⁻¹ (E10), and the conductor sum in Proposition 3.12 runs over all 𝔮 (E11).
+  - Lemma 4.1 counts nontrivial zeros, for t ≥ 0.
+  - "Log-free" is dropped from Theorem 4.2, whose exponent carries +ε. The summary is corrected to match.
+- **Item 35 (Theorem 8.1).** The examples are attached to the case whose hypotheses they satisfy. Some locators and item 13's note were tidied.
+
+**Ten new source issues, all confirmed:**
+- **E7** (misprint, Lemma 2.1, p.7). "Integers a_i, b_i" should be positive integers. Otherwise a_i = b_i = 0 makes M unbounded and forces Cl_{L/K}[ℓ] = 0, which is false for ℚ(√−23), ℓ = 3.
+- **E8** (error, proof of Lemma 2.1, p.9). [O_L^* : O^*O_K^*] ≤ d^d is false: PARI gives index 8 > 4 for K = ℚ(ζ₇)⁺ and L = K(√2). The right bound is d^{r₁(K)+r₂(K)}, which is still O_{[L:ℚ]}(1).
+- **E9** (error, Lemma 3.11, p.14). The convexity bound is claimed for all t in −1/2 ≤ σ ≤ 3/2. But ξ_{F,α} has poles at 1 and 5/6. Its only use avoids them.
+- **E10** (error, Lemma 3.13, p.16).
+  - The identity needs the weight |Aut_{O_F}(R)|⁻¹, not |Aut_F(A)|⁻¹.
+  - Example: F = ℚ and K = ℚ(i). There are three orders of index 5 in ℚ × K, forming two isomorphism classes. The printed left side gives 1 and the right side 3/2.
+  - "R ⊗_ℚ F" should read R ⊗_{O_F} F.
+  - Proposition 3.15 is unaffected: its inequality becomes an equality.
+- **E11** (gap, proof of Proposition 3.12, p.18). The sum runs over square-free 𝔮 only, but conductors above 3 need not be square-free: ℚ(∛3) has discriminant −3·9². The bound survives.
+- **E12** (error, §3.4, p.19). The Datskovsky–Wright correspondence is with cubics having disc(L/F) = disc(K/F), which need not be square-free. For example, ℚ(√−26) gives a cubic field of discriminant −104. Inequality (3.8) stands.
+- **E13** (misprint, proof of Lemma 4.3, p.21). σ₁ = 1 − ε₁/4c should be max(1 − ε₁/4c, 1/2), as in the statement.
+- **E14** (error, proof of Lemma 5.8, p.25).
+  - The claim is that N_k(C₂, X) is at most h₂(k) times the number of ideals.
+  - This is false: ℚ(ζ₂₉)⁺ has class number 1 but narrow class group (ℤ/2)³, so it has 7 unramified quadratic extensions.
+  - The factor should be O(h₂(k)). The lemma stands.
+- **E15** (error, §7.2, p.39). The general Cohen–Lenstra–Martinet prediction for h₃(K/k) omits the Gaussian binomials [a_i choose j]_q. The printed formula is right only when every a_i ≤ 1, which covers Example 7.2.
+- **E16** (error, §1, p.2). "O_ε(X^{1/2+ε}) quartic fields with any other Galois closure group" is not known for A₄, where the best bound is about X^{0.778} (Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao). What the sentence needs, o(X), holds.
+
+**Noted but not registered.** These are slips too small to record as source issues:
+- "Theorem 7.1" is printed for Proposition 7.1 (p.5);
+- a dangling "then for all" in Theorem 6.11;
+- F^u(G) is used but never defined;
+- the absolute-value bars are missing in Theorem 8.1.
