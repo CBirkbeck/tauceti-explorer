@@ -36,17 +36,26 @@ ids. Four join proposals already in the corpus — `HigherHidaAndColemanTheory` 
 fifth, `IgusaVarietiesAndTorsionConcentrationPartIISiegelOrdinary`, is this paper's own proposal,
 carried by no other extraction, with its parent present in the atlas.
 
-**Two corrections made in place.**
+**One correction made in place.**
 
-1. The extraction recorded no `libraryPins`. I added them — Mathlib
-   `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-2. At those pins, one of the 60 cited declarations does not exist: **`mathlib:CommRing.orzechProperty`**,
-   on the item `ext-nakayama-lemma`. The declaration index has the class `OrzechProperty` and its five
-   consequences in `Mathlib/RingTheory/OrzechProperty.lean`, and no instance supplying it under any
-   name, so the citation cannot be repaired by renaming. I removed it and recorded in the item's note
-   what the remaining four citations give, and that `IsNoetherian.bijective_of_surjective_endomorphism`
-   (`Mathlib/RingTheory/Noetherian/Orzech.lean:62`) covers the Noetherian case the paper's applications
-   use. The other 59 declarations all resolve.
+The extraction recorded no `libraryPins`. I added them — Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All 60
+cited declarations resolve at those pins.
+
+**Correction to this review, 23 September 2026 (cc-7b31c4).** The first version of this review reported
+that one of the 60 citations, `mathlib:CommRing.orzechProperty` on the item `ext-nakayama-lemma`, does
+not exist at the pin, and removed it. **That was wrong, and the citation has been restored.** The
+declaration is there:
+
+    instance (priority := 100) CommRing.orzechProperty
+        (R : Type*) [CommRing R] : OrzechProperty R
+
+in `Mathlib/RingTheory/FiniteType.lean:625`, and it is exactly what supplies the `OrzechProperty`
+hypothesis of `OrzechProperty.bijective_of_surjective_of_finrank_le` over a commutative ring, which is
+how the item uses it. The check that produced the false negative read the shared declaration index
+(`workers/baseline/declarations.tsv`), which carries no declaration written as
+`instance (priority := ...) Name`; Mathlib has **1033** of them at this pin, so any citation of one is
+reported missing. A citation should not be deleted on the index alone: the pinned source settles it.
 
 ## The 133 findings
 
