@@ -1,4 +1,77 @@
-# Hacon–Witaszek: relative fourfold MMP
+# Hacon–Witaszek (2023): the relative MMP for fourfolds in positive and mixed characteristic, extraction and routing
+
+Issue [#1369](https://github.com/CBirkbeck/tauceti-explorer/issues/1369). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (Codex and Claude Code), whose report follows below as history.
+- **The paper.** C. Hacon and J. Witaszek, *On the relative minimal model program for fourfolds in positive and mixed characteristic*, Forum Math. Pi 11 (2023), e10.
+  - The checkpoint's published copy (SHA-256 d7ba34ec…) remains the reference.
+  - The Cambridge endpoint returned HTML to this environment, so this continuation re-read arXiv v2.
+- **Items.** The result has **163 items: 10 library, 5 planned and 148 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+  - The published numbering in the locators is continuous in every section.
+  - Theorems 1.1 and 1.2 now name their body items (Theorems 4.1/4.6 and 5.1).
+- **Mistakes.** Eleven are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**E6 rechecked.** The lemma (Lemma 6.6; Lemma 6.4 in arXiv v2) is proved only by citing [KM92, 12.1.8] and [dFH11, Prop. 3.1]. Both are local statements near the special fibre, so the unrestricted global form is not supported by its proof, and the checkpoint's counterexample stands.
+
+**Gaps.** Every gap now has a status.
+- **gap-surface** is resolved; the fixed-coefficient lemma is proved.
+- **Recorded as findings:**
+  - gap-index (E1);
+  - gap-difficulty (E4, E5);
+  - gap-qcartier (E6);
+  - gap-picard (E7, the gap in Theorem 6.1(2b)).
+- **Deferred.** gap-n1 is the verification the paper leaves "to the reader". The rest are cited suppliers' proofs, a routine R-boundary reduction, or review.
+
+**Unchanged.** E1, E2 and E6 affect a stated result, and E7 affects the proof of Theorem 6.1(2b). The main MMP theorems are unaffected.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6). *Printed:* index of K_X *Correction:* m should be the Cartier index of K_X + S at P, the log index. For the plt surface germ obtained by localising at P, this equals the order of the local class group, and the conclusions then hold.
+- **E2** (error; affects a stated result), Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14). *Printed:* all these discrepancies *Correction:* Also fix a finite set I ⊂ [0, 1) and require the coefficients of B to lie in I. Then, over the minimal resolution, the exceptional discrepancies take finitely many values. This is what the proof of Proposition 2.15 needs, since the boundaries B_n of a flip sequence all have the coefficients of B.
+- **E3** (misprint; affects nothing), Proof of Lemma 2.16, p.13 of the published version (arXiv v2 p.15). *Printed:* −c_i ≤ 2/a_i *Correction:* c_i ≤ 2/a_i ≤ 2/ε.
+- **E4** (misprint; affects nothing), Proof of Proposition 2.15, definition of the difficulty d⁺_α, p.12 of the published version (arXiv v2, same passage). *Printed:* b_i ≤ 0 *Correction:* The first sum is over b_i ≥ 0, which is AHK07 Definition 2.3's index a(B_i) ≤ 0 with a(B_i) = −b_i.
+- **E5** (misprint; affects nothing), Proof of Proposition 2.15, p.12 of the published version. *Printed:* (−∞,1) *Correction:* W^±_α is defined on (−∞, 1). The weights w^±_α must be defined on all of R, or at least on (−1, ∞), with value 0 at arguments above α, as in AHK07 Definition 2.2.
+- **E6** (error; affects a stated result), Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29. *Printed:* also Q-Cartier *Correction:* Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.
+- **E7** (gap; affects the proof), Published version, Theorem6.1(2b) proof p.33, choice of Acal,Hcal. *Printed:* A|_X=A *Correction:* Use Q-Cartier numerical representatives, with restrictions numerically equivalent after rational scaling; construct the needed effective boundary separately.
+- **E8** (misprint; affects nothing), Published version, Lemma2.16 proof p.13, equality case in the convexity paragraph. *Printed:* c_2=−2 *Correction:* c_2=2, equivalently C_2²=−2r_2.
+- **E9** (misprint; affects nothing), Published version, Theorem4.3 proof p.17, last paragraph. *Printed:* codimension two *Correction:* The flip is an isomorphism in codimension one, equivalently off subsets of codimension at least two.
+- **E10** (misprint; affects nothing), Published version, Corollary1.3 proof p.20, crystalline trace display. *Printed:* H^i_crys(X/K) *Correction:* Use H^i_crys(Y/K) for the smooth proper resolution Y whose point count appears on the left.
+- **E11** (misprint; affects nothing), Published version, Corollary1.3 proof p.20, sentence after the trace display. *Printed:* all the slopes *Correction:* The slope≥1 assertion is for positive cohomological degrees. Degree zero supplies the contribution1.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **gap-index** (recorded). E1; the log-index version needed by Lemma 4.2 rests on Kollár's surface classification, a cited supplier.
+- **gap-difficulty** (recorded). E4 and E5; transferring AHK07's invariance, positivity and decrease proofs is supplier work.
+- **gap-surface** (resolved). E2 and E3 are recorded, and the fixed-coefficient lemma Proposition 2.15 needs is proved in fixed-boundary-surface.
+- **gap-real-boundary** (deferred). The rational approximation for R-boundaries is a standard reduction the paper uses implicitly; implementation work.
+- **gap-vanishing** (deferred). Bhatt's vanishing theorems (BMP) are cited suppliers.
+- **gap-lower-mmp** (deferred). The surface and threefold MMP inputs are cited suppliers.
+- **gap-f-singularities** (deferred). HX15, HW19, Das15, Sch14, ST18 and SZ13 are cited suppliers.
+- **gap-positivity** (deferred). Witaszek, Cascini–Tanaka and Keel are cited suppliers.
+- **gap-witt** (deferred). Chatzistamatiou–Rülling, NT20, GNH19 and BBE are cited suppliers.
+- **gap-qcartier** (recorded). E6: the global statement fails without properness. The local deformation theorem is KM92 and dFH11, cited suppliers.
+- **gap-picard** (recorded). E7: Theorem 6.1(2b)'s proof uses prescribed line bundles that numerical surjectivity does not supply. The numerical repair is in the items; the boundary variant remains proof work.
+- **gap-n1** (deferred). The paper leaves property (3) of Claim 5.5 'to the reader' (using ρ(X_k/Z) = 1); writing it out is routine proof work.
+- **gap-formal** (deferred). Hartshorne, ABL22 and the Stacks formal-existence results are cited suppliers.
+- **gap-audit** (deferred). Independent review and route confirmation are the review pipeline's job.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## Hacon–Witaszek: relative fourfold MMP
 
 Third checkpoint for #1369 · Codex codex-c83e7a · 2026-09-22.
 Builds on merged PRs #1682 (codex-a71f92) and #1838 (cc-fb70e5).
@@ -25,7 +98,7 @@ The paper proves two special relative fourfold MMPs, not the general fourfold MM
 
 Other outputs include adjoint-section extension, pl-flips with an ample boundary component, conditional special termination, Witt-rational klt fourfold singularities, the finite-field point congruence with an RCC resolution, dlt modifications and inversion of adjunction. The result file splits the principal theorem conclusions.
 
-## Sources and exact reading boundary
+### Sources and exact reading boundary
 
 Primary: Hacon–Witaszek, *On the relative minimal model program for fourfolds in
 positive and mixed characteristic*, Forum of Mathematics, Pi 11 (2023), e10, 1–35,
@@ -41,7 +114,6 @@ pp.4–7, including its complex-field convention and the full local deformation
 proof, and [Stacks 0D3A](https://stacks.math.columbia.edu/tag/0D3A), statement and
 proof. Earlier bounded supporting reads remain attributed to their checkpoints:
 
-
 - [AHK07](https://arxiv.org/abs/math/0605137): §§1–2 through Theorem 2.15, plus Lemma 3.1's statement. This is a characteristic-zero source; transfer is not automatic.
 - [BMPSTWW v3](https://arxiv.org/abs/2012.15801v3): selected full proof blocks in §§2–4,6–7, plus 9.32–9.37, not the whole 132-page paper. In particular, the Matlis/local-cohomology, absolute-closure vanishing, adjoint stable-section and inversion-of-adjunction blocks were inspected. Their Bhatt/Popescu and lower-MMP dependencies remain open.
 - [Witaszek's relative semiampleness paper](https://arxiv.org/abs/2106.06088): Theorem 1.2's statement and all of §2.4, including Theorem 2.22's proof. The full fibrewise theorem proof is not yet read.
@@ -51,7 +123,7 @@ proof. Earlier bounded supporting reads remain attributed to their checkpoints:
 
 The source list also gives direct primary pointers for the still-unread ABL22, Ber21, Waldron, CR12, BBE07, NT20, GNH19 and Schwede proofs. Locating an abstract is not counted as reading its theorem or proof.
 
-## Local Q-Cartier deformation and proper globalization (E6)
+### Local Q-Cartier deformation and proper globalization (E6)
 
 Lemma 6.6 is printed for an arbitrary normal scheme over a DVR and gives a global
 Q-Cartier conclusion. The cited dFH11 Proposition 3.1 gives a conclusion on a
@@ -116,7 +188,7 @@ to mixed characteristic. Surjective multiplication on an arbitrary non-finite
 module does not suffice. That is an unresolved proof leaf, not a claim that
 the cited local theorem is false.
 
-## Numerical representatives and the effective perturbation (E7)
+### Numerical representatives and the effective perturbation (E7)
 
 On p.33, surjectivity on rational numerical divisor classes is used to choose
 Cartier divisors with specified restrictions as line bundles. That inference
@@ -157,8 +229,7 @@ positivity and coherent finiteness/base-change suppliers remain explicit
 foundation imports. `gap-picard` is narrowed accordingly; it is not marked
 resolved merely because the intersection signs are correct.
 
-## Earlier source findings retained
-
+### Earlier source findings retained
 
 A continuation on 2026-09-22 (Claude Code, session `cc-fb70e5`) checked the diagnostics below at their locators, on published page images (pp.5, 12, 13) and in arXiv v2 (2021-08-16, the latest version; same wording). It recorded five mistakes in the JSON's `sourceIssues`. Crossref lists no correction for the DOI, and none was found on the journal page. These are worker findings awaiting the independent review.
 
@@ -182,7 +253,7 @@ E1's impact field now records that the printed lemma itself is false, while
 its standard-coefficient consumer remains unaffected by the displayed example.
 No independent-review verdict has been added by this continuation.
 
-## Additional transcription corrections
+### Additional transcription corrections
 
 | Finding | Locator | Correction |
 | --- | --- | --- |
@@ -197,7 +268,7 @@ no matching published correction on 2026-09-22. This does not establish that no
 correction exists. All six new findings E6–E11 are extracting-worker findings
 awaiting independent review. No messages were sent to the authors.
 
-## Additional guards retained
+### Additional guards retained
 
 - Definition 2.4 uses **floor** rounding; B⁰ trace twists use **ceiling**.
 - Adjoint B⁰ uses a direct sum of sheaves before trace. Its images form a sum of submodules, not necessarily a direct sum.
@@ -210,7 +281,7 @@ awaiting independent review. No messages were sent to the authors.
 - In the point-count proof, the smooth resolution's cohomology is used in its trace formula. The slope≥1 assertion concerns positive degrees; H⁰ contributes the required one.
 - The R-boundary termination statements need a justified bridge to their proofs' Q-linearly effective representatives.
 
-## Library baseline and ownership
+### Library baseline and ownership
 
 Pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Existing line-bundle, proper,
@@ -225,8 +296,7 @@ reviewed SF.4/SF.5 target entries and the shared numerical-Picard brief. It read
 library reads remain attributed in the JSON. No new generic carrier or Part II
 identity is introduced.
 
-## Routes
-
+### Routes
 
 | Owner | Missing items | Decision |
 |---|---:|---|
@@ -246,7 +316,7 @@ The coherent duality route refines the classical coherent-formalism owner; its s
 
 Pending proposals are deliberately marked **missing**, not planned. Reuse their IDs during design; do not mint another positivity or numerical-Picard roadmap. Every Part II brief specifies final theorem hypotheses, imports and acceptance/diagnostic obligations.
 
-## Remaining work and validation
+### Remaining work and validation
 
 Thirteen of the fourteen named gaps remain open. The properness step is now
 proved, while the local deformation proof still needs its finite-generation

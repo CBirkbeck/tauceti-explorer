@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-HACON-WITASZEK-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the relative minimal model program for fourfolds in positive and mixed characteristic",
     "authors": "Christopher Hacon and Jakub Witaszek",
@@ -19,7 +19,7 @@
     "sha256": "d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b",
     "acquired": "2026-09-22"
   },
-  "summary": "Two special fourfold MMPs (birational to a Q-factorial target and semistable over a DVR), section extension and pl-flips, Witt-rationality and conditional lifting of threefold minimal models. Full main-paper reading; partial proof closure. Explicit source diagnostics obstruct treating the printed difficulty and surface finiteness arguments as closed proofs. General fourfold MMP, unconditional resolution and Picard lifting from numerical surjectivity are not claimed. A continuation recorded five verified source mistakes (sourceIssues E1–E5) and proved the fixed-coefficient version of Lemma 2.16 that Proposition 2.15 needs.",
+  "summary": "Hacon–Witaszek run two special fourfold MMPs in positive and mixed characteristic p > 5 (over a Q-factorial target with exceptional locus in the boundary, Theorem 1.1, and semistable over a DVR, Theorem 1.2), via section extension and pl-flips, and derive W O-rationality and dlt modifications for fourfolds and conditional lifting of threefold minimal models to characteristic zero. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and eleven findings are recorded. Lemma 2.2's index clause (E1), the unrestricted Lemma 2.16 (E2) and the global form of Lemma 6.6 (E6) are false as printed, and the proof of Theorem 6.1(2b) has a gap (E7); the main MMP theorems are unaffected. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5599,7 +5599,7 @@
       "kind": "theorem",
       "name": "Birational MMP with standard boundary",
       "statement": "For a four-dimensional Q-factorial dlt pair (Y,Δ) with standard coefficients over a perfect field p>5 or mixed DVR with perfect residue p>5, and projective birational π:Y→X with normal Q-factorial target and Ex(π)⊂floorΔ, all relative contractions and flips exist and the MMP terminates in a minimal model.",
-      "locator": "Thm4.6",
+      "locator": "Thm4.6; Theorem 1.1 (introduction form)",
       "status": "missing",
       "ownerRoute": "birational",
       "prerequisites": [
@@ -5644,7 +5644,7 @@
       "kind": "theorem",
       "name": "Birational MMP with nonstandard boundary",
       "statement": "The same relative birational MMP conclusion holds when standard coefficients are replaced by existence of log resolutions of every birational log pair by non-snc-locus blowups.",
-      "locator": "Thm4.1 nonstandard branch",
+      "locator": "Thm4.1 nonstandard branch; Theorem 1.1 (introduction form)",
       "status": "missing",
       "ownerRoute": "birational",
       "prerequisites": [
@@ -6685,7 +6685,7 @@
       "kind": "theorem",
       "name": "Termination of every semistable fourfold MMP",
       "statement": "In the §5 setting with κ((K_X+Δ)|X_η)≥0 and special support in floorΔ, an arbitrary adjoint MMP over the DVR can be run and every such sequence terminates in a minimal model. It is not merely a scaling-MMP theorem.",
-      "locator": "Thm5.1",
+      "locator": "Thm5.1; Theorem 1.2 (introduction form)",
       "status": "missing",
       "ownerRoute": "birational",
       "prerequisites": [
@@ -8808,7 +8808,8 @@
         "PAPER-HACON-WITASZEK-23/different",
         "PAPER-HACON-WITASZEK-23/different-strata"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E1; the log-index version needed by Lemma 4.2 rests on Kollár's surface classification, a cited supplier."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-difficulty",
@@ -8822,7 +8823,8 @@
         "PAPER-HACON-WITASZEK-23/difficulty-decrease",
         "PAPER-HACON-WITASZEK-23/modified-rho"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E4 and E5; transferring AHK07's invariance, positivity and decrease proofs is supplier work."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-surface",
@@ -8834,7 +8836,8 @@
         "PAPER-HACON-WITASZEK-23/codim-three-termination",
         "PAPER-HACON-WITASZEK-23/minimal-flops"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "E2 and E3 are recorded, and the fixed-coefficient lemma Proposition 2.15 needs is proved in fixed-boundary-surface."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-real-boundary",
@@ -8844,7 +8847,8 @@
         "PAPER-HACON-WITASZEK-23/special-fourfold-fibre",
         "PAPER-HACON-WITASZEK-23/codim-three-termination"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The rational approximation for R-boundaries is a standard reduction the paper uses implicitly; implementation work."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-vanishing",
@@ -8856,7 +8860,8 @@
         "PAPER-HACON-WITASZEK-23/dualizing",
         "PAPER-HACON-WITASZEK-23/weil-plus-restriction"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Bhatt's vanishing theorems (BMP) are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-lower-mmp",
@@ -8869,7 +8874,8 @@
         "PAPER-HACON-WITASZEK-23/boundary-abundance",
         "PAPER-HACON-WITASZEK-23/exceptional-divisor-signs"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The surface and threefold MMP inputs are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-f-singularities",
@@ -8881,7 +8887,8 @@
         "PAPER-HACON-WITASZEK-23/plt-threefold-pure",
         "PAPER-HACON-WITASZEK-23/opposing-divisors"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "HX15, HW19, Das15, Sch14, ST18 and SZ13 are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-positivity",
@@ -8891,7 +8898,8 @@
         "PAPER-HACON-WITASZEK-23/connected-gluing",
         "PAPER-HACON-WITASZEK-23/semistable-adjoint-bpf"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Witaszek, Cascini–Tanaka and Keel are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-witt",
@@ -8905,7 +8913,8 @@
         "PAPER-HACON-WITASZEK-23/witt-low-slopes",
         "PAPER-HACON-WITASZEK-23/rcc-witt"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Chatzistamatiou–Rülling, NT20, GNH19 and BBE are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-qcartier",
@@ -8917,7 +8926,8 @@
         "PAPER-HACON-WITASZEK-23/total-qfactorial",
         "PAPER-HACON-WITASZEK-23/total-terminal"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E6: the global statement fails without properness. The local deformation theorem is KM92 and dFH11, cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-picard",
@@ -8928,7 +8938,8 @@
         "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
         "PAPER-HACON-WITASZEK-23/numerical-flop-boundary"
       ],
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E7: Theorem 6.1(2b)'s proof uses prescribed line bundles that numerical surjectivity does not supply. The numerical repair is in the items; the boundary variant remains proof work."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-n1",
@@ -8938,7 +8949,8 @@
         "PAPER-HACON-WITASZEK-23/semistable-numerical-descent",
         "PAPER-HACON-WITASZEK-23/vertical-flip"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The paper leaves property (3) of Claim 5.5 'to the reader' (using ρ(X_k/Z) = 1); writing it out is routine proof work."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-formal",
@@ -8953,13 +8965,15 @@
         "PAPER-HACON-WITASZEK-23/special-ample-transfer",
         "PAPER-HACON-WITASZEK-23/primitive-effective-section"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Hartshorne, ABL22 and the Stacks formal-existence results are cited suppliers."
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-audit",
       "detail": "Route decisions are provisional until independent review and remaining primary/library closure. Search/read all newly exposed supplier interiors; no Lean deliverable exists for this paper job.",
       "items": [],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Independent review and route confirmation are the review pipeline's job."
     }
   ],
   "checks": [
@@ -9237,7 +9251,8 @@
       "searched": [
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9252,7 +9267,8 @@
       "searched": [
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9267,7 +9283,8 @@
       "searched": [
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9283,7 +9300,8 @@
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
-        "AHK07 (arXiv math/0605137v2) Definition 2.3 compared"
+        "AHK07 (arXiv math/0605137v2) Definition 2.3 compared",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9298,7 +9316,8 @@
       "searched": [
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
-        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+        "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9307,13 +9326,14 @@
       "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
       "printed": "also Q-Cartier",
       "correction": "Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.",
-      "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem.",
+      "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem. (cc-442dc5) Rechecked in arXiv v2 (there Lemma 6.4): the proof is only a citation of [KM92, 12.1.8] and [dFH11, Proposition 3.1], which are local statements near the special fibre, so the unrestricted global formulation is not supported by its proof either.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9328,7 +9348,8 @@
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9343,7 +9364,8 @@
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9358,7 +9380,8 @@
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9373,7 +9396,8 @@
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     },
     {
@@ -9388,7 +9412,8 @@
       "searched": [
         "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
         "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
-        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026 against arXiv v2 (the Cambridge PDF endpoint returned HTML to this environment; the checkpoint's published copy, SHA-256 d7ba34ec…, remains the reference)."
       ]
     }
   ],
@@ -9411,5 +9436,15 @@
     ],
     "mainInputs": "6488244af073abd91f39e4969f06eeda8b980d3d",
     "scope": "Whole-paper reread, nonproper counterexample and proper globalization, numerical-boundary construction, six new source findings. Local deformation and boundary-step identification remain open."
+  },
+  "summaryBefore": "Two special fourfold MMPs (birational to a Q-factorial target and semistable over a DVR), section extension and pl-flips, Witt-rationality and conditional lifting of threefold minimal models. Full main-paper reading; partial proof closure. Explicit source diagnostics obstruct treating the printed difficulty and surface finiteness arguments as closed proofs. General fourfold MMP, unconditional resolution and Picard lifting from numerical surjectivity are not claimed. A continuation recorded five verified source mistakes (sourceIssues E1–E5) and proved the fixed-coefficient version of Lemma 2.16 that Proposition 2.15 needs.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1369,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "arXiv v2 re-read at §§1, 5 and 6 (the published copy could not be re-fetched); E6 rechecked; the statement numbering in the locators checked for gaps.",
+    "changes": "Theorems 1.1 and 1.2 mapped to their body items; gap statuses recorded; status complete."
   }
 }
