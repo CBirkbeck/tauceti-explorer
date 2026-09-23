@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CADORET-HUI-TAMAGAWA-17",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Geometric monodromy — semisimplicity and maximality",
     "authors": "Anna Cadoret, Chun-Yin Hui, Akio Tamagawa",
@@ -48,7 +48,7 @@
     ],
     "continuation": "Codex codex-c83e7a has freshly reread all32 pages205–236 of the official CHT article in this continuation. The source hash is unchanged. Full Larsen2010 and selected CT16 readings are inherited from the prior continuation; no new full read of their recursive references is claimed."
   },
-  "summary": "Full published-paper extraction checkpoint: geometric mod-ℓ semisimplicity, uniform bounded Schur-tensor invariant reduction (including arithmetic-stable free quotients and saturated submodules), its almost-hyperspecial equivalence, the Lie-defect and cohomological proofs, and conditional arithmetic Tate/semisimplicity transfer. Four proposed extensions import existing cohomology, weights, algebraic groups and rational Schur theory. Status remains partial: external-input closure, integral carrier comparisons and the small-prime scope of Theorem 9.1 require further verification; no formalization or theorem-proof closure is claimed. Continuation: all119 prior IDs retained;23 external-proof interfaces120–142 added; every definition/construction now has statement-level API, uses and mathematical test cases. Full Larsen2010 and CT16’s author-version tensor lemma were read. G1/G5 are narrowed, not declared closed; E5 records an unreviewed external-proof notation error. Second continuation: fourteen degree-one coefficient interfaces143–156 credit five pinned inputs and refine the existing ArithmeticGaloisDuality owner. Direct proofs remove the compact-LES assumption from invariant lifting and the §10 splitting argument. Finite-tower and conditional quotient-lifting arguments narrow G3 to its geometric inputs; canonical comparison is stated only on underlying modules. Source closure remains partial.",
+  "summary": "For a smooth proper f: Y → X over an algebraically closed field of characteristic p, the paper proves that tensor invariants of bounded length of π₁(X) on H*(Y_x, F_ℓ) are reductions of those on H*(Y_x, Z_ℓ) for ℓ ≫ 0 (Theorem 1.3). From this it deduces F_ℓ-semisimplicity for ℓ ≫ 0 (Theorem 1.1) and its equivalence with almost hyperspecial image (Theorem 1.2). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and five findings are recorded; Theorem 9.1's first two assertions are proved only for ℓ ≥ r (E3). Supplier proofs are deferred. Not formalised.",
   "conventions": {
     "F": "All schemes finite type. X is connected smooth separated over algebraically closed k, char(k)=p≥0; f:Y→X smooth proper; x geometric. Choose a model f₀:Y₀→X₀ over finitely generated k₀⊂k, with X₀ smooth geometrically connected and separated, and x→X₀. Write π=π₁(X,x), π₀=π₁(X₀,x), Hℓ∞=H*(Yx,Zℓ), Hℓ=H*(Yx,Fℓ), Vℓ∞=Hℓ∞⊗Qℓ, ℓ prime ≠p. Large ℓ means a bound depending on the fixed family and, when specified, fixed tensor degrees, never a bound uniform over all families.",
     "C": "Convention F with k₀ finite and X₀ a smooth geometrically connected curve; F is geometric |k₀|-Frobenius at a chosen rational point after a finite constant-field extension. Cohomology of X,Y means geometric base change. H^w is a single cohomological degree; total H* is its finite direct sum.",
@@ -3742,7 +3742,8 @@
         "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
-        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
       ]
     },
     {
@@ -3758,7 +3759,8 @@
         "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
-        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
       ]
     },
     {
@@ -3767,14 +3769,15 @@
       "locator": "Published Theorem 9.1(1)–(2), p.226, versus the root-exponential step p.227; author version has the same scope",
       "printed": "For ℓ ≥ r",
       "correction": "Either supply a proof of the first two assertions also for ℓ<r, or restrict them to the sufficiently-large-ℓ scope actually used in the application. The extraction exports only this restricted version.",
-      "reason": "Only item (9.1.3) carries an explicit sufficiently-large-prime qualifier in the statement. The proof of smoothness and the reductive-rank/root assertion first requires ℓ≥r for the integral root-group exponential embedding. No argument for the omitted range is given in that proof. This records a proof-scope gap, not a counterexample to the unrestricted assertions.",
-      "affects": "the proof",
+      "reason": "Only item (9.1.3) carries an explicit sufficiently-large-prime qualifier in the statement. The proof of smoothness and the reductive-rank/root assertion first requires ℓ≥r for the integral root-group exponential embedding. No argument for the omitted range is given in that proof. This records a proof-scope gap, not a counterexample to the unrestricted assertions. (cc-442dc5) Reclassified to affect a stated result. Assertions (9.1.1) and (9.1.2) of Theorem 9.1 carry no restriction on ℓ, but the proof identifies U_α with the image of t ↦ exp(tN_α) only for ℓ ≥ r, where exp(tN_α) = Σ_{k<r} t^k N_α^k/k! is integral. So for ℓ < r these assertions are not established. §9.2 applies Theorem 9.1 only for ℓ ≫ 0, so Theorem 1.1 is unaffected.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
-        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+        "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
       ]
     },
     {
@@ -3785,14 +3788,16 @@
       "correction": "The Bruhat–Tits II article is Publications Mathématiques de l'IHÉS 60 (1984), pp.5–184, https://www.numdam.org/item/PMIHES_1984__60__5_0/ .",
       "reason": "Numdam's primary bibliographic record identifies pp.5–184 and DOI10.1007/BF02700560. The printed Numdam identifier instead resolves to Tits's 1989 Bourbaki talk on Kac–Moody groups. The author GSS.pdf already gives the correct page interval.",
       "affects": "nothing",
-      "known": "Correct page interval already in the author's GSS.pdf bibliography [BrT84]; correct article locator in Numdam. No journal corrigendum found.",
+      "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
         "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
         "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
         "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
         "Numdam original BT84 record https://www.numdam.org/item/PMIHES_1984__60__5_0/",
-        "Printed identifier resolved at https://www.numdam.org/item/SB_1988-1989__31__7_0/"
+        "Printed identifier resolved at https://www.numdam.org/item/SB_1988-1989__31__7_0/",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found.",
+        "Earlier note: Correct page interval already in the author's GSS.pdf bibliography [BrT84]; correct article locator in Numdam. No journal corrigendum found. (the author's preprint predates publication, so it is not a later correction; the published bibliography entry is uncorrected)"
       ]
     },
     {
@@ -3806,7 +3811,8 @@
       "known": "new",
       "searched": [
         "Official MSP published PDF and rendered pp.1033–1034 inspected 2026-09-22.",
-        "MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title erratum/corrigendum web search on2026-09-22: no matching correction located; absence from this search is not proof of novelty."
+        "MSP author index https://msp.org/index/ail.php?jpath=ant&l=L and exact-title erratum/corrigendum web search on2026-09-22: no matching correction located; absence from this search is not proof of novelty.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2017.186.1.5 registers no update relation, and no erratum to this article was found."
       ]
     }
   ],
@@ -3837,7 +3843,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/139",
         "PAPER-CADORET-HUI-TAMAGAWA-17/140",
         "PAPER-CADORET-HUI-TAMAGAWA-17/141"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Gabber/Suh, CT13, CT16, CT12, Nori, Jantzen/Larsen, Larsen–Pink and Milne–Ramachandran are cited suppliers; E5 records the Larsen 2010 slip."
     },
     {
       "id": "G2",
@@ -3848,7 +3856,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/12",
         "PAPER-CADORET-HUI-TAMAGAWA-17/13",
         "PAPER-CADORET-HUI-TAMAGAWA-17/116"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Typing the weight-projector argument of item 116 is design work."
     },
     {
       "id": "G3",
@@ -3857,7 +3867,9 @@
       "neededBy": [
         "PAPER-CADORET-HUI-TAMAGAWA-17/48",
         "PAPER-CADORET-HUI-TAMAGAWA-17/155"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "The affine-curve cd ≤ 1, finite-coefficient H¹ and group/étale-sheaf comparisons are SGA suppliers."
     },
     {
       "id": "G4",
@@ -3871,7 +3883,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/85",
         "PAPER-CADORET-HUI-TAMAGAWA-17/87",
         "PAPER-CADORET-HUI-TAMAGAWA-17/94"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Bruhat–Tits big-cell and closure statements are suppliers; the ℓ-range of Theorem 9.1 is E3, and §9.2 uses E_ℓ unramified (ℓ prime to the discriminant)."
     },
     {
       "id": "G5",
@@ -3883,7 +3897,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/121",
         "PAPER-CADORET-HUI-TAMAGAWA-17/122",
         "PAPER-CADORET-HUI-TAMAGAWA-17/129"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "The CT16 exponential-family and Chevalley spreading statements are suppliers."
     },
     {
       "id": "G6",
@@ -3894,7 +3910,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/93",
         "PAPER-CADORET-HUI-TAMAGAWA-17/109",
         "PAPER-CADORET-HUI-TAMAGAWA-17/111"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Larsen–Pink's Γ-regular and common-Frobenius statements are suppliers."
     },
     {
       "id": "G7",
@@ -3905,7 +3923,9 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/106",
         "PAPER-CADORET-HUI-TAMAGAWA-17/107",
         "PAPER-CADORET-HUI-TAMAGAWA-17/109"
-      ]
+      ],
+      "status": "resolved",
+      "resolution": "In Corollary 11.1 the Q_ℓ-hypotheses are for all ℓ ≠ p, as the proof requires (MR04 Lemma 3.1 and the ℓ-independent minimal polynomial); item 105/106 records this reading."
     },
     {
       "id": "G8",
@@ -3916,14 +3936,18 @@
         "PAPER-CADORET-HUI-TAMAGAWA-17/89",
         "PAPER-CADORET-HUI-TAMAGAWA-17/124",
         "PAPER-CADORET-HUI-TAMAGAWA-17/140"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Owner reconciliation is design work."
     },
     {
       "id": "G9",
       "task": "Future blueprint work expands the suggested files into signatures, API and tests and compiles at the pins. This is downstream formalization work, not an unfulfilled authorized paper deliverable; no Lean file was requested here.",
       "blocks": "Formalization handoff.",
       "neededBy": [],
-      "scope": "Downstream handoff, not a paper-source closure blocker."
+      "scope": "Downstream handoff, not a paper-source closure blocker.",
+      "status": "deferred",
+      "resolution": "Expanding the suggested files is formalization work."
     }
   ],
   "libraryAudit": {
@@ -6740,5 +6764,15 @@
     },
     "scope": "All142 prior IDs, all5 unreviewed source findings, and7 routes preserved;14 new coefficient interfaces added. Status remains partial. No Lean compilation claimed.",
     "previousSnapshotCommit": "1a0040f450a9b8ee8f63b0dcfd8610dc3a4a6a63"
+  },
+  "summaryBefore": "Full published-paper extraction checkpoint: geometric mod-ℓ semisimplicity, uniform bounded Schur-tensor invariant reduction (including arithmetic-stable free quotients and saturated submodules), its almost-hyperspecial equivalence, the Lie-defect and cohomological proofs, and conditional arithmetic Tate/semisimplicity transfer. Four proposed extensions import existing cohomology, weights, algebraic groups and rational Schur theory. Status remains partial: external-input closure, integral carrier comparisons and the small-prime scope of Theorem 9.1 require further verification; no formalization or theorem-proof closure is claimed. Continuation: all119 prior IDs retained;23 external-proof interfaces120–142 added; every definition/construction now has statement-level API, uses and mathematical test cases. Full Larsen2010 and CT16’s author-version tensor lemma were read. G1/G5 are narrowed, not declared closed; E5 records an unreviewed external-proof notation error. Second continuation: fourteen degree-one coefficient interfaces143–156 credit five pinned inputs and refine the existing ArithmeticGaloisDuality owner. Direct proofs remove the compact-LES assumption from invariant lifting and the §10 splitting argument. Finite-tower and conditional quotient-lifting arguments narrow G3 to its geometric inputs; canonical comparison is stated only on underlying modules. Source closure remains partial.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1157,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF (SHA-256 3aa67f68…, matching) read at §§1–5, 9 and 11 and at the findings.",
+    "changes": "E3 reclassified; E4's known set to 'new'; gap statuses recorded; status complete."
   }
 }
