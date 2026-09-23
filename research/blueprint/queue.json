@@ -3074,8 +3074,8 @@
    ],
    "avoidAccountOf": "PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHARLES-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1189"
+   "state": "external",
+   "note": "claimed on GitHub issue #1189"
   },
   {
    "id": "PAPER-KALETHA-16",
@@ -4207,8 +4207,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -7630,7 +7630,8 @@
    ],
    "avoidAccountOf": "PAPER-DING-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-DING-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1441"
   },
   {
    "id": "PAPER-RICHARD-YAFAEV-25",
@@ -7940,8 +7941,9 @@
    ],
    "avoidAccountOf": "PAPER-BREUIL-HELLMANN-SCHRAEN-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1457"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1457",
+   "finishedAt": "2026-09-23T19:28:23Z"
   },
   {
    "id": "PAPER-BHATT-MORROW-SCHOLZE-19",
