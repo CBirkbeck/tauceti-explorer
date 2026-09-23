@@ -48691,14 +48691,15 @@
    "locator": "Main Theorem2.7 pp550; erratum §1 pp1–3, 18 December 2022 revision",
    "printed": "0→A1→A→A2→0 ⇒ 0→𝒜1→𝒜→𝒜2→0",
    "correction": "Use erratum Theorem1: good reduction, nearby types and kernel graph of an OE-isomorphism of relative-different torsion. Verify the actual quaternionic isogeny has that kernel.",
-   "reason": "Néron models need not preserve a short exact sequence; authors cite BLR Example8 p190. The corrected theorem is weaker and suffices for main Theorem1.6. Do not assert the original unrestricted theorem disproved by this proof failure.",
-   "affects": "the proof",
+   "reason": "Néron models need not preserve a short exact sequence; authors cite BLR Example8 p190. The corrected theorem is weaker and suffices for main Theorem1.6. Do not assert the original unrestricted theorem disproved by this proof failure. (cc-442dc5) Reclassified to affect a stated result: the published erratum does not prove Theorem 2.7 as printed but replaces it by the weaker Theorem 1 (kernel the graph of an isomorphism A1[δ] → A2[δ]). Theorems 1.1 and 1.6 are unaffected: the erratum (§1) shows that the isogeny used on pp. 576–577 satisfies the weaker hypothesis.",
+   "affects": "a stated result",
    "known": "Published erratum, Annals198(2023)867–878, DOI10.4007/annals.2023.198.2.8; later author revision read.",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48720,7 +48721,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48742,7 +48744,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48756,15 +48759,16 @@
    "kind": "error",
    "locator": "Main Theorem2.2 proof pp545–546, images checked; unchanged in selected arXiv v3 §2.2",
    "printed": "c_p∈Gal(Q̄_p/Q_p), τc=c_pτ for every τ",
-   "correction": "Cancel the product by reindexing all embeddings through global CM conjugation (or the norm of E⊗Qp), not by a single local absolute Galois automorphism.",
-   "reason": "Take E=Q(i), p=5. X²+1 has a simple root mod5 and hence i∈Q5 under either local embedding. Every Q5-automorphism fixes it, whereas conjugation sends it to −i. The required c_p cannot exist.",
+   "correction": "For x in K⊗Q_p, the product of |σ(x)|_p over σ: K → Q̄_p is |N_{K⊗Q_p/Q_p}(x)|_p. With x = τ(α) and x = τ(ᾱ), both products equal |N_{E⊗Q_p/Q_p}(α)|_p^{[K:E]}, since complex conjugation is a Q_p-algebra automorphism of E⊗Q_p and so preserves the norm. Hence the product of ||φ_σ||_p is 1 without any c_p.",
+   "reason": "Take E=Q(i), p=5. X²+1 has a simple root mod5 and hence i∈Q5 under either local embedding. Every Q5-automorphism fixes it, whereas conjugation sends it to −i. The required c_p cannot exist. (cc-442dc5) The repair in the correction is checked; Theorem 2.2 stands.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48778,15 +48782,16 @@
    "kind": "error",
    "locator": "Main Theorem2.3 proof p547, image checked; same assertion in selected arXiv v3",
    "printed": "OE⊗Zp=Zp[x]",
-   "correction": "Work factorwise or first make a sufficiently large finite unramified scalar extension, prove monogenicity there, and descend the discriminant identity; this descent is still a required proof leaf.",
-   "reason": "For CM E=Q(√17,√−7), p=2 splits in both quadratic factors (both discriminants are 1 mod8), hence OE⊗Z2≃Z2^4. Its reduction F2^4 is not monogenic: every element is idempotent and generates an algebra with at most four elements, not sixteen.",
+   "correction": "Enlarge K (the heights are invariant under base change) until every residue field of K at p contains the residue fields of the Galois closure of E and has more than [E:Q] elements. Then O_E⊗O_σ = ∏_w O_σ[t]/P_w(t); shifting each generator by a unit of O_σ makes the reductions of the P_w pairwise coprime, so the Chinese remainder theorem gives O_E⊗O_σ = O_σ[t]/P(t). Run the proof of Lemma 2.4 and Theorem 2.3 over O_σ, where R_Φ⊗O_σ = O_σ[t]/P_Φ(t) and the relative discriminant is compatible with this flat base change.",
+   "reason": "For CM E=Q(√17,√−7), p=2 splits in both quadratic factors (both discriminants are 1 mod8), hence OE⊗Z2≃Z2^4. Its reduction F2^4 is not monogenic: every element is idempotent and generates an algebra with at most four elements, not sixteen. (cc-442dc5) The proof of Theorem 2.3 is already local over O_σ, so the repair in the correction closes it; Theorem 2.3 stands.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48808,7 +48813,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48830,7 +48836,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48852,7 +48859,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48863,18 +48871,19 @@
   },
   {
    "id": "PAPER-YUAN-ZHANG-18/E9",
-   "kind": "gap",
+   "kind": "error",
    "locator": "Main Theorem4.10 division-case proof p570, image checked",
    "printed": "j1j2=π ⇒ exactly one of j1,j2 is invertible",
-   "correction": "Prove the claimed line-bundle identity on the smooth locus using the special formal-module geometry, then justify extension across codimension-two nodes on the regular model; alternatively compute the nodal deformation explicitly.",
-   "reason": "The relation alone is insufficient: in O[[x,y]]/(xy−π) at the closed node, x and y are both nonunits. This is a counterexample to the inference, not to the stated Kodaira–Spencer theorem. The proposed extension argument has not been source-closed.",
+   "correction": "Argue on the complement of the finitely many double points of the special fibre, where exactly one of j1, j2 is an isomorphism (Čerednik–Drinfeld), and on the generic fibre, where both are. There ω^{-2} and π^{-1}N^∨ agree as invertible subsheaves of N^∨⊗K. X_℘ is a regular surface, so two invertible subsheaves of the same invertible sheaf that agree off a closed set of codimension two are equal.",
+   "reason": "The relation alone is insufficient: in O[[x,y]]/(xy−π) at the closed node, x and y are both nonunits. This is a counterexample to the inference, not to the stated Kodaira–Spencer theorem. The proposed extension argument has not been source-closed. (cc-442dc5) Reclassified from gap to error: the printed claim that exactly one of j1, j2 is an isomorphism at each point is false at the double points of the Mumford special fibre, where both are nonunits. The correction gives the extension argument; Theorem 4.10 stands.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48896,7 +48905,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48918,7 +48928,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48940,7 +48951,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48962,7 +48974,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -48984,7 +48997,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49006,7 +49020,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49028,7 +49043,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49050,7 +49066,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49064,15 +49081,16 @@
    "kind": "error",
    "locator": "Main p633 paragraph after Lemma9.4, image checked",
    "printed": "π is étale",
-   "correction": "Do not assert global étaleness of this coarse-level cover; prove that the selected CM lift is a section over R using its field of definition and unchanged local level.",
-   "reason": "The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM points e>1, this is ramification, incompatible with étaleness. The section assertion needs its own justification.",
+   "correction": "π ramifies at P' with index e. The section property holds because U'_v = U_v: the CM point P' is then defined over a class field of E that is unramified at w over H, so P' is H_w^ur-rational. Its closure in the proper R-scheme X_{U',R} is therefore the image of a section Spec R → X_{U',R}.",
+   "reason": "The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM points e>1, this is ramification, incompatible with étaleness. The section assertion needs its own justification. (cc-442dc5) The correction now gives the section argument; Lemma 9.4 is not affected.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49094,7 +49112,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49105,18 +49124,19 @@
   },
   {
    "id": "PAPER-YUAN-ZHANG-18/E20",
-   "kind": "error",
+   "kind": "misprint",
    "locator": "Main §3.3 CM points p558",
    "printed": "X'^{T'} is a T̂'-torsor",
    "correction": "State the orbit using the effective torus quotient, with the rational stabilizer (and its closure in the adelic action) accounted for.",
-   "reason": "In the double quotient, rational torus elements fix the distinguished complex point and act trivially on its adelic orbit after left quotienting. Thus the unquotiented adelic torus action is not free. The exact scheme/tower quotient is a remaining reconciliation task.",
-   "affects": "the proof",
+   "reason": "In the double quotient, rational torus elements fix the distinguished complex point and act trivially on its adelic orbit after left quotienting. Thus the unquotiented adelic torus action is not free. The exact scheme/tower quotient is a remaining reconciliation task. (cc-442dc5) Reclassified to a misprint that affects nothing: the intended statement is the standard one, that the fixed points form a principal homogeneous space under the quotient of T̂' by the closure of T'(Q). The paper uses only that X'^{T'} is one T̂'-orbit, to fix a point P'.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49138,7 +49158,8 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
@@ -49160,7 +49181,28 @@
     "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
     "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
     "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+    "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
+   ],
+   "owner": "PAPER-YUAN-ZHANG-18",
+   "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
+   "citation": "Xinyi Yuan–Shou-Wu Zhang, \"On the averaged Colmez conjecture\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUAN-ZHANG-18/E23",
+   "kind": "misprint",
+   "locator": "Main Theorem 4.5 proof p565, first sentence",
+   "printed": "By Proposition 4.4, Theorem 3.2 and Corollary 3.6",
+   "correction": "Read Proposition 3.2.",
+   "reason": "There is no Theorem 3.2; the regular PEL models at small level are Proposition 3.2 (p554).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Main published PDF, all numbered statements of §§3–4 listed from the text layer (cc-442dc5).",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
    ],
    "owner": "PAPER-YUAN-ZHANG-18",
    "file": "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
