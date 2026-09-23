@@ -33,3 +33,70 @@ The proof has three parts:
 - **Not yet items.** About ninety numbered lemmas, propositions and definitions in §§2–8; they are listed in the handoff.
 - **Findings.** No `sourceIssues` are recorded yet, and the paper has not been read closely enough to assert that it has none.
 - **Library evidence.** No Mathlib or Tau Ceti declarations have been checked, so every item is marked missing.
+
+## Second checkpoint: the source version, and §§2.3–3.3
+
+Claude Code, session `cc-d67081`, 23 September 2026. Continues the first extraction (`cc-442dc5`).
+Base blobs: result `05852a05`, report `ed5cd5e3`, handoff `a9feab1d`.
+
+### The source is arXiv v7, not v4
+
+The first extraction recorded the source as "arXiv v4 (final version, 112 pages)" with SHA-256
+`8f06c68b…f99e7a` and the URL `https://arxiv.org/pdf/2009.03127v4`. The hash, the date and the page
+count are those of **v7**; the URL serves a different document. Both were re-downloaded on
+2026-09-23:
+
+| version | date | pages | SHA-256 |
+| --- | --- | --- | --- |
+| v4 | 14 September 2021 | 107 | `98a9e688b7baa71350631656dd9eba3072e3ef1c68f17f56db5279dd1bfecc46` |
+| v7 | 9 June 2023 | 112 | `8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a` |
+
+The recorded hash matches v7 exactly, as do the "9 June 2023" date and the 112 pages, and v7 is the
+one stamped "Final version, to appear in Inventiones Mathematicae". So the reading was of v7 and only
+the label was wrong — but the label matters here, because v4 is a genuinely different 107-page
+document whose numbering a reader following the recorded URL would get. The `source` block and all
+seventeen inherited locators now say v7, and `source.version` records the discrepancy. Nothing else
+about the inherited items changed.
+
+### Twenty-five items for §§2.3–3.3
+
+The first item of the handoff's resume list is now done for §2 and §3. The new items are the
+numbered statements of §§2.3–3.3, with exact statements rather than paraphrases:
+
+- **§2.3, tame inertial types.** `tame-type-tau` (Definition 2.3.1, with (11) and (12)),
+  `n-generic-type` (2.3.3), `n-generic-rhobar` (2.3.4), and `orientation`, which collects Remarks
+  2.3.5–2.3.6 because §3 uses the orientation constantly and it is not a numbered statement.
+- **§2.4, Serre weights.** `lambda-lattice` (the lattices Λ_W, Λ_R, Λ_W^μ, the map t_μ with (14) and
+  the set Σ), `serre-weights-tame` (2.4.2: W(ρ̄) = {F(t_{μ−η}(sω)) : ω ∈ Σ}), `jh-factors-type`
+  (2.4.3: the Jordan–Hölder factors of σ̄(τ)), `change-of-origin` (2.4.4) and `ext-adjacent-weights`
+  (2.4.6: Ext¹ between Serre weights is F for adjacent weights and 0 otherwise).
+- **§3.1, Kisin modules.** `kisin-matrices` (3.1.1), `kisin-shape` (3.1.4), `gauge-basis-exists`
+  (3.1.5, with both conditions and the uniqueness group), `gauge-basis` (3.1.6),
+  `monodromy-derivation` (3.1.7), `monodromy-condition` (3.1.8) and `monodromy-explicit` (3.1.9,
+  with (16) and (17) and the N-generic leading-term form).
+- **§3.2, tame representations.** `good-pair` (3.2.1), `good-deep` (3.2.3), `etale-module-w-D`
+  (3.2.4), `tame-rep-w-D` (3.2.5), `unramified-twist-V` (3.2.6), `tame-classification` (3.2.7),
+  `cyclotomic-free-hom` (3.2.8) and `isom-descent` (3.2.9).
+- **§3.3.** `irreducibility-lemma` (3.3.1), the commutative-algebra lemma about x₁x₂ + ϖ^d f.
+
+The displays of Definition 2.3.1, Propositions 2.4.2 and 2.4.3, Proposition 3.1.5 and Proposition
+3.1.9 were checked on page images of pp. 14, 16, 19 and 21, because text extraction mangles this
+paper's notation badly. One statement is deliberately incomplete: `kisin-matrices` describes the
+renormalization of C_{M,β} into A_{M,β} without transcribing its display, and its note says so.
+
+**Routing.** Twenty-two of the new items join the Local Galois deformation rings Part II route, whose
+brief already names tame inertial types, genericity, Kisin modules with tame descent data, gauge
+bases and the monodromy condition. Three — `lambda-lattice`, `change-of-origin` and
+`ext-adjacent-weights` — join the new GL₂ roadmap instead, since they are statements about
+GL₂(k)-representations and their extensions rather than about Galois representations. A reviewer may
+prefer to move `serre-weights-tame` and `jh-factors-type` there too; they are kept with the types
+because §4 uses them to compute the deformation rings. Nothing in the atlas plans this combinatorics:
+`SerreWeightAndLevelOptimisation` R20.3 is the classical Edixhoven/Serre weight theorem for GL₂ over
+**Q**, not the Buzzard–Diamond–Jarvis weight sets and alcove combinatorics for unramified K.
+
+### Boundaries of this checkpoint
+
+§§4–8 were not read, and the inherited seventeen items were not re-verified against the source — only
+their version label was corrected. No library declaration was checked, so every item is still
+`missing`, and no `sourceIssues` are proposed: the sections read here are definitional and quote
+their inputs, and nothing in them looked wrong. No Lean was written or compiled.
