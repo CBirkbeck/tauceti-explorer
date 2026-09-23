@@ -1892,13 +1892,13 @@
      ]
     },
     "SerreWeightAndLevelOptimisation:R20.6": {
-     "verdict": "process",
+     "verdict": "not built",
      "targets": [
       {
        "target": "The bounded-level, weight-two, trivial-character consequence used at sufficiently large good p",
        "library": "absent",
        "declarations": [],
-       "note": "A restatement of R20.1-R20.5 in the form R29 consumes; none of the underlying theorems exists in either library."
+       "note": "A restatement of R20.1-R20.5 in the form R29 consumes; none of the underlying theorems exists in either library. Note that this target is a theorem to prove — the milestone's own first instruction is 'Prove the bounded-level, weight-two and trivial-character consequence used by R29' — not an export obligation, which is why the layer is graded 'not built' rather than 'process'."
       },
       {
        "target": "The optimisation inputs used inside KW and the modern qualitative proof, without importing their final Serre theorem",
