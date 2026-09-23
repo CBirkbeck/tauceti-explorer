@@ -294,3 +294,28 @@ The misprints include a mis-cited reference: "[29], A1.3.17" for Kodaira–Spenc
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json` reports ok.
 - `research/blueprint/intake.py check-files` passes on the two deliverables.
 - No Lean was written. A paper extraction has no Lean deliverable, and nothing is claimed to be formalised.
+
+## Review (REV-PAPER-CALEGARI-GERAGHTY-18, 23 September 2026)
+
+The review accepted the extraction after corrections made in place; all 23 routes stand. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-18.md`. Ten checkers read the published article against its page images and the arXiv v2 TeX. They opened every cited declaration, read every cited layer and checked every recorded mistake. The coordinator re-derived the substantive new findings.
+
+- **Corrected: 78 items.** The material ones:
+  - L_σ at Taylor–Wiles level is now defined at level V (E221);
+  - the §4.1 support claim fails at v ≡ −1 mod p mod-p Steinberg primes (E224);
+  - Lemma 9.6's key step is localized at m̃ (E229);
+  - the §10 items use N₂ > 2n + 1, the E216 relabelling, BLGHT II's Proposition 6.2 as printed, and HSBT's simultaneous reduction;
+  - Lemma 4.2 needs B or C O-flat;
+  - the χ⁻¹ in the §9.5 duality.
+
+  fricke-w-x and tw-local-selmer-dimension became missing, and one duplicate item was removed.
+- **New: 16 items** (5 planned, 11 missing), 510 in total. Among them:
+  - the deduction of Theorem 1.2 from Theorem 1.3;
+  - the non-smooth cases of Lemma 4.11;
+  - the Borel–Serre boundary;
+  - "Serre modular of minimal level";
+  - the parahoric invariants behind Theorem 9.16;
+  - the twisted modular curve X_E(q).
+- **Source issues:** E1–E217 are all confirmed; twelve entries were narrowed to their own scope, and three had kind or affects changed. E218–E230 are new.
+  - Three affect proofs: E221, E224 and E229. All have direct repairs.
+  - The rest are misprints.
+  - No main theorem changes.
