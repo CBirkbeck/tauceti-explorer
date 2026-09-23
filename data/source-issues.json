@@ -63578,46 +63578,82 @@
   {
    "id": "PAPER-HARPAZ-WITTENBERG-16/E1",
    "kind": "misprint",
-   "locator": "Proof of Lemma 9.13(4), p. 39 of the authors' final version (= arXiv v4); the published pagination was not accessible",
-   "printed": "\"Thus we may assume that w lies above a place of S′, so that w(b_i) = w(b′_i) = 0 and w(α) ≥ 0, w(γ) ≥ 0, w(a′_i) ≥ 0.\"",
-   "correction": "\"Thus we may assume that w does not lie above a place of S′, so that w(b_i) = w(b′_i) = 0 and w(α) ≥ 0, w(γ) ≥ 0, w(a′_i) ≥ 0.\"",
+   "locator": "Published p275, proof of Lemma9.13(4); author and arXivv4 p39",
+   "printed": "w lies above a place of S′",
+   "correction": "In the remaining case, w does not lie above S′; first dispose of w above S and exclude S′ minus S.",
    "reason": "Assertion (4) says: either w lies above S, or w does not lie above S′ and w(t′₀ − a′_i) > 0. The first case is immediate, and the preceding sentence excludes w above S′ ∖ S. The case left is w not above S′. Only there do the stated valuations hold: S′₀ ⊆ S′ contains every place above which α, γ or a′_i fails to be integral or b′_i fails to be a unit, and b_i is a unit outside S ⊆ S′. At places above S′ they are not controlled. The rest of the argument proves the second alternative in exactly this case, by the identity b′_i(t′₀ − a′_i) = b_i(t₀ − a_i)(α − γt′₀), checked by direct computation with t′₀ − a′_i = (αδ − βγ)(t₀ − a_i)/((γt₀ + δ)(γa_i + δ)) and α − γt′₀ = (αδ − βγ)/(γt₀ + δ).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 1409.0993: v1 (3 Sep 2014) to v4 (22 Jun 2015). v4 was read in full and is the latest",
-    "the authors' final version at https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf (linked from Wittenberg's publication list as the Annals paper): identical to arXiv v4 except for five trivial differences (two punctuation marks, the page range of one reference and a postcode, besides the arXiv header), checked by a word-level diff",
-    "Annals of Mathematics article page https://annals.math.princeton.edu/2016/183-1/p05: no erratum listed. The publisher PDF is paywalled (a 2-page preview of pp. 229–230 was read), so the published pages could not be checked",
-    "Crossref metadata for 10.4007/annals.2016.183.1.5: no update, erratum or correction relation"
+    "Independent review: Annals landing https://annals.math.princeton.edu/2016/183-1/p05; full public publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf at the cited pages, with images; author final PDF read in full; arXiv1409.0993 version history and v4 relevant passages; Harpaz and Wittenberg publication pages; bounded title/DOI/erratum and relevant-lemma searches. No separate relevant correction identified.",
+    "Harpaz–Wei–Wittenberg2022 author PDF https://www.math.univ-paris13.fr/~wittenberg/hww.pdf, Remark3.2, Theorem4.1 and Remarks5.4 read selectively. These give a later strengthened fibration framework; no explicit repair of the identified weak-real openness step was found in these passages. This is not a full survey or a priority claim."
    ],
    "owner": "PAPER-HARPAZ-WITTENBERG-16",
    "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
    "citation": "Harpaz–Wittenberg, \"On the fibration method for zero-cycles and rational points\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-16",
+   "reviewReason": "The published page retains the wrong complement. Outside S′ the unit/integrality bounds used in the next sentence hold; above S′ they need not. The Möbius identity itself was independently checked exactly."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-16/E2",
    "kind": "error",
-   "locator": "Proof of Theorem 9.22, p. 47 of the authors' final version (= arXiv v4)",
-   "printed": "\"To this end, we may assume, after enlarging S, that X_h(k_v) ≠ ∅ for any v ∈ Ω ∖ S (see [LW54], [Nis54]), that Ω_∞ ⊆ S and that any element of B₀ evaluates trivially on X(k_v) for any v ∈ Ω ∖ S. For v ∈ Ω ∖ S, let x″_v be an arbitrary k_v-point of X_h.\"",
-   "correction": "Fix a model 𝒳 of X over 𝒪_S with B₀ ⊂ Br(𝒳). Enlarge S so that x_v ∈ 𝒳(𝒪_v) for v ∉ S, and so that the fiber 𝒳_h has 𝒪_v-points for v ∉ S (Lang–Weil and Hensel on a smooth model of X_h). Then every β ∈ B₀ vanishes on 𝒳(𝒪_v) for v ∉ S, and one takes x″_v ∈ 𝒳_h(𝒪_v). The rest of the proof is unchanged. When X is proper, X(k_v) = 𝒳(𝒪_v) for almost all v and the printed claim holds.",
+   "locator": "Published p283, proof of Theorem9.22; author and arXivv4 p47",
+   "printed": "evaluates trivially on X(k_v)",
+   "correction": "Choose a common integral model carrying the finite subgroup B0. Enlarge S so the old adelic point and the chosen smooth geometrically integral fibre have integral points outside S; choose x-double-prime integral there. Then the finite subgroup evaluates trivially outside S. Use Smeets Proposition6.1 to select finitely many additional approximation places disjoint from S. This repairs the nonproper integrality step conditional on9.17; its separate E4 real branch is not repaired by this argument.",
    "reason": "Theorem 9.22 keeps the assumptions of Theorem 9.17, where X is only smooth and irreducible, not proper; Proposition 9.9 applies Theorem 9.17 to the quasi-affine W. For non-proper X an element of Br(X) need not vanish on X(k_v) at almost all v. Take X = 𝔾_m × P^1_k with f the second projection (every fiber ≅ 𝔾_m is geometrically integral), U = P^1_k minus a point, and B = {0, (x, a)} with x the coordinate of 𝔾_m and a ∈ k^* a non-square. Then (x, a) ∈ Br(X), so (x, a) ∈ B₀. At each of the infinitely many places v inert in k(√a), (x, a) takes the value 1/2 at every point with v(x) odd. With x″_v arbitrary k_v-points of X_h, the family (x″_v) need not be orthogonal to B₀, so the next sentence ('By the definition of B₀, the adelic point (x″_v) is orthogonal to (B + f_η^*Br(η)) ∩ Br(X)') fails as written. With integral points it holds: Σ_{v∈S} inv_v β(x_v) = 0 by the orthogonality of (x_v) and its integrality outside S, and β(x″_v) = 0 for v ∉ S. Corollary 9.23 and the later results apply Theorem 9.22 only to proper X, where the printed claim is true, so the gap affects only the non-proper generality of Theorem 9.22 itself.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 1409.0993: v1 (3 Sep 2014) to v4 (22 Jun 2015). v4 was read in full and is the latest",
-    "the authors' final version at https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf (linked from Wittenberg's publication list as the Annals paper): identical to arXiv v4 except for five trivial differences (two punctuation marks, the page range of one reference and a postcode, besides the arXiv header), checked by a word-level diff",
-    "Annals of Mathematics article page https://annals.math.princeton.edu/2016/183-1/p05: no erratum listed. The publisher PDF is paywalled (a 2-page preview of pp. 229–230 was read), so the published pages could not be checked",
-    "Crossref metadata for 10.4007/annals.2016.183.1.5: no update, erratum or correction relation"
+    "Independent review: Annals landing https://annals.math.princeton.edu/2016/183-1/p05; full public publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf at the cited pages, with images; author final PDF read in full; arXiv1409.0993 version history and v4 relevant passages; Harpaz and Wittenberg publication pages; bounded title/DOI/erratum and relevant-lemma searches. No separate relevant correction identified.",
+    "Harpaz–Wei–Wittenberg2022 author PDF https://www.math.univ-paris13.fr/~wittenberg/hww.pdf, Remark3.2, Theorem4.1 and Remarks5.4 read selectively. These give a later strengthened fibration framework; no explicit repair of the identified weak-real openness step was found in these passages. This is not a full survey or a priority claim."
    ],
    "owner": "PAPER-HARPAZ-WITTENBERG-16",
    "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
    "citation": "Harpaz–Wittenberg, \"On the fibration method for zero-cycles and rational points\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-16",
+   "reviewReason": "Published p283 still makes the unrestricted local-point assertion. On G_m×P¹ with beta=(x,a), at good inert primes in k(sqrt(a))/k an odd valuation of x gives invariant1/2. Choosing one such exceptional value already gives an adelic counterexample to the claimed arbitrary-choice orthogonality. Spreading beta and choosing integral points repairs it. The correct Smeets supplier was read."
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-16/E3",
+   "kind": "error",
+   "locator": "Lemma8.11, published p265; author/arXivv4 p31; compare the properness condition in Notation author p6",
+   "printed": "geometrically integral variety",
+   "correction": "At least properness is necessary for the degree-zero Chow group as defined in this paper. For the checked application retain smooth projective geometrically integral V, and separately acquire the original decomposition-of-diagonal supplier before broader generalizations.",
+   "reason": "The paper defines A0 only for proper varieties. On A1, div(t)=[0] is rationally equivalent to zero but has degree1, so degree cannot descend to CH0 on arbitrary nonproper V. Thus the printed generality is not even the domain of the stated invariant. The proper smooth fibres used in8.10 are unaffected; no counterexample to its fibration conclusions is claimed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: Annals landing https://annals.math.princeton.edu/2016/183-1/p05; full public publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf at the cited pages, with images; author final PDF read in full; arXiv1409.0993 version history and v4 relevant passages; Harpaz and Wittenberg publication pages; bounded title/DOI/erratum and relevant-lemma searches. No separate relevant correction identified.",
+    "Harpaz–Wei–Wittenberg2022 author PDF https://www.math.univ-paris13.fr/~wittenberg/hww.pdf, Remark3.2, Theorem4.1 and Remarks5.4 read selectively. These give a later strengthened fibration framework; no explicit repair of the identified weak-real openness step was found in these passages. This is not a full survey or a priority claim."
+   ],
+   "owner": "PAPER-HARPAZ-WITTENBERG-16",
+   "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
+   "citation": "Harpaz–Wittenberg, \"On the fibration method for zero-cycles and rational points\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-16",
+   "reviewReason": "The paper defines A0 only for proper varieties. On A1, div(t)=[0] is rationally equivalent to zero but has degree1, so degree cannot descend to CH0 on arbitrary nonproper V. Thus the printed generality is not even the domain of the stated invariant. The proper smooth fibres used in8.10 are unaffected; no counterexample to its fibration conclusions is claimed."
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-16/E4",
+   "kind": "error",
+   "locator": "Proof of Theorem9.17, published p281; author/arXivv4 pp44–45, weak9.2 real-place branch",
+   "printed": "is open and closed",
+   "correction": "Replace the real connected-component argument by a valid theorem under the actual hypotheses. Smooth proper over U would suffice, but shrinking U to achieve this changes the polynomials/sign conditions in the restricted Conjecture9.2 assumption. Until a replacement is proved, retain this weak-real branch as a proof gap.",
+   "reason": "Flatness and properness do not imply openness on real points, even for a smooth total space with geometrically integral fibres. Take y²z=x³−x²z+t z³ over B=A1 minus{4/27}. It is projective and flat with a section [0:1:0]; every fibre is geometrically integral, and the total surface is smooth. On z=1 the map is t=h(x,y)=y²+x²−x³, with strict local minimum at(0,0). More strongly D={x<2/3,h(x,y)<4/27} is a connected component: -1/3<x<2/3 and |y|<sqrt((x-2/3)²(x+1/3)) describe a disk, with all boundary in the excluded fibre and no boundary at infinity. Its image is [0,4/27), not the full base component(-infinity,4/27). It contains smooth-fibre points with t>0 and cannot reach c<0 in that same base component. This refutes exactly the component-surjectivity inference used. It does not disprove Theorem9.17: full real components in a compactification may connect through removed fibres, and a different argument may exist. Strong9.1 and the totally imaginary alternative avoid this step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review: Annals landing https://annals.math.princeton.edu/2016/183-1/p05; full public publisher PDF https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p05-p.pdf at the cited pages, with images; author final PDF read in full; arXiv1409.0993 version history and v4 relevant passages; Harpaz and Wittenberg publication pages; bounded title/DOI/erratum and relevant-lemma searches. No separate relevant correction identified.",
+    "Harpaz–Wei–Wittenberg2022 author PDF https://www.math.univ-paris13.fr/~wittenberg/hww.pdf, Remark3.2, Theorem4.1 and Remarks5.4 read selectively. These give a later strengthened fibration framework; no explicit repair of the identified weak-real openness step was found in these passages. This is not a full survey or a priority claim."
+   ],
+   "owner": "PAPER-HARPAZ-WITTENBERG-16",
+   "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
+   "citation": "Harpaz–Wittenberg, \"On the fibration method for zero-cycles and rational points\", Annals of Mathematics 183 (2016), no. 1",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-16",
+   "reviewReason": "Flatness and properness do not imply openness on real points, even for a smooth total space with geometrically integral fibres. Take y²z=x³−x²z+t z³ over B=A1 minus{4/27}. It is projective and flat with a section [0:1:0]; every fibre is geometrically integral, and the total surface is smooth. On z=1 the map is t=h(x,y)=y²+x²−x³, with strict local minimum at(0,0). More strongly D={x<2/3,h(x,y)<4/27} is a connected component: -1/3<x<2/3 and |y|<sqrt((x-2/3)²(x+1/3)) describe a disk, with all boundary in the excluded fibre and no boundary at infinity. Its image is [0,4/27), not the full base component(-infinity,4/27). It contains smooth-fibre points with t>0 and cannot reach c<0 in that same base component. This refutes exactly the component-surjectivity inference used. It does not disprove Theorem9.17: full real components in a compactification may connect through removed fibres, and a different argument may exist. Strong9.1 and the totally imaginary alternative avoid this step."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
@@ -90979,17 +91015,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the same slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The Model 2 roots e_i−e_(i+1), e_(n−1)+e_n are D_n roots; B_n ends with e_n. Confirm the type label, not a change of model."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E2",
@@ -91001,17 +91037,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the same slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "An Euler product of local integrals is indexed by places v. A sum over a∈k× already occurs separately in (3.1)."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E3",
@@ -91023,16 +91059,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The two singular Bruhat orbits require I+ and I−. The regular term is a sum over rational a of products of local I_v(a,…); the second printed plus and omitted local product cannot describe that decomposition."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E4",
@@ -91044,16 +91081,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "If φ is fixed by K, then Ω(1_K)φ=vol(K)φ. Multiplying the characteristic function by vol(K) yields vol(K)²φ. The normalized operator uses 1_K/vol(K), independently on K′; a remains the free orbital parameter."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E5",
@@ -91065,16 +91103,17 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "Controlling only (tr(A)−N(A))/a leaves the terms ⟨Y,A⟩/a and ⟨A,A⟩/(2a²) uncontrolled. Choose the A,Y boxes sufficiently small that |⟨Y,A⟩|≤|a₀| and |⟨A,A⟩|≤|2||a₀|²; continuity and shrinking around zero provide the missing control."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E6",
@@ -91086,16 +91125,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The lowest weight of the 32-dimensional B₅ spin representation is (−e₁−e₂−e₃−e₄−e₅)/2. The missing sign before e₅ is typographical."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E7",
@@ -91107,16 +91147,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "For v_i=X_i+((-1)^i/2)f_(7−i), the printed B(X_i,X_j)=0 gives B(v_i,v_(7−i))=−(-1)^i≠0. Thus the footnote’s claimed isotropic complement fails. Restoring B(X_i,X_j)=(-1)^iδ_(i+j,7) cancels it. Checked the rendered p. 21 and exact rational 8×8 form."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E8",
@@ -91128,39 +91169,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the same slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The factorization is N=N₁N₀. After integrating N₁ the remaining factor is N₀, the Siegel radical; no N₂ was introduced."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E9",
    "kind": "error",
    "locator": "§5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29",
    "printed": "Ω_ψ(n)φ(a, 0)Ω′_ψ(n)φ′(Y) = ψ((−N_𝒥((n, a).0) − ⟨n ⋆ Y, (n, a).0⟩ + tr((n, a).0))/a − ⟨(n, a).0, (n, a).0⟩/(2a²)) …; I_v(a, f_v ∗ φ_v, φ′_v) = ∫_{𝒥(k_v)} ∫_{Y′(k_v)} ψ_v((tr(A) − N_𝒥(A) − ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) f_v ∗ φ_v(a, A)φ′_v(Y) dY dA",
-   "correction": "the sign of the pairing term is +: ψ((tr((n, a).0) − N_𝒥((n, a).0) + ⟨n ⋆ Y, (n, a).0⟩)/a − …) in (5.13) and the unfolding, and ψ_v((tr(A) − N_𝒥(A) + ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) in Proposition 5.7 and footnote 11 (equivalently: replace φ′ by φ′(−·))",
+   "correction": "Use a positive mixed pairing +⟨Y,A⟩/a consistently with (5.8) and the p. 29 germ calculation. Recheck all generator relations and the omitted Model 6 normalization before claiming all later statements are proved.",
    "reason": "Test (5.13) on n = u_{e_i}(t), 2 ≤ i ≤ 5. By (5.3) with A = 0, Ω_ψ(n)φ(a, 0) = φ(a, atX_{e_i}): N_𝒥 vanishes on the single root vector atX_{e_i}. By (5.8), Ω′_ψ(n)φ′(Y) = ψ(tY_i)φ′(n ⋆ Y), with (n ⋆ Y)_i = Y_i since n ⋆ changes only the coordinate 7 − i. So the left side carries ψ(+tY_i). On the right side, (n, a).0 = atX_{e_i} has trace 0 and ⟨atX_{e_i}, atX_{e_i}⟩ = 0, leaving ψ(−⟨n ⋆ Y, atX_{e_i}⟩/a) = ψ(−tY_i). The proof of Theorem 5.9(3) (p. 29) writes the phase with +Σ Y_iA_i/a. Only with that sign does its germ constant ψ(2(Y_{2,0} − A_{15,0})(Y_{5,0} − A_{12,0}) + 2(Y_{3,0} − A_{14,0})(Y_{4,0} − A_{13,0})) equal I^+(φ, φ′) as defined with Y · A of Proposition 5.5. With the printed − sign the same computation gives (Y_{2,0} + A_{15,0})(Y_{5,0} + A_{12,0}) + …, and Theorem 5.9(3) would fail for general φ′. The alternative repair, a sign error in (5.8) instead, would force changes to Proposition 5.5 and to the computation on p. 29 as well, so the printed (5.13) is the likelier slip. Either way the paper is internally inconsistent here. The fundamental lemma (Theorem 5.9(2)) is unaffected, because 1_{Y′(𝒪_F)} is even. With the corrected sign, Proposition 5.7, Theorem 5.9 and Theorem 1.13 hold as the paper intends.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the same slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "Take n=u_(e_i)(t), i=2,…,5, a≠0, A=atX_(e_i). Here tr(A)=N(A)=⟨A,A⟩=0. Formula (5.8) gives ψ(+tY_i); the printed negative mixed term gives ψ(−tY_i). The later p. 29 integral has the positive term. This establishes an internal sign inconsistency; it does not by itself certify every corrected model theorem."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E10",
@@ -91172,16 +91213,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The preceding (5.13) and the definition of I_v immediately following the displayed sum both have the quadratic term ⟨A,A⟩/(2a²). The extra Y in the second pairing of the displayed global sum is inconsistent with both."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E11",
@@ -91193,38 +91235,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "In the p. 27 linear phase the coefficient is ΣY_iA_i, not ΣAY_iA_i, and the integration domain must be 𝒥(𝒪_F), not the scalar ring. These are the coordinates already fixed in §5.2."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E12",
    "kind": "misprint",
    "locator": "§6.2, p. 31",
    "printed": "Let e_i − e_j, e_i + e_j, e_k (resp. e_i − e_j, e_i + e_j, 2e_k) be the roots of SO_{4n+1} (resp. Sp_{2n}) with 1 ≤ i, j, k ≤ 2n …; It is clear that it is not a special nilpotent orbit of 𝔤 …; Ξ = ι̂((0 0; 1 0))",
-   "correction": "… the roots of SO_{4n+1} (resp. Sp_{4n}) …; … not a special nilpotent orbit of 𝔤̂ …; Ξ = ι((0 0; 1 0))",
+   "correction": "Use Sp₄ₙ for G, 𝔤̂ for the ambient dual Lie algebra, and Ξ=dι((0,0;1,0)).",
    "reason": "G = Sp_{4n} has these roots with 1 ≤ i, j, k ≤ 2n. O_ι̂ lies in 𝔤̂ = 𝔰𝔬_{4n+1}, where its partition [2^{2n}, 1] is not special (its transpose [2n + 1, 2n] is not a B-partition). ξ is a character of N ⊂ Sp_{4n}, so Ξ must lie in 𝔤 and come from the dual orbit O_ι, as in §2 where Ξ induces ι.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the Sp_{2n} slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The ambient group is Sp₄ₙ, whose dual is SO₄ₙ₊₁; the principal orbit of the dual Levi lies in 𝔤̂. The nilpotent matrix is a Lie algebra element and must be mapped by dι, not by the group homomorphism ι."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E13",
@@ -91236,17 +91279,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
-    "arXiv 2310.17837v3 has the same slip"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The periods in Conjecture 6.1 and Proposition 6.4 are defined on G=Sp₄ₙ. Replacing G by its orthogonal dual in the automorphic representation changes their domain."
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26/E14",
@@ -91258,16 +91301,105 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
-    "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
-    "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
    ],
    "owner": "PAPER-MAO-WAN-ZHANG-26",
    "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
    "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "Checked the individual locators against their surrounding definitions: local k_v replaces the undefined F; λ is the scalar character; group action arguments are (u,a); the commuting group in §6 is Ĥ×SL₂; and the proof refers to a finite-place product 𝔸_S. The last correction does not establish the unread GRS proof."
+  },
+  {
+   "id": "PAPER-MAO-WAN-ZHANG-26/E15",
+   "kind": "error",
+   "locator": "Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11",
+   "printed": "ρ₀ = ρ₂ = ρ₄ = std₂",
+   "correction": "For Model 1, ρ₀=Ad_H and ρ₂=ρ₄=1⊕Ad_H; retain trivial multiplicities for the full Lie algebra. Other rows require their own reconstruction (G8).",
+   "reason": "The specified nilpotent E₃₁+E₄₂+E₅₃+E₆₄ has two length-three Jordan blocks. Hence V₆=Std₂⊗Sym², and End(V₆)−1=Ad_H⊗Sym⁰ ⊕ (1⊕Ad_H)⊗(Sym²⊕Sym⁴). The full two-variable weight character has dimension 35; the printed row has dimension 27 if std₂ denotes the 3-dimensional PGL₂ representation. The extraction makes that dimension convention explicit. A two-dimensional PGL₂ standard representation would not repair it. This refutes the row as a full decomposition, not the evenness consequence.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
+   ],
+   "owner": "PAPER-MAO-WAN-ZHANG-26",
+   "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The specified nilpotent E₃₁+E₄₂+E₅₃+E₆₄ has two length-three Jordan blocks. Hence V₆=Std₂⊗Sym², and End(V₆)−1=Ad_H⊗Sym⁰ ⊕ (1⊕Ad_H)⊗(Sym²⊕Sym⁴). The full two-variable weight character has dimension 35; the printed row has dimension 27 if std₂ denotes the 3-dimensional PGL₂ representation. The extraction makes that dimension convention explicit. A two-dimensional PGL₂ standard representation would not repair it. This refutes the row as a full decomposition, not the evenness consequence."
+  },
+  {
+   "id": "PAPER-MAO-WAN-ZHANG-26/E16",
+   "kind": "misprint",
+   "locator": "Author April 2025 §1.3 p. 7, definition of Δ₁",
+   "printed": "Δ₁=(H′,H₁,ι₁,ρ_H₁)",
+   "correction": "Write Δ₁=(H′,H₁,ρ_H₁,ι₁).",
+   "reason": "The third slot throughout §1.1 is a symplectic representation, and the fourth is an SL₂ homomorphism. The printed order reverses their types; item 20 originally copied it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
+   ],
+   "owner": "PAPER-MAO-WAN-ZHANG-26",
+   "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The third slot throughout §1.1 is a symplectic representation, and the fourth is an SL₂ homomorphism. The printed order reverses their types; item 20 originally copied it."
+  },
+  {
+   "id": "PAPER-MAO-WAN-ZHANG-26/E17",
+   "kind": "misprint",
+   "locator": "Author April 2025 (5.12), p. 21",
+   "printed": "Ωψ(u)φ(a,0) Ω′ψ(u)φ′(Y)",
+   "correction": "The right side is φ(a,0)∫_(Y′(𝔸))φ′(Y)dY.",
+   "reason": "The u on the left is bound by integration over N₁; the printed right side retains a free u. Equations (5.2) and (5.8) say N₁ fixes 0 in 𝒥 and acts on Y′ by translation, giving item 96.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
+   ],
+   "owner": "PAPER-MAO-WAN-ZHANG-26",
+   "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "The u on the left is bound by integration over N₁; the printed right side retains a free u. Equations (5.2) and (5.8) say N₁ fixes 0 in 𝒥 and acts on Y′ by translation, giving item 96."
+  },
+  {
+   "id": "PAPER-MAO-WAN-ZHANG-26/E18",
+   "kind": "gap",
+   "locator": "Author April 2025 §1.1 p. 3, citation to BZSV Proposition 5.1.1",
+   "printed": "splits over Im(ρ_H,ι)",
+   "correction": "Supply absolute arithmetic anomaly data, an actual splitting on the relevant image or pullback with its precise domain, and compatible local/adelic/rational choices. The cited proposition alone gives only the local statement in item 6.",
+   "reason": "BZSV arXiv 2409.04677v1 Proposition 5.1.1 assumes an algebraic F-subgroup, a square of a character Chern class in absolute H⁴_et(BH,ℤ/2), and nonarchimedean residue characteristic ≠2. Its footnote 36 changes to an S¹-pushout elsewhere, and Remark 5.1.3 explicitly distinguishes geometric from absolute anomaly. These conditions and gluing do not follow just from the geometric definition quoted by MWZ. No counterexample to the six particular splittings is asserted.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-025-01388-z — abstract, bibliographic data and every publicly visible note; full journal main text inaccessible. No linked itemized erratum identified.",
+    "2026-09-23: https://arxiv.org/abs/2310.17837 — latest v3 dated 5 March 2024; selected comparison of v3 p. 2 and p. 11 with the April 2025 author PDF. The arXiv version is earlier, not a journal correction.",
+    "2026-09-23: https://sites.rutgers.edu/chen-wan/research/ — current author link is the April 2025 PDF used here; no separate correction found. Lei Zhang research-page fetch failed; no complete search of all authors’ sites is claimed.",
+    "2026-09-23: Crossref record for 10.1007/s00222-025-01388-z has no update-to/relation correction; exact-title and arXiv-number searches with erratum/corrigendum/correction found no identified correction."
+   ],
+   "owner": "PAPER-MAO-WAN-ZHANG-26",
+   "file": "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
+   "citation": "Mao–Wan–Zhang, \"Relative Langlands duality for some strongly tempered spherical varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAO-WAN-ZHANG-26",
+   "reviewReason": "BZSV arXiv 2409.04677v1 Proposition 5.1.1 assumes an algebraic F-subgroup, a square of a character Chern class in absolute H⁴_et(BH,ℤ/2), and nonarchimedean residue characteristic ≠2. Its footnote 36 changes to an S¹-pushout elsewhere, and Remark 5.1.3 explicitly distinguishes geometric from absolute anomaly. These conditions and gluing do not follow just from the geometric definition quoted by MWZ. No counterexample to the six particular splittings is asserted."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E1",
