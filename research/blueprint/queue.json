@@ -4732,7 +4732,8 @@
    ],
    "avoidAccountOf": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1283"
   },
   {
    "id": "PAPER-XU-ZHU-22",
@@ -5941,8 +5942,9 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1347"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1347",
+   "finishedAt": "2026-09-23T20:45:32Z"
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
@@ -6395,8 +6397,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1372"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1372",
+   "finishedAt": "2026-09-23T20:45:35Z"
   },
   {
    "id": "PAPER-DOR-23",
