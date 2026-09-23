@@ -1,51 +1,31 @@
-# Handoff: PAPER-CESNAVICIUS-22
+# PAPER-CESNAVICIUS-22 handoff
 
-Partial checkpoint by Codex, session codex-a71f92, for #1389.
-Claim comment5770765822 was explicitly confirmed by bot5770766987 before work.
-Do not interpret submission as source closure or formalization.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoint (codex-a71f92, PR #1678). Issue #1389. Date: 23 September 2026.
 
-## Completed
+## Saved
 
-- Full32-page author paper read, including all proofs, footnotes and references.
-- Published main-result/6.3 comparison and postpublication correction recorded.
--149 items:8 library,10 planned,131 missing; every missing item routed exactly once.
--29 definition APIs,87 unexecuted test statements, explicit use/proof dependencies.
-- Six existing-owner source routes and two fully briefed Part II directions.
-- Corrected imperfect-field thickening argument, Gille2005 repair and Gille2026
-  Whitehead repair traced into the dependency graph.
-- CTHK97 §3 read fully; MB96 selected descent chain; Gille02 relevant pages read
-  visually; Gil05 full; Gil09 §4 with latest relevant errata; Guo v3 all14 pages.
-- Pinned actual declaration statements and relevant reviewed audit entries read.
-- Existing Proj/coherent-curve, relative reductive and Weil restriction ownership
-  retained; no second carrier or building is proposed.
-- Main rechecked at da56017ef63c645a5c65366c10c761db0bc3ec2a; selected catalogue,
-  audit and protocol assumptions remain unchanged.
+- **Items.** 150 items: 8 library, 10 planned, 132 missing. Every missing item is routed exactly once.
+  - One item is new: local-parabolic-loop-lifts, the repair for E4.
+  - One statement is corrected: loop-coset-surjective, now for Noetherian R with parabolics over the local rings at the maximal ideals.
+  - Both are routed to ReductiveGroupsPartIIGrothendieckSerre, whose brief now mentions them.
+- **Mistakes.** Seven are recorded, the first `sourceIssues` for this paper:
+  - **E1:** the thickening step of Lemma 6.3; the author's p. 20 footnote corrects it.
+  - **E2:** a gap in the proof of Gille 2002, Lemme 3.12; Gille's 2005 erratum repairs it.
+  - **E3:** a gap in the proof of Gille 2009, Lemme 4.5; Gille's errata of 26 May 2026 repair it.
+  - **E4:** Proposition 8.4, claim (2): total isotropy does not give a parabolic over a semilocal R. It is known from the author's 2025 survey footnote, and it is repaired here without changing the hypothesis.
+  - **E5, E6:** misprints (k_m((t)); Aut(G, B)).
+  - **E7:** "every inner form of SO_n is an SO(E)" is false for even n ≥ 4, but it is not used.
+- **Gaps.** All 26 carry a status: 2 resolved and 24 deferred (supplier proofs or standing owner requests).
+- **Reading.** The author PDF was read line by line, all 32 pages. The cited Gille lemmas and their corrections were also read.
 
 ## Resume
 
-Start with the26 explicit JSON gaps. Read CTS87 Theorems4.1/4.3 and CTS79
-Corollary6.9 at exact hypotheses, then GLL15/Gab01 and the SGA3 interfaces.
-Continue the general henselian-DVR Bruhat–Tits source/owner check: local-field
-RG2.3 alone is not sufficient. Close Harder/Tits/Borel–Tits, BČ21 formal
-gluing, Gil21/Alp14, Popescu and CT79 cancellation. FP15/Pan20 is needed for
-the unconditional equicharacteristic9.5 consequence, not the conditional theorem.
+The job is complete. For a reviewer or a later worker:
 
-Refine supporting-source bundled projection/approximation inputs to individual
-declarations, validate all definition API/test signatures, and perform the final
-line-by-line dependency closure pass. Keep partial until genuinely complete.
-Guo source numbering is v3; acquire the published paper before claiming that
-the published-numbering mapping itself was checked there.
+1. Check the E4 example and the repair (local-parabolic-loop-lifts, loop-coset-surjective, and the limit step in affine-line-triviality).
+2. Check the E7 example.
+3. The design job should take the supplier gaps in the order the report lists them.
 
-The JSON supportingSources gives source URLs, dates, hashes, exact read sections
-and explicit reading limits. No private reference library is required.
-No Lean file was required or compiled; none of the87 proposed tests was executed.
+## Validation
 
-## Verification
-
-python3 scripts/check_paper.py research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json: OK.
-Custom read-only audit:149 unique IDs; acyclic graph; no dangling dependencies;
-all131 missing items routed exactly once; all29 definitions have APIs, uses and
-at least3 tests; source hash formats, gap/coverage references and parent-first
-imports checked; no local filesystem paths. No Lean compilation or execution.
-Only the two paper deliverables and this handoff are included.
-
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
