@@ -180,3 +180,37 @@ These are listed in the result with DOIs checked against Crossref:
   - Thorne (2012);
   - Geraghty (Math. Ann. 2019);
   - Ramakrishnan (2000).
+
+## Review (REV-PAPER-CLOZEL-THORNE-17, 23 September 2026)
+
+The review accepted the extraction after corrections made in place, and added four routes. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-CLOZEL-THORNE-17.md`. Three checkers read the accepted manuscript against its page images; the coordinator re-derived every substantive finding.
+
+- **Corrected: 35 items.** The material ones:
+  - 006 and 013 copied two errors of the paper (the Iwahori–Matsumoto relation; Theorem 2.4(a));
+  - 026: π_H in Proposition 3.7 is the (1, n − 1) packet;
+  - 048: π′_2 is ramified above u_0.
+
+  Items 002, 048 and 055 were split so that ι-ordinarity, [CT14], [CHT08, Lemma 4.1.4] and BLGGT14 Theorem 4.2.1 each have the owner the Newton–Thorne reviews gave them.
+- **New: 25 items** (8 planned, 17 missing), 81 in total. They include:
+  - Borel–Casselman, the §2.3 definitions and the duality for Y;
+  - the U(4) Jacquet lemma, the Jacquet form of (3.7) and the membership of X′, Y′ in the packet;
+  - the corrected semistability argument, and the preliminary reductions of Theorem 5.1;
+  - the Thorne 2015 inputs, and the reduction of Theorem 6.1 to Theorem 6.2;
+  - coefficient conjugation, Dickson and Fontaine–Laffaille.
+- **Routes:**
+  - The Part II (route 4) is accepted, and the owner question left open is settled: Thorne 2015 goes to PolarizedAutomorphyLifting (route 5), while Theorems 5.1 and 5.7 stay.
+  - The Iwahori–Hecke presentations and Kazhdan–Lusztig's classification move to SmoothRepresentationsPartIIParahoricCenters (route 6).
+  - The congruence (1.1) moves to ArithmeticGaloisRepresentations G7 (route 7), with the Newton–Thorne decomposition.
+  - [CHT08, Lemma 4.1.4] and coefficient conjugation go to AutomorphicGaloisRepresentationsPartII (route 8).
+
+  Eleven prerequisites were added.
+- **Source issues:** E1–E5 are confirmed, and E1's quotation was corrected; E6–E23 are new.
+  - The most important is E7: one entry of the n = 9 Hecke matrix T_{s₂} is wrong, so the printed matrices do not satisfy the Hecke relations.
+  - The next are:
+    - E8: Theorem 2.4(a) forces u = 1;
+    - E10: a false uniqueness claim in §3.5;
+    - E20: primitivity of r_{𝔭₀} is unproved;
+    - E21: Lemma 5.3 is proved only for unipotent conditions;
+    - E22: Theorem 6.2 needs F(ζ_l) ⊄ F(ad ρ̄) for Theorem 5.7(4);
+    - E23: the descent in Theorem 7.1 is ambiguous up to η_{E/F}.
+  - All have direct repairs, and none affects Theorem 1.1 or Corollaries 1.2–1.3 under their stated hypotheses.
