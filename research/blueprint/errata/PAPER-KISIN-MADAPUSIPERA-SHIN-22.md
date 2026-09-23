@@ -6,6 +6,8 @@ Original errata: Claude Code, `cc-fb70e5`, 22 September 2026, job ERRATA-PAPER-K
 
 Independent continuation: Codex, `codex-7e92bd`, 23 September 2026. The first checkpoint's E1–E7 arguments and source history are preserved below; this continuation independently reconciles the extraction's E8–E12 and checks related literature for E13.
 
+Further independent continuation: Codex, `codex-hjdg0j`, 23 September 2026. Corrects the preceding checkpoint’s centralizer justification, verifies the connected-centralizer step for E13, and adds a public Noot comparison. Earlier reviewers’ read coverage remains attributed to them.
+
 ## Status and version boundary
 
 **Partial, not a completed independent review.** All seven original findings were checked against the exact named author PDF, including page images. Their local mathematical defects are supported, with the refinements below. A further direct-sum/similitude defect is recorded as E13. No finding receives a final `review` verdict in this checkpoint, and no completion report is written under `reviews/`.
@@ -26,6 +28,10 @@ The first checkpoint's source-read coverage is §§1.1.2–1.1.4; Proposition 1.
 The continuation reacquired the same 41-page author PDF and Shin errata PDF, with exactly the hashes above. It read the Hodge-type setup on p.15, §§1.3.8–1.3.18 on pp.18–20, §§2.1.1–2.1.5 on pp.21–22, the auxiliary constructions on pp.27–28, and Lemma 2.3.10/Proposition 2.3.11 on pp.33–34, with images 19–21, 27 and 34 checked. It also read [Kisin–Zhou, arXiv:2103.09945v2](https://arxiv.org/pdf/2103.09945v2), p.10 Definition 2.2.4/Remark 2.2.5, p.40 §4.3.7 and pp.43–45 §§4.4.5–4.4.10. This 63-page PDF has SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`.
 
 Crossref, the author pages, the title/DOI correction searches and the publisher routes were checked again. [OpenAlex's DOI record](https://api.openalex.org/works/https://doi.org/10.1215/00127094-2021-0063) supplies no open-access full-text location. The published PDF and Noot §2.3 remain unavailable through the public routes located. Related results in Kisin–Zhou are not being labelled a KMPS erratum.
+
+The `codex-hjdg0j` continuation independently read author-PDF pp.5–7 and 10–29, including §§2.1.5–2.1.9, and inspected images 26–28. It reacquired the author and Shin errata PDFs with the hashes above and read both errata pages. It refreshed the author-page and bounded title/DOI/correction searches; the public publisher routes still did not provide the Duke text. It does not claim a fresh Crossref/OpenAlex inspection or a fresh reading of the Kisin–Zhou passages attributed to the preceding reviewer.
+
+It also obtained [Noot’s published 2013 paper](https://msp.org/ant/2013/7-2/ant-v7-n2-p01-s.pdf), *The system of representations of the Weil–Deligne group associated to an abelian variety*, Algebra & Number Theory 7, 243–281, DOI 10.2140/ant.2013.7.243. The download has 42 PDF pages, SHA-256 `abe29e0edda6d7e2c67c1a5a5d28d6ed9c18003688ac499c5da6033c94451e30`. Read journal pp.261–262 and 276–277 (PDF pp.20–21 and 35–36); inspected images 21 and 36. The comparison below concerns this later restatement, not direct verification of the unavailable 2009 text.
 
 ## E1 — decency equation
 
@@ -51,6 +57,8 @@ The final definition in §2.2.6 refers to accommodating factors, without a base 
 
 This supports the local misprint. The original report additionally claimed agreement with Noot §2.3. The independent checkpoint reached [Noot's author page](https://irma.math.unistra.fr/~noot/publications/jlms.html), but its journal link did not provide the full text and the discovered publisher PDF returned HTTP 403. That external comparison remains unchecked and is no longer presented as an independent verification.
 
+The further continuation found a published comparison in Noot 2013 §4.1, pp.261–262: his tractable definition uses strictly tractable factors and the derived-group product condition. This supports the proposed insertion. It does not establish verbatim agreement with Noot 2009 §2.3.
+
 ## E5 — auxiliary group and descent in Lemma 2.2.8
 
 For G=GSp₂ and a CM maximal torus T, the element (1,2·1) of G×T scales the two blocks of ψ⊕ψ by 1 and 4. Thus the claimed symplectic-similitude embedding does not exist. This is reclassified from a gap to an **error affecting the proof**, in the protocol's sense of a step that fails.
@@ -61,10 +69,12 @@ The proposed repair G′=G×_{G^ab}T addresses both issues:
 
 1. The similitude character factors through G^ab, so the two blocks have equal multipliers.
 2. The abelianized Hodge homomorphism is constant on X, so X×{h_T} factors through G′.
-3. The projection G′→G is a central torus extension with kernel 1×(T∩G^der). After constructing the lifted point, Corollary 2.1.9 identifies the local I-groups with Frobenius centralizers. Their projection is surjective: over an algebraic closure, a central-torus extension is a product with its connected center up to central isogeny, and centralizing a semisimple element is unchanged on the derived factor.
+3. The projection G′→G is a central torus extension with kernel 1×(T∩G^der). For a compatible element (γ,t), commutativity of T gives the group-scheme identity `C_G′((γ,t)) = C_G(γ) ×_{G^ab} T`. Its projection is the base change of the surjective morphism T→G^ab and has exactly that kernel. Once the lifted point and its compatible I-group morphisms are constructed, Corollary 2.1.9 gives the desired surjectivity over Q_ℓ for ℓ≠p. This is surjectivity of algebraic groups, not necessarily of their Q_ℓ-points.
 4. The kernel maps trivially to G^ab over Q_ℓ. Faithfully flat base change gives the same assertion over Q, so the Q-group map descends.
 
-This verifies the local construction/descent repair. It does not certify the entire preceding reduction in Proposition 2.2.2: E13 records a separate defect there.
+The preceding checkpoint’s general central-extension justification was too broad. For GL₂→PGL₂, set d=diag(1,−1) and let w swap the two coordinates. Then wdw⁻¹=−d. Hence [w] centralizes [d], although no scalar multiple of w centralizes d. A central torus kernel alone does not make arbitrary semisimple centralizers surject. The explicit fibre-product identity above repairs this justification without adding an unnecessary hypothesis in E5.
+
+This verifies the local algebraic-group construction and descent argument, conditional on constructing the compatible lifted point and I-group maps. It does not certify the entire preceding reduction in Proposition 2.2.2: E13 records a separate defect there.
 
 ## E6 — reducedness, separatedness, and reach
 
@@ -131,6 +141,14 @@ Impose equality of the two multiplier characters and then take the identity comp
 The new finding uses **E13**, not E8: E8–E12 already refer to different findings in the newer extraction.
 
 The continuation found the proposed common-multiplier construction explicitly in Kisin–Zhou §4.3.7, p.40: (G₂×_{G^ad,G_m}G)^0 with the direct-sum representation and paired Hodge homomorphism. Its Proposition 4.4.10, p.45, includes the product projections among the tensors, constructs central-kernel endomorphisms by specialization, and checks exactness of the I-group sequences after extension to Q_ℓ using Frobenius centralizers. These passages clarify the needed next checks. They have additional group and integral-model assumptions, so citing them does not finish the KMPS reduction in its original generality.
+
+The `codex-hjdg0j` continuation checks the geometric centralizer step for the corrected group H. Each projection H→G or H→G′ is central and surjective. Indeed, over an algebraic closure one first matches the adjoint image and then multiplies the other factor by a scalar to equalize the two multipliers. The identity component still surjects onto the connected target. A kernel element has trivial adjoint image in the other factor, so the kernel is central.
+
+Use a common sufficiently divisible Frobenius power as in §2.1.5 and Corollary 2.1.9, pp.22–24: the cyclic Zariski closure is then a torus, and its centralizer is a connected Levi subgroup. For either central projection, choose compatible maximal tori containing the Frobenius elements. The projection is surjective on these tori and identifies root groups. Corresponding roots have equal values on the two elements, so precisely the same root groups centralize them. Since the connected centralizers are generated by these tori and root groups, their map is surjective and has the same central kernel. E5’s GL₂/PGL₂ example explains why omitting the connectedness step would invalidate the general argument.
+
+This settles a group-theoretic component of E13’s repair. Constructing the compatible lifted good-reduction point and I-group morphisms, proving the rational center embeddings, and establishing the stated quotients still require verification in KMPS’s exact hypotheses.
+
+Noot 2013 §§7.2–7.3, pp.276–277, corrects a product-group omission in his 2009 proof: the relevant map is defined on the joint Mumford–Tate subgroup, not automatically on the product. This is a related published correction, not a KMPS erratum or a proof of E13’s remaining steps.
 
 ## Remaining review work
 
