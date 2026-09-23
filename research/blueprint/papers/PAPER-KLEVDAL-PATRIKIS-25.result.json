@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KLEVDAL-PATRIKIS-25",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties",
     "authors": "Christian Klevdal and Stefan Patrikis",
@@ -47,7 +47,7 @@
     ],
     "continuationWorker": "Codex — codex-c83e7a; preserves codex-a71f92 extraction in PR1996."
   },
-  "summary": "Second full-journal-read checkpoint, preserving all 137 earlier items and adding 13 atomic supplier/repair items. Written proofs now explain the ramified torus-norm valuation and its Frobenius application, rational descent of the torus conjugation isomorphism, split–anisotropic nonisogeny and the multiplicity-free density argument. All ten routes and source-finding/gap IDs remain; original reference leaves and independent verification remain open. Partial, with no Lean formalization claim.",
+  "summary": "Klevdal–Patrikis show that, for Shimura data in the superrigid regime and neat level, the canonical ℓ-adic representations ρ_{y,ℓ}: Gal(Q̄/F) → G^ad(Q_ℓ) attached to a number-field point y form a compatible system (unramified outside N(y)ℓ, with Q-rational and equal semisimple Frobenius classes), deduced from compatibility of the canonical G(Q_ℓ)-local systems on connected Shimura varieties; this covers non-abelian type. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and ten findings are recorded, with corrections for the proof issues E1–E4; E8 is an arXiv v1 error that the published version corrects. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6835,7 +6835,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6852,7 +6853,8 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read."
+        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ],
       "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
     },
@@ -6869,7 +6871,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6887,7 +6890,8 @@
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
         "Getz–Hahn author draft https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf AppendixA.5 pp482–483, and the author-linked 2026-07 errata https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf (all3pages): no correction pertinent to this application located.",
-        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read."
+        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ],
       "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
     },
@@ -6904,7 +6908,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6920,7 +6925,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6936,7 +6942,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6952,7 +6959,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6968,7 +6976,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     },
     {
@@ -6984,7 +6993,8 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
       ]
     }
   ],
@@ -6997,7 +7007,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/035",
         "PAPER-KLEVDAL-PATRIKIS-25/076"
       ],
-      "detail": "Extract the exact EG18/KP22 variant, Margulis admissible H¹ modules, boundary conditions, and Simpson continuity. Do not identify superrigidity with cohomological rigidity or assert every dense representation integral without these gates."
+      "detail": "Extract the exact EG18/KP22 variant, Margulis admissible H¹ modules, boundary conditions, and Simpson continuity. Do not identify superrigidity with cohomological rigidity or assert every dense representation integral without these gates.",
+      "status": "deferred",
+      "resolution": "Esnault–Groechenig, Klevdal–Patrikis 2022, Margulis and Simpson are cited suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G2",
@@ -7009,7 +7021,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/024",
         "PAPER-KLEVDAL-PATRIKIS-25/025"
       ],
-      "detail": "Finish original Lieblich–Olsson A.7/A.12, Grothendieck–Murre, Néron–Popescu and Artin inputs. Verify Ahat as a union rather than merely a colimit, descent of valuations, and the inertia-equivariant paths used on journal p315. Correct v1 chart E8."
+      "detail": "Finish original Lieblich–Olsson A.7/A.12, Grothendieck–Murre, Néron–Popescu and Artin inputs. Verify Ahat as a union rather than merely a colimit, descent of valuations, and the inertia-equivariant paths used on journal p315. Correct v1 chart E8.",
+      "status": "deferred",
+      "resolution": "Lieblich–Olsson, Grothendieck–Murre, Néron–Popescu and Artin are cited suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G3",
@@ -7022,7 +7036,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/048",
         "PAPER-KLEVDAL-PATRIKIS-25/051"
       ],
-      "detail": "Read Petrov6.1; one full G-companion route (Drinfeld2018 or Drinfeld2012+Chin); Kerz–Schmidt/Deligne and BHKT6.4; then Drinfeld's arithmetic tangent results. Check all determinant/purity/connectedness and coefficient assumptions. The journal proof identifies their uses, not their recursive closure."
+      "detail": "Read Petrov6.1; one full G-companion route (Drinfeld2018 or Drinfeld2012+Chin); Kerz–Schmidt/Deligne and BHKT6.4; then Drinfeld's arithmetic tangent results. Check all determinant/purity/connectedness and coefficient assumptions. The journal proof identifies their uses, not their recursive closure.",
+      "status": "deferred",
+      "resolution": "Petrov, Drinfeld, Chin and Kerz–Saito are cited suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G4",
@@ -7040,7 +7056,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/098",
         "PAPER-KLEVDAL-PATRIKIS-25/099"
       ],
-      "detail": "Extract the original Margulis, Platonov–Rapinchuk, Prasad–Rapinchuk and Voskresenskiĭ statements. Generic algebraic-group auxiliary arguments are itemized but still need a baseline-to-target expansion; coordinate existing H¹/Conj candidate instead of duplicating it."
+      "detail": "Extract the original Margulis, Platonov–Rapinchuk, Prasad–Rapinchuk and Voskresenskiĭ statements. Generic algebraic-group auxiliary arguments are itemized but still need a baseline-to-target expansion; coordinate existing H¹/Conj candidate instead of duplicating it.",
+      "status": "deferred",
+      "resolution": "The higher-rank lattice and group-theoretic results are cited suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G5",
@@ -7052,7 +7070,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/118",
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "The strengthened separation, factorwise torus-cocycle isomorphism and multiplicity-free subdirect-product proofs are now written in items094/103/106/110/118/148/149. Still obtain the original local anisotropic maximal-torus existence theorem, generic approximation and H¹ suppliers in G4 and independently verify the repair in G10. No unqualified closure or implementation claim."
+      "detail": "The strengthened separation, factorwise torus-cocycle isomorphism and multiplicity-free subdirect-product proofs are now written in items094/103/106/110/118/148/149. Still obtain the original local anisotropic maximal-torus existence theorem, generic approximation and H¹ suppliers in G4 and independently verify the repair in G10. No unqualified closure or implementation claim.",
+      "status": "recorded",
+      "resolution": "E2 records the separation property the proof of Lemma 3.9 needs; the strengthened argument is written out in the checkpoint's items."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G6",
@@ -7065,7 +7085,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/120",
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Collation of the published Getz–Hahn appendix remains required for the separate item092/source finding E4; that collation is not claimed completed."
+      "detail": "The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Collation of the published Getz–Hahn appendix remains required for the separate item092/source finding E4; that collation is not claimed completed.",
+      "status": "recorded",
+      "resolution": "E4 records the unverified integral position for the cited Getz–Hahn statement; the general-uniformizer repair is written out in the checkpoint's items."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G7",
@@ -7078,7 +7100,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/079",
         "PAPER-KLEVDAL-PATRIKIS-25/111"
       ],
-      "detail": "Read PSTEG Theorem4.1 and Ullmo–Yafaev2.1–2.2; finish exact canonical-model, right-tower and centre/neatness proof leaves in V4/V7/V8. Coordinate the identical canonical local system consumed by T6:comparison, without importing all logarithmic RH."
+      "detail": "Read PSTEG Theorem4.1 and Ullmo–Yafaev2.1–2.2; finish exact canonical-model, right-tower and centre/neatness proof leaves in V4/V7/V8. Coordinate the identical canonical local system consumed by T6:comparison, without importing all logarithmic RH.",
+      "status": "deferred",
+      "resolution": "Pila–Shankar–Tsimerman–Esnault–Groechenig and Ullmo–Yafaev are cited suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G8",
@@ -7091,7 +7115,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/132",
         "PAPER-KLEVDAL-PATRIKIS-25/134"
       ],
-      "detail": "Extract Serre's locally algebraic realization and the fixed-ℓ specialization/open-image input, then Huryn–Zhang only for the follow-up density-one assertion. The full-G follow-up, p-adic compatibility follow-up and BST Theorem9.7 remain downstream, not main theorem inputs."
+      "detail": "Extract Serre's locally algebraic realization and the fixed-ℓ specialization/open-image input, then Huryn–Zhang only for the follow-up density-one assertion. The full-G follow-up, p-adic compatibility follow-up and BST Theorem9.7 remain downstream, not main theorem inputs.",
+      "status": "deferred",
+      "resolution": "Serre's locally algebraic representations are a cited supplier for the supplementary remarks."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G9",
@@ -7104,7 +7130,9 @@
         "PAPER-KLEVDAL-PATRIKIS-25/102",
         "PAPER-KLEVDAL-PATRIKIS-25/119"
       ],
-      "detail": "Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate. Continuation identifies LocalFieldsRamification Layer0, ReductiveGroupsPartII RG2.0/RG2.0a and ReductiveGroups Layer0 as owners of the new adapters. Resolve their exact supplier signatures and affine descent before claiming formal closure. The 46 API/test lists are planning specifications; inherited source-wide contracts beyond the focused repair still require per-node blueprint expansion."
+      "detail": "Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate. Continuation identifies LocalFieldsRamification Layer0, ReductiveGroupsPartII RG2.0/RG2.0a and ReductiveGroups Layer0 as owners of the new adapters. Resolve their exact supplier signatures and affine descent before claiming formal closure. The 46 API/test lists are planning specifications; inherited source-wide contracts beyond the focused repair still require per-node blueprint expansion.",
+      "status": "deferred",
+      "resolution": "Finer supplier identifiers are design work."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G10",
@@ -7112,7 +7140,9 @@
       "neededBy": [
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "All ten E-records await independent review; no reviewer verdict is self-assigned. Verify intended positivity conventions in E7 and adjoint abstract wording in E9 before treating these as confirmed errata. E1/E3 require the explicit corrected assumptions/step recorded in items."
+      "detail": "All ten E-records await independent review; no reviewer verdict is self-assigned. Verify intended positivity conventions in E7 and adjoint abstract wording in E9 before treating these as confirmed errata. E1/E3 require the explicit corrected assumptions/step recorded in items.",
+      "status": "deferred",
+      "resolution": "Independent review of the findings is the review pipeline's job."
     }
   ],
   "validation": {
@@ -7123,5 +7153,15 @@
       "Focused structural audit: 1134 assertions, 150 IDs, 271 acyclic dependency edges, all 137 inherited IDs/statuses retained, 116 missing items routed exactly once, 46 canonical API/test triples, unchanged ten route/source-issue/gap identities.",
       "Exact rational/integer arithmetic: 11567 assertions passed for Eisenstein norm determinants (including wild ramification), dominant simple-root coordinates, A2 lattice intertwiners, finite-character projectors, Gaussian-rational cocycle descent and the compact-position/repeated-factor counterexamples. These finite diagnostics are not proofs of the general theorems."
     ]
+  },
+  "summaryBefore": "Second full-journal-read checkpoint, preserving all 137 earlier items and adding 13 atomic supplier/repair items. Written proofs now explain the ramified torus-norm valuation and its Frobenius application, rational descent of the torus conjugation isomorphism, split–anisotropic nonisogeny and the multiplicity-free density argument. All ten routes and source-finding/gap IDs remain; original reference leaves and independent verification remain open. Partial, with no Lean formalization claim.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1207,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); every numbered statement checked against the items.",
+    "changes": "Gap statuses recorded; status complete."
   }
 }
