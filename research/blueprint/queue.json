@@ -29982,7 +29982,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BURUNGALE-TIAN-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1702"
   },
   {
    "id": "ERRATA-PAPER-YUAN-26",
@@ -30444,7 +30445,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BENNETT-SIKSEK-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1708"
   },
   {
    "id": "ERRATA-PAPER-COUVEIGNES-20",
@@ -30635,8 +30637,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1786"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1786",
+   "finishedAt": "2026-09-23T13:50:15Z"
   },
   {
    "id": "ERRATA-PAPER-CHARLES-16",
@@ -30979,8 +30982,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1798"
+   "state": "pending",
+   "note": "released on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
