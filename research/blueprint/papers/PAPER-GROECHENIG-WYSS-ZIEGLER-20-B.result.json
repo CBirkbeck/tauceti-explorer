@@ -2190,7 +2190,12 @@
     "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
     "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
     "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the v2 source (FL.tex, Construction 2.13): 'the stack M_x satisfies condition (iii) of Theorem \\ref{CMIso}', and two sentences later 'Hence Proposition \\ref{CMIso} gives us a morphism'. Simulating the shared per-section counter independently puts CMIso at 2.12 in a proposition environment, so there is indeed no Theorem 2.12 and the same object is cited both ways inside one construction.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E2",
@@ -2205,7 +2210,12 @@
     "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
     "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
     "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Remark 6.19 reads 'stated in Theorem \\ref{cor:geometric_endoscopy}', and cor:geometric_endoscopy is a corollary environment numbered 6.18 in my independent simulation, called 'Corollary 6.18' in the same remark's first sentence.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E3",
@@ -2220,7 +2230,12 @@
     "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
     "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
     "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim: Remark 6.24 reads 'the embedding described in Lemma \\ref{cons:auto_torus}', and cons:auto_torus is a construction environment numbered 4.36. The paper cites the same label as 'Construction' at three other places, so the entry's reading is right.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
   },
   {
    "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E4",
@@ -2235,7 +2250,52 @@
     "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
     "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
     "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the structure of the proof is the point. Goal 6.21(1) and (2) both end 'See Lemma \\ref{lemma:chi_gerbe}' (= Lemma 6.34), whose statement and proof give only the Hasse-invariant identity of goal (1). The identification of lambda(alpha) with the unramified twist is made where the entry says: in the deferred 'Proof of \\ref{lemma:0}' (Lemma 6.14), which is printed after the proof of Lemma 6.34 and contains 'It follows from Lemma \\ref{lemma:dual_torsor} [= Lemma 6.29] that alpha_{U_a} in Ext^2(...) = Ext^1(...) corresponds to the unramified twists'. A line-order check alone misattributes that sentence to Lemma 6.34; the deferred-proof structure is what settles it, and the entry read it correctly.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E5",
+   "kind": "misprint",
+   "locator": "Section 2, overview paragraph, p. 9 (arXiv v2, the version read)",
+   "printed": "The main result is Theorem 2.21 which computes the volume of a fibre of the specialisation map e (Construction 2.13) with respect to the canonical measure on M(O_F) introduced in Definition 2.8.",
+   "correction": "introduced in Lemma 2.8.",
+   "reason": "The object numbered 2.8 is printed as 'Lemma 2.8' (it is the existence statement for the canonical measure on a smooth tame DM-stack, label defcanmes), and the paper itself cites it correctly as 'Lemma 2.8' later, in section 6. There is no Definition 2.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review. Found by a mechanical audit: for every reference of the form '<word>~\\ref{label}' in the v2 source, compare <word> with the environment carrying that label. Five mismatches exist in the paper; the extraction recorded three of them (E1, E2, E3) and missed this one and E6.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E6",
+   "kind": "misprint",
+   "locator": "Section 6.3, before the displayed specialisation morphism, p. 33 (arXiv v2, the version read)",
+   "printed": "furthermore we have a specialisation morphism (see Definition 2.13)",
+   "correction": "(see Construction 2.13)",
+   "reason": "The object numbered 2.13 is printed as 'Construction 2.13' (label defi:e), and the paper cites it correctly as 'Construction 2.13' at four other places (in the section 2 overview and three times in sections 2 and 3). There is no Definition 2.13.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review, by the same audit as E5. This is a second, distinct mis-citation of Construction 2.13, the object E1 is also about: E1 concerns Proposition 2.12 being called a Theorem inside Construction 2.13, while here Construction 2.13 itself is called a Definition in section 6.",
+    "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
+   }
   }
  ]
 }
