@@ -1,4 +1,67 @@
-# Honda–Tate theory for Shimura varieties: ordinary classes and source repairs
+# Kisin–Madapusi Pera–Shin (2022): Honda–Tate theory for Shimura varieties, extraction and routing
+
+Issue [#1314](https://github.com/CBirkbeck/tauceti-explorer/issues/1314). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (Codex codex-c83e7a and Claude Code cc-fb70e5), whose report follows below as history.
+- **The paper.** M. Kisin, K. Madapusi Pera and S. W. Shin, *Honda–Tate theory for Shimura varieties*, Duke Math. J. 171 (2022), 1559–1614.
+  - The 41-page author PDF was re-fetched; its SHA-256 (fd22990b…) matches the checkpoint.
+  - The Duke text is not openly available, and no arXiv version was found. Crossref lists no correction.
+- **Items.** The result has **183 items: 17 library, 32 planned and 134 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** The twelve findings of the earlier checkpoints are kept under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+- **Conjecture 2.3.8.** Added as a statement-only item (T45), placed before Proposition 2.3.11. It asks for isogeny CM lifts with respect to every maximal torus when G is quasi-split at p.
+- **E12 now affects nothing.** The proof of Proposition 2.3.11 writes {μ_X}_p where the paper's own convention (δ ∈ B(G, {μ_X⁻¹}), Lemma 2.3.10) requires the inverse. With the inverse used consistently, the argument is unchanged.
+- **E6 verified.** Lemma 2.2.11 as printed fails for Spec k[ε]/(ε²) with ε ↦ 2ε. Its application to a torus is fine.
+- **Gaps made explicit.** The checkpoint's continuation priorities are now a `gaps` list with statuses:
+  - **G-source is unavailable.** The Duke text is not open.
+  - **G-tensors is recorded** through E9.
+  - **G-local, G-model, G-noot, G-crystal, G-global, G-tate and G-typeD are deferred.** They are cited suppliers or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once.
+- Every gap has a status and a resolution.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), (1.1.2.2), p.6, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* σ^r(b) *Correction:* c b σ(b) ··· σ^{r−1}(b) σ^r(c)^{−1} = c(rν_b)(p)c^{−1}.
+- **E2** (error; affects a stated result), Corollary 1.1.15 and its proof, pp.11–12, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* w ∈ N_G(M)/M *Correction:* Replace N_G(M)/M by the absolute Weyl group W(G, T) of a maximal torus T ⊂ M with μ ∈ X_*(T), as in Proposition 1.1.13. Equivalently: some G(Q̄_p)-conjugate μ′ of μ factoring through T makes ([b_M], {μ′}) M-admissible.
+- **E3** (misprint; affects nothing), Proposition 1.2.5, p.14, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* b_bas(μ_x) *Correction:* [b_bas(μ_x^{−1})] ∈ B(T_{Q_p}) maps to [b].
+- **E4** (misprint; affects nothing), §2.2.6, definition of an accommodating embedding, p.26, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* accommodating embeddings *Correction:* "… if there is a finite collection of strictly accommodating embeddings of Shimura data ι_j …".
+- **E5** (gap; affects the proof), Proof of Lemma 2.2.8, p.28, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* G′ = G × T *Correction:* Take G′ = G ×_{G^ab} T, the pairs (g, t) with the same image in G^ab. This lies in GSp(V ⊕ V, ψ ⊕ ψ), and X′ = X × {h_T} still maps into it because h^ab is constant on X. The kernel of G′ → G is T ∩ G^der, which dies in G^ab, so the composite I_{s′_0} → T → G^ab does factor through I_{s_0}. The rest of the proof then goes through.
+- **E6** (error; affects a stated result), Lemma 2.2.11, p.29, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* irreducible scheme *Correction:* Assume in addition that S is reduced and separated (for example a variety). Then two automorphisms that agree on a dense set of points agree, because their equalizer is a closed subscheme containing a dense set, and the proof applies.
+- **E7** (misprint; affects nothing), Appendix A.2, p.37, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. *Printed:* U = D − S; j_*O_U *Correction:* U = S − D, and S carries the divisorial log structure O_S ∩ j_*O_U^× → O_S.
+- **E8** (error; affects a stated result), §1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated. *Printed:* There is a unique [b_μ] *Correction:* Require an actual ordinary class, or assume G/Q_p quasi-split. A greatest admissible class need not attain the Hodge average.
+- **E9** (gap; affects the proof), Corollary 1.3.13 proof, p.19; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated. *Printed:* C_D,L is equivalent to Rep_L G_s0 *Correction:* Use the actual Tannakian group H⊂G_s0, restriction of representations and descent of all required invariant morphisms. Evaluation followed by forgetting Frobenius gives a Vec_L-valued fibre functor; F-Isoc(s0) itself remains Q_p-linear.
+- **E10** (misprint; affects nothing), §2.1.3, p.21, compared with Lemma 2.1.4 proof p.22; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated. *Printed:* I_s0(Q_p) *Correction:* Use I_s0(Q) in the intersection with the prime-to-p integral automorphism group.
+- **E11** (misprint; affects nothing), Corollary 1.3.13 proof, p.19; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated. *Printed:* ω_L(V_m,n)=D^⊗m⊗D*^⊗n *Correction:* For V_m,n=V^⊗n⊗V*^⊗m, its image is D^⊗n⊗D*^⊗m.
+- **E12** (misprint; affects nothing), Proposition 2.3.11 proof, p.34; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated. *Printed:* {μ_X}_p *Correction:* Choose the crystalline cocharacter λ_T in {μ_X^{-1}}_p with Nλ_T=ν_δ. The corresponding Hodge cocharacter is λ_T^{-1}; use it for the special pair.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G-source** (unavailable). The Duke text is not openly available; the findings rest on the 41-page author PDF, and E6 and E12 were re-checked there.
+- **G-local** (deferred). Kottwitz, Rapoport–Richartz, CKV and Harder are cited suppliers.
+- **G-model** (deferred). Kisin–Pappas 2018 and the integral-model inputs are cited suppliers; E8 records that an ordinary class need not exist without quasi-splitness.
+- **G-noot** (deferred). Noot is a cited supplier.
+- **G-tensors** (recorded). E9 records the Tannakian step in the proof of Corollary 1.3.13 with its repair; the remaining descent is proof work in the items.
+- **G-crystal** (deferred). de Jong, Ogus and the Dieudonné-theory inputs are cited suppliers.
+- **G-global** (deferred). Kottwitz and the global Galois-cohomology inputs are cited suppliers.
+- **G-tate** (deferred). Tate 1966 and Faltings are cited suppliers.
+- **G-typeD** (deferred). The paper treats type D only in Remarks 2.3.16; the variant is recorded as items T41–T42 and left to design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## Honda–Tate theory for Shimura varieties: ordinary classes and source repairs
 
 **Partial checkpoint — Codex, codex-c83e7a; issue #1314; 23 September 2026.**
 
@@ -6,7 +69,7 @@ The extraction contains 182 items: 17 library, 32 planned and 133 missing. All 1
 
 The main new conclusion is precise: an ordinary Newton class exists for quasi-split groups, but the author version's unconditional inner-form assertion in §1.3.15 is false. For a quaternion division group there is a unique admissible class, which is basic and strictly below the Hodge average. A greatest admissible class and an ordinary class therefore have different meanings. The geometric density proof still requires the model, component and level-changing correspondence arguments.
 
-## Sources and limits
+### Sources and limits
 
 The source is Kisin–Madapusi Pera–Shin, *Honda–Tate theory for Shimura varieties*, Duke Math. J. 171 (2022), no.7, 1559–1614, [DOI](https://doi.org/10.1215/00127094-2021-0063). The [41-page Berkeley author PDF](https://math.berkeley.edu/~swshin/HT.pdf) was reacquired and freshly read in full, including Appendix A and references. SHA256: `fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db`. Pages 6,11,14,19,20,26,28,29,34,37 were checked as images. The PDF creation metadata is 27 January 2021; it is not treated as a printed revision date.
 
@@ -16,7 +79,7 @@ The final publisher request returned 1,158 bytes of HTML rather than an article.
 
 [Kisin–Zhou arXiv:2103.09945v2](https://arxiv.org/pdf/2103.09945v2), Definition 2.2.4 and Remark 2.2.5 (PDF p.10), explicitly distinguish a greatest admissible class from an ordinary class for non-quasi-split groups. This passage was freshly read; it corroborates the scope distinction. The concrete calculation below supplies its own argument. No uninspected HN18 theorem is imported as a proved supplier.
 
-## What the paper establishes and what remains conditional
+### What the paper establishes and what remains conditional
 
 For a Hodge-type Shimura datum, the normal integral model at the stated lattice-stabilizer level has tensor-preserving crystalline realizations. An admissible Newton class has a nonempty stratum when its geometric Newton orbit has a Q_p-rational representative. Basic classes and quasi-split groups supply that condition. The theorem gives lower Newton closure inclusion; it does not state arbitrary closure equality.
 
@@ -24,7 +87,7 @@ The all-primes tensor automorphism comparison uses Noot's original independence 
 
 Here Qbar-isogeny means a point of a rational coefficient torsor after extending its coefficient field; it is not a lift of the characteristic-p abelian variety to a characteristic-zero base by field extension.
 
-## Ordinary-class calculation
+### Ordinary-class calculation
 
 Let E/Q_p be unramified quadratic with nontrivial automorphism τ. Define D=E⊕Ej by j²=p and ja=τ(a)j. The reduced norm of a+bj is N(a)−pN(b). Nonzero summands have respectively even and odd valuations, so the norm cannot vanish. Thus D is division.
 
@@ -42,9 +105,9 @@ The rational representative condition is independently visible. An F-rational co
 
 For quasi-split G choose a rational Borel pair T⊂B and its dominant μ. The torus class κ_T⁻¹([μ]) has Newton vector N_Γμ. Its image in B(G) has κ=μ^sharp and ν=μ^diamond, so it is the unique ordinary class. Kottwitz85 Proposition 6.2 supplies the rational representative. Semicontinuity and bounded Newton finiteness make its stratum open, and the special-point theorem gives nonemptiness. Density still needs the geometric component argument.
 
-## Atomic continuation contracts
+### Atomic continuation contracts
 
-### C01. Torus Newton invariant is the Galois average
+#### C01. Torus Newton invariant is the Galois average
 
 For an F=Q_p torus T and λ∈X_*(T), let [b_T]=κ_T^{-1}([λ]). Then ν_T(b_T)=N_Γ λ in X_*(T)_Q^Γ. The average is rational; κ_T still retains integral coinvariant torsion.
 
@@ -52,7 +115,7 @@ For an F=Q_p torus T and λ∈X_*(T), let [b_T]=κ_T^{-1}([λ]). Then ν_T(b_T)=
 2. Pair with every F-rational character χ. The representative has valuation ⟨χ,λ⟩; the invariant rational cocharacter is uniquely determined by these pairings. Equivalently, Kottwitz85 (2.8.1) is precisely finite orbit averaging.
 3. Kottwitz85 §4.4 identifies this valuation map with the tensorial Newton map. Thus the Newton formula follows without discarding κ torsion. The sign-action lattice has nonzero Z/2 coinvariant but zero rational average.
 
-### C02. Ordinary class for a quasi-split group
+#### C02. Ordinary class for a quasi-split group
 
 For connected reductive G/Q_p quasi-split, any geometric cocharacter class {μ} has a unique [b_μ]∈B(G,{μ}) with ν=μ^diamond. Choose a Q_p-rational Borel pair T⊂B and B-dominant μ∈X_*(T). The image of κ_T^{-1}([μ]) has the required invariants. A rational Newton representative exists. This algebraic existence statement does not by itself prove density in an integral model.
 
@@ -60,7 +123,7 @@ For connected reductive G/Q_p quasi-split, any geometric cocharacter class {μ} 
 2. Send the torus class κ_T^{-1}([μ]) into B(G). Functoriality gives κ_G=μ^sharp and ν_G equal to the dominant orbit of N_Γ μ=μ^diamond. Hence it is admissible and attains the Hodge bound.
 3. All other admissible classes have the same κ and smaller or equal ν. Equality gives equality of classes by N11. N16, with Kottwitz85 Proposition 6.2, supplies (1.1.3.1). The rational Borel-pair and general classification prerequisites are still part of G-local.
 
-### C03. Quaternion division algebra and its split Frobenius model
+#### C03. Quaternion division algebra and its split Frobenius model
 
 Fix F=Q_p, its unramified quadratic extension E with automorphism τ, and D=E⊕E j with j²=p and j a=τ(a)j. Then D is a division algebra. Over L=breve Q_p, identify D_L with M_2(L) by a↦diag(a,τa) and j↦J=[[0,p],[1,0]]. The F-descent operator is σ_D(A)=J σ(A) J^{-1}; σ_D²=σ². Put G=D^×.
 
@@ -68,14 +131,14 @@ Fix F=Q_p, its unramified quadratic extension E with automorphism τ, and D=E⊕
 2. The displayed matrices satisfy the cyclic relations; over E their span is M_2(E), giving the splitting after base change. Apply σ entrywise, whose restriction to E is τ. Conjugation by J fixes the embedded a and j; it is therefore the descent action of D. Since σ(J)=J and J²=pI, its square is σ².
 3. Use the units of the finite-dimensional central simple F-algebra for the algebraic group, not GL_2 with the untwisted Frobenius. Its quasi-split inner form is split GL_2. The local-field existence of E and general reductive inner-form interface are retained in G-local.
 
-### C04. Transport of twisted sigma-conjugacy by a quaternion matrix
+#### C04. Transport of twisted sigma-conjugacy by a quaternion matrix
 
 With C03, b↦bJ gives a bijection B(D^×)→B(GL_2), where the left uses σ_D and the right uses σ. It is not a homomorphism or an invariant-preserving identification. κ_GL2(bJ)=κ_D(b)+1.
 
 1. For c∈GL_2(L), compute (c b σ_D(c)^{-1})J=c(bJ)σ(c)^{-1}. Thus the bijection on matrices carries exactly the two equivalence relations, and multiplication by J^{-1} gives its inverse.
 2. The reduced norm of b is det(b), so κ_D(b)=v_p(det b). The determinant of J is −p, yielding the shift by one. Do not equate inner-form κ values using this particular set bijection.
 
-### C05. Half-slope shift for the quaternion inner twist
+#### C05. Half-slope shift for the quaternion inner twist
 
 For C03 and C04, if the ordinary GL_2-isocrystal (bJ)σ has dominant slopes (a,c), the dominant Newton vector for b with descent σ_D is (a−1/2,c−1/2).
 
@@ -83,14 +146,14 @@ For C03 and C04, if the ordinary GL_2-isocrystal (bJ)σ has dominant slopes (a,c
 2. Choose an even common multiple of the decency exponent for b. If c makes b decent, then it makes bJ σ-conjugate by the same c. Since σ_D^r(c)=σ^r(c), the preceding equality remains valid after the conjugation. The GL_2 decency cocharacter is ν_D+(1/2,1/2).
 3. Uniqueness of the Newton cocharacter from the decency characterization (Kottwitz85 §§4.3–4.4) gives the asserted shift. For b=1 the GL_2 class of J has slopes (1/2,1/2), whereas ν_D(1)=0; this checks the normalization.
 
-### C06. Two distinct rank-two slopes are integral
+#### C06. Two distinct rank-two slopes are integral
 
 For a two-dimensional isocrystal over Frac W(Fpbar), two distinct slopes must both be integers. Each distinct slope space has dimension one. This consequence uses the rank-one classification and slope decomposition, not a claim that all-rank classification exists in Mathlib.
 
 1. The slope decomposition is Frobenius-stable and the two nonzero summands have dimensions summing to two, hence each has dimension one.
 2. Apply WittVector.isocrystal_classification to each summand with its verified finrank-one hypothesis. Its standard Frobenius is p^m σ for an integer m, so each slope is integral. The decomposition adapter comes from VB0; it is not an existing Mathlib theorem about arbitrary rank.
 
-### C07. Quaternion obstruction to an ordinary class
+#### C07. Quaternion obstruction to an ordinary class
 
 For G=D^× from C03 and any integer m, let {μ_m} have split dominant representative (m+1,m). Then B(G,{μ_m}) has no class with Newton vector μ_m^diamond=(m+1,m). In particular μ=(1,0) and the inverse-Hodge class represented dominantly by (0,−1) both fail ordinary existence.
 
@@ -98,7 +161,7 @@ For G=D^× from C03 and any integer m, let {μ_m} have split dominant representa
 2. If a class attained this vector, C05 would give ordinary GL_2 slopes (m+3/2,m+1/2). They are distinct and nonintegral, contradicting C06.
 3. For the positive example take m=0; for the inverse-Hodge example take m=−1. The obstruction is local and refutes unconditional inner-form existence in §1.3.15. No global Shimura realization, no claim about the final Duke text, and no counterexample to the additional local-integrality hypothesis of Corollary 1.3.16 is inferred.
 
-### C08. A unique maximal admissible class need not be ordinary
+#### C08. A unique maximal admissible class need not be ordinary
 
 For C07, B(D^×,{μ_m}) is a singleton. Its representative is b=p^m J and its Newton vector is (m+1/2,m+1/2), strictly below μ_m^diamond. Thus its unique greatest class is basic and is not μ-ordinary.
 
@@ -106,7 +169,7 @@ For C07, B(D^×,{μ_m}) is a singleton. Its representative is b=p^m J and its Ne
 2. For any other admissible b, let a≥c be the slopes of (bJ)σ. Their sum is 2m+2 by C04. Admissibility gives a−1/2≤m+1, hence a≤m+3/2. If a≠c, both are integers by C06, forcing a≤m+1; with a≥c and fixed sum this forces a=c=m+1, a contradiction.
 3. Hence all admissible classes have a=c=m+1 and the same κ. N11 identifies them. This gives a complete local distinction between a greatest admissible class and attainment of the Hodge average.
 
-### C09. Rational cocharacters of a division algebra are central
+#### C09. Rational cocharacters of a division algebra are central
 
 For a finite-dimensional division algebra D/F, every F-morphism λ:G_m→D^× is λ(t)=t^n·1 for an integer n. Every rational F-defined cocharacter is central. In C03 the basic class C08 has a rational Newton representative, but the noncentral orbit (m+1,m) has none.
 
@@ -114,14 +177,14 @@ For a finite-dimensional division algebra D/F, every F-morphism λ:G_m→D^× is
 2. A division algebra has only idempotents 0 and 1. Exactly one a_n is 1 and all others vanish. Thus λ(t)=t^n. Clear a positive denominator for a rational cocharacter.
 3. For b=p^m J, σ_D(b)=b and b²=p^{2m+1}I; the Newton map is the rational central cocharacter (m+1/2,m+1/2), defined over F. This verifies the witness condition independently of ordinary existence.
 
-### C10. Ordinary Newton class with an explicit witness
+#### C10. Ordinary Newton class with an explicit witness
 
 For connected reductive G/Q_p and a cocharacter class {μ}, OrdinaryClass(G,{μ}) consists of an actual [b]∈B(G), the equality κ_G(b)=μ^sharp and the equality ν_G(b)=μ^diamond. It is a subsingleton by N11 and can be empty. A rational Newton representative is separate data required by the geometric nonemptiness theorem.
 
 1. Construct the subtype of classes satisfying both equalities. The ν equality implies the admissibility inequality by reflexivity. Injectivity of (κ,ν) proves any two inhabitants equal.
 2. C02 supplies an inhabitant for quasi-split G. C07 supplies a genuine empty example. Do not implement a total constructor indexed only by G and μ, or identify the greatest admissible class with an inhabitant.
 
-## Preserved and clarified proof repairs
+### Preserved and clarified proof repairs
 
 N29 uses the absolute Weyl group W(G,T), not N_G(M)/M. For GL3 with block Levi GL1×GL2, μ=(0,1,0) and b_M=diag(p,1,1), the normalizer quotient is trivial while a full Weyl permutation repairs the M-Kottwitz class. The earlier continuation transports the general case to the quasi-split form, applies Proposition 1.1.13, and transports back using basic κ-classification. N32 uses this corrected N29 in the non-quasi-split branch. Its original local prerequisites remain open.
 
@@ -129,7 +192,7 @@ T23 uses G′=G×_{G^ab}T. Equal images in G^ab give equal symplectic similitude
 
 S11 now separates the actual Tannakian monodromy subgroup H from the chosen tensor stabilizer G_s. Restriction Rep(G_s)→Rep(H) is the appropriate functor. The invariant-morphism enlargement, crystalline extension, pointwise detection of tensor relations and splitting of transported idempotents are listed explicitly. Those obligations remain G-tensors/G-crystal; the false identification H=G_s is not reused.
 
-## Source findings
+### Source findings
 
 E1–E7 retain the IDs of the repository errata job by cc-fb70e5. This is incorporation, not an independent review. No review verdict was added. E6's impact is stated as a false general result although the torus application satisfies the repair. E8–E12 are the additional scoped findings.
 
@@ -148,7 +211,7 @@ E1–E7 retain the IDs of the repository errata job by cc-fb70e5. This is incorp
 | E11 | misprint | Corollary 1.3.13 proof, p.19: For V_m,n=V^⊗n⊗V*^⊗m, its image is D^⊗n⊗D*^⊗m. |
 | E12 | misprint | Proposition 2.3.11 proof, p.34: Choose the crystalline cocharacter λ_T in {μ_X^{-1}}_p with Nλ_T=ν_δ. The corresponding Hodge cocharacter is λ_T^{-1}; use it for the special pair. |
 
-## Library and ownership boundary
+### Library and ownership boundary
 
 Pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All 27 inherited declaration records retain checked file hashes and exact statement slices. The rank-one theorem `WittVector.isocrystal_classification` was freshly read with its `finrank = 1` hypothesis. No higher-rank classification is claimed in Mathlib. Existing Witt, isocrystal, reductive/torus, character/cocharacter, dominant-chamber, abelian-variety and divided-power carriers are reused.
 
@@ -156,39 +219,39 @@ Fresh BG0/BG1 audit rows distinguish the rank-one carrier from unbuilt B(G), New
 
 The current Smith extraction routes its finite-field Honda–Tate material to R28.4. That owner and its reviewed audit were read. Accordingly T27 is now an explicit finite-field source contract at the same Tate-isogeny layer. Its number-field proof does not prove the finite-field or crystalline statement: Tate66 and the original crystalline source remain G-tate. The obsolete duplicate finite-field Part II proposal is removed.
 
-### BunGAndNewtonStrata
+#### BunGAndNewtonStrata
 
 BG0 already owns B(G), sigma-centralizers and inner Levis, and BG1 owns kappa, Newton classes and their order. Add KMPS local specialness, minuscule Levi and torus-transfer source lemmas here. Reuse existing root and torus declarations; do not create another roadmap for B(G). The false normalizer display and general inner-form transfer are required source gates. The ordinary-class adapter and explicit quaternion obstruction refine the existing inner-twist, invariant and basic-division-algebra tests; no competing B(G) owner is created.
 
-### ReductiveGroupsArithmeticPartII
+#### ReductiveGroupsArithmeticPartII
 
 Extend Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), importing its group, torus, root-data and representation APIs. Import local fixers from Reductive groups, Part II (ReductiveGroupsPartII), finite adelic torus class number from Adelic algebraic groups (AdelicAlgebraicGroups AA.3), and local Newton/tori inputs from Reductive bundles, B(G) and Newton strata (BunGAndNewtonStrata BG0–BG1). Prove that ker(H1(Q,T) to H1(Q_p,T)) surjects onto H1(R,T), finite-place approximation for maximal tori, the required local and global transfer statements, and the simply connected/abelianized H1 reduction used for rational CM lifts. Construct Serre-condition tori, prime-units, Weil points, neat cyclic closures, Conj and the specified type-D quotient Conj prime. Prove density of neat prime-Weil points for a split auxiliary prime and the corrected reduced separated dense-point automorphism lemma. General finite-field Hom and Rosati theory are imported, not rebuilt. Preserve G-global and G-noot as exact original-proof acquisition tasks; do not assert a Hasse principle for every torus.
 
 The upstream roadmap builds algebraic group structure and root data; the existing ReductiveGroupsPartII covers local topology, buildings, parahorics and the dual group. Neither states this global torus-transfer, H1-obstruction and Weil-point chain. Keep this arithmetic continuation distinct from the existing local continuation.
 
-### ShimuraVarietiesHondaTatePartII
+#### ShimuraVarietiesHondaTatePartII
 
 Build on Complex Shimura varieties and canonical models (ShimuraVarieties V4–V8), Shimura data (ShimuraData D3–D5), Siegel and PEL moduli problems (PELModuli M1–M4), Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli), AutomorphicBundles B1, finite-flat Dieudonne theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2), and PadicHodgeTheory R06.5. Import BunGAndNewtonStrata local theory, ReductiveGroupsArithmeticPartII global transfer, and CrystallineCohomologyConvergentPartII coefficient descent. Normalize the closure of the Hodge-type generic model at the lattice-stabilizer level. Construct lift-independent crystalline tensors, the family G-isocrystal and nonempty locally closed Newton strata for admissible classes satisfying (1.1.3.1); prove the lower Newton closure inclusion. State mu-ordinary nonemptiness with existence and rational-Newton witness, and density with local integrality. Prove the all-primes automorphism comparison, then independence of neat Weil conjugacy and rational maximal-torus transfer. For G quasi-split at p with no adjoint type-D factor, and explicitly assuming Conjecture 2.3.4 for all pairs, prove geometric coefficient-isogeny CM lifts for every point and every maximal torus of its isogeny group. Prove this unconditionally for PEL A/C. With G_der simply connected and ker1(Q,G_ab)=0 prove rational coefficient-isogeny CM lifts; specialize to C and A_n with n odd, retaining the separate odd-degree unitary argument. Preserve polarization similitudes, distinguish Qbar coefficient torsors from Q-points, and leave the disconnected type-D variant behind its exercise-proof gate. Do not generalize the motivic remarks to a proved abelian-type theorem. Import C02/C07–C10 from BG1: quasi-split ordinary existence is proved by the torus average; arbitrary inner-form existence is false. Keep geometric density conditional on its actual class and component hypotheses. Preserve N29 and T23 repairs from cc-fb70e5.
 
 ShimuraVarieties V4–V8 constructs generic canonical models and CM theory, and PELModuli owns PEL integral moduli. The arbitrary allowed-prime Hodge-type normal model, tensor groups and all-maximal-torus CM lifts go beyond those scopes. The fixed split unitary good-prime Igusa application does not supply the general theorem.
 
-### CrystallineCohomologyConvergentPartII
+#### CrystallineCohomologyConvergentPartII
 
 Extend Crystalline cohomology, de Rham–Witt and logarithmic foundations (CrystallineCohomology), importing CR.1, CR.5 and the coefficient interface CR.7. Reuse Witt vectors and DividedPowers, finite-flat Dieudonne modules (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2), semistable abelian models (NeronModelsAndSemistableAbelianVarieties R11.3), and the precise comparison supplier of PadicHodgeTheory. Define log enlargements, convergent log F-isocrystals, log Dieudonne crystals and their rationalization. Prove the reduced-enlargement and p-adically closed-ideal comparisons. For flat normal finite-type S/W, a relative Cartier boundary D, U=S minus D and an abelian scheme on U extending semi-abelianly to S, prove the Appendix A tensor-section extension: a global etale tensor section induces a unique convergent crystalline tensor section matching all permitted integral-point crystalline evaluations. Cover the proper semistable case first using the Eisenstein PD enlargement system, then the general case through alterations, proper descent and pointwise faithfulness. Keep horizontal and vertical log structures distinct. Import existing generic alterations/descent suppliers wherever exact contracts exist; specialize them here rather than re-planning their foundations. Close G-crystal before claiming the singular-base tensor construction complete.
 
 CR.1 and CR.5 own crystalline/log foundations; CR.7 explicitly requires separate extensions for singular or nonproper coefficient settings. Appendix A supplies exactly such an extension. RD.3 overconvergent objects and RD.5 rigid-cohomological descent are different contracts, so neither is silently substituted.
 
-### AbelianSchemesAndArithmeticModuli
+#### AbelianSchemesAndArithmeticModuli
 
 A6 owns finite-dimensional rational Hom/End and Rosati positivity. Its reusable API should include the unit group, rational coefficient Isom open locus, real polarization-isometry compactness, and the unpolarized endomorphism-compatible rational-point argument. These are generic suppliers used by KMPS, not Shimura-specific definitions.
 
-### FaltingsFinitenessAndIsogenyTheorems
+#### FaltingsFinitenessAndIsogenyTheorems
 
 For abelian varieties over a finite field, prove Hom⊗Q_ell equals Frobenius-equivariant rational Tate-module Hom for ell≠p and the contravariant crystalline analogue for ell=p. Treat sufficiently divisible finite extension for geometric Hom, functorial composition, duality and invertible loci. Import Hom/End from AbelianSchemesAndArithmeticModuli A6 and Dieudonne realization from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2. Close G-tate with Tate66 and the original crystalline source.
 
 The current PAPER-SMITH-24 extraction already routes finite-field Honda–Tate to the Tate-isogeny layer R28.4. Its existing README supplies the generic rational Hom comparison and keeps the Hom-side algebra in AbelianSchemes A6. Add this finite-field source contract there, explicitly separating it from the number-field proof; no duplicate finite-field Part II is proposed. This routing does not claim the current number-field roadmap proves the finite-field or crystalline theorem.
 
-## Remaining gates and resume order
+### Remaining gates and resume order
 
 - **G-source**: Collate final Duke text with E1–E12. N29 absolute-Weyl and T23 fibre-product repairs are integrated and preserved; the local inner-form existence claim has the explicit counterexample C03–C09. Final publisher request still returned HTML.
 - **G-local**: Resolve N27–N29 unramified minuscule input, central-quotient and torsion-free kernel; read the K2 rational-conjugacy lemma used in Kot85 Proposition 6.2. Refine BG1 torus proof suppliers and bounded-Newton finiteness used for S16 openness. C03–C09 give the explicit quaternion calculation, but generic slope/decency and local-field interfaces still require implementation.
@@ -204,7 +267,7 @@ The current PAPER-SMITH-24 extraction already routes finite-field Honda–Tate t
 
 Completion still requires original-source closure, finer generic supplier nodes and grouped-definition splitting. G-ordinary records a resolved algebraic scope distinction, not an unresolved promise to prove false inner-form existence. The separate G-model scope is open. Conjecture 2.3.4 is an intentional hypothesis rather than a missing unconditional theorem.
 
-## Item index
+### Item index
 
 | ID | Kind/status | Name | Owner or library |
 | --- | --- | --- | --- |
@@ -391,7 +454,7 @@ Completion still requires original-source closure, finer generic supplier nodes 
 | C09 | theorem/missing | Rational cocharacters of a division algebra are central | BunGAndNewtonStrata |
 | C10 | definition/missing | Ordinary Newton class with an explicit witness | BunGAndNewtonStrata |
 
-## Executable continuation certificate
+### Executable continuation certificate
 
 This standard-library Python checks exact quadratic-field matrices, the twisted conjugacy and even-norm identities, the κ shift, central twists in both Hodge signs, admissible monomial examples and the Laurent-idempotent sanity check. The general proofs above are not replaced by enumeration. It prints 2,942 successful assertions. API/unit tests remain specifications; no Lean file was compiled.
 
@@ -497,7 +560,7 @@ import json
 print(json.dumps(result,sort_keys=True))
 ```
 
-## Preserved exact acceptance families
+### Preserved exact acceptance families
 
 The earlier eight families were also rerun: decency factor count, Hodge inverse, GL3 normalizer, D4 averaging, integral torsion, rational cone orientation, nonreduced dense points, and divisible Frobenius powers.
 
