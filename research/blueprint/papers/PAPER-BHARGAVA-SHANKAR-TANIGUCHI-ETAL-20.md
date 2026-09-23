@@ -1,3 +1,219 @@
+# Eleventh checkpoint: square minors, monomial derivatives and coordinate fibers
+
+Codex — codex-c83e7a; issue #1420; 23 September 2026. **Partial checkpoint.**
+
+This continuation supplies three genuinely remaining parts of G7: a complete reduction from rectangular full column rank to a nonzero square row minor; the scaled product/monomial derivative estimates, including the constant monomial; and nonzero coordinate specialization with its degree and finite-root bounds. These are proof plans on the existing carriers, not Lean implementations. The previous Taylor/interpolation adapters R1–R6 are consumed unchanged.
+
+There are **152 items: 37 library, eight planned and 107 missing**. The same six routes take 100 missing items exactly once, leaving the same seven diagnostic claims withheld. Fourteen items are added: seven narrowly scoped library suppliers and seven missing application adapters. All 138 inherited IDs, statuses and statements are retained. Five old items acquire notes/dependencies; 31 old inline API/test blocks are converted to structured lists while retaining the original prose. All 34 definitions/constructions now have structured APIs and at least three tests. The seven sourceIssue objects, paper prerequisites and five unrelated route objects remain unchanged. The full prior report is retained below without alteration.
+
+## Fresh reading and ownership
+
+Freshly retrieved and read the complete February 18, 2017 [Taniguchi author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf), all thirteen pages and references. SHA-256 is `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec`, 291,000 bytes. It is still not a verified copy of the final 2020 revision. G0 survives; no new publisher-text acquisition is claimed.
+
+Freshly retrieved [Bombieri–Pila's Oxford author preprint](https://people.maths.ox.ac.uk/pila/Ovals.pdf), SHA-256 `a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408`, 202,885 bytes, twenty-two pages. Read pp.1–6 and all §3 on pp.10–17. No fresh reading of pp.7–9 or §4, and no fresh visual page inspection, is claimed. The selected proof path is sufficient for the adapters below.
+
+Read the existing completed EffectiveBounds roadmap, SF.5's current description and reviewed AUDIT01 entry, and relevant AUDIT03 EffectiveBounds entries. The completed arithmetic bounds are imports, not work to plan again. SF.5 retains proper intersection and Bézout. No independent accepted owner for the new application adapters was found in the parsed paper inventory. The already proposed `IntegralPointDeterminantMethods` receives them; no new matrix, polynomial, differentiation or interpolation carrier is introduced. Other inherited library classifications remain inherited, not freshly certified wholesale.
+
+## M1. Select a square minor by expanding a retraction
+
+Let A have rows indexed by a finite set S and columns by a finite type M of cardinality D, over a field K. Suppose rank(A)=D. Rank-nullity gives ker(A)=0. The exact pinned `LinearMap.exists_leftInverse_of_injective` produces a linear retraction, whose coordinate matrix B satisfies BA=I_D by `LinearMap.toMatrix'_comp`.
+
+The i-th row of BA is the finite sum Σ_s B_(i,s) A_(s,−). Expand the determinant using its row multilinearity:
+
+`1 = det(BA) = Σ_(ρ:M→S) (∏_i B_(i,ρ(i))) det(A_(ρ(i),j)).`
+
+This is an immediate instance of `MultilinearMap.map_sum` and `map_smul_univ` for `Matrix.detRowAlternating`; it does not presume an unmatched rectangular Cauchy–Binet theorem. Some summand is nonzero. Its determinant is nonzero, and `Matrix.det_zero_of_row_eq` shows that ρ cannot repeat a row index. Thus ρ is injective and selects the required square minor.
+
+When D=0, the unique map M→S is injective and the empty determinant is one. When S is empty and D>0, full column rank is impossible. Repeated point indices in the original evaluation matrix are allowed; a nonzero selected minor simply avoids equal rows. There is no assertion that the first D rows work. For example, rows (1,0),(0,0),(0,1) require selecting rows one and three.
+
+This proves the exact step left open after the tenth checkpoint's rectangular kernel equivalence. The generic linear algebra stays with Mathlib; the application proof is `bp-full-rank-row-minor`.
+
+## D1. Normalize Leibniz before estimating
+
+Retain the established setting: N>0, nonempty compact I⊂[0,N], an open neighbourhood U of I, and C^k functions on U. Ordinary derivatives at the endpoints are justified by this neighbourhood hypothesis. For r≤k, divide the pinned binary Leibniz formula by r!:
+
+`(fg)^(r)/r! = Σ_(i=0)^r (f^(i)/i!)(g^(r−i)/(r−i)!).`
+
+The cancellation follows from `Nat.choose_mul_factorial_mul_factorial`, after casting into R; factorials are nonzero. If B_f=||f||_(N,k;I), each summand has absolute value at most B_f B_g N^(2−r). Multiplication by N^(r−1) and summation over r+1 terms gives
+
+`N^(r−1)|(fg)^(r)|/r! ≤ N(k+1) B_f B_g.`
+
+Taking the maximum over r and x gives the binary product bound. Induction on m≥1, using closure of C^k functions under products, yields
+
+`||∏_(j=1)^m f_j||_(N,k;I) ≤ N^(m−1)(k+1)^(m−1) ∏_j||f_j||_(N,k;I).`
+
+The base case m=1 is equality. No division by a norm occurs. For k=0 and constant functions the N power is necessary: both sides equal |∏c_j|/N. The empty product is deliberately separate.
+
+## D2. The constant monomial has its own norm
+
+The actual iterated derivatives of id are x, one, and then zero. Hence ||id||≤1 on I⊂[0,N], including k=0; equality holds when k≥1. Apply D1 to i copies of id and j copies of f, for i+j≥1:
+
+`||x^i f^j|| ≤ ((k+1)N)^(i+j−1) H^j`, where H=||f||.
+
+This allows i=0 or j=0. For i=j=0 the norm is exactly 1/N. Substituting zero factors into D1 would incorrectly give 1/((k+1)N). The proof must retain the constant separately even though the determinant endpoint below has the same stated constant as the source.
+
+## D3. Recover the determinant constant without losing the constant column
+
+Let M consist of D≥2 distinct monomials, with p=Σ(i+j), q=Σj, and let z∈{0,1} record whether the constant monomial occurs. Set k=D−1. By D2,
+
+`∏_(i,j)∈M ||x^i f^j|| ≤ N^(p−D) D^(p−D+z) H^q.`
+
+These are integer exponents; N and D are positive, so negative values cause no truncated-natural-subtraction mistake. The derivative determinant bound from checkpoint ten multiplies this by
+
+`D! N^(D(3−D)/2) |V(x_1,...,x_D)|.`
+
+Use the sharper elementary inequality D!≤D^(D−1), keeping the first factor 1 instead of bounding all D factors by D. Since z≤1,
+
+`D! D^(p−D+z) ≤ D^p.`
+
+Thus for abscissae in an interval of length L, the Vandermonde bound gives
+
+`|det(x_r^i f(x_r)^j)| ≤ L^(D(D−1)/2) D^p H^q N^(p−D(D−1)/2).`
+
+This proves the source's constant with or without the constant monomial. It is a derivation of the displayed inequality, not a claim that Proposition 1 covers the empty product.
+
+For integral points the matrix is integral. M1 selects a nonzero square minor from a full-rank block, so its absolute determinant is at least one. The upper bound then forces D^p H^q>0. Taking the positive D(D−1)/2-th root gives exactly
+
+`L ≥ (D^p H^q)^(−2/(D(D−1))) N^(1−2p/(D(D−1))).`
+
+If H=0 and q>0, a column containing a positive Y exponent is identically zero, so full rank cannot occur. If q=0 use H^0=1. These checks justify the division and keep the zero-factor case from becoming an unstated hypothesis. Repeated abscissae have zero determinant and are handled before the distinct-node bound.
+
+## S1. An irreducible nonlinear curve has no zero coordinate specialization
+
+Let F∈K[X,Y] be irreducible of total degree d≥2 over a field K, and a∈K. Suppose F(a,Y) is identically zero. Use the existing `MvPolynomial.finSuccEquiv` and one-variable `uniqueAlgEquiv` to regard F as a polynomial in X over K[Y]. The ring-valued factor theorem `Polynomial.dvd_iff_isRoot` gives
+
+`F=(X−a)G`.
+
+The factor X−a is not a unit: evaluation at X=a would send an inverse identity to 0=1. Irreducibility therefore makes G a unit. The exact reduced-ring polynomial-unit theorem says G is a nonzero scalar. Consequently F has total degree at most one, a contradiction. Exchange the variables for F(X,a). Absolute irreducibility and characteristic zero are unnecessary for this algebraic step.
+
+Both hypotheses matter. The degree-one polynomial X−a has a zero vertical specialization, as does the reducible degree-two polynomial (X−a)Y. The singular specialization Y² of the irreducible curve Y²−X at a=0 is nonzero and is allowed.
+
+## S2–S3. Degree control before finite-root counting
+
+Write F as the finite sum of its supported monomials c_(i,j)X^iY^j. The pinned `MvPolynomial.le_totalDegree` bounds i+j by d for every supported exponent. The Y^j coefficient of F(a,Y) is Σ_i c_(i,j)a^i; for j>d every term vanishes. The exact `Polynomial.natDegree_le_iff_coeff_eq_zero` therefore gives natDegree(F(a,Y))≤d. This remains true even if specialization is zero; cancellation can lower degree but cannot raise it.
+
+Now use S1 to exclude zero specialization before applying the pinned root-count theorem. More than d distinct roots would imply the specialized polynomial is zero, a contradiction. Thus each finite set of zeros on any vertical or horizontal line has cardinality at most d. This supplies the critical-fiber and boundary-line counts in BP6, including repeated roots and singular points. It supplies neither a smooth root parametrization nor Bézout for two arbitrary curves.
+
+## Exact library evidence and remaining work
+
+The JSON's new `verification.declarationsRead` records the declarations and module/line ranges read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: linear retraction and coordinate composition; determinant alternating multilinearity and finite-sum/scalar expansion; iterated Leibniz and the identity derivatives; the factorial identity; the ring-valued factor theorem; reduced-ring polynomial units; actual polynomial coordinate equivalences; coefficient total-degree bounds; and the finite-root theorem. The missing composite adapters remain classified missing. The Tau Ceti pin is `f790474821cf4256814db967cb154e7af3d0c369`; targeted searches in its matrix/linear-algebra files did not identify a competing application result. Absence of a matching name alone is not proof of global library absence.
+
+G7 now retains proper Bézout in SF.5, smooth root continuation over open strips, inverse-graph construction, recursive supplier matching and independent verification. The earlier 8d³ finite integral-point cover still depends on those geometric interfaces. This continuation does not promote the source's abbreviated O(d²) whole-curve cover. G0 and G1–G6/G8–G10 remain distinct; no global extraction completion is claimed.
+
+The publication guard refreshed 554 input blobs at `db84182bbf4c428cfeab9ed13767aeff7b4e4ae1`. The concurrent Shende–Tsimerman update was screened: its theta/cohomology/Hecke refinements introduce no competing determinant or coordinate-fiber owner. A second guard refresh screened the Anglès–Ngo Dac–Tavares Ribeiro22 regulator/Fitting-ideal refinements; no route or supplier used here changed. The three inherited deliverable blobs still match the claim snapshot.
+
+## Validation
+
+The standalone script below passes **9,520 exact assertions**. It checks finite rectangular matrices and their left-inverse determinant expansions, repeated-row cancellation, normalized truncated derivative products, the factorial constant, the explicit polynomial division identity under specialization, degree bounds and representative finite root counts. These are diagnostics supporting the written general arguments, not proofs of arbitrary smooth-function estimates or final-version identity.
+
+Paper and three-file intake checks pass. Preservation checks cover all inherited IDs/statuses/statements, the unchanged seven source issues and seven withheld claims, the five untouched routes, and contiguity of the entire old report. Every newly missing item routes exactly once; all structured D/C API/test blocks and the selected dependency graph pass (740 structural assertions; 53 selected edges). No Lean was authored or compiled. Suggested design-job homes are `TauCeti/NumberTheory/IntegralPointBounds/MonomialDeterminant.lean` and `PlaneCurveFibers.lean`, importing the current generic carriers and the existing geometry owners.
+
+```python
+from fractions import Fraction as Q
+from itertools import product,permutations,combinations
+from math import factorial
+from random import Random
+import json
+rng=Random(142023);counts={}
+def check(k,b):
+    assert b,k
+    counts[k]=counts.get(k,0)+1
+def det(a):
+    n=len(a);s=Q(0)
+    for p in permutations(range(n)):
+        v=Q((-1)**sum(p[i]>p[j] for i in range(n) for j in range(i+1,n)))
+        for i in range(n):v*=a[i][p[i]]
+        s+=v
+    return s
+def rank(a,n):
+    a=[list(map(Q,r)) for r in a];r=0
+    for j in range(n):
+        i=next((i for i in range(r,len(a)) if a[i][j]),None)
+        if i is None:continue
+        a[r],a[i]=a[i],a[r];v=a[r][j];a[r]=[x/v for x in a[r]]
+        for i in range(len(a)):
+            if i!=r:
+                v=a[i][j];a[i]=[x-v*y for x,y in zip(a[i],a[r])]
+        r+=1
+    return r
+def inverse(a):
+    n=len(a);w=[[Q(x) for x in row]+[Q(i==j) for j in range(n)] for i,row in enumerate(a)]
+    for j in range(n):
+        i=next(i for i in range(j,n) if w[i][j]);w[i],w[j]=w[j],w[i];v=w[j][j];w[j]=[x/v for x in w[j]]
+        for i in range(n):
+            if i!=j:
+                v=w[i][j];w[i]=[x-v*y for x,y in zip(w[i],w[j])]
+    return [r[n:] for r in w]
+for m in range(6):
+ for n in range(4):
+  for _ in range(15):
+    a=[[rng.randrange(-2,3) for j in range(n)] for i in range(m)]
+    minors=[(s,det([a[i] for i in s])) for s in combinations(range(m),n)]
+    good=[s for s,d in minors if d]
+    check('full_rank_minor',(rank(a,n)==n)==bool(good))
+    if not good:continue
+    s=good[0];inv=inverse([a[i] for i in s]);b=[[Q(0)]*m for _ in range(n)]
+    for i in range(n):
+     for j in range(n):b[i][s[j]]=inv[i][j]
+    check('left_inverse',all(sum(b[i][h]*a[h][j] for h in range(m))==int(i==j) for i in range(n) for j in range(n)))
+    total=Q(0)
+    for rho in product(range(m),repeat=n):
+        dd=det([a[i] for i in rho]);coef=Q(1)
+        for i in range(n):coef*=b[i][rho[i]]
+        total+=coef*dd
+        if len(set(rho))<n:check('repeated_rows',dd==0)
+    check('multilinear_expansion',total==1)
+def mul(a,b,k):return [sum((a[j]*b[i-j] for j in range(i+1) if j<len(a) and i-j<len(b)),Q(0)) for i in range(k+1)]
+for k in range(7):
+ for m in range(1,6):
+  for _ in range(40):
+    N=Q(rng.randrange(1,9),rng.randrange(1,5));jets=[[Q(rng.randrange(-4,5),rng.randrange(1,5)) for r in range(k+1)] for j in range(m)]
+    norms=[max(N**(r-1)*abs(a[r]) for r in range(k+1)) for a in jets]
+    c=[Q(1)]+[Q(0)]*k;bound=N**(m-1)*(k+1)**(m-1)
+    for a,B in zip(jets,norms):c=mul(c,a,k);bound*=B
+    for r in range(k+1):check('normalized_product',N**(r-1)*abs(c[r])<=bound)
+for D in range(1,31):
+    check('factorial_constant',factorial(D)<=D**(D-1))
+    for z in [0,1]:check('constant_column_absorption',Q(factorial(D),D**(D-z))<=1)
+# Multivariate polynomials represented by exponent->rational coefficient solely for diagnostics.
+def clean(f):return {a:c for a,c in f.items() if c}
+def add(f,g):
+    h=f.copy()
+    for a,c in g.items():h[a]=h.get(a,Q(0))+c
+    return clean(h)
+def pmul(f,g):
+    h={}
+    for (i,j),a in f.items():
+     for (k,l),b in g.items():h[i+k,j+l]=h.get((i+k,j+l),Q(0))+a*b
+    return clean(h)
+def spec(f,a):
+    h={}
+    for (i,j),c in f.items():h[0,j]=h.get((0,j),Q(0))+c*a**i
+    return clean(h)
+for d in range(1,7):
+ for _ in range(50):
+    f=clean({(i,j):Q(rng.randrange(-3,4)) for i in range(d+1) for j in range(d+1-i)})
+    a=Q(rng.randrange(-3,4),rng.randrange(1,4));g={}
+    for (i,j),c in f.items():
+     for t in range(i):g[i-1-t,j]=g.get((i-1-t,j),Q(0))+c*a**t
+    s=spec(f,a)
+    check('factor_theorem',add(pmul({(1,0):Q(1),(0,0):-a},g),s)==f)
+    check('specialization_degree',all(j<=d for i,j in s))
+    sw={(j,i):c for (i,j),c in f.items()};ss=spec(sw,a)
+    check('horizontal_degree',all(j<=d for i,j in ss))
+for a in range(-8,9):
+    check('vertical_counterexample',spec({(1,1):Q(1),(0,1):Q(-a)},Q(a))=={})
+    for f in [{(0,2):Q(1),(1,0):Q(-1)},{(2,0):Q(1),(0,2):Q(1),(0,0):Q(1)}]:
+        s=spec(f,Q(a));check('irreducible_examples',bool(s))
+        roots=[y for y in range(-10,11) if sum(c*Q(y)**j for (i,j),c in s.items())==0]
+        check('fiber_roots',len(roots)<=max(j for i,j in s))
+print(json.dumps({'total':sum(counts.values()),'counts':counts},sort_keys=True))
+```
+
+---
+
+# Historical report retained contiguously
+
 > Current status (23 September 2026): partial tenth checkpoint, 138 items.
 > See the final report section for the rectangular-kernel, repeated-Rolle and
 > Taylor adapters. Earlier checkpoint counts and remaining-work notices are historical.

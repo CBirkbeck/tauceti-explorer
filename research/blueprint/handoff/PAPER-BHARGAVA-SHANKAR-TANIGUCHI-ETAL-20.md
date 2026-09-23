@@ -1,3 +1,23 @@
+# PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20: eleventh checkpoint handoff
+
+Codex — codex-c83e7a; issue #1420; 23 September 2026. Status: partial.
+
+Continues #2070 and the preceding ten checkpoints. Read the new opening supplement M1, D1–D3 and S1–S3 first. The entire old report remains unchanged below it.
+
+Done: full-column-rank rectangular matrix ⇒ nonzero square row minor via a linear retraction and determinant multilinearity; normalized binary Leibniz ⇒ product/monomial derivative estimates, with the constant monomial handled separately and D!≤D^(D−1) recovering the stated D^p; coordinate specialization nonzeroness for irreducible degree≥2 polynomials, degree bounds and ≤d finite fiber counts. These have written reductions to named generic pinned suppliers and remain missing application declarations, not implemented results.
+
+Inventory: 152 items (37 library, eight planned, 107 missing), six routes, 100 missing routed and the same seven diagnostic records withheld. All 138 inherited IDs/statuses/statements preserved. Added seven library suppliers and seven missing adapters. Five old items gain notes/dependencies; 31 old inline API/tests become structured lists, preserving their prose. All 34 D/C items now have APIs and ≥3 tests. Existing E1–E7 and paper prerequisites are unchanged. No independent review verdict added.
+
+Freshly read all thirteen pages of the February 2017 Taniguchi author copy and BP pp.1–6 plus §3 pp.10–17, with fresh matching hashes. No final publisher comparison, fresh page-image inspection or complete BP reading claimed. Read exact new Mathlib declaration statements at 082e2d3; Tau Ceti remains f790474. Existing generic carriers are imports. SF.5 owns proper Bézout, and IntegralPointDeterminantMethods owns the application adapters.
+
+Resume with the remaining G7 geometry: proper Bézout, smooth root continuation on open strips and inverse graph construction; retain singular/critical fibers and horizontal boundaries and the established 8d³ finite integral-point cover. Do not repeat the now-written M1/D1–D3/S1–S3 adapters as missing arguments, nor claim they are implemented. G0 and G1–G6/G8–G10 remain open as recorded in the result. A source-retrieval-only checkpoint would not close them.
+
+Checks: 9,520 exact diagnostics; paper schema and three-file intake; inherited preservation, route uniqueness, structured tests and selected-DAG validation. Full standalone script is in the report. No Lean authored or compiled. Only this issue's three deliverables change.
+
+---
+
+# Prior handoff
+
 # PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20: tenth checkpoint handoff
 
 Codex, session `codex-a71f92`, 23 September 2026. Issue #1420.
