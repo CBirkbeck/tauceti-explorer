@@ -13,7 +13,7 @@
       "Entire arXiv v3 (28 January 2019, the latest version), 64 pages: §§1–11, Appendices A–C and references, read 2026-09-22 (PDF https://arxiv.org/pdf/1801.05762v3, SHA-256 ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e). The typeset Annals PDF was not accessible, so the published version was not collated."
     ]
   },
-  "summary": "Proves a height inequality h_S(π(P)) ≤ c(1 + ĥ_𝒜(P)) on X* for every subvariety X of an abelian scheme over a curve over Q̄, where X* removes the generically special subvarieties (Theorem 1.4). As an application it proves the Geometric Bogomolov Conjecture over function fields of curves in characteristic 0 (Theorem 1.1). The proof shows that degenerate subvarieties, those where the Betti map has positive-dimensional fibres, are generically special (Theorem 5.1), using monodromy, Deligne's semisimplicity and Pila–Wilkie. Then an auxiliary variety, Blichfeldt lattice counting on Betti coordinates and Habegger's degree-height lemma give h([2^N]P) ≥ c4^N h(P) − c′(N) (Proposition 9.1), and Silverman–Tate kills the error term. Silverman's limit theorem gives Theorem 1.1, and Moriwaki heights extend it to all characteristic-0 constant fields. The atlas plans heights, Manin–Mumford, Blichfeldt, Néron models and o-minimality; it lacks function-field heights, the trace, Betti maps, variations of Hodge structure, Moriwaki heights and the height inequality.",
+  "summary": "Proves a height inequality h_S(π(P)) ≤ c(1 + ĥ_𝒜(P)) on X* for every subvariety X of an abelian scheme over a curve over Q̄, where X* removes the generically special subvarieties (Theorem 1.4). As an application it proves the Geometric Bogomolov Conjecture over function fields of curves in characteristic 0 (Theorem 1.1). The proof shows that degenerate subvarieties, those where the Betti map has positive-dimensional fibres, are generically special (Theorem 5.1), using monodromy, Deligne's semisimplicity and Pila–Wilkie. Then an auxiliary variety, Blichfeldt lattice counting on Betti coordinates and Habegger's degree-height lemma give h([2^N]P) ≥ c4^N h(P) − c′(N) (Proposition 9.1), and Silverman–Tate kills the error term. Silverman's limit theorem gives Theorem 1.1, and Moriwaki heights extend it to all characteristic-0 constant fields. The atlas plans heights, Manin–Mumford, Blichfeldt, Néron models and o-minimality; it lacks function-field heights, the trace, Betti maps, variations of Hodge structure, Moriwaki heights and the height inequality. The independent review (REV-PAPER-GAO-HABEGGER-19) collated the published Annals version: its numbering and mathematics agree with arXiv v3, and every recorded mistake is present there. The review moved the Weil height from library to planned, corrected several item statements (the Néron–Tate kernel, the semi-rational counting, the unbarred trace in Lemma 5.6, Theorem A.3), added a projective-normality item, and added ten issues (E18–E27), including gaps in the proofs of Propositions 4.1 and 9.1 with repairs.",
   "items": [
     {
       "id": "PAPER-GAO-HABEGGER-19/1",
@@ -40,7 +40,7 @@
       "statement": "For a field extension K/k with k algebraically closed in K and char k = 0, and an abelian variety A over K, the K/k-trace A^{K/k} is an abelian variety over k with a trace map τ : A^{K/k} ⊗_k K → A universal for maps from constant abelian varieties; τ is a closed immersion in characteristic 0, and there is a unique abelian subvariety A′ ⊆ A with A′ = A^{K/k} ⊗ K and (A/A′)^{K/k} = 0.",
       "locator": "§1, p.2; §2, p.9; §3.1, p.12, citing Conrad [Con06, §6, Thms. 6.2, 6.4], arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Not in the atlas. Routed with Lang–Néron to HeightsRationalPointsAndObstructions RP.1 as a source."
+      "note": "Not in the atlas. Routed with Lang–Néron to HeightsRationalPointsAndObstructions RP.1 as a source. The paper also uses silently that the trace stays zero for A″, for A/B and after finite extensions of K (pp.12, 14, 58)."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/4",
@@ -64,8 +64,8 @@
       "id": "PAPER-GAO-HABEGGER-19/6",
       "kind": "theorem",
       "name": "Néron–Tate height over a function field and its kernel",
-      "statement": "For A over K = k(S̄) with symmetric ample L, Tate's limit gives ĥ_{K,A,L} : A(K̄) → [0,∞), a quadratic form, and ĥ_{K,A,L}(P) = 0 iff P ∈ (A^{K̄/k} ⊗_k K̄)(K̄) + A_tor.",
-      "locator": "§1, p.2; §2.1, p.10, arXiv v3 (28 January 2019)",
+      "statement": "For A over K = k(S̄) with symmetric ample L, Tate's limit gives ĥ_{K,A,L} : A(K̄) → [0,∞), a quadratic form, and ĥ_{K,A,L}(P) = 0 iff P ∈ τ(A^{K̄/k}(k)) + A_tor (Lang–Néron); the paper prints (A^{K̄/k} ⊗_k K̄)(K̄) + A_tor, which is false (sourceIssues E18).",
+      "locator": "§1, p.2; §2.1, p.10, arXiv v3 (28 January 2019); published version (Ann. Math. 189 (2019)) p.528",
       "status": "missing",
       "note": "The kernel statement combines Lang–Néron with Northcott for constant heights. Routed to RP.0 as a source."
     },
@@ -93,11 +93,11 @@
       "name": "Absolute logarithmic Weil height on ℙ^n(Q̄)",
       "statement": "h([p₀:…:p_n]) = [K:ℚ]^{-1} Σ_v d_v log max_i |p_i|_v for p_i in a number field K, independent of K and of the coordinates.",
       "locator": "§2.1, p.9, arXiv v3 (28 January 2019)",
-      "status": "library",
-      "library": [
-        "mathlib:Projectivization.logHeight"
-      ],
-      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) for fields with `Height.AdmissibleAbsValues`; the extension to Q̄ is RP.0 work."
+      "status": "planned",
+      "note": "RP.0 plans normalized absolute heights. Mathlib's `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) is the height relative to a field K with `Height.AdmissibleAbsValues` (for a number field the product over its places, not normalized by [K:ℚ]); the absolute height on ℙⁿ(Q̄) is not in the library.",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ]
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/10",
@@ -226,10 +226,10 @@
       "id": "PAPER-GAO-HABEGGER-19/22",
       "kind": "theorem",
       "name": "Lemma B.2 (finitely many étale covers of bounded degree)",
-      "statement": "For a smooth irreducible quasi-projective variety S over an algebraically closed field k of characteristic 0, the étale fundamental group π₁(S) is topologically finitely generated; hence S has only finitely many étale coverings of degree ≤ D, and the compositum of all extensions of k(S) of degree ≤ D unramified over S is finite. A finite monodromy representation is trivialized on a finite étale cover (Riemann existence).",
+      "statement": "For a smooth irreducible quasi-projective variety S over an algebraically closed field k of characteristic 0 and D > 0, S has at most finitely many étale coverings of degree ≤ D; the proof shows that π₁(S) is topologically finitely generated (Lemma B.2). Consequently the compositum of all extensions of k(S) of degree ≤ D unramified over S is finite (used in Proposition B.1).",
       "locator": "Lemma B.2 and proof, p.58, citing SGA1 XII 5.1, XIII 2.12, Cadoret [Cad13, Cor. 6.5, Rem. 6.8], Völklein [Völ96, Cor. 7.11]; proof of Proposition 3.1, p.14; proof of Lemma 5.8, p.26, arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Descend to a subfield of finite transcendence degree, compare with ℂ, use finite generation of π₁^top and Riemann existence, and invariance of π₁ under extension of algebraically closed fields. Routed to InverseGaloisAndArithmeticFundamentalGroups IG.0 as a source."
+      "note": "Descend to a subfield of finite transcendence degree, compare with ℂ, use finite generation of π₁^top and Riemann existence, and invariance of π₁ under extension of algebraically closed fields. Routed to InverseGaloisAndArithmeticFundamentalGroups IG.0 as a source. The separate fact that a finite monodromy representation is trivialized on a finite étale cover (Riemann existence) is used in the proof of Lemma 5.8, p.26; it is not part of Lemma B.2."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/23",
@@ -238,7 +238,7 @@
       "statement": "If S is smooth irreducible quasi-projective over k (char 0, algebraically closed), K = k(S) and A/K has A^{K/k} = 0, then the orders of the points of {P ∈ A(K̄)_tor : [K(P):K] ≤ D} are bounded in terms of A and D.",
       "locator": "Proposition B.1 and proof, p.58; the case dim S = 1 is the claim (3.2), p.14, arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "The Zariski closure of a torsion point is a component of 𝒜[N], hence finite étale over S; Lemma B.2 bounds the compositum and Lang–Néron finishes. Routed to the uniformity Part II."
+      "note": "The Zariski closure of a torsion point is a component of 𝒜[N], hence finite étale over S; Lemma B.2 bounds the compositum and Lang–Néron finishes. Routed to the uniformity Part II. The paper puts A over K̄ at the start of Appendix B, but Proposition B.1 needs A over K (sourceIssues E21)."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/24",
@@ -256,7 +256,7 @@
       "statement": "For an abelian scheme π : 𝒜 → S of relative dimension g over a smooth irreducible complex curve and s ∈ S(ℂ), there are an open neighbourhood Δ of s in S^an and a real-analytic b : 𝒜_Δ → T^{2g} with (i) b|_{𝒜_s^an} a group isomorphism for all s ∈ Δ, (ii) every fibre b^{-1}(ξ) complex analytic, (iii) (b, π) : 𝒜_Δ → T^{2g} × Δ real bianalytic. For path-connected Δ two such maps differ by an element of GL_{2g}(ℤ).",
       "locator": "Proposition 4.1, Remark 4.2 and construction, pp.15–18, arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Construction: Ehresmann trivialization with analytic fibres, a holomorphic period matrix from Griffiths' theorem, and the Albanese coordinates b̃(P) = (Ω, Ω̄)^{-1}(L(P), L̄(P)) ∈ ℝ^{2g}. The special case of PAPER-DIMITROV-GAO-HABEGGER-21 Proposition 2.1/B.2. Routed to the Betti-map Part II."
+      "note": "Construction: Ehresmann trivialization with analytic fibres, a holomorphic period matrix from Griffiths' theorem, and the Albanese coordinates b̃(P) = (Ω, Ω̄)^{-1}(L(P), L̄(P)) ∈ ℝ^{2g}. The special case of PAPER-DIMITROV-GAO-HABEGGER-21 Proposition 2.1/B.2. Routed to the Betti-map Part II. The paper's proof of (ii)–(iii) is incomplete (sourceIssues E19): the pullback identity f_s^*ω_i(s) = Σ(a_ij ω_j⁰ + b_ij ω̄_j⁰) holds only in cohomology, since f_s is just a diffeomorphism. Construct instead β(ξ,s) = exp_s(Ω(s)ξ) with the holomorphic relative exponential. It inverts (b, π) real-analytically, and b^{-1}(ξ) is the image of a holomorphic section. Remark 4.2 says 'endomorphism' where 'automorphism' is meant."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/26",
@@ -301,19 +301,19 @@
       "id": "PAPER-GAO-HABEGGER-19/30",
       "kind": "theorem",
       "name": "Semi-rational Pila–Wilkie counting in definable families (Habegger–Pila)",
-      "statement": "For a definable family Z ⊆ ℝ^m × ℝ^n with fibres Z_x and ε > 0 there is c such that if a fibre contains more than cT^ε points whose \"rational\" coordinates have height ≤ T, then there is a continuous definable path whose rational coordinates are semi-algebraic and whose remaining coordinates are non-constant, starting at such a point ([HP16, Cor. 7.2], including the refinement (iii) that the path starts at a rational point).",
+      "statement": "For a definable family Z ⊆ ℝ^m × ℝ^n, with the coordinates split into 'rational' and remaining ones, and ε > 0, there is c such that the following holds. If the points of a fibre whose rational coordinates are rational of height ≤ T have more than cT^ε distinct values of the remaining coordinates, then there is a continuous definable path with semi-algebraic rational coordinates and non-constant remaining coordinates ([HP16, Cor. 7.2]). By the proof of [HP16, Cor. 7.2(iii)] it can be taken to start at one of the counted rational points; the paper needs γ(0) ∈ Γ and a(0) ∈ ℤⁿ.",
       "locator": "Proof of Lemma 5.2, pp.19–20, citing Habegger–Pila [HP16, Cor. 7.2], arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "LD.6 plans the plain Pila–Wilkie estimate; the semi-rational family version is routed to LD.6 as a source."
+      "note": "LD.6 plans the plain Pila–Wilkie estimate; the semi-rational family version is routed to LD.6 as a source. The counted quantity is the number of distinct values y_γ of the non-rational part (pp.19–20), not the number of rational points; a fibre [0,1] × {y₀} has many rational points and no such path."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/31",
       "kind": "theorem",
       "name": "Ax's theorem for complex abelian varieties (Ax-type images)",
-      "statement": "For a complex abelian variety A with real-analytic group isomorphism A^an → T^{2g}, the image of X(ℂ) for Zariski closed X is definable and of Ax-type: every continuous semi-algebraic path y : [0,1] → exp^{-1}(image), real-analytic on (0,1), satisfies exp ∘ y([0,1]) ⊆ y(0) + G ⊆ image for a closed subgroup G.",
+      "statement": "For a complex abelian variety A with real-analytic group isomorphism A^an → T^{2g}, the image of X(ℂ) for Zariski closed X is definable and of Ax-type: every continuous semi-algebraic path y : [0,1] → exp^{-1}(image), real-analytic on (0,1), satisfies exp ∘ y([0,1]) ⊆ exp(y(0)) + G ⊆ image for a closed subgroup G.",
       "locator": "§5.1, p.19; proof of Proposition 5.3, p.21, citing Ax [Ax71], [Ax72], arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Functional transcendence for a constant abelian variety. Routed to LD.6 as a source."
+      "note": "Functional transcendence for a constant abelian variety. Routed to LD.6 as a source. The operative reference is Ax 1972 (algebraic groups); the paper cites [2] (Ax 1971) on pp.19 and 21 but [3] on p.6."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/32",
@@ -406,7 +406,7 @@
       "id": "PAPER-GAO-HABEGGER-19/41",
       "kind": "theorem",
       "name": "Lemma 5.6 (invariant homology forces a non-zero trace)",
-      "statement": "If H₁(𝒜_s^an, ℤ) has a non-zero monodromy-invariant element, then the ℂ(S)‾/ℂ-trace of the generic fibre is non-zero.",
+      "statement": "If H₁(𝒜_s^an, ℤ) has a non-zero monodromy-invariant element, then the ℂ(S)/ℂ-trace of the generic fibre is non-zero (over ℂ(S) itself, as Lemma 5.8 needs).",
       "locator": "Lemma 5.6 and proof, p.25, arXiv v3 (28 January 2019)",
       "status": "missing",
       "note": "The invariants give an abelian subvariety B ⊆ 𝒜_s by the Theorem of the Fixed Part; Grothendieck's theorem extends B × S → 𝒜. Routed to the Betti-map Part II."
@@ -433,7 +433,7 @@
       "id": "PAPER-GAO-HABEGGER-19/44",
       "kind": "theorem",
       "name": "Lemma 6.2 (non-generically special subvarieties have full Betti rank)",
-      "statement": "If X ⊆ 𝒜 dominating S is not generically special, there is P ∈ X^{sm}(F) with π(P) ∈ Δ and P ∈ (X_{π(P)})^{sm} such that dim im T_P(b|_{X^{sm,an} ∩ 𝒜_Δ}) = 2 dim X (6.1).",
+      "statement": "If X ⊆ 𝒜, defined over F and dominating S, is not generically special, there is P ∈ X^{sm}(F) with π(P) ∈ Δ and P ∈ (X_{π(P)})^{sm} such that dim im T_P(b|_{X^{sm,an} ∩ 𝒜_Δ}) = 2 dim X (6.1).",
       "locator": "Lemma 6.2 and proof, p.31, arXiv v3 (28 January 2019)",
       "status": "missing",
       "note": "Theorem 5.1 makes X non-degenerate; the constant-rank theorem then forces maximal rank 2 dim X, and F-points are dense. Routed to the Betti-map Part II."
@@ -442,10 +442,10 @@
       "id": "PAPER-GAO-HABEGGER-19/45",
       "kind": "theorem",
       "name": "Proposition 6.1 (the auxiliary subvariety Z)",
-      "statement": "For X ⊊ 𝒜 dominating S, not generically special, of codimension n, and P as in (6.1), there is an irreducible closed Z ⊆ 𝒜 over F with (i) dim Z = n and Z dominating S, (ii) P smooth on Z_s and Z, (iii) Z_s containing no positive-dimensional coset, (iv) deg Z_t ≤ D for all t, and (v) im T_P(b|_X) ∩ im T_P(b|_{Z_s}) = 0. Moreover only finitely many fibres Z_t contain a positive-dimensional coset.",
+      "statement": "In the admissible setting (A1)–(A3) over an algebraically closed subfield F ⊆ ℂ, for X ⊊ 𝒜 over F dominating S, not generically special, of codimension n, and P ∈ 𝒜_Δ ∩ 𝒜(F) with π(P) = s, P smooth on X_s and on X, satisfying (6.1), there is an irreducible closed Z ⊆ 𝒜 over F with (i) dim Z = n and Z dominating S, (ii) P smooth on Z_s and Z, (iii) Z_s containing no positive-dimensional coset, (iv) deg Z_t ≤ D in ℙ^M for all t ∈ S(ℂ), and (v) im T_P(b|_X) ∩ im T_P(b|_{Z_s}) = 0. Moreover only finitely many fibres Z_t contain a positive-dimensional coset.",
       "locator": "Proposition 6.1, pp.30–31; proof §§6.1–6.4, pp.31–38, arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Z is a component of (𝒵(f₁,…,f_{g+1−n}) × ℙ^m) ∩ 𝒜 for generic linear forms through P, using (A3), Bertini, Bézout and Lemma 6.6; the Moreover part is Proposition 6.9. Routed to the uniformity Part II."
+      "note": "Z is a component of (𝒵(f₁,…,f_{g+1−n}) × ℙ^m) ∩ 𝒜 for generic linear forms through P, using (A3), Bertini, Bézout and Lemma 6.6; the Moreover part is Proposition 6.9. Routed to the uniformity Part II. The n = 1 case of (ii) needs the transversality of the linear forms (sourceIssues E23)."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/46",
@@ -553,7 +553,7 @@
       "id": "PAPER-GAO-HABEGGER-19/57",
       "kind": "theorem",
       "name": "Lemma 8.2 (division points from lattice points)",
-      "statement": "For X as in Proposition 8.1 there are c > 0, a prime ℓ > D^{2^{g+1}(g+1)} and a finite étale S′ → S carrying all ℓ-torsion sections such that for every N ≥ c^{-1} there are r ≥ cN^{2 dim X} pairs (P′_i, Q′_i) ∈ X′(ℂ) × Z′(ℂ), with the P′_i distinct, satisfying (i) π′(P′_i) = π′(Q′_i) and [ℓN]P′_i = [ℓ]Q′_i, (ii) Z′_{π′(P′_i)} contains no positive-dimensional coset, (iii) if Q′_i ∈ Y′ and P′_i is not isolated in X′ ∩ [ℓN]^{-1}([ℓ]Y′) then Q′_i ∈ Y′ ∩ (Y′ − im σ) for some non-zero ℓ-torsion section σ.",
+      "statement": "For X as in Proposition 8.1 there are c > 0, a prime ℓ > D^{2^{g+1}(g+1)} and a finite étale S′ → S carrying all ℓ-torsion sections such that for every N ≥ c^{-1} there are r ≥ cN^{2 dim X} pairs (P′_i, Q′_i) ∈ X′(ℂ) × Z′(ℂ), with the P′_i distinct, satisfying (i) π′(P′_i) = π′(Q′_i) and [ℓN]P′_i = [ℓ]Q′_i, (ii) Z′_{π′(P′_i)} contains no positive-dimensional coset, (iii) if Y′ is an irreducible closed subvariety of 𝒜′, Q′_i ∈ Y′ and P′_i is not isolated in X′ ∩ [ℓN]^{-1}([ℓ]Y′) then Q′_i ∈ Y′ ∩ (Y′ − im σ) for some non-zero ℓ-torsion section σ.",
       "locator": "Lemma 8.2, (8.1)–(8.8) and proof, pp.42–45, arXiv v3 (28 January 2019) (misprints E14)",
       "status": "missing",
       "note": "Local parametrizations of X and Z at P composed with a lift of the Betti map give φ₁, φ₂; Proposition 6.1(v) gives δ₀(0) ≠ 0 and Proposition 7.2 with N₀ = ℓ gives the pairs. Routed to the uniformity Part II."
@@ -571,7 +571,7 @@
       "id": "PAPER-GAO-HABEGGER-19/59",
       "kind": "theorem",
       "name": "Proposition 8.1 (many isolated division points)",
-      "statement": "If X ⊆ 𝒜 is irreducible closed over F, dominates S and is not generically special, there are c > 0, a finite étale S′ → S and closed Y₁,…,Y_R ⊆ 𝒜′ = 𝒜 ×_S S′ such that for every integer N ≥ c^{-1} some Y_j has X′ ∩ [N]^{-1}(Y_j) with at least cN^{2 dim X} irreducible components of dimension 0.",
+      "statement": "With F ⊆ ℂ algebraically closed and S′ an irreducible curve over F: if X ⊆ 𝒜 is irreducible closed over F, dominates S and is not generically special, there are c > 0, a finite étale S′ → S and closed Y₁,…,Y_R ⊆ 𝒜′ = 𝒜 ×_S S′ such that for every integer N ≥ c^{-1} some Y_j has X′ ∩ [N]^{-1}(Y_j) with at least cN^{2 dim X} irreducible components of dimension 0.",
       "locator": "Proposition 8.1, p.42; proof pp.46–47, arXiv v3 (28 January 2019)",
       "status": "missing",
       "note": "Take Y = [ℓ]^{-1}([ℓ]Y′) for the Y′ ∈ Σ hit most often; a non-isolated point would force a σ(t)-stable fibre and a positive-dimensional stabilizer, contradicting Lemma 8.2(ii). Routed to the uniformity Part II."
@@ -610,7 +610,7 @@
       "statement": "For a dominant generically finite morphism (or equidimensional dominant rational map) f : X′ → X of varieties over Q̄ there are c > 0, c′ and a Zariski open dense U with h(f(P)) ≥ c h(P) − c′ on U (Silverman, J. Ramanujan Math. Soc. 26 (2011)).",
       "locator": "Proof of Proposition 9.1, p.49, citing [Sil11], arXiv v3 (28 January 2019)",
       "status": "missing",
-      "note": "Used to pass through the finite étale cover S′ → S. Routed to RP.0 as a source."
+      "note": "In the proof of Proposition 9.1 the paper invokes Silverman's inequality for X′₀ → X. That only gives a bound on a dense open subset of X′₀, and [2^N]Q need not lie there (sourceIssues E25). The input actually needed is the global two-sided comparison h_𝒜 ∘ ρ ≍ h_{𝒜′} under the base change 𝒜′ = 𝒜 ×_S S′, which follows from the Height Machine (item 10) on the curve S̄′. Routed to RP.0 as a source."
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/64",
@@ -679,7 +679,7 @@
       "id": "PAPER-GAO-HABEGGER-19/71",
       "kind": "theorem",
       "name": "Theorem A.3 (height inequality with Moriwaki heights)",
-      "statement": "For k₀ finitely generated over ℚ with polarization B, an abelian scheme 𝒜 → S over a smooth irreducible quasi-projective curve over k₀‾, L symmetric relatively ample, M ample on S̄ and X ⊆ 𝒜 closed irreducible, there is c > 0 depending on B, 𝒜/S, X, L, M with h^B_{S̄,M}(π(P)) ≤ c(1 + ĥ^B_{𝒜,L}(P)) for P ∈ X*(k₀‾).",
+      "statement": "For k₀ finitely generated over ℚ with polarization B, an abelian scheme 𝒜 → S over k₀ on a smooth irreducible quasi-projective curve S over k₀, L symmetric relatively ample and M ample on S̄ (both over k₀), and X ⊆ 𝒜 closed irreducible over k₀ with X* as in Proposition 1.3 for k = k̄₀, there is c > 0 depending on B, 𝒜/S, X, L, M with h^B_{S̄,M}(π(P)) ≤ c(1 + ĥ^B_{𝒜,L}(P)) for P ∈ X*(k̄₀). The paper prints h^B_{S,𝓜}(P) (sourceIssues E24).",
       "locator": "Theorem A.3 and sketch, p.56, arXiv v3 (28 January 2019)",
       "status": "missing",
       "note": "Repeat §§9–10 with Proposition A.1 and Wazir's Silverman–Tate; reduce to k₀ ⊆ ℂ by an isomorphism. Routed to the uniformity Part II."
@@ -707,7 +707,7 @@
       "kind": "theorem",
       "name": "Lemma C.2 and (C.1) (hypersurfaces containing no translate of B)",
       "statement": "H_V(d) ≥ binom(dim V + d, dim V) ≥ d + 1 for the Hilbert function of V ⊆ ℙ^M with dim V ≥ 1 (C.1). For A ⊆ ℙ^M of dimension g ≥ 2, an abelian subvariety B with dim B ≥ 1 and d ≥ max{1, g − dim B}, the degree-d forms f such that A ∩ 𝒵(f) contains a translate of B lie in a closed subset of codimension ≥ d + 1 + dim B − g.",
-      "locator": "(C.1) and Lemma C.2 with proof, pp.59–61, arXiv v3 (28 January 2019)",
+      "locator": "(C.1) and Lemma C.2 with proof, p.59 (lead-in), pp.60–61, arXiv v3 (28 January 2019)",
       "status": "missing",
       "note": "Incidence variety and fibre dimension counts. Routed to RP.5 as a source."
     },
@@ -719,6 +719,15 @@
       "locator": "Proposition C.1, its corollary and proof, pp.59, 61, arXiv v3 (28 January 2019) (misprint E17)",
       "status": "missing",
       "note": "A quantitative case of Brotbek's theorem: Bogomolov reduces to finitely many B, and Lemma C.2 handles each. Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/76",
+      "kind": "theorem",
+      "name": "Projective normality of powers of an ample line bundle on an abelian variety (Koizumi)",
+      "statement": "For an ample line bundle L on an abelian variety over an algebraically closed field and n ≥ 3, L^{⊗n} is very ample and the embedding by its complete linear system is projectively normal.",
+      "locator": "Used silently for the admissible immersion (A2)–(A3), §2.2, pp.10–11, and in the corollary of Proposition C.1, p.59, arXiv v3 (28 January 2019); not cited by the paper",
+      "status": "missing",
+      "note": "Added by the review: Serre's quartic duplication formulas (A2) and the hypersurface sections of Appendix C need a projectively normal embedding. Routed to AbelianSchemesAndArithmeticModuli with the projective presentation of item 14."
     }
   ],
   "prerequisites": [
@@ -833,7 +842,8 @@
       ],
       "items": [
         "PAPER-GAO-HABEGGER-19/14",
-        "PAPER-GAO-HABEGGER-19/40"
+        "PAPER-GAO-HABEGGER-19/40",
+        "PAPER-GAO-HABEGGER-19/76"
       ],
       "reason": "A2 owns relatively ample bundles and projective presentations of abelian schemes; A6 owns Hom groups and their compatibility with geometric fibres. The paper needs Raynaud's projective presentation over a curve after removing finitely many points, and Grothendieck's theorem that a monodromy-equivariant homomorphism of fibres extends over the base."
     },
@@ -967,7 +977,7 @@
     {
       "id": "PAPER-GAO-HABEGGER-19/E1",
       "kind": "misprint",
-      "locator": "Theorem 3.2, p.13 (arXiv v3; published Annals version not collated)",
+      "locator": "Theorem 3.2, p.13 (arXiv v3; the same text is on p.541 of the published version)",
       "printed": "\"For v ∈ V(K) we let Y_v denote the projection of V ∩ ({v} × A) to A.\"",
       "correction": "Y_v is the projection of Y ∩ ({v} × A) to A.",
       "reason": "The fibre of Y over v is meant; V ∩ ({v} × A) makes no sense since V is a factor of V × A, and the proof of Proposition 3.1 uses Y_v as the fibre of Y.",
@@ -975,29 +985,39 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.541).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E2",
       "kind": "misprint",
-      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; the same text is on p.543 of the published version)",
       "printed": "\"In other words, the finite morphism S̄″ → S̄′ is unramified above S′ ∖ Z. So we get a finite étale covering of S ∖ Z of degree [F(P) : F].\"",
-      "correction": "A finite étale covering of S′ ∖ Z.",
+      "correction": "A finite étale covering of S̄′ ∖ Z (the paragraph writes S′ for S̄′ throughout; S′ itself is not defined there).",
       "reason": "Z is a finite subset of S′(k), the curve with function field F; the covering S̄″ → S̄′ lives over S′, not over S.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.543).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E3",
       "kind": "misprint",
-      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; the same text is on p.543 of the published version)",
       "printed": "\"Define a morphism ψ : V × A → V × (A/B) by ψ(v, t) = (v, [N] ∘ φ(P)).\"",
       "correction": "ψ(v, t) = (v, [N] ∘ φ(t)).",
       "reason": "ψ is a function of (v, t); P is not a variable here, and the next sentence uses ψ(Σ′) ⊆ V × {0}, which needs [N]φ(t) = 0 for the second coordinates t of Σ′.",
@@ -1005,14 +1025,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.543).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E4",
       "kind": "misprint",
-      "locator": "Proof of Lemma 5.2, p.19 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 5.2, p.19 (arXiv v3; the same text is on p.549 of the published version)",
       "printed": "\"We define c₁ = max{2, |γ₁|₂, |γ₁|₂} ≥ 2 and observe |γ|₂ ≤ c₁^{l(γ)} for all γ ∈ Γ.\"",
       "correction": "c₁ = max{2, |γ₁|₂, |γ₁^{-1}|₂, |γ₂|₂, |γ₂^{-1}|₂}.",
       "reason": "Elements of Γ are reduced words in γ₁^{±1}, γ₂^{±1}; submultiplicativity gives |γ|₂ ≤ c₁^{l(γ)} only if c₁ bounds all four letters, and γ₂ does not appear in the printed maximum.",
@@ -1020,14 +1045,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.549). A helper agent checked the corrected constant with the free generators [[1,2],[0,1]] and [[1,0],[4,1]] in PARI/GP; the printed constant already fails at the second generator. |·|₂ must be the operator norm.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E5",
       "kind": "misprint",
-      "locator": "Proof of Lemma 5.2, p.20 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 5.2, p.20 (arXiv v3; the same text is on p.550 of the published version)",
       "printed": "\"Now suppose x ∈ 𝒳 with exp(x) ∈ V and γ ∈ G with H(γ) ≤ T.\"",
       "correction": "γ ∈ Γ with H(γ) ≤ T.",
       "reason": "The count is over the free group Γ (the next sentences count \"elements in Γ of height at most T\"); G denotes a closed subgroup of T^n later in the proof.",
@@ -1035,14 +1065,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.550).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E6",
       "kind": "misprint",
-      "locator": "Proof of Proposition 5.4, p.24 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Proposition 5.4, p.24 (arXiv v3; the same text is on p.554 of the published version)",
       "printed": "\"then all points of Z₁ have order N in their respective fibers as β is fiberwise a group isomorphism.\"",
       "correction": "\"as b₁ is fiberwise a group isomorphism.\"",
       "reason": "Z₁ = b₁^{-1}(ξ) is a fibre of the Betti map b₁ on 𝒜_{Δ₁}; no map β is defined.",
@@ -1050,14 +1085,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.554).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E7",
       "kind": "misprint",
-      "locator": "Proof of Lemma 5.8, Case 2, p.28 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 5.8, Case 2, p.28 (arXiv v3; the same text is on p.560 of the published version)",
       "printed": "\"there exist by induction an abelian scheme 𝒞 over S and a homomorphism ψ : 𝒜/ℬ → 𝒞 whose kernel has dimension φ(Y) and contains φ(Y).\"",
       "correction": "\"whose kernel has dimension dim φ(Y)\".",
       "reason": "The dimension count on the next line uses dim ker(ψ) = dim φ(Y).",
@@ -1065,14 +1105,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.560).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E8",
       "kind": "gap",
-      "locator": "Proof of Lemma 5.8, Cases 1 and 2, pp.26–28 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 5.8, Cases 1 and 2, pp.26–28 (arXiv v3; the same text is on pp.558–560 of the published version)",
       "printed": "\"Our proof is by induction on dim 𝒜. The small possible value is 2 as we require g ≥ 1.\" … Case 1: \"We observe that dim ℬ = dim B_s + 1 ≤ (dim 𝒜_s − 1) + 1 = dim 𝒜 − 1. By induction there is an abelian scheme 𝒞 …\" … Case 2: \"Now since dim(𝒜/ℬ) = dim 𝒜 − dim B_s ≤ dim 𝒜 − 1, there exist by induction …\"",
       "correction": "Two subcases lie outside the induction and need separate one-line arguments. In Case 1 with B_s = 0, ℬ is the zero section, so [N]Y lies in it, Y is a component of 𝒜[N] (so dim Y = 1), and 𝒞 = 𝒜 with [N] works. In Case 2 with B_s = 𝒜_s, Z_s = 𝒜_s, so Y = 𝒜, and the zero homomorphism to the relative-dimension-0 scheme 𝒞 = S works. In all other subcases ℬ, resp. 𝒜/ℬ, has relative dimension ≥ 1 and the induction applies as written.",
       "reason": "The induction hypothesis is stated for abelian schemes of relative dimension g ≥ 1 (dim ≥ 2). If B_s = 0 in Case 1, ℬ has relative dimension 0 and dim ℬ = 1. If B_s = 𝒜_s in Case 2, 𝒜/ℬ has relative dimension 0. In both, the hypothesis cannot be invoked. The lemma remains true by the arguments above.",
@@ -1080,14 +1125,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.558–560). The quoted gap also includes the false sentence 'Note that dim Y ≥ 2 since dim Z_s ≥ 1, so we are not in the minimal case' (p.28): for g = 1 and Y = 𝒜, Case 2 occurs in the minimal case. The proposed repair covers it.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E9",
       "kind": "misprint",
-      "locator": "Proof of Theorem 5.1, p.29 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem 5.1, p.29 (arXiv v3; the same text is on p.561 of the published version)",
       "printed": "\"Clearly, U ∖ Σ is an uncountable set as U is open in S^an and non-empty.\" … \"M equal to the set of s obtained from U∖Σ\"",
       "correction": "π(U) ∖ Σ is uncountable, because π(U) is a non-empty open subset of S^an (π|_Y is flat, hence open).",
       "reason": "U is an open subset of Y^an ∩ 𝒜_Δ, while Σ ⊆ S(ℂ) is the countable set of non-extendable points; the set M fed into Lemma 5.8 is a set of base points.",
@@ -1095,14 +1145,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.561).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E10",
       "kind": "misprint",
-      "locator": "Proof of Lemma 6.4, p.33 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 6.4, p.33 (arXiv v3; the same text is on p.565 of the published version)",
       "printed": "\"If c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2g}, then we have c_i ∈ ℝ and √−1c_i ∈ ℝ\"",
       "correction": "c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2k}.",
       "reason": "Lemma 6.4 lives in ℂ^{2k} with real part ℝ^{2k}; g does not occur in it.",
@@ -1110,14 +1165,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.565).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E11",
       "kind": "misprint",
-      "locator": "Proof of Proposition 6.9, p.37 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Proposition 6.9, p.37 (arXiv v3; the same text is on p.570 (where 'now' is corrected to 'no' but Z is not corrected to Z′) of the published version)",
       "printed": "\"We write Z′ = Z ×_S S′ which comes with a closed immersion Z′ → 𝒜′. Observe that Z may now longer be irreducible.\"",
       "correction": "\"Observe that Z′ may no longer be irreducible.\"",
       "reason": "Z is irreducible by hypothesis; the base change Z′ may split, as the next sentences about the components Z′_1,…,Z′_r assume.",
@@ -1125,14 +1185,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator. The published version corrects 'now' to 'no' but not Z to Z′ (p.570).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E12",
       "kind": "gap",
-      "locator": "Proof of Proposition 6.9, p.38 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Proposition 6.9, p.38 (arXiv v3; the same text is on p.571 of the published version)",
       "printed": "\"Recall that Z_s and thus each Z_s − [k](σ(s)) with k ∈ ℤ is equidimensional of dimension dim Z − 1. All irreducible components that appear have degree bounded by a constant independent of the auxiliary prime ℓ. By (6.4) and Proposition 6.7 the degree deg(W) is bounded from above by a constant c ≥ 1 that is independent of ℓ.\"",
       "correction": "Proposition 6.7 must be applied to the possibly reducible sets V_k = Z_s − [k]σ(s), with δ = deg Z_s the sum of the component degrees. Its proof still works: a union V′ ∪ V″ of sets cut out by forms {f} and {g} of degrees ≤ δ′, δ″ is cut out by the products {fg} of degree ≤ δ′ + δ″. So Lemma 6.8 extends to an algebraic set whose component degrees sum to δ, and the rest of the proof of Proposition 6.7 never uses irreducibility of the V_i.",
       "reason": "Proposition 6.7 is stated for irreducible V₁,…,V_m. For a general Z the fibre Z_s can be reducible (after the base change of the proof, Z is replaced by a component whose fibre is a union of components of Z_s). Expanding ⋂_k (⋃_j V_{kj}) into irreducible intersections gives J^ℓ terms, so the irreducible case alone does not give a bound independent of ℓ. In the application to Proposition 6.1 with n ≥ 2, Z_s = Z′ is irreducible, and for n = 1 the fibres are finite; only the general statement needs the extension.",
@@ -1140,14 +1205,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.571). The repair works: Proposition 6.7's proof does not use irreducibility of the V_i, and in the application the relevant fibre is irreducible for n ≥ 2 and finite for n = 1.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E13",
       "kind": "misprint",
-      "locator": "§7, pp.39–40 (notation before Lemma 7.1 and its proof) (arXiv v3; published Annals version not collated)",
+      "locator": "§7, pp.39–40 (notation before Lemma 7.1 and its proof) (arXiv v3; the same text is on pp.572, 573 and 575 of the published version)",
       "printed": "\"we sometimes write φ_{1j}(z) for φ_{1j}(w,x) and φ_{2j}(z) for φ_{2j}(w,x) if z = (w,x,y)\"; \"has absolute value at least ε = |δ(z₀)|/2 > 0\"; (7.7) \"where M(·) is the matrix above and z̃₁, …, z̃_n lie on the line segment\"",
       "correction": "φ_{2j}(z) = φ_{2j}(w,y); ε = |δ₀(z₀)|/2; z̃₁, …, z̃_m.",
       "reason": "φ₂ is defined on U₀ × U₂ and takes (w,y); the non-vanishing determinant is δ₀ of (7.2); there is one intermediate point per coordinate j = 1,…,m, and n indexes the sequence z_n.",
@@ -1155,14 +1225,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.572, 573 and 575).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E14",
       "kind": "misprint",
-      "locator": "Proof of Lemma 8.2, pp.44–45 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Lemma 8.2, pp.44–45 (arXiv v3; the same text is on pp.579–580 of the published version)",
       "printed": "\"By (8.6) there are at most C possibilities for ψ_N(w′, x′, y′), when (x, y, z) is fixed.\" … \"ψ_N(w^α, x^α, w^α) = Nφ₁(w^α, x^α) − φ₂(w^α, y^α)\" … \"hence (w^α, x^α, w^α) is eventually constant\"",
       "correction": "\"when (w, x, y) is fixed\"; ψ_N(w^α, x^α, y^α) and (w^α, x^α, y^α).",
       "reason": "The coordinates of U′ ⊆ U₀ × U₁ × U₂ are (w, x, y); the right-hand side of the display already uses y^α.",
@@ -1170,14 +1245,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.579–580).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E15",
       "kind": "misprint",
-      "locator": "§10.2 (proof of Theorem 1.4), p.52 (arXiv v3; published Annals version not collated)",
+      "locator": "§10.2 (proof of Theorem 1.4), p.52 (arXiv v3; the same text is on p.588 of the published version)",
       "printed": "\"The first inequality in (1.1) follows from the definition of h_{𝒜,ι}(·) and as the absolute logarithmic Weil height is non-negative.\"",
       "correction": "\"The first inequality in Theorem 1.4′ follows from the definition of h_{𝒜,L′}(·)\".",
       "reason": "(1.1) is the single inequality h_{S̄,M}(π(P)) ≤ c(1 + ĥ_{𝒜,L}(P)); the chain h_{S̄,M}(π(P)) ≤ h_{𝒜,L′}(P) ≤ c(1 + ĥ) is Theorem 1.4′, and the naive height defined on p.5 is h_{𝒜,L′}.",
@@ -1185,14 +1265,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.588).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E16",
       "kind": "misprint",
-      "locator": "Proof of Theorem 11.1, p.53 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem 11.1, p.53 (arXiv v3; the same text is on p.590 of the published version)",
       "printed": "\"But we have h_S(ρ(t))/h_{S′}(t) → deg ρ = [K′ : K] for t ∈ S′(Q̄) as h_{S′}(ρ(t)) → ∞\" … \"Silverman's Theorem applied to x ∈ A(K′) implies ĥ_𝒜(σ_x(t))/h_{S′}(t) → ĥ_{K′,A_{K′}}(x) as h_S(t) → ∞ for t ∈ S′(Q̄).\"",
       "correction": "\"as h_{S′}(t) → ∞\" in both places.",
       "reason": "h_{S′} is defined on S′ and h_S on S; t ∈ S′(Q̄), so the expressions h_{S′}(ρ(t)) and h_S(t) do not typecheck. The limit is taken as the height of t on S′ (equivalently of ρ(t) on S) tends to infinity.",
@@ -1200,14 +1285,19 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.590). The same proof also writes ĥ_{K′,A′} for ĥ_{K′,A_{K′}}.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     },
     {
       "id": "PAPER-GAO-HABEGGER-19/E17",
       "kind": "misprint",
-      "locator": "Appendix C, corollary of Proposition C.1, p.59 (arXiv v3; published Annals version not collated)",
+      "locator": "Appendix C, corollary of Proposition C.1, p.59 (arXiv v3; the same text is on p.597 of the published version)",
       "printed": "\"Then the hypersurface defined by a generic choice of a section in H⁰(ℙⁿ, 𝒪(d)) vanishing at P is hyperbolic for d ≥ g.\"",
       "correction": "H⁰(ℙ^M, 𝒪(d)).",
       "reason": "A ⊆ ℙ^M throughout Appendix C; n is not defined there.",
@@ -1215,9 +1305,214 @@
       "known": "new",
       "searched": [
         "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
         "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.597).",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E18",
+      "kind": "error",
+      "locator": "§1, p.2 (arXiv v3; published p.528)",
+      "printed": "\"ĥ_{K,A,L}(P) = 0 if and only if P ∈ (A^{K̄/k} ⊗_k K̄)(K̄) + A_tor\"",
+      "correction": "ĥ_{K,A,L}(P) = 0 iff P ∈ τ(A^{K̄/k}(k)) + A_tor: only the constant (k-rational) points of the trace, plus torsion.",
+      "reason": "For K = Q̄(t) and the constant curve E₀: y² = x³ − x, the point P = (t, √(t³ − t)) lies in (E₀ ⊗ K̄)(K̄), but x([n]P) has degree n² in t (PARI ellxn gives degrees 1, 4, 9, …, 36 for n ≤ 6), so ĥ(P) > 0. The sentence is a remark in the introduction and is not used later.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent; the reviewer checked the page image and the degree computation.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E19",
+      "kind": "gap",
+      "locator": "Proof of Proposition 4.1(ii)–(iii), pp.16–18 (arXiv v3; published pp.545–547)",
+      "printed": "\"f_s^*ω_i(s) = Σ_j (a_ij(s)ω_j⁰ + b_ij(s)ω̄_j⁰)\" used in (4.3) along the paths γ_Q, and \"Therefore, a fiber of b equals a fiber of the trivialization. As these fibers are complex analytic we obtain part (ii)\"",
+      "correction": "Define β(ξ, s) = exp_s(Ω(s)ξ) with the holomorphic relative exponential of the frame ω(s). It is a real-analytic inverse of (b, π), which gives (iii), and b^{-1}(ξ) is the image of the holomorphic section s ↦ exp_s(Ω(s)ξ), which gives (ii).",
+      "reason": "f_s is only a diffeomorphism, so the displayed identity holds in cohomology, not as forms, and the third equality of (4.3) fails on non-closed paths. A trivialization with holomorphic leaves need not have the Betti fibres as leaves: on E × Δ, f(Q, s) = (Q + s·c(Q), s) with c(z) = ε(e^{2πix} − 1) satisfies every stated property, but its leaves are not the horizontal Betti fibres. Proposition 4.1 itself is true, and later sections use only its statement.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent; the reviewer checked pp.16–18 on the page images and the counterexample's properties.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E20",
+      "kind": "error",
+      "locator": "§3.1, p.12 (arXiv v3; published p.541)",
+      "printed": "\"Let W₀ be an irreducible closed subvariety of A^{K̄/k}, B an abelian subvariety of A″, and P ∈ A″(K̄). We can map ψ((W₀ ⊗_k K̄) × (P + B)) ⊆ A to the generic fiber of 𝒜; its Zariski closure is a generically special subvariety of 𝒜.\"",
+      "correction": "P ∈ A″_tor, as in Proposition 3.1.",
+      "reason": "For a non-torsion P the image is not generically special: in a non-isotrivial elliptic scheme take W₀ a point, B = 0 and P non-torsion; the closure of P is a multisection with no torsion point.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E21",
+      "kind": "misprint",
+      "locator": "Appendix B, first paragraph and Proposition B.1, p.58 (arXiv v3; published p.595)",
+      "printed": "\"Let A be an abelian variety over K̄.\" followed by Proposition B.1, which uses [K(P):K] and extends A to an abelian scheme over S.",
+      "correction": "A is an abelian variety over K = k(S). For Proposition B.3 (A over K̄) apply B.1 to A (or A/B) over a finite extension F, replacing S by a smooth dense open subset of its normalization in F.",
+      "reason": "[K(P):K] and the extension of A to an abelian scheme 𝒜 → S require A to be defined over K.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E22",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 5.1, general case, p.29 (arXiv v3; published p.561)",
+      "printed": "\"We conclude (A^{ℂ(S)/ℂ} × S) + 𝒞 = ℬ.\"",
+      "correction": "(A^{ℂ(S)/ℂ} × S) + 𝒞 = 𝒜.",
+      "reason": "Both summands are subgroup schemes of 𝒜 with relative dimensions adding up to that of 𝒜; the next paragraph writes P ∈ Y ⊆ 𝒜 as P = Q + R with Q ∈ A^{ℂ(S)/ℂ} × S and R ∈ 𝒞, which is the '= 𝒜' statement.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E23",
+      "kind": "gap",
+      "locator": "Proof of Proposition 6.1(ii), case n = 1, p.32 (arXiv v3; published p.565)",
+      "printed": "\"If n = 1, then dim Z_s = 0 and hence P is smooth in Z_s. … Now as P is smooth in Z_s and s is smooth in S, P is also smooth in Z.\"",
+      "correction": "Use the transversality T_P𝒜_s ∩ ⋂_i ker df_i = 0 that the Bertini paragraph provides; by the Jacobian criterion the intersection (6.2) is then smooth of dimension n at P and smooth over S.",
+      "reason": "For a zero-dimensional fibre, 'P smooth in Z_s' holds for the reduced fibre only and does not give smoothness of Z at P (compare y² = t³ over the t-line). §8.2 needs Z to be smooth over S at P.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E24",
+      "kind": "misprint",
+      "locator": "Theorem A.3, p.56 (arXiv v3; published p.593)",
+      "printed": "\"h^B_{S,𝓜}(P) ≤ c(1 + ĥ^B_{𝒜,𝓛}(P)) for all P ∈ X*(k̄₀)\"",
+      "correction": "h^B_{S̄,𝓜}(π(P)) ≤ c(1 + ĥ^B_{𝒜,𝓛}(P)); likewise h^B_{S̄,𝓜}(t_n) in §A.3 (p.57).",
+      "reason": "𝓜 is a line bundle on S̄ and P is a point of 𝒜, so h^B_{S,𝓜}(P) does not typecheck; the theorem is announced as the analogue of Theorem 1.4, whose (1.1) bounds h_{S̄,M}(π(P)).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E25",
+      "kind": "gap",
+      "locator": "Proof of Proposition 9.1, p.49 (arXiv v3; published pp.585–586)",
+      "printed": "\"For any irreducible component X′₀ of X′ the restriction ρ|_{X′₀}: X′₀ → X is dominant and dim X′₀ = dim X. So Silverman's height inequality [47] applies; … Then we can take U_N … with U_N ⊆ ρ(U′_N) and c′(N) = c′(N, X′₀).\"",
+      "correction": "Use the global two-sided comparison e^{-1}h_{𝒜′}(R) − O(1) ≤ h_𝒜(ρ(R)) ≤ h_{𝒜′}(R) + O(1) for all R ∈ 𝒜′(Q̄). It follows from the Height Machine on S̄′, whose embedding is given by a power e of ρ̄*𝒪(1). Then h_𝒜([2^N]ρQ) ≥ (c/e)4^N h_𝒜(ρQ) − c″(N), with c/e independent of N.",
+      "reason": "The inequality proved on X′₀ is for h_{𝒜′}, and must be transferred at R = [2^N]Q, which lies on [2^N]X′₀, not on the dense open subset of X′₀ where Silverman's inequality holds. Applying Silverman to [2^N]X′₀ → [2^N]X instead would make the constant depend on N. The conclusion stands with the global comparison.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent; the reviewer checked p.49 and re-derived the comparison.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E26",
+      "kind": "misprint",
+      "locator": "§8.3, conservation of number, p.46 (arXiv v3; published p.581)",
+      "printed": "\"So deg Y″_t ≤ D^{2^{k+1}} for all t ∈ S(ℂ)\" … \"flat of relatively dimension 0 over S\" … \"Y = ℙ^M, T = S\"",
+      "correction": "S′ in all four places.",
+      "reason": "Y″ ∈ Σ_{k+1} is a closed subvariety of 𝒜′ ⊆ ℙ^M × S′, and the same paragraph says Y″ is flat over S′.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E27",
+      "kind": "misprint",
+      "locator": "Published version only: section headings on pp.541, 560 and 567 (arXiv v3 pp.12, 28 and 34 are correct)",
+      "printed": "\"3.1. Proposition 2.1 implies Proposition 1.3\", \"3.2. Proof of Proposition 2.1\" (p.541); \"End of the proof of Theorem 4.1\" (p.560); \"Verification of (v) in Proposition 5.1\" (p.567)",
+      "correction": "Proposition 3.1; Theorem 5.1; Proposition 6.1.",
+      "reason": "The headings refer to the statements proved in those sections; arXiv v3 has the correct numbers, so the misprints were introduced in production.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by the helper agents' word diff of the two versions; checked by the reviewer against the published text.",
+        "by": "REV-PAPER-GAO-HABEGGER-19"
+      }
     }
   ]
 }
