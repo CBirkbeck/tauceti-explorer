@@ -122,7 +122,12 @@
       "versionComparison": "v1 §2.2.4 p.12, Lemme 2.4.1 p.20, Lemme 2.4.2 p.21 and discussion p.37 contain the same uses. The old assertion that all occurrences lie on pp.13,22,41 is incorrect.",
       "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E1",
       "supportingSource": "Brian Conrad, Completion of algebraic closure, §1 and Theorem 1.1, https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf. All 3 pages read; algebraic closedness proved there, noncompleteness of Q_p-bar stated there with a BGR reference. BGR itself was not read in this errata job.",
-      "scope": "The abstract uniqueness claim and the automatic-isometry parenthesis are false. The norm-preserving version of the lemma remains available. This job does not certify the absence of effects in every later proof, and does not assert that the central Abhyankar equivalence is false."
+      "scope": "The abstract uniqueness claim and the automatic-isometry parenthesis are false. The norm-preserving version of the lemma remains available. This job does not certify the absence of effects in every later proof, and does not assert that the central Abhyankar equivalence is false.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the published text at all four locators and re-derived the counterexample. A wild automorphism σ of C_p over Q_p exists by extending a transcendence basis, and is discontinuous, hence non-isometric, so ν and ν∘σ are two distinct multiplicative — therefore spectral — Q_p-algebra norms for each of which C_p is complete (σ is an isometry (C_p,ν∘σ)→(C_p,ν)); the printed uniqueness claim of §2.2.4 p.13 is false. The finite-group counterexample to the parenthesis of Lemme 2.4.1(2) p.22 also holds as written: on B=C_p×C_p with N(x,y)=max(ν(x),ν∘σ(y)) — spectral because each factor norm is multiplicative, and complete — the transposition carries (t,0) of norm ν(t) to (0,t) of norm ν(σ(t)), and these differ for some t. I also checked the repair the entry proposes: continuity of each group element does suffice, since a continuous automorphism carries N to an equivalent spectral norm and the spectral radius lim‖f^n‖^(1/n) depends only on the topology; the transposition above is discontinuous, so it does not undercut that repair. The uses on p.24 and p.41 are as described, and the p.41 one is self-repairing because the text there also cites the fixed-topology form.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E2",
@@ -140,7 +145,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Same incorrect number in v1 pp.20 and 37.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E2"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at both occurrences. Numbered paragraph 2.2.2 of the published text introduces uniform algebras and asserts no uniqueness; the statements « au plus une norme spectrale » that both passages invoke are in 2.2.4. The correction is right, and by E1 the reference should be to the fixed-topology form of that statement rather than to the complete-norm form.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E4",
@@ -158,7 +168,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "v1 p.37 has the same negative exponent, but its example uses n=2 and g=T₁+T₂ instead of the published n=1 and g=T+4; those examples are not identical.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E4"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Recomputed the valuation. |1+i|=2^(-1/2) because |(1+i)^2|=|2i|=1/2, so |(i+1)/2|=2^(-1/2)/2^(-1)=2^(1/2) and the product is 2^(3/2), not the printed 2^(-3/2). The sign of the exponent is what carries the example: the standing hypotheses bound the product by |2|^(-1)=2, so 2^(3/2)>2 is the contradiction the paragraph draws, whereas the printed 2^(-3/2) is below the bound and yields none. The correction and its reach (the proof of that example only) are right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E5",
@@ -176,7 +191,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "v1 formula (2.18), p.23, has the same [1/p].",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E5"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published formula (2.17). The middle term prints an inversion of p where the construction inverts the pseudo-uniformiser: the sentence immediately following uses [1/ϖ], and the characteristic-p setting in which this tilted object is used makes inverting p vacuous, which would collapse the stated identification. The correction is the paper's own usage.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E6",
@@ -194,7 +214,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Same bound in v1 Lemme 2.6.3, p.26.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E6"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the replacement bound is provable, so the lemma is intact. The printed inf_m |(g/λ)^m a| ≥ 1 fails whenever |a|<1, already at m=0, and that is the generic case for a ∈ A°; A=K, g=1, a=λ=ϖ gives inf=|ϖ|. The proposed ≥|a|>0 follows from power-multiplicativity and submultiplicativity: |ga|^m=|(ga)^m|=|g^m a^m| ≤ |g^m a|·|a|^(m-1), hence |(g/λ)^m a|=|g^m a|·|λ|^(-m) ≥ |a|·(|ga|/(|a||λ|))^m ≥ |a|, using |a||λ| ≤ |λ| ≤ |ga|. The stated reach — the proof only — is right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E7",
@@ -212,7 +237,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Same stray prime in v1 p.27.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E7"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the printed presentation: the complement in the relation carries a different index from the generator it is paired with. I checked the entry's strengthened reason rather than taking it on trust: imposing the printed relation for every pair of indices forces all the generators equal to one element x with 2x=1, and with the printed meet relations x^2=x, so x=2x^2=2x=1 and then 1=0, i.e. the presented algebra is the zero ring rather than the prescribed Boolean one. Deleting the stray prime restores the characteristic-function relations.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E8",
@@ -230,7 +260,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Same K and 1↦a_n in v1 p.26.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E8"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. A K-algebra morphism out of K is unique and sends 1 to 1, so the printed arrow « 1 ↦ a_n » out of K is ill-typed unless a_n=1; the free object on one topologically bounded generator is K⟨T⟩ with T ↦ a_n, which is what the rest of the paragraph manipulates. The correction covers the second occurrence, the single proposed morphism, as well. Affects the proof's wording only.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E9",
@@ -248,7 +283,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Both slips also occur in v1 p.38.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E9"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the characteristic-zero part of step (c) a nonzero A_α has characteristic zero, while a rational localisation of A♭ has characteristic p, so the A_α cannot be localisations of A♭; they are the untilts (A♭_α)^♯ of the localisations of A♭, equivalently rational localisations of A, and the square's vertical arrows are precisely the equivalences « données par ♯ ». The correction is right and the argument is unaffected once read this way.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E10",
@@ -267,7 +307,12 @@
       ],
       "versionComparison": "v1 p.20 omits the superscript in both the statement and proof. The published statement corrects it, but the proof does not.",
       "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E10",
-      "alreadyCorrectedOccurrence": "The statement of published Lemme 2.4.1(2) corrects the v1 statement. The remaining proof occurrence is still uncorrected."
+      "alreadyCorrectedOccurrence": "The statement of published Lemme 2.4.1(2) corrects the v1 statement. The remaining proof occurrence is still uncorrected.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published proof. B^G=A holds by the standing hypothesis, so the printed chain would equate the whole invariant ring with a ring of integral elements; the object the step needs is (B°)^G, and (B°)^G=A∩B°=A° then follows from the identity established earlier in 2.4.1 together with G-stability of B°. Reach « nothing » is right: the intended reading is the one used downstream.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E11",
@@ -285,7 +330,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "Same reference in v1 Sorite 2.5.3 proof p.24.",
-      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E11"
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The step cited is p-radicial closedness of A[1/g] in B[1/g], which is condition (2) of the lemma, not condition (1). I also checked the locator, because the paper runs two counters and has both a numbered paragraph 2.5.3 and a Lemme 2.5.3: the misprint is in the proof of the Lemme, which is where the entry points. Harmless direct-citation repair.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E12",
@@ -303,7 +353,12 @@
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
       "versionComparison": "v1 bibliography [31], p.61, also gives 220 (2014).",
-      "supportingSource": "Kazuma Shimomoto institutional publication record: https://strdb.s.isct.ac.jp/html/100003320_en.html; DOI publisher endpoint could not be read during this check."
+      "supportingSource": "Kazuma Shimomoto institutional publication record: https://strdb.s.isct.ac.jp/html/100003320_en.html; DOI publisher endpoint could not be read during this check.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Crossref for DOI 10.1016/j.jpaa.2015.07.008, which gives Kazuma Shimomoto, « An application of the almost purity theorem to the homological conjectures », J. Pure Appl. Algebra 220(2), February 2016, 621–632. The printed entry is wrong in the year and omits the pages; volume 220 of that journal is 2016 throughout. Bibliographic only, as recorded.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E13",
@@ -320,7 +375,12 @@
         "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
-      "versionComparison": "Same inclusion wording in v1 Théorème 0.3.1(1), p.2."
+      "versionComparison": "Same inclusion wording in v1 Théorème 0.3.1(1), p.2.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and decided by the paper against itself. Théorème 0.3.1(1) p.2 announces « l'inclusion A → B », while Proposition 5.3.1(2) p.68 — which the text names as the result 0.3.1 follows from — asserts only that B is the largest perfectoid A-algebra contained in B′, with no injectivity of the structure map; and part (3) of both statements adds faithfulness of B′ separately, which is exactly the hypothesis an inclusion would need. The correction states the right object and keeps that faithfulness where it belongs.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E14",
@@ -339,7 +399,12 @@
       ],
       "versionComparison": "The correction is already in André v1 §3.2.2(2), p.32 footnote 18, and remains in the published version.",
       "source": "GUNTZER-74",
-      "sourceUrl": "https://www.numdam.org/item/10.24033/msmf.164.pdf"
+      "sourceUrl": "https://www.numdam.org/item/10.24033/msmf.164.pdf",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the source, statement and proof. Güntzer (1974) Lemma 3.5, printed p.116, reads: « Let A be a k-Banach algebra with norm ‖ ‖. Assume that char k = p > 0. Then the following statements are equivalent: (a) f ↦ inf_i ‖f^(p^i)‖^(p^(-i)), f ∈ A, is a norm inducing the same topology as ‖ ‖; (b) there is a power multiplicative k-algebra norm on A inducing the same topology as ‖ ‖; (c) A^p is closed in A. » — no reducedness hypothesis — while the proof of (c)⇒(a) on p.117 asserts that ‖f‖_i := ‖f^(p^i)‖^(p^(-i)) is a k-algebra norm, which fails for a nonzero nilpotent. The omission is not harmless: for k=F_p((t)) and A=k[ε]/(ε²) with the max norm, A^p=k^p is closed, so (c) holds, yet |ε|²=|ε²|=0 rules out any power-multiplicative norm, so (a) and (b) fail and the equivalence as printed is false. As the entry says, this is a defect of the cited source and is already recorded in André's footnote 16 p.36, which I read verbatim; it is therefore not a mistake of the paper under review.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E15",
@@ -356,7 +421,12 @@
         "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
-      "versionComparison": "Same unspecified functor in v1 pp.21 and 39."
+      "versionComparison": "Same unspecified functor in v1 pp.21 and 39.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a defect in the stated claim, with one qualification worth recording. Continuous K-algebra morphisms K⟨T⟩ → A correspond to elements of A°, not of A: on A=K the assignment T ↦ ϖ^(-1) is not continuous, so the Tate algebra is not left adjoint to the underlying set of the whole algebra, and A ↦ A° is the right adjoint, as the correction says. The qualification is that the reach is nil in practice: the paragraph's mathematical claim is given an independent direct proof immediately before, and no later passage cites the adjunction as such.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E16",
@@ -373,7 +443,12 @@
         "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
-      "versionComparison": "Same assertion in v1 paragraph 2.6.4(1), p.26."
+      "versionComparison": "Same assertion in v1 paragraph 2.6.4(1), p.26.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by an explicit counterexample of my own. Take A=K×K with the max norm, g=(1,ϖ), λ=ϖ, μ=1: the rational domains are {|g| ≥ |ϖ|}, both points, and {|g| ≥ 1}, the first point only, so A{ϖ/g}^u=A, A{1/g}^u=K, and the transition map is the first projection, which kills (0,1). Here g is a non-zero-divisor, so that hypothesis does not rescue the printed sentence. The entry's own caveat is also right: multiplication by this g is not isometric, so the restricted reading suggested at the end of the correction is untouched by the counterexample.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E17",
@@ -390,7 +465,12 @@
         "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
-      "versionComparison": "Absent from the corresponding v1 paragraph 3.4.4 p.37: that text passes directly from the parenthesis to the characteristic-p case."
+      "versionComparison": "Absent from the corresponding v1 paragraph 3.4.4 p.37: that text passes directly from the parenthesis to the characteristic-p case.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim in the published text: the sentence ends « ... remplace l'usage . » with the object of « l'usage » missing, so the clause is truncated in print. The intended content is recoverable from the paper itself — footnote 19 and Remarque 3.4.5(1), « l'argument galoisien de la prop. 3.4.2 permet de se dispenser des anneaux de Robba de [21] » — which is what the second repair in the correction restores. Reach « nothing » is right.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     },
     {
       "id": "PAPER-ANDRE-18/E18",
@@ -407,7 +487,12 @@
         "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
         "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
       ],
-      "versionComparison": "Same global A° in v1 p.38."
+      "versionComparison": "Same global A° in v1 p.38.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. That step of the construction works at a point x of the adic spectrum and takes a colimit over rational localisations shrinking to x, so the henselian colimit has completion H(x)°, not the global A°; reading the colimit with the seminorm induced by x and separated completion, as the correction says, is what the surrounding approximation references require. The proof is unaffected once read that way.",
+        "by": "REV-ERRATA-PAPER-ANDRE-18"
+      }
     }
   ],
   "screenedFindings": [
