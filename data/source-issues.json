@@ -50776,14 +50776,15 @@
    "locator": "Published p.662, EWM definition; arXivv2 p.8",
    "printed": "dim V<dim f(V)",
    "correction": "Reverse the inequality: dim f(V)<dim V. Quantify over all integral closed subvarieties, not just curves.",
-   "reason": "An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue.",
-   "affects": "a stated result",
+   "reason": "An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue. (cc-442dc5) Reclassified to affect nothing: the definition on p.662 already quantifies over every integral closed subscheme V ⊆ X ('V is contracted (that is, dim V < dim f(V)) if and only if L|V is not relatively big'), so only the parenthetical inequality is reversed, and its meaning (dim f(V) < dim V) is clear from 'contracted'. The second sentence of the correction is not needed.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50805,7 +50806,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50820,14 +50822,15 @@
    "locator": "Published p.657, informal EWM extension after Corollary1.3; compare Corollary6.7 pp.699–700",
    "printed": "not locally finite",
    "correction": "Retain perfect closed residue fields in this informal extension, as explicitly assumed in Corollary6.7.",
-   "reason": "Corollary1.3 itself assumes locally finite fields, hence perfectness automatically; no defect is asserted in that formal corollary. Its broader following prose omits the guard used in the stated theorem/proof. No counterexample to an eventual stronger theorem is claimed.",
-   "affects": "the proof",
+   "reason": "Corollary1.3 itself assumes locally finite fields, hence perfectness automatically; no defect is asserted in that formal corollary. Its broader following prose omits the guard used in the stated theorem/proof. No counterexample to an eventual stronger theorem is claimed. (cc-442dc5) Reclassified to affect a stated result: the introduction's sentence 'When the residue fields of S are not locally finite, we prove that L is EWM' (p.657) claims more than Corollary 6.7 proves, since Corollary 6.7 (p.699) assumes perfect residue fields at closed points. The numbered Corollary 6.7 is correctly hypothesised.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50849,7 +50852,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50864,7 +50868,7 @@
    "locator": "Keel99 Lemma5.2, printed p.281; repeated as a paraphrase in Witaszek22 published p.701",
    "printed": "h⁰(L⊗m)>0",
    "correction": "Use h⁰(L⊗m)≥2 for some m>0, with nef numerical dimension one on a normal projective surface over an algebraically closed field. Growing h⁰ in the application supplies this stronger hypothesis.",
-   "reason": "Take an elliptic curve E/C and a nontorsion M in Pic⁰(E). On P_E(O⊕M), L=O(1) is nef, L²=0 and L·fibre=1. For every m>0, H⁰(L^m)=⊕_{i=0}^m H⁰(E,M^i) has dimension1. Its unique section vanishes along a section of the ruled surface, so no positive power is generated. The source assumption gives κ=0 here. The resolution/moving-pencil proof and the positive Euler slope below repair Witaszek’s actual application.",
+   "reason": "Take an elliptic curve E/C and a nontorsion M in Pic⁰(E). On P_E(O⊕M), L=O(1) is nef, L²=0 and L·fibre=1. For every m>0, H⁰(L^m)=⊕_{i=0}^m H⁰(E,M^i) has dimension1. Its unique section vanishes along a section of the ruled surface, so no positive power is generated. The source assumption gives κ=0 here. The resolution/moving-pencil proof and the positive Euler slope below repair Witaszek’s actual application. (cc-442dc5) Verified: over an algebraically closed field where Pic⁰(E) has a non-torsion point M (for example C), L = O(1) on P_E(O ⊕ M) is nef and effective with L² = 0 and L·fibre = 1, and h⁰(L^m) = 1 for all m > 0, so L is not semiample. The paper's own paraphrase on p.701 ('Q-effective nef line bundles of numerical dimension one on normal projective surfaces over algebraically closed fields are semiample') is false for the same reason. In the application, χ(O(mL)) grows linearly and h² is bounded (Keel's Lemma 5.4), so h⁰(mL) grows and the stronger hypothesis holds.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -50872,7 +50876,8 @@
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
     "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-    "Sean Keel Basepoint freeness Lemma5.2 erratum search; reread arXiv math/9901149 pp.279–282; no matching correction located"
+    "Sean Keel Basepoint freeness Lemma5.2 erratum search; reread arXiv math/9901149 pp.279–282; no matching correction located",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50894,7 +50899,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50916,7 +50922,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50931,14 +50938,15 @@
    "locator": "Published p.677, Lemma3.4 proof, divisibility range",
    "printed": "0≤i≤p^k",
    "correction": "Require 1≤i≤p^k. The binomial expansion already sums over positive i.",
-   "reason": "At i=0, p^i binomial(p^k,i)=1, which is not divisible by p^n for n>0. For positive i, the identity i binomial(p^k,i)=p^k binomial(p^k−1,i−1) gives the explicit valid bound recorded in binomial-divisibility.",
-   "affects": "the proof",
+   "reason": "At i=0, p^i binomial(p^k,i)=1, which is not divisible by p^n for n>0. For positive i, the identity i binomial(p^k,i)=p^k binomial(p^k−1,i−1) gives the explicit valid bound recorded in binomial-divisibility. (cc-442dc5) Reclassified to affect nothing: the displayed binomial expansion runs over 1 ≤ i ≤ p^k, and for those i, v_p(p^i·C(p^k, i)) = i + k − v_p(i) ≥ k, so the divisibility holds for k ≥ n. Only the printed range '0 ≤ i' is wrong, and i = 0 is not used.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50960,7 +50968,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -50982,7 +50991,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -51004,7 +51014,8 @@
     "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
     "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
     "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+    "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -51024,7 +51035,8 @@
    "known": "new",
    "searched": [
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
-    "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence."
+    "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -51044,7 +51056,8 @@
    "known": "new",
    "searched": [
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
-    "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence."
+    "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
@@ -51065,7 +51078,8 @@
    "searched": [
     "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
     "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
-    "Compared Stacks02OD and its correction comments."
+    "Compared Stacks02OD and its correction comments.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
    ],
    "owner": "PAPER-WITASZEK-22",
    "file": "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
