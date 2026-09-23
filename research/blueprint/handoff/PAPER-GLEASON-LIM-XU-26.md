@@ -1,11 +1,24 @@
 # PAPER-GLEASON-LIM-XU-26 handoff
 
-Codex — codex-c83e7a. Refs #1205. Partial checkpoint, 2026-09-22.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints. Issue #1205. Date: 23 September 2026.
 
-Read all 57 published pages (805–861). Recorded 152 items (14 library, 24 planned, 114 missing), 15 routes and 17 source findings awaiting independent review. Every missing item has exactly one route; every definition/construction has API, tests and a use site. Reused the shared ADLV, integral shtuka, local-model, integral-diamond, arithmetic-reductive and Shimura continuation IDs; only PadicHodgeTheoryGenericMonodromyPartII is new.
+## Saved
 
-Resume from the gap register G01–G10 in the JSON and the corresponding report. First resolve the valid component theorem for the actual locally spatial G(Qp)-torsors (E01), the adjoint torsor-property converse (E08), and the corrected nonnormal-reflex and repeated-orbit formulas (E06/E07). The main theorems are source targets, not claimed refuted by those proof defects. Then close the original kimberlite/local-model suppliers, the Chen–Serre–Sen/DOR monodromy arguments, local generation and the global applications. Proposition5.11 is a later consumer of Theorem6.1, never an input to the forward implication.
+- **Items.** 153 items. Every missing item is routed exactly once, and every numbered statement is an item.
+  - New: Proposition 5.4, as T55a.
+  - The introduction statements are mapped to their body items.
+- **Mistakes.** Seventeen, against the open-access published PDF.
+  - **E01.** Rechecked. Lemma 3.2's π_0 formula is false. Proposition 3.12 and §6 inherit the gap (G02).
+  - **E06 and E07.** Unchanged: the orbit formulas for nonnormal reflex fields.
+  - **Reclassified to affect nothing.** E02, E04 and E09.
+- **Gaps.**
+  - G02, G05 and G07 are recorded as findings.
+  - The rest are deferred.
 
-The global almost-product, EKOR, He–Rapoport and PR completion outputs need full original-source decomposition. Do not promote the status to complete based on the full-primary reading or schema pass. The general local theorem and the two global hypothesis packages are distinct.
+## Resume
 
-Validation: scripts/check_paper.py and research/blueprint/intake.py check-files for exactly the three deliverable paths; nine mathematical diagnostic groups; custom route/API/reference/dependency/digest checks. The report distinguishes finite diagnostics from proofs. No Lean file supplied or compiled; no formalization claimed. The JSON records both pinned library commits, the atlas baseline and source hashes. All source findings require an independent reviewer.
+The job is complete. For a reviewer: check E01 (p. 820) and its effect on Proposition 3.12 (p. 828).
+
+## Validation
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.

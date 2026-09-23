@@ -1,4 +1,81 @@
-# Gleason–Lim–Xu: connected components and the missing supplier proofs
+# Gleason–Lim–Xu (2026): connected components of affine Deligne–Lusztig varieties, extraction and routing
+
+Issue [#1205](https://github.com/CBirkbeck/tauceti-explorer/issues/1205). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** I. Gleason, D. G. Lim and Y. Xu, *The connected components of affine Deligne–Lusztig varieties*, Invent. Math. 243 (2026), 805–861 (open access, CC BY 4.0).
+  - The published PDF was re-fetched; its SHA-256 (c40fe1fc…) matches the checkpoint.
+- **Items.** The result has **153 items: 14 library, 24 planned and 115 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Seventeen are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**Items.**
+- Proposition 5.4 (the generic filtration is Galois-invariant) had no item; it is now T55a.
+- Theorem 1.19 and Corollary 1.20 are named on their body items.
+
+**E01 rechecked.**
+- **The lemma.** Lemma 3.2's formula π_0(F/K) = π_0(F)/K (p. 820) fails for noncompact K with dense orbits. Its proof assumes π_0 is a left adjoint that commutes with colimits.
+- **What inherits the gap.** Proposition 3.12 (p. 828) is deduced from the lemma, and §6 uses both on pp. 855–856. G02 records this.
+- **The main theorems.** No counterexample to them is claimed.
+
+**Reclassified to affect nothing.**
+- **E02.** G° is defined on p. 813 as G(Q_p)/Im G_sc(Q_p), and only that definition is used; "maximal abelian quotient" is a mis-description.
+- **E04.** Definition 4.1 needs M proper.
+- **E09.** Lemma 6.15 means "no proper open normal subgroup".
+
+**Gaps.**
+- G02, G05 and G07 are recorded as findings.
+- The others are deferred as cited suppliers' proofs, design work or review.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded, including the paper's own proof gaps.
+
+## Mistakes found (`sourceIssues`)
+
+- **E01** (error; affects a stated result), Lemma3.2,p820;arXivv3PDF16–17; published57-page version, rendered page inspected unless stated otherwise. *Printed:* π₀(F)/K = π₀(G). *Correction:* Retain the underlying-space quotient theorem. Replace the component formula with separate valid restricted theorems for the locally spatial period torsors, compact level quotients and compact Galois descent actually used. A compact-only replacement is insufficient for Proposition3.12.
+- **E02** (error; affects nothing), §1.5,p813,description ofG°; published57-page version, rendered page inspected unless stated otherwise. *Printed:* maximal abelian quotient *Correction:* Define G° only as G(Qp)/im Gsc(Qp) unless additional hypotheses establish maximal abelianity. The simply connected derived case identifies it with Gab(Qp), but the unrestricted assertion fails for anisotropic groups.
+- **E03** (error; affects the proof), ProofLemma3.16(2),(3.23),p830; published57-page version, rendered page inspected unless stated otherwise. *Printed:* 0 → T(breve Zp) → T(breve Qp) → π₁(G)_I → 0 *Correction:* The torus quotient has target X_*(T)_I. The map onward to pi1(G)_I can have a coroot kernel. Prove rational Kottwitz surjectivity by its actual theorem (cited Zhou5.18), not this exact sequence.
+- **E04** (misprint; affects nothing), Definition4.1,p831; published57-page version, rendered page inspected unless stated otherwise. *Printed:* there exists a φ₀-stable standard Levi subgroup M *Correction:* Require M to be proper in G.
+- **E05** (error; affects the proof), ProofProposition4.11,(4.13),p834; published57-page version, rendered page inspected unless stated otherwise. *Printed:* we obtain an injective homomorphism *Correction:* Use the explicit uniformizer section lambda↦lambda(p)K to give an injection of sets, or choose and prove a compatible split torus with S(Zp)⊆K. Do not infer a quotient map from the reverse inclusion, and do not call G/K a group.
+- **E06** (error; affects a stated result), Proposition5.7,(5.18)–(5.19),pp840–841;use(5.26); published57-page version, rendered page inspected unless stated otherwise. *Printed:* ∀τ∈Gal(E/K) *Correction:* Index the threshold by every DISTINCT Gamma_E-orbit contained in the full Gamma_K highest-weight orbit, or use all embeddings through a normal closure. Do not assume the reflex field E/K is normal.
+- **E07** (error; affects the proof), (5.29),p843; published57-page version, rendered page inspected unless stated otherwise. *Printed:* v_O = sum_(τ∈Gal(E/K)) v_(O^E_(τλ)) *Correction:* Sum over the distinct refined isotypic components, not all automorphisms with repeated orbit labels. For orbit averages, use their actual sizes as weights.
+- **E08** (gap; affects the proof), ProofProposition6.6(2),(6.9)–(6.11),pp850–851; published57-page version, rendered page inspected unless stated otherwise. *Printed:* Since Gsc(Qp) acts trivially *Correction:* Supply a valid two-direction descent argument for the torsor property; derived-cover triviality cannot be assumed before either torsor hypothesis has been imposed. Resolve also the component quotient step inherited from E01.
+- **E09** (misprint; affects nothing), Lemma6.15 andpreceding sentence,p857; published57-page version, rendered page inspected unless stated otherwise. *Printed:* has no open normal subgroup *Correction:* Has no PROPER open normal subgroup; equivalently every open normal subgroup equals the whole group.
+- **E10** (misprint; affects nothing), ProofLemma3.10,p827,before(3.15); published57-page version, rendered page inspected unless stated otherwise. *Printed:* Sht_mu1^K1(b1) → Sht_K2(b2) × Spd O_breveE → Sht_K1(b1) × Spd O_breveE *Correction:* Order the ambient arrows as bounded Sht1 -> ambient Sht1 -> ambient Sht2.
+- **E11** (misprint; affects nothing), Diagram(3.15),p827; published57-page version, rendered page inspected unless stated otherwise. *Printed:* Sht_mu2^K1(b2) *Correction:* The upper-right integral bounded space uses K2, not K1.
+- **E12** (misprint; affects nothing), EndLemma3.16proof,p830; published57-page version, rendered page inspected unless stated otherwise. *Printed:* c_(b,mu) π₁(Gtilde)_I^φ *Correction:* The target coset uses pi1(G)_I^phi.
+- **E13** (misprint; affects nothing), Diagram(3.26),p830; published57-page version, rendered page inspected unless stated otherwise. *Printed:* π₀(X_mu^K_H(b)) *Correction:* Use the transported b_H and mu_H in the bottom-left H-ADLV.
+- **E14** (misprint; affects nothing), §4,p831,definition ofK_Mprime andb_Pprime; published57-page version, rendered page inspected unless stated otherwise. *Printed:* K_Mprime(breve Qp) = Kp ∩ Mprime(breve Qp) *Correction:* Use the connected Levi parahoric integral points K_Mprime(breve Zp)=breve Kp∩Mprime(breve Qp); b_Pprime belongs to Mprime(breve Qp).
+- **E15** (misprint; affects nothing), §4 paragraph11,p832; published57-page version, rendered page inspected unless stated otherwise. *Printed:* mu_H = mu ◦ f *Correction:* Use mu_H=f◦mu.
+- **E16** (misprint; affects nothing), Right-handNewton square(4.6),p833; published57-page version, rendered page inspected unless stated otherwise. *Printed:* X_*(T)_Q^+ → X_*(T)_Q^+ *Correction:* Use X_*(T_H)_Q^+ at the right-hand target.
+- **E17** (misprint; affects nothing), Paragraphafter(6.24),p858; published57-page version, rendered page inspected unless stated otherwise. *Printed:* Sht(G,bab,muab,Gab_par(Zp)) *Correction:* Use Gab as the group of this torus shtuka.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G01, Declaration and recursive source closure** (deferred). Declaration-sized splitting of recursive suppliers is design work; every numbered statement is now an item.
+- **G02, Correct component descent** (recorded). E01, with the gaps it leaves in Propositions 3.12 and 6.6(2) and in §6; E08 records the second descent step.
+- **G03, Integral v-sheaf foundations** (deferred). Gleason's integral v-sheaf theory is a cited supplier.
+- **G04, Geometric original suppliers** (deferred). AGLR, Gleason–Lourenço and Gleason's local-model correspondence are cited suppliers.
+- **G05, Generic filtration correction** (recorded). E06 and E07 record the nonnormal-reflex-field orbit formulas; item T56 carries the corrected statement.
+- **G06, Crystalline Tannakian closure** (deferred). Chen's monodromy, Serre/Sen and Colmez–Fontaine are cited suppliers.
+- **G07, Adjoint torsor property and local generation** (recorded). E08 records the adjoint-descent gap in Proposition 6.6(2).
+- **G08, Global application closure** (deferred). Zhou, He–Rapoport, Hamacher–Kim, Shen–Yu–Zhang, Xu and Pappas–Rapoport are cited suppliers for the global applications.
+- **G09, Independent source-issue review** (deferred). Independent review of the findings is the review pipeline's job.
+- **G10, Ownership and Lean prototyping** (deferred). Ownership and Lean prototyping are later design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## Gleason–Lim–Xu: connected components and the missing supplier proofs
 
 Codex, session `codex-c83e7a`; issue #1205; 22 September 2026. Status: **partial, full-primary-reading checkpoint**.
 
@@ -6,7 +83,7 @@ The extraction has 152 items: 14 narrow pinned-library credits, 24 already-plann
 
 The source is Ian Gleason, Dong Gyu Lim and Yujie Xu, [The connected components of affine Deligne–Lusztig varieties](https://doi.org/10.1007/s00222-025-01386-1), *Inventiones mathematicae* 243 (2026), 805–861. The version of record was published online on 12 November 2025. It is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This report attributes the source, paraphrases and reorganizes its mathematics, and identifies proposed corrections; it is not the authors’ text or an approved erratum.
 
-## What the theorem says
+### What the theorem says
 
 For any connected reductive group over Qp, any parahoric level and any acceptable Hodge–Newton irreducible pair, the Kottwitz map identifies the connected components of the closed admissible-union ADLV with the affine coset `c_(b,mu) pi1(G)_I^phi`. The target is naturally a coset, not a canonically pointed group. The theorem has no tame, minuscule or odd-prime restriction. Restriction of scalars gives the stated finite-extension-of-Qp version; equal characteristic is not proved by this method.
 
@@ -18,7 +95,7 @@ For any connected reductive group over Qp, any parahoric level and any acceptabl
 
 The five conditions are spelled out in M01–M04. The anisotropic case uses a unique normal Iwahori, a discrete quotient and determinant to a torus torsor. It does not prove the unrestricted converse to HN irreducibility or the unrestricted infinite-level torsor assertion. In particular, a central zero-bound inner-form example rules out the converse.
 
-## Proof architecture and ownership
+### Proof architecture and ownership
 
 The geometric route runs from integral local models and connected tubes, through rich smelted kimberlite specialization, to finite-level ADLV components. The monodromy route starts with a generic flag over a finite extension of the completed maximal unramified field. Weak admissibility supplies a crystalline representation; corrected highest-weight and Newton inequalities force its Mumford–Tate group to contain the derived group. Serre–Sen gives an open derived image. Component stabilizers and their normalizers then connect the generic theorem to the infinite-level torsor.
 
@@ -26,7 +103,7 @@ These are distinct supplier chains. In particular, the connected tube theorem is
 
 The existing ADLV, integral-shtuka, local-model, integral-diamond and integral-Shimura candidate identifiers are reused. Arithmetic reductive descent supplies the algebraic generic-filtration and local generation facts. Only the generic crystalline-monodromy continuation is newly proposed. None of these candidate IDs is treated as an existing atlas stage.
 
-### Route 1: ReductiveGroupsPartII
+#### Route 1: ReductiveGroupsPartII
 
 `source` → `ReductiveGroupsPartII`. Use the existing local-field/rational-point, root datum, building, parahoric and decomposition owners. Add only the source-specific Frobenius, admissibility and compactness adapters; local arithmetic generation and G° belong to the arithmetic continuation.
 
@@ -34,7 +111,7 @@ Existing stages: `ReductiveGroupsPartII:RG2.0`, `ReductiveGroupsPartII:RG2.0a`, 
 
 Items: D01, D02, T01, T02, D03, D04, T04, T28, T47, T48, T63, T72.
 
-### Route 2: BunGAndNewtonStrata
+#### Route 2: BunGAndNewtonStrata
 
 `source` → `BunGAndNewtonStrata`. The existing G-isocrystal and invariant layers own B(G),J_b,pi1,kappa,Newton,decency and z-extension class comparisons. Do not duplicate the GL_n isocrystal carrier or the scalar classification.
 
@@ -42,7 +119,7 @@ Existing stages: `BunGAndNewtonStrata:BG0`, `BunGAndNewtonStrata:BG1`.
 
 Items: D05, D06, D07, D09, T03, D10, T07, T08.
 
-### Route 3: GeometricSatakeAndFusion
+#### Route 3: GeometricSatakeAndFusion
 
 `source` → `GeometricSatakeAndFusion`. Bounded Witt affine flags, components and group-map geometry refine the early Witt stage. No Satake tensor or fusion theorem is required by the component argument.
 
@@ -50,7 +127,7 @@ Existing stages: `GeometricSatakeAndFusion:GS0:Witt-geometry`.
 
 Items: T05, T27.
 
-### Route 4: DiamondsAndVStacks
+#### Route 4: DiamondsAndVStacks
 
 `source` → `DiamondsAndVStacks`. General locally profinite torsors, small quotients and locally spatial limits belong to these existing layers. Treat E01 as a counterexample and prove the restricted component theorem actually needed, not the printed universal lemma.
 
@@ -58,7 +135,7 @@ Existing stages: `DiamondsAndVStacks:D3`, `DiamondsAndVStacks:D4`, `DiamondsAndV
 
 Items: D20, D21, T20, T21, T22.
 
-### Route 5: HeckeStacksAndLocalShtukas
+#### Route 5: HeckeStacksAndLocalShtukas
 
 `source` → `HeckeStacksAndLocalShtukas`. The generic tower, its level maps, period torsor and adjoint comparison use HS2. Add geometric period connectedness and BB/classical-point comparison there; integral formal models have their separate continuation.
 
@@ -66,7 +143,7 @@ Existing stages: `HeckeStacksAndLocalShtukas:HS2`.
 
 Items: T29, D34, D36, T34, T35, T37, T70, T73, T74.
 
-### Route 6: PadicHodgeTheory
+#### Route 6: PadicHodgeTheory
 
 `source` → `PadicHodgeTheory`. The period-functor and admissibility layer already owns filtered isocrystals and Colmez–Fontaine. Add the G-valued fiber-functor and fixed-bound triviality interfaces here, without rebuilding period rings or integral displays.
 
@@ -74,7 +151,7 @@ Existing stages: `PadicHodgeTheory:R06.2`.
 
 Items: D50, D51, T50, D52, T51.
 
-### Route 7: VectorBundlesAndIsocrystals
+#### Route 7: VectorBundlesAndIsocrystals
 
 `source` → `VectorBundlesAndIsocrystals`. Reuse the unique owner of higher-rank rational slopes and isocrystal tensor classification.
 
@@ -82,7 +159,7 @@ Existing stages: `VectorBundlesAndIsocrystals:VB0`.
 
 Items: S01.
 
-### Route 8: MotivesAndAlgebraicCycles
+#### Route 8: MotivesAndAlgebraicCycles
 
 `source` → `MotivesAndAlgebraicCycles`. Neutral Tannakian reconstruction is shared; the pinned comparison starting from a known Hopf algebra does not close arbitrary reconstruction.
 
@@ -90,7 +167,7 @@ Existing stages: `MotivesAndAlgebraicCycles:MC.6`.
 
 Items: S02.
 
-### Route 9: Pro-etale descent, diamonds and small v-stacks, Part II: integral recovery and kimberlite specialization
+#### Route 9: Pro-etale descent, diamonds and small v-stacks, Part II: integral recovery and kimberlite specialization
 
 `part-ii` → `DiamondsAndVStacksIntegralPartII`. The existing integral recovery candidate is the same foundational direction; kimberlite specialization is a shared addition used by local models and shtukas.
 
@@ -100,7 +177,7 @@ Continue DiamondsAndVStacksIntegralPartII from PAPER-KISIN-PAPPAS-ZHOU-26 rather
 
 Items: D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, T23, T24.
 
-### Route 10: Geometric Satake over the Fargues–Fontaine curve, Part II: integral local models and tubular connectedness
+#### Route 10: Geometric Satake over the Fargues–Fontaine curve, Part II: integral local models and tubular connectedness
 
 `part-ii` → `GeometricSatakeLocalModelsPartII`. Local-model construction already has a shared continuation; add the source theorem there.
 
@@ -110,7 +187,7 @@ Continue GeometricSatakeLocalModelsPartII from PAPER-KISIN-ZHOU-25 and PAPER-KIS
 
 Items: D33, T25, T26.
 
-### Route 11: Hecke stacks and local shtukas, Part II: integral parahoric models and specialization
+#### Route 11: Hecke stacks and local shtukas, Part II: integral parahoric models and specialization
 
 `part-ii` → `HeckeStacksAndLocalShtukasIntegralPartII`. The same integral model and crystalline comparison direction is already proposed; this paper adds specialization and PR representability.
 
@@ -120,7 +197,7 @@ Continue HeckeStacksAndLocalShtukasIntegralPartII from PAPER-KISIN-PAPPAS-ZHOU-2
 
 Items: D35, T30, T31, T32, T33, T36, D62, A08, A09.
 
-### Route 12: Hecke stacks and local shtukas, Part II: affine Deligne–Lusztig geometry and components
+#### Route 12: Hecke stacks and local shtukas, Part II: affine Deligne–Lusztig geometry and components
 
 `part-ii` → `HeckeStacksAndLocalShtukasPartIIAffineDeligneLusztig`. Components extend the already shared ADLV geometry lane; a separate copy of the ADLV moduli or a new component carrier would duplicate it.
 
@@ -130,7 +207,7 @@ Continue the ADLV candidate shared by PAPER-HE-21, PAPER-VANHOFTEN-24 and PAPER-
 
 Items: D08, D11, T06, T09, D40, D41, T40, T41, T42, T43, T44, T45, T46, T49, M01, M02, M03, M04, M05, M06, T71, T75, T76, T78, T79, T80, T81, T83, T84, T85, T86, T87.
 
-### Route 13: Reductive algebraic groups, Part II: arithmetic descent and local generation
+#### Route 13: Reductive algebraic groups, Part II: arithmetic descent and local generation
 
 `part-ii` → `ReductiveGroupsArithmeticPartII`. The arithmetic group continuation already owns descent and Mumford–Tate comparison interfaces; the new local group and algebraic generic-filtration suppliers belong there without rebuilding existing highest-weight theory.
 
@@ -140,7 +217,7 @@ Continue ReductiveGroupsArithmeticPartII from PAPER-KISIN-MADAPUSIPERA-SHIN-22 a
 
 Items: D12, D13, D14, T10, D56, D57, T55, D58, T56, T88, T89.
 
-### Route 14: p-adic Hodge theory, Part II: generic crystalline monodromy
+#### Route 14: p-adic Hodge theory, Part II: generic crystalline monodromy
 
 `part-ii` → `PadicHodgeTheoryGenericMonodromyPartII`. No inspected roadmap or existing candidate owns the generic crystalline derived-monodromy theorem. It extends the existing rational p-adic Hodge direction; the classical/absolute-Hodge Mumford–Tate lane in arithmetic reductive groups is a distinct imported supplier.
 
@@ -150,7 +227,7 @@ Build on p-adic Hodge theory (PadicHodgeTheory R06.1–R06.2), importing its per
 
 Items: D53, T52, D54, T53, D55, T54, T57, T58, T59, T60, T61, T62, T64, T65, T66, T77, T82.
 
-### Route 15: Complex Shimura varieties and canonical models, Part II: integral isogenies and uniformization
+#### Route 15: Complex Shimura varieties and canonical models, Part II: integral isogenies and uniformization
 
 `part-ii` → `ShimuraVarietiesHondaTatePartII`. The integral Shimura continuation already owns these mod-p and reduction applications; generic canonical models remain upstream.
 
@@ -160,11 +237,11 @@ Continue ShimuraVarietiesHondaTatePartII shared by the Kisin, Kisin–Zhou, KPZ 
 
 Items: D60, D61, A01, A02, A03, A04, A05, A06, A07, A10.
 
-## Source findings awaiting independent review
+### Source findings awaiting independent review
 
 The findings below are worker diagnoses, not confirmed errata. A false auxiliary lemma does not alone disprove a main geometric theorem. The report distinguishes a counterexample to a stated result, a failure of an intermediate argument, and a notation slip. Searches found no separate correction in the locations listed in the JSON; this limited search does not establish that none exists. No author contact was made.
 
-### E01: error — Lemma3.2,p820
+#### E01: error — Lemma3.2,p820
 
 Printed: `π₀(F)/K = π₀(G).`.
 
@@ -174,7 +251,7 @@ Evidence: Let C be an algebraically closed characteristic-p perfectoid field, F=
 
 Effect: a stated result.
 
-### E02: error — §1.5,p813,description ofG°
+#### E02: error — §1.5,p813,description ofG°
 
 Printed: `maximal abelian quotient`.
 
@@ -184,7 +261,7 @@ Evidence: Take E=Q3(i), i²=-1, the unramified quadratic extension, and D=E⊕E�
 
 Effect: a stated result.
 
-### E03: error — ProofLemma3.16(2),(3.23),p830
+#### E03: error — ProofLemma3.16(2),(3.23),p830
 
 Printed: `0 → T(breve Zp) → T(breve Qp) → π₁(G)_I → 0`.
 
@@ -194,7 +271,7 @@ Evidence: For split G=SL2 and its diagonal torus T≅Gm, pi1(G)=0 but T(L)/T(O_L
 
 Effect: the proof.
 
-### E04: misprint — Definition4.1,p831
+#### E04: misprint — Definition4.1,p831
 
 Printed: `there exists a φ₀-stable standard Levi subgroup M`.
 
@@ -204,7 +281,7 @@ Evidence: Without properness, take M=G: every acceptable pair satisfies the disp
 
 Effect: a stated result.
 
-### E05: error — ProofProposition4.11,(4.13),p834
+#### E05: error — ProofProposition4.11,(4.13),p834
 
 Printed: `we obtain an injective homomorphism`.
 
@@ -214,7 +291,7 @@ Evidence: The proved inclusion is S(Qp)∩K⊆S(Zp); descending S->G/K through S
 
 Effect: the proof.
 
-### E06: error — Proposition5.7,(5.18)–(5.19),pp840–841
+#### E06: error — Proposition5.7,(5.18)–(5.19),pp840–841
 
 Printed: `∀τ∈Gal(E/K)`.
 
@@ -224,7 +301,7 @@ Evidence: Let K=Q, E=Q(cuberoot2), G=Res_(E/Q)Gm, mu the cocharacter of the dist
 
 Effect: a stated result.
 
-### E07: error — (5.29),p843
+#### E07: error — (5.29),p843
 
 Printed: `v_O = sum_(τ∈Gal(E/K)) v_(O^E_(τλ))`.
 
@@ -234,7 +311,7 @@ Evidence: Already for a nontrivial quadratic reflex field and the trivial repres
 
 Effect: the proof.
 
-### E08: gap — ProofProposition6.6(2),(6.9)–(6.11),pp850–851
+#### E08: gap — ProofProposition6.6(2),(6.9)–(6.11),pp850–851
 
 Printed: `Since Gsc(Qp) acts trivially`.
 
@@ -244,7 +321,7 @@ Evidence: Take G=SL2,b=1,mu=0. The period domain is a point and Sht_infty over C
 
 Effect: the proof.
 
-### E09: misprint — Lemma6.15 andpreceding sentence,p857
+#### E09: misprint — Lemma6.15 andpreceding sentence,p857
 
 Printed: `has no open normal subgroup`.
 
@@ -254,7 +331,7 @@ Evidence: The whole topological group is open and normal. The proof concludes K=
 
 Effect: a stated result.
 
-### E10: misprint — ProofLemma3.10,p827,before(3.15)
+#### E10: misprint — ProofLemma3.10,p827,before(3.15)
 
 Printed: `Sht_mu1^K1(b1) → Sht_K2(b2) × Spd O_breveE → Sht_K1(b1) × Spd O_breveE`.
 
@@ -264,7 +341,7 @@ Evidence: Extension of structure group maps ambient1 to ambient2; the written re
 
 Effect: nothing.
 
-### E11: misprint — Diagram(3.15),p827
+#### E11: misprint — Diagram(3.15),p827
 
 Printed: `Sht_mu2^K1(b2)`.
 
@@ -274,7 +351,7 @@ Evidence: The right vertical inclusion targets the ambient shtuka for K2 and b2.
 
 Effect: nothing.
 
-### E12: misprint — EndLemma3.16proof,p830
+#### E12: misprint — EndLemma3.16proof,p830
 
 Printed: `c_(b,mu) π₁(Gtilde)_I^φ`.
 
@@ -284,7 +361,7 @@ Evidence: The map (3.24) and the lemma statement have target G.
 
 Effect: nothing.
 
-### E13: misprint — Diagram(3.26),p830
+#### E13: misprint — Diagram(3.26),p830
 
 Printed: `π₀(X_mu^K_H(b))`.
 
@@ -294,7 +371,7 @@ Evidence: The target Kottwitz coset is explicitly c_(b_H,mu_H).
 
 Effect: nothing.
 
-### E14: misprint — §4,p831,definition ofK_Mprime andb_Pprime
+#### E14: misprint — §4,p831,definition ofK_Mprime andb_Pprime
 
 Printed: `K_Mprime(breve Qp) = Kp ∩ Mprime(breve Qp)`.
 
@@ -304,7 +381,7 @@ Evidence: A parahoric model evaluated on the generic field gives the entire Levi
 
 Effect: nothing.
 
-### E15: misprint — §4 paragraph11,p832
+#### E15: misprint — §4 paragraph11,p832
 
 Printed: `mu_H = mu ◦ f`.
 
@@ -314,7 +391,7 @@ Evidence: The domains are Gm->G->H, so the printed composition is ill typed.
 
 Effect: nothing.
 
-### E16: misprint — Right-handNewton square(4.6),p833
+#### E16: misprint — Right-handNewton square(4.6),p833
 
 Printed: `X_*(T)_Q^+ → X_*(T)_Q^+`.
 
@@ -324,7 +401,7 @@ Evidence: The upper-right object is B(H) and its Newton invariant takes values i
 
 Effect: nothing.
 
-### E17: misprint — Paragraphafter(6.24),p858
+#### E17: misprint — Paragraphafter(6.24),p858
 
 Printed: `Sht(G,bab,muab,Gab_par(Zp))`.
 
@@ -336,11 +413,11 @@ Effect: nothing.
 
 The rendered pages confirm that the underlined inertia-average cocharacter in (5.28), (5.33) and (5.34) is present; it is not an error. The inverse powers in a Frobenius pairing can also be reindexed after summing a complete period, so no false individual-term objection is filed. The normalizer’s openness in Lemma6.13 can be supplied by the central-isogeny open-image argument; this is recorded as an explicit proof step.
 
-## Inventory with API and acceptance specifications
+### Inventory with API and acceptance specifications
 
 Each definition or construction has at least three source-driven API obligations, three concrete tests and a use-site explanation. A library status credits only its stated carrier or theorem; it does not certify the additional specialized API. Theorems list the proof input to be decomposed. All statements are mathematical specifications, not Lean declarations or proved implementations.
 
-### L01 — Witt-vector coefficient carrier
+#### L01 — Witt-vector coefficient carrier
 
 **definition; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -364,7 +441,7 @@ Acceptance tests:
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L06 — Connected reductive group predicate
+#### L06 — Connected reductive group predicate
 
 **definition; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -388,7 +465,7 @@ Acceptance tests:
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L07 — Algebraic torus predicate
+#### L07 — Algebraic torus predicate
 
 **definition; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -412,7 +489,7 @@ Acceptance tests:
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L08 — Geometric character lattice
+#### L08 — Geometric character lattice
 
 **definition; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -436,7 +513,7 @@ Acceptance tests:
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L09 — Cocharacter lattice and pairing
+#### L09 — Cocharacter lattice and pairing
 
 **definition; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -460,7 +537,7 @@ Acceptance tests:
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L10 — Perfect character-cocharacter pairing
+#### L10 — Perfect character-cocharacter pairing
 
 **theorem; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -474,7 +551,7 @@ Proof: Reuse the cited pinned declaration in its stated scope. Any application a
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L16 — Finite free cocharacter lattice
+#### L16 — Finite free cocharacter lattice
 
 **theorem; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -488,7 +565,7 @@ Proof: Reuse the cited pinned declaration in its stated scope. Any application a
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L17 — Galois invariance of the pairing
+#### L17 — Galois invariance of the pairing
 
 **theorem; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -502,7 +579,7 @@ Proof: Reuse the cited pinned declaration in its stated scope. Any application a
 
 Scope note: Only the cited pinned declarations are existing implementation evidence. The downstream API and tests specify requested reuse or adapters; they do not claim uninspected wrappers are built.
 
-### L23 — Perfect coefficient-ring predicate
+#### L23 — Perfect coefficient-ring predicate
 
 **construction; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -524,7 +601,7 @@ Acceptance tests:
 - `GLX26.L23.test2`: The zero ring has a bijective power map.
 - `GLX26.L23.test3`: Fp[t] is not perfect since t has no polynomial pth root.
 
-### L42 — Scheme carrier
+#### L42 — Scheme carrier
 
 **construction; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -548,7 +625,7 @@ Acceptance tests:
 
 Scope note: Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-### L43 — Fppf topology on schemes
+#### L43 — Fppf topology on schemes
 
 **construction; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -572,7 +649,7 @@ Acceptance tests:
 
 Scope note: Only the stated carrier or theorem is credited to the pinned library. Additional API/test specifications are not claims of existing formalization.
 
-### L47 — Tannaka comparison for a known Hopf algebra
+#### L47 — Tannaka comparison for a known Hopf algebra
 
 **theorem; library**. §§2,3.1 and5.1: algebraic coefficient, group and Tannakian prerequisites.
 
@@ -586,7 +663,7 @@ Proof: Use the pinned natural isomorphism. It begins with H and does not constru
 
 Scope note: Only this precise carrier or theorem is credited at the pin. Proposed specialized API and tests do not certify implementation of its geometric consumers.
 
-### L50 — Isocrystal carrier
+#### L50 — Isocrystal carrier
 
 **definition; library**. §5.1.
 
@@ -610,7 +687,7 @@ Acceptance tests:
 
 Scope note: Only the precise pinned carrier/theorem is credited. Specialized API and tests are future acceptance contracts, not certified implementations.
 
-### L51 — Connected-component quotient
+#### L51 — Connected-component quotient
 
 **definition; library**. §3.1.
 
@@ -634,7 +711,7 @@ Acceptance tests:
 
 Scope note: Only the precise pinned carrier/theorem is credited. Specialized API and tests are future acceptance contracts, not certified implementations.
 
-### D01 — Local reductive datum
+#### D01 — Local reductive datum
 
 **definition; planned**. §§1.1,2.
 
@@ -656,7 +733,7 @@ Acceptance tests:
 - `GLX26.D01.test2`: For a torus the parahoric model is unique.
 - `GLX26.D01.test3`: A full facet fixer with disconnected special fiber is not automatically this connected parahoric.
 
-### D02 — Iwahori–Weyl group
+#### D02 — Iwahori–Weyl group
 
 **definition; planned**. §2.1.
 
@@ -680,7 +757,7 @@ Acceptance tests:
 - `GLX26.D02.test2`: For Gm the Weyl group is trivial and Wtilde=Z.
 - `GLX26.D02.test3`: Replacing the actual cocharacter lattice by the full coweight lattice changes the group for SL2.
 
-### T01 — Length-zero component sequence
+#### T01 — Length-zero component sequence
 
 **theorem; planned**. §2.1.
 
@@ -692,7 +769,7 @@ Inputs: D02.
 
 Proof: Use the alcove stabilizer and affine Coxeter presentation; preserve the actual lattice.
 
-### T02 — Special-vertex splitting and Frobenius warning
+#### T02 — Special-vertex splitting and Frobenius warning
 
 **theorem; planned**. §2.1.
 
@@ -704,7 +781,7 @@ Inputs: D02.
 
 Proof: Separate origin choice from the intrinsic affine action.
 
-### D03 — Quasisplit Frobenius action
+#### D03 — Quasisplit Frobenius action
 
 **definition; missing**. §2.1 (2.4)–(2.5).
 
@@ -726,7 +803,7 @@ Acceptance tests:
 - `GLX26.D03.test2`: For a torus only the lattice action remains.
 - `GLX26.D03.test3`: An inner form can have nontrivial affine translation although the based-datum action is trivial.
 
-### D04 — Admissible Weyl set
+#### D04 — Admissible Weyl set
 
 **definition; planned**. §2.1 (2.3).
 
@@ -750,7 +827,7 @@ Acceptance tests:
 - `GLX26.D04.test2`: For mu=0 the Iwahori admissible set is {1}.
 - `GLX26.D04.test3`: An element in a different Omega component is never below t^mu.
 
-### D05 — Algebraic fundamental group and Kottwitz invariants
+#### D05 — Algebraic fundamental group and Kottwitz invariants
 
 **definition; planned**. §2.2.
 
@@ -774,7 +851,7 @@ Acceptance tests:
 - `GLX26.D05.test2`: pi1(SLn)=0.
 - `GLX26.D05.test3`: pi1(PGLn)=Z/n, so rationalizing loses information.
 
-### D06 — Sigma-conjugacy and sigma-centralizer
+#### D06 — Sigma-conjugacy and sigma-centralizer
 
 **definition; planned**. §§1.1,2.2.
 
@@ -798,7 +875,7 @@ Acceptance tests:
 - `GLX26.D06.test2`: b=1 has J_b(Qp)=G(Qp).
 - `GLX26.D06.test3`: Ordinary conjugacy does not replace phi-conjugacy over L.
 
-### D07 — Newton point and acceptable classes
+#### D07 — Newton point and acceptable classes
 
 **definition; planned**. §2.2 (2.6)–(2.8).
 
@@ -822,7 +899,7 @@ Acceptance tests:
 - `GLX26.D07.test2`: For a torus the Newton bound is equality.
 - `GLX26.D07.test3`: The same Newton point with a different torsion Kottwitz invariant need not lie in B(G,mu).
 
-### D08 — Hodge–Newton irreducibility
+#### D08 — Hodge–Newton irreducibility
 
 **definition; missing**. Definition2.1.
 
@@ -844,7 +921,7 @@ Acceptance tests:
 - `GLX26.D08.test2`: Every acceptable torus pair satisfies the empty condition.
 - `GLX26.D08.test3`: GL2 with mu=nu=(1,0) is not HN-irreducible.
 
-### D09 — Decent representative
+#### D09 — Decent representative
 
 **definition; missing**. Definition2.3.
 
@@ -866,7 +943,7 @@ Acceptance tests:
 - `GLX26.D09.test2`: b=1 has the identity decent equation for s=1.
 - `GLX26.D09.test3`: s=0 must not trivialize the definition and its finite-field descent.
 
-### T03 — Existence of decent dominant representatives
+#### T03 — Existence of decent dominant representatives
 
 **theorem; missing**. §2.2 after Definition2.3.
 
@@ -876,7 +953,7 @@ Inputs: D06, D09.
 
 Proof: Use the original Kottwitz classification and descent, not a choice from an unproved nonempty set.
 
-### T04 — Restriction of scalars local-field reduction
+#### T04 — Restriction of scalars local-field reduction
 
 **theorem; planned**. Remark2.4.
 
@@ -888,7 +965,7 @@ Inputs: D01, D07.
 
 Proof: Track the factors indexed by embeddings and the Frobenius permutation.
 
-### D10 — Component Kottwitz coset
+#### D10 — Component Kottwitz coset
 
 **definition; missing**. §1.1 (1.1)–(1.2);§2.2.
 
@@ -910,7 +987,7 @@ Acceptance tests:
 - `GLX26.D10.test2`: A trivial fundamental group gives a singleton target.
 - `GLX26.D10.test3`: For nontrivial phi, a torsor need not have a canonical zero.
 
-### D11 — Witt affine flag and closed affine Deligne–Lusztig variety
+#### D11 — Witt affine flag and closed affine Deligne–Lusztig variety
 
 **definition; missing**. §1.1;§3.1–3.2.
 
@@ -932,7 +1009,7 @@ Acceptance tests:
 - `GLX26.D11.test2`: For b=1,mu=0 it is the discrete rational coset space in the cases of Proposition4.8.
 - `GLX26.D11.test3`: Exact X_w and the closed admissible union have different incidence and component behavior.
 
-### T05 — Witt affine flag representability and component map
+#### T05 — Witt affine flag representability and component map
 
 **theorem; planned**. §§1.1,3.1.
 
@@ -944,7 +1021,7 @@ Inputs: D05, D11.
 
 Proof: Import bounded Witt affine geometry and the component theorem with its actual group hypotheses.
 
-### T06 — ADLV nonemptiness and Kottwitz surjectivity
+#### T06 — ADLV nonemptiness and Kottwitz surjectivity
 
 **theorem; missing**. §1.1 and§4.11.
 
@@ -954,7 +1031,7 @@ Inputs: D10, D11.
 
 Proof: Retain the original nonemptiness/straight-element and rational Kottwitz proofs as separate recursive obligations.
 
-### D12 — Adjoint isomorphism
+#### D12 — Adjoint isomorphism
 
 **definition; missing**. Definition3.14.
 
@@ -976,7 +1053,7 @@ Acceptance tests:
 - `GLX26.D12.test2`: An arbitrary homomorphism of tori has trivial adjoint groups and is an ad-isomorphism.
 - `GLX26.D12.test3`: An inclusion SL2->SL3 is not an ad-isomorphism.
 
-### D13 — Z-extension
+#### D13 — Z-extension
 
 **definition; missing**. Definition3.15.
 
@@ -998,7 +1075,7 @@ Acceptance tests:
 - `GLX26.D13.test2`: The identity of a torus is an allowed extension with trivial kernel.
 - `GLX26.D13.test3`: SLn->PGLn has finite kernel and is not a z-extension as defined.
 
-### T07 — Lifting the bound and acceptable class
+#### T07 — Lifting the bound and acceptable class
 
 **theorem; planned**. Lemma3.16(1).
 
@@ -1010,7 +1087,7 @@ Inputs: D13, D07.
 
 Proof: Lift through exact cocharacter lattices of tori, then apply Kottwitz6.5.1 with its fixed-bound hypothesis.
 
-### T08 — Surjectivity of z-extension component cosets
+#### T08 — Surjectivity of z-extension component cosets
 
 **theorem; missing**. Lemma3.16(2).
 
@@ -1020,7 +1097,7 @@ Inputs: D10, D13.
 
 Proof: Use rational-point surjectivity for the induced torus and the genuine rational Kottwitz surjectivity theorem. Printed (3.23) is false; E03 forbids that proof.
 
-### T09 — Adjoint comparison of ADLV components
+#### T09 — Adjoint comparison of ADLV components
 
 **theorem; missing**. Proposition3.17 (3.26).
 
@@ -1030,7 +1107,7 @@ Inputs: D11, D12.
 
 Proof: Import PR On integral local Shimura varieties, Lemma5.4.2, preserving model and component hypotheses.
 
-### D14 — Simply connected quotient of rational points
+#### D14 — Simply connected quotient of rational points
 
 **definition; missing**. §1.3 p813.
 
@@ -1052,7 +1129,7 @@ Acceptance tests:
 - `GLX26.D14.test2`: For simply connected semisimple G, G° is trivial.
 - `GLX26.D14.test3`: SL1 of a quaternion division algebra over Q3 has nontrivial abelian residue quotient despite G°=1.
 
-### T10 — Rational local group vanishing and open central-isogeny image
+#### T10 — Rational local group vanishing and open central-isogeny image
 
 **theorem; missing**. §6.2,6.6–6.7, implicit local group inputs.
 
@@ -1062,7 +1139,7 @@ Inputs: D01, D13.
 
 Proof: Read the local Galois-cohomology vanishing and analytic open-image theorem before closing the z-extension and determinant arguments.
 
-### D20 — Locally profinite sheaf
+#### D20 — Locally profinite sheaf
 
 **definition; planned**. §3.1.
 
@@ -1084,7 +1161,7 @@ Acceptance tests:
 - `GLX26.D20.test2`: A singleton gives the terminal relative sheaf.
 - `GLX26.D20.test3`: An abstract discontinuous homomorphism need not define this functorial map.
 
-### D21 — Small v-sheaf and its underlying topology
+#### D21 — Small v-sheaf and its underlying topology
 
 **definition; planned**. §3.1;Scholze ECD §§11–12.
 
@@ -1108,7 +1185,7 @@ Acceptance tests:
 - `GLX26.D21.test2`: The empty sheaf has empty underlying space.
 - `GLX26.D21.test3`: A diamond need not be locally spatial: the dense Z-action quotient in E01 is an example.
 
-### T20 — Topology of a small v-sheaf quotient
+#### T20 — Topology of a small v-sheaf quotient
 
 **theorem; planned**. Lemma3.2 first assertion;Scholze12.7–12.9.
 
@@ -1120,7 +1197,7 @@ Inputs: D20, D21.
 
 Proof: Use the v-surjection quotient theorem. Keep the component comparison as the separate restricted obligation T21.
 
-### T21 — Component descent needed by the local-shtuka torsors
+#### T21 — Component descent needed by the local-shtuka torsors
 
 **theorem; missing**. Lemma3.2 andits uses in3.12,6.6,6.9,6.12,6.13.
 
@@ -1130,7 +1207,7 @@ Inputs: T20, L51.
 
 Proof: First supply a correct theorem for each application. E01 gives a dense-action counterexample to the printed generality; a compact-only replacement does not cover G(Qp).
 
-### T22 — Locally spatial inverse-limit topology
+#### T22 — Locally spatial inverse-limit topology
 
 **theorem; planned**. Lemma3.2 proof;§6.7 p855;Scholze12.17.
 
@@ -1142,7 +1219,7 @@ Inputs: D21.
 
 Proof: Apply the exact locally spatial clause. A further connected-component argument is needed in the geometric-to-finite-field passage.
 
-### D22 — Reduction of a v-sheaf
+#### D22 — Reduction of a v-sheaf
 
 **definition; missing**. §3.1;Gleason Specialization §3.
 
@@ -1164,7 +1241,7 @@ Acceptance tests:
 - `GLX26.D22.test2`: A quasiseparated analytic diamond has empty scheme-theoretic reduction.
 - `GLX26.D22.test3`: Reduction is not the underlying topological point set of an analytic diamond.
 
-### D23 — Formally adic and formally separated morphisms
+#### D23 — Formally adic and formally separated morphisms
 
 **definition; missing**. §3.1;Gleason Definitions3.20,3.27.
 
@@ -1186,7 +1263,7 @@ Acceptance tests:
 - `GLX26.D23.test2`: The identity map is formally adic.
 - `GLX26.D23.test3`: Adicness of arbitrary Huber-pair maps is not equivalent to formal adicness of their v-sheaves.
 
-### D24 — Specializing v-sheaf
+#### D24 — Specializing v-sheaf
 
 **definition; missing**. §3.1;Gleason Definitions4.5,4.6,4.11.
 
@@ -1208,7 +1285,7 @@ Acceptance tests:
 - `GLX26.D24.test2`: The empty v-sheaf satisfies the local condition vacuously.
 - `GLX26.D24.test3`: A nonempty quasiseparated analytic diamond is not v-formalizing.
 
-### D25 — Specialization map
+#### D25 — Specialization map
 
 **construction; missing**. §3.1;Gleason4.12–4.14.
 
@@ -1230,7 +1307,7 @@ Acceptance tests:
 - `GLX26.D25.test2`: An identity map gives a commuting specialization square.
 - `GLX26.D25.test3`: Specialization is generally not injective: an entire disc can specialize to one closed point.
 
-### D26 — Prekimberlite
+#### D26 — Prekimberlite
 
 **definition; missing**. §3.1;Gleason4.15.
 
@@ -1252,7 +1329,7 @@ Acceptance tests:
 - `GLX26.D26.test2`: An empty special fiber does not by itself supply v-formalizing.
 - `GLX26.D26.test3`: An analytic generic fiber alone forgets the required integral special fiber.
 
-### D27 — Valuative prekimberlite
+#### D27 — Valuative prekimberlite
 
 **definition; missing**. Gleason4.30;GLX§3.1.
 
@@ -1274,7 +1351,7 @@ Acceptance tests:
 - `GLX26.D27.test2`: An identity formal neighborhood preserves valuativity.
 - `GLX26.D27.test3`: Continuity of sp alone does not prove the partial-properness condition.
 
-### D28 — Smelted kimberlite
+#### D28 — Smelted kimberlite
 
 **definition; missing**. Gleason4.35(1)–(2);GLX§3.1.
 
@@ -1296,7 +1373,7 @@ Acceptance tests:
 - `GLX26.D28.test2`: Taking D empty does not imply richness.
 - `GLX26.D28.test3`: An arbitrary open analytic subsheaf without partial properness is insufficient.
 
-### D29 — Kimberlite
+#### D29 — Kimberlite
 
 **definition; missing**. Gleason4.35(3);GLX§3.1.
 
@@ -1318,7 +1395,7 @@ Acceptance tests:
 - `GLX26.D29.test2`: A smelted pair does not require its chosen D to equal all F_an.
 - `GLX26.D29.test3`: Quasiseparatedness of D alone does not give quasicompact specialization.
 
-### D30 — Tubular neighborhood
+#### D30 — Tubular neighborhood
 
 **definition; missing**. Gleason4.38–4.39;GLX§3.1.
 
@@ -1340,7 +1417,7 @@ Acceptance tests:
 - `GLX26.D30.test2`: The tube over the whole reduction is D.
 - `GLX26.D30.test3`: For a rank>1 valuation pair, the closed-point specialization fiber can be nonempty with empty interior.
 
-### D31 — Constructibly Jacobson diamond
+#### D31 — Constructibly Jacobson diamond
 
 **definition; missing**. Gleason4.44;GLX§3.1 richness input.
 
@@ -1362,7 +1439,7 @@ Acceptance tests:
 - `GLX26.D31.test2`: A perfectoid field with its rank-one valuation supplies the point example.
 - `GLX26.D31.test3`: A higher-rank closed valuation point alone is not a dense rank-one locus.
 
-### D32 — Rich and topologically normal smelted pair
+#### D32 — Rich and topologically normal smelted pair
 
 **definition; missing**. Gleason4.52;GLX§3.1.
 
@@ -1386,7 +1463,7 @@ Acceptance tests:
 
 Scope note: Richness and topological normality are logically distinct properties; a design must expose both predicates and their individual API rather than one opaque combined class.
 
-### T23 — Rich specialization is a quotient map
+#### T23 — Rich specialization is a quotient map
 
 **theorem; missing**. Gleason4.53.
 
@@ -1396,7 +1473,7 @@ Inputs: D32.
 
 Proof: Use valuation lifts over irreducible components and the locally Noetherian finite-component reduction.
 
-### T24 — Topologically normal rich specialization compares components
+#### T24 — Topologically normal rich specialization compares components
 
 **theorem; missing**. GLX3.9;Gleason4.55.
 
@@ -1406,7 +1483,7 @@ Inputs: D32, T23.
 
 Proof: Rank-one patch density makes the connected closed-point tube dense in its fiber; specialization and locally Noetherian component control give the clopen comparison. Keep this distinct from the false quotient lemma E01.
 
-### D33 — Bounded de Rham Grassmannian and integral local model
+#### D33 — Bounded de Rham Grassmannian and integral local model
 
 **definition; missing**. §3.2.
 
@@ -1428,7 +1505,7 @@ Acceptance tests:
 - `GLX26.D33.test2`: For a torus the bound has one geometric generic point.
 - `GLX26.D33.test3`: For nonminuscule mu, the open cell and closed Schubert bound are different objects.
 
-### T25 — Integral local models and unibranch tubes
+#### T25 — Integral local models and unibranch tubes
 
 **theorem; missing**. §3.2 andTheorem3.8.
 
@@ -1438,7 +1515,7 @@ Inputs: D33, D30.
 
 Proof: Import AGLR local-model construction and Gleason–Lourenco Theorem1.3; preserve the field and formal-base conventions.
 
-### T26 — Minuscule local-model representability
+#### T26 — Minuscule local-model representability
 
 **theorem; missing**. §3.2 p822.
 
@@ -1448,7 +1525,7 @@ Inputs: D33.
 
 Proof: Separate representability, normality and reduced special fiber, tracking the original theorem’s projectivity and finite-type hypotheses.
 
-### T27 — Functorial admissible loci
+#### T27 — Functorial admissible loci
 
 **theorem; planned**. Lemmas3.3–3.4.
 
@@ -1460,7 +1537,7 @@ Inputs: D11, D33.
 
 Proof: Construct the local-model map, reduce it, and use the pointwise relative-position formula.
 
-### T28 — Criterion for extension to parahoric models
+#### T28 — Criterion for extension to parahoric models
 
 **theorem; planned**. Remark3.5.
 
@@ -1472,7 +1549,7 @@ Inputs: D01.
 
 Proof: Read the original extension criterion and its smooth affine model hypotheses.
 
-### T29 — Products and determinant at parahoric level
+#### T29 — Products and determinant at parahoric level
 
 **theorem; planned**. Lemma3.6 and§3.3 (3.14).
 
@@ -1484,7 +1561,7 @@ Inputs: D11, D33.
 
 Proof: Use the product moduli description and the precise integral group map.
 
-### D34 — Local shtuka tower
+#### D34 — Local shtuka tower
 
 **definition; planned**. §3.3.
 
@@ -1508,7 +1585,7 @@ Acceptance tests:
 - `GLX26.D34.test2`: The identity level transition is the identity.
 - `GLX26.D34.test3`: G(Qp) need not act on an individual finite nonnormal level; it acts through Hecke correspondences or the tower.
 
-### D35 — Integral parahoric shtuka space
+#### D35 — Integral parahoric shtuka space
 
 **definition; missing**. §3.3.
 
@@ -1530,7 +1607,7 @@ Acceptance tests:
 - `GLX26.D35.test2`: The identity group map gives the identity on integral and generic moduli.
 - `GLX26.D35.test3`: A generic local shtuka diamond by itself is not a definition of an integral model.
 
-### T30 — Integral shtukas are rich smelted kimberlites
+#### T30 — Integral shtukas are rich smelted kimberlites
 
 **theorem; missing**. Theorem3.7.
 
@@ -1540,7 +1617,7 @@ Inputs: D35, D32.
 
 Proof: Use Gleason2.76 and its cited local-model correspondence, local Noetherian ADLV theorem and constructible-Jacobson inputs.
 
-### T31 — Tubular local-model correspondence
+#### T31 — Tubular local-model correspondence
 
 **theorem; missing**. §3.3 (3.10)–(3.11),footnote19.
 
@@ -1550,7 +1627,7 @@ Inputs: D30, D35, D33.
 
 Proof: Construct both loop-group torsors and prove their connectedness effect. This is not a finite-dimensional smooth K-torsor local-model diagram.
 
-### T32 — Shtuka specialization component bijection
+#### T32 — Shtuka specialization component bijection
 
 **theorem; missing**. Theorem3.9.
 
@@ -1560,7 +1637,7 @@ Inputs: T24, T25, T30, T31.
 
 Proof: Transfer connected tubes through the Witt-loop correspondence, then apply the rich-normal comparison.
 
-### T33 — Integral group-map specialization square
+#### T33 — Integral group-map specialization square
 
 **theorem; missing**. Lemma3.10.
 
@@ -1570,7 +1647,7 @@ Inputs: T27, D35, D25.
 
 Proof: Extend the structure group on torsors and the Frobenius isogeny; correct the source’s order/index slips in (3.15).
 
-### D36 — Admissible period domain and universal crystalline torsor
+#### D36 — Admissible period domain and universal crystalline torsor
 
 **definition; missing**. §3.5 (3.17).
 
@@ -1592,7 +1669,7 @@ Acceptance tests:
 - `GLX26.D36.test2`: For mu=0,b=1 the period fiber is the constant G(Qp)-torsor.
 - `GLX26.D36.test3`: A bound mu does not give exact Hodge type mu at a point outside the open Schubert cell.
 
-### T34 — Geometric connectedness of the admissible period domain
+#### T34 — Geometric connectedness of the admissible period domain
 
 **theorem; missing**. Theorem3.11.
 
@@ -1602,7 +1679,7 @@ Inputs: D36.
 
 Proof: Import Gleason–Lourenco On the connectedness of p-adic period domains with its admissible locus and geometric base change.
 
-### T35 — Transitivity on infinite-level components
+#### T35 — Transitivity on infinite-level components
 
 **theorem; missing**. Proposition3.12.
 
@@ -1612,7 +1689,7 @@ Inputs: T34, T21.
 
 Proof: A valid component theorem for this locally spatial noncompact-group torsor is required; connectedness of the quotient alone is insufficient.
 
-### T36 — Hecke orbit meets every ADLV component
+#### T36 — Hecke orbit meets every ADLV component
 
 **theorem; missing**. Corollary3.13.
 
@@ -1622,7 +1699,7 @@ Inputs: T35, T32.
 
 Proof: Use transitivity and functorial specialization with consistent left/right quotient conventions; E01 remains a proof gate.
 
-### T37 — Bialynicki–Birula classical-point comparison
+#### T37 — Bialynicki–Birula classical-point comparison
 
 **theorem; missing**. §3.6.
 
@@ -1632,7 +1709,7 @@ Inputs: D33, D36.
 
 Proof: Use Viehmann5.2 and Colmez–Fontaine at classical points. Do not assert an isomorphism of the two nonminuscule diamonds.
 
-### D40 — Hodge–Newton decomposability
+#### D40 — Hodge–Newton decomposability
 
 **definition; missing**. Definition4.1, corrected byE04.
 
@@ -1654,7 +1731,7 @@ Acceptance tests:
 - `GLX26.D40.test2`: For a torus there is no proper Levi and the pair is indecomposable.
 - `GLX26.D40.test3`: Allowing M=G makes every acceptable pair decomposable, contradicting Example4.2.
 
-### D41 — Hodge–Newton Levi pieces
+#### D41 — Hodge–Newton Levi pieces
 
 **construction; missing**. §4 (4.2)–(4.3).
 
@@ -1676,7 +1753,7 @@ Acceptance tests:
 - `GLX26.D41.test2`: Changing h by an allowed Levi/parahoric representative gives the same geometric piece after the prescribed identification.
 - `GLX26.D41.test3`: Omitting the kappa(h) translation can put the piece in the wrong ambient coset.
 
-### T40 — Hodge–Newton decomposition
+#### T40 — Hodge–Newton decomposition
 
 **theorem; missing**. Theorem4.3;GHN TheoremA.
 
@@ -1686,7 +1763,7 @@ Inputs: D41.
 
 Proof: Import the full HN-decomposition theorem, its stable parabolic classification and geometric open-closed assertion.
 
-### T41 — Minimal Hodge–Newton Levi
+#### T41 — Minimal Hodge–Newton Levi
 
 **theorem; missing**. Lemma4.5.
 
@@ -1696,7 +1773,7 @@ Inputs: D40, T40.
 
 Proof: Use Zhou Proposition5.7 with the chosen based datum; retain uniqueness and every resulting piece.
 
-### T42 — Basic noncentral pairs in an adjoint simple group
+#### T42 — Basic noncentral pairs in an adjoint simple group
 
 **theorem; missing**. Example4.6.
 
@@ -1706,7 +1783,7 @@ Inputs: D08.
 
 Proof: A nonzero dominant positive-coroot combination has strictly positive coefficients on each connected relative simple factor.
 
-### T43 — Indecomposable but non-irreducible alternative
+#### T43 — Indecomposable but non-irreducible alternative
 
 **theorem; missing**. Proposition4.7.
 
@@ -1716,7 +1793,7 @@ Inputs: D40, D08.
 
 Proof: Import the precise GHN/Zhou combinatorial alternative; central means central in the specified relative datum.
 
-### T44 — Central-bound discrete ADLV
+#### T44 — Central-bound discrete ADLV
 
 **theorem; missing**. Proposition4.8.
 
@@ -1726,7 +1803,7 @@ Inputs: D11, T43.
 
 Proof: Reduce the twisted condition to phi-fixed cosets and use the parahoric Lang argument; preserve any translated b representative.
 
-### T45 — Adjoint invariance of HN-irreducibility
+#### T45 — Adjoint invariance of HN-irreducibility
 
 **theorem; missing**. Proposition4.9.
 
@@ -1736,7 +1813,7 @@ Inputs: D08, D12.
 
 Proof: Identify absolute simple coroot spaces and compare the rational Newton/Hodge differences.
 
-### T46 — Product criterion for acceptable and irreducible pairs
+#### T46 — Product criterion for acceptable and irreducible pairs
 
 **theorem; missing**. Proposition4.10.
 
@@ -1746,7 +1823,7 @@ Inputs: D08.
 
 Proof: Split Kottwitz, Newton and strict simple-coroot coefficient conditions factorwise.
 
-### T47 — Proper rational Levi has a Kottwitz kernel
+#### T47 — Proper rational Levi has a Kottwitz kernel
 
 **theorem; missing**. Lemma4.12.
 
@@ -1756,7 +1833,7 @@ Inputs: D05, D03.
 
 Proof: Use rational invariants/coinvariants averaging and the nonzero positive central Levi coweight killed by G-coroots, then clear denominators.
 
-### T48 — Split torus proves rational coset infinitude
+#### T48 — Split torus proves rational coset infinitude
 
 **theorem; missing**. Proposition4.11 proof (4.13),corrected.
 
@@ -1766,7 +1843,7 @@ Inputs: D01.
 
 Proof: From S(Qp)∩K⊆S(Zp), injectivity follows for uniformizer representatives. That inclusion alone does not define the printed quotient map S/S(Zp)->G/K.
 
-### T49 — Quasisplit component bijection forces HN-irreducibility
+#### T49 — Quasisplit component bijection forces HN-irreducibility
 
 **theorem; missing**. Proposition4.11.
 
@@ -1776,7 +1853,7 @@ Inputs: T40, T41, T43, T44, T47, T48, T09.
 
 Proof: Reduce to adjoint Qp-simple factors. A proper Levi piece would force the noninjective invariant fundamental-group map to be injective; in the central alternative an infinite rational coset set cannot biject with finite pi1(G)_I^phi.
 
-### D50 — Filtered isocrystal
+#### D50 — Filtered isocrystal
 
 **definition; planned**. §5.1.
 
@@ -1800,7 +1877,7 @@ Acceptance tests:
 - `GLX26.D50.test2`: The zero filtered isocrystal has both degrees zero.
 - `GLX26.D50.test3`: Equality of total degrees alone does not imply weak admissibility in rank two.
 
-### D51 — Weak admissibility
+#### D51 — Weak admissibility
 
 **definition; planned**. §5.1.
 
@@ -1824,7 +1901,7 @@ Acceptance tests:
 - `GLX26.D51.test2`: The direct sum of two weakly admissible objects is weakly admissible.
 - `GLX26.D51.test3`: Slope-zero rank two with jumps 1,-1 and a Frobenius-stable positive line fails the subobject inequality.
 
-### T50 — Colmez–Fontaine equivalence
+#### T50 — Colmez–Fontaine equivalence
 
 **theorem; planned**. §5.1.
 
@@ -1836,7 +1913,7 @@ Inputs: D50, D51.
 
 Proof: Construct the period-ring comparison and prove essential surjectivity; this is not supplied by the isocrystal carrier.
 
-### D52 — Admissible pair with reductive structure
+#### D52 — Admissible pair with reductive structure
 
 **definition; missing**. §5.1 (5.1).
 
@@ -1858,7 +1935,7 @@ Acceptance tests:
 - `GLX26.D52.test2`: The trivial bound and b=1 give the trivial filtered tensor functor.
 - `GLX26.D52.test3`: A point of the flag variety can fail admissibility even when b lies in B(G,mu).
 
-### T51 — Triviality of the crystalline fiber-functor torsor
+#### T51 — Triviality of the crystalline fiber-functor torsor
 
 **theorem; missing**. §5.1;DOR11.4.3;Chen§3.2.
 
@@ -1868,7 +1945,7 @@ Inputs: D52, T50.
 
 Proof: Apply the fixed-bound torsor-triviality theorem; do not assume that every fiber functor is neutralized by an arbitrary choice.
 
-### D53 — Crystalline Mumford–Tate group
+#### D53 — Crystalline Mumford–Tate group
 
 **definition; missing**. §5.1 Definition5.1 and (5.2).
 
@@ -1890,7 +1967,7 @@ Acceptance tests:
 - `GLX26.D53.test2`: A crystalline character gives a torus or the trivial connected group.
 - `GLX26.D53.test3`: For a general finite-image continuous representation the full closure need not equal its identity component; crystalline hypotheses must do the work.
 
-### T52 — Serre–Sen openness for crystalline image
+#### T52 — Serre–Sen openness for crystalline image
 
 **theorem; missing**. Theorem5.2;Chen3.2.1.
 
@@ -1900,7 +1977,7 @@ Inputs: D53.
 
 Proof: Use the algebraicity of the p-adic Lie algebra of crystalline image and the Hodge–Tate cocharacter theorem; no such claim holds for every continuous representation.
 
-### D54 — Generated crystalline tensor category and finite-field fiber functor
+#### D54 — Generated crystalline tensor category and finite-field fiber functor
 
 **definition; missing**. §5.1;Chen3.3.1–3.3.3.
 
@@ -1922,7 +1999,7 @@ Acceptance tests:
 - `GLX26.D54.test2`: Enlarging s compatibly base-changes the fiber functor.
 - `GLX26.D54.test3`: An arbitrary nondecent b does not supply the asserted Qp^s realization without descent.
 
-### T53 — Inner-form comparison of crystalline and etale monodromy
+#### T53 — Inner-form comparison of crystalline and etale monodromy
 
 **theorem; missing**. §5.1;Chen3.3.3.
 
@@ -1932,7 +2009,7 @@ Inputs: D54, S02.
 
 Proof: Use the tensor-Isom torsor and preserve the ambient-group embedding; distinguish full group and identity component.
 
-### D55 — Filtration degree and decent invariant lines
+#### D55 — Filtration degree and decent invariant lines
 
 **definition; missing**. §5.1 (5.3)–(5.5);Chen3.3.6.
 
@@ -1954,7 +2031,7 @@ Acceptance tests:
 - `GLX26.D55.test2`: Zero must be excluded or assigned +infinity explicitly.
 - `GLX26.D55.test3`: Replacing the sum of s degrees by s times one degree fails when Frobenius permutes unequal jumps.
 
-### T54 — Chen invariant-line stabilizer criterion
+#### T54 — Chen invariant-line stabilizer criterion
 
 **theorem; missing**. §5.1;Chen Proposition3.3.6(1)–(2).
 
@@ -1964,7 +2041,7 @@ Inputs: D55.
 
 Proof: Classify rank-one objects after the Qp^s action and use Chevalley’s stabilizer theorem, strictness and Tannakian generation.
 
-### D56 — Generic filtration of a representation
+#### D56 — Generic filtration of a representation
 
 **definition; missing**. §5.2 (5.6)–(5.9).
 
@@ -1984,7 +2061,7 @@ Acceptance tests:
 - `GLX26.D56.test2`: The trivial representation has jump zero.
 - `GLX26.D56.test3`: For Res_(Q(cuberoot2)/Q) Gm the reflex field can be nonnormal; Gal(E/K) does not enumerate all conjugates.
 
-### D57 — Generic flag point
+#### D57 — Generic flag point
 
 **definition; missing**. Definition5.5.
 
@@ -2006,7 +2083,7 @@ Acceptance tests:
 - `GLX26.D57.test2`: A zero-dimensional torus flag has its sole generic point.
 - `GLX26.D57.test3`: A closed point over a finite extension of the original finite reflex field is not generic on a positive-dimensional flag.
 
-### T55 — Generic point realizes the generic filtration
+#### T55 — Generic point realizes the generic filtration
 
 **theorem; missing**. Proposition5.6.
 
@@ -2016,7 +2093,7 @@ Inputs: D56, D57.
 
 Proof: Use the filtered bundles on the flag variety: the vanishing locus of a constant section in a quotient is closed. The generic point detects it, and rational points of the quasisplit flag are dense.
 
-### D58 — Galois highest-weight orbit decomposition
+#### D58 — Galois highest-weight orbit decomposition
 
 **definition; missing**. §5.2 (5.15)–(5.17).
 
@@ -2038,7 +2115,7 @@ Acceptance tests:
 - `GLX26.D58.test2`: The trivial representation has one constituent under every extension.
 - `GLX26.D58.test3`: Summing one identical component for every automorphism of a nontrivial E/K counts it repeatedly.
 
-### T56 — Generic filtration highest-weight threshold
+#### T56 — Generic filtration highest-weight threshold
 
 **theorem; missing**. Proposition5.7,corrected (5.18)–(5.19).
 
@@ -2048,7 +2125,7 @@ Inputs: D58.
 
 Proof: Decompose the representation over E into distinct refined isotypic pieces and test the lowest weight in each. E06 rejects indexing only by Aut(E/K) for nonnormal reflex E.
 
-### T57 — Generic degree bounded by orbit average
+#### T57 — Generic degree bounded by orbit average
 
 **theorem; missing**. §5.3 (5.23)–(5.29),corrected.
 
@@ -2058,7 +2135,7 @@ Inputs: T56, D55.
 
 Proof: Use each distinct refined orbit exactly once and weight its average by orbit size; the underlined mu in (5.28) is printed correctly.
 
-### T58 — Frobenius-summed Hodge bound
+#### T58 — Frobenius-summed Hodge bound
 
 **theorem; missing**. §5.3 (5.30)–(5.36).
 
@@ -2068,7 +2145,7 @@ Inputs: T57, D09.
 
 Proof: Frobenius permutes the highest-weight orbits by phi0; sum a full period and reindex inverse powers. Do not mistake a sum reindexing for an individual pairing identity.
 
-### T59 — Newton lowest-weight inequality
+#### T59 — Newton lowest-weight inequality
 
 **theorem; missing**. §5.3 (5.37)–(5.39).
 
@@ -2078,7 +2155,7 @@ Inputs: D55, D58.
 
 Proof: Decompose into torus weight spaces and use equality of the eigenvalues p^k over characteristic zero.
 
-### T60 — HN positivity forces central highest weights
+#### T60 — HN positivity forces central highest weights
 
 **theorem; missing**. §5.3 end ofTheorem5.8.
 
@@ -2088,7 +2165,7 @@ Inputs: D08, T58, T59.
 
 Proof: Each simple-coroot pairing is nonpositive and the coefficient in the HN difference is strictly positive; their sum can be nonnegative only if each vanishes.
 
-### T61 — Generic weak admissibility
+#### T61 — Generic weak admissibility
 
 **theorem; missing**. Theorem5.8(1).
 
@@ -2098,7 +2175,7 @@ Inputs: D57, D51.
 
 Proof: Follow Chen5.0.6(1): nonempty weakly admissible locus and upper semicontinuity minimize each subobject Hodge degree at the generic point. Replace the unramified existence input with DOR9.5.10.
 
-### T62 — Generic crystalline derived monodromy
+#### T62 — Generic crystalline derived monodromy
 
 **theorem; missing**. Theorem5.8(2).
 
@@ -2108,7 +2185,7 @@ Inputs: T61, T54, T53, T58, T59, T60.
 
 Proof: Every defining invariant line is fixed pointwise by Gder using the lowest-weight inequalities; transfer the inclusion through the inner-form comparison. E06/E07 require corrected orbit indexing.
 
-### T63 — Infinite transcendence of the completed unramified field
+#### T63 — Infinite transcendence of the completed unramified field
 
 **theorem; missing**. Lemma5.10 input;Chen Proposition2.0.3.
 
@@ -2116,7 +2193,7 @@ breve Qp has infinite transcendence degree over Qp.
 
 Proof: Chen constructs Witt series with sufficiently separated finite-field generator degrees; complete its algebraic-independence proof rather than assuming cardinality suffices.
 
-### T64 — Generic flags over finite extensions of breve Qp
+#### T64 — Generic flags over finite extensions of breve Qp
 
 **theorem; missing**. Lemma5.10.
 
@@ -2126,7 +2203,7 @@ Inputs: D57, T63.
 
 Proof: Choose etale affine coordinates on a nonempty flag open and algebraically independent parameters in breve Qp; a nonempty etale fiber yields a finite extension. Preserve the nonempty image condition.
 
-### T65 — Existence of open derived crystalline image
+#### T65 — Existence of open derived crystalline image
 
 **theorem; missing**. Proposition5.9.
 
@@ -2136,7 +2213,7 @@ Inputs: T62, T64, T52, T37.
 
 Proof: Choose a generic admissible flag, use the classical BB bijection to a period point, and apply Serre–Sen openness.
 
-### T66 — Quasisplit converse to generic derived monodromy
+#### T66 — Quasisplit converse to generic derived monodromy
 
 **theorem; missing**. Proposition5.11.
 
@@ -2148,7 +2225,7 @@ Proof: Apply the completed equivalence (4)=>(3) in Theorem6.1. This corollary mu
 
 Scope note: Place after M01. It is not an input to the forward generic-monodromy implication.
 
-### M01 — Quasisplit component and monodromy equivalences
+#### M01 — Quasisplit component and monodromy equivalences
 
 **theorem; missing**. Theorem1.14(a)=6.1(a).
 
@@ -2158,7 +2235,7 @@ Inputs: T49, T65, T80, T81, T86, T78.
 
 Proof: Combine the separately proved implication lemmas, then descend through a z-extension. E01 andE08 remain proof gates, not counterexamples to the stated equivalence.
 
-### M02 — Main implications: (3)=>(4)=>(5)=>(1)=>(2)
+#### M02 — Main implications: (3)=>(4)=>(5)=>(1)=>(2)
 
 **theorem; missing**. Theorem1.14(b,c)=6.1(b,c).
 
@@ -2168,7 +2245,7 @@ Inputs: T65, T86, T81, T80, T78.
 
 Proof: Apply only the implication lemmas valid under the displayed group hypotheses.
 
-### M03 — Main implications: (5)=>(1)=>(2)
+#### M03 — Main implications: (5)=>(1)=>(2)
 
 **theorem; missing**. Theorem1.14(b,c)=6.1(b,c).
 
@@ -2178,7 +2255,7 @@ Inputs: T81, T80, T78.
 
 Proof: Apply only the implication lemmas valid under the displayed group hypotheses.
 
-### M04 — Main implications: (3)=>(4)
+#### M04 — Main implications: (3)=>(4)
 
 **theorem; missing**. Theorem1.14(b,c)=6.1(b,c).
 
@@ -2188,7 +2265,7 @@ Inputs: T65.
 
 Proof: Apply only the implication lemmas valid under the displayed group hypotheses.
 
-### M05 — Connected components of all parahoric ADLV
+#### M05 — Connected components of all parahoric ADLV
 
 **theorem; missing**. Theorem1.2=6.2.
 
@@ -2198,7 +2275,7 @@ Inputs: M02, T87, T09, T45, T46, T06.
 
 Proof: Use z-extensions and products. The isotropic case follows the monodromy chain; the adjoint-anisotropic case uses the normal unique Iwahori and determinant trivialization separately.
 
-### M06 — Anisotropic converse fails
+#### M06 — Anisotropic converse fails
 
 **theorem; missing**. §1.5 counterexample discussion.
 
@@ -2208,7 +2285,7 @@ Inputs: D08.
 
 Proof: The unique parahoric quotient is measured by reduced-norm valuation; nu=mu=0 has no positive simple-coroot coefficients in the nontrivial absolute root system.
 
-### T70 — Torus infinite-level component torsor
+#### T70 — Torus infinite-level component torsor
 
 **theorem; missing**. Proposition6.4(2).
 
@@ -2218,7 +2295,7 @@ Inputs: D34, D14.
 
 Proof: Use the one-point bounded torus period domain and the universal torsor; total disconnectedness identifies geometric components.
 
-### T71 — Torus finite-level component coset
+#### T71 — Torus finite-level component coset
 
 **theorem; missing**. Proposition6.4(1),Lemma6.5.
 
@@ -2228,7 +2305,7 @@ Inputs: T70, T32, D10, T72.
 
 Proof: Smooth connected special fiber plus Lang and Hensel gives H1_et(Zp,Tpar)=0, allowing Frobenius invariants of the torus quotient.
 
-### T72 — Lang–Hensel parahoric torsor vanishing
+#### T72 — Lang–Hensel parahoric torsor vanishing
 
 **theorem; missing**. Lemma6.5 andProposition6.9.
 
@@ -2238,7 +2315,7 @@ Inputs: D01.
 
 Proof: Keep smoothness and connected special fiber; a disconnected special fiber does not satisfy the same conclusion.
 
-### T73 — Adjoint invariance of bounded de Rham geometry
+#### T73 — Adjoint invariance of bounded de Rham geometry
 
 **theorem; missing**. Proposition6.6(1),Steps1–2.
 
@@ -2248,7 +2325,7 @@ Inputs: D12, D33, D36.
 
 Proof: Use AGLR4.16 or the appropriate qcqs geometric-point criterion, then preserve basicness through the adjoint map. Properness and point-bijectivity alone need the diamond isomorphism hypotheses.
 
-### T74 — Adjoint contracted-product shtuka comparison
+#### T74 — Adjoint contracted-product shtuka comparison
 
 **theorem; missing**. Proposition6.6(1),Step3.
 
@@ -2258,7 +2335,7 @@ Inputs: T73, D34.
 
 Proof: Extend the universal torsor’s structure group; an equivariant morphism between torsors for the same group is an isomorphism.
 
-### T75 — Adjoint invariance of the geometric component torsor property
+#### T75 — Adjoint invariance of the geometric component torsor property
 
 **theorem; missing**. Proposition6.6(2).
 
@@ -2268,7 +2345,7 @@ Inputs: T74, T21, D14.
 
 Proof: The printed proof assumes unconditionally that Gsc acts trivially and invokes Lemma3.2. Supply an independent two-direction argument; E08 gives a counterexample to the intermediate triviality claim.
 
-### T76 — Z-extension descent of component and HN conditions
+#### T76 — Z-extension descent of component and HN conditions
 
 **theorem; missing**. Proposition6.7 first reductions.
 
@@ -2278,7 +2355,7 @@ Inputs: T07, T08, T09, T45.
 
 Proof: Cartesian component square and surjective coset map give the first two equivalences; the adjoint coroot comparison gives the third.
 
-### T77 — Z-extension descent of crystalline openness
+#### T77 — Z-extension descent of crystalline openness
 
 **theorem; missing**. Proposition6.7 crystalline step.
 
@@ -2288,7 +2365,7 @@ Inputs: T73, T10, T51.
 
 Proof: Lift the classical period point through the common admissible Grassmannian. Use open finite-index image of the finite central derived isogeny, not rational-point surjectivity.
 
-### T78 — Reduction of the main equivalences to simply connected derived group
+#### T78 — Reduction of the main equivalences to simply connected derived group
 
 **theorem; missing**. Proposition6.7.
 
@@ -2298,7 +2375,7 @@ Inputs: T76, T77, T75.
 
 Proof: Combine the five distinct transports; the fifth remains gated by T75/E08.
 
-### T79 — Iwahori-to-parahoric ADLV surjectivity
+#### T79 — Iwahori-to-parahoric ADLV surjectivity
 
 **theorem; missing**. Theorem6.8.
 
@@ -2308,7 +2385,7 @@ Inputs: T33, T30, D34.
 
 Proof: The generic level map is finite etale surjective with finite fiber Kp/Ip. A lift of each specialization point gives surjectivity on the special fiber.
 
-### T80 — Iwahori component bijection descends to parahoric level
+#### T80 — Iwahori component bijection descends to parahoric level
 
 **theorem; missing**. §6.3.
 
@@ -2318,7 +2395,7 @@ Inputs: T79, T05, D10.
 
 Proof: The level map surjects on components, and both affine flags have the same pi1(G)_I; injectivity at Iwahori level forces injectivity at K, with known coset surjectivity.
 
-### T81 — Infinite-level component torsor implies finite-level bijection
+#### T81 — Infinite-level component torsor implies finite-level bijection
 
 **theorem; missing**. Proposition6.9 andRemark6.10.
 
@@ -2328,7 +2405,7 @@ Inputs: T78, T71, T72, T21, T32.
 
 Proof: Use exact Iwahori group schemes, Lang–Hensel and determinant equivariance. Compact-level component descent must use a correct restricted theorem.
 
-### T82 — Finite-field torsor component stabilizer is Galois image
+#### T82 — Finite-field torsor component stabilizer is Galois image
 
 **theorem; missing**. Lemma6.12 proof.
 
@@ -2338,7 +2415,7 @@ Inputs: D36, T21.
 
 Proof: Trivialize after Cp; descend a closed compact Galois orbit and prove its connected-component characterization through the correct compact descent theorem.
 
-### T83 — Derived component stabilizers are open
+#### T83 — Derived component stabilizers are open
 
 **theorem; missing**. Lemma6.12.
 
@@ -2348,7 +2425,7 @@ Inputs: T82, T35.
 
 Proof: Use transitivity to map the crystalline torsor component into x; its open derived image is contained in the full stabilizer.
 
-### T84 — Finitely many sigma-centralizer orbits
+#### T84 — Finitely many sigma-centralizer orbits
 
 **theorem; missing**. Lemma6.13 input;Hamacher–Viehmann Theorems1.1–1.2.
 
@@ -2358,7 +2435,7 @@ Inputs: D11.
 
 Proof: Import the original boundedness/finiteness theorem; this is not finiteness of the entire set of components.
 
-### T85 — Component-stabilizer normalizer has finite index
+#### T85 — Component-stabilizer normalizer has finite index
 
 **theorem; missing**. Lemma6.13.
 
@@ -2368,7 +2445,7 @@ Inputs: T83, T84, T35, T21, T10.
 
 Proof: Commuting J_b and G actions and finitely many J_b orbits yield a surjection from finitely many compact Iwahori translates onto G/N. Prove N open using the center and an open derived subgroup, then compact-to-discrete gives finite index. Apply the isotropic simply connected finite-index theorem.
 
-### T86 — Open derived image gives the geometric component torsor
+#### T86 — Open derived image gives the geometric component torsor
 
 **theorem; missing**. Proposition6.11,Lemmas6.14–6.15.
 
@@ -2378,7 +2455,7 @@ Inputs: T83, T85, T88, T89, T22, T70.
 
 Proof: The derived stabilizer is open normal and hence the whole derived group; determinant gives the opposite inclusion. Descend across the finite-field system with a proved component-limit argument, not merely a point-space limit.
 
-### T87 — Anisotropic adjoint factor component calculation
+#### T87 — Anisotropic adjoint factor component calculation
 
 **theorem; missing**. Proof6.2 pp857–858.
 
@@ -2388,7 +2465,7 @@ Inputs: T34, T71, T32, T72.
 
 Proof: The building is a point. Use the normal-level action and equivariant determinant map to identify the torsor with the connected period domain times its discrete group, after a basepoint choice. This proof does not establish an unrestricted infinite-level G°-torsor.
 
-### T88 — No proper finite-index subgroup in the isotropic simply connected case
+#### T88 — No proper finite-index subgroup in the isotropic simply connected case
 
 **theorem; missing**. Lemma6.13;Margulis II,5.1.
 
@@ -2398,7 +2475,7 @@ Inputs: D01.
 
 Proof: Use the local isotropic generation theorem, with all simple factors covered; anisotropic compact groups are excluded.
 
-### T89 — No proper open normal subgroup in the isotropic simply connected case
+#### T89 — No proper open normal subgroup in the isotropic simply connected case
 
 **theorem; missing**. Lemma6.15,corrected.
 
@@ -2408,7 +2485,7 @@ Inputs: D01.
 
 Proof: Reduce to simple factors; an open normal subgroup is unbounded, contains the subgroup generated by rational unipotent radicals, and equals G(Qp) by local Kneser–Tits. The word proper is needed in the negative wording.
 
-### D60 — Global stabilizer-parahoric Hodge datum
+#### D60 — Global stabilizer-parahoric Hodge datum
 
 **definition; missing**. Assumption1.4.
 
@@ -2428,7 +2505,7 @@ Acceptance tests:
 - `GLX26.D60.test2`: A torus has trivial derived fundamental group.
 - `GLX26.D60.test3`: The local theorem allows p=2, but this global assumption does not.
 
-### D61 — Tensor-preserving rational quasi-isogeny group
+#### D61 — Tensor-preserving rational quasi-isogeny group
 
 **definition; missing**. §1.3 pp809–810;§6 p846.
 
@@ -2448,7 +2525,7 @@ Acceptance tests:
 - `GLX26.D61.test2`: For a polarization tensor, the prescribed similitude convention determines the allowed stabilizer.
 - `GLX26.D61.test3`: An arbitrary quasi-isogeny need not preserve all the chosen tensors.
 
-### A01 — Perfect tensor-compatible isogeny map
+#### A01 — Perfect tensor-compatible isogeny map
 
 **theorem; missing**. Corollary1.5.
 
@@ -2458,7 +2535,7 @@ Inputs: M05, D60, D61.
 
 Proof: Combine Zhou6.5,7.8 with the component theorem. Preserve the phi mu twist caused by contravariant Dieudonne conventions.
 
-### A02 — Injectivity of the isogeny-class quotient
+#### A02 — Injectivity of the isogeny-class quotient
 
 **theorem; missing**. Corollary1.6(1).
 
@@ -2468,7 +2545,7 @@ Inputs: A01, D61.
 
 Proof: Use Zhou9.1 and retain all tensor and level compatibilities.
 
-### A03 — CM lift in every indicated isogeny class
+#### A03 — CM lift in every indicated isogeny class
 
 **theorem; missing**. Corollary1.6(2).
 
@@ -2478,7 +2555,7 @@ Inputs: A02.
 
 Proof: Combine the component computation with Zhou9.4; do not assert that every special-fiber point itself has a CM lift.
 
-### A04 — He–Rapoport axioms for these integral models
+#### A04 — He–Rapoport axioms for these integral models
 
 **theorem; missing**. Corollary1.7.
 
@@ -2490,7 +2567,7 @@ Proof: Apply Zhou8.1(2). The individual axioms and their proofs remain an explic
 
 Scope note: Source endpoint recorded faithfully, but the named original-source definitions and output diagram are not yet recursively split to declaration size. Partial status is mandatory.
 
-### A05 — Almost-product structure of Newton strata
+#### A05 — Almost-product structure of Newton strata
 
 **theorem; missing**. Corollary1.8.
 
@@ -2502,7 +2579,7 @@ Proof: This is a source-level endpoint; the exact original diagram and separate 
 
 Scope note: Source endpoint recorded faithfully, but the named original-source definitions and output diagram are not yet recursively split to declaration size. Partial status is mandatory.
 
-### A06 — Normal closure and Siegel closed immersion
+#### A06 — Normal closure and Siegel closed immersion
 
 **theorem; missing**. Corollary1.9.
 
@@ -2512,7 +2589,7 @@ Inputs: A01, M05.
 
 Proof: Use Xu Main Theorem with the component theorem replacing its residually-split input. Preserve the chosen embedding/model construction.
 
-### A07 — Quasiaffine EKOR strata
+#### A07 — Quasiaffine EKOR strata
 
 **theorem; missing**. Corollary1.10.
 
@@ -2524,7 +2601,7 @@ Proof: Apply Shen–Yu–Zhang TheoremC after verifying He–Rapoport axioms; or
 
 Scope note: Source endpoint recorded faithfully, but the named original-source definitions and output diagram are not yet recursively split to declaration size. Partial status is mandatory.
 
-### D62 — Global Hodge-type Rapoport–Zink comparison datum
+#### D62 — Global Hodge-type Rapoport–Zink comparison datum
 
 **definition; missing**. §6 beforeCorollary6.3.
 
@@ -2546,7 +2623,7 @@ Acceptance tests:
 
 Scope note: Source endpoint recorded faithfully, but the named original-source definitions and output diagram are not yet recursively split to declaration size. Partial status is mandatory.
 
-### A08 — PR uniformization condition from Hecke orbits
+#### A08 — PR uniformization condition from Hecke orbits
 
 **theorem; missing**. Corollary6.3 first claim.
 
@@ -2556,7 +2633,7 @@ Inputs: D62, T36.
 
 Proof: Lift x0 to a finite extension by flatness, use Serre–Tate to obtain an RZ generic point, and use its Hecke orbit meeting every component together with the open-closed comparison. E01/T35 remain proof gates.
 
-### A09 — Formal representability of integral local shtukas in global Hodge type
+#### A09 — Formal representability of integral local shtukas in global Hodge type
 
 **theorem; missing**. Corollary1.12=6.3 second claim.
 
@@ -2566,7 +2643,7 @@ Inputs: A08.
 
 Proof: Transport the known formal representative through the comparison isomorphism; no all-data formal representability assertion is made.
 
-### A10 — Isogeny-class p-adic uniformization
+#### A10 — Isogeny-class p-adic uniformization
 
 **theorem; missing**. Corollary1.12=6.3 (6.2).
 
@@ -2578,7 +2655,7 @@ Proof: Apply PR4.10.6 after U_x0. Formal completions, quotient existence and the
 
 Scope note: Source endpoint recorded faithfully, but the named original-source definitions and output diagram are not yet recursively split to declaration size. Partial status is mandatory.
 
-### S01 — Higher-rank Dieudonne–Manin classification
+#### S01 — Higher-rank Dieudonne–Manin classification
 
 **theorem; planned**. §5.1 prerequisite.
 
@@ -2590,7 +2667,7 @@ Inputs: L50.
 
 Proof: Import the shared isocrystal classification before decent finite-field fiber functors.
 
-### S02 — Neutral Tannakian reconstruction and fiber-functor twisting
+#### S02 — Neutral Tannakian reconstruction and fiber-functor twisting
 
 **theorem; planned**. §5.1 prerequisite.
 
@@ -2602,7 +2679,7 @@ Inputs: L47.
 
 Proof: The pinned known-Hopf-algebra comparison is only one input, not neutral reconstruction from an arbitrary category.
 
-## Reading and pinned baseline
+### Reading and pinned baseline
 
 - Published PDF1–57,printed805–861: all main text,proofs,footnotes,acknowledgments and references.
 - arXivv3 targeted PDF9,16–17: G° description andLemma3.2; not fully read.
@@ -2622,7 +2699,7 @@ The narrow credits include Witt vectors, the actual isocrystal carrier, connecte
 - [https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf): 57 PDF pages; SHA256 `c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485`. Download is not a claim of full reading; the ranges above control coverage.
 - [https://arxiv.org/pdf/1709.07343v1](https://arxiv.org/pdf/1709.07343v1): 154 PDF pages; SHA256 `5dea07bbb81cc6d148168f22af040e2b7e635bbae70421a122281d4f5775ee38`. Download is not a claim of full reading; the ranges above control coverage.
 
-## Validation and remaining work
+### Validation and remaining work
 
 - **dense_integer_orbits**: Integers surject on every residue quotient Z/p^n, p=2,3,5 and1<=n<=5; thus Z is dense in Zp. Infinite Zp/Z has multiple dense orbits and an indiscrete quotient. Diagnostic only; the infinite topological argument is in the report.
 - **anisotropic_abelian_quotient**: The residue norm-one group has4elements, and i has order4. The explicit division-algebra norm gives a homomorphism from SL1(D) onto this nontrivial abelian group, whereas G°=1. Exact finite-field computation plus separate valuation proof in report.
@@ -2647,7 +2724,7 @@ The nine diagnostics include exact finite-field, permutation, rational-matrix an
 - **G09 — Independent source-issue review**: All sourceIssues are worker findings only. Review the dense-action diamond, anisotropic norm-one example, nonnormal torus and adjoint descent gap at the exact source pages before promoting anything to confirmed errata.
 - **G10 — Ownership and Lean prototyping**: Routes are proposed for review; candidate IDs are not existing stage IDs. This paper issue supplies no Lean file and claims no compilation or formalization. A later design must produce the suggested declarations, APIs, genuine Lean examples and planets.
 
-## Original-source queue
+### Original-source queue
 
 - [Gleason, Specialization maps for Scholze’s category of diamonds (2025)](https://doi.org/10.1007/s00208-024-02952-3): Reduction, formalization, kimberlites and component comparison; targeted original sections read, full recursive closure open.
 - [Gleason, On the geometric connected components of moduli spaces of p-adic shtukas and local Shimura varieties](https://ianandreigf.github.io/Website/GeomConn.pdf): Integral shtuka richness and the positive-Witt-loop local-model correspondence; targeted current author version read.
