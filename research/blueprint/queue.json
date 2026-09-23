@@ -861,7 +861,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-SCHOLZE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1071"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -3448,8 +3449,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1218"
+   "state": "pending",
+   "note": "released on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
