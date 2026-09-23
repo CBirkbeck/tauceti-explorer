@@ -495,6 +495,22 @@
             ]
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-23",
+        "main": "Bounded supplier continuation. The inherited full 212-page published main-paper read remains attributed to this session; no new full reading of CHT is claimed.",
+        "sources": [
+          {
+            "title": "Clozel–Harris–Taylor author manuscript",
+            "url": "https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf",
+            "sha256": "622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2",
+            "readSections": [
+              "Fresh complete text reading of author PDF10–16; PDF14–16 reread for the exact centralizer-surjectivity generality and prescribed-ideal Carayol statement. Author pagination is not journal pagination."
+            ]
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -513,7 +529,7 @@
       ]
     }
   },
-  "summary": "Partial continuation: 545 items (74 library,19 planned,452 missing),21 routes and51 unreviewed source findings. A77–A81 correct the Speh/Galois realization using algebraically normalized cuspidal factors and integral cyclotomic twists ε^(−j), with geometric Frobenius explicit. A54/A58/A82–A84 reduce monodromy dominance to finite sums of special-block power ranks, importing the pinned PID, polynomial-action, quotient-basis, Maschke, Schur and isotypic suppliers L69–L74. The coefficient/type and Hecke-image interfaces A74–A76 remain available. Recorded source/supplier, fine ownership and Appendix B certificate gaps prevent a complete claim; no Lean formalization is asserted.",
+  "summary": "Partial extraction: 565 items (81 library, 21 planned, 463 missing), 21 routes and 51 unreviewed source findings. This continuation supplies explicit twisted self-dual lattices and continuous finite trace-algebra descent, with pinned duality/Burnside/trace/Hensel imports. Prescribed-congruence conjugators and the induced-topology comparison have explicit proof plans; other supplier queues and uniform Appendix B certificates remain open. No formal implementation or independent review is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -15886,42 +15902,50 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
       "kind": "theorem",
       "name": "Invariant self-dual lattice after coefficient extension",
-      "statement": "Let Γ be profinite and r:Γ→G_n(Qpbar) continuous with Δ the inverse image of the identity component. After a finite extension K/Qp and GL_n(Qpbar)-conjugation, r is valued in G_n(O_K). Thus both the Δ-action and the perfect pairing in A34 are integral and unimodular in the chosen basis. The coefficient extension is allowed to be ramified.",
-      "locator": "CHT Lemma2.1.5 and complete proof, PDF10–11",
+      "statement": "Let Γ be profinite and r:Γ→G_n(Qpbar) continuous, n≥1, with Δ the inverse image of the identity component. After finite coefficient extension K/Q_p and GL_n(Qpbar)-conjugation, r is valued in G_n(O_K). If Δ has index two, both the Δ-action and the perfect pairing in A34 become integral and unimodular in the chosen basis. If Δ=Γ, use an ordinary stable lattice and the unit multiplier; no nonidentity-coset pairing is asserted. The extension may be ramified, and the lattice conclusion includes p=2.",
+      "locator": "CHT Lemma2.1.5, author PDF11–12 (lattice proof on PDF12).",
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A86",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
-      "proofOutline": "Compactness first gives a stable lattice. Enlarge an integral lattice maximally inside its dual; the residual dual quotient is semisimple by the maximality argument. After a ramified quadratic extension repeat to obtain a self-dual lattice. This last lattice lemma and its termination/duality details remain explicit implementation suppliers, not an assertion that an arbitrary stable lattice is self-dual."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "A37 first gives a finite coefficient field. A86 supplies a stable lattice and integral unit multiplier. For Δ=Γ this already suffices. Otherwise scale the lattice to make B integral, then use A87–A88 to choose a maximal stable integral L with πL*⊂L. After the single quadratic extension of A89, A90 constructs the self-dual lattice L⊕ΠL*. In a basis its Gram matrix is in GL_n(O′), and A34 puts the other coset in G_n(O′). These explicit formulas replace the compressed repeated-enlargement sentence; they introduce neither a symmetry assumption nor a source-issue verdict."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39",
       "kind": "theorem",
       "name": "Scalar centralizer over a complete local ring",
       "statement": "Let R be complete Noetherian local and ρ:Δ→GL_n(R) continuous with absolutely irreducible reduction. The centralizer of ρ in GL_n(R) consists exactly of scalar matrices R×.",
-      "locator": "CHT Lemma2.1.8 and proof, PDF13",
+      "locator": "CHT Lemma2.1.8, statement on author PDF13 and proof on PDF14.",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A92"
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "Reduce through Artinian quotients. At a small extension I killed by m_R, normalize a centralizer element to 1+Y with Y∈M_n(I); residual Schur forces Y scalar. Pass to the complete inverse limit. Residual Schur and compatible inverse limits are supplier obligations."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "Use A92: finitely many group matrices are a basis of M_n(R), so a centralizer element commutes with every matrix unit and is scalar. This gives the source conclusion without a separate compatible Artinian-limit argument; the stronger algebraic lemma has no completeness hypothesis."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A40",
       "kind": "theorem",
       "name": "Descent of conjugacy in the residually absolutely irreducible case",
       "statement": "Let S⊂R be complete Noetherian local rings with m_R∩S=m_S and identical residue field. If continuous representations ρ,ρ′:Δ→GL_n(S) of a profinite group are conjugate over R and their common residual representation is absolutely irreducible, they are conjugate over S.",
-      "locator": "CHT Lemma2.1.9 and proof, PDF13",
+      "locator": "CHT Lemma2.1.9, author PDF14; the residually absolutely irreducible specialization, not its more general centralizer-surjectivity version.",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A39"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "The scalar centralizer gives surjectivity under quotient maps. Induct across small extensions: the conjugacy cocycle with coefficients I∩S becomes zero in H¹(Δ,ad ρbar)⊗I and is already zero in H¹⊗(I∩S), since both are vector spaces over the common residue field. The complete-ring passage needs the compatible quotient topology; retain that adapter in the gap record."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "Let g∈GL_n(R) conjugate ρ to ρ′. A92 supplies S-bases made from the same group elements for both representations. Conjugation by g therefore restricts to an S-algebra automorphism φ of M_n(S), since it carries the first basis to the second; multiplication identities descend through the injective inclusion S⊂R. Lift the residue of g to g₀∈GL_n(S), using the common residue field and the determinant-unit criterion. After composing φ with conjugation by g₀^(−1), its reduction is the identity. Apply A96 over S with I=m_S. This proves actual S-conjugacy without any unproved cofinal inverse-limit choice."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41",
@@ -15943,25 +15967,30 @@
       "locator": "CHT Lemma2.1.10 proof, PDF14–15",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A91",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L79"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "Extend to k[Δ]. Absolute irreducibility makes ρ0(k[Δ])=M_n(k) by the density theorem. If y∈kerρ0, trace of ρ(x)ρ(y)/ε is zero for every x; nondegeneracy of tr(XY), checked on matrix units, gives ρ(y)=0. The ε-coefficient is therefore a matrix-algebra derivation; A41 kills it by conjugation. Keep algebraic density as a named supplier; no n! invertibility is used."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "Extend to k[Δ]. A91 makes ρ₀(k[Δ])=M_n(k) for arbitrary Δ. If y∈kerρ₀, write ρ(y)=εY. For every x, the ε-coefficient of trρ(xy) vanishes, hence tr(ρ₀(x)Y)=0. L79 gives Y=0, so ρ factors through M_n(k). Its ε-coefficient is a k-linear derivation, and A41 gives d(X)=AX−XA. Conjugation by 1−εA kills it. This proof works in every characteristic, including p dividing n."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
       "kind": "theorem",
       "name": "Carayol trace descent with prescribed congruence",
       "statement": "Let S⊂R be complete Noetherian local rings with m_R∩S=m_S and common residue field. Let Δ be profinite and ρ:Δ→GL_n(R) continuous with absolutely irreducible reduction and trρ(Δ)⊂S. If an ideal I⊂R satisfies ρ mod I∈GL_n(S/(I∩S)), a conjugate by 1+M_n(I) is valued in GL_n(S). In particular I=m_R gives a strict conjugate over S.",
-      "locator": "CHT Lemma2.1.10 and complete proof, PDF13–15",
+      "locator": "CHT Lemma2.1.10, author PDF14–15; finite trace-algebra replacement proof supplies the prescribed congruence without the compressed recursion.",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A95",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97"
       ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "Inductively reduce to a length-one ideal I killed by m_R, replace R by the preimage of S/(I∩S), and dispose of I⊂S. Otherwise R=S⊕I and R/m_S is the dual-number algebra. Apply A42 and iterate through compatible Artinian approximations. The recursion/cofinality and inverse-limit conjugator are not certified by finite diagnostics."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "First suppose I is proper, hence I⊂m_R; put J=I∩S. A95 constructs A⊂M_n(R) with A/JA≃M_n(S/J) in the given coordinates. A94 lifts this exact quotient isomorphism to α:A≃M_n(S). The two R-algebra identifications A⊗_S R≃M_n(R), one from inclusion and one from α, differ by an automorphism that is identity mod I. By A96 it is conjugation by g∈1+M_n(I), so g^(−1)ρg has matrices in S. For I=R, use the I=m_R case (the residual representation is over the common residue field); that conjugator is allowed in 1+M_n(R). A97 identifies the intrinsic S-adic topology with the induced topology, proving continuity of the S-valued representation. Neither residue finiteness nor arbitrary compatible conjugator choices enter the proof."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A44",
@@ -15970,10 +15999,12 @@
       "statement": "Let R be a complete Noetherian local ring with residue characteristic≠2. Every α∈1+m_R has a unique β∈1+m_R with β²=α.",
       "locator": "CHT Lemma2.1.12 proof, PDF16; Hensel adapter for X²−α",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L77"
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants.",
-      "proofOutline": "Lift the simple residue root1: derivative2 is a unit. Alternatively Newton iteration improves the m-adic error quadratically. If β and β′ are roots in1+m, then (β−β′)(β+β′)=0 and β+β′ is a unit. No assertion at residue characteristic2."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: IntegralHeckeAndGaloisDeterminants. Supplier continuation codex-7e92bd gives the explicit replacement/import chain below; no independent review or Lean implementation is claimed.",
+      "proofOutline": "Apply L77 at I=m_R to the monic polynomial X²−α and a₀=1. Since α≡1 mod m_R and residue characteristic is not 2, the derivative has unit image 2 in the residue field. The resulting β satisfies β≡1 and β²=α. If β′ is another such root, (β−β′)(β+β′)=0 and β+β′≡2 mod m_R is a unit, hence β=β′. No Newton convergence or n! invertibility supplier is required."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
@@ -17413,6 +17444,497 @@
       "proofOutline": "Q_p has characteristic 0, so every finite K ⊂ Qpbar is separable and, by the primitive element theorem, K = Q_p(x) for some x whose minimal polynomial f over Q_p has degree n = [K:Q_p]. Since Q is dense in Q_p, choose a monic g in Q[X] of degree n whose coefficients are close enough to those of f. Root continuity makes some root y of g close to x, closer than the distance from x to any other conjugate root of x; Krasner's lemma (L76, applied with the complete field Q_p and the algebraic normed algebra Qpbar, which supplies IsKrasner) then gives x ∈ Q_p(y), and comparing degrees gives K = Q_p(y). So K is generated by a root of a polynomial over Q, and the set of such roots inside Qpbar is countable, being a countable union of finite sets. Hence the degree-n subfields are countably many, and so are all finite subfields.",
       "implementationStatus": "Not implemented. Stated as the countability half of A37's cover; the Krasner input is pinned (L76).",
       "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Owner: ArithmeticGaloisRepresentations."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L77",
+      "kind": "theorem",
+      "name": "Existing Hensel lifting for an adically complete ring",
+      "statement": "For a commutative ring R and ideal I, IsAdicComplete I R supplies HenselianRing R I. If f∈R[X] is monic, f(a₀)∈I and the image of f′(a₀) is a unit in R/I, there is a∈R with f(a)=0 and a−a₀∈I. The general class also requires I⊂Jac(R). This is existence with prescribed residue, not uniqueness of every polynomial root.",
+      "locator": "Mathlib/RingTheory/Henselian.lean:94–99,170–172 at 082e2d3; complete class statement read.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "library": [
+        "mathlib:IsAdicComplete.henselianRing",
+        "mathlib:HenselianRing.is_henselian"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L78",
+      "kind": "theorem",
+      "name": "Existing Burnside density for arbitrary monoids over an algebraically closed field",
+      "statement": "For a field k, any monoid G, a finite-dimensional k-vector space V, [IsAlgClosed k], and an irreducible representation ρ:Representation k G V, the algebra map ρ.asAlgebraHom:k[G]→End_k(V) is surjective. There is no Finite G assumption.",
+      "locator": "TauCeti/RepresentationTheory/Irreducible.lean:239–242, with global hypotheses at:88; f790474.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "library": [
+        "tauceti:Representation.asAlgebraHom_surjective_of_isIrreducible"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L79",
+      "kind": "theorem",
+      "name": "Existing full-matrix trace pairing separates matrices in every characteristic",
+      "statement": "For finite index types m,n and a nonassociative semiring R, matrices A,B:m×n satisfy A=B iff tr(A X)=tr(B X) for every X:n×m. Applied to B=0 over a commutative ring, the full matrix trace pairing has zero left kernel, including when the characteristic divides n. This does not assert nondegeneracy on the trace-zero subspace.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/Trace.lean:282–284; finite index hypotheses:34–35, decidable equality is locally supplied in the proof; 082e2d3.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "library": [
+        "mathlib:Matrix.ext_iff_trace_mul_right"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L80",
+      "kind": "construction",
+      "name": "Existing bilinear dual submodule and basis duality",
+      "statement": "Let R be a commutative ring, K a field with an R-algebra structure, V a compatible R- and K-module and B a K-bilinear form. The existing B.dualSubmodule(L) is {x:∀y∈L, B(x,y)∈image(R→K)}. If B is nondegenerate and b is a finite K-basis, the dual of span_R(b) is span_R(B.dualBasis b). Applying the opposite form gives B-dual(B.flip-dual(L))=L and B.flip-dual(B-dual(L))=L for such a basis lattice. Same-form double duality without a flip requires extra symmetry/asymmetry information.",
+      "locator": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean:37,92,117,126; entire file and module hypotheses read at 082e2d3.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "library": [
+        "mathlib:LinearMap.BilinForm.dualSubmodule",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip_of_basis",
+        "mathlib:LinearMap.BilinForm.dualSubmodule_flip_dualSubmodule_of_basis"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
+          "how": "Use the existing carrier and opposite-form double duality; add only the group-equivariant asymmetry adapter."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
+          "how": "Bound integral lattice enlargements in the fixed initial dual."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90",
+          "how": "Compute the ramified lattice dual by its two coefficient components."
+        }
+      ],
+      "api": [
+        {
+          "name": "LinearMap.BilinForm.mem_dualSubmodule",
+          "role": "characterisation",
+          "statement": "Membership means B(x,L) lies in the image of R."
+        },
+        {
+          "name": "LinearMap.BilinForm.dualSubmodule_span_of_basis",
+          "role": "compatibility",
+          "statement": "The dual of a basis span is the span of its bilinear dual basis."
+        },
+        {
+          "name": "LinearMap.BilinForm.dualSubmodule_flip_dualSubmodule_of_basis",
+          "role": "compatibility",
+          "statement": "The opposite-form dual of the dual of a basis lattice is the original lattice."
+        }
+      ],
+      "tests": [
+        {
+          "name": "bilinearDual.rankOne",
+          "kind": "computation",
+          "statement": "For O⊂K, B(x,y)=πxy and L=O, its dual is π^(−1)O."
+        },
+        {
+          "name": "bilinearDual.standard",
+          "kind": "compatibility",
+          "statement": "For the standard dot product and L=O^n, the dual is O^n."
+        },
+        {
+          "name": "bilinearDual.flipNeeded",
+          "kind": "non-example",
+          "statement": "For Gram matrix [[1,π],[0,π²]] and L=O², the same-form double dual is G^(−T)G L, generally unequal to L: its first column is (1,−π^(−1)). Opposite-form double duality is the correct unconditional statement."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L81",
+      "kind": "theorem",
+      "name": "Existing freeness and basis lifting for finite flat modules over local rings",
+      "statement": "Over a commutative local ring R, every finite flat R-module P is free (Module.free_of_flat_of_isLocalRing). More precisely, for a finite flat M, a family v whose reductions form a basis over the residue field has bijective R-linear combination map (IsLocalRing.linearCombination_bijective_of_flat). Apply to a direct summand of a finite free module; no Noetherian or completeness assumption is needed.",
+      "locator": "Mathlib/RingTheory/LocalRing/Module.lean:295–308; namespace Module at:159, local-ring hypothesis:161; 082e2d3.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "library": [
+        "mathlib:Module.free_of_flat_of_isLocalRing",
+        "mathlib:IsLocalRing.linearCombination_bijective_of_flat"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A86",
+      "kind": "theorem",
+      "name": "Compact linear images preserve an integral lattice",
+      "statement": "Let K be a finite extension of Q_p, O its integer ring, Γ a compact group and ρ:Γ→GL_K(V) continuous on a finite-dimensional K-vector space. There is a full finite free O-lattice L with ρ(γ)L=L for all γ. A continuous character Γ→K× has image in O×. This imports the existing invariant-lattice target at R01.1; it is not a second proposed target.",
+      "locator": "CHT Lemma2.1.5, author PDF11–12; ArithmeticGaloisRepresentations:R01.1 explicitly plans stable lattices by compactness.",
+      "status": "planned",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "proofOutline": "Fix a basis lattice L₀. Compactness of finitely many matrix-coordinate images bounds every ρ(γ)L₀ inside π^(−a)L₀. The O-span of the orbit contains L₀ and is a submodule of the finite Noetherian module π^(−a)L₀, so is finite, full and stable; inverse group elements give equality. A compact subgroup of the discrete group Z is finite, hence zero, so the valuation of the character vanishes. A sufficiently large π-power of L makes any fixed bilinear form integral.",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
+      "kind": "theorem",
+      "name": "Equivariant opposite-form duality for a polarized lattice",
+      "statement": "Let O be a DVR with fraction field K, V finite-dimensional, Δ a group, ρ:Δ→GL_K(V), σ an automorphism of Δ, χ:Δ→O×, and B a perfect K-bilinear form satisfying B(ρ(δ)x,ρ(σδ)y)=χ(δ)B(x,y). Suppose T∈ρ(Δ), c∈O× and B(x,T y)=cB(y,x). For a Δ-stable full O-lattice L, P=B.dualSubmodule(L) is a Δ-stable full lattice, equals B.flip.dualSubmodule(L), and B.dualSubmodule(P)=L. Thus both B(P,L) and B(L,P) are integral. If L is integral then L⊂P. This is valid without assuming B symmetric or alternating.",
+      "locator": "Explicit lattice-duality supplier for CHT Lemma2.1.5, author PDF12; pairing convention from Lemma2.1.4, PDF10–11.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L80",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A34"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "For stability write B(ρδ x,y)=χ(δ)B(x,ρ(σδ)^(−1)y); the inverse image lies in L. In an O-basis, L80 makes P the span of the dual K-basis, hence full. Since T L=L and c is a unit, B(x,L)⊂O iff B(L,x)⊂O. Apply the same argument to stable P and L80 opposite-form double duality to get P*=L. In CHT use σδ=γ₀δγ₀^(−1), T=ρ(γ₀²), c=−μ(γ₀)."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
+      "kind": "theorem",
+      "name": "Maximal integral stable lattices have uniformizer-killed dual defect",
+      "statement": "In A87, start with any integral Δ-stable full lattice L₀. There is a maximal integral Δ-stable L between L₀ and L₀*. For every such maximal L, writing P=L*, one has πP⊂L⊂P, where π is a uniformizer. No semisimplicity hypothesis on P/L is used.",
+      "locator": "Direct replacement proof of the maximal-lattice step in CHT Lemma2.1.5, author PDF12.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A86",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "The quotient L₀*/L₀ has finite O-length: each is a finite full lattice and a power of π bounds the quotient; its successive π-quotients are finite-dimensional residue spaces. Hence integral stable enlargements have a maximal element. Choose the least m≥0 with π^mP⊂L. If m≥2, N=L+π^(m−1)P is strictly larger, stable, and inside P⊂L₀*. Cross terms pair integrally. Moreover π^mB(P,P)⊂O because π^mP⊂L, and 2m−2≥m, so B(N,N)⊂O. This contradicts maximality. Thus m≤1 and πP⊂L. This replaces the compressed semisimplicity step in the source without alleging that step false."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A89",
+      "kind": "theorem",
+      "name": "Quadratic Eisenstein coefficient extension and its integral basis",
+      "statement": "Let K/Q_p be finite, O its integer ring and π a uniformizer. For K′=K(Π) with Π²=π, X²−π is Eisenstein, [K′:K]=2, K′/K is totally ramified, Π is a uniformizer and O′=O⊕ΠO. For a,b∈K, v_(K′)(a+Πb)=min(2v_K(a),1+2v_K(b)), with v(0)=∞. In particular a+Πb∈O′ iff a,b∈O. This includes p=2 and uses no tameness hypothesis.",
+      "locator": "CHT Lemma2.1.5 quadratic-extension step, author PDF12; exact Eisenstein and orthogonal power-basis targets in existing LocalFieldsRamification Layer3.",
+      "status": "planned",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Reuse the named existing supplier.",
+      "proofOutline": "Import the existing LocalFieldsRamification Layer3 Eisenstein and power-basis valuation targets. Unequal valuation parity prevents cancellation. The formula for arbitrary K-coefficients follows from the integral-coefficient formula by clearing a common denominator; its nonnegative locus is precisely O⊕ΠO.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90",
+      "kind": "construction",
+      "name": "Explicit self-dual lattice after one ramified quadratic extension",
+      "statement": "In A87–A89, let L be integral and stable and P=L* satisfy πP⊂L. In V′=K′⊗_K V=V⊕ΠV, with B′ the scalar extension of B, define M=L⊕ΠP={a+Πb:a∈L,b∈P}. Equivalently M=O′L+ΠO′P. Then M is a full finite free Δ-stable O′-lattice and M*=M for B′. This is an actual construction with the same rank as V; no extra hyperbolic summand is added.",
+      "locator": "Explicit replacement for the final self-dual-lattice step of CHT Lemma2.1.5, author PDF12.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A89",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L04"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: ArithmeticGaloisRepresentations.",
+      "proofOutline": "Multiplication by Π sends a+Πb to πb+Πa, which remains in M because πP⊂L⊂P. Finite generation, spanning and torsionfreeness give a full free lattice over the DVR O′. All four pairing terms are integral by B(L,L), B(L,P), B(P,L), πB(P,P)⊂O. For x=a+Πb∈M*, testing L and using A89 gives a,b∈P; testing ΠP gives a∈P*=L and πb∈P*=L. The latter condition follows from b∈P. Thus M*⊂M, and integrality gives the reverse inclusion. Group stability holds componentwise.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
+          "how": "Choose an O′-basis to make the representation and its polarization integral and unimodular."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
+          "how": "Supplies the integral polarized input before trace descent."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+          "how": "Integral constituent representations can be glued into an integral Hecke algebra."
+        }
+      ],
+      "api": [
+        {
+          "name": "PolarizedLattice.ramifiedSelfDual",
+          "role": "constructor",
+          "statement": "From (L,P,πP⊂L) construct the O′-submodule M in K′⊗V."
+        },
+        {
+          "name": "PolarizedLattice.mem_ramifiedSelfDual",
+          "role": "characterisation",
+          "statement": "a+Πb∈M iff a∈L and b∈P."
+        },
+        {
+          "name": "PolarizedLattice.ramifiedSelfDual_mul_uniformizer",
+          "role": "simp",
+          "statement": "Π(a+Πb)=πb+Πa, proving closure from πP⊂L."
+        },
+        {
+          "name": "PolarizedLattice.ramifiedSelfDual_stable",
+          "role": "compatibility",
+          "statement": "The scalar-extended Δ-action preserves M."
+        },
+        {
+          "name": "PolarizedLattice.dual_ramifiedSelfDual",
+          "role": "compatibility",
+          "statement": "The B′-dual of M is M, with the same nonsymmetric convention as L80."
+        },
+        {
+          "name": "PolarizedLattice.ramifiedSelfDual_transport",
+          "role": "functoriality",
+          "statement": "A Δ-equivariant K-linear isometry carrying L onto N carries P onto N* and M onto the corresponding ramified lattice; identity and composition agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ramifiedSelfDual.rankOneDefect",
+          "kind": "computation",
+          "statement": "For B(x,y)=πxy, L=O, P=π^(−1)O, M=Π^(−1)O′ and the Gram value at Π^(−1) is 1."
+        },
+        {
+          "name": "ramifiedSelfDual.unimodular",
+          "kind": "compatibility",
+          "statement": "If P=L, then M=O′⊗L and is already the ordinary scalar extension."
+        },
+        {
+          "name": "ramifiedSelfDual.dyadic",
+          "kind": "computation",
+          "statement": "For K=Q₂, π=2, B(x,y)=2xy, M=(√2)^(−1)Z₂[√2] is self-dual; no division by 2 in O occurs."
+        },
+        {
+          "name": "ramifiedSelfDual.exponentHypothesis",
+          "kind": "non-example",
+          "statement": "For B(x,y)=π²xy and L=O, P=π^(−2)O and πP is not contained in L. L⊕ΠP is not closed under Π, showing why A88 is required."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A91",
+      "kind": "theorem",
+      "name": "Absolute Burnside density descends from an algebraic closure",
+      "statement": "Let k be any field, G any group (also valid for a monoid), V finite-dimensional, and ρ a representation that becomes irreducible after extension to an algebraic closure kbar. Then span_k{ρ(g):g∈G}=End_k(V). In coordinates one can choose n² group elements whose matrices form a basis. No cardinality restriction on G or invertibility of n is required.",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L78"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "In a basis, let W be the span of the matrices over k. Its kbar-span is the image algebra of the extended representation, hence all M_n(kbar) by L78. The rank of a matrix with entries in k does not change over kbar: a maximal nonzero minor remains nonzero, and all larger minors remain zero. Choose a finite basis subset of the original spanning set to conclude dim_k W=n². This finite matrix-rank argument avoids the [Finite G] hypothesis on the pinned finrank_intertwiningMap_baseChange theorem."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A92",
+      "kind": "theorem",
+      "name": "Residual Burnside bases lift over a local coefficient ring",
+      "statement": "Let R be a commutative local ring with residue k and ρ:G→GL_n(R), n≥1, with absolutely irreducible residual representation. Choose g₁,…,g_(n²) whose residual matrices form a k-basis by A91. Then (ρ(g_i)) is an R-basis of M_n(R). Consequently the commutant of ρ(G) in M_n(R) consists of scalar matrices, and its invertible commutant is R×. Completeness, continuity and finiteness of the residue field are unnecessary for this algebraic statement.",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A91"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Flatten the n² matrices into the columns of an n²×n² matrix. Its determinant is nonzero modulo the maximal ideal, hence a unit in R, so its inverse gives the basis coordinates. A matrix commuting with all group matrices commutes with this basis and hence every E_ij. Commutation with E_ii kills off-diagonal entries; commutation with E_ij equates diagonal entries. This proves the scalar statement even when char(k) divides n."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A93",
+      "kind": "theorem",
+      "name": "Congruence-preserving idempotent lifting in a finite free complete algebra",
+      "statement": "Let S be a complete Noetherian commutative local ring, A a possibly noncommutative S-algebra finite free as an S-module, and J⊂m_S. Every idempotent ebar∈A/JA lifts to an idempotent e∈A. No assumption that 2 is invertible is needed, and uniqueness of a noncentral idempotent lift is not asserted.",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L28"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Lift ebar to a₀ and recursively set a_(r+1)=3a_r²−2a_r³. These are polynomials in a₀, so commute even when A is noncommutative. For q=a²−a, the change is −(2a−1)q and the next error is q²(4a²−4a−3). Thus a_r²−a_r∈J^(2^r)A and consecutive differences have that precision. In a finite S-basis the sequence is m_S-adically Cauchy, so L27 coordinatewise supplies a limit. Multiplication is continuous in these coordinates. L03 applied to A/JA shows JA is closed, and applied to A shows separation; hence e≡a₀ mod JA and e²=e. The same argument applies to J=0 (the initial lift is already idempotent). This supplies an explicit compatible sequence, not arbitrary lifts in each quotient."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A94",
+      "kind": "construction",
+      "name": "Matrix coordinates from a lifted rank-one idempotent",
+      "statement": "Let S be complete Noetherian local, A an associative unital S-algebra free of rank n², n≥1, and J⊂m_S. Given an S/J-algebra isomorphism θ:A/JA≃M_n(S/J), there is an S-algebra isomorphism α:A≃M_n(S) reducing exactly to θ. Construct it from an idempotent lifting θ^(−1)(E₁₁), not from a choice of incompatible finite-level algebra isomorphisms.",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A93",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L81"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Lift e by A93. P=Ae is the image of the S-linear idempotent x↦xe, so is a finite projective direct summand of A and is free by L81. Modulo m_S its dimension is n. Modulo J, θ identifies P/JP with the standard column module M_n(S/J)E₁₁. Lift its standard n columns to P; they form an S-basis by L81. Left multiplication A→End_S(P), expressed in this basis, reduces modulo J to θ; modulo m_S it is a bijection of n²-dimensional spaces. Its determinant is therefore a unit, giving the required algebra isomorphism α.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+          "how": "Split the trace-span algebra while preserving its prescribed matrix realization modulo I."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A95",
+          "how": "Convert the finite free trace algebra into actual matrix coefficients over S."
+        }
+      ],
+      "api": [
+        {
+          "name": "MatrixAlgebra.liftCoordinates",
+          "role": "constructor",
+          "statement": "From A,J,θ construct α with α mod J=θ."
+        },
+        {
+          "name": "MatrixAlgebra.liftCoordinates_mod",
+          "role": "compatibility",
+          "statement": "The quotient diagram A→M_n(S) over θ:A/JA→M_n(S/J) commutes."
+        },
+        {
+          "name": "MatrixAlgebra.columnModule",
+          "role": "data",
+          "statement": "The intermediate module is Ae with e²=e and θ(ebar)=E₁₁."
+        },
+        {
+          "name": "MatrixAlgebra.columnModule_basis",
+          "role": "structure",
+          "statement": "Chosen lifts of standard columns modulo J form a basis of Ae."
+        },
+        {
+          "name": "MatrixAlgebra.liftCoordinates_mul",
+          "role": "simp",
+          "statement": "The coordinate map sends ab to α(a)α(b) and 1 to the identity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "liftCoordinates.standard",
+          "kind": "compatibility",
+          "statement": "For A=M_n(S), e=E₁₁ and the standard column basis, α is the identity."
+        },
+        {
+          "name": "liftCoordinates.noncommutative",
+          "kind": "computation",
+          "statement": "For A=M₂(Z/4Z), right multiplication by E₁₁ has rank 2 over Z/4Z; the column module, not A itself, has the representation rank."
+        },
+        {
+          "name": "liftCoordinates.rankOne",
+          "kind": "boundary",
+          "statement": "For n=1, the construction gives an S-algebra isomorphism A≃S and preserves θ modulo J."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A95",
+      "kind": "construction",
+      "name": "Finite free trace-span algebra with relative quotient coordinates",
+      "statement": "Let S⊂R be commutative local rings inducing an isomorphism of residue fields, n≥1, and ρ:G→GL_n(R) residually absolutely irreducible with trρ(g)∈S for every g. Choose a residual Burnside family g_i and let A=Σ_i Sρ(g_i)⊂M_n(R). Then A is a unital S-subalgebra free of rank n², contains ρ(G), and A⊗_S R≃M_n(R). If I⊂m_R and each ρ(g) mod I lies in GL_n(S/J), J=I∩S, then A∩M_n(I)=JA and entrywise reduction induces A/JA≃M_n(S/J).",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L79"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "A92 makes the chosen matrices an R-basis. The Gram matrix H_ij=tr(ρ(g_i)ρ(g_j)) has entries in S and is invertible modulo m_S by L79, hence H^(−1) has entries in S. For g∈G, the traces tr(ρ(g)ρ(g_j))=trρ(gg_j) lie in S, so H^(−1) computes its coordinates in S. This proves containment, identity and multiplication closure. R-linear independence gives S-freeness and the scalar-extension isomorphism. For the relative claim, reduction of the chosen matrices is a basis of M_n(S/J) because its determinant is a unit modulo m_S/J. If a∈A has entries in I, the trace vector lies in I∩S=J, so its coordinates lie in J. Conversely JA has entries in I. This identifies the kernel and quotient without flatness of S→R.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A43",
+          "how": "Provides a finite coefficient algebra that can be split over S, with the precise quotient needed for a 1+M_n(I) conjugator."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A42",
+          "how": "Explains the trace-pairing descent without division by n."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+          "how": "Supplies the common reconstruction algebra for integral Hecke-valued representations."
+        }
+      ],
+      "api": [
+        {
+          "name": "TraceSpanAlgebra.ofResidualBasis",
+          "role": "constructor",
+          "statement": "Construct the S-subalgebra using group matrices lifting a residual basis."
+        },
+        {
+          "name": "TraceSpanAlgebra.mem_iff_coordinates",
+          "role": "characterisation",
+          "statement": "A matrix in M_n(R) lies in A iff all its coordinates in the chosen group basis lie in S."
+        },
+        {
+          "name": "TraceSpanAlgebra.coordinates_trace",
+          "role": "simp",
+          "statement": "Coordinates are the inverse Gram matrix applied to (tr(Xρ(g_j)))_j, with the matching row/column convention."
+        },
+        {
+          "name": "TraceSpanAlgebra.baseChange",
+          "role": "equivalence",
+          "statement": "A⊗_S R≃M_n(R), sending a⊗r to ra."
+        },
+        {
+          "name": "TraceSpanAlgebra.quotient",
+          "role": "equivalence",
+          "statement": "Under the entrywise mod-I hypothesis, A/JA≃M_n(S/J) and the kernel is exactly JA."
+        },
+        {
+          "name": "TraceSpanAlgebra.independent_basis",
+          "role": "compatibility",
+          "statement": "The subalgebra is the S-span of the entire group image, hence independent of the selected residual Burnside family."
+        }
+      ],
+      "tests": [
+        {
+          "name": "traceSpan.rankOne",
+          "kind": "computation",
+          "statement": "For n=1 the trace condition is the entry condition; A=S."
+        },
+        {
+          "name": "traceSpan.dimensionDivisible",
+          "kind": "compatibility",
+          "statement": "For n=p over a residue field of characteristic p, the Gram pairing on all M_p is still invertible in a basis although tr(1)=0."
+        },
+        {
+          "name": "traceSpan.irreducibilityNeeded",
+          "kind": "non-example",
+          "statement": "For the trivial rank-2 representation over any field, all traces lie in the field but its image span has dimension 1, not 4. The n²-basis and splitting conclusion require residual absolute irreducibility."
+        },
+        {
+          "name": "traceSpan.prescribedQuotient",
+          "kind": "compatibility",
+          "statement": "If R=S and I=J, the relative quotient is the usual M_n(S)/M_n(J)≃M_n(S/J)."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96",
+      "kind": "theorem",
+      "name": "A local matrix automorphism trivial modulo an ideal is strictly inner",
+      "statement": "Let R be a commutative local ring, I⊂m_R, n≥1, and φ an R-algebra automorphism of M_n(R) inducing the identity modulo I. There is g∈1+M_n(I) with φ(X)=gXg^(−1) for every X. This holds without completeness, Noetherianity, a finite residue field or division by n.",
+      "locator": "CHT author version Lemmas2.1.8–2.1.10, PDF13–15; explicit supplier/replacement proof, not an additional theorem attributed to the source.",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: IntegralHeckeAndGaloisDeterminants.",
+      "proofOutline": "Put f_ij=φ(E_ij), v=f_11 e₁ and v_i=f_i1 v. Then v_i≡e_i mod I. The matrix g with columns v_i has g≡1 mod I and determinant a unit, so g∈GL_n(R). Matrix-unit relations give f_ij v_l=δ_jl v_i, hence f_ij=gE_ijg^(−1), and linearity proves the assertion for every matrix. All formulas are polynomial before inversion of the unit determinant."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97",
+      "kind": "theorem",
+      "name": "Cofinality for a local embedding of complete Noetherian rings",
+      "statement": "Let S⊂R be an injective local homomorphism of complete Noetherian local rings. Their residue fields need not be finite or identical. For every b≥1 there is a≥1 with S∩m_R^a⊂m_S^b. Consequently the intrinsic m_S-adic topology is exactly the topology induced from the m_R-adic topology; a continuous map into R whose image is in S is continuous into S. More generally, any descending sequence of ideals J_a⊂S with intersection zero is cofinal with the powers of m_S.",
+      "locator": "Explicit proof of the topology assertion S=lim S/(S∩I) in CHT Lemma2.1.9, author PDF14; general complete-local algebra supplied to its representation consumers.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L27"
+      ],
+      "implementationStatus": "No new Lean implementation; extraction and proof plan only.",
+      "note": "Continuation Codex — codex-7e92bd, 23 September 2026. Owner: DeformationAndDerivedPatchingAlgebra.",
+      "proofOutline": "For each b, the images of J_a in the finite-length module S/m_S^b form a descending chain, hence stabilize to E_b. The maps E_(b+1)→E_b are surjective: choose a beyond both stabilization indices and use the image of J_a. If some E_b contains a nonzero x_b, recursively lift along these surjections to compatible x_c for c≥b (and project below b). Completeness L27 gives x∈S with these residues. For each fixed a, all its residues lie in the image of J_a; L03 on the finite S-module S/J_a gives x∈J_a. Thus x∈∩J_a=0, contradicting its nonzero residue. Hence E_b=0 and some J_a⊂m_S^b. For the local embedding take J_a=S∩m_R^a; separation of R by L03 makes their intersection zero, and locality gives the reverse-continuity inclusion m_S^a⊂S∩m_R^a. This finite-length stabilization argument works over infinite residue fields and constructs compatible residues explicitly."
     }
   ],
   "prerequisites": [
@@ -17790,7 +18312,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A97"
       ],
       "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced.",
       "stages": [
@@ -18106,7 +18629,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A87",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A88",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A90"
       ],
       "reason": "Actual polarized representations, their signs and integral lattices precede polarized deformation functors. Reuse this existing common carrier and import it into GlobalGaloisDeformations G7."
     },
@@ -18131,7 +18657,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A75",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A77",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A91",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A93",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A94",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A95",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A96"
       ],
       "reason": "Trace descent and gluing actual representations over a reduced integral Hecke algebra refine the existing reconstruction and finite-image-algebra layers. These are suppliers of patching, not a second automorphic construction."
     },
@@ -19516,7 +20048,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Remaining supplier obligations: self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58."
+      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Supplier continuation codex-7e92bd closes the lattice construction at the proof-plan level through A86–A90/L80, with A89 imported from existing LocalFieldsRamification Layer3; density and trace pairing through L78/L79/A91; algebraic scalar centralizers and conjugacy through A92/A96; prescribed-congruence Carayol descent through the trace algebra A95 and compatible idempotent/matrix-coordinate construction A93–A94; induced-topology continuity through A97; and principal-unit Hensel through L77. The old arbitrary Artinian-conjugator recursion is no longer the proof used. Remaining supplier obligations: residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58. A93 uses an explicit error-squaring sequence and inherited L03/L27/L28, not merely the claim that unrelated idempotent lifts converge. All statements remain extraction-level proof plans."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -20783,6 +21315,160 @@
         "Read current AF,SR,AL campaign documents in full, relevant atlas stage records, and AG2.2/5/6/7 contracts. No AF/SR/AL packet/decomposition file exists in this snapshot. No duplicate Whittaker construction planned in the pinned libraries."
       ],
       "scope": "No new automorphic theorem is labelled library. L68 imports only the two-factor algebraic extensionality fact. The existing unrelated upstream roadmap reads remain inherited, not claimed as fresh readings."
+    },
+    "codex7e92bdSupplierContinuation": {
+      "atlasCommit": "b237fd029c342c29bfe3c114d47a7190d4762c87",
+      "snapshotFiles": 631,
+      "pins": [
+        {
+          "library": "mathlib",
+          "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "sha256": "7dd40188482fe7777727a66dc2b8c52811810da024b45ef4021a6d644136f353"
+        },
+        {
+          "library": "mathlib",
+          "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Trace.lean",
+          "sha256": "27b5170c8474528a839f99cf17989aecc165a1fe72b7d84288d7aaccda1740c2"
+        },
+        {
+          "library": "mathlib",
+          "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean",
+          "sha256": "ea71c61be774fd579bad7f9faa3477a8cbc637daa36832c0813d733fe02703ba"
+        },
+        {
+          "library": "mathlib",
+          "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+          "sha256": "74f44a68b7468a48529c816e799b6b4b2ddf911dcdda5fe891986d09d5c6e858"
+        },
+        {
+          "library": "mathlib",
+          "module": "Mathlib/RingTheory/Henselian.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Henselian.lean",
+          "sha256": "364a54b24f7acd263f9704cca0e7ef6b602670db6c6749989279bca477219d06"
+        },
+        {
+          "library": "mathlib",
+          "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean",
+          "sha256": "7aad1df3c0b0105a55d98d5b2fa521f9ac73b5ad63267d7ac6a23f47c5e1d907"
+        },
+        {
+          "library": "tauceti",
+          "module": "TauCeti/RepresentationTheory/Irreducible.lean",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Irreducible.lean",
+          "sha256": "e39b5d7a88228c481c6158569d7b996541ba3387746b88099a9102eae84a9430"
+        }
+      ],
+      "declarations": {
+        "mathlib:HenselianRing.is_henselian": {
+          "module": "Mathlib/RingTheory/Henselian.lean",
+          "line": 94,
+          "statement": "class HenselianRing (R : Type*) [CommRing R] (I : Ideal R) : Prop where\n  jac : I ≤ Ideal.jacobson ⊥\n  is_henselian :\n    ∀ (f : R[X]) (_ : f.Monic) (a₀ : R) (_ : f.eval a₀ ∈ I)\n      (_ : IsUnit (Ideal.Quotient.mk I (f.derivative.eval a₀))), ∃ a : R, f.IsRoot a ∧ a - a₀ ∈ I\n",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Henselian.lean#L94"
+        },
+        "mathlib:IsAdicComplete.henselianRing": {
+          "module": "Mathlib/RingTheory/Henselian.lean",
+          "line": 170,
+          "statement": "instance (priority := 100) IsAdicComplete.henselianRing (R : Type*) [CommRing R] (I : Ideal R)\n    [IsAdicComplete I R] : HenselianRing R I where\n  jac := IsAdicComplete.le_jacobson_bot _",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Henselian.lean#L170"
+        },
+        "tauceti:Representation.asAlgebraHom_surjective_of_isIrreducible": {
+          "module": "TauCeti/RepresentationTheory/Irreducible.lean",
+          "line": 239,
+          "statement": "theorem _root_.Representation.asAlgebraHom_surjective_of_isIrreducible\n    [IsAlgClosed k] [FiniteDimensional k V]\n    (ρ : Representation k G V) (hρ : ρ.IsIrreducible) :\n    Function.Surjective ρ.asAlgebraHom := by",
+          "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Irreducible.lean#L239"
+        },
+        "mathlib:Matrix.ext_iff_trace_mul_right": {
+          "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+          "line": 282,
+          "statement": "theorem ext_iff_trace_mul_right [NonAssocSemiring R] {A B : Matrix m n R} :\n    A = B ↔ ∀ x, (A * x).trace = (B * x).trace := by\n  refine ⟨fun h x => h ▸ rfl, fun h => ?_⟩",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Trace.lean#L282"
+        },
+        "mathlib:LinearMap.BilinForm.dualSubmodule": {
+          "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "line": 37,
+          "statement": "def dualSubmodule (N : Submodule R M) : Submodule R M where\n  carrier := { x | ∀ y ∈ N, B x y ∈ (1 : Submodule R S) }\n  add_mem' {a b} ha hb y hy := by simpa using add_mem (ha y hy) (hb y hy)\n  zero_mem' y _ := by rw [B.zero_left]; exact zero_mem _\n  smul_mem' r a ha y hy := by\n    convert! (1 : Submodule R S).smul_mem r (ha y hy)\n    rw [← IsScalarTower.algebraMap_smul S r a]\n    simp only [algebraMap_smul, map_smul_of_tower, LinearMap.smul_apply]",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean#L37"
+        },
+        "mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis": {
+          "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "line": 92,
+          "statement": "lemma dualSubmodule_span_of_basis {ι} [Finite ι] [DecidableEq ι]\n    (hB : B.Nondegenerate) (b : Basis ι S M) :\n    B.dualSubmodule (Submodule.span R (Set.range b)) =\n      Submodule.span R (Set.range <| B.dualBasis hB b) := by\n  cases nonempty_fintype ι",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean#L92"
+        },
+        "mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip_of_basis": {
+          "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "line": 117,
+          "statement": "lemma dualSubmodule_dualSubmodule_flip_of_basis {ι : Type*} [Finite ι]\n    (hB : B.Nondegenerate) (b : Basis ι S M) :\n    B.dualSubmodule (B.flip.dualSubmodule (Submodule.span R (Set.range b))) =\n      Submodule.span R (Set.range b) := by\n  classical",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean#L117"
+        },
+        "mathlib:LinearMap.BilinForm.dualSubmodule_flip_dualSubmodule_of_basis": {
+          "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+          "line": 126,
+          "statement": "lemma dualSubmodule_flip_dualSubmodule_of_basis {ι : Type*} [Finite ι]\n    (hB : B.Nondegenerate) (b : Basis ι S M) :\n    B.flip.dualSubmodule (B.dualSubmodule (Submodule.span R (Set.range b))) =\n      Submodule.span R (Set.range b) := by\n  classical",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean#L126"
+        },
+        "mathlib:Module.free_of_flat_of_isLocalRing": {
+          "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "line": 304,
+          "statement": "theorem free_of_flat_of_isLocalRing [Module.Finite R P] [Flat R P] : Free R P :=\n  let w := Free.chooseBasis k (k ⊗[R] P)\n  have ⟨v, eq⟩ := (TensorProduct.mk_surjective R P k Quotient.mk_surjective).comp_left w\n  .of_basis <| .mk (IsLocalRing.linearIndependent_of_flat _ (eq ▸ w.linearIndependent)) <| by\n    exact (span_eq_top_of_tmul_eq_basis _ w <| congr_fun eq).ge",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean#L304"
+        },
+        "mathlib:IsLocalRing.linearCombination_bijective_of_flat": {
+          "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "line": 294,
+          "statement": "theorem IsLocalRing.linearCombination_bijective_of_flat [Module.Finite R M] [Flat R M] {ι : Type u}\n    (v : ι → M) (h : Function.Bijective (linearCombination k (TensorProduct.mk R k M 1 ∘ v))) :\n    Function.Bijective (linearCombination R v) := by\n  use linearIndependent_of_flat _ h.1\n  rw [← LinearMap.range_eq_top, range_linearCombination]\n  refine span_eq_top_of_tmul_eq_basis _ (.mk h.1 ?_) fun _ ↦ ?_\n  · simpa only [top_le_iff, ← range_linearCombination, LinearMap.range_eq_top] using h.2\n  · simp",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean#L294"
+        },
+        "mathlib:IsHausdorff.of_isLocalRing": {
+          "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+          "line": 20,
+          "statement": "variable {R : Type*} [CommRing R] (I : Ideal R) (M : Type*) [AddCommGroup M] [Module R M]\nvariable [IsNoetherianRing R] [Module.Finite R M]\n\nlemma IsHausdorff.of_le_jacobson (h : I ≤ Ideal.jacobson ⊥) : IsHausdorff I M :=\n  ⟨fun x hx ↦ (Ideal.iInf_pow_smul_eq_bot_of_le_jacobson I h).le (by simpa [SModEq.zero] using hx)⟩\n\ntheorem IsHausdorff.of_isLocalRing [IsLocalRing R] (h : I ≠ ⊤) : IsHausdorff I M :=\n  of_le_jacobson I M ((le_maximalIdeal h).trans (maximalIdeal_le_jacobson _))\n\ninstance [IsLocalRing R] : IsHausdorff (maximalIdeal R) M :=\n  .of_le_jacobson _ _ (maximalIdeal_le_jacobson _)",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Noetherian.lean#L20"
+        },
+        "mathlib:IsPrecomplete.prec": {
+          "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+          "line": 140,
+          "statement": "theorem IsPrecomplete.prec (_ : IsPrecomplete I M) {f : ℕ → M} :\n    (∀ {m n}, m ≤ n → f m ≡ f n [SMOD (I ^ m • ⊤ : Submodule R M)]) →\n      ∃ L : M, ∀ n, f n ≡ L [SMOD (I ^ n • ⊤ : Submodule R M)] :=\n  IsPrecomplete.prec' _",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean#L140"
+        }
+      },
+      "reviewedRowsRead": [
+        "AUDIT-31 ArithmeticGaloisRepresentations:R01.1",
+        "AUDIT-31 ArithmeticGaloisRepresentations:G7",
+        "AUDIT-04 LocalFieldsRamification Layer3",
+        "AUDIT-17 DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "absentReviewedRows": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2"
+      ],
+      "ownerReads": [
+        "ArithmeticGaloisRepresentations:R01.1/G7",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/IHG.1/IHG.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "LocalFieldsRamification Layer3 Eisenstein and monogenicity targets",
+        "IntegralLattices completed roadmap summary (symmetric Z-lattices, not this twisted DVR carrier)",
+        "IntegralIwasawaTheory:I.5 and ArithmeticLocallySymmetricSpaces:ALS.1 (consumers of invariant lattices)"
+      ],
+      "overlapResolution": "No new roadmap. Stable lattices A86 reuse AGR:R01.1; Eisenstein extension/power-basis A89 reuse existing LocalFieldsRamification Layer3. Twisted self-dual equivariant adapters A87/A88/A90 refine AGR:G7/R01.1. Local trace-algebra and matrix-coordinate adapters A91–A96 refine IHG.1; the general cofinality lemma A97 belongs to DeformationAndDerivedPatchingAlgebra:R03.1 and are shared with ALLEN23/128, CG18/carayol-trace-uniqueness and CG20/ext-carayol-uniqueness-of-lifts; their latter symplectic refinement remains with AGR. This does not recreate global automorphic representations or finite-field-only character theory.",
+      "negativeSearches": [
+        "Pinned Mathlib/TauCeti representation, bilinear-form, integral-lattice, local-field and ring-theory trees: no matching general twisted equivariant self-dual DVR lattice construction; symmetric integral Z-lattices and E8 self-duality have different hypotheses.",
+        "Burnside found in TauCeti for arbitrary monoids; finite-group base-change Hom-dimension theorem is not used.",
+        "Idempotents.lean nil-kernel lifting and TauCeti semiprimary/semiperfect theorems were read; they do not alone give the complete finite-free relative lift. A93 gives the compatible polynomial iteration with existing adic completeness/separation.",
+        "All atlas roadmap descriptions, current paper inventories, 58 packet/decomposition/reserved-id files searched for self-dual/stable lattices, Burnside/density, Carayol, idempotent lifting and Hensel. Existing shared owners retained."
+      ]
     }
   },
   "validation": {
@@ -21513,6 +22199,42 @@
         "changedInputs": [],
         "originalDeliverablesUnchanged": true,
         "intake": "3 files,0 problems"
+      }
+    },
+    "codex7e92bdSupplierContinuation": {
+      "scope": "A86–A97 and L77–L81; refinements of A38–A44.",
+      "lean": "No Lean deliverable required or compiled. Exact pinned source headers read and seven files byte-verified. Mathematical diagnostics do not certify Lean proofs.",
+      "inputCommit": "f33e882562816872c8815d93b9e8fc3a6b499a83",
+      "checks": {
+        "items": 565,
+        "counts": {
+          "missing": 463,
+          "planned": 21,
+          "library": 81
+        },
+        "routes": 21,
+        "acyclicItemEdges": 387,
+        "definitionConstructionInterfaces": 163,
+        "unchangedSourceFindings": 51,
+        "unchangedPriorItems": 542,
+        "routedExactlyOnce": true,
+        "mathDiagnostics": {
+          "symbolicIdempotentIdentities": 2,
+          "noncommutativeIdempotentLifts": 3310,
+          "strictInnerCases": 722,
+          "tracePairings": 15,
+          "valuationParityCases": 1681,
+          "nonsymmetricDuality": "passed",
+          "limitations": "Finite examples and exact identities diagnose the proof formulas; they do not prove the infinite complete-ring, local-field or representation statements and are not Lean compilation."
+        },
+        "paperChecker": "passed",
+        "intakeFiles": "three files; zero problems"
+      },
+      "publicationBase": "b864a925e8124c0d84e95a490490803fe825b501",
+      "atlasRefresh": {
+        "commit": "b864a925e8124c0d84e95a490490803fe825b501",
+        "changedOrNewFiles": 10,
+        "result": "All new/changed paper/review files scanned for lattice/descent/cofinality terms; no matching item or new owner. Cited owner and reviewed audit files unchanged. All snapshot inputs, refreshed files and three claimed deliverables guarded at publication."
       }
     }
   },
