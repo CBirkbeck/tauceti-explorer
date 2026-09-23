@@ -162,3 +162,30 @@ Each entry says what the paper takes from it.
 - The two library declarations were read in the pinned Mathlib (082e2d3):
   - `WeakDual.isCompact_closedBall` and `WeakDual.isCompact_polar` in `Mathlib/Analysis/Normed/Module/WeakDual.lean`;
   - `closure_convexHull_extremePoints` in `Mathlib/Analysis/Convex/KreinMilman.lean`, the Krein–Milman theorem without Milman's converse.
+
+## Review (REV-PAPER-GAN-SAVIN-23-B, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1379](https://github.com/CBirkbeck/tauceti-explorer/issues/1379). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **All 15 mistakes confirmed**, four decisively by the paper's own text: E3 (Main Theorem (ix)'s
+  brackets do not balance); E6 (an octonion algebra taken "over F" where the next sentence needs
+  a global object over `k`); E13 (p. 36 prints `L_{Sp_6}` correctly eighteen lines before
+  printing `L_{Sp_6 6}`); E5 (Theorem 2.1's decomposition is part (ii), cited as (i) twice).
+- **The two gaps confirmed with scope stated.** E2 is settled by the paper's own theta dichotomy:
+  Theorem 9.1(ii) is stated for every `π`, but Theorem 2.1(ii) says `π` lifts to exactly one of
+  `PD^×` or `PGSp_6`, so "its local theta lift `θ(π) ∈ Irr(PGSp_6)`" has no referent for half of
+  them. A restriction is needed; its exact form rests on the extraction.
+- **E10** could not be settled from the text layer (the symbol after "parameterized by" is
+  dropped); it is confirmed on the sentence's own logic, and the verdict says so.
+- **Provenance:** the published PDF's `sha256` is **not reproducible** — Cambridge stamps each
+  download, and two downloads gave two hashes, neither the recorded one. A reproducible
+  stamp-stripped text hash (`f35be3dd…66f5`) was recorded in its place.
+- **Items and routes:** the single library citation (Banach–Alaoglu) is correct; 4 planned items
+  resolving; 123 missing routed exactly once; both new roadmap names free and both Part II titles
+  exact prefix extensions. `ExceptionalThetaCorrespondencesForG2` is co-proposed by the companion
+  paper PAPER-GAN-SAVIN-23, which is the right structure — the dichotomy is an input here and a
+  theorem there.
+
+Full report: `research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23-B.md`.
