@@ -87,11 +87,20 @@
       ]
     },
     {
-      "target": "Generalized Bernoulli numbers and the primitive-character Gauss/conductor identities giving the algebraic-to-complex Dirichlet special-value comparison; the Deligne motivic specialization is an adapter, not this arithmetic construction.",
+      "target": "The algebraic-to-complex comparison of Dirichlet special values, L(χ, 1−n) = −B_{n,χ}/n with the primitive-character Gauss and conductor identities it uses; the Deligne motivic specialization in PS.1 is an adapter, not this comparison. Where the generalized Bernoulli quantities themselves are defined is left to RS-14, which proposes the Tau Ceti ModularForms layer 0 and keeps this comparison in L0.",
       "owner": "DirichletPadicLFunctions:L0",
       "formerly": [
         "PeriodsAndSpecialValues:PS.1"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-13",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was ChatGPT Pro, session astra-20260921-f6b2d8. The reviewer read both member documents and all sixteen layer descriptions, the six family leads, PS.1's audited targets, DirichletPadicLFunctions L0 and KU-zeta, every recorded consumer of PS.1, AL.1, AL.4 and AL.5, and the neighbouring proposals RS-07 (accepted), RS-14 and RS-21. Duplication: the three flagged pairs are handled correctly. AL.1 and AL.5 own the analytic GL1 and scoped GL2/Rankin inputs; L0 owns the Dirichlet algebraic-to-complex comparison; AL.4↔PS.1 is a comparison between distinct constructions, not a duplicate. No further duplicate between the members was found. Nothing lost: PS.1 keeps every motivic target (the completed motivic L-function, criticality, the Deligne statement, and the Dirichlet/Tate and modular motivic comparisons). Its only consumer, PS.7, gets direct links from all three suppliers, and the new edges create no cycle (PS.1 and PS.7 have no path back to AL.1, AL.5 or L0). No anchors, no Tau Ceti roadmap and no extension are involved. The format follows PROTOCOL §15, and check_restructure.py passes. One correction was made (see corrections). Two notes for the orchestrator, outside the JSON: RS-13.md still says \"Keep … AN.1 → PS.1\", but RS-07 (accepted) dropped AN.1 and rewired PS.1 to the upstream Mathlib Dirichlet L-functions, so that sentence is stale (the JSON adds no AN.1 edge); and RS-14 (unreviewed) names AN.1 as a supplier of L0 although RS-07 dropped it.",
+    "corrections": [
+      "owners[2] (owner DirichletPadicLFunctions:L0): the target is narrowed from \"Generalized Bernoulli numbers and the primitive-character Gauss/conductor identities giving the algebraic-to-complex Dirichlet special-value comparison\" to the comparison itself. RS-14 proposes the Tau Ceti ModularForms layer 0 as owner of the generalized Bernoulli quantities while keeping this comparison in L0; the corrected entry is compatible with RS-14 whether or not it is accepted. Old target: Generalized Bernoulli numbers and the primitive-character Gauss/conductor identities giving the algebraic-to-complex Dirichlet special-value comparison; the Deligne motivic specialization is an adapter, not this arithmetic construction."
+    ]
+  }
 }
