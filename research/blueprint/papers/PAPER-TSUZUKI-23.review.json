@@ -1,0 +1,26 @@
+{
+  "paper": "PAPER-TSUZUKI-23",
+  "status": "complete",
+  "verdict": "revise",
+  "reviewer": "independent-review-REV-PAPER-TSUZUKI-23",
+  "agent": "Codex",
+  "session": "codex-hjdg0j",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "RD.0–RD.6 own analytic rings, differential Frobenius modules, local monodromy, frames, coefficients, cohomology and weights; the new rank-one normalization/gluing leaf belongs at RD.3. Ownership acceptance does not close its supplier proofs."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "VB0 owns general Dieudonné–Manin with ramified coefficient and q-Frobenius conventions. The pinned Mathlib theorem supplies only rank one; importing VB0 avoids duplicate classification."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the minimal-slope continuation with the exact parent title and corrected scope. PBQ/saturation and compatible curve lifting are additional; higher-dimensional lifting keeps its extra endomorphism hypothesis. Generic coefficient Chebotarev is imported from the common arithmetic-D-module proposal via PAPER-ABE-18/51, shared with EG20/109, not rebuilt here. G2–G8 and G10 remain explicit proof obligations."
+    }
+  ],
+  "notes": "Complete independent review, verdict revise. Restore partial extraction status: inventory/routing coverage is not recursive proof closure. Read the complete v3, all 164 input items and 55 API/use/test groups; verify all seven library declarations at pins, all three routes and every recorded source finding. Correct signed slopes, generic localization, locators, title and generic Chebotarev ownership; add item165 and findingsE25–E26. All 26 source findings confirmed within the precise version scopes. Journal appendices confirm E23–E24; main journal collation remains unavailable. G9 independent verification is resolved, while the other mathematical/source gates remain open. See the report for exact evidence and validation."
+}
