@@ -1,3 +1,36 @@
+# Shende–Tsimerman: reviewed extraction and routing
+
+Refs [#1335](https://github.com/CBirkbeck/tauceti-explorer/issues/1335). Independent review by Codex, session `codex-7e92bd`, 23 September 2026. **Extraction status: partial. Review verdict: revise.** This account and the result JSON supersede the historical completion claims below.
+
+The reviewed result has **145 items: 13 library, 23 planned and 109 missing**. Every missing item is routed once. Eight routes are accepted and six rejected; the detailed independent review is [REV-PAPER-SHENDE-TSIMERMAN-17](../reviews/REV-PAPER-SHENDE-TSIMERMAN-17.md). No Lean deliverable was requested or compiled, and no application theorem is claimed formalized.
+
+The reviewer read all 40 pages of arXiv v1, checked all 144 input items and 24 input source findings, opened all 22 cited pinned declarations and all named planned layers, and ran independent missing-item and ownership searches. The added item separates the unrestricted introductory complex Betti endpoint from the restricted §3.2 theorem. The final 44-page Duke paper was not acquired or matched; all source findings are expressly v1-only.
+
+E8 is rejected: the review gives an independent moment/truncated-log argument for all fixed prime powers, completing the analytic deduction of the one-bundle theorem. The other 23 input findings are confirmed with their scope narrowed where necessary. New E25 corrects the halved S contribution in the Corollary2.20 parameter count; the intended upper bound survives. There are now **25 findings, 24 confirmed and one rejected**.
+
+Clear corrections were made in place: characteristic hypotheses propagate to the lci/low/perverse comparisons; ratio escape is stated through least effective degree modulo κ; the high comparison uses a correctly shifted theta locus; the polar coefficient is a pushforward calculation with a separate generic image-degree obligation; replacement numerical bases are conditional on unclosed geometric suppliers. E15/E23 verify failures of the printed calculation, not falsity of the printed final bound. The reviewed report derives the restricted residual-rank repair and records the original supplier and full-versus-restricted endpoint gaps.
+
+The Hecke mixing theorem moves to ST.5; finite measure definitions stay in ST.0. AC.12 is an explicit scheme comparison import, RG2.0a supplies Weil restriction to the adelic application, and WC.1 consumes the shared point-count trace supplier. The generic microlocal Part II is shared with existing Yang–Zhao, Abe and Lawrence–Sawin consumers. All24 pages of Sawin v2 were read for later verification; its repeated coefficient and remaining comparison questions prevent using the numerical28⁴ endpoint without reconciliation.
+
+The two inherited arithmetic regressions and 49,956 additional orbit/dimension/coefficient checks passed. The paper checker and four-file intake check passed. The review JSON contains the route verdicts; the result audit records reading extents, hashes, per-item evidence, search queries, changed fields, refreshed inputs and remaining G0–G10 obligations.
+
+## Authoritative gaps after independent review
+- **G0 (unavailable).** The Duke text is closed access (Unpaywall, OpenAlex; Project Euclid returned a security page) and arXiv has only v1, so all locators and findings refer to arXiv v1.
+- **G1 (partial).** N1–N5 finite Picard/event identities survive review. Original splitting and full stack/adelic measure comparison remain supplier obligations.
+- **G2 (partial).** The independent orbitwise rank inequality and E25 dimension correction repair the restricted critical-locus argument. Small characteristic, the source IC comparison and remaining cohomological suppliers are not closed.
+- **G3 (partial).** All-q analytic normalization and upper Lindelöf estimate have an independent argument in the review. Finite Picard arithmetic passes regression. Original curve-bound, Jacobian zeta and coherent-descent supplier proofs remain imports.
+- **G4 (partial).** MS pp.1–13 and IY pp.3–7 were read. Signs and complex IC proof identified; original Massey and Bressler–Brylinski/Borho–MacPherson proofs and the étale comparison remain unacquired.
+- **G5 (open).** Numerical coefficient arithmetic is corrected and tested. Image/pushforward degrees, isolatedness after the finite lift, positivity and full perverse accounting must be supplied before any new exponential base is exported.
+- **G6 (later-verification).** All 24 pages of Sawin v2 were freshly read. Its general positive-characteristic polar-stalk proof is relevant later verification. Lemma 5.5 repeats the ST coefficient, Theorem 1.6 requires char≠2, and the parity display and version-of-record match remain unresolved. Appendix A does not prove the small-ratio dynamics transfer.
+- **G7 (open).** EMV pp.43–47 including §10.3 were read. Varying-place function-field dynamics and the precise Hecke mixing supplier remain unclosed; keep the joint assembly conditional.
+- **G8 (partial).** The ramified unit-level carrier is corrected, but its global quotient/measure dictionary is not proved merely by defining that carrier.
+- **G9 (open).** WC.1 is a consumer of the shared cohomological point-count trace formula. Original trace/weights/descent, intersection-theoretic and symmetric-power proofs and model-to-scheme adapters still require exact source closure.
+- **G10 (open).** Separated complex-betti-unrestricted-source. Supply the unrestricted reduction or an independent theorem before treating the restricted proof as the full introductory endpoint; this is a review coverage gate, not a new confirmed source error.
+
+## Superseded extraction and checkpoint history
+
+The text below is retained as provenance, including its executable regressions. Its claims of completion, resolved gaps, unconditional corrected constants, generic-point E6 example and withdrawal of later verification are superseded by the review above and the current JSON.
+
 # Shende–Tsimerman (2017): extraction and routing
 
 Issue [#1334](https://github.com/CBirkbeck/tauceti-explorer/issues/1334). Status: **complete**. Implementation and proof closure are not claimed.
