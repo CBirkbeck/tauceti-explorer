@@ -24906,17 +24906,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "Direct differentiation gives d(X_j/X_j)=0; the earlier basis statement and residue computation require X_j/X_i."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E2",
@@ -24928,17 +24929,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The unchanged nonzero refined Swan conductor is at level n+1, so the unramified restriction cannot lie in fil_n."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E3",
@@ -24950,17 +24952,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The unused quantified r has no occurrence in either inclusion or proof; harmless redundant text."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E4",
@@ -24972,17 +24975,18 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "Nonzero rsw alone excludes fil_{en−1}, not the larger Ev_{en−1}; β′≠0 follows from the actual hypothesis and repairs the implication."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E5",
@@ -24994,17 +24998,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The displayed class satisfies the right-hand inequality at n=e′−1 while failing the left-hand membership there; at n=e′ it belongs to both."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E6",
@@ -25016,39 +25021,202 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The proof must choose e(L/K)=p with unchanged residue field. Under the broad meaning non-tame, ferocious degree-p extensions need not have e=p and can kill the symbol. Specify a totally ramified extension to avoid this ambiguity; the proposition remains valid."
   },
   {
    "id": "PAPER-BRIGHT-NEWTON-23/E7",
    "kind": "gap",
    "locator": "Introduction, paragraph before Theorem C, p. 823 (Invent. Math.); same text in arXiv v5",
    "printed": "\"Our next result owes its existence to Wittenberg's suggestion that our methods could be used to address Question 1.4. It gives a positive answer to that question, and also shows that the answer to Question 1.3 is no, in general.\"",
-   "correction": "Theorem C gives a positive answer to Question 1.4 for every V that has good ordinary reduction at some prime of L, for example abelian surfaces and K3 surfaces. In general the positive answer is conditional on the existence of such a prime, conjectured by Serre and recorded by the authors right after Theorem C. The negative answer to Question 1.3 is unconditional, e.g. via K3 surfaces.",
+   "correction": "Theorem C gives a positive answer to Question 1.4 for every V that has good ordinary reduction at some prime of L, for example abelian surfaces and K3 surfaces. In general the positive answer is conditional on the existence of such a prime, conjectured by Serre and recorded by the authors right after Theorem C. The negative answer to Question 1.3 is unconditional, e.g. via K3 surfaces. Update as of this review: the general vanishing follows from Ambrosi–Newton–Pagano Corollary 1.1.2, independently of an ordinary prime; retain Theorem C's actual hypothesis when extracting the 2023 paper.",
    "reason": "Theorem C assumes a prime 𝔭 of good ordinary reduction, and its proof uses ordinarity through [BK, Theorem 0.7(iii)] to get gr⁰ H²(V̄_𝔭, Q_p) ≠ 0. For a smooth projective V with H²(V, O_V) ≠ 0 (so H⁰(Ω²) ≠ 0 by Hodge symmetry), nothing in the paper supplies such a prime. Ordinarity is geometric and does not change under finite extension of L. The paper itself says, after Theorem C, that ordinary reduction at a positive density of primes is only conjectured in general (Joshi, attributing it to Serre), and known for abelian surfaces and K3 surfaces. So the claim holds only for varieties with an ordinary prime.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "Ambrosi–Newton–Pagano, Wild Brauer classes via prismatic cohomology, arXiv:2509.22025, author PDF dated 30 October 2025, Corollary 1.1.2 and §1.1.3 (https://emiliano-ambrosi.perso.math.cnrs.fr/pdf/preprint/PrismaticBrauer.pdf): later resolution of Question 1.4, not a formal erratum to the original proof.",
    "searched": [
-    "arXiv 2009.03282: v1 (7 Sep 2020) to v5 (5 Oct 2023). v5 was read in full from its TeX source; its comment says 'minor changes. Final version' and points to the Inventiones Version of Record",
-    "the published version, Invent. Math. 234 (2023), 819–891 (open access, CC BY 4.0), read in full and compared word by word with v5: the only differences are typesetting and reference formatting, so every mistake below is in both",
-    "Crossref metadata for 10.1007/s00222-023-01210-8: no update, erratum or correction relation",
-    "the Springer article page for the DOI: no correction or erratum notice"
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
    ],
    "owner": "PAPER-BRIGHT-NEWTON-23",
    "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
    "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "Theorem C supplies only the ordinary-prime case. The later Ambrosi–Newton–Pagano Corollary 1.1.2 resolves the general question by another proof; this does not retroactively discharge the 2023 inference."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E8",
+   "kind": "misprint",
+   "locator": "Lemma 2.12 proof (3), published p.834; arXiv v5 p.12; also §2.4 published p.841",
+   "printed": "ι^q({χ,ā})={ι^{q−1}(χ),a}, χ∈H^q; H^q_n(K)=Br(K)[n].",
+   "correction": "For χ∈H^q use ι^{q+1}({χ,ā})={ι^q(χ),a}. In §2.4 the Brauer identification is H²_n(K)=Br(K)[n].",
+   "reason": "Cupping with a unit raises cohomological degree by one; the adjacent diagram explicitly has degrees q and q+1. The Brauer group is the degree-two case, not general H^q. The resulting constructions are unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "Cupping with a unit raises cohomological degree by one; the adjacent diagram explicitly has degrees q and q+1. The Brauer group is the degree-two case, not general H^q. The resulting constructions are unchanged."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E9",
+   "kind": "error",
+   "locator": "§2.3, published p.837; arXiv v5 p.16",
+   "printed": "Ω¹_{O_K}(log D)⊂Ω¹_K; 0→Ω¹_{O_K}→Ω¹_{O_K}(log D)→O_K→0.",
+   "correction": "Define the carrier through the standard log point on F, as the source's parenthetical alternative already suggests. A π-presentation before reduction is (Ω¹_{O_K}⊕O_K·ℓ)/(dπ−πℓ); after reduction ω¹_F≅Ω¹_F⊕F·ℓ. The residue exact sequence used for rsw is over F.",
+   "reason": "The quotient of the stated fractional-differential module by ordinary differentials is annihilated by π, since π dlogπ=dπ, so it cannot be O_K. In O_K=Z_p, d p=0, hence the fractional recipe adds nothing while the formal standard log point retains a nonzero log direction over F_p. Stacks 0FMU requires a split-injective df and f-torsion-free differentials, which fail here, and its residue target is supported on the divisor. Borger §4.5 directly defines the correct log point. This refutes the carrier/exact-sequence paragraph, not Kato's theorem.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The quotient of the stated fractional-differential module by ordinary differentials is annihilated by π, since π dlogπ=dπ, so it cannot be O_K. In O_K=Z_p, d p=0, hence the fractional recipe adds nothing while the formal standard log point retains a nonzero log direction over F_p. Stacks 0FMU requires a split-injective df and f-torsion-free differentials, which fail here, and its residue target is supported on the divisor. Borger §4.5 directly defines the correct log point. This refutes the carrier/exact-sequence paragraph, not Kato's theorem."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E10",
+   "kind": "error",
+   "locator": "Lemma 7.3(2) and proof, published pp.862–863; arXiv v5 p.35",
+   "printed": "u_i(Q̃₀)=dx_i([PQ]₁); u_i(P̃₀)=0.",
+   "correction": "For arbitrary local parameters use u_i(Q̃₀)−u_i(P̃₀)=dx_i([PQ]₁). Alternatively choose x_i(P)=0 before forming u_i; translate by x_i(P)∈πO_k.",
+   "reason": "On A¹_{Z_p}, choose the local parameter x at P₀=0 and take P=Q with x(P)=p. Then u=x/p has u(P̃₀)=u(Q̃₀)=1, whereas [PP]₁=0. Equation (7.3) itself gives the corrected difference. The hypotheses do not impose x_i(P)=0.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "On A¹_{Z_p}, choose the local parameter x at P₀=0 and take P=Q with x(P)=p. Then u=x/p has u(P̃₀)=u(Q̃₀)=1, whereas [PP]₁=0. Equation (7.3) itself gives the corrected difference. The hypotheses do not impose x_i(P)=0."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E11",
+   "kind": "gap",
+   "locator": "Lemma 8.4, published p.866; arXiv v5 p.38",
+   "printed": "rsw_{E,n−2(s+1)}(f*A)",
+   "correction": "The refined-conductor part requires n−2(s+1)≥1. Separate the terminal zero-level case, using the ordinary residue computation of Lemma 8.7, not rsw_0.",
+   "reason": "The written hypotheses permit p=n=2,s=0, giving an undefined rsw_0. Definition 2.14 defines rsw only at positive level, and §4.3 explicitly says that at level zero there is no refined Swan conductor. The paper already treats the p=2 terminal case separately in Lemma 8.7.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The written hypotheses permit p=n=2,s=0, giving an undefined rsw_0. Definition 2.14 defines rsw only at positive level, and §4.3 explicitly says that at level zero there is no refined Swan conductor. The paper already treats the p=2 terminal case separately in Lemma 8.7."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E12",
+   "kind": "error",
+   "locator": "Lemma 8.11, published p.874; arXiv v5 p.44; application on published p.873",
+   "printed": "C∈fil_n Br V[p^{t+1}], V over a neighbourhood of P₀ in 𝒳; rsw_{E,n}(C)=[0,β].",
+   "correction": "Construct on an open neighbourhood of P̃₀ in the π-chart of the blown-up model, and measure fil_n at E, not at the original Y. Set t=0 in the first interval. The stronger original-model descent assertions in Theorem 8.1(3)'s proof require a separate justification; no repaired global theorem is certified here.",
+   "reason": "For nonzero β, injectivity of rsw gives sw_E(C)=n. But any class extending to an original-model neighbourhood and having sw_Y(C)≤n has sw_E(C)≤n−1 when its conductor is positive, by Lemmas 8.3/8.6; conductor-zero classes stay tame by the unramified-splitting characterization. Already k=Q_3, n=1<e′=3/2, β=du on E=P¹ provides an incompatible pair of requirements. The displayed symbols involve u_i=x_i/π and naturally live on the blown-up chart. This establishes a false helper statement; it is not a counterexample to Theorems A–D.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "For nonzero β, injectivity of rsw gives sw_E(C)=n. But any class extending to an original-model neighbourhood and having sw_Y(C)≤n has sw_E(C)≤n−1 when its conductor is positive, by Lemmas 8.3/8.6; conductor-zero classes stay tame by the unramified-splitting characterization. Already k=Q_3, n=1<e′=3/2, β=du on E=P¹ provides an incompatible pair of requirements. The displayed symbols involve u_i=x_i/π and naturally live on the blown-up chart. This establishes a false helper statement; it is not a counterexample to Theorems A–D."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E13",
+   "kind": "error",
+   "locator": "Lemma 10.1, published p.883; arXiv v5 p.51",
+   "printed": "y∈O_K^×",
+   "correction": "Replace y∈O_K^× by y∈K^×. The proof and Proposition 10.2's use then match.",
+   "reason": "The proof chooses y=π in the p|n branch and for a top-level unit character. To see that a unit cannot always replace π, take K the fraction field of the henselisation of O_{Q_p(ζ_p)}[x]_(π), with residue F_p(x), and χ the Kummer class of x. The top graded-piece formulas used here and in Proposition 10.9 give sw(χ)=e′ and rsw_{e′}({χ,a})=[c dlog x∧dlog ā,0] for a unit a. Since Ω²_{F_p(x)}=0, every such cup has conductor <e′. Cupping with π gives [0,c dlog x]≠0. The correction is exactly what the existing proof establishes.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "The proof chooses y=π in the p|n branch and for a top-level unit character. To see that a unit cannot always replace π, take K the fraction field of the henselisation of O_{Q_p(ζ_p)}[x]_(π), with residue F_p(x), and χ the Kummer class of x. The top graded-piece formulas used here and in Proposition 10.9 give sw(χ)=e′ and rsw_{e′}({χ,a})=[c dlog x∧dlog ā,0] for a unit a. Since Ω²_{F_p(x)}=0, every such cup has conductor <e′. Cupping with π gives [0,c dlog x]≠0. The correction is exactly what the existing proof establishes."
+  },
+  {
+   "id": "PAPER-BRIGHT-NEWTON-23/E14",
+   "kind": "gap",
+   "locator": "§11 opening paragraph, published p.887; arXiv v5 p.54",
+   "printed": "∅≠V(A_L)^B⊊V(A_L)",
+   "correction": "Under surjective evaluation and nonempty adelic points, nonemptiness holds for every n; proper inclusion additionally needs n>1. Nonconstant evaluation is the separate sufficient condition.",
+   "reason": "For B=0 of order n=1 on P¹_L, evaluation onto Br(L_𝔭)[1]={0} is surjective but V(A_L)^B=V(A_L). The main applications use nontrivial classes, so the defect is the unqualified introductory test.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: publisher article https://link.springer.com/article/10.1007/s00222-023-01210-8; no Correction link found in the article page. This is a bounded check, not an exhaustive journal-wide certification.",
+    "2026-09-23: https://arxiv.org/abs/2009.03282 lists v5 (5 October 2023) as latest. Published PDF read completely; final-v5 corresponding passages checked. No claim of reading all historical revisions.",
+    "2026-09-23: https://api.crossref.org/works/10.1007/s00222-023-01210-8 returned empty relation and no update-to/updated-by correction fields.",
+    "2026-09-23: https://sites.google.com/view/rachelnewton/research lists this paper with no attached correction, and separately lists Ambrosi–Newton–Pagano arXiv:2509.22025.",
+    "2026-09-23: bounded web queries for the exact title with erratum, corrigendum and correction, and Bright Newton Lemma 8.11; no correction located. New means no correction found in these checks, not a priority claim."
+   ],
+   "owner": "PAPER-BRIGHT-NEWTON-23",
+   "file": "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+   "citation": "Bright–Newton, \"Evaluating the wild Brauer group\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BRIGHT-NEWTON-23",
+   "reviewReason": "For B=0 of order n=1 on P¹_L, evaluation onto Br(L_𝔭)[1]={0} is surjective but V(A_L)^B=V(A_L). The main applications use nontrivial classes, so the defect is the unqualified introductory test."
   },
   {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E1",
