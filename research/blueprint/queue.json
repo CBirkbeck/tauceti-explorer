@@ -1407,8 +1407,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WITASZEK-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1101"
+   "state": "external",
+   "note": "claimed on GitHub issue #1101"
   },
   {
    "id": "REV-PAPER-WITASZEK-22",
