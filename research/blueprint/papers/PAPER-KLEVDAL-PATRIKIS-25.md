@@ -1,78 +1,18 @@
-# Klevdal–Patrikis (2025): compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties, extraction and routing
+# Klevdal–Patrikis: adjoint canonical compatible systems
 
-Issue [#1207](https://github.com/CBirkbeck/tauceti-explorer/issues/1207). Status: **complete**. Implementation and proof closure are not claimed.
+Independent review by Codex, session `codex-7e92bd`, issue #1208, 23 September 2026. **Verdict: revise. Review complete; extraction partial.** The inventory has 150 items: 15 library, 19 planned and 116 missing. The 46 definition/construction items retain their planning APIs and three tests each. Routes 6, 8, 9 and 10 are accepted with the corrected contracts; routes 1–5 and 7 require revision. Nine original-source/interface gaps remain open.
 
-- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (the latest from #2117), whose report follows below as history.
-- **The paper.** C. Klevdal and S. Patrikis, *Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties*, Invent. Math. 242 (2025), 305–335 (open access).
-  - The published PDF was re-fetched; its SHA-256 (0691a57a…) matches the checkpoint.
-- **Items.** The result has **150 items: 14 library, 20 planned and 116 missing**. Every missing item is routed exactly once, and every numbered statement is an item; all twenty were checked against the published text.
-- **Mistakes.** Ten are recorded under `sourceIssues`.
+This report supersedes the earlier completion narrative. The earlier contributors wrote useful conditional repairs, but the remaining original supplier statements and exact owner/dependency contracts prevent a closed blueprint. Their prior completion and check records are preserved as provenance in the JSON, separately from the independent review.
 
-## This continuation (cc-442dc5)
+## Sources and actual reading
 
-**Items and findings.** No item or finding changes were needed.
-- The checkpoint already covers every numbered statement and routes every missing item.
-- Its findings already carry corrections for the proof issues E1–E4. E1–E3 are hypotheses and repairs in §§2–3; E4 concerns the integral position assumed by the cited Getz–Hahn statement.
+Christian Klevdal and Stefan Patrikis, *Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties*, Inventiones mathematicae 242 (2025), 305–335. The reviewer read all 31 pages of the [published article](https://link.springer.com/content/pdf/10.1007/s00222-025-01357-6.pdf), including proofs, footnotes and bibliography; images of journal pp326–331 were inspected. SHA-256: `0691a57a2aae841419ee97b8fac68aa8f3d499ed884933422a388106febab576`. It is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the extracted statements and proposed repairs are attributed adaptations, not author-approved amendments.
 
-**Gaps.**
-- G5 (the torus separation, E2) and G6 (the hyperspecial position, E4) are recorded as findings; the checkpoint's items write out the repairs.
-- The other eight are deferred as cited suppliers' proofs, design work or review.
+The deleted specialization section in [arXiv v1](https://arxiv.org/pdf/2303.03863v1), pp7–11, was read in full. Relevant passages of [v2](https://arxiv.org/pdf/2303.03863v2), pp1,8,17,20–23, were collated; this is not a claim to have reread both full preprints. The v1 SHA-256 is `ed38bd1baf9d052dc8ef767a5d959e332233087c4f003774e8b8cb6ec651be7b`; v2 is `71042dd475176292c3fc75f976c168808c294b59d001c8f224bfa848ae2af542`.
 
-**Why the status is now complete.**
-- Every numbered statement is an item.
-- Every missing item is routed exactly once, and the mistakes are recorded.
+The public [published Getz–Hahn backmatter](https://link.springer.com/content/pdf/bbm:978-3-031-41153-3/1), pp548–550, was read, including Lemmas B.5.1–2 on p549 and its page image. It was compared with the [22 April 2022 author draft](https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf), A.5.1–2 pp482–483. All three pages of the [author-linked July 2026 errata](https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf) were read: no relevant B.5 correction was found. Published backmatter SHA-256: `eeed7c1e648e0a9f998a22797b30820de00a6d08896a7ed448c3d08239dc42a2`. This closes the version-collation task; it does not extract the Macdonald/SGA3 supplier proofs.
 
-## Mistakes found (`sourceIssues`)
-
-- **E1** (gap; affects the proof), Journal §2 p312, after Lemma2.1; v2 §2 p8. *Printed:* There exists an open (dense) immersion *Correction:* Add quasi-projectivity of X_F, or make the existence of the stated smooth projective SNC compactification an explicit hypothesis as v1 did.
-- **E2** (gap; affects the proof), Journal Lemma3.9 p327 first proof paragraph; Theorem3.10 p331; Proposition3.7(3) pp324–326; same step in v2. *Printed:* the Q[Γ_Q]-modules X•(T_x,i)_Q are irreducible and non-isomorphic *Correction:* Retain pairwise nonisogeny, or inequivalence of rational character representations, as the separation property. At the auxiliary split primes in Proposition3.7 choose a split torus in one factor and an anisotropic torus in the other; prove this stronger property survives the twist.
-- **E3** (error; affects the proof), Journal Lemma3.6 p323 first sentence of proof; v2 §3.3. *Printed:* each T_v and K_v canonically decompose as products *Correction:* Replace each arbitrary open subgroup K_v by a product of sufficiently small open subgroups contained in it, then apply the factorwise argument. The tori do decompose.
-- **E4** (gap; affects the proof), Journal Lemma3.9 p328 paragraph after Eq.(7); same in v2 p22. *Printed:* is equal to T_x(Q_p)^0 *Correction:* The cited Getz–Hahn statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.
-- **E5** (misprint; affects nothing), Journal Remark3.8 p327; v2 Remark3.8 p20. *Printed:* Proposition 3.2 *Correction:* The intended comparison is with the special-point construction in Proposition3.7.
-- **E6** (misprint; affects nothing), Journal Lemma3.9 p328 after Eq.(7); v2 p21. *Printed:* for all cocharacters χ ∈ X•(T_x) *Correction:* Read characters, not cocharacters.
-- **E7** (misprint; affects nothing), Journal Lemma3.9 p329 first paragraph after the norm computation; v2 p22. *Printed:* strictly positive *Correction:* Read nonzero dominant in each Q-simple factor, sufficient to find some positive-root pairing; do not require membership in the strict interior of the dominant chamber.
-- **E8** (error; affects a stated result), arXiv v1 §2 p7, first bullet defining relative normal crossings; section deleted in v2, journal p314 footnote3 still points to v1. *Printed:* D|U is the inverse image of A^d_S *Correction:* Use an étale-local union of coordinate hyperplanes, with equation t₁⋯t_r=0, rather than a single coordinate linear subspace.
-- **E9** (misprint; affects nothing), Journal abstract p305; arXiv abstract and v2 p1. *Printed:* G(Q_ℓ)-valued local systems *Correction:* Specify compatibility of their adjoint projections, or say G^ad(Q_ℓ)-valued systems.
-- **E10** (misprint; affects nothing), Journal Lemma3.9(2) p327. *Printed:* a ∈ G(A_F) *Correction:* Use a∈G(A_f), as fixed in the lemma's opening sentence.
-
-The reasons and the places searched are in the JSON.
-
-## Gaps: status after this continuation
-
-- **G1, Original integrality and continuity input** (deferred). Esnault–Groechenig, Klevdal–Patrikis 2022, Margulis and Simpson are cited suppliers.
-- **G2, Non-complete-trait tame specialization** (deferred). Lieblich–Olsson, Grothendieck–Murre, Néron–Popescu and Artin are cited suppliers.
-- **G3, Companions and arithmetic ramification** (deferred). Petrov, Drinfeld, Chin and Kerz–Saito are cited suppliers.
-- **G4, Higher-rank lattice and group-theoretic sources** (deferred). The higher-rank lattice and group-theoretic results are cited suppliers.
-- **G5, Rational versus integral torus separation** (recorded). E2 records the separation property the proof of Lemma 3.9 needs; the strengthened argument is written out in the checkpoint's items.
-- **G6, Fixed hyperspecial position and general-uniformizer repair** (recorded). E4 records the unverified integral position for the cited Getz–Hahn statement; the general-uniformizer repair is written out in the checkpoint's items.
-- **G7, Soft integral model and canonical-tower leaves** (deferred). Pila–Shankar–Tsimerman–Esnault–Groechenig and Ullmo–Yafaev are cited suppliers.
-- **G8, Supplementary Serre-group and open-image remarks** (deferred). Serre's locally algebraic representations are a cited supplier for the supplementary remarks.
-- **G9, Baseline-to-stage closure and finer supplier IDs** (deferred). Finer supplier identifiers are design work.
-- **G10, Independent verification of source findings** (deferred). Independent review of the findings is the review pipeline's job.
-
-## Validation (cc-442dc5)
-
-`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
-
-## Checkpoint history (unchanged)
-
-The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
-
-## Klevdal–Patrikis: compatible adjoint local systems
-
-Worker: Codex — codex-c83e7a. Issue #1207. **Partial continuation**, 23 September 2026, preserving the extraction by codex-a71f92 in [PR #1996](https://github.com/CBirkbeck/tauceti-explorer/pull/1996).
-
-This continuation writes the two proof repairs previously left as proposals: ramified-uniformizer norm valuations, and rational isogeny separation of the special tori. It retains every inherited item ID and status, all ten routes, all ten source findings and all ten gap IDs. The extraction now has **150 items: 14 library, 20 planned and 116 missing**, with 271 acyclic dependency edges and 35 written proof outlines. The 21 definitions and 25 constructions have canonical `api` and `tests` lists, each with at least three entries; the earlier planning field names remain synchronized. No Lean file was created or compiled.
-
-The original group-theoretic, integrality, companion, tame-specialization and special-point-integrality references still require extraction. The repairs remain subject to independent mathematical review. Passing the artifact checks does not make this a complete paper job.
-
-### Reading and provenance
-
-The complete published article by Christian Klevdal and Stefan Patrikis, *Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties*, Inventiones mathematicae 242 (2025), 305–335, was freshly downloaded and read in full, including every proof, footnote and bibliography entry. [Published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01357-6.pdf): 31 pages, 1,462,931 bytes, SHA-256 `0691a57a2aae841419ee97b8fac68aa8f3d499ed884933422a388106febab576`, identical to the preceding checkpoint. Images of printed pp326,328,329 were checked for the cocycle and valuation formulas.
-
-The article is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The extraction and repairs are attributed adaptations, not an author-approved revision. The JSON retains the preceding worker’s precise supplementary reading ranges and hashes: selected arXiv v2 passages, the entire deleted v1 §2 pp7–11, Getz–Hahn’s 22 April 2022 draft Appendix A.5 pp482–483, and its three-page July 2026 errata. Those supplementary readings were **not repeated** in this continuation. The published 2024 Getz–Hahn appendix remains uncollated.
-
-Fresh checks of the [arXiv version history](https://arxiv.org/abs/2303.03863), [Patrikis papers page](https://people.math.osu.edu/patrikis.1/papers.html) and title/DOI correction searches found no relevant correction. ArXiv lists v2, 6 October 2024, as its latest version. The author page distinguishes the adjoint theorem from the full-G follow-up; neither the full-G nor p-adic follow-up is used as an input here.
+The [arXiv history](https://arxiv.org/abs/2303.03863), [Patrikis bibliography](https://people.math.osu.edu/patrikis.1/papers.html), [Klevdal page](https://sites.google.com/view/christianklevdal/home), [Getz book page](https://sites.duke.edu/jgetz/graduate-text/), and bounded title/DOI/correction searches were checked. The introduction of [Fujino–Payne](https://arxiv.org/pdf/math/0510679) supplies the smooth complete nonprojective examples for E1. No other original supplier paper is represented as fully read. “New” means no correction identified in this recorded search, not an exhaustive discovery or priority claim.
 
 ### The theorem, with its boundaries
 
@@ -91,7 +31,7 @@ The principal chain is:
 3. Their gcd gives a uniform candidate. At a good auxiliary coefficient prime, a tame G-companion pulls back through tame specialization. Superrigidity kills the geometric specialization kernel.
 4. This does **not** yet give arithmetic extension. Integral-section inertia centralizes dense geometric monodromy and is therefore trivial. Drinfeld's tangent-direction ramification test and arithmetic-section construction then rule out remaining arithmetic ramification.
 5. Proposition2.3 gives companions up to an algebraic automorphism. Proposition2.8 removes its outer class if an integral section has a common torus Frobenius class with trivial outer stabilizer.
-6. Proposition3.3 obtains G^ad-superrigidity from Margulis, factorwise dense arithmetic lattices, normal-subgroup comparison and coefficient descent. The extension Ω'/Ω in the intermediate theorem is not presumed finite.
+6. Proposition3.3 obtains G^ad-superrigidity from Margulis, factorwise dense arithmetic lattices, normal-subgroup comparison and coefficient descent. The extension Ω'/Ω in the intermediate theorem is not presumed finite; item074 now explicitly enlarges it to an algebraically closed overfield before fixed-field descent.
 7. Proposition3.7 supplies a special torus with real, p-adic, irreducibility, separation and dominant-cocharacter conditions. Its five conclusions are separate items. The separation contract is strengthened to nonisogeny at E2.
 8. Lemma3.9 uses reciprocity to produce q, Eq.(7) to control its p-adic valuations, and irreducible separated tori to prove cyclic density. Fixing q then forces an automorphism to fix a maximal torus pointwise and hence be inner.
 9. The uniform special section removes the outer ambiguity; Chebotarev makes the common quotient point Q-rational. This yields Theorem3.10 and then Corollary3.12.
@@ -136,7 +76,7 @@ Consequently v_pα(q_i)>0, and q_i cannot be torsion. Rational group points inje
 
 The reflex cocharacter is defined over E(x)⊂E(s), so the formula applies to L=E(s)_w. The special section already extends integrally by the soft-model theorem and separated descent, and its ℓ-adic representation is unramified at w∤Nℓ. That statement about the representation does not assert that the number-field extension at w is unramified. Assumption2.7 requires an integral section and compatible unramified representations; it imposes no unramifiedness hypothesis on C_y/F. Hence this replacement supplies exactly the input to Proposition2.8 and Theorem3.10.
 
-This repairs the **needed inference**, conditional on the explicitly retained foundational inputs. It leaves the paper’s separate intermediate assertion that E(s)_w/Q_p is unramified unproved. The integral-position theorem item092 and the published Getz–Hahn collation remain independent open work. They are not silently declared correct or removed from the inventory.
+This repairs the **needed inference**, conditional on the explicitly retained foundational inputs. It leaves the paper’s separate intermediate assertion that E(s)_w/Q_p is unramified unproved. The published Getz–Hahn collation is now complete: B.5.2 retains the integral-position hypothesis. Its original Macdonald/SGA3 proof suppliers remain open. The uniformizer argument bypasses that theorem’s unsupported application to the chosen torus.
 
 ### Written repair: separation and torus descent
 
@@ -158,174 +98,240 @@ For completeness, let H⊂∏T_i be a connected subtorus surjecting to every irr
 
 For the cyclic closure C of q, take H=C°. The rationality/base-change theorem for this closure remains item117. Since C/H is finite, a trivial projection of H to T_i would make q_i torsion. Infinite order therefore gives a positive-dimensional projection, and irreducibility gives surjectivity. The preceding argument gives H=∏T_i and hence cyclic density. The proper diagonal closure of (2,2) in G_m² confirms the necessity of excluding repeated factors.
 
-### Pinned library and owner boundaries
+## Corrected coefficient descent and components
 
-The pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Earlier baseline declarations and audit reads remain attributed to the preceding extraction. This continuation freshly read these exact new library statements and their hypotheses:
+Item074 now takes an algebraically closed common overfield Ω′ of the algebraically closed characteristic-zero coefficient field Ω. This enlargement preserves the factor maps. Density and the trivial adjoint centralizer make the conjugator unique and fixed by every Ω-automorphism. The common fixed field is Ω: a transcendental element can be included in a transcendence basis, translated by 1, and that automorphism extended to algebraic closures. Descending coordinates therefore suffices. The extraction no longer applies this fixed-field assertion to an arbitrary overfield. Without reading Margulis’s original construction, no additional source-error finding is assigned to this exposition.
 
-| Item | Declaration at the pin | Scope |
+For a fixed X⁺, use a finite set of representatives for G(Q)₊\G(A_f)/K₀, as in Eq.(4). Include the extension bounds and denominator primes from **every** such representative before forming Ntilde. Theorem3.10’s proof prints G(Q) instead; E11 records the omission. At genus-two principal level K(N), N≥3, g=diag(−I₂,I₂) has multiplier −1 and lies in GSp₄(Q). Thus 1 and g represent the same full-G rational double coset. Equality modulo G(Q)₊ would give −1=a·u with a a positive rational number, u a finite integral unit congruent to 1 modulo N. All finite valuations force a=1, contradicting −1≠1 mod N. This rank-two example shows the lost component. The corrected finite indexing enlarges N₁ if necessary; it does not change the theorem’s conclusion.
+
+## Library and atlas ownership audit
+
+All 14 inherited library items were independently checked at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Item150 adds an exact library match, bringing the count to 15. The library claims are limited to the following carriers and operations; scheme-specific adapters are not inferred from abstract categorical results.
+
+| Item | Existing declarations | Scope |
 | --- | --- | --- |
-| 138 | `Algebra.norm_eq_prod_embeddings`, Norm/Transitivity:268 | Finite separable scalar field norm, not an arbitrary torus norm |
-| 139 | `spectralNorm_unique_field_norm_ext`, SpectralNorm:770, variables 691–693 | Complete nontrivial nonarchimedean base; algebraic extension; real absolute values |
-| 140 | `isCompact_iff_finite`, `IsCompact.finite_of_discrete`, Compactness/Compact:511–518 | Compact subsets of a discrete space |
-| 141 | `MonoidAlgebra.Submodule.exists_isCompl`, Maschke:162 | Finite group, cardinality nonzero in the coefficient field |
+| 001 | `mathlib:CategoryTheory.PreGaloisCategory.FiberFunctor` | Galois fibre functor |
+| 002 | `mathlib:CategoryTheory.PreGaloisCategory.autMulEquivAutGalois` | Opposite deck-group limit |
+| 003 | `mathlib:CategoryTheory.PreGaloisCategory.functorToContAction` | Finite continuous monodromy sets |
+| 004 | `tauceti:TauCeti.torusCommHopfAlgProperty` | Algebraic torus carrier |
+| 005 | `tauceti:TauCeti.exists_characterLattice_addEquiv_of_torus` | Finite free torus character lattice |
+| 006 | `tauceti:TauCeti.CommHopfAlgCat.continuousSMul_groupLike` | Continuous Galois action on geometric characters |
+| 007 | `tauceti:TauCeti.TorusCommHopfAlgCat.instCharacterCocharacterPairingIsPerfPair`, `tauceti:TauCeti.TorusCommHopfAlgCat.finrank_cocharacterLattice_eq_characterLattice` | Perfect character–cocharacter pairing |
+| 008 | `tauceti:TauCeti.reductiveAffineGroupSchemeProperty` | Reductive group scheme carrier |
+| 136 | `tauceti:TauCeti.adjointSemisimpleCommHopfAlgProperty` | Adjoint semisimple group carrier |
+| 137 | `tauceti:TauCeti.adjointSemisimpleCommHopfAlgProperty.isCentralPoint_eq_one` | Universally central adjoint points are identity |
+| 138 | `mathlib:Algebra.norm_eq_prod_embeddings` | Field norm as a product of embeddings |
+| 139 | `mathlib:spectralNorm_unique_field_norm_ext` | Uniqueness of the extended absolute value |
+| 140 | `mathlib:isCompact_iff_finite`, `mathlib:IsCompact.finite_of_discrete` | Compact subsets of a discrete space are finite |
+| 141 | `mathlib:MonoidAlgebra.Submodule.exists_isCompl` | Equivariant complements for finite groups |
+| 150 | `tauceti:TauCeti.AlgHom.mapValue`, `tauceti:TauCeti.AlgHom.mapValue_injective`, `mathlib:orderOf_injective`, `mathlib:Function.Injective.isOfFinOrder_iff`, `mathlib:MulEquiv.orderOf_eq`, `mathlib:orderOf_inv` | Injective coefficient change on Hopf-coordinate points preserves order |
 
-The torus perfect pairing, free finite cocharacters and equal ranks were reread in TauCeti Torus/Cocharacter/Basic:45–105. The normalized valuation definition and uniformizer equation were read in LocalField/NormalizedValuation:89–120,295–305, and the continuity statement in Mathlib ValuedField:123–138. The normalized additive finite-extension API is not inferred from those declarations alone.
+Item150 uses `TauCeti.AlgHom.mapValue` and `mapValue_injective` at FunctorOfPoints.lean:141–169. The value-algebra map gives an injective homomorphism on Hopf-coordinate points. Mathlib’s `orderOf_injective`, `Function.Injective.isOfFinOrder_iff`, `MulEquiv.orderOf_eq`, and `orderOf_inv` supply order preservation, finite-order reflection, conjugation and inversion. The affine-group/Hopf interpretation is imported from the existing anti-equivalence; no new order-reflection theorem is planned.
 
-The complete reviewed **AUDIT-04 LocalFieldsRamification Layer0** entry was freshly read. It distinguishes built normalized valuations and spectral-norm uniqueness from the incomplete finite-extension local-field, topology and intrinsic e/f adapters. Item142 imports that existing upstream layer. No second local-field roadmap is proposed.
+Every inherited planned reference was read in its complete stage description. Twenty exact reviewed library-audit layers were inspected; an absent exact RG2 audit entry is not treated as an audited negative result. Additional supplier reads include V8, SF.2, D3, ET.0, DWP.7–8 and IG.2. The full upstream ReductiveGroups and HodgeStructures examples were used to calibrate granularity. Twenty-two tailored search clusters cover all 116 missing items, across both pinned Lean trees and the atlas’s stages, reviewed results, reserved proposals and decomposition data. Search expressions and item sets are retained in `independentReviewAudit.missingSearches`; broad lexical hits are not implementation evidence.
 
-The upstream ReductiveGroups stage descriptions were read, together with full LocalFieldsRamification Layer0 and ReductiveGroupsPartII RG2.0, RG2.0a and RG2.3. RG2.0 owns local point topologies and continuity (item143); RG2.0a owns affine Weil restriction and its splitting product; ReductiveGroups Layer0 owns the functor-of-points and field-extension injectivity used in item150. The six missing torus-specific additions, items144–149, extend the existing arithmetic-tori candidate. The KMPS22 and Kisin–Zhou25 briefs were reread to preserve their H¹-transfer/Conj ownership. No reviewed ReductiveGroupsPartII audit entry was found; that absence is not an audited negative result.
+The main ownership boundaries are:
 
-### Routing, retaining all ten owners
+- Abstract Galois categories are in Mathlib; scheme π₁, arithmetic exact sequences and proper specialization belong to IG.0/1. The open tame/noncomplete-trait extension needs its own precise suppliers.
+- RG2.0 owns local rational-point topology; RG2.0a owns affine Weil restriction and the Deligne-torus carrier. D1 supplies its Hodge/sign dictionary. D3/D4/D5 retain reflex cocharacters, Shimura data/special pairs and neatness/discrete-centre inputs.
+- LocalFieldsRamification Layer0 already plans finite-extension normalized valuation and topology adapters; built scalar norms and spectral norms do not supply the whole interface.
+- The accepted KMPS22/Kisin–Zhou arithmetic-tori candidate owns Conj and the global torus/H¹ work. ET.0 supplies stable/rational conjugacy and cohomology. No competing owner is introduced.
+- GS.6 supplies the GL_n correspondence and the accepted Kisin–Zhou/Chin coefficient and twist requests. DWP.7–8 supplies weight/semisimplicity inputs, not a general G-companion theorem. GS.5 is not the missing converse construction.
+- V4/V7/V8/V8.general retain canonical models, reflex reciprocity and level towers. IG.0/SF.2 supply the étale carriers; T6:comparison shares the same canonical local system. General comparisons are not prerequisites for their own construction.
+- SF.0 owns general spreading and separated integral-point descent, while R09.7d supplies a chosen quasiprojective SNC compactification. The pinned `AlgebraicGeometry.spread_out_of_isGermInjective` (SpreadingOut.lean:335) spreads a stalk morphism, not all smooth/projective/SNC structure.
+- Nearby maximal-torus existence under Lie-dimension hypotheses, Lie-algebra automorphisms and ordinary Galois descent do not supply p-adic compactness, algebraic-group outer descent or global H¹ approximation.
 
-#### 1. ReductiveGroupsArithmeticPartII (part-ii; 39 items)
+## Routes and review decisions
 
-Reuse the candidate already proposed by PAPER-KISIN-MADAPUSIPERA-SHIN-22 and PAPER-KISIN-ZHOU-25. It owns global tori, H¹ transfer and Conj; this paper adds irreducible, isogeny-separated torus approximation and outer-stabilizer interfaces, not a second torus roadmap.
+Every missing item occurs in exactly one route. Acceptance below means that the corrected owner and requested interface can be built on; it does not certify the external theorem proofs. Rejected briefs remain useful acquisition proposals but are not accepted design instructions.
 
-Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean. Continuation: items144–149 decompose the pointwise torus norm, compact-character vanishing, ramified embedding-pairing formula, dominant-orbit positivity, rational isomorphism from a torus-valued cocycle, and split–anisotropic rational separation. Reuse local-field Layer0 for item142 and RG2.0 for item143. Apply the explicit torus isomorphism to preserve character modules, keeping local conjugacy for real/p-adic embedding positions. The general-uniformizer proof bypasses the unproved special-point-field unramifiedness claim; it does not repair that separate claim. Use Maschke only for the finite-image rational Galois modules, never for all reductive-group representations in positive characteristic.
+### 1. ReductiveGroupsArithmeticPartII — reject
 
-#### 2. InverseGaloisPartIITameSpecialization (part-ii; 13 items)
+Reject the enlarged brief pending exact supplier/ownership closure. Reuse the accepted KMPS22/Kisin–Zhou ReductiveGroupsArithmeticPartII candidate and ET.0, but the current generic-torus/H¹/Serre targets still invoke unread original statements and the new shared torus adapters need exact owner nodes. The norm, nonisogeny and torus-descent calculations are valid conditional mathematics, not proof closure for the whole candidate.
 
-IG.0–IG.1 provide the finite-étale group and proper-family specialization. The open SNC-complement and non-complete strict-henselian G-trait comparison, plus tangent-curve ramification tests, require a genuine extension rather than an unrestricted reuse of proper specialization.
+Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean. Continuation: items144–149 decompose the pointwise torus norm, compact-character vanishing, ramified embedding-pairing formula, dominant-orbit positivity, rational isomorphism from a torus-valued cocycle, and split–anisotropic rational separation. Reuse local-field Layer0 for item142 and RG2.0 for item143. Apply the explicit torus isomorphism to preserve character modules, keeping local conjugacy for real/p-adic embedding positions. The general-uniformizer proof bypasses the unproved special-point-field unramifiedness claim; it does not repair that separate claim. Use Maschke only for the finite-image rational Galois modules, never for all reductive-group representations in positive characteristic. Independent-review boundary: import stable/rational conjugacy, inner twisting, Tate–Nakayama and abelianized group cohomology from EndoscopicTransferAndUnitaryTraceComparison:ET.0 as required by the accepted Kisin–Zhou proposal. Retain the shared KMPS22/Kisin–Zhou candidate, with no duplicate Conj or H¹ carrier. Use an algebraically closed common overfield in item074. Supply original statement-level contracts for the generic-torus, approximation, H¹ and Serre inputs before this enlarged brief is accepted.
+
+### 2. InverseGaloisPartIITameSpecialization — reject
+
+Reject pending original complete-trait and approximation contracts. IG.0/1 owns the geometric carrier, arithmetic sequence and proper specialization; the open SNC/noncomplete-trait extension is justified in direction, but its Néron–Popescu union, valuation descent, Artin and inertia-equivariance suppliers remain open. Drinfeld tangent-direction results need their exact source hypotheses before activating this combined design.
 
 Build on Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2), importing abstract Galois categories and opposite deck limits from Mathlib, boundary compactifications from AlgebraicModuliForArithmeticGeometry:R09.7d, and arithmetic spreading from SchemeAndStackFoundations. Define good smooth proper/SNC pairs with the corrected union-of-coordinate-hyperplanes charts, boundary-tame covers and the tame quotient. Extract Kerz–Schmidt compactification independence and curvewise tameness only in the original hypotheses. For a strictly henselian DVR that is a G-ring, prove the complete-trait cover equivalence, Néron–Popescu smooth-subalgebra approximation, descent retaining tame valuation data, and Artin approximation. Export separately v1 Corollary2.6(1) special-fibre equivalence, (2) generic-fibre full faithfulness and (3) surjective tame specialization, with paths and inertia equivariance along integral sections. This v1 section is deliberately cited by the journal, despite having been removed from v2. Then extract Drinfeld Corollary5.2's tangent-direction ramification detection and Lemma5.3/Theorem2.15's arithmetic section construction. The final interface is the arithmetic unramifiedness test used on journal p315; do not infer arithmetic extension from geometric factorization alone. Resolve the localization-versus-completion and valuation-descent gates. Suggested file TauCeti/AlgebraicGeometry/FundamentalGroup/TameSpecialization.lean.
 
-#### 3. ArithmeticLocallySymmetricSpacesSuperrigidity (part-ii; 7 items)
+### 3. ArithmeticLocallySymmetricSpacesSuperrigidity — reject
 
-ALS.0–ALS.1 already own arithmetic quotients and local systems, but neither Margulis's higher-rank extension theorem nor this all-coefficient-field comparison is a listed milestone. The extension imports the existing quotients rather than rebuilding them.
+Reject pending exact Margulis VIII.3.4(a), Borel-density and H¹-vanishing module hypotheses. ALS.0/1 provides the underlying quotients/local systems, and Proposition3.3 is a legitimate extension, but a direction and cited theorem number are not the missing supplier contract. Corrected074 makes the overfield descent sufficient without claiming the original Margulis source has been audited.
 
 Extend Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces) beyond ALS.0–ALS.1. Import adelic arithmeticity and component finiteness from AdelicAlgebraicGroups and ShimuraVarieties:V0, and the generic adjoint centralizer/descent interfaces from ReductiveGroupsArithmeticPartII. State real rank at the Q-simple factor level, permitting compact real factors in restrictions of scalars and forbidding rank-one Q-simple factors. Decompose the effective arithmetic lattice into a finite-index normal product, prove the commuting-normal-Zariski-closure argument, and extract Margulis VIII.3.4(a) with its extension Ω'/Ω and all lattice assumptions. Assemble the algebraic surjections, identify a surjective adjoint endomorphism with an automorphism, extend agreement from the normal product to the whole lattice, and descend the comparison to algebraically closed Ω. The final theorem is Klevdal–Patrikis Proposition3.3: every connected neat-level component group is G^ad-superrigid over every algebraically closed characteristic-zero coefficient field. Borel density and the exact H¹-vanishing/finite-abelianization/quasi-unipotence inputs are separate source-gated theorems, not consequences inserted into the definition. This owner supplies rigidity to the compatibility argument; it must not depend on compatibility. Suggested file TauCeti/Geometry/ArithmeticQuotients/Superrigidity.lean.
 
-#### 4. ArithmeticGaloisRepresentationsSuperrigidSystems (part-ii; 18 items)
+### 4. ArithmeticGaloisRepresentationsSuperrigidSystems — reject
 
-R01.1/R01.5 cover continuous linear systems and recognition, not the family of group-valued superrigid descents and the arithmetic unramifiedness argument. The CHT17 geometric-monodromy candidate concerns smooth proper cohomological families and uniform integral invariants, not this abstract rigidity method.
+Reject pending the exact integrality/continuity, Petrov and companion interfaces. In particular G-superrigidity is not silently H¹=0, O_L-integrality cannot be weakened to S-integrality, geometric density uses a finite base field, and a common F(λ)=F is a required hypothesis. The arithmetic tangent-section step is independent of geometric specialization factorization.
 
-Extend Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations), importing its continuous coefficient operations, the existing HodgeStructuresPartII integral-local-system interface, generic adjoint centralizers and Conj from ReductiveGroupsArithmeticPartII, tame specialization from InverseGaloisPartIITameSpecialization, and finite-field G-companions from GlobalShtukasPartIICompanions. Define G-superrigidity exactly as Definition2.2 with algebraic automorphisms, not inner conjugacy. Prove Lemma2.1's unique group extension and rationality separately from Simpson's continuity theorem. Build coefficient-place completions, the finite Out(G)-torsor, stabilizer descent fields and the explicit common-field hypothesis. Extract the EG18/KP22 integrality variant rather than replacing superrigidity by H¹=0. Starting from Petrov's individual N_λ, use the gcd exceptional set, tame companions, geometric density, and superrigidity to kill the specialization kernel; then separately kill integral-section inertia and apply the tangent-curve ramification test. Final results are Proposition2.3(1) uniform extension over one O_F[1/N'] and (2) fibrewise companionship up to τ(λ,λ',v), followed by Proposition2.8's symmetry-breaking criterion for τ to be inner. Record central twists as counterexamples to the non-adjoint uniqueness shortcut. No common F(λ), motivicity or untwisted companionship is built into the abstract assumptions. Suggested file TauCeti/NumberTheory/Galois/SuperrigidSystems.lean.
+Extend Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations), importing its continuous coefficient operations, the existing HodgeStructuresPartII integral-local-system interface, generic adjoint centralizers and Conj from ReductiveGroupsArithmeticPartII, tame specialization from InverseGaloisPartIITameSpecialization, and finite-field G-companions from GlobalShtukasPartIICompanions. Define G-superrigidity exactly as Definition2.2 with algebraic automorphisms, not inner conjugacy. Prove Lemma2.1's unique group extension and rationality separately from Simpson's continuity theorem. Build coefficient-place completions, the finite Out(G)-torsor, stabilizer descent fields and the explicit common-field hypothesis. Extract the EG18/KP22 integrality variant rather than replacing superrigidity by H¹=0. Starting from Petrov's individual N_λ, use the gcd exceptional set, tame companions, geometric density, and superrigidity to kill the specialization kernel; then separately kill integral-section inertia and apply the tangent-curve ramification test. Final results are Proposition2.3(1) uniform extension over one O_F[1/N'] and (2) fibrewise companionship up to τ(λ,λ',v), followed by Proposition2.8's symmetry-breaking criterion for τ to be inner. Record central twists as counterexamples to the non-adjoint uniqueness shortcut. No common F(λ), motivicity or untwisted companionship is built into the abstract assumptions. Suggested file TauCeti/NumberTheory/Galois/SuperrigidSystems.lean. Independent-review contracts: item031 requires O_L-integrality; use compact integral points over a finite coefficient-place completion in item033. The geometric-density argument044 is over a finite base field. The common F(λ)=F hypothesis is required, not derived from separate finite descent fields.
 
-#### 5. GlobalShtukasPartIICompanions (part-ii; 4 items)
+### 5. GlobalShtukasPartIICompanions — reject
 
-GS.6 owns the GL_n global correspondence, which is an input. Higher-dimensional Drinfeld companions, preservation of G-structure, and connected-monodromy recognition are not supplied by merely applying the GL_n theorem. This owner is distinct from the existing rigid p-to-ℓ/isocrystal companion extension.
+Reject the additional companions design until the original group-preserving companion theorem and tameness/recognition hypotheses are supplied. Import the accepted Kisin–Zhou GS.6/Chin coefficient/twist route, then isolate the higher-dimensional G-reconstruction genuinely beyond it. GS.5 gives only a one-way general-group parameterization; DWP.7–8 gives weights, not this reconstruction. No new duplicate GL_n companion owner is accepted.
 
-Build on Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), importing the actual GL_n global correspondence GS.6 and its finite-determinant/purity restrictions, not the one-way general-group parameterization GS.5. Coordinate the previously routed Chin inputs in PAPER-KISIN-ZHOU-25 and CHT17; do not duplicate their basic GL_n existence. Extend to Drinfeld's smooth finite-field-variety companions and the connected-monodromy reconstruction needed to retain a prescribed connected adjoint G-valued representation. Either fully extract Drinfeld2018's pro-semisimple comparison or justify the paper's permitted Drinfeld2012-plus-Chin route, including all determinant, normalization, embedding and dense-image hypotheses. Define companions by common semisimple Frobenius quotient classes. Prove the curvewise tameness/Swan comparison using Kerz–Schmidt and Deligne, and the density-one recognition of Remark2.5 by extending BHKT Proposition6.4 from curves with Chebotarev. Keep connected versus disconnected monodromy explicit. The final export gives the tame G-companion used in Proposition2.3 without the later Shimura compatibility theorem; no crystalline p-companion or motive is produced. The original-proof and hypothesis gates listed in this extraction must be discharged. Suggested file TauCeti/NumberTheory/FunctionField/GroupCompanions.lean.
+Build on Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), importing the actual GL_n global correspondence GS.6 and its finite-determinant/purity restrictions, not the one-way general-group parameterization GS.5. Coordinate the previously routed Chin inputs in PAPER-KISIN-ZHOU-25 and CHT17; do not duplicate their basic GL_n existence. Extend to Drinfeld's smooth finite-field-variety companions and the connected-monodromy reconstruction needed to retain a prescribed connected adjoint G-valued representation. Either fully extract Drinfeld2018's pro-semisimple comparison or justify the paper's permitted Drinfeld2012-plus-Chin route, including all determinant, normalization, embedding and dense-image hypotheses. Define companions by common semisimple Frobenius quotient classes. Prove the curvewise tameness/Swan comparison using Kerz–Schmidt and Deligne, and the density-one recognition of Remark2.5 by extending BHKT Proposition6.4 from curves with Chebotarev. Keep connected versus disconnected monodromy explicit. The final export gives the tame G-companion used in Proposition2.3 without the later Shimura compatibility theorem; no crystalline p-companion or motive is produced. The original-proof and hypothesis gates listed in this extraction must be discharged. Suggested file TauCeti/NumberTheory/FunctionField/GroupCompanions.lean. The accepted Kisin–Zhou25 source route already places basic GL_n/Chin plainness and twist interfaces in GS.6. Import that work and identify the additional higher-dimensional G-structure reconstruction separately. DWP.7–8 provide weight and geometric-semisimplicity inputs, not a general G-companion theorem. This enlarged design remains a source-acquisition task until an exact original G-companion contract is supplied.
 
-#### 6. HodgeStructuresPartII (part-ii; 1 items)
+### 6. HodgeStructuresPartII — accept
 
-Reuse the HodgeStructuresPartII candidate of Landesman–Litt, EG20 and Liu–Zhu, which already names integral versus strongly integral local systems. Its integral-structure carrier is shared, not newly owned by the superrigid endpoint.
+Accept the corrected extension of the already accepted HodgeStructuresPartII candidate. The one item is an O_L-integral group-valued realization with explicit model, field and conjugator, whose finite-place completions are shared by the consumers. Full integral realization, S-integrality and strong integrality remain distinct. The area now agrees with the accepted candidate; no new carrier or integrality theorem is smuggled in.
 
-Reuse the existing HodgeStructuresPartII design, extending Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures), and preserve its established ownership of variations, representation/Betti moduli and integral versus strongly integral local systems. The input needed here is an integral group-valued representation with the number field, integral group model and conjugator recorded, compatible with all coefficient-place completions. Import affine reductive carriers and representations from the pinned libraries and upstream ReductiveGroups rather than rebuilding Hodge fibres or algebraic groups. Coordinate EG18/KP22 and the source-gated integrality variant on journal p313 with ArithmeticGaloisRepresentationsSuperrigidSystems: this route does not claim superrigidity is identical to cohomological rigidity, or prove Simpson motivicity. Test a trivial integral object, dependence on the chosen integral model and the distinction between one local lattice and one global integral realization. No additional duplicate integral-local-system roadmap is proposed. Suggested interface file TauCeti/Geometry/Hodge/IntegralLocalSystems.lean.
+Reuse the existing HodgeStructuresPartII design, extending Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures), and preserve its established ownership of variations, representation/Betti moduli and integral versus strongly integral local systems. The input needed here is an integral group-valued representation with the number field, integral group model and conjugator recorded, compatible with all coefficient-place completions. Import affine reductive carriers and representations from the pinned libraries and upstream ReductiveGroups rather than rebuilding Hodge fibres or algebraic groups. Coordinate EG18/KP22 and the source-gated integrality variant on journal p313 with ArithmeticGaloisRepresentationsSuperrigidSystems: this route does not claim superrigidity is identical to cohomological rigidity, or prove Simpson motivicity. Test a trivial integral object, dependence on the chosen integral model and the distinction between one local lattice and one global integral realization. No additional duplicate integral-local-system roadmap is proposed. Suggested interface file TauCeti/Geometry/Hodge/IntegralLocalSystems.lean. The integral realization is over the full ring of integers O_L; localizing at S is not a substitute. Keep the group model as data, prove finite-extension transport to O_L′, and compare model changes explicitly. Area and candidate identity match the accepted Landesman–Litt/Esnault–Groechenig proposal; Liu–Zhu adds a compatible early Higgs prefix but its pending review is not used as acceptance evidence.
 
-#### 7. ShimuraVarietiesCompatibleSystemsPartII (part-ii; 25 items)
+### 7. ShimuraVarietiesCompatibleSystemsPartII — reject
 
-The generic canonical tower stays in V4/V8 and is shared with T6:comparison. The new layers are the soft integral model, symmetry-breaking sections and uniform adjoint ℓ-independence. The Honda–Tate sibling owns reduction/isogeny theory, not this higher-rank non-abelian-type proof.
+Reject pending the original soft-integral-model and canonical-reciprocity leaves and the unresolved supplier contracts above. The mathematical nonisogeny/norm repairs are now reviewed and the component index corrected, but this does not close PSTEG/Ullmo–Yafaev/Margulis/companion prerequisites or the supplementary Serre/open-image source range. Theorem3.10 is retained as an adjoint quotient-class target with one uniform bound.
 
-Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean. The continuation writes the Eq.(7) compact-character and ramified-uniformizer calculation and connects it through Eq.(6) to Assumption2.7. It requires no unramifiedness of the section field. The special-point construction uses pairwise nonisogeny justified by items094/148/149. These are worker-supplied proof repairs with foundational and independent-review gates still open.
+Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean. The continuation writes the Eq.(7) compact-character and ramified-uniformizer calculation and connects it through Eq.(6) to Assumption2.7. It requires no unramifiedness of the section field. The special-point construction uses pairwise nonisogeny justified by items094/148/149. These worker-supplied repairs are independently verified conditional on their hypotheses; the original foundational supplier gates remain open. Use representatives of G(Q)_+\G(A_f)/K₀ for the fixed X⁺ (E11), incorporating all their denominator primes into N₁. Published Getz–Hahn B.5.2 retains the integral-position hypothesis; E12 corrects the outdated A.5.2 locator. The written norm and nonisogeny repairs have passed independent mathematical review conditional on the suppliers, but the original external statements and proof interfaces remain acquisition tasks.
 
-#### 8. ShimuraVarieties (source; 6 items)
+### 8. ShimuraVarieties — accept
 
-The existing canonical-model and tower stages own reflex norms, component fields, finite étale level covers and their monodromy. Add the precise opposite-deck-group construction, Eq.(3), Lemma3.2 and the Betti comparison here; share the carrier with T6:comparison rather than creating a second local system.
+Accept as a precise source request in V4/V8/V8.general: torus reflex reciprocity, canonical components and the right-action finite-level tower, with opposite deck convention and Betti comparison. Import IG.0 and SF.2, and share the carrier with T6:comparison. This accepts the owner and requested statement, not completion of V7 or the external proof leaves.
 
-Existing stages: ShimuraVarieties:V4, ShimuraVarieties:V8.general.
+Stages: `ShimuraVarieties:V4`, `ShimuraVarieties:V8`, `ShimuraVarieties:V8.general`.
 
-#### 9. SchemeAndStackFoundations (source; 2 items)
+The existing canonical-model and tower stages own reflex norms, component fields, finite étale level covers and their monodromy. Add the precise opposite-deck-group construction, Eq.(3), Lemma3.2 and the Betti comparison here; share the carrier with T6:comparison rather than creating a second local system. Read V8 and V8.general together: V8 owns the algebraic level/Hecke tower; V8.general imports V7 for all data. Import the finite-étale Galois-category/π₁ carrier from IG.0 and sites/coefficient comparison from SF.2, sharing the canonical local system with T6:comparison. This source request specifies those tower adapters; it does not certify the canonical-model proofs.
 
-Finite-presentation spreading and separated integral-point descent belong to the general scheme/morphism foundations. The special theorem that all special points are uniformly integral remains a new Shimura input.
+### 9. SchemeAndStackFoundations — accept
 
-Existing stages: SchemeAndStackFoundations:SF.0.
+Accept as a general scheme-foundation source request. SF.0 owns the spreading and separated finite integral-point descent adapters; R09.7d supplies the chosen SNC compactification and route7 retains the stronger uniform special-point theorem. The pinned stalk-spreading theorem is a partial ingredient, not the full requested conclusion.
 
-#### 10. ReductiveGroupsPartII (source; 1 items)
+Stages: `SchemeAndStackFoundations:SF.0`.
 
-The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it. Item092 remains a separate source target. The repaired infinite-order application no longer depends on its claimed applicability to the chosen torus.
+Finite-presentation spreading and separated integral-point descent belong to the general scheme/morphism foundations. The special theorem that all special points are uniformly integral remains a new Shimura input. A pinned near match, AlgebraicGeometry.spread_out_of_isGermInjective (SpreadingOut.lean:335), spreads a stalk morphism; it does not spread smoothness/projectivity/SNC strata or prove separated integral-point descent. The source request is for precisely those general scheme adapters, with compactification supplied by R09.7d and uniform special-point integrality kept in route7.
 
-Existing stages: ReductiveGroupsPartII:RG2.3.
+### 10. ReductiveGroupsPartII — accept
 
-### Source findings awaiting independent verification
+Accept as the integral-position theorem in the existing RG2.3 hyperspecial/parahoric owner. Published Getz–Hahn B.5.2 has been read and retains the model/Borel/torus compatibility. This does not assert it applies to the arbitrary torus of Lemma3.9; that application is replaced by the conditional general-uniformizer argument.
 
-All ten records retain their IDs and no independent-review verdict is assigned. “New” means no correction was found in the recorded search, not a discovery-priority claim. E9 concerns the later abstract sentence about stronger compatibility; the abstract’s first displayed family already uses the adjoint group. None of these findings is a counterexample to the main compatibility theorem.
+Stages: `ReductiveGroupsPartII:RG2.3`.
 
-#### E1 — Journal §2 p312, after Lemma2.1; v2 §2 p8
+The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it. Item092 remains a separate source target. The repaired infinite-order application no longer depends on its claimed applicability to the chosen torus. Use published Getz–Hahn B.5.1–2, p549, now independently collated against the author draft; apply it only to the chosen integral torus/Borel/model triple. Macdonald/SGA3 proof leaves are acquisition work inside this owner.
+
+## Reviewed source findings
+
+Eleven findings are confirmed with the scope below. E7 is rejected as a confirmed misprint. None is presented as a counterexample to the main adjoint compatibility theorem.
+
+### E1 — confirmed (gap)
+
+**Locator:** Journal §2 p312, after Lemma2.1; v2 §2 p8
 
 Add quasi-projectivity of X_F, or make the existence of the stated smooth projective SNC compactification an explicit hypothesis as v1 did.
 
-The preceding hypothesis is only smooth geometrically connected finite type. An open subscheme of a projective scheme is quasi-projective, whereas smooth proper nonprojective varieties exist (for example the split smooth complete toric threefolds of Fujino–Payne, https://arxiv.org/abs/math/0510679). A proper open immersion into a projective compactification would make such a variety projective. Shimura varieties here are quasi-projective, so this does not change that application.
+Confirmed as a missing compactification hypothesis. The printed smooth finite-type assumption alone does not imply quasi-projectivity. A smooth proper nonprojective split toric example (Fujino–Payne, arXiv:math/0510679v2, introduction) cannot be an open subvariety of a projective variety: the open immersion would also be proper and therefore closed. v1 explicitly assumes the compactification; v2 and the journal assert existence. The Shimura application is quasi-projective.
 
-#### E2 — Journal Lemma3.9 p327 first proof paragraph; Theorem3.10 p331; Proposition3.7(3) pp324–326; same step in v2
+### E2 — confirmed (gap)
+
+**Locator:** Journal Lemma3.9 p327 first proof paragraph; Theorem3.10 p331; Proposition3.7(3) pp324–326; same step in v2
 
 Retain pairwise nonisogeny, or inequivalence of rational character representations, as the separation property. At the auxiliary split primes in Proposition3.7 choose a split torus in one factor and an anisotropic torus in the other; prove this stronger property survives the twist.
 
-The printed hypotheses only assert nonisomorphism of Q-tori, i.e. of integral Galois lattices. Nonisomorphic lattices can become isomorphic over Q. For example A₂ root and weight lattices under S₃ have index3 and the same irreducible rational representation; their integral intertwiner determinants are 3m², so none is unimodular. Pairwise integral nonisomorphism alone does not justify injectivity of the direct sum. This identifies a gap in the stated inference, not a counterexample to Theorem3.10; the stronger allowed local separation repairs the needed inference.
+Confirmed as a gap in the rational-character inference, not a counterexample to the main theorem. Independent A2 computation: the root/weight intertwiners are m[[2,-1],[-1,2]] over Z, all with determinant3m², though they give the same rational irreducible S3 module. Integral nonisomorphism does not imply rational nonisomorphism. The split/anisotropic local separation and torus-cocycle descent repairs in094/148/149 give the stronger contract; the multiplicity-free argument110/118 is valid conditional on the named global/local suppliers.
 
-Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned.
+### E3 — confirmed (error)
 
-#### E3 — Journal Lemma3.6 p323 first sentence of proof; v2 §3.3
+**Locator:** Journal Lemma3.6 p323 first sentence of proof; v2 §3.3
 
 Replace each arbitrary open subgroup K_v by a product of sufficiently small open subgroups contained in it, then apply the factorwise argument. The tori do decompose.
 
-An open subgroup of a finite product need not be a product: the inverse image of the diagonal under two copies of a nontrivial finite quotient is open and proper while projecting onto both factors. Every identity neighbourhood contains a product neighbourhood, and one may choose open subgroups there. This supplies the needed repair without strengthening the lemma.
+Confirmed. In PGL₂(Q₂)×PGL₂(Q₂), take the preimage of the diagonal S₃ in the reduction of PGL₂(Z₂)². It is open and proper with both full projections, so is not a product. A contained product of small open subgroups suffices for the proof. No change to Lemma3.6’s conclusion is needed.
 
-#### E4 — Journal Lemma3.9 p328 paragraph after Eq.(7); same in v2 p22
+### E4 — confirmed (gap)
 
-The cited Getz–Hahn statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.
+**Locator:** Journal Lemma3.9 p328 after Eq.(7); v2 p22; published Getz–Hahn Appendix B.5.1–2 p549 (draft A.5.1–2 pp482–483).
 
-The source has only an unramified generic torus in a Q_p-rational Borel and hyperspecial containment for the fixed model. In GL₂/Q₃ let u=[[1,1/3],[0,1]], T=uDu⁻¹ and t=u diag(2,1)u⁻¹=[[2,-1/3],[0,1]]. T is split and t belongs to its maximal compact subgroup, but t∉GL₂(Z₃). Getz–Hahn 22Apr2022 AppendixA.5, LemmasA.5.1–2 pp482–483 explicitly starts with an integral torus and Borel. The paper has not established that hypothesis for its chosen T_x. This invalidates the quoted equality's justification; it does not disprove the infinite-order conclusion. The proposed general-uniformizer repair requires a separate full proof audit.
+The published Getz–Hahn B.5.2 statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.
 
-Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned.
+Confirmed for the cited inference. Published Getz–Hahn B.5.1–2 p549, as well as draft A.5.1–2 pp482–483, explicitly uses an integral torus in an integral Borel of the chosen model. The GL₂/Q₃ calculation gives the printed equality’s missing-position diagnostic. The source does not establish that position. The separate arbitrary-uniformizer valuation repair is mathematically valid and bypasses the unramified-section-field claim; it does not prove that intermediate claim. All three pages of the current author errata were checked, with no relevant change.
 
-#### E5 — Journal Remark3.8 p327; v2 Remark3.8 p20
+### E5 — confirmed (misprint)
+
+**Locator:** Journal Remark3.8 p327; v2 Remark3.8 p20
 
 The intended comparison is with the special-point construction in Proposition3.7.
 
-There is no Proposition3.2; Lemma3.2 computes special-point monodromy, whereas Proposition3.7 is the five-condition construction whose parts(1),(4),(5) are cited in the same sentence.
+Confirmed index slip. The construction with the numbered conditions is Proposition3.7. The source’s Lemma3.2 is a different reciprocity computation, and no Proposition3.2 exists.
 
-#### E6 — Journal Lemma3.9 p328 after Eq.(7); v2 p21
+### E6 — confirmed (misprint)
+
+**Locator:** Journal Lemma3.9 p328 after Eq.(7); v2 p21
 
 Read characters, not cocharacters.
 
-χ is applied to a torus element and has codomain G_m. A cocharacter instead has domain G_m, so the displayed evaluation would be ill typed.
+Confirmed type slip, including the journal page image. χ is evaluated on a torus element and is an element of the character lattice; its domain is T and its codomain G_m.
 
-#### E7 — Journal Lemma3.9 p329 first paragraph after the norm computation; v2 p22
+### E7 — rejected (misprint)
+
+**Locator:** Journal Lemma3.9 p329 first paragraph after the norm computation; v2 p22
 
 Read nonzero dominant in each Q-simple factor, sufficient to find some positive-root pairing; do not require membership in the strict interior of the dominant chamber.
 
-Nontriviality of a dominant cocharacter does not force all simple-root pairings to be positive. In type A₂ the cocharacter (2,-1,-1) has pairings3,0. The next sentence uses only some root with positive pairing, so the intended proof needs this weaker precise formulation. This is a convention clarification, not a failure of the positivity argument.
+Rejected as a confirmed misprint or mathematical error. The source immediately explains nontriviality on each factor and uses only one positive-root pairing; it does not invoke positivity on every simple root. The A2 example refutes an interior-of-chamber interpretation but does not show that this interpretation was intended. Retain the precise nonzero-dominant formulation in the extraction and its boundary test, without registering the wording itself as a proved mistake.
 
-#### E8 — arXiv v1 §2 p7, first bullet defining relative normal crossings; section deleted in v2, journal p314 footnote3 still points to v1
+### E8 — confirmed (error)
+
+**Locator:** arXiv v1 §2 p7, first bullet defining relative normal crossings; section deleted in v2, journal p314 footnote3 still points to v1
 
 Use an étale-local union of coordinate hyperplanes, with equation t₁⋯t_r=0, rather than a single coordinate linear subspace.
 
-For d≤n−2 a coordinate A^d⊂A^n is not a Cartier divisor, and a single hyperplane cannot model an intersection of two boundary branches such as xy=0. The section was removed, not replaced by a corrected definition; the journal refers to it for the specialization proof.
+Confirmed for the v1 definition, which the journal still references. A coordinate linear subspace cannot model the crossing xy=0; for codimension≥2 it is not even a Cartier divisor. Read all of v1 pp7–11. The section was deleted in v2, not replaced by a corrected definition, and journal footnote3 explicitly points to it. Remove the completion summary’s claim that publication corrected it. This is not a disproof of tame specialization with the proper SNC definition.
 
-#### E9 — Journal abstract p305; arXiv abstract and v2 p1
+### E9 — confirmed (misprint)
+
+**Locator:** Journal abstract p305; arXiv abstract and v2 p1
 
 Specify compatibility of their adjoint projections, or say G^ad(Q_ℓ)-valued systems.
 
-Theorem3.10 proves compatibility only after adjoint projection; Remark3.14 explains why the full G-valued conclusion does not follow here. Patrikis's author page likewise describes the adjoint projection. The separate follow-up2504.00305 addresses full G. The abstract's wording should not be used as a stronger target.
+Confirmed only as an abstract scope omission. Its first displayed family is already adjoint; the later stronger-family sentence names G-valued local systems without mentioning projection. Theorem3.10 and Remark3.14, and the author’s bibliography, confine the proved compatibility to their adjoint projections. Do not interpret this as a counterexample to a claimed full-G theorem.
 
-#### E10 — Journal Lemma3.9(2) p327
+### E10 — confirmed (misprint)
+
+**Locator:** Journal Lemma3.9(2) p327
 
 Use a∈G(A_f), as fixed in the lemma's opening sentence.
 
-The datum is over Q and a is the fixed finite-adelic representative. No field F or adelic ring A_F is introduced at this point; the rest of the calculation uses the finite p-component.
+Confirmed in the journal image: the local component refers to the previously fixed finite adele a, so A_f is intended. The relevant v2 p21 passage already uses A_f correctly; this journal slip is not present there.
 
-### Remaining work
+### E11 — confirmed (misprint)
 
-- **G1 — Original integrality and continuity input.** Extract the exact EG18/KP22 variant, Margulis admissible H¹ modules, boundary conditions, and Simpson continuity. Do not identify superrigidity with cohomological rigidity or assert every dense representation integral without these gates.
-- **G2 — Non-complete-trait tame specialization.** Finish original Lieblich–Olsson A.7/A.12, Grothendieck–Murre, Néron–Popescu and Artin inputs. Verify Ahat as a union rather than merely a colimit, descent of valuations, and the inertia-equivariant paths used on journal p315. Correct v1 chart E8.
-- **G3 — Companions and arithmetic ramification.** Read Petrov6.1; one full G-companion route (Drinfeld2018 or Drinfeld2012+Chin); Kerz–Schmidt/Deligne and BHKT6.4; then Drinfeld's arithmetic tangent results. Check all determinant/purity/connectedness and coefficient assumptions. The journal proof identifies their uses, not their recursive closure.
-- **G4 — Higher-rank lattice and group-theoretic sources.** Extract the original Margulis, Platonov–Rapinchuk, Prasad–Rapinchuk and Voskresenskiĭ statements. Generic algebraic-group auxiliary arguments are itemized but still need a baseline-to-target expansion; coordinate existing H¹/Conj candidate instead of duplicating it.
-- **G5 — Rational versus integral torus separation.** The strengthened separation, factorwise torus-cocycle isomorphism and multiplicity-free subdirect-product proofs are now written in items094/103/106/110/118/148/149. Still obtain the original local anisotropic maximal-torus existence theorem, generic approximation and H¹ suppliers in G4 and independently verify the repair in G10. No unqualified closure or implementation claim.
-- **G6 — Fixed hyperspecial position and general-uniformizer repair.** The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Collation of the published Getz–Hahn appendix remains required for the separate item092/source finding E4; that collation is not claimed completed.
-- **G7 — Soft integral model and canonical-tower leaves.** Read PSTEG Theorem4.1 and Ullmo–Yafaev2.1–2.2; finish exact canonical-model, right-tower and centre/neatness proof leaves in V4/V7/V8. Coordinate the identical canonical local system consumed by T6:comparison, without importing all logarithmic RH.
-- **G8 — Supplementary Serre-group and open-image remarks.** Extract Serre's locally algebraic realization and the fixed-ℓ specialization/open-image input, then Huryn–Zhang only for the follow-up density-one assertion. The full-G follow-up, p-adic compatibility follow-up and BST Theorem9.7 remain downstream, not main theorem inputs.
-- **G9 — Baseline-to-stage closure and finer supplier IDs.** Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate. Continuation identifies LocalFieldsRamification Layer0, ReductiveGroupsPartII RG2.0/RG2.0a and ReductiveGroups Layer0 as owners of the new adapters. Resolve their exact supplier signatures and affine descent before claiming formal closure. The 46 API/test lists are planning specifications; inherited source-wide contracts beyond the focused repair still require per-node blueprint expansion.
-- **G10 — Independent verification of source findings.** All ten E-records await independent review; no reviewer verdict is self-assigned. Verify intended positivity conventions in E7 and adjoint abstract wording in E9 before treating these as confirmed errata. E1/E3 require the explicit corrected assumptions/step recorded in items.
+**Locator:** Journal Theorem3.10 proof p330, first paragraph; arXiv v2 p23; compare Eq.(4) journal p319
 
-The 16 inherited bibliographic prerequisite groups remain intact. Source references that were not read remain explicitly open; none is closed by a later paper that depends on this one. Resume with the original local torus/H¹/approximation inputs, or the Proposition2.3 integrality/companion/specialization chain. Independently review the written repairs before treating the source findings as confirmed errata.
+For a fixed X⁺ take representatives of G(ℚ)_+\G(𝔸_f)/K₀, as in Eq.(4), and form N₁ using all of them.
 
-### Validation
+The proof fixes X⁺ after choosing C, then treats those C-indexed components as all components. For the genus-two Siegel datum GSp₄ and neat principal K(N), N≥3, g=diag(-I₂,I₂) is rational with multiplier -1. Thus 1 and g have the same G(Q) double coset. If they had the same positive-G double coset, taking multipliers would give a positive rational finite unit times a unit congruent1modN equal to -1; the rational unit must be1, contradicting -1≠1modN. This example satisfies real rank2. The missing plus omits a component; using the correct finite set repairs the argument, without changing the theorem.
 
-The focused audit passed 1134 structural assertions: all inherited IDs/statuses retained, dependency endpoints and cycles checked, exact-once ownership of all 116 missing items, canonical API/test fields for all 46 definitions/constructions, and unchanged route/finding/gap identities. It passed 11567 exact arithmetic assertions for Eisenstein norm determinants, dominant-chamber coordinate sums, A₂ lattice intertwiners, finite-character projectors, Gaussian-rational cocycle descent, the fixed-hyperspecial counterexample and the repeated-factor obstruction. These are finite diagnostic checks, not a proof of the general local-field, descent, approximation or Galois statements.
+### E12 — confirmed (misprint)
 
-The paper checker and exact three-deliverable intake check passed; final snapshot and commands are recorded in the handoff. Earlier checker regression suites are inherited validation, not rerun here because the checker code was not changed. No Lean file was created or compiled. Partial status and all ten gaps remain.
+**Locator:** Journal Lemma3.9 p328, citation [14, Lemma A.5.2]; bibliography [14] journal p334
 
-Publication refresh: 556 inputs verified at 10981ece7d21f6f9671eb164bb8ee7343c95571b. Screened Binda–Kato–Vezzani25 and Liu–Zhu17 completion/source-finding metadata (no item changes), Yang–Zhao25 localized-Chern additions, Yuan26 height/gap-principle additions, Yuan–Zhang18 PEL/level/height comparisons, and new Caraiani–Scholze17 Igusa/torsion-concentration routes. None replaces the local-field or arithmetic-torus repair suppliers; no route identity changes.
+In the cited 2024 published Getz–Hahn book, use Lemma B.5.2, p549; A.5.2 is the 22April2022 draft locator.
 
-Final guard refresh: 557 inputs at f4627ae2ad33e157779697585f7018a5e9bbe1c0. AGHMP18 added/refined special-endomorphism, CM-level, Lubin–Tate and height leaves under its existing LT/orthogonal/CM owners. Its local semilinear-endomorphism and CM-height assertions do not supply or duplicate the generic arithmetic-torus norm/descent repairs here. Original three deliverable blobs remain unchanged.
+The journal bibliography cites the 2024 Springer book. The public published backmatter has the integral-torus lemma at B.5.2 p549, whereas the author draft has it at A.5.2 pp482–483. Both were read, and the published page image was inspected. This numbering correction is separate from the applicability gap E4.
+
+## Remaining closure work
+
+- **G1 — Original integrality and continuity input (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G2 — Non-complete-trait tame specialization (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G3 — Companions and arithmetic ramification (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap. Correct the inherited supplier name to Kerz–Schmidt (the cited tameness source), not Kerz–Saito.
+- **G4 — Higher-rank lattice and group-theoretic sources (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G5 — Rational versus integral torus separation (open):** The strengthened nonisogeny, rational-torus-descent and multiplicity-free density arguments are independently verified conditional on their hypotheses. Original anisotropic-torus existence, approximation and H¹ suppliers in G4 remain open.
+- **G6 — Fixed hyperspecial position and general-uniformizer repair (open):** General-uniformizer valuation, compact-character vanishing, positivity and the Eq.(6)–(7) application independently verified. Published-book collation completed. Finite-extension/topological/reflex-reciprocity and Macdonald/SGA3 supplier proofs remain open; the source’s intermediate unramified-field assertion is not certified.
+- **G7 — Soft integral model and canonical-tower leaves (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G8 — Supplementary Serre-group and open-image remarks (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G9 — Baseline-to-stage closure and finer supplier IDs (open):** Original supplier statements and exact dependency interfaces remain required; listing a citation or route does not close this gap.
+- **G10 — Independent verification of source findings (resolved):** Independent review finished: eleven of twelve findings confirmed with the recorded scope, E7 rejected. This closes verification of these records, not original-source proof closure.
+
+The JSON retains all 150 item statements, source locators, dependencies, APIs/tests, 16 prerequisite groups and detailed gap descriptions. These records expose the remaining source acquisition rather than treating bibliographic names as theorem nodes. Completion requires extracting those original statements with their hypotheses, adding their dependency nodes, reconciling exact owners and then revisiting routes 1–5 and 7.
+
+## Validation
+
+The paper checker, five-deliverable intake check, independent dependency/route/API audit and exact arithmetic diagnostics are recorded in the review and handoff. The fresh diagnostics contain 89 checks: A₂ integral/rational intertwiners, the diagonal finite quotient, fixed-model torus position, 75 ramified norm exponent cases, torus-cocycle descent, nonregular dominance, the GSp₄ component example and a crossing divisor. They test the concrete obstructions and computations; they are not proofs of the original supplier theorems. The inherited 11,567-check run was not rerun and is retained only under `previousChecks`.
+
+No Lean file is required or permitted among this issue’s deliverables, and none was compiled. Planning APIs/tests are not formalized declarations.
+
+Final atlas refresh: `ca5c885d4dcda14db02150265c0fd480dd49817e`. Final atlas refresh checked all sixteen changed paper-result/review files by status and route ownership; relevant fresh overlaps were read in full. Clausen–Mathew routes5/6 retain algebraic spaces and noetherian approximation/henselization at SF.1/SF.0, reinforcing route9. Xu–Zhu route3 and items41/46 concern the special Kloosterman/Bessel companion and monodromy problem, not the general higher-dimensional G-companion theorem042. Tsuzuki route3/item134 imports generic mixed p-adic coefficient Chebotarev from the shared arithmetic-D-module owner; it does not replace the l-adic G-reconstruction required here. Binda–Kato–Vezzani, Breuil et al., BLZ and IKM introduce no replacement owner for this review’s missing interfaces.
+
+The final refresh also checked Guo–Reinecke’s newly reviewed prismatic/crystalline-coefficient, arc and formal-duality routes; they do not change this review’s ownership decisions.
