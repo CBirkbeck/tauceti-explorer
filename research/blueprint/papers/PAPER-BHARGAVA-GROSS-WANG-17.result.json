@@ -210,12 +210,11 @@
       "name": "Kummer theory: H¹(K, μ_2) = K^×/K^{×2}",
       "statement": "For a field K of characteristic ≠ 2, the Kummer map identifies K^×/K^{×2} with H¹(K, μ_2).",
       "locator": "§2, p.8; §5, p.16; §8, p.22, arXiv:1310.7692v2",
-      "status": "library",
-      "library": [
-        "tauceti:TauCeti.FieldTheory.kummerClassMap_injective — TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:298, pin f790474821cf4256814db967cb154e7af3d0c369 (Kˣ/(Kˣ)ⁿ ↪ H¹(G_K, μₙ))",
-        "mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units — RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean:84 at 082e2d3 (Hilbert 90, which gives surjectivity)"
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
-      "note": "Tau Ceti proves injectivity; surjectivity is Hilbert 90 (Mathlib, finite Galois form)."
+      "note": "Corrected by REV-PAPER-BHARGAVA-GROSS-WANG-17 from library to planned. The libraries have the injection only: TauCeti.kummerClassMap_injective (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:298 at f790474) gives Kˣ/(Kˣ)ⁿ ↪ H¹(G_K, μₙ), and its own docstring says that surjectivity, which needs Hilbert 90, is what would upgrade it to the Kummer isomorphism; Mathlib's groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units (RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean:84 at 082e2d3) is the finite-Galois Hilbert 90, not the profinite statement the surjectivity needs. The paper uses the identification itself, printing 'H¹(K, μ_2) = K^×/K^{×2}' on p.8. The Tau Ceti ProfiniteCohomology roadmap, Layer 9, plans exactly this: Hilbert 90 for G_K and then the Kummer sequence and isomorphism."
     },
     {
       "id": "PAPER-BHARGAVA-GROSS-WANG-17/22",
@@ -740,14 +739,19 @@
       "kind": "error",
       "locator": "Proof of Theorem 28, p.19 (arXiv v2)",
       "printed": "\"When z_0 ≠ 0, we have α = (x − T)(Q) = x_0 − β. Then x′ = Span{(1, 0, 0), (β, 0, 0), . . ., (β^{g−1}, 0, 0), (β^g, 1, −½(x_0 + f_1/f_0))} is isotropic with respect to both bilinear forms.\" and, for z_0 = 0, \"x′ = Span{(h_1(β) − h_1(x_0), 0, 0), (β − x_0, 0, 0), . . . , ((β − x_0)^{g−1}, 0, 0), ((β − x_0)^g, 1, −½((2g + 1)x_0 + f_1/f_0))}\"",
-      "correction": "For g ≥ 1 neither plane is isotropic for B′: the (g − 1)-st basis vector pairs with the last one to −1 in the first case (+1, or h_1(x_0), in the second). The fix is to give that vector the third coordinate that cancels the pairing through ab′ + a′b:\n- z_0 ≠ 0: replace (β^{g−1}, 0, 0) by (β^{g−1}, 0, 1);\n- z_0 = 0, g ≥ 2: replace ((β − x_0)^{g−1}, 0, 0) by ((β − x_0)^{g−1}, 0, 1);\n- z_0 = 0, g = 1: replace (h_1(β) − h_1(x_0), 0, 0) by (h_1(β) − h_1(x_0), 0, −h_1(x_0)).\nThe corrected planes are isotropic for A′ and B′ and avoid the radical of A′, so the solubility claim and Theorem 28 stand.",
+      "correction": "For g ≥ 1 neither plane is isotropic for B′: the (g − 1)-st basis vector pairs with the last one to −1 in the first case (−1 again in the second when g ≥ 2, and h_1(x_0) when g = 1; sign corrected by REV-PAPER-BHARGAVA-GROSS-WANG-17). The fix is to give that vector the third coordinate that cancels the pairing through ab′ + a′b:\n- z_0 ≠ 0: replace (β^{g−1}, 0, 0) by (β^{g−1}, 0, 1);\n- z_0 = 0, g ≥ 2: replace ((β − x_0)^{g−1}, 0, 0) by ((β − x_0)^{g−1}, 0, 1);\n- z_0 = 0, g = 1: replace (h_1(β) − h_1(x_0), 0, 0) by (h_1(β) − h_1(x_0), 0, −h_1(x_0)).\nThe corrected planes are isotropic for A′ and B′ and avoid the radical of A′, so the solubility claim and Theorem 28 stand.",
       "reason": "With ⟨λ, μ⟩_{B′} = [β^{n−1}](αβλμ) + ab′ + a′b and α = x_0 − β: ⟨(β^{g−1}, 0, 0), (β^g, 1, −c)⟩_{B′} = [β^{2g+1}]((x_0 − β)β^{2g}) = −1 ≠ 0. All the other pairings of the printed plane vanish. In the Weierstrass case, h_1(β)(β − x_0) = f(β, 1) = 0 in L gives the same pairing −[β^{2g+1}](β(β − x_0)^{2g}) = −1 for g ≥ 2. The Gram matrices were computed symbolically: the printed planes fail and the corrected ones are isotropic in random examples with g = 1, 2, 3 in both cases.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the correction works. I recomputed both Gram matrices symbolically from the definitions on p.18, in my own implementation of L = K[x]/f(x,1), for g = 1, 2, 3 and random f. In the z_0 ≠ 0 case the printed (g+1)-plane is isotropic for A′ but its B′-Gram matrix has the single non-zero entry ⟨(β^{g−1},0,0), (β^g,1,−c)⟩ = [β^{2g+1}]((x_0−β)β^{2g}) = −1, and replacing (β^{g−1},0,0) by (β^{g−1},0,1) makes both Gram matrices vanish. In the Weierstrass case z_0 = 0 the printed plane fails likewise: for g ≥ 2 the failing entry is again −1, between ((β−x_0)^{g−1},0,0) and ((β−x_0)^g,1,−c), and for g = 1 it is h_1(x_0), between (h_1(β) − h_1(x_0),0,0) and (β−x_0,1,−c); both proposed replacements give an isotropic plane. The correction's parenthetical sign for the g ≥ 2 Weierstrass case read '+1' and has been corrected in place to −1, which is what its own reason says and what the computation gives; the replacements themselves are unchanged and correct.",
+        "by": "REV-PAPER-BHARGAVA-GROSS-WANG-17"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-GROSS-WANG-17/E2",
@@ -761,7 +765,12 @@
       "searched": [
         "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, recomputed independently. The printed curve [1,−1,0,−929,−10595] has discriminant 700673120 = 2⁵·5·7·79·7919, which 571 does not divide, so its conductor cannot be 571 (and 2·5·7·79·7919 = 43792070 is the value the finding reports). The curve [0,−1,1,−929,−10595] has discriminant −571, prime, hence conductor 571. Its c₄ = 44608 and c₆ = 9421480 against c₄ = 57811968 and c₆ = 439568570880 for y² = x³ − 27Ix − 27J with the quartic's I = 44608 and J = 18842960: the ratios are u⁴ = 1296 and u⁶ = 46656 with u = 6, so the two are isomorphic over Q, and both have j = −88764284403712/571. The paper's other numbers check: the quartic's discriminant is −2⁸·571.",
+        "by": "REV-PAPER-BHARGAVA-GROSS-WANG-17"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-GROSS-WANG-17/E3",
@@ -775,7 +784,12 @@
       "searched": [
         "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 44 on pp.34–35 imposes local conditions only at p and q, while the only proof available is Theorem A.3 (p.36), which requires C(K_p) ≠ ∅ and good reduction at every p ≠ p_0 with a unique prime above it in F, and, for the 2-Selmer conclusion, points on all four twists at every such p. For F = Q(√p, √q) the primes with a unique prime above them are p and q — which is what the non-residue hypothesis buys — and 2 exactly when 2 ramifies in one quadratic subfield and is inert in another, that is when one of p, q is ≡ 3 mod 4 and the other ≡ 5 mod 8; (p,q) = (5,3) satisfies both that and the non-residue hypothesis, since (5/3) = (3/5) = −1. No other prime can have a unique prime above it, because an unramified decomposition group in a Klein four extension is cyclic of order at most 2. Both stated alternatives also work: for p ≡ q ≡ 1 mod 4 the prime 2 is unramified in F and so has at least two primes above it, and if the prime that is ≡ 1 mod 4 is ≡ 1 mod 8 then 2 splits in that quadratic subfield and the decomposition group again has order at most 2. Theorem 44 carries no proof of its own in the paper, so the missing hypothesis is a gap in a stated result, as recorded.",
+        "by": "REV-PAPER-BHARGAVA-GROSS-WANG-17"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-GROSS-WANG-17/E4",
@@ -789,7 +803,12 @@
       "searched": [
         "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 33 (p.25) and Theorems 40 and 41 (pp.31, 33) print 16^n Z, while the proof on p.26 reads 'Given one such f(x,y) = f_0x^n + f_1x^{n−1}y + ⋯ + f_ny^n with coefficients in 16Z, then 2^{4i} | f_0^{i−1}f_i for i = 1,…,n', which is exactly the hypothesis of Proposition 34 and is immediate, since 16 | f_j for all j gives 16^i = 2^{4i} dividing f_0^{i−1}f_i. Theorem 15 on p.5 claims κ = 4, that is κ² = 16; with 16^n the same argument would give κ = 4^n. So the printed hypothesis is an unnecessarily strong misprint that the proof does not use.",
+        "by": "REV-PAPER-BHARGAVA-GROSS-WANG-17"
+      }
     },
     {
       "id": "PAPER-BHARGAVA-GROSS-WANG-17/E5",
@@ -803,7 +822,12 @@
       "searched": [
         "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
         "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, all four. The p.26 display prints 'g(x,y) = x^n + f_1x^{n−1}y + f_0f_2x^{n−2}y + ⋯ + f_0^{n−1}f_ny^n', where the third term needs y² for homogeneity: with y² one has g(f_0x, y) = f_0^{n−1}f(x,y), which is the identity the proof then uses. The p.37 sentence prints '> n rational points', while the points to be avoided — those whose x-coordinate is a root of f, plus the points at infinity — number up to 2n + 2, so '> n' does not by itself produce a good point. The two reference slips are printed as quoted on pp.41–42: Skorobogatov's Torsors and rational points is Cambridge Tracts in Mathematics 144 (2001), not 114 (2007), and Algebra & Number Theory volume 1 is 2007, not 1997.",
+        "by": "REV-PAPER-BHARGAVA-GROSS-WANG-17"
+      }
     }
   ]
 }

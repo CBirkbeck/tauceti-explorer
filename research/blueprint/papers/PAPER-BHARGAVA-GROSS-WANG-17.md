@@ -127,3 +127,38 @@ Links and reasons are in the JSON.
   - Mathlib `RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean:84` at 082e2d3.
 - Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-BHARGAVA-GROSS-WANG-17, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1437), **accepted** this
+extraction and all six routes, with two corrections made in place. The full record is
+[REV-PAPER-BHARGAVA-GROSS-WANG-17.md](../reviews/REV-PAPER-BHARGAVA-GROSS-WANG-17.md).
+
+The recorded hash of arXiv v2 reproduces. Every one of the 49 numbered environments the paper
+declares (Theorems 1–44 and A.1–A.8 with their propositions, lemmas, corollaries, definitions and
+Remark 4) appears in an item; 65 of 66 name-and-page locator checks land exactly, and the
+exception — item 13 citing p.34 inside the proof of Theorem 7, which begins on p.33 — is right too.
+All eight stage ids and all five planned layer ids exist, and route 1's two cross-claims hold: RS-07
+keeps ST.1's orbit-parametrization scope, and `PAPER-BHARGAVA-SHANKAR-WANG-22` does route its SO_n
+representation to ST.0/ST.1, so the pencils go to an existing direction rather than a new roadmap.
+
+**Correction 1.** Item 21, the Kummer identification `H¹(K, μ₂) = K^×/K^{×2}`, is now `planned` at
+the Tau Ceti `ProfiniteCohomology` roadmap's Layer 9 rather than `library`. Tau Ceti's
+`kummerClassMap_injective` gives only the injection — its docstring says surjectivity "is what would
+upgrade it to the Kummer isomorphism" — and Mathlib's cited lemma is the finite-Galois Hilbert 90,
+not the profinite statement that surjectivity needs; the paper uses the identification itself on
+p.8. The cited name is also corrected to `TauCeti.kummerClassMap_injective`: `FieldTheory` is part
+of the file path, not of the namespace.
+
+**Correction 2.** E1's correction gave the sign of the failing pairing in the Weierstrass case as
+`+1`; it is `−1` for `g ≥ 2` (and `h_1(x_0)` for `g = 1`), as E1's own reason says.
+
+All five findings are **confirmed**, each recomputed or re-read independently: E1's Gram matrices
+were rebuilt from the definitions on p.18 for `g = 1, 2, 3` in both cases, and the printed planes
+fail for `B′` in exactly one entry while all three proposed replacements are isotropic; E2's two
+curves have discriminants `2⁵·5·7·79·7919` and `−571`, and the corrected one is isomorphic over ℚ,
+with `u = 6`, to `y² = x³ − 27Ix − 27J`; E3's missing hypothesis at 2 arises exactly when one of
+`p, q` is `≡ 3 mod 4` and the other `≡ 5 mod 8`, and no prime besides `p`, `q` and `2` can have a
+unique prime above it in `ℚ(√p, √q)`; E4's proof states the hypothesis as `16ℤ` and Theorem 15 claims
+`κ = 4`; and Crossref confirms E5's two reference corrections. The JAMS text remains unread (403),
+so every verdict is a verdict about arXiv v2.
