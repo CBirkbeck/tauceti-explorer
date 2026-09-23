@@ -48359,15 +48359,16 @@
    "kind": "misprint",
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p39",
    "printed": "rho_P(m)^−1 phi(m) ∈ pi; phi_R(nmk)=rho_R(m)^−1 phi_pi(m)",
-   "correction": "With the latter basis convention, the membership condition is rho_R(m)phi(m)∈pi. Use R rather than the unrelated P and make the same choice in the intertwining normalization.",
-   "reason": "Even R=P, combining the two printed displays gives rho_P^−2 phi_pi instead of phi_pi. The extraction records the consistent basis convention; a full original-source normalization collation remains a gate. Image p32 checked.",
+   "correction": "Use R in the membership definition. Choose one inducing character s_R and write membership s_R⁻¹ phi∈pi and basis s_R phi_pi consistently. Laf97 pp281,284 supports the p32 membership text, whereas p39 uses the inverse basis. Transport operators and norms as in153; which presentation matches every printed scalar factor is still S2, not settled by inverting the p32 factor alone.",
+   "reason": "For the same rho_R, the two Yu displays are algebraically inconsistent already for R=P. Fresh images show Laf97 p284 also has rho_P⁻¹ phi∈pi and p281 defines rho through its action on Haar measures. This invalidates the earlier inference that the p32 formula alone should be reversed. The mismatch remains a candidate source issue; the correct global convention requires a complete dictionary.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "2026-09-23: freshly acquired Laf97, images pp281,284–286, and Yu v5 pp32,33,39; no journal-text collation."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -48382,14 +48383,15 @@
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: Yu §5.2.3 pp33–35 concerning Lafforgue1997 Theorem11 pp307–308",
    "printed": "Lafforgue: Theorem11 spectral Fourier recovery",
    "correction": "Use Yu Theorem5.2.2 and its proof from Lafforgue's Lemma9, retaining the finite-kernel torus map and normalized fibre sum.",
-   "reason": "Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion.",
+   "reason": "Yu explicitly identifies errors in the recovery of the spectral expression. Lafforgue pp306–308 were inspected; their OCR corrupts operators, so this record does not pretend to identify every glyph-level change. Yu reconstructs the formula and the |w||X_L^L| factor from Fourier inversion. Fresh Laf97 p308 image has a sum over chosen preimages after an integral on Im A_Psigma, without an explicit fibre-average coefficient. Its A_P^Q on p281 is connected, unlike Yu’s full X_M^L. Thus one must compare representative choices as well as denominators. The continuation derives the unambiguous all-lifts convention with D=|w||X_L^L| from Lemma9/Corollary10 and does not claim that inserting one factor into Laf97 reproduces all of Yu’s corrections.",
    "affects": "a stated result",
    "known": "Yu arXiv:1807.04659v5, §5.2.3, Theorem5.2.2",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
     "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
     "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
+    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee.",
+    "2026-09-23: complete image-level reading of Laf97 VI.2 pp301–308 and its normalization definitions pp280–287 (selected ranges as ledgered)."
    ],
    "owner": "PAPER-YU-23",
    "file": "research/blueprint/papers/PAPER-YU-23.result.json",
@@ -48780,28 +48782,6 @@
    "correction": "Use sigma_i sigma_(2g+1−i)=q, or the consistent sigma_i sigma_(i+g)=q for 1≤i≤g.",
    "reason": "At i=g the printed formula forces sigma_g²=q, incompatible with the ordinary eigenvalues used in the proof. Image checked.",
    "affects": "a stated result",
-   "known": "new",
-   "searched": [
-    "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
-    "Author https://www.hongjieyu.com/ checked; no erratum found on the inspected publication page.",
-    "arXiv1807.04659 submission history v1–v5 checked; v5 fully read, no full inter-version collation. Earlier versions may contain or correct an issue; not excluded.",
-    "Exact-title/DOI searches with erratum, corrigendum and correction; no separate erratum located. Final journal PDF not obtained; this is a bounded search, not a global novelty guarantee."
-   ],
-   "owner": "PAPER-YU-23",
-   "file": "research/blueprint/papers/PAPER-YU-23.result.json",
-   "citation": "Hongjie Yu, \"Comptage des systèmes locaux ℓ-adiques sur une courbe\", Annals of Mathematics 197 (2023), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
-  },
-  {
-   "id": "PAPER-YU-23/E28",
-   "kind": "misprint",
-   "locator": "Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, definition of floor",
-   "printed": "[x]=max{m∈Z : m<x}",
-   "correction": "Replace m<x by m≤x.",
-   "reason": "At an integer x the printed description gives x−1, whereas all floor identities and endpoint telescoping use floor(x)=x. Image checked on the same page as E7.",
-   "affects": "the proof",
    "known": "new",
    "searched": [
     "Publisher article record https://annals.math.princeton.edu/2023/197-2/p01 checked for correction links on2026-09-22; no correction found there.",
