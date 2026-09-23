@@ -3900,7 +3900,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NAKAMURA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1243"
   },
   {
    "id": "REV-PAPER-NAKAMURA-23",
