@@ -1,0 +1,2588 @@
+{
+  "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "agent": "Codex",
+  "session": "codex-hjdg0j",
+  "source": {
+    "title": "Serre weights and Breuil’s lattice conjecture in dimension three",
+    "authors": "Daniel Le, Bao V. Le Hung, Brandon Levin, Stefano Morra",
+    "venue": "Forum of Mathematics, Pi 8 (2020), e5, 135 pages",
+    "doi": "10.1017/fmp.2020.1",
+    "arxiv": "1608.06570v4",
+    "url": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
+    "readSections": [
+      "arXiv v4: entire text pp.1–102, §§1–6 and references; all proof text read, not all diagrammatic claims independently reconstructed.",
+      "Published 135-page version: selected comparison of cited tables, statements and computations, especially pp.29,33,38,43,51–52,59–65,67–71,78,99. Not a full version collation.",
+      "Original EGS15 §4.1, Lemmas 4.1.1–4.1.4 and proofs; HK04 Proposition 3.5 and adjacent depth proof; LLHLM18 Definition 7.3. Remaining originals listed as gaps."
+    ]
+  },
+  "summary": "Partial extraction of generic GL3 Serre weights, numerical Breuil–Mézard, cosocle lattices and Breuil lattice locality. The full main-paper text has been read. This checkpoint resolves the graph/lattice proof spine, separates the main geometry and patching endpoints, verifies concrete library carriers, routes reusable local algebra to its existing owners, and proposes two additional layers without a patching/lattice cycle. Original prerequisite proofs, many local charts and a complete definition/key-theorem inventory remain unclosed; see G01–G09.",
+  "conventions": {
+    "coefficients": "p>3; E/Q_p finite and sufficiently large for all embeddings, tame types and constituent fields of definition; O its integers, varpi a uniformizer, F its residue field. p and varpi are distinct symbols. Finite O-module means finitely generated, not necessarily torsion. Unless explicitly specified, type rings impose parallel Hodge–Tate weights eta=(2,1,0), with cyclotomic character of weight +1.",
+    "local": "K_v/Q_p is unramified in the main numerical/GL3 assertions; k_v has p^f_v elements and J is the disjoint union of its embeddings, f=sum f_v. Distinguish the algebraic restriction-of-scalars GL3 group, its finite group of rational points, and G1T. Genericity is measured via lowest-alcove presentations and D01; the complete construction is G01. Semisimplicity of a Galois representation is an independent hypothesis, not implied by inertial genericity.",
+    "notation": "sigma(tau)^sigma denotes the O-lattice with irreducible residual cosocle sigma, not a power. Rbar means reduction modulo varpi. Graph arrows run from quotient to subobject. Radical grades start at zero; soc_-1=0. The lattice exponent in Theorem 4.1.9(5) is a power of p after unramified descent, even if E is ramified.",
+    "global": {
+      "field": "F/F+ is CM with F+≠Q; F/F+ is unramified at every finite place, p is unramified in F+, and each p-place of F+ splits in F. Fix a lift v-tilde in F of every relevant split place.",
+      "group": "G/F+ is the definite unitary outer form of GL3 used in §5.3: compact at every real place and quasi-split at finite places, split by F. Fix the integral model and split-place identifications iota_v with GL3(O_Fv). Construction/existence is G07.",
+      "residual": "The continuous residual rbar is automorphic, has split ramification and satisfies D21; at all p-places it is semisimple, and at the chosen lifts it is 10-generic. Automorphic means nonzero localized finite-level algebraic automorphic forms for some coefficients; level lowering supplies the fixed minimal choices below.",
+      "level": "Choose the auxiliary place v1 as in CEG+16 §2.3 (exact selection conditions remain G07). U^p is hyperspecial at split v≠v1, the inverse image of upper triangular matrices at v1, and hyperspecial at inert v. Sigma0 contains precisely the ramified away-p places. W is a fixed O-lattice in the product of their minimal types as in CHT08 Definition 2.4.14, whose detailed definition remains G07.",
+      "hecke": "Use the paper’s dual convention: det(1−rbar^dual(Frob_w)X)=sum_(j=0)^3 (−1)^j Norm(w)^(j(j−1)/2) alpha(T_w^(j)) X^j. m is the kernel of alpha; lambda is the characteristic-zero eigensystem of the lift. Keep the distinguished v1 Hecke operator and omitted finite places as in §5.3.",
+      "lift": "For T48/T49, r is continuous, absolutely irreducible, almost everywhere unramified, r^c≅r^dual epsilon^−2, potentially crystalline of type ((2,1,0),tau_v) at chosen p-places, with the residual automorphic K-type condition of T48. T49 additionally requires a 13-generic tame p-type and minimal ramification away from p in the exact CHT sense. The conclusion is locality up to homothety."
+    }
+  },
+  "items": [
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L01",
+      "kind": "definition",
+      "name": "Representation carrier",
+      "statement": "For a semiring k and monoid G, Rep k G bundles an additive commutative group V, a k-module structure and a monoid representation on V; morphisms are equivariant linear maps. Finite-dimensionality and continuity are additional restrictions.",
+      "locator": "§4.1.1 module realisation; Mathlib/RepresentationTheory/Rep/Basic.lean:30–82",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Actual declaration read at the pinned commit.",
+      "proofOutline": "Actual declaration read at the pinned commit.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:Rep",
+        "mathlib:Rep.Hom"
+      ],
+      "api": [
+        {
+          "name": "equivariant_map",
+          "statement": "A morphism is a linear map commuting with the group action.",
+          "usedBy": "finite-group lattices"
+        },
+        {
+          "name": "underlying_module",
+          "statement": "Expose the underlying module without asserting finiteness.",
+          "usedBy": "radical/socle"
+        }
+      ],
+      "unitTests": [
+        "The trivial one-dimensional representation is admitted.",
+        "For trivial G, morphisms are linear maps.",
+        "Continuity is an additional predicate, not part of Rep."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L02",
+      "kind": "definition",
+      "name": "Socle",
+      "statement": "For any ring A and A-module M, socle A M is the supremum of its simple submodules; it is semisimple and contains every semisimple submodule.",
+      "locator": "§4.1.1; TauCeti/RingTheory/SimpleModule/Socle.lean:42–80",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Actual declaration read at the pinned commit.",
+      "proofOutline": "Actual declaration read at the pinned commit.",
+      "dependsOn": [],
+      "library": [
+        "tauceti:TauCeti.socle",
+        "tauceti:TauCeti.isSemisimpleModule_socle",
+        "tauceti:TauCeti.le_socle_of_isSemisimpleModule"
+      ],
+      "api": [
+        {
+          "name": "socle_semisimple",
+          "statement": "The existing socle is semisimple.",
+          "usedBy": "D08"
+        },
+        {
+          "name": "semisimple_le_socle",
+          "statement": "A semisimple submodule lies in the socle.",
+          "usedBy": "D08"
+        }
+      ],
+      "unitTests": [
+        "A simple module equals its socle.",
+        "The socle of F[t]/t^2 is (t).",
+        "A semisimple module equals its socle."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L03",
+      "kind": "theorem",
+      "name": "Nakayama vanishing",
+      "statement": "Let R be commutative, M an R-module, N a finitely generated submodule and I an ideal contained in the Jacobson radical of zero. If N ≤ I N, then N=0. Apply to a finite cokernel to lift generators.",
+      "locator": "§5.1.1 proof; Mathlib/RingTheory/Nakayama.lean:118",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Actual declaration read at the pinned commit.",
+      "proofOutline": "Actual declaration read at the pinned commit.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L04",
+      "kind": "definition",
+      "name": "Root pairing and integral root datum carriers",
+      "statement": "RootPairing consists of perfectly paired modules, indexed roots/coroots pairing to 2, and reflection permutations compatible with both families. RootDatum is its integral specialisation; finite generation is a separate hypothesis.",
+      "locator": "§1.4; Mathlib/LinearAlgebra/RootSystem/Defs.lean:82–109",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Actual declaration read at the pinned commit.",
+      "proofOutline": "Actual declaration read at the pinned commit.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:RootPairing",
+        "mathlib:RootDatum"
+      ],
+      "api": [
+        {
+          "name": "root_coroot_pair",
+          "statement": "A root pairs to two with its indexed coroot.",
+          "usedBy": "GL3 root conventions"
+        },
+        {
+          "name": "integral_root_datum",
+          "statement": "Use the integral specialization of the pairing.",
+          "usedBy": "affine datum to be supplied"
+        }
+      ],
+      "unitTests": [
+        "The diagonal root/coroot pairing must be two.",
+        "The rank-one datum has its reflection.",
+        "This carrier does not automatically impose finite root index."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L05",
+      "kind": "construction",
+      "name": "Weyl group carrier",
+      "statement": "The Weyl group of a root pairing P is the subgroup of Aut(P) generated by its root reflections. This alone does not supply the affine Weyl group or p-dot action of this paper.",
+      "locator": "§1.4; Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean:55",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Actual declaration read at the pinned commit.",
+      "proofOutline": "Actual declaration read at the pinned commit.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:RootPairing.weylGroup"
+      ],
+      "api": [
+        {
+          "name": "reflection_mem",
+          "statement": "Each root reflection belongs to the generated subgroup.",
+          "usedBy": "finite Weyl operations"
+        },
+        {
+          "name": "weyl_action",
+          "statement": "Its elements act as root-pairing automorphisms.",
+          "usedBy": "finite part of affine action"
+        }
+      ],
+      "unitTests": [
+        "The identity belongs to the subgroup.",
+        "A simple reflection is a member.",
+        "Translations by p times weights require extra affine data."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P01",
+      "kind": "construction",
+      "name": "Complete local coefficient algebra",
+      "statement": "For a complete coefficient DVR O, construct the category of complete Noetherian local O-algebras with fixed finite residue field and continuous local maps, completed tensor products and their Noetherian/locality theorems under the stated finiteness conditions.",
+      "locator": "§3.5.1",
+      "status": "planned",
+      "note": "Planning statement; not a formalisation. Owned construction, not an acquired proof; R03.1 covers precisely these coefficient operations.",
+      "proofOutline": "Owned construction, not an acquired proof; R03.1 covers precisely these coefficient operations.",
+      "dependsOn": [],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "api": [
+        {
+          "name": "complete_tensor",
+          "statement": "Construct the completed coefficient tensor with its maps.",
+          "usedBy": "R_infty"
+        },
+        {
+          "name": "power_series",
+          "statement": "Adjoin formal patching variables.",
+          "usedBy": "R_infty"
+        }
+      ],
+      "unitTests": [
+        "With no factors retain O.",
+        "An O factor does not change a completed tensor.",
+        "A noncontinuous homomorphism is not a coefficient morphism."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P02",
+      "kind": "theorem",
+      "name": "Maximal Cohen–Macaulay regular-local freeness",
+      "statement": "A finite maximal Cohen–Macaulay module over a regular Noetherian local ring is free; if its Hilbert–Samuel multiplicity is one and the ring has multiplicity one, its rank is one.",
+      "locator": "Lemma 5.1.2; Proposition 4.3.7",
+      "status": "planned",
+      "note": "Planning statement; not a formalisation. Auslander–Buchsbaum–Serre plus Auslander–Buchsbaum; source proof not yet acquired. Reviewed AUDIT-17 says this theorem is absent at the pins.",
+      "proofOutline": "Auslander–Buchsbaum–Serre plus Auslander–Buchsbaum; source proof not yet acquired. Reviewed AUDIT-17 says this theorem is absent at the pins.",
+      "dependsOn": [],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03",
+      "kind": "construction",
+      "name": "Potentially crystalline framed rings",
+      "statement": "For a residual rank-three representation of G_K, fixed coefficient DVR, framing, labeled Hodge type and inertial type, construct the p-torsion-free reduced potentially crystalline quotient with its characteristic-zero point criterion; incompatible data may yield zero.",
+      "locator": "§3.5.1; Kisin 2008 Theorem 3.3.4",
+      "status": "planned",
+      "note": "Planning statement; not a formalisation. LocalGaloisDeformationRings L7 already owns arbitrary-rank rings and dimensions. No direct entry for that roadmap was found in the reviewed audit; direct library searches found no Kisin deformation-ring construction.",
+      "proofOutline": "LocalGaloisDeformationRings L7 already owns arbitrary-rank rings and dimensions. No direct entry for that roadmap was found in the reviewed audit; direct library searches found no Kisin deformation-ring construction.",
+      "dependsOn": [],
+      "planned": [
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "api": [
+        {
+          "name": "type_point",
+          "statement": "Characteristic-zero points have the specified Hodge and inertial type.",
+          "usedBy": "3.5.3"
+        },
+        {
+          "name": "type_quotient",
+          "statement": "The type ring is a quotient of the framed ring.",
+          "usedBy": "3.6.1"
+        }
+      ],
+      "unitTests": [
+        "Incompatible determinant data can give the zero ring.",
+        "A point of wrong Hodge type is excluded.",
+        "Framing changes the deformation problem."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04",
+      "kind": "construction",
+      "name": "Degree-zero completed arithmetic tower",
+      "statement": "For the definite unitary tower of §5.3 with finite O/varpi^s coefficients, form S-tilde(U^p,W)=lim_s colim_Up S(U^p Up,W/varpi^s), retaining its topology, coefficient lattice and commuting Hecke/local-group actions.",
+      "locator": "§5.3, pp.90–92",
+      "status": "planned",
+      "note": "Planning statement; not a formalisation. Specialisation of CC.1, CC.2 and CC.8; finite-level arithmetic identification remains a consumer proof.",
+      "proofOutline": "Specialisation of CC.1, CC.2 and CC.8; finite-level arithmetic identification remains a consumer proof.",
+      "dependsOn": [],
+      "planned": [
+        "CompletedCohomologyPartII:CC.1",
+        "CompletedCohomologyPartII:CC.2",
+        "CompletedCohomologyPartII:CC.8"
+      ],
+      "api": [
+        {
+          "name": "tower_actions",
+          "statement": "Hecke and local-group actions commute.",
+          "usedBy": "5.8"
+        },
+        {
+          "name": "tower_residue",
+          "statement": "Relate finite-level coefficients to the completed tower.",
+          "usedBy": "5.3.5"
+        }
+      ],
+      "unitTests": [
+        "The p-level runs toward the identity.",
+        "Coefficient reduction uses varpi^s.",
+        "Fixing the away-p coefficient lattice is part of the input."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D01",
+      "kind": "definition",
+      "name": "Depth in a p-alcove",
+      "statement": "Fix p>3, X*(T)=(Z^3)^J and eta=(2,1,0)^J. A weight is n-deep in an alcove if, for every positive coroot alpha with alcove strip mp< <lambda+eta,alpha> <(m+1)p, its pairing lies strictly between mp+n and (m+1)p−n.",
+      "locator": "Definition 2.1.9",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Keep all positive coroots, strict inequalities, and embedding coordinates; affine p-dot translations are by p times a weight.",
+      "proofOutline": "Keep all positive coroots, strict inequalities, and embedding coordinates; affine p-dot translations are by p times a weight.",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "depth_affine_invariant",
+          "statement": "An affine p-dot action preserves n-depth.",
+          "usedBy": "Lemma 4.2.5"
+        },
+        {
+          "name": "depth_mono",
+          "statement": "n-depth implies m-depth for 0≤m≤n.",
+          "usedBy": "genericity hypotheses"
+        }
+      ],
+      "unitTests": [
+        "A weight on a strip endpoint is not 0-deep.",
+        "For p=101 the triple (40,20,0) is 13-deep in C0 after adding eta.",
+        "Translation by p times a root preserves depth while crossing into another alcove."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02",
+      "kind": "definition",
+      "name": "Extension graph",
+      "statement": "For p-regular Serre weights of GL3(k) with a fixed central character, use the injective translation charts Tr_mu of §2.1. In coordinates (omega,a) in Lambda_W × {0,1}^J, two vertices are adjacent iff exactly one embedding changes, its label flips, and the weight-coordinate difference is 0, ±epsilon1, ±epsilon2 or ±(epsilon1−epsilon2). Chart overlap transports this relation.",
+      "locator": "Definition 2.1.6 and Remark 2.1.7",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Translation-map construction and overlap proofs are explicit remaining gaps G01; the graph must not be defined by Ext, whose comparison is a theorem.",
+      "proofOutline": "Translation-map construction and overlap proofs are explicit remaining gaps G01; the graph must not be defined by Ext, whose comparison is a theorem.",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "adj_chart_independent",
+          "statement": "The relation is invariant under Lemma 2.1.5 chart changes.",
+          "usedBy": "Ext comparison"
+        },
+        {
+          "name": "adj_one_embedding",
+          "statement": "Adjacent vertices differ in exactly one component.",
+          "usedBy": "product metric"
+        }
+      ],
+      "unitTests": [
+        "The labels (0,0) and (0,1) are adjacent.",
+        "The displacement epsilon1+epsilon2 is not an edge.",
+        "Changing labels at two embeddings is not one edge."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03",
+      "kind": "definition",
+      "name": "Graph distance",
+      "statement": "For the extension graph within a fixed central-character component, d_gph is the length of a shortest edge path. The component is connected; on a product of embedding graphs this distance is the sum of component distances.",
+      "locator": "Definition 2.1.8",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Prove connectivity before exporting an N-valued metric; an arbitrary graph distance can be infinite.",
+      "proofOutline": "Prove connectivity before exporting an N-valued metric; an arbitrary graph distance can be infinite.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02"
+      ],
+      "api": [
+        {
+          "name": "distance_edge",
+          "statement": "Distance one is adjacency.",
+          "usedBy": "4.2.6"
+        },
+        {
+          "name": "distance_product",
+          "statement": "Cartesian-product distance is the sum.",
+          "usedBy": "4.3.14 and defect induction"
+        }
+      ],
+      "unitTests": [
+        "A vertex has distance zero from itself.",
+        "Distinct central-character components are not assigned finite distance.",
+        "Two independent single-coordinate edges have product distance two."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D04",
+      "kind": "definition",
+      "name": "Nine-point constituent model",
+      "statement": "For one embedding define Sigma with lower-label points 0, epsilon1, epsilon2, epsilon1+epsilon2, epsilon1−epsilon2, epsilon2−epsilon1 and upper-label points 0, epsilon1, epsilon2. Sigma_inn is the three lower points 0,epsilon1,epsilon2; Sigma_obv is its complement. For J take products; r flips every alcove label.",
+      "locator": "§2.3, Definition 2.3.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use the actual finite coordinate set; compare it with constituents by Proposition 2.3.5, not by definition.",
+      "proofOutline": "Use the actual finite coordinate set; compare it with constituents by Proposition 2.3.5, not by definition.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02"
+      ],
+      "api": [
+        {
+          "name": "sigma_card",
+          "statement": "One factor has nine vertices; the J-product has 9^|J|.",
+          "usedBy": "4.2.15 length argument"
+        },
+        {
+          "name": "sigma_partition",
+          "statement": "Inner and obvious vertices are disjoint and exhaust Sigma.",
+          "usedBy": "defect"
+        }
+      ],
+      "unitTests": [
+        "One factor has six obvious and three inner points.",
+        "The induced graph has 15 edges.",
+        "For two factors there are 81 vertices."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D05",
+      "kind": "definition",
+      "name": "Defect",
+      "statement": "For a generic Deligne–Lusztig R and its constituent chart Sigma^J, Def_R(sigma) is the number of embeddings at which its coordinate lies in Sigma_inn.",
+      "locator": "Definition 2.3.8",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The chart comparison and the constituent bijection must be supplied by G01; do not count all lower-alcove coordinates as inner.",
+      "proofOutline": "The chart comparison and the constituent bijection must be supplied by G01; do not count all lower-alcove coordinates as inner.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D04"
+      ],
+      "api": [
+        {
+          "name": "defect_bounds",
+          "statement": "0≤Def≤|J|.",
+          "usedBy": "Loewy-length formula"
+        },
+        {
+          "name": "defect_product",
+          "statement": "Defects add under products.",
+          "usedBy": "4.3.19"
+        }
+      ],
+      "unitTests": [
+        "(epsilon1+epsilon2,0) has defect zero.",
+        "(0,0) has defect one.",
+        "((0,0),(0,1)) has defect one."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T01",
+      "kind": "theorem",
+      "name": "Graph bipartiteness",
+      "statement": "The extension graph is bipartite by the parity of the number of upper labels, so an edge changes distance from a fixed vertex by an odd number, necessarily ±1.",
+      "locator": "Remark 2.1.11; Proposition 4.3.16",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Each edge flips precisely one label. Triangle inequalities bound the change by one.",
+      "proofOutline": "Each edge flips precisely one label. Triangle inequalities bound the change by one.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+      "kind": "theorem",
+      "name": "Longest geodesics and defect descent",
+      "statement": "In the nine-point product graph, every vertex kappa lies on a geodesic from sigma to a vertex at distance D=3|J|−Def(sigma). Every farthest vertex has defect at most Def(sigma). If both defects equal a positive delta, there is a neighbor of the farthest vertex with defect delta−1 and distance D−1 from sigma.",
+      "locator": "Remark 4.1.10, equation (4.22), proofs of 4.3.14 and 4.3.19",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Prove one nine-point factor by enumeration and extend using sums. Executed finite checks for |J|=1,2 are evidence, not a proof for arbitrary products.",
+      "proofOutline": "Prove one nine-point factor by enumeration and extend using sums. Executed finite checks for |J|=1,2 are evidence, not a proof for arbitrary products.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D05"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D06",
+      "kind": "definition",
+      "name": "Radical and cosocle",
+      "statement": "For a nonzero finite-length object M of a finite abelian F-category, rad(M) is the smallest subobject whose quotient is semisimple; cosoc(M)=M/rad(M). For a finite-dimensional algebra this is the intersection of maximal submodules.",
+      "locator": "§4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Establish existence through finite length; use the module presentation and L02 for the dual socle construction.",
+      "proofOutline": "Establish existence through finite length; use the module presentation and L02 for the dual socle construction.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L02"
+      ],
+      "api": [
+        {
+          "name": "cosoc_right_exact",
+          "statement": "Cosocles preserve epimorphisms and induced quotient radical filtrations.",
+          "usedBy": "4.3.3"
+        },
+        {
+          "name": "radical_semisimple_quotient",
+          "statement": "M/rad(M) is semisimple and universal among semisimple quotients.",
+          "usedBy": "Loewy series"
+        }
+      ],
+      "unitTests": [
+        "A simple object has zero radical.",
+        "The length-two Jordan block for F[t]/t^2 has one-dimensional radical and cosocle.",
+        "For S⊕T the radical is zero."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07",
+      "kind": "construction",
+      "name": "Radical filtration",
+      "statement": "For finite-length M, set rad^0 M=M and rad^(n+1) M=rad(rad^n M), with decreasing semisimple associated grades rad^n/rad^(n+1).",
+      "locator": "§4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Termination uses finite length. Transport across quotient maps to prove strict compatibility, needed by Q_sigma.",
+      "proofOutline": "Termination uses finite length. Transport across quotient maps to prove strict compatibility, needed by Q_sigma.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D06"
+      ],
+      "api": [
+        {
+          "name": "rad_zero",
+          "statement": "rad^0 M=M.",
+          "usedBy": "filtration indexing"
+        },
+        {
+          "name": "rad_quotient",
+          "statement": "A quotient receives its radical filtration from M.",
+          "usedBy": "4.3.3"
+        }
+      ],
+      "unitTests": [
+        "For a simple object only grade zero survives.",
+        "For F[t]/t^3 the three grades are at 0,1,2.",
+        "The quotient by t^2 of that module has length two."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D08",
+      "kind": "construction",
+      "name": "Socle filtration",
+      "statement": "For finite-length M, set soc_-1 M=0; soc_n M is the inverse image of soc(M/soc_(n−1) M). Its semisimple grade n is soc_n/soc_(n−1).",
+      "locator": "§4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Reuse TauCeti.socle on module presentations and prove transport to finite abelian categories; no second socle carrier.",
+      "proofOutline": "Reuse TauCeti.socle on module presentations and prove transport to finite abelian categories; no second socle carrier.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L02"
+      ],
+      "api": [
+        {
+          "name": "socle_grade_zero",
+          "statement": "The grade at zero is soc(M).",
+          "usedBy": "4.2.6"
+        },
+        {
+          "name": "socle_subobject",
+          "statement": "A subobject receives the socle filtration by intersections.",
+          "usedBy": "4.2.7"
+        }
+      ],
+      "unitTests": [
+        "For S simple, soc_0 S=S.",
+        "For F[t]/t^3, soc_0=(t^2), soc_1=(t).",
+        "The zero subobject has every socle term zero."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D09",
+      "kind": "definition",
+      "name": "Loewy length and rigidity",
+      "statement": "For nonzero finite-length M, its Loewy length ell is the common termination length of its radical and socle filtrations, with last nonzero grade ell−1. It is rigid iff rad^n M=soc_(ell−n−1) M for 0≤n≤ell.",
+      "locator": "§4.1.1, equation (4.1)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. First prove that the two lengths coincide and are minimal among lengths of exhaustive separated semisimple filtrations. The definition does not assert every module is rigid.",
+      "proofOutline": "First prove that the two lengths coincide and are minimal among lengths of exhaustive separated semisimple filtrations. The definition does not assert every module is rigid.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D08"
+      ],
+      "api": [
+        {
+          "name": "loewy_minimal",
+          "statement": "Every semisimple filtration has length at least ell.",
+          "usedBy": "4.1.6"
+        },
+        {
+          "name": "rigid_grades",
+          "statement": "Rigid modules have opposite radical/socle grades.",
+          "usedBy": "4.1.9(4)"
+        }
+      ],
+      "unitTests": [
+        "A simple object has ell=1 and is rigid.",
+        "F[t]/t^3 has ell=3 and is rigid.",
+        "S⊕F[t]/t^2 has ell=2 and is not rigid: its radical omits the direct simple summand in soc_0."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D10",
+      "kind": "definition",
+      "name": "Multiplicity-free extension digraph",
+      "statement": "For multiplicity-free finite-length M, vertices are its simple composition factors. Put sigma→sigma_prime iff M has a nonsplit length-two subquotient 0→sigma_prime→E→sigma→0. A subset is closed when it contains every target of every arrow out of it.",
+      "locator": "§4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Direction is from quotient to subobject. Multiplicity-freeness is essential for the reconstruction theorem; use composition-factor sets only after proving it.",
+      "proofOutline": "Direction is from quotient to subobject. Multiplicity-freeness is essential for the reconstruction theorem; use composition-factor sets only after proving it.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L01"
+      ],
+      "api": [
+        {
+          "name": "extension_arrow",
+          "statement": "An arrow produces the specified nonsplit exact sequence.",
+          "usedBy": "4.2.10"
+        },
+        {
+          "name": "closed_intersection",
+          "statement": "Intersections of closed vertex sets are closed.",
+          "usedBy": "minimal Q_sigma"
+        }
+      ],
+      "unitTests": [
+        "For a split sum S⊕T the two-vertex graph has no edges.",
+        "A nonsplit extension of S by T has arrow S→T.",
+        "S⊕S is rejected as not multiplicity free."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03",
+      "kind": "theorem",
+      "name": "Subobjects are closed constituent subsets",
+      "statement": "For multiplicity-free M in a finite abelian category, N↦JH(N) bijects subobjects of M with closed subsets of its extension digraph.",
+      "locator": "Proposition 4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. For surjectivity take a minimal subobject containing the chosen factors; an extra factor maximal in the arrow order would give a removable simple quotient. For injectivity multiplicity-freeness identifies intersections by their factors.",
+      "proofOutline": "For surjectivity take a minimal subobject containing the chosen factors; an extra factor maximal in the arrow order would give a removable simple quotient. For injectivity multiplicity-freeness identifies intersections by their factors.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D10"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D11",
+      "kind": "definition",
+      "name": "Filtered extension graph and depth",
+      "statement": "For a semisimple exhaustive separated filtration F of a multiplicity-free object M, d_F(sigma) is its unique nonzero associated-grade index. Gamma_F retains arrows for which the induced shifted filtration on the length-two extension has length two; radical and socle graphs use their respective filtrations.",
+      "locator": "§4.1.1, Proposition 4.1.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Require semisimple filtration for the Hom-to-grade definition; for arbitrary grades a factor need not be in the socle of its grade.",
+      "proofOutline": "Require semisimple filtration for the Hom-to-grade definition; for arbitrary grades a factor need not be in the socle of its grade.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D10"
+      ],
+      "api": [
+        {
+          "name": "filtered_arrow_grades",
+          "statement": "A filtered arrow relates consecutive relevant grades.",
+          "usedBy": "4.1.3"
+        },
+        {
+          "name": "subquotient_full_graph",
+          "statement": "Subquotients inherit the full digraph on their vertices and the restricted filtration.",
+          "usedBy": "4.2.16"
+        }
+      ],
+      "unitTests": [
+        "The nonsplit length-two extension has depths 0 and 1 for the radical filtration.",
+        "The same extension reverses depth order under the socle filtration.",
+        "A split sum has no filtered arrows even if placed in distinct grades."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T04",
+      "kind": "theorem",
+      "name": "Paths in Loewy filtrations",
+      "statement": "For multiplicity-free M, every constituent in radical grade n is the end of a radical extension path of length n; dually every constituent in socle grade n starts a socle path of length n.",
+      "locator": "Lemma 4.1.3 and Corollary 4.1.4",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Successively select a nonsplit extension with a factor in the adjacent grade; otherwise that factor would split off earlier.",
+      "proofOutline": "Successively select a nonsplit extension with a factor in the adjacent grade; otherwise that factor would split off earlier.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D11"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T05",
+      "kind": "theorem",
+      "name": "Rigidity by continuing extension paths",
+      "statement": "For multiplicity-free M of Loewy length ell, rigidity is equivalent to each sigma starting a radical extension path of length ell−1−d_rad(sigma); equivalently each sigma ends a socle path of length ell−1−d_soc(sigma).",
+      "locator": "Proposition 4.1.6",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Arrow paths bound the opposite filtration depth from below; equation (4.1) gives the reverse inequality. Equality for every factor gives equality of subobjects via multiplicity-freeness.",
+      "proofOutline": "Arrow paths bound the opposite filtration depth from below; equation (4.1) gives the reverse inequality. Equality for every factor gives equality of subobjects via multiplicity-freeness.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T04"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T06",
+      "kind": "theorem",
+      "name": "Duality reverses extension arrows",
+      "statement": "An exact contravariant duality on a finite abelian category sends a multiplicity-free object to one with the opposite extension digraph, and reverses extension paths and radical/socle filtrations.",
+      "locator": "Proposition 4.1.7, corrected first digraph display (E10)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Dualise 0→T→E→S→0 to 0→S*→E*→T*→0. Both unrestricted and filtered graphs require transposition.",
+      "proofOutline": "Dualise 0→T→E→S→0 to 0→S*→E*→T*→0. Both unrestricted and filtered graphs require transposition.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D11"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12",
+      "kind": "construction",
+      "name": "Irreducible-cosocle lattices",
+      "statement": "For a 2-generic Deligne–Lusztig representation R of the product of GL3(k_v) over a sufficiently large finite p-adic coefficient field E, each sigma∈JH(R) has an O-stable lattice R^sigma with cosocle of its reduction isomorphic to sigma, unique up to homothety.",
+      "locator": "§4.1.2; EGS15 Lemma 4.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The original EGS15 §4.1 proof was read: residual multiplicity-freeness gives existence and uniqueness of the cosocle lattice up to homothety. The Deligne–Lusztig multiplicity-free input and unramified coefficient descent remain G02.",
+      "proofOutline": "The original EGS15 §4.1 proof was read: residual multiplicity-freeness gives existence and uniqueness of the cosocle lattice up to homothety. The Deligne–Lusztig multiplicity-free input and unramified coefficient descent remain G02.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D06"
+      ],
+      "api": [
+        {
+          "name": "cosocle_lattice",
+          "statement": "cosoc(R^sigma/varpi)=sigma.",
+          "usedBy": "Q_sigma"
+        },
+        {
+          "name": "homothety_unique",
+          "statement": "Two such lattices differ by an E-scalar.",
+          "usedBy": "saturation metric"
+        }
+      ],
+      "unitTests": [
+        "For a one-dimensional representation there is one homothety class.",
+        "Changing a lattice by varpi preserves its reduced isomorphism type.",
+        "Repeated residual factors do not satisfy the multiplicity-free input."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D13",
+      "kind": "definition",
+      "name": "Normalised saturated inclusion",
+      "statement": "For full O-lattices Lambda2⊂Lambda1 in one finite-dimensional E-vector space, the inclusion is saturated in this paper’s sense iff Lambda2 is not contained in varpi Lambda1, equivalently its reduction map is nonzero.",
+      "locator": "Definition 4.3.4 and Remark 4.3.5; normalization condition in EGS15 Lemma 4.1.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. This normalisation is not the usual torsion-free-cokernel usage of saturated submodule. For two full lattices that latter condition would force equality.",
+      "proofOutline": "This normalisation is not the usual torsion-free-cokernel usage of saturated submodule. For two full lattices that latter condition would force equality.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12"
+      ],
+      "api": [
+        {
+          "name": "normalise_inclusion",
+          "statement": "A unique integral power of varpi normalises an inclusion between two lattice homothety representatives.",
+          "usedBy": "d_sat"
+        },
+        {
+          "name": "reduction_nonzero",
+          "statement": "Normalisation is equivalent to a nonzero reduction map.",
+          "usedBy": "4.3.19"
+        }
+      ],
+      "unitTests": [
+        "pO⊕O⊂O^2 is normalised although its cokernel is torsion.",
+        "pO^2⊂O^2 is not normalised when O is unramified.",
+        "O^2⊂O^2 is normalised."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D14",
+      "kind": "definition",
+      "name": "Saturation distance",
+      "statement": "For the lattices R^sigma of a 3-generic Deligne–Lusztig representation, first normalise R^kappa⊂R^sigma. Define d_sat(sigma,kappa) to be the unique nonnegative integer d for which p^d R^sigma⊂R^kappa is normalised.",
+      "locator": "Definition 4.3.4 and Remark 4.3.5",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Existence of an integral exponent of p, rather than merely varpi, uses descent of R and its cosocle lattices to an unramified coefficient field; prove that descent in G02.",
+      "proofOutline": "Existence of an integral exponent of p, rather than merely varpi, uses descent of R and its cosocle lattices to an unramified coefficient field; prove that descent in G02.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D13"
+      ],
+      "api": [
+        {
+          "name": "sat_independent",
+          "statement": "The integer is independent of homothetic choices.",
+          "usedBy": "metric theorem"
+        },
+        {
+          "name": "sat_ramified_base_change",
+          "statement": "Extending coefficients preserves the p-exponent.",
+          "usedBy": "4.1.9(5)"
+        }
+      ],
+      "unitTests": [
+        "For O^2 and pO⊕O over unramified O, the distance is one.",
+        "After adjoining a ramified uniformizer, the distance remains one in p-units.",
+        "The distance from a lattice class to itself is zero."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T07",
+      "kind": "theorem",
+      "name": "Saturation distance is a metric",
+      "statement": "On JH(R) in D14, d_sat is symmetric, vanishes exactly on equal constituents, and satisfies the triangle inequality.",
+      "locator": "Lemma 4.3.6",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use chains p^a L⊂M⊂L and p^b M⊂N⊂M; composition bounds d(L,N) by a+b. Symmetry follows by exchanging endpoints and scaling. Zero gives equal lattice classes, hence equal cosocles.",
+      "proofOutline": "Use chains p^a L⊂M⊂L and p^b M⊂N⊂M; composition bounds d(L,N) by a+b. Symmetry follows by exchanging endpoints and scaling. Zero gives equal lattice classes, hence equal cosocles.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D14"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D15",
+      "kind": "construction",
+      "name": "Minimal constituent submodule",
+      "statement": "For sigma,sigma1∈JH(R), Q_sigma(sigma1) is the unique minimal submodule of Rbar^sigma containing sigma1. It is the image of any nonzero map Rbar^sigma1→Rbar^sigma and has cosocle sigma1.",
+      "locator": "Lemma 4.3.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use multiplicity-freeness: any quotient by a submodule containing sigma1 has no sigma1 factor, so the image of the sigma1-cosocle module maps to zero there.",
+      "proofOutline": "Use multiplicity-freeness: any quotient by a submodule containing sigma1 has no sigma1 factor, so the image of the sigma1-cosocle module maps to zero there.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03"
+      ],
+      "api": [
+        {
+          "name": "minimal_factor",
+          "statement": "Q is contained in every submodule containing sigma1.",
+          "usedBy": "4.3.3"
+        },
+        {
+          "name": "image_normalised",
+          "statement": "The image of a normalised lattice map is Q.",
+          "usedBy": "4.3.10"
+        }
+      ],
+      "unitTests": [
+        "Q_sigma(sigma)=Rbar^sigma.",
+        "In S→T, Q(T)=T and Q(S)=M.",
+        "A zero morphism is excluded from the image characterisation."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08",
+      "kind": "theorem",
+      "name": "Radical depth inequality for Q",
+      "statement": "If sigma2∈JH(Q_sigma(sigma1)), then d_rad^sigma(sigma2)≥d_rad^sigma(sigma1)+d_rad^sigma1(sigma2). Its grade within Q is exactly d_rad^sigma1(sigma2).",
+      "locator": "Lemma 4.3.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The surjection from Rbar^sigma1 strictly preserves radical filtrations; restriction of the shifted filtration from Rbar^sigma gives the inequality. Radical depth has not yet been proved a metric.",
+      "proofOutline": "The surjection from Rbar^sigma1 strictly preserves radical filtrations; restriction of the shifted filtration from Rbar^sigma gives the inequality. Radical depth has not yet been proved a metric.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T09",
+      "kind": "theorem",
+      "name": "Extensions are graph edges",
+      "statement": "For p-regular Serre weights sigma=F(mu) and kappa, with mu 6-deep componentwise and within the §4.2 GL3 setup, Ext^1_G(kappa,sigma) is nonzero iff d_gph(sigma,kappa)=1; then its F-dimension is one.",
+      "locator": "Lemma 4.2.6; Proposition 2.1.10",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use Q1(mu)|G=Inj(F(mu)), compute its first socle layer by translation (4.9) and compare weights via (4.10). This needs Frobenius-kernel injectives, Jantzen/Pillen and the translation theorem: G03.",
+      "proofOutline": "Use Q1(mu)|G=Inj(F(mu)), compute its first socle layer by translation (4.9) and compare weights via (4.10). This needs Frobenius-kernel injectives, Jantzen/Pillen and the translation theorem: G03.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T10",
+      "kind": "theorem",
+      "name": "Graph distance bounds radical depth",
+      "statement": "If R is 6-deep, d_gph(sigma,kappa)≤d_rad^sigma(kappa) for constituents of R.",
+      "locator": "Corollary 4.3.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. A radical path to kappa has one graph edge at each step by T09. Visual inspection of arXiv p.72 and published p.99 confirms that the displayed Ext group is NONZERO; a missing negation in extracted text is an OCR artefact, not a source issue.",
+      "proofOutline": "A radical path to kappa has one graph edge at each step by T09. Visual inspection of arXiv p.72 and published p.99 confirms that the displayed Ext group is NONZERO; a missing negation in extracted text is an OCR artefact, not a source issue.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T09"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T11",
+      "kind": "theorem",
+      "name": "Normal-crossing shape chart",
+      "statement": "For semisimple 10-generic residual GL3 data and a nonzero tame type with every shape component of length at least two, the explicit chart is formally smooth over R_N=completed tensor_j O[[x_j,y_j]]/(x_j y_j−p), where N=sum_i(4−length(w_i)). Each weight prime chooses one variable from every pair, together with varpi.",
+      "locator": "Lemma 3.6.10 and Proposition 4.3.7 setup",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. LLHLM18 explicit rings are G04. Keep formal variables and coefficient ramification; reducedness holds modulo varpi, not automatically modulo p.",
+      "proofOutline": "LLHLM18 explicit rings are G04. Keep formal variables and coefficient ramification; reducedness holds modulo varpi, not automatically modulo p.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T12",
+      "kind": "theorem",
+      "name": "Component prime distance",
+      "statement": "In T11, the chosen-variable sets for sigma and kappa differ in 2 d_gph(sigma,kappa) elements. The sum of the two primes has height d_gph(sigma,kappa)+1 in the mixed-characteristic chart.",
+      "locator": "Lemma 3.6.10",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use Table 3 component matching and tensor factorisation; two set elements change for each variable-pair flip. This is a sum of ideals, not a set intersection.",
+      "proofOutline": "Use Table 3 component matching and tensor factorisation; two set elements change for each variable-pair flip. This is a sum of ideals, not a set intersection.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T13",
+      "kind": "theorem",
+      "name": "Adjacent weights have saturation distance one",
+      "statement": "For a 13-generic R and sigma1,sigma2∈JH(R) with graph distance one, d_sat(sigma1,sigma2)=1.",
+      "locator": "Proposition 4.3.7",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Globalise to semisimple 10-generic local data containing both weights and with shape lengths ≥2; choose a weak minimal patching functor. Descend to S=Z_p[[(x_j,y_j),t]]/(x_j y_j−p), whose special fibre is reduced. After normalising p^k R1⊂R2⊂R1, component annihilators force y2^2…yN^2 M(sigma1)⊂y1…yN M(sigma1) if k>1. Freeness over F[[y1,…,yN,t]] contradicts that divisibility. Requires G04/G05; this is not a purely finite-group proof.",
+      "proofOutline": "Globalise to semisimple 10-generic local data containing both weights and with shape lengths ≥2; choose a weak minimal patching functor. Descend to S=Z_p[[(x_j,y_j),t]]/(x_j y_j−p), whose special fibre is reduced. After normalising p^k R1⊂R2⊂R1, component annihilators force y2^2…yN^2 M(sigma1)⊂y1…yN M(sigma1) if k>1. Freeness over F[[y1,…,yN,t]] contradicts that divisibility. Requires G04/G05; this is not a purely finite-group proof.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P02"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T14",
+      "kind": "theorem",
+      "name": "Saturation is bounded by graph distance",
+      "statement": "For 13-generic R, d_sat(sigma,kappa)≤d_gph(sigma,kappa).",
+      "locator": "Corollary 4.3.8",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Sum the adjacent-weight equality along a shortest path using the metric triangle inequality.",
+      "proofOutline": "Sum the adjacent-weight equality along a shortest path using the metric triangle inequality.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T07"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T15",
+      "kind": "theorem",
+      "name": "Adjacent normalised lattices are comparable",
+      "statement": "For 13-generic R and graph-adjacent sigma1,sigma2, normalised embeddings R^sigma_i⊂R^sigma have comparable images.",
+      "locator": "Lemma 4.3.9",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Write p^(k+1)R1⊂R2⊂p^k R1 using T13. Normalisation against the common target gives −1≤k≤0.",
+      "proofOutline": "Write p^(k+1)R1⊂R2⊂p^k R1 using T13. Normalisation against the common target gives −1≤k≤0.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D13"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T16",
+      "kind": "theorem",
+      "name": "Radical depth orients lattice inclusions",
+      "statement": "Under T15, if d_rad^sigma(sigma2)≥d_rad^sigma(sigma1), then R^sigma2⊂R^sigma1.",
+      "locator": "Lemma 4.3.10",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The opposite containment would put Q_sigma(sigma1) inside Q_sigma(sigma2), contradicting T08.",
+      "proofOutline": "The opposite containment would put Q_sigma(sigma1) inside Q_sigma(sigma2), contradicting T08.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D16",
+      "kind": "definition",
+      "name": "Predicted radical strata",
+      "statement": "For 2-generic R, the radical strata of Rbar^sigma are predicted when d_rad^sigma(kappa)=d_gph(sigma,kappa) for every constituent kappa.",
+      "locator": "Definition 4.3.11",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. This is weaker a priori than recovering all extension arrows.",
+      "proofOutline": "This is weaker a priori than recovering all extension arrows.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07"
+      ],
+      "api": [
+        {
+          "name": "predicted_strata_grade",
+          "statement": "The grade n has exactly the factors at graph distance n.",
+          "usedBy": "4.1.9(1)"
+        },
+        {
+          "name": "strata_to_edges",
+          "statement": "Under 13-genericity, predicted strata imply the predicted radical graph.",
+          "usedBy": "4.3.12"
+        }
+      ],
+      "unitTests": [
+        "At distance zero the only constituent is sigma.",
+        "A factor at distance one must be in grade one.",
+        "A filtration with the right length but a misplaced factor fails the predicate."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T17",
+      "kind": "theorem",
+      "name": "Strata determine the radical graph",
+      "statement": "If R is 13-generic and the radical strata from sigma are predicted, then Gamma_rad(Rbar^sigma) has exactly the edges kappa1→kappa2 with d_gph(kappa1,kappa2)=1 and d_gph(sigma,kappa2)=d_gph(sigma,kappa1)+1.",
+      "locator": "Lemma 4.3.12",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. T16 places the next-depth factor inside Q; T08 forces its relative depth to be one. Conversely a radical edge is a graph edge by T09.",
+      "proofOutline": "T16 places the next-depth factor inside Q; T08 forces its relative depth to be one. Conversely a radical edge is a graph edge by T09.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T09"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D17",
+      "kind": "definition",
+      "name": "Maximally saturated constituent",
+      "statement": "For 13-generic R, sigma is maximally saturated if every kappa at maximal graph distance D=3f−Def_R(sigma), with f=|J|, has d_sat(sigma,kappa)=D.",
+      "locator": "Definition 4.3.13",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Quantify over every farthest constituent; positive defect can give more than one.",
+      "proofOutline": "Quantify over every farthest constituent; positive defect can give more than one.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02"
+      ],
+      "api": [
+        {
+          "name": "maximal_sat_all_distances",
+          "statement": "Maximal saturation implies equality of graph and saturation distance to every constituent.",
+          "usedBy": "4.3.14"
+        },
+        {
+          "name": "maximal_sat_defect_zero",
+          "statement": "The unique opposite weight suffices at defect zero.",
+          "usedBy": "4.3.17"
+        }
+      ],
+      "unitTests": [
+        "In one factor an inner vertex has eccentricity two.",
+        "An obvious lower vertex has eccentricity three.",
+        "Checking only one farthest vertex is insufficient when several exist."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T18",
+      "kind": "theorem",
+      "name": "Maximal saturation controls all distances",
+      "statement": "For 13-generic R, sigma is maximally saturated iff d_sat(sigma,kappa)=d_gph(sigma,kappa) for every kappa.",
+      "locator": "Proposition 4.3.14",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Extend a geodesic through kappa to a farthest vertex by T02. The triangle inequality for d_sat and upper bound T14 sandwich both partial distances to equality.",
+      "proofOutline": "Extend a geodesic through kappa to a farthest vertex by T02. The triangle inequality for d_sat and upper bound T14 sandwich both partial distances to equality.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T14"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19",
+      "kind": "theorem",
+      "name": "Radical paths give lattice chains",
+      "statement": "For 13-generic R, normalise all cosocle lattices inside R^sigma. A radical extension path starting at sigma gives a nested chain R^sigma_d⊂…⊂R^sigma_1⊂R^sigma.",
+      "locator": "Lemma 4.3.15",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Each adjacent pair has increasing radical depth, so apply T16. Consecutive and endpoint inclusions retain the specified normalisation.",
+      "proofOutline": "Each adjacent pair has increasing radical depth, so apply T16. Consecutive and endpoint inclusions retain the specified normalisation.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T16"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T20",
+      "kind": "theorem",
+      "name": "Maximal saturation predicts radical strata",
+      "statement": "For 13-generic R, if sigma is maximally saturated, every radical depth equals graph distance, and the radical graph is predicted.",
+      "locator": "Proposition 4.3.16",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. If a radical path has length k exceeding endpoint distance, its first failure to increase distance drops by two relative to its index, by bipartiteness. T19 then sandwiches the corresponding lattice between R^sigma and p^(i−1)R^sigma, contradicting distance i from T18.",
+      "proofOutline": "If a radical path has length k exceeding endpoint distance, its first failure to increase distance drops by two relative to its index, by bipartiteness. T19 then sandwiches the corresponding lattice between R^sigma and p^(i−1)R^sigma, contradicting distance i from T18.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T17"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T21",
+      "kind": "theorem",
+      "name": "Lower-alcove defect-zero base case",
+      "statement": "For 13-generic R and a lower-alcove constituent sigma of defect zero, the radical strata and both extension graphs of Rbar^sigma are predicted and Rbar^sigma is rigid.",
+      "locator": "Theorem 4.2.16",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Embed Rbar^sigma uniquely up to scalar into the multiplicity-free U⊂V_mu|G of Theorem 4.2.7(3); use equality of the 9^f factors and the full-subgraph property. Constructing U and its arrows requires all of §4.2.7–4.2.15 and original algebraic representation theory; G03 remains open.",
+      "proofOutline": "Embed Rbar^sigma uniquely up to scalar into the multiplicity-free U⊂V_mu|G of Theorem 4.2.7(3); use equality of the 9^f factors and the full-subgraph property. Constructing U and its arrows requires all of §4.2.7–4.2.15 and original algebraic representation theory; G03 remains open.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T22",
+      "kind": "theorem",
+      "name": "Lower-alcove base case is maximally saturated",
+      "statement": "For 13-generic R, a lower-alcove defect-zero sigma is maximally saturated.",
+      "locator": "Proposition 4.3.17",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Apply T21 to R and its dual; use opposite radical paths to obtain a strictly decreasing chain of integral p-exponents of length 3f. Thus d_sat to the unique opposite weight is at least 3f; T14 gives equality.",
+      "proofOutline": "Apply T21 to R and its dual; use opposite radical paths to obtain a strictly decreasing chain of integral p-exponents of length 3f. Thus d_sat to the unique opposite weight is at least 3f; T14 gives equality.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T14"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T23",
+      "kind": "theorem",
+      "name": "Every defect-zero constituent is maximally saturated",
+      "statement": "For 13-generic R, any sigma with Def_R(sigma)=0 is maximally saturated.",
+      "locator": "Lemma 4.3.18",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Propagate T22 along the connected obvious-weight graph. For adjacent obvious weights compare the two opposite geodesics; failure of either outer lattice inclusion to be normalised would force radical depth at least 3f+1 where T20 gives 3f−1.",
+      "proofOutline": "Propagate T22 along the connected obvious-weight graph. For adjacent obvious weights compare the two opposite geodesics; failure of either outer lattice inclusion to be normalised would force radical depth at least 3f+1 where T20 gives 3f−1.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T24",
+      "kind": "theorem",
+      "name": "All constituents are maximally saturated",
+      "statement": "For 13-generic R every constituent is maximally saturated.",
+      "locator": "Proposition 4.3.19",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Induct on defect. For a farthest constituent of lower defect use symmetry and T18. For equal positive defect use T02 to select a neighbor of defect one less. T15 gives two lattice-containment cases. In the first, a hypothetical shorter saturation exponent forces a Q-depth at least d+1 instead of d−1. In the second, reverse the long radical path from that neighbor and use the first bipartite distance drop as in T20.",
+      "proofOutline": "Induct on defect. For a farthest constituent of lower defect use symmetry and T18. For equal positive defect use T02 to select a neighbor of defect one less. T15 gives two lattice-containment cases. In the first, a hypothetical shorter saturation exponent forces a Q-depth at least d+1 instead of d−1. In the second, reverse the long radical path from that neighbor and use the first bipartite distance drop as in T20.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T01"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T25",
+      "kind": "theorem",
+      "name": "Graph distance equals radical depth",
+      "statement": "For a 13-generic Deligne–Lusztig R for the product of GL3(k_v), every sigma,kappa∈JH(R) satisfies d_rad^sigma(kappa)=d_gph(sigma,kappa).",
+      "locator": "Theorem 4.1.9(1), first assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. T24 plus T20. No generalisation to nongeneric types or arbitrary groups is claimed.",
+      "proofOutline": "T24 plus T20. No generalisation to nongeneric types or arbitrary groups is claimed.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T20"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T26",
+      "kind": "theorem",
+      "name": "Loewy-length formula",
+      "statement": "Under T25, ell(Rbar^sigma)=2 Def_R(sigma)+3(f−Def_R(sigma))+1=3f−Def_R(sigma)+1, f=sum_v[k_v:F_p].",
+      "locator": "Theorem 4.1.9(1), second assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Take maximum radical depth using T02, then add one for zero-based grades.",
+      "proofOutline": "Take maximum radical depth using T02, then add one for zero-based grades.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D09"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T27",
+      "kind": "theorem",
+      "name": "Predicted radical extension graph",
+      "statement": "For 13-generic R and sigma, Gamma_rad(Rbar^sigma) consists of graph edges oriented away from sigma.",
+      "locator": "Theorem 4.1.9(2)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Apply T17 to T25.",
+      "proofOutline": "Apply T17 to T25.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T17"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T28",
+      "kind": "theorem",
+      "name": "Predicted full extension graph",
+      "statement": "For 13-generic R and sigma, the full Gamma(Rbar^sigma) is the graph with the same vertices and graph edges oriented away from sigma.",
+      "locator": "Theorem 4.1.9(3)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. T27 supplies every outward edge. T09 permits only graph edges. A reversed edge would create a two-cycle, impossible for the extension graph of a multiplicity-free finite-length object.",
+      "proofOutline": "T27 supplies every outward edge. T09 permits only graph edges. A reversed edge would create a two-cycle, impossible for the extension graph of a multiplicity-free finite-length object.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T29",
+      "kind": "theorem",
+      "name": "Rigidity of cosocle-lattice reduction",
+      "statement": "For 13-generic R every Rbar^sigma is rigid.",
+      "locator": "Theorem 4.1.9(4)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Every directed path extends to maximum possible length using the product model T02; apply T05 to T25 and T27.",
+      "proofOutline": "Every directed path extends to maximum possible length using the product model T02; apply T05 to T25 and T27.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T05"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T30",
+      "kind": "theorem",
+      "name": "Normalised p-power lattice inclusion",
+      "statement": "For 13-generic R and a normalised inclusion R^kappa⊂R^sigma, p^d R^sigma⊂R^kappa is normalised for d=d_gph(kappa,sigma).",
+      "locator": "Theorem 4.1.9(5)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. T24 and T18 identify d_sat with graph distance. The exponent is of p; replacing it with varpi changes the assertion after ramified coefficient extension.",
+      "proofOutline": "T24 and T18 identify d_sat with graph distance. The exponent is of p; replacing it with varpi changes the assertion after ramified coefficient extension.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D14"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T31",
+      "kind": "theorem",
+      "name": "Reduced equidimensional surjection criterion",
+      "statement": "Let S→R be a surjective homomorphism of Noetherian equidimensional rings of the same finite Krull dimension d. Assume S is reduced and S,R have the same finite number of minimal primes. Then the map is an isomorphism.",
+      "locator": "Lemma 3.6.11, in its complete Noetherian local application",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Each minimal prime of R pulls back to a minimal prime of S: a strict containment over a minimal prime would reduce dimension. Equality of finite counts makes the pullback set exhaustive. The kernel lies in every minimal prime of S, hence in its zero nilradical. No assertion for arbitrary infinite sets of minimal primes.",
+      "proofOutline": "Each minimal prime of R pulls back to a minimal prime of S: a strict containment over a minimal prime would reduce dimension. Equality of finite counts makes the pullback set exhaustive. The kernel lies in every minimal prime of S, hence in its zero nilradical. No assertion for arbitrary infinite sets of minimal primes.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T32",
+      "kind": "theorem",
+      "name": "Four-prime monomial quotient",
+      "statement": "For any field F, F[[a,b,c,d,e,f]]/(ab,ac,ae,bc,bd,cf) is reduced and equidimensional of dimension three, with minimal primes (a,b,c),(a,b,f),(a,c,d),(b,c,e).",
+      "locator": "Proof of Lemma 3.6.13",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The ideal equals the intersection of the four coordinate ideals: a monomial is in each iff its support hits each of the four variable triples, equivalently it is divisible by one listed degree-two generator. Each prime quotient is a three-variable power-series domain. The same monomial-support test applies to series coefficientwise. Minimal-prime enumeration independently executed.",
+      "proofOutline": "The ideal equals the intersection of the four coordinate ideals: a monomial is in each iff its support hits each of the four variable triples, equivalently it is divisible by one listed degree-two generator. Each prime quotient is a three-variable power-series domain. The same monomial-support test applies to series coefficientwise. Minimal-prime enumeration independently executed.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T33",
+      "kind": "theorem",
+      "name": "Identity-shape triple intersection",
+      "statement": "In the identity-shape special-fibre ring of §3.6 with semisimple 10-generic residual data, set w0=c_(0,0)∩c_(0,1). Then w0∩c_(epsilon1,0)∩c_(epsilon2,0)=(c22,c33).",
+      "locator": "Lemma 3.6.13",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Set all three unit parameters equal to one, as permitted by the source formal-power-series decomposition. Eliminate c11 and set a=c12−c13 c32, b=kappa c31−c21 c32, c=c23, d=c13, e=c21, f=c32, where kappa is the nonzero scalar of the source presentation (published p.70). The resulting quotient has ideal (ab,ac,ae,bc,bd,cf), so T32 proves reducedness, dimension three and four minimal primes. Apply T31 to the surjection onto the intersection quotient. The full chart presentation and its coefficient calculation remain G04.",
+      "proofOutline": "Set all three unit parameters equal to one, as permitted by the source formal-power-series decomposition. Eliminate c11 and set a=c12−c13 c32, b=kappa c31−c21 c32, c=c23, d=c13, e=c21, f=c32, where kappa is the nonzero scalar of the source presentation (published p.70). The resulting quotient has ideal (ab,ac,ae,bc,bd,cf), so T32 proves reducedness, dimension three and four minimal primes. Apply T31 to the surjection onto the intersection quotient. The full chart presentation and its coefficient calculation remain G04.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T31"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18",
+      "kind": "definition",
+      "name": "Weak minimal patching functor",
+      "statement": "For a finite set S of p-adic fields K_v, residual rho_v:G_Kv→GL3(F), and R_infty=(completed tensor_v R^square_rho_v)[[x1,…,xh]], let X_infty=Spf R_infty. A weak minimal patching functor is a nonzero covariant exact functor from continuous K=product_v GL3(O_Kv) representations on finite O-modules to coherent X_infty-modules. It sends each tame-type lattice to a p-torsion-free maximal Cohen–Macaulay module over R_infty(tau); if M_infty(R_1(mu)) is nonzero then each rho_v has a semistable lift of type tau_v(1,mu_v); each Serre weight maps to zero or an MCM module of pure special-fibre dimension d; after inverting p, each type-lattice module has rank at most one on each connected component of its type space.",
+      "locator": "Definition 3.5.1, all four axioms",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Keep this arithmetic functor distinct from the already-owned abstract inverse-limit patching construction R03.5. Its global existence is G05.",
+      "proofOutline": "Keep this arithmetic functor distinct from the already-owned abstract inverse-limit patching construction R03.5. Its global existence is G05.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L01"
+      ],
+      "api": [
+        {
+          "name": "patch_exact",
+          "statement": "Short exact sequences of finite K-modules remain exact.",
+          "usedBy": "gluing in 5.1"
+        },
+        {
+          "name": "patch_type_mcm",
+          "statement": "A type lattice maps to a p-torsion-free MCM module.",
+          "usedBy": "4.3.7 and 5.2"
+        },
+        {
+          "name": "patch_rank_bound",
+          "statement": "Generic component rank is at most one.",
+          "usedBy": "3.5.8"
+        }
+      ],
+      "unitTests": [
+        "The zero functor is excluded.",
+        "A nonzero MCM module on just one component is not automatically faithful.",
+        "A patching functor must preserve the nonsplit length-two exact sequence used in 5.1.5."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19",
+      "kind": "definition",
+      "name": "Fixed-dimension Hilbert–Samuel multiplicity",
+      "statement": "Fix d from the dimension d+1 of a nonempty type space. For finite M supported in dimension at most d, e_d(M) is d! times the degree-d coefficient of its Hilbert–Samuel polynomial, so it is zero if dim Supp(M)<d.",
+      "locator": "§3.5.1; §6(12) correction to LLHLM18",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Develop the Hilbert polynomial and additivity under R03.3; do not use the usual multiplicity in the module’s own dimension for every M.",
+      "proofOutline": "Develop the Hilbert polynomial and additivity under R03.3; do not use the usual multiplicity in the module’s own dimension for every M.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18"
+      ],
+      "api": [
+        {
+          "name": "multiplicity_low_dimension",
+          "statement": "Support dimension below d implies e_d=0.",
+          "usedBy": "weight elimination"
+        },
+        {
+          "name": "multiplicity_exact",
+          "statement": "e_d is additive in finite short exact sequences.",
+          "usedBy": "3.5.11–12"
+        }
+      ],
+      "unitTests": [
+        "A finite-length module contributes zero when d>0.",
+        "For d=0 the invariant is its length.",
+        "For an exact sequence of equal-dimensional modules the leading coefficients add."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34",
+      "kind": "theorem",
+      "name": "Numerical Breuil–Mézard for weak minimal patching",
+      "statement": "Suppose every K_v/Q_p is unramified and every rho_v is semisimple and 10-generic. For any weak minimal patching functor, e_d(M_infty(sigma)) equals 1 for sigma∈W?(rho_S), and 0 otherwise.",
+      "locator": "Theorem 3.5.2, multiplicity assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Eliminate extraneous weights via generic lifts and §2.3.13; descend positive defect by the difference 2^(delta+1)−2^delta; propagate from an obvious weight using §3.5.9–12. The full type construction and weight recipe remain G01/G04/G05.",
+      "proofOutline": "Eliminate extraneous weights via generic lifts and §2.3.13; descend positive defect by the difference 2^(delta+1)−2^delta; propagate from an obvious weight using §3.5.9–12. The full type construction and weight recipe remain G01/G04/G05.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T35",
+      "kind": "theorem",
+      "name": "Weight support is predicted",
+      "statement": "Under T34, W_BM(rho_S)=W?(rho_S), independently of the choice of weak minimal patching functor.",
+      "locator": "Theorem 3.5.2, final assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use the pure-dimensional MCM axiom: a nonzero weight module has positive dimension-d multiplicity, so multiplicity zero cannot conceal a nonzero lower-dimensional module.",
+      "proofOutline": "Use the pure-dimensional MCM axiom: a nonzero weight module has positive dimension-d multiplicity, so multiplicity zero cannot conceal a nonzero lower-dimensional module.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D22"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T36",
+      "kind": "theorem",
+      "name": "Non-generic type emptiness",
+      "statement": "For K/Q_p unramified and rho:G_K→GL3(F) semisimple and 10-generic, R^tau_rho=0 if the tame type tau is not 1-generic.",
+      "locator": "Theorem 3.5.3, first assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Uses Enns weight elimination; original theorem and proof are G04.",
+      "proofOutline": "Uses Enns weight elimination; original theorem and proof are G04.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+      "kind": "theorem",
+      "name": "Nonzero type ring is a normal domain",
+      "statement": "For unramified K/Q_p, continuous semisimple 10-generic rho:G_K→GL3(F), and a 1-generic tame type tau with R^tau_rho≠0, the complete framed potentially crystalline ring of Hodge type (2,1,0) is a normal domain.",
+      "locator": "Theorem 3.5.3, normal-domain assertion with E04 nonzero qualification",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The proof explicitly treats nonzero rings and matches them with reduced equidimensional explicit charts using multiplicities. The zero ring is not a domain. Do not infer normality merely from special-fibre reducedness.",
+      "proofOutline": "The proof explicitly treats nonzero rings and matches them with reduced equidimensional explicit charts using multiplicities. The zero ring is not a domain. Do not infer normality merely from special-fibre reducedness.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T38",
+      "kind": "theorem",
+      "name": "Canonical component labeling",
+      "statement": "For semisimple 10-generic rho over unramified K, there is a unique assignment sigma↦p(sigma) of predicted weights to primes in R^square_rho such that for each tame type tau the special fibre of R^tau_rho is the reduced union of components labeled by W?(rho,tau).",
+      "locator": "Proposition 3.6.1(1)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Start with defect-zero types selecting individual primes and use the unique minimal type at each higher defect; no arbitrary independent bijection for each type.",
+      "proofOutline": "Start with defect-zero types selecting individual primes and use the unique minimal type at each higher defect; no arbitrary independent bijection for each type.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T53"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T39",
+      "kind": "theorem",
+      "name": "Patching support respects component labels",
+      "statement": "For finite unramified semisimple 10-generic local data and any weak minimal patching functor, the scheme-theoretic support of M_infty(tensor_v sigma_v) for predicted sigma_v is Spec R_infty/(sum_v p(sigma_v)R_infty).",
+      "locator": "Proposition 3.6.1(2)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use exactness, reduced type support and induction on defect; the primes do not depend on the globalization or patching choices.",
+      "proofOutline": "Use exactness, reduced type support and induction on defect; the primes do not depend on the globalization or patching choices.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T35"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+      "kind": "theorem",
+      "name": "Upper-alcove condition gives rank-one freeness",
+      "statement": "In §5.1, assume rho_S is semisimple 10-generic over unramified fields, M_infty is weak minimal, tau_S is 13-generic with R_infty(tau_S)≠0, and sigma=F(lambda)∈W?(rho_S,tau_S). If lambda_(pi^−1(i)) is in upper alcove C1 whenever length(w_i*)≤1, then M_infty(sigma(tau_S)^sigma) is free of rank one over R_infty(tau_S).",
+      "locator": "Theorem 5.1.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Five cyclicity steps 5.1.3–7: normal-crossing base case, four-point fiber-product gluing, six-point extension, eight-point gluing, all-nine extension. Ideal identities 3.6.12–16 and EGS15 Lemma 10.1.13 are required. Lift generators by Nakayama; a nonzero cyclic MCM module with full support over a domain is faithful and hence free. Full gluing contracts remain G06.",
+      "proofOutline": "Five cyclicity steps 5.1.3–7: normal-crossing base case, four-point fiber-product gluing, six-point extension, eight-point gluing, all-nine extension. Ideal identities 3.6.12–16 and EGS15 Lemma 10.1.13 are required. Lift generators by Nakayama; a nonzero cyclic MCM module with full support over a domain is faithful and hence free. Full gluing contracts remain G06.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T33"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T41",
+      "kind": "theorem",
+      "name": "Lower-alcove short-shape obstruction",
+      "statement": "With the same §5.1 hypotheses and sigma∈W?(rho_S,tau_S), if for some i the shape length is ≤1 and lambda_(pi^−1(i)) lies in C0, then M_infty(sigma(tau_S)^sigma) is not free over R_infty(tau_S).",
+      "locator": "Proposition 5.1.8",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The source gives a proof sketch: embed into the free module of a suitable upper-alcove constituent, identify the image ideal by component intersections, and show its residual minimal-generator space has dimension >1. Completion/radicality and every Table 3 generator calculation remain G06.",
+      "proofOutline": "The source gives a proof sketch: embed into the free module of a suitable upper-alcove constituent, identify the image ideal by component intersections, and show its residual minimal-generator space has dimension >1. Completion/radicality and every Table 3 generator calculation remain G06.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T28"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
+      "kind": "construction",
+      "name": "Codimension-two complement for gauges",
+      "statement": "For the nonzero normal type scheme X=Spec R_infty(tau_S) under §5.1 hypotheses, let Z be the union of intersections of distinct components of X_F and j:U=X\\Z→X. Every irreducible component of the crossing locus has codimension two in X; the locus may be empty.",
+      "locator": "§5.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Keep Spec and formal pullback comparison explicit; j descends from the product of local deformation bases.",
+      "proofOutline": "Keep Spec and formal pullback comparison explicit; j descends from the product of local deformation bases.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37"
+      ],
+      "api": [
+        {
+          "name": "regular_complement",
+          "statement": "U is regular.",
+          "usedBy": "5.2.1"
+        },
+        {
+          "name": "gauge_base",
+          "statement": "j is pulled back from the local deformation base.",
+          "usedBy": "5.2.4"
+        }
+      ],
+      "unitTests": [
+        "For O[[x,y]]/(xy−p), remove the closed crossing locus.",
+        "If the special fibre is irreducible and smooth, no crossing is removed.",
+        "With ramified O, reduction is modulo varpi, not p."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T42",
+      "kind": "theorem",
+      "name": "Regularity away from crossings",
+      "statement": "For U in D20, U is regular.",
+      "locator": "Lemma 5.2.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The special fibre is smooth at these points; flatness and tangent-space dimension imply regularity there. The characteristic-zero fibre is regular by the potentially crystalline deformation theorem.",
+      "proofOutline": "The special fibre is smooth at these points; flatness and tangent-space dimension imply regularity there. The characteristic-zero fibre is regular by the potentially crystalline deformation theorem.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T52"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T43",
+      "kind": "theorem",
+      "name": "Gauge on the regular open",
+      "statement": "Under §5.2 hypotheses, for a normalised injection iota:sigma(tau_S)^kappa→sigma(tau_S)^sigma, let m(theta) be the composition multiplicity of theta in its finite torsion cokernel. On U the image of M_infty(iota) equals (product_theta p(theta)^m(theta)) times M_infty(sigma(tau_S)^sigma), restricted to U.",
+      "locator": "Lemma 5.2.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. On U both patched modules are line bundles by MCM regular-local freeness. Their quotient gives a Cartier divisor whose coefficients are the lengths at the corresponding special-fibre components.",
+      "proofOutline": "On U both patched modules are line bundles by MCM regular-local freeness. Their quotient gives a Cartier divisor whose coefficients are the lengths at the corresponding special-fibre components.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D13"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
+      "kind": "theorem",
+      "name": "Global gauge ideal",
+      "statement": "In T43 additionally assume sigma satisfies the upper-alcove condition of T40. Then the image of M_infty(iota) is [j_* j^*(product_theta p(theta)^m(theta) R_infty(tau_S))] M_infty(sigma(tau_S)^sigma).",
+      "locator": "Theorem 5.2.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. For each finite MCM sheaf, show depth at least two along the codimension-two crossing locus. The local-cohomology exact sequence then gives M ≅ j_*j^*M. Pull the free rank-one target outside j_*j^*. The original HK04 Proposition 3.5 was read but has a fibrewise codimension hypothesis: applying it over Spec O is not immediate. The absolute depth/Hartogs argument and base-change theorem remain G08.",
+      "proofOutline": "For each finite MCM sheaf, show depth at least two along the codimension-two crossing locus. The local-cohomology exact sequence then gives M ≅ j_*j^*M. Pull the free rank-one target outside j_*j^*. The original HK04 Proposition 3.5 was read but has a fibrewise codimension hypothesis: applying it over Spec O is not immediate. The absolute depth/Hartogs argument and base-change theorem remain G08.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T45",
+      "kind": "theorem",
+      "name": "Gauge ideal descends to local data",
+      "statement": "The ideal in T44 is obtained by base change from the completed tensor product of the local potentially crystalline rings, hence from an ideal in the tensor product of unrestricted framed local deformation rings.",
+      "locator": "Remark 5.2.4",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Flat/formally smooth base change of the codimension-two extension must be proved; the ideal is independent of global auxiliary variables.",
+      "proofOutline": "Flat/formally smooth base change of the codimension-two extension must be proved; the ideal is independent of global auxiliary variables.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D21",
+      "kind": "definition",
+      "name": "Taylor–Wiles condition in this paper",
+      "statement": "For residual r:G_F→GL3(Fcoef), require that its image contain GL3(F0) for some subfield F0⊂Fcoef with |F0|>9, and that the field fixed by ker(ad r) does not contain F(zeta_p).",
+      "locator": "LLHLM18 Definition 7.3, published p.72; used throughout §5.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The original statement was read at the author-hosted published PDF. This is the source-specific condition, not a replacement by a generic adequacy slogan.",
+      "proofOutline": "The original statement was read at the author-hosted published PDF. This is the source-specific condition, not a replacement by a generic adequacy slogan.",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "tw_image",
+          "statement": "Expose the actual contained subgroup and field size.",
+          "usedBy": "global patching"
+        },
+        {
+          "name": "tw_disjointness",
+          "statement": "Expose the cyclotomic noncontainment for ad r.",
+          "usedBy": "auxiliary primes"
+        }
+      ],
+      "unitTests": [
+        "Containment of GL3(F9) alone does not meet the strict size bound.",
+        "An image containing GL3(F11) satisfies only the first condition.",
+        "If F(zeta_p) is contained in the adjoint fixed field, the second condition fails."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T46",
+      "kind": "theorem",
+      "name": "Global Serre weights",
+      "statement": "Use the definite unitary global setup specified in conventions.global: CM F/F+, F+≠Q, unramified at finite places, p unramified in F+ and split in F, split residual ramification, fixed minimal away-p level and coefficients. If r is automorphic, satisfies D21, and each chosen local rho_v is semisimple and 10-generic, then its weights at that level equal W?(rho_S), with the fixed identifications iota_v.",
+      "locator": "Theorem 5.3.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Equation (5.8) identifies dual weight eigenspaces with M_infty(sigma)/m; T35 gives exactly the nonzero ones. Level lowering §6.0.2 and original automorphic patching are G05/G07.",
+      "proofOutline": "Equation (5.8) identifies dual weight eigenspaces with M_infty(sigma)/m; T35 gives exactly the nonzero ones. Level lowering §6.0.2 and original automorphic patching are G05/G07.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T47",
+      "kind": "theorem",
+      "name": "Mod-p multiplicity one",
+      "statement": "In the global setup of T46, choose 13-generic tau_S and sigma satisfying all hypotheses and the upper-alcove short-shape condition of T40. The m-eigenspace of S(U^pG(O_F+,p),(sigma(tau_S)^sigma reduced modulo varpi composed with product iota_v)^dual tensor W_Sigma0 reduced modulo varpi) has F-dimension one.",
+      "locator": "Theorem 5.3.4",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Equation (5.8) is dual to the residue of a free rank-one patched module. The condition is not restricted to all-upper weights, nor true for arbitrary weights; use T40’s exact conditional bound.",
+      "proofOutline": "Equation (5.8) is dual to the residue of a free rank-one patched module. The condition is not restricted to all-upper weights, nor true for arbitrary weights; use T40’s exact conditional bound.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T48",
+      "kind": "theorem",
+      "name": "Automorphy lifting",
+      "statement": "In the global setup, let r:G_F→GL3(E) be continuous and absolutely irreducible, unramified almost everywhere, with r^c≅r^dual epsilon^−2. Assume its residual representation satisfies D21 and split ramification, is semisimple at all p-places and 10-generic there; for each chosen p-place r is potentially crystalline of parallel Hodge–Tate weights (2,1,0) and tame type tau_v. Suppose rbar is the residual representation of a RACSDC automorphic representation pi of GL3(A_F) with trivial infinitesimal character and with product sigma(tau_v) as its local K-type. Then r is automorphic.",
+      "locator": "Theorem 5.3.1 and Remark 5.3.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Uses T37 connected generic fibres and T46 in the proof of LLHLM18 Theorem 7.4. The source cross-reference must still be expanded with its corrected level-lowering argument; G07.",
+      "proofOutline": "Uses T37 connected generic fibres and T46 in the proof of LLHLM18 Theorem 7.4. The source cross-reference must still be expanded with its corrected level-lowering argument; G07.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D21"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T49",
+      "kind": "theorem",
+      "name": "Breuil lattice locality",
+      "statement": "Let r satisfy all hypotheses of T48 and additionally be minimally ramified away from p in the sense of CHT08 Definition 2.4.14. For its 13-generic tame p-type tau_S, the integral lattice cut out in sigma(tau_S) by the completed automorphic eigenspace S-tilde(U^p,W)[lambda] depends, up to homothety, only on the local representations {r|G_Kv}_v.",
+      "locator": "Theorem 5.3.5",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Choose a T40 cosocle lattice; express the automorphic lattice as sum_kappa gamma(kappa)^−1 sigma(tau)^kappa by EGS15 Lemma 4.1.2. Schikhof duality identifies (gamma(kappa)) with the image of the specialised patched map. T44–45 show each ideal is local. Integral torsion-free specialisation and the exact CHT minimal condition are unresolved G02/G07/G08. This is an abstract locality theorem, not a complete explicit Dieudonne formula.",
+      "proofOutline": "Choose a T40 cosocle lattice; express the automorphic lattice as sum_kappa gamma(kappa)^−1 sigma(tau)^kappa by EGS15 Lemma 4.1.2. Schikhof duality identifies (gamma(kappa)) with the image of the specialised patched map. T44–45 show each ideal is local. Integral torsion-free specialisation and the exact CHT minimal condition are unresolved G02/G07/G08. This is an abstract locality theorem, not a complete explicit Dieudonne formula.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T50",
+      "kind": "theorem",
+      "name": "Nonzero type ring is Cohen–Macaulay",
+      "statement": "Under the hypotheses of T37, R^tau_rho is Cohen–Macaulay.",
+      "locator": "Theorem 3.5.3, Cohen–Macaulay assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Identify the nonzero ring with its explicit chart, and prove Cohen–Macaulayness shape by shape. G04 retains the original chart proofs.",
+      "proofOutline": "Identify the nonzero ring with its explicit chart, and prove Cohen–Macaulayness shape by shape. G04 retains the original chart proofs.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T51",
+      "kind": "theorem",
+      "name": "Type special fibre is reduced",
+      "statement": "Under the hypotheses of T37, R^tau_rho/varpi is reduced.",
+      "locator": "Theorem 3.5.3, reducedness assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Numerical Breuil–Mézard and explicit charts establish the reduced special-fibre presentation, not just its set of points.",
+      "proofOutline": "Numerical Breuil–Mézard and explicit charts establish the reduced special-fibre presentation, not just its set of points.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T52",
+      "kind": "theorem",
+      "name": "Type components are formally smooth and equidimensional",
+      "statement": "Under the hypotheses of T37, each component of R^tau_rho/varpi is formally smooth over F and all have the same dimension.",
+      "locator": "Theorem 3.5.3, component-geometry assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use the explicit prime quotients of the shape charts. Proving that their completed tensor products preserve the asserted properties is part of G04.",
+      "proofOutline": "Use the explicit prime quotients of the shape charts. Proving that their completed tensor products preserve the asserted properties is part of G04.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T51"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T53",
+      "kind": "theorem",
+      "name": "Type component count",
+      "statement": "For unramified K/Q_p, semisimple 10-generic rho and a 1-generic tame type tau, the number of irreducible components of R^tau_rho/varpi equals |W?(rho,tau)|, including zero if the type ring is zero.",
+      "locator": "Theorem 3.5.3, component-count assertion",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Match the multiplicity-one weights from T34 to reduced components of the explicit charts; emptiness uses the lift/weight equivalence of §§3.4–3.5, still part of G04.",
+      "proofOutline": "Match the multiplicity-one weights from T34 to reduced components of the explicit charts; emptiness uses the lift/weight equivalence of §§3.4–3.5, still part of G04.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T51"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D22",
+      "kind": "definition",
+      "name": "Patching weight support",
+      "statement": "For a specified weak minimal patching functor M_infty, W_BM(rho_S) is the set of irreducible representations sigma of product_v GL3(k_v) over F with M_infty(sigma) nonzero. A priori the set depends on the functor.",
+      "locator": "§3.5.1, before Theorem 3.5.2",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Separate the definition from T35, which proves independence under its genericity and semisimplicity hypotheses.",
+      "proofOutline": "Separate the definition from T35, which proves independence under its genericity and semisimplicity hypotheses.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18"
+      ],
+      "api": [
+        {
+          "name": "patch_support_mem",
+          "statement": "Membership is precisely nonvanishing of the patched weight module.",
+          "usedBy": "3.5.2"
+        },
+        {
+          "name": "patch_support_mult",
+          "statement": "Under axiom (3), membership is equivalent to positive fixed-dimension multiplicity.",
+          "usedBy": "3.5.2"
+        }
+      ],
+      "unitTests": [
+        "The zero weight module contributes no weight.",
+        "A nonzero pure d-dimensional MCM module contributes its weight.",
+        "Functor independence is not part of the definition."
+      ]
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "LLHLM18, Potentially crystalline deformation rings and Serre weight conjectures: shapes and shadows, Invent. Math. 212 (2018), 1–107",
+      "link": "https://math.rice.edu/~bl70/Shadows.pdf",
+      "why": "Original shape charts, Kisin theory and patching; apply all 25 corrections in LLHLM20 §6 plus the missing minor recorded there. Only Definition 7.3 was read in the original in this checkpoint."
+    },
+    {
+      "citation": "Le–Le Hung–Levin, Weight elimination in Serre-type conjectures (2019)",
+      "link": "https://math.rice.edu/~bl70/",
+      "why": "§§2–3 lowest-alcove types, Kisin uniqueness, shape and inertia comparisons; author publication index links the original. Proof acquisition remains open."
+    },
+    {
+      "citation": "Emerton–Gee–Savitt, Lattices in the cohomology of Shimura curves (2015)",
+      "link": "https://www.math.uchicago.edu/~emerton/pdffiles/breuil-conj.pdf",
+      "why": "Original §4.1, Lemmas 4.1.1–4.1.4 and their proofs read: multiplicity-free reduction gives cosocle lattices unique up to homothety and their gauges reconstruct any lattice. Lemma 10.1.13 cyclicity gluing remains unread."
+    },
+    {
+      "citation": "Herzig, The weight in a Serre-type conjecture for tame n-dimensional Galois representations (2009)",
+      "link": "https://arxiv.org/abs/0803.0185",
+      "why": "Serre-weight classification and the appendix Deligne–Lusztig reduction; not closed by the classical GL2 Serre recipe."
+    },
+    {
+      "citation": "Jantzen, Representations of Algebraic Groups, 2nd ed. (2003); Pillen (1993, 1997); Andersen (1987); Andersen–Kaneda (2001); Bowman–Doty–Martin (2015)",
+      "link": "https://doi.org/10.1090/surv/107",
+      "why": "Frobenius-kernel injectives, their algebraization and socle series, translation, and nonzero extension maps in §4.2. These originals have not been read in this checkpoint; split into individually acquired source entries next."
+    },
+    {
+      "citation": "Emerton–Gee, A geometric perspective on the Breuil–Mézard conjecture (2014), Appendix A",
+      "link": "https://arxiv.org/abs/1109.4226",
+      "why": "Globalisation Corollary A.7 used to construct the local weak minimal patching functor; verify the original exact scope and proof."
+    },
+    {
+      "citation": "Hassett–Kovacs, Reflexive pull-backs and base extension (2004), Proposition 3.5",
+      "link": "https://sites.math.washington.edu/~kovacs/papers/Hassett_Kovacs__Reflexive_pull-backs_and_base_extension.pdf",
+      "why": "Original Proposition 3.5 and its local-cohomology proof read, together with the adjacent depth argument. The proposition requires codimension at least two in every fibre, so applying it over Spec O to the crossing complement needs care: total codimension two can be special-fibre codimension one. Prove the absolute MCM Hartogs statement via depth and local cohomology instead; G08."
+    },
+    {
+      "citation": "CHT08; CEG+16; Taylor (2008); Gee (2011); Guerberoff (2011); Herzig–Le–Morra (2017)",
+      "link": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
+      "why": "Bibliography pp.134–135 identifies the originals needed for minimal ramification, patched specialization, level lowering and Schikhof duality. Acquire each primary source and split entries before closure."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "stages": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.6"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T31",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T32",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19"
+      ],
+      "reason": "The complete-local, multiplicity, support and monomial-ideal algebra is reusable within these existing layers; it is not new arithmetic patching infrastructure."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocalGaloisDeformationRings",
+      "stages": [
+        "LocalGaloisDeformationRings:L7"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T33",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T36",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T37",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T38",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T53"
+      ],
+      "reason": "L7 already owns arbitrary-rank bounded-height lattice moduli and potentially semistable ring/component comparisons. The GL3 shape charts and component labeling are precise source obligations within that scope."
+    },
+    {
+      "route": "source",
+      "roadmap": "CompletedCohomologyPartII",
+      "stages": [
+        "CompletedCohomologyPartII:CC.1",
+        "CompletedCohomologyPartII:CC.2",
+        "CompletedCohomologyPartII:CC.8"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04"
+      ],
+      "reason": "The completed degree-zero definite unitary tower is an application of the generic completed tower, with its actual coefficient and Hecke comparison."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "roadmap": "ModularRepresentationsOfFiniteReductiveGroups",
+      "title": "Reductive algebraic groups, Part II: modular representations and generic GL3 lattices",
+      "area": "representations",
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T07",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T30"
+      ],
+      "reason": "Existing reductive groups and characteristic-zero highest-weight theory do not supply modular rational representations, G1T injectives, Deligne–Lusztig reduction or GL3 cosocle lattices.",
+      "brief": "Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), and the existing Rep and TauCeti.socle carriers. Do not reuse characteristic-zero complete reducibility in characteristic p. Construct modular rational representations, Frobenius kernels G1T and injective envelopes, translation functors and restriction to finite rational points; prove the Jantzen/Pillen/Andersen inputs of LLHLM20 §4.2. Build Deligne–Lusztig representations and their integral reduction, the GL3 translation charts, nine-point model and 6-deep Ext-one edge theorem. Add general finite-length radical/socle filtrations, multiplicity-free subobject graphs and normalized lattice inclusions. The exact target is LLHLM20 Theorem 4.1.9: for a 13-generic R, graph distance equals radical depth, both extension digraphs are oriented away from the cosocle, Loewy length is 3f−Def+1, reduction is rigid, and the reversed normalized inclusion uses p raised to graph distance. Import the weak minimal patching existence and numerical theorem from GenericGL3SerreWeightsAndLattices only up to its pre-lattice stages, and local charts from LocalGaloisDeformationRings:L7, to prove Proposition 4.3.7 before the defect induction. Never use the final lattice theorem in the globalization that proves it. The original-input and chart gaps in this partial extraction must be closed before a complete design can be accepted."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AlgebraicModularFormsAndSerreWeights",
+      "roadmap": "GenericGL3SerreWeightsAndLattices",
+      "title": "Algebraic modular forms, reduction and Serre weights, Part II: generic GL3 weights and Breuil lattices",
+      "area": "modular",
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T34",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T35",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T39",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T41",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T42",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D22"
+      ],
+      "reason": "R15.4 is the classical GL2 local weight recipe and R20 is classical optimization; they do not own set-valued GL3 weights, minimal unitary patching or Breuil lattice locality.",
+      "brief": "Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra R03.1/R03.3/R03.5/R03.6), Local Galois deformation rings (LocalGaloisDeformationRings L7), and Completed cohomology, homology and arithmetic towers—Part II (CompletedCohomologyPartII CC.1–CC.3/CC.8). Import finite reductive representation theory from ModularRepresentationsOfFiniteReductiveGroups rather than duplicate it. First construct Herzig’s W? and the nonzero weak minimal patching functor with all four axioms and corrected fixed-level coefficients. Prove numerical multiplicity one and W_BM=W? for semisimple 10-generic unramified GL3 data (3.5.2) before using the integral lattice structure theorem. Then prove cyclicity and rank-one freeness exactly under the 13-generic type and upper-alcove condition at shape components of length ≤1 in 5.1.1; prove the converse nonfreeness 5.1.8 separately. Construct the codimension-two gauge ideal in 5.2.3 and its local descent. Finish with 5.3.3, 5.3.4, 5.3.1 and 5.3.5 under the CM definite-unitary, split-ramification, source-specific Taylor–Wiles and minimal-level conventions in this extraction. For 5.3.5 also require minimal ramification of the lift away from p; spell out CHT08 Definition 2.4.14 before implementation. Prove locality up to homothety, without claiming a full GL3 p-adic Langlands correspondence or an explicit formula for every shape. Expand §6.0.2’s level-lowering proof and all cited globalization/duality inputs; this partial brief records the target and ownership, not proof closure."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E01",
+      "kind": "misprint",
+      "locator": "Proposition 3.2.1 proof, arXiv v4 pp.22–23; published p.29, two ranges",
+      "printed": "0 ≤ j′ < f′ − 1",
+      "correction": "Use 0 ≤ j′ ≤ f′−1 in both tuples of embeddings.",
+      "reason": "The tuple must range over all f′ embeddings, as the immediately following universal condition does. When f′=1 the printed range is empty.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E02",
+      "kind": "misprint",
+      "locator": "Proposition 3.3.9 statement, arXiv v4 p.25; published p.33",
+      "printed": "T^{dd}(M′)^* ≅ ρ|_{G_{K∞}}",
+      "correction": "The right side must be ρ′|_{G_{K∞}}.",
+      "reason": "The proposition compares rho and rho-prime. With the printed condition one may always take M-prime=M, independently of rho-prime, making the proposed equivalence with matching inertial semisimplifications false. The proof uses the primed representation.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E03",
+      "kind": "misprint",
+      "locator": "Lemma 3.5.12 proof, arXiv v4 p.32; published p.43, first multiplicity difference",
+      "printed": "e(M∞(sigma(tau′)^circ)) − e(M∞(sigma(tau′)^circ))",
+      "correction": "The second term is e(M∞(sigma(tau)^circ)).",
+      "reason": "The printed difference is zero. The two component counts used in the proof differ by 2^(delta+1)−2^delta, which is positive. The subsequent comparison uses tau-prime minus tau.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E04",
+      "kind": "error",
+      "locator": "Theorem 3.5.3, arXiv v4 p.29; published p.38",
+      "printed": "The ring R^tau_rho is a normal domain",
+      "correction": "Qualify the normal-domain assertion by R^tau_rho≠0. The Cohen–Macaulay and component statements should also be read with the zero case separated as in T36–T53.",
+      "reason": "The proof treats the nonzero case. Genericity of a tame type does not make it compatible with a fixed rho: a tame central twist can preserve all genericity differences while changing the determinant character required of a lift. An incompatible determinant gives an empty deformation problem. The zero ring is not a domain.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E05",
+      "kind": "misprint",
+      "locator": "Table 3 alpha-beta-alpha row: arXiv v4 p.53, published p.51; matching computation: arXiv p.45, published p.63",
+      "printed": "(a−b)c31 c12 + (b−c)c11 c33*",
+      "correction": "Use c22* in place of c33* (and the corresponding primed c22* in the matching computation).",
+      "reason": "The alpha-beta-alpha chart has unit parameters c13*,c22*,c31*; c33* is not a parameter there. Table 4 on arXiv p.55/published p.60 and the repeated computation on published p.68 use c22*.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E06",
+      "kind": "misprint",
+      "locator": "Table 3 alpha-beta row matrix, arXiv v4 p.53; published p.51",
+      "printed": "A11 = c13 c12/(c32*)",
+      "correction": "Use A11=c31 c12/(c32*).",
+      "reason": "The same matrix is correct in the body (arXiv p.43/published p.59). The constant minor in rows 1,3 and columns 1,2 must vanish; the printed value instead produces c12(c13−c31). The finite test below gives −t².",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E07",
+      "kind": "misprint",
+      "locator": "Table 3 alpha-beta row relation, arXiv v4 pp.53–54; published pp.51–52",
+      "printed": "c12(−(b−c)d33 c21* +(a−c−1)c31 c23 +(b−c)c31 d23)=0",
+      "correction": "The coefficient of d33 c21* must be +(b−c).",
+      "reason": "Equation (3.14), published p.61, and the listed component prime have the plus sign. In F_101[t]/t^4 with (a,b,c)=(30,15,0), units one, c12=c31=d23=t, d33=−t² and c13=−t³, the plus relation vanishes while the printed relation is 30t³.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E08",
+      "kind": "misprint",
+      "locator": "Table 3 continued beta-alpha row, arXiv v4 p.54; published p.52",
+      "printed": "c11 c32 = 0",
+      "correction": "Use c11 c33=0, as on the preceding row/page.",
+      "reason": "The preceding beta-alpha matrix gives constant (1,3)-row/column minor c11 c33. The earlier duplicate relation is c11 c33. The correct chart permits c11=c32=t, c33=d11=c13=d22=0 and units one, whereas the continuation would impose t²=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E09",
+      "kind": "misprint",
+      "locator": "Identity-shape matching, arXiv v4 p.48; published p.68",
+      "printed": "z=t_(1,0,−1)",
+      "correction": "Use z=t_(−1,0,1) in that sentence.",
+      "reason": "The displayed matrix directly below is diag(v^−1,1,v), and the definition of t_nu uses those exponents. The computation itself uses the displayed matrix.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E10",
+      "kind": "misprint",
+      "locator": "Proposition 4.1.7, arXiv v4 p.59; published p.78, first digraph isomorphism",
+      "printed": "Gamma(M) ≅ Gamma(M*)",
+      "correction": "Transpose the target digraph: Gamma(M) ≅ Gamma(M*)^op, with vertices identified by duality.",
+      "reason": "A nonsplit extension 0→T→E→S→0 becomes 0→S*→E*→T*→0 under exact contravariant duality. Thus the arrow S→T reverses. The next, filtered display already includes the transposition.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E11",
+      "kind": "misprint",
+      "locator": "Alpha-shape c_(epsilon1,1) substitution, arXiv v4 p.47; published p.65",
+      "printed": "d22 = d′21",
+      "correction": "Add c22=c′21 to the substitution list.",
+      "reason": "The identity compares the (2,2) coefficients c22+v d22 and c′21+v d′21. The linear coefficient is assigned, but the constant coefficient assignment is missing.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E12",
+      "kind": "misprint",
+      "locator": "Alpha-beta w0 matching substitution, arXiv v4 p.46; published p.64",
+      "printed": "d23 = d′23",
+      "correction": "Use d23=c′23.",
+      "reason": "The right-hand matrix has v c′23 in that entry and its parameter list has c′23; it has no d′23. Comparing v coefficients forces the correction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E13",
+      "kind": "misprint",
+      "locator": "arXiv v4 abstract, p.1",
+      "printed": "Deligne–Luzstig",
+      "correction": "Deligne–Lusztig",
+      "reason": "The mathematical name is misspelled; the published abstract uses the corrected spelling.",
+      "affects": "nothing",
+      "known": "Published version, abstract (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E14",
+      "kind": "misprint",
+      "locator": "arXiv v4 introduction, p.3",
+      "printed": "three-dimenional",
+      "correction": "three-dimensional",
+      "reason": "Spelling only; the published introduction corrects it.",
+      "affects": "nothing",
+      "known": "Published version, introduction (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E101",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(1), p.97, reporting a correction to LLHLM18 Theorem 1.1",
+      "printed": "its special fiber is as predicted by the geometric Breuil–Mézard conjecture",
+      "correction": "Under the theorem hypotheses the special fibre is reduced and its number of components is at most |W?(rho^ss)∩JH(sigma(tau))|, with equality for semisimple rho.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The authors replace the ambiguous phrase by an exact component inequality and its equality case.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(1), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E102",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(2), p.97, reporting a correction to LLHLM18 Proposition 3.4",
+      "printed": "the codomain of Ttan should be replaced",
+      "correction": "Use pairs (rho,gamma0) where rho is an F′[epsilon]/epsilon² representation of G_K∞ and gamma0 identifies its special fibre with Tdd(M)^*.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The tangent deformation includes its specified residual identification.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(2), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E103",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(3), p.97, reporting a correction to LLHLM18 after equation (3.7)",
+      "printed": "we have a canonical isomorphism",
+      "correction": "Record M_A tensor_A F ≅ M for a point (M_A,rho_A,delta_A) of the framed deformation functor.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The residual identification is needed by the subsequent deformation comparison.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(3), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E104",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(4), p.97, reporting a correction to LLHLM18 after Definition 4.15",
+      "printed": "denotes the category of pairs",
+      "correction": "Use pairs (M_R,j_R) with j_R:M_R tensor_R F ≅ M in the descent-data category, also for the fixed-Hodge-type subcategory.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. A deformation of the fixed residual object includes an identification, not just an isomorphic special fibre.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(4), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E105",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(5), p.97, reporting a correction to LLHLM18 Theorem 4.17 proof",
+      "printed": "p-flat and reduced by [Cal18, Lemma 2.6]",
+      "correction": "Supply p-flatness and reducedness of R from the cited lemma, after acquiring its hypotheses.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum identifies the missing source of these properties; that original lemma remains unread.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(5), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E106",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(6), p.97, reporting a correction to LLHLM18 Lemma 5.2",
+      "printed": "still converges",
+      "correction": "For complete local Noetherian O-flat R the formula converges in lambda^−1 Mat(R[1/p][[u]]); the argument needs base-change compatibility there.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The authors distinguish this sufficient target from the stronger assertion about O_R^rig.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(6), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E107",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(7), p.97, reporting a correction to LLHLM18 Corollary 5.13 and before Theorem 6.14",
+      "printed": "T1, . . . , T8",
+      "correction": "Use T1,…,T9 at both locations.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The ninth chart is required in the table reference.",
+      "affects": "nothing",
+      "known": "LLHLM20 §6(7), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E108",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(8), p.97, reporting a correction to LLHLM18 §5.3.2",
+      "printed": "c11 ≡ 0 modulo varpi",
+      "correction": "Both c11 and c13 are zero modulo the maximal ideal.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The corrected assertion changes both the list of coordinates and the ideal of reduction.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(8), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E109",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(9), p.97, reporting a correction to LLHLM18 §5.3.3, lines −6 and −4",
+      "printed": "c13*",
+      "correction": "Replace the two starred parameters by c13.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum distinguishes a nonunit coordinate from a distinguished unit.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(9), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E110",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(10), p.97, reporting a correction to LLHLM18 Definition 7.1",
+      "printed": "automorphic of weight V, level U, and coefficients W",
+      "correction": "Use Definition 6.0.1: S(U,V tensor W)_m is nonzero for a cofinite Hecke set, with m determined by the dual residual characteristic polynomials; U is unramified at p and its p-factor acts trivially on W.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. Level and coefficients must be retained for the later patching nonvanishing assertion.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(10), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E111",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(11), p.97, reporting a correction to LLHLM18 Definition 7.11(2)",
+      "printed": "automorphic of weight V",
+      "correction": "Fix U and W and require automorphy of weight V at that level with those coefficients.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. Allowing varying levels/coefficients does not imply nonvanishing for a single patched functor.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(11), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E112",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(12), p.98, reporting a correction to LLHLM18 before Proposition 7.14",
+      "printed": "The definition of e(M) ... is incorrect",
+      "correction": "For support dimension at most fixed d, take d! times the degree-d Hilbert-polynomial coefficient; it is zero in lower dimension.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The ordinary multiplicity in the module’s own dimension would not have the needed vanishing and additivity.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(12), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E113",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(13), p.98, reporting a correction to LLHLM18 after Proposition 7.14",
+      "printed": "should exclude primes dividing p",
+      "correction": "Define Sigma0 using ramification away from p.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The p-adic and away-p coefficient factors are treated separately.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(13), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E114",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(14), p.98, reporting a correction to LLHLM18 Proposition 7.15 proof",
+      "printed": "automorphic of weight V",
+      "correction": "Fix the stated minimal U: hyperspecial at split v≠v1, upper-triangular inverse image at v1 and hyperspecial at inert places; fix W a lattice in the product of minimal away-p types.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. This is the level and coefficient module supplied to the patching construction.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(14), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E115",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(15), p.98, reporting a correction to LLHLM18 Proposition 7.16 proof",
+      "printed": "the tame inertial type tau′ should read",
+      "correction": "tau′=omega2^(−(b+1)+p(b+1)) ⊕ omega2^(−(c−1)+pa) ⊕ omega2^(−a+p(c−1)).",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum supplies the corrected three exponents; their original derivation remains part of G07.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(15), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E116",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(16), p.98, reporting a correction to LLHLM18 Theorems 7.8 and 7.4 proofs",
+      "printed": "also requires the following proposition",
+      "correction": "Add Proposition 6.0.2: an automorphic residual GL3 representation with split ramification outside p and the Taylor–Wiles conditions, automorphic in a reachable weight, is automorphic in some reachable weight at the specified minimal U and W.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The original nonvanishing argument cannot cite the corrected Definition 7.11(2) before lowering level. The addendum gives a proof via solvable base change and finite deformation rings.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(16), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E117",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(17), p.99, reporting a correction to LLHLM18 §8.1, after Lemma 8.2",
+      "printed": "has relative dimension 15 over O",
+      "correction": "Use relative dimension 15 for R_M,rho^(tau,beta,square).",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The corrected framed dimension is needed in the subsequent comparisons.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(17), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E118",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(18), p.99, reporting a correction to LLHLM18 Corollary 8.4",
+      "printed": "there should be the further relation",
+      "correction": "Add c12 c33=0.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The displayed presentation omitted a required minor relation.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(18), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E119",
+      "kind": "error",
+      "locator": "LLHLM20 arXiv v4 §6(19), p.99, reporting a correction to LLHLM18 Corollary 8.4 and Proposition 8.11",
+      "printed": "is a quotient of",
+      "correction": "Replace the final claim by R_M,rho^(tau,beta,square)/varpi being a quotient of R-tilde[[c_ii*−[c_ii*],x_j:1≤i≤3,1≤j≤9]].",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. This supplies the dimension bound used in Lemma 8.8 and Proposition 8.6; the addendum does not assert equality here.",
+      "affects": "a stated result",
+      "known": "LLHLM20 §6(19), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E120",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(20), p.100, reporting a correction to LLHLM18 Proposition 8.11 proof",
+      "printed": "we remark that c33 =",
+      "correction": "Use c33=c23 c31/(c21*).",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The elimination uses the distinguished unit c21*.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(20), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E121",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(21), p.100, reporting a correction to LLHLM18 Table 4 caption",
+      "printed": "the coefficients are in F",
+      "correction": "Use residue-field coefficients F.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The caption must match the characteristic-p table.",
+      "affects": "nothing",
+      "known": "LLHLM20 §6(21), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E122",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(22), p.100, reporting a correction to LLHLM18 Table 5 caption",
+      "printed": "the coefficients are in R",
+      "correction": "Use coefficients in R.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The coefficient ring is specified by the authors.",
+      "affects": "nothing",
+      "known": "LLHLM20 §6(22), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E123",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(23), p.100, reporting a correction to LLHLM18 Table 6, entry (1,3)",
+      "printed": "Leading term of the monodromy condition",
+      "correction": "Use that header for the third column.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The column records a leading term, not the full condition.",
+      "affects": "nothing",
+      "known": "LLHLM20 §6(23), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E124",
+      "kind": "gap",
+      "locator": "LLHLM20 arXiv v4 §6(24), p.100, reporting a correction to LLHLM18 Table 6, missing entries",
+      "printed": "can be read off from Table 5",
+      "correction": "Fill the second-column entries from Table 5 and the third-column entry from Proposition 8.3.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum supplies the locations; the actual entries must still be copied and checked from LLHLM18 before closure.",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(24), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E125",
+      "kind": "misprint",
+      "locator": "LLHLM20 arXiv v4 §6(25), p.100, reporting a correction to LLHLM18 Table 6 alpha-beta-alpha-gamma row and caption",
+      "printed": "the second c33* should be removed",
+      "correction": "Delete the second c33* from the leading monodromy term and use bold a_(s_(j+1)(i)) for i=1,2,3 in the caption.",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. These are the two corrections explicitly reported in addendum item (25).",
+      "affects": "the proof",
+      "known": "LLHLM20 §6(25), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
+      "searched": [
+        "2026-09-23: arXiv https://arxiv.org/abs/1608.06570 and v4 dated 2020-03-04; compared the cited displays with the published author copy https://math.rice.edu/~bl70/LLHLMlattices.pdf.",
+        "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
+        "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G01",
+      "scope": "§§1.4–2.3: root conventions, translation charts, tame types and weight recipe",
+      "remaining": "The whole main text was read, but the item inventory omits the full definitions of affine/extended Weyl operations, Lambda_W, Tr_mu, admissibility, the p-dot action, local and algebraic Frobenius twists, Deligne–Lusztig R_s(mu), tau(s,mu), R involution, W?, W?(rho,tau), shapes and all chart-overlap and weight-combinatorics lemmas. Add individually with hypotheses, APIs, ≥3 tests, usage-derived proof dependencies; acquire LLHL19 and Herzig originals.",
+      "resume": "Definitions 2.1.1–2.1.9, Propositions 2.1.5/2.1.10, §§2.2–2.3, Table 2."
+    },
+    {
+      "id": "G02",
+      "scope": "§4.1 lattice prerequisites",
+      "remaining": "EGS15 §4.1 original proofs have been read; itemise them separately. Still acquire and prove residual multiplicity-freeness and the field-of-definition/unramified descent used to replace varpi-powers by integral p-powers. Do not conflate LLHLM normalisation with the usual torsion-free-cokernel definition of saturated.",
+      "resume": "EGS15 4.1.1–4.1.4; Herzig09 appendix Theorem 3.4; LLHLM20 Remark 4.3.5."
+    },
+    {
+      "id": "G03",
+      "scope": "§4.2 lower-alcove base case",
+      "remaining": "Expand every part of 4.2.4–4.2.16 separately: G1T, baby Verma modules and Q1, their socle series, rational/injective lifting, restriction to finite points, translation, U_nu, extension maps and vanishing. Read original Jantzen/Pillen/Andersen/Andersen–Kaneda/Bowman–Doty–Martin sources. Current T21 is an explicit unclosed supplier, not proof closure.",
+      "resume": "Theorem 4.2.7 and its proof, then cited original inputs."
+    },
+    {
+      "id": "G04",
+      "scope": "§§3.1–3.6 local deformation geometry",
+      "remaining": "Add full Kisin module/descent datum/height/shape/semisimplicity definitions and 3.2–3.4 theorems; read LLHLM18 and LLHL19 proofs. Encode all corrected Tables 3–4, chart maps and minimal primes, including 3.6.12/14/15/16 intersections. Prove completed tensor compatibility, not just one-factor formulas. Expand 3.6.3 formal-monomorphism inference with representability/separatedness hypotheses. Typographical suspicion in Table 4 and the height convention need checking, not assertion as established errors.",
+      "resume": "LLHLM18 with all §6 corrections applied; LLHLM20 §§3.1–3.4 and 3.6."
+    },
+    {
+      "id": "G05",
+      "scope": "Numerical patching and existence",
+      "remaining": "Split and prove 3.5.4–3.5.14, especially globalisation, nonzero minimal patching and defect descent. Read EG14 Appendix A, Enns, Kisin and the corrected LLHLM18 patching construction. The generic patching inverse limit belongs to R03.5; arithmetic functor and axioms belong to the proposed GL3 consumer.",
+      "resume": "3.5.13–14 and original globalisation first; then 3.5.4–12."
+    },
+    {
+      "id": "G06",
+      "scope": "§5.1 freeness and nonfreeness",
+      "remaining": "Expand all five cyclicity/gluing stages 5.1.3–7 and EGS15 Lemma 10.1.13 from its original proof. Fully prove the sketch in 5.1.8 with the required generator counts and ideal equalities. T40/T41 record the exact endpoint and missing subproofs.",
+      "resume": "5.1.3, then 5.1.4–7 with 3.6.12–16 and Figures 7–11."
+    },
+    {
+      "id": "G07",
+      "scope": "§5.3 and §6 global arithmetic",
+      "remaining": "Define the definite unitary group model, automorphic spaces, reachable weights, local/global Langlands normalization, Hecke ideals and Schikhof duality individually. Acquire CHT08 Definition 2.4.14, the precise auxiliary-v1 hypotheses, CEG+16/Le18 specialization and all level-lowering/base-change inputs of Proposition 6.0.2. Global conventions below faithfully expose these references as unclosed, not substitute a vague adequacy/minimality predicate.",
+      "resume": "§5.3 setup, original LLHLM18 §§7.2–7.3 with addendum (10)–(16), then §6.0.2 originals."
+    },
+    {
+      "id": "G08",
+      "scope": "§5.2 and lattice specialization",
+      "remaining": "Prove absolute MCM Hartogs extension and the relevant flat/formally smooth base-change statement. HK04 3.5 was read and requires fibrewise codimension≥2; crossing loci have codimension one in the special fibre, so a direct Spec O application is insufficient. Also resolve Spec/Spf comparison and torsion-free specialization in (5.9), rather than assert every cosocle lattice module is free.",
+      "resume": "Depth/local cohomology exact sequence at 5.2.3, then 5.2.4 and 5.3.5."
+    },
+    {
+      "id": "G09",
+      "scope": "Completion of extraction and independent verification",
+      "remaining": "Inventory is partial, not every source definition/key theorem. Split remaining grouped definitions and prerequisites. Finish published/arXiv collation and all diagrams, independently verify E01–E14 and the corrections reported by §6 against LLHLM18, then rerun ownership/library searches against the current atlas. No Lean file or proof was compiled.",
+      "resume": "Use the section coverage table and per-item dependsOn; never upgrade status solely because validators pass."
+    }
+  ],
+  "evidence": {
+    "baseCommit": "914726605a9a45a083a5aa19b6272c706aecd7cc",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369",
+    "pdfs": [
+      {
+        "version": "arXiv v4, 2020-03-04, 102 pages",
+        "url": "https://arxiv.org/pdf/1608.06570v4",
+        "sha256": "cceae9f59d4c8af0a265726c6a35583959b0e1cb0451043ff79170a1def432bd"
+      },
+      {
+        "version": "Published author copy, 135 pages",
+        "url": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
+        "sha256": "848f3b73d80dbfe24af8bf863207b2bd426b74851f3e13e95d8e89f152cbbec0"
+      }
+    ],
+    "reviewedAudit": [
+      "data/library-coverage.json: DeformationAndDerivedPatchingAlgebra R03.1–R03.6, reviewed by REV-AUDIT-17 (2026-09-17).",
+      "data/library-coverage.json: CompletedCohomologyPartII CC.0–CC.8, reviewed by REV-AUDIT-14 (2026-09-17).",
+      "No direct audit entry for LocalGaloisDeformationRings or the cited upstream representation roadmaps was located; direct pinned-source inspection supplements that boundary."
+    ],
+    "ownershipReads": [
+      "Full documents and layers: AlgebraicModularFormsAndSerreWeights, SerreWeightAndLevelOptimisation, DeformationAndDerivedPatchingAlgebra, LocalGaloisDeformationRings, CompletedCohomologyPartII, CompletedCohomologyAndLocalGlobalCompatibility.",
+      "Two upstream roadmaps read fully: tauceti:TauCetiRoadmap/ReductiveGroups and tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems. HighestWeightTheory standing conventions checked separately (characteristic zero), not claimed as a third full read.",
+      "Searched atlas, proposed roadmaps, packets and decomposition files for Deligne–Lusztig, Kisin, G1T, Loewy and Breuil. Existing CohomologyComparisons Breuil–Kisin–Fargues work does not supply descent-equivariant height-two GL3 shape charts."
+    ],
+    "libraryReads": [
+      "Read actual declarations L01–L05 at the full pinned hashes and paths in their locators.",
+      "TauCeti YoungTableau.weylModule requires Algebra Q k, so it is not the modular Weyl module needed here. The existing dotAction is a finite Weyl rho-shift, not the paper’s affine p-dot eta action.",
+      "TauCeti quiver-specific radical/socle work is not a G1T injective or a generic Deligne–Lusztig lattice theorem. Searches were scoped leads; no theorem is marked library from its name alone."
+    ],
+    "computation": "The report embeds the complete Python finite-check script. It checks the nine-point graph for one and two factors, the four minimal coordinate primes, and two Table 3 counterchecks. These are not Lean proofs.",
+    "lean": "Not compiled; this paper issue requests JSON, report and handoff only. No formalisation claimed."
+  },
+  "sourceIssueBoundary": "E01–E12 are proposed findings after visual/source/algebra checks, awaiting independent review; new means no correction found in the explicitly scoped search. E13–E14 were corrected in the published version. E101–E125 are the authors’ known corrections to LLHLM18, read through LLHLM20 §6, not a fresh audit of all original locations. No author contact made."
+}
