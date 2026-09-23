@@ -1102,9 +1102,16 @@
          "file": "TauCeti/RingTheory/Huber/PowerBounded.lean",
          "line": 436,
          "fit": "exact"
+        },
+        {
+         "name": "TauCeti.Huber.IsBounded",
+         "library": "tauceti",
+         "file": "TauCeti/RingTheory/Huber/Bounded.lean",
+         "line": 87,
+         "fit": "related"
         }
        ],
-       "note": "Tau Ceti supplies `IsTateRing`, `IsPseudoUniformizer` and `A°`, and `CompleteSpace`/`T0Space` carry completeness and separatedness; but there is no uniformity predicate for a Huber ring in the Hansen–Kedlaya sense (A° bounded): `IsStablyUniform` has zero hits, and the `IsUniform*` names in Mathlib are uniform-space notions. There is also no perfectoid condition anywhere in either library."
+       "note": "Tau Ceti supplies `IsTateRing`, `IsPseudoUniformizer` and `A°`, and `CompleteSpace`/`T0Space` carry completeness and separatedness; but there is no uniformity predicate for a Huber ring in the Hansen–Kedlaya sense (A° bounded): `IsStablyUniform` has zero hits, and the `IsUniform*` names in Mathlib are uniform-space notions. The condition is one line away rather than a theory to build: `Huber.IsBounded S` (∀ U ∈ 𝓝 0, ∃ V ∈ 𝓝 0, V * S ⊆ U) applied to `powerBoundedSubring` states it. There is also no perfectoid condition anywhere in either library."
       },
       {
        "target": "Equivalent Frobenius-surjectivity criterion with the pseudouniformizer condition retained",
@@ -2675,7 +2682,7 @@
          "fit": "special case"
         }
        ],
-       "note": "Already built for continuous cohomology of a topological group on a discrete module: Tau Ceti has all cup products in total degree ≤ 2 (`explicitCup00/01/10/02/20/11`), restriction and corestriction in degrees 0–2 with transversal independence and the cor∘res = index relation, inflation, long exact sequences and Shapiro in degree 0, plus the comparison with Mathlib's canonical `continuousCohomology` in degree 0 — all sorry-free. What is missing is only the transport to the Herr complex: the Herr complex is three-term and the cohomological dimension of a local Galois group is 2, so degrees 0–2 are exactly the range this layer needs, including the H¹ × H¹ → H² pairing that Tate duality is stated on."
+       "note": "Already built for the continuous cochain cohomology of a topological group, for coefficients in any topological abelian group with a continuous action — not only discrete ones; the cup products take any G-equivariant pairing μ with `Continuous fun p : M × N => μ p.1 p.2` (Cup/Product.lean), and only the comparison with Mathlib’s canonical `continuousCohomology` carries `[DiscreteTopology M]` (ContinuousCohomologyIso.lean). The Tau Ceti roadmap states Layer 8 in the discrete setting, but the declarations are proved in the topological one, which is what PG.3 needs for p-adic coefficients: Tau Ceti has all cup products in total degree ≤ 2 (`explicitCup00/01/10/02/20/11`), restriction and corestriction in degrees 0–2 with transversal independence and the cor∘res = index relation, inflation, long exact sequences and Shapiro in degree 0, plus the comparison with Mathlib's canonical `continuousCohomology` in degree 0 — all sorry-free. What is missing is only the transport to the Herr complex: the Herr complex is three-term and the cohomological dimension of a local Galois group is 2, so degrees 0–2 are exactly the range this layer needs, including the H¹ × H¹ → H² pairing that Tate duality is stated on."
       },
       {
        "target": "Tate duality with the source's residue/orientation normalization",
@@ -4114,6 +4121,10 @@
       {
        "layer": "AInfCohomology:AI.7",
        "note": "AI.7 ('Cohomological Breuil–Kisin descent and cross-theory interfaces') states the Breuil–Kisin descent side."
+      },
+      {
+       "layer": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+       "note": "R07.4 ('Breuil–Kisin modules') is the atlas's owner of the Kisin functor itself — the 𝔖 = W(k)[[u]] coefficient ring, the Frobenius modules with their Eisenstein height bound, and the classification of finite flat and p-divisible groups with generic-fibre comparison. PR.7's last target compares evaluation on the Breuil–Kisin prism with that functor, so it consumes R07.4 rather than rebuilding it; AInfCohomology AI.7 says the same in its own text ('R07 owns the representation/group classification, not this cohomology functor')."
       }
      ]
     },
