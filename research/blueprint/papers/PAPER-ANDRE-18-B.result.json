@@ -1,0 +1,1874 @@
+{
+  "paper": "PAPER-ANDRE-18-B",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "La conjecture du facteur direct",
+    "authors": "Yves André",
+    "venue": "Publications Mathématiques de l’IHÉS 127 (2018), 71–93",
+    "doi": "10.1007/s10240-017-0097-9",
+    "arxiv": "1609.00345",
+    "url": "https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf",
+    "version": "Published journal PDF, 23 pages. All locators use printed journal pages, not the shorter 2016 arXiv v1.",
+    "sha256": "34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053",
+    "accessed": "2026-09-23",
+    "readSections": [
+      "§§0.1–0.8, pp.71–75",
+      "§§1.1–1.2, pp.75–77",
+      "§§2.1–2.6 and remarks, pp.78–83",
+      "§§3.1–3.4, pp.83–84",
+      "§§4.1–4.4, pp.84–88",
+      "Appendix A.1–A.4, pp.89–92",
+      "Bibliography, pp.92–93"
+    ],
+    "readingNote": "Full published text read; images additionally checked at pp.79–88 and 90–91. Reading is complete, but declaration-sized extraction and verification of cited suppliers are not: see coverageGaps."
+  },
+  "summary": "Partial first extraction of André’s proof of the direct summand theorem, existence of balanced big Cohen–Macaulay algebras, and domination of finite extensions of regular rings by faithfully flat algebras. Distinguishes valuation-almost Kummer flatness from ramified almost purity and actual splitting. Ordinary purity and the commutative-algebra applications need a new direction; generic almost mathematics and perfectoid foundations are imported. The existing companion-paper PerfectoidRamification proposal is reused, not duplicated. Full source coverage and supplier verification remain open; no formalization or closed proof graph is claimed.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "atlasSnapshot": "9311f8ee5d78d9c02aee2deac5265940129cea31",
+    "reviewedAudit": "data/library-coverage.json: AUDIT-17 / REV-AUDIT-17, DeformationAndDerivedPatchingAlgebra:R03.1–R03.3 and R03.5. No reviewed rows exist there for PerfectoidSpaces, PerfectoidQuotients or AdicSpacesPartII; absence is not an audited absence claim.",
+    "upstreamRead": [
+      "content/tau-ceti/AdicSpaces/README.md (whole document)",
+      "content/tau-ceti/LocalFieldsRamification/README.md (whole document)"
+    ],
+    "searchScope": "Pinned Mathlib and TauCeti trees: regular sequences, regular rings, faithful flatness, adic completion, Witt DVRs, ordinary pure module/ring maps, big Cohen–Macaulay algebra. Atlas stage descriptions, roadmap definitions, packet filenames/content, and other paper routes screened. See report for exact positive declarations and nonmatches."
+  },
+  "items": [
+    {
+      "id": "PAPER-ANDRE-18-B/regular-local",
+      "kind": "definition",
+      "name": "Regular local ring",
+      "statement": "A commutative Noetherian local ring R is regular when its maximal ideal has minimal number of generators equal to dim R.",
+      "locator": "§0.2, p.72; §4.2.1, p.86",
+      "status": "library",
+      "library": [
+        "mathlib:IsRegularLocalRing"
+      ],
+      "note": "Statement read in Mathlib/RingTheory/RegularLocalRing/Defs.lean:51. Local-to-global regularity is a separate theorem, not supplied merely by this definition.",
+      "uses": [
+        {
+          "where": "0.2.1 and 4.2.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "IsRegularLocalRing",
+          "role": "constructor",
+          "statement": "Use the existing class with locality, Noetherianity and the generator/dimension equality."
+        },
+        {
+          "name": "IsRegularLocalRing.iff_finrank_cotangentSpace",
+          "role": "characterisation",
+          "statement": "Compare minimal generators with the residue-field dimension of m/m²; use the pinned theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "regular-local-1",
+          "kind": "example",
+          "statement": "A field is regular local of dimension zero."
+        },
+        {
+          "name": "regular-local-2",
+          "kind": "example",
+          "statement": "A DVR is regular local of dimension one."
+        },
+        {
+          "name": "regular-local-3",
+          "kind": "boundary",
+          "statement": "k[ε]/(ε²) has dimension zero but one generator of its maximal ideal, so is not regular."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/regular-ring",
+      "kind": "definition",
+      "name": "Regular ring",
+      "statement": "A commutative Noetherian ring R is regular when R_P is regular local for every prime P.",
+      "locator": "Theorem 0.1.1, p.71",
+      "status": "library",
+      "library": [
+        "mathlib:IsRegularRing"
+      ],
+      "note": "Mathlib/RingTheory/RegularLocalRing/Defs.lean:96; no bounded global dimension is built into this definition.",
+      "uses": [
+        {
+          "where": "0.1.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "IsRegularRing",
+          "role": "characterisation",
+          "statement": "Regularity is tested at every prime localization; use the pinned class."
+        },
+        {
+          "name": "IsRegularRing.isRegularLocalRing_localization",
+          "role": "projection",
+          "statement": "Extract regular-local structure at a prime."
+        }
+      ],
+      "tests": [
+        {
+          "name": "regular-ring-1",
+          "kind": "example",
+          "statement": "A field satisfies the definition."
+        },
+        {
+          "name": "regular-ring-2",
+          "kind": "example",
+          "statement": "A finite product of fields is regular though not local."
+        },
+        {
+          "name": "regular-ring-3",
+          "kind": "boundary",
+          "statement": "k[ε]/(ε²) fails at its unique prime."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/weak-regular-sequence",
+      "kind": "definition",
+      "name": "Weakly regular module sequence",
+      "statement": "For a commutative ring R and R-module M, a finite sequence x is weakly regular when multiplication by each x_i is injective on M/(x_1,…,x_{i−1})M.",
+      "locator": "Definition 4.1.1, p.84",
+      "status": "library",
+      "library": [
+        "mathlib:RingTheory.Sequence.IsWeaklyRegular"
+      ],
+      "note": "Mathlib/RingTheory/Regular/RegularSequence.lean:135. No finite-generation hypothesis on M.",
+      "uses": [
+        {
+          "where": "4.1.1 and 4.1.3",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "RingTheory.Sequence.IsWeaklyRegular",
+          "role": "characterisation",
+          "statement": "Use injectivity on each preceding quotient."
+        },
+        {
+          "name": "RingTheory.Sequence.IsWeaklyRegular.of_flat_of_isBaseChange",
+          "role": "functoriality",
+          "statement": "Transport across a specified flat base-change map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "weak-regular-sequence-1",
+          "kind": "example",
+          "statement": "The empty sequence is weakly regular on every module, including zero."
+        },
+        {
+          "name": "weak-regular-sequence-2",
+          "kind": "example",
+          "statement": "(t) is weakly regular on k[t]."
+        },
+        {
+          "name": "weak-regular-sequence-3",
+          "kind": "boundary",
+          "statement": "(0) is not weakly regular on nonzero k."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/regular-sequence",
+      "kind": "definition",
+      "name": "Regular module sequence",
+      "statement": "A weakly regular sequence x on M is regular if M/(x)M is nonzero.",
+      "locator": "Definition 4.1.1, p.84",
+      "status": "library",
+      "library": [
+        "mathlib:RingTheory.Sequence.IsRegular"
+      ],
+      "note": "Mathlib/RingTheory/Regular/RegularSequence.lean:146. Big CM additionally imposes m_B C≠C.",
+      "uses": [
+        {
+          "where": "4.1.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "RingTheory.Sequence.IsRegular",
+          "role": "characterisation",
+          "statement": "Weak regularity and nonzero final quotient."
+        },
+        {
+          "name": "RingTheory.Sequence.IsRegular.top_ne_smul",
+          "role": "projection",
+          "statement": "Extract that the sequence ideal does not generate the whole module."
+        }
+      ],
+      "tests": [
+        {
+          "name": "regular-sequence-1",
+          "kind": "example",
+          "statement": "(t) is regular on k[[t]]."
+        },
+        {
+          "name": "regular-sequence-2",
+          "kind": "example",
+          "statement": "(1) is weakly regular but not regular on k."
+        },
+        {
+          "name": "regular-sequence-3",
+          "kind": "boundary",
+          "statement": "The empty sequence is regular exactly for a nonzero module."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/faithfully-flat",
+      "kind": "definition",
+      "name": "Faithfully flat module",
+      "statement": "An R-module M is faithfully flat if it is flat and mM≠M for every maximal ideal m of R; equivalently its tensor functor is exact and faithful.",
+      "locator": "§1.1; Appendix A.2.1(3)",
+      "status": "library",
+      "library": [
+        "mathlib:Module.FaithfullyFlat",
+        "mathlib:Module.FaithfullyFlat.iff_flat_and_proper_ideal"
+      ],
+      "note": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean:63,73.",
+      "uses": [
+        {
+          "where": "1.1.1, 1.1.2, 3.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "Module.FaithfullyFlat.iff_flat_and_proper_ideal",
+          "role": "characterisation",
+          "statement": "Flatness plus properness of all extended proper ideals."
+        },
+        {
+          "name": "Module.FaithfullyFlat.one_tmul_eq_zero_iff",
+          "role": "compatibility",
+          "statement": "Faithful base change detects an element being zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "faithfully-flat-1",
+          "kind": "example",
+          "statement": "R is faithfully flat over itself."
+        },
+        {
+          "name": "faithfully-flat-2",
+          "kind": "example",
+          "statement": "Q is flat but not faithfully flat over Z since (2)Q=Q."
+        },
+        {
+          "name": "faithfully-flat-3",
+          "kind": "boundary",
+          "statement": "A nonzero free module over nonzero R is faithfully flat."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/faithfully-flat-unit-injective",
+      "kind": "theorem",
+      "name": "Unit tensor map of a faithfully flat algebra",
+      "statement": "If S is a faithfully flat R-algebra and M is any R-module, 1⊗m=0 in S⊗_R M iff m=0.",
+      "locator": "Used in Lemma 1.1.2; Appendix A.2.1(3)",
+      "status": "library",
+      "library": [
+        "mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff"
+      ],
+      "note": "Basic.lean:482; actual statement read. This supplies the tensor-injectivity assertion, not a missing named generic purity predicate."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/regular-sequence-flat-base-change",
+      "kind": "theorem",
+      "name": "Weak regularity under flat base change",
+      "statement": "If R→S is flat and x is weakly regular on an R-module M, its image is weakly regular on S⊗_R M.",
+      "locator": "Lemma 4.1.3 proof, p.86",
+      "status": "library",
+      "library": [
+        "mathlib:RingTheory.Sequence.IsWeaklyRegular.of_flat_of_isBaseChange"
+      ],
+      "note": "Mathlib/RingTheory/Regular/Flat.lean:34; arbitrary-module generality is sufficient."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/noetherian-base-completion-flat",
+      "kind": "theorem",
+      "name": "Completion of the Noetherian base is flat",
+      "statement": "For a commutative Noetherian ring R and ideal I, its I-adic completion is R-flat.",
+      "locator": "Special case S=R of Lemma 1.1.1, p.75",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.flat_of_isNoetherian"
+      ],
+      "note": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean:379. This does NOT prove the lemma for a non-Noetherian R-flat algebra S."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/witt-dvr",
+      "kind": "theorem",
+      "name": "Witt vectors of a perfect field form a DVR",
+      "statement": "If p is prime and k is a perfect field of characteristic p, W_p(k) is a discrete valuation ring.",
+      "locator": "§2.1, p.78",
+      "status": "library",
+      "library": [
+        "mathlib:WittVector.isDiscreteValuationRing"
+      ],
+      "note": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean:149; mixed-characteristic completeness and coefficient-ring reduction are separate inputs."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-module",
+      "kind": "definition",
+      "name": "Pure module monomorphism",
+      "statement": "An R-linear injection M→N is pure if P⊗_R M→P⊗_R N is injective for every R-module P.",
+      "locator": "Appendix A.1, p.89",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "A.1.1, A.4.1, 3.3",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "Submodule.IsComplemented.isPure",
+          "role": "constructor",
+          "statement": "Follow the upstream PR contract: complemented submodules are pure; adapt a specified retraction through the image equivalence."
+        },
+        {
+          "name": "Submodule.IsPure.iff_fp_tensor",
+          "role": "characterisation",
+          "statement": "Extend the upstream shape with the equivalent test on finitely presented modules, proving the algebra-test/module-test bridge and universe compatibility."
+        },
+        {
+          "name": "Submodule.IsPure.baseChange_injective",
+          "role": "projection",
+          "statement": "Use the upstream arbitrary-universe algebra base-change contract; the new ordinary-module characterization is a separate lemma."
+        }
+      ],
+      "tests": [
+        {
+          "name": "pure-module-1",
+          "kind": "example",
+          "statement": "M→M⊕N is pure via projection."
+        },
+        {
+          "name": "pure-module-2",
+          "kind": "example",
+          "statement": "2Z→Z is injective but not pure: tensor with Z/2 kills a nonzero class."
+        },
+        {
+          "name": "pure-module-3",
+          "kind": "boundary",
+          "statement": "Every vector-subspace inclusion over a field is pure; the assertion does not impose finite dimension."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Follow open Mathlib PR #22909 at c2ab6bbf5e75dfa6ab145d538e276a883e0af724: use Submodule.IsPure for the image of an injection, with an explicit equivalence to the all-module tensor test. The open PR is not a pinned library supplier. No independent PureLinearMap carrier is proposed."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-ring",
+      "kind": "definition",
+      "name": "Pure ring homomorphism",
+      "statement": "A homomorphism f:R→S of commutative unital rings is pure if M→S⊗_R M, m↦1⊗m, is injective for every R-module M. In particular f is injective.",
+      "locator": "Appendix A.2, p.89",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "A.2 and 0.1.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "PureRingHom.tensor_unit_injective",
+          "role": "projection",
+          "statement": "Expose injectivity of each module unit map."
+        },
+        {
+          "name": "PureRingHom.baseChange",
+          "role": "functoriality",
+          "statement": "Transport purity across arbitrary commutative algebra base change."
+        },
+        {
+          "name": "PureRingHom.of_comp",
+          "role": "relation",
+          "statement": "A pure composite has a pure first factor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "pure-ring-1",
+          "kind": "example",
+          "statement": "The diagonal R→R×R is split and pure."
+        },
+        {
+          "name": "pure-ring-2",
+          "kind": "example",
+          "statement": "Z→Q is injective but not pure, using Z/2."
+        },
+        {
+          "name": "pure-ring-3",
+          "kind": "boundary",
+          "statement": "R→R/I with nonzero I is not pure because the test module R detects its kernel."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/module-generator",
+      "kind": "definition",
+      "name": "Generator module",
+      "statement": "An R-module M is a generator if each R-module N is generated by the union of the images of all R-linear maps M→N.",
+      "locator": "Appendix A.1, p.89",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "A.1.2 and A.2.1(4)",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "ModuleGenerator.iff_finite_power_summand",
+          "role": "characterisation",
+          "statement": "R is a summand of some finite power of M."
+        },
+        {
+          "name": "ModuleGenerator.eval_family",
+          "role": "data",
+          "statement": "Produce finitely many m_i and λ_i:M→R with Σλ_i(m_i)=1."
+        },
+        {
+          "name": "ModuleGenerator.of_linearEquiv",
+          "role": "functoriality",
+          "statement": "Transport under R-linear equivalence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "module-generator-1",
+          "kind": "example",
+          "statement": "R is a generator of Mod_R."
+        },
+        {
+          "name": "module-generator-2",
+          "kind": "example",
+          "statement": "Z/2 is not a generator of Mod_Z."
+        },
+        {
+          "name": "module-generator-3",
+          "kind": "boundary",
+          "statement": "Q is a faithful Z-module but not a generator: every Z-linear Q→Z is zero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/splitting",
+      "kind": "definition",
+      "name": "Linear splitting of an algebra map",
+      "statement": "For an R-algebra S, a splitting is an R-linear map ρ:S→R with ρ(1)=1, equivalently ρ composed with R→S is the identity. It is not required to be multiplicative.",
+      "locator": "§0.1; Appendix A.2.1(4)",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "0.1.1 and 3.3–3.4",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlgebraSplitting.retract_one",
+          "role": "characterisation",
+          "statement": "ρ∘algebraMap=id iff ρ(1)=1 for R-linear ρ."
+        },
+        {
+          "name": "AlgebraSplitting.baseChange",
+          "role": "functoriality",
+          "statement": "Tensor a splitting with any R-algebra."
+        },
+        {
+          "name": "AlgebraSplitting.kerDecomposition",
+          "role": "equivalence",
+          "statement": "S≅R⊕kerρ as R-modules."
+        }
+      ],
+      "tests": [
+        {
+          "name": "splitting-1",
+          "kind": "example",
+          "statement": "Evaluation at 0 splits R→R[X]."
+        },
+        {
+          "name": "splitting-2",
+          "kind": "example",
+          "statement": "Projection to the first coordinate splits the diagonal R→R×R."
+        },
+        {
+          "name": "splitting-3",
+          "kind": "boundary",
+          "statement": "The R-linear projection C→R splits R→C but is not a ring homomorphism, so multiplicativity must not be required."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-fp-test",
+      "kind": "theorem",
+      "name": "Finite-presentation test for module purity",
+      "statement": "An R-linear injection is pure iff tensoring with every finitely presented R-module preserves injectivity.",
+      "locator": "Appendix A.1 opening, p.89",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-hom-lift",
+      "kind": "theorem",
+      "name": "Lazard lifting criterion",
+      "statement": "For M⊂N, purity is equivalent to surjectivity of Hom_R(P,N)→Hom_R(P,N/M) for every finitely presented R-module P.",
+      "locator": "Lemma A.1.1(1), p.89",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/pure-module",
+        "PAPER-ANDRE-18-B/pure-fp-test"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-fp-quotient-split",
+      "kind": "theorem",
+      "name": "Pure inclusion with finitely presented quotient splits",
+      "statement": "If N/M is finitely presented, M⊂N is pure iff it admits an R-linear retraction.",
+      "locator": "Lemma A.1.1(2), p.89",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/pure-hom-lift",
+        "PAPER-ANDRE-18-B/splitting"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-filtered-split",
+      "kind": "theorem",
+      "name": "Purity as filtered colimit of split monomorphisms",
+      "statement": "A module monomorphism is pure iff it is a filtered colimit, in the arrow category of R-modules, of split monomorphisms.",
+      "locator": "Lemma A.1.1(3), p.89",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-tor-injective",
+      "kind": "theorem",
+      "name": "Pure inclusions remain injective on Tor",
+      "statement": "For a pure inclusion M⊂N, any R-module P and every i≥0, Tor_i^R(P,M)→Tor_i^R(P,N) is injective.",
+      "locator": "Lemma A.1.1(4), p.89",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/pure-filtered-split"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-flat-quotient",
+      "kind": "theorem",
+      "name": "Purity inside a flat module",
+      "statement": "If N is R-flat, M⊂N is pure iff N/M is R-flat.",
+      "locator": "Lemma A.1.1(5), p.89",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-restrict-scalars",
+      "kind": "theorem",
+      "name": "Restriction of scalars preserves module purity",
+      "statement": "If S is a commutative R-algebra, any pure map of S-modules is pure as a map of R-modules.",
+      "locator": "Lemma A.1.1(6), p.89",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/generator-finite-sum",
+      "kind": "theorem",
+      "name": "Finite-power criterion for a generator",
+      "statement": "M is an R-module generator iff R is an R-linear direct summand of M^n for some finite n.",
+      "locator": "Lemma A.1.2, p.89",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/module-generator"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-ring-basechange-test",
+      "kind": "theorem",
+      "name": "Purity as injectivity after algebra base change",
+      "statement": "R→S is pure iff R′→S⊗_R R′ is injective for every commutative R-algebra R′; finitely presented R-algebras suffice.",
+      "locator": "Appendix A.2 opening, p.89",
+      "status": "missing",
+      "note": "Use Sym_R(P) and its degree-one summand. This is not the radicial/universally injective scheme-morphism predicate."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-composition",
+      "kind": "theorem",
+      "name": "Composition of pure algebra maps",
+      "statement": "If R→S and S→T are pure, R→T is pure.",
+      "locator": "Lemma A.2.1(1), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-basechange",
+      "kind": "theorem",
+      "name": "Base change of pure algebra maps",
+      "statement": "If R→S is pure, R′→R′⊗_R S is pure for every R-algebra R′.",
+      "locator": "Lemma A.2.1(1), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-colimit",
+      "kind": "theorem",
+      "name": "Filtered colimits preserve pure maps",
+      "statement": "A filtered colimit of compatible pure homomorphisms of commutative rings is pure.",
+      "locator": "Lemma A.2.1(1), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-left-factor",
+      "kind": "theorem",
+      "name": "A pure composite has pure first factor",
+      "statement": "If R→S→T has pure composite, R→S is pure.",
+      "locator": "Lemma A.2.1(1), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/flat-descends-pure",
+      "kind": "theorem",
+      "name": "Flatness descends through a pure second factor",
+      "statement": "If R→S→T has R-flat T and pure S→T, then S is R-flat.",
+      "locator": "Lemma A.2.1(2), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-tensor-faithful",
+      "kind": "theorem",
+      "name": "Purity is faithfulness of extension of scalars",
+      "statement": "R→S is pure iff extension of scalars Mod_R→Mod_S is faithful.",
+      "locator": "Lemma A.2.1(3), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/faithfully-flat-iff-pure-flat",
+      "kind": "theorem",
+      "name": "Faithfully flat is flat and pure",
+      "statement": "R→S is faithfully flat iff it is both flat and pure.",
+      "locator": "Lemma A.2.1(3), p.90",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/finite-pure-split-generator",
+      "kind": "theorem",
+      "name": "Finite-presentation splitting criterion for algebras",
+      "statement": "If S is finitely presented as an R-module, the conditions that R→S is pure, that it splits R-linearly, and that S is an R-module generator are equivalent.",
+      "locator": "Lemma A.2.1(4), p.90",
+      "status": "missing",
+      "note": "Use Hom_R(S,R), correcting E1. For generator⇒split choose a finite family λ_i,s_i with Σλ_i(s_i)=1 and use ρ(t)=Σλ_i(s_i t); do not assume a single chosen evaluation is 1.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/pure-fp-quotient-split",
+        "PAPER-ANDRE-18-B/generator-finite-sum",
+        "PAPER-ANDRE-18-B/pure-ring"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-local-completion",
+      "kind": "theorem",
+      "name": "Purity survives local Noetherian completion",
+      "statement": "If R→S is a pure local homomorphism of Noetherian local rings, the induced map between their maximal-ideal-adic completions is pure.",
+      "locator": "Lemma A.2.2, p.90",
+      "status": "missing",
+      "note": "Supplier verification of the proof’s completion/descent step remains G5; do not replace by arbitrary non-Noetherian completion."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/flat-algebra-completion",
+      "kind": "theorem",
+      "name": "Completion of a flat algebra over a Noetherian base",
+      "statement": "Let R be commutative Noetherian, I an ideal, and S an R-flat commutative R-algebra, not necessarily Noetherian or I-adically separated. The separated I-adic completion of S is R-flat.",
+      "locator": "Lemma 1.1.1, p.75",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/finite-module-completion-basechange",
+      "kind": "theorem",
+      "name": "Finite-module tensor commutes with completion of a flat algebra",
+      "statement": "Under the hypotheses of Lemma 1.1.1, for every finite R-module M, the canonical map M⊗_R Ŝ→lim_n (M⊗_R S)/I^n(M⊗_R S) is an isomorphism.",
+      "locator": "Lemma 1.1.1, p.75",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/faithful-completion",
+      "kind": "theorem",
+      "name": "Faithfulness after completion",
+      "statement": "Under Lemma 1.1.1, if S is faithfully flat and I⊆Jac(R), then its separated I-adic completion is faithfully flat over R.",
+      "locator": "Lemma 1.1.1 final sentence, p.75",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/flat-algebra-completion",
+        "PAPER-ANDRE-18-B/finite-module-completion-basechange"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/idempotent-annihilator",
+      "kind": "theorem",
+      "name": "Contracting an idempotent annihilator",
+      "statement": "Let R be Noetherian, M finite over R, S faithfully flat over R, and K⊂S an ideal with K²=K and K(M⊗_R S)=0. For every s∈R whose image lies in K, there is r∈Ann_R(M) with (1−r)s=0.",
+      "locator": "Lemma 1.1.2, pp.75–76",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/idempotent-annihilator-local",
+      "kind": "theorem",
+      "name": "Local annihilator vanishing",
+      "statement": "In Lemma 1.1.2, if R is local and the contraction of K to R is nonzero, then M=0.",
+      "locator": "Lemma 1.1.2 final sentence, pp.75–76",
+      "status": "missing",
+      "note": "Nonzero contraction suffices even when s is a zero divisor: if M≠0, Ann(M) lies in m, making 1−r a unit.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/idempotent-annihilator"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-base",
+      "kind": "definition",
+      "name": "Almost base and almost-zero modules",
+      "statement": "An almost base is a commutative ring V with an idempotent ideal m for which m⊗_V m is V-flat. A V-module M is almost zero when mM=0; almostification is the Serre quotient by these modules.",
+      "locator": "Appendix A.4, p.92",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "note": "Import the generic carrier; do not specialize the definition to a valuation ring. Companion PAPER-ANDRE-18 §1 is a shared supplier.",
+      "uses": [
+        {
+          "where": "P0 consumers and A.4",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlmostBase.ideal_idempotent",
+          "role": "projection",
+          "statement": "Expose m²=m and flatness of m⊗_V m."
+        },
+        {
+          "name": "AlmostZero.annihilated",
+          "role": "characterisation",
+          "statement": "Almost zero means every element of m annihilates the module."
+        },
+        {
+          "name": "AlmostBase.change",
+          "role": "functoriality",
+          "statement": "Compare relative categories only after checking the generated-ideal condition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "almost-base-1",
+          "kind": "example",
+          "statement": "m=V gives ordinary mathematics."
+        },
+        {
+          "name": "almost-base-2",
+          "kind": "example",
+          "statement": "m=0 makes every V-module almost zero; nondegeneracy must be separately imposed where needed."
+        },
+        {
+          "name": "almost-base-3",
+          "kind": "boundary",
+          "statement": "In V=F_p[t^(1/p^∞)], the ideal generated by all positive p-power roots of t is idempotent, while (t) alone is not."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-module-left-adjoint",
+      "kind": "theorem",
+      "name": "Exact tensor-compatible left adjoint for almost modules",
+      "statement": "For the almost base (V,m) above, the left adjoint M↦M_! to almostification is exact and commutes with tensor products; it is given by (m⊗_V m)⊗_V M_*.",
+      "locator": "Appendix A.4 opening, p.92",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "note": "Cited Gabber–Ramero 2.2.24, 2.4.35; module ! is distinct from algebra !!."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-pure-module",
+      "kind": "definition",
+      "name": "Almost pure module map",
+      "statement": "Over a fixed almost base (V,m) and a V-algebra R, an R-linear map M→N is almost pure if ker(P⊗_R M→P⊗_R N) is annihilated by m for every R-module P.",
+      "locator": "Appendix A.4, p.92",
+      "status": "missing",
+      "note": "A concrete predicate need not require literal injectivity. Lemma A.4.1 additionally starts with M⊂N.",
+      "uses": [
+        {
+          "where": "A.4.1 and 3.2.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlmostPureLinearMap.tensor_kernel",
+          "role": "projection",
+          "statement": "The fixed base ideal kills every tensor kernel."
+        },
+        {
+          "name": "AlmostPureLinearMap.iff_leftAdjoint",
+          "role": "characterisation",
+          "statement": "Compare with ordinary purity after !."
+        },
+        {
+          "name": "AlmostPureLinearMap.ordinary",
+          "role": "compatibility",
+          "statement": "Ordinary purity implies almost purity for every admissible almost base."
+        }
+      ],
+      "tests": [
+        {
+          "name": "almost-pure-module-1",
+          "kind": "example",
+          "statement": "With m=V, recover ordinary purity."
+        },
+        {
+          "name": "almost-pure-module-2",
+          "kind": "example",
+          "statement": "With m=0, every map is almost pure, including a noninjective one."
+        },
+        {
+          "name": "almost-pure-module-3",
+          "kind": "boundary",
+          "statement": "For an almost-zero module M, M→0 is almost pure, illustrating why actual injectivity is an extra hypothesis of A.4.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-pure-left-adjoint",
+      "kind": "theorem",
+      "name": "Almost purity tested through the module left adjoint",
+      "statement": "An R-linear map is almost pure iff its map M^a_!→N^a_! is a pure module monomorphism.",
+      "locator": "Appendix A.4, p.92",
+      "status": "missing",
+      "note": "Ordinary purity is imported from the new commutative-algebra direction; almost adjoints from P0.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/pure-module",
+        "PAPER-ANDRE-18-B/almost-pure-module",
+        "PAPER-ANDRE-18-B/almost-module-left-adjoint"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-hom-lift",
+      "kind": "theorem",
+      "name": "Almost lifting for finitely presented modules",
+      "statement": "If M⊂N is almost pure and P is finitely presented over R in the ordinary sense, Hom_R(P,N)→Hom_R(P,N/M) has almost-zero cokernel.",
+      "locator": "Lemma A.4.1, p.92",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-pure-left-adjoint",
+        "PAPER-ANDRE-18-B/pure-hom-lift"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-ext-class",
+      "kind": "theorem",
+      "name": "Almost purity annihilates a finite-presentation extension class",
+      "statement": "For an almost pure inclusion M⊂N with N/M finitely presented as an ordinary R-module, every η∈m kills the class of 0→M→N→N/M→0 in Ext_R^1(N/M,M).",
+      "locator": "Lemma A.4.1, p.92",
+      "status": "missing",
+      "note": "For each η, lift η·id_(N/M); a single ordinary splitting is NOT asserted.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-hom-lift"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-pure-ring-adjoint",
+      "kind": "theorem",
+      "name": "Almost pure algebra maps and the algebra left adjoint",
+      "statement": "A map R→S of V-algebras is almost pure as an R-module map iff R^a_!!→S^a_!! is a pure ring map.",
+      "locator": "Appendix A.4 final paragraph, p.92",
+      "status": "missing",
+      "note": "Retain the algebra left adjoint !!, not the module functor !."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-pure-left-factor",
+      "kind": "theorem",
+      "name": "Almost purity of the first factor",
+      "statement": "If R→S→T is almost pure as a composite of V-algebra maps, then R→S is almost pure.",
+      "locator": "Appendix A.4 final sentence, p.92",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint",
+      "kind": "theorem",
+      "name": "Faithful flatness through the algebra left adjoint",
+      "statement": "For a map of almost algebras over an admissible almost base, faithful flatness is equivalent to ordinary faithful flatness of the map obtained using the algebra left adjoint !!.",
+      "locator": "§2.5.2 proof, pp.81–82; §3.1, p.83",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "note": "Import PAPER-ANDRE-18/1.6-flatness-transport, citing Gabber–Ramero 3.1.3. Exact verification is retained in G1."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-reframing",
+      "kind": "theorem",
+      "name": "Reframing by an ideal with the same generated image",
+      "statement": "Changing the almost base along V→V′ yields the same relative almost-module category on an algebra R when both base ideals generate the same ideal of R.",
+      "locator": "§2.5.2 proof and Corollary 3.2.2",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P0"
+      ],
+      "note": "Import PAPER-ANDRE-18/1.5-reframing; prove equality of generated ideals in each application, not just containment."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/cyclotomic-perfectoid-field",
+      "kind": "theorem",
+      "name": "Completed cyclotomic Witt-fraction field is perfectoid",
+      "statement": "For perfect k of characteristic p, let K_0=Frac(W(k)), choose compatible primitive p^j-th roots ζ_(p^j), and set K_∞=∪_j K_0(ζ_(p^j)). Its valuation completion is a perfectoid field.",
+      "locator": "§2.1 and proof of 2.5.2, pp.78–79",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P1"
+      ],
+      "note": "The paper’s k need not be finite; the locally compact local-field roadmap is not an exact supplier for this whole assertion."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
+      "kind": "theorem",
+      "name": "Integral model of a perfectoid Weierstrass localization",
+      "statement": "Let C be a spectral perfectoid algebra over a perfectoid field and f,ϖ admit compatible p-power roots, with ϖ a pseudouniformizer and f power bounded. The canonical map from the ϖ-adic completion of C°[(f/ϖ^i)^(1/p^∞)] to C{f/ϖ^i}° is an almost isomorphism for the valuation almost ideal.",
+      "locator": "§2.5.2, formula (12), p.80",
+      "status": "planned",
+      "planned": [
+        "PerfectoidSpaces:P2"
+      ],
+      "note": "Scholze 2012 Lemma 6.4 is cited. Do not assert equality of integral rings; exact source check remains G1."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/normalized-kummer-tower",
+      "kind": "construction",
+      "name": "Normalized two-index Kummer tower",
+      "statement": "Fix perfect k of characteristic p, A=W(k)[[T_1,…,T_n]], 0≠g∈A, and compatible cyclotomic and coordinate roots. For finite j,k define A_jk=K_j°[[T_1^(1/p^j),…,T_n^(1/p^j)]][U]/(U^(p^k)−g)[1/p]; let A_jk° be the integral closure of A in A_jk. Infinite indices mean directed unions, and hats mean separated p-adic completion of the integral ring followed, on the generic algebra, by inverting p.",
+      "locator": "§§2.1–2.3, p.78",
+      "status": "missing",
+      "note": "The adjoining-root quotient before normalization is not silently identified with A_jk°. A_jk for k>0 need not be a domain.",
+      "uses": [
+        {
+          "where": "2.5.2, 3.1 and 4.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "NormalizedKummerTower.level",
+          "role": "data",
+          "statement": "Expose the algebra, its normal integral model and structure map at (j,k)."
+        },
+        {
+          "name": "NormalizedKummerTower.transition",
+          "role": "functoriality",
+          "statement": "Choose compatible cyclotomic, coordinate and g roots; transition identity and composition are explicit."
+        },
+        {
+          "name": "NormalizedKummerTower.complete",
+          "role": "construction",
+          "statement": "Form the integral union, separated p-adic completion and generic fibre as different operations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "normalized-kummer-tower-1",
+          "kind": "example",
+          "statement": "At k=0 the root relation is U−g and the integral model is the explicit coordinate-root power-series ring."
+        },
+        {
+          "name": "normalized-kummer-tower-2",
+          "kind": "example",
+          "statement": "For g=1 and a level containing μ_(p^k), the generic root algebra splits into factors; domainhood cannot be a field of the structure."
+        },
+        {
+          "name": "normalized-kummer-tower-3",
+          "kind": "boundary",
+          "statement": "At j=0,k=0 recover A[1/p] and integral model A."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/coordinate-tower-flat",
+      "kind": "theorem",
+      "name": "Faithful flatness before adjoining the ramifying root",
+      "statement": "A_j0°=K_j°[[T_1^(1/p^j),…,T_n^(1/p^j)]]. Its finite transition maps, and A→A_j0°, are finite faithfully flat. A_∞0° and its p-adic completion are faithfully flat over A and over each finite stage.",
+      "locator": "§§2.2–2.3, p.78",
+      "status": "missing",
+      "note": "Completion is checked relative to each Noetherian finite stage via 1.1.1, not by treating A_∞0° as Noetherian.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/normalized-kummer-tower",
+        "PAPER-ANDRE-18-B/faithful-completion"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/kummer-tube-comparison",
+      "kind": "theorem",
+      "name": "Normalized root tower as completed tubular colimit",
+      "statement": "With the tower above, C=Â_∞0 and a pseudouniformizer ϖ of the completed K_∞, Â_∞∞°^a is canonically isomorphic to the completed colimit over i of (C〈U^(1/p^∞)〉{(U−g)/ϖ^i})°^a, in the valuation almost base (K_∞°,K_∞°°).",
+      "locator": "Lemma 2.5.1, formula (9), p.79",
+      "status": "missing",
+      "note": "Reuse companion PAPER-ANDRE-18/2.9.3-root-as-colimit in PerfectoidRamification, with the normalization/completion adapter explicit. Do not implement a second generic root algebra."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/kummer-almost-flat",
+      "kind": "theorem",
+      "name": "André’s normalized Kummer almost faithful flatness",
+      "statement": "For the normalized tower, Â_∞∞° is almost faithfully flat over A_∞0° in the valuation almost base (K_∞°,K_∞°°).",
+      "locator": "Theorem 2.5.2, pp.79–82",
+      "status": "missing",
+      "note": "The base of this assertion does NOT include g in its almost ideal. This specified normalized extension is not identified without proof with the existential cover of PerfectoidQuotients:Q3.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/coordinate-tower-flat",
+        "PAPER-ANDRE-18-B/kummer-tube-comparison",
+        "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
+        "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/kummer-finite-purity",
+      "kind": "theorem",
+      "name": "Purity of the finite normalized Kummer extensions",
+      "statement": "For every finite pair (j,k) in the tower, A_j0°→A_jk° is pure.",
+      "locator": "Corollary 2.6.1, p.82",
+      "status": "missing",
+      "note": "Use coherence of the finite-flat union, finite-presentation descent of annihilators and 1.1.2; almost injectivity alone does not give actual injectivity.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/kummer-almost-flat",
+        "PAPER-ANDRE-18-B/idempotent-annihilator-local"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/kummer-generic-flat",
+      "kind": "theorem",
+      "name": "Ordinary faithful flatness on generic fibres",
+      "statement": "Â_∞∞ is faithfully flat over A_∞0 and hence over A[1/p]. In particular, the nonzero g∈A is a nonzerodivisor on Â_∞∞.",
+      "locator": "Remark 2.6.1(1), p.82",
+      "status": "missing",
+      "note": "Inverting p kills valuation-almost-zero modules. Do not infer ordinary faithful flatness of the integral normalized tower."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/actual-flat-model",
+      "kind": "construction",
+      "name": "Faithfully flat algebra left-adjoint model",
+      "statement": "For the tower set C°=Â_∞∞°. Apply almostification and the algebra left adjoint relative to (A_∞0°,K_∞°°A_∞0°): S=(C°^a)_!! identifies with the subalgebra A_∞0°+K_∞°°C° of C°. It is faithfully flat over A_∞0° and A.",
+      "locator": "§3.1, p.83",
+      "status": "missing",
+      "note": "It contains the products (ϖg)^(1/p^h) and is stable under multiplication by them; it need not contain each g^(1/p^h) separately.",
+      "uses": [
+        {
+          "where": "3.2.2 and 3.3",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "AndreFlatModel.algebraMap",
+          "role": "constructor",
+          "statement": "The inclusion A_∞0°→S and map S→C°."
+        },
+        {
+          "name": "AndreFlatModel.mem",
+          "role": "characterisation",
+          "statement": "An element of S is a sum of a base element and an element of K_∞°°C°."
+        },
+        {
+          "name": "AndreFlatModel.rootIdeal",
+          "role": "structure",
+          "statement": "Multiplication by every (ϖg)^(1/p^h) preserves S; give its induced action after reduction modulo p^m."
+        }
+      ],
+      "tests": [
+        {
+          "name": "actual-flat-model-1",
+          "kind": "example",
+          "statement": "The base element 1 belongs to S even when the valuation ideal alone does not contain 1."
+        },
+        {
+          "name": "actual-flat-model-2",
+          "kind": "example",
+          "statement": "Each (ϖg)^(1/p^h) belongs to S; g^(1/p^h) alone is not supplied by this membership argument."
+        },
+        {
+          "name": "actual-flat-model-3",
+          "kind": "boundary",
+          "statement": "Modulo p^m with m≥2 and g∉pA, pg remains a nonzero base element in the ramified ideal; modulo p it does not."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/kummer-almost-flat",
+        "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/ramified-integral-closure",
+      "kind": "construction",
+      "name": "Integral closure used for a finite extension",
+      "statement": "Let A→B be a finite injection, with B reduced and p-torsion-free, and choose g∈A\\pA such that B[1/(pg)] is finite étale over A[1/(pg)]. With C=Â_∞∞ set D to be the integral closure of C° in B⊗_A C[1/g]. The canonical B⊗_A S→B⊗_A C[1/g] factors through D.",
+      "locator": "§§3.1–3.2, p.83",
+      "status": "missing",
+      "note": "This reuses the companion’s ramified normalization, not a claim that B⊗S is already normal or finite étale.",
+      "uses": [
+        {
+          "where": "3.2.1 and 4.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "RamifiedIntegralModel.map",
+          "role": "constructor",
+          "statement": "Factor B⊗_A S into D by integrality."
+        },
+        {
+          "name": "RamifiedIntegralModel.integral",
+          "role": "projection",
+          "statement": "Every element is integral over C° in the indicated ambient generic algebra."
+        },
+        {
+          "name": "RamifiedIntegralModel.generic",
+          "role": "compatibility",
+          "statement": "After inverting pg, compare to B⊗_A C[1/g]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ramified-integral-closure-1",
+          "kind": "example",
+          "statement": "For B=A, normalization returns the integral model when its integral-closedness input is supplied."
+        },
+        {
+          "name": "ramified-integral-closure-2",
+          "kind": "example",
+          "statement": "For B=A×A, the construction must retain both product factors, not choose a field factor."
+        },
+        {
+          "name": "ramified-integral-closure-3",
+          "kind": "boundary",
+          "statement": "g need not be a unit: g=T_1 is permitted, while g=p is excluded by the application’s g∉pA condition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/actual-flat-model"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/abhyankar-mod-p",
+      "kind": "theorem",
+      "name": "Ramified almost faithful flatness modulo p powers",
+      "statement": "In the preceding setup, C°/p^m→D/p^m is almost faithfully flat, hence almost pure, for every m≥1, in the base (K_∞°[U^(1/p^∞)],U^(1/p^∞)K_∞°°[U^(1/p^∞)]) acting by U^(1/p^h)↦g^(1/p^h).",
+      "locator": "Theorem 3.2.1, p.83",
+      "status": "missing",
+      "note": "Import the faithful finite-extension specialization of the companion’s Abhyankar theorem, including its nonzero fibres, not merely finite étaleness of a potentially zero algebra. PAPER-ANDRE-18/5.2.3-mod-p is a related supplier whose hypotheses must be compared."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-pure-finite-basechange",
+      "kind": "theorem",
+      "name": "Almost purity after passing to the actual flat model",
+      "statement": "For S above and every m≥1, S/p^m→(B⊗_A S)/p^m is almost pure in the base (K_∞°+K_∞°°[U^(1/p^∞)],U^(1/p^∞)K_∞°°[U^(1/p^∞)]) with U-roots acting through g-roots.",
+      "locator": "Corollary 3.2.2, p.83",
+      "status": "missing",
+      "note": "The smaller base is essential since S need not contain all g-roots. Reframe and use the factorization through D/p^m.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/ramified-integral-closure",
+        "PAPER-ANDRE-18-B/abhyankar-mod-p",
+        "PAPER-ANDRE-18-B/almost-reframing",
+        "PAPER-ANDRE-18-B/almost-pure-left-factor"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/flat-ext-basechange",
+      "kind": "theorem",
+      "name": "Ext base change for the finite splitting obstruction",
+      "statement": "If R is Noetherian, Q finite over R, and S R-flat, the natural map Ext_R^1(Q,R)⊗_R S→Ext_S^1(Q⊗_R S,S) is an isomorphism.",
+      "locator": "§3.3 displayed equality, p.84",
+      "status": "missing",
+      "note": "A finite-free resolution through the needed degrees justifies tensoring the Hom complex. Do not use finite presentation alone over an arbitrary non-Noetherian R."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/mod-p-splitting",
+      "kind": "theorem",
+      "name": "Vanishing of the splitting obstruction modulo p powers",
+      "statement": "For a finite extension A⊂B of A=W(k)[[T_1,…,T_n]] with perfect k of characteristic p, A/p^m→B/p^m admits an A/p^m-linear retraction for every m≥1.",
+      "locator": "§§3.1–3.3, pp.83–84",
+      "status": "missing",
+      "note": "After the reduction to a reduced p-torsion-free finite extension, use m≥2, R=A/p^m, finite cyclic M=Re, faithfully flat S/p^m and the idempotent ramified root ideal. Its contraction contains nonzero pg mod p^m. The m=1 result follows by reduction.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-pure-finite-basechange",
+        "PAPER-ANDRE-18-B/almost-ext-class",
+        "PAPER-ANDRE-18-B/flat-ext-basechange",
+        "PAPER-ANDRE-18-B/idempotent-annihilator-local"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/compatible-splittings",
+      "kind": "theorem",
+      "name": "Recovering an integral splitting from Artinian quotients",
+      "statement": "For finite A⊂B with A=W(k)[[T_1,…,T_n]], splittings modulo every (p^m,T_1^(p^m),…,T_n^(p^m)) imply an A-linear splitting A→B.",
+      "locator": "§3.4, p.84",
+      "status": "missing",
+      "note": "Nonempty retraction sets are torsors under finite modules over the corresponding Artinian quotient. Stabilization of images gives a compatible inverse system. No surjectivity of the original retraction transition maps is assumed. Hochster 1973 p.30 must still be read (G3)."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/unramified-direct-summand",
+      "kind": "theorem",
+      "name": "Direct summand theorem for the unramified complete local base",
+      "statement": "Let k be perfect of characteristic p and A=W(k)[[T_1,…,T_n]]. Every module-finite injective commutative A-algebra B admits an A-linear retraction to A.",
+      "locator": "Theorem 0.2.1, p.72; conclusion of §3.4",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/mod-p-splitting",
+        "PAPER-ANDRE-18-B/compatible-splittings"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/direct-summand",
+      "kind": "theorem",
+      "name": "Direct summand theorem",
+      "statement": "For every commutative Noetherian regular ring R and commutative R-algebra S that is faithful and finite as an R-module, R→S admits an R-linear retraction.",
+      "locator": "Theorem 0.1.1, p.71",
+      "status": "missing",
+      "note": "Faithfulness makes the structure map injective. Hochster’s reduction from general regular rings to the unramified complete local case is a required unverified supplier, not an implicit consequence of §3.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/unramified-direct-summand"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/big-cm-fixed",
+      "kind": "definition",
+      "name": "Big Cohen–Macaulay algebra for a chosen parameter system",
+      "statement": "Let (B,m_B) be Noetherian local of dimension d, x=(x_1,…,x_d) a system of parameters, and C a commutative B-algebra not assumed Noetherian. C is big Cohen–Macaulay for (B,x) if m_B C≠C and x is C-regular.",
+      "locator": "Definition 4.1.1(1), p.84",
+      "status": "missing",
+      "note": "Reuse the pinned regular-sequence predicate on the B-module C; do not require C to be a finite B-module.",
+      "uses": [
+        {
+          "where": "4.1.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "BigCMFor.regular",
+          "role": "projection",
+          "statement": "Extract regularity of the specified parameter list."
+        },
+        {
+          "name": "BigCMFor.residue_nonzero",
+          "role": "projection",
+          "statement": "Extract C/m_B C≠0."
+        },
+        {
+          "name": "BigCMFor.equiv",
+          "role": "functoriality",
+          "statement": "Transport across B-algebra equivalences, preserving the chosen parameters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "big-cm-fixed-1",
+          "kind": "example",
+          "statement": "For a DVR B, C=B and x=(π) satisfy the definition."
+        },
+        {
+          "name": "big-cm-fixed-2",
+          "kind": "example",
+          "statement": "The fraction field of a DVR fails m_B C≠C, even though multiplication by π is injective."
+        },
+        {
+          "name": "big-cm-fixed-3",
+          "kind": "boundary",
+          "statement": "For dimension-zero B, an empty parameter list is allowed, but C=0 still fails nontriviality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/big-cm-balanced",
+      "kind": "definition",
+      "name": "Balanced big Cohen–Macaulay algebra",
+      "statement": "For Noetherian local B, a B-algebra C is balanced big Cohen–Macaulay if it is big Cohen–Macaulay for every system of parameters of B.",
+      "locator": "Definition 4.1.1(2), p.84",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "0.7.1 and 4.2.1",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "BalancedBigCM.for_parameters",
+          "role": "projection",
+          "statement": "Specialize to each system of parameters of B."
+        },
+        {
+          "name": "BalancedBigCM.equiv",
+          "role": "functoriality",
+          "statement": "Transport across B-algebra equivalences."
+        },
+        {
+          "name": "BalancedBigCM.not_finite_required",
+          "role": "compatibility",
+          "statement": "The predicate is on all B-algebras; finiteness or Noetherianity of C is not a field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "big-cm-balanced-1",
+          "kind": "example",
+          "statement": "A regular local ring is balanced big CM over itself."
+        },
+        {
+          "name": "big-cm-balanced-2",
+          "kind": "example",
+          "statement": "For regular local B, B[X] is an admissible nonfinite-module example by faithful flatness."
+        },
+        {
+          "name": "big-cm-balanced-3",
+          "kind": "boundary",
+          "statement": "For a DVR, inverting its uniformizer fails the balanced condition despite killing no elements of the base."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/big-cm-fixed"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-big-cm",
+      "kind": "definition",
+      "name": "Almost big Cohen–Macaulay algebra",
+      "statement": "Fix Noetherian local B of residue characteristic p, a system of parameters x, and a B-algebra D with a nonzerodivisor π and compatible elements π_h satisfying π_0=π and π_(h+1)^p=π_h. Put J=Σ_h π_h D. D is almost big CM for this data if J is not contained in m_B D and J annihilates ((x_1,…,x_i)D:x_(i+1))/(x_1,…,x_i)D for each 0≤i<dim B.",
+      "locator": "Definition 4.1.1(3), p.84",
+      "status": "missing",
+      "note": "The condition J⊄m_B D is stronger than D≠m_B D. The root ideal is idempotent; π need not equal p.",
+      "uses": [
+        {
+          "where": "4.1.2–4.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlmostBigCM.rootIdeal",
+          "role": "data",
+          "statement": "Expose J=Σ_h π_hD and its idempotence."
+        },
+        {
+          "name": "AlmostBigCM.colon_annihilated",
+          "role": "projection",
+          "statement": "J kills each specified colon quotient."
+        },
+        {
+          "name": "AlmostBigCM.residue_not_almost_zero",
+          "role": "projection",
+          "statement": "J⊄m_BD, with a root-element witness."
+        },
+        {
+          "name": "AlmostBigCM.change_roots",
+          "role": "compatibility",
+          "statement": "A change of compatible root data preserving the generated ideal preserves the almost-regularity and nontriviality conditions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "almost-big-cm-1",
+          "kind": "example",
+          "statement": "D=F_p[[t^(1/p^∞)]] understood as the t-adic completion of F_p[t^(1/p^∞)], B=F_p[[t]], π=t gives injective multiplication by t and roots outside tD."
+        },
+        {
+          "name": "almost-big-cm-2",
+          "kind": "example",
+          "statement": "If π becomes a unit then J=D and almost regularity reduces to ordinary regularity."
+        },
+        {
+          "name": "almost-big-cm-3",
+          "kind": "boundary",
+          "statement": "D=B with π=t for B=F_p[[t]] cannot be used without adjoining compatible roots; nonzerodivisor status alone supplies no almost-base data."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-to-balanced-cm",
+      "kind": "theorem",
+      "name": "Almost big CM implies existence of balanced big CM",
+      "statement": "If a Noetherian local ring B of residue characteristic p has an almost big Cohen–Macaulay algebra for one parameter system and a compatible root system of a nonzerodivisor, then B admits a balanced big Cohen–Macaulay algebra.",
+      "locator": "Proposition 4.1.2, p.85",
+      "status": "missing",
+      "note": "Proof requires Hochster’s bounded partial modifications and Bartijn–Strooker balancing by completion. These supplier statements are still open in G4. No asserted factorization through the original D is used.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-big-cm",
+        "PAPER-ANDRE-18-B/big-cm-balanced"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-cm-finite-base",
+      "kind": "theorem",
+      "name": "Almost CM across a finite local base",
+      "statement": "Let A⊂B be a finite extension of Noetherian local rings, A Cohen–Macaulay, and x⊂A a system of parameters of B. For a B-algebra D with the root/nonzerodivisor data above, D is almost big CM for (B,x,π-roots) iff it is so for (A,x,π-roots).",
+      "locator": "Lemma 4.1.3 first assertion, pp.85–86",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-cm-flat-criterion",
+      "kind": "theorem",
+      "name": "Almost faithful flatness criterion for almost CM",
+      "statement": "In Lemma 4.1.3, D is almost big CM if (πD)∩A≠0 and D is almost isomorphic to an A-faithfully-flat A-algebra in the base (A[π^(1/p^∞)],π^(1/p^∞)A[π^(1/p^∞)]). The faithfully flat comparison algebra need not contain B.",
+      "locator": "Lemma 4.1.3(a), p.86",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/almost-cm-mod-parameter-criterion",
+      "kind": "theorem",
+      "name": "Almost CM from faithful flatness modulo the first parameter",
+      "statement": "In Lemma 4.1.3, D is almost big CM if (πD)∩A is not contained in x_1 A, D has no x_1-torsion, and D/x_1D is almost isomorphic, in the root-ideal base of (a), to an A/x_1A-faithfully-flat algebra.",
+      "locator": "Lemma 4.1.3(b), p.86",
+      "status": "missing",
+      "note": "The noncontainment clause is needed to keep the root ideal nontrivial modulo x_1; the nonzerodivisor π condition belongs to the standing hypotheses.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-cm-finite-base",
+        "PAPER-ANDRE-18-B/idempotent-annihilator-local",
+        "PAPER-ANDRE-18-B/regular-sequence-flat-base-change"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/big-cm-existence",
+      "kind": "theorem",
+      "name": "Existence of balanced big Cohen–Macaulay algebras",
+      "statement": "Every commutative Noetherian local ring B has a balanced big Cohen–Macaulay B-algebra.",
+      "locator": "Theorem 0.7.1, p.74; §4.2, p.86",
+      "status": "missing",
+      "note": "Mixed-characteristic construction is new here; equal-characteristic existence and the reductions through completion/minimal primes and coefficient enlargement are external inputs.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/almost-to-balanced-cm",
+        "PAPER-ANDRE-18-B/almost-cm-mod-parameter-criterion",
+        "PAPER-ANDRE-18-B/abhyankar-mod-p",
+        "PAPER-ANDRE-18-B/actual-flat-model"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/regular-big-cm-flat",
+      "kind": "theorem",
+      "name": "Big CM algebras over a regular local base are faithfully flat",
+      "statement": "If A is Noetherian regular local and C is a balanced big Cohen–Macaulay A-algebra, C is faithfully flat over A.",
+      "locator": "Remark 4.2.1 and footnote 7, pp.86–87",
+      "status": "missing",
+      "note": "No finite-generation assumption on C. Finite A-modules have bounded projective dimension; a Tor dimension-shifting argument gives flatness. It is not the finite-module Auslander–Buchsbaum formula alone."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/finite-cover-flat-domination",
+      "kind": "theorem",
+      "name": "Finite extensions of regular rings are dominated by faithfully flat algebras",
+      "statement": "Let R be a commutative Noetherian regular ring and R⊂S a finite extension. There is a commutative S-algebra T such that the composite R→T is faithfully flat.",
+      "locator": "Theorem 0.7.2, p.74; §4.3, p.87",
+      "status": "missing",
+      "note": "T is not asserted finite over R or flat over S. At each maximal ideal complete and normalize, choose big CM algebras, then take their product; flatness of that possibly infinite product uses R Noetherian.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/big-cm-existence",
+        "PAPER-ANDRE-18-B/regular-big-cm-flat"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/weak-functorial-cm",
+      "kind": "theorem",
+      "name": "Compatible almost CM data produce compatible big CM algebras",
+      "statement": "For a local map β:B→B′ of complete local domains of mixed characteristic (0,p), suppose a square B→D, B′→D′, δ:D→D′ commutes, D and D′ are almost big CM for chosen parameter systems and respective root systems π_h and π′_h, and δ(π_h) divides π′_h for every h. Then there is a commutative square over β with vertical targets balanced big CM algebras C and C′.",
+      "locator": "Proposition 4.4.1, p.87",
+      "status": "missing",
+      "note": "Use B′ in the primed almost-CM triple (E3). The conclusion is existential weak functoriality, not a canonical functor. Two-ring modification proof is G4."
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/pure-regular-target-cm",
+      "kind": "theorem",
+      "name": "CM descent from a regular target in the stated mixed-characteristic range",
+      "statement": "If B→B′ is a pure local extension of Noetherian local rings of mixed characteristic (0,p), B′ is regular, and the induced residue-field extension is separable, then B is Cohen–Macaulay.",
+      "locator": "Theorem 4.4.2, p.88",
+      "status": "missing",
+      "note": "Do not delete residue separability on the authority of later results mentioned in §0.8. Required completion, root-compatibility and descent arguments remain G5.",
+      "dependencies": [
+        "PAPER-ANDRE-18-B/weak-functorial-cm",
+        "PAPER-ANDRE-18-B/pure-local-completion",
+        "PAPER-ANDRE-18-B/finite-cm-substrate"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/finite-cm-substrate",
+      "kind": "definition",
+      "name": "Cohen–Macaulay local ring",
+      "statement": "A commutative Noetherian local ring B is Cohen–Macaulay when its depth equals its Krull dimension, equivalently every system of parameters is a regular sequence on B.",
+      "locator": "Used in Lemma 4.1.3 and Theorem 4.4.2",
+      "status": "planned",
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "note": "Import the shared finite-ring/module CM and depth theory, not a second predicate in the new big-CM direction. AUDIT-17 marks this absent in the baseline but planned here.",
+      "uses": [
+        {
+          "where": "4.1.3 and 4.4.2",
+          "how": "Consumer uses the following public contracts, not a second private carrier."
+        }
+      ],
+      "api": [
+        {
+          "name": "IsCohenMacaulayLocalRing.iff_parameter_regular",
+          "role": "characterisation",
+          "statement": "Import the R03.3 parameter-system characterization once proved."
+        },
+        {
+          "name": "IsCohenMacaulayLocalRing.depth_eq_dim",
+          "role": "projection",
+          "statement": "Import the shared depth convention."
+        },
+        {
+          "name": "IsCohenMacaulayLocalRing.quotient_regular",
+          "role": "relation",
+          "statement": "Import the quotient-by-regular-element CM theorem with dimension drop."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finite-cm-substrate-1",
+          "kind": "example",
+          "statement": "A field is CM of dimension zero."
+        },
+        {
+          "name": "finite-cm-substrate-2",
+          "kind": "example",
+          "statement": "A DVR is CM of dimension one."
+        },
+        {
+          "name": "finite-cm-substrate-3",
+          "kind": "boundary",
+          "statement": "k[[x,y]]/(x²,xy) has dimension one and depth zero, and is not CM."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Hochster, Contracted ideals from integral extensions of regular rings, Nagoya Math. J. 51 (1973), 25–43",
+      "link": "https://doi.org/10.1017/S0027763000015701",
+      "why": "Unramified complete-local reduction and §3.4 compatible retractions via Artinian torsors (paper cites p.30 and Lemma 3). Not supplied by an existing atlas node; full source not yet read, G3."
+    },
+    {
+      "citation": "Hochster, Canonical elements in local cohomology modules and the direct summand conjecture, J. Algebra 84 (1983), 503–553",
+      "link": "https://doi.org/10.1016/0021-8693(83)90092-3",
+      "why": "Theorem-reduction background and Appendix A.3 purity criterion, §§6.1–6.3. These specific statements lack a verified atlas supplier; G6."
+    },
+    {
+      "citation": "Hochster, Big Cohen–Macaulay algebras in dimension three via Heitmann’s theorem, J. Algebra 254 (2002), 395–408",
+      "link": "https://doi.org/10.1016/S0021-8693(02)00086-8",
+      "why": "Bounded partial modifications and Lemma 5.1 denominator control used in 4.1.2 and 4.4.1; precise original construction must be read, G4."
+    },
+    {
+      "citation": "Bartijn–Strooker, Modifications minimales, LNM 1029 (1983), 192–217, Theorem 1.7",
+      "link": "https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/",
+      "why": "Bibliographic link is André’s reference [2], not the source text. Needed for turning a chosen-parameter big-CM algebra into a balanced one by completion; missing supplier, G4."
+    },
+    {
+      "citation": "Hochster–Huneke, Applications of the existence of big Cohen–Macaulay algebras, Adv. Math. 113 (1995), 45–117",
+      "link": "https://doi.org/10.1006/aima.1995.1035",
+      "why": "Equal-characteristic existence, arbitrary-big-module faithful flatness over a regular local ring (1.2.d), and §4.4 CM descent from compatible big-CM squares; precise portions not covered by a verified node, G4–G5."
+    },
+    {
+      "citation": "Lazard, Autour de la platitude, Bull. Soc. Math. France 97 (1969), 81–128, I.2",
+      "link": "https://www.numdam.org/item/BSMF_1969__97__81_0/",
+      "why": "Ordinary module-purity and filtered split-monomorphism characterization in A.1.1. This foundational purity direction has no existing packet supplier; original proof decomposition remains G7."
+    }
+  ],
+  "routes": [
+    {
+      "route": "new",
+      "roadmap": "DirectSummandsAndBigCohenMacaulay",
+      "title": "Direct summands and big Cohen–Macaulay algebras",
+      "area": "commutative",
+      "items": [
+        "PAPER-ANDRE-18-B/pure-module",
+        "PAPER-ANDRE-18-B/pure-ring",
+        "PAPER-ANDRE-18-B/module-generator",
+        "PAPER-ANDRE-18-B/splitting",
+        "PAPER-ANDRE-18-B/pure-fp-test",
+        "PAPER-ANDRE-18-B/pure-hom-lift",
+        "PAPER-ANDRE-18-B/pure-fp-quotient-split",
+        "PAPER-ANDRE-18-B/pure-filtered-split",
+        "PAPER-ANDRE-18-B/pure-tor-injective",
+        "PAPER-ANDRE-18-B/pure-flat-quotient",
+        "PAPER-ANDRE-18-B/pure-restrict-scalars",
+        "PAPER-ANDRE-18-B/generator-finite-sum",
+        "PAPER-ANDRE-18-B/pure-ring-basechange-test",
+        "PAPER-ANDRE-18-B/pure-composition",
+        "PAPER-ANDRE-18-B/pure-basechange",
+        "PAPER-ANDRE-18-B/pure-colimit",
+        "PAPER-ANDRE-18-B/pure-left-factor",
+        "PAPER-ANDRE-18-B/flat-descends-pure",
+        "PAPER-ANDRE-18-B/pure-tensor-faithful",
+        "PAPER-ANDRE-18-B/faithfully-flat-iff-pure-flat",
+        "PAPER-ANDRE-18-B/finite-pure-split-generator",
+        "PAPER-ANDRE-18-B/pure-local-completion",
+        "PAPER-ANDRE-18-B/flat-algebra-completion",
+        "PAPER-ANDRE-18-B/finite-module-completion-basechange",
+        "PAPER-ANDRE-18-B/faithful-completion",
+        "PAPER-ANDRE-18-B/idempotent-annihilator",
+        "PAPER-ANDRE-18-B/idempotent-annihilator-local",
+        "PAPER-ANDRE-18-B/almost-pure-finite-basechange",
+        "PAPER-ANDRE-18-B/flat-ext-basechange",
+        "PAPER-ANDRE-18-B/mod-p-splitting",
+        "PAPER-ANDRE-18-B/compatible-splittings",
+        "PAPER-ANDRE-18-B/unramified-direct-summand",
+        "PAPER-ANDRE-18-B/direct-summand",
+        "PAPER-ANDRE-18-B/big-cm-fixed",
+        "PAPER-ANDRE-18-B/big-cm-balanced",
+        "PAPER-ANDRE-18-B/almost-big-cm",
+        "PAPER-ANDRE-18-B/almost-to-balanced-cm",
+        "PAPER-ANDRE-18-B/almost-cm-finite-base",
+        "PAPER-ANDRE-18-B/almost-cm-flat-criterion",
+        "PAPER-ANDRE-18-B/almost-cm-mod-parameter-criterion",
+        "PAPER-ANDRE-18-B/big-cm-existence",
+        "PAPER-ANDRE-18-B/regular-big-cm-flat",
+        "PAPER-ANDRE-18-B/finite-cover-flat-domination",
+        "PAPER-ANDRE-18-B/weak-functorial-cm",
+        "PAPER-ANDRE-18-B/pure-regular-target-cm"
+      ],
+      "reason": "The catalogue has no direction for the direct summand theorem, ordinary pure ring/module maps and existence of balanced big CM algebras. R03.3 supplies finite commutative-algebra depth/CM infrastructure, not this perfectoid proof or nonfinite algebra-modification existence theorem. PerfectoidSpaces and PerfectoidQuotients are suppliers, not existing roadmaps with these commutative-algebra targets.",
+      "brief": "Develop a new commutative-algebra roadmap culminating in André 0.1.1: every finite faithful commutative algebra S over a Noetherian regular ring R admits an R-linear retraction; 0.7.1: every Noetherian local B admits a balanced big Cohen–Macaulay algebra C with m_B C≠C; and 0.7.2: every finite injection R→S with R Noetherian regular factors through an S-algebra T faithfully flat over R. Retain 4.4.2 with mixed characteristic (0,p), a pure local injection B→B′, regular target B′ and separable residue extension. Build the ordinary purity prefix, finite-presentation Hom and Ext obstruction calculus, Noetherian-base completion of possibly non-Noetherian flat algebras, idempotent-annihilator descent, Hochster reductions, Artinian-torsor inverse limits, bounded partial modifications and balancing by completion. Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra:R03.3) for ordinary depth/CM and finite-module homological algebra; Perfectoid rings and spaces (PerfectoidSpaces:P0–P3) for almost/perfectoid foundations; and its shared Part II PerfectoidRamification proposed by PAPER-ANDRE-18 for normalized Kummer almost flatness and ramified Abhyankar inputs. Do not define another Witt, completion, regular-sequence, almost-module or perfectoid carrier. The ordinary purity prefix precedes the P0 almost-purity comparison; the later application layers consume P0, so stage dependencies, not a coarse whole-roadmap cycle, must be recorded. Resolve coverageGaps before certifying a closed design. Do not assume full weak functoriality or the held Appendix A.3 claims. Follow open Mathlib PR #22909’s Submodule.IsPure carrier and PR #26218’s CM naming as recorded in upstreamDevelopment; neither is pinned implementation."
+    },
+    {
+      "route": "source",
+      "roadmap": "PerfectoidSpaces",
+      "stages": [
+        "PerfectoidSpaces:P0"
+      ],
+      "items": [
+        "PAPER-ANDRE-18-B/almost-base",
+        "PAPER-ANDRE-18-B/almost-module-left-adjoint",
+        "PAPER-ANDRE-18-B/almost-pure-module",
+        "PAPER-ANDRE-18-B/almost-pure-left-adjoint",
+        "PAPER-ANDRE-18-B/almost-hom-lift",
+        "PAPER-ANDRE-18-B/almost-ext-class",
+        "PAPER-ANDRE-18-B/almost-pure-ring-adjoint",
+        "PAPER-ANDRE-18-B/almost-pure-left-factor",
+        "PAPER-ANDRE-18-B/almost-faithful-flat-adjoint",
+        "PAPER-ANDRE-18-B/almost-reframing"
+      ],
+      "reason": "Appendix A.4 supplies the almost-purity, Hom-lifting and Ext-class interface within P0’s generic almost tensor/Hom theory. Reuse the companion’s base-change and adjoint contracts and import the ordinary purity prefix, rather than defining a second almost category."
+    },
+    {
+      "route": "source",
+      "roadmap": "PerfectoidSpaces",
+      "stages": [
+        "PerfectoidSpaces:P1",
+        "PerfectoidSpaces:P2"
+      ],
+      "items": [
+        "PAPER-ANDRE-18-B/cyclotomic-perfectoid-field",
+        "PAPER-ANDRE-18-B/perfectoid-rational-integral-model"
+      ],
+      "reason": "The cyclotomic example and integral rational-localization model are already expressly within P1 and P2. Their precise consumers are André 2.5.2; this is a source addition, not a new perfectoid foundation."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PerfectoidSpaces",
+      "roadmap": "PerfectoidRamification",
+      "title": "Perfectoid rings and spaces, Part II: ramification and Riemann extension",
+      "area": "padic",
+      "items": [
+        "PAPER-ANDRE-18-B/normalized-kummer-tower",
+        "PAPER-ANDRE-18-B/coordinate-tower-flat",
+        "PAPER-ANDRE-18-B/kummer-tube-comparison",
+        "PAPER-ANDRE-18-B/kummer-almost-flat",
+        "PAPER-ANDRE-18-B/kummer-finite-purity",
+        "PAPER-ANDRE-18-B/kummer-generic-flat",
+        "PAPER-ANDRE-18-B/actual-flat-model",
+        "PAPER-ANDRE-18-B/ramified-integral-closure",
+        "PAPER-ANDRE-18-B/abhyankar-mod-p"
+      ],
+      "reason": "Reuse exactly the Part II id and title already proposed by PAPER-ANDRE-18. This extraction contributes the specific normalized two-index Kummer flatness theorem and its application interfaces. It does not duplicate the generic root algebra, tubular comparison or Abhyankar theorem. This id is not yet an atlas roadmap or roadmap-definition file at the recorded snapshot, hence these imports remain missing rather than falsely planned.",
+      "brief": "Extend the same PerfectoidRamification design proposed by PAPER-ANDRE-18; do not create a second Part II or replace the companion’s scope. Import Perfectoid rings and spaces (PerfectoidSpaces:P0–P3), the existing Adic spaces roadmap and the requisite early AdicSpacesPartII interfaces. Import the companion’s root-algebra, tubular-colimit and ramified Abhyankar results by their extracted ids. Add the normalization/completion comparison for A=W(k)[[T_1,…,T_n]] with perfect characteristic-p k and nonzero g∈A, and prove André B Theorem 2.5.2: Â_∞∞° is almost faithfully flat over A_∞0° in the valuation almost base (K_∞°,K_∞°°). Prove the corollary A_j0°→A_jk° pure and ordinary generic-fibre faithful flatness without asserting finite integral flatness. Expose the actual faithfully flat left-adjoint model S and its root-ideal action. Export 3.2.1 for finite B with B[1/(pg)] finite étale and g∉pA: C°/p^m→D/p^m is almost faithfully flat in the different, ramified root-ideal base. The downstream DirectSummandsAndBigCohenMacaulay roadmap owns Ext obstruction descent and big-CM modifications. Import its preliminary Noetherian-base completion and ordinary purity lemmas only at the stages that need them; preserve an acyclic stage-level graph. PerfectoidQuotients:Q3 supplies a related existential p-completely faithfully flat absolutely-integrally-closed extension, not an unproved identification with this specified normalized algebra."
+    },
+    {
+      "route": "source",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "stages": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "items": [
+        "PAPER-ANDRE-18-B/finite-cm-substrate"
+      ],
+      "reason": "The paper consumes the existing shared CM/depth direction. This route adds its exact parameter-system consumer; it does not move big-CM existence into the finite-module patching layer."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ANDRE-18-B/E1",
+      "kind": "misprint",
+      "locator": "Published version, Lemma A.2.1(4), proof of (c)⇒(b), p.90",
+      "printed": "Hom_S(S,R)",
+      "correction": "Hom_R(S,R). An R-linear functional, composed with multiplication by s, gives an R-linear retraction when its value on s is 1.",
+      "reason": "The statement supplies R-module structure on S and R, not an S-module structure on R. In general such an S-action on R does not exist. The proof only uses R-linearity. A finite sum of evaluations handles the general generator criterion.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+        "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+        "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/E2",
+      "kind": "misprint",
+      "locator": "Published version, Proposition A.3.1, proof of (c)⇒(b), p.91",
+      "printed": "une forme σ^m R-linéaire μ sur N",
+      "correction": "Replace N by M, the finite free direct summand selected in the preceding clause.",
+      "reason": "N is not introduced in this argument. The next clause extends μ by zero on a complement of M, which determines its intended domain. This correction does not certify the rest of Proposition A.3.1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+        "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+        "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/E3",
+      "kind": "misprint",
+      "locator": "Published version, Proposition 4.4.1, parenthesis after diagram (20), p.87",
+      "printed": "(B, x′, π′^(1/p^∞))",
+      "correction": "Use (B′,x′,π′^(1/p^∞)) for the almost Cohen–Macaulay condition on D′.",
+      "reason": "x′ is introduced as a system of parameters for B′, the right-hand vertical arrow is B′→D′, and the result concerns compatible algebras over B and B′. The unprimed B is a typographical slip, not an extra scalar restriction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+        "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+        "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+        "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+      ]
+    }
+  ],
+  "heldClaims": [
+    {
+      "id": "PAPER-ANDRE-18-B/held-partial-modification",
+      "locator": "§4.1, p.85; Hochster 2002 Lemma 5.1",
+      "claim": "The precise bounded partial-modification carrier and map for a module with distinguished element require comparison with Hochster’s original definition. Do not turn the OCR expression into a multiplication operation on an arbitrary module.",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/almost-to-balanced-cm",
+        "PAPER-ANDRE-18-B/weak-functorial-cm"
+      ]
+    },
+    {
+      "id": "PAPER-ANDRE-18-B/held-hochster-criterion",
+      "locator": "Appendix A.3.1, pp.90–91",
+      "claim": "The non-Noetherian r-adic division step, the local-duality step for a not-necessarily-complete regular R and an infinite integral S, and the claimed R→R+ application need supplier checks. They are not available as proved nodes in this checkpoint.",
+      "neededBy": []
+    }
+  ],
+  "coverageGaps": [
+    {
+      "id": "G0",
+      "status": "open",
+      "detail": "Finish declaration-sized extraction of §0.1 equivalences and homological consequences (monomial/new intersection/syzygy), §0.2 reductions and easy cases, §1.2 Banach/Weierstrass lemmas with dense versus discrete valuation cases, §2.4 spectral/integral-closure facts, §2.6.1(2)–(4) normality, Capelli–Vahlen hypotheses, multiple roots and ramified-base variant. A.2.1 product stability also needs its precise indexing/general base form. Text was read; these are not yet usable items."
+    },
+    {
+      "id": "G1",
+      "status": "open",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/kummer-tube-comparison",
+        "PAPER-ANDRE-18-B/kummer-almost-flat",
+        "PAPER-ANDRE-18-B/perfectoid-rational-integral-model",
+        "PAPER-ANDRE-18-B/abhyankar-mod-p"
+      ],
+      "detail": "Read the exact companion published passages 2.9.3, 3.6.1 and 5.2–5.3; Scholze 2012 6.4 and 6.7(i); Gabber–Ramero 2.2.26 and 3.1.3. Decompose their application adapters, including nonzero fibres in the faithful Abhyankar statement. Existing extraction ids are ownership leads, not formalized declarations."
+    },
+    {
+      "id": "G2",
+      "status": "open",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/kummer-almost-flat",
+        "PAPER-ANDRE-18-B/kummer-finite-purity"
+      ],
+      "detail": "Split the 2.5.2 proof into approximation preserving the same tubular domain, finite-stage presentation, generic-fibre flatness via Berkovich 2.2.4, special-fibre monic freeness and nonvanishing, completed colimits checked relative to each Noetherian stage, and the final !!/completed-i-colimit step. Split coherence and finitely presented annihilator descent in 2.6.1. Never apply 1.1.1 with the non-Noetherian A_∞0° as its Noetherian R."
+    },
+    {
+      "id": "G3",
+      "status": "open",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/compatible-splittings",
+        "PAPER-ANDRE-18-B/direct-summand"
+      ],
+      "detail": "Read Hochster 1973 and extract the exact reduction from arbitrary regular Noetherian R to the unramified complete-local base with perfect residue field. Complete the proof of stabilization for retraction torsors on A/(p^m,T_i^(p^m)), and its comparison with A-linear maps on finite B. Arbitrary choices of mod-p^m splittings are not compatible automatically."
+    },
+    {
+      "id": "G4",
+      "status": "open",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/almost-to-balanced-cm",
+        "PAPER-ANDRE-18-B/big-cm-existence",
+        "PAPER-ANDRE-18-B/weak-functorial-cm"
+      ],
+      "detail": "Read Hochster 2002 Lemma 5.1 and Bartijn–Strooker 1.7; fix the partial-module-modification carrier with its distinguished element, bounded denominator estimates, filtered algebra construction, no-bad-chain argument and balancing completion. Clarify the factorization phrase about B→D in the printed proof: no strengthened factorization assertion is used here. Supplier-level proof checks, not a claim of a false theorem."
+    },
+    {
+      "id": "G5",
+      "status": "open",
+      "neededBy": [
+        "PAPER-ANDRE-18-B/pure-local-completion",
+        "PAPER-ANDRE-18-B/finite-cover-flat-domination",
+        "PAPER-ANDRE-18-B/pure-regular-target-cm"
+      ],
+      "detail": "Verify complete-local purity using arbitrary finitely presented modules over the completed base, not only modules descended from R. Extract coefficient-ring/perfect-residue enlargement, pure base change, excellent normalization and product-flatness suppliers; regular target and residue separability in 4.4.2 remain mandatory. Split the compatible almost-CM construction and the final ordinary-CM descent."
+    },
+    {
+      "id": "G6",
+      "status": "open",
+      "detail": "Appendix A.3.1 and its R→R+ application remain held. Check r-adic division of a nonzero dual map with r possibly a zero divisor, and the local-duality argument for noncomplete regular R/infinite S against Hochster 1983. No counterexample or source error is asserted by this checkpoint; E2 only fixes the undefined letter."
+    },
+    {
+      "id": "G7",
+      "status": "open",
+      "detail": "Finish fine baseline/API supplier audit for Ext, Tor, Artin–Rees, Krull intersection, coherent colimits, finite-module annihilator base change, normalization, systems of parameters and the omitted Banach facts. Nine positive library item claims have been statement-read; remaining items are not a declaration-level closed blueprint. The generic purity definitions should also be compared with categorical generator APIs before implementation."
+    }
+  ],
+  "graphNote": "dependencies records a selected acyclic proof spine, not a complete prerequisite graph. coverageGaps names omitted suppliers and intermediate lemmas. No item is certified formalized; all API/test entries are planning contracts.",
+  "upstreamDevelopment": [
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/pull/22909",
+      "head": "c2ab6bbf5e75dfa6ab145d538e276a883e0af724",
+      "checked": "2026-09-23, open; full Mathlib/RingTheory/Pure.lean at this head read",
+      "contract": "Submodule.IsPure tests algebra base change in the base universe, with baseChange_injective extending to arbitrary universes over rings; Submodule.IsComplemented.isPure supplies split inclusions. Use this carrier and add the module-tensor characterization (via square-zero or symmetric algebra) instead of introducing a competing PureLinearMap carrier. This PR is not in the pinned baseline."
+    },
+    {
+      "url": "https://github.com/leanprover-community/mathlib4/pull/26218",
+      "head": "a455cf35efd99183700c2401b40cd070ce5f8a33",
+      "checked": "2026-09-23, open; opening declarations and design docstring read",
+      "contract": "ModuleCat.IsCohenMacaulay and IsCohenMacaulayLocalRing are proposed upstream shapes for the R03.3 supplier. Do not count this open PR as pinned library coverage or replace big-CM algebras by finite CM modules."
+    },
+    {
+      "url": "https://leanprover-community.github.io/archive/stream/116395-maths/topic/commutative.20algebra.20status.html",
+      "checked": "2026-09-23 archive search; historical discussion only",
+      "contract": "The 2023 discussion is not evidence of absence at the 2026 pin. Use the actual pinned files and the open PR shapes above."
+    }
+  ]
+}
