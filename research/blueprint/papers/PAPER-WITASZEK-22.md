@@ -1,10 +1,91 @@
-# PAPER-WITASZEK-22 — Stein factorization and surface Euler correction
+# Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic, extraction and routing
+
+Issue [#1101](https://github.com/CBirkbeck/tauceti-explorer/issues/1101). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** J. Witaszek, *Keel's base point free theorem and quotients in mixed characteristic*, Ann. of Math. 195 (2022), 655–705.
+  - The published PDF was re-fetched from NSF PAR.
+  - Its SHA-256 (d71bd925…) matches the checkpoint.
+- **Items.** The result has **196 items: 21 library, 9 planned and 166 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** The fourteen findings the checkpoint recorded are kept under `sourceIssues`, three of them reclassified.
+
+## This continuation (cc-442dc5)
+
+**Reclassified.**
+- **E1 now affects nothing.** Only the parenthetical inequality in the EWM definition is reversed. The definition already quantifies over every integral closed subscheme.
+- **E8 now affects nothing.** The binomial sum in the proof of Lemma 3.4 runs over i ≥ 1, where v_p(p^i·C(p^k, i)) ≥ k.
+- **E3 now affects a stated result.** The introduction says L is EWM whenever the residue fields are not locally finite. Corollary 6.7 proves this only for perfect residue fields.
+
+**Verified.**
+- **E5, the counterexample.** On P_E(O ⊕ M), with M a non-torsion degree-zero bundle, O(1) is nef and effective with numerical dimension one, and it is not semiample.
+- **E5, the paraphrase.** The paper's own paraphrase of Keel's lemma on p.701 fails for the same reason.
+- **E5, the application.** It is unaffected, because there h⁰(mL) grows linearly.
+
+**Items.**
+- Conjecture 1.9 (semiampleness on M̄_{g,n} over Z) was added as a statement-only item.
+- Definition 2.27 and Corollary 1.3 were mapped to their existing items.
+
+**Gaps.**
+- **Resolved.** gap-publication and gap-surface-nef-repair.
+- **Deferred.** The other ten, as cited suppliers, design work or implementation work. Among them is gap-dimension-induction, left open for review:
+  - The proof of Theorem 1.4 inducts on dim X.
+  - The paper does not assume that the excellent base is finite-dimensional.
+  - No finding is asserted.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once.
+- Every gap has a status and a resolution.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (misprint; affects nothing), Published p.662, EWM definition; arXivv2 p.8. *Printed:* dim V<dim f(V) *Correction:* Reverse the inequality: dim f(V)<dim V. Quantify over all integral closed subvarieties, not just curves.
+- **E2** (error; affects a stated result), Published p.662, Lemma2.1; arXivv2 p.8. *Printed:* finite map *Correction:* Require the finite map of integral proper schemes to be surjective.
+- **E3** (gap; affects a stated result), Published p.657, informal EWM extension after Corollary1.3; compare Corollary6.7 pp.699–700. *Printed:* not locally finite *Correction:* Retain perfect closed residue fields in this informal extension, as explicitly assumed in Corollary6.7.
+- **E4** (gap; affects nothing), Published p.701, Lemma6.8. *Printed:* geometrically connected zero-dimensional *Correction:* State that the conductor on the generic fibre is empty or supported at at most one geometric point.
+- **E5** (error; affects a stated result), Keel99 Lemma5.2, printed p.281; repeated as a paraphrase in Witaszek22 published p.701. *Printed:* h⁰(L⊗m)>0 *Correction:* Use h⁰(L⊗m)≥2 for some m>0, with nef numerical dimension one on a normal projective surface over an algebraically closed field. Growing h⁰ in the application supplies this stronger hypothesis.
+- **E6** (error; affects the proof), Published p.664, Section2.1, characteristic-zero field-extension parenthesis. *Printed:* K⊗_L K=K^{⊕deg L/K} *Correction:* For finite separable K/L and an algebraic closure Ω containing K, use K⊗_L Ω≅Ω^[K:L]. Splitting over K itself needs an additional normality/splitting hypothesis; also reverse the printed degree notation.
+- **E7** (misprint; affects nothing), Published p.673, Lemma2.26 proof. *Printed:* q=g⁻¹∘p *Correction:* Compose as q=p∘g⁻¹ on underlying topological spaces.
+- **E8** (misprint; affects nothing), Published p.677, Lemma3.4 proof, divisibility range. *Printed:* 0≤i≤p^k *Correction:* Require 1≤i≤p^k. The binomial expansion already sums over positive i.
+- **E9** (misprint; affects nothing), Published p.679, end of Step2 in Theorem1.7 proof. *Printed:* Step 1 *Correction:* The last sentence of Step2 should refer to Step2.
+- **E10** (misprint; affects nothing), Published p.697, Lemma6.3 proof. *Printed:* m_Z:Z×G *Correction:* Supply the target Z for the induced action map m_Z:Z×G→Z.
+- **E11** (misprint; affects nothing), Published p.703 bibliography; compare arXivv2 p.45 and Fujita citation on published p.694. *Printed:* [Kee03] *Correction:* Disambiguate Sean Keel, Polarized pushouts, from Dennis Keeler, Ample filters. Theorem1.5 used for Fujita is Keeler’s.
+- **E12** (misprint; affects the proof), External prerequisite Stacks08AR, proof of Lemma69.20.2: projective embedding and final full-support argument. *Printed:* g′ *Correction:* Write i′=(i,π):Z′→P^n_A×_A Z=P^n_Z. In the final support argument use π∘zbar as a point of Z and π*π_*L^d→L^d; take the target stalk of L^d.
+- **E13** (misprint; affects the proof), External prerequisite Stacks08AY, last sentence of proof of Lemma69.22.4(3). *Printed:* c_2(n) *Correction:* A sufficient bound supplied by the displayed proof is c2(n)=c3(n)+c1+2n, since k=n+m and m≥c3(n)+c1+n.
+- **E14** (misprint; affects nothing), External prerequisite Stacks08B1, last displayed cohomology equality in Lemma69.22.7. *Printed:* i_{n,*}F *Correction:* Use i_{n,*}F_n in the middle cohomology term, where F_n is the restriction to X_n.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **gap-publication** (resolved). The published PDF was re-fetched (hash matches) and every numbered statement was checked against the items; Conjecture 1.9 was added, and Definition 2.27 and Corollary 1.3 were mapped.
+- **gap-stacks-root-closure** (deferred). The Stacks Project tags are cited suppliers.
+- **gap-artin-temkin** (deferred). Artin 1970 and Temkin 2011 are cited suppliers.
+- **gap-kollar-versions** (deferred). Kollár 1997 and 2012 are cited suppliers.
+- **gap-dimension-induction** (deferred). Open for review: the proof of Theorem 1.4 inducts on dim X, and the paper's conventions do not require the excellent base S to be finite-dimensional. Whether a Noetherian-induction or localization argument replaces it, or whether S should be assumed finite-dimensional, was not settled here; no finding is asserted.
+- **gap-keeler-corrigendum** (deferred). Keeler 2003 and its 2018 corrigendum are cited suppliers.
+- **gap-surface-nef-repair** (resolved). E5: the application has h⁰(mL) growing linearly, which is the hypothesis the repaired surface statement needs; the bridge is written out in the items.
+- **gap-adjunction-bpf** (deferred). KM98, Kollár 2013, Tanaka, HK10, BCHM10 and MNW15 are cited suppliers.
+- **gap-intersection-duality** (deferred). Surface intersection theory and duality are cited foundational suppliers.
+- **gap-picard-finiteness-owner** (deferred). Ownership coordination with PAPER-SCHROER-23 is design work.
+- **gap-final-closure-audit** (deferred). Declaration-sized splitting is design work; every numbered statement is now an item.
+- **gap-lean-prototypes** (deferred). Signature-checking the API outlines is implementation work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of the findings reclassified here, this continuation supersedes it.
+
+## PAPER-WITASZEK-22 — Stein factorization and surface Euler correction
 
 Status: **partial checkpoint**. Codex `codex-c83e7a`, 23 September 2026. Refs [#1101](https://github.com/CBirkbeck/tauceti-explorer/issues/1101). Continues [PR2012](https://github.com/CBirkbeck/tauceti-explorer/pull/2012), retaining the earlier codex-a71f92 and cc-fb70e5 work without reviewing it.
 
 195 items: 21 pinned-library imports, 9 existing-stage imports and 165 missing items, each routed once. There are 40 definitions/constructions with 120 API contracts and 120 proposed tests, 371 internal prerequisite edges and 19 external stage edges. The internal graph is acyclic. Seven routes and 14 source findings are recorded. These counts do not assert transitive closure or formalization.
 
-## What this continuation establishes
+### What this continuation establishes
 
 The old Stein node stated an algebraic-space theorem while citing the scheme tag03H2. Its source is now [Stacks0A1C](https://stacks.math.columbia.edu/tag/0A1C), with [0A1B](https://stacks.math.columbia.edu/tag/0A1B) supplying the locally Noetherian case. The scheme specializations remain03H2/03H0.
 
@@ -16,7 +97,7 @@ The normal-target specialization keeps all hypotheses: Y normal integral, X redu
 
 The finite locally free projection formula then identifies every line-bundle section space under a contraction, canonically and compatibly with products. If a surjective map pulls back all sections isomorphically, generation descends: any common zero downstairs remains a common zero after the residue-field extension upstairs. No flatness of the resolution is needed.
 
-## The surface calculation, including its differential
+### The surface calculation, including its differential
 
 For the given projective resolution π:T→S of a normal projective integral surface, proper coherent pushforward and regularity in codimension one give a coherent R¹π_*O_T with finite support. Fibres have dimension at most one. [Stacks02V7](https://stacks.math.columbia.edu/tag/02V7) deduces R^qπ_*O_T=0 for q≥2 from formal functions and the Noetherian **Zariski** dimension bound. Resolution existence and its normality/dimension inputs remain explicit suppliers.
 
@@ -30,7 +111,7 @@ h¹(T,π*L^m)=h¹(S,L^m)+ℓ−r_m, and h²(T,π*L^m)=h²(S,L^m)−r_m.
 
 Thus **χ(S,L^m)−χ(T,π*L^m)=ℓ**. Subtract the equality at m=0 to obtain the constant correction used below. Neither vanishing of R¹π_*O_T nor vanishing of d₂ is needed. The existing Tau Ceti `AlgebraicGeometry.Scheme.Modules.eulerCharBelow` supplies the carrier with cutoff3, after proving finite-dimensionality and higher vanishing. Cutoff2 omits H²; unconstrained `finrank` is not a substitute for finiteness.
 
-## Retained paper mechanism and surface application
+### Retained paper mechanism and surface application
 
 The algebraic mechanism starts with **direct-limit multiplicative perfection**. Over mixed characteristic the p-power map need not preserve addition; the construction is a commutative monoid, and perfected line-bundle sections form sheaves of sets. The two halves of Lemma3.4 are separated: integral finite generation clears one common denominator for surjectivity, while kernel p-torsion and nilpotence, combined with binomial divisibility, yield eventual equality for injectivity.
 
@@ -45,8 +126,7 @@ The resulting dependencies divide into two applications:
 
 Theorem6.1 proves the semiample criterion over an excellent base. Its EWM analogue additionally requires a base of finite type over a mixed-characteristic Dedekind domain. The final klt threefold corollary keeps absolute dimension3, projectivity and surjectivity over the Dedekind spectrum, perfect closed residue fields, and both nef-and-big assumptions. Locally finite positive-characteristic closed residue fields give semiampleness. The JSON records the plt corollary and relative surface proposition separately.
 
-
-## Surface Riemann–Roch and the repaired application
+### Surface Riemann–Roch and the repaired application
 
 PR2012 gave the fibration proof for nef numerical and Iitaka dimensions one. That decomposition first passes to a smooth projective resolution before taking moving and fixed divisors. This ensures these divisors are Cartier and supplies an explicit semiampleness descent step. The stronger usable input is two independent sections of one positive power.
 
@@ -78,8 +158,7 @@ proves negative semidefiniteness and identifies the kernel with Q·m. Group F by
 
 The retained `surface-h2-bound` supplier states the actual line-bundle theorem in Keel5.4. The old arbitrary-coherent-F top-cohomology statement was an unverified strengthening. Keel’s auxiliary coherent-sheaf assertion instead concerns sections of F tensored with negative nef powers.
 
-
-## Source acquisition and reading boundaries
+### Source acquisition and reading boundaries
 
 PR2012 acquired and read all 51 pages of the [published paper](https://par.nsf.gov/servlets/purl/10429755), printed655–705, including proofs and references. Its SHA-256 is `d71bd9254d80145a84f13059f18d37d6f777008900ab907b14d195bb61414ea0`. This continuation freshly read printed661–664 and700–701. It does not claim a second complete reading. The eight inspected publication images and Keel99 printed279–282 reading remain historical PR2012 evidence.
 
@@ -87,7 +166,7 @@ The [arXivv2](https://arxiv.org/pdf/2002.11915v2) has 46 pages, SHA-256 `5ab7921
 
 Fresh statements and displayed proofs were read in 20 archived Stacks pages: 0A18,0A1B,0A1C,08B1,08AR,01E7,01E8,0AY8,03H0,03H2,0E7D,02V7,08AZ,073K,0A0X,0AYI,08AV,08AY,02OD and02UZ. Their hashes and links are in `steinContinuation.sources`. This includes the Noetherian formal-functions filtration argument and general proper approximation. Their cited transitive proofs, omitted details, Chow/dévissage and limit engines have not all been closed.
 
-## Source findings awaiting independent review
+### Source findings awaiting independent review
 
 E1–E11 are retained from PR2012 with their original bounded correction searches. They concern Witaszek or Keel. E12–E14 are newly observed typing/index errors in **external Stacks prerequisite proofs**, not errors attributed to Witaszek. All remain unreviewed; the earlier D1–D9 records are preserved.
 
@@ -117,7 +196,6 @@ E3 narrows the earlier diagnosis: formal Corollary1.3 is correctly guarded by lo
 
 The author publication entry, journal article page, arXiv history and targeted correction searches were checked on22September2026. No matching correction for E1–E10 was located within that scope. This does not prove absence of a correction. E11 records the earlier correct v2 bibliography.
 
-
 **E12 — external prerequisite misprints, [Stacks08AR](https://stacks.math.columbia.edu/tag/08AR).** The projective embedding should be i′=(i,π):Z′→P^n_A×_A Z=P^n_Z. In the last full-support argument, G=π_*L^d lives on Z. Use the point π∘z̄ of Z and the adjunction π*π_*L^d→L^d, with the target stalk of L^d. The printed g′:Z′→Spec A has the wrong type there. These are local typing repairs.
 
 **E13 — external prerequisite index shift, [Stacks08AY](https://stacks.math.columbia.edu/tag/08AY), final bound in part(3).** The proof obtains m≥c₃(n)+c₁+n and uses k=n+m. A sufficient absolute-index threshold is therefore c₂(n)=c₃(n)+c₁+2n. The displayed smaller threshold is not justified by that estimate; this does not assert it always fails. Enlarging an existential constant leaves the theorem and its application intact.
@@ -126,7 +204,7 @@ The author publication entry, journal article page, arXiv history and targeted c
 
 Current pages and comments were inspected, and targeted tag/typo searches found no further matching corrections in the returned results. This is a bounded search. No external source comment was posted.
 
-## Ownership and existing libraries
+### Ownership and existing libraries
 
 The new nodes reuse the current owners: SF.1 owns the algebraic-space Stein supplier; SF.0 owns section-generation descent; SF.4 owns resolution geometry; SF.5 owns the surface Euler/intersection application. The added source route SF.2 owns Zariski vanishing, the proper-fibre bound, finite-support length and cohomology. The two existing continuation proposals are retained unchanged.
 
@@ -136,7 +214,7 @@ The current ownership snapshot is `277594a65a53ae5f7530539524add19c453b4e19` wit
 
 Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` supply the integrally closed fraction criterion, local-ring unit dichotomy, unit-idempotent lemma, connected-spectrum criteria, truncated Euler carrier, Artin–Rees, controlled Artin–Rees lifts and locality of adic completion. Eleven exact declaration records include source excerpts and hashes. These algebraic facts are **already built**; the geometric formal-functions comparison remains a supplier request. Both algebraic-geometry trees and relevant ring/cohomology files were searched. A full Lazard flat-module colimit theorem was not located in that scope; its proof and cohomology-colimit adapter remain explicit requests.
 
-## Verification and open work
+### Verification and open work
 
 The paper checker, three-file intake check and structural audit pass. The structural audit checks unique IDs, every missing item routed once, resolved acyclic recorded edges, definition APIs/tests, 531 input hashes and 11 declaration hashes. The 120 mathematical tests are plans, not compiled examples.
 

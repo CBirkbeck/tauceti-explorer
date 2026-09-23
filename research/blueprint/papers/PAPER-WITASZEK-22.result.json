@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-WITASZEK-22",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Keel's base point free theorem and quotients in mixed characteristic",
     "authors": "Jakub Witaszek",
@@ -19,7 +19,7 @@
     ],
     "publicationMatch": "Published PDF acquired and read in full. Title, author, DOI and principal theorem statements agree with v2. All prior diagnostics checked against publication. Automated heading matching is only a locator aid: line-wrapped citations create false headings; exhaustive machine-assisted statement collation remains open. Published bibliography merges two distinct v2 citation labels; see E11."
   },
-  "summary": "Continuation of PR2012: supplies the exact algebraic-space Stein source and its Noetherian proof decomposition, normal-target function descent, contraction section/generation comparison, and the surface Euler correction with its potentially nonzero Leray differential. Imports existing formal-functions, coherent-cohomology and ordinary-sheaf owners, and pinned Artin–Rees/local-completion algebra. Preserves earlier positivity repairs and open quotient/source-closure gates. Nothing is formalized.",
+  "summary": "Witaszek proves Keel's base point free theorem for schemes projective over an excellent mixed-characteristic base: a nef line bundle is semiample (or EWM) if and only if it is so on its exceptional locus and on the characteristic-zero fibre (Theorem 1.2). Its tools are a mixed-characteristic analogue of Kollár's quotients by finite equivalence relations (Theorem 1.4) and pushouts along universal homeomorphisms via perfection (Theorem 1.7). Applications include the base point free theorem for klt threefolds over mixed-characteristic Dedekind bases (Corollary 6.7). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and fourteen findings are recorded. Lemma 2.1 needs surjectivity (E2); Keel's surface lemma, and the paper's paraphrase of it, need h⁰ ≥ 2 (E5); the introduction overstates Corollary 6.7 (E3); the main theorems stand. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3671,7 +3671,7 @@
       "kind": "construction",
       "name": "Conductor square for a finite reduced surjection",
       "statement": "For finite surjective f:Y→X of reduced Noetherian schemes, define the conductor I locally as {s∈B:sB⊆A} for A⊆B. It is an ideal in both rings and A=B×_(B/I)(A/I); this does not require birationality.",
-      "locator": "Section 2.5, before Lemma 2.28",
+      "locator": "Definition 2.27; Section 2.5, before Lemma 2.28",
       "status": "missing",
       "note": "Source-scoped planning item; not an implementation claim. Mathlib's conductor A (0:B) already supplies the affine ideal; only scheme gluing, localization comparison and the square are missing.",
       "prerequisites": [
@@ -6527,9 +6527,9 @@
       "kind": "theorem",
       "name": "Klt threefold EWM over a mixed-characteristic Dedekind base",
       "statement": "For klt (X,Δ), X normal integral of absolute dimension3, projective and surjective over Spec of a mixed-characteristic Dedekind domain with PERFECT closed residue fields, nef and big Cartier L with L−(K_X+Δ) nef and big is EWM.",
-      "locator": "Corollary6.7, EWM part",
+      "locator": "Corollary6.7, EWM part; Corollary 1.3 (introduction form)",
       "status": "missing",
-      "note": "Source-scoped planning item; not an implementation claim.",
+      "note": "Source-scoped planning item; not an implementation claim. (cc-442dc5) The introduction's broader sentence without perfect residue fields is finding E3.",
       "prerequisites": [
         "PAPER-WITASZEK-22/klt-plt",
         "PAPER-WITASZEK-22/keel-ewm",
@@ -6566,7 +6566,7 @@
       "kind": "theorem",
       "name": "Klt threefold semiampleness over locally finite residues",
       "statement": "Under Corollary6.7's hypotheses, if positive-characteristic closed residue fields are locally finite, L is semiample.",
-      "locator": "Corollary6.7, semiample part",
+      "locator": "Corollary6.7, semiample part; Corollary 1.3 (introduction form)",
       "status": "missing",
       "note": "Source-scoped planning item; not an implementation claim.",
       "prerequisites": [
@@ -8009,6 +8009,33 @@
         "reading": "Targeted source statements and displayed proofs read; cited transitive inputs remain explicit supplier requests or gaps.",
         "locator": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean55–86"
       }
+    },
+    {
+      "id": "PAPER-WITASZEK-22/mgn-semiample-conjecture",
+      "kind": "definition",
+      "name": "Conjecture 1.9 (statement only)",
+      "statement": "Let M̄_{g,n} be the moduli space of genus-g curves with n marked points over Spec Z, and L a nef line bundle on it. If L is semiample on M̄_{g,n} × Spec Q, then L is semiample. A conjecture the paper states; not proved.",
+      "locator": "Conjecture 1.9",
+      "status": "missing",
+      "note": "Added by cc-442dc5: a numbered statement without its own item. Statement only; no proof is claimed.",
+      "prerequisites": [
+        "PAPER-WITASZEK-22/keel-semiample"
+      ],
+      "proofSteps": [
+        "A conjecture; no proof is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "ownerRoute": "POS",
+      "api": [],
+      "tests": [],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Conjecture 1.9, published p.660",
+        "reading": "Published statement read by cc-442dc5; added as a numbered statement without its own item."
+      },
+      "gaps": []
     }
   ],
   "routes": [
@@ -8215,6 +8242,7 @@
         "PAPER-WITASZEK-22/conductor-generic-fiber",
         "PAPER-WITASZEK-22/threefold-ewm",
         "PAPER-WITASZEK-22/threefold-semiample",
+        "PAPER-WITASZEK-22/mgn-semiample-conjecture",
         "PAPER-WITASZEK-22/numerical-dimension",
         "PAPER-WITASZEK-22/iitaka-dimension",
         "PAPER-WITASZEK-22/locally-finite-field",
@@ -8486,7 +8514,8 @@
         "PAPER-WITASZEK-22/iitaka-dimension",
         "PAPER-WITASZEK-22/locally-finite-field"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "The published PDF was re-fetched (hash matches) and every numbered statement was checked against the items; Conjecture 1.9 was added, and Definition 2.27 and Corollary 1.3 were mapped."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-stacks-root-closure",
@@ -8515,7 +8544,8 @@
         "PAPER-WITASZEK-22/pushout-ft-approximation",
         "PAPER-WITASZEK-22/finite-pinching"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The Stacks Project tags are cited suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-artin-temkin",
@@ -8528,7 +8558,8 @@
         "PAPER-WITASZEK-22/temkin-factorization",
         "PAPER-WITASZEK-22/artin-formal-contraction"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Artin 1970 and Temkin 2011 are cited suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-kollar-versions",
@@ -8542,7 +8573,8 @@
         "PAPER-WITASZEK-22/action-seminormal-conductor",
         "PAPER-WITASZEK-22/proper-action-main"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Kollár 1997 and 2012 are cited suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-dimension-induction",
@@ -8553,7 +8585,8 @@
         "PAPER-WITASZEK-22/finite-quotient-main",
         "PAPER-WITASZEK-22/proper-action-main"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Open for review: the proof of Theorem 1.4 inducts on dim X, and the paper's conventions do not require the excellent base S to be finite-dimensional. Whether a Noetherian-induction or localization argument replaces it, or whether S should be assumed finite-dimensional, was not settled here; no finding is asserted."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-keeler-corrigendum",
@@ -8564,7 +8597,8 @@
         "PAPER-WITASZEK-22/keel-semiample",
         "PAPER-WITASZEK-22/keel-ewm"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Keeler 2003 and its 2018 corrigendum are cited suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-surface-nef-repair",
@@ -8575,7 +8609,8 @@
         "PAPER-WITASZEK-22/surface-abundant-nef",
         "PAPER-WITASZEK-22/threefold-ewm"
       ],
-      "status": "resolved"
+      "status": "resolved",
+      "resolution": "E5: the application has h⁰(mL) growing linearly, which is the hypothesis the repaired surface statement needs; the bridge is written out in the items."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-adjunction-bpf",
@@ -8593,7 +8628,8 @@
         "PAPER-WITASZEK-22/surface-resolution",
         "PAPER-WITASZEK-22/positive-rr-slope"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "KM98, Kollár 2013, Tanaka, HK10, BCHM10 and MNW15 are cited suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-intersection-duality",
@@ -8614,7 +8650,8 @@
         "PAPER-WITASZEK-22/connected-fibre-matrix",
         "PAPER-WITASZEK-22/surface-moving-pencil"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Surface intersection theory and duality are cited foundational suppliers."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-picard-finiteness-owner",
@@ -8624,7 +8661,8 @@
         "PAPER-WITASZEK-22/locally-finite-torsion",
         "PAPER-WITASZEK-22/picard-scheme-numerical"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Ownership coordination with PAPER-SCHROER-23 is design work."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-final-closure-audit",
@@ -8776,7 +8814,8 @@
         "PAPER-WITASZEK-22/iitaka-dimension",
         "PAPER-WITASZEK-22/locally-finite-field"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting is design work; every numbered statement is now an item."
     },
     {
       "id": "PAPER-WITASZEK-22/gap-lean-prototypes",
@@ -8822,7 +8861,8 @@
         "PAPER-WITASZEK-22/locally-finite-field",
         "PAPER-WITASZEK-22/ring-conductor"
       ],
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Signature-checking the API outlines is implementation work."
     }
   ],
   "sourceDiagnostics": [
@@ -9088,15 +9128,17 @@
       "locator": "Published p.662, EWM definition; arXivv2 p.8",
       "printed": "dim V<dim f(V)",
       "correction": "Reverse the inequality: dim f(V)<dim V. Quantify over all integral closed subvarieties, not just curves.",
-      "reason": "An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue.",
-      "affects": "a stated result",
+      "reason": "An image cannot have larger dimension. A constant map contracts a positive-dimensional variety; the printed inequality never detects it. Image inspected. BMPSTWW Remark2.49 addresses a different curve-only-definition issue. (cc-442dc5) Reclassified to affect nothing: the definition on p.662 already quantifies over every integral closed subscheme V ⊆ X ('V is contracted (that is, dim V < dim f(V)) if and only if L|V is not relatively big'), so only the parenthetical inequality is reversed, and its meaning (dim f(V) < dim V) is clear from 'contracted'. The second sentence of the correction is not needed.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
-      ]
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-WITASZEK-22/E2",
@@ -9111,7 +9153,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9120,15 +9163,17 @@
       "locator": "Published p.657, informal EWM extension after Corollary1.3; compare Corollary6.7 pp.699–700",
       "printed": "not locally finite",
       "correction": "Retain perfect closed residue fields in this informal extension, as explicitly assumed in Corollary6.7.",
-      "reason": "Corollary1.3 itself assumes locally finite fields, hence perfectness automatically; no defect is asserted in that formal corollary. Its broader following prose omits the guard used in the stated theorem/proof. No counterexample to an eventual stronger theorem is claimed.",
-      "affects": "the proof",
+      "reason": "Corollary1.3 itself assumes locally finite fields, hence perfectness automatically; no defect is asserted in that formal corollary. Its broader following prose omits the guard used in the stated theorem/proof. No counterexample to an eventual stronger theorem is claimed. (cc-442dc5) Reclassified to affect a stated result: the introduction's sentence 'When the residue fields of S are not locally finite, we prove that L is EWM' (p.657) claims more than Corollary 6.7 proves, since Corollary 6.7 (p.699) assumes perfect residue fields at closed points. The numbered Corollary 6.7 is correctly hypothesised.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
-      ]
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-WITASZEK-22/E4",
@@ -9143,7 +9188,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9152,7 +9198,7 @@
       "locator": "Keel99 Lemma5.2, printed p.281; repeated as a paraphrase in Witaszek22 published p.701",
       "printed": "h⁰(L⊗m)>0",
       "correction": "Use h⁰(L⊗m)≥2 for some m>0, with nef numerical dimension one on a normal projective surface over an algebraically closed field. Growing h⁰ in the application supplies this stronger hypothesis.",
-      "reason": "Take an elliptic curve E/C and a nontorsion M in Pic⁰(E). On P_E(O⊕M), L=O(1) is nef, L²=0 and L·fibre=1. For every m>0, H⁰(L^m)=⊕_{i=0}^m H⁰(E,M^i) has dimension1. Its unique section vanishes along a section of the ruled surface, so no positive power is generated. The source assumption gives κ=0 here. The resolution/moving-pencil proof and the positive Euler slope below repair Witaszek’s actual application.",
+      "reason": "Take an elliptic curve E/C and a nontorsion M in Pic⁰(E). On P_E(O⊕M), L=O(1) is nef, L²=0 and L·fibre=1. For every m>0, H⁰(L^m)=⊕_{i=0}^m H⁰(E,M^i) has dimension1. Its unique section vanishes along a section of the ruled surface, so no positive power is generated. The source assumption gives κ=0 here. The resolution/moving-pencil proof and the positive Euler slope below repair Witaszek’s actual application. (cc-442dc5) Verified: over an algebraically closed field where Pic⁰(E) has a non-torsion point M (for example C), L = O(1) on P_E(O ⊕ M) is nef and effective with L² = 0 and L·fibre = 1, and h⁰(L^m) = 1 for all m > 0, so L is not semiample. The paper's own paraphrase on p.701 ('Q-effective nef line bundles of numerical dimension one on normal projective surfaces over algebraically closed fields are semiample') is false for the same reason. In the application, χ(O(mL)) grows linearly and h² is bounded (Keel's Lemma 5.4), so h⁰(mL) grows and the stronger hypothesis holds.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -9160,7 +9206,8 @@
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
         "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
-        "Sean Keel Basepoint freeness Lemma5.2 erratum search; reread arXiv math/9901149 pp.279–282; no matching correction located"
+        "Sean Keel Basepoint freeness Lemma5.2 erratum search; reread arXiv math/9901149 pp.279–282; no matching correction located",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9176,7 +9223,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9192,7 +9240,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9201,15 +9250,17 @@
       "locator": "Published p.677, Lemma3.4 proof, divisibility range",
       "printed": "0≤i≤p^k",
       "correction": "Require 1≤i≤p^k. The binomial expansion already sums over positive i.",
-      "reason": "At i=0, p^i binomial(p^k,i)=1, which is not divisible by p^n for n>0. For positive i, the identity i binomial(p^k,i)=p^k binomial(p^k−1,i−1) gives the explicit valid bound recorded in binomial-divisibility.",
-      "affects": "the proof",
+      "reason": "At i=0, p^i binomial(p^k,i)=1, which is not divisible by p^n for n>0. For positive i, the identity i binomial(p^k,i)=p^k binomial(p^k−1,i−1) gives the explicit valid bound recorded in binomial-divisibility. (cc-442dc5) Reclassified to affect nothing: the displayed binomial expansion runs over 1 ≤ i ≤ p^k, and for those i, v_p(p^i·C(p^k, i)) = i + k − v_p(i) ≥ k, so the divisibility holds for k ≥ n. Only the printed range '0 ≤ i' is wrong, and i = 0 is not used.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
-      ]
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-WITASZEK-22/E9",
@@ -9224,7 +9275,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9240,7 +9292,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9256,7 +9309,8 @@
         "Annals article page https://annals.math.princeton.edu/2022/195-2/p04 accessed2026-09-22",
         "Author publications https://sites.math.northwestern.edu/lro1793/publications.html accessed2026-09-22: article entry has no linked correction",
         "arXiv2002.11915 version history and v2 PDF, latest version23January2022",
-        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results"
+        "Exact paper-title searches with erratum/corrigendum; no matching correction located in returned results",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9270,7 +9324,8 @@
       "known": "new",
       "searched": [
         "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
-        "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence."
+        "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9284,7 +9339,8 @@
       "known": "new",
       "searched": [
         "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
-        "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence."
+        "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     },
     {
@@ -9299,7 +9355,8 @@
       "searched": [
         "Current Stacks page, its displayed proof and comments inspected on2026-09-23.",
         "Targeted tag/typo search found no correction in returned results; this is a bounded search, not proof of absence.",
-        "Compared Stacks02OD and its correction comments."
+        "Compared Stacks02OD and its correction comments.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched from NSF PAR (SHA-256 d71bd925…, matching)."
       ]
     }
   ],
@@ -15391,5 +15448,15 @@
         "PAPER-WITASZEK-22/flat-basechange-spaces"
       ]
     }
-  ]
+  ],
+  "summaryBefore": "Continuation of PR2012: supplies the exact algebraic-space Stein source and its Noetherian proof decomposition, normal-target function descent, contraction section/generation comparison, and the surface Euler correction with its potentially nonzero Leray differential. Imports existing formal-functions, coherent-cohomology and ordinary-sheaf owners, and pinned Artin–Rees/local-completion algebra. Preserves earlier positivity repairs and open quotient/source-closure gates. Nothing is formalized.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1101,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); §§1–2, the proofs of Lemma 3.4 and Theorem 1.4, and §6 re-read; every numbered statement checked against the items.",
+    "changes": "E1 and E8 reclassified to affect nothing, E3 to affect a stated result; verification note on E5; Conjecture 1.9 added; Definition 2.27 and Corollary 1.3 mapped; gap statuses recorded; status complete."
+  }
 }
