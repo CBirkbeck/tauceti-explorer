@@ -4445,7 +4445,8 @@
    ],
    "avoidAccountOf": "PAPER-GHOSH-SARNAK-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-GHOSH-SARNAK-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1273"
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-WANG-22",
@@ -31025,8 +31026,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1856"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1856",
+   "finishedAt": "2026-09-23T11:59:19Z"
   },
   {
    "id": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
