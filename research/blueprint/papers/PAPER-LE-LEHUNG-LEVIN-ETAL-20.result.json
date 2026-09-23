@@ -3,7 +3,7 @@
   "protocol": "paper-v1",
   "status": "partial",
   "agent": "Codex",
-  "session": "codex-hjdg0j",
+  "session": "codex-c83e7a",
   "source": {
     "title": "Serre weights and Breuil’s lattice conjecture in dimension three",
     "authors": "Daniel Le, Bao V. Le Hung, Brandon Levin, Stefano Morra",
@@ -14,10 +14,13 @@
     "readSections": [
       "arXiv v4: entire text pp.1–102, §§1–6 and references; all proof text read, not all diagrammatic claims independently reconstructed.",
       "Published 135-page version: selected comparison of cited tables, statements and computations, especially pp.29,33,38,43,51–52,59–65,67–71,78,99. Not a full version collation.",
-      "Original EGS15 §4.1, Lemmas 4.1.1–4.1.4 and proofs; HK04 Proposition 3.5 and adjacent depth proof; LLHLM18 Definition 7.3. Remaining originals listed as gaps."
+      "Original EGS15 §4.1, Lemmas 4.1.1–4.1.4 and proofs; HK04 Proposition 3.5 and adjacent depth proof; LLHLM18 Definition 7.3. Remaining originals listed as gaps.",
+      "Continuation codex-c83e7a, 2026-09-23: published author copy pp.1–135 read completely, including all six tables and seven figures. Images inspected at pp.1,8,14,19,21,23,24,27,49,51,52,56,60,76,88,89,107,109,127,128. This is a complete published-text reading, not a claim of complete independent reconstruction or full word-for-word version collation.",
+      "Continuation: arXiv v4 pp.12,57 and published pp.14,76 collated for E15/E16; author master2.pdf corresponding passages checked. Prior arXiv whole-paper reading remains attributed to checkpoint #2197.",
+      "Continuation: HK04 original author PDF pp.242–243, Proposition3.5 and adjacent proof; Stacks tags 00N2 (CM localization), 0AVY (depth/local cohomology), 0BJA,0952,0955,0A6T (comparison), 0E9I (absolute Hartogs),02KH (flat base change), statements and proofs."
     ]
   },
-  "summary": "Partial extraction of generic GL3 Serre weights, numerical Breuil–Mézard, cosocle lattices and Breuil lattice locality. The full main-paper text has been read. This checkpoint resolves the graph/lattice proof spine, separates the main geometry and patching endpoints, verifies concrete library carriers, routes reusable local algebra to its existing owners, and proposes two additional layers without a patching/lattice cycle. Original prerequisite proofs, many local charts and a complete definition/key-theorem inventory remain unclosed; see G01–G09.",
+  "summary": "Partial extraction of generic GL3 Serre weights, numerical Breuil–Mézard, cosocle lattices and Breuil lattice locality. The full main-paper text has been read. This checkpoint resolves the graph/lattice proof spine, separates the main geometry and patching endpoints, verifies concrete library carriers, routes reusable local algebra to its existing owners, and proposes two additional layers without a patching/lattice cycle. Original prerequisite proofs, many local charts and a complete definition/key-theorem inventory remain unclosed; see G01–G09. Continuation #1402 adds the absolute Hartogs and flat-base-change proof interfaces, distinguishes ordinary spectra from formal deformation notation, and supplies the torsion-free specialization algebra. It corrects the interior extension-graph degree to 7|J|. All 84 earlier item IDs and 39 earlier source-issue IDs are retained; global duality, chart and original-input gaps remain.",
   "conventions": {
     "coefficients": "p>3; E/Q_p finite and sufficiently large for all embeddings, tame types and constituent fields of definition; O its integers, varpi a uniformizer, F its residue field. p and varpi are distinct symbols. Finite O-module means finitely generated, not necessarily torsion. Unless explicitly specified, type rings impose parallel Hodge–Tate weights eta=(2,1,0), with cyclotomic character of weight +1.",
     "local": "K_v/Q_p is unramified in the main numerical/GL3 assertions; k_v has p^f_v elements and J is the disjoint union of its embeddings, f=sum f_v. Distinguish the algebraic restriction-of-scalars GL3 group, its finite group of rational points, and G1T. Genericity is measured via lowest-alcove presentations and D01; the complete construction is G01. Semisimplicity of a Galois representation is an independent hypothesis, not implied by inertial genericity.",
@@ -630,7 +633,7 @@
       "statement": "For a semisimple exhaustive separated filtration F of a multiplicity-free object M, d_F(sigma) is its unique nonzero associated-grade index. Gamma_F retains arrows for which the induced shifted filtration on the length-two extension has length two; radical and socle graphs use their respective filtrations.",
       "locator": "§4.1.1, Proposition 4.1.2",
       "status": "missing",
-      "note": "Planning statement; not a formalisation. Require semisimple filtration for the Hom-to-grade definition; for arbitrary grades a factor need not be in the socle of its grade.",
+      "note": "Planning statement; not a formalisation. Require semisimple filtration for the Hom-to-grade definition; for arbitrary grades a factor need not be in the socle of its grade. The semisimple hypothesis is necessary for the Hom-based degree definition; see E16.",
       "proofOutline": "Require semisimple filtration for the Hom-to-grade definition; for arbitrary grades a factor need not be in the socle of its grade.",
       "dependsOn": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D07",
@@ -1467,7 +1470,7 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
       "kind": "construction",
       "name": "Codimension-two complement for gauges",
-      "statement": "For the nonzero normal type scheme X=Spec R_infty(tau_S) under §5.1 hypotheses, let Z be the union of intersections of distinct components of X_F and j:U=X\\Z→X. Every irreducible component of the crossing locus has codimension two in X; the locus may be empty.",
+      "statement": "For the nonzero normal type scheme X=Spec R_infty(tau_S) under §5.1 hypotheses, let Z be the union of intersections of distinct components of X_F and j:U=X\\Z→X. Every point of the crossing locus has height at least two in X; the locus may be empty.",
       "locator": "§5.2",
       "status": "missing",
       "note": "Planning statement; not a formalisation. Keep Spec and formal pullback comparison explicit; j descends from the product of local deformation bases.",
@@ -1531,12 +1534,14 @@
       "statement": "In T43 additionally assume sigma satisfies the upper-alcove condition of T40. Then the image of M_infty(iota) is [j_* j^*(product_theta p(theta)^m(theta) R_infty(tau_S))] M_infty(sigma(tau_S)^sigma).",
       "locator": "Theorem 5.2.3",
       "status": "missing",
-      "note": "Planning statement; not a formalisation. For each finite MCM sheaf, show depth at least two along the codimension-two crossing locus. The local-cohomology exact sequence then gives M ≅ j_*j^*M. Pull the free rank-one target outside j_*j^*. The original HK04 Proposition 3.5 was read but has a fibrewise codimension hypothesis: applying it over Spec O is not immediate. The absolute depth/Hartogs argument and base-change theorem remain G08.",
-      "proofOutline": "For each finite MCM sheaf, show depth at least two along the codimension-two crossing locus. The local-cohomology exact sequence then gives M ≅ j_*j^*M. Pull the free rank-one target outside j_*j^*. The original HK04 Proposition 3.5 was read but has a fibrewise codimension hypothesis: applying it over Spec O is not immediate. The absolute depth/Hartogs argument and base-change theorem remain G08.",
+      "note": "Absolute total-space Hartogs argument supplied in this continuation; global arithmetic prerequisites remain open.",
+      "proofOutline": "The source module of the injected patching map is full-support MCM, so T58 extends it uniquely from U. T43 computes that restriction as the product ideal times the target. T40 makes the target free of rank one, and T61 converts extension of its product submodule to the embedded Hartogs ideal. The initial product ideal itself need not be MCM.",
       "dependsOn": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T43",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T61"
       ]
     },
     {
@@ -1546,11 +1551,13 @@
       "statement": "The ideal in T44 is obtained by base change from the completed tensor product of the local potentially crystalline rings, hence from an ideal in the tensor product of unrestricted framed local deformation rings.",
       "locator": "Remark 5.2.4",
       "status": "missing",
-      "note": "Planning statement; not a formalisation. Flat/formally smooth base change of the codimension-two extension must be proved; the ideal is independent of global auxiliary variables.",
-      "proofOutline": "Flat/formally smooth base change of the codimension-two extension must be proved; the ideal is independent of global auxiliary variables.",
+      "note": "No comparison between open subsets of adic Spf and ordinary Spec is needed: coherent patched modules are used as finite modules over the same complete rings. Completion must not be substituted for ordinary localization on U.",
+      "proofOutline": "Set A=completed tensor_v R_v^tau, B=A[[x_1,…,x_h]], and use ordinary Spec A and Spec B. T62 identifies the crossing opens. The weight-prime product is extended from A. A is normal CM in the source setup, so A→sections(U_A,O) is an isomorphism by T58. T60 identifies the two embedded Hartogs ideals. Pull back this finite ideal through the surjection from the completed tensor of unrestricted framed rings.",
       "dependsOn": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T62"
       ]
     },
     {
@@ -1634,13 +1641,14 @@
       "locator": "Theorem 5.3.5",
       "status": "missing",
       "note": "Planning statement; not a formalisation. Choose a T40 cosocle lattice; express the automorphic lattice as sum_kappa gamma(kappa)^−1 sigma(tau)^kappa by EGS15 Lemma 4.1.2. Schikhof duality identifies (gamma(kappa)) with the image of the specialised patched map. T44–45 show each ideal is local. Integral torsion-free specialisation and the exact CHT minimal condition are unresolved G02/G07/G08. This is an abstract locality theorem, not a complete explicit Dieudonne formula.",
-      "proofOutline": "Choose a T40 cosocle lattice; express the automorphic lattice as sum_kappa gamma(kappa)^−1 sigma(tau)^kappa by EGS15 Lemma 4.1.2. Schikhof duality identifies (gamma(kappa)) with the image of the specialised patched map. T44–45 show each ideal is local. Integral torsion-free specialisation and the exact CHT minimal condition are unresolved G02/G07/G08. This is an abstract locality theorem, not a complete explicit Dieudonne formula.",
+      "proofOutline": "Choose a T40 cosocle lattice; express the automorphic lattice as sum_kappa gamma(kappa)^−1 sigma(tau)^kappa by EGS15 Lemma 4.1.2. Schikhof duality identifies (gamma(kappa)) with the image of the specialised patched map. T44–45 show each ideal is local. Integral torsion-free specialisation and the exact CHT minimal condition are unresolved G02/G07/G08. This is an abstract locality theorem, not a complete explicit Dieudonne formula. Apply T63 to the patched inclusion after choosing the free target. Exactness of patching transports a coefficient-power annihilator of the finite lattice quotient to the module cokernel. The specialized image ideal is correct after removing O-torsion; the raw source need not be O. The global Schikhof comparison is still G07/G08.",
       "dependsOn": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T48",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T40",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T44",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T45",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T63"
       ]
     },
     {
@@ -1726,6 +1734,398 @@
         "A nonzero pure d-dimensional MCM module contributes its weight.",
         "Functor independence is not part of the definition."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L06",
+      "kind": "construction",
+      "name": "Local cohomology as an Ext colimit",
+      "statement": "For a commutative ring A, ideal I and natural number q, localCohomology I q is the functor on ModuleCat A given by colim_n Ext^q_A(A/I^n,−).",
+      "locator": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/LocalCohomology.lean, definition localCohomology",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Read the entire pinned file. Its comparison to derived torsion/Čech cohomology and long exact sequences are explicitly future work; those statements are not supplied by this carrier.",
+      "proofOutline": "Read the entire pinned file. Its comparison to derived torsion/Čech cohomology and long exact sequences are explicitly future work; those statements are not supplied by this carrier.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:localCohomology"
+      ],
+      "api": [
+        {
+          "name": "use_existing_colimit",
+          "statement": "Import localCohomology rather than define a second module.",
+          "usedBy": "T55–T56"
+        },
+        {
+          "name": "local_cohomology_map",
+          "statement": "Use its functor map for A-linear module maps.",
+          "usedBy": "Hartogs naturality"
+        },
+        {
+          "name": "change_support_radical",
+          "statement": "Use L07 when the defining ideal changes without changing its radical.",
+          "usedBy": "D24"
+        }
+      ],
+      "unitTests": [
+        "I=A gives zero in every degree since all quotients are zero.",
+        "For I=0 the cofinal positive powers give H^0=M and H^q=0 for q>0.",
+        "An A-linear identity induces the identity map by the functor laws."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L07",
+      "kind": "theorem",
+      "name": "Radical invariance of local cohomology",
+      "statement": "For Noetherian commutative A and ideals I,J with equal radicals, localCohomology I q and localCohomology J q are naturally isomorphic for every q.",
+      "locator": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/LocalCohomology.lean, localCohomology.isoOfSameRadical",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. The pinned statement constructs the natural isomorphism via the cofinal diagram of ideals whose radical contains I.",
+      "proofOutline": "The pinned statement constructs the natural isomorphism via the cofinal diagram of ideals whose radical contains I.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L06"
+      ],
+      "library": [
+        "mathlib:localCohomology.isoOfSameRadical"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L08",
+      "kind": "construction",
+      "name": "Affine module and quasi-coherent sheaf equivalence",
+      "statement": "For a commutative ring A, M↦M-tilde is an equivalence from ModuleCat A to quasi-coherent O_Spec(A)-modules.",
+      "locator": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Modules/Tilde.lean, AlgebraicGeometry.tildeEquiv",
+      "status": "library",
+      "note": "Planning statement; not a formalisation. Read the declaration and isQuasicoherent_iff_isIso_fromTildeΓ immediately above it. Coherence and Hartogs extension require additional results.",
+      "proofOutline": "Read the declaration and isQuasicoherent_iff_isIso_fromTildeΓ immediately above it. Coherence and Hartogs extension require additional results.",
+      "dependsOn": [],
+      "library": [
+        "mathlib:AlgebraicGeometry.tildeEquiv"
+      ],
+      "api": [
+        {
+          "name": "module_to_affine_sheaf",
+          "statement": "Use the functor of tildeEquiv for finite modules.",
+          "usedBy": "T55,T58"
+        },
+        {
+          "name": "affine_sections_inverse",
+          "statement": "Use the inverse/global-sections functor and unit.",
+          "usedBy": "D23"
+        },
+        {
+          "name": "transport_maps",
+          "statement": "Transport A-linear maps to sheaf maps using the equivalence.",
+          "usedBy": "T44"
+        }
+      ],
+      "unitTests": [
+        "The module A corresponds to the structure sheaf.",
+        "Zero corresponds to zero.",
+        "An isomorphism of modules induces an isomorphism of associated sheaves."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P05",
+      "kind": "definition",
+      "name": "Depth and full-support maximal Cohen–Macaulay modules",
+      "statement": "For Noetherian A, ideal I and finite M, depth_I(M) is the supremum of lengths of M-regular sequences in I, with value infinity when IM=M. For local A, depth(M) uses its maximal ideal. M is Cohen–Macaulay if depth(M)=dim Supp(M), and maximal Cohen–Macaulay if depth(M)=dim A. Full support means Supp(M)=Spec A and is a separate condition.",
+      "locator": "Stacks 10.103.1,10.103.8; 47.11; LLHLM20 Definition3.5.1 and proof5.2.3",
+      "status": "planned",
+      "note": "Planning statement; not a formalisation. The reviewed R03.3 audit finds regular sequences and Rees Ext-vanishing infrastructure, but no depth or CM predicate. Import that owner; do not create a GL3-specific depth theory.",
+      "proofOutline": "The reviewed R03.3 audit finds regular sequences and Rees Ext-vanishing infrastructure, but no depth or CM predicate. Import that owner; do not create a GL3-specific depth theory.",
+      "dependsOn": [],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "api": [
+        {
+          "name": "depth_regular_sequence",
+          "statement": "A regular sequence in I of length n gives depth_I(M)≥n.",
+          "usedBy": "T56"
+        },
+        {
+          "name": "cm_localize",
+          "statement": "Apply T57 to localizations.",
+          "usedBy": "T58"
+        },
+        {
+          "name": "full_support_not_automatic",
+          "statement": "Require full support when replacing dim Supp(M_P) by dim A_P.",
+          "usedBy": "T44"
+        }
+      ],
+      "unitTests": [
+        "A nonzero finite free module over a regular local ring of dimension d has depth d.",
+        "For A=k[[x,y]], A/(x) is CM of dimension one but not MCM over A.",
+        "For M=0 or IM=M use infinity and do not invoke a nonexistent first nonzero local-cohomology degree."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23",
+      "kind": "construction",
+      "name": "Sections on a finite union of principal opens",
+      "statement": "Let A be commutative, I=(f_1,…,f_r), U=Spec A minus V(I), and M an A-module. Define Sec_U(M)=Gamma(U,M-tilde). By the sheaf axiom it is the kernel of product_i M[f_i^−1]→product_(i<j) M[(f_i f_j)^−1], whose (i,j)-component is the difference of the two restrictions. The empty cover has zero sections.",
+      "locator": "Stacks02KH proof in degree zero; LLHLM20 Remark5.2.4, underlying ordinary spectra",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. All intersections of the chosen opens are affine. Restriction identifies the module on each principal open with localization; compatible tuples are precisely sections.",
+      "proofOutline": "All intersections of the chosen opens are affine. Restriction identifies the module on each principal open with localization; compatible tuples are precisely sections.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L08"
+      ],
+      "api": [
+        {
+          "name": "sections_restrict",
+          "statement": "Construct the natural restriction M→Sec_U(M).",
+          "usedBy": "T55,T58"
+        },
+        {
+          "name": "sections_change_generators",
+          "statement": "Canonical identification for two finite lists defining the same open U.",
+          "usedBy": "D24"
+        },
+        {
+          "name": "sections_flat_base_change",
+          "statement": "Use T54 for an A-flat algebra B.",
+          "usedBy": "T60"
+        }
+      ],
+      "unitTests": [
+        "A one-element unit cover gives Sec_U(M)=M.",
+        "For A=k[x,y] and U=D(x) union D(y), a Laurent monomial lies in both localizations exactly when both exponents are nonnegative.",
+        "For I=0, U is empty and sections are zero."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+      "kind": "construction",
+      "name": "Hartogs closure of an ideal",
+      "statement": "Let A be Noetherian, U⊂Spec A a quasi-compact open and suppose A→Gamma(U,O_U) is an isomorphism. For an ideal J⊂A define H_U(J) to be Gamma(U,J-tilde|U), embedded in A through this isomorphism. The embedding, rather than an abstract isomorphism class, is part of the construction.",
+      "locator": "LLHLM20 Theorem5.2.3 and Remark5.2.4; absolute replacement for the HK04 citation",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The inclusion J-tilde→O induces an injection on sections. Its image is an A-submodule of A, hence an ideal; Noetherianness makes it finite.",
+      "proofOutline": "The inclusion J-tilde→O induces an injection on sections. Its image is an A-submodule of A, hence an ideal; Noetherianness makes it finite.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23"
+      ],
+      "api": [
+        {
+          "name": "ideal_le_hartogs",
+          "statement": "J⊂H_U(J) via restriction.",
+          "usedBy": "T44"
+        },
+        {
+          "name": "hartogs_restrict",
+          "statement": "The associated sheaf of H_U(J) restricts to J-tilde on U; use quasi-coherence of a quasi-compact open pushforward.",
+          "usedBy": "T59"
+        },
+        {
+          "name": "hartogs_flat",
+          "statement": "For flat B, identify H_U(J)B with H_(U_B)(JB) under the induced structure-sheaf isomorphism.",
+          "usedBy": "T60"
+        }
+      ],
+      "unitTests": [
+        "U=Spec A gives H_U(J)=J.",
+        "For A=k[x,y], U punctured at (x,y), H_U((x,y))=A.",
+        "For the same U, H_U((x))=(x); a codimension-one divisor is not erased."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D25",
+      "kind": "construction",
+      "name": "Torsion-free specialization over a DVR",
+      "statement": "Let A→O be a ring map to a DVR and M a finite A-module. Set M_O^tf=(M tensor_A O)/T, where T consists of elements killed by a nonzero element of O. This is specialization followed by the torsion-free quotient; it is not generally the raw tensor product.",
+      "locator": "LLHLM20 proof5.3.5, immediately before (5.9)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use the existing torsion-submodule and quotient constructions. The new interface records the specialization order and the particular image comparison T63.",
+      "proofOutline": "Use the existing torsion-submodule and quotient constructions. The new interface records the specialization order and the particular image comparison T63.",
+      "dependsOn": [],
+      "api": [
+        {
+          "name": "specialize_tf_map",
+          "statement": "An A-linear map induces a map on torsion-free specializations.",
+          "usedBy": "T63"
+        },
+        {
+          "name": "specialize_tf_generic",
+          "statement": "Tensoring M_O^tf with Frac(O) agrees with tensoring M with Frac(O).",
+          "usedBy": "T63"
+        },
+        {
+          "name": "specialize_tf_rank_one",
+          "statement": "Use T63 for a lattice image containing a nonzero power of the coefficient uniformizer.",
+          "usedBy": "T49"
+        }
+      ],
+      "unitTests": [
+        "M=A gives O.",
+        "M=A⊕A/(pi), with pi mapping to a nonzero nonunit, gives O after removing torsion.",
+        "For A=O[[t]], I=(pi,t), t↦0, the raw specialization is O⊕O/(pi), while its torsion-free quotient maps isomorphically onto pi O."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T54",
+      "kind": "theorem",
+      "name": "Flat base change for sections on an open",
+      "statement": "Let A→B be flat, U⊂Spec A quasi-compact open and M an A-module. Then Sec_U(M) tensor_A B→Sec_(U_B)(M tensor_A B) is an isomorphism, where U_B is the inverse image open in Spec B.",
+      "locator": "Stacks02KH, Lemma30.5.2, degree-zero affine-base case",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Use a finite principal-open cover. Tensoring with B preserves its equalizer because B is flat, and preserves the finite products. Localization commutes with tensor. These identifications also identify the restriction maps, so this is the canonical base-change map. No properness or formal-scheme theorem is needed.",
+      "proofOutline": "Use a finite principal-open cover. Tensoring with B preserves its equalizer because B is flat, and preserves the finite products. Localization commutes with tensor. These identifications also identify the restriction maps, so this is the canonical base-change map. No properness or formal-scheme theorem is needed.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T55",
+      "kind": "theorem",
+      "name": "Local-cohomology restriction exact sequence",
+      "statement": "For Noetherian A, ideal I, U=Spec A minus V(I), and A-module M, the Ext-colimit local cohomology of L06 fits functorially into 0→H_I^0(M)→M→Sec_U(M)→H_I^1(M)→0.",
+      "locator": "HK04 (3.5.1); Stacks0BJA Lemma47.8.2,0955 Lemma47.10.1,0A6T Lemma51.2.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Compare the Ext colimit with derived I-power torsion using an injective resolution and exact filtered colimits. For Noetherian A this agrees with support cohomology (0955). The augmented finite localization Čech complex computes that support functor (0952/0A6T). Its first two cohomology groups are the kernel and cokernel of M→Sec_U(M). The Noetherian comparison is essential, not a theorem already provided by L06.",
+      "proofOutline": "Compare the Ext colimit with derived I-power torsion using an injective resolution and exact filtered colimits. For Noetherian A this agrees with support cohomology (0955). The augmented finite localization Čech complex computes that support functor (0952/0A6T). Its first two cohomology groups are the kernel and cokernel of M→Sec_U(M). The Noetherian comparison is essential, not a theorem already provided by L06.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T56",
+      "kind": "theorem",
+      "name": "Depth two annihilates the first local cohomology groups",
+      "statement": "For Noetherian A, finite M and ideal I, if depth_I(M)≥2 then H_I^0(M)=H_I^1(M)=0. If IM=M both groups also vanish.",
+      "locator": "Stacks0AVY Lemma47.11.1",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. A regular sequence in I of length two gives Ext_A^q(A/I^n,M)=0 for q<2 for every n, using equality of depth for I and I^n. Pass to the Ext colimit. Equivalently use the regular-element induction in 47.11.1. If IM=M, finite generation gives support disjoint from V(I), so these groups vanish.",
+      "proofOutline": "A regular sequence in I of length two gives Ext_A^q(A/I^n,M)=0 for q<2 for every n, using equality of depth for I and I^n. Pass to the Ext colimit. Equivalently use the regular-element induction in 47.11.1. If IM=M, finite generation gives support disjoint from V(I), so these groups vanish.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P05"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T57",
+      "kind": "theorem",
+      "name": "Full-support Cohen–Macaulay modules localize with full depth",
+      "statement": "For Noetherian local A and finite Cohen–Macaulay M with Supp(M)=Spec A, every localization M_P has depth_A_P(M_P)=dim A_P. In particular its depth is at least two at primes of height at least two.",
+      "locator": "Stacks00N2 Lemma10.103.11 and Definition10.103.8",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. CM localizes by 10.103.11. Support localizes to all of Spec A_P by the full-support assumption. Thus the CM depth equals dim A_P. This supplies the stalkwise condition and avoids the false inference from MCM to support on every component in general.",
+      "proofOutline": "CM localizes by 10.103.11. Support localizes to all of Spec A_P by the full-support assumption. Thus the CM depth equals dim A_P. This supplies the stalkwise condition and avoids the false inference from MCM to support on every component in general.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P05"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T58",
+      "kind": "theorem",
+      "name": "Absolute Hartogs extension for a full-support MCM module",
+      "statement": "Let A be a Noetherian local ring, M finite Cohen–Macaulay with full support, and Z⊂Spec A closed with every point of height at least two. For j:U=Spec A minus Z→Spec A, M-tilde→j_*j^*M-tilde is an isomorphism. The conclusion also holds for any coherent sheaf on a locally Noetherian scheme whose stalks have depth at least two on the complement.",
+      "locator": "Stacks0E9I Lemma31.5.11; LLHLM20 proof5.2.3",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. By T57 every removed stalk has depth at least two. On each affine neighborhood T65 and T56 give vanishing in degrees zero and one, and T55 identifies the restriction as an isomorphism. These maps are natural and glue. This uses absolute stalk depths; the relative fibrewise codimension condition in HK04 3.5 is not asserted for the special-fibre crossings.",
+      "proofOutline": "By T57 every removed stalk has depth at least two. On each affine neighborhood T65 and T56 give vanishing in degrees zero and one, and T55 identifies the restriction as an isomorphism. These maps are natural and glue. This uses absolute stalk depths; the relative fibrewise codimension condition in HK04 3.5 is not asserted for the special-fibre crossings.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T65"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T59",
+      "kind": "theorem",
+      "name": "Coherent ideal extension from the Hartogs open",
+      "statement": "Under D24, H_U(J) is a finite ideal of A, its associated sheaf is j_*(J-tilde|U), and it restricts to J-tilde on U. If J-tilde has depth at least two on the complement, H_U(J)=J.",
+      "locator": "LLHLM20 gauge ideal; Stacks0E9I and quasi-compact-open quasi-coherence",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. The finite principal-cover equalizer commutes with localization, so its sheaf is the open pushforward and restricts correctly. As a submodule of Noetherian A it is finite. For the final assertion apply absolute Hartogs to J-tilde. Do not claim an arbitrary initial product ideal is already MCM.",
+      "proofOutline": "The finite principal-cover equalizer commutes with localization, so its sheaf is the open pushforward and restricts correctly. As a submodule of Noetherian A it is finite. For the final assertion apply absolute Hartogs to J-tilde. Do not claim an arbitrary initial product ideal is already MCM.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T58"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T60",
+      "kind": "theorem",
+      "name": "Hartogs ideal closure commutes with flat scalar extension",
+      "statement": "Let A→B be flat between Noetherian rings, let U⊂Spec A be quasi-compact and assume A≅Sec_U(A). For J⊂A, B≅Sec_(U_B)(B) canonically and H_U(J)B=H_(U_B)(JB) as embedded ideals of B.",
+      "locator": "Stacks02KH and LLHLM20 Remark5.2.4",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. Apply T54 first to A and then to J. Flatness identifies J tensor_A B with JB and H_U(J) tensor_A B with its embedded extension ideal. The comparison is compatible with both inclusions into B. This proves equality of ideals, not merely an abstract module isomorphism.",
+      "proofOutline": "Apply T54 first to A and then to J. Flatness identifies J tensor_A B with JB and H_U(J) tensor_A B with its embedded extension ideal. The comparison is compatible with both inclusions into B. This proves equality of ideals, not merely an abstract module isomorphism.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T59"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T61",
+      "kind": "theorem",
+      "name": "Hartogs extension and a finite free target",
+      "statement": "Let A,U satisfy D24, J⊂A and L a finite free A-module. Then j_*j^*(J L) is canonically H_U(J) tensor_A L inside L-tilde. For rank one this is H_U(J)L and is independent of the chosen basis of L.",
+      "locator": "LLHLM20 Theorem5.2.3, last displayed equality",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. After a basis choice both sides are finite direct sums of the same ideal-section module; the equalizer commutes with finite sums. Naturality under GL(L) makes the isomorphism independent of basis. In rank one rescaling the generator by a unit preserves the embedded ideal.",
+      "proofOutline": "After a basis choice both sides are finite direct sums of the same ideal-section module; the equalizer commutes with finite sums. Naturality under GL(L) makes the isomorphism independent of basis. In rank one rescaling the generator by a unit preserves the embedded ideal.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T59"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T62",
+      "kind": "theorem",
+      "name": "Crossing opens pull back under adjoining formal variables",
+      "statement": "Let A be Noetherian complete local over a DVR O, A/varpi reduced, and let P_i⊂A be the inverse images of the finitely many minimal primes of A/varpi. Put B=A[[t_1,…,t_h]]. The minimal primes of B/varpi are P_i B/varpi. For Z_A=union_(i<j) V(P_i+P_j), its inverse image in Spec B is the crossing locus Z_B of the special fibre. Hence U_B=Spec B minus Z_B is the inverse image of U_A. All spectra here are ordinary spectra of the complete rings.",
+      "locator": "LLHLM20 §5.2 setup and Remark5.2.4, with Spf notation made explicit",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. A→B is flat and finite intersections extend under a flat map. Each quotient B/P_iB=(A/P_i)[[t]] is a domain. Since the intersection of the P_i modulo varpi is zero, these extended primes are exactly the minimal primes. The ideals of pairwise intersections extend to their sums. The paper has precisely B=A[[x_1,…,x_h]] for the type quotient; no general equivalence of open subsets of Spec and Spf is claimed.",
+      "proofOutline": "A→B is flat and finite intersections extend under a flat map. Each quotient B/P_iB=(A/P_i)[[t]] is a domain. Since the intersection of the P_i modulo varpi is zero, these extended primes are exactly the minimal primes. The ideals of pairwise intersections extend to their sums. The paper has precisely B=A[[x_1,…,x_h]] for the type quotient; no general equivalence of open subsets of Spec and Spf is claimed.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P01"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T63",
+      "kind": "theorem",
+      "name": "DVR specialization of a lattice image",
+      "statement": "Let A be Noetherian, pi∈A, u:M→A an injection from a finite module, and I=im(u), with pi^n A⊂I for some n. Let a:A→O be a map to a DVR with a(pi) nonzero. The induced map M tensor_A O→O has image IO and torsion kernel; it identifies M_O^tf with the nonzero ideal IO. Thus M_O^tf is free of rank one even when the raw specialization has torsion.",
+      "locator": "Algebraic clarification of LLHLM20 (5.9)",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. After inverting pi, u becomes an isomorphism because its cokernel is killed by pi^n. After tensoring with Frac(O) it remains an isomorphism. Consequently the specialized kernel is O-torsion, and every torsion element maps to zero in O, so the kernel is exactly the torsion submodule. Right exactness gives image IO, containing a(pi)^n. A nonzero ideal of a DVR is free of rank one. This does not supply the separately required Schikhof-duality identification of the automorphic lattice.",
+      "proofOutline": "After inverting pi, u becomes an isomorphism because its cokernel is killed by pi^n. After tensoring with Frac(O) it remains an isomorphism. Consequently the specialized kernel is O-torsion, and every torsion element maps to zero in O, so the kernel is exactly the torsion submodule. Right exactness gives image IO, containing a(pi)^n. A nonzero ideal of a DVR is free of rank one. This does not supply the separately required Schikhof-duality identification of the automorphic lattice.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D25"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T64",
+      "kind": "theorem",
+      "name": "Interior degree of the extension graph",
+      "statement": "In D02, fix a vertex whose seven possible one-coordinate changes remain in the translation chart at every embedding. Its neighbors are in bijection with J×{0,±epsilon1,±epsilon2,±(epsilon1−epsilon2)}; its degree is 7|J|.",
+      "locator": "Definition2.1.6 and Remark2.1.7, published p.14/arXiv v4 p.12, corrected E15",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. A neighbor has a unique changed alcove label, determining j. Its coordinate displacement determines one of seven distinct values. Conversely each such pair changes that coordinate and flips its label, giving a neighbor. These maps are inverse. The zero displacement still flips one label; simultaneous flips in several embeddings are not edges.",
+      "proofOutline": "A neighbor has a unique changed alcove label, determining j. Its coordinate displacement determines one of seven distinct values. Conversely each such pair changes that coordinate and flips its label, giving a neighbor. These maps are inverse. The zero displacement still flips one label; simultaneous flips in several embeddings are not edges.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D02"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T65",
+      "kind": "theorem",
+      "name": "Stalkwise depth two gives a regular pair on the support ideal",
+      "statement": "Let A be Noetherian, M finite, I an ideal, and suppose depth(M_P)≥2 for every P∈V(I) in Supp(M). If IM≠M then I contains an M-regular sequence of length two. If IM=M use the infinite-depth convention.",
+      "locator": "Support-depth step in Stacks0E9I; independent prime-avoidance derivation for T58",
+      "status": "missing",
+      "note": "Planning statement; not a formalisation. No associated prime of M contains I, since at an associated prime the nonzero localized module has depth zero. Finiteness of Ass(M) and prime avoidance choose x∈I outside all associated primes, so x is M-regular. At P∈V(I) in the support of M/xM, the regular-element depth formula gives depth((M/xM)_P)≥1. Thus no associated prime of M/xM contains I; prime avoidance chooses y∈I regular on M/xM. Since IM≠M, the final quotient is nonzero. The finite-associated-prime/zero-divisor criterion and the regular-element depth formula are shared R03.3 prerequisites, not supplied by the existing localCohomology carrier.",
+      "proofOutline": "No associated prime of M contains I, since at an associated prime the nonzero localized module has depth zero. Finiteness of Ass(M) and prime avoidance choose x∈I outside all associated primes, so x is M-regular. At P∈V(I) in the support of M/xM, the regular-element depth formula gives depth((M/xM)_P)≥1. Thus no associated prime of M/xM contains I; prime avoidance chooses y∈I regular on M/xM. Since IM≠M, the final quotient is nonzero. The finite-associated-prime/zero-divisor criterion and the regular-element depth formula are shared R03.3 prerequisites, not supplied by the existing localCohomology carrier.",
+      "dependsOn": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P05"
+      ]
     }
   ],
   "prerequisites": [
@@ -1768,6 +2168,16 @@
       "citation": "CHT08; CEG+16; Taylor (2008); Gee (2011); Guerberoff (2011); Herzig–Le–Morra (2017)",
       "link": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
       "why": "Bibliography pp.134–135 identifies the originals needed for minimal ramification, patched specialization, level lowering and Schikhof duality. Acquire each primary source and split entries before closure."
+    },
+    {
+      "citation": "The Stacks Project, tags00N2,0AVY,0E9I,02KH,0BJA,0952,0955,0A6T",
+      "link": "https://stacks.math.columbia.edu/tag/0E9I",
+      "why": "Original statement/proof reads supply CM localization, absolute depth-Hartogs, flat sections base change and the Ext/derived/support comparison. Shared owners R03.3 and SF.0/SF.2; existing Mathlib localCohomology is reused."
+    },
+    {
+      "citation": "Hassett–Kovács (2004), Proposition3.5 and (3.5.1), pp.242–243",
+      "link": "https://sites.math.washington.edu/~kovacs/current/papers/Hassett_Kovacs__Reflexive_pull-backs_and_base_extension.pdf",
+      "why": "Checked original relative hypotheses and exact sequence. Fibrewise codimension≥2 does not hold for these special-fibre crossings; use absolute T58. This is a clarification of the cited argument, not a finding that the main theorem is false."
     }
   ],
   "routes": [
@@ -1784,7 +2194,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P02",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T31",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T32",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T65"
       ],
       "reason": "The complete-local, multiplicity, support and monomial-ideal algebra is reusable within these existing layers; it is not new arithmetic patching infrastructure."
     },
@@ -1873,10 +2290,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T27",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T28",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T29",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T30"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T30",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T64"
       ],
       "reason": "Existing reductive groups and characteristic-zero highest-weight theory do not supply modular rational representations, G1T injectives, Deligne–Lusztig reduction or GL3 cosocle lattices.",
-      "brief": "Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), and the existing Rep and TauCeti.socle carriers. Do not reuse characteristic-zero complete reducibility in characteristic p. Construct modular rational representations, Frobenius kernels G1T and injective envelopes, translation functors and restriction to finite rational points; prove the Jantzen/Pillen/Andersen inputs of LLHLM20 §4.2. Build Deligne–Lusztig representations and their integral reduction, the GL3 translation charts, nine-point model and 6-deep Ext-one edge theorem. Add general finite-length radical/socle filtrations, multiplicity-free subobject graphs and normalized lattice inclusions. The exact target is LLHLM20 Theorem 4.1.9: for a 13-generic R, graph distance equals radical depth, both extension digraphs are oriented away from the cosocle, Loewy length is 3f−Def+1, reduction is rigid, and the reversed normalized inclusion uses p raised to graph distance. Import the weak minimal patching existence and numerical theorem from GenericGL3SerreWeightsAndLattices only up to its pre-lattice stages, and local charts from LocalGaloisDeformationRings:L7, to prove Proposition 4.3.7 before the defect induction. Never use the final lattice theorem in the globalization that proves it. The original-input and chart gaps in this partial extraction must be closed before a complete design can be accepted."
+      "brief": "Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), and the existing Rep and TauCeti.socle carriers. Do not reuse characteristic-zero complete reducibility in characteristic p. Construct modular rational representations, Frobenius kernels G1T and injective envelopes, translation functors and restriction to finite rational points; prove the Jantzen/Pillen/Andersen inputs of LLHLM20 §4.2. Build Deligne–Lusztig representations and their integral reduction, the GL3 translation charts, nine-point model and 6-deep Ext-one edge theorem. Add general finite-length radical/socle filtrations, multiplicity-free subobject graphs and normalized lattice inclusions. The exact target is LLHLM20 Theorem 4.1.9: for a 13-generic R, graph distance equals radical depth, both extension digraphs are oriented away from the cosocle, Loewy length is 3f−Def+1, reduction is rigid, and the reversed normalized inclusion uses p raised to graph distance. Import the weak minimal patching existence and numerical theorem from GenericGL3SerreWeightsAndLattices only up to its pre-lattice stages, and local charts from LocalGaloisDeformationRings:L7, to prove Proposition 4.3.7 before the defect induction. Never use the final lattice theorem in the globalization that proves it. The original-input and chart gaps in this partial extraction must be closed before a complete design can be accepted. Reconcile the concurrently merged PAPER-LE-LEHUNG-LEVIN-ETAL-23 route: import integral Weyl/dual Weyl modules from PotentialAutomorphyInfrastructure:PA.1 and the common rational-module interface coordinated with ReductiveGroupsIntegralRepresentationsPartII. Import affine combinatorics from RootSystemsPartIIDominanceAndDemazure. Place the shared all-rank Deligne–Lusztig/Serre foundation before the specialized GL3 lattice and G1T obligations; do not create a second foundation here."
     },
     {
       "route": "part-ii",
@@ -1904,7 +2322,35 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D22"
       ],
       "reason": "R15.4 is the classical GL2 local weight recipe and R20 is classical optimization; they do not own set-valued GL3 weights, minimal unitary patching or Breuil lattice locality.",
-      "brief": "Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra R03.1/R03.3/R03.5/R03.6), Local Galois deformation rings (LocalGaloisDeformationRings L7), and Completed cohomology, homology and arithmetic towers—Part II (CompletedCohomologyPartII CC.1–CC.3/CC.8). Import finite reductive representation theory from ModularRepresentationsOfFiniteReductiveGroups rather than duplicate it. First construct Herzig’s W? and the nonzero weak minimal patching functor with all four axioms and corrected fixed-level coefficients. Prove numerical multiplicity one and W_BM=W? for semisimple 10-generic unramified GL3 data (3.5.2) before using the integral lattice structure theorem. Then prove cyclicity and rank-one freeness exactly under the 13-generic type and upper-alcove condition at shape components of length ≤1 in 5.1.1; prove the converse nonfreeness 5.1.8 separately. Construct the codimension-two gauge ideal in 5.2.3 and its local descent. Finish with 5.3.3, 5.3.4, 5.3.1 and 5.3.5 under the CM definite-unitary, split-ramification, source-specific Taylor–Wiles and minimal-level conventions in this extraction. For 5.3.5 also require minimal ramification of the lift away from p; spell out CHT08 Definition 2.4.14 before implementation. Prove locality up to homothety, without claiming a full GL3 p-adic Langlands correspondence or an explicit formula for every shape. Expand §6.0.2’s level-lowering proof and all cited globalization/duality inputs; this partial brief records the target and ownership, not proof closure."
+      "brief": "Import Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra R03.1/R03.3/R03.5/R03.6), Local Galois deformation rings (LocalGaloisDeformationRings L7), and Completed cohomology, homology and arithmetic towers—Part II (CompletedCohomologyPartII CC.1–CC.3/CC.8). Import finite reductive representation theory from ModularRepresentationsOfFiniteReductiveGroups rather than duplicate it. First construct Herzig’s W? and the nonzero weak minimal patching functor with all four axioms and corrected fixed-level coefficients. Prove numerical multiplicity one and W_BM=W? for semisimple 10-generic unramified GL3 data (3.5.2) before using the integral lattice structure theorem. Then prove cyclicity and rank-one freeness exactly under the 13-generic type and upper-alcove condition at shape components of length ≤1 in 5.1.1; prove the converse nonfreeness 5.1.8 separately. Construct the codimension-two gauge ideal in 5.2.3 and its local descent. Finish with 5.3.3, 5.3.4, 5.3.1 and 5.3.5 under the CM definite-unitary, split-ramification, source-specific Taylor–Wiles and minimal-level conventions in this extraction. For 5.3.5 also require minimal ramification of the lift away from p; spell out CHT08 Definition 2.4.14 before implementation. Prove locality up to homothety, without claiming a full GL3 p-adic Langlands correspondence or an explicit formula for every shape. Expand §6.0.2’s level-lowering proof and all cited globalization/duality inputs; this partial brief records the target and ownership, not proof closure. Import the absolute coherent Hartogs and ideal extension interface from SchemeAndStackFoundations:SF.0, the local-cohomology comparison and flat open-base-change interface from SF.2, and CM localization and torsion-free specialization from R03.3/R03.6. Compute gauges on ordinary spectra of complete rings. The source image is MCM; the target becomes free only under 5.1.1. Preserve these asymmetrical hypotheses. The concurrent LLHLM23 extraction broadens this same candidate to all-rank generic Breuil–Mezard/Serre theory. Import the common exact weak/minimal functor construction from CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity, and specify only the present source-specific arithmetic application and stronger GL3 lattice hypotheses here. Keep its numerical pre-lattice stages before the lattice consumer."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T61"
+      ],
+      "reason": "The same coherent-Hartogs owner already used by PAPER-GILLE-PARIMALA-26/130–135 and PAPER-CESNAVICIUS-19/hartogs supplies arbitrary coherent full-support MCM extension and embedded ideal closure. Import the existing affine module equivalence and R03.3 depth. GL3 gauge modules consume this general theory."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-20/T60"
+      ],
+      "reason": "Own the comparison from existing Ext-colimit local cohomology to the localization exact sequence and canonical flat base change for sections/ideal closures. This extends the coherent direct-image interface already used by PAPER-BENOIST-19/185. It does not duplicate torsion étale proper/smooth base change."
     }
   ],
   "sourceIssues": [
@@ -2333,8 +2779,8 @@
       "kind": "misprint",
       "locator": "LLHLM20 arXiv v4 §6(15), p.98, reporting a correction to LLHLM18 Proposition 7.16 proof",
       "printed": "the tame inertial type tau′ should read",
-      "correction": "tau′=omega2^(−(b+1)+p(b+1)) ⊕ omega2^(−(c−1)+pa) ⊕ omega2^(−a+p(c−1)).",
-      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum supplies the corrected three exponents; their original derivation remains part of G07.",
+      "correction": "tau′=omega2^(−((b+1)+p(b+1))) ⊕ omega2^(−((c−1)+pa)) ⊕ omega2^(−(a+p(c−1))).",
+      "reason": "Author-reported correction, read in LLHLM20; original LLHLM18 locator not independently reread in this checkpoint. The addendum supplies the corrected three exponents; their original derivation remains part of G07. Continuation correction to the extraction: the minus signs apply to the entire parenthesized exponents, as printed in the author addendum, published p.130. The previous report lost those parentheses; this is not an additional error in the source.",
       "affects": "the proof",
       "known": "LLHLM20 §6(15), arXiv:1608.06570v4 / DOI 10.1017/fmp.2020.1 (2020).",
       "searched": [
@@ -2492,6 +2938,66 @@
         "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
         "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E15",
+      "kind": "misprint",
+      "locator": "Remark2.1.7, published p.14; arXiv v4 p.12",
+      "printed": "7^{#J} adjacent vertices",
+      "correction": "Replace the exponent by multiplication: 7·#J.",
+      "reason": "Definition2.1.6 changes exactly one component. A neighbor is specified by that component and one of seven displacements. Two embeddings give 14 neighbors, not 49. Images in both versions confirm the superscript. T64 proves the corrected count.",
+      "affects": "a stated result",
+      "impact": "The local degree count in the remark; adjacency and the main theorem use the one-coordinate definition and are unchanged.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
+        "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E16",
+      "kind": "gap",
+      "locator": "§4.1.1, published p.76; arXiv v4 p.57, definition of filtration degree",
+      "printed": "the unique value n such that Hom_C(sigma, gr_F^n(M)) is nonzero",
+      "correction": "Require F to be semisimple in this definition, as in D11; alternatively define the degree by composition-factor occurrence rather than Hom.",
+      "reason": "For a nonsplit extension 0→T→M→S→0 of distinct simples, the one-step filtration has only grade M but Hom(S,M)=0. Thus no such n exists for S despite multiplicity-freeness. A semisimple filtration has exactly one grade containing each simple, and Hom then detects it. The subsequent radical/socle applications are semisimple.",
+      "affects": "a stated result",
+      "impact": "Definition of degree for an arbitrary filtration; later semisimple applications already satisfy the corrected hypothesis.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
+        "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E17",
+      "kind": "misprint",
+      "locator": "Published abstract p.1, reference title to LLHLM18",
+      "printed": "deformation 3985 rings",
+      "correction": "Delete the stray digits 3985.",
+      "reason": "The page image contains the digits inside the cited title; the bibliography on p.135 gives the title without them. The arXiv abstract does not contain this expanded reference title.",
+      "affects": "nothing",
+      "impact": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
+        "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E18",
+      "kind": "misprint",
+      "locator": "Published §1.4, p.8, Hodge–Tate convention",
+      "printed": "Hodge–Tate weighs",
+      "correction": "Hodge–Tate weights",
+      "reason": "Confirmed in the page image; the displayed HT formula and surrounding definition specify weights.",
+      "affects": "nothing",
+      "impact": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: compared the published author PDF https://math.rice.edu/~bl70/LLHLMlattices.pdf with arXiv v4 https://arxiv.org/pdf/1608.06570v4; metadata at https://arxiv.org/abs/1608.06570 lists v4 dated 2020-03-04.",
+        "2026-09-23: title+erratum/correction searches and Morra publication page https://www.math.univ-paris13.fr/~morra/; the linked https://www.math.univ-paris13.fr/~morra/master2.pdf retains the E15/E16 passages. No standalone LLHLM20 correction found in this bounded search. DOI resolver fetch failed in this continuation; earlier checkpoint publisher checks are preserved, not claimed as newly repeated."
+      ]
     }
   ],
   "gaps": [
@@ -2540,18 +3046,24 @@
     {
       "id": "G08",
       "scope": "§5.2 and lattice specialization",
-      "remaining": "Prove absolute MCM Hartogs extension and the relevant flat/formally smooth base-change statement. HK04 3.5 was read and requires fibrewise codimension≥2; crossing loci have codimension one in the special fibre, so a direct Spec O application is insufficient. Also resolve Spec/Spf comparison and torsion-free specialization in (5.9), rather than assert every cosocle lattice module is free.",
-      "resume": "Depth/local cohomology exact sequence at 5.2.3, then 5.2.4 and 5.3.5."
+      "remaining": "The absolute Hartogs, ordinary-Spec flat ideal base change and torsion-free specialization algebra are now itemized with proofs (D23–D25,T54–T63). The remaining arithmetic comparison is the precise Schikhof/Pontryagin dual and completed-automorphic specialization identification in §5.3.5: acquire CEG+16 Corollary2.11, Le18 and HLM17 Theorem5.2.1, and track the torsion-free quotient before (5.9). Underlying deformation-ring normality/full support still depend on G04/G05. Generic depth/local-cohomology comparison primitives, including the associated-prime criterion and regular-element depth formula used in T65, must be implemented in the shared owners; none is claimed formalised.",
+      "resume": "Start at published pp.125–126 and the three original global duality/specialization references. Reuse T58,T60,T62,T63; do not repeat the relative HK04 application or require every cosocle module to be free.",
+      "resolvedInContinuation": [
+        "Absolute depth≥2 Hartogs extension",
+        "Canonical flat base change of embedded gauge ideals",
+        "Ordinary-spectrum formulation replacing mixed Spec/Spf notation",
+        "Torsion-free DVR specialization of the injected module image"
+      ]
     },
     {
       "id": "G09",
       "scope": "Completion of extraction and independent verification",
-      "remaining": "Inventory is partial, not every source definition/key theorem. Split remaining grouped definitions and prerequisites. Finish published/arXiv collation and all diagrams, independently verify E01–E14 and the corrections reported by §6 against LLHLM18, then rerun ownership/library searches against the current atlas. No Lean file or proof was compiled.",
+      "remaining": "Inventory is partial, not every source definition/key theorem. Split remaining grouped definitions and prerequisites. The continuation read the entire published version and all its tables/figures; full version collation and independent reconstruction remain.  independently verify E01–E14 and the corrections reported by §6 against LLHLM18, then rerun ownership/library searches against the current atlas. No Lean file or proof was compiled. E15–E18 are new proposed findings awaiting independent review; E115 extraction parentheses were corrected. The new general local-cohomology comparison T55 still imports injective torsion and Čech comparison from Stacks0955/0A6T; this is an explicit shared proof obligation, not existing Lean support.",
       "resume": "Use the section coverage table and per-item dependsOn; never upgrade status solely because validators pass."
     }
   ],
   "evidence": {
-    "baseCommit": "914726605a9a45a083a5aa19b6272c706aecd7cc",
+    "baseCommit": "78a93b6d8073c25af9dacccfa3059ee31c5f3afd",
     "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369",
     "pdfs": [
@@ -2569,20 +3081,138 @@
     "reviewedAudit": [
       "data/library-coverage.json: DeformationAndDerivedPatchingAlgebra R03.1–R03.6, reviewed by REV-AUDIT-17 (2026-09-17).",
       "data/library-coverage.json: CompletedCohomologyPartII CC.0–CC.8, reviewed by REV-AUDIT-14 (2026-09-17).",
-      "No direct audit entry for LocalGaloisDeformationRings or the cited upstream representation roadmaps was located; direct pinned-source inspection supplements that boundary."
+      "No direct audit entry for LocalGaloisDeformationRings or the cited upstream representation roadmaps was located; direct pinned-source inspection supplements that boundary.",
+      "Continuation read reviewed SF.0/SF.2 targets (AUDIT-01) and R03.3 target/evidence records (AUDIT-17). These confirm affine sheaves and local-cohomology carriers must be imported rather than rebuilt."
     ],
     "ownershipReads": [
       "Full documents and layers: AlgebraicModularFormsAndSerreWeights, SerreWeightAndLevelOptimisation, DeformationAndDerivedPatchingAlgebra, LocalGaloisDeformationRings, CompletedCohomologyPartII, CompletedCohomologyAndLocalGlobalCompatibility.",
       "Two upstream roadmaps read fully: tauceti:TauCetiRoadmap/ReductiveGroups and tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems. HighestWeightTheory standing conventions checked separately (characteristic zero), not claimed as a third full read.",
-      "Searched atlas, proposed roadmaps, packets and decomposition files for Deligne–Lusztig, Kisin, G1T, Loewy and Breuil. Existing CohomologyComparisons Breuil–Kisin–Fargues work does not supply descent-equivariant height-two GL3 shape charts."
+      "Searched atlas, proposed roadmaps, packets and decomposition files for Deligne–Lusztig, Kisin, G1T, Loewy and Breuil. Existing CohomologyComparisons Breuil–Kisin–Fargues work does not supply descent-equivariant height-two GL3 shape charts.",
+      "Continuation read SF.0–SF.6 descriptions and R03.1/R03.3/R03.6 descriptions; compared earlier Gille–Parimala/130–135, Cesnavicius19/hartogs and Benoist19/185 routes. No additional roadmap introduced."
     ],
     "libraryReads": [
       "Read actual declarations L01–L05 at the full pinned hashes and paths in their locators.",
       "TauCeti YoungTableau.weylModule requires Algebra Q k, so it is not the modular Weyl module needed here. The existing dotAction is a finite Weyl rho-shift, not the paper’s affine p-dot eta action.",
-      "TauCeti quiver-specific radical/socle work is not a G1T injective or a generic Deligne–Lusztig lattice theorem. Searches were scoped leads; no theorem is marked library from its name alone."
+      "TauCeti quiver-specific radical/socle work is not a G1T injective or a generic Deligne–Lusztig lattice theorem. Searches were scoped leads; no theorem is marked library from its name alone.",
+      "Continuation read pinned Mathlib Algebra/Homology/LocalCohomology.lean completely, including localCohomology and isoOfSameRadical, and Modules/Tilde.lean at tildeEquiv. Read TauCeti Scheme/Regular.lean Hartogs theorem: it only treats rational functions on opens of dimension at most one. No general MCM Hartogs, CM predicate or flat open-pushforward comparison was found by scoped searches of both trees."
     ],
-    "computation": "The report embeds the complete Python finite-check script. It checks the nine-point graph for one and two factors, the four minimal coordinate primes, and two Table 3 counterchecks. These are not Lean proofs.",
-    "lean": "Not compiled; this paper issue requests JSON, report and handoff only. No formalisation claimed."
+    "computation": "The report embeds the complete Python finite-check script. It checks the nine-point graph for one and two factors, the four minimal coordinate primes, and two Table 3 counterchecks. These are not Lean proofs. Continuation adds an embedded standard-library script testing the ambient one-coordinate degree, a nonsplit two-simple filtration counterexample, finite Laurent-monomial Hartogs intersection, and a torsion-bearing specialization presentation. These are finite diagnostics plus written general proofs, not Lean.",
+    "lean": "Not compiled; this paper issue requests JSON, report and handoff only. No formalisation claimed.",
+    "previousCheckpoint": {
+      "pr": 2197,
+      "session": "codex-hjdg0j",
+      "items": 84,
+      "sourceIssues": 39,
+      "baseCommit": "914726605a9a45a083a5aa19b6272c706aecd7cc"
+    },
+    "continuationSources": [
+      {
+        "id": "published",
+        "url": "https://math.rice.edu/~bl70/LLHLMlattices.pdf",
+        "retrieved": "2026-09-23T10:16:27.698872+00:00",
+        "sha256": "848f3b73d80dbfe24af8bf863207b2bd426b74851f3e13e95d8e89f152cbbec0",
+        "bytes": 1808799,
+        "pages": 135,
+        "metadata": {
+          "format": "PDF 1.5",
+          "title": "",
+          "author": "",
+          "subject": "",
+          "keywords": "",
+          "creator": "LaTeX with hyperref package",
+          "producer": "pdfTeX-1.40.17",
+          "creationDate": "D:20200324194925+05'30'",
+          "modDate": "D:20220413063749+00'00'",
+          "trapped": "",
+          "encryption": null
+        }
+      },
+      {
+        "id": "arxiv",
+        "url": "https://arxiv.org/pdf/1608.06570v4",
+        "retrieved": "2026-09-23T10:16:26.666449+00:00",
+        "sha256": "cceae9f59d4c8af0a265726c6a35583959b0e1cb0451043ff79170a1def432bd",
+        "bytes": 1510007,
+        "pages": 102,
+        "metadata": {
+          "format": "PDF 1.5",
+          "title": "",
+          "author": "",
+          "subject": "",
+          "keywords": "",
+          "creator": "LaTeX with hyperref package",
+          "producer": "pdfTeX-1.40.17",
+          "creationDate": "D:20200305020127Z",
+          "modDate": "D:20200305020127Z",
+          "trapped": "",
+          "encryption": null
+        }
+      },
+      {
+        "url": "https://sites.math.washington.edu/~kovacs/current/papers/Hassett_Kovacs__Reflexive_pull-backs_and_base_extension.pdf",
+        "sha256": "378c05b8a21d60000a2db5c2107a746f036139930f7d831180c9a04d3ab99779",
+        "retrieved": "2026-09-23T10:24:50.476092+00:00"
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/00N2",
+        "sha256": "3fc9728064803212fbb2ea9736964911cac5fc135109f8333a92d89bb4b1a3d8",
+        "retrieved": "2026-09-23T10:29:05.853404+00:00",
+        "bytes": 33150
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0AVY",
+        "sha256": "f75656f1a2e8d54f1b2bc1d51ef638d69dd1f05630e38bbfbf3871e39b766017",
+        "retrieved": "2026-09-23T10:29:05.837079+00:00",
+        "bytes": 23758
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0E9I",
+        "sha256": "c52d6ecaf4860a152baa683654d4c14822044cede8db4fa863bc8a03675220a4",
+        "retrieved": "2026-09-23T10:29:05.832166+00:00",
+        "bytes": 14593
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0BJA",
+        "sha256": "2da30f83e44d8dbd54b9f2e31551c00f9d51395a1371d3029ea2ec484cfd4d54",
+        "retrieved": "2026-09-23T10:29:05.838724+00:00",
+        "bytes": 23849
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0952",
+        "sha256": "3605acc79264c85035ba8bf53d3434eb4a4c7fc7542574b9206a5e97d8c2261f",
+        "retrieved": "2026-09-23T10:29:06.214537+00:00",
+        "bytes": 29442
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0955",
+        "sha256": "2b57e2d25678f46609f82fdf6abb2035ea18eecf60b81f32675365945d065a5d",
+        "retrieved": "2026-09-23T10:29:06.217547+00:00",
+        "bytes": 18241
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/0A6T",
+        "sha256": "69841bed6174719f4f3e4095d8b526aa67cc7fca95ea37e10e0dd54fbba40f20",
+        "retrieved": "2026-09-23T10:29:06.207400+00:00",
+        "bytes": 17894
+      },
+      {
+        "url": "https://stacks.math.columbia.edu/tag/02KH",
+        "sha256": "9da5d88e9ba6915ffdea0b6191750eb65dcc108799c35dc54f4f9bad1fc29777",
+        "retrieved": "2026-09-23T10:29:06.216719+00:00",
+        "bytes": 23224
+      },
+      {
+        "url": "https://www.math.univ-paris13.fr/~morra/master2.pdf",
+        "sha256": "4285cfd050aa857b5eb8a39cfd4f86a0cdebf764a671680c7c42e1ede97d5f5c",
+        "retrieved": "2026-09-23T10:29:06.424092+00:00",
+        "bytes": 1438760
+      }
+    ],
+    "finalInputCheck": {
+      "commit": "db34d2d4e5cd41614a3c352987d2a2b75c70fd03",
+      "inputs": 578,
+      "note": "Four newly added extractions screened: Betts–Stix25, Calmes etal26 and Land–Mathew–Meier etal24 have separate subjects/owners; LLHLM23 reuses the two representation/GL3 candidates and broadens their common stages. Read its relevant route briefs and depth/patching contracts; reconciled imports. All original deliverable blob guards remain unchanged."
+    }
   },
-  "sourceIssueBoundary": "E01–E12 are proposed findings after visual/source/algebra checks, awaiting independent review; new means no correction found in the explicitly scoped search. E13–E14 were corrected in the published version. E101–E125 are the authors’ known corrections to LLHLM18, read through LLHLM20 §6, not a fresh audit of all original locations. No author contact made."
+  "sourceIssueBoundary": "E01–E12 are proposed findings after visual/source/algebra checks, awaiting independent review; new means no correction found in the explicitly scoped search. E13–E14 were corrected in the published version. E101–E125 are the authors’ known corrections to LLHLM18, read through LLHLM20 §6, not a fresh audit of all original locations. No author contact made. Continuation E15–E18 are author-independent proposed findings, not independent review of #2197. The full source census remains partial. No author contact made."
 }
