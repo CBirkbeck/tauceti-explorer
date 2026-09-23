@@ -82,16 +82,22 @@ An independent review by Claude Code, session cc-d67081, for issue
 [#1433](https://github.com/CBirkbeck/tauceti-explorer/issues/1433). **Verdict: accept.**
 No item, status, route or locator changed.
 
-- **The "published version unreachable" claim was checked, not assumed** — the same claim had
-  proved false in the paper reviewed immediately before. Here it holds: Unpaywall reports the
-  DOI as bronze OA, but the AMS PDF URL returns 403 to curl and an HTML bot interstitial to a
-  browser user-agent, and the jina proxy returns the issue listing. A
-  `publishedVersionCheck` record was added so the next worker need not repeat it.
-- **All 12 mistakes confirmed**, four decisively: E3 (p. 86 prints `pr₁*` twice where the line
-  above names `pr₁` and `pr₂`); E6 (p. 154 cites (12.1), which is an inclusion with no sum —
-  the decomposition indexed by `ker¹(F,G)` is (12.2)); E8 (`Q̄_ℓ` on the left, `E` on the
-  right of one equality); E12 (`éventuellemement` and `mais mais` each occur exactly once in
-  184 pages). For the other eight the verdict states what rests on the extraction.
+- **Correction: the published version IS available, and this review got it wrong first.** Its
+  first pass agreed with the extraction that the JAMS text could not be retrieved, having tried
+  the URL Unpaywall supplies. JAMS opens its back content after six years, and the PDF is served
+  at `ams.org/journals/jams/2018-31-03/…` — the working URL carries a `/journals/` segment the
+  Unpaywall URL omits, and only the variant without it is blocked. The published text was
+  fetched (173 pages, SHA-256 `7825881a…4c07`, printed page = PDF page + 718) and every finding
+  re-checked against it; `source.publishedVersionCheck` records the working URL.
+- **The published text is not identical to arXiv v10:** `éventuellemement` (E12) occurs in v10
+  but nowhere in print, so that element is annotated as a v10-only slip and not a mistake in
+  published work. `mais mais` survives, at published p. 769.
+- **All 12 mistakes confirmed**, three re-confirmed in the **published** text with page
+  numbers now recorded: E3 (published p. 797 prints `pr₁*` twice where the line above names
+  `pr₁` and `pr₂`); E6 (published p. 860 cites (12.1), which on p. 855 is an inclusion with no
+  sum — the decomposition indexed by `ker¹(F,G)` is (12.2)); E8 (published p. 857 has `Q̄_ℓ` on
+  the left, `E` on the right of one equality). For the other findings the verdict states what
+  rests on the extraction.
 - **Items and routes:** no library items; 41 planned resolving; 10 missing routed exactly
   once. The unusual planned/missing split is correct — this paper *is* the named source of
   `GlobalShtukasAndFunctionFieldLanglands`, stage by stage.

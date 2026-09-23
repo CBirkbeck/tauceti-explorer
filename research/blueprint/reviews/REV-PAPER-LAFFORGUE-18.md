@@ -11,32 +11,57 @@ confirmed.
 V. Lafforgue, *Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale*,
 J. Amer. Math. Soc. **31** (2018), no. 3, 719–891; doi:10.1090/jams/897.
 
+The **published** text, JAMS 31 (2018), 719–891: 173 pages, SHA-256
+`7825881aeeb8db2dcc6ccaaccc3a87144a5b77659adc86a26fd98fc0f7164c07`, printed page = PDF page + 718.
+
 arXiv 1209.5352v10, re-fetched and hashing to
 `b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295` — matching the record —
 184 pages, in French.
 
-## The "published version unreachable" claim was checked, not assumed
+## Correction: the published version IS available, and this review got it wrong first
 
-The extraction records that the published JAMS text could not be consulted. I checked this
-rather than taking it on trust, **because the same claim proved false in the paper I handled
-immediately before** — PAPER-BOCKLE-HARRIS-KHARE-ETAL-19, where Acta Mathematica turned out
-to be openly available and the published text differed from the arXiv version.
+**This section replaces an earlier version of this report, which concluded that the published
+JAMS text could not be retrieved. That conclusion was wrong, and it is corrected here.**
 
-Here the claim holds:
+The extraction states that the published version could not be consulted. My first pass agreed:
+Unpaywall reports `doi:10.1090/jams/897` as bronze open access with a publisher PDF at
+`https://www.ams.org/jams/2018-31-03/…`, and that URL returns HTTP 403 to curl and a 3 MB HTML
+bot interstitial to a browser user-agent, while the `r.jina.ai` proxy returns the JAMS issue
+listing. I recorded the extraction's claim as confirmed.
 
-- Unpaywall reports `doi:10.1090/jams/897` as **bronze** open access, with a publisher PDF at
-  `https://www.ams.org/jams/2018-31-03/S0894-0347-2018-00897-5/S0894-0347-2018-00897-5.pdf`.
-- That URL returns **HTTP 403** to curl and, to a browser user-agent, a 3 MB **HTML bot
-  interstitial** rather than a PDF.
-- The `r.jina.ai` proxy returns the **JAMS issue listing**, not the article.
+It is not. **JAMS opens its back content six years after publication**, and the published PDF is
+served at
 
-So the extraction is right, and every finding stands against v10 only. I added a
-`publishedVersionCheck` record to the source block so the next worker need not repeat the
-attempt.
+    https://www.ams.org/journals/jams/2018-31-03/S0894-0347-2018-00897-5/S0894-0347-2018-00897-5.pdf
+
+— note the **`/journals/`** path segment, which the Unpaywall-supplied URL omits. Only the
+variant without it is blocked; the `/journals/` form returns the PDF to an ordinary browser
+user-agent.
+
+The error surfaced immediately afterwards, while reviewing PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B,
+whose extraction had read *its* JAMS article directly and recorded the six-year policy. Testing
+that URL shape against this paper produced the PDF at once.
+
+I have fetched the published text — **173 pages**, SHA-256
+`7825881aeeb8db2dcc6ccaaccc3a87144a5b77659adc86a26fd98fc0f7164c07`, **printed page = PDF page
++ 718** — and re-checked every recorded mistake against it. The source block's
+`publishedVersionCheck` now records the working URL so the next worker does not repeat either
+mistake.
+
+### The published text is not identical to arXiv v10
+
+This matters for a register of mistakes in **published** work:
+
+| element | arXiv v10 | published |
+|---|---|---|
+| E12, `éventuellemement` | present (1 occurrence) | **absent — corrected in print** |
+| E12, `mais mais` | present | present (p. 769) |
+
+The `éventuellemement` element is annotated in place as a slip of v10 only.
 
 ## Four settled decisively
 
-**E3** (p. 86, proof of Lemme 6.11). The page prints
+**E3** (published **p. 797**, proof of Lemme 6.11). The page prints
 
 > (de façon encore plus canonique **pr₁\*(F^(I))** et **pr₁\*(F^(I))** sont tous les deux
 > image inverse de S_{I,W,E})
@@ -44,18 +69,19 @@ attempt.
 — the same projection twice — while the sentence immediately above introduces both: "Comme
 les projections **pr₁ et pr₂** de …". The second must be `pr₂*`.
 
-**E6** (§12.2.3, p. 154). The page says "On rappelle que dans **(12.1)** la somme est indexée
-par ker¹(F,G)". But (12.1), on p. 150, is the *inclusion* `G(F)\G(A)/K_N ⊂ Bun_{G,N}(F_q)` —
+**E6** (published **p. 860**). The page says "On rappelle que dans **(12.1)** la somme est indexée
+par ker¹(F,G)". But (12.1), on published **p. 855**, is the *inclusion* `G(F)\G(A)/K_N ⊂ Bun_{G,N}(F_q)` —
 there is no sum in it. The decomposition indexed by `ker¹(F,G)` is **(12.2)**,
 `Bun_{G,N}(F_q) = ⊔_α G_α(F)\G_α(A)/K_N`, and p. 150 itself refers twice to "le membre de
 droite de (12.2)".
 
-**E8** (Remarque 12.4, p. 152). One displayed equality carries `Q̄_ℓ` on the left and `E` on
+**E8** (Remarque 12.4, published **p. 857**). One displayed equality carries `Q̄_ℓ` on the left and `E` on
 the right; the ambient coefficient field in the remark is `Q̄_ℓ`, as the next display
 confirms.
 
-**E12**. `éventuellemement` occurs **exactly once** in the 184 pages (p. 170), and
-`mais mais` **exactly once** (p. 55). Plainly typographical.
+**E12**. `mais mais` occurs **exactly once**, and survives into print at published p. 769.
+`éventuellemement` occurs exactly once in arXiv v10 but **nowhere in the published text** — see
+the correction above.
 
 ## The other eight
 
