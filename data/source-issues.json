@@ -4894,7 +4894,7 @@
    "locator": "Inventiones mathematicae 222 (2020), Theorem 3.16 (ii), p. 55, and its introduction form Theorem A (ii), p. 4",
    "printed": "dim(X) > 0",
    "correction": "Part (ii) needs dim(X) ≥ 2 whenever X(R) ≠ ∅. The hypothesis dim(X) > 0 of Theorem 3.16, and the hypothesis d ≥ 1 of Theorem A, are too weak: the case dim(X) = 1 with X(R) ≠ ∅ must be excluded. Part (i) is not affected by this counterexample.",
-   "reason": "Take X = E the elliptic curve y^2 = x^3 - x over R = ℝ, with its rational point at infinity. All the printed hypotheses hold: dim(X) = 1 > 0; H^2(X,O_X) = 0 because X is a curve; and the real integral Hodge conjecture for 1-cycles is the codimension-0 case, which holds trivially, since X is geometrically irreducible, so H^0_G(X(ℂ),ℤ(0)) = ℤ and the class of the codimension-0 cycle [X] generates it. The left-hand side of (ii) fails: the only integral closed subscheme of dimension 1 in a curve is the curve itself, and E has geometric genus 1, which is odd, so X contains no geometrically irreducible curve of even geometric genus. The right-hand side holds: by Hochschild–Serre, Pic(X) → Pic(X_ℂ)^G is injective with cokernel embedding in Br(ℝ), and that obstruction is killed by the real point, so the map is an isomorphism and is in particular onto on 2-primary torsion. Hence (ii) is false as printed. The proof combines Theorems3.3 and3.6 with Proposition3.9, whose real-point argument assumes dimension at least2. Prior worker checked the published and arXiv statements; retained here without an independent-review verdict.",
+   "reason": "Take X = E the elliptic curve y^2 = x^3 - x over R = ℝ, with its rational point at infinity. All the printed hypotheses hold: dim(X) = 1 > 0; H^2(X,O_X) = 0 because X is a curve; and the real integral Hodge conjecture for 1-cycles is the codimension-0 case, which holds trivially, since X is geometrically irreducible, so H^0_G(X(ℂ),ℤ(0)) = ℤ and the class of the codimension-0 cycle [X] generates it. The left-hand side of (ii) fails: the only integral closed subscheme of dimension 1 in a curve is the curve itself, and E has geometric genus 1, which is odd, so X contains no geometrically irreducible curve of even geometric genus. The right-hand side holds: by Hochschild–Serre, Pic(X) → Pic(X_ℂ)^G is injective with cokernel embedding in Br(ℝ), and that obstruction is killed by the real point, so the map is an isomorphism and is in particular onto on 2-primary torsion. Hence (ii) is false as printed. The proof combines Theorems3.3 and3.6 with Proposition3.9, whose real-point argument assumes dimension at least2. Prior worker checked the published and arXiv statements; retained here without an independent-review verdict. (cc-442dc5) Rechecked against Theorem A (p.4) and Theorem 3.16 (p.55): for a curve the only integral curve is X itself, so the genus-one real curve makes the left side of (ii) false and the right side true.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -4902,7 +4902,8 @@
     "arXiv:1801.00872, whose latest version is v3 of 11 March 2020 and whose LaTeX source carries the same two hypotheses",
     "Olivier Benoist's publication page (www.math.ens.psl.eu/~benoist), which lists an erratum only for a different paper, Benoist–Wittenberg, \"Intermediate Jacobians and rationality over arbitrary fields\" (Ann. Sci. ÉNS 58 (2025), 829–830), and none for this one",
     "the companion paper, Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, II\" (J. Éc. polytech. 7 (2020), 373–429), which does not correct this statement",
-    "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn."
+    "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -4925,7 +4926,8 @@
     "arXiv:1801.00872, whose latest version is v3 of 11 March 2020 and whose LaTeX source has the same range",
     "Olivier Benoist's publication page, which lists no erratum for this paper",
     "Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, II\", which does not revisit this paragraph",
-    "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn."
+    "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -4940,13 +4942,14 @@
    "locator": "Published version, Example4.4 p.59; same data in arXiv v3 partie_1.tex lines3990–4023",
    "printed": "Zariski dense",
    "correction": "No stable smooth complete intersection exists for the displayed action and one equation from each Λ_i. Replace the construction; its intended real-empty surface consequence remains unproved here.",
-   "reason": "Set T(Q)(x)=conjugate(Q(f(x))). The weight4 space Λ_2 has basis a=x0x4,b=x1x5,c=x2²,d=x3². Direct substitution gives T(a)=−b,T(b)=a,T(c)=−d,T(d)=c, so T²=−id. A stable complex line would give TQ=uQ and −Q=|u|²Q, impossible. For a smooth four-quadric complete intersection in P⁶, its quadratic ideal is exactly the span of Q0,...,Q3, by the twisted Koszul resolution and projective-space cohomology. Its weight4 intersection is the line C Q2. Stability under f forces T-stability of that line, a contradiction. Thus the asserted dense set cannot intersect the asserted nonempty smooth locus. The original surface consequence is not disproved for other constructions.",
+   "reason": "Set T(Q)(x)=conjugate(Q(f(x))). The weight4 space Λ_2 has basis a=x0x4,b=x1x5,c=x2²,d=x3². Direct substitution gives T(a)=−b,T(b)=a,T(c)=−d,T(d)=c, so T²=−id. A stable complex line would give TQ=uQ and −Q=|u|²Q, impossible. For a smooth four-quadric complete intersection in P⁶, its quadratic ideal is exactly the span of Q0,...,Q3, by the twisted Koszul resolution and projective-space cohomology. Its weight4 intersection is the line C Q2. Stability under f forces T-stability of that line, a contradiction. Thus the asserted dense set cannot intersect the asserted nonempty smooth locus. The original surface consequence is not disproved for other constructions. (cc-442dc5) Rechecked: f² = diag(ζ, ζ^{-1}, ζ², ζ^{-2}, ζ³, ζ^{-3}, 1), so Λ_2 is spanned by x0x4, x1x5, x2², x3², and the antilinear T maps Λ_2 to itself with T² = −1 (rescaling T by a constant does not change the sign). An f-stable Y would need T(Q_2) ∈ C·Q_2, which is impossible.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -4961,13 +4964,14 @@
    "locator": "Published version, Lemma2.14 proof p.43",
    "printed": "δ=ι*(γ−π*α)",
    "correction": "δ=−ι*(γ−π*α). The lemma and equation(2.5) retain their statements.",
-   "reason": "N_(E/Xtilde)=O_E(−1), while ξ=c1(O_E(1)). The self-intersection formula gives i*i_*u=−ξ cup u. The source normalization τ_*ξ^(r−1)=1 confirms the positive hyperplane convention. For the blowup of P² at a point, β=1 yields δ=ξ but i*[E]=−ξ. Negation preserves the admissible subgroup, so the proof continues after inserting the sign.",
-   "affects": "the proof",
+   "reason": "N_(E/Xtilde)=O_E(−1), while ξ=c1(O_E(1)). The self-intersection formula gives i*i_*u=−ξ cup u. The source normalization τ_*ξ^(r−1)=1 confirms the positive hyperplane convention. For the blowup of P² at a point, β=1 yields δ=ξ but i*[E]=−ξ. Negation preserves the admissible subgroup, so the proof continues after inserting the sign. (cc-442dc5) Reclassified to affect nothing: negation preserves the admissible subgroup, so the lemma and (2.5) hold as stated and the proof continues after inserting the sign.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -4988,7 +4992,8 @@
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -5009,7 +5014,8 @@
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -5030,7 +5036,8 @@
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -5051,7 +5058,8 @@
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
@@ -5072,7 +5080,28 @@
    "searched": [
     "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
     "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+    "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
+   ],
+   "owner": "PAPER-BENOIST-WITTENBERG-20",
+   "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
+   "citation": "Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, I\", Inventiones Mathematicae (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/E10",
+   "kind": "gap",
+   "locator": "Published version, Remarks 5.10 (i) and (ii), pp.71–72",
+   "printed": "CH_1(X) ≃ Z ⊕ Z/2Z ⊕ (R/Z)^30; CH_1(X)_tors ≃ Z/2Z ⊕ (Q/Z)^30 for x0⁴ + x1⁴ = x2⁴ + x3⁴ + x4⁴",
+   "correction": "Treat both as announced computations: (i) needs the structure of the real points of the intermediate Jacobian of the quartic threefold of Proposition 5.7, and (ii) needs the analogue of Lemma 5.9 and [29, Proposition 7.7] for the displayed Fermat-type quartic.",
+   "reason": "The remarks state the results ('at the price of a significantly more involved computation', 'we have verified') without giving the computations, and Part II is cited only for the Hodge input. Nothing else in the paper uses them.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published PDF pp.71–72 read (cc-442dc5); the checkpoint's GAP-QUARTIC already flagged the two unwritten computations.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
    ],
    "owner": "PAPER-BENOIST-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
