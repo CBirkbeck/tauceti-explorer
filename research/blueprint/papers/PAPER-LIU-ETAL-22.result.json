@@ -3,7 +3,7 @@
   "protocol": "paper-v1",
   "status": "partial",
   "agent": "Codex",
-  "session": "codex-a71f92",
+  "session": "codex-hjdg0j",
   "source": {
     "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
     "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu",
@@ -17,7 +17,7 @@
       "Targeted original prerequisite sections; see readLedger"
     ]
   },
-  "summary": "Continuation of PR #2181: Partial extraction and routing of the integral unitary level-raising and two-reciprocity-law proof of conditional Bloch–Kato rank zero and one. It retains the exact main hypothesis boundary, records source repairs and open proof gates, reuses existing PEL/trace proposals and provides a consumer-derived API/test specification for every included definition or construction. It is not a claim of full census, proof closure or formalization. Continuation of PR #2205 (codex-a71f92): a one-sided rank-two localization lemma replaces the false diagonal-basis inference, preserving the distinguished class and the original 8rR bound conditional on actual abundant Frobenius evaluations; E1 remains open.",
+  "summary": "Continuation of PR #2181: Partial extraction and routing of the integral unitary level-raising and two-reciprocity-law proof of conditional Bloch–Kato rank zero and one. It retains the exact main hypothesis boundary, records source repairs and open proof gates, reuses existing PEL/trace proposals and provides a consumer-derived API/test specification for every included definition or construction. It is not a claim of full census, proof closure or formalization. Continuation of PR #2205 (codex-a71f92): a one-sided rank-two localization lemma replaces the false diagonal-basis inference, preserving the distinguished class and the original 8rR bound conditional on actual abundant Frobenius evaluations; E1 remains open. Continuation codex-hjdg0j replaces the vague E1 lift gate by the exact normal-closure formula G_(S,gamma)=q(N^alpha), imports two pinned-library atoms and supplies a sufficient paired-evaluation criterion. The main GI surjectivity remains unresolved.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -996,21 +996,31 @@
     {
       "id": "PAPER-LIU-ETAL-22/S23",
       "kind": "theorem",
-      "name": "Frobenius lifting requires an additional compatibility condition",
-      "statement": "To identify associated-prime evaluations with all hγ-invariant evaluations, prove surjectivity of the appropriate norm/power map in the Galois closure of FS over F+. Prime-to-ell order of γ alone does not suffice; E1 gives a counterexample to the general printed Lemma 2.6.4. The main GI(T²−1) application remains a separately recorded repair request.",
+      "name": "Exact associated-Frobenius image in the normal closure",
+      "statement": "With E,L,N,K,q,alpha,d,delta,g,e as in S23-closure and gamma of prime-to-ell order, G_(S,gamma)=q(N^alpha)⊂K^h. Therefore the equality printed in Lemma 2.6.4 holds if and only if q:N^alpha→K^h is surjective. The formula still holds when excluding any prescribed finite set of primes. It does not assert that the main GI(T²−1), j=1 hypothesis implies this surjectivity.",
       "locator": "Lemma 2.6.4, corrected proof obligation",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LIU-ETAL-22/S22"
+        "PAPER-LIU-ETAL-22/S22",
+        "PAPER-LIU-ETAL-22/S23-closure",
+        "PAPER-LIU-ETAL-22/S23-lift",
+        "PAPER-LIU-ETAL-22/S23-norm"
       ],
       "note": "Source-specific statement; the common notation and coefficient conventions in contexts are part of this statement. No formalisation or proof closure is asserted by routing.",
-      "proofStatus": "open proof obligation; no unconditional Lean theorem proposed"
+      "proofStatus": "Exact replacement formula and mathematical proof supplied; arithmetic application surjectivity and independent review remain open.",
+      "proofSteps": [
+        "Take an order-d lift sigma using S23-lift in the cyclic preimage. Since e=delta*g is the residue degree in F(m)/F+ for this Frobenius, sigma^e fixes F(m) and stabilizes FS. Its restriction to FS belongs to the ell-group K and has prime-to-ell order; hence it is trivial.",
+        "Every lift of gamma is n sigma with n∈N. Its e-th power restricts to q(Σ_(i<e)alpha^i n), since the sigma^e restriction is trivial. Frobenius compatibility in the unramified tower identifies this restriction with the Frobenius at the underlying F(m)-prime.",
+        "S23-norm identifies the set of these restrictions with q(N^alpha), which lies in K^h by q alpha^delta=h q.",
+        "Conversely, for v∈N^alpha choose n=e^(-1)v; then (n sigma)^e restricts to q(v). Import Chebotarev on L/F+ and choose a prime of L with this exact Frobenius representative, avoiding the finite bad set.",
+        "Primes allowed by Definition 2.6.3 but ramified in other conjugate branches of L do not enlarge the image: in their decomposition group modulo inertia, choose a Frobenius lift above the selected E-prime. It still projects to gamma, and its e-th power restricts to the well-defined Frobenius of the unramified FS/F(m) branch. Thus the same power computation applies."
+      ]
     },
     {
       "id": "PAPER-LIU-ETAL-22/S24",
       "kind": "theorem",
       "name": "Conditional abundance supply",
-      "statement": "If the restriction map is injective, V is absolutely irreducible, Rbar(m)^hγ is free rank one and the corrected Frobenius-lifting input S23 holds, the saturation bound supplies abundant tuples. The original statement omits the extra lifting justification.",
+      "statement": "If the restriction map is injective, V is absolutely irreducible, Rbar(m)^hγ is free rank one and q:N^alpha→K^h in the exact formula S23 is surjective, the saturation bound supplies abundant tuples. The original statement omits the extra lifting justification.",
       "locator": "Proposition 2.6.6, with E1 gate",
       "status": "missing",
       "prerequisites": [
@@ -5382,6 +5392,175 @@
         "The example A=[[π,1],[0,π]] is accepted even though no diagonal domain basis exists.",
         "If mΣ<mper the identity π^mper v=π^mΣ s still avoids undefined division in the torsion module."
       ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S23-closure",
+      "kind": "construction",
+      "name": "Normal closure and the actual restriction map",
+      "statement": "In the setup of §§2.3,2.6 let E=F(m)+, K=Gal(FS/F(m)), and L the normal closure over F+ of FS E. Set N=Gal(L/E) and let q:N→K be restriction. N is a finite abelian ell-group; q is additive and need not be surjective. For gamma∈Gal(E/F+) of prime-to-ell order d and in the specified c-coset, choose an order-d lift sigma in Gal(L/F+); put alpha=conj(sigma)|N. Write delta=[F:F+], h=h_gamma on K through theta_S, g=ord(h_gamma on Rbar(m)), and e=delta*g. Then e divides d, q alpha^delta=h q, and q alpha^e=q. The fixed image q(N^alpha) uses additive groups, not an assumed O_lambda-module structure on K.",
+      "locator": "Worker-supplied refinement of Lemma 2.6.4, published pp.133–134; original setup §§2.3,2.5–2.6",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/S11",
+        "PAPER-LIU-ETAL-22/S21",
+        "PAPER-LIU-ETAL-22/L09"
+      ],
+      "note": "Codex — codex-hjdg0j. Refines EulerSystemsAndKolyvaginSystems:ES.1; no new carrier, formalization or independent review is claimed.",
+      "proofStatus": "Mathematical argument supplied; exact Lean/Galois interfaces and independent review remain.",
+      "proofSteps": [
+        "Every conjugate of FS E is abelian of ell-power degree over the normal field E. Restriction embeds N into their finite product, so N is abelian of ell-power order.",
+        "Use Schur–Zassenhaus only in the preimage of the CYCLIC group generated by gamma, whose quotient order is d; do not split the full Gal(FS/F) extension.",
+        "For n∈N, restriction of sigma^delta n sigma^(-delta) is conjugation by an element of GF whose action on Rbar(m) is h_gamma. The equivariance and injectivity of theta_S yield q alpha^delta=h q.",
+        "Gamma has order d; the least positive power fixing F(m) is e=delta*g, hence e divides d. Since alpha is unchanged by replacing sigma by another lift (N abelian), its fixed subgroup is independent of the lift."
+      ],
+      "uses": [
+        {
+          "where": "S23 and S24",
+          "how": "Replace the unsupported simultaneous lift by the exact restriction image of fixed points in the actual normal closure."
+        }
+      ],
+      "api": [
+        {
+          "name": "RankinSelberg.closureKernel_restrict",
+          "role": "projection",
+          "statement": "Use the existing Galois restriction homomorphism q:N→K, with image Gal(FS/(FS∩E)); do not assert it is surjective."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_abelian",
+          "role": "characterisation",
+          "statement": "Embed N into the product of the abelian ell-group kernels of all conjugate evaluation extensions after base change to E."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_conjugation",
+          "role": "compatibility",
+          "statement": "For alpha induced by a lift of gamma, q alpha^delta=h_gamma q; all lifts induce the same alpha on N."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_fixedImage",
+          "role": "data",
+          "statement": "Form the AddSubgroup image q(N^alpha) using the existing fixed-point and additive-map carriers; export membership witnesses, not a new coefficient module."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RankinSelberg.closureKernel_zeroClasses",
+          "kind": "degenerate",
+          "statement": "For S=0, FS=F(m), L=E and N=K=0."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_inversion",
+          "kind": "non-example",
+          "statement": "For N=K=Z/3, q=id and alpha=-1, q alpha²=q but q(N^alpha)=0≠K."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_swap",
+          "kind": "computation",
+          "statement": "For N=(Z/3)², q(x,y)=x and alpha(x,y)=(y,x), q(N^alpha)=Z/3."
+        },
+        {
+          "name": "RankinSelberg.closureKernel_fixedPointsCarrier",
+          "kind": "compatibility",
+          "statement": "For the cyclic group generated by alpha, N^alpha equals FixedPoints.addSubgroup of its additive action; its image under q is the usual AddSubgroup.map."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S23-lift",
+      "kind": "theorem",
+      "name": "A prime-to-ell cyclic quotient admits a lift of the same order",
+      "statement": "For a finite group B with normal abelian ell-subgroup N and cyclic quotient B/N generated by gamma of order d prime to ell, gamma has a lift sigma of order exactly d. If tau is any lift, a=tau^d∈N is fixed by conjugation by tau, and sigma=(-d^(-1)a) tau is such a lift, writing N additively.",
+      "locator": "Worker-supplied refinement of Lemma 2.6.4, published pp.133–134; original setup §§2.3,2.5–2.6",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/L09"
+      ],
+      "note": "Codex — codex-hjdg0j. Refines EulerSystemsAndKolyvaginSystems:ES.1; no new carrier, formalization or independent review is claimed.",
+      "proofStatus": "Mathematical argument supplied; exact Lean/Galois interfaces and independent review remain.",
+      "proofSteps": [
+        "Multiplication by d is an automorphism of the finite abelian ell-group N. Thus d^(-1)a is defined intrinsically and is fixed by tau.",
+        "The correction commutes with tau, so sigma^d=-a+tau^d=0 in N. Its image has order d, forcing ord(sigma)=d.",
+        "Alternatively obtain a complement from the exact library theorem L09 in the cyclic preimage. This establishes existence of a prime-to-ell lift only, not prescribed powers in another quotient."
+      ],
+      "acceptance": [
+        "For inversion on Z/3 in (Z/3)⋊C2, every lift of the C2 generator squares to one; no lift has a prescribed nonzero square.",
+        "If d=ell, C_(ell²)→C_ell need not have an order-ell lift of a generator."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S23-norm",
+      "kind": "theorem",
+      "name": "Projected partial norm has the full fixed-point image",
+      "statement": "Let N,K be finite abelian ell-groups, alpha an automorphism of N with alpha^d=1, gcd(d,ell)=1, q:N→K additive, and e a positive divisor of d such that q alpha^e=q. Put N_e=Σ_(i=0)^(e-1)alpha^i. Then im(q N_e)=q(N^alpha). More precisely q N_e=e q A_d, where A_d=d^(-1)Σ_(i=0)^(d-1)alpha^i is the averaging projection on N.",
+      "locator": "Worker-supplied refinement of Lemma 2.6.4, published pp.133–134; original setup §§2.3,2.5–2.6",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/L10"
+      ],
+      "note": "Codex — codex-hjdg0j. Refines EulerSystemsAndKolyvaginSystems:ES.1; no new carrier, formalization or independent review is claimed.",
+      "proofStatus": "Mathematical argument supplied; exact Lean/Galois interfaces and independent review remain.",
+      "proofSteps": [
+        "Write d=e k. The identity q alpha^e=q gives q N_d=k q N_e by grouping into k blocks of e terms.",
+        "Multiplication by d,k,e is invertible on finite ell-groups. Therefore q N_e=e q A_d.",
+        "Use L10 over Z/ell^a with a large enough exponent annihilating N and K: the norm image equals invariants, and the normalized norm is the averaging projection. No O_lambda-stability of the Galois kernel is needed.",
+        "For every fixed v∈N, N_e(e^(-1)v)=v. This also gives explicit preimages for the reverse inclusion."
+      ],
+      "acceptance": [
+        "For alpha=-1 on Z/3, e=d=2 and q=id, the image is zero although alpha² is the identity.",
+        "For alpha swapping (Z/ell^m)² with ell odd and q the first projection, e=d=2 gives the full target.",
+        "For trivial alpha on Z/2 and d=e=2, the norm is zero but invariants are nonzero: invertibility cannot be removed."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S23-paired",
+      "kind": "theorem",
+      "name": "Two conjugate evaluations give a sufficient lifting criterion",
+      "statement": "In S23-closure with delta=2, put P_h=g^(-1)Σ_(j=0)^(g-1)h^j on K. Then q(N^alpha)=im(P_h(q+q alpha)). In particular, if n↦(P_h q(n),P_h q alpha(n)) maps N onto K^h×K^h, the printed equality G_(S,gamma)=K^h holds. This is a sufficient joint-image hypothesis, not a consequence established here from GI(T²−1).",
+      "locator": "Worker-supplied refinement of Lemma 2.6.4, published pp.133–134; original setup §§2.3,2.5–2.6",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/S23-norm",
+        "PAPER-LIU-ETAL-22/S23-closure"
+      ],
+      "note": "Codex — codex-hjdg0j. Refines EulerSystemsAndKolyvaginSystems:ES.1; no new carrier, formalization or independent review is claimed.",
+      "proofStatus": "Mathematical argument supplied; exact Lean/Galois interfaces and independent review remain.",
+      "proofSteps": [
+        "Group the 2g terms in q N_(2g) into even and odd terms, using q alpha²=h q. The result is N_h(q+q alpha)=g P_h(q+q alpha).",
+        "By S23-norm its image equals q(N^alpha); multiplication by g preserves subgroup images because g is prime to ell.",
+        "Surjectivity of the pair map gives every (v,0) for v∈K^h, so the sum map has all K^h in its image. Conversely its image is contained there.",
+        "A weaker sum-surjectivity hypothesis is already necessary and sufficient; the paired hypothesis is only a convenient sufficient condition. Mere separate surjectivity of q and q alpha does not suffice."
+      ],
+      "acceptance": [
+        "For inversion on N=K=Z/3, both separate evaluations are surjective but their sum is zero.",
+        "For the swap on N=K×K, the pair map is the identity up to coordinate order and the criterion holds."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/L09",
+      "kind": "theorem",
+      "name": "Schur–Zassenhaus complement for a normal Hall subgroup",
+      "statement": "For a subgroup N of a group B, with N normal and Nat.card N coprime to N.index, there exists H with Subgroup.IsComplement′ N H. In the finite cyclic preimage used here, restriction identifies H with the quotient, so its chosen generator lifts gamma with the same order.",
+      "locator": "Mathlib/GroupTheory/SchurZassenhaus.lean:277 at 082e2d3; declaration and proof read",
+      "status": "library",
+      "library": [
+        "mathlib:Subgroup.exists_right_complement'_of_coprime"
+      ],
+      "prerequisites": [],
+      "note": "Only the complement theorem is built; identification with the chosen cyclic quotient is an adapter. This does not prescribe the power of a lift in FS."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/L10",
+      "kind": "theorem",
+      "name": "Finite-group norm and averaging projection onto invariants",
+      "statement": "For a representation rho of a finite group G on a module over a commutative ring k with #G invertible in k, LinearMap.range(rho.norm)=rho.invariants and rho.averageMap=(#G)^(-1) rho.norm. For a cyclic group, invariants equal the kernel of generator action minus identity.",
+      "locator": "TauCeti/RepresentationTheory/Invariants.lean at f790474; whole file read",
+      "status": "library",
+      "library": [
+        "tauceti:Representation.range_norm_eq_invariants",
+        "tauceti:Representation.averageMap_eq_invOf_card_smul_norm",
+        "tauceti:Rep.FiniteCyclicGroup.invariants_eq_ker_apply_sub"
+      ],
+      "prerequisites": [],
+      "note": "Apply over Z/ell^a to additive finite ell-groups. Do not assume the Galois kernel has an O_lambda-module structure."
     }
   ],
   "routes": [
@@ -5449,9 +5628,13 @@
         "PAPER-LIU-ETAL-22/S24",
         "PAPER-LIU-ETAL-22/localization-selmer",
         "PAPER-LIU-ETAL-22/S25-lift",
-        "PAPER-LIU-ETAL-22/S25-row"
+        "PAPER-LIU-ETAL-22/S25-row",
+        "PAPER-LIU-ETAL-22/S23-closure",
+        "PAPER-LIU-ETAL-22/S23-lift",
+        "PAPER-LIU-ETAL-22/S23-norm",
+        "PAPER-LIU-ETAL-22/S23-paired"
       ],
-      "reason": "The existing simultaneous-Chebotarev and error-tolerant descent layers own these shared evaluation and bounded-denominator arguments. They are reused by the level-raising annihilator application without claiming a norm-compatible Euler system.",
+      "reason": "The existing simultaneous-Chebotarev and error-tolerant descent layers own these shared evaluation and bounded-denominator arguments. They are reused by the level-raising annihilator application without claiming a norm-compatible Euler system. S23-closure/lift/norm/paired now make the exact Galois-closure fixed-image obligation explicit. Import existing Schur–Zassenhaus and norm/invariant carriers; the general Chebotarev theorem stays with upstream Chebotarev.",
       "suggestedLeanFile": "TauCeti/Roadmap/EulerSystemsAndKolyvaginSystems/RankinSelberg.lean",
       "planets": [
         {
@@ -5469,6 +5652,10 @@
         {
           "item": "PAPER-LIU-ETAL-22/localization-selmer",
           "title": "One-sided rank-two localization with a distinguished class"
+        },
+        {
+          "item": "PAPER-LIU-ETAL-22/S23",
+          "title": "Associated Frobenius image"
         }
       ]
     },
@@ -6204,7 +6391,7 @@
       "kind": "error",
       "locator": "Lemma 2.6.4, p.134; published Inventiones 228 (2022), NSF PDF SHA-256 dd821abd…ec89d97",
       "printed": "GS,γ = θS⁻¹ HomOλ(S,(Rbar(m))hγ)",
-      "correction": "Require a compatible norm/power lifting assertion in the Galois closure; prime-to-ell order of γ alone does not imply it. The main GI(T²−1) setting needs its own repair and is not refuted by this example.",
+      "correction": "Replace the printed equality by the exact formula G_(S,gamma)=q(N^alpha) of S23, where N is the abelian ell-kernel in the actual normal closure and q is restriction to Gal(FS/F(m)). Equality with K^h requires surjectivity of this fixed-point restriction. Prime-to-ell order supplies an order-d lift but not this surjectivity. The main GI(T²−1), j=1 setting remains open.",
       "reason": "Take F+=Q(√5), F=F+(i), ell=3, m=1, R=Z3(1), j=2 and the identity polarization (muΦ=1). Let u=(1+√5)/2 and S be its one-dimensional mod-3 Kummer class, coming from the integral finite unit class. F(m)=F(m)+=F(ζ3); its degree over F+ is four, so u remains a noncube (use the fundamental-unit description of Q(√5)). FS=F(m)(cuberoot(u)) has cyclic cubic kernel. Choose γ induced by complex conjugation, of order two; hγ=1. Complex conjugation fixes the real cuberoot and inverts ζ3, so every lift of γ has square one. All associated-prime evaluations are consequently zero, while the right side is the full cubic kernel. The Kummer/Bloch–Kato unit identification is an explicit external input to this arithmetic witness, not claimed newly formalized.",
       "affects": "a stated result",
       "known": "new",
@@ -6214,7 +6401,8 @@
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+      ],
+      "continuation": "Codex — codex-hjdg0j supplies the normal-closure construction, elementary projected-norm proof and finite-group checks. The original arithmetic counterexample and its source-search record are inherited; no independent review verdict is added."
     },
     {
       "id": "PAPER-LIU-ETAL-22/E2",
@@ -6455,6 +6643,21 @@
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
         "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
       ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/E16",
+      "kind": "misprint",
+      "locator": "Lemma2.6.4 proof, printed p.134/PDF28, last Chebotarev sentence; also arXiv:1912.11942v3 PDF19",
+      "printed": "coincides with γ",
+      "correction": "The Frobenius in Gal(tilde FS/F+) must coincide with the chosen lift tilde γ; its restriction to E=F(m)+ is γ.",
+      "reason": "The sentence chooses a prime of the normal closure, whose Frobenius is in the larger Galois group. Gamma was defined only in Gal(E/F+); the immediately preceding sentence introduced its lift tilde gamma. Inserting the tilde fixes the types but does not repair the unsupported prescribed-power assertion E1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published p.134 rendered and arXiv v3 PDF19–20 freshly read on 2026-09-23; the same missing tilde persists in v3.",
+        "https://arxiv.org/abs/1912.11942 lists v3, 17 August 2021, as the latest revision.",
+        "https://math.mit.edu/~wz2113/math/pub.html links the preprint without a correction link; an exact-title/Lemma2.6.4 erratum search found no correction. This is bounded evidence, not priority or a complete publisher errata check."
+      ]
     }
   ],
   "sourceArchives": [
@@ -6479,7 +6682,11 @@
         "trapped": "",
         "encryption": null
       },
-      "reacquiredBy": "codex-a71f92 on 2026-09-23; identical SHA-256 verified"
+      "reacquiredBy": "codex-a71f92 on 2026-09-23; identical SHA-256 verified",
+      "reacquisitionHistory": [
+        "codex-a71f92 on 2026-09-23; identical SHA-256 verified",
+        "codex-hjdg0j on 2026-09-23; identical published SHA-256 verified"
+      ]
     },
     {
       "id": "arxiv",
@@ -6592,6 +6799,17 @@
         212
       ],
       "imageConvention": "1-based PDF pages, respectively printed 135,317,318; checked displayed basis claim, distinguished-class normalization and (8.11)–(8.12)."
+    },
+    {
+      "source": "main",
+      "reader": "Codex — codex-hjdg0j",
+      "date": "2026-09-23",
+      "coverage": "Fresh published printed pp.125–138 (PDF19–32), including §§2.3–2.6 and Lemma2.7.1 plus its elliptic example; no fresh whole-paper or rank-one-proof reread.",
+      "imagesChecked": [
+        28
+      ],
+      "imageConvention": "1-based PDF28=printed134, Lemma2.6.4.",
+      "comparison": "ArXiv v3 PDF19–20 freshly read; identical inherited hash verified. Missing Frobenius tilde collated in the rendered published PDF28."
     }
   ],
   "coalescence": {
@@ -6654,8 +6872,8 @@
     "completeExtraction": false,
     "completeProofClosure": false,
     "gaps": [
-      "G1: The full published paper and survey have been read, but this 199-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.",
-      "G2: Resolve E1 in the actual GI(T²−1), j=1 tensor setting, including the joint norm/power condition in the Galois closure. The j=2 Kummer witness disproves the broader lemma, not either final application theorem.",
+      "G1: The full published paper and survey have been read, but this 205-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.",
+      "G2: Resolve E1 in the actual GI(T²−1), j=1 tensor setting by proving the now-explicit surjectivity q:N^alpha→K^h in S23. The exact Frobenius image formula is supplied; the sufficient paired-evaluation condition S23-paired is not yet deduced from GI. The j=2 Kummer witness disproves the broader lemma, not either final application theorem.",
       "G3: The rank-two application of E2 now has an explicit one-sided replacement, proof and exhaustive small-ring tests, retaining the distinguished class and every mΣ/4rR/8rR loss. Independently review that replacement and its conditional arithmetic handoff; do not restore the false arbitrary-rank diagonal-basis statement. E1 remains a separate existence gate.",
       "G4: Close the localized connecting-map assertion in E8, the uniform integral comparison E13 and the nonproper support extension X03; do not replace them by freeness or dimensions alone.",
       "G5: Read and decompose the original Saito weight sequence/monodromy, Fujii purity, Fontaine–Laffaille/Faltings, Serre large-image and semisimplicity, Xiao–Zhu cycles, Hotta–Matsui finite types, Mok/KMSW/Rogawski packets, Caraiani–Scholze torsion, Labesse/Morel/Shin transfer, Thorne adequacy, CHT08, Khare–Thorne complexes and Carayol multiplicity inputs. Their exact bibliographic entries are in the fully read main references.",
@@ -6679,18 +6897,18 @@
     }
   ],
   "validation": {
-    "items": 199,
+    "items": 205,
     "statuses": {
-      "library": 8,
+      "library": 10,
       "planned": 20,
-      "missing": 171
+      "missing": 175
     },
-    "definitionsAndConstructions": 76,
-    "apiEntries": 228,
-    "unitTestSpecifications": 152,
-    "dependencyEdges": 339,
+    "definitionsAndConstructions": 77,
+    "apiEntries": 232,
+    "unitTestSpecifications": 156,
+    "dependencyEdges": 349,
     "routes": 21,
-    "sourceIssues": 15,
+    "sourceIssues": 16,
     "missingRoutedExactlyOnce": true,
     "internalDependencyDAG": true,
     "mathematicalChecks": {
@@ -6803,6 +7021,21 @@
       "rankTwoExactProgram": "pass",
       "structural": "all 192 prior IDs retained; 199 unique items; 339-edge internal DAG; every missing item routed once",
       "submissionInput": "fad6c577337f027629e637ef4a71310652da1168; all relevant source, owner, protocol and audit files unchanged from continuation input"
+    },
+    "normalClosureChecks": {
+      "session": "codex-hjdg0j",
+      "primeToEllActions": 2144,
+      "compatibleTriples": 26080,
+      "zeroImages": 21392,
+      "fullImages": 4688,
+      "higherTorsionCases": 5,
+      "boundaryCases": [
+        "non-surjective q",
+        "noninvertible group order"
+      ],
+      "meaning": "Exhaustive GL2 actions over F3,F5,F7 of prime-to-characteristic order with all nonzero scalar quotient maps compatible with alpha²; additional Z/ell^m examples. Verifies finite-group formulas only, not Galois realization or the main GI condition.",
+      "priorChecks": "Earlier CAS and rank-two checks are inherited, not claimed rerun.",
+      "validators": "Paper and three-file intake pass; 205 unique IDs, 16 unique findings, all 175 missing items routed once, acyclic 349-edge graph, four typed tests for the new construction; embedded program passed."
     }
   },
   "continuation": {
@@ -7551,5 +7784,20 @@
     "search": "rg across both complete pinned Lean trees for abundant|bounded.index|simultaneous.*localiz|rank.two.*kernel|primitive.*kernel found no applicable localization lemma; atlas packets, roadmaps, decompositions and reserved IDs searched for adjugate|bounded.index|abundant|primitive.*kernel|rank.two.*kernel. These are bounded negative searches, not exhaustive semantic proof of absence.",
     "upstreamShape": "Read Matrix.mul_adjugate, Matrix.adjugate_mul and Matrix.isUnit_iff_isUnit_det including their hypotheses at 082e2d3. Read the matrix inverse convention: never treat the totalized inverse over O as the fraction-field inverse when det A is a nonunit.",
     "ecosystem": "Read-only Mathlib PR search 'bounded matrix DVR' returned none; bounded Zulip search found no relevant replacement design. Use existing Matrix and linear-map carriers; introduce no wrapper objects."
+  },
+  "normalClosureContinuation": {
+    "session": "codex-hjdg0j",
+    "date": "2026-09-23",
+    "inputCommit": "c983b49592d72ca6fda3355135c7e2ccb5b99ff2",
+    "libraryFilesRead": [
+      "Mathlib/GroupTheory/SchurZassenhaus.lean:264–306",
+      "TauCeti/RepresentationTheory/Invariants.lean (whole file)",
+      "TauCeti/GroupTheory/GroupAction/FixedPoints.lean (whole file)",
+      "Mathlib/RepresentationTheory/Invariants.lean:1–151"
+    ],
+    "ownership": "Full EulerSystemsAndKolyvaginSystems roadmap and reviewed AUDIT24 ES.1/ES.4 entries read; Chebotarev layers1,2,10 read. Keep 21 routes; refine ES.1 and import the existing upstream Chebotarev and group-theory carriers.",
+    "search": "Both pinned libraries searched for Schur–Zassenhaus, norm/invariants and lift terms, including representation-theory norm modules; atlas packets, decompositions, roadmap proposals and reserved IDs searched for joint/Frobenius lifts. Read exact positive declarations. No exact projected partial-norm or normal-closure application theorem was located under these searches.",
+    "boundary": "All formulas are on finite additive ell-groups. q need not be onto and K need not be O_lambda-stable. Schur–Zassenhaus is used in a cyclic preimage, not for a full Galois extension. S23 is not a proof that GI supplies the required fixed-image surjectivity.",
+    "sourceFinding": "E16 records the missing tilde in the Chebotarev sentence; it does not repair E1."
   }
 }
