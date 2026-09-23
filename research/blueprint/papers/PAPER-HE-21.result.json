@@ -7277,7 +7277,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. I read [He15] = X. He, 'Hecke algebras and p-adic groups', Current Developments in Mathematics 2015, in arXiv:1511.01386 (sha256 f6170c52…): Theorem 2.27 reads 'Assume that G is simple. Let w ∈ W̃ such that wσ(a) is contained in a Shrunken Weyl chamber. Then for any basic σ-conjugacy class [b], Ĭ ẇ Ĭ ∩ [b] ≠ ∅ if and only if κ(w) = κ(b) and that η_σ(w) is not contained in the relative Weyl group W_M for any proper standard σ-stable Levi subgroup M of quasi-split inner form of G', exactly as the finding quotes it. The element it is applied to on p. 14 is the a t^γ of Theorem 5.5, whose printed conclusion (p. 9) is only 'there exist a dominant coweight γ with γ ≥_Z λ_w^♭♭ and a ∈ W_0 with supp_σ(a) ⊃ supp_σ(η_σ(w)) such that w ⇒_σ a t^γ' — nothing there forces γ to be regular, and a t^γ is not shrunken when ⟨γ,α⟩ = 0 for some α ∈ Δ. So the hypothesis of the cited theorem is not verified. The proposed repair is available as stated: GHN15's Theorem A, labelled in the paper itself '(Corollary 3.6.1, Theorem 4.4.7)', is stated for every x ∈ W̃ with no shrunken hypothesis, and for the basic seed [τ̇] that is what is needed.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E2",
@@ -7293,7 +7298,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the correction is right. The printed sentences are on p. 13 ('By [GHN15, Lemma 3.6.3], w is a (J, σ^{-1}(y), σ)-alcove element … Therefore κ_{M_J}(σ^{-1}(y) w y^{-1}) ≠ κ_{M_J}(b')') and again in §6.5 on p. 14 ('by [GHN15], w is a (J, σ^{-1}(y), σ)-alcove element for some y ∈ W_0'), in both versions. In GHN15 (arXiv:1211.3784, sha256 c2293924…), Lemma 3.6.3 reads 'Let x ∈ W̃, and write w = η_2(x) ∈ W. If η_δ(x) ∈ W̃_J, then x·a is a (J,w,δ)-alcove', and §3.6 fixes η_2 by 'if x = v ε^μ w with ε^μ w·a contained in the dominant chamber, then η_1(x) = vw, η_2(x) = v, and η_δ(x) = δ^{-1}(w) v'. Translating to this paper's normal form w = x t^λ y, GHN's η_2 is the left factor x and GHN's η_δ is η_σ(w) = σ^{-1}(y) x, so the lemma names x as the conjugator, not σ^{-1}(y). The condition x^{-1} w σ(x) = t^λ y σ(x) = t^λ σ(η_σ(w)) does lie in W̃_J for J = supp_σ(η_σ(w)), while the printed conjugator fails it. The printed Kottwitz element is also internally inconsistent with the printed claim: σ^{-1}(y) w y^{-1} = η_σ(w) t^λ is the conjugate by σ^{-1}(y)^{-1}, not by σ^{-1}(y), whereas the paper's own Theorem 6.3 two lines earlier asks for κ_{M_J}(x^{-1} w σ(x)).",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E3",
@@ -7309,7 +7319,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The printed text on p. 8 is 'γ_1 ∈ Σ_{α∈J_1} Z_{>0}α, γ_2 ∈ Σ_{α∈J_2} Z_{>0}α', 'λ' − λ + μ'_1 ∈ (Σ_{α∈Δ} Z_{>0}α + γ_1 − γ_2) ∩ Σ_{α∈Δ} Z_{>0}α' and, in the proof of Corollary 5.3, 'μ − (λ − x(λ'')) ∈ Σ_{α∈Δ} Nα, λ'' − x(λ'') ∈ Σ_{α∈Δ} Nα and λ' − λ'' ∈ Σ_{α∈Δ} Nα' — α throughout, no ∨. Every element in these relations is a coweight, and the paper's own Δ is a set of roots: §2.2 defines ρ by ⟨α^∨, ρ⟩ = 1 for α ∈ Δ, and every other occurrence of the two orders (§2.2, §6.2, Theorem 6.1, §6.4) is written with α^∨. Outside the simply-laced types the two lattices are not the same, so the superscript cannot be dropped.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E4",
@@ -7325,7 +7340,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and independent of E3. The hypothesis in force is μ'_i + λ' ≥_Z λ, which gives λ' − λ + μ'_i ∈ Σ_{α∈Δ} Nα^∨ and not membership in the open cone: λ = λ' = μ'_1 = μ'_2 = 0 satisfies every hypothesis of Proposition 5.1 and gives the zero vector, which is not in Σ_{α∈Δ} Z_{>0}α^∨ in positive rank. The strict positivity on the two disjoint supports J_1 and J_2 is a different matter and is correct as printed, since J_1, J_2 may be taken to be the actual supports of γ_1, γ_2; the finding restricts itself to the two sums over the whole of Δ, which is the right scope.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E5",
@@ -7333,7 +7353,7 @@
       "locator": "Proposition 5.1 with its proof, p. 8 (both versions)",
       "printed": "Then the set {μ'; μ' is dominant, μ' + λ' ≥_Z λ} contains a unique minimal element with respect the dominance order ≥_Z. … [proof] The statement is proved.",
       "correction": "Two steps have to be added: that the set is nonempty, and that it has a minimal element at all.",
-      "reason": "What the printed proof establishes is that the set is lower directed: for any two of its elements μ'_1, μ'_2 it produces a dominant μ in the set with μ'_1 ≥_Z μ and μ'_2 ≥_Z μ. Directedness gives uniqueness of a minimal element once one exists, but not existence. Both missing steps are standard: μ' = λ − λ' + NΣ_{α∈Δ}α^∨ is dominant and feasible for N large, which gives nonemptiness; and for a fixed feasible μ'_0 the dominant coweights μ with μ'_0 ≥_Z μ form a finite set, so a minimal element exists. The statement is correct as it stands.",
+      "reason": "What the printed proof establishes is that the set is lower directed: for any two of its elements μ'_1, μ'_2 it produces a dominant μ in the set with μ'_1 ≥_Z μ and μ'_2 ≥_Z μ. Directedness gives uniqueness of a minimal element once one exists, but not existence. Both missing steps are standard: μ' = λ − λ' + N·2ρ^∨ is dominant and feasible for N large, which gives nonemptiness (2ρ^∨ = Σ_{α>0}α^∨ lies in Σ_{α∈Δ}Nα^∨ and has ⟨2ρ^∨, β⟩ = 2 for every simple β; the sum Σ_{α∈Δ}α^∨ of the simple coroots alone is not dominant in every type — in G_2 it pairs to −1 with the long simple root); and for a fixed feasible μ'_0 the dominant coweights μ with μ'_0 ≥_Z μ form a finite set, so a minimal element exists. The statement is correct as it stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -7341,7 +7361,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap, with one step of the suggested repair corrected in place. The printed proof takes two dominant μ'_1, μ'_2 in the set, builds μ = μ'_1 − γ_1 = μ'_2 − γ_2, shows μ is dominant and that λ' + μ ≥_Z λ, and stops at 'The statement is proved' — that is lower directedness, which yields uniqueness of a minimal element but neither nonemptiness nor existence. The extraction's witness for nonemptiness, μ' = λ − λ' + NΣ_{α∈Δ}α^∨, is not dominant in general: ⟨Σ_{α∈Δ}α^∨, β⟩ is the column sum of the Cartan matrix, which is −1 for the long simple root of G_2, so N·Σ_{α∈Δ}α^∨ is not dominant there for any N. I have replaced it in the JSON by the paper's own 2ρ^∨ = Σ_{α>0}α^∨, which is a nonnegative integral combination of simple coroots and satisfies ⟨2ρ^∨, β⟩ = 2 for every simple root β, so μ' = λ − λ' + N·2ρ^∨ is dominant and feasible for N large in every type. The second step stands: for a feasible μ'_0 the dominant coweights μ with μ'_0 ≥_Z μ form a finite set, so a minimum exists. The statement of Proposition 5.1 is true; only its proof is incomplete. The Part II brief of route 9 already asks for exactly these three steps ('nonemptiness, lower-directedness and leastness of the dominant subtraction feasible set').",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E6",
@@ -7357,7 +7382,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. The printed reduction is on p. 5 in both versions and says only 'reduced to simple and quasi-split groups over F. From now on, we assume that G is simple and quasi-split over F'. GHN15 reduces further: 'We first show that it suffices to consider quasi-split, semisimple groups of adjoint type (see Sections 2.2, 2.3 …)' and 'In Section 2 we collect some preliminaries and reduce to the case that G is quasi-split and semisimple of adjoint type', §2.2 being headed 'Reduction to adjoint groups'. The omission is load-bearing exactly as the finding says: §5.2 defines ρ^∨_J as the dominant coweight with ⟨ρ^∨_J, α_s⟩ = 1 for s ∈ J and 0 otherwise, and §5.4 (p. 10) sets w_1 = x z^{-1} t^{λ_w − ρ^∨_J} y' and w_2 = (y')^{-1} z t^{ρ^∨_J} y and takes γ in the W_0-orbit of λ_w − ρ^∨_J + (x')^{-1}σ^{-1}(ρ^∨_J), all of which need ρ^∨_J ∈ X_*(T)_{Γ_0}. For split SL_3 that lattice is the A_2 coroot lattice and y = s_1 gives J = {s_1} and ρ^∨_J = ω^∨_1 = (2α^∨_1 + α^∨_2)/3, so t^{ρ^∨_J} is not in W̃ at all — and SL_3 is simple and quasi-split. Note that recovering the printed generality from the adjoint case runs through GHN15's Proposition 2.2.1, which is the proposition E13 reports as corrected by the authors' erratum; the two findings are linked, and the corrected reduction also carries the hypothesis that char k not divide |π_1(G_ad)| in equal characteristic.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E8",
@@ -7373,7 +7403,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, including the version boundary. The sentence 'In the equal characteristic, X_w(b) is the set of F̄_q-points of a scheme [BS17]' stands in §2.2 of the published PDF and is absent from arXiv:2001.03325, whose §2.2 passes straight from the definition of X_w(b) to 'As discussed in [GHN15, §…]'. The published bibliography's first entry is '… tor Grassmannian', Invent. Math. 209 (2017), 329–423', i.e. Bhatt–Scholze, 'Projectivity of the Witt vector affine Grassmannian', which is about W(k)-lattices and gives an inductive limit of perfect schemes in mixed characteristic. In equal characteristic the affine flag variety is an ind-scheme by the classical Iwahori–Matsumoto/Bruhat–Tits construction the paper has already cited two lines above, and no Witt vector geometry is involved. The misattribution is local to this sentence, so affects: nothing is right.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E9",
@@ -7389,7 +7424,12 @@
         "the Annals of Mathematics errata listing and the journal's page for volume 179",
         "arXiv:1201.4901, all versions",
         "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against arXiv:1201.4901 (sha256 eae8cc00…). Proposition 11.6 reads 'Let J ⊆ S with δ(J) = J and w̃ = x t^μ y such that x ∈ W_J with supp_δ(v) = J, y is a δ-twisted Coxeter element in W_{S−J}, μ ≠ 0 and t^μ y ∈ ^S W̃', and no v is introduced anywhere in the statement; v is the Hecke-algebra parameter of that paper, which the conclusion uses as (v − v^{-1})^{ℓ(x)+ℓ(y)−ℓ(c)}. The element whose σ-saturated support is J is x, as the induction confirms: 'We may also assume that the statement is true for all x' with supp_δ(x') = J and ℓ(x') < ℓ(x)'. The later restatement in He–Zhou–Zhu, arXiv:2109.02594 (sha256 b38e3ce9…), Proposition 3.4.2, which the text there introduces as a refinement of [He14, Proposition 11.6], writes the hypothesis correctly as supp_σ(x) = K̆.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E10",
@@ -7405,7 +7445,12 @@
         "the Annals of Mathematics errata listing and the journal's page for volume 179",
         "arXiv:1201.4901, all versions",
         "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The printed line in the proof of claim (a) is 'If x ∉ W_{δ^{-1}(J_1)}, then x_1 ≠ 1 and there exists i ∈ δ^{-1}(J_1) with s_i x_1 < x_1', and x_1 was chosen three lines earlier by 'We write x as u x_1 for u ∈ W_{δ^{-1}(J_1)} and x_1 ∈ ^{δ^{-1}(J_1)}W', so s_i x_1 > x_1 for every i ∈ δ^{-1}(J_1) by that very choice. Since x ∈ W_J and δ^{-1}(J_1) ⊆ δ^{-1}(J) = J, the element x_1 lies in W_J and its left descents lie in J, so a descent exists in J − δ^{-1}(J_1), which is the stated correction. The continuation confirms the reading: it uses ℓ(y s_{δ(i)}) = ℓ(y) + 1 and t^μ y s_{δ(i)} ∈ ^S W̃, and J_1 is defined in the same proof as {i ∈ J; t^μ y s_i ∉ ^S W̃}, so δ(i) ∉ J_1. The 'known' note is also right: He–Zhou–Zhu's Proposition 3.4.2 replaces this step by a reduced-word argument on u with the two cases ℓ̆(x_k) < ℓ̆(x) and ℓ̆(x_i) = ℓ̆(x), which never makes the impossible choice.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E11",
@@ -7421,7 +7466,12 @@
         "the Annals of Mathematics errata listing and the journal's page for volume 179",
         "arXiv:1201.4901, all versions",
         "the author's page and the later reworking of the same induction in He–Zhou–Zhu, arXiv:2109.02594, Proposition 3.4.2"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The printed text is 'Notice that supp_δ(x) = supp_δ(u) ∪ supp_δ(x_1) = supp_δ(x_1) ∪ supp_δ(δ(u)) = supp_δ(x'). Hence supp(x') = J', and the chain immediately preceding establishes the σ-saturated support, not the ordinary one; the induction it feeds is stated for supp_δ, and the case split three lines later is on supp_δ(s_i x'). The two are genuinely different, as the finding's example shows: for the diagram automorphism of A_2, supp_δ(s_1) = {s_1, s_2} while supp(s_1) = {s_1}. He–Zhou–Zhu's Proposition 3.4.2 keeps supp_σ throughout, e.g. 'supp_σ(s_k x_{k−1}) = supp_σ(x) = K̆'.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E13",
@@ -7436,7 +7486,12 @@
         "the authors' erratum, https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, read in full",
         "Crossref and the Numdam page for 10.24033/asens.2254",
         "arXiv:1211.3784, all versions"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the authors' own erratum (https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, sha256 cf7efbf8…), which I read in full. It states 'Proposition 2.2.1 does not hold as stated' and replaces it by Proposition 0.0.1: assuming char k does not divide |π_1(G_ad)|, the projection G → G_ad induces an isomorphism Flag_λ ≅ Flag_{ad,λ_ad}, and the immersion Flag → Flag_ad only if π_0(Flag) → π_0(Flag_ad) is injective. It adds 'The problem with the original statement is that the map π_0(Flag) → π_0(Flag_ad) is not injective in general; this was erroneously claimed in part (2) of the original statement, and implicitly used in part (1)', and computes ker(π_0(Flag) → π_0(Flag_ad)) ≅ X_*(T)_{Γ,tors}, injective when the coinvariants are torsion-free, 'true for instance, if G is of adjoint type or simply connected'. The finding's statement, correction and known-URL all match; its remark that this is what E6's reduction rests on is also right.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E14",
@@ -7451,7 +7506,12 @@
         "the authors' erratum, https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, read in full",
         "Crossref and the Numdam page for 10.24033/asens.2254",
         "arXiv:1211.3784, all versions"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the same erratum. GHN15's Proposition 3.5.1 is printed as 'Let [b] be a σ-conjugacy class in G(L) and J ⊂ S with δ(J) = J. Then [b] ∩ M_J(L) contains at most one σ-conjugacy class of M_J(L)', and the erratum's Proposition 0.0.2 restores it with 'Let [b] be a basic σ-conjugacy class', explaining that the proof only gives equality of the dominant Newton vectors while the sequel uses ν_x = ν_{x'}, which follows when [b] is basic because ν̄_x is then central, and giving the counterexample 'take G = GL_2, J = ∅ … the diagonal matrices with entries (ϵ,1), and (1,ϵ), resp., are σ-conjugate in G(L), but not in M(L)'. The finding reproduces this exactly. Its cross-reference is also borne out: this paper's footnote on p. 13 says 'There we assume that [b] is basic. In fact, the assumption is required in [GHN15, …] not needed in [GHN15, …]', which is the same distinction between Proposition 3.5.1/Remark 3.6.2 and Corollary 3.6.1.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E15",
@@ -7467,7 +7527,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The heading on p. 13 is '6.1. The (J,w,δ)-alcove elements' in both versions, and the definition two lines below reads 'Set J ⊂ S with σ(J) = J and x ∈ W_0. Set w ∈ W̃. We say that w is a (J,x,σ)-alcove element if x^{-1} w σ(x) ∈ W̃_J and (x U_{P_J})(F̆) ∩ ẇĬ ⊆ (x U_{P_J})(F̆) ∩ Ĭ', with §§6.2–6.5 following the same letters. The clash is not merely cosmetic: w is the element whose affine Deligne–Lusztig variety the section is about, so the heading gives that letter to the conjugator.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     },
     {
       "id": "PAPER-HE-21/E16",
@@ -7483,7 +7548,12 @@
         "the Cambridge Core article page and the Forum of Mathematics, Pi volume 9 listing: no corrigendum",
         "arXiv:2001.03325, the only posted version, read in full and compared at each locator",
         "the author's page and his later work on the same material (He–Yu, Math. Ann. 379 (2021) 1747–1765; He–Zhou–Zhu, arXiv:2109.02594): no correction notice"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and sharper than the finding claims. 'N(L)' in 'For any w ∈ W̃, we choose a representative ẇ in N(L)' on p. 4 is the only occurrence of the symbol L as a field in the entire paper — I counted them page by page — while the two sentences immediately before it define W_0 = N(F̆)/T(F̆) and W̃ = N(F̆)/(T(F̆) ∩ Ĭ). L is GHN15's notation for the same field, which is where the sentence comes from. The unrelated 'L-action' of §2.1 is Kottwitz's transferred σ-action and is defined where it is used, so there is no ambiguity about which occurrence is meant.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398"
+      }
     }
   ],
   "validation": {
