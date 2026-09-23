@@ -1,6 +1,6 @@
 # Liu–Tian–Xiao–Zhang–Zhu: integral level raising and Selmer bounds
 
-**Partial continuation — Codex, codex-a71f92, 23 September 2026; follows PR #2205.** The prior worker's full published-paper and survey reading records are preserved with attribution. This continuation freshly checks the localization argument and the entire rank-one proof, not all 269 pages again. There are now 199 items (8 narrow library imports, 20 planned interfaces, 171 missing refinements), 21 routes and 339 internal dependency edges. The inherited 76 definitions/constructions still have 228 API entries and 152 test specifications; their missing third, typed tests remain an explicit completion task. Fifteen source findings await independent review. Neither the extraction nor the main proof is claimed complete.
+**Partial continuation — Codex, codex-hjdg0j, 23 September 2026; follows PR #2218.** Earlier workers' full-paper and rank-two reading/proof records are preserved with attribution. This pass freshly reads published pp.125–138 and arXiv v3 pp.19–20, and isolates the exact normal-closure image missing in E1. There are now 205 items (10 narrow library imports, 20 planned interfaces, 175 missing refinements), 21 routes and 349 internal dependency edges. The 77 definitions/constructions have 232 API entries and 156 test specifications; the new construction has four typed tests, while the inherited 76 still need their third typed tests. Sixteen source findings await independent review. The main GI lifting implication and the complete extraction remain open.
 
 ## Integration of the concurrent checkpoint
 
@@ -21,7 +21,7 @@ For rank zero choose m greater than mper+mlat+mΣ+rR+mdif. The period valuation,
 | Source | Version and reading | SHA-256 |
 |---|---|---|
 | [main](https://par.nsf.gov/servlets/purl/10323568) | All 269 PDF pages (printed 107–375), including main §§1–8, Appendices A–D, footnotes and references; clipped passages reread. | `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97` |
-| [arxiv](https://arxiv.org/pdf/1912.11942v3) | Selected comparison pages only: 20,24,82,83,86,133,143,164 fully, and relevant portions of 21,87,98,134,163,165. No full-version reading claimed. | `84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86` |
+| [arxiv](https://arxiv.org/pdf/1912.11942v3) | Selected comparison pages only: 19–20,24,82,83,86,133,143,164 fully, and relevant portions of 21,87,98,134,163,165. No full-version reading claimed. | `84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86` |
 | [survey](https://arxiv.org/pdf/2509.16881v1) | All 35 pages of arXiv:2509.16881v1; pp.9–10 reread after clipping. Remark 8.2 refinement recorded; Conjectures 6.3,6.4,10.8 retained as conjectures. | `56412df42fee5e82db9ebae5d907a8bcb071bce584ed72b94774e7c8726c215a` |
 | [rigid](https://arxiv.org/pdf/2108.06998) | PDF pp.27–36 fully: §§3.5–3.6, proof of Theorem 3.6.3 and beginning of §4.1. Remaining pages not fully read. | `fce1c9ae227dc1fcbc2fa712ae0034f7454b77595f63b927a7bdc7237f81292a` |
 | [potential](https://arxiv.org/pdf/1511.08268) | PDF pp.5–17 fully: entire §2 and beginning of §3. Includes full proofs of Theorems 2.16/2.18 and Proposition 2.19. Remaining pages not fully read. | `1fa785a5836280044133bc015982102503194d25219908ddab270c31eada2436` |
@@ -45,7 +45,7 @@ The exact broad roadmap scopes matter: AG2.4 concerns nonselfdual systems, so it
 | Route | Owner | Items | Suggested Lean file |
 |---|---|---:|---|
 | 1: source | SelmerIwasawaCohomology | 13 | `TauCeti/Roadmap/SelmerIwasawaCohomology/RankinSelberg.lean` |
-| 2: source | EulerSystemsAndKolyvaginSystems | 12 | `TauCeti/Roadmap/EulerSystemsAndKolyvaginSystems/RankinSelberg.lean` |
+| 2: source | EulerSystemsAndKolyvaginSystems | 16 | `TauCeti/Roadmap/EulerSystemsAndKolyvaginSystems/RankinSelberg.lean` |
 | 3: source | GlobalGaloisDeformations | 3 | `TauCeti/Roadmap/GlobalGaloisDeformations/RankinSelberg.lean` |
 | 4: source | LocalGaloisDeformationRings | 2 | `TauCeti/Roadmap/LocalGaloisDeformationRings/RankinSelberg.lean` |
 | 5: source | AutomorphicGaloisRepresentationsPartII | 6 | `TauCeti/Roadmap/AutomorphicGaloisRepresentationsPartII/RankinSelberg.lean` |
@@ -289,6 +289,99 @@ The elementary proof imports the actual pinned statements of Matrix.mul_adjugate
 
 The standalone program below checks every 2×2 matrix over Z/4, Z/8, Z/9, F2[t]/t³ and F4. It enumerates the actual image to find the smallest c<n satisfying the bound, constructs a primitive kernel vector for each row, and tests every primitive distinguished vector. Results: 15,265 matrices, 12,894 satisfying a nonvacuous bound, 25,788 primitive-kernel checks and 742,644 distinguished-vector checks. Tests include the original non-diagonalizable example and the failure of v,t to form a basis. Finite testing is not a proof over all DVRs and does not test Galois realizability; the general proof is the preceding argument.
 
+## Exact normal-closure formula for the lifting gate
+
+This section is new work by Codex — codex-hjdg0j. It supplies a replacement formula for Lemma 2.6.4 and a sufficient arithmetic input to recover the printed equality. It does **not** deduce that input from the main GI(T²−1), j=1 hypothesis, or independently review the previous workers' findings.
+
+The [published PDF](https://par.nsf.gov/servlets/purl/10323568) was reacquired with the identical hash in the source table. Printed pp.125–138 were read, including the evaluation extension, polarization, associated-prime definition and complete Lemma 2.6.4 proof. Printed p.134 was rendered. [ArXiv v3](https://arxiv.org/pdf/1912.11942v3) pp.19–20 were also freshly read; the SHA-256 matches the existing archive. All broader reading claims remain attributed to the earlier workers.
+
+### The actual groups and maps
+
+Use the source's fields and put
+
+~~~text
+E = F(m)+
+L = normal closure of FS E over F+
+N = Gal(L/E)
+K = Gal(FS/F(m))
+q : N → K = restriction.
+~~~
+
+Each conjugate of FS E is abelian of ell-power degree over E. The normal-closure kernel N embeds into the product of their Galois groups and is therefore a finite abelian ell-group. The map q has image Gal(FS/(FS∩E)); it need not be onto K. Neither K nor N is silently given the full O_lambda-module structure of the evaluation target. All following averages can be taken over Z/ell^a for a sufficiently large a.
+
+Let gamma have order d prime to ell. In the preimage of its **cyclic** subgroup, choose a lift sigma of order d. This follows from pinned Mathlib's Schur–Zassenhaus theorem. An elementary construction also makes the distinction from prescribed-power lifting explicit: for an arbitrary lift tau, a=tau^d lies in N and is fixed by conjugation by tau. Then sigma=(-d^(-1)a)tau has d-th power one and order exactly d. This does not prescribe its image under another power map.
+
+Write alpha for conjugation by sigma on N, delta=[F:F+], h=h_gamma acting on K, g for the order of h_gamma on the coefficient module, and e=delta*g. The evaluation equivariance gives
+
+~~~text
+q alpha^delta = h q,
+q alpha^e = q,
+e divides d.
+~~~
+
+The last assertion follows because e is the least positive power of gamma fixing F(m). The automorphism alpha does not depend on the chosen lift of gamma: two lifts differ by an element of the abelian group N.
+
+### Exact image and proof
+
+The corrected formula is
+
+~~~text
+G_(S,gamma) = q(N^alpha) ⊂ K^h.
+~~~
+
+The printed equality with all K^h is equivalent to surjectivity of this fixed-point restriction.
+
+First, sigma^e fixes F(m) and stabilizes FS. Its restriction to FS lies in the ell-group K but has prime-to-ell order, so this restriction is the identity. Every lift of gamma is n sigma, and its e-th power restricts to
+
+~~~text
+q(N_e n),       N_e = 1 + alpha + ... + alpha^(e-1).
+~~~
+
+The unramified Frobenius tower formula identifies this restriction with the Frobenius at the underlying F(m)-prime. The residue exponent is e=delta*g; using the full order d without tracking the field would obscure this step.
+
+For completeness, the required finite-group identity is exact. Let d=e k and A_d=d^(-1)(1+alpha+...+alpha^(d-1)). Since q alpha^e=q, grouping the d terms into k blocks gives q N_d=k q N_e and hence
+
+~~~text
+q N_e = e q A_d.
+~~~
+
+A_d projects onto N^alpha. Multiplication by e is invertible on every finite ell-group in sight, so im(q N_e)=q(N^alpha). Conversely, if v is fixed by alpha, choose n=e^(-1)v to obtain q(N_e n)=q(v).
+
+Chebotarev on L/F+ realizes each n sigma as an exact Frobenius representative after choosing a prime of L, and permits exclusion of any fixed finite set. This is imported from upstream Chebotarev. For the other inclusion, Definition 2.6.3 may allow a prime ramified in a different branch of the normal closure. Such a prime still has a lift of its Frobenius in the decomposition group that restricts to gamma on the unramified E-branch. Its e-th power restricts to the well-defined Frobenius on the unramified FS/F(m) branch. Thus those allowed primes do not enlarge the image.
+
+This is S23, using S23-closure, S23-lift and S23-norm. It avoids the source's unsupported decomposition of the entire Gal(FS/F) as a semidirect product.
+
+### A sufficient joint-evaluation input
+
+For delta=2 let P_h=g^(-1)(1+h+...+h^(g-1)). Separating even and odd terms in the partial norm gives
+
+~~~text
+q(N^alpha) = im(P_h (q + q alpha)).
+~~~
+
+Consequently, surjectivity of
+
+~~~text
+N → K^h × K^h,   n ↦ (P_h q(n), P_h q(alpha n))
+~~~
+
+is sufficient: realize (v,0) and add the two coordinates. This is S23-paired. Surjectivity of the sum alone is already necessary and sufficient; the paired condition is stronger. Individual surjectivity of each coordinate is insufficient.
+
+For the inherited E1 finite-group pattern, N=K=Z/3, alpha=-1 and q=id. Both coordinate maps are onto, while their sum and q(N^alpha) are zero. For a successful contrasting case, N=(Z/ell^m)^2, alpha swaps the coordinates and q is the first projection; the fixed image is all Z/ell^m. These explain the obstruction and criterion without pretending to realize either model from the main automorphic hypotheses.
+
+### Imports, tests and remaining work
+
+Two exact library atoms are newly recorded:
+
+- L09: Mathlib Subgroup.exists_right_complement'_of_coprime, with normality and coprime order/index, read at 082e2d3.
+- L10: Tau Ceti Representation.range_norm_eq_invariants, averageMap_eq_invOf_card_smul_norm, and Rep.FiniteCyclicGroup.invariants_eq_ker_apply_sub, read at f790474.
+
+The full Tau Ceti fixed-point API and the relevant Mathlib averaging declarations were also read. They supply existing carriers; the application should introduce no parallel definition of invariants or a Galois kernel's coefficient module. The reviewed AUDIT24 ES.1/ES.4 entries and the full EulerSystemsAndKolyvaginSystems roadmap were read. The four new missing refinements stay in ES.1; the upstream Chebotarev theorem is imported, not replanned. Route identities are unchanged.
+
+The reproducible program below checks 2,144 prime-to-characteristic GL2 actions over F3,F5,F7 and all 26,080 compatible nonzero scalar quotient/even-action triples. It verifies equality of partial-norm, fixed-image and paired-sum images; 21,392 have zero image and 4,688 have full image. Five higher-torsion examples, a nonsurjective restriction model and failure at noninvertible group order are included. These finite checks support the algebraic formula; they neither prove a Galois realization nor establish the main GI implication. Earlier arithmetic/CAS and rank-two programs are preserved but were not rerun in this pass.
+
+The remaining E1 task is now specific: prove q(N^alpha)=K^h for the actual normal closure, Selmer classes and simultaneous GI element, or derive the weaker quantitative image bound sufficient for abundance with its precise additional error. A merely uniform extra loss would need to be inserted into the downstream exponent inequalities; it cannot silently preserve the current 8rR budget. Keep E1 and the final theorem proofs open until that work is supplied.
+
 ## Source findings awaiting independent review
 
 No finding below has been independently confirmed by this worker. “New” in the JSON means no external correction was located in the bounded search, not a claim of discovery priority. E1 and E9 give counterexamples to general auxiliary statements; E2 is a counterexample to the claimed linear-algebra implication, not a realized global Selmer counterexample. None is asserted to refute either main theorem.
@@ -299,7 +392,7 @@ Lemma 2.6.4, p.134; published Inventiones 228 (2022), NSF PDF SHA-256 dd821abd�
 
 Printed fragment: `GS,γ = θS⁻¹ HomOλ(S,(Rbar(m))hγ)`.
 
-Require a compatible norm/power lifting assertion in the Galois closure; prime-to-ell order of γ alone does not imply it. The main GI(T²−1) setting needs its own repair and is not refuted by this example.
+Replace the printed equality by the exact formula G_(S,gamma)=q(N^alpha) of S23, where N is the abelian ell-kernel in the actual normal closure and q is restriction to Gal(FS/F(m)). Equality with K^h requires surjectivity of this fixed-point restriction. Prime-to-ell order supplies an order-d lift but not this surjectivity. The main GI(T²−1), j=1 setting remains open.
 
 Take F+=Q(√5), F=F+(i), ell=3, m=1, R=Z3(1), j=2 and the identity polarization (muΦ=1). Let u=(1+√5)/2 and S be its one-dimensional mod-3 Kummer class, coming from the integral finite unit class. F(m)=F(m)+=F(ζ3); its degree over F+ is four, so u remains a noncube (use the fundamental-unit description of Q(√5)). FS=F(m)(cuberoot(u)) has cyclic cubic kernel. Choose γ induced by complex conjugation, of order two; hγ=1. Complex conjugation fixes the real cuberoot and inverts ζ3, so every lift of γ has square one. All associated-prime evaluations are consequently zero, while the right side is the full cubic kernel. The Kummer/Bloch–Kato unit identification is an explicit external input to this arithmetic witness, not claimed newly formalized.
 
@@ -443,6 +536,10 @@ Use the interval [−n,n−1] for the normalized tensor RQ in the paper’s conv
 
 The two relevant factors have combined Hodge–Tate weights 0 through 2n−1 before twist (n); Qell(1) has weight −1. The rank-zero argument p.311 uses [−n,n−1]. Both intervals have the same width, so the FL width bound is unchanged. Page image checked.
 
+### E16 — misprint; affects no mathematical conclusion
+
+Lemma 2.6.4's final Chebotarev sentence (published p.134/PDF28; arXiv v3 PDF19) says the normal-closure Frobenius “coincides with γ”; the symbol must be the lift **tilde γ**. Gamma itself lives in the smaller quotient Gal(E/F+). The missing tilde persists in v3 and was checked in the rendered published page. The arXiv version history, author's publication page and a bounded erratum search revealed no correction. This notation repair leaves the substantive E1 gap intact and awaits independent review.
+
 ### Search boundary
 
 - 2026-09-23: arXiv:1912.11942 metadata lists v3 (17 August 2021) as latest; selected corresponding passages in that version were collated, not all 179 pages.
@@ -458,10 +555,11 @@ U1: Lemma 5.11.3(5), p.252. The local blowup gives P(N1⊕N2) with two sections;
 U2: Proposition 5.10.13 diagram, p.248. The finer Ksp level ordinarily maps to the coarser Kn level. The printed arrow and all identifications need page-image collation before an erratum is asserted.
 
 
+
 ## Coverage and continuation
 
-- G1: The full published paper and survey have been read, but this 199-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.
-- G2: Resolve E1 in the actual GI(T²−1), j=1 tensor setting, including the joint norm/power condition in the Galois closure. The j=2 Kummer witness disproves the broader lemma, not either final application theorem.
+- G1: The full published paper and survey have been read, but this 205-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.
+- G2: Resolve E1 in the actual GI(T²−1), j=1 tensor setting by proving the now-explicit surjectivity q:N^alpha→K^h in S23. The exact Frobenius image formula is supplied; the sufficient paired-evaluation condition S23-paired is not yet deduced from GI. The j=2 Kummer witness disproves the broader lemma, not either final application theorem.
 - G3: The rank-two application of E2 now has an explicit one-sided replacement, proof and exhaustive small-ring tests, retaining the distinguished class and every mΣ/4rR/8rR loss. Independently review that replacement and its conditional arithmetic handoff; do not restore the false arbitrary-rank diagonal-basis statement. E1 remains a separate existence gate.
 - G4: Close the localized connecting-map assertion in E8, the uniform integral comparison E13 and the nonproper support extension X03; do not replace them by freeness or dimensions alone.
 - G5: Read and decompose the original Saito weight sequence/monodromy, Fujii purity, Fontaine–Laffaille/Faltings, Serre large-image and semisimplicity, Xiao–Zhu cycles, Hotta–Matsui finite types, Mok/KMSW/Rogawski packets, Caraiani–Scholze torsion, Labesse/Morel/Shin transfer, Thorne adequacy, CHT08, Khare–Thorne complexes and Carayol multiplicity inputs. Their exact bibliographic entries are in the fully read main references.
@@ -475,7 +573,9 @@ The remaining bundled entries include S03, S06, S08, S12, S16, S17, S22, A11, G0
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-LIU-ETAL-22.result.json` passes. The handoff and three-file allowlist are checked separately by intake. Structural assertions check unique IDs, resolved internal references, absence of internal cycles, one route per missing item, and APIs/tests for every included definition or construction. The prior worker recorded no configured default Lean toolchain. This continuation has no authorized Lean deliverable and claims no compilation or formalization.
 
-The continuation additionally passes all 48 repository tests (9 paper-validator, 3 paper-queue, 7 source-issue and 29 intake tests), the three-file intake check, the inherited 1,806-assertion program and the new rank-two program. All 192 prior item IDs remain; the 199-item internal graph has 339 edges and no cycles, and each missing item is routed once. The fresh submission base is `fad6c577337f027629e637ef4a71310652da1168`; relevant deliverables, instructions, owner documents and reviewed audit inputs were unchanged from the continuation input snapshot.
+Historical validation from codex-a71f92 / PR #2218: that continuation passed all 48 repository tests (9 paper-validator, 3 paper-queue, 7 source-issue and 29 intake tests), the three-file intake check, the inherited 1,806-assertion program and the new rank-two program. All 192 prior item IDs remain; the 199-item internal graph has 339 edges and no cycles, and each missing item is routed once. The fresh submission base is `fad6c577337f027629e637ef4a71310652da1168`; relevant deliverables, instructions, owner documents and reviewed audit inputs were unchanged from the continuation input snapshot.
+
+Current codex-hjdg0j validation: the paper validator and three-file intake pass; 205 unique item IDs and 16 unique finding IDs; all 175 missing items routed once; the 349-edge recorded dependency graph is acyclic; the new construction has four typed tests. The embedded norm program passes the 26,080 cases described above. Earlier repository-wide, CAS and rank-two checks were not rerun. No Lean file compiled.
 
 ## Reproducible exact-check program
 
@@ -729,3 +829,69 @@ assert {(0, 0)} == {(0*x, 0*y) for x, y in product(range(4), repeat=2)}
 print(json.dumps(results, sort_keys=True))
 print("PASS: exact finite-ring checks; not a Lean proof or a Galois-realization check")
 ```
+
+## Reproducing the normal-closure checks
+
+~~~python
+from itertools import product
+from math import gcd, lcm
+
+def add(x,y,p):return tuple((a+b)%p for a,b in zip(x,y))
+def scale(a,x,p):return tuple(a*b%p for b in x)
+def mv(a,x,p):return ((a[0]*x[0]+a[1]*x[1])%p,(a[2]*x[0]+a[3]*x[1])%p)
+def mm(a,b,p):return tuple(sum(a[2*i+k]*b[2*k+j] for k in range(2))%p for i in range(2) for j in range(2))
+def scalar_order(h,p):
+    n,t=1,h%p
+    while t!=1:n,t=n+1,t*h%p
+    return n
+I=(1,0,0,1)
+matrices=cases=zero=full=0
+for p in [3,5,7]:
+    vectors=list(product(range(p),repeat=2))
+    for a in product(range(p),repeat=4):
+        if (a[0]*a[3]-a[1]*a[2])%p==0:continue
+        order,t=1,a
+        while t!=I:order,t=order+1,mm(t,a,p)
+        d=lcm(2,order)
+        if gcd(d,p)!=1:continue
+        matrices+=1
+        fixed=[x for x in vectors if mv(a,x,p)==x]
+        for row in vectors[1:]:
+            q=lambda x:sum(u*v for u,v in zip(row,x))%p
+            for h in range(1,p):
+                if not all(q(mv(a,mv(a,x,p),p))==h*q(x)%p for x in [(1,0),(0,1)]):continue
+                g=scalar_order(h,p);e=2*g
+                assert d%e==0
+                norm_values=set()
+                pair_values=set()
+                for x in vectors:
+                    y=x;total=(0,0)
+                    for j in range(e):
+                        total=add(total,y,p);y=mv(a,y,p)
+                    norm_values.add(q(total))
+                    pair=(q(x)+q(mv(a,x,p)))%p
+                    pair_values.add(sum(pow(h,j,p)*pair for j in range(g))%p)
+                fixed_image={q(x) for x in fixed}
+                assert norm_values==fixed_image==pair_values
+                assert all((h*v-v)%p==0 for v in norm_values)
+                cases+=1
+                if len(norm_values)==1:zero+=1
+                else:full+=1
+# Higher torsion: inversion and a swap over Z/p^m.
+torsion=0
+for p,m in [(3,1),(3,2),(3,3),(5,1),(5,2)]:
+    n=p**m
+    assert {(x-x)%n for x in range(n)}=={0}
+    assert {x for x in range(n) if (-x)%n==x}=={0}
+    assert {(x+y)%n for x in range(n) for y in range(n)}==set(range(n))
+    assert {x for x in range(n) for y in range(n) if x==y}==set(range(n))
+    torsion+=1
+# A non-surjective q is not silently promoted to a quotient map.
+assert {(2*3*x)%9 for x in range(3)}=={0,3,6}
+# Invertibility is essential.
+assert {(x+x)%2 for x in range(2)}=={0}
+assert set(range(2))!={0}
+print(f'{matrices} prime-to-p actions; {cases} compatible (action,q,h) cases '
+      f'({zero} zero images, {full} full images); {torsion} higher-torsion cases; '
+      'non-surjective-q and noninvertible-order regressions')
+~~~
