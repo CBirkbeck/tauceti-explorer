@@ -1,262 +1,342 @@
 {
-  "paper": "PAPER-HARPAZ-WITTENBERG-23",
-  "protocol": "errata-v1",
-  "sourceIssues": [
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E1",
-      "kind": "misprint",
-      "locator": "Proposition 2.5, p.6, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"The Massey product of α_0,…,α_{n−1} contains 0 if and only if V(k) ≠ 0.\"",
-      "correction": "\"… if and only if V(k) ≠ ∅.\"",
-      "reason": "V(k) is a set of rational points. Noted by the extraction (item 28).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E2",
-      "kind": "misprint",
-      "locator": "§2, definition of the unramified Brauer group, p.6, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"… the image of Br(V^c) in Br(V), where V^c is any choice of a smooth compactification of V^c\"",
-      "correction": "\"… a smooth compactification of V\".",
-      "reason": "V^c denotes the compactification of V.",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E3",
-      "kind": "error",
-      "locator": "Lemma 4.7 and its proof, p.14 (with Definition 3.2, p.9), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Lemma 4.7. If 2 ≤ n ≤ 6, the outer exponent of U¹ is equal to p. Proof. As the abelianization of U¹ has exponent p when n ≥ 2, the outer exponent of U¹ is divisible by p.\"",
-      "correction": "For 2 ≤ n ≤ 6 the powering action of (Z/d)^× on conjugacy classes of U¹ factors through (Z/p)^×; hence the outer exponent is p for p odd and 1 for p = 2.",
-      "reason": "Definition 3.2 takes the least divisor e of the exponent through which the action factors. For p = 2, (Z/2)^× = (Z/1)^× is trivial and the proof shows the action is trivial (n ≤ 3 by Lemma 4.6; 4 ≤ n ≤ 6 because M^{−1} is conjugate to M), so e = 1, not 2; the divisibility step holds only for odd p. The lemma is used only to make the cyclotomic character χ : G → (Z/e)^× trivial when μ_p ⊂ k and to choose L ⊇ μ_e, which is unchanged for e = 1 since μ₂ ⊂ k; the main theorems are unaffected. Noted by the extraction (items 42, 65).",
-      "affects": "a stated result",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E4",
-      "kind": "misprint",
-      "locator": "Proof of Lemma 4.7, case p = 3, n = 6, p.14, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"By Lemma 4.6, the exponent of U¹ is divisible by 9. Hence it suffices to show that M⁴ is conjugate to M\"",
-      "correction": "\"… the exponent of U¹ divides 9.\"",
-      "reason": "Lemma 4.6 with m = 2 (2·9 > 6) gives exponent dividing 9, which is what the next sentence uses. Noted by the extraction (item 65).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E5",
-      "kind": "misprint",
-      "locator": "Proof of Lemma 4.13, case a₂ ≠ 0, p.17, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Indeed, we may write Q as the product Q = e_{n−2,n}^{b_{n−2}} ⋯ e_{0,2}^{b_0} e_{0,3}\"",
-      "correction": "\"… e_{0,2}^{b_0} e_{0,3}^{a_2}\".",
-      "reason": "Q is defined on p.16 with Q_{0,3} = a₂; the printed product has (0,3) entry 1. The conjugation identity that follows does not involve Q_{0,3}. Noted by the extraction (item 71).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E6",
-      "kind": "misprint",
-      "locator": "Proof of Proposition 5.3, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"… in which case the lemma trivially holds: any homomorphism Γ_K → U/Z lifts to Z since the obstruction lives in H²(K,Z) = H²(K,F_p).\"",
-      "correction": "\"… the proposition trivially holds: any homomorphism Γ_K → U/Z lifts to U …\"",
-      "reason": "This is the lifting problem for U → U/Z, whose obstruction lies in H²(K,Z). Noted in the extraction's report.",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E7",
-      "kind": "misprint",
-      "locator": "Proof of Proposition 5.3, p.21 (twice), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"… and as ρ_{v,u} is Γ_K-equivariant …\" and \"… provides an extension of ρ_{v,u} to a homomorphism S → Z\"",
-      "correction": "ρ_{u,v} in both places.",
-      "reason": "(5.5) defines ρ_{u,v}(Q) = u(Q − I)v, and the same paragraph uses ρ_{u,v}.",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E8",
-      "kind": "misprint",
-      "locator": "Diagram (5.7), proof of Theorem 5.1, p.22, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Br_{1,nr}(V)/Br_0(V) → Br_{1,nr}(W)/Br_0(V)\"",
-      "correction": "\"Br_{1,nr}(W)/Br_0(W)\".",
-      "reason": "Br_0(V) is not a subgroup of Br(W); the next sentence concludes that the pull-back \"becomes constant in Br(W)\". Noted by the extraction (item 95).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E9",
-      "kind": "gap",
-      "locator": "Proofs of Theorem 5.1 (p.22) and Theorem 7.4 (p.28), with the definition of local field on p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"We are thus reduced to checking that W(k_v) ≠ ∅ for any place v of k … which is exactly what Proposition 5.3 provides when applied to the restriction of α to each Γ_{k_v}\", while p.19 says: \"Here and below, by a local field, we mean a complete discretely valued field with finite residue field.\"",
-      "correction": "Treat the archimedean places separately. For v complex, Γ_{k_v} is trivial. For v real and p odd, U/P^{r,s} is a p-group, so the restriction of α to Γ_{k_v} ≅ C₂ is trivial. For v real and p = 2, the proof of Proposition 5.3 goes through: the split case is group theory, and in the non-split case H¹(R, Hom(P/Z, μ₂)) × H¹(R, P/Z) → H²(R, μ₂) is perfect (Tate duality over R), so cup product with [γ] is onto.",
-      "reason": "The global argument needs local solvability at every place, but Proposition 5.3 is stated only for non-archimedean fields; the real places with p = 2 need an argument, which is short. Noted by the extraction (items 91, 117).",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E10",
-      "kind": "error",
-      "locator": "Lemma 5.5, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Let Γ be a profinite group and 0 → A → B → C → 0 be a short exact sequence of discrete Γ-modules whose underlying sequence of abelian groups is split. … Let [γ] ∈ H¹(Γ, Hom(C,A)) be the class of this torsor\"",
-      "correction": "Assume C finitely generated (for example finite, as in the only application, C = P^{r,s}/Z). Otherwise Hom(C,A) with the discrete topology need not carry a continuous class.",
-      "reason": "Counterexample: Γ = ∏ C₂ (countably many factors), A = ⊕ F₂a_i and C = ⊕ F₂c_i with trivial action, B = A ⊕ C with g·c_i = c_i + g_i a_i. B is a discrete module and the sequence splits as groups, but γ(g)(c_i) = g_i a_i has kernel {1}, which is not open, so γ is not continuous into the discrete module Hom(C,A). Found by the extraction (item 139).",
-      "affects": "a stated result",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E11",
-      "kind": "misprint",
-      "locator": "Proof of Proposition 6.1, p.23, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"P_4 is just a copy of the group of unitriangular 4 × 4-matrices whose first non-principal diagonal vanishes\"",
-      "correction": "\"… unitriangular 5 × 5-matrices …\"",
-      "reason": "P_4 is spanned by the e_{i,j} with j ≤ 4, i.e. indices 0,…,4: the group U¹ for n = 4, of 5 × 5 matrices. Noted by the extraction (item 97).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E12",
-      "kind": "error",
-      "locator": "Proposition 7.3, p.26, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Defining systems Λ = {a_{i,j}} for the n-fold Massey product of {α_i ∈ H¹(k,M_{i,i+1})} are in bijection with group homomorphisms α_Λ : Γ_k → T(W)/Z(W) lifting α : Γ_k → A(W)\", where α is built from a choice of cocycles representing the α_i (pp.25–26).",
-      "correction": "Restrict to defining systems whose adjacent cochains a_{i,i+1} are the chosen cocycles. The existence statements used later are unaffected, since changing representatives conjugates α (the parenthetical on p.26).",
-      "reason": "Counterexample: Γ = C₂, R = F₃, N₀ the sign character and N₁ = N₂ = N₃ trivial, all α_i = 0. Then a_{01}(σ) = σ·1 − 1 with all other cochains 0 is a defining system, but it lifts no α built from the zero cocycles. Found by the extraction (item 111).",
-      "affects": "a stated result",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E13",
-      "kind": "misprint",
-      "locator": "Theorem 7.4, p.27, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"Theorem 7.4. Fix n ≥ 3 and let R = F_p … Then the n-fold Massey product of any n-tuple of classes {α_i ∈ H¹(k,M_{i,i+1})} vanishes as soon as it is defined.\"",
-      "correction": "Add \"Let k be a number field.\"",
-      "reason": "The statement leaves k unspecified, but the introduction announces it \"over number fields\" (p.4), and the proof runs the number-field method of Theorem 5.1 (HW20 Théorème B, places k_v).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E14",
-      "kind": "misprint",
-      "locator": "Proof of Theorem 7.4, p.27, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"… the action of A on each of the quotients U^m/U^{m+1} is diagonalizable, with eigenspaces given by the cyclic subgroups Hom_R(N_{i+m}, N_i).\"",
-      "correction": "Hom_R(N_{i+m+1}, N_i).",
-      "reason": "U^m/U^{m+1} is spanned by the entries e_{i,j} with j − i = m + 1. Noted by the extraction (item 114).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E15",
-      "kind": "misprint",
-      "locator": "Proof of Theorem 7.4, p.28, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "\"P^{r,s} = ⊕_{i=0}^{r} Hom_R(N_n,N_i) ⊕ ⊕_{j=n−s}^{n} Hom_R(N_j,N_0) ⊆ U¹\"",
-      "correction": "An internal sum (the subgroup generated, as in Definition 5.2), or let j run to n − 1.",
-      "reason": "The summands i = 0 and j = n are both the corner Z = Hom_R(N_n,N_0), so an external direct sum counts it twice. Noted by the extraction (item 116).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-23/E16",
-      "kind": "misprint",
-      "locator": "Minor slips on pp.3, 7, 10, 18, 20, 22 and 29, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
-      "printed": "p.3: \"genericity assumptions on the classes α_1,…,α_n\"; p.7 (Theorem 2.6): \"Let V a homogeneous space\" and \"which is orthogonal Br_nr(V)\"; p.10 (Corollary 3.5): Ĥ^ab_v; p.18 (Remark 4.17): \"a complete determination … also in the cases n = 4, 5, 6 (see §6)\"; p.20: \"β̂ : Γ_k → P^{r,s}\"; p.22: \"Γ_{k_v} ⊆ Γ\"; p.29: \"Let L ⊂ k̄ … We henceforth identity Gal(L/Q) with C\".",
-      "correction": "p.3: α_0,…,α_{n−1}; p.7: \"Let V be a homogeneous space\", \"orthogonal to Br_nr(V)\"; p.10: Ĥ^ab_v̄; p.18: §6 determines the group for n = 4, 5 and states the n = 6 facts without details (p.24); p.20: Γ_K; p.22: Γ_k; p.29: L ⊂ Q̄ and \"identify\".",
-      "reason": "Each is a local slip with a clear intended reading: indexing (p.3), missing words (p.7), a missing bar (p.10), a slightly overstated cross-reference (p.18), the local field K and the global field k (pp.20, 22), and the base field Q of the Z/8 example in §7 (p.29).",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
-        "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
-        "web search for an erratum or corrigendum, 22 September 2026: none found",
-        "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
-      ]
-    }
-  ]
+ "paper": "PAPER-HARPAZ-WITTENBERG-23",
+ "protocol": "errata-v1",
+ "sourceIssues": [
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E1",
+   "kind": "misprint",
+   "locator": "Proposition 2.5, p.6, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"The Massey product of α_0,…,α_{n−1} contains 0 if and only if V(k) ≠ 0.\"",
+   "correction": "\"… if and only if V(k) ≠ ∅.\"",
+   "reason": "V(k) is a set of rational points. Noted by the extraction (item 28).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'The Massey product of $\\alp_0,\\dots,\\alp_{n-1}$ contains~$0$ if and only if $V(k) \\neq 0$.' V is a variety, so the condition is nonemptiness; the sentence continues 'In other words, V constitutes a splitting variety', which is the intended reading.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E2",
+   "kind": "misprint",
+   "locator": "§2, definition of the unramified Brauer group, p.6, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"… the image of Br(V^c) in Br(V), where V^c is any choice of a smooth compactification of V^c\"",
+   "correction": "\"… a smooth compactification of V\".",
+   "reason": "V^c denotes the compactification of V.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'the image of $\\Br(V^c)$ in $\\Br(V)$, where $V^c$ is any choice of a smooth compactification of $V^c$'. A compactification of V^c would be V^c itself; the parenthesis that follows, on independence of the choice of V^c, shows V is meant.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E3",
+   "kind": "error",
+   "locator": "Lemma 4.7 and its proof, p.14 (with Definition 3.2, p.9), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Lemma 4.7. If 2 ≤ n ≤ 6, the outer exponent of U¹ is equal to p. Proof. As the abelianization of U¹ has exponent p when n ≥ 2, the outer exponent of U¹ is divisible by p.\"",
+   "correction": "For 2 ≤ n ≤ 6 the powering action of (Z/d)^× on conjugacy classes of U¹ factors through (Z/p)^×; hence the outer exponent is p for p odd and 1 for p = 2.",
+   "reason": "Definition 3.2 takes the least divisor e of the exponent through which the action factors. For p = 2, (Z/2)^× = (Z/1)^× is trivial and the proof shows the action is trivial (n ≤ 3 by Lemma 4.6; 4 ≤ n ≤ 6 because M^{−1} is conjugate to M), so e = 1, not 2; the divisibility step holds only for odd p. The lemma is used only to make the cyclotomic character χ : G → (Z/e)^× trivial when μ_p ⊂ k and to choose L ⊇ μ_e, which is unchanged for e = 1 since μ₂ ⊂ k; the main theorems are unaffected. Noted by the extraction (items 42, 65).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Both the statement ('If $2 \\leq n \\leq 6$, the outer exponent of $\\U^1$ is equal to $p$') and the first step of its proof are verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The definition on p. 13 is that the outer exponent is the smallest e | d such that the powering action of (Z/d)^× on conjugacy classes factors through (Z/e)^×. For p = 2 that action factors through the trivial group (Z/2)^×, so the outer exponent is 1, not 2, and the proof's opening claim that it is divisible by p fails for the same reason: the abelianization having exponent 2 forces nothing, since (Z/2)^× is trivial. So the lemma is false at p = 2 and 'a stated result' is right. The correction is the right one, and the use downstream is unaffected: e enters only through the requirement that L contain the e-th roots of unity, which is vacuous for e ∈ {1, 2}.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.7, case p = 3, n = 6, p.14, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"By Lemma 4.6, the exponent of U¹ is divisible by 9. Hence it suffices to show that M⁴ is conjugate to M\"",
+   "correction": "\"… the exponent of U¹ divides 9.\"",
+   "reason": "Lemma 4.6 with m = 2 (2·9 > 6) gives exponent dividing 9, which is what the next sentence uses. Noted by the extraction (item 65).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'By Lemma~\\ref{l:exponent-0}, the exponent of $\\U^1$ is divisible by $9$. Hence it suffices to show that $M^4$ is conjugate to $M$'. The inference needs the exponent to divide 9: then the relevant group is (Z/9)^×, whose kernel to (Z/3)^× is {1,4,7}, generated by 4, which is exactly why M⁴ ~ M suffices.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E5",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.13, case a₂ ≠ 0, p.17, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Indeed, we may write Q as the product Q = e_{n−2,n}^{b_{n−2}} ⋯ e_{0,2}^{b_0} e_{0,3}\"",
+   "correction": "\"… e_{0,2}^{b_0} e_{0,3}^{a_2}\".",
+   "reason": "Q is defined on p.16 with Q_{0,3} = a₂; the printed product has (0,3) entry 1. The conjugation identity that follows does not involve Q_{0,3}. Noted by the extraction (item 71).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'we may write $Q$ as the product $Q = e_{n-2,n}^{b_{n-2}} \\dots e_{0,2}^{b_0} e_{0,3}$'. In the case at hand Q is the lift built from a₂ ≠ 0, so the last factor carries that exponent.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E6",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.3, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"… in which case the lemma trivially holds: any homomorphism Γ_K → U/Z lifts to Z since the obstruction lives in H²(K,Z) = H²(K,F_p).\"",
+   "correction": "\"… the proposition trivially holds: any homomorphism Γ_K → U/Z lifts to U …\"",
+   "reason": "This is the lifting problem for U → U/Z, whose obstruction lies in H²(K,Z). Noted in the extraction's report.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. Two slips in one sentence: the statement being proved is Proposition 5.3, not a lemma, and the lift is of a homomorphism to U/Z, so it is a lift to U; the obstruction group named immediately afterwards, H²(K,Z), is the obstruction to lifting to U.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E7",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.3, p.21 (twice), in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"… and as ρ_{v,u} is Γ_K-equivariant …\" and \"… provides an extension of ρ_{v,u} to a homomorphism S → Z\"",
+   "correction": "ρ_{u,v} in both places.",
+   "reason": "(5.5) defines ρ_{u,v}(Q) = u(Q − I)v, and the same paragraph uses ρ_{u,v}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator at both places, and the same paragraph names the map correctly in between: 'we will show that the retraction $\\rho_{u,v}\\colon\\P^{r,s} \\lrar \\Z$ itself extends to $\\mS$'. Only the order of the subscripts is wrong in the two quoted occurrences.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E8",
+   "kind": "misprint",
+   "locator": "Diagram (5.7), proof of Theorem 5.1, p.22, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Br_{1,nr}(V)/Br_0(V) → Br_{1,nr}(W)/Br_0(V)\"",
+   "correction": "\"Br_{1,nr}(W)/Br_0(W)\".",
+   "reason": "Br_0(V) is not a subgroup of Br(W); the next sentence concludes that the pull-back \"becomes constant in Br(W)\". Noted by the extraction (item 95).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator in the displayed diagram (eq:brvw): the target of the top map is written '\\Br_{1,\\nr}(W)/\\Br_0(V)'. The vertical map below it lands in H^1(k, \\what{\\P}^{r,s}), which is the W side, so the quotient must be by Br_0(W).",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E9",
+   "kind": "gap",
+   "locator": "Proofs of Theorem 5.1 (p.22) and Theorem 7.4 (p.28), with the definition of local field on p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"We are thus reduced to checking that W(k_v) ≠ ∅ for any place v of k … which is exactly what Proposition 5.3 provides when applied to the restriction of α to each Γ_{k_v}\", while p.19 says: \"Here and below, by a local field, we mean a complete discretely valued field with finite residue field.\"",
+   "correction": "Treat the archimedean places separately. For v complex, Γ_{k_v} is trivial. For v real and p odd, U/P^{r,s} is a p-group, so the restriction of α to Γ_{k_v} ≅ C₂ is trivial. For v real and p = 2, the proof of Proposition 5.3 goes through: the split case is group theory, and in the non-split case H¹(R, Hom(P/Z, μ₂)) × H¹(R, P/Z) → H²(R, μ₂) is perfect (Tate duality over R), so cup product with [γ] is onto.",
+   "reason": "The global argument needs local solvability at every place, but Proposition 5.3 is stated only for non-archimedean fields; the real places with p = 2 need an argument, which is short. Noted by the extraction (items 91, 117).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The reduction 'We are thus reduced to checking that $W(k_v)\\neq\\emptyset$ for any place~$v$ of~$k$' is verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator, and so is the convention that fixes the gap: 'Here and below, by a \\emph{local field}, we mean a complete discretely valued field with finite residue field.' Proposition 5.3 is therefore available only at the finite places, while the reduction quantifies over all of them. The archimedean cases are easy in the way the correction says, but they do need saying.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E10",
+   "kind": "error",
+   "locator": "Lemma 5.5, p.19, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Let Γ be a profinite group and 0 → A → B → C → 0 be a short exact sequence of discrete Γ-modules whose underlying sequence of abelian groups is split. … Let [γ] ∈ H¹(Γ, Hom(C,A)) be the class of this torsor\"",
+   "correction": "Assume C finitely generated (for example finite, as in the only application, C = P^{r,s}/Z). Otherwise Hom(C,A) with the discrete topology need not carry a continuous class.",
+   "reason": "Counterexample: Γ = ∏ C₂ (countably many factors), A = ⊕ F₂a_i and C = ⊕ F₂c_i with trivial action, B = A ⊕ C with g·c_i = c_i + g_i a_i. B is a discrete module and the sequence splits as groups, but γ(g)(c_i) = g_i a_i has kernel {1}, which is not open, so γ is not continuous into the discrete module Hom(C,A). Found by the extraction (item 139).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The class [γ] is taken in H¹(Γ, Hom(C,A)) for discrete Γ-modules A and C, and Hom(C,A) with the discrete topology is a discrete Γ-module only when the stabilizers are open, which finite generation of C guarantees and which can fail otherwise. The only application has C = P^{r,s}/Z finite, so adding the hypothesis costs nothing.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E11",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.1, p.23, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"P_4 is just a copy of the group of unitriangular 4 × 4-matrices whose first non-principal diagonal vanishes\"",
+   "correction": "\"… unitriangular 5 × 5-matrices …\"",
+   "reason": "P_4 is spanned by the e_{i,j} with j ≤ 4, i.e. indices 0,…,4: the group U¹ for n = 4, of 5 × 5 matrices. Noted by the extraction (item 97).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. P_4 is defined in the preceding sentence as the subgroup of U^1 spanned by the e_{i,j} with j ≤ 4, whose indices run over 0,…,4; that is a group of unitriangular 5 × 5-matrices, not 4 × 4.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E12",
+   "kind": "error",
+   "locator": "Proposition 7.3, p.26, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Defining systems Λ = {a_{i,j}} for the n-fold Massey product of {α_i ∈ H¹(k,M_{i,i+1})} are in bijection with group homomorphisms α_Λ : Γ_k → T(W)/Z(W) lifting α : Γ_k → A(W)\", where α is built from a choice of cocycles representing the α_i (pp.25–26).",
+   "correction": "Restrict to defining systems whose adjacent cochains a_{i,i+1} are the chosen cocycles. The existence statements used later are unaffected, since changing representatives conjugates α (the parenthetical on p.26).",
+   "reason": "Counterexample: Γ = C₂, R = F₃, N₀ the sign character and N₁ = N₂ = N₃ trivial, all α_i = 0. Then a_{01}(σ) = σ·1 − 1 with all other cochains 0 is a defining system, but it lifts no α built from the zero cocycles. Found by the extraction (item 111).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The bijection is asserted verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. A defining system is a collection of cochains a_{i,j} in which the adjacent ones a_{i,i+1} are arbitrary cocycle representatives of the classes α_i, whereas a lift of the fixed homomorphism α: Γ_k → A(W) has its adjacent entries pinned to the chosen representatives, so the two sets are not in bijection without the restriction. The existence statements used later are unaffected, as the entry says.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E13",
+   "kind": "misprint",
+   "locator": "Theorem 7.4, p.27, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"Theorem 7.4. Fix n ≥ 3 and let R = F_p … Then the n-fold Massey product of any n-tuple of classes {α_i ∈ H¹(k,M_{i,i+1})} vanishes as soon as it is defined.\"",
+   "correction": "Add \"Let k be a number field.\"",
+   "reason": "The statement leaves k unspecified, but the introduction announces it \"over number fields\" (p.4), and the proof runs the number-field method of Theorem 5.1 (HW20 Théorème B, places k_v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: Theorem 7.4 opens 'Fix $n \\geq 3$ and let $R=\\FF_p$ for a prime number $p$' and then speaks of classes in H¹(k, M_{i,i+1}) without introducing k. Section 7 opens with generalities over Γ_k for an unspecified field, so k is not fixed earlier, and the proof runs through the number-field results of §5.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E14",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7.4, p.27, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"… the action of A on each of the quotients U^m/U^{m+1} is diagonalizable, with eigenspaces given by the cyclic subgroups Hom_R(N_{i+m}, N_i).\"",
+   "correction": "Hom_R(N_{i+m+1}, N_i).",
+   "reason": "U^m/U^{m+1} is spanned by the entries e_{i,j} with j − i = m + 1. Noted by the extraction (item 114).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The indexing settles it: U^m is generated by the e_{i,j} with j − i > m, so U^m/U^{m+1} is spanned by those with j − i = m + 1, and e_{i,j} corresponds to Hom_R(N_j, N_i); the eigenspaces are therefore Hom_R(N_{i+m+1}, N_i).",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E15",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7.4, p.28, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "\"P^{r,s} = ⊕_{i=0}^{r} Hom_R(N_n,N_i) ⊕ ⊕_{j=n−s}^{n} Hom_R(N_j,N_0) ⊆ U¹\"",
+   "correction": "An internal sum (the subgroup generated, as in Definition 5.2), or let j run to n − 1.",
+   "reason": "The summands i = 0 and j = n are both the corner Z = Hom_R(N_n,N_0), so an external direct sum counts it twice. Noted by the extraction (item 116).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The two families overlap: i = 0 in the first gives Hom_R(N_n, N_0), and so does j = n in the second, so the expression is not a direct sum. Either reading in the correction repairs it.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/E16",
+   "kind": "misprint",
+   "locator": "Minor slips on pp.3, 7, 10, 18, 20, 22 and 29, in the author final version (33 pp., revised 9 December 2021, SHA-256 d95100eb…546f; identical to arXiv 1904.06512v2)",
+   "printed": "p.3: \"genericity assumptions on the classes α_1,…,α_n\"; p.7 (Theorem 2.6): \"Let V a homogeneous space\" and \"which is orthogonal Br_nr(V)\"; p.10 (Corollary 3.5): Ĥ^ab_v; p.18 (Remark 4.17): \"a complete determination … also in the cases n = 4, 5, 6 (see §6)\"; p.20: \"β̂ : Γ_k → P^{r,s}\"; p.22: \"Γ_{k_v} ⊆ Γ\"; p.29: \"Let L ⊂ k̄ … We henceforth identity Gal(L/Q) with C\".",
+   "correction": "p.3: α_0,…,α_{n−1}; p.7: \"Let V be a homogeneous space\", \"orthogonal to Br_nr(V)\"; p.10: Ĥ^ab_v̄; p.18: §6 determines the group for n = 4, 5 and states the n = 6 facts without details (p.24); p.20: Γ_K; p.22: Γ_k; p.29: L ⊂ Q̄ and \"identify\".",
+   "reason": "Each is a local slip with a clear intended reading: indexing (p.3), missing words (p.7), a missing bar (p.10), a slightly overstated cross-reference (p.18), the local field K and the global field k (pp.20, 22), and the base field Q of the Z/8 example in §7 (p.29).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1904.06512: v1 (13 April 2019) and v2 (5 January 2022, \"final version\"); v2 has the same text",
+    "O. Wittenberg's publications page https://www.math.univ-paris13.fr/~wittenberg/ lists errata for other papers but none for this one (checked 22 September 2026)",
+    "web search for an erratum or corrigendum, 22 September 2026: none found",
+    "the published Duke version (172 (2023), 1–41) could not be loaded from Project Euclid, so it was not compared"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed; I checked the ones I could locate in the source and each is as recorded — p.3 'Under genericity assumptions on the classes $\\alp_1,...,\\alp_n$' against the paper's own indexing α_0,…,α_{n−1}, p.7 'Let $V a homogeneous space' and 'which is orthogonal $\\Br_{\\nr}(V)$' with the preposition missing. Collecting these minor slips in one entry is reasonable; none carries mathematical content.",
+    "by": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23"
+   }
+  }
+ ]
 }
