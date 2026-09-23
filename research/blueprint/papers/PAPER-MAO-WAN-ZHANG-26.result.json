@@ -1,0 +1,1195 @@
+{
+  "paper": "PAPER-MAO-WAN-ZHANG-26",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Relative Langlands duality for some strongly tempered spherical varieties",
+    "authors": "Zhengyu Mao, Chen Wan and Lei Zhang",
+    "venue": "Inventiones Mathematicae 243 (2026), no. 3, 993–1036",
+    "doi": "10.1007/s00222-025-01388-z",
+    "arxiv": "2310.17837",
+    "url": "https://doi.org/10.1007/s00222-025-01388-z",
+    "readSections": [
+      "The published version is paywalled (Springer; received 8 April 2024, accepted 4 November 2025, online 11 November 2025) and was not read. Read instead, in full: the authors' version linked from the paper's entry (no. 15, with the Inventiones reference) on Chen Wan's research page, http://sites.rutgers.edu/chen-wan/wp-content/uploads/sites/518/2025/04/BZSV.pdf (35 pages, PDF created 9 April 2025; SHA-256 866ea0f479ae07835088921e9fcfc040360663647688bf856651f679037ff2c1; fetched 23 September 2026). It carries the published title, the published abstract and acknowledgements that thank an anonymous referee, so it is the refereed text, but it predates acceptance by seven months and may differ from the printed version in details. Page numbers in locators are this version's. Read: §1 (the BZSV framework, Conjectures 1.1, 1.5, 1.7, 1.8, Assumptions 1.10–1.11, Theorem 1.13 and §1.3.4), §2 (the six models, Tables 2–3, Conjectures 2.1 and 2.3), §3 (the Kuznetsov trace formula of SL_2, Definition 3.1, Proposition 3.3), §4 (Models 1–4: Proposition 4.2, Conjecture 4.3, Theorem 4.4), §5 (Models 5–6: the Fourier–Jacobi datum, Propositions 5.1, 5.3, 5.5, 5.7, Conjecture 5.8, Theorem 5.9), §6 (the GL_n and Sp_4n examples, Conjectures 6.1–6.3, Proposition 6.4) and the references. Misprints were checked on page images.",
+      "arXiv 2310.17837 v3 (5 March 2024, 30 pages, SHA-256 cedd05bdd7404b5d61f2db137fae5431e51f9a1c4919efc58c68ebbb45496042) was compared. It is titled 'BZSV duality for some strongly tempered spherical varieties' and proposes two families of comparisons (its §1.3 for quadruples not related to central values, §1.4 for rank-one spherical varieties), which the version read unifies as Conjecture 1.8 with the special cases of §§1.3.1–1.3.2. Its statements are numbered differently: its Conjecture 4.2, Theorem 4.3, Propositions 5.1–5.2, Conjecture 5.3 and Theorem 5.4 are Conjecture 4.3, Theorem 4.4, Propositions 5.5 and 5.7, Conjecture 5.8 and Theorem 5.9 here. The mathematics of §§3–6 is the same. The misprints E1, E2, E8, E12 (Sp_{2n}) and E13 and the sign inconsistency E9 are already in v3.",
+      "Cited inputs were not read: Ben-Zvi–Sakellaridis–Venkatesh (the structure theorem, the anomaly and splitting results and the period conjecture), Gan–Jun (degenerate Whittaker models), Barbasch–Vogan, Lapid–Mao, Wan–Zhang, Mao–Rallis (Duke 87 (1997), Compositio 140 (2004), Duke 152 (2010)), Kudla's notes, Jacquet, Jacquet–Ye, Friedberg–Jacquet, Ginzburg–Rallis–Soudry, Sakellaridis and Knop–Schalke. Items resting on them state them as the paper uses them."
+    ]
+  },
+  "summary": "The paper places many relative trace formula comparisons in the framework of Ben-Zvi–Sakellaridis–Venkatesh (BZSV) relative Langlands duality. It proposes a conjecture on degenerate Whittaker (Bessel and Fourier–Jacobi) periods P_ι attached to an SL_2 of the dual group (Conjecture 1.5, extending Lapid–Mao's Whittaker conjecture), and a relative trace formula comparison (Conjecture 1.8) between I(f) = P_ι′(P_Δ(K_f)) on G and a Whittaker–Δ_1 trace formula on the group H′ dual to Ĝ_Δ. As evidence it proves the p-adic fundamental lemma and smooth transfer (Theorem 1.13) when the quadruple is the dual (Ĝ, Ĝ, ρ̂, 1) of one of six strongly tempered spherical varieties of Wan–Zhang with reductive part PGL_2 — (SL_6, ∧³), (S(GSpin_8 × GL_2), HSpin_8 ⊗ Std_2), (Spin_12, HSpin_12), (E_7, ω_7), (Spin_11, Spin_11), (S(GSpin_7 × GL_2), Spin_7 ⊗ Std_2). There the other side is the Kuznetsov trace formula of SL_2, and the orbital integrals of the theta-series trace formula are integrals over a degree-three Jordan algebra (Models 1–4, Bessel case, after Mao–Rallis) or involve an extra Fourier–Jacobi theta series (Models 5–6). §6 gives two further examples of Conjecture 1.5, one for GL_n and one with a non-special orbit on Sp_4n. Nothing in the atlas or among the pending candidates treats relative Langlands duality, periods of spherical varieties or the Kuznetsov trace formula, so all 72 missing items go to one new roadmap. It imports the Weil representation and theta series from MetaplecticAutomorphicForms, kernels and spectra from AutomorphicSpectralTheory and AutomorphicFormsOnReductiveGroups, and spin, half-spin and E_7 representations from Tau Ceti. Fourteen source issues are recorded. The one of substance (E9) is a sign inconsistency in the Models 5–6 unfolding: Proposition 5.7 as printed does not match (5.8) or the paper's own germ computation. The fundamental lemma is unaffected and Theorem 1.13 stands once the sign is corrected.",
+  "items": [
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/1",
+      "kind": "definition",
+      "name": "BZSV quadruples and their Hamiltonian spaces",
+      "statement": "Let k be a global field and G a split connected reductive group over k. A BZSV quadruple is Δ = (G, H, ρ_H, ι) with H a split reductive subgroup of G, ρ_H a symplectic representation of H and ι : SL_2 → G a homomorphism whose image commutes with H; it determines a G-Hamiltonian space M_Δ (Ben-Zvi–Sakellaridis–Venkatesh (3.17)). Δ is hyperspherical if M_Δ is hyperspherical in the sense of BZSV §3.5.1, whose main condition is the coisotropic one: the field of G-invariant rational functions on M_Δ is Poisson-commutative.",
+      "locator": "§1.1, p. 2",
+      "status": "missing",
+      "note": "The paper works throughout with quadruples instead of Hamiltonian spaces; the construction of M_Δ and the hyperspherical conditions are BZSV's and are only cited."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/2",
+      "kind": "theorem",
+      "name": "Structure theorem for hyperspherical Hamiltonian spaces (Ben-Zvi–Sakellaridis–Venkatesh, Theorem 3.6.1)",
+      "statement": "Every hyperspherical G-Hamiltonian space is associated to a BZSV quadruple (G, H, ρ_H, ι).",
+      "locator": "§1.1, p. 2 (citing BZSV Theorem 3.6.1)",
+      "status": "missing",
+      "note": "Imported from BZSV; the paper uses it only to replace Hamiltonian spaces by quadruples."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/3",
+      "kind": "theorem",
+      "name": "Finite-dimensional sl₂-modules: complete reducibility and the irreducibles Sym^k",
+      "statement": "Over an algebraically closed field of characteristic zero, every finite-dimensional sl₂-module is a direct sum of irreducibles, and every finite-dimensional irreducible sl₂-module is isomorphic to the standard module V(n) = Sym^n of dimension n + 1 for exactly one n ∈ ℕ.",
+      "locator": "§1.1, p. 2 and §1.2, p. 6 (used implicitly in the decompositions ⊕ ρ_k ⊗ Sym^k)",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.exists_isCompl_of_toLieSubalgebra_eq_top",
+        "tauceti:TauCeti.Sl2Std.existsUnique_nonempty_lieModuleEquiv"
+      ],
+      "note": "Tau Ceti proves both halves: complete reducibility for a Lie algebra generated by an sl₂-triple (exists_isCompl_of_toLieSubalgebra_eq_top) and the classification of the irreducibles as Sl2Std K n (Sl2Std.existsUnique_nonempty_lieModuleEquiv), read at the pinned commit."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/4",
+      "kind": "construction",
+      "name": "The decomposition 𝔤 = ⊕ ρ_k ⊗ Sym^k and the symplectic representation ρ_{H,ι}",
+      "statement": "For a BZSV quadruple Δ = (G, H, ρ_H, ι), ι extends to ι : H × SL_2 → G and the adjoint action of H × SL_2 on 𝔤 decomposes as 𝔤 = ⊕_{k∈I} ρ_k ⊗ Sym^k with ρ_k representations of H and I ⊂ ℤ_{≥0} finite; the adjoint representation of H is a subrepresentation of ρ_0. Set ρ_{H,ι} = ρ_H ⊕ (⊕_{i odd} ρ_i); it is a symplectic representation of H. For a dual pair (Δ, Δ̂ = (Ĝ, Ĥ′, ρ_{Ĥ′}, ι̂′)) the same decomposition 𝔤̂ = ⊕_{k∈Î} ρ̂_k ⊗ Sym^k is made on the dual side.",
+      "locator": "§1.1, pp. 2–3",
+      "status": "missing",
+      "note": "Rests on the sl₂ decomposition (the library item above); the symplectic form on the odd summands comes from the Killing form and the invariant form on Sym^k."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/5",
+      "kind": "definition",
+      "name": "Anomaly-free quadruples and the BZSV duality",
+      "statement": "Δ is anomaly-free if ρ_{H,ι} is an anomaly-free symplectic representation of H (BZSV Definition 5.1.2 and Proposition 5.1.5). The BZSV duality is a conjectural duality between anomaly-free hyperspherical BZSV quadruples of G and of the dual group Ĝ; for dual quadruples Δ = (G, H, ρ_H, ι) and Δ̂ = (Ĝ, Ĥ′, ρ_{Ĥ′}, ι̂′), Ĥ′ = Ĝ_Δ is the 'dual group' of Δ, while H and Ĥ′ (and ι and ι̂′) are not dual to each other in general.",
+      "locator": "§1.1, p. 2 and footnote 1",
+      "status": "missing",
+      "note": "The duality is conjectural; the paper uses specific instances computed in its companion [26] (arXiv:2405.17699), Knop–Schalke's dual groups and Sakellaridis's unramified computations."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/6",
+      "kind": "theorem",
+      "name": "Anomaly-free representations split the metaplectic cover (BZSV Proposition 5.1.1)",
+      "statement": "If ρ_{H,ι} : H → Sp(V) is anomaly-free, the metaplectic double cover Sp̃(V) splits over Im(ρ_{H,ι}): the preimage of Im(ρ_{H,ι}) in Sp̃(V) is isomorphic to ℤ/2ℤ × Im(ρ_{H,ι}). Composing ρ_{H,ι} with the embedding Im(ρ_{H,ι}) → ℤ/2ℤ × Im(ρ_{H,ι}) gives a homomorphism H → Sp̃(V), so the Weil representation Ω_ψ restricts to a representation of H(𝔸) on 𝒮(Y(𝔸)) for Y ⊂ V maximal isotropic.",
+      "locator": "§1.1, p. 3 (citing BZSV Proposition 5.1.1)",
+      "status": "missing",
+      "note": "Imported; the metaplectic cover and the Weil representation themselves are planned in MetaplecticAutomorphicForms, the anomaly criterion for a reductive subgroup is not."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/7",
+      "kind": "construction",
+      "name": "The global Weil representation and theta series of a symplectic space",
+      "statement": "For a symplectic space V over k, a maximal isotropic subspace Y and a nontrivial character ψ of 𝔸/k, the Weil representation Ω_ψ of Sp̃(V)(𝔸) on 𝒮(Y(𝔸)), and for φ ∈ 𝒮(Y(𝔸)) the theta series Θ^φ_ψ(g) = Σ_{X∈Y(k)} Ω_ψ(g)φ(X), which is left-invariant under the rational points (through the canonical splitting over Sp(V)(k)).",
+      "locator": "§1.1, p. 3; (2.1), p. 13",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.4",
+        "MetaplecticAutomorphicForms:MP.5"
+      ],
+      "note": "The adelic cover, the Weil representation on the restricted tensor product of Schwartz spaces and the rational splitting are MP.4; theta series, their convergence and automorphy are MP.5. Restricting along H → Sp̃(V) needs the splitting item above."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/8",
+      "kind": "definition",
+      "name": "The period integral P_Δ of a BZSV quadruple",
+      "statement": "Assume the centres of G and Ĝ finite (otherwise one divides by the centre). For ϕ an automorphic function on G(k)\\G(𝔸) and φ ∈ 𝒮(Y(𝔸)), Y a maximal isotropic subspace of the space of ρ_{H,ι}, P_Δ(ϕ, φ) = ∫_{H(k)\\H(𝔸)} P_ι(ϕ)(h) Θ^φ_ψ(h) dh, with P_ι the degenerate Whittaker period (1.1). The dual period P_Δ̂(ϕ, φ) is defined in the same way for automorphic forms on Ĝ(𝔸) and φ ∈ 𝒮(Ŷ′(𝔸)), Ŷ′ maximal isotropic in the space of ρ_{Ĥ′,ι̂′}. For non-cuspidal ϕ these integrals generally diverge and need a regularisation, of which Zydor's gives examples; no general method is available.",
+      "locator": "§1.1, p. 3",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/9",
+      "kind": "definition",
+      "name": "Tempered Arthur parameters, factoring through ι̂′, and lifting",
+      "statement": "With L_k the hypothetical global Langlands group of k, an Arthur parameter ϕ : L_k × SL_2(ℂ) → Ĝ(ℂ) of a split group G is tempered if ϕ|_{SL_2} = 1 (and its packet is then called tempered). For ι̂′ : Ĥ′(ℂ) × SL_2(ℂ) → Ĝ(ℂ), ϕ factors through ι̂′ if, after Ĝ(ℂ)-conjugation, there is an Arthur parameter ϕ_{H′} : L_k × SL_2(ℂ) → Ĥ′(ℂ) of H′ with ϕ_{H′}|_{L_k} = ϕ|_{L_k} and ϕ(x) = ϕ_{H′}(x)ι̂′(x) for x ∈ SL_2(ℂ); the Arthur packet of G(𝔸) of ϕ is then a lifting of the packet of H′(𝔸) of ϕ_{H′}.",
+      "locator": "Remark 1.3, p. 4",
+      "status": "missing",
+      "note": "Conjectural framework (the Langlands group is hypothetical). For classical groups the known Arthur–Mok–KMSW classification is ModularityAndLanglandsExtensions ML.4, which the brief imports where a known case is meant."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/10",
+      "kind": "theorem",
+      "name": "Conjecture 1.1(1) (Ben-Zvi–Sakellaridis–Venkatesh, Conjecture 14.3.5 and (14.26)): the period P_Δ",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸). For every embedding ν : π → L²(G(k)\\G(𝔸))_π, P_Δ(ϕ), ϕ ∈ Im(ν), is nonzero only if the Arthur parameter of π factors through ι̂′ : Ĥ′(ℂ) × SL_2(ℂ) → Ĝ(ℂ); then π is a lifting of an Arthur packet Π of H′(𝔸) (H′ the Langlands dual of Ĥ′), and if Π is tempered one can choose ν so that |P_Δ(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, Π, ρ_{Ĥ′}) · ∏_{k∈Î} L(k/2 + 1, Π, ρ̂_k) / L(1, Π, Ad)² for ϕ ∈ Im(ν), ⟨ , ⟩ the L²-norm.",
+      "locator": "Conjecture 1.1(1), p. 3",
+      "status": "missing",
+      "note": "A conjecture, recorded as the statement the roadmap formalises; “=” is made precise by the next item."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/11",
+      "kind": "theorem",
+      "name": "Conjecture 1.1(2): the dual period P_Δ̂",
+      "statement": "Let π be an irreducible discrete automorphic representation of Ĝ(𝔸). For every embedding ν : π → L²(Ĝ(k)\\Ĝ(𝔸))_π, P_Δ̂(ϕ), ϕ ∈ Im(ν), is nonzero only if the Arthur parameter of π factors through ι : H(ℂ) × SL_2(ℂ) → G(ℂ); then π is a lifting of an Arthur packet Π of Ĥ(𝔸), and if Π is tempered one can choose ν so that |P_Δ̂(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, Π, ρ_H) · ∏_{k∈I} L(k/2 + 1, Π, ρ_k) / L(1, Π, Ad)².",
+      "locator": "Conjecture 1.1(2), pp. 3–4",
+      "status": "missing",
+      "note": "A conjecture."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/12",
+      "kind": "definition",
+      "name": "The meaning of “=” in the period conjectures",
+      "statement": "To state an exact identity one replaces the local L-factors at ramified places by the local relative characters of the (conjectural) Plancherel decomposition (Sakellaridis–Venkatesh §17, BZSV §9), and adds Dedekind zeta values determined by G and H (in known examples the L-function of the dual M^∨ of Gross's motive of (G, H)) and a global constant determined by the component group of the global L-packet of Π (BZSV (14.26)); BZSV formulate the conjecture only for everywhere unramified representations.",
+      "locator": "Remark 1.2 and footnote 3, p. 4",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/13",
+      "kind": "construction",
+      "name": "The Weil representation of a Heisenberg group and its theta series",
+      "statement": "For a symplectic space W, the Heisenberg group H(W) = W × (centre) with the group law given by half the symplectic pairing, its Schrödinger model on 𝒮(Y) for a polarisation W = X ⊕ Y with central character ψ, the extension to the Jacobi group H(W) ⋊ Sp̃(W), the explicit action of unipotent elements, and the global theta series Σ_{X∈Y(k)} Ω(u)φ(X).",
+      "locator": "§1.2, pp. 5–6 (through Gan–Jun §2.3.2); §5.1, p. 19 (Ω_{n,ψ}); Propositions 5.1 and 5.3 (through Kudla's notes)",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.0",
+        "MetaplecticAutomorphicForms:MP.1",
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.5"
+      ],
+      "note": "Schrödinger models of Heisenberg groups are MP.0, Stone–von Neumann and the metaplectic extension MP.1, the explicit operator formulas MP.2 and theta sums MP.5."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/14",
+      "kind": "definition",
+      "name": "The degenerate Whittaker coefficient P_ι; Bessel and Fourier–Jacobi periods",
+      "statement": "For ι : SL_2 → G with nilpotent orbit O_ι of 𝔤, let U = {g ∈ G : lim_{t→0} ι(diag(t, t^{−1})) g ι(diag(t, t^{−1}))^{−1} = 1}. The character ψ gives a Weil representation Ω′_ψ of U(𝔸) on 𝒮(Z(𝔸)), Z a maximal isotropic subspace of the weight-one space of 𝔲 under Ad ι(diag(t, t^{−1})) (Gan–Jun §2.3.2), with theta series Θ^φ_{U,ψ}(u) = Σ_{X∈Z(k)} Ω′_ψ(u)φ(X); the degenerate Whittaker coefficient is (1.1) P_ι(ϕ, φ) = ∫_{U(k)\\U(𝔸)} ϕ(u) Θ^φ_{U,ψ}(u) du (written P_ι(ϕ)). If O_ι is even (Gan–Jun §2.3) Θ^φ_{U,ψ} is a character of U(k)\\U(𝔸) and P_ι is a Bessel period; otherwise it is a Fourier–Jacobi period.",
+      "locator": "§1.2, pp. 5–6",
+      "status": "missing",
+      "note": "Bessel and Fourier–Jacobi models of classical groups are in the pending candidate GanGrossPrasadConjecturesForClassicalGroups; the general degenerate Whittaker coefficient attached to an arbitrary nilpotent orbit is not."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/15",
+      "kind": "definition",
+      "name": "Barbasch–Vogan duality and special nilpotent orbits",
+      "statement": "A nilpotent orbit O_ι̂ of 𝔤̂ induces, by the duality of the appendix of Barbasch–Vogan (Ann. of Math. 121 (1985)), a special nilpotent orbit O_ι of 𝔤 (special in the sense of Barbasch–Vogan Definition 1.10).",
+      "locator": "§1.2, p. 6",
+      "status": "missing",
+      "note": "Used to attach the period P_ι on G to an SL_2 of the dual group."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/16",
+      "kind": "construction",
+      "name": "The representation ρ̂_ι̂ of the centraliser Ĥ_ι̂",
+      "statement": "Fix ι̂ : SL_2 → Ĝ in the class of O_ι̂ and let Ĥ_ι̂ be the neutral component of the centraliser of Im(ι̂) in Ĝ; the adjoint action of Ĥ_ι̂ × SL_2 on 𝔤̂ decomposes as ⊕_{k∈Î} ρ̂_k ⊗ Sym^k. Since the adjoint representation is orthogonal, ρ̂_k is symplectic for k odd, and (1.2) ⊕_{k odd} ρ̂_k = (⊕_j τ_j ⊕ τ_j^∨) ⊕ (⊕_i σ_i) with the σ_i distinct self-dual irreducible symplectic representations of Ĥ_ι̂ — those occurring an odd number of times. Define (1.3) ρ̂_ι̂ = ⊕_i σ_i.",
+      "locator": "§1.2, (1.2)–(1.3), p. 6",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/17",
+      "kind": "theorem",
+      "name": "Conjecture 1.5: the degenerate Whittaker period",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸) and ν : π → L²(G(k)\\G(𝔸))_π an embedding, and assume the Arthur parameter of π factors through ι̂ (π is a lifting of a global Arthur packet Π of H_ι̂(𝔸), H_ι̂ dual to Ĥ_ι̂) with Π tempered. Then one can choose ν so that |P_ι(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, Π, ρ̂_ι̂) / ∏_{k∈Î} L(k/2 + 1, Π, ρ̂_k) for ϕ ∈ ν(π).",
+      "locator": "§1.2, Conjecture 1.5, p. 6",
+      "status": "missing",
+      "note": "The paper's new conjecture; the evidence it cites is Lapid–Mao (next item but one), Lapid–Rallis Proposition 4 for principal orbits of the Levis GL_n × GL_n, GL_n, GL_{2n} of GL_{2n}, SO_{2n}, Sp_{4n}, the relative trace formula comparisons below, and §6."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/18",
+      "kind": "definition",
+      "name": "The exact form of Conjecture 1.5",
+      "statement": "Explicitly one expects |P_ι(ϕ)|²/⟨ϕ, ϕ⟩ = ∗ · c(Π) · ∏_{v∈S} l(ϕ_v) · L(1/2, Π, ρ̂_ι̂)/∏_{k∈Î} L(k/2 + 1, Π, ρ̂_k), with ∗ special values of Dedekind zeta functions, c(Π) a constant depending on the component group of the global L-packet of Π, S the ramified places of Π (including the archimedean ones) and l(ϕ_v) local factors; for a function field and Π everywhere unramified the product over S is absent. When O_ι is not regular the local twisted Jacquet module of ι is infinite-dimensional in general but expected to be finite- (even one-) dimensional for representations whose parameter factors through ι̂′, so l(ϕ_v) might be defined as a regularised Fourier coefficient of a matrix coefficient; the paper does not pursue this.",
+      "locator": "Remark 1.6, pp. 6–7",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/19",
+      "kind": "theorem",
+      "name": "The Lapid–Mao conjecture for Whittaker–Fourier coefficients (Lapid–Mao, J. Number Theory 146 (2015), Conjecture 1.1)",
+      "statement": "When O_ι̂ is the zero orbit (equivalently O_ι is the regular orbit), P_ι is the Whittaker coefficient and Conjecture 1.5 is Lapid–Mao's conjecture, with the constants ∗ and c(Π) of Lapid–Mao (1.2) and Conjecture 1.1 and the local factor l(ϕ_v) the regularised Fourier coefficient (along the maximal unipotent subgroup) of the matrix coefficient (Lapid–Mao §2). The paper also uses it for the Whittaker period of H′ in (1.4).",
+      "locator": "Remark 1.6, p. 7; §1.3, p. 8",
+      "status": "missing",
+      "note": "Imported as a conjecture. The pending candidate GanGrossPrasadConjecturesForClassicalGroups carries Lapid–Mao's Bessel form (m = 0 of Liu's refined conjecture), not this Whittaker form."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/20",
+      "kind": "construction",
+      "name": "The auxiliary quadruples Δ̂_1 and Δ_1",
+      "statement": "For dual quadruples Δ = (G, H, ρ_H, ι) and Δ̂ = (Ĝ, Ĥ′, ρ_{Ĥ′}, ι̂′), set Δ̂_1 = (Ĥ′, Ĥ′, ρ_{Ĥ′} ⊕ ρ̂_ι̂′, 1), a quadruple of Ĥ′ whose Hamiltonian space is the symplectic vector space of ρ_{Ĥ′} ⊕ ρ̂_ι̂′, and let Δ_1 = (H′, H_1, ι_1, ρ_{H_1}) be its dual; Mao–Wan–Zhang (arXiv:2405.17699) give an algorithm computing the dual of a quadruple of this symplectic-vector-space type.",
+      "locator": "§1.3, pp. 7–8",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/21",
+      "kind": "theorem",
+      "name": "Conjecture 1.7: the product P_Δ · P_ι′",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸) whose Arthur parameter factors through ι̂′ : Ĥ′(ℂ) × SL_2(ℂ) → Ĝ(ℂ) (π a lifting of an Arthur packet Π of H′(𝔸)), with Π tempered. Then one can choose ν : π → L²(G(k)\\G(𝔸))_π so that P_Δ(ϕ, φ) · P_ι′(ϕ)/⟨ϕ, ϕ⟩ “=” √(L(1/2, Π, ρ_{Ĥ′} ⊕ ρ̂_ι̂′)) / L(1, Π, Ad) for ϕ ∈ Im(ν) and φ ∈ 𝒮(Y(𝔸)).",
+      "locator": "§1.3, Conjecture 1.7, p. 8",
+      "status": "missing",
+      "note": "Deduced heuristically from Conjectures 1.1 and 1.5."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/22",
+      "kind": "definition",
+      "name": "The two relative trace formulas I(f) and J(f′)",
+      "statement": "Let N′ be a maximal unipotent subgroup of H′, ξ′ a generic character of N′(k)\\N′(𝔸) and K_{f′} the kernel of f′ ∈ 𝒮(H′(𝔸)). Put J(f′) = P_{Δ_1}(P_{N′,ξ′,1}(K_{f′})) with P_{N′,ξ′,1}(K_{f′})(y) = ∫_{N′(k)\\N′(𝔸)} K_{f′}(n, y)ξ′(n) dn. For f ∈ 𝒮(G(𝔸)) with kernel K_f put I(f) = P_ι′(P_{Δ,1}(K_f)), where P_{Δ,1}(K_f)(y) = P_Δ(K_f(·, y)). By Lapid–Mao and Conjecture 1.1 for P_{Δ_1}, the discrete part of J(f′) should be (1.4) J_disc(f′) “=” Σ_Π √(L(1/2, Π, ρ_{Ĥ′} ⊕ ρ̂_ι̂′))/L(1, Π, Ad), Π over the global discrete generic Arthur packets of H′(𝔸); by Conjecture 1.7 the discrete part of I(f) should have the same form.",
+      "locator": "§1.3, (1.4), pp. 8–9",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/23",
+      "kind": "construction",
+      "name": "The automorphic kernel of a test function",
+      "statement": "For f a test function on G(𝔸) (modulo a central subgroup where needed), K_f(x, y) = Σ_{γ∈G(k)} f(x^{−1}γy), the kernel of the right regular action R(f) on L²(G(k)\\G(𝔸)).",
+      "locator": "§1.3, p. 8; §3, p. 14; §4.1, p. 16",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.6"
+      ],
+      "note": "AS.6 builds the automorphic kernel for compactly supported smooth test functions. The paper states its distributions for Schwartz functions; the Schwartz-function version is carried by the pending candidate AutomorphicSpectralTheoryPartIISchwartzMultipliers, and the local statements proved here only use compactly supported functions."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/24",
+      "kind": "definition",
+      "name": "Discrete automorphic representations and their L²-embeddings",
+      "statement": "Irreducible discrete automorphic representations π of G(𝔸), embeddings ν : π → L²(G(k)\\G(𝔸))_π (or L²(Ĝ(k)\\Ĝ(𝔸)/A_Ĝ(𝔸))_π), cuspidal and generic cuspidal representations, and orthonormal bases of Π used in the spectral expansions.",
+      "locator": "§1.1, Conjecture 1.1, p. 3; §1.3, p. 8; Conjectures 2.1 and 2.3, pp. 13–14",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicSpectralTheory:AS.4"
+      ],
+      "note": "Automorphic spaces and representations are AF.2; the discrete spectrum and the L²-decomposition are AS.4."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/25",
+      "kind": "theorem",
+      "name": "Conjecture 1.8 and its local form (Remark 1.9)",
+      "statement": "There should be a comparison between I(f) and J(f′). Precisely: with Z, Z_1 and Z′ the spaces whose Schwartz functions enter P_Δ, P_{Δ_1} and P_ι′, so that the distributions are J(f′, φ_1) and I(f, φ, φ′), there should be a local correspondence (f_v, φ_v, φ′_v) ↔ (f′_v, φ_{1,v}) between 𝒮(G_v) × 𝒮(Z_v) × 𝒮(Z′_v) and 𝒮(H′_v) × 𝒮(Z_{1,v}) such that at almost all p-adic places, with φ_v, φ′_v, φ_{1,v} the characteristic functions of the integral lattices, its restriction to Hecke algebras is a homomorphism of the Hecke algebras of G_v and H′_v, and I(⊗f_v, ⊗φ_v, ⊗φ′_v) = J(⊗f′_v, ⊗φ_{1,v}) whenever the local components correspond.",
+      "locator": "§1.3, Conjecture 1.8 and Remark 1.9, p. 9",
+      "status": "missing",
+      "note": "Such comparisons are usually proved by unfolding both sides into orbital integrals and proving a fundamental lemma and smooth transfer."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/26",
+      "kind": "construction",
+      "name": "Special case 1 (Assumption 1.10): comparison with the Kuznetsov trace formula of H′",
+      "statement": "Assumption 1.10: ρ_{Ĥ′} and ρ̂_ι̂′ are zero. Then Δ̂_1 = (Ĥ′, Ĥ′, 0, 1), its dual is Δ_1 = (H′, 1, 0, ι_{H′,reg}) with ι_{H′,reg} the regular nilpotent orbit of H′, P_{Δ_1} is the Whittaker period and J(f′) is the Kuznetsov relative trace formula of H′.",
+      "locator": "§1.3.1, p. 9",
+      "status": "missing",
+      "note": "All the paper's evidence belongs to this case."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/27",
+      "kind": "construction",
+      "name": "Special case 2 (Assumption 1.11): rank-one spherical varieties",
+      "statement": "Assumption 1.11: ι is trivial, ρ_H = 0 and G/H is a rank-one spherical variety (Sakellaridis, Duke 170 (2021), Table 1). Then Ĥ′ = PGL_2 or SL_2, and (G, H, ρ_H, ι) satisfies Assumption 1.10 iff ρ_{Ĥ′} = 0; among the rank-one models exactly (1.5) (PGL_2, GL_1), (SO_{2n+1}, SO_{2n}), (Sp_4, Sp_2 × Sp_2), (G_2, SL_3) do not. For these, Δ_1 = (PGL_2, GL_1, 0, 1), Δ̂_1 = (SL_2, SL_2, Std ⊕ Std, 1) and J(f′) = ∫_{N′(k)\\N′(𝔸)} ∫_{T(k)\\T(𝔸)} K_{f′}(x, y)ξ′(x)^{−1} dy dx (T = GL_1 ⊂ H′ = PGL_2), Jacquet's Whittaker–Hecke trace formula (Proc. Indian Acad. Sci. 97 (1987)); Conjecture 1.8 is then an analogue of Sakellaridis's rank-one comparison, with standard rather than generalised Schwartz test functions. Remark 1.12: the case (PGL_2, GL_1) is trivial; (Sp_4, Sp_2 × Sp_2) essentially follows from Mao–Rallis (Duke 152 (2010)); for (SO_5, SO_4) the fundamental lemma is Zinoviev's.",
+      "locator": "§1.3.2, (1.5) and Remark 1.12, pp. 9–10",
+      "status": "missing",
+      "note": "Footnote 5: as varieties PGL_2/GL_1 ≃ SO_3/SO_2, Sp_4/(Sp_2 × Sp_2) ≃ SO_5/SO_4 and G_2/SL_3 ≃ SO_7/SO_6."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/28",
+      "kind": "theorem",
+      "name": "Theorem 1.13: fundamental lemma and smooth transfer for the duals of the six models",
+      "statement": "When (G, H, ρ_H, ι) is the dual (Ĝ, Ĝ, ρ̂, 1) of one of the six models of Table 1 (so Ĥ′ = PGL_2 and H′ = SL_2), the fundamental lemma and the smooth transfer for the relative trace formula comparison of Conjecture 1.8 hold at the p-adic places.",
+      "locator": "§1.3.3, Theorem 1.13, p. 10 (proved by Proposition 3.3, Theorem 4.4 and Theorem 5.9)",
+      "status": "missing",
+      "note": "The main theorem; in the paper's own formulation (Conjectures 4.3 and 5.8) the fundamental lemma for Models 5–6 assumes residual characteristic ≠ 2."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/29",
+      "kind": "definition",
+      "name": "The six strongly tempered models of Table 1",
+      "statement": "The models (G, H = H_0 ⋉ U, Ĝ, ρ̂) with H_0 = PGL_2: (1) PGL_6, SL_6, ∧³; (2) GSO_8 × GL_2/GL_1, S(GSpin_8 × GL_2), HSpin_8 ⊗ Std_2; (3) PGSO_12, Spin_12, HSpin_12; (4) E_{7,ad}, E_{7,sc}, ω_7; (5) PGSp_10, Spin_11, Spin_11; (6) GSp_6 × GL_2/GL_1, S(GSpin_7 × GL_2), Spin_7 ⊗ Std_2. Here S(GSpin_n × GL_2) = {(g_1, g_2) : l(g_1)det(g_2) = 1} with l the similitude character. They are the models of Wan–Zhang (Memoirs AMS) whose reductive part has rank 1, all Whittaker inductions of the trilinear GL_2-model; in Models 2 and 3 the two choices of H, exchanged by an outer automorphism, correspond to the two half-spin representations.",
+      "locator": "§1.1, Table 1, p. 5; footnote 4; §2, Table 2, p. 11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/30",
+      "kind": "definition",
+      "name": "The representations ρ̂ of Table 1",
+      "statement": "The exterior cube ∧³ of SL_6 (20-dimensional), the half-spin representations HSpin_8 of Spin_8 and HSpin_12 of Spin_12, the spin representations Spin_11 (32-dimensional) and Spin_7, the 56-dimensional representation ω_7 of E_{7,sc}, and their tensor products with the standard representation Std_2 of GL_2; each is symplectic.",
+      "locator": "§1.1, p. 5; §4.1, p. 16; §5.2, p. 20",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly"
+      ],
+      "note": "Spin and half-spin representations are Tau Ceti SpinRepresentations Layer 4 (Tau Ceti already has the half-spin modules spinPlus and spinMinus and Mathlib the spin group spinGroup); the 56-dimensional representation of E_7 from the Freudenthal triple system is an acceptance target of Tau Ceti LieHighestWeight Layer 8; exterior powers are Mathlib's exteriorPower."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/31",
+      "kind": "definition",
+      "name": "The Killing form",
+      "statement": "The Killing form ⟨X, Y⟩ = tr(ad X ∘ ad Y) on a Lie algebra, nondegenerate for a semisimple Lie algebra in characteristic zero.",
+      "locator": "§2, p. 12",
+      "status": "library",
+      "library": [
+        "mathlib:killingForm",
+        "mathlib:LieAlgebra.IsKilling.killingForm_nondegenerate"
+      ],
+      "note": "Used to write the generic character of U as ξ(exp X) = ψ(⟨Ξ, X⟩). For the reductive (non-semisimple) G of Models 2 and 6 a nondegenerate invariant form must be meant."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/32",
+      "kind": "construction",
+      "name": "The parabolic P = MU, generic characters of U and the element Ξ",
+      "statement": "In each model G has a parabolic P = MU with Levi M of type A_1 × A_1 × A_1; M acts on the characters of U with a Zariski open orbit, whose members are the generic characters; fix one, ξ. For Models 1, 3, 4, 5 the stabiliser of ξ in M is H_0 = PGL_2; for Models 2 and 6 it is GL_2 × GL_2/GL_1^diag, into which H_0 = PGL_2 embeds diagonally. There is Ξ ∈ 𝔲̄ (P̄ = MŪ the opposite parabolic) with ξ(exp X) = ψ(⟨Ξ, X⟩), namely (α_i the simple roots): Model 1 (type A_5, α_i = e_i − e_{i+1}): P from α_1, α_3, α_5 and Ξ = X_{−α_1−α_2} + X_{−α_2−α_3} + X_{−α_3−α_4} + X_{−α_4−α_5}; Model 2 (type D_4, α_4 = e_3 + e_4): P = GL_2 × (the parabolic of GSO_8 from α_1, α_3), Ξ = X_{−α_1−α_2} + X_{−α_2−α_3} + X_{−α_4}; Model 3: P ⊂ GSO_12 from α_1, α_3, α_5, Ξ = X_{−α_1−α_2} + X_{−α_2−α_3} + X_{−α_3−α_4} + X_{−α_4−α_5} + X_{−α_6}; Model 4 (E_7, Bourbaki labels): P from α_2, α_5, α_7, Ξ = X_{−α_2−α_4} + X_{−α_4−α_5} + X_{−α_5−α_6} + X_{−α_6−α_7} + X_{−α_1} + X_{−α_3}; Model 5 (type C_5, α_5 = 2e_5): P ⊂ GSp_10 from α_1, α_3, α_5, Ξ = X_{−α_1−α_2} + X_{−α_2−α_3} + X_{−α_3−α_4} + X_{−α_4−α_5}; Model 6: P = GL_2 × (the parabolic of GSp_6 from α_1, α_3), Ξ = X_{−α_1−α_2} + X_{−α_2−α_3}.",
+      "locator": "§2, pp. 11–12",
+      "status": "missing",
+      "note": "Model 2 is printed with 'Type B_n' for the D_n root system (sourceIssues E1)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/33",
+      "kind": "construction",
+      "name": "The SL_2-embedding ι and the dual quadruples Δ and Δ̂",
+      "statement": "Ξ induces ι : SL_2 → G with ι((1 0; 1 1)) = exp(Ξ); the centraliser of ι(T_{SL_2}) is M and H_0 commutes with Im(ι), giving ι : H_0 × SL_2 → G. In BZSV terms the models give the dual quadruples Δ = (G, H_0, 0, ι) and Δ̂ = (Ĝ, Ĝ, ρ̂, 1), where ι is attached to the Richardson orbit of U and 1 is the trivial SL_2-embedding.",
+      "locator": "§1.1, p. 5; §2, p. 12",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/34",
+      "kind": "theorem",
+      "name": "Table 3: the sets I and the representations ρ_k",
+      "statement": "Î = {0} with ρ̂_0 the adjoint representation of Ĝ. With Std_2 the standard (three-dimensional) representation of H_0 = PGL_2: Model 1 I = {0, 2, 4}, ρ_0 = ρ_2 = ρ_4 = Std_2; Model 2 I = {0, 4}, ρ_0 = Std_2 ⊕ Std_2, ρ_4 = Std_2; Model 3 I = {0, 4, 8}, ρ_0 = ρ_4 = ρ_8 = Std_2; Model 4 I = {0, 8, 16}, ρ_0 = ρ_8 = ρ_16 = Std_2; Model 5 I = {0, 4, 8}, ρ_0 = ρ_4 = ρ_8 = Std_2; Model 6 I = {0, 4}, ρ_0 = Std_2 ⊕ Std_2, ρ_4 = Std_2. In particular (Ĝ, Ĝ, ρ̂, 1) satisfies Assumption 1.10.",
+      "locator": "§2, Table 3, p. 13",
+      "status": "missing",
+      "note": "Stated without proof; a finite computation with ι and the root data."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/35",
+      "kind": "theorem",
+      "name": "Conjecture 2.1: the (G, H)-side for the six models",
+      "statement": "Let π be a generic cuspidal automorphic representation of G(𝔸). One can find an embedding ν : π → 𝒜_cusp(G(𝔸))_π with |P_Δ(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, π, ρ̂)/L(1, π, Ad) for ϕ ∈ ν(π), where (Remark 2.2) P_Δ(ϕ) = ∫_{H_0(k)\\H_0(𝔸)} ∫_{U(k)\\U(𝔸)} ϕ(uh_0)ξ(u) du dh_0. The explicit version is Wan–Zhang's Conjecture 1.7.",
+      "locator": "§2, Conjecture 2.1 and Remark 2.2, p. 13",
+      "status": "missing",
+      "note": "A conjecture (Wan–Zhang)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/36",
+      "kind": "construction",
+      "name": "The theta series of ρ̂ on Ĝ",
+      "statement": "With ρ̂ : Ĝ → Sp(V), Y ⊂ V maximal isotropic and Ω_ψ the Weil representation of Sp̃(V) on 𝒮(Y(𝔸)), the cover splits over Im(ρ̂) and Ω_ψ restricts to Ĝ(𝔸); (2.1) Θ^φ_ψ(g) = Σ_{X∈Y(k)} Ω_ψ(g)φ(X) for g ∈ Ĝ(𝔸), φ ∈ 𝒮(Y(𝔸)). With A_Ĝ the maximal split torus of the centre Z_Ĝ (trivial for Models 1, 3, 4, 5 and ≃ GL_1 for Models 2 and 6), ρ̂ is trivial on A_Ĝ and Θ^φ_ψ is A_Ĝ(𝔸)-invariant.",
+      "locator": "§2, (2.1), p. 13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/37",
+      "kind": "theorem",
+      "name": "Conjecture 2.3: the dual side for the six models",
+      "statement": "Let π be an irreducible discrete automorphic representation of Ĝ(𝔸) with central character trivial on A_Ĝ(𝔸) and ν : π → L²(Ĝ(k)\\Ĝ(𝔸)/A_Ĝ(𝔸))_π an embedding. The period P_Δ̂(ϕ, φ) = ∫_{Ĝ(k)A_Ĝ(𝔸)\\Ĝ(𝔸)} ϕ(g)Θ^φ_ψ(g) dg (ϕ ∈ ν(π), φ ∈ 𝒮(Y(𝔸))) is nonzero only if the Arthur parameter of π factors through ι : H_0(ℂ) × SL_2(ℂ) → G(ℂ); then π is a lifting of a global tempered Arthur packet Π of Ĥ_0(𝔸) = SL_2(𝔸), and ν can be chosen so that |P_Δ̂(ϕ, φ)|²/⟨ϕ, ϕ⟩ “=” ∏_{k∈I} L(k/2 + 1, Π, ρ_k)/L(1, Π, Ad)².",
+      "locator": "§2, Conjecture 2.3, p. 14",
+      "status": "missing",
+      "note": "The paper's Theorem 1.13 is offered as evidence for this conjecture. Remark 2.4 notes that the lifting from SL_2 to Ĝ can also be obtained by theta correspondences with the minimal representations of Kazhdan–Savin, Ginzburg–Rallis–Soudry and Magaard–Savin."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/38",
+      "kind": "definition",
+      "name": "The Kuznetsov relative trace formula of SL_2",
+      "statement": "G′ = Ĥ_0 = SL_2, N′ its upper triangular unipotent subgroup, ξ′((1 x; 0 1)) = ψ(x); for f′ ∈ 𝒮(G′(𝔸)) with kernel K_{f′}, J(f′) = ∫_{N′(k)\\N′(𝔸)} ∫_{N′(k)\\N′(𝔸)} K_{f′}(n_1, n_2)ψ(n_1)^{−1}ψ(n_2) dn_1 dn_2, N′(𝔸) ≅ 𝔸 with the ψ-self-dual measure (vol(𝔸/k) = 1).",
+      "locator": "§3, p. 14",
+      "status": "missing",
+      "note": "This is J(f′) of Conjecture 1.8 for the six models, the dual quadruple being (G, H_0, 0, ι)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/39",
+      "kind": "definition",
+      "name": "Local Kloosterman orbital integrals J_v(a, f′_v) and the singular terms J^±_v",
+      "statement": "For f′_v on SL_2(k_v) and a ∈ k_v^×: J_v(a, f′_v) = ∫_{k_v}∫_{k_v} f′_v((1 x; 0 1)(0 −a^{−1}; a 0)(1 y; 0 1))ψ(x + y) dx dy, J^+_v(f′_v) = ∫_{k_v} f′_v((1 x; 0 1))ψ(x) dx and J^−_v(f′_v) = ∫_{k_v} f′_v((−1 −x; 0 −1))ψ(x) dx.",
+      "locator": "§3, p. 14",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/40",
+      "kind": "theorem",
+      "name": "Unfolding of the Kuznetsov trace formula (3.1)",
+      "statement": "For f′ = ⊗_v f′_v: J(f′) = ∏_v J^+_v(f′_v) + ∏_v J^−_v(f′_v) + Σ_{a∈k^×} ∏_v J_v(a, f′_v), the products over all places v of k.",
+      "locator": "§3, (3.1), p. 15 (citing Jacquet–Ye, C. R. Acad. Sci. 311 (1990), p. 673)",
+      "status": "missing",
+      "note": "The products are printed over 'v ∈ k^×' (sourceIssues E2)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/41",
+      "kind": "definition",
+      "name": "The space C^∞_OI(F^×, c_+, c_−) of germs of orbital integrals",
+      "statement": "For F non-archimedean with uniformiser ϖ, q = |ϖ|^{−1}, and c_+, c_− ∈ ℂ: the locally constant functions f on F^× with bounded support in F such that for some neighbourhood ω of 0, f(a) = c_+ ∫_{1+ϖ^m𝒪_F} ψ((x + x^{−1})/a) dx + c_− ∫_{−1+ϖ^m𝒪_F} ψ((x + x^{−1})/a) dx for a ∈ ω − {0}, with m > 0 so large that |2| > |ϖ^m| (for a near 0 the integrals do not depend on m). C^∞_OI(F^×) is the union over c_± and C^∞_OI(F^×, 0, 0) = C^∞_c(F^×).",
+      "locator": "§3, Definition 3.1 and Remark 3.2, p. 15",
+      "status": "missing",
+      "note": "ψ is unramified when trivial on 𝒪_F but not on ϖ^{−1}𝒪_F; da is ψ-self-dual."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/42",
+      "kind": "theorem",
+      "name": "Proposition 3.3(1): Kloosterman integrals exhaust C^∞_c(F^×)",
+      "statement": "For F non-archimedean and every F ∈ C^∞_c(F^×) there is f′ ∈ C^∞_c(G′(F)) with J(a, f′) = F(a) for all a ∈ F^×.",
+      "locator": "§3, Proposition 3.3(1), p. 15",
+      "status": "missing",
+      "note": "Described as well known."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/43",
+      "kind": "theorem",
+      "name": "Proposition 3.3(2): the unit element",
+      "statement": "If f′ = 1_{G′(𝒪_F)} and ψ is unramified, then J^+(f′) = J^−(f′) = 1 and J(a, f′) = 0 if |a| > 1, J(a, f′) = 1 if |a| = 1, and J(a, f′) = |a|^{−1} ∫_{𝒪_F^×} ψ((x + x^{−1})/a) dx if |a| < 1.",
+      "locator": "§3, Proposition 3.3(2), p. 15",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/44",
+      "kind": "theorem",
+      "name": "Proposition 3.3(3): germs of Kloosterman integrals",
+      "statement": "For f′ ∈ C^∞_c(G′(F)), the function a ↦ |a| · J(a, f′) lies in C^∞_OI(F^×, c_+, c_−) with c_+ = J^+(f′) and c_− = J^−(f′).",
+      "locator": "§3, Proposition 3.3(3), p. 15",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/45",
+      "kind": "construction",
+      "name": "The parabolic Q = LN of Ĝ and the dual orbit (Models 1–4)",
+      "statement": "For Model 1 (resp. 3, 4) Q is the standard maximal parabolic of Ĝ whose Levi does not contain α_3 (resp. α_6, α_7); for Model 2, Q is the product of the Borel of GL_2 and the standard maximal parabolic of GSO_8 whose Levi does not contain α_4. The Richardson orbit of Q is the dual O_ι̂ of O_ι (Remark 4.1); for Models 1–4 it is even, so the degenerate Whittaker period is a Bessel period, whereas for Models 5–6 it is not even and the period is a Fourier–Jacobi period.",
+      "locator": "§4.1 and Remark 4.1, p. 16",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/46",
+      "kind": "definition",
+      "name": "N as a degree-three Jordan algebra 𝒥",
+      "statement": "In Models 1–4, N is identified with a Jordan algebra 𝒥 of degree 3: Mat_{3×3}, Asym_{4×4} ⊕ Mat_{1×1}, Asym_{6×6} and the 3 × 3 self-adjoint octonionic matrices respectively (Asym = skew-symmetric). 𝒥 carries a trace tr and a norm N_𝒥, and (Mao–Rallis, Duke 87 (1997), §2) products A · A and A × A with (A × A) · A = N_𝒥(A); the generic character of N(k)\\N(𝔸) is ξ_N(A) = ψ(tr(A)).",
+      "locator": "§4.1, p. 16",
+      "status": "missing",
+      "note": "Mathlib has only the Jordan identity (IsCommJordan); the split Albert algebra is planned in Tau Ceti LieHighestWeight Layer 8, but the cubic norm structures (trace, norm, cross product) of all four algebras are not planned."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/47",
+      "kind": "definition",
+      "name": "The distribution I(f, φ) for Models 1–4",
+      "statement": "For f ∈ 𝒮(Ĝ(𝔸)/A_Ĝ(𝔸)) and φ ∈ 𝒮(Y(𝔸)): I(f, φ) = ∫_{N(k)\\N(𝔸)} ∫_{Ĝ(k)A_Ĝ(𝔸)\\Ĝ(𝔸)} K_f(g, n)Θ^φ_ψ(g)ξ_N(n) dg dn, the measures normalised by vol(Ĝ(k)A_Ĝ(𝔸)\\Ĝ(𝔸)) = 1 and vol(N(k)\\N(𝔸)) = 1; this is I(f) of Conjecture 1.8 here. For Models 1, 3, 4 it is Mao–Rallis's trace formula for dual pairs.",
+      "locator": "§4.1, p. 16",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/48",
+      "kind": "construction",
+      "name": "The polarisation Y = Mat_{1×1} ⊕ 𝒥",
+      "statement": "Take Mat_{1×1} to be the line of the lowest weight vector of ρ̂ and (4.1) 𝒥 = Span{ρ̂(X)v : X ∈ 𝔫, v ∈ Mat_{1×1}}, 𝔫 = Lie(N); then Y = Mat_{1×1} ⊕ 𝒥 is a maximal isotropic subspace. For Model 1 (ρ̂ = ∧³ of SL_6, weights e_i + e_j + e_k), Y = Span{e_i + e_j + e_k : 4 ≤ j, k ≤ 6} = Span{e_4 + e_5 + e_6} ⊕ Span{e_i + e_j + e_k : 1 ≤ i ≤ 3, 4 ≤ j, k ≤ 6}.",
+      "locator": "§4.1, (4.1), pp. 16–17",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/49",
+      "kind": "theorem",
+      "name": "Proposition 4.2: unfolding of I(f, φ)",
+      "statement": "For f = ⊗f_v and φ = ⊗φ_v: I(f, φ) = ∏_v I^+_v(f_v ∗ φ_v) + ∏_v I^−_v(f_v ∗ φ_v) + Σ_{a∈k^×} ∏_v I_v(a, f_v ∗ φ_v), where f_v ∗ φ_v = ∫_{Ĝ(k_v)/A_Ĝ(k_v)} f_v(g^{−1})Ω_ψ(g)φ_v dg, I^±_v(f_v ∗ φ_v) = f_v ∗ φ_v(0, ±I) (I the identity of 𝒥) and I_v(a, f_v ∗ φ_v) = ∫_{𝒥(k_v)} f_v ∗ φ_v(a, A)ψ((tr(A) − N_𝒥(A))/a) dA.",
+      "locator": "§4.1, Proposition 4.2, p. 17",
+      "status": "missing",
+      "note": "Proved as Mao–Rallis Proposition 3 for Models 1, 3, 4; Model 2 by a similar argument whose details are skipped. The printed formula repeats I^+ and omits the product and the argument a in the last term (sourceIssues E3); the corrected form is stated."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/50",
+      "kind": "theorem",
+      "name": "Conjecture 4.3(1): the fundamental lemma for Models 1–4",
+      "statement": "Let n = dim 𝒥, v non-archimedean with ψ_v unramified, and f′_{0,v}, f_{0,v}, φ_{0,v} the characteristic functions of G′(𝒪_v), Ĝ(𝒪_v)A_Ĝ(k_v) and Y(𝒪_v) (so f_{0,v} ∗ φ_{0,v} = φ_{0,v}). Then I^+_v(φ_{0,v}) = J^+_v(f′_{0,v}), I^−_v(φ_{0,v}) = J^−_v(f′_{0,v}) and I_v(a, φ_{0,v}) = |a|^{(n+1)/2} J_v(a, f′_{0,v}) for all a ∈ k_v^×.",
+      "locator": "§4.1, Conjecture 4.3(1), p. 17",
+      "status": "missing",
+      "note": "Proved in the p-adic case by Theorem 4.4(2) and Proposition 3.3(2)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/51",
+      "kind": "theorem",
+      "name": "Conjecture 4.3(2): smooth transfer for Models 1–4",
+      "statement": "For every f′_v ∈ 𝒮(G′(k_v)) there are f_v ∈ 𝒮(Ĝ(k_v)/A_Ĝ(k_v)) and φ_v ∈ 𝒮(Y(k_v)), and conversely for every (f_v, φ_v) there is f′_v, with I^+_v(f_v ∗ φ_v) = J^+_v(f′_v), I^−_v(f_v ∗ φ_v) = J^−_v(f′_v) and I_v(a, f_v ∗ φ_v) = |a|^{(n+1)/2} J_v(a, f′_v) for all a ∈ k_v^×.",
+      "locator": "§4.1, Conjecture 4.3(2), p. 17",
+      "status": "missing",
+      "note": "Proved in the p-adic case by Theorem 4.4(1), (3) and Proposition 3.3(1), (3)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/52",
+      "kind": "theorem",
+      "name": "Mao–Rallis's orbital integral identity (Mao–Rallis, Duke 87 (1997), Theorems 1 and 2)",
+      "statement": "For F non-archimedean, ψ unramified, 𝒥 as above with n = dim 𝒥 and |a| < 1: ∫_{𝒥(𝒪_F)} ψ((tr(A) − N_𝒥(A))/a) dA = |a|^{(n−1)/2} ∫_{𝒪_F^×} ψ((x + x^{−1})/a) dx, proved in coordinates A = ∏_{γ∈Π′_0} x_γ with Π′_0 = {α + β} ∪ Π′ ∪ {γ_1, …, γ_r} ∪ {δ_1, …, δ_r}, by their Lemmas 4 and 5 (pp. 332–334).",
+      "locator": "§4.2, p. 18; §5.3, p. 27 (for Asym_{6×6}, where |a|^{(n−1)/2} = |a|^7)",
+      "status": "missing",
+      "note": "Imported: the fundamental lemma for Models 1, 3, 4 is Mao–Rallis Theorem 1, and the proofs of Theorems 4.4 and 5.9 adapt this computation."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/53",
+      "kind": "theorem",
+      "name": "The linear dependence of tr − N_𝒥 on a coordinate",
+      "statement": "For each γ ∈ Π′_0, tr(A) − N_𝒥(A) = x_γ P_γ(A) + Q_γ(A) with P_γ, Q_γ polynomials in {x_γ′ : γ′ ≠ γ}, and P_γ(A) is the γ-coordinate of A × A − I.",
+      "locator": "§4.2, proof of Theorem 4.4, p. 18; §5.3, proof of Theorem 5.9, p. 28",
+      "status": "missing",
+      "note": "Used to show that orbital integrals near a point with A × A ≠ I vanish for small a."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/54",
+      "kind": "theorem",
+      "name": "The elementary identity (4.2)",
+      "statement": "∫_{ϖ^m𝒪_F} ∫_{ϖ^m𝒪_F} ψ(bxy) dx dy = |b|^{−1} for all |b| > q^{2m} (ψ unramified).",
+      "locator": "§4.2, (4.2), p. 18",
+      "status": "missing",
+      "note": "Replaces Mao–Rallis's Lemma 4 in the germ computations of Theorems 4.4(3) and 5.9(3)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/55",
+      "kind": "theorem",
+      "name": "Theorem 4.4(1): the regular orbital integrals of Models 1–4 exhaust C^∞_c(F^×)",
+      "statement": "For F non-archimedean and every f ∈ C^∞_c(F^×) there is φ ∈ C^∞_c(Y(F)) with I(a, φ) = f(a) for all a ∈ F^×.",
+      "locator": "§4.2, Theorem 4.4(1), pp. 17–18",
+      "status": "missing",
+      "note": "Proof: for a_0 ∈ F^× and m large, take K ⊂ 𝒥(F) a small compact open neighbourhood of 0 with |tr(A) − N_𝒥(A)| ≤ |a_0| on K and φ = vol(K)^{−1} 1_{(a_0+ϖ^m𝒪_F)×K} (the normalisation is misprinted, sourceIssues E4)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/56",
+      "kind": "theorem",
+      "name": "Theorem 4.4(2): the fundamental lemma for Models 1–4",
+      "statement": "If φ = 1_{Y(𝒪_F)} and ψ is unramified, then I^+(φ) = I^−(φ) = 1 and I(a, φ) = 0 if |a| > 1, I(a, φ) = 1 if |a| = 1, I(a, φ) = |a|^{(n−1)/2} ∫_{𝒪_F^×} ψ((x + x^{−1})/a) dx if |a| < 1.",
+      "locator": "§4.2, Theorem 4.4(2), pp. 17–18",
+      "status": "missing",
+      "note": "Models 1, 3, 4: Mao–Rallis Theorem 1; Model 2 by the same argument. With Proposition 3.3(2) it gives Conjecture 4.3(1)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/57",
+      "kind": "theorem",
+      "name": "Theorem 4.4(3): germs of the orbital integrals of Models 1–4",
+      "statement": "For φ ∈ C^∞_c(Y(F)), a ↦ |a|^{(1−n)/2} I(a, φ) lies in C^∞_OI(F^×, c_+, c_−) with c_+ = I^+(φ) and c_− = I^−(φ).",
+      "locator": "§4.2, Theorem 4.4(3), pp. 17–18",
+      "status": "missing",
+      "note": "Proof: if {0} × 𝒥 misses supp φ the function is in C^∞_c(F^×); if ±I ∉ A_0 + ϖ^m𝒥(𝒪_F) it vanishes near 0 (via P_γ); for φ = 1_{ϖ^m𝒪_F} ⊗ 1_{I+ϖ^m𝒥(𝒪_F)} Mao–Rallis's Theorem 2 argument with (4.2) in place of their Lemma 4 gives I(a, φ) = |a|^{(n−1)/2} ∫_{1+ϖ^m𝒪_F} ψ((x + x^{−1})/a) dx for a near 0."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/58",
+      "kind": "construction",
+      "name": "The Fourier–Jacobi datum of Spin_{2n+1}",
+      "statement": "For a root α of Spin_{2n+1} let U_α = exp(𝔲_α) with a basis X_α. Let P_n = M_nU_n be the standard parabolic whose Levi is attached to Δ − {e_1 − e_2, e_n}, U′_n ⊂ U_n the abelian subgroup spanned by U_α for α ∈ {e_1, e_i + e_j : 1 ≤ i < j ≤ n}, λ(u) the sum of the coordinates of u in U_{e_1} and U_{e_i+e_{n+2−i}} (2 ≤ i ≤ [(n+1)/2]) and U″_n = ker λ. Then U_n/U″_n is a Heisenberg group of dimension 2n − 1 with centre U′_n/U″_n, which gives a Weil representation Ω_{n,ψ} of U_n/U″_n on 𝒮(Y_n), dim Y_n = n − 1, with central character ψ ∘ λ, and theta series Θ^φ_{ψ,n}(g) = Σ_{X∈Y_n(k)} Ω_{n,ψ}(g)φ(X), a function on U_n(k)U″_n(𝔸)\\U_n(𝔸).",
+      "locator": "§5.1, p. 19",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/59",
+      "kind": "definition",
+      "name": "The distribution I(f, φ, φ′) for Models 5–6",
+      "statement": "Model 5: Ĝ = Spin_11, Q = LN = P_5 and Θ^{φ′}_{ψ,N} = Θ^{φ′}_{ψ,5}. Model 6: Ĝ = S(GSpin_7 × GL_2), Q the parabolic projecting to P_3 and to the Borel of GL_2, and Θ^{φ′}_{ψ,N} the product of Θ^{φ′}_{ψ,3} with ψ((1 x; 0 1)) on the unipotent of GL_2. With Y′ = Y_5 (resp. Y_3), Ω′_ψ its Weil representation, f ∈ 𝒮(Ĝ(𝔸)/A_Ĝ(𝔸)), φ ∈ 𝒮(Y(𝔸)), φ′ ∈ 𝒮(Y′(𝔸)): I(f, φ, φ′) = ∫_{N(k)\\N(𝔸)} ∫_{Ĝ(k)A_Ĝ(𝔸)\\Ĝ(𝔸)} K_f(g, u)Θ^φ_ψ(g)Θ^{φ′}_{ψ,N}(u) dg du, with vol(N(k)\\N(𝔸)) = 1 and vol(Ĝ(k)A_Ĝ(𝔸)\\Ĝ(𝔸)) = 1.",
+      "locator": "§5.1, p. 19",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/60",
+      "kind": "construction",
+      "name": "The polarisation Y = Mat_{1×1} ⊕ 𝒥 for Model 5 and the N-action on 𝒥",
+      "statement": "ρ̂ is the 32-dimensional spin representation of Spin_11, with the one-dimensional weight spaces (±e_1 ± ⋯ ± e_5)/2. N_0 is the unipotent radical of the Siegel parabolic (roots e_i, e_i + e_j), Mat_{1×1} the lowest weight line (−e_1 − e_2 − e_3 − e_4 − e_5)/2 and (5.1) 𝒥 = Span{ρ̂(X)v : X ∈ 𝔫_0, v ∈ Mat_{1×1}}, spanned by the weights Σ a_ie_i/2 with one or two a_i = 1; 𝒥 = Asym_{6×6} is a degree-3 Jordan algebra, Y = Mat_{1×1} ⊕ 𝒥 is maximal isotropic, and 𝒥 ≅ 𝔫_0 by matching 𝔲_α with the weight space of lowest weight + α, so that conjugation gives an action (u, A) ↦ u.A of N on 𝒥.",
+      "locator": "§5.2, (5.1), p. 20",
+      "status": "missing",
+      "note": "The lowest weight is misprinted (sourceIssues E6)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/61",
+      "kind": "theorem",
+      "name": "Proposition 5.1: the Weil representation Ω_ψ on N (Model 5)",
+      "statement": "For φ ∈ 𝒮(𝔸 ⊕ 𝒥(𝔸)) and (a, A) with a ≠ 0: (5.2) Ω_ψ(u_{e_1−e_i}(t))φ(a, A) = φ(a, u_{e_1−e_i}(t).A); (5.3) Ω_ψ(u_{e_i}(t))φ(a, A) = ψ((N_𝒥(A) − N_𝒥(atX_{e_i} + u_{e_i}(t).A))/a)φ(a, atX_{e_i} + u_{e_i}(t).A); (5.4) the same with e_i + e_j in place of e_i; and at a = 0: (5.5) Ω_ψ(u_{e_i+e_j}(t))φ(0, A) = ψ(−tr((tX_{e_i+e_j}) · A × A))φ(0, A), (5.6) Ω_ψ(u_{e_1−e_i}(t))φ(0, A) = φ(0, u_{e_1−e_i}(t).A), (5.7) Ω_ψ(u_{e_i}(t))φ(0, A) = ψ(−tr((tX_{e_i}) · u_{e_i}(t).A × u_{e_i}(t).A))φ(0, u_{e_i}(t).A). Equivalently (Remark 5.2) Ω_ψ(n)φ(a, A) = ψ((N_𝒥(A) − N_𝒥((n, a).A))/a)φ(a, (n, a).A) for the GL_1 × N-action (u_{e_1−e_i}(t), a).A = u_{e_1−e_i}(t).A, (u_{e_i}(t), a).A = atX_{e_i} + u_{e_i}(t).A, (u_{e_i+e_j}(t), a).A = atX_{e_i+e_j} + u_{e_i+e_j}(t).A.",
+      "locator": "§5.2, Proposition 5.1 and Remark 5.2, pp. 20–21",
+      "status": "missing",
+      "note": "Stated as an easy consequence of Kudla's Proposition 2.3 (Notes on the local theta correspondence)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/62",
+      "kind": "theorem",
+      "name": "Proposition 5.3: the Weil representation Ω′_ψ (Model 5)",
+      "statement": "The symplectic space is ⊕_{2≤i≤5} 𝔲_{e_1−e_i} ⊕ 𝔲_{e_i} with ⟨X_{e_1−e_i}, X_{e_1−e_j}⟩ = 0, ⟨X_{e_i}, X_{e_1−e_j}⟩ = δ_ij and ⟨X_{e_i}, X_{e_j}⟩ = (−1)^i δ_{i+j,7} (corrected, sourceIssues E7); take the basis {X_{e_1−e_i}, X_{e_i} + ((−1)^i/2)X_{e_1−e_{7−i}}} and Y′ = ⊕_{2≤i≤5} 𝔲_{e_1−e_i}. For φ′ ∈ 𝒮(Y′(𝔸)) and Y = Σ Y_iX_{e_1−e_i}: (5.8) Ω′_ψ(u_{e_1−e_i}(t))φ′(Y) = φ′(Y + tX_{e_1−e_i}) and Ω′_ψ(u_{e_i}(t))φ′(Y) = ψ(tY_i)φ′(Y + (−1)^i tX_{e_1−e_{7−i}}/2) for 2 ≤ i ≤ 5; (5.9) Ω′_ψ(u_{e_1}(t)), Ω′_ψ(u_{e_2+e_5}(t)) and Ω′_ψ(u_{e_3+e_4}(t)) act by ψ(t); (5.10) Ω′_ψ(u_{e_i+e_j}(t)) acts trivially for e_i + e_j ∉ {e_2 + e_5, e_3 + e_4}. This defines (Remark 5.4) the action n ⋆ Y of N on Y′.",
+      "locator": "§5.2, Proposition 5.3 and Remark 5.4, p. 21",
+      "status": "missing",
+      "note": "Stated as a direct consequence of Kudla's Lemma 2.2."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/63",
+      "kind": "theorem",
+      "name": "The unfolding identities (5.11)–(5.13)",
+      "statement": "With N = N_1N_0, N_1 spanned by the U_{e_1−e_i}: (5.11) Σ_{A∈𝒥(k), Y∈Y′(k)} φ(a, A)φ′(Y) = Σ_{n∈N(k)} Ω_ψ(n)φ(a, 0)Ω′_ψ(n)φ′(0) for a ∈ k^×; (5.12) ∫_{N_1(𝔸)} Ω_ψ(u)φ(a, 0)Ω′_ψ(u)φ′(0) du = ∫_{Y′(𝔸)} Ω_ψ(u)φ(a, 0)Ω′_ψ(u)φ′(Y) dY; (5.13) for n ∈ N_0(𝔸), Y ∈ Y′(𝔸), a ≠ 0: Ω_ψ(n)φ(a, 0)Ω′_ψ(n)φ′(Y) = ψ((tr((n, a).0) − N_𝒥((n, a).0) + ⟨n ⋆ Y, (n, a).0⟩)/a − ⟨(n, a).0, (n, a).0⟩/(2a²)) φ(a, (n, a).0)φ′(n ⋆ Y), where ⟨Y, A⟩ = Σ_{2≤i≤5} Y_iA_i and ⟨A, A⟩ = A_2A_5 + A_3A_4.",
+      "locator": "§5.2, (5.11)–(5.13), pp. 21–22",
+      "status": "missing",
+      "note": "Stated with the sign of ⟨n ⋆ Y, (n, a).0⟩ made consistent with (5.8) and with the paper's own computation on p. 29 (printed with −, sourceIssues E9) and with N_0 for the undefined N_2 (E8)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/64",
+      "kind": "definition",
+      "name": "The singular sets 𝒥_1, 𝒥_11, 𝒥_2, 𝒥_12, 𝒥^±",
+      "statement": "Writing A = Σ_i A_iX_{e_i} + Σ_{i<j} A_{ij}X_{e_i+e_j}: 𝒥_1 is the set of A with A_i = 0 for i > 1, A_{ij} = 0 for i, j > 1 and (i, j) ∉ {(3, 4), (2, 5)}, and A_25 = A_34 ≠ 0; 𝒥_11 ⊂ 𝒥_1 is where A_1 = A_25 = A_34 = ±1, 𝒥_2 and 𝒥_12 are the complements of 𝒥_1 in 𝒥 and of 𝒥_11 in 𝒥_1, and 𝒥_11 = 𝒥^+ ∪ 𝒥^− according to A_1 = A_25 = A_34 = 1 or −1.",
+      "locator": "§5.2, p. 23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/65",
+      "kind": "theorem",
+      "name": "Proposition 5.5: the singular terms",
+      "statement": "∫_{N(k)\\N(𝔸)} Σ_{A∈𝒥_2(k)} Ω_ψ(u)f∗φ(0, A) · Σ_{Y∈Y′(k)} Ω′_ψ(u)φ′(Y) du = 0, the same with 𝒥_12 in place of 𝒥_2 is 0, and for ε = ±: ∫_{N(k)\\N(𝔸)} Σ_{A∈𝒥^ε(k)} Ω_ψ(u)f∗φ(0, A) · Σ_{Y∈Y′(k)} Ω′_ψ(u)φ′(Y) du = ∫_{𝒥^ε(𝔸)} ∫_{Y′(𝔸)} f∗φ(0, A)φ′(Y)ψ(2Y · A) dY dA, where Y · A = (A_12 − Y_5)(A_15 − Y_2) + (A_13 − Y_4)(A_14 − Y_3).",
+      "locator": "§5.2, Proposition 5.5, pp. 23–25",
+      "status": "missing",
+      "note": "Proof: on N′ (roots e_i + e_j) and N″ (roots e_1, e_i + e_j) the integrand is f∗φ(0, A)φ′(Y) times the character u ↦ ξ(u)ξ(−tr(u · A × A)), which is nontrivial on N′ for A ∈ 𝒥_2 and on N″ for A ∈ 𝒥_12, and trivial on N″ exactly for A ∈ 𝒥_11; on 𝒥^+ one unfolds against I = X_{e_1} + X_{e_2+e_5} + X_{e_3+e_4} using Ω_ψ(u)f∗φ(0, I) · Ω′_ψ(u)φ′(0) = f∗φ(0, u.I)φ′(u ⋆ 0)ψ(2u ⋆ 0 · u.I)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/66",
+      "kind": "theorem",
+      "name": "Proposition 5.7: unfolding of I(f, φ, φ′) (Models 5–6)",
+      "statement": "For f = ⊗f_v, φ = ⊗φ_v, φ′ = ⊗φ′_v: I(f, φ, φ′) = ∏_v I^+_v(f_v ∗ φ_v, φ′_v) + ∏_v I^−_v(f_v ∗ φ_v, φ′_v) + Σ_{a∈k^×} ∏_v I_v(a, f_v ∗ φ_v, φ′_v), where I_v(a, f_v ∗ φ_v, φ′_v) = ∫_{𝒥(k_v)} ∫_{Y′(k_v)} ψ_v((tr(A) − N_𝒥(A) + ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) f_v ∗ φ_v(a, A)φ′_v(Y) dY dA and I^ε_v(f_v ∗ φ_v, φ′_v) = ∫_{𝒥^ε(k_v)} ∫_{Y′(k_v)} f_v ∗ φ_v(0, A)φ′_v(Y)ψ(2Y · A) dY dA. For Model 6 (Remark 5.6) 𝒥 = Mat_{1×1} × Asym_{4×4}, identified with the Siegel unipotent Lie algebra (Mat_{1×1} the unipotent of the Borel of GL_2, Asym_{4×4} the root spaces X_{e_i}, X_{e_i+e_j} of Spin_7, 1 ≤ i ≠ j ≤ 3), Y′ is spanned by the root spaces of e_1 − e_2 and e_1 − e_3, and ⟨Y, A⟩, ⟨A, A⟩, Y · A are defined similarly.",
+      "locator": "§5.2, Remark 5.6 and Proposition 5.7, p. 25",
+      "status": "missing",
+      "note": "The sign of the ⟨Y, A⟩/a term is printed as − (sourceIssues E9); the statement uses the sign consistent with (5.8) and the proof of Theorem 5.9."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/67",
+      "kind": "theorem",
+      "name": "Conjecture 5.8(1): the fundamental lemma for Models 5–6",
+      "statement": "Let n = dim 𝒥, v non-archimedean of residual characteristic ≠ 2 with ψ_v unramified, and f′_{0,v}, f_{0,v}, φ_{0,v}, φ′_{0,v} the characteristic functions of G′(𝒪_v), Ĝ(𝒪_v)A_Ĝ(k_v), Y(𝒪_v), Y′(𝒪_v). Then I^±_v(φ_{0,v}, φ′_{0,v}) = J^±_v(f′_{0,v}) and I_v(a, φ_{0,v}, φ′_{0,v}) = |a|^{(n+1)/2} J_v(a, f′_{0,v}) for all a ∈ k_v^×.",
+      "locator": "§5.2, Conjecture 5.8(1), pp. 25–26",
+      "status": "missing",
+      "note": "Proved in the p-adic case by Theorem 5.9(2) and Proposition 3.3(2)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/68",
+      "kind": "theorem",
+      "name": "Conjecture 5.8(2): smooth transfer for Models 5–6",
+      "statement": "For every f′_v ∈ 𝒮(G′(k_v)) there are f_v ∈ 𝒮(Ĝ(k_v)/A_Ĝ(k_v)), φ_v ∈ 𝒮(Y(k_v)), φ′_v ∈ 𝒮(Y′(k_v)), and conversely, with I^±_v(f_v ∗ φ_v, φ′_v) = J^±_v(f′_v) and I_v(a, f_v ∗ φ_v, φ′_v) = |4| · |a|^{(n+1)/2} J_v(a, f′_v) for all a ∈ k_v^×.",
+      "locator": "§5.2, Conjecture 5.8(2), p. 26",
+      "status": "missing",
+      "note": "Proved in the p-adic case by Theorem 5.9(1), (3) and Proposition 3.3(1), (3)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/69",
+      "kind": "theorem",
+      "name": "Theorem 5.9(1): the regular orbital integrals of Models 5–6 exhaust C^∞_c(F^×)",
+      "statement": "For F non-archimedean and every F ∈ C^∞_c(F^×) there are φ ∈ C^∞_c(Y(F)) and φ′ ∈ C^∞_c(Y′(F)) with I(a, φ, φ′) = F(a) for all a ∈ F^×.",
+      "locator": "§5.3, Theorem 5.9(1), p. 26",
+      "status": "missing",
+      "note": "The printed proof chooses the neighbourhoods by a condition that does not control the ⟨Y, A⟩ and ⟨A, A⟩ terms (sourceIssues E5); small enough neighbourhoods of 0, which the paper suggests, suffice."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/70",
+      "kind": "theorem",
+      "name": "Theorem 5.9(2): the fundamental lemma for Models 5–6",
+      "statement": "If φ = 1_{Y(𝒪_F)}, φ′ = 1_{Y′(𝒪_F)}, ψ is unramified and the residual characteristic of F is not 2, then I^+(φ, φ′) = I^−(φ, φ′) = 1 and I(a, φ, φ′) = 0 if |a| > 1, 1 if |a| = 1, and |a|^{(n−1)/2} ∫_{𝒪_F^×} ψ((x + x^{−1})/a) dx if |a| < 1 (n = 15 for Model 5).",
+      "locator": "§5.3, Theorem 5.9(2), pp. 26–28",
+      "status": "missing",
+      "note": "Proof for Model 5 (Model 6 similar and easier): integrating over Y′(𝒪_F) restricts A to 𝒥(𝒪_F)_a = {A ∈ 𝒥(𝒪_F) : A_i ∈ a𝒪_F, 2 ≤ i ≤ 5} and kills ⟨A, A⟩/(2a²), so one needs (5.14) ∫_{𝒥(𝒪_F)_a} ψ((tr(A) − N_𝒥(A))/a) dA = |a|^7 ∫_{𝒪_F^×} ψ((x + x^{−1})/a) dx; this follows Mao–Rallis Theorem 2 with the domains of their (39) and (41) shrunk to |x_γ′| ≤ |a| for γ′ ∈ Π_1 = {e_i : 2 ≤ i ≤ 5}, the involution e_i ↦ e_1 + e_{7−i} on Π′_1 = {e_2, e_5, e_1 + e_2, e_1 + e_5} and Π′_2 = {e_3, e_4, e_1 + e_3, e_1 + e_4}, and their Lemma 5, the product (5.15) ∏_{2≤i≤5} ∫_{|x_{e_i}|≤|a|, |x_{e_1+e_{7−i}}|≤1} ψ(δ_ix_{e_i}x_{e_1+e_{7−i}}/(ax_{α+β})) being |a|^{|Π′|/2} = |a|^4 without their Lemma 4."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/71",
+      "kind": "theorem",
+      "name": "Theorem 5.9(3): germs of the orbital integrals of Models 5–6",
+      "statement": "For φ ∈ C^∞_c(Y(F)) and φ′ ∈ C^∞_c(Y′(F)), a ↦ |a|^{(1−n)/2} I(a, φ, φ′) lies in C^∞_OI(F^×, c_+, c_−) with c_+ = |4| · I^+(φ, φ′) and c_− = |4| · I^−(φ, φ′).",
+      "locator": "§5.3, Theorem 5.9(3), pp. 26, 28–30",
+      "status": "missing",
+      "note": "Proof: (4) if A_0 + ϖ^m𝒥(𝒪_F) misses 𝒥^+(F) ∪ 𝒥^−(F) the function vanishes near 0 (via P_γ with x_γ ≠ A_i); for A_0 ∈ 𝒥^+(F) one computes, after restricting A_1 to 1 + ϖ^{2m}𝒪_F, I(a, φ, φ′) = |a|^7 q^{−8m}|4| ψ(2(Y_{2,0} − A_{15,0})(Y_{5,0} − A_{12,0}) + 2(Y_{3,0} − A_{14,0})(Y_{4,0} − A_{13,0})) ∫_{1+ϖ^{2m}𝒪_F} ψ((x + x^{−1})/a) dx for a near 0, while I^+(φ, φ′) = q^{−8m}ψ(…) with the same argument. This computation uses the sign +⟨Y, A⟩/a (sourceIssues E9)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/72",
+      "kind": "theorem",
+      "name": "The GL_n example of Conjecture 1.5 (§6.1)",
+      "statement": "Let G = Ĝ = GL_n (n > 3) and O_ι̂ the orbit of partition (n − 2, 1, 1) (principal in the Levi GL_{n−2} × GL_1 × GL_1), so O_ι has partition (3, 1, …, 1) and P_ι(ϕ) = ∫_{U(k)\\U(𝔸)} ϕ(u)μ(u) du with U, μ as in Mao–Rallis (Compositio 140 (2004), (2.31)); for n = 3 it is the Whittaker period. The centraliser of Im(ι̂) is Ĥ = GL_2 × GL_1, and ignoring GL_1, 𝔤̂ = (Ad ⊗ ∧²) ⊕ (Std ⊗ Sym^{n−3}) ⊕ (Std^∨ ⊗ Sym^{n−3}) ⊕ (∧² ⊗ τ) for a representation τ of SL_2 whose L-values are zeta factors; ⊕_{k odd} ρ̂_k is Std ⊕ Std^∨ for n even and 0 for n odd, so {τ_j ⊕ τ_j^∨} can be nonempty, and ρ̂_ι̂ = 0 in both cases. With H = GL_{n−1}, the quadruples (G, H, 0, 1) and (Ĝ, Ĥ′, 0, ι̂) are dual (Sakellaridis, Amer. J. Math. 135 (2013), Appendix A; Knop–Schalke, Table 3), (G, H, 0, 1) satisfies Assumption 1.10, and Conjecture 1.8 recovers Mao–Rallis's comparison (2.34) of loc. cit.",
+      "locator": "§6.1, pp. 30–31",
+      "status": "missing",
+      "note": "The printed decomposition writes Ad ⊗ ∧² for the adjoint piece of GL_2, on which SL_2 acts trivially. The comparison itself is left to a future paper."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/73",
+      "kind": "construction",
+      "name": "The non-special example: Sp_{4n} and the principal orbit of (GL_2)^n in SO_{4n+1} (§6.2)",
+      "statement": "G = Sp_{4n}, Ĝ = SO_{4n+1}; P = MN ⊂ Sp_{4n} and P̂ = M̂N̂ ⊂ SO_{4n+1} are the standard parabolics attached to the simple roots e_{2i−1} − e_{2i} (1 ≤ i ≤ n), M ≃ M̂ ≃ (GL_2)^n. O_ι̂ is the principal orbit of 𝔪̂, viewed in 𝔤̂; it is not special. The neutral centraliser of Im(ι̂) is Ĥ = Sp_{2n}, the adjoint action of Ĥ × SL_2 on 𝔤̂ is Ad ⊗ Sym^0 ⊕ Std ⊗ Sym^1 ⊕ ∧² ⊗ Sym², and ρ̂_ι̂ = Std. The dual O_ι is the Richardson orbit of P, giving ξ(exp X) = ψ(⟨Ξ, X⟩) on N(k)\\N(𝔸) with Ξ = ι((0 0; 1 0)), and P_ι(ϕ) = ∫_{N(k)\\N(𝔸)} ϕ(n)ξ(n) dn.",
+      "locator": "§6.2, p. 31",
+      "status": "missing",
+      "note": "Corrected for the slips of sourceIssues E12."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/74",
+      "kind": "theorem",
+      "name": "Conjecture 6.1",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸) = Sp_{4n}(𝔸), ν : π → L²(G(k)\\G(𝔸))_π, and assume the Arthur parameter of π factors through ι̂ (π a lifting of a global tempered Arthur packet Π of H(𝔸) = SO_{2n+1}(𝔸)). Then ν can be chosen with |P_ι(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, Π)/(L(1, Π, Ad)L(3/2, Π)L(2, Π, ∧²)) for ϕ ∈ ν(π).",
+      "locator": "§6.2, Conjecture 6.1, p. 32",
+      "status": "missing",
+      "note": "Printed with Ĝ(𝔸) for G(𝔸) (sourceIssues E13)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/75",
+      "kind": "definition",
+      "name": "The periods P_{U,ξ′} and P_{G′} on Sp_{4n} and their BZSV duals",
+      "statement": "With B = TU the upper triangular Borel of Sp_{4n} and the non-generic character ξ′(u) = ψ(u_12 + u_23 + ⋯ + u_{2n−1,2n}), P_{U,ξ′}(ϕ) = ∫_{U(k)\\U(𝔸)} ϕ(u)ξ′(u) du; with G′ = Sp_{2n} × Sp_{2n}, P_{G′}(ϕ) = ∫_{G′(k)\\G′(𝔸)} ϕ(h) dh. By Sakellaridis's unramified computation (Amer. J. Math. 135, Appendix A) and Knop–Schalke Table 3, (G, G′, 0, 1) and (Ĝ, Ĥ, Std, ι̂) are dual.",
+      "locator": "§6.2, p. 32",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/76",
+      "kind": "theorem",
+      "name": "Conjecture 6.2: the Sp_{2n} × Sp_{2n}-period",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸) and ν : π → L²(G(k)\\G(𝔸))_π. P_{G′}(ϕ) is nonzero for some ϕ ∈ Im(ν) only if the Arthur parameter of π factors through ι̂ : Ĥ(ℂ) × SL_2(ℂ) → Ĝ(ℂ); then π is a lifting of a global tempered Arthur packet Π of SO_{2n+1}(𝔸) and ν can be chosen with |P_{G′}(ϕ)|²/⟨ϕ, ϕ⟩ “=” L(1/2, Π)L(3/2, Π)L(2, Π, ∧²)/L(1, Π, Ad).",
+      "locator": "§6.2, Conjecture 6.2, p. 32",
+      "status": "missing",
+      "note": "Conjecture 1.1 for (G, G′, 0, 1)."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/77",
+      "kind": "definition",
+      "name": "The relative trace formulas I(f′), J(f), J′(f) of §6.2",
+      "statement": "For f′ on GL_{2n}(𝔸): I(f′) = ∫_{GL_n×GL_n(k)\\GL_n×GL_n(𝔸)/Z_{GL_{2n}}(𝔸)} ∫_{N_{GL_{2n}}(k)\\N_{GL_{2n}}(𝔸)} K_{f′}(x, y)ξ_{2n}^{−1}(y) dy dx (the linear period against a generic Whittaker character); by Friedberg–Jacquet (Crelle 443 (1993), Theorem 4.1) its discrete part is (6.1) I_disc(f′) “=” Σ_Π L(1/2, Π)/L(1, Π, Ad), Π over the global discrete generic Arthur packets of SO_{2n+1}(𝔸). For f on Sp_{4n}(𝔸): J(f) = ∫_{G′(k)\\G′(𝔸)} ∫_{N(k)\\N(𝔸)} K_f(x, y)ξ(y)^{−1} dy dx and J′(f) = ∫_{G′(k)\\G′(𝔸)} ∫_{U(k)\\U(𝔸)} K_f(x, y)ξ′(y)^{−1} dy dx; under Conjectures 6.1 and 6.2 the discrete part of J(f) also has the form (6.1).",
+      "locator": "§6.2, (6.1), pp. 32–33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/78",
+      "kind": "theorem",
+      "name": "Conjecture 6.3 and the Mao–Rallis comparison",
+      "statement": "Conjecture 6.3: there is a comparison between I(f′) and J(f); conversely such a comparison should give Conjecture 6.1. Mao–Rallis (Duke 152 (2010), Theorem 2.1) proved a comparison between I(f′) and J′(f).",
+      "locator": "§6.2, Conjecture 6.3, p. 33",
+      "status": "missing",
+      "note": "The Mao–Rallis comparison is imported."
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/79",
+      "kind": "theorem",
+      "name": "Proposition 6.4: P_ι and P_{U,ξ′} on representations with a nonzero Sp_{2n} × Sp_{2n}-period",
+      "statement": "Let π be an irreducible discrete automorphic representation of G(𝔸) = Sp_{4n}(𝔸) and ν : π → L²(G(k)\\G(𝔸))_π with P_{G′} nonvanishing on Im(ν). Then P_ι(ϕ) “=” P_{U,ξ′}(ϕ) for ϕ ∈ Im(ν); more precisely P_ι(ϕ) = ∫_{X_0(𝔸_S)} P_{U,ξ′}(ϕ(· ℓ̄(x)ν_0)) dx for a large enough finite set S of places, with ν_0 a Weyl element and ℓ̄(X_0) the subgroup of Sp_{4n} of Ginzburg–Rallis–Soudry (JAMS 12 (1999), (4.12)).",
+      "locator": "§6.2, Proposition 6.4, pp. 33–34",
+      "status": "missing",
+      "note": "Proof: by Ginzburg–Rallis–Soudry (Ann. of Math. 150 (1999), Theorem 16) such ϕ satisfy their vanishing result (JAMS 12, (5.2)), so their argument (JAMS 12, §5 Theorem 1, (5.16)) gives (6.2) P_ι(ϕ) = ∫_{X_0(𝔸)} P_{U,ξ′}(ϕ(· ℓ̄(x)ν_0)) dx; at an unramified place the local version of their Lemma 2 (the chain {e} = K^{2n} ⊂ ⋯ ⊂ K^1 = ℓ̄(X_0), abelian R_i and Fourier transform) gives (6.3) ∫_{X_0(k_v)} P_{U,ξ′}(ϕ(· ℓ̄(x)ν_0)) dx = P_{U,ξ′}(ϕ(· ν_0)). Printed with Ĝ(𝔸) for G(𝔸) (sourceIssues E13) and with 𝔸^S where the text means the finite product over S."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "D. Ben-Zvi, Y. Sakellaridis and A. Venkatesh, Relative Langlands duality",
+      "link": "arXiv:2409.04677",
+      "why": "The framework: hyperspherical Hamiltonian spaces and the structure theorem (Theorem 3.6.1), anomaly and the metaplectic splitting (§5.1), and the period conjecture (Conjecture 14.3.5, (14.26))."
+    },
+    {
+      "citation": "W. T. Gan and B. W. P. Jun, Generalised Whittaker models as instances of relative Langlands duality",
+      "link": "arXiv:2309.08874",
+      "why": "The Weil representation of U and the degenerate Whittaker coefficient (1.1), even orbits (§§2.3–2.3.2)."
+    },
+    {
+      "citation": "D. Barbasch and D. Vogan, Unipotent representations of complex semisimple groups, Ann. of Math. 121 (1985), 41–110",
+      "link": "10.2307/1971193",
+      "why": "The duality of nilpotent orbits and special orbits used in §1.2."
+    },
+    {
+      "citation": "E. Lapid and Z. Mao, A conjecture on Whittaker–Fourier coefficients of cusp forms, J. Number Theory 146 (2015), 448–505",
+      "link": "10.1016/j.jnt.2013.10.003",
+      "why": "Conjecture 1.1 there is the regular case of Conjecture 1.5 and enters (1.4)."
+    },
+    {
+      "citation": "C. Wan and L. Zhang, Periods of automorphic forms associated to strongly tempered spherical varieties, Mem. Amer. Math. Soc. 313 (2025), no. 1590",
+      "link": "10.1090/memo/1590",
+      "why": "The six models, Whittaker induction and the explicit Conjecture 1.7 behind Conjecture 2.1."
+    },
+    {
+      "citation": "Z. Mao, C. Wan and L. Zhang, Strongly tempered hyperspherical Hamiltonian spaces",
+      "link": "arXiv:2405.17699",
+      "why": "The algorithm computing the dual quadruple Δ_1 in the symplectic-vector-space case."
+    },
+    {
+      "citation": "Z. Mao and S. Rallis, A trace formula for dual pairs, Duke Math. J. 87 (1997), 321–341",
+      "link": "10.1215/S0012-7094-97-08712-3",
+      "why": "The Jordan-algebra coordinates, Proposition 3 (unfolding), Theorems 1–2 and Lemmas 4–5, on which Theorems 4.4 and 5.9 are built."
+    },
+    {
+      "citation": "Z. Mao and S. Rallis, Jacquet modules of the Weil representations and families of relative trace identities, Compos. Math. 140 (2004), 855–886",
+      "link": "10.1112/S0010437X04000399",
+      "why": "U, μ of (2.31) and the comparison (2.34) recovered by the GL_n example."
+    },
+    {
+      "citation": "Z. Mao and S. Rallis, A relative trace identity between GL_2n and Sp̃_n, Duke Math. J. 152 (2010), 207–255",
+      "link": "10.1215/00127094-2010-012",
+      "why": "Theorem 2.1 (comparison of I(f′) and J′(f)) and the (Sp_4, Sp_2 × Sp_2) case of Remark 1.12."
+    },
+    {
+      "citation": "Z. Mao and S. Rallis, The induced Weil representation and the Shalika period, Pacific J. Math. 191 (1999), 313–327",
+      "link": "10.2140/pjm.1999.191.313",
+      "why": "The fundamental lemma of the Shalika comparison for n = 2 (§1.3.4)."
+    },
+    {
+      "citation": "S. Kudla, Notes on the local theta correspondence",
+      "link": "https://www.math.utoronto.ca/skudla/castle.pdf",
+      "why": "Lemma 2.2 and Proposition 2.3, from which Propositions 5.1 and 5.3 are derived."
+    },
+    {
+      "citation": "H. Jacquet, On the nonvanishing of some L-functions, Proc. Indian Acad. Sci. Math. Sci. 97 (1987), 117–155",
+      "link": "10.1007/BF02837819",
+      "why": "The Whittaker–Hecke trace formula of special case 2."
+    },
+    {
+      "citation": "H. Jacquet and Y. Ye, Une remarque sur le changement de base quadratique, C. R. Acad. Sci. Paris Sér. I Math. 311 (1990), 671–676",
+      "link": "",
+      "why": "The unfolding (3.1) of the Kuznetsov trace formula of SL_2."
+    },
+    {
+      "citation": "H. Jacquet and S. Rallis, Kloosterman integrals for skew symmetric matrices, Pacific J. Math. 154 (1992), 265–283",
+      "link": "10.2140/pjm.1992.154.265",
+      "why": "The skew-symmetric instance of Conjecture 1.8 (§1.3.4)."
+    },
+    {
+      "citation": "S. Friedberg and H. Jacquet, Linear periods, J. reine angew. Math. 443 (1993), 91–140",
+      "link": "10.1515/crll.1993.443.91",
+      "why": "Theorem 4.1, the spectral expansion (6.1) of I(f′)."
+    },
+    {
+      "citation": "S. Friedberg and H. Jacquet, The fundamental lemma for the Shalika subgroup of GL(4), Mem. Amer. Math. Soc. 124 (1996), no. 594",
+      "link": "10.1090/memo/0594",
+      "why": "The Shalika instance of Conjecture 1.8 (§1.3.4)."
+    },
+    {
+      "citation": "D. Ginzburg, S. Rallis and D. Soudry, On explicit lifts of cusp forms from GL_m to classical groups, Ann. of Math. 150 (1999), 807–866",
+      "link": "10.2307/121057",
+      "why": "Theorem 16, used in the proof of Proposition 6.4."
+    },
+    {
+      "citation": "D. Ginzburg, S. Rallis and D. Soudry, On a correspondence between cuspidal representations of GL_2n and Sp̃_2n, J. Amer. Math. Soc. 12 (1999), 849–907",
+      "link": "10.1090/S0894-0347-99-00300-8",
+      "why": "§5 Theorem 1, Lemma 2, (4.12), (5.2), (5.16): the argument behind Proposition 6.4."
+    },
+    {
+      "citation": "Y. Sakellaridis, Functorial transfer between relative trace formulas in rank one, Duke Math. J. 170 (2021), 279–364",
+      "link": "10.1215/00127094-2020-0046",
+      "why": "The rank-one spherical varieties (Table 1) of Assumption 1.11 and the comparison Conjecture 1.8 parallels."
+    },
+    {
+      "citation": "Y. Sakellaridis, Spherical functions on spherical varieties, Amer. J. Math. 135 (2013), 1291–1381",
+      "link": "10.1353/ajm.2013.0046",
+      "why": "Appendix A (unramified computations) for the dualities of the §6 examples."
+    },
+    {
+      "citation": "Y. Sakellaridis and A. Venkatesh, Periods and harmonic analysis on spherical varieties, Astérisque 396 (2017)",
+      "link": "10.24033/ast.1040",
+      "why": "Local relative characters and the Plancherel decomposition in Remark 1.2."
+    },
+    {
+      "citation": "F. Knop and B. Schalke, The dual group of a spherical variety, Trans. Moscow Math. Soc. 78 (2017), 187–216",
+      "link": "10.1090/mosc/270",
+      "why": "Table 3, the dual groups used in §6."
+    },
+    {
+      "citation": "B. Gross, On the motive of a reductive group, Invent. Math. 130 (1997), 287–313",
+      "link": "10.1007/s002220050186",
+      "why": "The motive M whose dual gives the zeta factors in Remark 1.2."
+    },
+    {
+      "citation": "E. Lapid and S. Rallis, On the local factors of representations of classical groups, in Automorphic representations, L-functions and applications (de Gruyter, 2005), 309–359",
+      "link": "10.1515/9783110892703.309",
+      "why": "Proposition 4, with which Conjecture 1.5 is compatible (Remark 1.6)."
+    },
+    {
+      "citation": "D. Zinoviev, Relation of orbital integrals on SO(5) and PGL(2), Israel J. Math. 106 (1998), 29–77",
+      "link": "10.1007/BF02773460",
+      "why": "The fundamental lemma in the (SO_5, SO_4) case of Remark 1.12."
+    },
+    {
+      "citation": "M. Zydor, Periods of automorphic forms over reductive subgroups, Ann. Sci. Éc. Norm. Supér. 55 (2022), 141–183",
+      "link": "10.24033/asens.2493",
+      "why": "Regularisation of divergent periods (§1.1)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "new",
+      "roadmap": "RelativeLanglandsDuality",
+      "title": "Relative Langlands duality: hyperspherical quadruples, automorphic periods and relative trace formula comparisons",
+      "area": "automorphic",
+      "items": [
+        "PAPER-MAO-WAN-ZHANG-26/1",
+        "PAPER-MAO-WAN-ZHANG-26/2",
+        "PAPER-MAO-WAN-ZHANG-26/4",
+        "PAPER-MAO-WAN-ZHANG-26/5",
+        "PAPER-MAO-WAN-ZHANG-26/6",
+        "PAPER-MAO-WAN-ZHANG-26/8",
+        "PAPER-MAO-WAN-ZHANG-26/9",
+        "PAPER-MAO-WAN-ZHANG-26/10",
+        "PAPER-MAO-WAN-ZHANG-26/11",
+        "PAPER-MAO-WAN-ZHANG-26/12",
+        "PAPER-MAO-WAN-ZHANG-26/14",
+        "PAPER-MAO-WAN-ZHANG-26/15",
+        "PAPER-MAO-WAN-ZHANG-26/16",
+        "PAPER-MAO-WAN-ZHANG-26/17",
+        "PAPER-MAO-WAN-ZHANG-26/18",
+        "PAPER-MAO-WAN-ZHANG-26/19",
+        "PAPER-MAO-WAN-ZHANG-26/20",
+        "PAPER-MAO-WAN-ZHANG-26/21",
+        "PAPER-MAO-WAN-ZHANG-26/22",
+        "PAPER-MAO-WAN-ZHANG-26/25",
+        "PAPER-MAO-WAN-ZHANG-26/26",
+        "PAPER-MAO-WAN-ZHANG-26/27",
+        "PAPER-MAO-WAN-ZHANG-26/28",
+        "PAPER-MAO-WAN-ZHANG-26/29",
+        "PAPER-MAO-WAN-ZHANG-26/32",
+        "PAPER-MAO-WAN-ZHANG-26/33",
+        "PAPER-MAO-WAN-ZHANG-26/34",
+        "PAPER-MAO-WAN-ZHANG-26/35",
+        "PAPER-MAO-WAN-ZHANG-26/36",
+        "PAPER-MAO-WAN-ZHANG-26/37",
+        "PAPER-MAO-WAN-ZHANG-26/38",
+        "PAPER-MAO-WAN-ZHANG-26/39",
+        "PAPER-MAO-WAN-ZHANG-26/40",
+        "PAPER-MAO-WAN-ZHANG-26/41",
+        "PAPER-MAO-WAN-ZHANG-26/42",
+        "PAPER-MAO-WAN-ZHANG-26/43",
+        "PAPER-MAO-WAN-ZHANG-26/44",
+        "PAPER-MAO-WAN-ZHANG-26/45",
+        "PAPER-MAO-WAN-ZHANG-26/46",
+        "PAPER-MAO-WAN-ZHANG-26/47",
+        "PAPER-MAO-WAN-ZHANG-26/48",
+        "PAPER-MAO-WAN-ZHANG-26/49",
+        "PAPER-MAO-WAN-ZHANG-26/50",
+        "PAPER-MAO-WAN-ZHANG-26/51",
+        "PAPER-MAO-WAN-ZHANG-26/52",
+        "PAPER-MAO-WAN-ZHANG-26/53",
+        "PAPER-MAO-WAN-ZHANG-26/54",
+        "PAPER-MAO-WAN-ZHANG-26/55",
+        "PAPER-MAO-WAN-ZHANG-26/56",
+        "PAPER-MAO-WAN-ZHANG-26/57",
+        "PAPER-MAO-WAN-ZHANG-26/58",
+        "PAPER-MAO-WAN-ZHANG-26/59",
+        "PAPER-MAO-WAN-ZHANG-26/60",
+        "PAPER-MAO-WAN-ZHANG-26/61",
+        "PAPER-MAO-WAN-ZHANG-26/62",
+        "PAPER-MAO-WAN-ZHANG-26/63",
+        "PAPER-MAO-WAN-ZHANG-26/64",
+        "PAPER-MAO-WAN-ZHANG-26/65",
+        "PAPER-MAO-WAN-ZHANG-26/66",
+        "PAPER-MAO-WAN-ZHANG-26/67",
+        "PAPER-MAO-WAN-ZHANG-26/68",
+        "PAPER-MAO-WAN-ZHANG-26/69",
+        "PAPER-MAO-WAN-ZHANG-26/70",
+        "PAPER-MAO-WAN-ZHANG-26/71",
+        "PAPER-MAO-WAN-ZHANG-26/72",
+        "PAPER-MAO-WAN-ZHANG-26/73",
+        "PAPER-MAO-WAN-ZHANG-26/74",
+        "PAPER-MAO-WAN-ZHANG-26/75",
+        "PAPER-MAO-WAN-ZHANG-26/76",
+        "PAPER-MAO-WAN-ZHANG-26/77",
+        "PAPER-MAO-WAN-ZHANG-26/78",
+        "PAPER-MAO-WAN-ZHANG-26/79"
+      ],
+      "brief": "A new roadmap for the period side of the relative Langlands programme in the form of Ben-Zvi–Sakellaridis–Venkatesh (BZSV), built from Mao–Wan–Zhang, 'Relative Langlands duality for some strongly tempered spherical varieties' (Invent. Math. 243 (2026)). Final theorems, as the paper states them. Theorem 1.13: when (G, H, ρ_H, ι) is the dual (Ĝ, Ĝ, ρ̂, 1) of one of the six models of Table 1 (so H′ = SL_2), the fundamental lemma and smooth transfer for the relative trace formula comparison of Conjecture 1.8 hold at the p-adic places; concretely, Conjectures 4.3 and 5.8 hold at non-archimedean v (for the fundamental lemma of Models 5–6, of residual characteristic ≠ 2): with n = dim 𝒥, I^±_v = J^±_v and I_v(a, ·) = |a|^{(n+1)/2}J_v(a, ·) (Models 1–4) or |4|·|a|^{(n+1)/2}J_v(a, ·) (smooth transfer of Models 5–6), for the unit elements and for matching test functions. This rests on Theorems 4.4 and 5.9, each in three parts: the regular orbital integrals I(a, ·) exhaust C^∞_c(F^×); for the characteristic functions of the lattices I(a, ·) is 0, 1 or |a|^{(n−1)/2}∫_{𝒪^×}ψ((x + x^{−1})/a) dx according as |a| > 1, = 1, < 1; and a ↦ |a|^{(1−n)/2}I(a, ·) lies in C^∞_OI(F^×, c_+, c_−) with c_± = I^± (Models 1–4) or |4|·I^± (Models 5–6). Layers the roadmap must cover: (1) BZSV quadruples (G, H, ρ_H, ι), the decomposition 𝔤 = ⊕ρ_k ⊗ Sym^k, ρ_{H,ι}, hyperspherical and anomaly-free quadruples, the BZSV structure theorem and the splitting of the metaplectic cover over anomaly-free representations (BZSV Theorem 3.6.1 and Proposition 5.1.1, stated as imported theorems), the period P_Δ, tempered Arthur parameters factoring through ι̂′, and the BZSV period conjecture (Conjecture 1.1, with Remark 1.2's exact form) as a formal statement; (2) degenerate Whittaker coefficients: the unipotent group U of ι, its Heisenberg–Weil representation and theta series (Gan–Jun), the Bessel and Fourier–Jacobi cases, Barbasch–Vogan duality, the representation ρ̂_ι̂ of (1.2)–(1.3), Conjecture 1.5 with Remark 1.6, and Lapid–Mao's Whittaker conjecture as its regular case; (3) the comparison framework: Δ̂_1 and Δ_1, Conjecture 1.7, the distributions I(f) and J(f′) with the heuristic (1.4), Conjecture 1.8 in the local form of Remark 1.9, and the special cases of Assumptions 1.10 (Kuznetsov) and 1.11 (Sakellaridis's rank-one varieties, with Jacquet's Whittaker–Hecke trace formula); (4) the Kuznetsov trace formula of SL_2: the unfolding (3.1), the Kloosterman orbital integrals J_v(a, ·) and J^±_v, the germ space C^∞_OI(F^×, c_+, c_−) and Proposition 3.3 (surjectivity onto C^∞_c(F^×), the unit element, the germ expansion); (5) the six models: Tables 1–3, P = MU, Ξ and ι, the (G, H)-side Conjecture 2.1 (Wan–Zhang) and the dual Conjecture 2.3, the theta series of ρ̂ on Ĝ; (6) Models 1–4: N as a degree-three Jordan algebra 𝒥 (Mat_3, Asym_4 ⊕ Mat_1, Asym_6, the Albert algebra) with trace, norm, A·A and A×A, the polarisation Y = Mat_{1×1} ⊕ 𝒥, the unfolding Proposition 4.2, Mao–Rallis's orbital integral identity and fundamental lemma (Duke 87 (1997), Theorems 1–2, as imported theorems or reproved), the P_γ lemma, (4.2) and Theorem 4.4; (7) Models 5–6: the Fourier–Jacobi datum of Spin_{2n+1}, I(f, φ, φ′), Propositions 5.1 and 5.3 (explicit Weil representations), (5.11)–(5.13), the singular sets 𝒥_1, 𝒥_11, 𝒥_2, 𝒥_12, 𝒥^±, Propositions 5.5 and 5.7, (5.14)–(5.15) and Theorem 5.9; (8) the further examples of §6: the GL_n example and the non-special Sp_4n example (Conjectures 6.1–6.3, the relative trace formulas I(f′), J(f), J′(f), Friedberg–Jacquet's expansion (6.1), Mao–Rallis's comparison of I(f′) and J′(f) as an imported theorem, and Proposition 6.4). Conjectures are recorded as formal statements (definitions of propositions), never as hypotheses silently assumed; the theorems proved are those of layers 4, 6 and 7 and Proposition 6.4. Use the corrected statements of sourceIssues E1–E14; in particular fix the sign of the ⟨Y, A⟩/a term of (5.13) and Proposition 5.7 consistently with (5.8) and with the proof of Theorem 5.9(3) (E9), take ⟨X_{e_i}, X_{e_{7−i}}⟩ = (−1)^i in Proposition 5.3 (E7), and choose the neighbourhoods in Theorem 5.9(1) small enough to kill the ⟨Y, A⟩ and ⟨A, A⟩ terms (E5). Imports: Metaplectic groups, Weil representations and automorphic theta kernels (MetaplecticAutomorphicForms: MP.0–MP.2 for Heisenberg groups, Schrödinger models and explicit Weil operators, MP.4–MP.5 for the adelic Weil representation and theta series); Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory: AS.4, AS.6 for kernels and the discrete spectrum); Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups: AF.2); Smooth representations of local groups (SmoothRepresentationsOfLocalGroups: SR.4 for unramified Hecke algebras); Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions: ML.4–ML.5 for the known Arthur classifications and descents); Tau Ceti's Clifford algebras, the Pin and Spin groups, and spin representations (tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations, Layer 4) and Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, Layer 8: the split Albert algebra and the 56-dimensional representation of E_7); Tau Ceti's sl₂ classification and complete reducibility (library). Coordinate with the pending candidates The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups: Bessel and Fourier–Jacobi models), Endoscopic transfer and unitary trace comparison, Part II (JacquetRallisRelativeTraceComparison: the methods of relative trace formula comparison), Automorphic spectral theory and trace distributions, Part II (AutomorphicSpectralTheoryPartIISchwartzMultipliers: kernels of Schwartz functions) and Twisted automorphic descents (TwistedAutomorphicDescents: the Ginzburg–Rallis–Soudry inputs of Proposition 6.4) rather than duplicating them.",
+      "reason": "Nothing in the atlas goes in this direction. No stage mentions BZSV or relative Langlands duality, periods of spherical varieties, degenerate Whittaker coefficients of general nilpotent orbits, or the Kuznetsov trace formula. Among the pending candidates, the Gan–Gross–Prasad and Jacquet–Rallis owners are specific to classical and unitary groups, and their Bessel and Fourier–Jacobi periods are special cases of the degenerate Whittaker periods here; the metaplectic roadmap supplies Weil representations but no periods of Hamiltonian spaces. A new roadmap in the automorphic galaxy, importing these, is the owner that later relative-Langlands papers (BZSV itself, Wan–Zhang and Sakellaridis's rank-one transfer) can extend."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E1",
+      "kind": "misprint",
+      "locator": "§2, p. 12, Model 2 ('In the second case')",
+      "printed": "if we use α_i = e_i − e_{i+1} (1 ≤ i ≤ n − 1) and α_n = e_{n−1} + e_n to denote the simple roots of Type B_n",
+      "correction": "… the simple roots of Type D_n",
+      "reason": "α_n = e_{n−1} + e_n is the last simple root of D_n, and the group is GSO_8, of type D_4; the Type B_n roots are e_i − e_{i+1} and e_n.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the same slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E2",
+      "kind": "misprint",
+      "locator": "§3, (3.1), p. 15",
+      "printed": "J(f′) = Π_{v∈k^×} J^+_v(f′_v) + Π_{v∈k^×} J^−_v(f′_v) + Σ_{a∈k^×} Π_{v∈k^×} J_v(a_v, f′_v)",
+      "correction": "J(f′) = ∏_{v∈|k|} J^+_v(f′_v) + ∏_{v∈|k|} J^−_v(f′_v) + Σ_{a∈k^×} ∏_{v∈|k|} J_v(a, f′_v), a ∈ k^× ⊂ k_v^×",
+      "reason": "The products are over the places of k (|k|), as in Proposition 4.2 and Proposition 5.7, not over k^×.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the same slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E3",
+      "kind": "misprint",
+      "locator": "§4.1, Proposition 4.2, p. 17",
+      "printed": "I(f, φ) = Π_{v∈|k|} I^+_v(f_v ∗ φ_v) + Π_{v∈|k|} I^+_v(f_v ∗ φ_v) + Σ_{a∈k^×} I_v(f_v ∗ φ_v)",
+      "correction": "I(f, φ) = ∏_{v∈|k|} I^+_v(f_v ∗ φ_v) + ∏_{v∈|k|} I^−_v(f_v ∗ φ_v) + Σ_{a∈k^×} ∏_{v∈|k|} I_v(a, f_v ∗ φ_v)",
+      "reason": "The two singular terms are the values at (0, I) and (0, −I), I^±_v(f_v ∗ φ_v) = f_v ∗ φ_v(0, ±I), as defined in the same proposition; the regular term is a product of the local orbital integrals I_v(a, ·) defined there, as in (3.1) and Proposition 5.7.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E4",
+      "kind": "misprint",
+      "locator": "§4.2, proof of Theorem 4.4(1), p. 18; §5.3, proof of Theorem 5.9(1), p. 26",
+      "printed": "we let the function φ ∈ C^∞_c(Y(F)) to be the product of the characteristic function of (a_0 + ϖ^m) × 𝒦 with the volume of this set",
+      "correction": "φ = vol(𝒦)^{−1} · 1_{(a_0+ϖ^m𝒪_F)×𝒦} (and, in Theorem 5.9, φ′ = vol(𝒦′)^{−1} · 1_{𝒦′})",
+      "reason": "For a ∈ a_0 + ϖ^m𝒪_F the phase is trivial on 𝒦, so I(a, 1_{(a_0+ϖ^m𝒪_F)×𝒦}) = vol(𝒦) · 1_{a_0+ϖ^m𝒪_F}(a); to get the characteristic function one divides by the volume of 𝒦 (not multiplies by the volume of the product set). The set is a_0 + ϖ^m𝒪_F, not a_0 + ϖ^m.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E5",
+      "kind": "gap",
+      "locator": "§5.3, proof of Theorem 5.9(1), p. 26",
+      "printed": "we fix an open compact subset 𝒦 of 𝒥(F) (resp. 𝒦′ of Y′(F)) such that |tr(A) − N_𝒥(A)| ≤ |a_0| for all A ∈ 𝒦 and Y ∈ 𝒦′",
+      "correction": "choose 𝒦 and 𝒦′ such that also |⟨Y, A⟩| ≤ |a_0| and |⟨A, A⟩| ≤ |2| · |a_0|² for all A ∈ 𝒦, Y ∈ 𝒦′ (small enough neighbourhoods of 0 do this), so that the whole phase of I(a, φ, φ′) is trivial for a ∈ a_0 + ϖ^m𝒪_F",
+      "reason": "For Models 5–6 the orbital integral has phase ψ((tr(A) − N_𝒥(A) ± ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)), and the stated condition, copied from the proof of Theorem 4.4, controls only the first term; the paper's own example (small neighbourhoods of 0) satisfies the stronger condition.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E6",
+      "kind": "misprint",
+      "locator": "§5.2, p. 20 (twice)",
+      "printed": "the lowest weight vector of ρ̂ (i.e. (−e_1 − e_2 − e_3 − e_4e_5)/2)",
+      "correction": "(−e_1 − e_2 − e_3 − e_4 − e_5)/2",
+      "reason": "The weights of the spin representation are (±e_1 ± ⋯ ± e_5)/2 (same page); a minus sign is lost.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E7",
+      "kind": "misprint",
+      "locator": "§5.2, before Proposition 5.3, p. 21",
+      "printed": "⟨X_{e_i}, X_{e_j}⟩ = ⟨X_{e_1−e_i}, X_{e_1−e_j}⟩ = 0, ⟨X_{e_i}, X_{e_1−e_j}⟩ = δ_ij",
+      "correction": "⟨X_{e_1−e_i}, X_{e_1−e_j}⟩ = 0, ⟨X_{e_i}, X_{e_1−e_j}⟩ = δ_ij and ⟨X_{e_i}, X_{e_j}⟩ = (−1)^i δ_{i+j,7} (2 ≤ i, j ≤ 5)",
+      "reason": "The commutator [U_{e_i}, U_{e_{7−i}}] lies in U_{e_i+e_{7−i}}, on which ψ∘λ is nontrivial ((5.9): e_2 + e_5 and e_3 + e_4), so the Heisenberg form pairs X_{e_i} with X_{e_{7−i}}. With the printed form, v_i = X_{e_i} + ((−1)^i/2)X_{e_1−e_{7−i}} satisfies ⟨v_i, v_{7−i}⟩ = −(−1)^i ≠ 0, contradicting footnote 9, where the span of the v_i is an isotropic space of the polarisation, and the correction term in the basis would be pointless. ⟨X_{e_i}, X_{e_{7−i}}⟩ = (−1)^i is exactly the value that makes the span of the v_i isotropic. (5.8)–(5.10) are consistent with the corrected form.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E8",
+      "kind": "misprint",
+      "locator": "§5.2, (5.13), p. 21, and the unfolding of the main term, p. 22",
+      "printed": "n ∈ N_2(𝔸), Y ∈ Y′(𝔸), a ≠ 0; … = Σ_{a∈k^×} ∫_{Y′(𝔸)} ∫_{N_2(𝔸)} …",
+      "correction": "n ∈ N_0(𝔸) …; ∫_{Y′(𝔸)} ∫_{N_0(𝔸)} …",
+      "reason": "N_2 is not defined; the preceding sentence writes N = N_1N_0 with N_0 the Siegel unipotent radical, and (5.12) has already integrated over N_1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the same slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E9",
+      "kind": "error",
+      "locator": "§5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29",
+      "printed": "Ω_ψ(n)φ(a, 0)Ω′_ψ(n)φ′(Y) = ψ((−N_𝒥((n, a).0) − ⟨n ⋆ Y, (n, a).0⟩ + tr((n, a).0))/a − ⟨(n, a).0, (n, a).0⟩/(2a²)) …; I_v(a, f_v ∗ φ_v, φ′_v) = ∫_{𝒥(k_v)} ∫_{Y′(k_v)} ψ_v((tr(A) − N_𝒥(A) − ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) f_v ∗ φ_v(a, A)φ′_v(Y) dY dA",
+      "correction": "the sign of the pairing term is +: ψ((tr((n, a).0) − N_𝒥((n, a).0) + ⟨n ⋆ Y, (n, a).0⟩)/a − …) in (5.13) and the unfolding, and ψ_v((tr(A) − N_𝒥(A) + ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) in Proposition 5.7 and footnote 11 (equivalently: replace φ′ by φ′(−·))",
+      "reason": "Test (5.13) on n = u_{e_i}(t), 2 ≤ i ≤ 5. By (5.3) with A = 0, Ω_ψ(n)φ(a, 0) = φ(a, atX_{e_i}): N_𝒥 vanishes on the single root vector atX_{e_i}. By (5.8), Ω′_ψ(n)φ′(Y) = ψ(tY_i)φ′(n ⋆ Y), with (n ⋆ Y)_i = Y_i since n ⋆ changes only the coordinate 7 − i. So the left side carries ψ(+tY_i). On the right side, (n, a).0 = atX_{e_i} has trace 0 and ⟨atX_{e_i}, atX_{e_i}⟩ = 0, leaving ψ(−⟨n ⋆ Y, atX_{e_i}⟩/a) = ψ(−tY_i). The proof of Theorem 5.9(3) (p. 29) writes the phase with +Σ Y_iA_i/a. Only with that sign does its germ constant ψ(2(Y_{2,0} − A_{15,0})(Y_{5,0} − A_{12,0}) + 2(Y_{3,0} − A_{14,0})(Y_{4,0} − A_{13,0})) equal I^+(φ, φ′) as defined with Y · A of Proposition 5.5. With the printed − sign the same computation gives (Y_{2,0} + A_{15,0})(Y_{5,0} + A_{12,0}) + …, and Theorem 5.9(3) would fail for general φ′. The alternative repair, a sign error in (5.8) instead, would force changes to Proposition 5.5 and to the computation on p. 29 as well, so the printed (5.13) is the likelier slip. Either way the paper is internally inconsistent here. The fundamental lemma (Theorem 5.9(2)) is unaffected, because 1_{Y′(𝒪_F)} is even. With the corrected sign, Proposition 5.7, Theorem 5.9 and Theorem 1.13 hold as the paper intends.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the same slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E10",
+      "kind": "misprint",
+      "locator": "§5.2, first display of p. 23",
+      "printed": "ψ((tr(A) − N_𝒥(A) − ⟨Y, A⟩)/a − ⟨Y, A⟩/(2a²))",
+      "correction": "ψ((tr(A) − N_𝒥(A) ± ⟨Y, A⟩)/a − ⟨A, A⟩/(2a²)) (sign as in E9)",
+      "reason": "The second pairing is ⟨(a, u).0, (a, u).0⟩ = ⟨A, A⟩ after the change of variables, as in (5.13) and in the definition of I_v on the same page.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E11",
+      "kind": "misprint",
+      "locator": "§5.3, proof of Theorem 5.9(2), p. 27",
+      "printed": "As ⟨Y, A⟩ = Σ_{2≤i≤5} AY_iA_i …; 𝒥(𝒪_F)_a := {A ∈ 𝒪_F | A_i ∈ a𝒪_F, ∀2 ≤ i ≤ 5}",
+      "correction": "⟨Y, A⟩ = Σ_{2≤i≤5} Y_iA_i; 𝒥(𝒪_F)_a := {A ∈ 𝒥(𝒪_F) | A_i ∈ a𝒪_F, 2 ≤ i ≤ 5}",
+      "reason": "The pairing is defined on p. 22 as Σ Y_iA_i; the domain is a subset of 𝒥(𝒪_F), as the comparison with Mao–Rallis's domain 𝒥(𝒪_F) states.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E12",
+      "kind": "misprint",
+      "locator": "§6.2, p. 31",
+      "printed": "Let e_i − e_j, e_i + e_j, e_k (resp. e_i − e_j, e_i + e_j, 2e_k) be the roots of SO_{4n+1} (resp. Sp_{2n}) with 1 ≤ i, j, k ≤ 2n …; It is clear that it is not a special nilpotent orbit of 𝔤 …; Ξ = ι̂((0 0; 1 0))",
+      "correction": "… the roots of SO_{4n+1} (resp. Sp_{4n}) …; … not a special nilpotent orbit of 𝔤̂ …; Ξ = ι((0 0; 1 0))",
+      "reason": "G = Sp_{4n} has these roots with 1 ≤ i, j, k ≤ 2n. O_ι̂ lies in 𝔤̂ = 𝔰𝔬_{4n+1}, where its partition [2^{2n}, 1] is not special (its transpose [2n + 1, 2n] is not a B-partition). ξ is a character of N ⊂ Sp_{4n}, so Ξ must lie in 𝔤 and come from the dual orbit O_ι, as in §2 where Ξ induces ι.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the Sp_{2n} slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E13",
+      "kind": "misprint",
+      "locator": "§6.2, Conjecture 6.1 p. 32 and Proposition 6.4 p. 33",
+      "printed": "Let π be an irreducible discrete automorphic representation of Ĝ(𝔸) and let ν : π → L²(Ĝ(k)\\Ĝ(𝔸))_π be an embedding",
+      "correction": "… of G(𝔸) = Sp_{4n}(𝔸) … ν : π → L²(G(k)\\G(𝔸))_π",
+      "reason": "P_ι integrates over N ⊂ Sp_{4n}, and P_{G′} and P_{U,ξ′} are periods on Sp_{4n}. Conjecture 1.5, which these specialise, concerns π on G(𝔸) with parameter valued in Ĝ, and Conjecture 6.2 is stated for G(𝔸).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed",
+        "arXiv 2310.17837v3 has the same slip"
+      ]
+    },
+    {
+      "id": "PAPER-MAO-WAN-ZHANG-26/E14",
+      "kind": "misprint",
+      "locator": "Index and notation slips: §4.1 Conjecture 4.3(1) p. 17; §5.1 p. 19; §5.2 p. 22; §6.1 p. 30; §6.2 Proposition 6.4 p. 33",
+      "printed": "Ĝ(𝒪_v)A_Ĝ(F) (Conjecture 4.3(1)); U″_n to be the kernel of λ_n (λ defined as λ(u)); ψ(tr((a, u).0) − N_𝒥((a, u).0) − … − ⟨(n, a).0, (n, a).0⟩/(2a²)) (inside ∫_{N_2(𝔸)} … du); the adjoint action of Ĝ × SL_2 on 𝔤̂ (§6.1); ∫_{X_0(𝔸^S)} with 'the integration is over a large enough finite set of local places S'",
+      "correction": "Ĝ(𝒪_v)A_Ĝ(k_v); U″_n = ker λ; (u, a).0 throughout, matching the notation (n, a).A of Remark 5.2; the adjoint action of Ĥ × SL_2; ∫_{X_0(𝔸_S)}, 𝔸_S = ∏_{v∈S} k_v",
+      "reason": "Each is fixed by the surrounding definitions: the local group at v; the map named λ; the GL_1 × N-action written (n, a).A; the centraliser Ĥ = GL_2 × GL_1 of Im(ι̂) acting with SL_2; and the unramified identity (6.3), which removes the places outside S.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-025-01388-z: no update-to, updated-by or relation entries, and no work declaring an update of it (filter updates:, 23 September 2026)",
+        "arXiv 2310.17837: v1 (27 October 2023) to v3 (5 March 2024), all older than the April 2025 version read; no later version or erratum",
+        "Springer article page (doi.org/10.1007/s00222-025-01388-z) and Chen Wan's research page, 23 September 2026: no correction or erratum listed"
+      ]
+    }
+  ]
+}
