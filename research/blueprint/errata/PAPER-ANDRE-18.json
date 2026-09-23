@@ -1,0 +1,444 @@
+{
+  "paper": "PAPER-ANDRE-18",
+  "protocol": "errata-v1",
+  "status": "complete",
+  "agent": "Codex",
+  "session": "codex-hjdg0j",
+  "date": "2026-09-23",
+  "scope": "Complete collation of the earlier extraction’s 11 findings and passing notes, plus mistakes discovered at those passages. Not a new full-paper extraction, a formal proof, or an independent review. E3 is retained in screenedFindings; E14 concerns a cited source already corrected by André. All sourceIssues remain unreviewed.",
+  "inputs": [
+    {
+      "path": "research/blueprint/papers/PAPER-ANDRE-18.result.json",
+      "sha256": "4f8d4703b041045b0a6c1f236daf2f9f89081addacfea3b63eebc92ef430a4cc"
+    },
+    {
+      "path": "research/blueprint/papers/PAPER-ANDRE-18.md",
+      "sha256": "58e391117ee9b1a190ede4ddcf754b6a0a61485b6fa80849ee956712a39a8c6a"
+    }
+  ],
+  "inputCommit": "1a00cee3a524a91c8e699855875b082f38a295ed",
+  "sources": [
+    {
+      "id": "published",
+      "url": "https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf",
+      "sha256": "087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a",
+      "retrieved": "2026-09-23",
+      "pages": 70,
+      "pdfPagesRead": [
+        2,
+        5,
+        11,
+        12,
+        13,
+        14,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        36,
+        41,
+        42,
+        43,
+        45,
+        47,
+        48,
+        50,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "id": "arxiv-v1",
+      "url": "https://arxiv.org/pdf/1609.00320v1",
+      "sha256": "485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e",
+      "retrieved": "2026-09-23",
+      "pages": 61,
+      "pdfPagesRead": [
+        2,
+        12,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        32,
+        36,
+        37,
+        38,
+        39,
+        61
+      ]
+    },
+    {
+      "id": "guntzer-74",
+      "url": "https://www.numdam.org/item/10.24033/msmf.164.pdf",
+      "sha256": "c81847caaf38dea6778e067d2d0389d3922e6528c9350fdd47da59e6220a939a",
+      "retrieved": "2026-09-23",
+      "pages": 22,
+      "pdfPagesRead": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "conrad",
+      "url": "https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf",
+      "sha256": "07052ff7a8c1a25ce876ca984f28d62e513998259906bd994d3dc1622cda3f5b",
+      "retrieved": "2026-09-23",
+      "pages": 3,
+      "pdfPagesRead": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ANDRE-18/E1",
+      "title": "Completeness alone does not determine the spectral norm",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published §2.2.4 p.13; Lemme 2.4.1(2) p.22; Lemme 2.4.2 proof p.24; discussion after Théorème 3.4.1 p.41.",
+      "printed": "« au plus une norme spectrale » (p.13); the surrounding assertion imposes completeness, but no fixed topology. Its proof replaces two norms by their maximum.",
+      "correction": "Keep uniqueness for a fixed topology. If both norms are complete, a continuous identity in one direction suffices by open mapping. Delete the automatic-invariance parenthesis in Lemme 2.4.1(2), or require continuity of the finite-group action; retain its explicit norm-invariance hypothesis. Reprove applications using their additional hypotheses.",
+      "reason": "Let F be the algebraic closure of Q_p inside C_p. It is dense and properly contained in C_p. Extend t from C_p minus F to a transcendence basis over F. The automorphism of the rational function field sending t to pt and fixing the other basis elements and F extends to an automorphism σ of its algebraic closure C_p. Thus ν(x)=|x| and ν′(x)=|σ(x)| are distinct complete multiplicative Q_p-algebra norms, with ν′(t)=p^(-1)ν(t). For a_n in F tending to t in ν, the same sequence tends to p^(-1)t in ν′. It is Cauchy for max(ν,ν′) but cannot have a limit for that norm. There is also an actual finite-group counterexample to the parenthesis of Lemme 2.4.1(2): put B=C_p×C_p with N(x,y)=max(ν(x),ν′(y)), let G=C_2 swap factors, and give A=B^G=diagonal C_p its induced norm max(ν,ν′). B is complete and spectral; A is uniform normed, exactly as allowed in §2.4.1, though incomplete. The swap takes (t,0), of norm ν(t), to (0,t), of norm p^(-1)ν(t). The proposed old repair from (2.11) is invalid: that formula determines max_γ N(γb), not N(b), and its proof of individual equality uses G-invariance. The prior extraction also missed the invocation on p.24. For a finite projective algebra over a complete A, its given complete Banach topology agrees with the canonical module topology: choose finite generators, use the continuous surjection A^n→B and open mapping. A-linear isomorphisms are then continuous, so fixed-topology uniqueness applies to p.24 and p.41. This does not repair the general parenthesis on p.22, where A need not be complete.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "v1 §2.2.4 p.12, Lemme 2.4.1 p.20, Lemme 2.4.2 p.21 and discussion p.37 contain the same uses. The old assertion that all occurrences lie on pp.13,22,41 is incorrect.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E1",
+      "supportingSource": "Brian Conrad, Completion of algebraic closure, §1 and Theorem 1.1, https://virtualmath1.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf. All 3 pages read; algebraic closedness proved there, noncompleteness of Q_p-bar stated there with a BGR reference. BGR itself was not read in this errata job.",
+      "scope": "The abstract uniqueness claim and the automatic-isometry parenthesis are false. The norm-preserving version of the lemma remains available. This job does not certify the absence of effects in every later proof, and does not assert that the central Abhyankar equivalence is false."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E2",
+      "title": "Uniqueness cross-references point to the definition of uniformity",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published Lemme 2.4.1(2) proof p.22 and after Théorème 3.4.1 p.41.",
+      "printed": "« cf. 2.2.2 »",
+      "correction": "Replace both references by numbered paragraph 2.2.4; use the qualified norm statement of E1.",
+      "reason": "Paragraph 2.2.2 defines uniformity. The fixed-topology and completeness claims occur in paragraph 2.2.4. Changing the reference does not repair the false completeness claim.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same incorrect number in v1 pp.20 and 37.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E2"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E4",
+      "title": "Sign of the 2-adic absolute-value exponent",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Published Exemple prophylactique 3.4.2 p.41, final norm equality.",
+      "printed": "|a₁(0)a₂(0)|=2^(−3/2)",
+      "correction": "The right hand side is 2^(3/2), with |2|=1/2.",
+      "reason": "With v(2)=1 and i²=−1, (1+i)²=2i gives v((1+i)/2)=−1/2. Since 2a₁(0)a₂(0) differs from (1+i)/2 by an integral element, v(a₁(0)a₂(0))=−3/2. This contradicts v(a₁(0))≥0 and v(a₂(0))≥−1. The printed absolute value does not. This repairs the displayed contradiction, not an independent reproof of every assertion in the example.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "v1 p.37 has the same negative exponent, but its example uses n=2 and g=T₁+T₂ instead of the published n=1 and g=T+4; those examples are not identical.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E4"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E5",
+      "title": "Invert the pseudouniformizer in the root-saturation formula",
+      "kind": "misprint",
+      "affects": "a stated result",
+      "locator": "Published formula (2.17), paragraph 2.5.3(1), p.26.",
+      "printed": "g^(−1/p^∞)B=g^(−1/p^∞)B°[1/p]=B_*",
+      "correction": "Use [1/ϖ] in the middle expression.",
+      "reason": "The setting includes characteristic p, where inversion of p gives the zero ring. Already g=1 and B=K≠0 refute the printed equality. The surrounding discussion uses [1/ϖ], and B=B°[1/ϖ]. The intended formula is clear, but its literal printed version is a false stated equality.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "v1 formula (2.18), p.23, has the same [1/p].",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E5"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E6",
+      "title": "Lower bound in the localization-injectivity proof",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "Published Lemme 2.6.3 proof, p.29.",
+      "printed": "inf_m |(g/λ)^m a|≥1",
+      "correction": "Replace 1 by |a|>0, under the stated assumptions a∈A° minus {0} and 0<|λ|≤|ga|.",
+      "reason": "For A=K⟨T⟩, g=T, a=ϖ and λ=ϖ, the infimum over m≥0 equals |ϖ|<1, attained at m=0. The image of the scalar ϖ in this nonzero K-algebra also necessarily has norm |ϖ|. For the correction one must not assume a spectral norm is multiplicative. Power multiplicativity and submultiplicativity instead give |ga|^m=|(ga)^m|≤|g^m a| |a|^(m−1) for m≥1. Hence |(g/λ)^m a|≥(|ga|/|λ|)^m |a|^(1−m)≥|a|. The m=0 term is |a|. Since ga≠0, a sufficiently small nonzero λ exists, proving the desired nonvanishing. The old extraction had the right bound but an invalid multiplicativity shortcut.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same bound in v1 Lemme 2.6.3, p.26.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E6"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E7",
+      "title": "Complement index in the Boolean presentation",
+      "kind": "misprint",
+      "affects": "a stated result",
+      "locator": "Published paragraph 2.7.2 p.30, presentation of the uniform Banach algebra.",
+      "printed": "T_b+T_¬b′−1",
+      "correction": "Use T_b+T_¬b−1, with the same index in each complement relation.",
+      "reason": "With the printed relations for all pairs (b,b′), subtracting two complement relations makes every T_b equal to x. The meet relations give x²=x and the complement relation gives 2x=1. Thus x=(2x)x=2x²=2x=1, then 2=1 and 1=0. The quotient is the zero ring, not an algebra with the prescribed nontrivial Boolean algebra. This strengthens and corrects the old reason, which said the idempotents merely collapse to {0,1}. Removing the prime restores the intended characteristic-function relations.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same stray prime in v1 p.27.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E7"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E8",
+      "title": "The test object for an arbitrary power-bounded element",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Published paragraph 2.7.1 p.30, first paragraph.",
+      "printed": "K —(1↦a_n)→ A",
+      "correction": "Replace the source by K⟨T⟩ and the assignment by T↦a_n; also replace the source of the proposed single morphism by K⟨T⟩.",
+      "reason": "Unital K-algebra maps K→A send 1 to 1. Paragraph 2.1.5 gives the needed Tate-algebra universal property. To make the product obstruction precise, if a product P of copies of a nonuniform A existed with bounded projections π_n, choose a_n∈A° with ||a_n||>n max(1,||π_n||). Universal mapping gives f:K⟨T⟩→P. For b=f(T), ||a_n||=||π_n(b)||≤||π_n|| ||b||, a contradiction for n>||b||. This avoids assuming all projection norms have a common bound.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same K and 1↦a_n in v1 p.26.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E8"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E9",
+      "title": "Untilts are localizations of the untilted algebra",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Published paragraph 3.4.4(c), p.43, before the square.",
+      "printed": "« basculés Aα »; the indicated base is A♭.",
+      "correction": "The Aα are untilts (A♭_α)^♯ and rational localizations of A.",
+      "reason": "This part of the argument assumes characteristic zero. A nonzero Aα has characteristic zero, while a rational localization of A♭ has characteristic p. The displayed vertical functor ♯ confirms the direction. See E18 for a separate base-ring slip later in the same paragraph.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Both slips also occur in v1 p.38.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E9"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E10",
+      "title": "Missing power-bounded superscript in invariants",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published Lemme 2.4.1(2), proof p.22.",
+      "printed": "B^G=A∩B°=A°",
+      "correction": "Use (B°)^G=A∩B°=A°.",
+      "reason": "The preceding hypothesis is B^G=A, while the statement correctly concludes (B°)^G=A°. For the trivial action on B=A=K, the printed equation would assert K=K°. It is a slip in the proof, independent of E1.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "v1 p.20 omits the superscript in both the statement and proof. The published statement corrects it, but the proof does not.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E10",
+      "alreadyCorrectedOccurrence": "The statement of published Lemme 2.4.1(2) corrects the v1 statement. The remaining proof occurrence is still uncorrected."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E11",
+      "title": "Direct hypothesis for root extraction",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published Lemme 2.5.3 proof, implication (2)⇒(6), p.27.",
+      "printed": "« d’après (1) »",
+      "correction": "Cite (2) for p-radicial closedness in B[1/g].",
+      "reason": "The root being tested is initially an element of B[1/g]; (1) is formulated in B°[1/g]. Condition (2) is the direct hypothesis. This is only a citation improvement: (1)⇒(2) has just been proved, and its denominator argument can supply the missing membership if desired. It is not a counterexample to the lemma.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same reference in v1 Sorite 2.5.3 proof p.24.",
+      "inheritedFrom": "research/blueprint/papers/PAPER-ANDRE-18.result.json#sourceIssues/PAPER-ANDRE-18/E11"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E12",
+      "title": "Publication year of the Shimomoto reference",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published bibliography [32], p.70; earlier extraction prerequisites and final report paragraph.",
+      "printed": "220 (2014)",
+      "correction": "Journal of Pure and Applied Algebra 220(2) (2016), 621–632, DOI 10.1016/j.jpaa.2015.07.008.",
+      "reason": "The author’s institutional publication record gives volume 220(2), February 2016 and these pages. The extraction already noted this discrepancy in passing but mistakenly referred to its numbering finding E3. This is a bibliographic correction, with no change to a mathematical assertion.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "v1 bibliography [31], p.61, also gives 220 (2014).",
+      "supportingSource": "Kazuma Shimomoto institutional publication record: https://strdb.s.isct.ac.jp/html/100003320_en.html; DOI publisher endpoint could not be read during this check."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E13",
+      "title": "An arbitrary finite étale algebra need not contain the base",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published Théorème 0.3.1(1), p.2; compare Proposition 5.3.1(2), p.68. Earlier report unit-test note on a nonfaithful projection.",
+      "printed": "« l’inclusion » A↪B",
+      "correction": "State the maximal perfectoid A-algebra B inside B′, with continuous structure map A→B and containing the image of A. Alternatively add faithfulness of B′ over A[1/g] if an inclusion A↪B is required. Keep the explicit faithfulness assumption for the trace statement in part (3).",
+      "reason": "Take any nonzero perfectoid field K, A=K×K, g=1 with its compatible roots, and B′=K via first projection. The algebra B′ is finite étale over A (a direct factor), but the nonzero idempotent (0,1) maps to zero. No A-compatible inclusion A↪B⊂B′ exists. B=K does satisfy the version using a structure map. Proposition 5.3.1(2) already uses the correct A-algebra wording. Thus this finding concerns the introductory containment/inclusion clause, not the ramified equivalence or the trace conclusion under its stated hypothesis.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same inclusion wording in v1 Théorème 0.3.1(1), p.2."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E14",
+      "title": "Reducedness in the cited Güntzer lemma (already corrected by André)",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Güntzer (1974), Lemma 3.5 pp.116–117 (NUMDAM PDF pp.17–18). André published §3.2.2(2) p.36, footnote 16, explicitly records the correction.",
+      "printed": "« A^p is closed in A. » (Güntzer, condition (c))",
+      "correction": "Assume A reduced in Lemma 3.5, or add reducedness to (c). This is an error in the cited source, not an error by André.",
+      "reason": "For a complete perfect nonarchimedean field k of characteristic p, the dual-number Banach algebra A=k[ε]/(ε²), with its finite-dimensional maximum norm, has A^p=k, a closed subspace. Yet any power-multiplicative norm would satisfy ||ε||^p=||ε^p||=0, contradicting separation. Thus (c) alone cannot imply (a) or (b). In the printed proof on p.117 the functions ||f^(p^i)||^(1/p^i) are called norms; reducedness is necessary there. André supplies it explicitly.",
+      "known": "André, published §3.2.2(2), p.36 footnote 16, DOI 10.1007/s10240-017-0096-x; already in arXiv:1609.00320v1 p.32 footnote 18.",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "The correction is already in André v1 §3.2.2(2), p.32 footnote 18, and remains in the published version.",
+      "source": "GUNTZER-74",
+      "sourceUrl": "https://www.numdam.org/item/10.24033/msmf.164.pdf"
+    },
+    {
+      "id": "PAPER-ANDRE-18/E15",
+      "title": "Specify the unit-ball functor in the free-object adjunction",
+      "kind": "gap",
+      "affects": "a stated result",
+      "locator": "Published paragraphs 2.5.1 p.24 and 3.5.1 p.45 (the latter in characteristic p).",
+      "printed": "« foncteur oubli » K-uBan→Ens; similarly K-Perf→Ens.",
+      "correction": "Specify A↦A° as the right adjoint. The asserted Tate-algebra formulas are not left adjoints to the underlying set of the whole algebra.",
+      "reason": "For one generator, continuous K-algebra maps K⟨T⟩→A correspond to A°, by paragraph 2.1.5. For A=K and 0<|ϖ|<1, the assignment T↦ϖ^(−1) cannot be continuous: T^n stays bounded while its images do not. Thus it does not represent arbitrary elements of A. In characteristic p, the analogous perfectoid free object represents A° because compatible p-power roots are unique. If the author intended the unit-ball functor, the mathematics is correct and only that unstated interpretation must be supplied. The earlier extraction retained the ambiguity.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same unspecified functor in v1 pp.21 and 39."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E16",
+      "title": "Uniform rational-localization transition maps need not be injective",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Published paragraph 2.6.4(1), p.29, immediately after Lemme 2.6.3.",
+      "printed": "A{λ/g}^u→A{μ/g}^u; « tous injectifs »",
+      "correction": "Remove the general injectivity assertion. Any later use needs hypotheses ensuring the particular restriction map is injective, or its own proof. Non-zero-divisibility of g alone is insufficient. If the sentence is intended only to continue the preceding isometric-multiplication case, state that restriction explicitly; the counterexample here does not address that restricted version.",
+      "reason": "Let A=K×K with the spectral maximum norm, choose 0<|ϖ|<1, and set g=(1,ϖ), λ=ϖ, μ=1. The element g is invertible, hence a non-zero-divisor. In the first localization λ/g=(ϖ,1) is already power-bounded, so A{λ/g}^u=A. In the second localization, the first factor is K, while the second factor is K⟨U⟩/(ϖU−1)=0 because 1−ϖU has the convergent geometric-series inverse. Thus A{μ/g}^u=K, and the transition is first projection, killing (0,1). Both localizations are uniform; choose K perfectoid with roots of ϖ if that extra restriction is desired. Density of A[1/g] in the source does not imply injectivity of restriction. The inverse-limit injectivity of Lemme 2.6.3 is a different assertion and is not refuted.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same assertion in v1 paragraph 2.6.4(1), p.26."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E17",
+      "title": "Dangling sentence in the almost-purity proof sketch",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Published paragraph 3.4.4, p.42, immediately before the characteristic-p case.",
+      "printed": "« remplace l’usage . »",
+      "correction": "Delete the unfinished clause following the parenthetical discussion of circularity; alternatively restore a complete sentence about the Galois argument replacing Robba-ring methods.",
+      "reason": "The clause has no subject for the replacement and no object after usage. The complete explanation already appears above Proposition 3.4.2 and again in §3.4.5(1). This is an editorial remnant, not an additional missing mathematical argument.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Absent from the corresponding v1 paragraph 3.4.4 p.37: that text passes directly from the parenthesis to the characteristic-p case."
+    },
+    {
+      "id": "PAPER-ANDRE-18/E18",
+      "title": "Completion at a point in the approximation square",
+      "kind": "misprint",
+      "affects": "the proof",
+      "locator": "Published paragraph 3.4.4(c), p.43, parenthesis after the approximation references.",
+      "printed": "colim Aα°; « de complété A° »",
+      "correction": "The completion in this pointwise construction is H(x)°, not the original global A°; interpret the colimit with the seminorm induced by x and separated completion.",
+      "reason": "The same paragraph constructs the completed residue field H(x) as the uniform colimit of the localizations Aα and uses it as the bottom-right corner of the square. Even for A=K×K and x the point on the first factor, a rational neighborhood isolates that factor, so this completion is K° rather than K°×K°. Correcting the symbol identifies the intended completion; this finding does not by itself establish the henselian or approximation claims cited in the sketch.",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ],
+      "versionComparison": "Same global A° in v1 p.38."
+    }
+  ],
+  "screenedFindings": [
+    {
+      "id": "PAPER-ANDRE-18/E3",
+      "inheritedKind": "misprint",
+      "inheritedLocator": "Throughout the paper; measured over all 70 pages",
+      "inheritedClaim": "Two independent numbering sequences allegedly cause 44 collisions and require renumbering or qualified references.",
+      "inheritedCorrection": "The two sequences need distinct numbering, or every cross-reference needs to name the kind of object it points to.",
+      "inheritedReason": "The paper runs two independent counters within each section, both displayed as §.§.k. A mechanical comparison of the numbered paragraphs against the labelled statements finds 44 numbers that denote two different objects, among them 1.7.1, 1.9.2, 1.9.3, 2.3.2–2.3.5, 2.4.2, 2.5.1–2.5.3, 2.6.1–2.6.3, 2.8.1, 2.8.2, 2.9.1–2.9.3, 3.1.1, 3.1.2, 3.2.1, 3.2.2, 3.3.1, 3.3.4, 3.4.1, 3.4.3, 3.4.4, 3.5.1–3.5.5, 3.6.1, 3.7.1, 3.8.1, 4.2.1–4.2.3, 4.3.1, 4.4.1–4.4.3 and 5.2.1; several collide on the same page. A bare cross-reference of the form « cf. X.Y.Z » is therefore ambiguous, and every locator in this extraction has to say which of the two it means.",
+      "assessment": "Not promoted to sourceIssues in this errata submission: the numbering convention is real (paragraph and Lemma 2.4.1 on p.22; paragraph 3.5.5 on p.47 and Lemma 3.5.5 on p.48), but independent counters are not intrinsically a misprint. No particular false theorem or irresolvable reference follows merely from the repeated numbers. Use qualified locators. The earlier global count of 44 was not recertified; the specific genuinely wrong references are E2 and E11. This is the errata worker’s assessment, not an independent-review verdict. The unchanged extraction retains the original record.",
+      "known": "No published numbering correction found in the bounded searches.",
+      "searched": [
+        "2026-09-23: Springer article https://link.springer.com/article/10.1007/s10240-017-0096-x and NUMDAM record https://www.numdam.org/articles/10.1007/s10240-017-0096-x/ inspected; neither displayed a linked correction. Springer journal correction-search endpoints returned access/internal errors; title/DOI plus erratum/correction/corrigendum searches found no relevant notice. This is a bounded search, not an exhaustive journal archive audit.",
+        "2026-09-23: https://arxiv.org/abs/1609.00320 submission history lists only v1 (2016-08-31). Downloaded and compared the actual v1 PDF at the individual locators below with the 70-page published PDF. Different pagination and some different examples; no later arXiv revision listed.",
+        "2026-09-23: author page https://webusers.imj-prg.fr/~yves.andre/ (also reached from https://www.imj-prg.fr/~yves.andre/) inspected; only institutional/contact information, no publications or corrections linked. The older institutional directory URL returned 404. No author contact attempted."
+      ]
+    },
+    {
+      "id": "roos-background",
+      "assessment": "The old prerequisite entry notes that Roos (2006) corrects earlier inverse-limit work. André §1.3 p.5 and bibliography [29] p.70 already cite the 2006 paper. The old report’s corrected DOI is a repair to repository metadata, not a demonstrated error in André. No specific false assertion of Roos (1961) was extracted, and its proof is not audited here. Preserve the correct 2006 supplier and do not manufacture an André erratum from this background note."
+    },
+    {
+      "id": "root-localization-T-versus-g",
+      "assessment": "Old item 3.6.1-localization-perfectoid notes T versus g in Proposition 3.6.1 p.50. Its hypothesis identifies g=T·1, so these are the same element. Not an erratum."
+    }
+  ],
+  "sourceReadDiscipline": "The full prior JSON (199 items, three routes, 22 prerequisites, conventions, historical scope notes and all sourceIssues) and full 516-line report were read. Fresh source reading is limited to the enumerated pages, with page images used for disputed symbols. No claim to have reread all 70 pages in this errata job.",
+  "novelty": "new means no correction located in the recorded bounded search, not established historical priority. The journal search access failures are disclosed. No author communication.",
+  "validation": {
+    "lean": "No Lean deliverable is specified for this errata job; no Lean compilation or formalisation claimed.",
+    "mathematicalChecks": "Exact rational valuation calculation for E4; 2112 maximum-product-norm cases for E6; Boolean presentations in characteristics 2,3,5,7 for E7; componentwise rational-localization calculation for E16. Reproducible code in the report. These are diagnostics; the general arguments and the nonconstructive C_p example are mathematical proofs in the findings, not finite computations."
+  }
+}
