@@ -10,14 +10,14 @@
     "arxiv": "2209.11086v4",
     "url": "https://arxiv.org/pdf/2209.11086v4",
     "sha256": "e3da9817bc372ce4b72e475ed790ba3e4346de83ccda9751fe37bd02c0e1eb2e",
-    "accessed": "2026-09-22",
+    "accessed": "2026-09-23",
     "readSections": [
-      "Entire arXiv v4, pp.1–51: introduction, conventions, §§2–6, all displayed proofs and references.",
-      "Authors’ PFF.pdf alternative §5, all eleven image pages (printed pp.31–41); separate numbering.",
-      "Journal landing page and reference list only; full subscription PDF not obtained. The authors explicitly warn that arXiv and journal numbering differ."
+      "Codex codex-c83e7a: entire arXiv2209.11086v4, pp.1–51, all sections/proofs/references; downloaded bytes match prior SHA-256. Page45 additionally inspected as an image.",
+      "Inherited from codex-a71f92/PR1963: all eleven PFF alternative-proof image pages; no renewed full PFF read in this continuation.",
+      "Journal landing page inspected; ordinary and encoded Springer PDF endpoints returned HTML previews, not the full journal PDF. Journal numbering and seven inherited version-specific findings remain uncollated."
     ]
   },
-  "summary": "Declaration-sized extraction of generalized transversality, relative characteristic classes, the supported non-acyclicity class, coherent fibration proof, cohomological Milnor/conductor formulas and the smooth quasi-projective case of Saito’s comparison. The full main text and alternative proof were read. Recursive external-source closure, final journal-version comparison and the quasi-projective pencil input remain open; this is a substantive partial checkpoint, not a completed or formalized proof.",
+  "summary": "Continuation of PR1963: complete arXivv4 reread; explicit character-admitting finite local coefficient extension, scalar transport of ULA/traces/supported non-acyclicity/nearby cycles, Swan invariance and Milnor descent without division by extension degree. Saito18 finite étale characteristic-cycle/Chow pushforward input is now explicit. Journal/pencil and recursive geometric/Fourier source gaps remain; status partial.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -39,6 +39,30 @@
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
         "lines": "115–210",
         "checked": "Full hypotheses, definition, triangle relation, zero/biproduct and shift signs read at the pinned commit."
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.powerBasis'",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "lines": "625–686",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+      },
+      {
+        "ref": "mathlib:IsArtinianRing.localization_surjective",
+        "module": "Mathlib/RingTheory/Artinian/Ring.lean",
+        "lines": "75–94",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+      },
+      {
+        "ref": "mathlib:Module.free_of_flat_of_isLocalRing",
+        "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "lines": "299–308",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.split_injective_iff_lTensor_residueField_injective",
+        "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "lines": "329–383",
+        "checked": "Exact statement and surrounding hypotheses read at pinned Mathlib commit by codex-c83e7a on2026-09-23."
       }
     ]
   },
@@ -48,7 +72,8 @@
     "C1: K_Y/S=g!Λ is locally constant and its canonical evaluation K_Y/S⊗δ!Λ→Λ is an isomorphism. C2: H^0(Z,K_Z/Y)=H^1(Z,K_Z/Y)=0. C3: F∈Dctf(X,Λ), h is F-ULA and f|U is F|U-ULA. Smooth g implies C1, not C2.",
     "Application convention A: k perfect of characteristic p>0, Λ finite local with residue characteristic ℓ≠p. Integers in local cohomological identities mean their image in Λ. dim and Swan for complexes are alternating invariants after derived residue-field reduction, not sums of nonnegative Betti numbers.",
     "An item’s hypotheses and explicitly referenced conventions form part of its statement. Proposed tests are specification tests, not executed Lean proofs. ExternalInputs/gaps are unresolved proof leaves, not theorem assumptions silently declaring a result built.",
-    "All locators without a named external source use arXiv2209.11086v4. PFF numbering is explicitly marked. General-base results are not claimed covered by EDC’s field-only coefficient/constructibility conventions."
+    "All locators without a named external source use arXiv2209.11086v4. PFF numbering is explicitly marked. General-base results are not claimed covered by EDC’s field-only coefficient/constructibility conventions.",
+    "Coefficient extension Λ→B (Q01–Q10) and geometric field extension k→k' (M14) are separate: the former needs faithful finite freeness, without invertible degree; the latter argument cancels its degree in Λ-cohomology and retains the prime-to-ℓ hypothesis."
   ],
   "items": [
     {
@@ -106,6 +131,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S01 (§5.3; EDS E0 explicit scope)",
           "how": "Consumes Quasicategory in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B05",
+          "how": "Supplies the explicitly named Quasicategory input for Enhanced derived tensor and Hom."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S01",
+          "how": "Supplies the explicitly named Quasicategory input for Stable infinity-category cofiber theory."
         }
       ]
     },
@@ -169,6 +202,18 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S01 (§5.3; EDS E0 explicit scope)",
           "how": "Consumes Ordinary derived category in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B01",
+          "how": "Supplies the explicitly named Ordinary derived category input for Finite-Tor constructible coefficients over a field."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B05",
+          "how": "Supplies the explicitly named Ordinary derived category input for Enhanced derived tensor and Hom."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S01",
+          "how": "Supplies the explicitly named Ordinary derived category input for Stable infinity-category cofiber theory."
         }
       ]
     },
@@ -232,6 +277,18 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A04 (Theorem6.3 proof; UYZ cited5.2.6; arXivUYZ§5.25)",
           "how": "Consumes Triangulated Grothendieck group in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/L04",
+          "how": "Supplies the explicitly named Triangulated Grothendieck group input for Shift sign in triangulated K0."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B07",
+          "how": "Supplies the explicitly named Triangulated Grothendieck group input for ULA K0 specialization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A04",
+          "how": "Supplies the explicitly named Triangulated Grothendieck group input for Finite-to-adic lifting for the Fourier proof."
         }
       ]
     },
@@ -329,6 +386,34 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M05 (§2.8–2.10; §6.12; EDC.3)",
           "how": "Consumes Finite-Tor constructible coefficients over a field in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B02",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for General-base six-operation extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B06",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Cohomology with closed support over a field."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C16",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Blowup derived decomposition."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A01",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Total dimension of a vanishing-cycle complex."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A02",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Artin–Schreier deformation kernel."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M02",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Singular support."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M05",
+          "how": "Supplies the explicitly named Finite-Tor constructible coefficients over a field input for Refined Gysin and cycle-class interface."
         }
       ]
     },
@@ -411,6 +496,38 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S04 (§5.5; §5.8 footnote4)",
           "how": "Consumes General-base six-operation extension in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B03",
+          "how": "Supplies the explicitly named General-base six-operation extension input for ULA coefficient subcategory."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B04",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Relative dualizing complex and dual."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T01",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Generalized transversality exchange."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T16",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Regular-immersion fundamental-class extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T18",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Closed-diagonal transversality defect functor."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C07",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Unique extension across support vanishing."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C19",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Nearby cycles for a geometric specialization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S04",
+          "how": "Supplies the explicitly named General-base six-operation extension input for Correspondence infinity-category six-functor realization."
         }
       ]
     },
@@ -488,6 +605,38 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A07 (Hansen–Scholze Theorem4.1/Corollary4.2; used §6.4)",
           "how": "Consumes ULA coefficient subcategory in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B07",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for ULA K0 specialization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T08",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for ULA implies transversality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T13",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for ULA relative duality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T14",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for External product preserves relative ULA."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C01",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for ULA tensor-Hom comparison."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C12",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for Proper pushforward for relative characteristic classes."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A07",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for Absolutely integrally closed valuation extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q04",
+          "how": "Supplies the explicitly named ULA coefficient subcategory input for ULA preserved and detected by coefficient enlargement."
         }
       ]
     },
@@ -557,6 +706,26 @@
         {
           "where": "PAPER-YANG-ZHAO-25/C20 (§3.17)",
           "how": "Consumes Relative dualizing complex and dual in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T10",
+          "how": "Supplies the explicitly named Relative dualizing complex and dual input for Diagonal evaluation and C1."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T13",
+          "how": "Supplies the explicitly named Relative dualizing complex and dual input for ULA relative duality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C01",
+          "how": "Supplies the explicitly named Relative dualizing complex and dual input for ULA tensor-Hom comparison."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C07",
+          "how": "Supplies the explicitly named Relative dualizing complex and dual input for Unique extension across support vanishing."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C20",
+          "how": "Supplies the explicitly named Relative dualizing complex and dual input for Specialization of relative dualizing cohomology."
         }
       ]
     },
@@ -626,6 +795,30 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A07 (Hansen–Scholze Theorem4.1/Corollary4.2; used §6.4)",
           "how": "Consumes Enhanced derived tensor and Hom in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/B02",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for General-base six-operation extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T14",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for External product preserves relative ULA."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S04",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for Correspondence infinity-category six-functor realization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A07",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for Absolutely integrally closed valuation extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q02",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for Split detection after finite free coefficient extension."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q03",
+          "how": "Supplies the explicitly named Enhanced derived tensor and Hom input for Finite free coefficient comparison for derived operations."
         }
       ]
     },
@@ -686,6 +879,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M05 (§2.8–2.10; §6.12; EDC.3)",
           "how": "Consumes Cohomology with closed support over a field in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C07",
+          "how": "Supplies the explicitly named Cohomology with closed support over a field input for Unique extension across support vanishing."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M05",
+          "how": "Supplies the explicitly named Cohomology with closed support over a field input for Refined Gysin and cycle-class interface."
         }
       ]
     },
@@ -740,6 +941,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/C05 (§3.1(3.1.15))",
           "how": "Consumes ULA K0 specialization in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C05",
+          "how": "Supplies the explicitly named ULA K0 specialization input for Characteristic class factors through K0."
         }
       ]
     },
@@ -829,6 +1034,50 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S07 (Lemma5.6 proof, (5.6.8–9))",
           "how": "Consumes Generalized transversality exchange in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T02",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for F-transversality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T03",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Composition of transversality maps."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T04",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Nested-square compatibility."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T07",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Smooth transversality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T10",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Diagonal evaluation and C1."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T17",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Gysin map equals top-Chern action."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T18",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Closed-diagonal transversality defect functor."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C01",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for ULA tensor-Hom comparison."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C15",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Tensor-Hom transversality evaluation compatibility."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S07",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Universal coherent characterization of c."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q06",
+          "how": "Supplies the explicitly named Generalized transversality exchange input for Coefficient comparison for the diagonal defect."
         }
       ]
     },
@@ -886,6 +1135,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/T20 (Lemma2.12)",
           "how": "Consumes F-transversality in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T09",
+          "how": "Supplies the explicitly named F-transversality input for Alteration-test converse to local acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T20",
+          "how": "Supplies the explicitly named F-transversality input for Transversality detected by defect."
         }
       ]
     },
@@ -1034,6 +1291,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/T11 (Proposition2.7(1))",
           "how": "Consumes Diagonal evaluation and C1 in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T11",
+          "how": "Supplies the explicitly named Diagonal evaluation and C1 input for Dualizing transitivity under C1."
         }
       ]
     },
@@ -1157,6 +1418,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/T17 (Lemma2.10)",
           "how": "Consumes Regular-immersion fundamental-class extension in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T17",
+          "how": "Supplies the explicitly named Regular-immersion fundamental-class extension input for Gysin map equals top-Chern action."
         }
       ]
     },
@@ -1229,6 +1494,18 @@
         {
           "where": "PAPER-YANG-ZHAO-25/N01 (§4.2–4.3)",
           "how": "Consumes Closed-diagonal transversality defect functor in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/T19",
+          "how": "Supplies the explicitly named Closed-diagonal transversality defect functor input for Defect localization triangle."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N01",
+          "how": "Supplies the explicitly named Closed-diagonal transversality defect functor input for Relative defect dualizing object."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q06",
+          "how": "Supplies the explicitly named Closed-diagonal transversality defect functor input for Coefficient comparison for the diagonal defect."
         }
       ]
     },
@@ -1324,6 +1601,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/C03 (§3.1(3.1.9–13))",
           "how": "Consumes Relative cohomological correspondence in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C03",
+          "how": "Supplies the explicitly named Relative cohomological correspondence input for Relative fixed-locus trace."
         }
       ]
     },
@@ -1377,6 +1658,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/C04 (§3.1(3.1.14))",
           "how": "Consumes Relative fixed-locus trace in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C04",
+          "how": "Supplies the explicitly named Relative fixed-locus trace input for Relative cohomological characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q05",
+          "how": "Supplies the explicitly named Relative fixed-locus trace input for Relative trace commutes with finite free coefficient extension."
         }
       ]
     },
@@ -1450,6 +1739,34 @@
         {
           "where": "PAPER-YANG-ZHAO-25/C21 (Proposition3.18; Remark3.19)",
           "how": "Consumes Relative cohomological characteristic class in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C05",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Characteristic class factors through K0."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C06",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Locally free twist multiplies characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C09",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Characteristic class with ULA only off Z."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C10",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Diagonal adjunction expression for characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C12",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Proper pushforward for relative characteristic classes."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C21",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Specialization of characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q05",
+          "how": "Supplies the explicitly named Relative cohomological characteristic class input for Relative trace commutes with finite free coefficient extension."
         }
       ]
     },
@@ -1563,6 +1880,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S11 (§5.9)",
           "how": "Consumes Characteristic class with ULA only off Z in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S11",
+          "how": "Supplies the explicitly named Characteristic class with ULA only off Z input for Coherent lift of the characteristic-class difference."
         }
       ]
     },
@@ -1754,6 +2075,22 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A08 (§6.4(6.4.5–8))",
           "how": "Consumes Nearby cycles for a geometric specialization in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C20",
+          "how": "Supplies the explicitly named Nearby cycles for a geometric specialization input for Specialization of relative dualizing cohomology."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A01",
+          "how": "Supplies the explicitly named Nearby cycles for a geometric specialization input for Total dimension of a vanishing-cycle complex."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A08",
+          "how": "Supplies the explicitly named Nearby cycles for a geometric specialization input for Isolated Fourier stalk reduction."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q08",
+          "how": "Supplies the explicitly named Nearby cycles for a geometric specialization input for Finite free coefficients commute with nearby and vanishing cycles."
         }
       ]
     },
@@ -1812,6 +2149,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/N13 (§4.16)",
           "how": "Consumes Specialization of relative dualizing cohomology in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C21",
+          "how": "Supplies the explicitly named Specialization of relative dualizing cohomology input for Specialization of characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N13",
+          "how": "Supplies the explicitly named Specialization of relative dualizing cohomology input for Trait specialization of defect cohomology."
         }
       ]
     },
@@ -1900,6 +2245,34 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M09 (§6.9; Conjecture6.10)",
           "how": "Consumes Relative defect dualizing object in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N02",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Support cohomology comparison for the defect."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N04",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Tilded non-acyclicity class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N07",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Base-change morphism for defect coefficients."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N10",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Proper pushforward of supported defect cohomology."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N13",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Trait specialization of defect cohomology."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M09",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Refined cotangent candidate on a non-isolated locus."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q06",
+          "how": "Supplies the explicitly named Relative defect dualizing object input for Coefficient comparison for the diagonal defect."
         }
       ]
     },
@@ -2003,6 +2376,34 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S10 (§5.8(5.8.1–7))",
           "how": "Consumes Tilded non-acyclicity class in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N05",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Untilded non-acyclicity class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N06",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Enlarging the non-acyclicity support."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N08",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Base change for tilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N11",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Proper pushforward of tilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N14",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Specialization of tilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S10",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Enhanced supported characteristic morphism."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q07",
+          "how": "Supplies the explicitly named Tilded non-acyclicity class input for Supported non-acyclicity classes commute with coefficients."
         }
       ]
     },
@@ -2073,6 +2474,30 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A09 (§6.4(6.4.5))",
           "how": "Consumes Untilded non-acyclicity class in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N06",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Enlarging the non-acyclicity support."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N09",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Base change for untilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N11",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Proper pushforward of tilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N15",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Specialization of untilded non-acyclicity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A09",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Point-support class normalization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q07",
+          "how": "Supplies the explicitly named Untilded non-acyclicity class input for Supported non-acyclicity classes commute with coefficients."
         }
       ]
     },
@@ -2141,6 +2566,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/N08 (Proposition4.11, (4.11.1))",
           "how": "Consumes Base-change morphism for defect coefficients in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N08",
+          "how": "Supplies the explicitly named Base-change morphism for defect coefficients input for Base change for tilded non-acyclicity."
         }
       ]
     },
@@ -2223,6 +2652,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/N11 (Proposition4.14; E4 notation clarification)",
           "how": "Consumes Proper pushforward of supported defect cohomology in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N11",
+          "how": "Supplies the explicitly named Proper pushforward of supported defect cohomology input for Proper pushforward of tilded non-acyclicity."
         }
       ]
     },
@@ -2306,6 +2739,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/N14 (Proposition4.17, (4.17.1),(4.17.3))",
           "how": "Consumes Trait specialization of defect cohomology in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/N14",
+          "how": "Supplies the explicitly named Trait specialization of defect cohomology input for Specialization of tilded non-acyclicity."
         }
       ]
     },
@@ -2404,6 +2841,22 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S14 (PFF§5.3)",
           "how": "Consumes Stable infinity-category cofiber theory in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S02",
+          "how": "Supplies the explicitly named Stable infinity-category cofiber theory input for Contractible coherent lift of cofiber diagrams."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S03",
+          "how": "Supplies the explicitly named Stable infinity-category cofiber theory input for Coherent difference square and prism."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S05",
+          "how": "Supplies the explicitly named Stable infinity-category cofiber theory input for Monoidal enhancement and cocartesian classification."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S14",
+          "how": "Supplies the explicitly named Stable infinity-category cofiber theory input for Square-to-triangle difference functor."
         }
       ]
     },
@@ -2471,6 +2924,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S11 (§5.9)",
           "how": "Consumes Coherent difference square and prism in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S11",
+          "how": "Supplies the explicitly named Coherent difference square and prism input for Coherent lift of the characteristic-class difference."
         }
       ]
     },
@@ -2526,6 +2983,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S07 (Lemma5.6 proof, (5.6.8–9))",
           "how": "Consumes Correspondence infinity-category six-functor realization in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S07",
+          "how": "Supplies the explicitly named Correspondence infinity-category six-functor realization input for Universal coherent characterization of c."
         }
       ]
     },
@@ -2587,6 +3048,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S06 (Lemma5.6 proof; HTT Proposition3.1.2.1)",
           "how": "Consumes Monoidal enhancement and cocartesian classification in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S04",
+          "how": "Supplies the explicitly named Monoidal enhancement and cocartesian classification input for Correspondence infinity-category six-functor realization."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S06",
+          "how": "Supplies the explicitly named Monoidal enhancement and cocartesian classification input for Exponentiation detects cocartesian edges vertexwise."
         }
       ]
     },
@@ -2655,6 +3124,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S08 (Lemma5.6; PFF Lemma5.7)",
           "how": "Consumes Universal coherent characterization of c in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S08",
+          "how": "Supplies the explicitly named Universal coherent characterization of c input for Coherent transversality cube."
         }
       ]
     },
@@ -2743,6 +3216,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S17 (PFF§5.10)",
           "how": "Consumes Enhanced supported characteristic morphism in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S12",
+          "how": "Supplies the explicitly named Enhanced supported characteristic morphism input for Identification of the supported lift."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S17",
+          "how": "Supplies the explicitly named Enhanced supported characteristic morphism input for Alternative fibration proof via nine diagrams."
         }
       ]
     },
@@ -2799,6 +3280,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S12 (Proposition5.10 proof, (5.10.1–15))",
           "how": "Consumes Coherent lift of the characteristic-class difference in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S12",
+          "how": "Supplies the explicitly named Coherent lift of the characteristic-class difference input for Identification of the supported lift."
         }
       ]
     },
@@ -2886,6 +3371,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S15 (PFF Lemma5.4)",
           "how": "Consumes Square-to-triangle difference functor in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S15",
+          "how": "Supplies the explicitly named Square-to-triangle difference functor input for Nine-diagram cofiber map."
         }
       ]
     },
@@ -2940,6 +3429,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/S16 (PFF Lemma5.5 and proof)",
           "how": "Consumes Nine-diagram cofiber map in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/S16",
+          "how": "Supplies the explicitly named Nine-diagram cofiber map input for Referee nine-diagram identity."
         }
       ]
     },
@@ -3043,6 +3536,30 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M04 (§6.9,6.12; Saito arXivv4 Theorem4.9, Definition4.10, Definition5.7, Lemma5.9)",
           "how": "Consumes Total dimension of a vanishing-cycle complex in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A03",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Local Fourier total-dimension identity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A04",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Finite-to-adic lifting for the Fourier proof."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A12",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Cohomological Grothendieck–Ogg–Shafarevich."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A13",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Cohomological conductor formula."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M04",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Characteristic cycle and degree-zero Chow class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q09",
+          "how": "Supplies the explicitly named Total dimension of a vanishing-cycle complex input for Swan and total dimension invariant under coefficient enlargement."
         }
       ]
     },
@@ -3050,11 +3567,12 @@
       "id": "PAPER-YANG-ZHAO-25/A02",
       "kind": "construction",
       "name": "Artin–Schreier deformation kernel",
-      "statement": "Under A after supplying a nontrivial ψ:Fp→Λ×, form its rank-one Artin–Schreier sheaf Lψ, pull it back along (t,t')↦t/t' or (f,t')↦f t', and extend by zero across the specified boundary. If Λ lacks ψ, coefficient enlargement and descent must be proved separately.",
+      "statement": "Under A after supplying a nontrivial ψ:Fp→Λ×, form its rank-one Artin–Schreier sheaf Lψ, pull it back along (t,t')↦t/t' or (f,t')↦f t', and extend by zero across the specified boundary. If Λ lacks ψ, Q01 constructs B and Q10 supplies descent of the final Milnor identity; the kernel is constructed over B.",
       "locator": "Theorem6.3; §6.4",
       "status": "missing",
       "prerequisites": [
-        "PAPER-YANG-ZHAO-25/B01"
+        "PAPER-YANG-ZHAO-25/B01",
+        "PAPER-YANG-ZHAO-25/Q01"
       ],
       "ownerCandidate": "FOUR",
       "implementationStatus": "unchecked",
@@ -3062,7 +3580,7 @@
         {
           "name": "YangZhao25.A02.spec",
           "role": "constructor",
-          "statement": "Under A after supplying a nontrivial ψ:Fp→Λ×, form its rank-one Artin–Schreier sheaf Lψ, pull it back along (t,t')↦t/t' or (f,t')↦f t', and extend by zero across the specified boundary. If Λ lacks ψ, coefficient enlargement and descent must be proved separately."
+          "statement": "Under A after supplying a nontrivial ψ:Fp→Λ×, form its rank-one Artin–Schreier sheaf Lψ, pull it back along (t,t')↦t/t' or (f,t')↦f t', and extend by zero across the specified boundary. If Λ lacks ψ, Q01 constructs B and Q10 supplies descent of the final Milnor identity; the kernel is constructed over B."
         },
         {
           "name": "YangZhao25.A02.characterisation",
@@ -3100,6 +3618,14 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A05 (§6.4 first paragraph p.46)",
           "how": "Consumes Artin–Schreier deformation kernel in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A03",
+          "how": "Supplies the explicitly named Artin–Schreier deformation kernel input for Local Fourier total-dimension identity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A05",
+          "how": "Supplies the explicitly named Artin–Schreier deformation kernel input for ULA of the zero-extended exponential family off the isolated point."
         }
       ]
     },
@@ -3216,13 +3742,18 @@
         "PAPER-YANG-ZHAO-25/A09",
         "PAPER-YANG-ZHAO-25/N09",
         "PAPER-YANG-ZHAO-25/N12",
-        "PAPER-YANG-ZHAO-25/N15"
+        "PAPER-YANG-ZHAO-25/N15",
+        "PAPER-YANG-ZHAO-25/Q10"
       ],
       "ownerCandidate": "RT",
       "implementationStatus": "unchecked",
       "acceptance": [
         "For f=id_A1 and F=i*Λ at 0, Φ=Λ[1], so −dimtotΦ=1 and C^{0}=1.",
         "For smooth f and lisse F, local acyclicity gives both sides zero."
+      ],
+      "proofSteps": [
+        "First carry out the exponential-family argument A06/A08/A09 with a supplied nontrivial character, retaining G05/G06/G07 for its unsupplied geometric/Fourier leaves.",
+        "For an arbitrary coefficient ring in convention A, use Q01 and Q10. This proof order does not invoke the general-coefficient A10 to justify its own descent."
       ]
     },
     {
@@ -3343,6 +3874,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M02 (§6.9,6.11; Saito arXivv4 Definition3.1 and paragraph before Lemma3.3)",
           "how": "Consumes Cotangent transversality in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M02",
+          "how": "Supplies the explicitly named Cotangent transversality input for Singular support."
         }
       ]
     },
@@ -3397,6 +3932,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M03 (§6.11; Beilinson; Saito arXivv4 Theorem3.4 and Lemma3.2(5))",
           "how": "Consumes Singular support in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M03",
+          "how": "Supplies the explicitly named Singular support input for Singular-support existence and ULA consequence."
         }
       ]
     },
@@ -3477,6 +4016,30 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M12 (§6.13(6.13.1); UYZ arXivv4 Proposition5.21)",
           "how": "Consumes Characteristic cycle and degree-zero Chow class in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/C18",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Blowup formula for Chow characteristic class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M06",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Characteristic-cycle signs, additivity and étale locality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M09",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Refined cotangent candidate on a non-isolated locus."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M12",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Chow induction along a good pencil."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M17",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Finite étale pushforward of characteristic cycles."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M18",
+          "how": "Supplies the explicitly named Characteristic cycle and degree-zero Chow class input for Finite étale pushforward of degree-zero characteristic classes."
         }
       ]
     },
@@ -3554,6 +4117,38 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M14 (Theorem6.13 proof (6.13.2); E6)",
           "how": "Consumes Refined Gysin and cycle-class interface in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M04",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Characteristic cycle and degree-zero Chow class."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M08",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Localized Chern class interface."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M09",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Refined cotangent candidate on a non-isolated locus."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M11",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Cohomological induction along a good pencil."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M12",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Chow induction along a good pencil."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M14",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Finite étale descent for Saito's equality."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M17",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Finite étale pushforward of characteristic cycles."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M18",
+          "how": "Supplies the explicitly named Refined Gysin and cycle-class interface input for Finite étale pushforward of degree-zero characteristic classes."
         }
       ]
     },
@@ -3629,6 +4224,18 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M15 (Theorem6.13 last paragraph; UYZ journal Lemma4.2.7 cited, arXivv4 Lemma4.9 inspected only in projective setting)",
           "how": "Consumes Good fibration for singular support in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M11",
+          "how": "Supplies the explicitly named Good fibration for singular support input for Cohomological induction along a good pencil."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M12",
+          "how": "Supplies the explicitly named Good fibration for singular support input for Chow induction along a good pencil."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M15",
+          "how": "Supplies the explicitly named Good fibration for singular support input for Good-pencil and blowup reduction required for quasi-projective X."
         }
       ]
     },
@@ -3682,6 +4289,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/A14 (Remark6.8(6.8.2–3))",
           "how": "Consumes Localized Chern class interface in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A14",
+          "how": "Supplies the explicitly named Localized Chern class interface input for Global pushed localized-Chern conductor comparison."
         }
       ]
     },
@@ -3737,6 +4348,10 @@
         {
           "where": "PAPER-YANG-ZHAO-25/M10 (After Conjecture6.10)",
           "how": "Consumes Refined cotangent candidate on a non-isolated locus in the precisely typed statement above."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/M10",
+          "how": "Supplies the explicitly named Refined cotangent candidate on a non-isolated locus input for Finite-locus comparison with the cotangent candidate."
         }
       ]
     },
@@ -3809,12 +4424,18 @@
         "PAPER-YANG-ZHAO-25/M13",
         "PAPER-YANG-ZHAO-25/C06",
         "PAPER-YANG-ZHAO-25/C12",
-        "PAPER-YANG-ZHAO-25/M05"
+        "PAPER-YANG-ZHAO-25/M05",
+        "PAPER-YANG-ZHAO-25/M18"
       ],
       "ownerCandidate": "MIC",
       "implementationStatus": "unchecked",
       "acceptance": [
         "For k=F2,k'=F4,Λ=F3, σ*Λ has Frobenius trace0 while Λ² has trace2; the proof still uses the common rank2 and divides2 only in Λ."
+      ],
+      "proofSteps": [
+        "Projection formula gives σ*σ*F=F⊗σ*Λ. The rank-d lisse local system σ*Λ is not generally constant.",
+        "M13 and C06 multiply the two respective characteristic classes by d; M18 and C12 commute both with proper pushforward, with the étale base-field identification.",
+        "If equality holds upstairs, deduce d(cl(cc_X(F))−C_X/k(F))=0 in Λ-cohomology. Here d is a unit by hypothesis, so cancel it. This geometric-field descent is distinct from Q10 coefficient descent, which requires no invertible degree."
       ]
     },
     {
@@ -3853,6 +4474,447 @@
         "Dimension zero is the rank class; on P1 the constant sheaf gives 2[point] after cl.",
         "The theorem is not instantiated on an arbitrary singular embeddable X."
       ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/L05",
+      "kind": "construction",
+      "name": "Power basis of a monic polynomial quotient",
+      "statement": "For a commutative ring R and monic g∈R[T], AdjoinRoot.powerBasis'(g) equips R[T]/(g) with basis 1,t,…,t^(deg g−1), dimension deg g and generator t.",
+      "locator": "Pinned Mathlib/RingTheory/AdjoinRoot.lean:625–686",
+      "status": "library",
+      "prerequisites": [],
+      "ownerCandidate": "ALG",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:AdjoinRoot.powerBasis'"
+      ],
+      "api": [
+        {
+          "name": "YangZhao25.L05.basis",
+          "role": "data",
+          "statement": "The i-th vector is t^i for 0≤i<deg g."
+        },
+        {
+          "name": "YangZhao25.L05.coordinates",
+          "role": "characterisation",
+          "statement": "Coordinates are the coefficients of the unique remainder modulo monic g."
+        },
+        {
+          "name": "YangZhao25.L05.finite_free",
+          "role": "instance",
+          "statement": "The quotient is finite free over R, including the rank-zero quotient for g=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.L05.quadratic",
+          "kind": "computation",
+          "statement": "Over Z/4, g=T²+T+1 gives basis (1,t) and t²=−t−1."
+        },
+        {
+          "name": "YangZhao25.L05.unit_polynomial",
+          "kind": "degenerate",
+          "statement": "For g=1 the quotient is the zero ring and the power basis has length zero."
+        },
+        {
+          "name": "YangZhao25.L05.nonmonic",
+          "kind": "non-example",
+          "statement": "Z[T]/(2T) is not supplied this monic power-basis construction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q01",
+          "how": "Makes the cyclotomic coefficient algebra finite free before localization."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/L06",
+      "kind": "theorem",
+      "name": "Surjectivity of localization of an Artinian ring",
+      "statement": "For a commutative Artinian ring R, any multiplicative subset S and localization L, algebraMap R L is surjective; hence a localization of a finite ring remains finite.",
+      "locator": "Pinned Mathlib/RingTheory/Artinian/Ring.lean:75–94",
+      "status": "library",
+      "prerequisites": [],
+      "ownerCandidate": "ALG",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsArtinianRing.localization_surjective"
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/L07",
+      "kind": "theorem",
+      "name": "Finite flat modules over a local ring are free",
+      "statement": "A finite flat module over a commutative local ring is free. Apply this only after finite generation and flatness of the coefficient extension have been established.",
+      "locator": "Pinned Mathlib/RingTheory/LocalRing/Module.lean:299–308",
+      "status": "library",
+      "prerequisites": [],
+      "ownerCandidate": "ALG",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.free_of_flat_of_isLocalRing"
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/L08",
+      "kind": "theorem",
+      "name": "Residue-field criterion for a split injection",
+      "statement": "For a local commutative ring R with residue field κ, a linear map l:M→N with M finite and N finite free admits a linear left inverse iff κ⊗l is injective.",
+      "locator": "Pinned Mathlib/RingTheory/LocalRing/Module.lean:329–383",
+      "status": "library",
+      "prerequisites": [],
+      "ownerCandidate": "ALG",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsLocalRing.split_injective_iff_lTensor_residueField_injective"
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q01",
+      "kind": "construction",
+      "name": "Finite local coefficient extension admitting an additive character",
+      "statement": "Under A there exists a finite local finite étale Λ-algebra B, finite free of positive rank, and an injective additive character ψ:(Fp,+)→B×. Explicitly put R=Λ[T]/(Φp), choose a maximal ideal q of R, set B=R_q and ψ(a)=ζ^a for ζ the image of T. The finite coefficient ring is enlarged; the characteristic-p geometric field is unchanged.",
+      "locator": "§6.3 and §6.4 p.45, missing coefficient-choice step; Stacks 00UB/00UC; pinned L05–L07",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/L05",
+        "PAPER-YANG-ZHAO-25/L06",
+        "PAPER-YANG-ZHAO-25/L07"
+      ],
+      "ownerCandidate": "FOUR",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The polynomial Φp=1+T+⋯+T^(p−1) is monic of positive degree; L05 makes R finite free and nonzero. Since Λ is finite, R is a finite Artinian ring.",
+        "In R, ζ^p=1 and (ζ−1)Φp'(ζ)=pζ^(p−1). The right side is a unit since p is invertible in Λ, so Φp'(ζ) and ζ−1 are units. The standard étale criterion applies.",
+        "Choose q maximal. Localization is flat; L06 makes R→B surjective, hence B finite as a Λ-module. Its residue field is nonzero. Composition gives Λ-flatness; L07 gives a finite free Λ-module of positive rank. The localization remains étale: it is formally étale and finite presentation follows from finiteness over the Noetherian Λ.",
+        "Reduction modulo mΛ is a localization of the squarefree polynomial algebra κ[T]/Φp, hence a finite separable field κB. Thus mB=mΛB. The root ζ has order exactly p because ζ^p=1 and ζ−1 is a unit."
+      ],
+      "acceptance": [
+        "For Λ=F2 and p=3, B=F4 works although [B:Λ]=2 is zero in Λ.",
+        "For Λ=Z/4 and p=3 the quadratic ring has 16 elements and retains characteristic 4."
+      ],
+      "api": [
+        {
+          "name": "YangZhao25.Q01.character",
+          "role": "data",
+          "statement": "Export Λ→B, finite-local and finite-free proofs, ζ^p=1, ζ−1 a unit and ψ(a+b)=ψ(a)ψ(b)."
+        },
+        {
+          "name": "YangZhao25.Q01.residue_extension",
+          "role": "compatibility",
+          "statement": "B/mΛB is its residue field, a finite separable extension of κ; scalar dimension is measured over this new field."
+        },
+        {
+          "name": "YangZhao25.Q01.choice_transport",
+          "role": "functoriality",
+          "statement": "A coefficient-algebra map taking ζ to ζ' transports ψ and the Artin–Schreier character; no canonical choice of q or root is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "YangZhao25.Q01.f4_character",
+          "kind": "computation",
+          "statement": "For F2[T]/(T²+T+1), ψ sends 0,1,2 to 1,T,T², with T³=1 and T≠1."
+        },
+        {
+          "name": "YangZhao25.Q01.z4_character",
+          "kind": "computation",
+          "statement": "For Z/4[T]/(T²+T+1), T³=1 and T−1 is a unit; reducing coefficients is not the construction."
+        },
+        {
+          "name": "YangZhao25.Q01.original_ring",
+          "kind": "non-example",
+          "statement": "For p=3 the original F2× is trivial, so no nontrivial character is available before extension."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-YANG-ZHAO-25/A02",
+          "how": "Supplies the character for the Artin–Schreier kernel."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q10",
+          "how": "Supplies a faithful local coefficient extension for the Milnor identity."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/Q09",
+          "how": "Supplies the explicitly named Finite local coefficient extension admitting an additive character input for Swan and total dimension invariant under coefficient enlargement."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q02",
+      "kind": "theorem",
+      "name": "Split detection after finite free coefficient extension",
+      "statement": "Let Λ→B be a local map of nonzero local rings, B finite free over Λ, with B/mΛB nonzero. There is a Λ-linear λ:B→Λ with λ(1)=1. Consequently M→M⊗ΛB is split injective for every Λ-module M, and a complex or map is detected by tensoring with B. For finite free B, supported derived cohomology obeys H^i_Z(X,K⊗ΛB)≅H^i_Z(X,K)⊗ΛB, so the corresponding coefficient map is injective.",
+      "locator": "Coefficient-descent lemma for §6.4; L08; EnhancedDerivedSheaves:E1",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/L08",
+        "PAPER-YANG-ZHAO-25/B05"
+      ],
+      "ownerCandidate": "EDS",
+      "implementationStatus": "unchecked",
+      "planned": [
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "proofSteps": [
+        "Apply L08 to Λ→B: modulo mΛ it is the injective unit map from a field to the nonzero algebra B/mΛB.",
+        "Tensor its retraction λ with any M. Flatness computes cohomology degreewise; positive finite free rank detects vanishing.",
+        "Choose a finite module basis of B only to verify the canonical comparison: tensoring is a finite direct sum, which derived sections with support preserve. The resulting comparison is independent of this verification basis."
+      ],
+      "acceptance": [
+        "For F2→F4, a linear functional extracting the coefficient of 1 retracts the inclusion, while field trace(1)=0.",
+        "No division by rank B is used; residue reduction Λ→κ is not substituted for a faithful extension."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q03",
+      "kind": "theorem",
+      "name": "Finite free coefficient comparison for derived operations",
+      "statement": "For a finite free commutative coefficient algebra Λ→B, scalar extension E(K)=K⊗ΛB is exact and symmetric monoidal between the actual derived sheaf categories. It preserves the finite-Tor constructible domain. The canonical comparisons with pullback, derived direct image, proper-support direct image and its exceptional right adjoint are isomorphisms wherever those operations have been constructed; units, counits, evaluation, composition and base-change transformations correspond. In particular E(K_X/S,Λ)≅K_X/S,B and E(RHomΛ(F,K))≅RHomB(EF,EK).",
+      "locator": "§§2.1,3.1 and4.5 applied after coefficient extension; EnhancedDerivedSheaves:E1/E3; geometric instantiation is conditional on existing B02",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/B05"
+      ],
+      "ownerCandidate": "EDS",
+      "implementationStatus": "unchecked",
+      "planned": [
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "proofSteps": [
+        "Restriction of B-sheaves to Λ-sheaves is exact and conservative. Its left adjoint is exact because B is flat. For this finite-free extension its right adjoint HomΛ(B,−) is exact as well.",
+        "This node is the formal coefficient-comparison interface only: it does not construct the geometric operations of B02. The geometric consumers separately import those operations. After restriction, the coefficient comparisons for additive derived functors identify with finite direct-sum comparisons; for exceptional pullback use its adjunction to Rf! and dualizability of the finite-free constant coefficient object. This does not assert any new constructibility theorem on arbitrary bases.",
+        "Derived adjunction gives RHomB(F⊗B,K⊗B)=RHomΛ(F,K⊗B), and finite direct sums commute with RHom in its second variable. Compare the canonical tensor map through a basis to get the asserted isomorphism, even when F is not locally a perfect complex on X.",
+        "The identifications are the canonical mates, so carry units/counits, tensor evaluation and the diagrams defining exchange. Enhance using the existing E1/E3 construction, not arbitrary choices of triangulated cones."
+      ],
+      "acceptance": [
+        "For B=Λ the maps are identities.",
+        "For a finite local coefficient ring with nilpotents the assertion uses free B, not the nonflat residue quotient."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q04",
+      "kind": "theorem",
+      "name": "ULA preserved and detected by coefficient enlargement",
+      "statement": "Under B with a finite local coefficient ring and finite faithfully free local coefficient extension Λ→B, a constructible finite-Tor F is ULA for f iff F⊗ΛB is. The equivalence holds after every geometric base change.",
+      "locator": "Conventions(3), §6.4; coefficient completion of B03",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/B03",
+        "PAPER-YANG-ZHAO-25/Q02",
+        "PAPER-YANG-ZHAO-25/Q03"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Use the strict-local specialization comparison defining ULA. Q03 identifies the comparison for F⊗B with the original comparison tensored by B.",
+        "Q02 detects that its cone is zero. Repeat after every base change; no alteration or extra geometric smoothness is required."
+      ],
+      "acceptance": [
+        "An origin skyscraper for id_A1 remains non-ULA after F2→F4.",
+        "The zero complex is ULA before and after extension."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q05",
+      "kind": "theorem",
+      "name": "Relative trace commutes with finite free coefficient extension",
+      "statement": "For F∈Dctf(X/S,Λ) and the coefficient extension of Q04, the coefficient map sends the relative fixed-locus trace of a cohomological correspondence to its B-linear trace. In particular C_X/S,Λ(F) maps to C_X/S,B(F⊗B), without a factor rankΛB.",
+      "locator": "§3.1(3.1.8–14), §3.7(3.7.4) under coefficient change",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/C03",
+        "PAPER-YANG-ZHAO-25/C04",
+        "PAPER-YANG-ZHAO-25/Q03",
+        "PAPER-YANG-ZHAO-25/Q04"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Apply the strong symmetric monoidal coefficient functor and the Q03 duality comparison to coevaluation, the correspondence morphism and evaluation. Their composite is the B-valued trace.",
+        "Use Q04 to retain the ULA domain. This is extension of coefficients, whereas C06 describes tensoring by a lisse Λ-module and then taking a Λ-valued trace; they are different operations."
+      ],
+      "acceptance": [
+        "At a point trB(idB)=1B after extending Λ in degree zero, even if rankΛB=0 in Λ.",
+        "A shift by one carries −1Λ to −1B."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q06",
+      "kind": "theorem",
+      "name": "Coefficient comparison for the diagonal defect",
+      "statement": "For the finite free coefficient extension and diagram D, the canonical coefficient comparisons identify the transversality map c, the closed-diagonal defect δ∆F, and the coefficient triangle K_X/Y→K_X/S→K_X/Y/S with their B versions. C1 is preserved and C2 is preserved and reflected.",
+      "locator": "§2.1(2.1.3–4), §2.11(2.11.2), §4.2(4.2.5–7)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/T01",
+        "PAPER-YANG-ZHAO-25/T18",
+        "PAPER-YANG-ZHAO-25/N01",
+        "PAPER-YANG-ZHAO-25/N02",
+        "PAPER-YANG-ZHAO-25/Q02",
+        "PAPER-YANG-ZHAO-25/Q03"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The exchange morphism is a composite of the unit/counit and projection comparison, all matched by Q03.",
+        "The actual closed-diagonal formula i!(F⊗f*Rj*Λ) therefore commutes with E; its coherent cofiber triangle is carried to the B triangle by exactness.",
+        "The invertible evaluation in C1 and its locally constant coefficients persist. Q02 identifies support cohomology with its finite-free scalar extension, proving both directions of the C2 vanishing test."
+      ],
+      "acceptance": [
+        "The map for a smooth relative curve still carries twist(1)[2]; coefficient change removes neither.",
+        "For X=Y=S a point and Z=X, H0(K_Z/Y)=Λ is nonzero and stays nonzero."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q07",
+      "kind": "theorem",
+      "name": "Supported non-acyclicity classes commute with coefficients",
+      "statement": "Under D,C1,C3 and the coefficient extension of Q04, Ctilde^Z_Λ(F) maps to Ctilde^Z_B(F⊗B). If C2 holds, the same equality holds for C^Z with ordinary relative-dualizing coefficients. This is equality of the specifically constructed supported classes, not merely their images after forgetting support.",
+      "locator": "§4.5(4.5.1–4), Definition4.6",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/N04",
+        "PAPER-YANG-ZHAO-25/N05",
+        "PAPER-YANG-ZHAO-25/Q04",
+        "PAPER-YANG-ZHAO-25/Q05",
+        "PAPER-YANG-ZHAO-25/Q06"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Transport the diagonal characteristic correspondence using Q05 and apply the defect comparison Q06.",
+        "The intermediate defect complex is supported on Z, and its localization factorization is carried along the natural coefficient functor. Thus the construction through τ* and τ! in (4.5.3), including its support, agrees.",
+        "If C2 holds, Q06 compares the isomorphism ν of (4.2.7); uniqueness of its inverse image gives the untilded identity."
+      ],
+      "acceptance": [
+        "A rank-one point skyscraper retains class 1B, not rankΛB.",
+        "With Z empty both supported classes are zero."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q08",
+      "kind": "theorem",
+      "name": "Finite free coefficients commute with nearby and vanishing cycles",
+      "statement": "For the specialization functor Ψ=i*Rj* of C19 and finite free Λ→B, EΨ(F)≅Ψ(EF), with the specialization map and inertia action. Hence E RΦ(F,f)≅RΦ(EF,f). Constructibility and finite-Tor assertions retain the source hypotheses from G06.",
+      "locator": "§3.16(3.16.2), §6.3–6.4",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/C19",
+        "PAPER-YANG-ZHAO-25/Q03"
+      ],
+      "ownerCandidate": "FOUR",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Apply the direct-image and pullback comparisons of Q03 to the actual geometric-specialization diagram.",
+        "Carry the specialization unit and its coherent cofiber through the exact functor. Inertia acts through natural automorphisms of this diagram, so the comparison is equivariant."
+      ],
+      "acceptance": [
+        "For a point skyscraper ΦΛ=Λ[1] extends to B[1].",
+        "This comparison does not assert arbitrary geometric base-change goodness of Ψ."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q09",
+      "kind": "theorem",
+      "name": "Swan and total dimension invariant under coefficient enlargement",
+      "statement": "Under A, for B as in Q01 and a bounded finite-Tor inertia complex V with finite wild ramification, dimtotB(V⊗ΛB)=dimtotΛ(V) as integers. Alternating ordinary dimension is likewise unchanged when each side is measured over its own residue field.",
+      "locator": "§6.1–6.3; coefficient completion of A01",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/A01",
+        "PAPER-YANG-ZHAO-25/Q01"
+      ],
+      "ownerCandidate": "FOUR",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Since B/mΛB=κB, derived residue reduction identifies (V⊗ΛB)⊗B^LκB with (V⊗Λ^Lκ)⊗κκB. Field extension is flat, so cohomology and its dimensions are unchanged.",
+        "On each finite-image positive ramification group, invariant vectors are kernels of the finite matrix of operators (g−1). Flat field extension preserves these kernels and their dimensions, hence every codimension entering the Swan sum. The ramification filtration and its weights are unchanged.",
+        "Take the bounded alternating sum for V. This proves coefficient invariance given the conductor construction; it does not construct the ramification filtration or the local Fourier theorem."
+      ],
+      "acceptance": [
+        "A trivial rank-r complex in degree zero keeps total dimension r, not [κB:κ]r.",
+        "Shifting by one negates both integer invariants."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/Q10",
+      "kind": "theorem",
+      "name": "Descent of the local Milnor identity from character coefficients",
+      "statement": "Under the hypotheses of A10, assume the character-admitting case of its geometric proof has been established for F⊗ΛB with B from Q01. Then the identity C^x_Λ(F)=−dimtotΛ RΦ_x(F,f) holds in Λ. No condition that rankΛB be invertible is required.",
+      "locator": "§6.4 completion of the coefficient-choice step, E8",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/Q01",
+        "PAPER-YANG-ZHAO-25/Q02",
+        "PAPER-YANG-ZHAO-25/Q07",
+        "PAPER-YANG-ZHAO-25/Q08",
+        "PAPER-YANG-ZHAO-25/Q09"
+      ],
+      "ownerCandidate": "RT",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Q04 preserves the ULA hypotheses and Q06 preserves the support comparison needed to form C^x.",
+        "Use Q07 on the left side, Q08 on the vanishing-cycle complex and Q09 on its integer total dimension. The hypothesized B identity is exactly the image of the desired Λ identity.",
+        "Apply injectivity Λ→B from Q02. Neither normalized field trace nor reduction Λ→κ is used to detect equality."
+      ],
+      "acceptance": [
+        "For p=3, Λ=F2, B=F4 this descent works despite extension degree 2=0 in Λ.",
+        "The argument retains the full Z/4-valued equality when B=Z/4[T]/(T²+T+1)."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/M17",
+      "kind": "theorem",
+      "name": "Finite étale pushforward of characteristic cycles",
+      "statement": "Under A for a finite étale map u:X'→X between smooth schemes over k and F'∈Dctf(X',Λ), CC(Ru*F')=u_*CC(F') as integral cycles on T*X, where T*X'≅X'×X T*X and u_* is proper cycle pushforward.",
+      "locator": "Saito, On the proper push-forward…, arXiv1607.03156v1 pp.2–4, Lemma2; finite étale case used in YZ(6.13.2)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/M04",
+        "PAPER-YANG-ZHAO-25/M06",
+        "PAPER-YANG-ZHAO-25/M05"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The source Lemma2 proves the stronger finite-on-support case by the Milnor formula: vanishing cycles on a finite fiber split as a finite direct sum and local intersection numbers satisfy projection. We import only its finite étale special case.",
+        "For this special case, trivialize u in an étale cover of X. The pushforward becomes a finite direct sum, so CC equality follows from M06 additivity and étale pullback. Equality of cycles descends from this cover; rational equivalence descent is not asserted.",
+        "For finite local coefficients reduce to the residue field exactly as in Saito18 p.1; finite direct image and flat pullback match that derived reduction in this finite étale setting."
+      ],
+      "acceptance": [
+        "For the trivial disjoint degree-d cover, the cycle is the sum of the d component cycles.",
+        "A connected finite étale cover need not have constant pushforward local system."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/M18",
+      "kind": "theorem",
+      "name": "Finite étale pushforward of degree-zero characteristic classes",
+      "statement": "With u and F' as in M17, u_*cc_X'(F')=cc_X(Ru*F') in CH0(X), and the cycle map cl carries this equality to the corresponding proper pushforward equality in H0(X,K_X/k). For u:X_k'→X, the canonical étale identification K_X_k'/k≅K_X_k'/k' compares the relative field conventions.",
+      "locator": "Saito18 Lemma2 followed by zero-section refined Gysin; YZ(6.13.2)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-YANG-ZHAO-25/M17",
+        "PAPER-YANG-ZHAO-25/M04",
+        "PAPER-YANG-ZHAO-25/M05"
+      ],
+      "ownerCandidate": "MIC",
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The square of zero sections for T*X'≅X'×X T*X is cartesian. Proper-pushforward compatibility of refined Gysin from M05 gives 0_X!u_*CC=u_*0_X'!CC.",
+        "Use the smooth-scheme definition cc=0!CC in M04, then the proper compatibility of cl already assigned to M05.",
+        "For the finite separable constant-field extension, the structural map Spec k'→Spec k is étale of relative dimension zero; its exceptional pullback is ordinary pullback with no twist/shift. Transitivity compares the two dualizing conventions."
+      ],
+      "acceptance": [
+        "On a closed point of degree d the Chow pushforward has multiplicity d before applying cl.",
+        "No inverse of d is introduced in the integral Chow group."
+      ]
     }
   ],
   "routes": [
@@ -3874,7 +4936,9 @@
         "PAPER-YANG-ZHAO-25/S06",
         "PAPER-YANG-ZHAO-25/S14",
         "PAPER-YANG-ZHAO-25/S15",
-        "PAPER-YANG-ZHAO-25/S16"
+        "PAPER-YANG-ZHAO-25/S16",
+        "PAPER-YANG-ZHAO-25/Q02",
+        "PAPER-YANG-ZHAO-25/Q03"
       ],
       "reason": "The existing roadmap explicitly owns stable fibers/cofibers, restricted straightening, monoidal enhancement and mate/pasting coherence. The original and referee proofs supply concrete coherent-square, prism and nine-diagram tests for that existing scope. No new stable-category carrier is proposed."
     },
@@ -3972,10 +5036,15 @@
         "PAPER-YANG-ZHAO-25/A11",
         "PAPER-YANG-ZHAO-25/A12",
         "PAPER-YANG-ZHAO-25/A13",
-        "PAPER-YANG-ZHAO-25/A14"
+        "PAPER-YANG-ZHAO-25/A14",
+        "PAPER-YANG-ZHAO-25/Q04",
+        "PAPER-YANG-ZHAO-25/Q05",
+        "PAPER-YANG-ZHAO-25/Q06",
+        "PAPER-YANG-ZHAO-25/Q07",
+        "PAPER-YANG-ZHAO-25/Q10"
       ],
       "reason": "Reuse the same pending continuation proposed in PAPER-ABE-25, not a parallel non-acyclicity roadmap. Yang–Zhao adds the general-base transversality defect, supported characteristic classes and coherent infinity-categorical fibration proof beyond EDC.8 and beyond Abe's two-categorical trace prefix.",
-      "brief": "Extend the pending RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here."
+      "brief": "Extend the pending RelativeTraces brief from PAPER-ABE-25 without duplicating it. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1:adjoint, EDC.2:trace-purity, EDC.3, EDC.4, EDC.8), Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0,E1,E3,E5:abstract), and the generic existing triangulated K0. First close the Noetherian-base/coefficient six-operation and ULA-dualizability interfaces; ordinary field duality does not suffice. Construct generalized transversality c, its diagonal evaluation condition C1, the explicit closed-diagonal defect functor and K_X/Y/S. Build relative characteristic classes with ULA globally or uniquely extended across H0/H1 support vanishing. Define Ctilde with coefficients K_X/Y/S under C1,C3, and only then C^Z with coefficients K_X/S under C2. Prove base change, proper pushforward, independent étale locality in X and Y, and trait specialization with the exact source/target vanishings. Upgrade the six-functor correspondence construction to the coherent infinity setting, importing all generic stable-category, lifting and nine-diagram machinery from EDS. Prove the fibration equality C_X/S=δ!C_X/Y+C^Z under C1–C3 by either fully recorded proof. Under perfect char-p k, finite local ℓ≠p coefficients, separated f:X→smooth curve and ULA off a closed x, prove C^{x}=−dimtot RΦ_x without smoothness of X; deduce the finite-Z and cohomological GOS formulas. For proper f and ULA off f^−1(y), prove ν_Y^−1 f*Ctilde=−a_y(Rf*F) without imposing source C2. Import the earlier local-Fourier/ULA-extension prefix from LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier. Do not import the late Artin theorem or Saito comparison back into that prefix. The non-isolated localized-Bloch equality stays conjectural; only its stated global pushforward comparison is a theorem here. Prove finite faithfully free coefficient transport of ULA, transversality, supported non-acyclicity classes and local Milnor descent (Q04–Q07,Q10). Import the generic coefficient functor and split-detection facts from EnhancedDerivedSheaves:E1/E3. Preserve the supported factorization itself. Do not multiply a B-valued trace by rankΛB, or divide by that rank; a Λ-linear retraction detects equality even for F2→F4."
     },
     {
       "route": "part-ii",
@@ -3992,10 +5061,13 @@
         "PAPER-YANG-ZHAO-25/A05",
         "PAPER-YANG-ZHAO-25/A06",
         "PAPER-YANG-ZHAO-25/A07",
-        "PAPER-YANG-ZHAO-25/A08"
+        "PAPER-YANG-ZHAO-25/A08",
+        "PAPER-YANG-ZHAO-25/Q01",
+        "PAPER-YANG-ZHAO-25/Q08",
+        "PAPER-YANG-ZHAO-25/Q09"
       ],
       "reason": "Reuse PAPER-ABE-25's same pending continuation. Yang–Zhao invokes the same exponential deformation, finite-cover ULA extension and Laumon identity. LPV.0's ordinary trait nearby cycles do not cover absolute integral closures and descent over coherent/infinite bases.",
-      "brief": "Extend, rather than duplicate, the GeneralBasesFourier continuation proposed in PAPER-ABE-25. Import Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0) for ordinary strict-local RΨ/RΦ, Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0) for coefficients, and Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0–E3) for the actual enhancement. Retain the existing early Swan-module and modular K0/decomposition interfaces; no late geometric Artin theorem is needed. Construct general-base geometric-specialization nearby cycles and prove the applicable goodness, constructibility and base-change results from their primary sources. In the perfect char-p finite-local coefficient setting, construct the chosen nontrivial additive-character kernel, and prove coefficient enlargement/descent when the original ring lacks that character. Prove the precise alternating identity −dimtot RΦ_0(F,id)=χΨ_pr2(pr1*F⊗Lψ,!(t/t')) at (0,0'). Construct the absolute-integral-closure Rj* extension with finite Tor and ULA, then descend both complex and open identification to a finite integral cover of the parameter curve. Prove support at the isolated point and the strict-local Fourier stalk comparison using Ψ-goodness. Export those identities to RelativeTraces' cohomological Milnor proof. Tests must distinguish a full-trait constant sheaf from j! of its generic restriction, preserve the degree-one negative sign, and reject the nonexistent character F3→F2×. The pure Fourier theorem precedes both the late Artin theorem and all characteristic-cycle comparisons."
+      "brief": "Extend, rather than duplicate, the GeneralBasesFourier continuation proposed in PAPER-ABE-25. Import Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0) for ordinary strict-local RΨ/RΦ, Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0) for coefficients, and Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E0–E3) for the actual enhancement. Retain the existing early Swan-module and modular K0/decomposition interfaces; no late geometric Artin theorem is needed. Construct general-base geometric-specialization nearby cycles and prove the applicable goodness, constructibility and base-change results from their primary sources. In the perfect char-p finite-local coefficient setting, construct the chosen nontrivial additive-character kernel, and prove coefficient enlargement/descent when the original ring lacks that character. Prove the precise alternating identity −dimtot RΦ_0(F,id)=χΨ_pr2(pr1*F⊗Lψ,!(t/t')) at (0,0'). Construct the absolute-integral-closure Rj* extension with finite Tor and ULA, then descend both complex and open identification to a finite integral cover of the parameter curve. Prove support at the isolated point and the strict-local Fourier stalk comparison using Ψ-goodness. Export those identities to RelativeTraces' cohomological Milnor proof. Tests must distinguish a full-trait constant sheaf from j! of its generic restriction, preserve the degree-one negative sign, and reject the nonexistent character F3→F2×. The pure Fourier theorem precedes both the late Artin theorem and all characteristic-cycle comparisons. Before choosing ψ, construct a finite local coefficient enlargement via a maximal localization of Λ[T]/Φp, importing the pinned monic power basis, Artinian-localization surjectivity and finite-flat local freeness. Establish nearby-cycle coefficient comparison and invariance of the integer Swan/total dimension through residue-field extension. The extension degree need not be prime to ℓ. General local Fourier and modular-to-adic lifting proofs remain required; coefficient descent alone does not prove them."
     },
     {
       "route": "part-ii",
@@ -4019,10 +5091,12 @@
         "PAPER-YANG-ZHAO-25/M14",
         "PAPER-YANG-ZHAO-25/M15",
         "PAPER-YANG-ZHAO-25/M16",
-        "PAPER-YANG-ZHAO-25/M11"
+        "PAPER-YANG-ZHAO-25/M11",
+        "PAPER-YANG-ZHAO-25/M17",
+        "PAPER-YANG-ZHAO-25/M18"
       ],
       "reason": "Reuse the pending microlocal continuation from PAPER-SHENDE-TSIMERMAN-17. Its brief already demands a separately sourced positive-characteristic Beilinson–Saito branch. This extraction supplies that branch's precise characteristic-class comparison target; it does not infer it from characteristic-zero conormal topology.",
-      "brief": "Extend the existing pending Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Add the sourced localized-perfect-complex Chern interface needed for the conductor comparison beyond EDC.3's current smooth-pair scope, but import all ordinary Chow/Gysin/Chern operations from EDC.3. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route."
+      "brief": "Extend the existing pending Microlocal brief, preserving its characteristic-zero polar-bound branch and its single ownership. Import Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0,EDC.3,EDC.4,EDC.8), Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0 and pencil geometry), and the earlier outputs of EtaleDualityAndPerverseSheavesPartIIRelativeTraces. Over a perfect field of characteristic p>0 with finite local coefficients of residue characteristic ℓ≠p, construct cotangent C-transversality, micro-support, Beilinson's singular support and the integral Saito characteristic cycle characterized by the isolated Milnor formula. Prove CC(Λ_X)=(-1)^dimX[zero section], shift/additivity, étale locality and finite-free lisse rank twisting. Construct the degree-zero class cc_X=0_X!CC(F); distinguish it from the total characteristic class for embeddable singular schemes. Add the sourced localized-perfect-complex Chern interface needed for the conductor comparison beyond EDC.3's current smooth-pair scope, but import all ordinary Chow/Gysin/Chern operations from EDC.3. Prove good-pencil existence and the two matched Chow/cohomological induction identities, retaining smooth properly transversal fibers for divω and the actual quasi-projective reduction, prime-to-ℓ field extension and smooth codimension-two center hypotheses. Repair finite étale descent with F⊗σ*Λ and rank twisting, not the false constant-direct-sum identification. Final theorem: for smooth quasi-projective X/k and F∈Dctf(X,Λ), cl(cc_X(F))=C_X/k(F) in H0(X,K_X/k). This is not the full embeddable-singular conjecture. Define the non-isolated candidate (f*dt)!CC(F), prove its finite-support comparison only, and retain Conjecture6.10 and the supported Bloch formula as explicit non-theorems. Obtain the final UYZ journal pencil/blowup statements before closing this route. Use Saito18 Lemma2 in the finite étale domain for the cycle pushforward step, then commute the zero-section refined Gysin with proper pushforward to obtain the Chow class identity (M17–M18). Retain the independent quasi-projective good-pencil gap."
     }
   ],
   "prerequisites": [
@@ -4214,6 +5288,36 @@
         "Enlin Yang's current homepage https://yelmath.github.io/ and linked PFF.pdf alternative proof (read fully); the latter changes §5 only, not the passages below.",
         "Title searches with erratum/correction and the author's older publication page; no matching published correction located. This is not an exhaustive priority claim."
       ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/E8",
+      "kind": "gap",
+      "locator": "arXiv2209.11086v4 p.45, paragraph before Theorem6.3 and §6.4 character choice; journal passage not inspected",
+      "printed": "We choose a non-trivial additive character ψ : Fp → Λ*",
+      "correction": "First replace Λ by the finite local faithfully free algebra B of Q01, run the character-admitting proof there and descend by Q07–Q10. Do not divide by the coefficient extension degree.",
+      "reason": "For geometric characteristic p=3 and coefficients Λ=F2, the multiplicative group Λ× is trivial. These coefficients satisfy §6.1, but the requested character does not exist. F4 supplies it, with degree 2 noninvertible in F2; a linear retraction, not normalized field trace, detects equality. The previous checkpoint recorded this omission in G07; it now has a sourceIssues entry and an explicit repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
+        "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
+        "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated."
+      ]
+    },
+    {
+      "id": "PAPER-YANG-ZHAO-25/E9",
+      "source": "SAI18",
+      "kind": "misprint",
+      "locator": "Saito, On the proper push-forward of the characteristic cycle of a constructible sheaf, arXiv1607.03156v1 p.3, paragraph preceding (8); journal text not inspected",
+      "printed": "equals the support of X",
+      "correction": "The base of SS(F) is the support of F.",
+      "reason": "The zero complex on a nonempty smooth X has empty singular support, whose base is empty, whereas the support of X is nonempty. Conjecture1 and the following Lemma2 correctly use the support of F. This slip does not alter the finite étale specialization M17.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
+        "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared."
+      ]
     }
   ],
   "gaps": [
@@ -4225,7 +5329,7 @@
         "PAPER-YANG-ZHAO-25/C18",
         "PAPER-YANG-ZHAO-25/M15"
       ],
-      "detail": "Read the complete journal PDF and map its numbering to arXiv v4; current published access yielded a subscription preview, not the full text. Findings are asserted only for the specified arXiv version."
+      "detail": "Read the complete journal PDF and map its numbering to arXiv v4; current published access yielded a subscription preview, not the full text. Findings are asserted only for the specified arXiv version. On 2026-09-23 both ordinary and encoded Springer PDF URLs again returned HTML previews; no journal-PDF reading is claimed."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G02",
@@ -4285,13 +5389,13 @@
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G07",
-      "title": "Coefficient-character enlargement and local Fourier closure",
+      "title": "Local Fourier and modular-to-adic proof closure after coefficient descent",
       "neededBy": [
         "PAPER-YANG-ZHAO-25/A02",
         "PAPER-YANG-ZHAO-25/A03",
         "PAPER-YANG-ZHAO-25/A04"
       ],
-      "detail": "A nontrivial Fp-character need not exist in the original Λ. Construct a suitable finite faithfully flat coefficient extension and faithful descent of both trace and total dimension; finish the finite-to-adic decomposition/reduction and local Fourier proof. Laumon selected passages were read, not the entire cited development."
+      "detail": "Q01–Q10 now give an explicit finite local character extension and coefficient descent relative to the existing derived-operation/ramification suppliers. The choice of ψ itself is resolved, including the degree-divisible-by-ℓ case. Still read and decompose UYZ final5.2.6 and Laumon local Fourier exactness/rank statements and the finite-local reduction argument used in A03/A04. No claim that these external Fourier proofs, G02/G03 or G06 are closed."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G08",
@@ -4313,17 +5417,16 @@
         "PAPER-YANG-ZHAO-25/M15",
         "PAPER-YANG-ZHAO-25/M16"
       ],
-      "detail": "Obtain UYZ's final journal Lemma4.2.7, Lemma3.3.2/Remark3.3.3 and Proposition5.3.7. Its arXivv4 Lemma4.9 explicitly treats projective X, and Proposition5.21 requires smooth properly SS-transversal divisor fibers. Verify the quasi-projective extension, prime-to-ℓ field extension, smooth center and all transversality requirements before declaring Theorem6.13's proof closed. This is a source gap, not an assertion that the journal theorem is false."
+      "detail": "Obtain UYZ's final journal Lemma4.2.7, Lemma3.3.2/Remark3.3.3 and Proposition5.3.7. Its arXivv4 Lemma4.9 explicitly treats projective X, and Proposition5.21 requires smooth properly SS-transversal divisor fibers. Verify the quasi-projective extension, prime-to-ℓ field extension, smooth center and all transversality requirements before declaring Theorem6.13's proof closed. This is a source gap, not an assertion that the journal theorem is false. On 2026-09-23 the author-linked final AMS PDF again returned HTTP403; the distinction from the older public version remains explicit."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G10",
-      "title": "Finite étale Chow pushforward and localized Chern input",
+      "title": "Localized Chern and conductor comparison input",
       "neededBy": [
-        "PAPER-YANG-ZHAO-25/M14",
         "PAPER-YANG-ZHAO-25/M08",
         "PAPER-YANG-ZHAO-25/A14"
       ],
-      "detail": "Read Saito's proper-pushforward Lemma2 in its finite étale domain and Bloch's localized Chern construction plus Saito2021 Lemmas2.1.3(2)/2.1.4. The rank-twist repair is proved from inspected étale locality and additivity, but these independent inputs remain to be closed."
+      "detail": "Saito18 arXivv1 pp.1–5, including Lemma2 and its complete proof, have now been read; M17–M18 supply its finite étale application and the zero-section proper-pushforward calculation needed by M14. Still read Bloch’s localized Chern construction and Saito2021 Lemmas2.1.3(2)/2.1.4. Generic refined Gysin/cycle operations remain imported from M05, with their granularity boundary recorded in G11."
     },
     {
       "id": "PAPER-YANG-ZHAO-25/G11",
@@ -4361,41 +5464,71 @@
       "id": "YZ",
       "url": "https://arxiv.org/pdf/2209.11086v4",
       "sha256": "e3da9817bc372ce4b72e475ed790ba3e4346de83ccda9751fe37bd02c0e1eb2e",
-      "read": "Complete pp.1–51. Formula images additionally checked pp.8,14,16,20,21,27,28,50."
+      "read": "Complete pp.1–51. Formula images additionally checked pp.8,14,16,20,21,27,28,50.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "PFF",
       "url": "https://yelmath.github.io/PFF.pdf",
       "sha256": "ca34631829a5eba95d58d7d3488fc7bc8fa00e63906b11568e0437c7f6c1fb58",
-      "read": "Complete eleven scanned/image pages, printed31–41. Alternative proof, not labelled an erratum by author."
+      "read": "Complete eleven scanned/image pages, printed31–41. Alternative proof, not labelled an erratum by author.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "HS",
       "url": "https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf",
       "sha256": "7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e",
-      "read": "§2 coefficient settings; pp.12–14 Proposition3.1,Definition3.2,Proposition3.3 and proofs; Corollary3.10 proof; Theorem4.1 and Corollary4.2 with corollary proof. Not the full Theorem4.1 proof."
+      "read": "§2 coefficient settings; pp.12–14 Proposition3.1,Definition3.2,Proposition3.3 and proofs; Corollary3.10 proof; Theorem4.1 and Corollary4.2 with corollary proof. Not the full Theorem4.1 proof.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "UYZ",
       "url": "https://arxiv.org/pdf/1701.02841v4",
       "sha256": "bd22e5b85043be666661b79906cf3f1360b12c078f8667f118a6883c3c633a96",
-      "read": "§§4.3–4.9 statements/initial proof, §§5.20–5.22, prime-to-ℓ finite-field extension paragraph at end5.24, §5.25. Not the full paper. Journal numbering differs; AMS PDF forbidden."
+      "read": "§§4.3–4.9 statements/initial proof, §§5.20–5.22, prime-to-ℓ finite-field extension paragraph at end5.24, §5.25. Not the full paper. Journal numbering differs; AMS PDF forbidden.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "SAI",
       "url": "https://arxiv.org/pdf/1510.03018v4",
       "read": "Definition2.3/Lemma2.4; Definition3.1,Lemma3.2 and selected proof, minimal-support definition/Lemma3.3; Theorem4.9 and proof,Definition4.10,Lemma4.11 and proof,Lemma4.13 statement; §5.2 Lemma5.6 proof,Definition5.7,Conjecture5.8,Lemma5.9 proof; Definition6.7 and Proposition6.8 statement. This is not full-source closure.",
-      "sha256": "1f5434a8961168662f88d96b2316803637c047bf20cb6f12247473221c9a5469"
+      "sha256": "1f5434a8961168662f88d96b2316803637c047bf20cb6f12247473221c9a5469",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "HA",
       "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
-      "read": "Primary-source text of Definitions1.1.1.6 and Remark1.1.1.7–8 inspected; cited HTT proof not read."
+      "read": "Primary-source text of Definitions1.1.1.6 and Remark1.1.1.7–8 inspected; cited HTT proof not read.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
     },
     {
       "id": "ABE_REUSE",
       "url": "https://github.com/CBirkbeck/tauceti-explorer/pull/1951",
-      "read": "Previous checkpoint's source ledger: full published Abe25 plus selected Lu–Zheng and Laumon passages; inherited scope retained, not inflated to full reads."
+      "read": "Previous checkpoint's source ledger: full published Abe25 plus selected Lu–Zheng and Laumon passages; inherited scope retained, not inflated to full reads.",
+      "readBy": "Codex codex-a71f92, merged PR1963; inherited scope"
+    },
+    {
+      "id": "YZ_CONTINUATION",
+      "url": "https://arxiv.org/pdf/2209.11086v4",
+      "sha256": "e3da9817bc372ce4b72e475ed790ba3e4346de83ccda9751fe37bd02c0e1eb2e",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Complete arXivv4 pp.1–51; p.45 character-choice image separately inspected."
+    },
+    {
+      "id": "SAI18",
+      "url": "https://arxiv.org/pdf/1607.03156v1",
+      "sha256": "315c7d251040f3b0b339f7acc38b133c719f7d9da50dbdbf3a194e9fbf9e6c27",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Entire pp.1–5, including Lemma2 and complete proof pp.3–4; p.3 image. Pages6–9 not read and no full-paper closure claimed."
+    },
+    {
+      "id": "COEFFICIENT_ALGEBRA",
+      "url": "https://stacks.math.columbia.edu/tag/00JB",
+      "accessed": "2026-09-23",
+      "readBy": "Codex codex-c83e7a",
+      "read": "Stacks00JB statement and complete displayed proof; 00UB definition and00UC statement (proof omitted in source). Actual construction uses the explicitly read pinned monic quotient, Artinian-localization surjectivity and finite-flat local freeness declarations; Q01 proves the cyclotomic unit calculation directly."
     }
   ],
   "ownershipAudit": {
@@ -4416,10 +5549,60 @@
       "PAPER-SHENDE-TSIMERMAN-17 Microlocal brief read completely; positive-characteristic continuation explicitly requested there."
     ],
     "nonDuplication": "These pending candidates have no accepted stage IDs at the checked snapshot and therefore remain missing, not planned. Ordinary EDS/EDC stages are actual atlas suppliers. No retired roadmap is a supplier.",
-    "acyclicPrefixes": "EDS→ordinary EDC; early relative ULA/transversality→general-base Fourier; early Fourier→cohomological Milnor; independent microlocal/Chow prefix plus Milnor→late Saito comparison. RelativeTraces A14 additionally consumes early localized-Chern M08, not the late comparison. Never replace this item-level graph by mutual whole-roadmap prerequisites."
+    "acyclicPrefixes": "EDS→ordinary EDC; early relative ULA/transversality→general-base Fourier; early Fourier→cohomological Milnor; independent microlocal/Chow prefix plus Milnor→late Saito comparison. RelativeTraces A14 additionally consumes early localized-Chern M08, not the late comparison. Never replace this item-level graph by mutual whole-roadmap prerequisites.",
+    "continuationSnapshot": "4d7a180e18ac9704c1ad1f36a943f6bea6c658f1",
+    "continuation": "Read complete EDC and EDS owner documents, LPV scope/LPV.0–3 prefix; reviewed AUDIT18 EDC.0/EDC.8, AUDIT22 E0/E1/E3 and AUDIT19 LPV.0/LPV.6; read current Abe RelativeTraces and GeneralBasesFourier briefs. Reuse their IDs. Q02/Q03 are existing EDS coefficient interfaces, not new ownership. Q01 is the specific Fourier-character application of existing commutative algebra. Pinned searches across both trees found generic algebra/carriers, but no actual ULA/non-acyclicity coefficient theorem. Ordinary categorical and finite-field character-table hits are not such theorems.",
+    "upstreamReadingProvenance": "At least two relevant upstream documents were read in earlier codex-c83e7a programme work (GrothendieckEulerForms and CharacterTheory); the older checkpoint also records its own full readings. A partial GrothendieckEulerForms reread in this continuation is not represented as a new full read."
   },
   "validation": {
-    "structural": "Unique IDs, resolved internal prerequisites, acyclic item graph, every missing item routed exactly once; all 45 definitions/constructions have three API entries and three specification tests.",
-    "lean": "No Lean deliverable is authorized for this paper extraction; no Lean compilation or formalization is claimed."
+    "structural": "130 unique items; 47 definitions/constructions with 141 APIs and 141 specification tests. All inherited IDs and routes retained; missing items routed once, graph checked separately.",
+    "lean": "No Lean deliverable is authorized for this paper extraction; no Lean compilation or formalization is claimed.",
+    "continuationChecks": "Recorded in handoff after execution; finite algebra examples validate selected identities, not general sheaf theorems."
+  },
+  "continuation": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "issue": 1218,
+    "date": "2026-09-23",
+    "previousPullRequest": 1963,
+    "previousFiles": {
+      "base": "e46225b7ff6538f1e39b3322e3981022a0241290",
+      "files": [
+        {
+          "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
+          "blobSha": "c42d6de0b3382d1f29473a0074e4f79ee70dee42",
+          "sha256": "8dcb71352a71baf8a9b9e7ab3c6bf28e044050c2136b9003166b60ac5b80b451"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-YANG-ZHAO-25.md",
+          "blobSha": "43e049a79bf7f70d3e8934171b94bb67ae75a714",
+          "sha256": "8b45c9c599e001d002e91ab888b2dc2845966552a3cbd17b95dd6307c224a9ae"
+        },
+        {
+          "path": "research/blueprint/handoff/PAPER-YANG-ZHAO-25.md",
+          "blobSha": "81c661f2f655f9d2316d163486ff689b5a52eb8e",
+          "sha256": "3df42c02744c69fd1afd8a563c46a60485292d17640e508a333b420c0534acf2"
+        }
+      ]
+    },
+    "newItems": [
+      "PAPER-YANG-ZHAO-25/L05",
+      "PAPER-YANG-ZHAO-25/L06",
+      "PAPER-YANG-ZHAO-25/L07",
+      "PAPER-YANG-ZHAO-25/L08",
+      "PAPER-YANG-ZHAO-25/Q01",
+      "PAPER-YANG-ZHAO-25/Q02",
+      "PAPER-YANG-ZHAO-25/Q03",
+      "PAPER-YANG-ZHAO-25/Q04",
+      "PAPER-YANG-ZHAO-25/Q05",
+      "PAPER-YANG-ZHAO-25/Q06",
+      "PAPER-YANG-ZHAO-25/Q07",
+      "PAPER-YANG-ZHAO-25/Q08",
+      "PAPER-YANG-ZHAO-25/Q09",
+      "PAPER-YANG-ZHAO-25/Q10",
+      "PAPER-YANG-ZHAO-25/M17",
+      "PAPER-YANG-ZHAO-25/M18"
+    ],
+    "boundary": "Local coefficient argument and finite étale pushforward refinement proved relative to recorded supplier interfaces; no new claim of recursive closure, Lean implementation or independent review."
   }
 }
