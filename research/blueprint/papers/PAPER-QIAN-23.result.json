@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-QIAN-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Potential automorphy for GL_n",
     "authors": "Lie Qian",
@@ -66,7 +66,7 @@
       "Deligne chapter publisher record authenticated; its listed chapter erratum is an explicit S2 follow-up, not assumed irrelevant."
     ]
   },
-  "summary": "Whole-main-paper checkpoint for residual potential ordinary automorphy over CM fields and the ordinary-lift consequence, using asymmetric Dwork motives and a two-prime switch. It separates the geometric family, finite-image and global-root arguments, period/monodromy comparisons, ordinary automorphic bridge and final endpoint. Every missing extracted item is routed exactly once. The fully read local-ordinarity companion and selected original inputs expose source hypotheses needing correction, especially the lifting prime bound and the maximal-monodromy Hodge condition. Original-source proof leaves, finer itemization and ownership coordination remain S1–S10; no formalization or complete proof closure is claimed.",
+  "summary": "Qian proves potential ordinary automorphy for n-dimensional residual representations of the Galois group of a CM field (Theorem 1.1), using an asymmetric Dwork family and a second prime. With ACC+ he deduces potential automorphy for suitable l-adic representations (Theorem 1.4). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and thirteen findings are recorded. Theorem 1.4 is established only for l > n, since the lifting theorem it uses requires p > n (E2); Lemma 3.12 needs v(t) < 0 (E1). Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5359,7 +5359,9 @@
         "PAPER-QIAN-23/079",
         "PAPER-QIAN-23/106"
       ],
-      "detail": "Read NSW8.6.7,9.1.6,9.1.9 and the exact Moret–Bailly/CHT4.1.2 variant in their original sources. Decompose local obstruction killing, finite support, restriction/corestriction squares, totally real realization, Galois closure and simultaneous avoidance. The paper's proofs are read but those imported leaves are not closed."
+      "detail": "Read NSW8.6.7,9.1.6,9.1.9 and the exact Moret–Bailly/CHT4.1.2 variant in their original sources. Decompose local obstruction killing, finite support, restriction/corestriction squares, totally real realization, Galois closure and simultaneous avoidance. The paper's proofs are read but those imported leaves are not closed.",
+      "status": "deferred",
+      "resolution": "Global character roots and Moret–Bailly are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S2",
@@ -5374,7 +5376,9 @@
         "PAPER-QIAN-23/066",
         "PAPER-QIAN-23/108"
       ],
-      "detail": "Read Deligne's Fermat cohomology §§7.4,7.6,7.10, Beukers–Heckman/Levelt3.5 and the remaining BLGHT4.3/4.7 proofs. Split integral torsion-freeness, analytic/étale lattice comparison, Picard–Lefschetz, residue Hodge calculation and real descent into qualified independent imports. Do not promote a finite-field Gauss identity to a cohomology theorem. The publisher lists an erratum to Deligne's chapter; check it before extracting §7."
+      "detail": "Read Deligne's Fermat cohomology §§7.4,7.6,7.10, Beukers–Heckman/Levelt3.5 and the remaining BLGHT4.3/4.7 proofs. Split integral torsion-freeness, analytic/étale lattice comparison, Picard–Lefschetz, residue Hodge calculation and real descent into qualified independent imports. Do not promote a finite-field Gauss identity to a cohomology theorem. The publisher lists an erratum to Deligne's chapter; check it before extracting §7.",
+      "status": "deferred",
+      "resolution": "Fermat, hypergeometric and rank-two inputs are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S3",
@@ -5385,7 +5389,9 @@
         "PAPER-QIAN-23/053",
         "PAPER-QIAN-23/056"
       ],
-      "detail": "Read the original Zalesskii–Serezhkin main theorem, qualify all fields/dimensions, and verify the classical-group normal-subgroup and cross-characteristic quotient arguments including exceptional small isomorphisms. Item051 is a contract used by Qian, explicitly not an original-source-verified classification."
+      "detail": "Read the original Zalesskii–Serezhkin main theorem, qualify all fields/dimensions, and verify the classical-group normal-subgroup and cross-characteristic quotient arguments including exceptional small isomorphisms. Item051 is a contract used by Qian, explicitly not an original-source-verified classification.",
+      "status": "deferred",
+      "resolution": "The finite transvection and PSL classification are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S4",
@@ -5397,7 +5403,9 @@
         "PAPER-QIAN-23/088",
         "PAPER-QIAN-23/090"
       ],
-      "detail": "Read Geraghty's published Definition5.3/Lemma5.4 with the correct publication numbering and the precise polarized and nonpolarized local–global directions. Expand the positive diagonal monoid, normalized Hecke eigenvalues and the labelled parallel-weight generalization in Lemma4.3; current items retain the bridge but not every imported proof lemma."
+      "detail": "Read Geraghty's published Definition5.3/Lemma5.4 with the correct publication numbering and the precise polarized and nonpolarized local–global directions. Expand the positive diagonal monoid, normalized Hecke eigenvalues and the labelled parallel-weight generalization in Lemma4.3; current items retain the bridge but not every imported proof lemma.",
+      "status": "deferred",
+      "resolution": "The ordinary Hecke calculation is Geraghty's, a cited supplier."
     },
     {
       "id": "PAPER-QIAN-23/S5",
@@ -5407,7 +5415,9 @@
         "PAPER-QIAN-23/082",
         "PAPER-QIAN-23/083"
       ],
-      "detail": "Close the compatibility/projector coefficient field, semisimplicity of the selected realizations, irreducibility after base change, cuspidality and descent interfaces in the switch. Equal good-prime polynomials yield only semisimplified recognition without extra input. Read the underlying potential-automorphy/compatible-system proof leaves beyond the selected ACC+ passages."
+      "detail": "Close the compatibility/projector coefficient field, semisimplicity of the selected realizations, irreducibility after base change, cuspidality and descent interfaces in the switch. Equal good-prime polynomials yield only semisimplified recognition without extra input. Read the underlying potential-automorphy/compatible-system proof leaves beyond the selected ACC+ passages.",
+      "status": "deferred",
+      "resolution": "Coefficient transfer and cuspidal recognition are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S6",
@@ -5419,7 +5429,9 @@
         "PAPER-QIAN-23/086",
         "PAPER-QIAN-23/109"
       ],
-      "detail": "The v1 intro main statements and Definition1 were read, not the full paper. Collate with the 2024 FMS publication and extract the local Langlands Sp normalization, inertia, Steinberg and monodromy-order proof inputs. No unrestricted bad-prime monodromy equality is claimed."
+      "detail": "The v1 intro main statements and Definition1 were read, not the full paper. Collate with the 2024 FMS publication and extract the local Langlands Sp normalization, inertia, Steinberg and monodromy-order proof inputs. No unrestricted bad-prime monodromy equality is claimed.",
+      "status": "deferred",
+      "resolution": "Varma and the local Langlands chain are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S7",
@@ -5434,7 +5446,9 @@
         "PAPER-QIAN-23/101",
         "PAPER-QIAN-23/102"
       ],
-      "detail": "Read the exact KKMSD cone-complex subdivision, Illusie log-comparison/Gauss–Manin, Hyodo–Kato, Ogus and Tsuji inputs. Resolve generic ownership against the existing AnalyticToricGeometryNonarchimedeanPartII proposal, rather than creating another toric foundation. Verify properness and finite-generation hypotheses through every limit and comparison."
+      "detail": "Read the exact KKMSD cone-complex subdivision, Illusie log-comparison/Gauss–Manin, Hyodo–Kato, Ogus and Tsuji inputs. Resolve generic ownership against the existing AnalyticToricGeometryNonarchimedeanPartII proposal, rather than creating another toric foundation. Verify properness and finite-generation hypotheses through every limit and comparison.",
+      "status": "deferred",
+      "resolution": "The toroidal refinement and log comparisons (KKMSD, Illusie, Hyodo–Kato, Tsuji) are cited suppliers."
     },
     {
       "id": "PAPER-QIAN-23/S8",
@@ -5444,7 +5458,9 @@
         "PAPER-QIAN-23/104",
         "PAPER-QIAN-23/105"
       ],
-      "detail": "Independently check E11's filtered-module witness against the admissibility theorem, supply a crystalline/de Rham character with the specified labelled shift M(a), and verify its preservation of maximal N. The chosen Dwork family has consecutive weights; the companion's arbitrary-character Theorem1.1 needs a separate Hodge-weight argument and is not certified by this checkpoint."
+      "detail": "Independently check E11's filtered-module witness against the admissibility theorem, supply a crystalline/de Rham character with the specified labelled shift M(a), and verify its preservation of maximal N. The chosen Dwork family has consecutive weights; the companion's arbitrary-character Theorem1.1 needs a separate Hodge-weight argument and is not certified by this checkpoint.",
+      "status": "recorded",
+      "resolution": "The companion paper's slips are E11 and E12; items 103 and 105 use the corrected criterion."
     },
     {
       "id": "PAPER-QIAN-23/S9",
@@ -5456,7 +5472,9 @@
         "PAPER-QIAN-23/077",
         "PAPER-QIAN-23/089"
       ],
-      "detail": "Review all thirteen source issues at the recorded versions, especially l>n in E2, the finite-field root condition in E7, the convention-sensitive E9 determinant sign, and E11. Seek an applicable small-prime lifting theorem if retaining the full printed Theorem1.4. 'No correction found' is limited to the logged search."
+      "detail": "Review all thirteen source issues at the recorded versions, especially l>n in E2, the finite-field root condition in E7, the convention-sensitive E9 determinant sign, and E11. Seek an applicable small-prime lifting theorem if retaining the full printed Theorem1.4. 'No correction found' is limited to the logged search.",
+      "status": "recorded",
+      "resolution": "The prime range of Theorem 1.4 is E2 (now affecting a stated result); item 010 states the l > n version. Independent review of the findings is the review job's task."
     },
     {
       "id": "PAPER-QIAN-23/S10",
@@ -5469,7 +5487,9 @@
         "PAPER-QIAN-23/081",
         "PAPER-QIAN-23/105"
       ],
-      "detail": "After closing the preceding original-source leaves, split the remaining imported multi-step packages (finite classical groups, toroidal refinement, the lifting proof, ordinary Hecke operators and comparison diagrams) into every required definition and theorem. Recheck reviewed audits and concurrent routes, provide exact implementation files/planet choices in the subsequent design/blueprint jobs, and only then assess complete status. No Lean deliverable is authorized by this paper issue. In particular reconcile CG18's existing dwork-family/sec10-dwork-point source allocation to ML.2 with the shared geometric carrier of the proposed extension; reject duplicate definitions or a coarse-stage dependency cycle."
+      "detail": "After closing the preceding original-source leaves, split the remaining imported multi-step packages (finite classical groups, toroidal refinement, the lifting proof, ordinary Hecke operators and comparison diagrams) into every required definition and theorem. Recheck reviewed audits and concurrent routes, provide exact implementation files/planet choices in the subsequent design/blueprint jobs, and only then assess complete status. No Lean deliverable is authorized by this paper issue. In particular reconcile CG18's existing dwork-family/sec10-dwork-point source allocation to ML.2 with the shared geometric carrier of the proposed extension; reject duplicate definitions or a coarse-stage dependency cycle.",
+      "status": "deferred",
+      "resolution": "Itemization refinement and the ownership audit are design work."
     }
   ],
   "sourceIssues": [
@@ -5486,7 +5506,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5495,14 +5516,15 @@
       "locator": "Main paper Theorem1.4, PDF p.3, and its final proof PDF p.36; ACC+ published Theorem6.1.2(4), pp.1029–1030",
       "printed": "Let l be an odd prime number.",
       "correction": "For the cited proof impose l>n, or supply a different lifting theorem covering the remaining odd-prime range. Item010 uses the verified l>n range; the broader assertion remains open in this extraction.",
-      "reason": "ACC+6.1.2 explicitly assumes p>n, whereas Qian's statement and final check list no l>n. Enormity rules out l|n but no implication l>n has been established. This is a gap in the cited proof, not a counterexample to the broader theorem. The residual theorem uses a freely chosen l'>2ln+5 and is unaffected by this specific gap.",
-      "affects": "the proof",
+      "reason": "ACC+6.1.2 explicitly assumes p>n, whereas Qian's statement and final check list no l>n. Enormity rules out l|n but no implication l>n has been established. This is a gap in the cited proof, not a counterexample to the broader theorem. The residual theorem uses a freely chosen l'>2ln+5 and is unaffected by this specific gap. (cc-442dc5) Reclassified to affect a stated result. ACC+ Theorem 6.1.2(4) reads 'There exists σ ∈ G_F − G_F(ζ_p) such that ρ(σ) is a scalar. We have p > n.' This is in both arXiv 1812.09999v1, the version Qian cites, and v2. The final proof says 'it suffices to verify that the conditions (3) and (4) of that theorem holds … all conditions except decomposed genericity follows from the corresponding conditions of r', but Theorem 1.4 does not assume l > n. So for odd l ≤ n, Theorem 1.4 is not established by the paper. Theorem 1.1 (residual) is not affected.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5518,7 +5540,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5534,7 +5557,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5550,7 +5574,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5566,7 +5591,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5582,7 +5608,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5598,7 +5625,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5614,7 +5642,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5630,7 +5659,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5646,7 +5676,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5662,7 +5693,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     },
     {
@@ -5678,7 +5710,8 @@
         "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
         "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
         "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+        "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
       ]
     }
   ],
@@ -5849,5 +5882,15 @@
       "filteredModule": "p=3; slopes1,2; filtration jumps0,3 along e1+e2; total tH=tN=3; only stable line e1 has tH=0<tN=1; no admissible line.",
       "scope": "Finite examples and numerical identity checks only, not proofs."
     }
+  },
+  "summaryBefore": "Whole-main-paper checkpoint for residual potential ordinary automorphy over CM fields and the ordinary-lift consequence, using asymmetric Dwork motives and a two-prime switch. It separates the geometric family, finite-image and global-root arguments, period/monodromy comparisons, ordinary automorphic bridge and final endpoint. Every missing extracted item is routed exactly once. The fully read local-ordinarity companion and selected original inputs expose source hypotheses needing correction, especially the lifting prime bound and the maximal-monodromy Hodge condition. Original-source proof leaves, finer itemization and ownership coordination remain S1–S10; no formalization or complete proof closure is claimed.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1252,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF (NSF PAR, SHA-256 77969caa…, matching) read at §§1, 3.4 and 4; ACC+ Theorem 6.1.2 checked in arXiv 1812.09999v1 and v2.",
+    "changes": "E2 reclassified; gap statuses recorded; status complete."
   }
 }
