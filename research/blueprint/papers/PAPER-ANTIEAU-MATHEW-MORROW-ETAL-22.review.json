@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The direction is appropriate, but generic de Rham, cycle-conjecture and characteristic-class work must be imported. The declaration-level dependency/API/coverage gaps make the design brief unready."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Map-level henselian square, integral cyclotomic estimates, graded THH/Tate constructions and rational TC decomposition belong in RT.1/2/3/3b/6. Generic quasi-isogenies and spectral formality have been moved to shared owners; all corrected torsion and [2i] conventions travel with these source items."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The finite-Nygaard/syntomic comparison and rigidity results are sources for PR.3/4. Generic exterior-power/LKE lemmas import DD/EDS, and RT owns the final TC decomposition. This accepts source ownership, not completed transitive proofs."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Animation, adjunction descent and LKE belong to E3/E5:animation; abstract quasi-isogenies to E2/E5:abstract. Ordinary 1-categorical Mathlib constructions do not discharge these enhanced statements."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The complete-DVR comparison and K/TC rigidity applications belong to L.5/6. The general perfect-residue result is now missing rather than falsely supplied by the finite-Q_p-field target; completion is derived."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "The arbitrary-perfectoid fundamental square is justified using an invalid integral de Rham comparison (E14). The O_C application is retained, but the general theorem needs a torsion reduction and the classical-map proof needs its precise supplier before this mixed route can be used."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The proper good-reduction de Rham/crystalline/étale specialization belongs in CP.2/3. Import period and syntomic theorems; distinguish derived Frobenius fibres and ordinary invariants, and retain the weight-zero boundary."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Derived exterior-power and filtered-connectivity lemmas are shared DD.0/DD.1 sources; PR.3/4 consumes them without a duplicate construction."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The valuation bound and universal truncated PD computation belong in CR.0. The factorial multiplication identity already exists in Mathlib; E1’s unsupported correction is rejected."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The precisely stated variational Hodge conjecture belongs to MC.7 as an unproved proposition. Continuous K-theory lifting does not algebraize it."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Bounded-below spectral formality up to quasi-isogeny belongs with Postnikov/completion methods at H.6, importing the abstract categorical definition. Its external proof remains an explicit supplier obligation."
+    }
+  ],
+  "notes": "Finished independent review by Codex — codex-c83e7a of Claude Code cc-7b31c4’s extraction. All 137 original items and 13 added items audited. Corrected extraction is partial: the primary AMMN reading is complete, transitive proof/API coverage is not. 19 source findings: 18 confirmed, E1 rejected. Nine source routes accepted; Part II route1 and period route6 rejected. No Lean file authored or compiled."
+}
