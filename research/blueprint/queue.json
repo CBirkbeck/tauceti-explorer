@@ -2101,8 +2101,9 @@
    ],
    "avoidAccountOf": "PAPER-YUN-ZHANG-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-YUN-ZHANG-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1134"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1134",
+   "finishedAt": "2026-09-23T19:33:31Z"
   },
   {
    "id": "PAPER-GAO-HABEGGER-19",
@@ -2295,7 +2296,8 @@
    ],
    "avoidAccountOf": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1144"
   },
   {
    "id": "PAPER-YUAN-ZHANG-18",
@@ -2553,8 +2555,9 @@
    ],
    "avoidAccountOf": "PAPER-CADORET-HUI-TAMAGAWA-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1158"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1158",
+   "finishedAt": "2026-09-23T19:33:34Z"
   },
   {
    "id": "PAPER-DOSPINESCU-LEBRAS-17",
@@ -4207,8 +4210,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4642,7 +4645,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-ZHANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-ZHANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1279"
   },
   {
    "id": "PAPER-LIU-ETAL-22",
@@ -6514,8 +6518,9 @@
    ],
    "avoidAccountOf": "PAPER-CHANG-CHEN-MISHIBA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1381"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1381",
+   "finishedAt": "2026-09-23T19:33:37Z"
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
@@ -8097,8 +8102,9 @@
    ],
    "avoidAccountOf": "PAPER-ANDRE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDRE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1465"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1465",
+   "finishedAt": "2026-09-23T19:33:40Z"
   },
   {
    "id": "PAPER-ESNAULT-GROECHENIG-20",
