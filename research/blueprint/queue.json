@@ -6601,8 +6601,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1397"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1397",
+   "finishedAt": "2026-09-23T03:53:13Z"
   },
   {
    "id": "REV-PAPER-HE-21",
