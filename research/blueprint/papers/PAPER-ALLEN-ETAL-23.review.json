@@ -1,0 +1,72 @@
+{
+  "paper": "PAPER-ALLEN-ETAL-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of IntegralHeckeAndGaloisDeterminants for ramified Hecke operators and local–global compatibility away from p, taking 18 items. The form is right: the title reproduces the parent's atlas title ('Integral Hecke actions, determinants and interpolation') exactly, the area langlands is a galaxy id, and the brief is 649 words. The direction is the parent's own — the parent builds integral Hecke algebras, determinants and interpolation, and this paper's §4 adds the ramified operators and the local–global compatibility the parent's layers do not carry."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of PotentialAutomorphyInfrastructure for 25 items. That roadmap exists for exactly this circle of results, and the items are its reusable infrastructure."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of IntegralHeckeAndGaloisDeterminants for two items the parent already owns, the counterpart of route 1."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticLocallySymmetricSpaces for seven items on locally symmetric spaces, their cohomology and boundary."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of SmoothRepresentationsOfLocalGroups for two items on smooth representations and their Hecke algebras."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of AutomorphicGaloisRepresentationsPartII for two items on the Galois representations attached to automorphic forms in this setting."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticGaloisRepresentations for eight items on Galois representations, their deformation and Weil–Deligne data."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source of FiniteFlatGroupsAndIntegralPadicHodgeTheory for three items on Fontaine–Laffaille theory and crystalline lattices."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source of PotentialModularityAndCompatibleSystems for one item on the Moret-Bailly/potential modularity input."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Source of ModularityAndLanglandsExtensions for seven items on the modularity-lifting endpoint statements."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Source of AutomorphicLFunctionsAndLocalFactors for one item on local L-factors."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticGaloisDuality for one item on Galois cohomology and duality."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Source of HilbertModularVarietiesAndShimuraCurves for one item on the Hilbert modular input."
+    }
+  ],
+  "notes": "Accept. 330 items over a 217-page paper, 1 library, 251 planned and 78 missing, every missing item routed exactly once across thirteen routes, and 108 sourceIssues — the largest register of mistakes in the corpus. I reproduced all three hashes the source block records: the published Annals PDF from the author's page (c5429e4f…), the arXiv v2 PDF (7c882c4d…) and the arXiv v2 TeX (94711e86…). The extraction's most consequential claim about its sources is the numbering shift, and it is exactly right: arXiv v2's Lemma 2.2.3 is the published Lemma 2.2.4, word for word, and arXiv v2's Lemma 6.2.25 is the published Lemma 6.2.26 — while arXiv v2 has its own, different, 6.2.26, so this is a real off-by-one and not a coincidence. Any extraction elsewhere in the atlas citing v2 numbers for this paper is off by one from §2.2 on, as the source block warns. Locators: of the 324 checks, 252 land on exactly the page given, and the other 72 point at the cited content rather than at the statement's label — 'proof of Proposition 3.2.2, p. 959' where the statement is on 958, 'after Theorem 4.2.1, p. 969' where the theorem is on 968, 'paragraphs after Corollary 6.5.5, pp. 1064–1065' where the corollary is on 1063. I read the two that looked doubtful and both are right: Theorem 2.3.3 begins at the foot of p. 935 with parts (a)–(c), which the item is about, on p. 936; and Lemma 6.2.27 begins at the foot of p. 1042 with part (2), which the item is about, on p. 1043. Structure: all stages named by the twelve source routes exist, all 93 distinct planned layer ids exist, and the single library item's three citations (NumberField.IsCMField, IsTotallyReal, maximalRealSubfield) are in Mathlib at the pinned commit. The Part II's area is langlands, a galaxy id. I could not check 108 findings individually, so I sampled the fifteen that reach a stated result or a proof and verified the two sharpest against the text. Both hold. E23: Theorem 2.4.11 on p. 951 carries no hypothesis that F contains an imaginary quadratic field, while Theorem 2.3.3 on p. 935 — the source of the Galois representations its proof uses — states 'Suppose that F contains an imaginary quadratic field'; the finding's repair (add the hypothesis, or cite another source for U(m,m)) is the right one. E100: Lemma 7.1.8(2) on p. 1091 reads 'Suppose that K is a number field in which l is unramified and that r : G_K → GL_2(Z_l) is a crystalline representation with Hodge–Tate numbers {0,1}' with no l > 2, as the finding says. The rest of the sample reads as the same kind of work: a missing hypothesis, a wrong index range, or a step that does not follow, each with a specific repair and each marked for reach honestly (87 of the 108 are misprints affecting nothing). Nothing was corrected, rejected or deleted."
+}
