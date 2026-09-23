@@ -2007,7 +2007,8 @@
    ],
    "avoidAccountOf": "PAPER-KHAYUTIN-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-KHAYUTIN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1132"
   },
   {
    "id": "PAPER-YUN-ZHANG-19",
@@ -6755,8 +6756,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1402"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1402",
+   "finishedAt": "2026-09-23T12:01:26Z"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
