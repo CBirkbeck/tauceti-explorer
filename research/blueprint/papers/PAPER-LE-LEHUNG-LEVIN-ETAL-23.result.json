@@ -68,10 +68,23 @@
             "pages": "Statements and proofs: 0C0S, 07NY, 00MA, 0315, 00KW. Complete-local Chevalley proof reconstructed here; the KWII Zariski–Samuel reference was not separately read."
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "main": "Fresh LLHLM23 published PDF78–81 and KWII PDF8–10; both downloaded again and hashes match the preserved provenance. Full-paper reading remains attributed to codex-7e92bd, not claimed afresh.",
+        "sources": [
+          {
+            "title": "Stacks Project",
+            "url": "https://stacks.math.columbia.edu/tag/0316",
+            "pages": "Statements and full proofs read at 0316,05GH,031C,0315,00MA,00MB,07NV,07NY,0C0S. Uses the direct power-series quotient proof of 0316 and the height-formula alternative for 07NV."
+          }
+        ]
       }
     ]
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3752,13 +3765,27 @@
       "name": "Regularity survives completion at a rational point",
       "statement": "For a Noetherian regular local K-algebra B whose residue map identifies B/m with the given field K, its m-adic completion is Noetherian regular local, has residue field K via that same coefficient map, and has dimension dim B.",
       "locator": "Stacks 15.44.4 (07NY), 15.44.1 and completion facts in 10.97; applied in KWII PDF9",
-      "status": "missing",
-      "prerequisites": [],
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L09",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L10",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
+      ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "Completion is Noetherian and local, with maximal ideal mB̂, unchanged residue field and dimension. The cotangent space is unchanged, so its dimension equals dim B̂; this proves regularity. The missing complete-local structure package is routed here, not asserted to be in the baseline."
+        "Z25 supplies Noetherianity of the completion. L08 and L22 supply locality and completeness, L09 supplies the residue-field identification.",
+        "Z28 is the already-planned upstream preservation-of-dimension atom. L10 preserves the minimal number of maximal-ideal generators.",
+        "Apply L19 on both sides: regularity is equivalent to equality of this generator count with dimension. This also proves reflection of regularity under the same Noetherian local hypotheses.",
+        "The composition K→B→Bhat→k(Bhat) is the original coefficient-field identification followed by L09, so it remains an isomorphism. No unspecified coefficient field is substituted."
       ],
-      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. The exact dimension and cotangent completion suppliers still need a declaration-level pin audit; source-level proof is read, no library claim."
+      "note": "Reclassified from missing to planned after reading the exact existing ModularCurves §4D target and AUDIT-12/AUDIT-17 overlap evidence. Import only the local completion/regularity atom, not the modular-curve construction or the entire stage's application dependencies. R03.1 consumes it; it must not be planned there a second time.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
@@ -3768,12 +3795,18 @@
       "locator": "Stacks 10.160.10(2), tag 0C0S; applied in KWII PDF9",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L23"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "Nakayama makes the b_i generate m. Lift an element successively modulo m,m²,… by homogeneous polynomials; completeness gives surjectivity of evaluation.",
-        "The power-series source is a Noetherian domain of dimension d; a nonzero kernel would give a quotient of dimension at most d−1 (Stacks 00KW). The target has dimension d by regularity, so the kernel is zero. Preserve the supplied K-algebra structure; no arbitrary coefficient-field choice or perfection assumption is needed."
+        "Use L23 on the finite B-module m_B. The chosen lifts of a basis of m_B/m_B² generate m_B; this is the finite-module Nakayama step, not an assumption about a domain.",
+        "Z29 gives a surjective evaluation preserving the supplied K-algebra structure. Source and target have the required variable/maximal-ideal adic topologies.",
+        "Z27 gives dimension d of the Noetherian power-series source, which is a domain over K. If the kernel had a nonzero element, L16 would give dim(B)+1≤d.",
+        "Regularity and the cotangent basis imply dim(B)=d using L19. Hence the kernel is zero. The map and its inverse are continuous: it is a ring isomorphism sending the variable ideal onto m_B, and therefore identifies every ideal power."
       ],
       "unitTests": [
         {
@@ -3787,7 +3820,7 @@
           "status": "mathematical acceptance test; no Lean compilation"
         }
       ],
-      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. The general regular-ring dimension atoms remain to pin-audit; L05 alone does not prove this theorem."
+      "note": "R03.1 coefficient-preserving coordinate adapter. Exact Noetherianity, variable-adic completeness, Nakayama, surjectivity and dimension-drop suppliers are now exposed in L13–L23 and Z26–Z29. No arbitrary coefficient-field choice or perfection assumption. Formalization is still missing."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
@@ -3797,7 +3830,11 @@
       "locator": "DeformationAndDerivedPatchingAlgebra:R03.1; KWII §1 conventions PDF4–6 and §2.3 PDF9",
       "status": "planned",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
       ],
       "implementationStatus": "unchecked",
       "unitTests": [
@@ -3810,7 +3847,85 @@
       "planned": [
         "DeformationAndDerivedPatchingAlgebra:R03.1"
       ],
-      "note": "Existing R03.1 explicitly plans this construction, Noetherianity and locality. Reuse the AdicSpacesPartII:R0 general topological tensor carrier where its hypotheses fit; the coefficient-category presentation and theorem are the R03.1 adapter, not a second carrier."
+      "note": "Existing R03.1 explicitly plans this construction, Noetherianity and locality. Reuse the AdicSpacesPartII:R0 general topological tensor carrier where its hypotheses fit; the coefficient-category presentation and theorem are the R03.1 adapter, not a second carrier. The finite-power-series presentation, once constructed, imports L13 and L21 for Noetherianity; topology/completeness uses L14/L22 with the actual ideal comparison. Do not infer Noetherianity of the ordinary tensor. The presentation and coefficient-category universal property themselves remain planned, not library.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
+          "how": "Extend the factor jet maps to the complete tensor and identify the quotient kernel."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12",
+          "how": "Construct the tensor of the coefficient retractions C→O, ensuring C is nonzero."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
+          "how": "Model the completed local ring of a finite product of pointed local models."
+        }
+      ],
+      "api": [
+        {
+          "name": "CompleteLocalTensor.factorMap",
+          "role": "projection",
+          "statement": "Provide continuous local O-algebra maps R_i→C, commuting with the specified residue-field identifications."
+        },
+        {
+          "name": "CompleteLocalTensor.homEquiv",
+          "role": "universal property",
+          "statement": "For a complete Noetherian local O-algebra A with the specified residue field, continuous local O-algebra maps C→A correspond to families of such maps R_i→A; prove evaluation on each factor and uniqueness."
+        },
+        {
+          "name": "CompleteLocalTensor.presentation",
+          "role": "characterisation",
+          "statement": "Given finite continuous presentations R_i=O[[X_i]]/I_i, identify C with O[[all X_i]]/(images of I_i); prove independence of the presentations via homEquiv."
+        },
+        {
+          "name": "CompleteLocalTensor.quotient",
+          "role": "compatibility",
+          "statement": "For closed ideals J_i in the factors, compare C/(sum J_i C) with the completed tensor of R_i/J_i using quotient maps; Z20 separately identifies its finite-free jet target with an ordinary tensor."
+        },
+        {
+          "name": "CompleteLocalTensor.augmentation",
+          "role": "consumer",
+          "statement": "A family of continuous local O-algebra retractions R_i→O induces C→O whose composite with O→C is identity; do not assume every coefficient algebra has such a retraction."
+        },
+        {
+          "name": "CompleteLocalTensor.reindex",
+          "role": "compatibility",
+          "statement": "Reindexing and regrouping finite factors give canonical continuous O-algebra equivalences determined by all factor maps; the empty tensor is O."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CompleteLocalTensor.empty",
+          "kind": "degenerate",
+          "statement": "The empty family has C=O and its induced retraction is identity."
+        },
+        {
+          "name": "CompleteLocalTensor.powerSeries",
+          "kind": "computation",
+          "statement": "O[[x]] completed-tensor_O O[[y]] is O[[x,y]], carrying the factor variables to their named coordinates."
+        },
+        {
+          "name": "CompleteLocalTensor.nonreduced",
+          "kind": "non-example",
+          "statement": "For factors O[[x]]/(x²) and O[[y]]/(y²), C=O[[x,y]]/(x²,y²) is Noetherian complete local but not reduced or a domain."
+        },
+        {
+          "name": "CompleteLocalTensor.torsion",
+          "kind": "non-example",
+          "statement": "O[[x]]/(πx) is an allowed coefficient algebra; tensoring with O leaves its nonzero π-torsion. The construction alone does not imply O-flatness."
+        },
+        {
+          "name": "CompleteLocalTensor.finiteJets",
+          "kind": "compatibility",
+          "statement": "For factors O[[x]]/(x^n) and O[[y]]/(y^n), the completed tensor equals the ordinary finite free tensor and has basis x^a y^b for a,b<n."
+        },
+        {
+          "name": "CompleteLocalTensor.associativity",
+          "kind": "compatibility",
+          "statement": "For three power-series factors, both parenthesizations identify with O[[x,y,z]], and the induced maps agree on O and each variable."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
@@ -3906,6 +4021,363 @@
           "statement": "The torsion example R=O[[x]]/(πx) has x in every saturated J_n and fails the injectivity assertion; the domain hypothesis is not omitted.",
           "status": "mathematical acceptance test; no Lean compilation"
         }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L08",
+      "kind": "theorem",
+      "name": "The maximal ideal of a local completion",
+      "statement": "For a Noetherian local ring R, its maximal-ideal completion is local and its maximal ideal is the extension of m_R.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean:95 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.maximalIdeal_eq_map"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Locality is the preceding instance; this does not establish Noetherianity of the completion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L09",
+      "kind": "theorem",
+      "name": "Residue-field invariance under completion",
+      "statement": "For Noetherian local R, the residue-field map induced by R→Rhat is bijective.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean:151 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.residueField_map_bijective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Preserves the specified coefficient-field map in Z23."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L10",
+      "kind": "theorem",
+      "name": "Embedding dimension is unchanged by completion",
+      "statement": "For Noetherian local R, spanFinrank of the maximal ideal of Rhat equals spanFinrank of m_R.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean:156 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.spanFinrank_maximalIdeal_eq"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. The proof constructs the cotangent comparison; cite the exported rank equality, not a fabricated named cotangent equivalence."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
+      "kind": "theorem",
+      "name": "Adic completion is flat",
+      "statement": "For a Noetherian commutative ring R and any ideal I, AdicCompletion I R is flat as an R-module.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean:379 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.flat_of_isNoetherian"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. No Noetherianity of the completed ring is concluded by flatness."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L12",
+      "kind": "theorem",
+      "name": "Prime-height formula for a going-down map",
+      "statement": "Let R,S be Noetherian commutative rings, S an R-algebra satisfying going-down, p a prime of R and P a prime of S lying over p. Then ht(P)=ht(p)+ht(P mod pS).",
+      "locator": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean:462 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Flatness supplies Algebra.HasGoingDown.of_flat at Mathlib/RingTheory/Ideal/GoingDown.lean:154 (read). Both rings must be Noetherian; this cannot prove Noetherianity of completion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L13",
+      "kind": "theorem",
+      "name": "Finite-variable power series over a Noetherian ring are Noetherian",
+      "statement": "For finite sigma and Noetherian commutative R, MvPowerSeries sigma R is Noetherian.",
+      "locator": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean:225 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPowerSeries.isNoetherianRing"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. The proof uses finSuccEquiv and the one-variable theorem; no completion-Noetherianity assumption."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L14",
+      "kind": "theorem",
+      "name": "Variable-adic completeness of finite-variable power series",
+      "statement": "For finite sigma and any commutative R, R[[X_sigma]] is complete and separated for the ideal generated by its variables.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Completeness.lean:213 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPowerSeries.toAdicCompletionAlgEquiv",
+        "mathlib:AdicCompletion.isAdicComplete"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. The directly applicable anonymous instance at lines213–222 was read; no invented instance name. Its proof transports completeness along the named equivalence from Equiv.lean:344."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L15",
+      "kind": "theorem",
+      "name": "Surjectivity from a residue quotient",
+      "statement": "For a ring homomorphism f:A→B and ideal J⊆A, if A is J-adically precomplete, B is J.map(f)-adically separated, and A→B/J.map(f) is surjective, then f is surjective.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean:458 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:surjective_of_mk_map_comp_surjective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. There is no finiteness or Noetherianity hypothesis. Identify the mapped ideal before applying it."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L16",
+      "kind": "theorem",
+      "name": "A non-zero-divisor kernel lowers dimension",
+      "statement": "If f:R→S is surjective and its kernel contains a non-zero-divisor r, then dim(S)+1≤dim(R).",
+      "locator": "Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean:60 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:ringKrullDim_succ_le_of_surjective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. For a power-series domain over a field, any nonzero kernel element qualifies. The +1 argument uses the finite dimension supplied by Z27."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L17",
+      "kind": "theorem",
+      "name": "One extra formal variable raises dimension at least one",
+      "statement": "For any commutative ring R, dim(R)+1≤dim(R[[X]]).",
+      "locator": "Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean:118 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:ringKrullDim_succ_le_ringKrullDim_powerseries"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Only a lower bound. Iteration uses MvPowerSeries.finSuccEquiv at Equiv.lean:170; no upper-bound theorem is claimed."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+      "kind": "theorem",
+      "name": "Local dimension is bounded by generators of the maximal ideal",
+      "statement": "For a Noetherian local ring R, ringKrullDim R≤spanFinrank(m_R).",
+      "locator": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean:490 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:ringKrullDim_le_spanFinrank_maximalIdeal"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Combines with an explicit finite-variable maximal-ideal calculation in Z26."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+      "kind": "theorem",
+      "name": "The existing regular-local-ring criterion",
+      "statement": "For Noetherian local R, IsRegularLocalRing R iff spanFinrank(m_R)=ringKrullDim R; equivalently the residue-field dimension of m_R/m_R² equals dim R.",
+      "locator": "Mathlib/RingTheory/RegularLocalRing/Defs.lean:57 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:isRegularLocalRing_iff",
+        "mathlib:IsRegularLocalRing.iff_finrank_cotangentSpace"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Reuse this predicate. The class includes Noetherianity; an equality of dimensions alone does not discharge that instance."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L20",
+      "kind": "theorem",
+      "name": "Power-series units are detected by the constant term",
+      "statement": "A multivariate power series over a ring is a unit iff its constant coefficient is a unit.",
+      "locator": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean:138 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:MvPowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. The following instance gives locality over a local coefficient ring. Over a field the nonunits are exactly zero-constant series."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L21",
+      "kind": "theorem",
+      "name": "Surjective images of Noetherian rings are Noetherian",
+      "statement": "For a surjective ring homomorphism A→B from a Noetherian ring, B is Noetherian.",
+      "locator": "Mathlib/RingTheory/Noetherian/Basic.lean:344 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:isNoetherianRing_of_surjective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. Used only after constructing actual surjectivity of the power-series evaluation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22",
+      "kind": "theorem",
+      "name": "Finite-ideal completion and its first quotient",
+      "statement": "For finitely generated I⊆R, Rhat is complete for I Rhat and the surjection evalOne:Rhat→R/I has kernel I Rhat.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Completeness.lean:184 at mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:AdicCompletion.isAdicComplete",
+        "mathlib:AdicCompletion.ker_evalOneₐ_eq_map",
+        "mathlib:AdicCompletion.evalOneₐ_surjective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Actual declaration and standing hypotheses read. The kernel lemma is at line198; evalOne surjectivity is Algebra.lean:193. Completeness for the mapped ideal uses LocalRing.lean:isAdicComplete_self. These are available without claiming completion Noetherianity."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L23",
+      "kind": "theorem",
+      "name": "Finite-module Nakayama span criterion",
+      "statement": "For a finite module M over a local ring R and a submodule N, the image of N in M/m_R M is the whole quotient iff N=M.",
+      "locator": "Mathlib/RingTheory/LocalRing/Module.lean:72 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsLocalRing.map_mkQ_eq_top"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Apply to M=m_R, not M=R, to turn lifts of a cotangent basis into generators of m_R."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+      "kind": "theorem",
+      "name": "Noetherianity of adic completion via a power-series quotient",
+      "statement": "For any ideal I of a Noetherian commutative ring R, the I-adic completion Rhat is Noetherian.",
+      "locator": "Stacks 0316 direct proof; its omitted surjectivity details supplied using pinned L14/L15/L22",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
+      ],
+      "proofSteps": [
+        "Choose finitely many generators a_i of I and set S=R[[X_1,…,X_t]], J=(X_i), B=Rhat and Ihat=I B. L22 gives Ihat-completeness and B/Ihat≅R/I.",
+        "Equip R with the discrete topology and B with the Ihat-adic topology. The coefficient map is continuous, and each a_i is topologically nilpotent because a_i^n∈Ihat^n. The finite family satisfies the cofinite-filter condition automatically. L05 constructs f:S→B with X_i↦a_i.",
+        "The image ideal J.map(f) is Ihat, since the chosen a_i generate I. The map S→B/Ihat is surjective already on constant series R by L22.",
+        "L14 makes S J-adically complete, and L22 makes B J.map(f)-adically separated. Apply L15 to obtain surjectivity of f.",
+        "S is Noetherian by L13, so B is Noetherian by L21. This proof does not assume B is Noetherian and does not use Noetherianity of an ordinary tensor of power-series rings."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92. Mathematical proof and exact library contracts supplied; no Lean implementation or independent review claimed. Reuse existing R03.1 infrastructure.",
+      "acceptance": [
+        "I=0 gives Rhat=R; I=R gives the zero completion, which is Noetherian.",
+        "No assertion that Rhat is local for an arbitrary ideal I.",
+        "A field-valued dimension formula cannot replace this Noetherianity step."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
+      "kind": "theorem",
+      "name": "Finite-variable ideal powers by coefficient vanishing",
+      "statement": "For finite sigma, a commutative ring R, S=R[[X_sigma]], J=(X_i), and n≥0, J^n is exactly the set of series whose coefficients of every monomial of total degree <n vanish.",
+      "locator": "Worker-supplied supplier decomposition for KWII Proposition2.2(ii), LLHLM23 PDF79; source comparisons recorded in continuation report",
+      "status": "missing",
+      "prerequisites": [],
+      "proofSteps": [
+        "Every monomial in a product of n variables has degree at least n, so J^n has the stated coefficient vanishing.",
+        "For each exponent alpha of total degree at least n choose a degree-n divisor beta≤alpha. There are only finitely many such beta because sigma is finite.",
+        "Group the coefficients of a given series by that chosen divisor to write it as a finite sum Σ_(|beta|=n) X^beta F_beta. Each summand belongs to J^n.",
+        "For n=0 the assertion is all of S; for empty sigma and n>0 it is the zero ideal. The proof uses finite sums of whole series, not an invalid infinite ideal sum."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92. Mathematical proof and exact library contracts supplied; no Lean implementation or independent review claimed. Reuse existing R03.1 infrastructure.",
+      "acceptance": [
+        "n=1 identifies J with the constant-coefficient kernel.",
+        "For R=K a field, L20 then identifies J with the maximal ideal.",
+        "For d variables, S/J^n has the monomial basis of degrees <n; the count is binomial(n+d−1,d) when n≥1."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
+      "kind": "theorem",
+      "name": "Dimension of finite-variable formal power series over a field",
+      "statement": "For a field K and a finite index set sigma of cardinality d, ringKrullDim(K[[X_sigma]])=d.",
+      "locator": "Worker-supplied supplier decomposition for KWII Proposition2.2(ii), LLHLM23 PDF79; source comparisons recorded in continuation report",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26"
+      ],
+      "proofSteps": [
+        "The source is Noetherian by L13 and local by the power-series local-ring instance following L20.",
+        "By L20 its maximal ideal consists of zero-constant series. Z26 for n=1 says this is generated by the d variables. L18 gives dimension at most d.",
+        "Iterate L17 through the actual equivalences MvPowerSeries.finSuccEquiv and reindexing; begin with dim K=0. This gives dimension at least d.",
+        "The empty-index case is K. This argument proves the multivariable upper bound; the pinned one-variable lower bound alone does not assert equality."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92. Mathematical proof and exact library contracts supplied; no Lean implementation or independent review claimed. Reuse existing R03.1 infrastructure.",
+      "acceptance": [
+        "For d=0 the ring is K and has dimension zero.",
+        "The Artinian quotient K[[X]]/(X²) still has a one-dimensional cotangent space but dimension zero; it is not a regular power-series ring."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z28",
+      "kind": "theorem",
+      "name": "Dimension is unchanged by local completion",
+      "statement": "For a Noetherian local ring R with maximal ideal m, dim(Rhat)=dim(R) for its m-adic completion.",
+      "locator": "Stacks 07NV (alternative dimension-formula proof); existing ModularCurves §4D target",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L12"
+      ],
+      "proofSteps": [
+        "Z25 first makes Rhat Noetherian. L08 makes it local with maximal ideal mRhat and makes the coefficient map local.",
+        "L11 and Algebra.HasGoingDown.of_flat supply going-down. The two maximal ideals lie over one another.",
+        "Apply L12 to these maximal ideals. Since m maps to the whole maximal ideal, its image in Rhat/mRhat is zero, a prime of the residue field of height zero.",
+        "Use maximal-ideal height equals local-ring dimension on both sides. No finite-type assumption on R→Rhat is introduced."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Import the existing upstream preservation-of-dimension target, not a parallel R03.1 target. L12 identifies the exact available generic formula; the Noetherian prerequisite is Z25. The upstream local-commutative-algebra atom precedes all modular-curve application layers.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
+      "kind": "theorem",
+      "name": "Generator evaluation surjects with a specified coefficient field",
+      "statement": "Let B be a complete separated local K-algebra, K a field, such that K→B/m is an isomorphism. If b_1,…,b_r generate m as an ideal, then the continuous K-algebra evaluation K[[X_1,…,X_r]]→B, X_i↦b_i, is surjective.",
+      "locator": "Worker-supplied supplier decomposition for KWII Proposition2.2(ii), LLHLM23 PDF79; source comparisons recorded in continuation report",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L15"
+      ],
+      "proofSteps": [
+        "Give K the discrete topology and B its m-adic topology; each b_i is topologically nilpotent, and the finite family meets HasEval. Use L05.",
+        "The image of the variable ideal J under evaluation is exactly m by the generating hypothesis.",
+        "Modulo m the coefficient map already surjects. The source is J-adically complete by L14 and the target is m-adically separated.",
+        "Apply L15. No regularity or dimension equality is used here; those are separately required for injectivity in Z19."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92. Mathematical proof and exact library contracts supplied; no Lean implementation or independent review claimed. Reuse existing R03.1 infrastructure.",
+      "acceptance": [
+        "Evaluation K[[X]]→K[ε]/ε² is surjective but has kernel (X²); regularity must not be smuggled into this step.",
+        "With r=0, m=0 and the coefficient-field hypothesis identify B with K."
       ]
     }
   ],
@@ -4223,10 +4695,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z21",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z22",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
       ],
-      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching.",
+      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced.",
       "stages": [
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
@@ -5070,7 +5545,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem."
     },
     {
       "id": "split-and-hypotheses",
@@ -5182,7 +5657,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "The supplied definition API groups reference every currently inventoried definition, but grouped coverage is not complete itemwise closure. Refine itemwise APIs and unit tests from all uses, and split compound definitions. Do not replace the missing work by constructor/projection boilerplate."
+      "detail": "The supplied definition API groups reference every currently inventoried definition, but grouped coverage is not complete itemwise closure. Refine itemwise APIs and unit tests from all uses, and split compound definitions. Do not replace the missing work by constructor/projection boilerplate. No new definition/construction is introduced in codex-a71f92's atom audit. Existing grouped or untyped tests and per-item two-test entries still require the protocol's itemwise API, consumers and at least three typed tests; passing the paper validator does not certify this. A fresh census finds 84 definitions plus 65 constructions, not 84 combined D/C items: the 26 inherited groups reference the 84 definitions only. This continuation supplies itemwise uses/API/six typed tests for the touched Z24 construction. The other 64 constructions lack such group coverage; audit them explicitly."
     },
     {
       "id": "library-item-audit",
@@ -5586,9 +6061,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
       ],
-      "detail": "Z15–Z24 now give the complete-local mathematical argument, including Chevalley by finite-length stabilization, finite-free saturated jets, exact integral tensor quotients and cofinal generic box jets. Remaining declaration-level closure: Noetherian/dimension/cotangent completion atoms and power-series dimension in Z19/Z23/Z24; the general completed-tensor carrier is the existing R03.1/R0 construction. Z06 Taylor/adjugate/convergence and Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not reread KWII as a wholly unread source or infer arbitrary localization–inverse-limit commutation."
+      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 Taylor/adjugate/convergence and Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
     }
   ],
   "sourceData": {
@@ -6052,6 +6531,108 @@
         }
       ],
       "scope": "Actual declarations L03–L07 read at 082e2d3 and byte-compared with pinned raw GitHub source. Tau Ceti searched for IsRegularLocalRing and completion/structure/Chevalley terms; no complete regular-local power-series or saturated-jet package found. This bounded search is not a global absence proof. R03.1, R03.3, R03.6 owner statements read; existing tensor construction is planned Z24."
+    },
+    "completionAtomContinuation": {
+      "session": "codex-a71f92",
+      "date": "2026-09-23",
+      "previousPR": 2231,
+      "inputCommit": "35102abc3936182011a7e1e521dde160c2f50a75",
+      "exactFiles": [
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+          "sha256": "f3719324a0fb37466ef0a5785743c6917c48732e7a9de7b3b5385a747c6496ba",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/LocalRing.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+          "sha256": "d89152b49beebfaca7a489fd261f55d003efbd423c380852ac38e39fd395d120",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+          "sha256": "2a6af9f2a6d95b81374970f34edaf0d4f9879389031a0f423d6e3bc531997c1b",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/MvPowerSeries/Equiv.lean",
+          "sha256": "27aef74f5d3dc61eefe378d7cbdd9233ae1789e40bedd9e94df667d7093db3a4",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Equiv.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
+          "sha256": "dc949962c57ecae3f4b4af264bee8cd53ebe85b1a2dfe4f3bd7640a1022f2d3c",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Completeness.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+          "sha256": "95f772d331c3d70ac6cc7b6990e1c4cf5e6186600f10748d6934b6fe9e7bf591",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Functoriality.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean",
+          "sha256": "e4ac9dc05fe2a17a385d8fdda1a60dd3f0b30990fc47102013968401a40bdf5c",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/KrullDimension/NonZeroDivisors.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+          "sha256": "6ca40a9a028dbe37b0e6d35f519e15fb40bd243ba89a07bbe3689aea9c6deaf6",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RegularLocalRing/Defs.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
+          "sha256": "fd1a532f929b64b0a28a31eefd69e4c3e1d4e38c7571eafbcf21343e087198e2",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Inverse.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Noetherian/Basic.lean",
+          "sha256": "a2958992b94516a8e662e789d508c776c04dc0ea0600bd23a55700d2a54bb656",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Noetherian/Basic.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/LocalRing/Module.lean",
+          "sha256": "7aad1df3c0b0105a55d98d5b2fa521f9ac73b5ad63267d7ac6a23f47c5e1d907",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/LocalRing/Module.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
+          "sha256": "9d503f44dd4c990becfefc79af9f1d6ac369d4e50d9fa53e94b7a36856cf2c54",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Algebra.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/Ideal/GoingDown.lean",
+          "sha256": "43b050a44b254a9371076b8d7647f26ab72e396e5f19f1c03e569679470586d8",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/GoingDown.lean"
+        }
+      ],
+      "extraDeclarationsRead": [
+        "MvPowerSeries/NoZeroDivisors.lean (whole file): anonymous NoZeroDivisors instance and order_mul support the domain assertion in Z19.",
+        "MvPowerSeries/Evaluation.lean: standing HasEval/topological hypotheses and eval2Hom read.",
+        "MvPowerSeries/Equiv.lean: finSuccEquiv, Noetherianity, and variable-adic polynomial completion equivalence read."
+      ],
+      "ownership": "Full DeformationAndDerivedPatchingAlgebra and LocalGaloisDeformationRings roadmap documents read. ModularCurves §4D and its exact atlas stage read; reviewed AUDIT-17 R03.1/R03.3 and AUDIT-12 ModularCurves4D read. Import the upstream preservation of dimension/regularity atom. The common pure-algebra Noetherian-completion helper must precede both its modular and deformation applications; no whole-roadmap import is intended.",
+      "search": "Searched both pinned trees for Noetherian/adic completion, cotangent, regular-local, power-series dimension, and going-down/height declarations. Read exact positive statements and 13 relevant files byte-compared with raw GitHub at the full pin. The Huber strongly-Noetherian completion theorem does not establish generic I-adic completion Noetherianity. No exact generic completion-Noetherianity or multivariate power-series dimension equality located; elementary proof adapters supplied.",
+      "itemChanges": [
+        {
+          "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
+          "before": "missing, R03.1 route",
+          "after": "planned, existing ModularCurves §4D",
+          "reason": "The existing stage explicitly targets preservation/reflection of dimension and regularity under Noetherian local completion; audit confirms overlap. Mathematical statement unchanged."
+        },
+        {
+          "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+          "before": "coarse proof with unaudited completion/dimension leaves",
+          "after": "same statement, explicit L13–L23/Z26–Z29 supplier graph and continuous inverse",
+          "reason": "Separate actual surjectivity from the dimension-based injectivity step."
+        },
+        {
+          "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
+          "before": "planned coefficient tensor construction",
+          "after": "same planned construction; exact Noetherian power-series and quotient/completeness suppliers attached",
+          "reason": "No ordinary tensor Noetherianity or nonexistent completed-tensor library carrier inferred."
+        }
+      ],
+      "boundaries": "No Lean deliverable or compilation. Source findings E1–E35 unchanged, unreviewed. Previous CAS/SymPy evidence preserved, not rerun. New computation uses only the Python standard library.",
+      "submissionInputCommit": "aaad07d20878d1959d96e154df283a54b61eb6f5"
     }
   },
   "validation": {
@@ -6059,7 +6640,46 @@
     "correctionChecks": "Exact Python integer/Fraction regression assertions passed for star reversal (2500 products), GL2 central shifts/tensor factors, contraction valuations, tame unipotent counterexample, genericity-depth example and appendix exceptional coefficients; downstream Hodge-bound comparison checked on2431 regular tuples.",
     "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates.",
     "continuation": "Paper/intake validators; unique item/finding IDs; one route per missing item; all 83 definition API references; acyclic recorded item dependencies. Exact Fraction/integer checks: 576 precision-recurrence steps, 210 Newton corrections, 175 precision-loss examples and 5 tensor zero-divisor identities. Reproducible code in report. No Lean compilation. Earlier CAS checks are inherited, not rerun.",
-    "completeLocalContinuation": "Paper/intake validators, exact ID and source-finding preservation, one route per missing item, definition API coverage and DAG checks. Fresh SymPy/integer/Fraction diagnostics: 8 symbolic saturation ideals, 1 unsaturated-torsion control, 2600 generic jet products, 24336 transition products, 24336 associativity triples, 5624 box-filtration monomials, 144 adic-topology bounds and 48 denominator controls. Code reproduced in report. These diagnostics do not prove the general theorem; previous appendix CAS/precision checks inherited, not rerun. No Lean file compiled."
+    "completeLocalContinuation": "Paper/intake validators, exact ID and source-finding preservation, one route per missing item, definition API coverage and DAG checks. Fresh SymPy/integer/Fraction diagnostics: 8 symbolic saturation ideals, 1 unsaturated-torsion control, 2600 generic jet products, 24336 transition products, 24336 associativity triples, 5624 box-filtration monomials, 144 adic-topology bounds and 48 denominator controls. Code reproduced in report. These diagnostics do not prove the general theorem; previous appendix CAS/precision checks inherited, not rerun. No Lean file compiled.",
+    "completionAtomContinuation": {
+      "session": "codex-a71f92",
+      "items": 386,
+      "library": 23,
+      "planned": 6,
+      "missing": 357,
+      "routes": 15,
+      "definitionsAndConstructions": 149,
+      "sourceIssues": 35,
+      "newLibraryAtoms": 16,
+      "newTheoremAdapters": 5,
+      "checks": {
+        "monomialDivisors": 9290,
+        "hilbertCounts": 48,
+        "coordinateMaps": 1103,
+        "singularControls": 211
+      },
+      "meaning": "Finite polynomial/jet diagnostics only; no proof of infinite completion, formalization or independent review.",
+      "inherited": "All previous SymPy and integer/Fraction diagnostics are attributed historical evidence, not rerun in this continuation.",
+      "definitions": 84,
+      "constructions": 65,
+      "newConstructionAPIs": "Z24: 3 uses, 6 API entries, 6 typed tests; other inherited construction/API deficits remain.",
+      "structural": {
+        "items": 365,
+        "statements": "all unchanged",
+        "modifiedObjects": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
+        ],
+        "findings": 35,
+        "routes": 15,
+        "dependencyEdges": 73,
+        "uniqueIds": true,
+        "oneRoutePerMissing": true,
+        "internalDAG": true
+      },
+      "validators": "Paper validator and three-file intake pass; 48 repository tests pass. All 365 prior item statements and all 35 findings preserved; three item objects deliberately refined with recorded evidence. No new construction; Z24 now has the consumer-derived API and six typed tests."
+    }
   },
   "definitionApiGroups": [
     {
