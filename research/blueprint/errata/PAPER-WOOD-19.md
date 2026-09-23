@@ -1,71 +1,71 @@
 # Mistakes in Wood, *Nonabelian Cohen–Lenstra moments*
 
-Job ERRATA-PAPER-WOOD-19. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-WOOD-19.json` beside this file.
+Original job ERRATA-PAPER-WOOD-19: Claude Code, session `cc-fb70e5`, 22 September 2026. Independent review REV-ERRATA-PAPER-WOOD-19: Codex, session `codex-a71f92`, 23 September 2026. All eight findings are confirmed, with the qualifications below. Machine-readable findings and verdicts are in `PAPER-WOOD-19.json`; independent arguments and provenance are in [the review](../reviews/REV-ERRATA-PAPER-WOOD-19.md).
 
-**Paper and version read.** Melanie Matchett Wood, with an appendix joint with Philip Matchett Wood, Duke Mathematical Journal 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037. The version read is arXiv 1702.04644v2 of 13 July 2018 (PDF SHA-256 `2eacf07f…e1bd`), as by the extraction. Its source file is named `Duke_Final_Revision.tex`, and every passage below was re-read there and in the PDF. The published text was not collated. Page numbers are those of v2.
+## Sources and correction search
 
-**Earlier work.** The extraction PAPER-WOOD-19 (partial) found E1–E3 and E6–E8. E4 and E5 are misprints in the same proofs, found while checking them. The extraction also recorded two points about Wood (2021), *An algebraic lifting invariant*, a different source, so they are not recorded here:
-- an omitted step (item 253);
-- a missing inverse (item 254).
+Melanie Matchett Wood, with an appendix joint with Philip Matchett Wood, *Duke Mathematical Journal* 168 (2019), 377–427, DOI 10.1215/00127094-2018-0037. The reviewer independently collated all eight locations in [arXiv v2](https://arxiv.org/pdf/1702.04644v2) and the [published PDF at NSF PAR](https://par.nsf.gov/servlets/purl/10152050), including page images. This is targeted reading, not a full rereading of every page.
 
-**Existing corrections.** None was found:
-- Crossref registers no erratum for the DOI;
-- the author's page links errata for other papers but not this one;
-- v2 is the latest arXiv version;
-- a web search and two later papers building on this one (Liu; Liu–Willyard) turned up nothing.
+The arXiv version history, author's publication page, Crossref record and targeted web searches revealed no matching correction on 23 September 2026. “New” in the JSON means no correction located in those bounded searches, not a priority claim or proof that none exists. The Project Euclid landing page did not provide usable text; the published PDF was read via NSF PAR. The original worker's later-paper search was not independently repeated.
 
-**Effect.** The good cases of the function-field Theorem 1.2 are unaffected. The other findings reach as follows:
-- **E1:** weakens the bad-type limit to a liminf.
-- **E7:** the refined Conjecture 5.1 is false as printed and needs u to be a generator.
-- **The rest:** misprints and missing hypotheses, which the paper's uses satisfy.
+The extraction's two observations about Wood (2021), *An algebraic lifting invariant*, concern a different paper and remain outside this errata file. No extraction or roadmap is changed.
 
-## E1. Bad types: a liminf, not a limit (gap)
+## E1 — Bad types: the argument proves a liminf (gap)
 
-For G′ not good, Theorems 1.2 and 4.8 assert lim_{q→∞} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[q−1]| ≥ w_G n^{N_{G′}−1}.
+Locators: Theorem 1.2, v2 p.2 / published p.379; Theorem 4.8, v2 pp.22–23 / published pp.406–407; bad-case proof, v2 pp.24–25 / published pp.409–410.
 
-**What the proof does.** It fixes q and keeps only the multidegrees in a set 𝒞, where all n_i are large and have prescribed parities. On these, Theorem 4.5(3) and Proposition 4.1 give exactly |H_2(G′,c)[q−1]| Frobenius-fixed components. All other components are discarded as nonnegative. The result is a lower bound for every large q, that is, for the liminf.
+The proof retains sufficiently large multidegrees with suitable parities and discards the other contributions as nonnegative. For fixed n, the retained Frobenius-fixed components give a uniform lower bound after normalization, with an error tending to zero as q grows. This proves the asserted lower bound with liminf. It does not establish existence of the printed limit: the discarded contributions are not controlled to that effect.
 
-**What is missing.** Existence of the limit is not addressed. The discarded components, with small n_i, and how many of them Frobenius fixes, may depend on q.
+Replace lim by liminf in the bad-type clauses, or supply a separate limit-existence argument. The fixed positive rigidification factors in §2.1 transfer the lower bound from Ẽ to E. This confirms a proof gap, not a counterexample to existence of the limit. The good-type limits are not refuted.
 
-**Correction.** Read liminf in the bad case. The passage from Ẽ to E in Theorem 1.2 divides by the constants |Aut_{G′}(G)| and A(G,G′) of §2.1, so the lower bound transfers.
+## E2 — The whole tame group is not pro-prime-to-p (error)
 
-## E2. The tame fundamental group is not pro-prime-to-p (error)
+Locator: Definition 3.12, v2 p.13 / published p.394.
 
-Definition 3.12, quoting EVW, says the tame quotient Γ of G_{F̄_p(t)} unramified outside S "is free pro-prime-to-p" on inertia generators δ_i.
-- **Why it is false.** In characteristic p the tame fundamental group of P¹ ∖ S has finite quotients of order divisible by p. For p ≥ 5, the modular covers X(ℓ) → X(1) are tamely ramified over three points, with group PSL₂(F_ℓ), which has order divisible by p for suitable ℓ ≠ p.
-- **What is true.** The maximal prime-to-p quotient of Γ is free pro-prime-to-p; this is what Grothendieck's comparison, which the paper cites, gives.
-- **Effect.** None. Definition 3.12 and the proof of Theorem 3.13 only use maps to F and F̃_c, whose orders are prime to p.
+The full tame fundamental group of P¹ minus the branch set can have finite quotients whose order is divisible by the characteristic. It is the maximal prime-to-p quotient that has the stated free pro-prime-to-p description. SGA 1, XIII, Corollary 2.12 distinguishes these assertions; it does not deny the existence of inertia generators for the full tame group.
 
-## E3. Proposition 4.4 needs admissibility (error)
+An explicit counterexample, proved in the review, is a tame S3-cover of P¹ in characteristic 3 obtained from translations by an order-3 point and inversion on the elliptic curve y²=x³+x²+1. Its branch set also comes from a quadratic cover, so it fits the setting of the definition.
 
-Proposition 4.4 states its bijection between surjections ρ of type G′ and marked (G′,c)-extensions for any subgroup G′ ⊆ G ≀ S_2. The inverse map takes the projection of Gal(M/K) ⊆ G × G to the first factor. That projection is surjective only when ker(G′ → S_2) projects onto G, which is part of the paper's definition of admissible.
+Use the maximal prime-to-p quotient. The finite targets F and F̃_c used in the invariant have order prime to p, so the relevant maps factor through this quotient. The intended invariant is not invalidated. The original modular-cover example has been replaced by the independently checked elliptic example.
 
-Counterexample: G = C_3, G′ = ⟨(1,σ)⟩, Q = ℚ. The imaginary field ℚ(√−3) gives a marked (G′,c)-extension with ramified infinity type, but no C_3-extension has type G′, a group of order 2.
+## E3 — Proposition 4.4 needs hypotheses on G′ (error)
 
-The paper applies the proposition only to admissible G′, so nothing it proves is affected.
+Locator: v2 pp.19–20 / published pp.402–403.
 
-## E4. q^n for q^{2n} in the proof of Theorem 1.2 (misprint)
+For G=C3, G′=⟨σ⟩≅C2 inside G≀C2, and Q=ℚ, the marked field ℚ(√−3) satisfies the right-hand conditions in the first bijection. The left side is empty: a C3-extension of a quadratic field has degree 6 over ℚ and cannot have a Galois closure of order 2. The inverse construction fails because ker(G′→C2) does not project onto G.
 
-On p.23 the limit over q with |H_2(G′,c)[q−1]| = d is written for Ẽ^±_{F_q(t),q^n}. The discriminant slice throughout is q^{2n}.
+Require G′ to be admissible. A weaker sufficient repair is to assume explicitly that σ∈G′ and that ker(G′→C2) projects onto G. The second projection is then also surjective; its two projection kernels have trivial intersection, recovering the asserted normal closure. The allowed inertia conditions give the required unramified relative extension. Admissibility holds in the intended applications.
 
-## E5. G for G′ and q^n for q^{2n−1} in the bad imaginary case (misprint)
+## E4 — Wrong discriminant slice (misprint)
 
-On p.24 the Hurwitz schemes are written CHur_{G,n} and the multiplier H_2(G,c)[q−1], but both belong to G′. The point counts are written q^n + O_n(q^{n−1/2}), where n is the dimension from Theorem 4.7; here that dimension is Σn_i = 2n − 1. The following display correctly uses q^{2n−1} and O_n(q^{2n−3/2}).
+Locator: proof of Theorem 1.2, v2 p.23 / published p.407.
 
-## E6. The real case's discriminant degree (misprint)
+Replace the subscript q^n of Ẽ in the displayed fixed-multiplier limit by q^(2n), the discriminant slice used in the input theorem and throughout the argument.
 
-On p.25, for real quadratic fields (trivial infinity type), the proof says Nm Disc(M) = q^{(Σn_i+1)|G′|/2} and gives the quadratic discriminant norm as q^{Σn_i+1}. Infinity is unramified here, so the "+1" is wrong: the norms are q^{(Σn_i)|G′|/2} and q^{Σn_i}. This matches the paper's own convention Σn_i = 2n − ε and the count over RQ_{=q^{2n}} that follows. The sentence was copied from the imaginary case, where the "+1" is right.
+## E5 — Group letters and dimension in the imaginary case (misprint)
 
-## E7. Conjecture 5.1 with u = 1 (error)
+Locator: v2 p.24 / published p.409.
 
-Conjecture 5.1 fixes h ∈ H_2(G′,c)[|μ_Q|] (printed with braces) and **any** root of unity u ∈ μ_L, L = Q(μ_{4|G̃′_c|}). It predicts that, for good G′, the tame rigid count with I(ρ,u) = h has average 1.
+Replace CHur indexed by G and H₂(G,c) by the corresponding objects for G′. The component dimension is d=Σn_i=2n−1, so its point count is q^(2n−1)+O_n(q^(2n−3/2)), not q^n+O_n(q^(n−1/2)). The next displayed lower bound already uses the correct exponents. The scalar discriminant parameter n is not the multidegree vector.
 
-**Why it fails.** By Lemma 3.11, I(φ,u^λ) = I(φ,u)^λ, so I(ρ,1) = 1 for every ρ. For u = 1 and h ≠ 1 the count is identically zero.
+## E6 — Infinity contributes nothing in the real case (misprint)
 
-**Where this happens.** Whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper's own table (§8.2) shows this over ℚ for the good pairs G = A_4, G′ = ((C_2⁴)⋊C_3)⋊C_2 and G = A_5, G′ = A_5 ≀ C_2, both with H_2(G′,c) = C_2.
+Locator: v2 p.25 / published p.409; subsequent correct count on p.410.
 
-**Correction.** Take u a generator of μ_L. This is the analogue of u_q ∈ Ẑ(1)^× in Theorem 4.8. Evaluation at a generator identifies the homomorphism-valued invariant with H_2(G′,c)[|μ_Q|], so each h is then predicted to have average 1.
+In the real case infinity splits, so remove +1 from both discriminant exponents: Nm Disc(M)=q^((Σn_i)|G′|/2), and the quadratic discriminant norm is q^(Σn_i). Each finite inertia group is tame of order 2. Here Σn_i=2n, as in the following count. The imaginary case's +1 remains correct.
 
-## E8. The order of the trivial semidirect product (misprint)
+## E7 — Conjecture 5.1 cannot allow arbitrary u (error)
 
-In Appendix A (p.36), the trivial action of C_3 on C_2 × C_2 is said to give "Gal(L/K) ≃ C_3 × C_3 × C_2", twice. The group is C_2 × C_2 × C_3, of order 12; the printed group has order 18. The argument is unaffected.
+Locators: Conjecture 5.1, v2 p.26 / published p.411; Lemma 3.11, v2 p.13 / published p.393.
+
+The homomorphism-valued invariant satisfies I(ρ,1)=1. Thus u=1 and any nonidentity h in A=H₂(G′,c)[|μ_Q|] make the counted stratum empty for every bound, whereas the conjecture predicts average one. The review independently proves that A is nontrivial for a good admissible example over ℚ, G=PSL₂(F5) and G′=G≀C2, without assuming the paper's multiplier table.
+
+A clean sufficient correction is to choose u generating μ_L, where L=Q(μ_(4|G̃′_c|)), or state the conjecture using the Hom-valued invariant. A generator is not always necessary: if u=ζ^a for a generator ζ, evaluation is the a-power map on A, and this map need only be an automorphism. The repaired average-one statement remains conjectural.
+
+Both PDFs print juxtaposition H₂(G′,c)|μ_Q|, not the braces described in the earlier report. Insert torsion brackets H₂(G′,c)[|μ_Q|]. This notation slip is included in E7, not counted again.
+
+## E8 — Order of the trivial semidirect product (misprint)
+
+Locator: Appendix A.1, v2 p.36 / published p.421.
+
+The trivial action of C3 on C2×C2 gives C2×C2×C3, of order 12, not the twice-printed C3×C3×C2, of order 18. The surrounding exclusion remains valid for the imaginary quadratic setting: conjugation acts on the ideal class group by inversion, so each unramified abelian extension is stable under conjugation. This does not assert an analogous statement for arbitrary base fields.
