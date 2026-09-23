@@ -11990,7 +11990,8 @@
    ],
    "avoidAccountOf": "RS-01",
    "prompt": "research/blueprint/prompts/REV-RS-01.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #801"
   },
   {
    "id": "RS-02",
@@ -12035,7 +12036,9 @@
    ],
    "avoidAccountOf": "RS-02",
    "prompt": "research/blueprint/prompts/REV-RS-02.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #803",
+   "finishedAt": "2026-09-23T13:30:32Z"
   },
   {
    "id": "RS-03",
@@ -12091,7 +12094,9 @@
    ],
    "avoidAccountOf": "RS-03",
    "prompt": "research/blueprint/prompts/REV-RS-03.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #805",
+   "finishedAt": "2026-09-23T13:30:35Z"
   },
   {
    "id": "RS-04",
@@ -12210,8 +12215,9 @@
    ],
    "avoidAccountOf": "RS-05",
    "prompt": "research/blueprint/prompts/REV-RS-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #809"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #809",
+   "finishedAt": "2026-09-23T13:30:37Z"
   },
   {
    "id": "RS-06",
@@ -12268,8 +12274,9 @@
    ],
    "avoidAccountOf": "RS-06",
    "prompt": "research/blueprint/prompts/REV-RS-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #811"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #811",
+   "finishedAt": "2026-09-23T13:30:40Z"
   },
   {
    "id": "RS-07",
@@ -30083,8 +30090,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CIUBOTARU-HARRIS-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1767"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1767",
+   "finishedAt": "2026-09-23T13:31:26Z"
   },
   {
    "id": "ERRATA-PAPER-KISIN-ZHOU-25",
@@ -30612,7 +30620,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1786"
   },
   {
    "id": "ERRATA-PAPER-CHARLES-16",
@@ -30649,7 +30658,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CHARLES-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1788"
   },
   {
    "id": "ERRATA-PAPER-GILLE-PARIMALA-26",
@@ -31106,8 +31116,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1857"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1857",
+   "finishedAt": "2026-09-23T13:31:29Z"
   },
   {
    "id": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -31520,7 +31531,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BENOIST-19",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BENOIST-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1877"
   },
   {
    "id": "ERRATA-PAPER-KISIN-PAPPAS-18",
