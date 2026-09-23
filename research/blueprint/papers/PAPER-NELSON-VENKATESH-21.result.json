@@ -11,7 +11,7 @@
     "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf",
     "sha256": "85e14654d2b367f4b0d4a21c9555576f6def6649c8b6707afc78e1dfbdaea76e",
     "readDate": "2026-09-23",
-    "version": "The published Acta text (open-access International Press PDF, 209 pages, created 30 March 2021), read in full; locators and page numbers are the published ones. arXiv v3 (https://arxiv.org/pdf/1805.07750v3, 7 January 2021, SHA-256 9bce49cb7d3f6f2f6994c7af0ecbf3f12c3e4f79599091543d331824f522c03e) was compared at every finding. Pages 42, 50, 128, 130, 166 and 182 were checked on page images.",
+    "version": "The published Acta text (open-access International Press PDF, 209 pages, created 30 March 2021), read in full; locators and page numbers are the published ones. arXiv v3 (https://arxiv.org/pdf/1805.07750v3, 7 January 2021, SHA-256 9bce49cb7d3f6f2f6994c7af0ecbf3f12c3e4f79599091543d331824f522c03e) was compared at every finding. Pages 42, 50, 128, 130, 166 and 182 were checked on page images. This extraction continues the partial checkpoint of cc-d67081 (#2214, arXiv v3, theorem statements only), keeping its route ids; items note the arXiv v3 theorem numbers and the checkpoint ids they supersede.",
     "readSections": [
       "§1 Introduction",
       "Part I (§§2–6)",
@@ -23,7 +23,7 @@
       "References"
     ]
   },
-  "summary": "Nelson and Venkatesh develop the orbit method quantitatively: a microlocal calculus Op_h on unitary representations of Lie groups, with symbol classes, composition, localization and trace estimates coming from the Kirillov formula (Parts I–II). They study Gan–Gross–Prasad pairs (stability ⇔ no conductor drop; stable fibres are H-torsors; volume-form identities) and prove asymptotics for relative characters away from the conductor-dropping locus (Part III). They solve inverse branching problems at archimedean and p-adic places (Part IV). With limit states, Ratner's theorem and a truncated spectral expansion, they show that for a fixed generic tempered Π on an anisotropic GGP pair, the branching coefficients L(Π, Σ) average to 1/τ(G) = 1/2 over families of Σ with growing archimedean parameter; under Ichino–Ikeda/N. Harris this is an average of central L-values in arbitrarily large rank, with a weak subconvex bound (Part V). The atlas has none of this and neither library has coadjoint orbits or unitary representation calculi. Routes: a Part II of the Tau Ceti Lie-groups roadmap for the calculus (39 items) and a new roadmap for the GGP application (54 items). Complete (cc-442dc5). Main findings: the proof of Lemma 27.3 fails for (SO3, SO2), leaving Theorem 27.1 and the main theorem unproven there when Π is dihedral for the torus's quadratic field; a gap in the non-stationary-phase proof (Lemma 7.8); an invalid example after Lemma 24.10; a wrong citation for the orthogonal non-vanishing result; misprints. Not formalised.",
+  "summary": "Nelson and Venkatesh develop the orbit method quantitatively: a microlocal calculus Op_h on unitary representations of Lie groups, with symbol classes, composition, localization and trace estimates coming from the Kirillov formula (Parts I–II). They study Gan–Gross–Prasad pairs (stability ⇔ no conductor drop; stable fibres are H-torsors; volume-form identities) and prove asymptotics for relative characters away from the conductor-dropping locus (Part III). They solve inverse branching problems at archimedean and p-adic places (Part IV). With limit states, Ratner's theorem and a truncated spectral expansion, they show that for a fixed generic tempered Π on an anisotropic GGP pair, the branching coefficients L(Π, Σ) average to 1/τ(G) = 1/2 over families of Σ with growing archimedean parameter; under Ichino–Ikeda/N. Harris this is an average of central L-values in arbitrarily large rank, with a weak subconvex bound (Part V). The atlas has none of this and neither library has coadjoint orbits or unitary representation calculi. Routes, as in cc-d67081's checkpoint (#2214): the machinery to a new roadmap, QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups, and the automorphic statements to the proposed GanGrossPrasadConjecturesForClassicalGroups; Ratner is planned at GN.4. Complete (cc-442dc5), superseding that partial checkpoint; its item ids are mapped in the notes. Main findings: the proof of Lemma 27.3 fails for (SO3, SO2), leaving Theorem 27.1 and the main theorem unproven there when Π is dihedral for the torus's quadratic field; a gap in the non-stationary-phase proof (Lemma 7.8); an invalid example after Lemma 24.10; a wrong citation for the orthogonal non-vanishing result; misprints. Not formalised.",
   "items": [
     {
       "id": "PAPER-NELSON-VENKATESH-21/1",
@@ -38,7 +38,7 @@
         "mathlib:SchwartzMap.fourierTransformCLE"
       ],
       "planned": [],
-      "note": "Mathlib's Schwartz space and its Fourier transform with inversion on a finite-dimensional real inner product space (082e2d3); the paper's pairing e^{xξ}, ξ ∈ ig*, is a change of normalisation."
+      "note": "Mathlib's Schwartz space and its Fourier transform with inversion on a finite-dimensional real inner product space (082e2d3); the paper's pairing e^{xξ}, ξ ∈ ig*, is a change of normalisation. (supersedes cc-d67081 item(s) schwartz-space.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/2",
@@ -49,7 +49,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "(2.1)–(2.2), §§2.3–2.4."
+      "note": "(2.1)–(2.2), §§2.3–2.4. (supersedes cc-d67081 item(s) operator-assignment.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/3",
@@ -59,7 +59,8 @@
       "locator": "§2, Lemma 2.1, p. 27",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "(supersedes cc-d67081 item(s) star-product.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/4",
@@ -92,7 +93,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Definitions 4.1 and 4.3, §4.5."
+      "note": "Definitions 4.1 and 4.3, §4.5. (supersedes cc-d67081 item(s) symbol-classes.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/7",
@@ -103,7 +104,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With (4.2)–(4.6), (4.10)–(4.11); proved as Theorem 7.4."
+      "note": "With (4.2)–(4.6), (4.10)–(4.11); proved as Theorem 7.4. (arXiv v3 Theorem 1; supersedes cc-d67081 item(s) theorem-1.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/8",
@@ -156,7 +157,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 5.6 and Corollary 5.7; proved in §8.7."
+      "note": "Theorem 5.6 and Corollary 5.7; proved in §8.7. (arXiv v3 Theorem 2; supersedes cc-d67081 item(s) theorem-2.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/13",
@@ -167,7 +168,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 5.8 and Corollary 5.9; proved in §8.8."
+      "note": "Theorem 5.8 and Corollary 5.9; proved in §8.8. (arXiv v3 Theorem 3; supersedes cc-d67081 item(s) theorem-3.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/14",
@@ -178,7 +179,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "(6.1) is printed for f ∈ C_c^∞(g); read g^∧ (sourceIssues PAPER-NELSON-VENKATESH-21/E8)."
+      "note": "(6.1) is printed for f ∈ C_c^∞(g); read g^∧ (sourceIssues PAPER-NELSON-VENKATESH-21/E8). (supersedes cc-d67081 item(s) coadjoint-multiorbit.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/15",
@@ -189,7 +190,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Rossmann [Ros1, Ros2, Ros4]; Harish-Chandra's locally L¹ character χ_π is an input."
+      "note": "Rossmann [Ros1, Ros2, Ros4]; Harish-Chandra's locally L¹ character χ_π is an input. (arXiv v3 Theorem 4; supersedes cc-d67081 item(s) theorem-4.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/16",
@@ -200,7 +201,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With (6.3)–(6.4) and Remarks 6.4–6.6; refined in Theorem 12.2."
+      "note": "With (6.3)–(6.4) and Remarks 6.4–6.6; refined in Theorem 12.2. (arXiv v3 Theorem 5; supersedes cc-d67081 item(s) theorem-5.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/17",
@@ -211,7 +212,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With Example 7.1, Definition 7.2 and Lemma 7.3."
+      "note": "With Example 7.1, Definition 7.2 and Lemma 7.3. (arXiv v3 Theorem 6; supersedes cc-d67081 item(s) theorem-6.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/18",
@@ -318,7 +319,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 8.11 and Lemma 8.12."
+      "note": "Theorem 8.11 and Lemma 8.12. (arXiv v3 Theorem 7; supersedes cc-d67081 item(s) theorem-7.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/28",
@@ -417,7 +418,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 11.1 with Lemmas 11.2–11.3 [Ros2, Ros3]."
+      "note": "Theorem 11.1 with Lemmas 11.2–11.3 [Ros2, Ros3]. (arXiv v3 Theorem 8; supersedes cc-d67081 item(s) theorem-8.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/37",
@@ -450,7 +451,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With §12.1 (classes T_p) and Lemma 12.1 (approximate inverse of ∆_h)."
+      "note": "With §12.1 (classes T_p) and Lemma 12.1 (approximate inverse of ∆_h). (arXiv v3 Theorem 9; supersedes cc-d67081 item(s) theorem-9.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/40",
@@ -482,7 +483,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§§13.1–13.3, (III.1)."
+      "note": "§§13.1–13.3, (III.1). (supersedes cc-d67081 item(s) ggp-pair.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/43",
@@ -536,7 +537,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 14.2, Definition 14.3, Lemmas 14.4 and 14.8; Remark 14.9 compares Rallis–Schiffmann and notes an inaccuracy there (footnote 5)."
+      "note": "Theorem 14.2, Definition 14.3, Lemmas 14.4 and 14.8; Remark 14.9 compares Rallis–Schiffmann and notes an inaccuracy there (footnote 5). (arXiv v3 Theorem 10; supersedes cc-d67081 item(s) theorem-10.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/48",
@@ -547,7 +548,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 14.5 with Lemmas 14.6–14.7; uses (14.8)."
+      "note": "Theorem 14.5 with Lemmas 14.6–14.7; uses (14.8). (arXiv v3 Theorem 11; supersedes cc-d67081 item(s) theorem-11.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/49",
@@ -569,7 +570,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§§15.2–15.4."
+      "note": "§§15.2–15.4. (supersedes cc-d67081 item(s) satake-and-l-functions.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/51",
@@ -612,7 +613,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proofs in §16.5.1 (Lagrangian fibration) and §16.5.2 (spherical degeneration)."
+      "note": "Proofs in §16.5.1 (Lagrangian fibration) and §16.5.2 (spherical degeneration). (arXiv v3 Theorem 12; supersedes cc-d67081 item(s) theorem-12.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/55",
@@ -633,7 +634,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorems 17.1–17.2 and (17.3)–(17.5)."
+      "note": "Theorems 17.1–17.2 and (17.3)–(17.5). (arXiv v3 Theorem 14; supersedes cc-d67081 item(s) theorem-13, theorem-14.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/57",
@@ -665,7 +666,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Lemma 18.1 and (18.1); proof in Appendix A.6."
+      "note": "Lemma 18.1 and (18.1); proof in Appendix A.6. (supersedes cc-d67081 item(s) relative-character.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/60",
@@ -698,7 +699,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With (19.9)–(19.11). The proof reduces (§19.4) to Theorem 19.4 for M = G × H, S = diag H, τ = π ⊠ σ̄, whose printed (19.16) omits the factor h^j (sourceIssues PAPER-NELSON-VENKATESH-21/E5)."
+      "note": "With (19.9)–(19.11). The proof reduces (§19.4) to Theorem 19.4 for M = G × H, S = diag H, τ = π ⊠ σ̄, whose printed (19.16) omits the factor h^j (sourceIssues PAPER-NELSON-VENKATESH-21/E5). (arXiv v3 Theorem 15; supersedes cc-d67081 item(s) theorem-15, theorem-16.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/63",
@@ -731,7 +732,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§A.5 and §A.6 (proof of Lemma 18.1)."
+      "note": "§A.5 and §A.6 (proof of Lemma 18.1). (supersedes cc-d67081 item(s) plancherel-technicalities.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/66",
@@ -742,7 +743,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§20 and §21."
+      "note": "§20 and §21. (supersedes cc-d67081 item(s) inverse-branching.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/67",
@@ -764,7 +765,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With (22.5)–(22.8) and Remark 22.3."
+      "note": "With (22.5)–(22.8) and Remark 22.3. (arXiv v3 Theorem 17; supersedes cc-d67081 item(s) theorem-17.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/69",
@@ -854,7 +855,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proof in §§24.4–24.5 (Steps 1–6)."
+      "note": "Proof in §§24.4–24.5 (Steps 1–6). (arXiv v3 Theorem 18; supersedes cc-d67081 item(s) theorem-18.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/77",
@@ -891,7 +892,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§§25.1–25.3, 25.6–25.7; Example 25.3 (F = Q(√5)) and Remark 25.4. Tamagawa measures are planned in AdelicAlgebraicGroups AA.2; τ(G) = τ(H) = 2 is cited from Weil and Ono."
+      "note": "§§25.1–25.3, 25.6–25.7; Example 25.3 (F = Q(√5)) and Remark 25.4. Tamagawa measures are planned in AdelicAlgebraicGroups AA.2; τ(G) = τ(H) = 2 is cited from Weil and Ono. (supersedes cc-d67081 item(s) local-conditions-25-7.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/80",
@@ -901,7 +902,8 @@
       "locator": "§25, §25.4, p. 168",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "(supersedes cc-d67081 item(s) branching-coefficient.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/81",
@@ -912,7 +914,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "[II], [HarN]; proved in unitary cases under local conditions by W. Zhang [Z1]. Remark 25.2 expects 2^β = τ(G)τ(H) generically (Kottwitz)."
+      "note": "[II], [HarN]; proved in unitary cases under local conditions by W. Zhang [Z1]. Remark 25.2 expects 2^β = τ(G)τ(H) generically (Kottwitz). (supersedes cc-d67081 item(s) ichino-ikeda.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/82",
@@ -923,7 +925,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§26.3, Example 26.1, Lemmas 26.2–26.3, Theorem 26.4."
+      "note": "§26.3, Example 26.1, Lemmas 26.2–26.3, Theorem 26.4. (arXiv v3 Theorem 19; supersedes cc-d67081 item(s) theorem-19, limit-states.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/83",
@@ -934,7 +936,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "(26.9); uses Riesz representation and Radon–Nikodym."
+      "note": "(26.9); uses Riesz representation and Radon–Nikodym. (arXiv v3 Theorem 20; supersedes cc-d67081 item(s) theorem-20.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/84",
@@ -959,7 +961,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unproven as printed for (SO3, SO2) when Π ≅ Π ⊗ (η_{K/F}∘θ) (sourceIssues PAPER-NELSON-VENKATESH-21/E1); Remark 27.2."
+      "note": "Unproven as printed for (SO3, SO2) when Π ≅ Π ⊗ (η_{K/F}∘θ) (sourceIssues PAPER-NELSON-VENKATESH-21/E1); Remark 27.2. (arXiv v3 Theorem 21; supersedes cc-d67081 item(s) theorem-21.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/86",
@@ -1002,10 +1004,12 @@
       "name": "Ratner's measure classification (cited)",
       "statement": "An ergodic invariant probability measure on Γ\\G∞ for a subgroup generated by unipotent one-parameter subgroups is the homogeneous measure on a closed orbit xS of a closed connected subgroup S containing it.",
       "locator": "§27, Theorem 27.7 (proof), p. 184",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "[Rat]; with ergodic decomposition [EW, §8.7]."
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "note": "[Rat]; with ergodic decomposition [EW, §8.7]. GN.4 schedules unipotent-flow proofs (for Oppenheim/Duke-type applications); it is specification-state, and a reviewer may prefer to route Ratner separately. (supersedes cc-d67081 item(s) ratner-input.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/90",
@@ -1016,7 +1020,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Lemmas 27.8–27.11 (Zariski closure S is reductive, contains G⁺; strong approximation)."
+      "note": "Lemmas 27.8–27.11 (Zariski closure S is reductive, contains G⁺; strong approximation). (arXiv v3 Theorem 22; supersedes cc-d67081 item(s) theorem-22.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/91",
@@ -1048,7 +1052,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§29.2 and Theorem 29.1."
+      "note": "§29.2 and Theorem 29.1. (arXiv v3 Theorem 23; supersedes cc-d67081 item(s) theorem-23.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/94",
@@ -1059,7 +1063,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "§30.2, Definition 30.2, Lemmas 30.3–30.6."
+      "note": "§30.2, Definition 30.2, Lemmas 30.3–30.6. (arXiv v3 Theorem 24; supersedes cc-d67081 item(s) theorem-24.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/95",
@@ -1081,7 +1085,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Via the trace formula on compact [H] with the test functions of Lemma 22.4 and (24.4), (24.6)."
+      "note": "Via the trace formula on compact [H] with the test functions of Lemma 22.4 and (24.4), (24.6). (supersedes cc-d67081 item(s) family-and-conductor.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/97",
@@ -1102,7 +1106,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 1.1 of the introduction. For (SO3, SO2) with Π ≅ Π ⊗ (η_{K/F}∘θ) it rests on the gap in Lemma 27.3 (sourceIssues PAPER-NELSON-VENKATESH-21/E1)."
+      "note": "Theorem 1.1 of the introduction. For (SO3, SO2) with Π ≅ Π ⊗ (η_{K/F}∘θ) it rests on the gap in Lemma 27.3 (sourceIssues PAPER-NELSON-VENKATESH-21/E1). (arXiv v3 Theorem 25; supersedes cc-d67081 item(s) theorem-25, main-theorem-informal.)"
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/99",
@@ -1113,22 +1117,22 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "From (31.3) by positivity and slowly shrinking families; §31.4."
+      "note": "From (31.3) by positivity and slowly shrinking families; §31.4. (supersedes cc-d67081 item(s) weak-subconvexity.)"
     }
   ],
   "coverage": {
     "counts": {
       "library": 3,
-      "planned": 3,
-      "missing": 93
+      "planned": 4,
+      "missing": 92
     },
     "policy": "Every numbered definition, lemma, proposition, theorem and corollary is covered, with closely linked statements merged into one item and named in its note; cited theorems the proofs depend on (Kirillov formula, Langlands classification, Plancherel, Ratner, GIT, strong multiplicity one, Ichino–Ikeda) are items; examples and remarks only where they carry mathematics used later."
   },
   "prerequisites": [
     {
-      "citation": "W. Rossmann, Kirillov's character formula for reductive Lie groups, Invent. Math. 48 (1978), 207–220; Limit characters of reductive Lie groups, Invent. Math. 61 (1980); Limit orbits in reductive Lie algebras and Tempered representations and orbits, Duke Math. J. 49 (1982)",
+      "citation": "W. Rossmann, Kirillov's character formula for reductive Lie groups, Invent. Math. 48 (1978), 207–220",
       "link": "https://doi.org/10.1007/bf01390244",
-      "why": "[Ros1–Ros4]: the Kirillov formula (Theorem 6.1) and the continuity of orbital measures (Theorem 11.1, Lemma 11.2, Lemma 16.4)."
+      "why": "[Ros1] (with [Ros4], Duke Math. J. 49 (1982), 231–247): the Kirillov formula for tempered representations (Theorem 6.1)."
     },
     {
       "citation": "M. Ratner, On Raghunathan's measure conjecture, Ann. of Math. 134 (1991), 545–607",
@@ -1194,17 +1198,61 @@
       "citation": "D. Mumford, J. Fogarty and F. Kirwan, Geometric Invariant Theory, 3rd ed., Springer, 1994",
       "link": "https://doi.org/10.1007/978-3-642-57916-5",
       "why": "[MFK]: Lemma 14.1 and the Hilbert–Mumford criterion."
+    },
+    {
+      "citation": "B. H. Gross and D. Prasad, On the decomposition of a representation of SO_n when restricted to SO_{n−1}, Canad. J. Math. 44 (1992), 974–1002",
+      "link": "https://doi.org/10.4153/cjm-1992-060-8",
+      "why": "The branching problem itself, and the Gan–Gross–Prasad pairs of §13."
+    },
+    {
+      "citation": "B. H. Gross, On the motive of a reductive group, Invent. Math. 130 (1997), 287–313",
+      "link": "https://doi.org/10.1007/s002220050186",
+      "why": "The L-function Δ_G appearing in the interpolation formula (1.1)."
+    },
+    {
+      "citation": "A. A. Kirillov, Merits and demerits of the orbit method, Bull. Amer. Math. Soc. 36 (1999), 433–488",
+      "link": "https://doi.org/10.1090/S0273-0979-99-00849-6",
+      "why": "The orbit method as a philosophy, and the Kirillov character formula that Theorem 4 makes quantitative."
+    },
+    {
+      "citation": "D. A. Vogan, Jr., The method of coadjoint orbits for real reductive groups, in Representation Theory of Lie Groups, IAS/Park City Math. Ser. 8 (2000), 179–238",
+      "link": "https://doi.org/10.1090/pcms/008/05",
+      "why": "The orbit method for real reductive groups; the framework for the coadjoint multiorbits of §§6 and 11."
+    },
+    {
+      "citation": "W. Rossmann, Limit characters of reductive Lie groups, Invent. Math. 61 (1980), 53–66",
+      "link": "https://doi.org/10.1007/BF01389894",
+      "why": "Limit characters, from which Theorem 8 on the topology of regular coadjoint multiorbits follows."
+    },
+    {
+      "citation": "W. Rossmann, Limit orbits in reductive Lie algebras, Duke Math. J. 49 (1982), 215–229",
+      "link": "https://doi.org/10.1215/S0012-7094-82-04914-6",
+      "why": "Limit orbits and the characterization of when the limit set is nonempty, also used for Theorem 8."
+    },
+    {
+      "citation": "B. Sun and C.-B. Zhu, Multiplicity one theorems: the Archimedean case, Ann. of Math. 175 (2012), 23–44",
+      "link": "https://doi.org/10.4007/annals.2012.175.1.2",
+      "why": "The multiplicity one property of the Gan–Gross–Prasad pairs that makes the branching coefficient well defined at the archimedean places."
+    },
+    {
+      "citation": "N. M. Katz and P. Sarnak, Zeroes of zeta functions and symmetry, Bull. Amer. Math. Soc. 36 (1999), 1–26",
+      "link": "https://doi.org/10.1090/S0273-0979-99-00766-1",
+      "why": "The symmetry types of families of L-functions, against which §1.2 checks the main theorem: the family here is orthogonal with positive root numbers."
+    },
+    {
+      "citation": "K. Soundararajan, Weak subconvexity for central values of L-functions, Ann. of Math. 172 (2010), 1469–1498",
+      "link": "https://doi.org/10.4007/annals.2010.172.1469",
+      "why": "The weak subconvexity to which the bound (1.4) is compared."
     }
   ],
   "routes": [
     {
-      "route": "part-ii",
-      "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
-      "roadmap": "LieGroupsPartIIOrbitMethodCalculus",
-      "title": "Lie groups and the Lie algebra correspondence, Part II: the orbit method and a microlocal calculus for unitary representations",
+      "route": "new",
+      "roadmap": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
+      "title": "The orbit method in quantitative form: microlocal analysis on representations of reductive groups",
       "area": "representations",
-      "brief": "Design LieGroupsPartIIOrbitMethodCalculus, the Part II of Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups), following Nelson–Venkatesh, The orbit method and analysis of automorphic forms (Acta Math. 226 (2021)), Parts I–II and Appendix A.1–A.3: a quantitative orbit method, i.e. a microlocal calculus of operators Op_h(a) on unitary representations of a unimodular Lie group attached to symbols on g^∧. Final theorems, as the paper states them: Theorems 5.6 and 5.8 (Op_h(S^m_δ) ⊆ h^{min(0,m)}Ψ^m_δ and the composition formula), Theorems 4.5 and 7.4 (star-product asymptotics, including pairs of subalgebras with g1 + g2 = g), Proposition 8.7 (L² boundedness), Theorem 8.11 and Lemma 8.12, Lemmas 10.1–10.4 (division and localization near a symbol's locus and near infinitesimal characters), Theorem 11.1 and Lemma 11.6 (limit orbits; a fixed tempered π has non-empty limit orbit in N_reg iff it is generic), and Theorem 12.2 (trace and trace-norm estimates h^d tr Op_h(a) = ∫_{hO_π} a dω + …, uniform in tempered π). Cover: symbol classes S^m, S^m_δ and h-dependent families; Sobolev scales π^s and operator classes Ψ^m, Ψ^m_δ with the commutator characterisation (Proposition 8.2); cut-off independence and near-equivariance; polynomial symbols Op(p) = π(sym p); coadjoint orbits, normalized symplectic measures and multiorbits; infinitesimal characters, their behaviour under duality (Lemma 9.2), the temperedness criterion (Lemma 9.4), ∆-eigenvalue bounds (Lemma 9.5) and γ∘sym (Lemma 9.6); K-type and matrix-coefficient bounds and the uniform trace-class property of ∆^{−N} (Lemmas A.1–A.3). Keep the paper's δ < 1/2 (Planck-scale) restriction and its h-dependent conventions (§1.14). Import rather than re-plan: the exponential map, Ad and Baker–Campbell–Hausdorff from this parent's layers 0, 1 and 3 and the KAK decomposition from layer 9; the centre of U(g) and the Harish-Chandra isomorphism from Lie algebras: highest weight theory (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, layer 7); (g, K)-modules and infinitesimal characters from Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups AF.1); trace-class and Hilbert–Schmidt operators and unbounded self-adjoint operators from Automorphic spectral theory (AutomorphicSpectralTheory AS.0); Schwartz spaces and the Fourier transform from Mathlib. Cited inputs to be planned or taken as theorem boundaries: Harish-Chandra's locally integrable character, Rossmann's Kirillov formula and orbital-limit results, the Langlands classification, Vogan's minimal K-types and Blattner's formula, the Cowling–Haagerup–Howe bound, Kostant and Barbasch–Vogan on generic representations, the Cotlar–Stein lemma and Nelson's analytic-vector theorem.",
-      "reason": "Parts I–II are general harmonic analysis on unitary representations of Lie groups: a pseudodifferential calculus on g^∧ with the Kirillov formula as its trace formula. They extend the Tau Ceti Lie-groups roadmap (exponential map, Ad, BCH, KAK) in its own direction, and no atlas layer plans coadjoint orbits, Kirillov's formula or such a calculus. Keeping them separate from the automorphic application lets other work (the sequel on the microlocal lift, sup-norm and subconvexity problems) import them.",
+      "brief": "A new roadmap for the local and analytic machinery of Nelson–Venkatesh, The orbit method and analysis of automorphic forms (Acta Math. 226 (2021), 1–209; arXiv:1805.07750): a pseudodifferential calculus for unitary representations of Lie groups in which symbols on g^∧ are quantized to operators Op_h(a) and traces are integrals over coadjoint orbits, applied to Gan–Gross–Prasad restriction problems. Final theorems, as the paper states them (published numbering; arXiv v3 numbers the same theorems 1–24 consecutively): Theorems 4.5, 5.6, 5.8, 7.4, 8.11 (star product, Op(S^m) ⊆ Ψ^m, Op_h(S^m_δ) ⊆ h^{min(0,m)}Ψ^m_δ and the composition expansions, also for pairs g1 + g2 = g); Theorem 6.1 (Rossmann's Kirillov formula, cited) and Theorems 6.3, 12.2 (trace and trace-norm estimates uniform in tempered π); Theorem 11.1 and Lemma 11.6 (limit orbits; a fixed tempered π has non-empty limit orbit in N_reg iff it is generic); Theorems 14.2 and 14.5 (for a GGP pair, H-stability ⇔ ev(x) ∩ ev(x_H) = ∅; stable fibres O^{λ,µ} are H-torsors); Theorems 16.7, 17.2 (compatibility of volume forms and disintegration of orbital measures); Theorem 19.3 (H_σ(Op_h(a)) = Σ_{j<J} h^j ∫_{hO_{π,σ}} D_j a + O(h^{(1−2δ)J}) on compact sets of H-stable elements); Theorem 22.2 and Theorem 24.5 (inverse branching at the distinguished archimedean place and at p-adic places, cuspidal-type l-components being allowable); Theorems 26.4–26.5, 27.1, 27.7 (limit states, their disintegration and equidistribution on [H]); Theorems 29.1 and 30.1 (truncated spectral expansion and the smoothly weighted formula (τ(H)/τ(G))∫k∫k′). Cover in this order: (1) symbol classes, operator classes, the star product and the composition, division and localization lemmas (Parts I–II); (2) coadjoint orbits, infinitesimal characters, the temperedness criterion (Lemma 9.4), limit orbits and trace estimates, with the K-type and Plancherel technicalities of Appendix A; (3) GIT stability for GGP pairs, volume forms and disintegration (§§14, 16–17); (4) relative characters and their stable asymptotics (§§18–19); (5) inverse branching (§§20–24); (6) limit states, Ratner-based equidistribution and the truncated spectral expansion (§§26–30). Keep δ < 1/2 (the Planck scale) and the h-dependent conventions of §1.14 visible. Keep visible that the proof of Lemma 27.3 fails for (SO3, SO2): the torus's spinor norms are norms from K = F(√−disc V_H), so Theorem 27.1 there needs Π ≇ Π ⊗ (η_{K/F}∘θ) or a new argument. Import rather than re-plan: the exponential map, Ad, BCH and KAK from Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups, layers 0, 1, 3, 9), whose representation-theory family excludes unitary duals of noncompact groups; the Harish-Chandra isomorphism from LieHighestWeight layer 7; (g, K)-modules and infinitesimal characters from AutomorphicFormsOnReductiveGroups AF.1–AF.2; trace-class, Hilbert–Schmidt and spectral decomposition from AutomorphicSpectralTheory AS.0 and AS.4; Hecke algebras, induction, admissibility and the Bernstein centre from SmoothRepresentationsOfLocalGroups SR.1–SR.3 (and the proposed SmoothRepresentations Part II roadmaps for characters and the unitary dual, where accepted); Tamagawa measures and strong approximation from AdelicAlgebraicGroups AA.2 and AA.4; Ratner's theorem from GeometryOfNumbersAndQuadraticArithmetic GN.4; GGP pairs, local multiplicity one and the branching coefficient from GanGrossPrasadConjecturesForClassicalGroups. Cited inputs to plan or take as theorem boundaries: Harish-Chandra's character and Plancherel theorems, Rossmann's orbital results, the Langlands classification, Vogan and Blattner, Cowling–Haagerup–Howe, Kostant and Barbasch–Vogan on generic representations, Mumford's GIT, Waldspurger's p-adic Plancherel formula, Sakellaridis–Venkatesh positivity, the Cotlar–Stein lemma.",
+      "reason": "The id, title and scope are those of cc-d67081's checkpoint (#2214), extended to the whole paper. Nothing in the atlas plans coadjoint orbits, the Kirillov formula, a symbol calculus on unitary representations, relative characters, inverse branching or limit states, and the Tau Ceti representation-theory family explicitly excludes unitary duals of noncompact groups, Plancherel theory and the tempered spectrum (content/tau-ceti/RepresentationTheory/README.md), so a Part II there would be outside its direction. Parts I–II are the reusable core and come first in the brief; a reviewer may split them from Parts III–V.",
       "items": [
         "PAPER-NELSON-VENKATESH-21/2",
         "PAPER-NELSON-VENKATESH-21/3",
@@ -1244,27 +1292,10 @@
         "PAPER-NELSON-VENKATESH-21/38",
         "PAPER-NELSON-VENKATESH-21/39",
         "PAPER-NELSON-VENKATESH-21/40",
-        "PAPER-NELSON-VENKATESH-21/41"
-      ]
-    },
-    {
-      "route": "new",
-      "roadmap": "AveragedGanGrossPrasadPeriods",
-      "title": "Averages of Gan–Gross–Prasad periods via the orbit method (after Nelson–Venkatesh)",
-      "area": "automorphic",
-      "brief": "Design AveragedGanGrossPrasadPeriods, a new roadmap following Nelson–Venkatesh, The orbit method and analysis of automorphic forms (Acta Math. 226 (2021)), Parts III–V. Final theorem, exactly as the paper states it: Theorem 31.11 — for a GGP pair (G, H) over a number field F with G, H anisotropic ((U_{n+1}, U_n), n ≥ 1, or (SO_{n+1}, SO_n), n ≥ 2), a fixed cuspidal Π unramified outside R, tempered at R, with G quasi-split and Π_q generic at one archimedean place q and G compact at the other archimedean places, and admissible sets U, U′ defining families F_h: (1/|F_h|)Σ_{Σ∈F_h} L(Π, Σ) = 1/τ(G) + o(1), and under the Ichino–Ikeda/N. Harris conjecture the corresponding average of (τ(G)τ(H)/2^β)∆_G^{(R)}L^{(R)}(½, Π×Σ^∨)/L^{(R)}(1, Ad, Π×Σ^∨) is τ(H) + o(1); with Theorem 30.1 (smoothly weighted form), Lemma 31.9 (family size), Lemma 31.10 (conductor ≍ |F_h|⁴) and the weak subconvex bound (1.4). Intermediate theorems to state as printed: Theorems 14.2 and 14.5 (stability ⇔ ev(x) ∩ ev(x_H) = ∅; stable fibres are H-torsors), Lemma 15.4 (stability ⇔ no conductor drop), Theorem 16.7 and Theorem 17.2 (volume forms and disintegration), Lemma 18.1 (relative characters), Theorem 19.3 (asymptotics of relative characters away from the conductor-dropping locus), Theorem 22.2 and Lemma 22.4 (archimedean inverse branching), Theorem 24.5 (cuspidal-type l-components are allowable), Theorems 26.4–26.5 (limit states), Theorem 27.1 (equidistribution on [H], via Ratner) and Theorem 29.1. Keep visible that the proof of Lemma 27.3 fails for (SO3, SO2), where the torus's spinor norms are norms from K = F(√−disc V_H): there Theorem 27.1 needs Π ≇ Π ⊗ (η_{K/F}∘θ) or a new argument. Import rather than re-plan: the orbit-method calculus from Lie groups and the Lie algebra correspondence, Part II (LieGroupsPartIIOrbitMethodCalculus, proposed with this paper); Hecke algebras, induction, Jacquet modules, admissibility and the Bernstein centre from Smooth representations of local groups (SmoothRepresentationsOfLocalGroups SR.1–SR.3); Tamagawa measures and strong approximation from Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups AA.2, AA.4); spectral decomposition and trace-class machinery from Automorphic spectral theory (AutomorphicSpectralTheory AS.0, AS.4); automorphic representations from AutomorphicFormsOnReductiveGroups AF.1–AF.2; Rankin–Selberg local factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors AL.3). Coordinate with the Gan–Gross–Prasad roadmap proposed by the Beuzart-Plessis–Chaudouard–Zydor extractions (GanGrossPrasadConjecturesForClassicalGroups), which should own GGP pairs, local multiplicity one and the Ichino–Ikeda formulas if accepted. Cited inputs with no atlas owner, to be taken as theorem boundaries or planned separately: Ratner's measure classification (a homogeneous-dynamics roadmap is recommended), Mumford's GIT and the Hilbert–Mumford criterion, Kostant on regular nilpotents, Harish-Chandra's and Waldspurger's Plancherel formulas, Mœglin–Waldspurger and Beuzart-Plessis strong multiplicity one, Sakellaridis–Venkatesh positivity, the Tamagawa numbers τ(SO_n) = τ(U_n) = 2 (Weil, Ono), and the Ichino–Ikeda and N. Harris conjectures with W. Zhang's theorem.",
-      "reason": "Nothing in the atlas studies Gan–Gross–Prasad periods analytically: there is no layer for GGP pairs and their stability, relative characters and their asymptotics, inverse branching, limit states with Ratner-type equidistribution, or averages of branching coefficients. The GGP roadmap proposed by other extractions (not yet accepted) is algebraic (relevant pairs, Vogan packets, trace-formula comparison), so the paper's application is a new roadmap that imports the calculus of the Part II above and the local and adelic foundations that exist.",
-      "items": [
-        "PAPER-NELSON-VENKATESH-21/42",
-        "PAPER-NELSON-VENKATESH-21/43",
-        "PAPER-NELSON-VENKATESH-21/44",
-        "PAPER-NELSON-VENKATESH-21/45",
+        "PAPER-NELSON-VENKATESH-21/41",
         "PAPER-NELSON-VENKATESH-21/46",
         "PAPER-NELSON-VENKATESH-21/47",
         "PAPER-NELSON-VENKATESH-21/48",
-        "PAPER-NELSON-VENKATESH-21/49",
-        "PAPER-NELSON-VENKATESH-21/50",
-        "PAPER-NELSON-VENKATESH-21/51",
         "PAPER-NELSON-VENKATESH-21/52",
         "PAPER-NELSON-VENKATESH-21/53",
         "PAPER-NELSON-VENKATESH-21/54",
@@ -1273,37 +1304,53 @@
         "PAPER-NELSON-VENKATESH-21/57",
         "PAPER-NELSON-VENKATESH-21/58",
         "PAPER-NELSON-VENKATESH-21/59",
-        "PAPER-NELSON-VENKATESH-21/60",
         "PAPER-NELSON-VENKATESH-21/61",
         "PAPER-NELSON-VENKATESH-21/62",
         "PAPER-NELSON-VENKATESH-21/63",
         "PAPER-NELSON-VENKATESH-21/64",
         "PAPER-NELSON-VENKATESH-21/65",
-        "PAPER-NELSON-VENKATESH-21/66",
         "PAPER-NELSON-VENKATESH-21/67",
         "PAPER-NELSON-VENKATESH-21/68",
         "PAPER-NELSON-VENKATESH-21/69",
         "PAPER-NELSON-VENKATESH-21/70",
         "PAPER-NELSON-VENKATESH-21/72",
         "PAPER-NELSON-VENKATESH-21/73",
-        "PAPER-NELSON-VENKATESH-21/74",
         "PAPER-NELSON-VENKATESH-21/75",
         "PAPER-NELSON-VENKATESH-21/76",
         "PAPER-NELSON-VENKATESH-21/77",
-        "PAPER-NELSON-VENKATESH-21/79",
-        "PAPER-NELSON-VENKATESH-21/80",
-        "PAPER-NELSON-VENKATESH-21/81",
         "PAPER-NELSON-VENKATESH-21/82",
         "PAPER-NELSON-VENKATESH-21/83",
         "PAPER-NELSON-VENKATESH-21/85",
         "PAPER-NELSON-VENKATESH-21/86",
         "PAPER-NELSON-VENKATESH-21/88",
-        "PAPER-NELSON-VENKATESH-21/89",
         "PAPER-NELSON-VENKATESH-21/90",
         "PAPER-NELSON-VENKATESH-21/91",
         "PAPER-NELSON-VENKATESH-21/92",
         "PAPER-NELSON-VENKATESH-21/93",
-        "PAPER-NELSON-VENKATESH-21/94",
+        "PAPER-NELSON-VENKATESH-21/94"
+      ]
+    },
+    {
+      "route": "new",
+      "roadmap": "GanGrossPrasadConjecturesForClassicalGroups",
+      "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+      "area": "automorphic",
+      "brief": "This route coalesces with GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21, PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, PAPER-BEUZARTPLESSIS-CHAUDOUARD-25, PAPER-LESLIE-25 and PAPER-LIU-ETAL-22; keep its id, title, area and brief. Nelson–Venkatesh add: GGP pairs in the k1-form of §13 (G = Aut(V, ⟨,⟩)⁰ ⊇ H = Aut(e^⊥)⁰, orthogonal, unitary and general linear), the eigenvalue invariants ev(x) and the isotropic-eigenvector criteria (Lemmas 13.1–13.2), sphericity of H ⊂ G × H (Lemma 13.3); the archimedean Satake parameters of the Rankin–Selberg L-function of a GGP pair, ev(A′) + ev(B′) (× {±1} in the unitary case), and the equivalence of stability with the absence of conductor dropping (Lemmas 15.2–15.4); the positivity of relative characters (Remark 18.2, known non-archimedeanly by Sakellaridis–Venkatesh) and their non-vanishing exactly on the distinguished tempered dual (§20, Beuzart-Plessis; Waldspurger, Astérisque 346, Proposition 5.7); strong multiplicity one (Lemma 24.1, Mœglin–Waldspurger, Beuzart-Plessis); the global branching coefficient L(Π, Σ) defined by P = L(Π, Σ)·H (§25.4); the Ichino–Ikeda and N. Harris conjecture (Conjecture 25.1), which stays a conjecture except where W. Zhang proves it; and the main theorem (Theorem 31.11): under §25.7 (G, H anisotropic, (U_{n+1}, U_n) with n ≥ 1 or (SO_{n+1}, SO_n) with n ≥ 2, Π tempered at R, G quasi-split and Π generic at q, compact at the other archimedean places), (1/|F_h|)Σ_{Σ∈F_h} L(Π, Σ) = 1/τ(G) + o(1) = ½ + o(1), with the L-value form under Conjecture 25.1, the family size h^d|F_h| → τ(H)vol(U)vol(U′), C(Π, Σ) ≍ |F_h|⁴ and the weak subconvex bound L(Π, Σ) = o(C^{1/4}). Record that for (SO3, SO2) with Π ≅ Π ⊗ (η_{K/F}∘θ) the published proof does not establish Theorem 31.11 (the spinor-norm step of Lemma 27.3 fails). The machinery behind the theorem is routed by this extraction to QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups; keep this route to the automorphic statements and their consequences.",
+      "reason": "The automorphic statements — GGP pairs, their L-functions and conductor dropping, positivity, non-vanishing and multiplicity one for relative characters, the branching coefficient, the Ichino–Ikeda and N. Harris conjecture, and the averaged-period theorem with its family size, conductor and weak subconvexity — belong with the Gan–Gross–Prasad roadmap that six extractions propose and the atlas does not yet contain; this follows cc-d67081's checkpoint.",
+      "items": [
+        "PAPER-NELSON-VENKATESH-21/42",
+        "PAPER-NELSON-VENKATESH-21/43",
+        "PAPER-NELSON-VENKATESH-21/44",
+        "PAPER-NELSON-VENKATESH-21/45",
+        "PAPER-NELSON-VENKATESH-21/49",
+        "PAPER-NELSON-VENKATESH-21/50",
+        "PAPER-NELSON-VENKATESH-21/51",
+        "PAPER-NELSON-VENKATESH-21/60",
+        "PAPER-NELSON-VENKATESH-21/66",
+        "PAPER-NELSON-VENKATESH-21/74",
+        "PAPER-NELSON-VENKATESH-21/79",
+        "PAPER-NELSON-VENKATESH-21/80",
+        "PAPER-NELSON-VENKATESH-21/81",
         "PAPER-NELSON-VENKATESH-21/95",
         "PAPER-NELSON-VENKATESH-21/96",
         "PAPER-NELSON-VENKATESH-21/97",
@@ -1565,7 +1612,7 @@
       "id": "G-SO3",
       "detail": "Whether Theorem 31.11 actually fails for (SO3, SO2) with Π dihedral for K was not decided; only that its proof does not cover that case.",
       "status": "open",
-      "resolution": "The design job for AveragedGanGrossPrasadPeriods should either add the hypothesis Π ≇ Π ⊗ (η_{K/F}∘θ) or compute ∫[a]·η∘θ in the dihedral case."
+      "resolution": "The design jobs for GanGrossPrasadConjecturesForClassicalGroups and QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups should either add the hypothesis Π ≇ Π ⊗ (η_{K/F}∘θ) or compute ∫[a]·η∘θ in the dihedral case."
     }
   ]
 }
