@@ -2,7 +2,7 @@
 
 Vesselin Dimitrov, Ziyang Gao and Philipp Habegger, *Uniformity in Mordell–Lang for curves*, [Annals of Mathematics 194 (2021), 237–298](https://doi.org/10.4007/annals.2021.194.1.4); arXiv [2001.10276](https://arxiv.org/abs/2001.10276).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1109). Status: **complete**. The whole of arXiv v3 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DIMITROV-GAO-HABEGGER-21.result.json](PAPER-DIMITROV-GAO-HABEGGER-21.result.json): 63 items (1 library, 10 planned, 52 missing), 8 routes, 11 prerequisite entries and 6 recorded source slips.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1109). Status: **complete**. The whole of arXiv v3 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DIMITROV-GAO-HABEGGER-21.result.json](PAPER-DIMITROV-GAO-HABEGGER-21.result.json): 68 items (14 planned, 54 missing), 8 routes, 11 prerequisite entries and 16 recorded source issues. The independent review (REV-PAPER-DIMITROV-GAO-HABEGGER-21) corrected it in place; its changes are listed at the end.
 
 **Source.** arXiv v3 (31 March 2021, the latest version; 49 pages), [PDF](https://arxiv.org/pdf/2001.10276v3), SHA-256 `5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4`, read in full on 2026-09-22. The typeset Annals PDF was not accessible, so locators refer to v3 and the published text was not collated.
 
@@ -23,7 +23,7 @@ The strategy, in five steps:
 
 ## What the atlas already has
 
-- **Library.** Mathlib has the Weil height on projective space (`Projectivization.logHeight`).
+- **Library.** Mathlib has the Weil height on projective space relative to a number field (`Projectivization.logHeight`), not the absolute height on ℙⁿ(ℚ̄); the review therefore marks the absolute height as planned by RP.0.
 - **Planned.**
   - HeightsRationalPointsAndObstructions: RP.0 (heights, Néron–Tate heights, height comparison under morphisms, Northcott), RP.1 (Mordell–Weil), RP.4 (Faltings) and RP.5 (Manin–Mumford).
   - PELModuli M5–M6: fine moduli A_{g,ℓ} and A_{g,D,ℓ}, and coarse spaces.
@@ -54,7 +54,9 @@ The strategy, in five steps:
 
 No new roadmap id is minted. Every Part II here coalesces with a route already proposed by another paper.
 
-## Source slips (`sourceIssues` E1–E6)
+## Source slips (`sourceIssues` E1–E16)
+
+E7–E16 were added by the review, and E6's repair was revised; see the end.
 
 - **E1** In §1.3, "regular locus of X" should read "of S".
 - **E2** In §4, Proposition 4.3 is announced as a lower bound; it is an upper bound.
@@ -65,6 +67,7 @@ No new roadmap id is minted. Every Part II here coalesces with a route already p
   - For g ≥ 3 the uniform bound follows from Raynaud's theorem for the surface C − C.
   - For g = 2 a uniform Manin–Mumford for translates is needed.
   - Kühne's later uniform Manin–Mumford theorem proves Theorem 1.4 outright.
+  - (Superseded by the review: Rémond's bound, which the paper already uses, gives the uniform bound for every g ≥ 2; see the end.)
 
 No erratum is listed for the paper. The findings are recorded against arXiv v3, since the published text was not accessible.
 
@@ -86,3 +89,52 @@ No erratum is listed for the paper. The findings are recorded against arXiv v3, 
 - Every missing item appears in exactly one route, and no source route takes a planned or library item.
 - Planned layer ids were checked against `data/atlas.json`. The Mathlib citation was read at 082e2d3 (`NumberTheory/Height/Projectivization.lean:51`). Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-DIMITROV-GAO-HABEGGER-21, 23 September 2026)
+
+The review read the whole of arXiv v3 (the same SHA-256). The Annals PDF needs a subscription. The review also read two supporting sources:
+- David–Philippon [DP02], p.643 (Rémond's bound);
+- Gao's Theorem 1.3 (arXiv 1810.12929), for E3 and item 25.
+
+All routes are accepted. E1–E6 are confirmed, and E6's repair is revised.
+
+**Status change.** Item 6, the absolute Weil height on ℙⁿ(ℚ̄), moves from library to planned by RP.0.
+- Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values.
+- For a number field it is not normalized by the degree, and there is no ℚ̄ version.
+
+**Items corrected in place:**
+- **12.** It now states exactly when τ is injective: τ(C,α) = τ(C′,α′) iff (C′,α′) ≅ (C,±α), so τ is injective for g = 2. The StableReduction Part II acceptance test is corrected to match.
+- **13.** M ≥ 1, with the p.28 locator.
+- **18, 20.** N ∈ ℤ, and item 18's locator is pp.9–10.
+- **22.** Adds (Hyp) and that Δ is the domain of a Betti map.
+- **25.** Over ℚ̄, with Gao's hypotheses listed.
+- **26.** S is regular; the sections give a spanning set of H⁰, not necessarily a basis.
+- **29.** Restricted to abelian schemes over a regular base, as the paper uses it.
+- **33, 34, 41, 43.** Locators corrected, and item 34 is stated for any line bundle.
+- **36–38.** The standing hypotheses are added. Proposition 4.3 uses dominance and projective normality but not (Hyp).
+- **39–40.** h_{S̄} replaces h_S.
+- **50.** The quasi-section factorization is restated the right way round.
+- **62.** Only a ℚ̄-isomorphism class is finite, not F′.
+
+**New items:**
+- **64. The Height Machine**, planned by RP.0.
+- **65. [N]*L ≅ L^{N²}**, planned by Tau Ceti JacobianChallenge layer E.
+- **66. Projective normality** (Mumford); missing, routed to A2.
+- **67. Rémond's bound**; missing, routed to the uniformity Part II.
+- **68. Faltings, modular and theta height comparisons**, planned by R35.3 and R35.5.
+
+**Revised E6.** The uniform-in-P₀ bound for the finitely many small-height curves in Theorem 1.4 follows from Rémond's bound with Γ the torsion subgroup, for every g ≥ 2. The paper already uses that bound after Theorem 1.1. The extraction's claim that g = 2 needs Kühne's uniform Manin–Mumford was wrong.
+
+**Ten new issues, all confirmed:**
+- **E7** (misprint, pp.17–18). ϑ and θ are swapped.
+- **E8** (error, p.17). Extending ϑ by zero outside K is not smooth.
+- **E9** (error, (4.13), p.21). The bound fails when D′ = 0; use max{1, D′}.
+- **E10** (gap, pp.39–40). The last Height Machine step needs a comparison on the resolution. It holds over S.
+- **E11** (error, p.6). "not injective as we have level structure" is false for g = 2.
+- **E12** (misprint, p.6). The target of D_M is 𝔄_g^{[M]} ×_{A_g} M_g.
+- **E13** (misprint, p.4). The ball count is (1 + 2√(c₀c₃))^ρ.
+- **E14** (gap, pp.11–12). The proof of Proposition 2.7 is incomplete. It is repaired pointwise: ker ω|_{T_xX} = ker db_Δ|_{T_xX}.
+- **E15** (gap, p.43). In the second dévissage x must be chosen over the regular locus, which Lemma B.3 allows.
+- **E16** (misprint, p.27). The Betti map's target is T^{2Mg}.
+
+None affects a stated theorem.

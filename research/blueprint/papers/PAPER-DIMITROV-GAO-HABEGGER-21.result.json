@@ -13,7 +13,7 @@
       "Entire arXiv v3 (31 March 2021, the latest version), 49 pages: §§1–8, Appendices A–B and references, read 2026-09-22 (PDF https://arxiv.org/pdf/2001.10276v3, SHA-256 5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4). The typeset Annals PDF was not accessible, so the published version was not collated."
     ]
   },
-  "summary": "Proves that a smooth genus-g curve over a number field of degree ≤ d has at most c(g,d)^{1+ρ} rational points, ρ the Mordell–Weil rank (Theorem 1.1, Mazur's question). It also proves uniform Mordell–Lang for curves of large modular height (Theorem 1.2), torsion-point bounds (Corollary 1.3, Theorem 1.4) and the height inequality ĥ_A ≥ c₁h(π) − c₂ on non-degenerate subvarieties of abelian schemes (Theorems 1.6, B.1). Non-degeneracy is defined by the generic rank of the Betti map, constructed with the Betti form. The inequality combines that form with Siu's bigness criterion and Silverman–Tate; with Gao's non-degeneracy of the Faltings–Zhang images and Rémond's Vojta method it gives the counts. The atlas plans heights, Northcott, Manin–Mumford, Siegel moduli and the Hurwitz bound. It lacks Betti maps, the height inequality, moduli of curves with level structure, relative Jacobians and the counting argument.",
+  "summary": "Proves that a smooth genus-g curve over a number field of degree ≤ d has at most c(g,d)^{1+ρ} rational points, ρ the Mordell–Weil rank (Theorem 1.1, Mazur's question). It also proves uniform Mordell–Lang for curves of large modular height (Theorem 1.2), torsion-point bounds (Corollary 1.3, Theorem 1.4) and the height inequality ĥ_A ≥ c₁h(π) − c₂ on non-degenerate subvarieties of abelian schemes (Theorems 1.6, B.1). Non-degeneracy is defined by the generic rank of the Betti map, constructed with the Betti form. The inequality combines that form with Siu's bigness criterion and Silverman–Tate; with Gao's non-degeneracy of the Faltings–Zhang images and Rémond's Vojta method it gives the counts. The atlas plans heights, Northcott, Manin–Mumford, Siegel moduli and the Hurwitz bound. It lacks Betti maps, the height inequality, moduli of curves with level structure, relative Jacobians and the counting argument. The independent review (REV-PAPER-DIMITROV-GAO-HABEGGER-21) moved the Weil height from library to planned (Mathlib's height is relative to a number field), corrected hypotheses and locators, added five items (the Height Machine, [N]*L ≅ L^{N²}, projective normality, Rémond's bound, height comparisons), revised E6's repair to Rémond's bound, and added ten further issues (E7–E16), among them a gap in the proof of Proposition 2.7 with a pointwise repair.",
   "items": [
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/1",
@@ -66,11 +66,11 @@
       "name": "Absolute logarithmic Weil height on ℙ^n(ℚ̄)",
       "statement": "h : ℙ^n_{ℚ̄}(ℚ̄) → [0,∞), the absolute logarithmic Weil height (Bombieri–Gubler §1.5.1), used on ℙ^m and on products via sums.",
       "locator": "§1, p.2 and §3.1, p.14, arXiv v3 (31 March 2021)",
-      "status": "library",
-      "library": [
-        "mathlib:Projectivization.logHeight"
-      ],
-      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) for fields with `Height.AdmissibleAbsValues`; the ℚ̄ extension is RP.0/DT.0 work."
+      "status": "planned",
+      "note": "RP.0 plans normalized absolute heights. Mathlib's `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) is the height relative to a field K with `Height.AdmissibleAbsValues` (for a number field, the product over its places, not normalized by [K:ℚ]); the absolute height on ℙⁿ(ℚ̄) is not in the library.",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ]
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/7",
@@ -129,7 +129,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/12",
       "kind": "construction",
       "name": "Torelli morphism M_g → A_g and its finiteness",
-      "statement": "Taking Jacobians gives the Torelli morphism τ : M_g → A_g with Cartesian square (6.1) Jac(C_g) ≅ M_g ×_{A_g} 𝔄_g; τ is finite-to-one on ℂ-points but not injective with level structure (Oort–Steenbrink Lemma 1.11). On coarse spaces Torelli's theorem gives injectivity up to isomorphism, used with Northcott in the proofs of Theorems 1.1 and 1.4.",
+      "statement": "Taking Jacobians gives the Torelli morphism τ : M_g → A_g with Cartesian square (6.1) Jac(C_g) ≅ M_g ×_{A_g} 𝔄_g; τ is finite-to-one on ℂ-points (Oort–Steenbrink Lemma 1.11): τ(C,α) = τ(C′,α′) iff (C′,α′) ≅ (C,±α), so fibres have at most two points; τ is injective on points when g = 2 (every curve is hyperelliptic and the hyperelliptic involution acts as −1) and not injective for g ≥ 3. The paper's parenthetical 'not injective as we have level structure' (p.6) is false for g = 2 (sourceIssues E11). On coarse spaces Torelli's theorem gives injectivity up to isomorphism, used with Northcott in the proofs of Theorems 1.1 and 1.4.",
       "locator": "§1.2, p.6; (6.1), p.24; proofs of Theorems 1.1, 1.4, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to the pending StableReductionPartII (which plans compactified Torelli)."
@@ -138,10 +138,10 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/13",
       "kind": "construction",
       "name": "Faltings–Zhang morphism D_M",
-      "statement": "For an abelian variety A and M ≥ 1, D_M : A^{M+1} → A^M, (P₀,…,P_M) ↦ (P₁ − P₀, …, P_M − P₀). In families over S → M_g it is the proper S-morphism D_M : C_S^{[M+1]} → 𝔄_g^{[M]} ×_{A_g} S built from Pic¹ × Pic¹ → Jac by differences.",
-      "locator": "(1.3), p.6; §6.1, (6.3)–(6.5), pp.24–25, arXiv v3 (31 March 2021)",
+      "statement": "For an abelian variety A and M ≥ 1 (the paper says M ≥ 2 on p.6 but uses D₁ in §6), D_M : A^{M+1} → A^M, (P₀,…,P_M) ↦ (P₁ − P₀, …, P_M − P₀). In families over S → M_g it is the proper S-morphism D_M : C_S^{[M+1]} → 𝔄_g^{[M]} ×_{A_g} S built from Pic¹ × Pic¹ → Jac by differences.",
+      "locator": "(1.3), p.6; §6.1, (6.3)–(6.5), pp.24–25; single abelian variety p.28, arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "The single-abelian-variety morphism is routed to RP.5 as a source; its curve-family version rides on the uniformity Part II."
+      "note": "The single-abelian-variety morphism is routed to RP.5 as a source; its curve-family version rides on the uniformity Part II. The paper's display on p.6 puts the target over M_g; it is 𝔄_g^{[M]} ×_{A_g} M_g (sourceIssues E12)."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/14",
@@ -190,8 +190,8 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/18",
       "kind": "theorem",
       "name": "Lemma 2.3 (the Betti form upstairs)",
-      "statement": "ω̂_univ := √−1 ∂∂̄(2 (Im w)ᵀ (Im Z)^{−1} (Im w)) on ℂ^g × ℍ_g is a closed semi-positive (1,1)-form equal to √−1 (dZ Y^{−1} Im w − dw)ᵀ ∧ Y^{−1} (dZ̄ Y^{−1} Im w − dw̄) with Y = Im Z, and Ñ*ω̂_univ = N²ω̂_univ for Ñ(w,Z) = (Nw, Z).",
-      "locator": "Lemma 2.3 and (2.1), pp.8–10, arXiv v3 (31 March 2021)",
+      "statement": "ω̂_univ := √−1 ∂∂̄(2 (Im w)ᵀ (Im Z)^{−1} (Im w)) on ℂ^g × ℍ_g is a closed semi-positive (1,1)-form equal to √−1 (dZ Y^{−1} Im w − dw)ᵀ ∧ Y^{−1} (dZ̄ Y^{−1} Im w − dw̄) with Y = Im Z, and Ñ*ω̂_univ = N²ω̂_univ for Ñ(w,Z) = (Nw, Z), N ∈ ℤ.",
+      "locator": "Lemma 2.3 and (2.1), pp.9–10, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to the Betti-map Part II."
     },
@@ -208,7 +208,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/20",
       "kind": "theorem",
       "name": "Lemma 2.6 (descent of the Betti form)",
-      "statement": "ω̂_univ is invariant under P_{2g,a}(ℝ) and descends to a semi-positive (1,1)-form ω_univ on 𝔄_g^an with [N]*ω_univ = N²ω_univ.",
+      "statement": "ω̂_univ is invariant under P_{2g,a}(ℝ) and descends to a semi-positive (1,1)-form ω_univ on 𝔄_g^an with [N]*ω_univ = N²ω_univ for N ∈ ℤ.",
       "locator": "Lemma 2.6, p.11, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to the Betti-map Part II."
@@ -226,10 +226,10 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/22",
       "kind": "theorem",
       "name": "Proposition 2.2(iii) and Proposition 2.7 (Betti form versus Betti rank)",
-      "statement": "For an irreducible X ⊆ A of dimension d and open Δ ⊆ S^an with X^{sm,an} ∩ A_Δ ≠ ∅: (ω|_{X^{sm,an}})^{∧d} ≢ 0 iff max_{x} rank_ℝ (db_Δ|_{X^{sm,an}})_x = 2d.",
+      "statement": "Under (Hyp), for an irreducible X ⊆ A of dimension d and an open Δ ⊆ S^an that is the domain of a Betti map b_Δ with X^{sm,an} ∩ A_Δ ≠ ∅: (ω|_{X^{sm,an}})^{∧d} ≢ 0 iff max_{x} rank_ℝ (db_Δ|_{X^{sm,an}})_x = 2d.",
       "locator": "Proposition 2.2(iii), p.8; Proposition 2.7, pp.11–12; general case (2.5)–(2.7), pp.12–13, arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "Routed to the Betti-map Part II."
+      "note": "Routed to the Betti-map Part II. The paper's proof has gaps (sourceIssues E14). The pointwise identity ker(ω|_{T_xX}) = ker(db_Δ|_{T_xX}), from ω = b_Δ^*(2(da)ᵀ∧db), gives the equivalence directly."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/23",
@@ -253,19 +253,19 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/25",
       "kind": "theorem",
       "name": "Theorem 6.2 (non-degeneracy of D_M(C_S^{[M+1]}), Gao)",
-      "statement": "Let S be irreducible with a quasi-finite morphism S → M_g, g ≥ 2, M ≥ 3g − 2. Then D_M(C_S^{[M+1]}) ⊆ 𝔄_g^{[M]} ×_{A_g} S is non-degenerate.",
+      "statement": "Let S be an irreducible variety over ℚ̄ with a quasi-finite morphism S → M_g, g ≥ 2, M ≥ 3g − 2 (Gao's theorem is stated over ℂ). Then D_M(C_S^{[M+1]}) ⊆ 𝔄_g^{[M]} ×_{A_g} S is non-degenerate.",
       "locator": "Theorem 6.2 and proof, pp.26–28, citing Gao [Gao20a, Thm. 1.2′, Thm. 1.3(ii)], arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "Proof: with a section, Gao's Theorem 1.3(ii) applies to the Abel–Jacobi image (hypotheses (a)–(c): relative dimension 1, curves generate, finite stabilizer for g ≥ 2) with M ≥ dim S + 1 ≤ 3g − 2; in general pass to a quasi-finite étale cover with a section and transport the Betti map. Routed to the Betti-map Part II."
+      "note": "Proof: with a section, Gao's Theorem 1.3(ii) applies to the Abel–Jacobi image (hypotheses (a)–(c): relative dimension 1, curves generate, finite stabilizer for g ≥ 2) with M ≥ dim S + 1 ≤ 3g − 2; in general pass to a quasi-finite étale cover with a section and transport the Betti map. Routed to the Betti-map Part II. Gao's Theorem 1.3 hypotheses are dim X > dim S, X_s generating A_s, and no non-isotrivial abelian subscheme A′ with X + A′ ⊆ X."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/26",
       "kind": "theorem",
       "name": "Remark 3.1 (projective presentation of an abelian scheme)",
-      "statement": "For an abelian scheme π : A → S over S ⊆ S̄ ⊆ ℙ^m and a symmetric ample L₀ on the generic fibre, there is an S-ample L on A restricting to L₀^{⊗l} (l ≥ 4) with [−1]*L ≅ L trivial along the zero section (Raynaud, Faisceaux amples XI 1.13, 1.3a); a power is S-very ample and L ⊗ π*M gives a closed immersion A → ℙ^n × S whose generic fibre is projectively normal.",
+      "statement": "For an abelian scheme π : A → S over a regular S ⊆ S̄ ⊆ ℙ^m and a symmetric ample L₀ on the generic fibre, there is an S-ample L on A restricting to L₀^{⊗l} (l ≥ 4) with [−1]*L ≅ L trivial along the zero section (Raynaud, Faisceaux amples XI 1.13, 1.3a); a power is S-very ample and L ⊗ π*M gives a closed immersion A → ℙ^n × S whose generic fibre is projectively normal.",
       "locator": "Remark 3.1, p.13; §6.1, p.24 (Raynaud XI 1.4), arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "Routed to AbelianSchemesAndArithmeticModuli A2 as a source."
+      "note": "Routed to AbelianSchemesAndArithmeticModuli A2 as a source. The sections of L ⊗ π*M restrict on the generic fibre to a spanning set of H⁰(L₀^{⊗l}), not in general a basis; this only changes the embedding by a linear one, which keeps projective normality."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/27",
@@ -292,7 +292,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/29",
       "kind": "theorem",
       "name": "Line bundles trivial on the generic fibre come from the base",
-      "statement": "For an abelian (more generally, proper flat with geometrically integral fibres) scheme A → S over a normal base, a line bundle on A trivial on the generic fibre is isomorphic to π*K for a line bundle K on S (EGA IV 21.4.13).",
+      "statement": "For an abelian scheme π : A → S over a regular base S, a line bundle on A that is trivial on the generic fibre is isomorphic to π*K for a line bundle K on S (EGA IV 21.4.13, as used by the paper).",
       "locator": "§3.1, p.14; Remark 3.2, p.14; proof of Proposition A.2, p.38, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to SchemeAndStackFoundations SF.0 as a source."
@@ -329,7 +329,7 @@
       "kind": "theorem",
       "name": "Positivity of intersections on multiprojective space (Fulton 12.2(a))",
       "statement": "On a variety whose tangent bundle is globally generated (e.g. a product of projective spaces), the intersection class of equidimensional V₁,…,V_r is represented by a non-negative cycle whose support contains every proper component; hence every effective Weil divisor on multiprojective space is nef.",
-      "locator": "Proof of Proposition 4.3, p.20, citing Fulton [Ful98, Cor. 12.2(a), Ex. 12.2.1], arXiv v3 (31 March 2021)",
+      "locator": "Proof of Proposition 4.3, pp.19–20, citing Fulton [Ful98, Cor. 12.2(a), Ex. 12.2.1], arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to SF.5 as a source."
     },
@@ -337,7 +337,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/34",
       "kind": "theorem",
       "name": "Integration of positive forms over analytic subsets and intersection numbers",
-      "statement": "Smooth compactly supported forms integrate over complex analytic subsets (Lelong); wedge products of semi-positive (1,1)-forms are positive (Demailly III.1.11, III.2.7); on a compact projective variety, ∫_{X^an} α^{∧d} for a Fubini–Study representative α of O(1,…,1) equals the intersection number (O(1,…,1)^{·d}·[X]) (Voisin Thm. 11.21).",
+      "statement": "Smooth compactly supported forms integrate over complex analytic subsets (Lelong); wedge products of semi-positive (1,1)-forms are positive (Demailly III.1.11, III.2.7); on a compact projective variety, ∫_{X^an} α^{∧d} for a smooth closed (1,1)-form representing any line bundle (the paper applies it to ρ₂*α, representing O(0,1,1)) equals the intersection number (O(1,…,1)^{·d}·[X]) (Voisin Thm. 11.21).",
       "locator": "Proof of Proposition 4.2, pp.17–18, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to ComplexComparisonPartII C5 as a source."
@@ -355,7 +355,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/36",
       "kind": "theorem",
       "name": "Proposition 4.2 (lower bound for the top self-intersection)",
-      "statement": "If X^an has a smooth point where (ω|_{X^{sm,an}})^{∧d} > 0, there is κ > 0 independent of N with (F^{·d}) ≥ κ N^{2d} on X̄_N for all N ∈ ℕ.",
+      "statement": "In the setting of §3, with (Hyp) and X ⊆ A closed irreducible of dimension d over ℚ̄ dominating S: If X^an has a smooth point where (ω|_{X^{sm,an}})^{∧d} > 0, there is κ > 0 independent of N with (F^{·d}) ≥ κ N^{2d} on X̄_N for all N ∈ ℕ.",
       "locator": "Proposition 4.2 and proof, pp.17–19, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "C α − ω ≥ 0 on A_Δ, pull back by [N] using [N]*ω = N²ω, compare ∫(C[N]*(θα))^d ≥ N^{2d}∫(θω)^d, then integrate over X̄_N. Routed to the uniformity Part II."
@@ -364,16 +364,16 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/37",
       "kind": "theorem",
       "name": "Proposition 4.3 (upper bound for the mixed intersection)",
-      "statement": "For d ≥ 1 there is c > 0 depending on the data such that for every N a power of 2: (M·F^{·(d−1)}) ≤ c N^{2(d−1)} on X̄_N.",
+      "statement": "In the setting of §3, with X ⊆ A closed irreducible of dimension d ≥ 1 dominating S and A presented by the projectively normal symmetric embedding of Remark 3.1 (l ≥ 4): For d ≥ 1 there is c > 0 depending on the data such that for every N a power of 2: (M·F^{·(d−1)}) ≤ c N^{2(d−1)} on X̄_N.",
       "locator": "Proposition 4.3 and proof, pp.19–21, arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "Cut out X̄_N by the iterated quartic polynomials and apply Fulton positivity. Routed to the uniformity Part II."
+      "note": "Cut out X̄_N by the iterated quartic polynomials and apply Fulton positivity. Routed to the uniformity Part II. The proof uses dominance of X over S and Serre's quartic duplication formulas, but neither (Hyp) nor the Betti form. The bound (4.13) as printed fails when D′ = 0 (sourceIssues E9)."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/38",
       "kind": "theorem",
       "name": "Proposition 4.1 (height inequality on the total space)",
-      "statement": "If X^an has a smooth point where (ω|_X)^{∧d} > 0, there is c₁ > 0 such that for every N a power of 2 there are a Zariski open dense U_N ⊆ X over ℚ̄ and c₂(N) with h([N]P) ≥ c₁ N² h(π(P)) − c₂(N) for all P ∈ U_N(ℚ̄).",
+      "statement": "In the setting of §3, with (Hyp) and X ⊆ A closed irreducible of dimension d over ℚ̄ dominating S: If X^an has a smooth point where (ω|_X)^{∧d} > 0, there is c₁ > 0 such that for every N a power of 2 there are a Zariski open dense U_N ⊆ X over ℚ̄ and c₂(N) with h([N]P) ≥ c₁ N² h(π(P)) − c₂(N) for all P ∈ U_N(ℚ̄).",
       "locator": "Proposition 4.1, p.16; proof §4.3, pp.21–22, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Siu applied to F^{⊗q} ⊗ M^{⊗−qc₁N²} with 0 < c₁cd < κ. Routed to the uniformity Part II."
@@ -382,7 +382,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/39",
       "kind": "theorem",
       "name": "Theorem A.1 (Silverman–Tate, Cartier-divisor version)",
-      "statement": "For an abelian scheme π : A → S over a regular irreducible quasi-projective S/ℚ̄ with a closed immersion A → ℙ^n × S, S ⊆ S̄ ⊆ ℙ^m, L = O(1,1)|_A symmetric on the generic fibre: there is c > 0 with |ĥ_A(P) − h(P)| ≤ c·max{1, h_S(π(P))} for all P ∈ A(ℚ̄).",
+      "statement": "For an abelian scheme π : A → S over a regular irreducible quasi-projective S/ℚ̄ with a closed immersion A → ℙ^n × S, S ⊆ S̄ ⊆ ℙ^m, L = O(1,1)|_A symmetric on the generic fibre: there is c > 0 with |ĥ_A(P) − h(P)| ≤ c·max{1, h_{S̄}(π(P))} for all P ∈ A(ℚ̄).",
       "locator": "Theorem A.1 and proof, pp.36–40, arXiv v3 (31 March 2021); Silverman [Sil83, Thm. A]",
       "status": "missing",
       "note": "Routed to RP.0 as a source."
@@ -391,17 +391,17 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/40",
       "kind": "theorem",
       "name": "Proposition A.2 (duplication estimate)",
-      "statement": "There is c₁ > 0 with |h([2]P) − 4h(P)| ≤ c₁ max{1, h_S(π(P))} for all P ∈ A(ℚ̄).",
+      "statement": "There is c₁ > 0 with |h([2]P) − 4h(P)| ≤ c₁ max{1, h_{S̄}(π(P))} for all P ∈ A(ℚ̄).",
       "locator": "Proposition A.2 and proof, pp.37–40, arXiv v3 (31 March 2021)",
       "status": "missing",
-      "note": "Graph closure A′ of [2]; F′ = [2]*L ⊗ ρ*L^{⊗−4} trivial on the generic fibre, hence a pullback; resolve S̄ and A (Hironaka) and bound a Cartier divisor supported over the boundary by pullbacks of effective divisors E_i avoiding any given π(P); finitely many choices cover S. Routed to RP.0 as a source."
+      "note": "Graph closure A′ of [2]; F′ = [2]*L ⊗ ρ*L^{⊗−4} trivial on the generic fibre, hence a pullback; resolve S̄ and A (Hironaka) and bound a Cartier divisor supported over the boundary by pullbacks of effective divisors E_i avoiding any given π(P); finitely many choices cover S. Routed to RP.0 as a source. The last Height Machine step, comparing heights on the resolution S̄′ with h_{S̄}, needs the argument in sourceIssues E10."
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/41",
       "kind": "theorem",
       "name": "Resolution of singularities in characteristic 0 (Hironaka)",
       "statement": "A variety over a field of characteristic 0 admits a proper birational morphism from a regular variety that is an isomorphism over the regular locus; in particular the compactifications S̄ and Ā can be desingularized without changing S and A.",
-      "locator": "Proof of Proposition A.2, pp.38–39, arXiv v3 (31 March 2021)",
+      "locator": "Proof of Proposition A.2, p.38, arXiv v3 (31 March 2021)",
       "status": "planned",
       "planned": [
         "AlgebraicModuliForArithmeticGeometry:R09.7"
@@ -422,7 +422,7 @@
       "kind": "theorem",
       "name": "Theorem 1.6 (height inequality under (Hyp))",
       "statement": "Let S be regular irreducible quasi-projective over ℚ̄, Zariski open in S̄ ⊆ ℙ^m, π : A → S an abelian scheme with (Hyp), presented by A → ℙ^n × S coming on the generic fibre from L^{⊗l}, l ≥ 4, L symmetric ample. If X ⊆ A is closed irreducible over ℚ̄, dominates S and is non-degenerate, there are c₁ > 0, c₂ ≥ 0 and a Zariski open dense U ⊆ X with ĥ_A(P) ≥ c₁ h(π(P)) − c₂ for all P ∈ U(ℚ̄).",
-      "locator": "Theorem 1.6, p.5; proof §5, pp.22–23, arXiv v3 (31 March 2021)",
+      "locator": "Theorem 1.6, pp.4–5; proof §5, pp.22–23, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Proposition 4.1 with Silverman–Tate; fix N a power of 2 with N² ≥ 2c₀/c₁ to kill the Zimmer constant. Routed to the uniformity Part II."
     },
@@ -488,7 +488,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/50",
       "kind": "theorem",
       "name": "Quasi-sections of smooth surjective morphisms",
-      "statement": "A smooth surjective morphism admits, étale-locally on the target, a section: there are an affine S and a surjective quasi-finite étale S → M_g through which S → C_g factors (EGA IV 17.16.3(ii)).",
+      "statement": "A smooth surjective morphism admits a quasi-section: there are an affine S and a surjective quasi-finite étale morphism S → M_g that factors through C_g → M_g (EGA IV 17.16.3(ii)). The paper's wording on p.26 ('a morphism S → C_g that factors through … S → M_g') reverses the factorization.",
       "locator": "Proof of Lemma 6.1, p.26, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to SF.0 as a source."
@@ -605,7 +605,7 @@
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/62",
       "kind": "theorem",
       "name": "Finitely many moduli points of small height and bounded degree",
-      "statement": "If h_{A_g,M}(τ(s)) < c₁ and C is defined over F with [F:ℚ] ≤ d, then τ(s), s and F′ = F(s) lie in finite sets depending on g, d, ℓ (Northcott, finiteness of τ); the remaining curves are twists in finitely many F′-isomorphism classes, and Rémond's bound for a single curve (David–Philippon [DP02, p.643]) finishes Theorem 1.1.",
+      "statement": "If h_{A_g,M}(τ(s)) < c₁ and C is defined over F with [F:ℚ] ≤ d, then τ(s) and s lie in finite sets depending on g, d, ℓ (Northcott, finiteness of τ), and [F′:F] is bounded for F′ = F(s); the remaining curves lie in finitely many ℚ̄-isomorphism classes (the paper says F′-isomorphism classes), and Rémond's bound for a single curve (David–Philippon [DP02, p.643]) finishes Theorem 1.1.",
       "locator": "Proof of Theorem 1.1, pp.34–35, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to the uniformity Part II."
@@ -618,6 +618,61 @@
       "locator": "Remark after the proof of Theorem 1.1, p.35, arXiv v3 (31 March 2021)",
       "status": "missing",
       "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/64",
+      "kind": "theorem",
+      "name": "The Height Machine",
+      "statement": "For projective varieties over ℚ̄ there is a homomorphism L ↦ h_L from line bundles to functions modulo bounded functions, normalized by the Weil height for O(1), functorial under pullback, with h_L ≥ O(1) off the base locus of any nonzero section of L (Bombieri–Gubler Thm. 2.3.8).",
+      "locator": "§3.1, p.14; proof of Proposition 4.1, pp.16, 22; proof of Proposition A.2, pp.39–40, citing [BG06, Thm. 2.3.8], arXiv v3 (31 March 2021)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ],
+      "note": "Added by the review: it is how bigness becomes the height inequality in Proposition 4.1 and how Proposition A.2 is concluded. RP.0 plans divisor/line-bundle heights modulo bounded functions and their pullback laws."
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/65",
+      "kind": "theorem",
+      "name": "[N]*L ≅ L^{⊗N²} for a symmetric line bundle",
+      "statement": "For a symmetric line bundle L on an abelian variety and N ∈ ℤ, [N]*L ≅ L^{⊗N²} (theorem of the cube).",
+      "locator": "§4.2, p.19; Appendix A, p.36, arXiv v3 (31 March 2021)",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ],
+      "note": "Added by the review: it gives the degree 4 of the duplication polynomials and the factor 4 in Proposition A.2. Tau Ceti JacobianChallenge layer E plans the theorem of the cube and [n] as an isogeny."
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/66",
+      "kind": "theorem",
+      "name": "Projective normality of L^{⊗l}, l ≥ 4, on an abelian variety (Mumford)",
+      "statement": "For an ample line bundle L on an abelian variety and l ≥ 4, the embedding by the complete linear system |L^{⊗l}| is projectively normal (the paper's reference is Mumford, Varieties defined by quadratic equations [Mum70, Theorem 9]).",
+      "locator": "§3.1 and Remark 3.1, p.13, citing Mumford [Mum70, Theorem 9]; proof of Theorem B.1, p.46, arXiv v3 (31 March 2021)",
+      "status": "missing",
+      "note": "Added by the review: it is the hypothesis of Serre's quartic duplication formulas used in Proposition 4.3. Routed to AbelianSchemesAndArithmeticModuli A2 with Remark 3.1."
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/67",
+      "kind": "theorem",
+      "name": "Rémond's bound for points of finite-rank subgroups on subvarieties",
+      "statement": "For a subvariety X of an abelian variety A over ℚ̄ and a subgroup Γ ⊆ A(ℚ̄) of finite rank r, X(ℚ̄) ∩ Γ is a union of at most S ≤ (2^{34}·h₀(A)·deg X)^{(r+1)g^5(dim X+1)^2} sets (x_i + B_i)(ℚ̄) ∩ Γ with x_i + B_i ⊆ X, B_i abelian subvarieties ([DP02, p.643], with the notation of DP02 Theorem 1.4).",
+      "locator": "Proofs of Theorems 1.1 and 1.2, pp.34–36, citing [DP02, p.643], arXiv v3 (31 March 2021)",
+      "status": "missing",
+      "note": "Added by the review: it handles the curves of small modular height in Theorem 1.1, gives the polynomial growth in d, and repairs E6. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/68",
+      "kind": "theorem",
+      "name": "Comparison of the modular, Faltings and theta heights",
+      "statement": "On a fine moduli space A_{g,ℓ} with an ample M, the stable Faltings height of A_{g,τ(s)} is bounded above in terms of g and h_{A_g,M}(τ(s)) (Faltings [Fal83, §3], Faltings–Chai V.4.4–4.5), and the David–Philippon theta height h_DP is bounded similarly (Bost–David, [DP02, Cor. 6.9], Pazuki).",
+      "locator": "Remark after the proof of Theorem 1.1, p.35, arXiv v3 (31 March 2021)",
+      "status": "planned",
+      "planned": [
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.5"
+      ],
+      "note": "Added by the review. ArakelovGeometryAndAbelianHeights R35.3 plans the stable Faltings height and R35.5 the comparison of moduli and theta heights with it."
     }
   ],
   "prerequisites": [
@@ -703,7 +758,8 @@
       ],
       "items": [
         "PAPER-DIMITROV-GAO-HABEGGER-21/26",
-        "PAPER-DIMITROV-GAO-HABEGGER-21/45"
+        "PAPER-DIMITROV-GAO-HABEGGER-21/45",
+        "PAPER-DIMITROV-GAO-HABEGGER-21/66"
       ],
       "reason": "A2 owns polarizations and relatively ample symmetric line bundles on abelian schemes. The paper uses Raynaud's existence of S-ample symmetric bundles and projective presentations (Faisceaux amples XI 1.4, 1.13), Mumford's isogeny to a principal polarization, its extension over an étale cover (XI 1.15) and polarization types over a regular base. These are exactly A2 material, so the paper is a source for it."
     },
@@ -786,7 +842,8 @@
         "PAPER-DIMITROV-GAO-HABEGGER-21/60",
         "PAPER-DIMITROV-GAO-HABEGGER-21/61",
         "PAPER-DIMITROV-GAO-HABEGGER-21/62",
-        "PAPER-DIMITROV-GAO-HABEGGER-21/63"
+        "PAPER-DIMITROV-GAO-HABEGGER-21/63",
+        "PAPER-DIMITROV-GAO-HABEGGER-21/67"
       ],
       "brief": "Same id as the pending PAPER-YUAN-26 and PAPER-GAO-GE-KUHNE-26 routes. This paper supplies the height inequality those routes import and the curve case of uniform Mordell–Lang. Import the height machine, Néron–Tate heights, Silverman–Tate and Northcott from HeightsRationalPointsAndObstructions RP.0, Mordell–Weil, Faltings and Manin–Mumford from RP.1, RP.4 and RP.5, Siegel moduli from PELModuli M5–M6, compactifications from ShimuraCompactifications C5, Betti maps and non-degeneracy from AbelianSchemesBettiMapsPartII, moduli of curves with level structure and Torelli from StableReductionPartII, relative Jacobians from JacobianChallengePartII, intersection theory, Siu and Fulton positivity from SchemeAndStackFoundations SF.5, and the integration comparison from ComplexComparisonPartII C5. State and prove (Dimitrov–Gao–Habegger, Ann. Math. 194 (2021)): Theorem 1.6 and its general form Theorem B.1, ĥ_{A,L}(P) ≥ c₁h_{S̄,M}(π(P)) − c₂ on a Zariski open dense subset of any non-degenerate X, via the graph construction, Propositions 4.1–4.3 (κN^{2d} ≤ (F^d), (M·F^{d−1}) ≤ cN^{2(d−1)}) and Siu's criterion, with the seven dévissage steps; Lemma 6.1 (uniform degree, and height ≪ max{1, h(τ(s))}, of Abel–Jacobi curves via arithmetic Bézout); Lemmas 6.3 and 6.4; Proposition 7.1 (Néron–Tate distance alternative); Lemma 8.2 (Rémond), the bounds (8.4) and (8.7) for c_NT and h₁; Proposition 8.1; Theorem 1.1 (#C(F) ≤ c(g,d)^{1+ρ}, with polynomial dependence on d), Theorem 1.2, Corollary 1.3 and Theorem 1.4. For Theorem 1.4 supply the bound uniform in the base point for the finitely many small-height curves (sourceIssues E6). Acceptance: the constants do not depend on the height of C; for rank 0 and torsion the count is independent of the height once h(τ(s)) ≥ c₁.",
       "reason": "The uniformity programme is the Part II already proposed under this id by YUAN-26 and GAO-GE-KUHNE-26. DGH provides its height inequality and the curve case, so it coalesces rather than proposing a new roadmap."
@@ -801,7 +858,7 @@
         "PAPER-DIMITROV-GAO-HABEGGER-21/10",
         "PAPER-DIMITROV-GAO-HABEGGER-21/12"
       ],
-      "brief": "This is the pending PAPER-YUAN-26 Part II of the same id, and its brief remains binding. This paper adds two consumer requirements. First, the fine moduli space M_{g,ℓ} of smooth genus-g curves (g ≥ 2) with symplectic level-ℓ structure (ℓ ≥ 3), a single geometrically irreducible component over ℚ̄ fixed by choosing ζ_ℓ, regular, quasi-projective of dimension 3g − 3, with a smooth projective universal curve C_g → M_g (Deligne–Mumford (5.14), Oort–Steenbrink Thm. 1.8). Second, the Torelli morphism τ : M_g → A_{g,ℓ}, with the Cartesian square Jac(C_g) ≅ M_g ×_{A_g} 𝔄_g, finite-to-one on ℂ-points (Oort–Steenbrink Lemma 1.11) and injective up to isomorphism on coarse spaces (Torelli's theorem). Export both to HeightsRationalPointsAndObstructionsPartII. Import fine moduli of abelian varieties from PELModuli M5–M6, and relative Jacobians from JacobianChallengePartII. Acceptance: τ is not injective at level ℓ ≥ 3 (the hyperelliptic involution acts on level structures), and a quasi-finite S → M_g pulls back a universal curve with irreducible fibred powers.",
+      "brief": "This is the pending PAPER-YUAN-26 Part II of the same id, and its brief remains binding. This paper adds two consumer requirements. First, the fine moduli space M_{g,ℓ} of smooth genus-g curves (g ≥ 2) with symplectic level-ℓ structure (ℓ ≥ 3), a single geometrically irreducible component over ℚ̄ fixed by choosing ζ_ℓ, regular, quasi-projective of dimension 3g − 3, with a smooth projective universal curve C_g → M_g (Deligne–Mumford (5.14), Oort–Steenbrink Thm. 1.8). Second, the Torelli morphism τ : M_g → A_{g,ℓ}, with the Cartesian square Jac(C_g) ≅ M_g ×_{A_g} 𝔄_g, finite-to-one on ℂ-points (Oort–Steenbrink Lemma 1.11) and injective up to isomorphism on coarse spaces (Torelli's theorem). Export both to HeightsRationalPointsAndObstructionsPartII. Import fine moduli of abelian varieties from PELModuli M5–M6, and relative Jacobians from JacobianChallengePartII. Acceptance: τ(C,α) = τ(C′,α′) iff (C′,α′) ≅ (C,±α), so τ is injective on points for g = 2 and two-to-one on the non-hyperelliptic locus for g ≥ 3, and a quasi-finite S → M_g pulls back a universal curve with irreducible fibred powers.",
       "reason": "Tau Ceti StableReduction stops before moduli spaces of curves. YUAN-26 already proposed this Part II, and DGH needs the fine level-ℓ moduli and the Torelli morphism, which fit inside it."
     },
     {
@@ -821,7 +878,7 @@
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E1",
       "kind": "misprint",
-      "locator": "§1.3, p.7 (arXiv v3; published Annals version not collated)",
+      "locator": "§1.3, p.7 (arXiv v3; the published version was not accessible)",
       "printed": "\"Then S^sm denotes the regular locus of X.\"",
       "correction": "S^sm denotes the regular locus of S.",
       "reason": "The sentence introduces notation for the variety S.",
@@ -831,12 +888,17 @@
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.7: 'Then S^sm denotes the regular locus of X' should say S.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E2",
       "kind": "misprint",
-      "locator": "Introduction to §4, p.16 (arXiv v3; published Annals version not collated)",
+      "locator": "Introduction to §4, p.16 (arXiv v3; the published version was not accessible)",
       "printed": "\"Next we prove the appropriate lower bound for (M · F^{·(d−1)}) in Proposition 4.3.\"",
       "correction": "An upper bound: Proposition 4.3 gives (M·F^{·(d−1)}) ≤ cN^{2(d−1)}.",
       "reason": "The preceding paragraph asks for \"an appropriate upper bound for (M·F^{·(d−1)})\", and Siu's criterion needs exactly that.",
@@ -846,12 +908,17 @@
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.16: the same paragraph asks for an upper bound, §4.2 is titled 'Bounding an intersection number from above', and Siu's criterion needs an upper bound.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E3",
       "kind": "misprint",
-      "locator": "Proof of Theorem 6.2, p.27 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem 6.2, p.27 (arXiv v3; the published version was not accessible)",
       "printed": "\"obtain that D_M(C^{[M+1]}_S) is non-degenerate if M ≥ j_ε(C_S) = dim S + 1\"",
       "correction": "M ≥ dim j_ε(C_S) = dim S + 1.",
       "reason": "Gao's Theorem 1.3(ii) has a dimension threshold, and dim j_ε(C_S) = dim S + 1 because the curves are one-dimensional.",
@@ -861,12 +928,17 @@
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.27. Gao's Theorem 1.3(ii) reads 'for all m ≥ dim X if ι is quasi-finite', which matches the correction.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E4",
       "kind": "misprint",
-      "locator": "Proof of Theorem 1.2, p.36 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem 1.2, p.36 (arXiv v3; the published version was not accessible)",
       "printed": "\"As in the proof of Theorem 1.2 we use h(ι(ρ(t))) ≤ c′h_{A_g,M}(t) + c″\"",
       "correction": "\"As after the proof of Theorem 1.1\".",
       "reason": "The inequality is established in the remark following the proof of Theorem 1.1 (p.35); the sentence sits inside the proof of Theorem 1.2 itself.",
@@ -876,12 +948,17 @@
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.36: the sentence refers to its own proof; the inequality h(ι(ρ(t))) ≤ c′h_{A_g,M}(t) + c″ is proved after Theorem 1.1 on p.35.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E5",
       "kind": "misprint",
-      "locator": "Proof of Theorem B.1, pp.43–46 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem B.1, pp.43–46 (arXiv v3; the published version was not accessible)",
       "printed": "\"We will proceed the proof with six dévissage steps.\" … \"Seventh dévissage: … It remains to prove the height inequality (B.1) with the extra hypotheses (i) - (v) listed above using Theorem 1.6. … (Hyp) is just (iv) and (v).\"",
       "correction": "There are seven dévissage steps. The extra hypotheses are (i)–(vi), and (Hyp) is (v) and (vi) (principal polarization and level-ℓ structure).",
       "reason": "The list has items (i)–(vii), with (iv) \"isogenous to a principally polarized scheme\", (v) \"principal polarization\" and (vi) \"level ℓ-structure\", and the text has headings First to Seventh. (Hyp) is defined on p.5 as a principal polarization plus a level-ℓ structure.",
@@ -891,22 +968,232 @@
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.43–46: the list has seven hypotheses (i)–(vii) and the headings run First to Seventh dévissage, so there are seven steps; (Hyp) is (v) and (vi) (principal polarization and level structure).",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     },
     {
       "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E6",
       "kind": "gap",
-      "locator": "Proof of Theorem 1.4, p.36 (arXiv v3; published Annals version not collated)",
+      "locator": "Proof of Theorem 1.4, p.36 (arXiv v3; the published version was not accessible)",
       "printed": "\"By the Northcott property and Torelli's Theorem, there are up-to Q̄-isomophism only finitely many C_Q̄'s … such that h(ι([Jac(C_Q̄)])) < c1. By applying Raynaud's result on the Manin–Mumford Conjecture to each one of these finitely many curves separately, we obtain Theorem 1.4.\"",
-      "correction": "For each of the finitely many curves C a bound for #((C − P₀) ∩ Jac(C)_tors) uniform in P₀ ∈ C(ℚ̄) is needed, because Theorem 1.4 quantifies over all P₀. For g ≥ 3 it follows from Raynaud's theorem for the surface C − C ⊆ Jac(C): its torsion lies in finitely many points and elliptic torsion cosets, and a coset t + E pulls back to a curve in C × C with no component C × {P₀}, so each P₀ meets it in boundedly many points. For g = 2, C − C = Jac(C), and a uniform Manin–Mumford for the translates C − P₀ is required, e.g. Kühne's later uniform Manin–Mumford theorem (arXiv:2101.10272), which proves Theorem 1.4 without the dependence on d.",
-      "reason": "Raynaud's theorem gives, for each embedding C − P₀ ⊆ Jac(C), a finite set, with no control of its size as P₀ varies over the infinitely many points of C(ℚ̄). The statement is true, but the displayed step does not prove it.",
+      "correction": "For each of the finitely many curves C of small height a bound for #((C − P₀) ∩ Jac(C)_tors) uniform in P₀ ∈ C(ℚ̄) is needed. Rémond's bound ([DP02, p.643], item 67), which the paper already uses after the proof of Theorem 1.1, gives it: with X = C − P₀ and Γ the torsion subgroup (rank 0), the cosets x_i + B_i ⊆ X are points, and their number is at most (2^{34}·h₀(Jac C)·deg(C − P₀))^{g^5·4}, which does not depend on P₀ (deg(C − P₀) is independent of P₀). This works for every g ≥ 2. Alternatively, apply Raynaud's theorem for subvarieties to D₂(C³) ⊊ Jac(C)² together with Lemma 6.3 (M = 2).",
+      "reason": "Raynaud's theorem gives, for each embedding C − P₀ ⊆ Jac(C), a finite set, with no control of its size as P₀ varies over the infinitely many points of C(ℚ̄). The statement is true, and the paper's own tool repairs the step.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
         "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
         "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap, but the extraction's correction was revised. It excluded components C × {P₀} where the paper's D₁ convention gives {P₀} × C. Its g ≥ 3 route needs Raynaud's theorem for subvarieties, not the cited curve paper [Ray83]. Its claim that g = 2 requires Kühne's uniform Manin–Mumford is wrong: Rémond's bound ([DP02, p.643], read by the review) with Γ the torsion subgroup is uniform in P₀ for every g ≥ 2, and the paper already uses it after the proof of Theorem 1.1. The correction above now says this.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E7",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 4.2, pp.17–18 (arXiv v3; the published version was not accessible)",
+      "printed": "\"In particular ϑ(P₀) = θ ∘ π(P₀) = 1.\" (p.17); \"θ ∘ π(P₀) = 1 by choice of θ.\" (p.18)",
+      "correction": "θ(P₀) = ϑ ∘ π(P₀) = ϑ(s₀) = 1, and on p.18 'θ(P₀) = ϑ(π(P₀)) = 1 by choice of ϑ'.",
+      "reason": "ϑ is the cut-off on S^an and θ = ϑ ∘ π its pullback to A^an (§3.2, p.15); the printed formulas swap them.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.17–18.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E8",
+      "kind": "error",
+      "locator": "Proof of Proposition 4.2, p.17 (arXiv v3; the published version was not accessible)",
+      "printed": "\"We extend ϑ to a smooth function on (ℙ^m_ℂ)^an by setting it 0 outside of the compact set K ⊆ S^an.\"",
+      "correction": "Take any smooth function on (ℙ^m_ℂ)^an equal to ϑ on S^an and vanishing on S̄^an ∖ K (extend smoothly from the closed submanifold S^an of ℙ^m ∖ (S̄ ∖ S), multiply by a cut-off equal to 1 on K, and extend by zero).",
+      "reason": "When dim S < m, extension by zero off K is not even continuous: for S̄ a line in ℙ², ϑ(s₀) = 1 while the extension vanishes at points off the line arbitrarily close to s₀. Only the values on S̄^an enter (4.7)–(4.9), so nothing downstream changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.17.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E9",
+      "kind": "error",
+      "locator": "Proof of Proposition 4.3, (4.13), p.21 (arXiv v3; the published version was not accessible)",
+      "printed": "\"(4^l D′)^{d−1} Σ … ≤ (4^l D′)^{d−1} 2^{d−1} 3^n Σ_{i+p=n+m−d} a_{ip}\"",
+      "correction": "Use max{1, D′} in place of D′ (or arrange D′ ≥ 1 by multiplying the quartic polynomials by a linear form not vanishing on S̄).",
+      "reason": "The terms with p″ = 0 carry D_l^{i″} = 4^{li″} and no factor D′; if D′ = 0 and d ≥ 2 they are positive while the printed bound is 0. With max{1, D′} the estimate cN^{2(d−1)} and Proposition 4.3 stand.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.21; the exponent bookkeeping was rechecked by the helper on 400 random multidegree configurations.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E10",
+      "kind": "gap",
+      "locator": "Proof of Proposition A.2, pp.39–40 (arXiv v3; the published version was not accessible)",
+      "printed": "\"We apply the Height Machine a final time and use that h_{S̄} arises from the Weil height restricted to S̄(ℚ̄).\"",
+      "correction": "The needed bound |h_{S̄′,E}(s)| ≤ c·max{1, h_{S̄}(b(s))} holds for s ∈ b^{−1}(S), where b : S̄′ → S̄ is the resolution: for k large, H⁰(S̄′, b*O(k) ⊗ E^{±1}) = H⁰(S̄, O(k) ⊗ b_*E^{±1}) is globally generated over S, where b_*E^{±1} is invertible, so finitely many sections have no common zero on b^{−1}(S).",
+      "reason": "b*O(1) is only big and nef on S̄′, so the Height Machine does not give the comparison directly, and it fails on the exceptional locus (on a contracted curve C with E·C ≠ 0, h_E is unbounded while h_{S̄} ∘ b is constant). Only points over S are needed, where the argument above applies. Proposition A.2 stands.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.39–40; the repair was re-derived by the reviewer.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E11",
+      "kind": "error",
+      "locator": "§1.2, p.6 (arXiv v3; the published version was not accessible)",
+      "printed": "\"Taking the Jacobian of a smooth curve leads to the Torelli morphism M_g → A_g which is finite-to-1 (but not injective as we have level structure).\"",
+      "correction": "τ(C,α) = τ(C′,α′) iff (C′,α′) ≅ (C,±α). So τ is injective on points for g = 2 and not injective for g ≥ 3; on p.24 the paper says, correctly, 'need not be injective'.",
+      "reason": "(C,α) ≅ (C,−α) iff some automorphism of C acts as −1 on the level structure. For ℓ ≥ 3 that forces it to act as −1 on the Jacobian, i.e. to be a hyperelliptic involution. Every genus-2 curve is hyperelliptic, so there the fibres of τ are points. The paper never uses non-injectivity.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.6.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E12",
+      "kind": "misprint",
+      "locator": "§1.2, display after (1.3), p.6 (arXiv v3; the published version was not accessible)",
+      "printed": "\"X := D_M(C_g ×_{M_g} ⋯ ×_{M_g} C_g) ⊆ 𝔄_g ×_{M_g} ⋯ ×_{M_g} 𝔄_g\"",
+      "correction": "The target is 𝔄_g^{[M]} ×_{A_g} M_g, as in (6.3)–(6.5) on p.25.",
+      "reason": "𝔄_g is a scheme over A_g, not over M_g.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.6 against pp.24–25.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E13",
+      "kind": "misprint",
+      "locator": "§1.2, sketch of the counting, p.4 (arXiv v3; the published version was not accessible)",
+      "printed": "\"… so the points of C(F) of large height lie in (1 + c₀c₃)^ρ balls …\" (and the displayed set lacks '#')",
+      "correction": "(1 + 2√(c₀c₃))^ρ balls, as Rémond's packing bound gives on p.34 (with R² = c₀·max{1,h} and r² = max{1,h}/c₃); the set should be preceded by '#'.",
+      "reason": "The ball-packing count is (1 + 2R/r)^ρ; for c₀c₃ = 1 the printed figure gives 2^ρ against the correct 3^ρ. The proof on p.34 uses the correct bound.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of pp.4 and 34.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E14",
+      "kind": "gap",
+      "locator": "Proof of Proposition 2.7 (and hence Proposition 2.2(iii)), pp.11–12 (arXiv v3; the published version was not accessible)",
+      "printed": "\"We assume first that the right side of (2.3) is false, i.e., the maximal rank is strictly less than 2d = 2 dim X. So every x ∈ X^{sm,an} ∩ A_Δ is a non-isolated point of b_Δ^{−1}(r) ∩ X^{sm,an} …\" and, for the converse, \"using holomorphic local coordinates we find an irreducible, 1-dimensional, complex analytic subset C_x which passes through x … such that ω|_{X^{sm,an}} vanishes along the tangent space of C_x^{sm}.\"",
+      "correction": "Argue pointwise: from (2.1), dZ·Y^{−1}Im w − dw = −(da + Z db), so the Hermitian form of ω at v is μᵀY^{−1}μ̄ with μ = da(v) + Z db(v), which vanishes iff da(v) = db(v) = 0 (Im Z > 0). Hence ker(ω|_{T_xX}) = ker(db_Δ|_{T_xX}), so (ω|_X)^{∧d}_x ≠ 0 iff rank_ℝ(db_Δ|_X)_x = 2d, pointwise, and the identity theorem gives (2.3).",
+      "reason": "Rank < 2d everywhere does not by itself make every point non-isolated in its fibre for a real-analytic map (x² + y² on ℝ² has rank ≤ 1 and an isolated zero). The existence of a complex curve C_x tangent to the kernel of ω is asserted without proof. The statement is true by the pointwise argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page images of pp.11–12; the pointwise identity was checked by the reviewer from (2.1).",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E15",
+      "kind": "gap",
+      "locator": "Proof of Theorem B.1, second dévissage, p.43 (arXiv v3; the published version was not accessible)",
+      "printed": "\"Hence there exists a non-empty open subset Δ′ of (S′)^{sm,an} with π(x) ∈ Δ′ ⊆ Δ and rank_ℝ(db_{Δ′}|_{X^{sm,an}})_x = 2 dim X.\"",
+      "correction": "Choose x with π(x) ∈ S′^{sm}: by Lemma B.3 the maximal rank is attained on X ∩ π^{−1}(S′^{sm}), which is Zariski open and dense in X.",
+      "reason": "The x chosen just before need not lie over the regular locus of S′ = π(X).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.43.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
+    },
+    {
+      "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E16",
+      "kind": "misprint",
+      "locator": "Theorem 6.2, p.27 (arXiv v3; the published version was not accessible)",
+      "printed": "\"… with the Betti map b_Δ : A_Δ = π^{−1}(Δ) → T^{2g}, such that (6.6) rank_ℝ(db_Δ|_{X^{sm,an}})_x = 2 dim X …\"",
+      "correction": "The target is T^{2Mg}: A = 𝔄_g^{[M]} ×_{A_g} S has relative dimension Mg.",
+      "reason": "With target T^{2g}, (6.6) could never hold, since 2 dim X > 2g for M ≥ 3g − 2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+        "Annals of Mathematics 194 (2021) 237–298 article page: no erratum listed; the typeset PDF requires a subscription and was not read, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found by a helper agent of the review and checked by the reviewer on the page image of p.27.",
+        "by": "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
+      }
     }
   ]
 }
