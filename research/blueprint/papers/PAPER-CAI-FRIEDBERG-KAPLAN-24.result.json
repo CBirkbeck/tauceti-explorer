@@ -1,0 +1,222 @@
+{
+  "paper": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Doubling constructions: Global functoriality for non-generic cuspidal representations",
+    "authors": "Yuanqing Cai, Solomon Friedberg and Eyal Kaplan",
+    "venue": "Annals of Mathematics 200 (2024), no. 3",
+    "doi": "10.4007/annals.2024.200.3.2",
+    "arxiv": "1802.02637v5",
+    "url": "https://arxiv.org/pdf/1802.02637v5",
+    "sha256": "dd49d944ca050d518fcb28dae9392b2b02d67710a4dff961800b47815f0c16ef",
+    "accessed": "2026-09-23",
+    "version": "arXiv v5, 20 May 2024, 60 pages; the Annals text was not fetched. Numbering from v5."
+  },
+  "summary": "Cai, Friedberg and Kaplan prove that every irreducible cuspidal automorphic representation of a symplectic or quasi-split orthogonal group has a weak functorial transfer to GL_N (Theorem 0.1), without assuming genericity. They use the converse theorem, with twisted L-functions controlled by the generalized doubling method (local γ-factors, their stability, and a global analysis of the doubling Eisenstein series). They deduce that the transfer is a coarse transfer at every place, and that local coarse transfers exist. Partial first extraction (cc-442dc5): the main theorems and definitions are items; the remaining lemmas and propositions of §3 and §4 are listed in the handoff.",
+  "items": [
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/weak-transfer",
+      "kind": "definition",
+      "name": "Weak functorial transfer",
+      "statement": "Π on GL_N(A) is a weak functorial transfer of an irreducible automorphic π of G(A) if at almost all finite places where π_ν is unramified, Π_ν is the local unramified transfer of π_ν via r_G, and at the infinite places the infinitesimal character of Π_ν is determined via r_G by that of π_ν.",
+      "locator": "arXiv:1802.02637v5, Definition 2.2",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/converse",
+      "kind": "theorem",
+      "name": "Converse Theorem of Cogdell–Kim–Piatetski-Shapiro–Shahidi",
+      "statement": "An irreducible admissible Π = ⊗Π_ν of GL_N(A) with suitable central character and absolutely convergent L(s, Π) is quasi-automorphic when the twisted L-functions L(s, Π × τ) satisfy the conditions of [CKPSS01, §2].",
+      "locator": "arXiv:1802.02637v5, Theorem 2.1",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Cited supplier; the exact twisting set and conditions are to be copied from §2."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral",
+      "kind": "theorem",
+      "name": "Properties of the generalized doubling integral",
+      "statement": "The local integral Z(s, ω, f) converges absolutely for Re(s) ≫ 0 and continues meromorphically, with the properties listed in Theorem 3.2 (from [CFK22]).",
+      "locator": "arXiv:1802.02637v5, Theorem 3.2",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Cited from Cai–Friedberg–Kaplan 2022."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor",
+      "kind": "theorem",
+      "name": "Characterization of the doubling γ-factor",
+      "statement": "For π ∈ Irr(G) and generic τ ∈ Irr_gen(GL_k), γ(s, π × τ, ψ) satisfies and is characterized by the properties of Theorem 3.5, starting with unramified twisting γ(s, π × |det|^{s_1}τ, ψ) = γ(s + s_1, π × τ, ψ).",
+      "locator": "arXiv:1802.02637v5, Theorem 3.5",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/unramified-compat",
+      "kind": "theorem",
+      "name": "Compatibility with the unramified transfer",
+      "statement": "For π ∈ Irr(G), τ ∈ Irr_gen(GL_k), with π unramified if F is non-archimedean, the γ-, L- and ε-factors of π × τ and T(π) × τ coincide.",
+      "locator": "arXiv:1802.02637v5, Theorem 3.7",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/holomorphy",
+      "kind": "theorem",
+      "name": "Holomorphy of tempered L-factors",
+      "statement": "For π tempered (and unramified if F is non-archimedean) and τ generic: if τ is tempered, L(s, π × τ) is holomorphic in Re(s) > 0, with the unitary case as in Theorem 3.8(2); Corollary 3.9 gives the unitary variant.",
+      "locator": "arXiv:1802.02637v5, Theorem 3.8; Corollary 3.9",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/stability",
+      "kind": "theorem",
+      "name": "Stability of γ-factors",
+      "statement": "Over a non-archimedean F, for π ∈ Irr(G) and Π ∈ Irr(GL_N) with central character χ_π, the γ-factors of π and Π twisted by a sufficiently highly ramified character agree (Theorem 3.10, from [CFK22, Lemma 7.3]).",
+      "locator": "arXiv:1802.02637v5, Theorem 3.10",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paraphrase; copy the exact statement in the next continuation."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein",
+      "kind": "theorem",
+      "name": "Holomorphy of the Eisenstein series",
+      "statement": "For τ unitary cuspidal on GL_k(A) and θ a unitary Hecke character (θ = 1 unless H = GSpin), if |·|^{it}τ ≇ θτ^∨ for all real t, then E_{τ,θ,c}(h; s, f) is holomorphic in Re(s) ≥ 0.",
+      "locator": "arXiv:1802.02637v5, Theorem 4.1",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/global-fe",
+      "kind": "theorem",
+      "name": "Functional equation and boundedness",
+      "statement": "L(s, π × τ) = ε(s, π × τ)L(1 − s, π^∨ × τ^∨); if both sides are entire they are bounded in vertical strips.",
+      "locator": "arXiv:1802.02637v5, Theorems 4.6 and 4.7",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Cited from [CFK22, Theorem 8.3 and Corollary 8.5]."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/entire",
+      "kind": "theorem",
+      "name": "Entireness of twisted L-functions",
+      "statement": "For unitary cuspidal π on G(A) and τ on GL_k(A) satisfying the conditions of Theorem 4.8 (including |·|^{it}χ_π τ ≇ τ^∨ for all real t), L(s, π × τ) is entire.",
+      "locator": "arXiv:1802.02637v5, Theorem 4.8",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/holomorphy"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Conclusion paraphrased; the full list of conditions is to be copied in the next continuation."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/main",
+      "kind": "theorem",
+      "name": "Weak functorial transfer of cuspidal representations",
+      "statement": "Every irreducible cuspidal automorphic representation π of G(A) has a weak functorial transfer Π to GL_N(A).",
+      "locator": "arXiv:1802.02637v5, Theorem 0.1; §4.4",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/weak-transfer",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/converse",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/entire",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/global-fe",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/stability",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/unramified-compat"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-global",
+      "kind": "theorem",
+      "name": "Weak transfers are coarse transfers everywhere",
+      "statement": "If Π is a weak functorial transfer of a cuspidal π of G(A), then Π_ν is a coarse transfer of π_ν at every place.",
+      "locator": "arXiv:1802.02637v5, Theorem 4.10",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/main"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-local",
+      "kind": "theorem",
+      "name": "Existence of local coarse transfers",
+      "statement": "Over a local field f, every π′ ∈ Irr(G(f)) has a coarse transfer to GL_N(f).",
+      "locator": "arXiv:1802.02637v5, Corollary 4.11",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-global"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Statement as in the paper, with G a symplectic or quasi-split orthogonal group over a number field F (§1) and N the dimension of the standard representation of its dual."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactorsPartIIDoubling",
+      "parent": "AutomorphicLFunctionsAndLocalFactors",
+      "title": "Automorphic L-functions and local factors, Part II: the generalized doubling method and functorial transfer for classical groups",
+      "area": "automorphic",
+      "items": [
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/weak-transfer",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/converse",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/unramified-compat",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/holomorphy",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/stability",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/global-fe",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/entire",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/main",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-global",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-local"
+      ],
+      "brief": "Automorphic L-functions and local factors, extended to the generalized doubling method of Cai, Friedberg, Ginzburg and Kaplan for symplectic and quasi-split orthogonal groups twisted by GL_k: the local doubling integrals and their γ-, L- and ε-factors (characterization, unramified compatibility, holomorphy for tempered data, stability), the global Eisenstein series and functional equation, entireness of twisted L-functions, and the Cogdell–Kim–Piatetski-Shapiro–Shahidi converse theorem. Final theorems: every cuspidal representation of a classical group has a weak functorial transfer to GL_N, and local coarse transfers exist. Import local representation theory from SmoothRepresentationsOfLocalGroups.",
+      "reason": "The doubling integrals, their local factors and the converse-theorem transfer extend the atlas's automorphic L-function roadmap."
+    }
+  ],
+  "sourceIssues": [],
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1085,
+    "date": "2026-09-23",
+    "status": "partial",
+    "reading": "Introduction, Definition 2.2 and the statements of the numbered theorems read; proofs not yet read.",
+    "changes": "First extraction: 13 items and one route."
+  }
+}
