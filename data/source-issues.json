@@ -76129,14 +76129,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed as a missing compactification hypothesis. The printed smooth finite-type assumption alone does not imply quasi-projectivity. A smooth proper nonprojective split toric example (Fujino–Payne, arXiv:math/0510679v2, introduction) cannot be an open subvariety of a projective variety: the open immersion would also be proper and therefore closed. v1 explicitly assumes the compactification; v2 and the journal assert existence. The Shimura application is quasi-projective."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E2",
@@ -76153,14 +76154,15 @@
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
     "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed as a gap in the rational-character inference, not a counterexample to the main theorem. Independent A2 computation: the root/weight intertwiners are m[[2,-1],[-1,2]] over Z, all with determinant3m², though they give the same rational irreducible S3 module. Integral nonisomorphism does not imply rational nonisomorphism. The split/anisotropic local separation and torus-cocycle descent repairs in094/148/149 give the stronger contract; the multiplicity-free argument110/118 is valid conditional on the named global/local suppliers."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E3",
@@ -76176,22 +76178,23 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed. In PGL₂(Q₂)×PGL₂(Q₂), take the preimage of the diagonal S₃ in the reduction of PGL₂(Z₂)². It is open and proper with both full projections, so is not a product. A contained product of small open subgroups suffices for the proof. No change to Lemma3.6’s conclusion is needed."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E4",
    "kind": "gap",
-   "locator": "Journal Lemma3.9 p328 paragraph after Eq.(7); same in v2 p22",
+   "locator": "Journal Lemma3.9 p328 after Eq.(7); v2 p22; published Getz–Hahn Appendix B.5.1–2 p549 (draft A.5.1–2 pp482–483).",
    "printed": "is equal to T_x(Q_p)^0",
-   "correction": "The cited Getz–Hahn statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.",
-   "reason": "The source has only an unramified generic torus in a Q_p-rational Borel and hyperspecial containment for the fixed model. In GL₂/Q₃ let u=[[1,1/3],[0,1]], T=uDu⁻¹ and t=u diag(2,1)u⁻¹=[[2,-1/3],[0,1]]. T is split and t belongs to its maximal compact subgroup, but t∉GL₂(Z₃). Getz–Hahn 22Apr2022 AppendixA.5, LemmasA.5.1–2 pp482–483 explicitly starts with an integral torus and Borel. The paper has not established that hypothesis for its chosen T_x. This invalidates the quoted equality's justification; it does not disprove the infinite-order conclusion. The proposed general-uniformizer repair requires a separate full proof audit.",
+   "correction": "The published Getz–Hahn B.5.2 statement requires T_model⊂B_model⊂G_model over O_F. Prove that integral-position condition for the torus used here, or avoid claiming E(s_K₀)_w/Q_p unramified and evaluate Eq.(7) with a general uniformizer, giving v_p(χ(N μ(π_w)))=e⁻¹∑_σ〈χ,σμ〉.",
+   "reason": "The source has only an unramified generic torus in a Q_p-rational Borel and hyperspecial containment for the fixed model. In GL₂/Q₃ let u=[[1,1/3],[0,1]], T=uDu⁻¹ and t=u diag(2,1)u⁻¹=[[2,-1/3],[0,1]]. T is split and t belongs to its maximal compact subgroup, but t∉GL₂(Z₃). Getz–Hahn 22Apr2022 AppendixA.5, LemmasA.5.1–2 pp482–483 explicitly starts with an integral torus and Borel. The paper has not established that hypothesis for its chosen T_x. This invalidates the quoted equality's justification; it does not disprove the infinite-order conclusion. The proposed general-uniformizer repair requires a separate full proof audit. Independent review obtained the public published backmatter: the same integral-position hypothesis occurs in B.5.2 p549.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -76201,14 +76204,16 @@
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
     "Getz–Hahn author draft https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf AppendixA.5 pp482–483, and the author-linked 2026-07 errata https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf (all3pages): no correction pertinent to this application located.",
     "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion.",
+    "Getz–Hahn published backmatter https://link.springer.com/content/pdf/bbm:978-3-031-41153-3/1 pp548–550; 2022 author draft pp482–483; author-linked July2026 errata all3pages, freshly read independently."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed for the cited inference. Published Getz–Hahn B.5.1–2 p549, as well as draft A.5.1–2 pp482–483, explicitly uses an integral torus in an integral Borel of the chosen model. The GL₂/Q₃ calculation gives the printed equality’s missing-position diagnostic. The source does not establish that position. The separate arbitrary-uniformizer valuation repair is mathematically valid and bypasses the unramified-section-field claim; it does not prove that intermediate claim. All three pages of the current author errata were checked, with no relevant change."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E5",
@@ -76224,14 +76229,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed index slip. The construction with the numbered conditions is Proposition3.7. The source’s Lemma3.2 is a different reciprocity computation, and no Proposition3.2 exists."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E6",
@@ -76247,14 +76253,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed type slip, including the journal page image. χ is evaluated on a torus element and is an element of the character lattice; its domain is T and its codomain G_m."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E7",
@@ -76270,14 +76277,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Rejected as a confirmed misprint or mathematical error. The source immediately explains nontriviality on each factor and uses only one positive-root pairing; it does not invoke positivity on every simple root. The A2 example refutes an interior-of-chamber interpretation but does not show that this interpretation was intended. Retain the precise nonzero-dominant formulation in the extraction and its boundary test, without registering the wording itself as a proved mistake."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E8",
@@ -76293,14 +76301,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed for the v1 definition, which the journal still references. A coordinate linear subspace cannot model the crossing xy=0; for codimension≥2 it is not even a Cartier divisor. Read all of v1 pp7–11. The section was deleted in v2, not replaced by a corrected definition, and journal footnote3 explicitly points to it. Remove the completion summary’s claim that publication corrected it. This is not a disproof of tame specialization with the proper SNC definition."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E9",
@@ -76316,14 +76325,15 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed only as an abstract scope omission. Its first displayed family is already adjoint; the later stronger-family sentence names G-valued local systems without mentioning projection. Theorem3.10 and Remark3.14, and the author’s bibliography, confine the proved compatibility to their adjoint projections. Do not interpret this as a counterexample to a claimed full-G theorem."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E10",
@@ -76339,14 +76349,54 @@
     "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
     "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
     "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching)."
+    "Rechecked by cc-442dc5 on 23 September 2026: the open-access published PDF re-fetched from Springer (SHA-256 0691a57a…, matching).",
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
    ],
    "owner": "PAPER-KLEVDAL-PATRIKIS-25",
    "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
    "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "Confirmed in the journal image: the local component refers to the previously fixed finite adele a, so A_f is intended. The relevant v2 p21 passage already uses A_f correctly; this journal slip is not present there."
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25/E11",
+   "kind": "misprint",
+   "locator": "Journal Theorem3.10 proof p330, first paragraph; arXiv v2 p23; compare Eq.(4) journal p319",
+   "printed": "G(ℚ)\\G(𝔸_f)/K₀",
+   "correction": "For a fixed X⁺ take representatives of G(ℚ)_+\\G(𝔸_f)/K₀, as in Eq.(4), and form N₁ using all of them.",
+   "reason": "The proof fixes X⁺ after choosing C, then treats those C-indexed components as all components. For the genus-two Siegel datum GSp₄ and neat principal K(N), N≥3, g=diag(-I₂,I₂) is rational with multiplier -1. Thus 1 and g have the same G(Q) double coset. If they had the same positive-G double coset, taking multipliers would give a positive rational finite unit times a unit congruent1modN equal to -1; the rational unit must be1, contradicting -1≠1modN. This example satisfies real rank2. The missing plus omits a component; using the correct finite set repairs the argument, without changing the theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion."
+   ],
+   "owner": "PAPER-KLEVDAL-PATRIKIS-25",
+   "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
+   "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "The proof fixes X⁺ after choosing C, then treats those C-indexed components as all components. For the genus-two Siegel datum GSp₄ and neat principal K(N), N≥3, g=diag(-I₂,I₂) is rational with multiplier -1. Thus 1 and g have the same G(Q) double coset. If they had the same positive-G double coset, taking multipliers would give a positive rational finite unit times a unit congruent1modN equal to -1; the rational unit must be1, contradicting -1≠1modN. This example satisfies real rank2. The missing plus omits a component; using the correct finite set repairs the argument, without changing the theorem."
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25/E12",
+   "kind": "misprint",
+   "locator": "Journal Lemma3.9 p328, citation [14, Lemma A.5.2]; bibliography [14] journal p334",
+   "printed": "[14, Lemma A.5.2]",
+   "correction": "In the cited 2024 published Getz–Hahn book, use Lemma B.5.2, p549; A.5.2 is the 22April2022 draft locator.",
+   "reason": "The journal bibliography cites the 2024 Springer book. The public published backmatter has the integral-torus lemma at B.5.2 p549, whereas the author draft has it at A.5.2 pp482–483. Both were read, and the published page image was inspected. This numbering correction is separate from the applicability gap E4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review 2026-09-23: full published article, arXiv version history (latest v2 dated 2024-10-06), v1 pp7–11 and relevant v2 passages; publisher article, Patrikis bibliography and Klevdal papers page; title/arXiv/DOI correction searches. No separately identified relevant correction found. This is a bounded search, not a discovery-priority assertion.",
+    "Published Getz–Hahn backmatter and draft, with July2026 author errata; no B.5.2 correction found."
+   ],
+   "owner": "PAPER-KLEVDAL-PATRIKIS-25",
+   "file": "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
+   "citation": "Klevdal–Patrikis, \"Compatibility of canonical ℓ-adic local systems on adjoint Shimura varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KLEVDAL-PATRIKIS-25",
+   "reviewReason": "The journal bibliography cites the 2024 Springer book. The public published backmatter has the integral-torus lemma at B.5.2 p549, whereas the author draft has it at A.5.2 pp482–483. Both were read, and the published page image was inspected. This numbering correction is separate from the applicability gap E4."
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21/E1",
