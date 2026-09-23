@@ -43223,6 +43223,48 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/E1",
+   "kind": "misprint",
+   "locator": "§4.5, the paragraph introducing Corollary 4.31, last sentence (page 25 of the arXiv v5 PDF); the LaTeX source has \\Cref{remark:tstructure} at line 1484 of Purity-in-K-theory.tex",
+   "printed": "For another proof of this result, cf. ??.",
+   "correction": "the cross-reference should resolve to Proposition 3.12",
+   "reason": "The label remark:tstructure is never defined anywhere in the source: the only labels containing \"tstructure\" are prop:tstructure on Proposition 3.12, the alternative proof due to Ishan Levy that §3.3 introduces with the words \"an alternative proof of the implication (i) ⇒ (ii) in Proposition 3.6\". A mechanical check of the source found this to be the only undefined \\ref or \\Cref among all cross-references, and the text of the content streams of the v5 PDF prints the sentence literally as \"For another proof of this result, cf. ??.\". The intended target is unambiguous: Proposition 3.12 states in its own proof that it reproves L_{T(i)}K^add(𝒞) ≃ L_{T(i)}K(𝒞) for i ≥ 2, \"this fact is also proved as Corollary 4.31 below\", so the two statements point at each other and only one of the two pointers resolves.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2001.10425, all five versions listed on the abstract page; v5 of 18 December 2023 is the latest and is described there as the accepted version, and no erratum is announced",
+    "the published article at https://www.ams.org/jams/2024-37-04/S0894-0347-2024-01043-X/, which is paywalled and returned HTTP 403, so it is not known whether copy-editing removed this",
+    "the publication lists on the home pages of Akhil Mathew and Lennart Meier, which link only to the arXiv version and record no corrigendum"
+   ],
+   "owner": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-LAND-MATHEW-MEIER-ETAL-24.result.json",
+   "citation": "Land–Mathew–Meier–Tamme, \"Purity in chromatically localized K-theory\", Journal of the American Mathematical Society (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/E2",
+   "kind": "misprint",
+   "locator": "Corollary 4.34, first sentence (page 26 of the arXiv v5 PDF); line 1578 of Purity-in-K-theory.tex",
+   "printed": "Let R be any ring spectrum, and let G be any group, and let 𝒪_𝒞(G) be as in Proposition 4.33.",
+   "correction": "𝒪_𝒞(G) should read 𝒪_𝒞yc(G)",
+   "reason": "Proposition 4.33 defines 𝒪_𝒞yc(G), written \\mathcal{O}_{\\mathscr{Cyc}}(G), and the assembly map displayed inside Corollary 4.34 itself is indexed by 𝒪_𝒞yc(G); only the introducing sentence writes \\mathscr{C} in place of \\mathscr{Cyc}, so the corollary names a symbol that the proposition it refers to does not define. The clash is with §4 alone: §1 separately introduces 𝒪_𝒞(G) for the same orbit category before Corollary F, and the two sections were evidently written with different notations.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2001.10425, all five versions listed on the abstract page; v5 of 18 December 2023 is the latest and is the accepted version, and no erratum is announced",
+    "the published article at https://www.ams.org/jams/2024-37-04/S0894-0347-2024-01043-X/, which is paywalled and returned HTTP 403",
+    "the LaTeX source of v5, in which \\mathscr{Cyc} occurs at lines 1558, 1562 and 1580 and \\mathscr{C} at line 1578"
+   ],
+   "owner": "PAPER-LAND-MATHEW-MEIER-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-LAND-MATHEW-MEIER-ETAL-24.result.json",
+   "citation": "Land–Mathew–Meier–Tamme, \"Purity in chromatically localized K-theory\", Journal of the American Mathematical Society (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LANDESMAN-LITT-24/E1",
    "kind": "misprint",
    "locator": "Notation 7.1.1, p. 35, the sentence immediately after the display defining the ρ-isotypic component",
