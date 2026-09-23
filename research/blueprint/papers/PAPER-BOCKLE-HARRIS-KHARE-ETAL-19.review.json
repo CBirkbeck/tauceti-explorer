@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Part II of GlobalShtukasAndFunctionFieldLanglands, 22 items, and the title is an exact prefix extension of its parent's ('Global shtukas and Langlands over function fields' + ', Part II: Ĝ-valued deformation theory and potential automorphy'). Accepted. The reason places the paper correctly: every object is a Ĝ-valued Galois representation over a function field, or automorphic forms on G over it, or V. Lafforgue's excursion algebra acting on them — all constructed by the parent at GS.0–GS.5 — and the theorem proved is the converse direction. The name is free and proposed by no other paper."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source additions to LanglandsParameterStacks at LP2 and LP3. LP2 owns the coarse quotient and the excursion presentation and LP3 the integral reductive invariant theory, and §3 of this paper is precisely that theory. The reason is careful to note that this paper proves it in a stronger, integral form than the characteristic-zero statements PAPER-LAFFORGUE-18 routes to the same place — which is the right thing to record, since two papers feeding one stage at different generality is exactly where a later builder can go wrong."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source additions to IntegralHeckeAndGaloisDeterminants at IHG.0 and IHG.1, for polynomial laws and determinants with their continuity criteria, and for the Cayley–Hamilton quotient and reconstruction. The reason names what each stage already owns and what this paper adds, rather than asserting the fit."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "One source item to ArithmeticGaloisRepresentations:R01.1, which plans continuous representations and integral models — invariant lattices by compactness, reduction and semisimplification, independence of the lattice by Brauer–Nesbitt — all for GL_n. The paper's Theorem 4.8 is the Ĝ-valued analogue, so it belongs there as a source rather than as a new construction."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "One source item to PotentialModularityAndCompatibleSystems:R23.1, the Moret–Bailly stage. The reason quotes that stage's own text, including its insistence on the geometric and approximation prerequisites, and the paper's use is exactly the rational-point existence theorem with prescribed local conditions. A single, well-identified addition."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status or route changed. All 36 items, 5 routes and 16 recorded mistakes were checked. THE MAIN CONTRIBUTION OF THIS REVIEW IS THAT THE PUBLISHED TEXT IS AVAILABLE AND WAS READ. The extraction recorded that 'the published version could not be consulted (Acta Mathematica is not open access), so all readings and the recorded source issues are against v2'. That is not so: Unpaywall reports doi:10.4310/acta.2019.v223.n1.a1 as gold open access, and the publisher serves the full text at intlpress.com. This review fetched it — 111 pages, SHA-256 15c4b966…ba2c, printed page = PDF page — and re-checked every recorded mistake against it. The source block now carries a publishedVersion record, and published page numbers have been added to twelve locators that previously cited arXiv v2 pages only. THE PUBLISHED TEXT IS NOT IDENTICAL TO ARXIV V2, and that matters for a register of mistakes in PUBLISHED work. Copyediting repaired at least two of the recorded slips: E14 element (b), where v2's 'applying Theorem 90' reads 'applying Hilbert's Theorem 90' at published p. 88, and E16 element (b), the misspelling 'correspondenec', which occurs nowhere in the published text. Both are annotated in place as slips of v2 only, not mistakes in published work. Every other located element survives into print, several decisively. E4: published p. 69 writes σ̄_m(Frob_v) for the Taylor–Wiles places and p. 71 then writes ρ̄_m(Frob_v) twice for the same element. E8: published p. 34 prints h¹(Γ_{K,S∪Q}, ĝ_k) = r#Q = h¹(Γ_{K,S∪Q}, ĝ_k) + (r−1)#Q, the same group on both sides, which forces (r−1)#Q = 0 — false for r > 1 — while the line above supplies the intended Γ_{K,S}. E14 element (a): published p. 87 prints 'Proposition 11.2. Let η : G → H denote the adjoint group of G' while the proof of Theorem 11.1 on the same page has it right. E12: published p. 7 gives the LOCAL Artin map the source K^× rather than K_v^×, and p. 14 puts a bilinear form 'on G' rather than on 𝔤. Where a finding bundles several elements and I located only some in print, or where the correction depends on a page-image reading of a hat that the text layer flattens, the verdict says so explicitly rather than implying a check that was not made. The extraction's own practice of listing the pages it read as images is good and made this easy to delimit. All 5 planned items name atlas layers that exist, all 31 missing items are routed exactly once, the extraction records no library items — right for this material — and there is no run-together numbering. The single Part II title is an exact prefix extension of its parent's, its name is free, and no other paper proposes it. Route 2 is worth singling out for recording that this paper proves the integral invariant theory in a stronger form than the characteristic-zero statements PAPER-LAFFORGUE-18 routes to the same stage; two papers feeding one stage at different generality is where a builder can most easily go wrong. Every check is listed in research/blueprint/reviews/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md."
+}
