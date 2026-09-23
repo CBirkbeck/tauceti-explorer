@@ -1086,8 +1086,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1083"
+   "state": "external",
+   "note": "claimed on GitHub issue #1083"
   },
   {
    "id": "REV-PAPER-FU-24",
@@ -4312,8 +4312,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1268"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1268",
+   "finishedAt": "2026-09-23T06:22:28Z"
   },
   {
    "id": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
