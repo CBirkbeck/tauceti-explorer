@@ -7188,7 +7188,7 @@
    "parent": "AlgebraicModularFormsAndSerreWeights",
    "roadmap": "GenericGL3SerreWeightsAndLattices",
    "title": "Algebraic modular forms, reduction and Serre weights, Part II: generic GL3 weights and Breuil lattices",
-   "area": "modular",
+   "area": "automorphic",
    "items": [
     "PAPER-LE-LEHUNG-LEVIN-ETAL-20/intro-global-setup-1-1",
     "PAPER-LE-LEHUNG-LEVIN-ETAL-20/intro-char0-multiplicity-one",
@@ -7356,7 +7356,7 @@
     "PAPER-LE-LEHUNG-LEVIN-ETAL-20/addendum-6-16-M-infty-nonzero",
     "PAPER-LE-LEHUNG-LEVIN-ETAL-20/cited-tay08"
    ],
-   "reason": "AlgebraicModularFormsAndSerreWeights R15.4 is Serre's classical GL2 weight recipe and SerreWeightAndLevelOptimisation R20 is classical level and weight optimisation; no layer plans set-valued Serre weights for GL3 (Herzig's W^?), weak minimal patching functors, numerical and geometric Breuil–Mézard for GL3, cyclicity and gauges of patched lattices, or Breuil's lattice conjecture. This is the direction of AlgebraicModularFormsAndSerreWeights, so it is a Part II of it; the sibling extraction PAPER-LE-LEHUNG-LEVIN-ETAL-23 uses the same roadmap id.",
+   "reason": "AlgebraicModularFormsAndSerreWeights R15.4 is Serre's classical GL2 weight recipe and SerreWeightAndLevelOptimisation R20 is classical level and weight optimisation; no layer plans set-valued Serre weights for GL3 (Herzig's W^?), weak minimal patching functors, numerical and geometric Breuil–Mézard for GL3, cyclicity and gauges of patched lattices, or Breuil's lattice conjecture. This is the direction of AlgebraicModularFormsAndSerreWeights, so it is a Part II of it; the sibling extraction PAPER-LE-LEHUNG-LEVIN-ETAL-23 uses the same roadmap id. Area corrected from 'modular' to 'automorphic' by REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20: 'modular' is the parent roadmap's atlas group, not a galaxy id in data/galaxies.json, and PAPER-LE-LEHUNG-LEVIN-ETAL-23, which proposes this same roadmap id, uses 'automorphic'.",
    "brief": "Algebraic modular forms, reduction and Serre weights, Part II: generic GL3 weights and Breuil lattices, for Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\" (Forum Math. Pi 8 (2020), e5; LLHLM20). It extends AlgebraicModularFormsAndSerreWeights, whose R15.4 is the classical GL2 weight recipe and does not own set-valued GL3 weights, minimal patching or lattice locality.\n\nFinal theorems, as LLHLM20 states them (global setup of §5.3: F/F⁺ CM with F/F⁺ unramified at all finite places, p unramified in F⁺ and every place of F⁺ above p split in F; G the definite unitary group; the Taylor–Wiles conditions and split ramification). Theorem 5.3.3 (weight part of Serre's conjecture): if r̄ : G_F → GL3(F) satisfies the Taylor–Wiles conditions, r̄|_{G_{F_ṽ}} is semisimple and 10-generic for all ṽ ∈ 𝒮, r̄ is automorphic and has split ramification, then W(r̄) = W^?(ρ̄_𝒮). Theorem 5.3.4 (mod p multiplicity one): for τ_𝒮 13-generic and σ ∈ W^?(ρ̄_𝒮, τ_𝒮) satisfying condition (5.1) of Theorem 5.1.1, S(U^p𝒢(𝒪_{F⁺,p}), (σ̄(τ_𝒮)^σ ∘ ∏ι_ṽ)^∨ ⊗ W_{Σ₀⁺})[𝔪] is one-dimensional over F. Theorem 5.3.1 (automorphy lifting for potentially crystalline r of Hodge–Tate weights (2,1,0) and tame type, with r̄ 10-generic and semisimple at p). Theorem 5.3.5 (Breuil's lattice conjecture): for r as in Theorem 5.3.1 and minimally ramified, and a 13-generic tame type, the lattice σ(τ)⁰ = σ(τ) ∩ S̃(U^p, W)[λ] depends only on {r|_{G_{F_ṽ}}}_{ṽ∈𝒮}. Local theorems: Theorem 3.5.2 (numerical Breuil–Mézard: for F_ṽ unramified, ρ̄_𝒮 semisimple and 10-generic and M_∞ a weak minimal patching functor, e(M_∞(σ)) = 1 if σ ∈ W^?(ρ̄_𝒮) and 0 otherwise, so W^BM = W^?), Theorem 3.5.3, Proposition 3.6.1 (geometric Breuil–Mézard for weight (2,1,0)), Theorem 5.1.1 (M_∞(σ(τ_𝒮)^σ) is free of rank one over R_∞(τ_𝒮) under (5.1)) with the converse Proposition 5.1.8, and Theorem 5.2.3 (the gauge: the image of M_∞(ι) is j_*j^*(∏_θ p(θ)^{m(θ)} R_∞(τ_𝒮)) · M_∞(σ(τ_𝒮)^σ)).\n\nCover, in this order: tame inertial types τ(w, μ), their genericity and lowest alcove presentations, the inertial local Langlands K-types σ(τ), Herzig's predicted set W^?(ρ̄) and W^?(ρ̄, τ), obvious weights (§2.2); shapes and Serre weights and type elimination (§3.4); weak minimal patching functors (Definition 3.5.1 with the corrected fixed-level definition of §6(11)), W^BM, the multiplicity e(M), and the proofs of §3.5 (minimal types, defect descent, globalisation, Proposition 3.5.14, Corollary 3.5.16); the support statements of §3.6 that concern patched modules; cyclicity and the gluing Lemmas 5.1.2–5.1.7 (with the genericity of the auxiliary types τ′ made explicit: they can be only 11-generic); the gauge ideal of §5.2 and its descent (Remark 5.2.4); the global setup of §5.3 — the definite unitary group and its integral model, algebraic automorphic forms and completed cohomology, Hecke algebras and the ideals 𝔪 and λ, the auxiliary place v1, minimal coefficients at Σ₀⁺, the patching functor for r̄ and (5.8) — and Theorems 5.3.1–5.3.5 with the level-lowering Proposition 6.0.2. Theorem 5.3.1 is proved in print only by reference to [LLHLM18, Theorem 7.4], whose proof §6(16) says was omitted: the design must supply that proof or record it as an explicit input. Import from: DeformationAndDerivedPatchingAlgebra R03.1–R03.6 (complete local rings, depth, patching, support); LocalGaloisDeformationRings L7, R08.1–R08.3 (potentially crystalline rings of type (2,1,0), shape charts and component matching, which LLHLM20 routes to L7 as a source); GlobalGaloisDeformations G7 and R04.5 (polarized deformations, Taylor–Wiles primes); CompletedCohomologyPartII CC.1–CC.3, CC.8 and CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity (the common exact patching-functor construction proposed by PAPER-LE-LEHUNG-LEVIN-ETAL-23); SchemeAndStackFoundations SF.0 and SF.2 (Hartogs extension, local cohomology, flat base change); and ModularRepresentationsOfFiniteReductiveGroups (Theorem 4.1.9 and the extension graph). The sibling extraction PAPER-LE-LEHUNG-LEVIN-ETAL-23 reuses this roadmap id and broadens it to all-rank generic Breuil–Mézard and Serre weights: design one roadmap. Do not claim a p-adic local Langlands correspondence for GL3 or an explicit formula for every lattice."
   },
   {
@@ -7596,7 +7596,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Present in v1, v2, v3, v4 abstracts; corrected in the published version."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, with its version boundary. The published text spells 'Deligne–Lusztig' correctly on p.1, which is consistent with the record's own statement that the misprint is in the arXiv versions and NOT in the published version; the finding is therefore about arXiv v1–v4 as it says, and nothing in the published text contradicts it.",
+    "by": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E14",
@@ -7612,7 +7617,12 @@
     "2026-09-23: Cambridge article/related-content page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/serre-weights-and-breuils-lattice-conjecture-in-dimension-three/963393CD985CF0BC067D5EE2D41F640E and title searches with erratum/correction; no dedicated correction located.",
     "2026-09-23: author publication pages https://math.rice.edu/~bl70/ and https://www.math.univ-paris13.fr/~morra/; no separate LLHLM20 erratum located. This is a scoped negative search, not a claim that none exists.",
     "arXiv 1608.06570 versions at the same place: Present in v1–v4; corrected in the published version."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, with its version boundary, on the same basis as E13: the published introduction on p.3 has no occurrence of the misspelling, matching the record's statement that this one too is arXiv-only.",
+    "by": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20"
+   }
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E101",
@@ -8300,7 +8310,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E32"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E32",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the paper's own hypotheses settle it. Corollary 2.3.11 on p.22 opens 'Let w̃ ∈ W_a t_η', while Proposition 3.4.2 on p.35 states its conclusion for a semisimple 𝔐̄ of shape w̃ ∈ W̃^∨ with no such restriction, and its proof invokes that corollary. The hypothesis the correction adds — w̃ ∈ Adm^∨(η), or more generally w̃* ∈ W_a t_η — is exactly what the invoked result requires.",
+    "by": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20"
+   }
   },
   {
    "kind": "misprint",
@@ -9324,7 +9339,12 @@
     "Authors' publication pages (B. Levin, https://math.rice.edu/~bl70/; S. Morra, https://www.math.univ-paris13.fr/~morra/), 2026-09-23: this paper is listed without an erratum or correction",
     "Later work of the same authors read for corrections: Le–Le Hung–Levin–Morra, 'Local models for Galois deformation rings and applications' (Invent. Math. 2023; arXiv:2007.05398): no correction to this paper is reported"
    ],
-   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E96"
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E96",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap, from the paper's own addendum. The proof of Theorem 5.3.1 on p.124 reads in full 'Given Theorems 5.3.3 and 3.5.3, the proof of [LLHLM18, Theorem 7.4] goes through unchanged', while §6(16) on p.130 says of that same result that 'Theorem 7.4, which was omitted, uses the same techniques' as the level-lowering Proposition 6.0.2 supplied there. So the proof this one rests on was not printed in the source it cites, which is what the finding records.",
+    "by": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20"
+   }
   },
   {
    "kind": "misprint",
