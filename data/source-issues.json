@@ -53540,6 +53540,336 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-NELSON-VENKATESH-21/E1",
+   "kind": "gap",
+   "locator": "Proof of Lemma 27.3, p. 182 (also arXiv v3)",
+   "printed": "G=SOn: in this case, the spinor norm injects G(Fv)/G(Fv)+ into Fv× modulo squares, and our assertion follows from the surjectivity of the spinor norm on SOn−1 (for n−1⩾2).",
+   "correction": "The spinor norm is surjective on SO_{n−1} only when n − 1 ≥ 3 (or the binary space is split). For (G, H) = (SO3, SO2), allowed by §25.7, the claimed surjectivity of H(A) onto ε = G(F)G∞⁺U\\G(A) fails for small U, and Theorem 27.1 (hence Lemma 30.4, Theorems 30.1 and 31.11) needs another argument. The argument still works when Π ≇ Π ⊗ (η_{K/F}∘θ), K = F(√−disc V_H): then ∫_{[G]}[a]·(η_{K/F}∘θ) = 0 (multiplication by the automorphic character carries Π into the orthogonal Π ⊗ η∘θ), so the G∞⁺-components that [H] meets carry the average mass. For Π ≅ Π ⊗ (η_{K/F}∘θ) (Π dihedral with respect to K) that integral need not vanish and the proof gives nothing.",
+   "reason": "For SO2 = SO(V_H) with V_H an anisotropic plane (as it is here, G being anisotropic), θ(SO2(F_v)) = N(K_v^×)F_v^{×2}, of index 2 in F_v^×/F_v^{×2} wherever K_v is a field. Globally the spinor norms of G(F)H(A)G(A)⁺ lie in F^×N(A_K^×)(A^×)², which is the kernel of η_{K/F} (class field theory), while θ(SO3(F_v)) = F_v^×/F_v^{×2} contains a uniformizer at any inert v. So η_{K/F}∘θ is a non-trivial character of G(A) trivial on G(F)H(A)G(A)⁺, and G(F)H(A) → G(A)/G(A)⁺ is not surjective. It stays non-trivial on ε whenever θ(U) ⊆ ker η_{K/F}, e.g. for U small, and then [H] meets only half of the G∞⁺-orbits. Checked on the page image of p. 182.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E2",
+   "kind": "gap",
+   "locator": "Proof of Lemma 7.8, p. 50 (also arXiv v3)",
+   "printed": "Let ∆ denote the multiple of the standard Laplacian for which e^φ=|∂φ|^{−2}∆(e^φ), and set D:=|∂φ|^{−2}∆. Integrating by parts repeatedly, we obtain I = t^{−N}∫ f D^r(e^{tφ}) = t^{−N}∫ D^r(f)e^φ",
+   "correction": "Use the first-order operator L = t^{−1}|∂φ|^{−2}Σ_j (conj ∂_jφ)∂_j, for which L(e^{tφ}) = e^{tφ} because φ is iR-valued, and integrate by parts N times with its transpose L^T; the coefficients of (L^T)^N are polynomials in derivatives of φ and |∂φ|^{−2}, bounded by the lower bound ε and the C^∞ bounds on φ.",
+   "reason": "∆(e^{tφ}) = (t²Σ_j(∂_jφ)² + t∆φ)e^{tφ}, so no multiple of the Laplacian reproduces e^{tφ} unless ∆φ = 0 and |∂φ| is handled separately; also the integration by parts produces the transpose of D, not D. The lemma itself is the standard non-stationary-phase estimate. Checked on the page image of p. 50.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E3",
+   "kind": "error",
+   "locator": "Lemma 24.10, the example after it, p. 166 (also arXiv v3)",
+   "printed": "For instance, in the above PGL2(F) example, the conclusion of the lemma holds with f := (α^{−n}+α^{−n+2}+...+α^n)/n for n∈Z⩾1 taken large enough in terms of ε.",
+   "correction": "Drop the example, or replace it by a function bounded on Θ^unit ≅ C^(1) ∪ [q^{−1/2}, q^{1/2}]/∼; the lemma is proved independently by Urysohn and Stone–Weierstrass.",
+   "reason": "The first requirement is |f| ≤ 2 on Θ^unit, which contains the real points α ∈ [q^{−1/2}, q^{1/2}] (complementary series, trivial and Steinberg). There f(α) ≥ α^n/n, and at α = q^{1/2} this is q^{n/2}/n → ∞, so f fails the first requirement for n large. It does satisfy the other two: f ≥ (n+1)/n on the real points, and ∫_{C^(1)} f² = (n+1)/n². The bound is needed in Step 5 of §24.4 because the Steinberg representation, in D′, has infinitesimal character α = q^{1/2}. Checked on the page image of p. 166.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E4",
+   "kind": "error",
+   "locator": "Proof of Lemma 7.6, display (7.4), p. 49 (also arXiv v3)",
+   "printed": "∂_ζ^δ x^α y^β ζ^γ ≪ (|x| |y|)^{|δ|} ρ^j ≪ ρ^j.   (7.4)",
+   "correction": "∂_ζ^δ x^α y^β ζ^γ ≪ (|x||y|)^{|δ|}ρ^{j−|δ|} ≪ ρ^j (using |x||y| ≤ ρ² and |x|, |y| ≪ 1).",
+   "reason": "Differentiating in ζ lowers the ζ-degree: for α = β = γ = δ = (1) (j = 1), ∂_ζ(xyζ) = xy, and |xy| > |x||y|ρ whenever ρ < 1. The final bound ≪ ρ^j, which is all that is used, is true.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E5",
+   "kind": "misprint",
+   "locator": "Theorem 19.4, (19.16), p. 128 (also arXiv v3)",
+   "printed": "H(Oph(a)) = Σ_{0⩽j<J} ∫_{h Oπ∩s⊥} D_j a + O(h^{(1−2δ)J}).",
+   "correction": "H(Op_h(a)) = Σ_{j<J} h^j ∫_{hO_π∩s⊥} D_j a + O(h^{(1−2δ)J}).",
+   "reason": "Theorem 19.4 is Theorem 19.3 transported to M = G × H, whose expansion (19.8) has the factor h^j; so do (19.17) and (19.18). Checked on the page image of p. 128.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E6",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 19.5, (19.20)–(19.21), p. 130 (also arXiv v3)",
+   "printed": "b(h η) = h^{δ′ dim(s)} Θ^∨(h^{δ′} η) … ∫_{η∈s^∧} η^α b(η) = 1_{α=0}",
+   "correction": "∫ η^α b(η) = h^{dim s}1_{α=0}; correspondingly the Kirillov expansion (12.4) enters with its factor h^{−d}.",
+   "reason": "From the displayed formula b(ζ) = h^{δ′ dim s}Θ^∨(h^{δ′−1}ζ), so ∫ b = h^{δ′ dim s}·h^{(1−δ′)dim s}∫Θ^∨ = h^{dim s}. The proof also drops the h^{−d} of (12.4) when passing to (19.22). The two factors cancel because d = dim S = dim H (H has an open orbit with trivial stabilizer on the flag variety of G × H, Lemma 13.3), so (19.18) is right. Checked on the page image of p. 130.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E7",
+   "kind": "misprint",
+   "locator": "§20, p. 142 (citation; also the bibliography)",
+   "printed": "(see [BP3, Theorem 5] in the unitary case and [Wll, Proposition 5.7] in the special orthogonal case)",
+   "correction": "[Wal2, Proposition 5.7] as in arXiv v3: J.-L. Waldspurger, Une formule intégrale reliée à la conjecture locale de Gross–Prasad, 2e partie, Astérisque 346 (2012), 171–312, which should be added to the bibliography.",
+   "reason": "The published [Wll] is Wallach, Real Reductive Groups I (correctly cited for Lemma 2.A.2.4 at (19.31)), which does not treat Gan–Gross–Prasad periods; arXiv v3 cites Waldspurger's paper here, and it is absent from the published bibliography.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E8",
+   "kind": "misprint",
+   "locator": "§6.1, before (6.1), p. 42 (also arXiv v3)",
+   "printed": "if t∈R×+ and f∈C_c^∞(g), then ∫_{x∈O} f(x)dω_O(x) = …",
+   "correction": "f ∈ C_c^∞(g^∧)",
+   "reason": "O ⊆ g^∧, and f is integrated against measures on coadjoint orbits. Checked on the page image of p. 42.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E9",
+   "kind": "misprint",
+   "locator": "§4.4, after Definition 4.3, p. 34 (also arXiv v3)",
+   "printed": "|∂^α a(ξ)| ⩽ h^η C_α h^{−δ|α|} ⟨ξ⟩^{m−α}",
+   "correction": "⟨ξ⟩^{m−|α|}",
+   "reason": "α is a multi-index; (4.8) has m − |α|.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E10",
+   "kind": "misprint",
+   "locator": "Lemma 7.11, p. 51, and (7.10), p. 51 (also arXiv v3)",
+   "printed": "Lemma 7.11. Fix δ∈(0, 1]. … (7.10) ∫_{x∈g} |a_h^∨(x)| |x|^n ≪ A^{−n}",
+   "correction": "δ ∈ [0, 1); and (7.10) for a ∈ S^m_δ reads ≪ ⟨ω⟩^m A^{−n} (as printed it is the case m = 0).",
+   "reason": "Lemma 7.12 and the proof of Theorem 7.4 apply the partition to S^m_δ with δ ∈ [0, 1), including the main case δ = 0; the construction works verbatim there. (7.9) carries the factor ⟨ω⟩^m, and (7.10) is only used with m = 0 (Proposition 7.13).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E11",
+   "kind": "misprint",
+   "locator": "§8.7, p. 63 (also arXiv v3)",
+   "printed": "the corresponding operator Op(p) acts both on π^∞ and on π^{−∞}. This observation is a consequence of §5.5.",
+   "correction": "a consequence of §5.2 (Lemma 5.1: Op(p) = π(sym p))",
+   "reason": "§5.5 is near-equivariance; the fact used is Lemma 5.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E12",
+   "kind": "misprint",
+   "locator": "§8.8.2, p. 65 (also arXiv v3)",
+   "printed": "‖v‖²_{π^s} = ∫_ξ |v^∧(ξ)|² ⟨ξ⟩^m dξ",
+   "correction": "⟨ξ⟩^{2s}",
+   "reason": "For π = L²(R^n), ∆ acts as multiplication by ⟨ξ⟩² and ‖v‖²_{π^s} = ⟨∆^s v, v⟩; with this weight the next line ‖Op(b)‖_{π^s→π^{s−m}} = sup |b|/⟨ξ⟩^m follows.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E13",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.4, (10.12) and (10.14), p. 82 (also arXiv v3)",
+   "printed": "Op_h(p′) acts by the scalar p_h(λσ) = p(hλσ). … H(Op_h(p′)T) = p(hλσ)H(T)",
+   "correction": "p(hλ_π) for p = p_G (acting on π) and p(hλ_σ) for p = p_H (acting through σ)",
+   "reason": "p ∈ Sym(ig)^G acts on π through λ_π (10.10); only the H-invariants act through σ. The estimates that follow use both.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E14",
+   "kind": "misprint",
+   "locator": "Appendix A, p. 136 (also arXiv v3)",
+   "printed": "π(f) := ∫_{g∈G} π(f)f(g) dg",
+   "correction": "π(g)f(g) dg",
+   "reason": "The definition of π(f) for f ∈ L¹(G).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NELSON-VENKATESH-21/E15",
+   "kind": "misprint",
+   "locator": "p. 109 (§16.4), p. 125 ((19.10)), p. 152 (§23.2), p. 154 (Lemmas 23.3–23.4), p. 202 (proof of Lemma 31.10) (also arXiv v3)",
+   "printed": "generators … for the ring of G-invariant regular functions on h*; Hσ(Oph(a1)…Oph(aj)) = ∫ a1…ak; a maximal compact subgroup K of G for which KP0 = H; σ is a supercuspidal representation of M … subquotient of i^G_M τ; 4dim(B_H) = εn_G n_H",
+   "correction": "H-invariant; a_k; K of H; τ and i^H_M; ε m_G m_H (Table 1)",
+   "reason": "Notational slips; the intended meaning is clear from context.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+    "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+    "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+    "web search for errata to the paper (23 September 2026): none found"
+   ],
+   "owner": "PAPER-NELSON-VENKATESH-21",
+   "file": "research/blueprint/papers/PAPER-NELSON-VENKATESH-21.result.json",
+   "citation": "Nelson–Venkatesh, \"The orbit method and analysis of automorphic forms\", Acta Mathematica 226 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-NEWTON-THORNE-21-B/E1",
    "kind": "misprint",
    "locator": "§3, proof of Theorem 3.1, p. 147",
@@ -74520,7 +74850,6 @@
  ],
  "older": [],
  "unchecked": [
-  "MordellLawrenceVenkatesh",
-  "PAPER-NELSON-VENKATESH-21"
+  "MordellLawrenceVenkatesh"
  ]
 }
