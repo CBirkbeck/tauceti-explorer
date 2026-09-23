@@ -12594,6 +12594,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E1",
+   "kind": "misprint",
+   "locator": "§7.6, the proof of Corollary 7.6.3 (published version p. 406; arXiv:1812.09269v3); in the LaTeX source the statement is \\begin{lem}\\label{thm:TWprimes} at line 13222 of abeliansurfacesmodular.tex and the citation is at line 13308",
+   "printed": "By Proposition 7.2.1 and Theorem 7.6.1, the claim holds with g instead equal to …",
+   "correction": "\"Theorem 7.6.1\" should read \"Lemma 7.6.1\"",
+   "reason": "7.6.1 is a Lemma — the statement constructing Taylor–Wiles data for a vast ρ̄ — and is headed \"Lemma 7.6.1\" in both PDFs; the string \"Lemma 7.6.1\" occurs exactly once in each and the string \"Theorem 7.6.1\" exactly once, in this sentence. The cause is visible in the source: the statement carries the label thm:TWprimes although its environment is lem, and the reference is written out as Theorem~\\ref{thm:TWprimes} rather than with \\Cref, so the automatic name is not used. A mechanical check of every cross-reference in the paper against the environment carrying its target label found this to be the only such mismatch.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1812.09269, all three versions listed on the abstract page; v3 of 28 November 2021 is the latest and its comment reads \"Final version (fixing minor typos found in copyediting)\", so it is the post-copyediting text",
+    "the published version, open access at Centre Mersenne, https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf, read 2026-09-23, where the same sentence appears; the journal page records no erratum",
+    "the publication lists on the authors' home pages, which link to the arXiv version and record no corrigendum"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-21.result.json",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Abelian surfaces over totally real fields are potentially modular\" (arXiv:1812.09269)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E2",
+   "kind": "misprint",
+   "locator": "Corollary 6.4.3, its statement and the spectral sequence in the first line of its proof (published version pp. 338–339; §6.4 of arXiv:1812.09269v3)",
+   "printed": "Then the map e(U^I)H^i(𝓧_{K(I,p^n)}(ε), ω^κ(−D)) → e(U^I)H^i(𝓧_{K(I,p^n)}(ε), 𝓕^{κ,w} ⊗ (det ω_𝓖)^2(−D)) is an isomorphism for i = 0 and injective if i = 1 … Proposition 6.4.2 gives a spectral sequence E_1^{p,q} = ⊕_{s∈W^{(p)}} H^q(𝓧_{K(I,p^n)}(ε), 𝓕^{s•κ,w} ⊗ (det ω_𝓖)^2(−D))",
+   "correction": "both occurrences of 𝓕^{κ,w} and 𝓕^{s•κ,w} should read 𝓕^{κ,w^-} and 𝓕^{s•κ,w^-}",
+   "reason": "The sheaf 𝓕^{κ,w^-} = colim_{w'<w}𝓕^{κ,w'} is defined immediately before Proposition 6.4.2, which resolves ω^κ(−D) by the 𝓕^{s•κ,w^-} and not by the 𝓕^{s•κ,w}; the sentence between Proposition 6.4.2 and Corollary 6.4.3 says that the Hecke operators act on 𝓕^{κ,w^-} ⊗ (det ω_𝓖)^2(−D); and within the proof of Corollary 6.4.3 itself the differentials θ_{s,s'} are written between the 𝓕^{s•κ,w^-}. So the spectral sequence of that proof is the one attached to a resolution by the w^- sheaves, and the map in the statement of the corollary is the first map of that resolution. The slip is exactly the one the authors correct in the source they are citing: the proof of Proposition 6.4.2 says in parentheses that in Andreatta–Iovita–Pilloni §7.2 \"one needs to replace 𝓕^{κ,w} with 𝓕^{κ,w^-} as defined above\". The distinction is visible in both PDFs, where the minus is typeset in the exponent of Proposition 6.4.2 and of the sentence after it, and is absent in the statement and the spectral sequence of Corollary 6.4.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1812.09269v3, the final version, where the same two occurrences lack the minus",
+    "the published version at Centre Mersenne, read 2026-09-23, where they also lack it; the journal page records no erratum",
+    "Andreatta–Iovita–Pilloni, p-adic families of Siegel modular cuspforms, Ann. of Math. 181 (2015), §7.2, whose own version of the slip this paper points out in the proof of Proposition 6.4.2"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-21.result.json",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Abelian surfaces over totally real fields are potentially modular\" (arXiv:1812.09269)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E3",
+   "kind": "misprint",
+   "locator": "Remark 5.8.5, the sentence announcing the proof of the strengthened vanishing (published version p. 315; §5.8 of arXiv:1812.09269v3), against Proposition 5.9.1 and Remark 5.9.2 on p. 316",
+   "printed": "In the case p>3, we will sketch a proof of this result in §5.9 using Fourier–Jacobi expansions, but since a complete argument in the case p=3 would involve developing considerably more of the details of toroidal compactifications than we need in the rest of the paper, we have decided not to give the details.",
+   "correction": "the hypothesis should read \"in the case p > 3 and [F:Q] > 1\"",
+   "reason": "What §5.9 actually proves is Proposition 5.9.1, which assumes both p > 3 and [F:Q] > 1, and Remark 5.9.2 immediately afterwards says in as many words that for F = Q, as for p = 3, the authors have only a sketch: \"We also have a sketch of an argument for F = Q.\" So the case F = Q is in exactly the same position as the case p = 3, and Remark 5.8.5 names only the latter. Nothing depends on this: §5.9 opens by saying that the result \"partially strengthens Corollary 5.4.5 but is not needed in this paper\", and the doubling theorem actually used, Theorem 5.8.4, is proved for all p ≥ 3 and all totally real F from Corollary 5.4.5 alone.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1812.09269v3, the final version, where Remark 5.8.5 and Proposition 5.9.1 read as quoted",
+    "the published version at Centre Mersenne, read 2026-09-23, where they also read as quoted; no erratum is recorded on the journal page",
+    "the publication lists on the authors' home pages, which record no corrigendum"
+   ],
+   "owner": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
+   "file": "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-21.result.json",
+   "citation": "Boxer, Calegari, Gee and Pilloni, \"Abelian surfaces over totally real fields are potentially modular\" (arXiv:1812.09269)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BRESCIANI-24/E1",
    "kind": "misprint",
    "locator": "Published §2 pp.133,135; arXiv v3 §2",
