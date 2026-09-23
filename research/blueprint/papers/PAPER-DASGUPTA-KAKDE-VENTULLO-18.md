@@ -103,3 +103,17 @@ Remark 5.2, where the authors record that this argument fills a hole at the end 
 - Every misprint was checked on a page image rendered from the published PDF; E4, E6 and E7 were checked that way specifically because text extraction is unreliable for primes and superscripts.
 - The dimension counts 2^r + r_an − 1 and 2^r + 2r_an − 2 were recomputed from the stated generators, and the sign in (87) was checked against (8) and (17): L_an(χ) = (−1)^r det(ℓ_i(u_j))/det(o_i(u_j)) = R_p(χ) in all three.
 - The claim in E2 that no Λ-algebra homomorphism W → E[π]/(π^{r_an+1}) exists for r ≥ 2 unless L*_an(χ) = 0 was verified from the relations of W_1 by hand.
+
+## Review (REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its four routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md`.
+
+- **Statements and locators:** 27 statements and 10 locators corrected.
+- **Statuses:**
+  - ineq-4 changed from planned to missing, routed to the Part II;
+  - local-tate-duality re-pointed to ClassFieldTheory Layer 5 and ArithmeticGaloisDuality:D7.
+- **New items:** 7 (1 library, 6 missing). The Part II brief has a corrections paragraph.
+- **Source issues:** E1 and E8 are rejected, and the other seven are confirmed. E10–E35 are new:
+  - The published Theorem 3.2 lost arXiv v1's normalisation ν_1(t)E_1(1, χ_S) = E_1(1, χ_S), which the later proofs need (E18). Restoring it repairs them.
+  - The rest are misprints and local slips that affect nothing.
+  - Theorem 1 stands.

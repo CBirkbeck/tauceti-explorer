@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-DASGUPTA-KAKDE-VENTULLO-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "IntegralIwasawaTheory owns this circle of ideas but plans neither the Gross–Stark conjecture nor the Hilbert modular congruence method at this generality, so the Part II is justified. Its brief states Theorem 1 exactly. The review moved the inequality (4) (ineq-4) here, since I.5 covers odd primes only and not its deduction, and added five items and a corrections paragraph to the brief, including the Theorem 3.2 normalisation."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The complex L-function of the ray-class character, its Euler factors and L(χ, 0) ≠ 0 belong with L0; the Deligne–Ribet interpolation is L3. The review added the Eisenstein series E_k(ψ, η) and the family E(χ, 1), which the paper uses without defining."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The p-adic Gamma function, Gross–Koblitz and Ferrero–Greenberg are inputs to the case F = Q only, and belong with L3's Kubota–Leopoldt branch. Their statements were corrected (the Ferrero–Greenberg item added a non-vanishing clause the paper does not make)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The three facts about Hida families that the paper cites belong to L5, though L5 does not name the q-expansion embedding for Hilbert forms, so fourier-embedding stays missing. The review corrected its statement: c is an injective Λ_(1)-linear map, not an algebra embedding."
+    }
+  ],
+  "notes": "Reviewed against the published paper (Ann. of Math. 188 (2018), 833–870; SHA-256 974e6427…), read in full again by four checkers, with arXiv v1 compared where the two differ. Corrections were made in place: 27 statements, 10 locators and 2 statuses (ineq-4 planned → missing, since I.5 does not plan the deduction of (4) and covers odd primes only; local-tate-duality re-pointed to ClassFieldTheory Layer 5 and ArithmeticGaloisDuality:D7). There are 7 new items (1 library, 6 missing). E1 is rejected: the Case 3 independence left to the reader is routine, and the checker supplied it. E8 is rejected: arXiv v1's numbering is shifted by one from (2), so its (20) is the published (21). The other seven are confirmed. E10–E35 are new; 22 are misprints, three of them arXiv v1 slips corrected in print. The one substantive new finding is E18: the published Theorem 3.2 dropped arXiv v1's normalisation ν_1(t)E_1(1, χ_S) = E_1(1, χ_S), so as printed t = 0 satisfies it, while Theorems 3.3, 3.6 and 3.8 need ν_1(F) ≠ 0. Restoring the clause repairs the proofs. Theorem 1 stands."
+}
