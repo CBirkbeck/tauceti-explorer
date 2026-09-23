@@ -1600,8 +1600,9 @@
    ],
    "avoidAccountOf": "PAPER-ZHANG-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-ZHANG-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1108"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1108",
+   "finishedAt": "2026-09-23T17:40:57Z"
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -1638,7 +1639,8 @@
    ],
    "avoidAccountOf": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1110"
   },
   {
    "id": "PAPER-NGODAC-21",
@@ -1675,7 +1677,8 @@
    ],
    "avoidAccountOf": "PAPER-NGODAC-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-NGODAC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1112"
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -4184,8 +4187,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -7604,8 +7607,9 @@
    ],
    "avoidAccountOf": "PAPER-RICHARD-YAFAEV-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1443"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1443",
+   "finishedAt": "2026-09-23T17:41:00Z"
   },
   {
    "id": "PAPER-BHATT-ETAL-23",
@@ -7794,7 +7798,8 @@
    ],
    "avoidAccountOf": "PAPER-CHENEVIER-TAIBI-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1453"
   },
   {
    "id": "PAPER-BENOIST-19",
