@@ -1,3 +1,81 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — coefficient recognition
+
+Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**
+Continue from report V0–V6. This extends PR #2215, not an independent review.
+
+Inventory: 183 items (30 library, 29 planned, 124 missing), twelve routes,
+119 selected known-item edges, nineteen unchanged source findings and the
+same nineteen withheld claims. All 167 inherited item core fields and
+route memberships are retained. The previous report and handoff are
+preserved below; only the p-realization characteristic-polynomial item's
+proof, dependencies and note were extended.
+
+What this checkpoint adds:
+
+- Eight exact pinned supplier blocks: Witt coordinates and comparison,
+  prime-subfield Frobenius, PadicInt.appr, monic Gauss lemma, quotient
+  norm/resultant, resultant identities and characteristic-polynomial
+  conjugacy. Ten files were raw-byte-verified at the original pins.
+- The canonical Z_p→W(k) coefficient map and a coordinate proof that
+  absolute Witt-Frobenius fixed points are its image, for any
+  characteristic-p field. Ghost coordinates are not injective here.
+- Integral characteristic-polynomial descent when the conjugating
+  Frobenius matrix is invertible only over Frac(W(k)).
+- A generic DVR resultant-recognition proof. Lift R+π^n modulo π^(2n);
+  multiplication on O[X]/(R) has determinant π^(n deg R) times a unit.
+  The complementary factor has eventually constant valuation.
+  Recover multiplicities from consecutive slopes.
+- The Z→Z_p specialization, with the exact common-nonzero monic test
+  scope needed by the independent p-characteristic-polynomial argument.
+- A proposed shared LocalFields Part II owner for those eight adapters,
+  with its nonduplication boundary and design brief. No new valuation,
+  Witt, polynomial, AdjoinRoot or module-classification carrier.
+
+Read boundary: M68 pp.65–66 were freshly image-read, with the same
+8abdaf4f... PDF hash. Lang VII §1 Lemma 1 was not acquired. Complete LT,
+WM71 and other source reads remain historical with prior attribution.
+The complete LocalFieldsRamification README was freshly read; the
+previously fully read GlobalNumberFields README is byte-identical.
+No fresh final-journal comparison or new source finding is claimed.
+
+Checks: the standard-library program in V6 passes 28,732 exact diagnostic
+cases (8,214 slopes; 3,126 congruences; 211 rejection examples; 17,181
+Witt-coordinate cases). Finite checks do not prove the general statements.
+The inherited SymPy program is preserved but was not rerun in this claim.
+Final schema/intake/regression and publication-snapshot results are in the
+current JSON verification object. No Lean file was written or compiled.
+
+Legacy compliance gap G9: 37 inherited definition/construction entries
+have only prose API/tests and one has string tests. All three new
+construction blocks pass the structured API/uses/≥3 typed-test audit;
+the 38 legacy entries need normalization before completion.
+
+Resume:
+
+1. Review the proposed LocalFieldsPartIICoefficientRecognition ownership
+   before activation and implement its adapters on the pinned carriers.
+   Do not restore a splitting-field valuation dependency to this proof:
+   V3–V4 avoid it. Do not replace F by F^a or use ghost injectivity.
+2. Audit the remaining unramified tensor decomposition/Frobenius action
+   and central-simple descent adapters. Existing Brauer, centralizer and
+   simple-module dimension theorems are already imported.
+3. Continue original R07.2 finite/p-divisible exact classification and
+   rank/length, A3 quotient/torsion and A6 intrinsic degree/Hom inputs.
+   The coefficient argument does not prove any of those geometric facts.
+4. Continue local cyclic-invariant/algebraic–cohomological Brauer,
+   global Brauer and Honda CM existence, then the earlier PEL,
+   polarization, class-set/narrow-norm, mass/residue and limit-law work.
+5. Obtain and compare the final 2018 LT text. All inherited LT findings
+   remain v1-only; keep the nineteen disputed literal claims withheld.
+
+The original G0–G7 scopes remain; G8 now distinguishes the two newly
+decomposed/audited coefficient obligations from all remaining arithmetic,
+geometric, source and implementation gaps. The job is not complete.
+
+---
+
+# Preserved characteristic-p handoff and historical checkpoints
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 — p-comparison incorporation
 
 **Codex — codex-7e92bd; 23 September 2026; Refs #1332. Partial.**

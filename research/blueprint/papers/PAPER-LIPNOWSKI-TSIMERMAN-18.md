@@ -1,3 +1,406 @@
+# Coefficient recognition before the p-Tate comparison
+
+**Partial checkpoint — Codex, codex-a71f92, 23 September 2026; Refs #1332.**
+
+This continues [PR #2215](https://github.com/CBirkbeck/tauceti-explorer/pull/2215)
+and preserves its incorporation of ChatGPT Pro's
+[PR #2204](https://github.com/CBirkbeck/tauceti-explorer/pull/2204).
+It is not an independent review. The inventory is now **183 items: 30 library,
+29 planned, 124 missing**, with twelve routes. All 167 inherited item IDs,
+kinds, statuses and statements, all inherited route memberships, all nineteen
+source findings and the nineteen withheld claims remain unchanged. Only the
+p-characteristic-polynomial item's proof/dependencies/note are extended.
+
+V1–V5 resolve two explicit generic proof/audit obligations in D1: Witt
+Frobenius constants and polynomial recognition by resultant valuations.
+They do not prove the geometric Dieudonné/degree inputs or complete LT.
+Eight supplier blocks are imported from the actual pinned declarations;
+eight remaining adapter implementations have a proposed shared LocalFields
+Part II owner. There is no new Witt, DVR, valuation, polynomial or quotient
+algebra carrier.
+
+## V0. Source, baseline and ownership boundary
+
+[Milne 1968](https://www.jmilne.org/math/articles/1968a.pdf?download=1)
+was downloaded on 23 September 2026, SHA-256
+8abdaf4fa604d5ed7faee3f9d4e9dc9382dc35d7b79382fe3540f495fe98fc35,
+1,229,128 bytes. Published pp.65–66 were freshly image-read: their text
+extraction is empty. The full LT/WM71 and other readings remain credited
+to the earlier checkpoints. Lang's cited VII §1 Lemma 1 was **not** acquired.
+The proofs below expand the previous handoff mathematically rather than
+claim a reading of that book. No fresh journal-version comparison was made.
+
+Working explorer snapshot: 203b2166cc0a6a8db1a6c5f1d7ca3f79a8c503c3.
+Read reviewed AUDIT-04 coverage for LocalFieldsRamification Layers 0 and 2,
+the complete upstream LocalFieldsRamification document and the relevant
+R07.2/CR.3/CR.4/PR.4/PR.5 descriptions. The complete GlobalNumberFields
+document read in the preceding claim was byte-compared unchanged.
+The finite-length-DVR and Kato-Swan Part II candidate briefs were checked:
+neither owns coefficient recognition. Portfolio and pinned-tree searches
+found no declaration of the two requested adapters.
+
+| Exact pinned import | Scope used here |
+| --- | --- |
+| WittVector.map_coeff, map_injective, coeff_frobenius_charP, frobenius_zmodp | Witt coordinates, not ghost coordinates; characteristic p for the Frobenius formula |
+| WittVector.equiv, toPadicInt, fromPadicInt | The implemented ring equivalence W(F_p)≃Z_p |
+| Subfield.mem_bot_iff_pow_eq_self, mem_bot_iff_intCast | In a characteristic-p field, x^p=x exactly in the prime subfield; finiteness is unnecessary |
+| PadicInt.appr, appr_lt, appr_spec | Integer coefficient representatives modulo p^N |
+| IsIntegrallyClosed.eq_map_mul_C_of_dvd | Monic factors over the fraction field descend to an integrally closed coefficient ring |
+| AdjoinRoot.norm_mk_eq_resultant, norm_mk_eq_det_mulModByMonic | Norm and multiplication determinant in the quotient by a monic polynomial; irreducibility unnecessary |
+| Polynomial.resultant_map_map, resultant_mul_left, resultant_pow_left, resultant_eq_zero_iff, Monic.resultant_of_le | Scalar maps, factor multiplicities, nonvanishing and explicit degree-padding control |
+| Matrix.charpoly_map, charpoly_units_conj | Base change and invariance under conjugation |
+
+The JSON locators name the containing files and lines. Their ten files were
+byte-matched against raw GitHub at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369.
+Library status applies to those actual statements, not to their unimplemented
+compositions below.
+
+The proposed **Local fields and ramification, Part II: Witt constants and
+polynomial recognition** starts beyond the existing substrate. It owns
+only these generic algebraic compositions, including their stronger
+field/DVR generality. The finite-field abelian-variety Part II imports them.
+The existing local-field Layer 2 still owns the unramified-field/Frobenius
+and tensor-factor arithmetic; CR/R07 still own their geometric realizations.
+Neither finite-length-module classification nor derived Frobenius fixed
+points is re-planned. This candidate must be independently reviewed before
+activation; it is not an accepted atlas stage.
+
+## V1. Identify the actual Frobenius-fixed coefficient image
+
+For a prime p and any field k of characteristic p, define the ring map
+
+    ι_k : Z_p → W(k)
+        = W(F_p→k) ∘ (WittVector.equiv p)⁻¹.
+
+This is witt-constant-embedding. Its injectivity, naturality in k and
+coefficient formula are compositions of the pinned Witt APIs. In particular,
+the coordinate formula uses the Witt coordinates of the inverse comparison,
+not the residue of z repeated as a constant sequence.
+
+For x∈W(k), Witt Frobenius satisfies (Fx)_j=x_j^p. Thus Fx=x iff every
+coordinate lies in F_p. Lift each coordinate uniquely to F_p, forming
+y∈W(F_p); then W(F_p→k)y=x, and z=equiv(y) is the unique desired preimage.
+Conversely Frobenius is the identity on W(F_p). This proves
+witt-frobenius-fixed-ring:
+
+    Fx=x  ⇔  ∃! z∈Z_p, ι_k(z)=x.
+
+No finiteness or perfection of k is needed for this statement. A field
+hypothesis is essential to this proof: an arbitrary product F_p-algebra
+can have extra Frobenius-fixed elements.
+
+Two discriminating conventions are recorded in the tests. Over F_9, F²
+fixes every vector, but F need not. Also the vector (0,t,0,…) for
+t²+1=0 in F_9 has all ghost coordinates zero in characteristic three,
+yet F sends its second Witt coordinate to t³=−t. Ghost coordinates cannot
+be used as an injective comparison here. Finally ι_k(3) has Witt
+coordinates beginning (0,1), not the Teichmüller lift of its residue zero.
+
+## V2. Descend the characteristic polynomial, not the Frobenius matrix
+
+Let k now be perfect, W=W(k), L=Frac(W), and σ the extended Witt Frobenius.
+Let T be a square matrix over W, and suppose B is invertible over L with
+
+    T_L = B σ(T_L) B⁻¹.
+
+The pinned characteristic-polynomial identities give σ(charpoly_L T_L)
+=charpoly_L T_L. Since W→L is injective, the coefficients of charpoly_W T
+are fixed in W. V1 supplies their unique preimages in Z_p, hence the unique
+monic descended polynomial of the same degree.
+
+This is semilinear-charpoly-descent. In the p-realization application B
+represents the semilinear Frobenius, which becomes invertible after
+inverting p. **B need not be invertible over W.** Conjugate over L first
+and descend the coefficients by injectivity. No semisimplicity of T is
+required. A nilpotent 2×2 matrix has polynomial X²; the empty matrix has
+polynomial 1. In contrast, σ²-invariance over F_9 alone cannot descend a
+coefficient to Z_3.
+
+## V3. Monic lifts and resultant congruences on existing carriers
+
+For the generic argument, let O be any DVR, π a uniformizer and K=Frac(O).
+Let ι:D→O be a commutative-ring homomorphism surjective modulo (π^N) for
+every N≥1. Neither a finite residue field nor completeness is assumed.
+
+monic-coefficient-lift chooses representatives of the finitely many
+nonleading coefficients of a monic f∈O[X] modulo π^N and retains leading
+coefficient exactly 1. This produces a monic g∈D[X] of the same degree.
+For f=1 choose 1. For Z→Z_3, the bounded lift of X−1 modulo 9 is X+8.
+The special Z→Z_p case is supplied by PadicInt.appr_spec; the generic
+lemma merely assumes the stated quotient-surjectivity.
+
+resultant-congruence says that for monic S and arbitrary G,H over a
+commutative ring, coefficientwise congruence modulo an ideal I gives
+
+    Res(S,G) ≡ Res(S,H) mod I.
+
+Apply the quotient coefficient map to a Sylvester determinant with a
+**common valid second degree bound**, using Monic.resultant_of_le
+to compare each actual-degree resultant. This handles degree drops in
+G or H. If I is the whole ring the assertion is trivial; otherwise
+monicity preserves the first degree after reduction. For example,
+S=X, G=1+3X, H=1 all give resultant 1 despite the degree change.
+The norm-as-multiplication-determinant description is an equivalent proof.
+
+## V4. Detect multiplicities without a splitting-field valuation
+
+Fix a monic R∈O[X], irreducible over K, of positive degree d. Write
+P=R^e S with R not dividing S over K. The monic Gauss lemma ensures the
+factors have coefficients in O. Put c=v(Res(S,R)); this is finite because
+R and S are coprime over K. The convention is v(π)=1, and v is used here
+only on nonzero elements.
+
+Choose for n≥1 an O-polynomial ψ_n satisfying
+
+    ψ_n ≡ R+π^n mod π^(2n), coefficientwise.
+
+In O[X]/(R), a free rank-d O-module even when its reduction is nonreduced,
+multiplication by ψ_n is
+
+    π^n (I+π^n M_n).
+
+The determinant of I+π^n M_n reduces to 1 in the residue field, hence is
+a unit. The existing norm–resultant identity therefore gives
+v Res(R,ψ_n)=nd. On the complementary factor, V3 gives
+
+    Res(S,ψ_n) ≡ Res(S,R) mod π^n.
+
+For n>c, its valuation is c. Multiplicativity now proves
+resultant-factor-slope:
+
+    v Res(P,ψ_n) = n d e + c,  whenever n≥1 and n>c.
+
+This includes e=0 and S=1. A factor of degree d occurring e times gives
+slope de, not e. Accuracy only modulo π^n would allow ψ_n=R itself and
+a zero resultant, so the 2n precision has a real role.
+
+For monic P,Q∈O[X], suppose their valuations agree against every monic
+test from D[X] for which **both** resultants are nonzero. Choose R to be
+each nonconstant irreducible factor of PQ over K. Lift R+π^n monically
+from D modulo π^(2n), by V3. The two slope formulas apply for all
+sufficiently large n and make both resultants nonzero. Subtract the
+equality at consecutive n to obtain d e_P=d e_Q, hence e_P=e_Q.
+Monicity removes the remaining unit factor. This proves
+resultant-valuation-recognition, including P=1 or Q=1 and without
+assuming that the degrees were equal.
+
+The proof needs no splitting field, separability, characteristic zero
+or extension of a valuation. It is a stronger algebraic formulation of
+the previous handoff's root-wise argument, not a claim that the generic
+theorem is already in Lean.
+
+Two tempting weaker hypotheses fail. Over Z_3, X and 2X have the same
+nonzero resultant valuations against every test, so monicity matters.
+The distinct monic polynomials X²+1 and X²+X+2 are both root-free modulo
+3, so every integral linear test gives valuation zero for each. But the
+quadratic tests ψ_n=X²+1+3^n give valuations 2n and 0. Linear tests
+alone do not recover the polynomial.
+
+## V5. Specialize and reconnect the noncircular p-realization proof
+
+For O=Z_p, D=Z and π=p, PadicInt.appr verifies the hypothesis at every
+precision. Thus padic-resultant-recognition identifies monic p-adic
+polynomials from common-nonzero **integer** test resultants.
+
+Return to D1. V2 first places the realization characteristic polynomial
+Q in Z_p[X], using only semilinear commutation. The intrinsic P_u is
+supplied separately by A6. For the monic tests constructed in V4,
+both resultants are eventually nonzero. The A6 degree/isogeny criterion
+makes ψ_n(u) an isogeny. Its geometric degree and Dieudonné length give
+the required equality of valuations, so V4–V5 imply Q=P_u. This still
+does not invoke p-Tate to prove its own characteristic-polynomial input.
+
+Only this adapter boundary is resolved mathematically. The original
+finite-group/p-divisible classification, A3 quotients, A6 degree and
+Hom finiteness, unramified tensor arithmetic, central-simple descent,
+local/global Brauer and Honda inputs remain open as specified in G8.
+G0–G7 and the nineteen withheld LT claims retain their previous scope.
+
+
+A structural audit also records **G9**: 37 legacy definition/construction
+entries carry API/tests only in prose, and one has string tests. The six
+structured entries pass the ≥3 typed-test/API check, including all three new
+constructions. The 38 legacy entries need normalization before completion;
+the paper checker does not enforce that requirement.
+
+## V6. Exact diagnostics and verification boundary
+
+The following **standard-library-only** program passes 28,732 exact
+cases: 8,214 multiplicity slopes, 3,126 coefficient/resultant congruences,
+211 rejection examples, and 17,181 finite-field Witt-coordinate cases.
+Rational coefficients with denominators prime to p exercise integral
+factors that are not integer polynomials. The Witt tests use the actual
+coordinate formula; they do not confuse coordinatewise operations with
+Witt addition. The tests are diagnostics, not proofs of the generic results.
+
+The inherited SymPy code and its earlier execution claims are preserved
+below, but that program was not rerun in this claim. No Lean file was
+written or compiled. Final schema, intake, preservation and regression
+checks are recorded in the current verification object and handoff.
+
+```python
+from fractions import Fraction as Q
+from itertools import product
+
+def trim(f):
+    f = list(map(Q, f))
+    while len(f) > 1 and not f[-1]:
+        f.pop()
+    return f
+
+def mul(f, g):
+    z = [Q(0)] * (len(f) + len(g) - 1)
+    for i, a in enumerate(f):
+        for j, b in enumerate(g):
+            z[i+j] += a*b
+    return trim(z)
+
+def power(f, e):
+    z = [Q(1)]
+    for _ in range(e):
+        z = mul(z, f)
+    return z
+
+def det(a):
+    a = [list(map(Q, r)) for r in a]
+    n, out = len(a), Q(1)
+    for j in range(n):
+        k = next((k for k in range(j, n) if a[k][j]), None)
+        if k is None:
+            return Q(0)
+        if k != j:
+            a[j], a[k] = a[k], a[j]
+            out = -out
+        pivot = a[j][j]
+        out *= pivot
+        for k in range(j+1, n):
+            c = a[k][j]/pivot
+            for l in range(j+1, n):
+                a[k][l] -= c*a[j][l]
+    return out
+
+def resultant(f, g):
+    f, g = trim(f), trim(g)
+    m, n = len(f)-1, len(g)-1
+    rows = []
+    for j in range(n):
+        rows.append([Q(0)]*j + f[::-1] + [Q(0)]*(n-1-j))
+    for j in range(m):
+        rows.append([Q(0)]*j + g[::-1] + [Q(0)]*(m-1-j))
+    return det(rows)
+
+def val(x, p):
+    x = Q(x)
+    assert x
+    a, b, e = abs(x.numerator), x.denominator, 0
+    while a % p == 0:
+        a //= p
+        e += 1
+    while b % p == 0:
+        b //= p
+        e -= 1
+    return e
+
+def lift(c, p, n):
+    c = Q(c)
+    assert c.denominator % p
+    modulus = p**n
+    return c.numerator*pow(c.denominator, -1, modulus) % modulus
+
+counts = dict(slopes=0, congruences=0, rejection=0, witt_coordinates=0)
+for p in (2, 3, 5):
+    denominator = 3 if p == 2 else 2
+    cs = [Q(-1), Q(0), Q(1), Q(1, denominator)]
+    factors = [[c, Q(1)] for c in cs]
+    factors += [[a, b, Q(1)] for a, b in product(cs, repeat=2)]
+    for R, S in product(factors, repeat=2):
+        cross = resultant(S, R)
+        if not cross:
+            continue
+        c = val(cross, p)
+        for n in range(1, 4):
+            psi = [Q(lift(x, p, 2*n)) for x in R[:-1]] + [Q(1)]
+            psi[0] += p**n
+            rself, rother = resultant(R, psi), resultant(S, psi)
+            assert val(rself, p) == n*(len(R)-1)
+            delta = rother-cross
+            assert not delta or val(delta, p) >= n
+            counts["congruences"] += 1
+            if n > c:
+                assert rother and val(rother, p) == c
+                for e in (0, 1, 2):
+                    P = mul(power(R, e), S)
+                    assert val(resultant(P, psi), p) == n*e*(len(R)-1)+c
+                    counts["slopes"] += 1
+    # Degree-zero first factor, and preservation of an exactly monic lift.
+    for n in range(1, 5):
+        assert resultant([1], [p**n, 1]) == 1
+        assert lift(-1, p, n) == p**n-1
+        counts["congruences"] += 1
+
+# Linear tests alone do not distinguish these two polynomials over Z_3.
+P, Qpoly = [1, 0, 1], [2, 1, 1]
+for t in range(-81, 82):
+    assert val(resultant(P, [-t, 1]), 3) == 0
+    assert val(resultant(Qpoly, [-t, 1]), 3) == 0
+    counts["rejection"] += 1
+for n in range(1, 6):
+    psi = [1+3**n, 0, 1]
+    assert val(resultant(P, psi), 3) == 2*n
+    assert val(resultant(Qpoly, psi), 3) == 0
+    counts["rejection"] += 1
+# Unit scaling is invisible to resultant valuations, so monicity is essential.
+for t in range(1, 40):
+    a, b = resultant([0, 1], [t, 1]), resultant([0, 2], [t, 1])
+    assert val(a, 3) == val(b, 3)
+    counts["rejection"] += 1
+# Precision n alone allows psi=R when approximating R+p^n.
+for n in range(1, 5):
+    assert val(-3**n, 3) == n
+    assert resultant([1, 0, 1], [1, 0, 1]) == 0
+    counts["rejection"] += 1
+
+# F_{p^2} = F_p[t]/(t^2+b*t+c). Frobenius on Witt coordinates
+# is coordinatewise p-th power; coordinate addition is NOT Witt addition.
+for p, b, c in ((2, 1, 1), (3, 0, 1), (5, 0, 2)):
+    def fm(x, y):
+        a0, a1 = x
+        d0, d1 = y
+        return ((a0*d0-c*a1*d1) % p,
+                (a0*d1+a1*d0-b*a1*d1) % p)
+    def fp(x, n):
+        z = (1, 0)
+        for _ in range(n):
+            z = fm(z, x)
+        return z
+    field = list(product(range(p), repeat=2))
+    fixed = [x for x in field if fp(x, p) == x]
+    assert fixed == [(a, 0) for a in range(p)]
+    assert all(fp(fp(x, p), p) == x for x in field)
+    for length in (0, 1, 2, 3):
+        fixed_count = 0
+        for w in product(field, repeat=length):
+            fw = tuple(fp(x, p) for x in w)
+            assert (fw == w) == all(x[1] == 0 for x in w)
+            fixed_count += fw == w
+            counts["witt_coordinates"] += 1
+        assert fixed_count == p**length
+    a = (0, 1)
+    assert fp(a, p) != a
+    # (0,a) and zero have identical ghost coordinates in char p,
+    # but the former is not Frobenius-fixed.
+    assert (fp((0, 0), p), fp(a, p)) != ((0, 0), a)
+print(counts)
+print("Total exact diagnostic cases:", sum(counts.values()))
+print("Finite diagnostics only: no general theorem or Lean compilation follows.")
+```
+
+---
+
+# Preserved characteristic-p checkpoint and earlier reports
+
 # Characteristic-p comparison and Frobenius blocks
 
 **Partial checkpoint — Codex, codex-7e92bd, 23 September 2026; Refs #1332.**
