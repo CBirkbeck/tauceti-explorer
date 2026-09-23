@@ -51911,14 +51911,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 7: m A_j is not the successive kernel for j≥2. In k[e]/e^3, (e)^2≠0; m^2/m^3 is square-zero. The last tower step is j=n."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E2",
@@ -51934,14 +51935,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 8 image. Absolute values are nonnegative on every vector, so the printed inequality selects all V[1/t]; the integral lattice is the unit ball."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E3",
@@ -51957,14 +51959,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 9. The second partial derivative has b-dimensional domain and must act on W[1/t]^b. With V=R0, W=0 and f(v,w)=w, the printed V/V condition holds but the restricted map is constant."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E4",
@@ -51980,14 +51983,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 9 and the pinned strict-derivative theorem. A fixed error bound is not little-o; the constant must be arbitrary and the neighbourhood may depend on it. The inclusion used here is continuous linear, which supplies its strict derivative."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E5",
@@ -52003,14 +52007,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL pp. 10,12–13. The openness conclusion belongs in the ambient point group; the second factor comes from the W-input and lies in G(F2)^+."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E6",
@@ -52026,14 +52031,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 13. A product of subgroups need not be a subgroup, and a dense open subset need not be the whole group. The displayed neighbourhood together with the translate argument in the correction proves the actual factorization without that inference."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E7",
@@ -52049,14 +52055,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 14 image, retaining all closure bars. Factoring the n-th power map yields n-th powers in the R-subgroup, not the whole torus. Density is in the F0-points. Conjugacy, rather than abstract isomorphism alone, gives unbounded projections to the specified factors; Harder remains a named supplier gap."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E8",
@@ -52072,14 +52079,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL pp. 14–15 images and Prasad Theorem (T), pp. 197–201. Onto projections do not imply normality (diagonal S3 is a counterexample). The open intersections with factors give the correct normal subgroups. The terminal invocation needs Proposition 3.9(2). The independent Tits supplier proof is explicitly still a gap."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E9",
@@ -52095,14 +52103,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 15 image: x1=h1 h2 x2 implies h1^(-1)x1=h2 x2; the second inverse is incorrect."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E10",
@@ -52118,14 +52127,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 16 and the current author errata. Fraction-field formation does not commute with this completion. The factorial-pole coefficient argument proves the strict inclusion; this mistake is already acknowledged by the author."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E11",
@@ -52141,14 +52151,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 17 image. The open-patch localized polynomial ring uses x, whereas x^(-1) belongs to the point-patch power-series ring. The integral intersection is dense in R0, not in all F0."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E12",
@@ -52164,14 +52175,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 17 image. The first displayed summand has only nonpositive x-powers and belongs to Rhat_P; the second has polynomial coefficients in x and belongs to Rhat_U."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E13",
@@ -52187,14 +52199,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL pp. 18–19 and the type convention in §1.1. A type has a rational parabolic precisely when it contains the anisotropic subset. Consequently the global subset is the star-stable closure of the union of local subsets; both the statement and its printed proof reverse this order."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E14",
@@ -52210,14 +52223,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 19. Properness extends a generic section over a regular curve using its DVR local rings; a component of a merely normal surface fibre can be singular. Passing first to an SNC model supplies the required regular components. This is a proof gap, not a counterexample to the corollary."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E15",
@@ -52233,14 +52247,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 21. The finite Weyl/diagram quotient is the normalizer modulo T0. The quotient of the full positive-dimensional group by its torus is generally not finite."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E16",
@@ -52256,21 +52271,22 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 21 and the current author errata. The local loop argument requires the completed local ring. The comparison of the two valuation completions uses their complete DVRs, common uniformizer and residue field, via successive approximation."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E17",
    "kind": "error",
    "locator": "Theorem 7.1, printed p. 23, HAL v5 (26 December 2025); published Theorem B.1 has the same wording (read on the publisher's page by codex-a71f92, 22 September 2026)",
    "printed": "Let X be a regular scheme of dimension 2. Let U be an open subcheme of X which contains the subset X^(1) ⊂ X of points x such that the local ring O_X,x is of dimension 1. … then we have the bijection H^1_fppf(X, G) ≅ H^1_fppf(U, G).",
-   "correction": "U must contain every point of codimension at most one (equivalently add 'X integral', as in CTS79 Theorem 6.13).",
+   "correction": "Require U to contain every point of codimension at most one. Alternatively retain CTS79’s hypothesis that X is an integral regular surface; this is a narrower sufficient hypothesis, not an equivalent condition on X.",
    "reason": "X = A²_R ⊔ Spec R is regular of dimension 2, and U = A²_R contains X^(1). For G = PGL_2, the torsors given by M_2(R) and by Hamilton's quaternions on the Spec R component are distinct but have the same restriction to U, so restriction is not injective. Lemma 5.1 applies the theorem to an integral model, so the paper's results are unaffected. Items 89, 90 and 138.",
    "affects": "a stated result",
    "known": "new",
@@ -52279,14 +52295,15 @@
     "arXiv 2301.07572 submission history (v1 18 January, v2 1 March, v3 24 March 2023); the v3 TeX source was compared at each locator",
     "HAL hal-03938963v5, the version read (the newest the checkpoint found; HAL returned a challenge page on 23 September 2026)",
     "Springer page of doi 10.1007/s00222-026-01403-x, 23 September 2026: no correction notice; main body paywalled, Appendices A and B visible",
-    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-026-01403-x, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HAL p. 23, published Theorem B.1 in the publisher HTML, and CTS79 Theorem 6.13 on printed pp. 128–129. The disjoint-union counterexample is valid: PGL2 torsors on the omitted real point include the distinct split and Hamilton forms. Adding codimension-zero points is a correction; retaining the original integral-surface hypothesis is an alternative restriction, not an equivalent condition."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E18",
@@ -52299,34 +52316,97 @@
    "known": "new",
    "searched": [
     "Gille, 'Errata et compléments', dated 26 May 2026 (math.univ-lyon1.fr/~gille/prenotes/errata.pdf, SHA-256 6297d7a0…), entry for this paper: two corrections, published Example 5.1(b) and proof of Proposition 6.2",
-    "Gille's web page (math.univ-lyon1.fr/~gille), errata file dated 26 May 2026, the newest found"
+    "Gille's web page (math.univ-lyon1.fr/~gille), errata file dated 26 May 2026, the newest found",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked the current errata PDF p. 1 directly. The proposed geometric series equals t/(x−t), already in Frac(k[x][[t]]). Factorial pole growth gives a valid witness instead; the author erratum fixes the equality but its witness is wrong."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E19",
    "kind": "error",
    "locator": "Harbater–Hartmann–Karemaker–Pop, arXiv 1903.08007v3, proof of Lemma 2.4, p. 7 (cited by GP26 for Corollary 4.8)",
    "printed": "Similarly, since O^h_(X_i,P_i)/m O^h_(X_i,P_i) = O/m for all i, it follows that R/mR = O/m.",
-   "correction": "The residue field of O^h_(X_i,P_i) is k(P_i), and O/m = colim_i k(P_i); so R/mR = colim_i k(P_i) = O/m.",
+   "correction": "Write m_i for the maximal ideal of O_(X_i,P_i). Its henselization has maximal ideal m_i O^h_(X_i,P_i) and residue field k(P_i). The local filtered colimit has maximal ideal colim_i m_i O^h_(X_i,P_i) and residue field colim_i k(P_i)=O/m; this proves the required residue-field comparison.",
    "reason": "The residue fields k(P_i) can grow along the chain: blow up a k-rational point and choose P_1 on the exceptional P^1_k with k(P_1) ⊋ k. Then O^h_(X_0,P_0) has residue field k ≠ O/m. The lemma survives with the colimit argument (item 145). This finding concerns a cited source, not GP26's text.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "arXiv 1903.08007 (v3 read; SHA-256 5cc13254…)",
-    "the Contemporary Mathematics 767 version was not available; no erratum found in a web search, 23 September 2026"
+    "the Contemporary Mathematics 767 version was not available; no erratum found in a web search, 23 September 2026",
+    "Independent review, 23 September 2026: current Gille errata PDF, publisher article/appendices, arXiv 2301.07572 version history; HHKP finding also checked against arXiv 1903.08007 history (latest v3). No additional correction located by title/erratum searches; this is not proof of absence."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked HHKP v3 Lemma 2.4 on printed pp. 6–7. Each local henselization retains k(P_i), whereas the limit residue field is their colimit. Blow up the real origin on P1_R[[t]], choose a degree-two point on the exceptional P1_R and continue with rational points over C: k(P0)=R and the subsequent residue fields are C. Also m of the union cannot be treated as an ideal of an earlier stage. Use the stage maximal ideals and filtered colimits."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E20",
+   "kind": "error",
+   "locator": "HAL v5, proof of Theorem 4.5(1), printed p. 18 (PDF p. 19); compare Lemma 4.3 on printed p. 17. Final main-text numbering not independently available.",
+   "printed": "We put V = F1 ∩ R̂0 and W = F2 ∩ R̂0. Lemma 4.3 shows ... V and W satisfy conditions (3.1) and (3.2).",
+   "correction": "Retain V=Rhat_P and W=Rhat_U from Lemma 4.3. These are the complete T-modules needed by §3. The larger intersections F_i∩R0 need not be complete, even for the projective-line diamond.",
+   "reason": "Take T=k[[t]], u=x^(-1), F1=Frac(k[[u,t]]) and R0=k((u))[[t]]. The finite sums s_N=sum_(n=1)^N t^n u^(-n!) lie in F1∩R0 and form a t-adic Cauchy sequence. Its R0-limit s is not in F1: otherwise b s=a with nonzero a,b∈k[[u,t]]. Divide their common lowest t-power so b_0(u)≠0 and put d=ord_u b_0. In the t^n coefficient of b s, b_0 u^(-n!) has order d−n!, while every other term b_j u^(-(n−j)!) has order at least −(n−1)!. For n!−d>(n−1)!, the unique lowest-order term cannot cancel, contrary to a having no negative u-powers. Thus F1∩R0 is not complete. The correction uses exactly the complete modules already proved in Lemma 4.3 and leaves the theorem intact.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Current Gille errata PDF dated 26 May 2026, GP entry: fraction-field and local-completion corrections, no correction of the V/W assignment.",
+    "HAL v5 manuscript read directly; current HAL page is challenged, so no claim to have inspected a newer hidden version.",
+    "Publisher article page and exposed appendices; main article unavailable. arXiv 2301.07572 version history still ends at v3. Title/erratum search on 23 September 2026 found no additional notice."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked the assignment on the page image and the earlier completeness hypothesis. The factorial-pole argument above proves failure of completeness in the exact projective-line setup. The extraction already warned against the replacement in item 69; this records the omitted source finding."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E21",
+   "kind": "gap",
+   "locator": "Gille, Loop group schemes and Abhyankar’s lemma (2024), proof of Lemma 3(2), printed p. 163; input to GP26 Proposition 5.2.",
+   "printed": "d1 is prime to p ... there exists a factorization U^{sc,t} → V1 → U.",
+   "correction": "Use the torsor structure to prove tameness: trivialize the finite etale group over an unramified base cover, then each connected component of its torsor is a Galois cover with group a subgroup of the constant prime-to-p group. Its inertia has prime-to-p order. Descend tameness and apply the universal tame cover. Also read the component decomposition as a disjoint union, not a fibre product.",
+   "reason": "Prime-to-p degree alone does not imply tameness of a connected cover. In characteristic 2 take A=F2[[s,t]], U=Spec A[1/(st)], and the monic cubic X^3+sX+t. It is irreducible over Frac(A): a monic factorization over the integrally closed A would specialize at s=0 to a factorization of the Eisenstein polynomial X^3+t. Its discriminant is t^2, so it defines a connected finite etale cover of U of degree 3. At the t-divisor the quadratic residue factor X^2+s gives a purely inseparable residue extension of F2((s)), so the cover is not tame. The missing justification is supplied by the finite-group torsor hypothesis, as already outlined in item 99; the lemma itself survives.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Gille current errata PDF dated 26 May 2026: no Loop group schemes/Abhyankar entry found.",
+    "Published article DOI 10.5802/crmath.545 and journal/Numdam landing pages; title plus errata/correction search, 23 September 2026. No correction located."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked the published page image and the indicated elementary counterexample. The extraction uses the corrected version; this finding concerns the cited 2024 source, not an additional claim in the GP26 text."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E22",
+   "kind": "error",
+   "locator": "Gille, Loop group schemes and Abhyankar’s lemma (2024), §2.1, printed p. 160; input to GP26 Proposition 5.2.",
+   "printed": "Let (f1,...,fr) be a regular sequence ... D ... has strict normal crossings.",
+   "correction": "Require the f_i to be coordinate parameters defining an SNC divisor. For the exceptional-divisor valuation and the stated r−1-dimensional residue field later, use a full regular system of parameters as in the French introduction, or enlarge the inverted divisor first.",
+   "reason": "A regular sequence does not force an SNC divisor: in Q[[x,y]], the single nonzero divisor f=y^2−x^3 is a regular sequence, but its zero locus is a singular cusp. The maximal ideal of Q[[x,y]]/(f) has two-dimensional cotangent space and the ring has dimension one, so its support is not a regular branch. Items 87,96,98 already impose the corrected coordinate condition; this records the source error.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Gille current errata PDF dated 26 May 2026: no Loop group schemes/Abhyankar entry found.",
+    "Published article DOI 10.5802/crmath.545 and journal/Numdam landing pages; title plus errata/correction search, 23 September 2026. No correction located."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Checked the published page image and the indicated elementary counterexample. The extraction uses the corrected version; this finding concerns the cited 2024 source, not an additional claim in the GP26 text."
   },
   {
    "id": "PAPER-GLEASON-LIM-XU-26/E01",
@@ -68156,9 +68236,9 @@
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json",
    "citation": "Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\", Forum of Mathematics, Pi (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "reviewReason": "Confirmed, with its version boundary. The published text spells 'Deligne–Lusztig' correctly on p.1, which is consistent with the record's own statement that the misprint is in the arXiv versions and NOT in the published version; the finding is therefore about arXiv v1–v4 as it says, and nothing in the published text contradicts it."
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E14",
@@ -68178,9 +68258,9 @@
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json",
    "citation": "Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\", Forum of Mathematics, Pi (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "reviewReason": "Confirmed, with its version boundary, on the same basis as E13: the published introduction on p.3 has no occurrence of the misspelling, matching the record's statement that this one too is arXiv-only."
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E101",
@@ -69120,9 +69200,9 @@
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json",
    "citation": "Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\", Forum of Mathematics, Pi (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "reviewReason": "Confirmed, and the paper's own hypotheses settle it. Corollary 2.3.11 on p.22 opens 'Let w̃ ∈ W_a t_η', while Proposition 3.4.2 on p.35 states its conclusion for a semisimple 𝔐̄ of shape w̃ ∈ W̃^∨ with no such restriction, and its proof invokes that corollary. The hypothesis the correction adds — w̃ ∈ Adm^∨(η), or more generally w̃* ∈ W_a t_η — is exactly what the invoked result requires."
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E33",
@@ -70528,9 +70608,9 @@
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json",
    "citation": "Le–Le Hung–Levin–Morra, \"Serre weights and Breuil's lattice conjecture in dimension three\", Forum of Mathematics, Pi (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "reviewReason": "Confirmed as a gap, from the paper's own addendum. The proof of Theorem 5.3.1 on p.124 reads in full 'Given Theorems 5.3.3 and 3.5.3, the proof of [LLHLM18, Theorem 7.4] goes through unchanged', while §6(16) on p.130 says of that same result that 'Theorem 7.4, which was omitted, uses the same techniques' as the level-lowering Proposition 6.0.2 supplied there. So the proof this one rests on was not printed in the source it cites, which is what the finding records."
   },
   {
    "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/E97",
@@ -73417,142 +73497,254 @@
   {
    "id": "PAPER-LI-ZHANG-22/E1",
    "kind": "error",
-   "locator": "Lemma 3.2.2, p.13, and the simplified (\"Namely\") form of Lemma 3.2.1, p.12 (final version; also arXiv v1); used in the proof of Lemma 7.6.7 (ii) at d = 2, p.51",
+   "locator": "Lemma 3.2.2, p.13, and the simplified (\"Namely\") form of Lemma 3.2.1, p.12 (final version; also arXiv v1); used in the proof of Lemma 7.6.7 (ii) at d = 2, p.51; published pp.1367–1369 and1421–1422",
    "printed": "Lemma 3.2.2: \"S_b(V) = (q^{m/2} − χ(V))(q^{m/2−b} + χ(V))Π_{i=1}^{b−1}(q^{m−2i} − 1)/Π_{i=1}^{b}(q^i − 1), m even\", stated for all b ≥ 0; the simplified form of Lemma 3.2.1, \"#O(U, V) = q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 + χ(V)sgn(U)q^{−(m−n−t)/2})Π_{1≤i<(n+t)/2}(1 − q^{2i−m}) for m even\", stated for all U.",
-   "correction": "Both hold for b ≥ 1, resp. n + t > 0. For b = 0 (U = 0) with m even they give q^m − 1 and 1 − q^{−m}, while S_0(V) = 1 and #O(0, V) = 1.",
-   "reason": "The simplification replaces (1 − x)^{−1}(1 − x²) by (1 + x) for x = q^{−(m−n−t)/2}; the factor (1 − x²) is the i = (m − n − t)/2 term of the product, which is present only when (m − n − t)/2 < m/2, i.e. n + t > 0. Brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3) confirms the simplified form in 160 of 166 configurations, the six exceptions being exactly U = 0 with m even. The first (unsimplified) form of Lemma 3.2.1 is correct there, but is indeterminate (0/0) in the other edge case n + t = m when U does embed in V. The edge case matters in the proof of Lemma 7.6.7 (ii) at d = 2, where the displayed evaluation substitutes the printed closed formula for S_{d−2}(W_{Λ+⟨x⟩}) = S_0 = 1 and so reads (q^4 − 1)(1 − q) + (q^2 + 1)q in place of (1 − q) + (q^2 + 1)q = 1 + q^3; with the correct value S_0 = 1 the identity of Lemma 7.6.7 holds (checked symbolically for 2 ≤ d ≤ 7), so the lemma itself is unaffected.",
-   "affects": "nothing",
+   "correction": "State S_0(V)=1 and #O(0,V)=1 separately; use the displayed simplified positive-dimensional formulas only in their admissible nonzero range. Handle 0/0 cases of the unsimplified formula by a separate orbit-stabilizer case, not numerical division.",
+   "reason": "At b=0 and even m>0, the printed S_b expression gives(q^{m/2}−χ)(q^{m/2}+χ)=q^m−1 instead of1. At U=0 the simplified embedding count gives1−q^−m instead of1. At d=2 in Lemma7.6.7(ii), the actual count is S_0=1 and the numerator is(1−q)+(q²+1)q=1+q³. These are exact edge checks; the original extraction's 166-case enumeration was not rerun. This invalidates the overbroad printed statements, not the corrected geometric identity.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Recomputed zero-dimensional counts and read the published statements/use. Corrected affects from nothing to a stated result, and removed unreplicated enumeration claims from the review evidence."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E2",
    "kind": "misprint",
-   "locator": "Proof of Theorem 3.5.4, p.19 (final version; also arXiv v1)",
+   "locator": "Proof of Theorem 3.5.4, p.19 (final version; also arXiv v1); published p.1377",
    "printed": "\"Taking the ratio we obtain Den(H^ε_{n+1+2k}, L)/Nor^♭ε(q^{−k}, L) = …\"",
    "correction": "Den(H^ε_{n+2k}, L)/Nor^♭ε(q^{−k}, L).",
    "reason": "In the even corank case Den^♭ε(q^{−k}, L) is defined with H^ε_{n+2k} (Definition 3.5.2), and the preceding display of the proof takes m = n + 2k in Lemma 3.3.2.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Read Definition3.5.2 and the preceding m=n+2k substitution in the published proof. The denominator and even-corank normalization require n+2k."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E3",
    "kind": "gap",
-   "locator": "Remark 4.11.5, p.30 (final version; also arXiv v1); used in the proof of Lemma 9.2.2 (i), p.64",
-   "printed": "\"If L, L′ ⊆ V are isometric O_F-lattices of rank n, then we may find g ∈ SO(V)(F) such that L = gL′. We may further lift g to g̃ ∈ GSpin(V)(F) = J(F) such that η(g) = 1. Then the automorphism g̃ of N (see §4.4, 4.5) carries ^𝕃Z(L′) to ^𝕃Z(L). In particular, Int(L) only depends on the isometry class of L.\"",
-   "correction": "A lift g̃ ∈ J(F) of g ∈ SO(V)(F) has spinor norm η(g̃) = sn(g) in F^×/(F^×)², so η(g̃) = 1 forces sn(g) = 1. What the argument needs is only val η(g̃) = 0, since g̃ carries RZ^{(ℓ)}_G to RZ^{(ℓ + val η(g̃))}_G (§4.5) and N = RZ^{(0)}_G; that is available exactly when some isometry carrying L′ to L has spinor norm of even valuation, which the remark does not establish.",
-   "reason": "There are isometric pairs for which every isometry has spinor norm of odd valuation. Take m even and ε = −1: for m even and U unimodular, ϵ(ϖU) = χ(U), so V^−_m ≅ ϖ·H^−_{m,F}. Write H^−_m = M ⊥ ⟨w⟩ with M self-dual of rank n = m − 1, and let L ⊆ V be M with the scaled form, so that all its fundamental invariants are 1 and val(w) = 1. An element of SO(V)(F) stabilizing L preserves L_F and the line L^⊥_F, hence is a product of an even number of reflections in vectors of L or of L^⊥_F (for p odd the orthogonal group of a unimodular lattice is generated by the reflections in its vectors of unit norm, O'Meara 92:4); each such reflection has spinor norm of valuation 1, so the stabilizer has spinor norms of even valuation. Since V is isotropic, sn : SO(V)(F) → F^×/(F^×)² is surjective; choosing h with val sn(h) odd and L′ = hL gives isometric lattices such that every g ∈ SO(V)(F) with gL′ = L has val sn(g) odd. Remark 4.11.5 is the invariance input for Lemma 9.2.2 (i) (the O(W)(F)-invariance of Int^⊥_{L^♭,V}), hence for Proposition 9.2.3 and Theorem 9.3.2. The conclusion is presumably true — Theorem 4.15.1 asserts it, and for m = 4, ε = −1 it follows from Terstiege's explicit formulas (Remark 4.15.2) — and an automorphism of RZ_G outside J(F) shifting the components would supply it; but no such argument is given here, and this extraction did not settle it.",
+   "locator": "Remark 4.11.5, p.30 (final version; also arXiv v1); used in the proof of Lemma 9.2.2 (i), p.64; published pp.1392,1440; related component-preserving surjectivity claim in proof of Theorem12.9.1, p.1457",
+   "printed": "\"If L, L′ ⊆ V are isometric O_F-lattices of rank n, then we may find g ∈ SO(V)(F) such that L = gL′. We may further lift g to g̃ ∈ GSpin(V)(F) = J(F) such that η(g) = 1. Then the automorphism g̃ of N (see §4.4, 4.5) carries ^𝕃Z(L′) to ^𝕃Z(L). In particular, Int(L) only depends on the isometry class of L.\" Later, p.1457: G′(Q)^0 surjects onto SO(V′)(Q).",
+   "correction": "A lift g̃ ∈ J(F) of g ∈ SO(V)(F) has spinor norm η(g̃) = sn(g) in F^×/(F^×)², so η(g̃) = 1 forces sn(g) = 1. What the argument needs is only val η(g̃) = 0, since g̃ carries RZ^{(ℓ)}_G to RZ^{(ℓ + val η(g̃))}_G (§4.5) and N = RZ^{(0)}_G; that is available exactly when some isometry carrying L′ to L has spinor norm of even valuation, which the remark does not establish. Do not replace the component-preserving rational subgroup by all SO(V′)(Q) in Theorem12.9.1. Supply the needed component comparison and orbit/multiplicity accounting separately.",
+   "reason": "The square class of η(g̃) is fixed by the SO image; changing a lift by a scalar changes η by a square. Thus η=1 is possible only for trivial spinor norm, and a p-unit lift only for even valuation. For m even≥4, ε=−1, V≅ϖH_m^− is isotropic and has Hasse−1. Write H_m^−=M⊥⟨w⟩ with M unimodular rank m−1 and take L to be its scaled sublattice. The stabilizer of L in SO(V) has even valuation spinor norm: O(M) is generated by unit-norm reflections, each acquiring valuation1 after scaling, and the complementary-line reflection also has valuation1; determinant1 forces an even number. Here the integral reflection-generation step has an elementary proof: for a unit vector v and its image w, at least one of Q(v−w),Q(v+w) is a unit because their sum is4Q(v); use one or two reflections to match v,w and induct on the unimodular orthogonal complement. A hyperbolic plane in V represents1 andϖ, so a product of two reflections has odd spinor valuation. Set L′=hL for such h: every isometry carrying L′ to L has odd spinor valuation. No J(F) element doing so preserves N. This confirms the faulty lift argument, not falsity of Int-isometry invariance; a semilinear/component-comparison repair remains possible but unproved here. Howard–Pappas§6.3 explicitly relates η to spinor square class, and§7.2.6 defines I(Q)^0 by val_pη=0. The later assertion on p.1457 that G′(Q)^0 surjects onto SO(V′)(Q) has the same obstruction: take the positive definite rational form V′=diag(3,3,1,2), p=3. Its local discriminant is2 and Hasse invariant−1, an allowed rank4 nearby space. The rational isometry diag(−1,1,−1,1), the reflections in the first and third basis vectors, has spinor norm3 and cannot be the image of a p-unit-similitude lift. The global proof must retain the subgroup/orbit distinction.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Checked the lift norm, component action and stabilizer obstruction independently; supplied the elementary reflection-generation argument instead of inheriting an unread O'Meara citation. Read Howard–Pappas§6.3 and§7.2.6. This is a gap/false proof step, not a disproof of either main identity or a claim that semilinear descent cannot repair it."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E4",
    "kind": "misprint",
-   "locator": "Wrong cross-references: proof of Lemma 4.13.1, p.31; proof of Theorem 6.3.2, p.40; §7.6, p.47; proof of Corollary 7.6.8, p.51 (final version; also arXiv v1)",
+   "locator": "Wrong cross-references: proof of Lemma 4.13.1, p.31; proof of Theorem 6.3.2, p.40; §7.6, p.47; proof of Corollary 7.6.8, p.51 (final version; also arXiv v1); published pp.1393,1406,1416,1422",
    "printed": "\"The vertical part Z(L)_V is a scheme by Lemma 6.1.1 below.\" — \"The same proof of [LZ, Theorem 5.2.2] works verbatim using Lemma 6.3.1 in place of [LZ, Lemma 5.2.1].\" — \"we generalize Lemmas 7.4.5 and 7.5.1\" — \"Proof. It follows immediately from Lemmas 7.6.8 and 7.5.1.\"",
    "correction": "Proposition 6.1.1; [LZ, Theorem 5.3.2] and [LZ, Lemma 5.3.1]; Corollary 7.4.5 and Lemma 7.5.1; Lemmas 7.6.7 and 7.5.1.",
    "reason": "There is no Lemma 6.1.1, no Lemma 7.4.5 and no Lemma 7.6.8; Corollary 7.6.8 cites itself, and the input it needs is Lemma 7.6.7, which writes c_{V(Λ)} as a combination of the Int_{V(Λ′)} for Λ′ of type 4, to which Lemma 7.5.1 applies. In Li–Zhang, Kudla–Rapoport cycles and derivatives of local densities (J. Amer. Math. Soc. 35 (2022), 705–797), the Tate-conjecture results are Lemma 5.3.1 and Theorem 5.3.2 — the numbering Corollary 7.3.2 of this paper uses — while 5.2.1 and 5.2.2 are the horizontal/vertical splitting. (The unitary companion has the same self-citation in its Corollary 6.4.8; see PAPER-LI-ZHANG-22-B/E3.)",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Each main-paper cross-reference checked. Fresh companion§§5.2–5.3 show Definition5.2.1/Corollary5.2.2 concern K-cycle splitting, while Lemma5.3.1/Theorem5.3.2 give the Tate argument. Corrected item31 and prerequisite5, which had repeated the bad references."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E5",
    "kind": "misprint",
-   "locator": "Introduction, p.5; §5.3, p.34; proof of Corollary 7.4.5, p.46 (final version; also arXiv v1)",
+   "locator": "Introduction, p.5; §5.3, p.34; proof of Corollary 7.4.5, p.46 (final version; also arXiv v1); published pp.1358,1397,1414",
    "printed": "\"∂Eis(z, ϕ_K) = Σ_{T ∈ Herm_n(F)} ∂Eis_T(z, ϕ_K)\" — \"we can identify the cycle Z(M^♭) ⊆ Z(M_{n−2}) with the cycle Z(M_2) ⊆ N^+_3\" — \"(iii) If x ∉ Λ^∨ or val(x) ≤ 0, then Λ + ⟨x⟩ is not integral\"",
    "correction": "Sym_n(F); Z(M^♭) ⊆ Z(M_{n−3}); val(x) < 0.",
    "reason": "This is the orthogonal case, and the Fourier expansion (11.4.0.2) is indexed by Sym_n(F). In the case t(M^♭) = 2 the self-dual lattice used is M_{n−3}, with Z(M_{n−3}) ≅ N^+_3 by (4.14.0.2). In Corollary 7.4.5 the case val(x) = 0 with x ∈ Λ^∨ \\ Λ is already case (ii), where Λ + ⟨x⟩ is integral and the value is 1.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Read each published passage and its neighboring definition/case. Symmetric matrices, the rank n−3 self-dual summand, and strict negative valuation are required."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E6",
    "kind": "misprint",
-   "locator": "Proof of Proposition 8.2.7, base case (2) and the inductive identity, p.60 (final version; also arXiv v1)",
+   "locator": "Proof of Proposition 8.2.7, base case (2) and the inductive identity, p.60 (final version; also arXiv v1); published p.1435",
    "printed": "\"So µ_−(L) = q^t − q, µ_0(L) = q − 1, µ_+(L) = 1.\" and \"(1 + sq^{t/2})(1 − sq^{t/2−1})µ_+(L, M) + (1 − sq^{t/2−1})µ_0(L, M) + µ_−(L, M) = 0 for any s ∈ {±1}.\"",
    "correction": "µ_−(L) = q^{t−1} − q; and the inductive identity with the coefficients of the statement, (1 − sq^{t/2})(1 + sq^{t/2−1}) and (1 + sq^{t/2−1}).",
    "reason": "The preceding lines compute #(L^∨)°/L = q^{t−1} and #(ϖL^∨)° = q, so µ_− = q^{t−1} − q; the displayed identity (1 − sq^{t/2})(1 + sq^{t/2−1}) + (1 + sq^{t/2−1})(q − 1) + (q^{t−1} − q) = 0 (rechecked) needs q^{t−1} − q, while q^t − q would not give 0. The flipped signs of s in the inductive identity are harmless, since it is claimed for both values of s.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "The two preceding cardinalities give q^{t−1}−q. Exact checks for q=3,5,7,11 and t=2,4,6,8 satisfy the displayed identity with this value and fail with q^t−q. Simultaneously flipping s is harmless because the assertion is for both signs."
   },
   {
    "id": "PAPER-LI-ZHANG-22/E7",
    "kind": "misprint",
-   "locator": "arXiv v1 (2106.15038v1): Theorem 1.3.1 and §11.4; Definition 8.2.2; proofs of Propositions 8.2.5 and 8.2.7",
+   "locator": "arXiv v1 (2106.15038v1): Theorem 1.3.1 and §11.4; Definition 8.2.2; proofs of Propositions 8.2.5 and 8.2.7; author-final pp.4,54,57,60,69–71; published pp.1358,1426,1431,1434,1447–1449",
    "printed": "v1: \"q^T := ψ_∞(tr Tz) = e^{2πi tr Tz}\"; \"µ_?(L, M) := µ_?(L) − [L : M]µ_?(M)\"; \"L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, e_t⟩\" (twice); \"E(z, s, ϕ) := χ_∞(m(a))^{−1}|det(m(a))|^{−m/2}_F · E(g_z, s, ϕ)\"; \"Notice that E(z, s, Φ) does not depend on the choice of χ.\"",
    "correction": "q^T := ψ_∞(½ tr Tz) = e^{πi tr Tz}; [M : L]; L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, ϖ^{−2}e_t⟩; |det(a)|^{−m/2}_F; and the last sentence deleted (the final version says instead, in §11.1, that E(g, s, Φ) does depend on the choice of χ).",
-   "reason": "The Fourier coefficients are taken against ψ(−tr ½Tb) (§11.2), so the classical variable is q^T = ψ_∞(½ tr Tz); [M : L] is the index of L in M ⊇ L, as Lemma 8.2.3 uses; for fundamental invariants (1, …, 1, 2) the dual of ⟨e_t⟩ is ⟨ϖ^{−2}e_t⟩, as the next line of both proofs (x = … + λ_tϖ^{−2}e_t) already assumes.",
+   "reason": "The Fourier coefficients are taken against ψ(−tr ½Tb) (§11.2), so the classical variable is q^T = ψ_∞(½ tr Tz); [M : L] is the index of L in M ⊇ L, as Lemma 8.2.3 uses; for fundamental invariants (1, …, 1, 2) the dual of ⟨e_t⟩ is ⟨ϖ^{−2}e_t⟩, as the next line of both proofs (x = … + λ_tϖ^{−2}e_t) already assumes. Three-way spot comparison: both dual-basis lines are fixed in KRO.pdf, only the odd-type line is fixed in the published copy; its p.1434 still prints e_t while the very next line uses ϖ^−2e_t. Do not identify the manuscript with the journal version.",
    "affects": "nothing",
-   "known": "Corrected in the authors' final version (Chao Li's homepage, KRO.pdf, dated 2 March 2022); arXiv has only v1",
+   "known": "Corrected in the authors' KRO.pdf dated2 March2022; however the journal copy at https://par.nsf.gov/servlets/purl/10338689 still retains the erroneous final dual-basis vector in Proposition8.2.7 on p.1434. The other listed corrections are present there.",
    "searched": [
-    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
-    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
    ],
    "owner": "PAPER-LI-ZHANG-22",
    "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
    "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Confirmed the v1 misprints and author-final fixes at each specified passage. Qualified the version claim using the actual journal copy; p.1434 was image-checked. The final manuscript is not an erratum establishing that every published typo was corrected."
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E8",
+   "kind": "error",
+   "locator": "Corollary3.6.2, published p.1379 (author-final p.20); compare Theorem3.6.1 and its use in Corollary3.8.3",
+   "printed": "∂Den^ε(L)−∂Den^ε(L̃)=−εχ(L^♭)Den^♭ε(1,L^♭) when χ(L^♭)≠0.",
+   "correction": "Put c=εχ(L^♭), D=Den^♭ε(X,L^♭). Under the stated sign−1 hypothesis the difference is2D(1) for c=0, D(1) for c=−1, and−2D′(1) for c=+1. Alternatively restrict the corollary to χ(L^♭)≠ε, the cases used in Corollary3.8.3.",
+   "reason": "When c=1, the rational factor(1−X²)/(1−X) equals1+X; the sign−1 functional equations force D(1)=0 but do not force D′(1)=0. Explicitly over Q_3 take ε=−1, V=diag(3,3,9,2), L^♭=diag(3,3), L=diag(3,3,9), L̃=diag(3,3,1). V has discriminant class2 and Hasse−1, χ(L^♭)=−1=ε, and val(x)=2>1. The only integral vectors in L^∨/L have coordinates(a,b,c)=(0,0,0),(0,0,3),(0,0,6), where a,b mod3 and c mod9: integrality is3a²+3b²+c²≡0 mod9. Hence L̃ is the sole proper integral overlattice and is maximal. The even and odd lattice-count formulas give D=(1−3X)(1−X), B=1−X², A=(1−X²)(1−3X+X²)=X²B+(1+X)D. Then−A′(1)=−2,−B′(1)=2 and their difference is−4, whereas the printed RHS is0. Corollary3.8.3 uses c=−1 or0 and is not refuted by this example.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Published statement image-checked; independently enumerated all81 dual-quotient vectors, verified Hasse/discriminant and exact integer polynomial coefficients/derivatives. This is a counterexample to the stated corollary, not the main arithmetic identity."
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E9",
+   "kind": "error",
+   "locator": "Corollary7.4.6, published p.1414 (author-final p.46); downstream Corollary7.5.3 and Lemma9.2.2",
+   "printed": "extends (uniquely) to a distribution in D(V)",
+   "correction": "Specify the regular distribution obtained from an L¹_loc(V) representative and prove local integrability across V\\Ω(L^♭), or impose another uniqueness-producing class. In the co-anisotropic finite-sum case uniqueness within S(V) is valid. Do not claim uniqueness among all distributions.",
+   "reason": "0 is outside Ω(L^♭). If T∈D(V) extends the given function/distribution on Ω, then T+aδ_0 has exactly the same restriction for every scalar a. δ_0 is nonzero on a test function taking value1 at0. Thus restriction to Ω cannot determine an arbitrary distribution, even when a Schwartz extension happens to exist. Local finiteness on Ω alone does not establish integrability across its complement. Fourier(δ_0) is a nonzero constant distribution, so the subsequent Fourier eigenidentity is not independent of this choice. This does not assert that the intended regular extension fails to exist.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Read the unrestricted D(V) formulation and the locally-finite-sum proof. The delta-mass obstruction is exact; existence of the intended regular extension and continuity of the infinite-sum/Fourier argument remain separate proof obligations."
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E10",
+   "kind": "error",
+   "locator": "Lemmas8.2.4 and8.2.6, published pp.1428,1432 (author-final pp.55,58); their use in Propositions8.2.5/8.2.7",
+   "printed": "there exists a quadratic O_F-lattice M of rank t and type t such that L⊆_1M",
+   "correction": "At least restrict the printed helper to the proved a_t≥3 construction M=L+⟨ϖ^−1e_t⟩, retaining each lemma's other hypotheses. The a_t=2 construction needs an appropriate isotropic direction in the terminal Jordan block. Add separate base cases/arguments where no same-type overlattice exists; merely excluding val(L)=t,t+1 is insufficient.",
+   "reason": "Over Z_3, L=diag(3,3,9) has odd rank/type3, χ(L)≠0 and val(L)=4. An index3 overlattice would have determinant valuation2, impossible for type3. For the even lemma diag(3,3) already fails by the same bound. More strongly, diag(9,9) has rank/type2 and val(L)=t+2, but every nonzero(a,b) mod3 satisfies a²+b²≠0. Any index3 overlattice contains(ae_1+be_2)/3 with unit norm, so its type is not2. The proof's a_t=a_{t−1}=2 branch silently assumes such an isotropic direction exists. These invalidate the helper statements and leave a gap in the universal weighted-identity induction; they do not provide counterexamples to the weighted identities themselves. In the last example μ_+=1, μ_0=8, μ_−=0 and Proposition8.2.7 does hold for s=−1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Read published and author-final helper statements/proofs; enumerated every index3 line for the three diagonal examples and checked the determinant obstruction. The stronger anisotropic example prevents a false easy repair by val(L)≥t+2."
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E11",
+   "kind": "error",
+   "locator": "§7.6 Chern-character display and Definition7.6.3, published p.1418; proof7.6.5 and Lemmas7.6.6–7.6.7, pp.1419–1422",
+   "printed": "ch(V(Λ)∩^LZ(x))=ch(O(−Z(x))|_{V(Λ)})−ch(O_{V(Λ)}); c_V=c(d)·(1−q^d,1,0).",
+   "correction": "The divisor resolution gives the K-class[O]−[O(−Z)]. Keep the printed c_1=c_1(O(−Z)) and replace ch by1−exp(c_1). Then c_V=c_1^d and both numerical formulas7.6.6/7.6.7 acquire(−1)^d. Alternatively redefine c_1 using O(Z) and rewrite all Chern-character coefficients consistently. The homogeneous Fourier identities survive the scalar change.",
+   "reason": "For d=1 and x∈Λ^∨\\Λ of integral norm, Theorem7.4.1 gives intersection1. Thus deg O(−Z(x))|_{V(Λ)}=−1, while Lemma7.6.6 asserts+1. The sign is also forced by the two-term Cartier-divisor resolution in the preceding line. The degree-d power gives(−1)^d relative to the positive-divisor convention; projection formula introduces the same sign at each restriction step. Lemma7.6.5's homogeneous divisor relation is unchanged. The companion review's PAPER-LI-ZHANG-22-B/E2 records the analogous unitary defect; the present finding was checked directly in this published orthogonal paper.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Image-checked p.1418 and independently compared the Cartier-divisor K-class with the d=1 intersection from7.4.1. This corrects the numerical statements, not just typography; no full proof of higher local modularity is certified here."
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E12",
+   "kind": "misprint",
+   "locator": "Proof of Proposition9.1.3(ii), p.1439; last paragraph of Theorem9.3.2(ii), p.1444; §10, p.1445 (published copy)",
+   "printed": "ϕ_1=1_{⟨e_1,e_2⟩}−1_{⟨ϖ^−1e_1,e_2⟩}; Proposition9.2.3(i) and Proposition8.1.2(i); signature(n,0).",
+   "correction": "Reverse the indicator difference for the defined ϕ_1=1_{ϖ^−1O_F^×e_1×O_Fe_2}; in the co-isotropic case cite parts(ii) of both propositions; total positive definiteness in rank m=n+1 means signature(m,0).",
+   "reason": "The annulus is the larger lattice minus the smaller; the published Fourier expression changes by the same overall minus sign, leaving its support unchanged. The co-isotropic recurrences are explicitly the(ii) branches; the(i) branches assume co-anisotropic. A positive-definite m-dimensional real form has positive index m, consistent with§12.1, not n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2106.15038 lists only v1 (29 June2021); selected passages compared with https://www.math.columbia.edu/~chaoli/KRO.pdf and the published https://par.nsf.gov/servlets/purl/10338689.",
+    "2026-09-23: Chao Li's https://www.math.columbia.edu/~chaoli/ lists the article/final manuscript without a correction link; https://api.crossref.org/works/10.1007/s00222-022-01106-z has empty relation and no update-to/updated-by fields. The Springer article page could not be retrieved in the final recheck, so no comprehensive publisher correction-list audit is claimed.",
+    "2026-09-23: bounded title/author searches for erratum/correction and for Corollary3.6.2, Remark4.11.5, Corollary7.4.6 and Lemma8.2.6 found no external correction. This is not a priority or exhaustive novelty claim."
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-ZHANG-22",
+   "reviewReason": "Each slip checked directly against the neighboring definition or case. Record them rather than silently normalizing the extracted statements."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E1",
@@ -77295,9 +77487,9 @@
    "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
    "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
    "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Confirmed at the page image of p. 25 and in the TeX, where the reference is \\eqref{eq:fundshort}, the p-covering sequence of §7.2. The needed fact is that an (𝓕_n)^𝒞-normal Γ-subgroup K ⊆ N with KM = N equals N. It follows from the definition of M in the paragraph of (4.1)."
   },
   {
    "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E2",
@@ -77317,9 +77509,9 @@
    "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
    "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
    "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Confirmed at the page image of p. 41. All three displays there read N(E, Γ, q^n, F_q(t)), while the first display of the proof (p. 40) has N(H, Γ, q^n, F_q(t))."
   },
   {
    "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E3",
@@ -77339,17 +77531,17 @@
    "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
    "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
    "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Confirmed on p. 34. Corollary 3.10 gives 𝓕_n^ab ≅ (Z[Γ]/(Σ g))^n, which has no Γ-invariants, whereas (Z_p[Γ])^n has invariants Z_p^n. Z_p[Γ]/(Σ g) = Z_p[Γ](1 − e) is the augmentation ideal. Since p ∤ |Γ|, lattices with the same rational span are isomorphic, so the conclusion N ≅ (𝓕_n)^𝒞 stands. Read literally, the printed module would put the trivial representation into R with multiplicity n. A numerical check of the §7.1 formula (Γ = Z/2, p = 3, u = 0, 1, 2: total mass 1 and moments [A : A^Γ]^{−u}) agrees."
   },
   {
    "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E4",
    "kind": "gap",
-   "locator": "Statement of Theorem 5.12, p. 30, against Theorem 5.15 (p. 31), Lemma 6.1 and Theorem 6.2 (pp. 31–32) and Theorems 7.4–7.5 (pp. 35–36) (arXiv v2)",
+   "locator": "Statement of Theorem 5.12, p. 30, against Theorem 5.15 (p. 31), Theorem 6.2 (pp. 32–33) and Theorems 7.4–7.5 (pp. 35–36) (arXiv v2)",
    "printed": "\"Theorem 5.12. Let u ≥ 0 be an integer. Then µ_u is countably additive on the algebra A generated by the basic open sets U_{C,H} …\"; later \"Theorem 5.15. … Let u be an integer. Then µ_u(V_{C,H}) = …\"; \"Theorem 6.2. Let X_u be a random Γ-group with distribution µ_u. For any integer u …\"",
-   "correction": "State Theorem 5.12 for every integer u. Its proof applies Lemma 5.10 to f_n(H, ℓ) = µ_{u,n}(U_{𝒞_ℓ,H}), g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}) and g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u}. The inequality g_n ≤ g holds for every u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n by Corollary 3.8. Corollary 5.9 only needs u > −n, which holds for large n. So nothing in the argument uses u ≥ 0.",
-   "reason": "For u < 0, Theorems 5.15, 6.2 and 7.4–7.5 evaluate µ_u on Borel sets V_{𝒞,H} and integrate against µ_u. That requires µ_u to extend to a Borel measure, which is proved (Theorem 5.12, with Carathéodory extension) only for u ≥ 0 as printed. The main Theorems 1.2 and 1.4 use u = 1 and are unaffected. With the hypothesis dropped the statements hold. For example, at u = −1 and Γ = Z/2 the formula gives measure 0 to every finite abelianization, consistent with the free rank-one abelianization of 𝓕_n/(n−1 relations).",
+   "correction": "State Theorem 5.12 for every integer u. Its proof applies Lemma 5.10 to f_n(H, ℓ) = µ_{u,n}(U_{𝒞_ℓ,H}), g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}) and g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u}. The inequality g_n ≤ g holds for every u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n by Corollary 3.8. Corollary 5.9 only needs u > −n. For u < 0, X_{u,n}, f_n and P_{u,n} are defined only for n > −u, so Lemma 5.10 and the proof are read for those n. Nothing else in the argument uses u ≥ 0.",
+   "reason": "For u < 0, Theorems 5.15, 6.2 and 7.4–7.5 evaluate µ_u on Borel sets V_{𝒞,H} and integrate against µ_u. That requires µ_u to extend to a Borel measure, which is proved (Theorem 5.12, with Carathéodory extension) only for u ≥ 0 as printed. The main Theorems 1.2 and 1.4 use u = 1 and are unaffected. With the hypothesis dropped the statements hold. For example, at u = −1 and Γ = Z/2 the formula gives measure 0 to every finite abelianization, consistent with 𝓕_n/(n−1 relations) having abelianization of Z′-rank ≥ 1 (Z′ = ∏_{p∤|Γ|} Z_p), hence infinite.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -77361,9 +77553,584 @@
    "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
    "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
    "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Confirmed at pp. 30–36, with three refinements made in place. First, for u < 0, Lemma 5.10 and the proof are read for n > −u. Second, Lemma 6.1 is dropped from the locator: it concerns finite-n limits and does not use Theorem 5.12. Third, \"free rank-one abelianization\" is replaced by \"Z′-rank ≥ 1\". A numerical check supports the corrected statement. For Γ = Z/2 at level {F_3 with σ = −1}, the Theorem 4.12 measures for u = −2, …, 2 have total mass 1 and moments [A : A^Γ]^{−u}."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E5",
+   "kind": "error",
+   "locator": "Theorem 4.12, (4.14), p. 24, and its proof, (4.17), p. 25; (5.13) in the proof of Theorem 1.2, p. 30; Theorem 5.15, p. 31 (arXiv v2)",
+   "printed": "\"(4.17) λ(C, H, G) = lim_{n→∞} h_{H⋊Γ}(G)^{m(C,n,H,G)}|Y(G)|^{−n} if G ∈ A_H … Otherwise λ(C, H, G) > 0, and it follows by (4.17) that m(C, n, H, G) → ∞ as n → ∞.\" Theorem 5.15: \"Let H be a finite admissible Γ-group of level C. Let u be an integer. Then µ_u(V_{C,H}) = 1/(|Aut_Γ(H)||Y(H)|^u) ∏_{G∈A_H} ∏_{i=1}^∞ (1 − λ(C,H,G) h_{H⋊Γ}(G)^{−i}/|Y(G)|^u) ∏_{G∈N} e^{−|Y(G)|^{−u}λ(C,H,G)}.\"",
+   "correction": "Add to (4.14), (5.13) and Theorem 5.15 the hypothesis that H has Property E in the category of level-𝒞 Γ-groups. Equivalently, λ(𝒞, H, G) = 0 for every G ∈ 𝒜_H on which Γ acts trivially. When the hypothesis fails, Prob((X_{u,n})^𝒞 ≅ H) = 0 for every n, and μ_u(U_{𝒞,H}) = μ_u(V_{𝒞,H}) = 0. In the proof, (4.17) and \"m → ∞\" hold for G with G^Γ ≠ G.",
+   "reason": "𝒜_H contains Z/p with trivial H⋊Γ-action. §7.1 speaks of \"G ∈ A_H with trivial H-action\", and (4.13) needs it. For such G, |Y(G)| = 1, and every sub-H-extension D of an admissible E has Y(D) = Y(E), hence D = E. So Corollary 4.8 gives (h^m − 1)/(h − 1) = Σ_E 1/|Aut_{Γ,H}(E, π)| with m independent of n, i.e. h^m = 1 + λ by (4.10). Hence (4.17) fails whenever λ ≠ 0. The finite-n formula (4.13) is right: its k = 0 factor 1 − 1/|Y(G)|^{n+u} vanishes, so the probability is 0 for every n. It must be: by Proposition 3.13 every (X_{u,n})^𝒞 has Property E, and λ ≠ 0 for such a G exactly when H has a non-split central level-𝒞 Γ-extension by Z/p with trivial action. The limit formula instead contributes ∏_{i≥1}(1 − λh^{−i}), which is never 0. Example: Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1. Then λ(Z/3 trivial) = 2 (the Heisenberg group, |Aut_{Γ,H}| = 1) and λ(Z/3 sign) = 1. The formula gives 2.70·10^{−3} at u = 0 and 4.50·10^{−4} at u = 1. Two helper agents independently enumerated the random quotients: exhaustively at n = 2 and by Monte Carlo at n = 3, 4. F_3² never occurred, while the frequencies of 3^{1+2}_+, Z/3 and Z/9 matched (4.13). For H = F_3⁴, λ = 728 and the formula is negative (−1.42·10^{−4} at u = 0). With 𝒞 all finite 3-Γ-groups, Theorem 7.4 gives μ_u(V_{𝒞,F_3²}) = 0, contradicting Theorem 5.15, which it cites. Unaffected: (4.13); the existence and weak convergence in Theorem 1.2; Theorems 5.12 and 6.2; §7.1 (at abelian level E^Γ = 1); and Theorems 7.4–7.5, which assume H of the form 𝓕_n^𝒞/[Y(S)].",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found independently by two helper agents of this review, with different examples. The reviewer checked (4.13), (4.14) and (4.17) at the page images of pp. 24–25, and the definition of 𝒜_H in the TeX (\"non-trivial finite abelian irreducible\")."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E6",
+   "kind": "gap",
+   "locator": "Theorem 1.4, p. 3, and the end of its proof, p. 41 (arXiv v2); also Corollary 1.5, p. 4",
+   "printed": "Theorem 1.4: \"lim_{b→∞} lim_{q→∞, (q,|Γ||H|)=1, (q−1,|H|)=1} Σ_{n≤b} Σ_{K∈E_Γ(q^n,F_q(t))} |Sur_Γ(Gal(K^#/K), H)| / Σ_{n≤b} |E_Γ(q^n, F_q(t))| = ∫_X |Sur_Γ(X, H)| dµ_Γ(X) = [H : H^Γ]^{−1}\"; proof: \"Thus we conclude that lim_{q→∞, q≡a (mod |G|²)} Σ_{0≤n≤b} N(E, Γ, q^n, F_q(t)) / Σ_{0≤n≤b} |E_Γ(q^n, F_q(t))| = 1 + O_G(b^{−1}).\"",
+   "correction": "State the inner limit as lim sup and lim inf over q. For each b both lie within O_G(1/b) of [H : H^Γ]^{−1}, so lim_{b→∞} lim sup_q = lim_{b→∞} lim inf_q = [H : H^Γ]^{−1}; the same holds for Corollary 1.5. In the second display on p. 41 the numerator should be E_3 b^{d_Γ(q)−2} + (E_1 − E_2) q^{−1/2}.",
+   "reason": "The proof gives the ratio as (π_{G,c}(q,b′) + O_{b,G}(q^{−1/2}))/(π_Γ(q,b′) + O_{b,G}(q^{−1/2})). Theorem 10.4 controls π_{G,c}(q,b′) − π_Γ(q,b′) only up to O_G(b′^{d_Γ(q)−2}). The numbers of Frobenius-fixed components are integers that depend on q, and nothing in §§10–12 shows that they are eventually constant on a residue class of q. Components in which some inertia class occurs fewer than M times are not classified by the lifting invariant; Proposition 12.7 only bounds how many there are. So the printed \"lim_q … = 1 + O_G(b^{−1})\" only says that every limit point lies in 1 + O_G(b^{−1}), and the inner limit of Theorem 1.4 is not shown to exist. The outer limit and the value are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 3 and 39–41: Theorem 10.4 gives only π_{G,c} = π_Γ + O_G(n^{d_Γ(q)−2}) and a lower bound for π_Γ."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E7",
+   "kind": "error",
+   "locator": "Lemma 9.3, p. 38, with the definition of E_Γ(D, Q), p. 3, and the second display of the proof of Theorem 1.4, p. 40 (arXiv v2)",
+   "printed": "p. 3: \"Let E_Γ(D, Q) be the set of isomorphism classes of totally real Γ-extensions of Q with rDisc K = D\"; Lemma 9.3: \"Σ_{K∈E_Γ(D,Q)} |Sur_Γ(Gal(K^{un,∞}/K), H)| = 1/[H : H^Γ] N(H, Γ, D, Q)\"; p. 40: \"By taking H the trivial group in Lemma 10.2, we have Σ_{n=0}^b |E_Γ(q^n, F_q(t))| = Σ_{n=0}^b #Hur^n_{Γ,Γ∖{1}}(F_q).\"",
+   "correction": "Either take E_Γ(D, Q) to be the set of surjections Gal(Q̄/Q) → Γ with the stated conditions (Γ-extensions K ⊂ Q̄ with their identification, not up to isomorphism), or multiply the right-hand sides of Lemma 9.3 and of the p. 40 display by |Z(Γ)|/|Γ|.",
+   "reason": "A Γ-extension is K/Q with a chosen isomorphism α : Gal(K/Q) ≅ Γ (p. 3). (K, α) and (K, inn(γ) ∘ α) are isomorphic via γ ∈ Gal(K/Q), so isomorphism classes correspond to Sur(Gal(Q̄/Q), Γ)/Inn(Γ), with orbits of size [Γ : Z(Γ)]. N(H, Γ, D, Q) counts surjections, and so does #Hur^n(F_q), since the marked point kills automorphisms. For H = 1, Lemma 9.3 asserts |E_Γ(D, Q)| = N(1, Γ, D, Q). Check: x³ − 4x + 1 has discriminant 229, three real roots and Galois group S_3 (PARI), and the narrow ray class group of Q(√229) is Z/3. So this is the only totally real S_3-field with rDisc = 229, and |E_{S_3}(229, Q)| = 1, while N(1, S_3, 229, Q) = |Aut S_3| = 6. |Sur_Γ(Gal(K^{un,∞}/K), H)| is the same for α and inn(γ) ∘ α, so the moment ratios of Conjecture 1.3, Theorem 1.4 and Corollary 1.5 are unchanged. For abelian Γ there is no discrepancy.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 3 and 38, and by recomputing the S_3 example in PARI (nfdisc, polsturm, polgalois, bnrinit)."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E8",
+   "kind": "error",
+   "locator": "Lemma 12.8, pp. 51–52 (arXiv v2)",
+   "printed": "\"Let a_i be non-negative integers for i = 1, …, d, not all 0. Then there exists a positive integer k, a residue s mod k, and a real r > 0 such that the following holds. … If n ≡ s (mod k), then #L′′(n) = rn^{d−1} + O_{d,L,a}(n^{d−2}).\"",
+   "correction": "\"Let a_i be positive integers for i = 1, …, d.\" Then r = k/((d−1)! ∏ a_i [Z^d : Λ]) for L = v + Λ.",
+   "reason": "If some a_i = 0, then L′′(n) is unbounded in the x_i-direction and infinite. For example, d = 2, L = Z² and a = (1, 0) give L′′(n) = {(n, y) : y ≥ 0}. The proof hint (\"forgetting the last coordinate\") also needs a_d ≠ 0. Corollary 12.9 applies the lemma with a_i the sizes of q-power orbits, which are ≥ 1, so nothing downstream changes. The value of r was checked on two examples.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 51."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E9",
+   "kind": "misprint",
+   "locator": "Definition of the Möbius function ν, before Lemma 4.6, p. 22 (arXiv v2)",
+   "printed": "\"ν(E, E) = 1, ν(D, E) = − Σ_{D′∈𝓔^E_H, D′≠D} ν(D′, E) if D ≠ E.\"",
+   "correction": "ν(D, E) = −Σ_{D′∈𝓔^E_H, D ⊊ D′} ν(D′, E) if D ≠ E.",
+   "reason": "As printed, the recursion only forces Σ_{D′} ν(D′, E) = 0 and does not determine ν. The Möbius function of the poset sums over D′ strictly above D. Check: Γ = Z/2, H = F_3 with σ = −1, E = F_3 × H. The true values ν(graph) = −1 give Lemma 4.6's count 3^n − 3, which matches the direct count; the symmetric solution −1/3 of the printed system gives 3^n − 1. The text calls ν the Möbius function, so the intent is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 22."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E10",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.10, pp. 29–30 (arXiv v2)",
+   "printed": "\"We define Λ to be the set of all isomorphism classes of finite Γ-groups H of level ℓ such that H^{C_{ℓ−1}} ≃ H̃ and f_n(H, ℓ) > 0 for some n.\" Then: \"Σ_{H∈Λ} g(H, ℓ) = lim_n Σ_{H∈Λ, i(H)≤n} g(H, ℓ) ≤ lim_n Σ_{H∈Λ, i(H)≤n} 2/c(u, ℓ, H̃) f_n(H, ℓ) ≤ …\"",
+   "correction": "The second step needs f_n(H, ℓ) > 0 for every H ∈ Λ with i(H) ≤ n, not only for some n. Add to Lemma 5.10 the hypothesis that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for n′ ≥ n, and replace i(H) by max(i(H), n_0(H)), where n_0(H) is the first n with f_n(H, ℓ) > 0.",
+   "reason": "By Corollary 5.9, for n ≥ i(H) either f_n = 0 or f_n ≥ (c/2) g. So g ≤ (2/c) f_n needs f_n > 0 at that n. The hypothesis holds in both applications, Theorem 5.12 and Theorem 6.2. Killing x_{n+1} gives 𝓕_{n+1}/[Y(S̃ ∪ {y})] ≅ 𝓕_n/[Y(S)] with y ∈ 𝓕_{n+1} and Y(y) = Y(x_{n+1}) (Lemma 3.1). The event {X^{𝒞_ℓ} ≅ H} depends only on the images of the relations in a finite quotient, so it is open, and positivity at n implies positivity at n + 1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 29–30."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E11",
+   "kind": "error",
+   "locator": "Proof of Lemma 3.17, function-field case, p. 19 (arXiv v2)",
+   "printed": "\"When K is a function field, we have O_K^× = F_{q^r}^× (where F_{q^r} is the constant field of K) and using that fact that K does not contain non-trivial pth roots of unity, it follows that O_K^×/O_K^{×p} = 1.\"",
+   "correction": "Work with the complete curve C_K, since G̃_{K,p} (maximal unramified pro-p extension, no condition at ∞) is its p-part. Then V = {α : div(α) ∈ p·Div(C_K)} gives V/K^{×p} ≅ F_{q^r}^×/p ⊕ Pic(C_K)[p] = Pic⁰(C_K)[p], because μ_p ⊄ K. Pic⁰(C_K)/p is a Γ-direct summand of G̃_{K,p}^{ab}/p. So (3.20)–(3.21) hold with O_K^× replaced by the constants and Cl(O_K) by Pic⁰(C_K), and the lemma follows.",
+   "reason": "O_K is the integral closure of F_q[t] (p. 4), and its unit group has rank (number of places over ∞) − 1. For a totally real K with Γ ≠ 1 that rank is |Γ| − 1 ≥ 1. Example: K = F_5(t)(√(t²+2)), where ∞ splits. ε = t + √(t²+2) has norm −2 ∈ F_5^×, so it is a non-constant unit. With p = 3 (p ∤ 40, μ_3 ⊄ K), O_K^×/O_K^{×3} ≠ 1. The statement of Lemma 3.17 is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 17–19. The definition of G̃_{K,p} (p. 17) is the maximal unramified pro-p extension, with no condition at ∞."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E12",
+   "kind": "error",
+   "locator": "§3.1, the paragraph before Lemma 3.4 and Corollary 3.8, pp. 13–14; Remark 3.2(3), p. 13 (arXiv v2)",
+   "printed": "p. 13: \"For any Γ-group G, we define the following map of sets Y : G → G^d … By the Schur–Zassenhaus theorem, Φ is surjective. … Thus we also have a natural bijection between Y(G) and the sections of G⋊Γ → Γ.\"; Corollary 3.8: \"For any Γ-group G, the map Y(G)^n → Hom_Γ(𝓕_n, G) … is well-defined and bijective.\"; Remark 3.2(3): \"If H is a Γ-group generated by elements h_i^{−1}γ(h_i) … then … a surjection 𝓕_n → H.\"",
+   "correction": "Assume G (respectively H) pro-|Γ|′ in all three places, as holds wherever they are used.",
+   "reason": "A Γ-group is any profinite group with a Γ-action (p. 2), and 𝓕_n is pro-|Γ|′. Counterexamples: for Γ = Z/2 acting on Z/4 by inversion, Y(G) = {0, 2} gives |Y(G)^n| = 2^n, but Hom_Γ(𝓕_n, Z/4) = 1; for Γ = Z/2 acting trivially on Z/2, |Y| = 1 but there are 2 sections; and Γ = Z/6 acting on (Z/2)² through Z/3 gives an H generated by one h^{−1}γ(h) that is not a quotient of the pro-6′ group 𝓕_n.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 13–14."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E13",
+   "kind": "gap",
+   "locator": "Proof of Proposition 3.13, \"⟹\", p. 16 (arXiv v2)",
+   "printed": "\"Considering the short exact sequence 1 → ker ρ → ker ϖ → Z/pZ → 1, by |Y(Z/pZ)| = 1 (since Γ acts trivially on Z/pZ) and Lemma 3.6 (2), we have Y(ker ϖ) = Y(ker ρ).\"",
+   "correction": "Lemma 3.6(2) is for finite groups, and ker ϖ is infinite when 𝒞 is. Argue directly: Y(ker ϖ) maps to Y(Z/p) = 1, so Y(ker ϖ) ⊂ (ker ρ)^d, and by Lemma 3.4 Y(ker ρ) = Y(ker ϖ) ∩ (ker ρ)^d = Y(ker ϖ).",
+   "reason": "An equality of cardinalities from Lemma 3.6(2) gives no equality of infinite sets. The one-line argument above closes the step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 16."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E14",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.2 (§5.3), p. 30 (arXiv v2)",
+   "printed": "\"So, for any open U, by (3.16) (with Theorem 4.12 to prove the limit exists) and Fatou's lemma, we have µ_Γ(U) ≤ lim_{n→∞} µ_{1,n}(U).\"",
+   "correction": "µ_Γ(U) ≤ liminf_{n→∞} µ_{1,n}(U).",
+   "reason": "For a general open U, the limit of µ_{1,n}(U) need not exist. Fatou gives the liminf, which is exactly what the Portmanteau criterion needs (Mathlib MeasureTheory.tendsto_of_forall_isOpen_le_liminf).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 30."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E15",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 10.4, p. 54 (arXiv v2)",
+   "printed": "\"where S̄^i := H_2(G_i, Z)/Q_{c_i}.\"",
+   "correction": "S̄^i := S^i/τ_{S^i}(Q_{c_i}).",
+   "reason": "H_2(G_i, Z)/Q_{c_i} is H_2(G_i, c_i), the left column of the same diagram. S̄^i was defined on p. 47 as the quotient of the Schur cover, and the right column ker(S̄^i → G_i) only makes sense for it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 54."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E16",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.2, p. 46 (arXiv v2)",
+   "printed": "\"… are exactly what is counted by N(H, Γ, n, F_q(t)), as described in the first paragraph of the proof.\"",
+   "correction": "N(H, Γ, q^n, F_q(t))",
+   "reason": "The statement of Lemma 10.2 (p. 39) and Lemma 9.3 use the radical discriminant q^n as the third argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 46."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E17",
+   "kind": "misprint",
+   "locator": "Lemma 10.2 and Theorem 10.4, p. 39; proof of Theorem 10.4, p. 54 (arXiv v2)",
+   "printed": "\"c be the set of elements of G that have the same order as their image in Γ\"; Notation 10.1: \"c a subset of G ∖ {1} … such that c generates G.\"",
+   "correction": "c is the set of non-identity elements of G whose order equals that of their image in Γ.",
+   "reason": "The identity has the same order as its image, so the printed c contains 1, contrary to Notation 10.1. The proof of Theorem 1.4 uses Γ ∖ {1}, and §12 counts only non-trivial classes. c generates G = H⋊Γ exactly when H is admissible (p. 54), as in all uses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 39."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E18",
+   "kind": "misprint",
+   "locator": "§5.2, before Lemma 5.4, p. 27 (arXiv v2)",
+   "printed": "\"Let C_ℓ be the set of (isomorphism classes of) all Γ-groups of order ≤ ℓ.\"",
+   "correction": "the set of all |Γ|′-Γ-groups of order ≤ ℓ",
+   "reason": "Definition 5.1, Corollary 5.3, Theorem 4.12 and Theorem 5.12 all require sets of finite |Γ|′-Γ-groups.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 27."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E19",
+   "kind": "misprint",
+   "locator": "Lemma 5.4, (5.6), p. 27 (arXiv v2)",
+   "printed": "\"# {isom. classes of H-extensions (E, π) | ker π ≃ M is irred. E-group, E is level C_ℓ}\"",
+   "correction": "ker π ≃ M is an irreducible E⋊Γ-group",
+   "reason": "The count needed for Corollary 5.9 runs over 𝓔_{𝒞_ℓ}(G, H), whose kernels are irreducible E⋊Γ-groups (p. 22). The proof already uses A = ρ_{ker π}(E⋊Γ).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 27."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E20",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.6(3), p. 14 (arXiv v2)",
+   "printed": "\"The self-bijection on G^d such that z ↦ (g, …, g)z(γ_1(g)^{−1}, …, γ_d^{−1}(g))\"",
+   "correction": "(γ_1(g)^{−1}, …, γ_d(g)^{−1})",
+   "reason": "The first coordinate is written γ_1(g)^{−1}. The map must send Y(g) = (g^{−1}γ_i(g)) to 1, so the i-th coordinate is γ_i(g)^{−1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 14."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E21",
+   "kind": "misprint",
+   "locator": "§3.3, notation before Lemma 3.17, p. 18 (arXiv v2)",
+   "printed": "\"In either case, we have α ◦ ϖ is the composition of ρ and the natural quotient map G̃_{K,p} → G_{K,p}.\" Later: \"Using the fact that ρ|_{(𝓕_n)_p} = ϖ, we have α(N) = R\"",
+   "correction": "ϖ ∘ α is the composition of ρ and G̃_{K,p} → G_{K,p}. Likewise ρ|_{(𝓕_n)_p} = ϖ holds only after composing with G̃_{K,p} → G_{K,p}, which is the identity in the number-field case.",
+   "reason": "α has target (𝓕_n)_p, the source of ϖ, so only ϖ ∘ α is defined. In the function-field case, α(N) = R still holds because ρ(x_{n+1}) generates a decomposition group at ∞.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 17–18."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E22",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.3, p. 21 (arXiv v2)",
+   "printed": "\"Choices of y_1, …, y_{n+u} ∈ G^m give a map F_n → G^m whose image is the subgroup generated the y_i^{−1}γ(y_i), for γ ∈ F⋊Γ. Thus, conditionally on Y[({y_1, …, y_{n+u}})] surjecting …\"",
+   "correction": "a map 𝓕_{n+u} → G^m whose image is the F⋊Γ-subgroup generated by the y_i^{−1}γ(y_i), γ ∈ Γ; conditionally on [Y({y_1, …, y_{n+u}})] surjecting …; and 𝓕_{n+u} in place of 𝓕_n in the rest of the paragraph.",
+   "reason": "n + u elements give a map from the free admissible group on n + u generators. γ ranges over Γ. The bracket notation is [Y(·)].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 21."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E23",
+   "kind": "misprint",
+   "locator": "§1.6, p. 9 (arXiv v2)",
+   "printed": "\"Gal(K^{un}/K)^{ab} ≃ Pic(C_K)(F_q)\"",
+   "correction": "Gal(K^{un}/K)^{ab} is the profinite completion of Pic(C_K)(F_q).",
+   "reason": "Pic(C_K)(F_q) ≅ Z ⊕ (finite), while the Galois group is profinite; geometric class field theory identifies it with the profinite completion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 9."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E24",
+   "kind": "misprint",
+   "locator": "§7.2, after Remark 7.3, p. 35 (arXiv v2)",
+   "printed": "\"then F′ is called the p-covering group of H and R′ is called the p-multiplicator rank of H, and dim_{F_p}(R′) is the relation rank r(H)\"",
+   "correction": "R′ is called the p-multiplicator of H",
+   "reason": "R′ is a group; its dimension is the rank, as the same sentence says.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 35."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E25",
+   "kind": "error",
+   "locator": "Proposition 12.7, p. 50 (arXiv v2); also Corollary 12.9, p. 52",
+   "printed": "\"Proposition 12.7. Let G, c, n be as in Notation 10.1. … Then π_{G,c}(q, n) = b(G, c, q, n) + O_G(n^{d_{G,c}(q)−2})\"; Notation 10.1: \"Let n be a non-negative integer.\"",
+   "correction": "Assume n ≥ 1. Theorem 10.4 is already stated for positive n.",
+   "reason": "At n = 0 and d_{G,c}(q) ≥ 3 the error term is 0. But b(G, c, q, 0) ≥ 1 (the term m = 0), while π_{G,c}(q, 0) = 0 for G ≠ 1, because there are no connected G-covers of P¹ without branch points. Example: G = V_4, c = G ∖ 1, odd q, d = 3. Corollary 12.9's \"any non-negative integer n\" has the same edge case.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 50 (the definition of b and Notation 10.1 at p. 39)."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E26",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 12.7, p. 51, and proof of Theorem 10.4, p. 55 (arXiv v2)",
+   "printed": "p. 51: \"Note there are O_G(n^{d_G(q)−2}) choices of m\"; p. 55: \"Our observations above and the proof of Corollary 12.9 show that when n (mod M_a) ∉ E_a, then π_G(q, n) = 0.\"",
+   "correction": "d_{G,c}(q) and π_{G,c}(q, n).",
+   "reason": "By the convention on p. 39 (\"If we drop c from either subscript, c is taken to be G ∖ 1\"), d_G and π_G denote the c = G ∖ 1 objects. The proofs are about the given c.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 51 and 55."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E27",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.7, profinite step, p. 13 (arXiv v2)",
+   "printed": "\"If G is profinite, then for every open subgroup U, the above argument gives a lift of Gal_Q → G̃/(UN) ⋊ Γ to Gal_Q → G̃/U ⋊ Γ\"",
+   "correction": "for every open normal Γ-stable subgroup U of G̃ with U ∩ N = 1",
+   "reason": "G̃/U must be a Γ-group, and the finite argument needs G̃/U → G̃/(UN) to be a non-split central extension by N ≅ Z/p. Such U are cofinal.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 13."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E28",
+   "kind": "misprint",
+   "locator": "Lemma 9.3, p. 38 (arXiv v2)",
+   "printed": "\"Σ_{K∈E_Γ(D,Q)} |Sur_Γ(Gal(K^{un,∞}/K), H)|\"",
+   "correction": "Sur_Γ from the maximal pro-|Γ|′ quotient of Gal(K^{un,∞}/K), with the Γ-action of Definition 2.1.",
+   "reason": "Definition 2.1 defines a Γ-action only on Galois groups of pro-|Γ|′ extensions, and Gal(K^{un,∞}/K) need not be pro-|Γ|′. The proof uses exactly the maximal pro-|Γ|′ quotient of ker ρ. Since H is a |Γ|′-group, the count is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 38."
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E29",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 11.8, p. 46 (arXiv v2)",
+   "printed": "\"For any scheme Z over F_q, and any F̄_q-point (i.e., morphism of Spec F̄_q-schemes) s : Spec F̄_q → Z_{F̄_q}, we have that Frob_Z ∘ s = s ∘ F.\"",
+   "correction": "The equality holds in Z(F̄_q) = Hom_{F_q}(Spec F̄_q, Z), i.e. after composing both sides with Z_{F̄_q} → Z.",
+   "reason": "Frob_Z ∘ s is an F̄_q-morphism, while s ∘ F lies over F. On rings: a ⊗ λ ↦ x(a)^q λ versus x(a)^q λ^q. The lemma itself is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction",
+    "Unpaywall for 10.1007/s00222-024-01257-1 (2026-09-23): no open-access copy of the published version"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "reviewReason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 46."
   },
   {
    "id": "PAPER-LIU-ZHU-17/E01",
