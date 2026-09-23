@@ -50829,9 +50829,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-20.result.json",
    "citation": "Harpaz–Wittenberg, \"Zéro-cycles sur les espaces homogènes et problème de Galois inverse\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-20",
+   "reviewReason": "Confirmed as a gap in a stated result. The standing setting of §4, fixed on p.15, includes 'un morphisme dominant f : X → P^n_k dont la fibre générique est rationnellement connexe', and Théorème 4.2 is stated inside it. Remarque 4.5 on p.17 then invokes 'le théorème 4.2 (i) et la proposition 3.3 (i)' for an X assumed only proper and smooth with the two Picard-group conditions, so the rational-connectedness hypothesis the invoked theorem carries is missing, as the correction records."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
@@ -50850,9 +50850,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-20",
    "file": "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-20.result.json",
    "citation": "Harpaz–Wittenberg, \"Zéro-cycles sur les espaces homogènes et problème de Galois inverse\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-HARPAZ-WITTENBERG-20",
+   "reviewReason": "Confirmed. Page 4 prints 'si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1'. The generalised quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3, Q_8 being the smallest; at m = 2 the presentation gives a cyclic group of order 4 and at m = 1 it is not defined."
   },
   {
    "id": "PAPER-HE-18/E1",
