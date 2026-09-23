@@ -1528,8 +1528,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHANG-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1107"
+   "state": "external",
+   "note": "claimed on GitHub issue #1107"
   },
   {
    "id": "REV-PAPER-ZHANG-21",
@@ -5699,8 +5699,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1342"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1342",
+   "finishedAt": "2026-09-23T08:21:25Z"
   },
   {
    "id": "REV-PAPER-KISIN-PAPPAS-ZHOU-26",
