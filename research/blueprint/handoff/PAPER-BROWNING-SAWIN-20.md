@@ -1,15 +1,31 @@
-# PAPER-BROWNING-SAWIN-20 handoff
+# Handoff: PAPER-BROWNING-SAWIN-20
 
-Codex — codex-c83e7a, continuing codex-a71f92; issue #1125; partial checkpoint.
+Issue #1125. Agent Claude Code, session cc-442dc5, 23 September 2026. Status: **complete**. It continues the Codex checkpoint.
 
-136 interfaces: 11 library, 9 planned, 116 missing; seven exact-once routes. The 115 inherited IDs/statuses remain. All published text, pp.893–948, has now been read; formula-image reconciliation and independent checking of E1–E27 remain. Both PDF hashes match the earlier acquisition. No independent-review verdict is asserted.
+## Saved
 
-E28/G2 now has a concrete obstruction: with the subspace compact-open topology, the prescribed-germ space for the smooth Fermat example k=3,d=2,n=40 has π1 surjecting onto Z, whereas Ω²X is connected and simply connected. The report gives the explicit escaping phase, exact individual tail identity, joint projective continuity and disk-filling winding contradiction. Milnor9.2's special Fermat join model was read in selected primary-book OCR, with an explicit positive-scaling bridge and CW dependency spine. This does not discharge the general Broughton/Hilton/Sullivan originals.
+- `research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json`. Status complete.
+  - It has 136 items: 11 library, 9 planned and 116 missing. Every missing item is routed exactly once.
+  - It records twenty-eight `sourceIssues`. Ten gaps each have a status and a resolution.
+- `research/blueprint/papers/PAPER-BROWNING-SAWIN-20.md`. The report, with the checkpoint's report kept as history.
 
-Resume G2 by specifying a stronger germ topology, proving polynomial-map inclusion continuous and constructing the global comparison with a fixed-collar model. Do not attempt to prove the false compact-open equivalence. The weighted fixed-radius collar and cutoff straightening are explicit; they are not an all-germs equivalence or a strong deformation retraction of the whole mapping space. Review the counterexample independently before promoting a corrected endpoint.
+**Source.** arXiv v3 (SHA-256 4518f888…) was re-fetched; its hash matches.
 
-G1/E1–E3 remain: odd-kd stratification, the reversed rounding inference and the weak equality endpoint. The conservative minor-arc/comparison bounds are unchanged and the sharp theorem is not disproved. Then continue G3 Katz Fourier, G4 general topology originals, G5 Lee/Usher–Zhang/Browning–Vishe lattice/box inputs, G6 monodromy subsidiary inputs, G7 coefficient descent/spreading and G8 arrangement/Lang–Weil. G9 now concerns reconciliation rather than an unread published-text portion. G10 retains declaration closure and expansion of inherited short API/test lists.
+**Findings.** E11 and E12 are verified and reclassified to affect nothing.
 
-New germ/winding/collar items route to GeometricCircleMethodAndMappingSpaces; the special Fermat calculation routes to ConfigurationSpacesAndRationalLoops. Compact-open curry/evaluation, circle π1 and loop shifts are read at the pins and imported. Upstream CW/cofibration/cellular approximation stays in AlgebraicTopology Stages4/8. No new generic topology carrier or duplicated circle computation is planned.
+**Items.** Every numbered statement of v3 was checked against the item locators; none was missing.
 
-Verification: 11,468 exact rational assertions and 600 separately labelled floating Fermat residual checks (maximum 7.425e−16); paper schema; intake for all three authorized deliverables; dependency DFS; exact-once routing; preservation of inherited IDs/statuses; three structured tests for each of seven new definitions/constructions. The earlier arithmetic certificate is retained as prior evidence, not freshly rerun. No Lean file compiled and no formalisation is claimed.
+**Gaps.** G1 and G2 are recorded (E1–E3, E28). G3–G10 are deferred.
+
+## Resume
+
+Nothing remains for the extraction. For review:
+- E1–E3 and E28 carry the substantive content.
+- E6 and E8 are misprints the checkpoint marks as affecting the proof; they were not re-checked here.
+
+## Validation
+
+- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json` reports ok.
+- `python3 research/blueprint/intake.py check-files` on the three files reports no problems.
+- Item ids are unique, and every missing item is routed exactly once.
+- Lean: not applicable.
