@@ -162,3 +162,32 @@ Fifteen entries, all with DOIs confirmed on Crossref, except:
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json` reports no errors. Every planned and route stage id exists in `data/atlas.json`.
+
+## Review (REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22, 23 September 2026)
+
+The review accepted the extraction after corrections made in place; the five routes stand. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md`.
+- Four checkers read arXiv v5 against its page images and TeX source.
+- To check the paper's imports they also read FKP19, Allen–Newton–Thorne's Theorem 1.1 and Pan.
+- The coordinator re-derived every substantive finding.
+
+- **Corrected: 58 items.** The material ones:
+  - §3: Proposition 3.6's quantifier order (17), the local lifts behind ρ_2 (21), and Proposition 3.8's two root vectors (22);
+  - §§5–6: the FKP19 attributions (29), Proposition 5.4's relative classes (33), Corollary 6.6 (41), Remark 6.7 (42) and Example 6.8 (43);
+  - §9: the ordinary Hodge–Tate sign (66), Allen–Newton–Thorne's hypotheses as they read in the source (67), Dynkin (71) and Proposition 9.1 (72);
+  - Appendix A: Lemmas A.9–A.11 and Examples A.16–A.17 (80, 81, 82, 85).
+- **New: 25 items** (5 planned, 20 missing), 119 in total.
+  - Planned: local–global compatibility at p, RACSDC Galois representations, compatible systems, CM base change and descent, and Deligne–Serre.
+  - Missing, from FKP19: oddness, Notation 5.1, Q_N and L^α_{r,v}, the finishing argument of §6, and Appendix A.
+  - Missing, the paper's implicit lemmas: ramification forces disjointness, the cyclotomic tower, the mod ϖ² lift, and trivial-prime duality.
+  - Missing, other: the determinant construction of Theorem 7.4, Serre's semisimplification, Steinberg's centraliser theorem, and the Nekovář–Patrikis criterion.
+  - Eight prerequisites were added.
+- **Routes:** all five accepted. The Part II's brief gains an addendum listing the corrected statements the design job must use.
+- **Source issues:** E1–E7 are confirmed; E8–E44 are new.
+  - Stated results that need correcting:
+    - Corollary 6.6 omits oddness and an irreducibility hypothesis (E21, E22);
+    - Remark 6.7 and Example 6.8 are wrong as printed (E23–E25);
+    - Remark 8.2's "p ≫_n 0" is false (E30);
+    - Proposition 9.1 does not supply Allen–Newton–Thorne's hypothesis (7) when ρ̄ has several constituents (E32);
+    - Lemmas A.9–A.11 and Examples A.16–A.17 have false clauses (E36–E41). In particular, Lemma A.9's condition (3) must be imposed jointly, so the proof of Corollary 8.4 covers two summands only (E37).
+  - Proof gaps with routine repairs: E12, E16–E20, E28, E31, E35, E42, E43.
+  - Theorems 5.2 (= E) and 7.4 (= B) and Corollary 8.3 (= C) stand once those gaps are repaired.
