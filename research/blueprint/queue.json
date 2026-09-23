@@ -6138,7 +6138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1371"
   },
   {
    "id": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
@@ -6246,8 +6247,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-SAVIN-23-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1377"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1377",
+   "finishedAt": "2026-09-23T01:08:20Z"
   },
   {
    "id": "REV-PAPER-GAN-SAVIN-23-B",
