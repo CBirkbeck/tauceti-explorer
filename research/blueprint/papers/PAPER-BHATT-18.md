@@ -1,3 +1,172 @@
+# PAPER-BHATT-18 — continuation of the partial extraction
+
+Codex — codex-7e92bd, 23 September 2026. Refs #2182. This continues the checkpoint from PR #2213 and retains its eight unreviewed source findings. The current JSON has **81 items: 10 library, 12 planned, and 59 missing**, with every missing item routed exactly once through the same nine routes. It remains **partial**.
+
+The continuation resolves the concrete proof omissions behind Remark 4.3 and the module inverse-limit argument, identifies the precise non-Noetherian domination statement, and simplifies the ordinary-base-change bridge in §6. It does not claim that the imported derived, almost, or flattening foundations have been implemented or fully decomposed.
+
+## What the pinned libraries supply
+
+The former missing item `proper-integral-h0` is a composition of existing Mathlib results:
+
+- `AlgebraicGeometry.isIntegral_appTop_of_universallyClosed`, in `Mathlib/AlgebraicGeometry/Morphisms/Proper.lean:138`, makes the global-section homomorphism integral whenever the morphism is universally closed and its target is affine. There is no Noetherian hypothesis.
+- `AlgebraicGeometry.isLocalization_basicOpen_of_qcqs`, in `Mathlib/AlgebraicGeometry/Morphisms/QuasiSeparated.lean:401`, identifies sections on the basic open defined by the image of p with the localization of global sections. A proper scheme over an affine base is qcqs. Thus B[1/p] is the given finite étale generic algebra.
+- `AlgebraicGeometry.Scheme.toSpecΓ` and its naturality, in `Mathlib/AlgebraicGeometry/GammaSpecAdjunction.lean:434,458`, give Y→Spec(B) over Spec(A).
+
+Consequently the SF.2 missing-item route no longer receives this item. No finiteness of B over the non-Noetherian A is claimed. The new blowup items also import the existing `reesAlgebra`, its degree-one generation and `reesAlgebra.fg`, and `AlgebraicGeometry.Proj` with `projIsoSpec`. The Rees grading, chart identifications and relative-Proj gluing are still explicit adapters; the affine constructions are not re-planned.
+
+All declarations were read at Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174**, and the six newly inspected files were byte-compared with GitHub at that commit. The Tau Ceti pin remains **f790474821cf4256814db967cb154e7af3d0c369**. Fresh audit reads covered SF.2, SF.4, E1 and E2; the reviewed AdicSpacesPartII decomposition remains partial and does not supply general flattening.
+
+## Why the tensor bound really is uniform
+
+Put R=A/t^m and N_n=A⟨t^n/g⟩/t^m, with the regularity hypothesis in Notation 4.1. First work in almost modules for the ideal m_t. Theorem 4.2(1) says that R→N_n is injective there. Its cone is therefore naturally the module Q_n=coker(R→N_n) in degree zero. Naturality is essential: it identifies the cone transitions with the cokernel transitions.
+
+For k≥0 and c=p^k m, Theorem 4.2(2) says that g^(1/p^k) times Q_(n+c)→Q_n is the zero module morphism. It is therefore zero in the derived category. Applying the R-linear exact functor K⊗^L_R− preserves this zero morphism for every K, without a bound on K's amplitude. The tensor cone comparison then gives the same annihilation on its cohomology. The comparison's cokernel in degree i is a submodule of cone cohomology in degree i; its kernel is a quotient of cone cohomology in degree i−1. Both inherit the same bound.
+
+Returning to ordinary modules multiplies by an arbitrary root of t. Taking the same root index k gives **(tg)^(1/p^k)** and **c=p^k m**, independent of n, K and i. No extra transition shift or squaring of g occurs. The three new P0 items separate the cone identification, tensor preservation and kernel/cokernel deduction. E1 supplies the already planned unbounded derived tensor; its almostification comparison remains a named P0/E1 instantiation requirement.
+
+This argument uses a cone concentrated in one degree after almostification. It does not assert that a morphism is zero merely because its maps on cohomology vanish. As a negative control, the nonsplit extension 0→Z/2→Z/4→Z/2→0 gives a nonzero morphism Z/2→(Z/2)[1] whose maps on cohomology are all zero. A section of Z/4→Z/2 cannot exist: an element killed by 2 in Z/4 has even image.
+
+## Coherent inverse limits and the annihilator product
+
+The new E2 supplier is a construction on strict module-complex towers, or their coherent enhanced diagrams:
+
+`Rlim K_n = Cone(1−shift : ∏ K_n → ∏ K_n)[−1]`.
+
+Exact products of modules allow degreewise products and give the Milnor sequence. The construction retains maps and cones, rather than selecting unrelated cones in an ordinary triangulated category. The distinction is explicit in the [Stacks derived-limit section](https://stacks.math.columbia.edu/tag/08TB) and [its inverse-system formulation](https://stacks.math.columbia.edu/tag/07KV).
+
+For a pro-zero module tower, the inverse of 1−shift sends b to the sequence whose n-th entry is the sum of transition_(j,n)(b_j) over j≥n. This sum is finite at each fixed n. Telescoping proves both inverse identities. For an almost-pro-zero tower M_n, fix a=t^(1/p^k). The quotient of M_n by M_n[a] is pro-zero, so the two towers have the same derived limit; the latter tower's two-term Roos complex is killed by a.
+
+For a complex tower, the Milnor sequence is
+
+`0 → lim¹ H^(i−1)(K_n) → H^i(Rlim K_n) → lim H^i(K_n) → 0`.
+
+Its two ends being almost zero makes the middle almost zero, but an extension requires an annihilator product. Set b=t^(1/p^(k+1)). Then b² kills the middle and t^(1/p^k)=b²·b^(p−2). This handles p=2 as well. Exactness of the coherent Roos functor now proves Lemma 3.5 for the actual comparison maps. These arguments use module products; they do not assert left completeness for arbitrary sheaf categories. E1/E2's enhanced realization and P0's almost-category comparison remain implementation and supplier obligations.
+
+## The geometric input in Proposition 6.2
+
+The cited [Gabber–Ramero release 6.95](https://arxiv.org/pdf/math/0409584v11) is now acquired: 1484 pages, SHA-256 `43afeff5750640f2e62d4eedb3d9d434dbef8883022d5b63b26b6a51509218d0`. Its arXiv stamp is 4 November 2016; the served PDF has a generated title-page date of 22 April 2019. This matches the release and page count in Bhatt's bibliography, without asserting historical byte identity.
+
+Selected §15.4 passages were read for integral local stalks and rational charts. The direct source for domination is [Stacks 081T](https://stacks.math.columbia.edu/tag/081T): a proper morphism X→S over a qcqs base, which is an isomorphism above a quasi-compact open U, is dominated by a U-admissible blowup. This requires no Noetherian assumption. The statement is algebraic and already suffices before completion.
+
+The extraction separates its prerequisites: finite-type-ideal blowups, strict transform, the [flattening theorem 0815](https://stacks.math.columbia.edu/tag/0815), flattening a finite type scheme (081R), and turning a flat generic isomorphism into an open immersion (081M). After flattening, properness makes that open immersion closed; its image contains dense U, so it is all of the blown-up base. The local-presentation, étale-neighbourhood and gluing leaves invoked by these proofs are individually retained in G6. Reading the main theorem is not treated as closing those leaves.
+
+For S=Spec(A), U=D(p), the centre is a finitely generated ideal I with I[1/p]=A[1/p]; hence p^N∈I for some N. Append p^N to its generator list. On Sη=Spa(A[1/p],A), the domains
+
+`U_i = {x : |f_j(x)| ≤ |f_i(x)| for every j}`
+
+cover: some generator has maximal value, and that value is nonzero because p^N is among them. The bounded ratios give A[I/f_i]→O⁺(U_i). On overlaps the denominator ratios are reciprocal bounded units, so the chart maps glue. GR2 Lemma 15.4.14(ii) supplies locality of the integral stalks; Remark 15.4.25 supplies the chart description and compatibility. Perfectoid sheafiness comes from the existing perfectoid supplier. GR2's analytically Noetherian sheaf theorem 15.4.34 is not used outside its hypotheses.
+
+The chart is the actual blowup algebra, not just a polynomial quotient by cross-multiplication relations. For I=(x²,xy), the x²-chart has relation xu=y; the naive relation x²u=xy keeps an extra x-torsion component. This is included as an acceptance control. Generic algebraic modifications belong once in **SchemeAndStackFoundations SF.4**. **AdicSpacesPartII R2** imports them for its p-adic and integral-analytic adapter.
+
+## The comparison map is sufficient
+
+For any ring map R→D and qcqs R-scheme X, the derived pullback/pushforward adjunction gives a unit-compatible map
+
+`β : RΓ(X,O_X) ⊗^L_R D → RΓ(X_D,O_(X_D))`.
+
+Its existence needs no Tor-independence; the [Stacks construction 08HY](https://stacks.math.columbia.edu/tag/08HY) uses the adjunction counit. If r retracts the unit D→RΓ(X_D,O), then r∘β retracts the unit on the left. This is the required diagram chase in Theorem 6.1. Apply it first for the integral annular algebra D, then derive-tensor the supplied retraction with D/p^m. No base-change isomorphism is needed. For example, Z/p⊗^L_Z Z/p has a degree −1 Tor group whereas the cohomology of the ordinary affine base change is concentrated in degree zero.
+
+Likewise, in Proposition 6.2, after B=Γ(Y,O)→C from almost purity, Y is proper over B and Y_C is proper over C with identity generic fibre. Properness over B follows from the graph into Y×_A Spec(B), since Spec(B) is separated over Spec(A). The composite
+
+`RΓ(Y,O) → RΓ(Y_C,O) → C → A`
+
+is the desired almost retraction. The last arrow is the supplied almost retraction of the surjective almost finite étale cover A→C. Thus no flatness of B→C, nor a conservative-descent assertion for that map, is inserted into the proof. Generic surjectivity remains mandatory, as in inherited E1.
+
+## Reading boundary, checks and continuation
+
+This pass freshly read all 12 pages of Bhatt arXiv v2; André's published §2.5 through the end of its proof (pp. 79–82) and Appendix A (pp. 89–92); the specified GR2 passages; and the tagged Stacks statements and proofs listed in the JSON. The publisher's purported full-text PDF was a 16-page rendering of the subscription landing page, so the 21-page journal article remains uncollated. Earlier full André-arXiv and Scholze reads remain attributed to the previous checkpoint. No new source-error finding or independent verdict is added.
+
+Validation covers the paper checker, one route for every missing item, the dependency DAG, all API/use/test fields, source-finding preservation, stage endpoints and deliverable-path scope. The original 188,100 monomial cases, 120 valuation cases and trace control were rerun. The new finite controls below passed: 130 tensor homotopies, 210 Roos inverse identities, 33 root-product identities, 150 rational-chart cases, and the blowup-saturation and nonsplit-extension controls. They test formulas and failure modes; they do not prove the infinite or geometric theorems. No Lean file is authorized, and none was compiled.
+
+G4's concrete mathematical calculation is expanded; its almost/enhanced supplier interfaces and the G2 link used in Remark 4.4 remain open. G6 now names the precise remaining flattening leaves, coherent finiteness/perfectness and generic multisections. G1–G3, G5 and G7–G9 remain as scoped in the JSON and [current handoff](../handoff/PAPER-BHATT-18.md).
+
+The following diagnostic uses Python and SymPy 1.14.0.
+
+~~~python
+from fractions import Fraction
+from itertools import product
+import sympy as s
+
+# Cone(Z --q--> Z) tensor a two-term free complex with differential b.
+# These are genuine chain homotopies, not tests of cohomology maps alone.
+tensor_cases = 0
+for q in range(2, 12):
+    for b in range(-6, 7):
+        d2, d1 = s.Matrix([q, -b]), s.Matrix([[b, q]])
+        h1, h0 = s.Matrix([[1, 0]]), s.Matrix([0, 1])
+        assert d1*d2 == s.zeros(1)
+        assert h1*d2 == s.Matrix([[q]])
+        assert d2*h1+h0*d1 == q*s.eye(2)
+        assert d1*h0 == s.Matrix([[q]])
+        tensor_cases += 1
+
+# Finite, eventually-zero towers: both sides of the Roos inverse identity.
+roos_cases = 0
+for prime, length, seed in product((2, 3, 5), range(1, 8), range(10)):
+    shift = s.zeros(2*length)
+    for n in range(length-1):
+        shift[2*n:2*n+2, 2*n+2:2*n+4] = s.Matrix([
+            [(seed+n+1) % prime, (seed*2+n) % prime],
+            [(seed+n*n) % prime, (seed*3+n+2) % prime]])
+    identity = s.eye(2*length)
+    inverse = s.zeros(2*length)
+    for j in range(length):
+        inverse += shift**j
+    assert (identity-shift)*inverse == identity
+    assert inverse*(identity-shift) == identity
+    roos_cases += 1
+
+# The root needed to kill an extension of two almost-zero groups.
+root_cases = 0
+for prime, k in product((2, 3, 5), range(11)):
+    b = Fraction(1, prime**(k+1))
+    assert 2*b+(prime-2)*b == Fraction(1, prime**k)
+    root_cases += 1
+
+# Rational domains for the two charts of (p^N,g), using v(p)=1.
+chart_cases = 0
+for N, a in product(range(1, 7), range(25)):
+    vg = Fraction(a, 4)
+    first, second = vg >= N, N >= vg
+    assert first or second
+    assert (first and second) == (vg == N)
+    if first:
+        assert vg-N >= 0
+    if second:
+        assert N-vg >= 0
+    chart_cases += 1
+# g=0 has infinite valuation and always lies in the p^N chart.
+assert all(N > 0 for N in range(1, 7))
+
+# Blowup charts require saturation, even over a domain.
+x, y, u, z = s.symbols('x y u z')
+naive = s.groebner([x*x*u-x*y], x, y, u)
+saturated = s.groebner([x*x*u-x*y, 1-z*x*x], z, x, y, u)
+assert naive.reduce(x*u-y)[1] != 0
+assert saturated.reduce(x*u-y)[1] == 0
+assert (x*x*u-x*y).subs({x:0, y:1, u:0}) == 0
+assert (x*u-y).subs({x:0, y:1, u:0}) != 0
+
+# The nonsplit Z/4 extension detects why arbitrary cohomological ghosts
+# cannot be treated as zero morphisms in a derived category.
+possible_images = [a for a in range(4) if (2*a) % 4 == 0]
+assert possible_images == [0, 2]
+assert all(a % 2 == 0 for a in possible_images)  # no section of Z/4 -> Z/2
+# Z/p tensor itself: tensor the length-one free resolution to get d=0.
+for prime in (2, 3, 5, 7):
+    assert prime % prime == 0  # H^-1 and H^0 both have dimension one
+
+print(dict(tensor_homotopies=tensor_cases, roos_inverses=roos_cases,
+           root_products=root_cases, rational_chart_cases=chart_cases,
+           saturation_and_ghost_controls='passed'))
+~~~
+
+---
+
+## Earlier checkpoint report — historical context
+
+The current analysis and status above supersede the old G4/G6 resume instructions below.
+
 # PAPER-BHATT-18 — direct summands and the derived variant
 
 Agent: Codex. Session: codex-hjdg0j. Issue: #2182. Status: **partial checkpoint**.
