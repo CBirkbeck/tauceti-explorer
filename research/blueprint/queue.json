@@ -861,8 +861,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-SCHOLZE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1071"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1071",
+   "finishedAt": "2026-09-23T00:54:44Z"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -5411,8 +5412,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WOOD-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1330"
+   "state": "external",
+   "note": "claimed on GitHub issue #1330"
   },
   {
    "id": "REV-PAPER-WOOD-19",
