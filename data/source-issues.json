@@ -32720,14 +32720,17 @@
     "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
     "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
     "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked author p.20 image and correction footnote, CTHK97 Theorem 3.1.1/Corollary 3.1.2, and the explicit F_p(s) coefficient-field obstruction. The statement is only an abstract Cohen isomorphism; base linearity is the failed use."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E2",
@@ -32740,14 +32743,17 @@
    "known": "Gille, Errata: « Torseurs sur la droite affine », Transform. Groups 10 (2005), 267–269, pp. 268–269",
    "searched": [
     "Gille's publication list (math.univ-lyon1.fr/~gille): erratum05.pdf, read",
-    "CES22's citation of Gil05 at the locator"
+    "CES22's citation of Gil05 at the locator",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked Gil02 printed p.239 image and all three pages of the 2005 erratum. Properness extends the generic type-I parabolic section over the regular curve P1; specialization at infinity gives the missing k-parabolic."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E3",
@@ -32759,36 +32765,42 @@
    "affects": "the proof",
    "known": "Gille, Errata et compléments (math.univ-lyon1.fr/~gille/prenotes/errata.pdf), dated 26 May 2026, p. 4, pointed out by A. Zidani",
    "searched": [
-    "Gille's errata page, version of 26 May 2026, read"
+    "Gille's errata page, version of 26 May 2026, read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked Gil09 p.54, the author errata p.4, and Guo arXiv v3 Lemma 3.4/Proposition 3.5 on p.7. The anisotropy bridge and replacement Borel–Tits reference are required; Proposition 6 is the older numbering."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E4",
    "kind": "gap",
    "locator": "Proof of Proposition 8.4, claim (2), author PDF p. 25 (the published version p. 24)",
    "printed": "For the claim (2), we first note that the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1).",
-   "correction": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair.",
-   "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), since the patching over each local ring is unique. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R.",
+   "correction": "Definition 8.1 gives parabolics over the local rings. The author’s later stronger semilocal isotropy assumption supplies them globally. Alternatively retain the printed hypothesis: for Noetherian R use a local parabolic and its opposite at each maximal ideal, the corrected finite-polynomial dilation proof of local-parabolic-loop-lifts, and products of lifts that are identity at the other maximal ideals. Descend the finite data to a Noetherian semilocal base for the general case. Theorem 9.1 uses quasi-split groups, which already have a global Borel.",
+   "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), by lifting block matrix units along the local normalization, as detailed below. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R. For the local matrix decompositions in the pinched-ring example, lift a conjugating matrix from the residue splitting field to the local normalization (GL_6 surjects onto its residue GL_6). Conjugated standard block matrix units then belong to the fiber-product algebra and give M_2(D′) or M_3(H′). This supplies the local isotropy assertion; uniqueness of patching alone is not the justification.",
    "affects": "the proof",
    "known": "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025), p. 26: the post-publication footnotes to the proof of Lemma 3.5.5 (which cites [Čes22, proof of Proposition 8.4]) and to Remark 3.5.6 say that for semilocal A the total isotropy assumption should be strengthened, because it supplies a parabolic 'only after base change to each local ring'.",
    "searched": [
     "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
     "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
     "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked author p.25 image against Definition 8.1 and both post-publication footnotes in the later survey p.26. They explicitly identify the local-versus-semilocal gap. The extraction repair is corrected below by polynomial dilation; its earlier nonzerodivisor argument is not accepted."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E5",
@@ -32803,14 +32815,17 @@
     "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
     "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
     "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked the final display and following sentence on author p.25: the residue fields are indexed k_m, while the printed final product drops m."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E6",
@@ -32825,14 +32840,17 @@
     "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
     "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
     "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked author p.28 image: y is produced by the displayed splitting into Aut(G,B), so Out(G,B) cannot be its target."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E7",
@@ -32840,21 +32858,150 @@
    "locator": "Proof of Corollary 9.6, first sentence, author PDF p. 28 (the published version p. 27)",
    "printed": "Every inner form of SO_n is an SO(E) for a nondegenerate quadratic space E over R of rank n.",
    "correction": "Every twist of SO_n by an SO_n-torsor is an SO(E) for such an E; these are the only twists the argument uses.",
-   "reason": "For even n ≥ 4, inner forms also come from central simple algebras with orthogonal involution. Over R = Q (allowed in Theorem 9.1 with O = Q), take H = (−1,−1) and H′ = (−1,3), non-isomorphic quaternion algebras ramified at {2, ∞} and {2, 3}. Then SO(H ⊗ H′, γ ⊗ γ′) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E): for E of trivial discriminant, SO(E) ≅ (SL₁(C) × SL₁(C))/μ₂ with isomorphic factors. For odd n every form is an SO(E), and the proof only twists by H¹(R, SO_n).",
+   "reason": "Checked author p.28 image. Independently, over R=real numbers the inner form (SL2×SL1(H))/diagonal μ2 has Lie algebra sl2(R)⊕su2. Its Killing form has signature (2,4), whereas a rank-four quadratic space gives SO(p,q), whose signatures are (0,6), (3,3), or (4,2). Hence it is not SO(E). It is an inner form by twisting one factor of split SO4 by the Hamilton-quaternion PGL2 torsor. Only SO_n-torsor twists are required by the proof.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
     "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
     "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
+    "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
    ],
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Checked author p.28 image. Independently, over R=real numbers the inner form (SL2×SL1(H))/diagonal μ2 has Lie algebra sl2(R)⊕su2. Its Killing form has signature (2,4), whereas a rank-four quadratic space gives SO(p,q), whose signatures are (0,6), (3,3), or (4,2). Hence it is not SO(E). It is an inner form by twisting one factor of split SO4 by the Hamilton-quaternion PGL2 torsor. Only SO_n-torsor twists are required by the proof."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E8",
+   "kind": "error",
+   "locator": "CES22 Remark 3.3, author p.8 and published p.8",
+   "printed": "the inequality is actually an equality",
+   "correction": "Add that Y_j\\Z is pure-dimensional, or require a surviving component of maximal dimension. Keep Lemma 3.2(iii)’s unrestricted upper bound.",
+   "reason": "Over Q take X=P3, A=V(x3), C=V(x0,x1), Y=A∪C, Z=V(x2,x3)⊂A, Z1=Z, Z0=∅, t=1 and H=V(x2^N+x3^N), for any N≥1. All Lemma 3.2 conclusions hold: H is pure-dimensional and smooth off Z, and the incidence inequality holds. A∩H is supported on Z, while C∩H is a nonempty finite étale degree-N scheme disjoint from Z. Thus dim(Y\\Z)=2 but dim((Y\\Z)∩H)=0, whereas the asserted equality gives 1. This persists in arbitrarily large degree. The subsequent projection construction uses the upper bound, not this false equality.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Over Q take X=P3, A=V(x3), C=V(x0,x1), Y=A∪C, Z=V(x2,x3)⊂A, Z1=Z, Z0=∅, t=1 and H=V(x2^N+x3^N), for any N≥1. All Lemma 3.2 conclusions hold: H is pure-dimensional and smooth off Z, and the incidence inequality holds. A∩H is supported on Z, while C∩H is a nonempty finite étale degree-N scheme disjoint from Z. Thus dim(Y\\Z)=2 but dim((Y\\Z)∩H)=0, whereas the asserted equality gives 1. This persists in arbitrarily large degree. The subsequent projection construction uses the upper bound, not this false equality."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E9",
+   "kind": "misprint",
+   "locator": "CES22 Proposition 3.6 proof, author pp.10 and 12",
+   "printed": "Y ∩ π(π^−1(x_i)); of (vii); (i)–(v)",
+   "correction": "On p.10 write Y∩π^−1(π(x_i)); x_i lies in X, not the projection target. On p.12 the displayed empty intersection is condition (iv), not (vii). The deduction of (vii) on p.10 also uses (vi) to retain the whole finite Y-fiber inside W, so cite (i)–(vi).",
+   "reason": "Page images confirm all three slips. The maps in the first expression have the wrong domains; the p.12 display is literally assertion (iv); containment in W in the final affine shrinking uses the avoidance assertion (vi). The item statements already use the correctly typed fibers.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Page images confirm all three slips. The maps in the first expression have the wrong domains; the p.12 display is literally assertion (iv); containment in W in the final affine shrinking uses the avoidance assertion (vi). The item statements already use the correctly typed fibers."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E10",
+   "kind": "error",
+   "locator": "CES22 Lemma 6.3 statement, author p.19 and published p.18",
+   "printed": "a flat affine R-scheme C",
+   "correction": "Require C/R finitely presented as well as flat and affine. Prop.6.5’s smooth affine relative curve has this property.",
+   "reason": "Set R=Q, C=Spec Q[[t]], Y=V(t)=Spec Q and Z=∅. The fibers are Cohen–Macaulay and pure of dimension one; Y is R-finite and the finite-residue-field point condition is vacuous. Every open containing Y is all of this local spectrum. A quasi-finite map C→A1_Q would be of finite type, hence make Q[[t]] a finitely generated Q-algebra. This is impossible: Q[[t]] is uncountable and every such algebra is countable. The proof’s two sets of closed points outside Y cannot be chosen here. Section 1.7 supplies no standing finite-presentation convention. The main theorem’s actual curve application is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+    "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+    "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Set R=Q, C=Spec Q[[t]], Y=V(t)=Spec Q and Z=∅. The fibers are Cohen–Macaulay and pure of dimension one; Y is R-finite and the finite-residue-field point condition is vacuous. Every open containing Y is all of this local spectrum. A quasi-finite map C→A1_Q would be of finite type, hence make Q[[t]] a finitely generated Q-algebra. This is impossible: Q[[t]] is uncountable and every such algebra is countable. The proof’s two sets of closed points outside Y cannot be chosen here. Section 1.7 supplies no standing finite-presentation convention. The main theorem’s actual curve application is unaffected."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E11",
+   "kind": "misprint",
+   "locator": "CTHK97 Lemma 3.4.1 proof, author-hosted bo.pdf p.16, final paragraph",
+   "printed": "dim T′i < dim E^(d−1)",
+   "correction": "The ambient parameter space is E^d, so replace d−1 by d.",
+   "reason": "For X=A2 with its standard embedding and one marked point, E has dimension 2 and the nonétale linear maps form the determinant-zero locus in E², of dimension 3. It is not of dimension less than dim E=2; it is less than dim E²=4, which is the bound used earlier in the same proof.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+    "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+    "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "For X=A2 with its standard embedding and one marked point, E has dimension 2 and the nonétale linear maps form the determinant-zero locus in E², of dimension 3. It is not of dimension less than dim E=2; it is less than dim E²=4, which is the bound used earlier in the same proof."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E12",
+   "kind": "misprint",
+   "locator": "CTHK97 Lemma 3.5.1 proof, author-hosted bo.pdf p.19, first display and following sentence",
+   "printed": "is an isomorphism",
+   "correction": "The displayed map k[U_1,…,U_d]/a k[U_1,…,U_d]→B/aB is surjective. That suffices to kill the finite cokernel by Nakayama.",
+   "reason": "Already with d=1, X=A1, Z={0}, marked point 0, and φ the identity, the displayed map is k[U]→k, evaluation at zero. It is surjective and not injective. The printed proof’s next step only needs surjectivity; the geometric-presentation statement is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+    "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+    "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Already with d=1, X=A1, Z={0}, marked point 0, and φ the identity, the displayed map is k[U]→k, evaluation at zero. It is surjective and not injective. The printed proof’s next step only needs surjectivity; the geometric-presentation statement is unchanged."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/E13",
+   "kind": "error",
+   "locator": "CTHK97 Lemma 3.6.1 proof, author-hosted bo.pdf p.19, opening sentence",
+   "printed": "φ|φ^−1(φ(T)) : φ^−1(φ(T)) → φ(T) is étale",
+   "correction": "This map is étale along its section T, which suffices to make T open in the preimage. Do not assert étaleness at every other point of that preimage.",
+   "reason": "Over Q let X=A1, Z=T={0}, marked point 0, and φ(x)=x(x−1)²; realize φ as a linear projection after the graph embedding into A2, as the source permits. All conditions 1–4 of Theorem 3.2.2 hold, and φ is étale at 0. But φ^−1(0) contains the nonreduced double point at 1, where the map is not étale. Along T the section remains open, so removing the complementary closed locus proves the desired shrinking lemma.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+    "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+    "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+   ],
+   "owner": "PAPER-CESNAVICIUS-22",
+   "file": "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+   "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Over Q let X=A1, Z=T={0}, marked point 0, and φ(x)=x(x−1)²; realize φ as a linear projection after the graph embedding into A2, as the source permits. All conditions 1–4 of Theorem 3.2.2 hold, and φ is étale at 0. But φ^−1(0) contains the nonreduced double point at 1, where the map is not étale. Along T the section remains open, so removing the complementary closed locus proves the desired shrinking lemma."
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24/E1",
