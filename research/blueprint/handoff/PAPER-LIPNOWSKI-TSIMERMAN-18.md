@@ -1,3 +1,440 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 — characteristic-p source checkpoint
+
+**ChatGPT Pro — cgp-20260923-h7q4; 23 September 2026; Refs #1332. Partial.**
+
+This checkpoint saves original-source reading, proof decompositions and exact
+finite diagnostics. It changes **only this handoff**. The extraction JSON and
+the report are unchanged: the 152-item inventory, eleven routes, nineteen
+withheld claims and seventeen registered source findings have not been
+updated. Incorporating the material below into those files is the next task,
+not an operation this submission claims to have performed. One additional
+source finding is recorded below in the section-18 format for that incorporation.
+No independent review, proof-closure certificate or Lean implementation is claimed.
+
+The previous handoff is preserved byte-for-byte after the final divider.
+Its requests to locate the original p-Tate proof and the independent
+p-characteristic-polynomial comparison are superseded by P1–P4 below.
+Its other source and implementation gaps remain open.
+
+## P0. Sources and exact scope
+
+**WM71:** Waterhouse–Milne, *Abelian varieties over finite fields*, Proc. Symp.
+Pure Math. 20 (1971), pp.53–64,
+https://www.jmilne.org/math/articles/1971a.pdf . All twelve published page images
+were read, including Part II, Theorems 1–2 and their proofs, pp.60–61.
+The author's publication list and abstracts identify this as the source of the
+proofs of the two theorems announced by Tate:
+https://www.jmilne.org/math/articles/index.html and
+https://www.jmilne.org/math/articles/abstracts.html .
+
+**M68:** Milne, *Extensions of abelian varieties defined over a finite field*,
+Invent. Math. 5 (1968), pp.63–84,
+https://www.jmilne.org/math/articles/1968a.pdf . Images of pp.64–67 and p.84
+were read. The needed comparison is on pp.65–66, not in the later Ext
+calculations. This is **not** a complete reading of M68. The author's notes
+and listed corrections were read at
+https://www.jmilne.org/math/articles/1968a.html .
+
+WM71's bibliography explicitly warns that the often-cited second Tate
+endomorphisms paper was never written. Use WM71 Part II instead of treating
+that reference in M68's bibliography as an obtainable missing paper.
+
+All accesses above were on 23 September 2026. Browser page images were
+available, but downloading source bytes to the scratch environment failed.
+No new PDF SHA-256, byte count or byte-for-byte version comparison is claimed.
+The LT source remains arXiv:1511.02212v1. This claim reread pp.1–8, not the
+whole paper; the earlier complete reading retains its earlier attribution.
+Both author publication lists still point to arXiv. The journal/DOI download
+attempts did not produce the final text. G0 is **not closed**.
+
+The input blobs are:
+
+- extraction JSON: `08e4a65850abd8867fc2511b09b4425209753511`;
+- report: `e4814d678a4b5f0ab4e4ebe40d6c967ca2ae8b5a`;
+- preceding handoff: `e3d8beb8d56cacd1a66bd6d63baf1e98ad2c758b`.
+
+The current R07.1/R07.2 descriptions were read. The A4 import findings and
+accepted `REV-AUDIT-08` review in `research/blueprint/audit/AUDIT-08.result.json`
+were checked. The consolidated coverage fetch returned empty content, so this
+is not a fresh reading of that whole file. No new pinned-library declaration,
+absence search, ownership decision or route is asserted. Keep the existing
+owners: R07.2 for Dieudonné theory, A3 for torsion and quotients, A6 for
+finite-rank Hom and intrinsic degree polynomials, and the already proposed
+finite-field Part II for its Tate/Honda arithmetic consumers. Generic
+central-simple-algebra and linear-algebra facts must be imported from their
+existing libraries/owners, not replanned as a new Dieudonné category.
+
+## P1. Characteristic polynomial before p-Tate
+
+Set k=F_(p^a), W=W(k), L=Frac(W), and let sigma be Witt Frobenius. Use the
+**contravariant** module C(A) of A[p^infinity]. Its finite-level reduction is
+D(A[p^n]); its W-rank is 2 dim(A). The required R07.2 input is the exact
+finite-group anti-equivalence with
+
+    rank_k(H) = p^(length_W D(H)),
+
+and the induced equivalence for p-divisible groups. The right side is not
+q to that length, and the left side is group-scheme rank, not the number of
+geometric points. The A3 input is the finite-flat quotient and the primary
+kernel decomposition. These imported theorems are not proved by p-Tate.
+
+For u in End_k(A), put T=C(u). This is W-linear and commutes with the
+sigma-semilinear F. On C(A)[1/p], F is invertible because FV=VF=p.
+Writing F=B sigma in a basis gives T=B sigma(T) B^(-1). Thus the
+characteristic polynomial of T is sigma-fixed: its integral coefficients
+belong to Z_p, not merely to W.
+
+If psi in Z[X] makes psi(u) an isogeny, exactness at its p-primary kernel
+and the DVR determinant/length calculation give
+
+    v_p(det_L psi(T))
+      = length_W coker(C(psi(u)))
+      = v_p(deg(psi(u))),       v_p(p)=1.
+
+The degree-polynomial supplier in A6 gives the same right side as
+v_p(Res(P_u,psi)), where P_u in Z[X] is the intrinsic degree-2 dim(A)
+polynomial already realized on V_ell(A), ell != p. The following elementary
+argument explains why these valuation tests determine the polynomial; it
+avoids deriving this comparison from p-Tate.
+
+**Valuation-separation lemma.** Suppose monic P,Q in Z_p[X] give equal
+resultant valuations for all integer polynomials for which both resultants
+are nonzero. Take a monic irreducible factor R of P or Q. Its roots are
+integral, hence R is in Z_p[X]. Choose monic R_n in Z[X] with coefficients
+congruent to R modulo p^(2n), and put psi_n=R_n+p^n. For each integral root
+alpha of R, v_p(psi_n(alpha))=n. At a root beta not belonging to R, the
+valuation is eventually the fixed number v_p(R(beta)). Consequently
+
+    v_p(Res(P,psi_n)) = n N_R(P) + c_P
+
+for all sufficiently large n, where N_R counts roots of R with multiplicity
+in P. The same formula for Q forces N_R(P)=N_R(Q). Do this for the finite
+set of irreducible factors; monicity gives P=Q. These test resultants are
+nonzero for large n. In the application, nonzero Res(P_u,psi_n) ensures
+that psi_n(u) is an isogeny by the imported degree formula, so the degree
+comparison above applies to the required tests.
+
+This yields charpoly_L(C(u)[1/p])=P_u without p-Tate. It is the independent
+input used at WM71 p.60, which points to M68 p.66. M68 p.65 supplies the
+length/degree reasoning and cites Lang VII, section 1, Lemma 1 for uniqueness;
+the valuation-separation argument here expands that uniqueness step rather
+than claiming the Lang book was read in this session.
+
+For **Frobenius pi**, additionally use centrality of pi in End_k^0(A) and
+semisimplicity of that rational algebra. Its Q-minimal polynomial is
+squarefree. The relation transports to C(A)[1/p], so F^a=C(pi) is semisimple.
+Do not infer this for every u, and do not identify F with the L-linear
+F^a when a>1. Specializing a=1 gives the existing
+`prime-field-p-frobenius` item; ordinary linear duality preserves its
+polynomial and semisimplicity.
+
+Tests/API obligations: rank is 2g, not p-rank; repeated factors of P_pi are
+allowed although pi is semisimple; a=2 uses F^2, not F, for L-linear
+characteristic polynomials; zero dimension gives polynomial 1; arbitrary
+endomorphisms of a power E^2 need not be semisimple. The comparison uses the
+existing `degree-polynomial`, `dieudonne-lattice` and `poincare-decomposition`
+interfaces, not an extra definition of the intrinsic polynomial.
+
+## P2. Integral injection and saturation, independently of dimension
+
+Let M=Hom_k(A,B), a finite free Z-module, and
+
+    H = Hom_(W,F,V)(C(B), C(A)).
+
+H is a finite torsion-free Z_p-module: it is a submodule of the finite
+Z_p-module of W-linear maps. It is p-saturated there, since cancellation of
+p in the F,V-commutation equations is valid. In particular, reduction modulo
+p of H embeds into the W-linear maps between the reductions.
+
+If f in M induces zero modulo p on C, the finite-level Dieudonné
+anti-equivalence says that f restricted to A[p] is the zero group-scheme
+map. The A3 quotient A/A[p] identified with A by [p] gives a unique g with
+f=g composed with [p]_A=p g. Conversely such an f acts trivially modulo p.
+Thus M/pM -> H/pH is injective.
+
+Extend to j:M tensor Z_p -> H. If j(x)=0, successive reduction modulo p
+makes x divisible by every power of p, hence zero. If j(x)=p h, the same
+mod-p injection gives x=p x'; cancellation gives h=j(x'). The image is
+therefore p-saturated. This proves both injection and saturation **before**
+using any rational dimension comparison. Once P3 supplies equality of ranks,
+the finite torsion cokernel is also p-torsion-free and must vanish.
+
+Tests/API obligations: use scheme-theoretic A[p], never only A[p](kbar);
+repeat the argument for p^n; preserve the order C(B)->C(A); End carries an
+anti-homomorphism, or a homomorphism from End(A)^op; the zero variety gives
+the zero module. The quotient/divisibility argument is the completion of
+WM71 Part I Theorems 3/5/6 needed for Part II's rational comparison.
+
+## P3. Rational full faithfulness: the central-simple block calculation
+
+The following expanded block argument gives the dimension calculation in
+WM71 Part II Theorem 1. It uses only the particular cyclic quotients needed
+here rather than assuming an undecomposed classification of all skew-
+polynomial modules. It is a mathematical proof outline, not checked Lean.
+
+Write the polynomial from P1 over Q_p as
+
+    P_pi(X) = product_i m_i(X)^(e_i),
+
+with distinct monic irreducibles m_i and d_i=deg(m_i). Put K_i=Q_p[X]/m_i,
+and let theta_i denote X. All theta_i are nonzero. For
+R=L[F; sigma], the center is Q_p[F^a]; semisimplicity of F^a decomposes
+C(A)[1/p] as the sum of its m_i-primary blocks V_i, annihilated by m_i(F^a).
+Different blocks have no R-intertwiners.
+
+The acting quotient is
+
+    B_i = R/(m_i(F^a))
+        = (L tensor_Qp K_i)<F> /
+          (F b = (sigma tensor 1)(b) F, F^a=theta_i).
+
+It has K_i-dimension a^2. It is central simple of degree a even when
+L tensor K_i is **not a field**. Indeed, over an algebraic closure of K_i,
+L splits into a copies of the base field. Represent these by diagonal
+idempotents and represent F by a cyclic shift with nonzero wrap weight
+theta_i. The matrices E_j F^r, 0<=j,r<a, are scalar multiples of all matrix
+units. They form a basis; hence this representation identifies the scalar
+extension with M_a. Faithful field extension descends the central-simple
+property. This supplies the special quotient structure used by the original
+Jacobson-based argument; it does not replace any existing algebra carrier.
+
+Now dim_L(V_i)=d_i e_i, so dim_(K_i)(V_i)=a e_i. After splitting B_i,
+a module of that dimension is a sum of e_i copies of the standard
+column module. Explicitly use E_11 V_i and the mutually inverse maps
+
+    e_j tensor v |-> E_(j1) v,
+    x |-> sum_j e_j tensor E_(1j) x.
+
+Its endomorphism algebra therefore has dimension e_i^2 over K_i.
+Commutants commute with field extension here because they are kernels of
+finitely many linear commutation equations. Consequently
+
+    dim_Qp End_R(C(A)[1/p]) = sum_i d_i e_i^2.
+
+The already separate ell != p Tate theorem and its semisimple centralizer
+calculation give dim_Q End_k^0(A) equal to the same sum. That sum is invariant
+under separable factor splitting: each root contributes its multiplicity
+squared. P2 gives the natural injection, so equal dimensions make it an
+anti-isomorphism on End. Apply this to A x B and take the off-diagonal
+idempotent corners to obtain the correctly oriented rational Hom statement.
+P2 then upgrades it integrally. This proves the existing `p-tate-hom`
+statement, relative to the displayed geometric and prime-to-p suppliers.
+
+Tests/API obligations: a=1 gives ordinary polynomial-field blocks; the
+weighted-cycle algebra has dimension a^2, not a; multiplicity e contributes
+e^2, not e; coefficient tensor products may split, and must not be assumed
+fields; off-diagonal corners reverse under C. The finite F_9 diagnostic
+below shows why commuting only with F^a is insufficient: for F=sigma on
+L^2 modulo p there are 9^4 W-linear maps, but only 3^4 commute with F.
+
+Dependency direction: R07.2/A3 -> P2; R07.2/A6 -> P1;
+P1 + P2 + ell-Tate + the central-simple calculation -> rational p-Tate;
+rational p-Tate + P2 -> integral p-Tate. There is no p-Tate -> P1 arrow.
+
+## P4. Local invariant and the two opposite algebras
+
+WM71 Part II Theorem 2 also supplies the previously unread p-local invariant
+proof. For a simple A, put K=Q(pi)_v, v|p. Normalize ord_v on K to have value
+one on a uniformizer. Write e_v=ord_v(p), f_v for the residue degree,
+g=gcd(f_v,a), and n=a/g. Then
+
+    L tensor_Qp K is a product of g copies of LK,
+    [LK:K]=n,
+    B_v is isomorphic to M_g(D),
+
+where D is the cyclic algebra with coefficient field LK, generator tau
+acting as sigma^g, and U^n=pi. The arithmetic Frobenius of LK/K acts on L
+as sigma^(f_v), hence equals tau^(f_v/g). With the local-invariant convention
+used in WM71, this gives
+
+    inv(D) = (f_v/g) ord_v(pi)/(a/g)
+           = f_v ord_v(pi)/a
+           = [K:Q_p] ord_v(pi)/ord_v(q)   in Q/Z.
+
+The endomorphism algebra of a nonzero B_v-module has the **opposite** Brauer
+class. The contravariant realization identifies End_k^0(A)^op with that
+commutant, introducing a second opposite. These signs cancel. Do not use
+an order-two example alone to check the signs: 1/2 equals -1/2 in Q/Z,
+whereas 1/3 and -1/3 do not agree.
+
+The unramified cyclic-invariant formula remains an imported local Brauer
+input; this reading does not purport to formalize local class field theory.
+At a=1 the finite p-invariants vanish, but this does not remove real-place
+invariants. Keep the earlier nonreal/CM restriction and the real-Weil
+exception. The all-q Hom theorem here does not by itself supply an all-q
+version of the prime-field linear-dual lattice convention or counting bound.
+
+## P5. One additional source finding; one rejected suspicion
+
+The following is an auxiliary-source finding, **not** an assertion about
+the final LT publication. It has not yet been appended to the extraction's
+`sourceIssues`; retain the existing seventeen entries when incorporating it.
+The descriptive ID is absent from the current extraction. Its shape passes
+the repository's `source_issues.check_issues`. No `review` object is added.
+
+```json
+{
+  "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E-MILNE68-NEWTON-ABSCISSA",
+  "kind": "misprint",
+  "locator": "Milne, Extensions of abelian varieties defined over a finite field, Invent. Math. 5 (1968), published p.67, proof of Theorem 1(c), definition of the Newton polygon; author-hosted published page image.",
+  "printed": "(c_i, ord_p(c_i))",
+  "correction": "Use (i, ord_p(c_i)) for each nonzero coefficient c_i of F^i.",
+  "reason": "The horizontal coordinate is the exponent. For 1+F the printed point set has just (1,0), whereas the Newton polygon has endpoints (0,0) and (1,0). General coefficients lie in a p-adic field, not canonically in R. The subsequent formula ord_s(lambda)=min_i(ord_p(c_i)-s i) also confirms the intended exponent coordinate. This is a notation slip, not a disproof of Theorem 1(c), and is outside the degree-comparison proof used above.",
+  "affects": "nothing",
+  "known": "new",
+  "searched": [
+    "2026-09-23: inspected the published p.67 image at https://www.jmilne.org/math/articles/1968a.pdf.",
+    "2026-09-23: read the author notes/errata at https://www.jmilne.org/math/articles/1968a.html; their listed corrections concern pp.78-79 and p.81, not this point notation.",
+    "2026-09-23: title searches with errata and with 67/Newton did not locate an additional correction. This is a limited search, not an exhaustive novelty claim."
+  ]
+}
+```
+
+Do not register WM71 p.60's generator `(1/p)F^(-1)` as a false ring equality:
+after p is inverted it generates the same Laurent algebra as pF^(-1).
+The operator identity needed by the implementation is V=pF^(-1), from FV=p.
+The printed algebra equality alone is not a counterexample to that identity.
+
+## P6. Resume and validation
+
+First incorporate P1–P4 into the existing `p-tate-hom` and
+`prime-field-p-frobenius` items: add the exact source locators, replace only
+the now-obsolete unread-source notes, add the proof outlines and the acyclic
+dependencies/tests. Keep their implementation status `missing`. Record the
+new reading in provenance without inventing PDF hashes. Incorporate P5 before
+a completed extraction is submitted. Add a report supplement rather than
+silently reattributing the previous workers' reading.
+
+Before creating any extra generic item, check the pinned libraries and the
+existing semisimple-algebra, local-Brauer and valuation owners. The block
+calculation is not authority to plan a parallel Ore-polynomial library. Do
+not erase the independent A6 degree/resultant and R07.2 finite-level
+exactness/length inputs: their original general proofs are not read here.
+Continue the old PEL fixed-degree/twist, polarization, Honda, class-set,
+Gan–Yu/Jacobowitz, mass/residue, real-Weil and limit-law obligations. The
+final journal comparison G0 and all nineteen withheld LT claims remain open.
+
+The exact diagnostics below passed: 8 split cyclic-module commutants,
+5,760 invertible semilinear F_9 matrices, 840 valuation-multiplicity tests,
+and 10,260 invariant-normalization identities. They are regression checks,
+not proofs of the general theorems. The source-finding schema check passed.
+The preserved handoff's Git blob was matched exactly before prepending.
+The extraction JSON/report are untouched; `check_paper.py`, full intake and
+the old regression suite were **not rerun locally**. The PR's automated
+submission check is separate. No Lean file was written or compiled.
+
+### Reproducible finite diagnostics (Python with SymPy)
+
+```python
+"""Exact finite diagnostics for the LT18 p-source continuation, not Lean proofs."""
+from fractions import Fraction
+from itertools import product, combinations_with_replacement
+from math import gcd
+import sympy as s
+
+# A split cyclic algebra is generated by diagonal idempotents and a weighted cycle.
+# Check both the a^2-dimensional span and its r^2-dimensional module commutant.
+cyclic_cases = 0
+for a in range(1, 5):
+    S = s.zeros(a)
+    for j in range(a - 1):
+        S[j + 1, j] = 1
+    S[0, a - 1] = 2
+    assert S ** a == 2 * s.eye(a)
+    E = []
+    for i in range(a):
+        e = s.zeros(a); e[i, i] = 1; E.append(e)
+    basis = [e * S ** j for e in E for j in range(a)]
+    assert s.Matrix.hstack(*(b.reshape(a*a, 1) for b in basis)).rank() == a*a
+    for r in (1, 2):
+        n = a*r
+        gens = [s.kronecker_product(g, s.eye(r)) for g in E + [S]]
+        # Column vectorization: vec(XG-GX)=(G^T tensor I-I tensor G) vec(X).
+        eq = s.Matrix.vstack(*(s.kronecker_product(g.T, s.eye(n))
+                               - s.kronecker_product(s.eye(n), g) for g in gens))
+        assert n*n - eq.rank() == r*r
+        cyclic_cases += 1
+
+# F_9 = F_3[t]/(t^2+1), encoded by x+3*y. Frobenius fixes exactly F_3.
+def add(x, y):
+    return ((x % 3 + y % 3) % 3) + 3*((x // 3 + y // 3) % 3)
+def neg(x):
+    return (-x % 3) + 3*((-(x // 3)) % 3)
+def mul(x, y):
+    a,b = x % 3, x // 3; c,d = y % 3, y // 3
+    return ((a*c-b*d) % 3) + 3*((a*d+b*c) % 3)
+def frob(x):
+    return mul(mul(x, x), x)
+def mm(A, B):
+    return tuple(add(mul(A[2*i], B[j]), mul(A[2*i+1], B[2+j]))
+                 for i in range(2) for j in range(2))
+def det(A):
+    return add(mul(A[0], A[3]), neg(mul(A[1], A[2])))
+assert all(frob(frob(x)) == x for x in range(9))
+assert {x for x in range(9) if frob(x) == x} == {0, 1, 2}
+linear_maps = semilinear_commutants = invertible_cases = 0
+for B in product(range(9), repeat=4):
+    linear_maps += 1
+    semilinear_commutants += all(frob(x) == x for x in B)
+    if det(B) == 0:
+        continue
+    # For F=B sigma, F^2=B sigma(B); its characteristic polynomial is sigma-fixed.
+    P = mm(B, tuple(frob(x) for x in B))
+    tr = add(P[0], P[3]); d = det(P)
+    assert frob(tr) == tr and frob(d) == d
+    invertible_cases += 1
+assert linear_maps == 9**4 and semilinear_commutants == 3**4
+assert invertible_cases == (9**2-1)*(9**2-9)
+
+# Valuation tests recover multiplicity in a split integral-root model.
+def vp(x, p):
+    assert x != 0
+    x = abs(x); n = 0
+    while x % p == 0:
+        x //= p; n += 1
+    return n
+multiplicity_cases = 0
+for p in (2, 3, 5):
+    for rank in range(5):
+        for roots in combinations_with_replacement(range(4), rank):
+            for alpha in range(4):
+                # psi_n(T)=T-alpha+p^n, with n beyond every nonzero separation valuation.
+                values = [sum(vp(beta-alpha+p**n, p) for beta in roots) for n in (5, 6)]
+                assert values[1] - values[0] == roots.count(alpha)
+                multiplicity_cases += 1
+
+# Arithmetic Frobenius versus the chosen cyclic generator, with ramification explicit.
+invariant_cases = 0
+for a in range(1, 13):
+    for f in range(1, 7):
+        g = gcd(a, f)
+        assert gcd(a//g, f//g) == 1
+        for e in range(1, 7):
+            for t in range(a*e + 1):
+                I = Fraction((f//g)*t, a//g)
+                assert I == Fraction(f*t, a) == Fraction(e*f*t, a*e)
+                invariant_cases += 1
+assert Fraction(1, 2) % 1 == Fraction(1, 2)
+assert (-(-Fraction(1, 2))) % 1 == Fraction(1, 2)
+# A value away from order two detects a missing sign reversal.
+assert (-(-Fraction(1, 3))) % 1 == Fraction(1, 3)
+assert (-Fraction(1, 3)) % 1 == Fraction(2, 3)
+# Group-scheme rank uses p^length, not |F_q|^length.
+p, a, length = 3, 2, 3
+assert p**length == 27 and (p**a)**length == 729
+
+print(f'PASS: {cyclic_cases} split cyclic-module commutants; '
+      f'{invertible_cases} F_9 semilinear Frobenius matrices; '
+      f'{multiplicity_cases} valuation-multiplicity tests; '
+      f'{invariant_cases} invariant-normalization identities.')
+print(f'Naive versus semilinear commutant sizes: {linear_maps} versus {semilinear_commutants}.')
+print('Finite diagnostics only; no general theorem or Lean compilation is inferred.')
+```
+
+---
+
+# Preserved handoff before this source checkpoint
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — classification continuation
 
 Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**
