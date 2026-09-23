@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Corrected source route: import the upstream Fitting carrier (3); add the general-ring and finite Dedekind theorems (4–9,94) to the existing IHG.6 supplier contract identified by Padic L6. Items 4–7 are now missing, not falsely claimed exact planned statements."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Z.4 explicitly owns positive-rank Steinitz and finite-flat determinant/norm transfer. Items 101/103 remain imports; completed function-field adapters remain G4/G8."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "DM.0 explicitly owns the q-Frobenius Ore/additive-operator specialization; the existing generic SkewPolynomial multiplication is imported rather than rebuilt."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "The arbitrary-A, higher-dimensional class formula is a justified Drinfeld Part II direction, but its current supplier chain is not buildable: G2/G3/G4/G5/G6/G8 remain open, and several bundled assertions require separate proof/API nodes. The quotient and ownership repairs in this review do not close those gaps. Reject pending completion, without discarding the intended direction."
+    }
+  ],
+  "notes": "Independent review of all 103 original items and 15 source findings. Corrected clear statements/locators, added 8 explicit imports/constructions and 3 source findings, verified cited declarations at both pins, and searched every originally missing signature. Source findings are confirmed only for HAL v2. Partial status is restored because deferred supplier proofs are not closure. No Lean compilation or implementation claim."
+}
