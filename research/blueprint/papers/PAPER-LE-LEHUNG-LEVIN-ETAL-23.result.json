@@ -169,6 +169,13 @@
         "date": "2026-09-23",
         "main": "Second pass: published PDF125–131 (§6) and PDF180–186 (§9) freshly read in the text layer of the same PDF (same SHA-256), for the itemwise interfaces of P01–P08, V01–V06, V08 and V10.",
         "sources": []
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "main": "Third pass: published PDF162–180 (§8) freshly read in the text layer of the same PDF; PDF173 checked as a page image (finding E39).",
+        "sources": []
       }
     ],
     "smoothLocusContinuation": {
@@ -187,7 +194,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10).",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E39 (Lemma 8.4.9 notation).",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -5106,7 +5113,74 @@
       "locator": "§8.1 PDF162–163",
       "statement": "Define Z[X_n,red] as the free abelian group on Serre-labelled irreducible components C_sigma, with coefficientwise effectivity and order. Define the finite-group representation Grothendieck group and lattice-independent reduction of characteristic-zero representations.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
+          "how": "Z_{λ,τ} is a cycle in Z[X_{n,red}]."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
+          "how": "The geometric Breuil–Mézard conjecture is an identity in Z[X_{n,red}]."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+          "how": "Lemma 8.2.2 compares cycles with their versal pullbacks."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B33",
+          "how": "The generic cycles Z_σ form a basis of the span of the generic C_σ (Proposition 8.6.2)."
+        }
+      ],
+      "api": [
+        {
+          "name": "StackCycle.group",
+          "role": "constructor",
+          "statement": "Z[X_{n,red}] is the free abelian group on the irreducible components C_σ of X_{n,red}, indexed by Serre weights; its elements are cycles, and C_σ is an irreducible cycle."
+        },
+        {
+          "name": "StackCycle.le",
+          "role": "structure",
+          "statement": "Z₁ ≥ Z₂ iff Z₁ − Z₂ is effective (all coefficients ≥ 0); this is a partial order compatible with addition."
+        },
+        {
+          "name": "RepGroth.group",
+          "role": "constructor",
+          "statement": "K(Rep_F(G)) is the free abelian group on Serre weights, with [W] = Σ_σ [W:σ][σ]."
+        },
+        {
+          "name": "RepGroth.lattice_indep",
+          "role": "compatibility",
+          "statement": "For a finitely generated E[G]-module V, [V̄°] is independent of the G-stable O-lattice V° (Brauer–Nesbitt); it is written [V̄]."
+        },
+        {
+          "name": "StackCycle.support",
+          "role": "projection",
+          "statement": "The support of a cycle is the set of C_σ with nonzero coefficient."
+        }
+      ],
+      "tests": [
+        {
+          "name": "StackCycle.zero",
+          "kind": "degenerate",
+          "statement": "The zero cycle is effective, and 0 ≤ Z for every effective Z."
+        },
+        {
+          "name": "StackCycle.GL1",
+          "kind": "computation",
+          "statement": "For n = 1 and residue field of size p^f, the components of X_{1,red} are indexed by the p^f − 1 characters of k^×, so Z[X_{1,red}] ≅ Z^{p^f−1}."
+        },
+        {
+          "name": "StackCycle.partial",
+          "kind": "non-example",
+          "statement": "≥ is not total: for σ ≠ σ′, C_σ and C_{σ′} are incomparable."
+        },
+        {
+          "name": "RepGroth.two_lattices",
+          "kind": "compatibility",
+          "statement": "Two lattices in a GL₂(F_p) principal series may have non-isomorphic reductions, but with the same Jordan–Hölder multiset, hence the same class."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
@@ -5115,7 +5189,74 @@
       "locator": "§8.1 PDF163",
       "statement": "A type is (lambda+eta,tau) with lambda dominant and tau a Weil–Deligne inertial type; it is extremal if tau is minimal or maximal for the monodromy order. Its cycle Z_{lambda,tau} records generic-point lengths of X_F^{lambda+eta,tau}. For a set S of types define JH(sigma(S)) as the union of type constituents.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
+          "how": "Conjecture 8.1.1 expresses each Z_{λ,τ} in the Z_σ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Z(M∞(σ̄°(λ,τ))) = Z_{λ,τ}(ρ) for minimal patching functors ([23, Lemma 2.2.10], PDF169)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+          "how": "Theorem 8.4.10(2) proves the geometric equations for generic types."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+          "how": "Corollary 8.4.12 proves them for P_{P,Λ,e}-generic tame types."
+        }
+      ],
+      "api": [
+        {
+          "name": "BMType.mk",
+          "role": "constructor",
+          "statement": "A type is (λ+η, τ) with λ ∈ X*(T^∨) dominant and τ a Weil–Deligne inertial type for K."
+        },
+        {
+          "name": "BMType.IsExtremal",
+          "role": "characterisation",
+          "statement": "(λ+η, τ) is extremal iff τ is minimal or maximal for ⪯; X^{λ+η,τ} is then the potentially crystalline, respectively potentially semistable, stack."
+        },
+        {
+          "name": "BMType.cycle",
+          "role": "constructor",
+          "statement": "Z_{λ,τ} := Σ_σ μ_σ(X^{λ+η,τ}_F)·C_σ, with μ_σ the multiplicity of C_σ as an irreducible component of the special fibre ([75, Tag 0DR4])."
+        },
+        {
+          "name": "BMType.JH",
+          "role": "constructor",
+          "statement": "For a set S of extremal types, JH(σ̄(S)) := ⋃_{(λ+η,τ)∈S} JH(σ̄(λ,τ))."
+        },
+        {
+          "name": "BMType.cycle_effective",
+          "role": "relation",
+          "statement": "Z_{λ,τ} is effective and supported on the components of X^{λ+η,τ}_F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BMType.empty",
+          "kind": "degenerate",
+          "statement": "If X^{λ+η,τ} is empty, Z_{λ,τ} = 0."
+        },
+        {
+          "name": "BMType.not_extremal",
+          "kind": "non-example",
+          "statement": "For GL₃ with trivial inertia and monodromy of Jordan type (2,1), τ is neither minimal nor maximal, so the type is not extremal."
+        },
+        {
+          "name": "BMType.crystalline",
+          "kind": "characterisation",
+          "statement": "If N_τ = 0, τ is minimal and X^{λ+η,τ} is the potentially crystalline stack of type (λ+η, τ)."
+        },
+        {
+          "name": "BMType.semistable",
+          "kind": "compatibility",
+          "statement": "If τ is maximal for ⪯, X^{λ+η,⪯τ} is the potentially semistable stack of the corresponding type."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
@@ -5124,7 +5265,65 @@
       "locator": "Conjecture8.1.1 PDF163",
       "statement": "For a specified set S of extremal types, conjecture effective cycles Z_sigma with Z_{lambda,tau}=sum_sigma [sigma(lambda,tau):sigma]Z_sigma. This is a conjecture in general, not a theorem of the paper; subsequent results prove restricted generic instances. The extra inequality Z_sigma>=C_sigma is likewise conjectural in Remark8.1.2 outside the proved range.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B08",
+          "how": "Conjecture 8.1.1 implies the versal conjecture (Proposition 8.2.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B17",
+          "how": "Theorem 8.3.5(4) compares the patched cycles with any cycles satisfying the conjecture."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+          "how": "Corollary 8.4.12 proves a generic case."
+        }
+      ],
+      "api": [
+        {
+          "name": "GeometricBM.statement",
+          "role": "other",
+          "statement": "Conjectural interface, not a theorem: for a set S of extremal types there are effective Z_σ ∈ Z[X_{n,red}], σ ∈ JH(σ̄(S)), with Z_{λ,τ} = Σ_σ[σ̄(λ,τ):σ]Z_σ for all types in S."
+        },
+        {
+          "name": "GeometricBM.unique",
+          "role": "relation",
+          "statement": "If S is a Breuil–Mézard system, such cycles are unique if they exist (Remark 8.1.3(2))."
+        },
+        {
+          "name": "GeometricBM.provedGeneric",
+          "role": "relation",
+          "statement": "Corollary 8.4.12 proves the statement for λ ∈ Λ and tame τ with P_{P,Λ,e}-generic presentation."
+        },
+        {
+          "name": "GeometricBM.expected_lower",
+          "role": "other",
+          "statement": "Conjectural: Z_σ ≥ C_σ (Remark 8.1.2). For generic σ the coefficient of C_σ in Z_σ is 1 (Proposition 8.6.1)."
+        },
+        {
+          "name": "GeometricBM.nonreduced",
+          "role": "relation",
+          "statement": "If [σ̄(λ,τ):σ] > 1 and Z_σ ≠ 0, the conjecture forces X^{λ+η,τ}_F to be non-reduced (Remark 8.1.4)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GeometricBM.single_irreducible",
+          "kind": "characterisation",
+          "statement": "If S = {(λ+η,τ)} and σ̄(λ,τ) has the single constituent σ with multiplicity one, the conjecture forces Z_σ = Z_{λ,τ}."
+        },
+        {
+          "name": "GeometricBM.not_theorem",
+          "kind": "non-example",
+          "statement": "The conjecture is not asserted for arbitrary S; only restricted generic instances are proved."
+        },
+        {
+          "name": "GeometricBM.empty",
+          "kind": "degenerate",
+          "statement": "For S = ∅ the conjecture is vacuous."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B04",
@@ -5133,7 +5332,60 @@
       "locator": "§8.1; Remark8.1.3 PDF163–164",
       "statement": "A set S of extremal types is a Breuil–Mézard system if the map from Z[S] to the representation Grothendieck group has finite cokernel. Such a spanning condition gives uniqueness of cycles if they exist; an arbitrary set S does not give uniqueness.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B03",
+          "how": "Uniqueness of Breuil–Mézard cycles for a Breuil–Mézard system (Remark 8.1.3(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+          "how": "The relative notion of Definition 8.3.3 weakens this spanning condition."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B17",
+          "how": "Theorem 8.3.5(4) assumes a Breuil–Mézard system S̃_elim."
+        }
+      ],
+      "api": [
+        {
+          "name": "BMSystem.def",
+          "role": "characterisation",
+          "statement": "S is a Breuil–Mézard system iff Z[S] → K(Rep_F(G)), (λ+η,τ) ↦ [σ̄(λ,τ)], has finite cokernel ([33, §3.3])."
+        },
+        {
+          "name": "BMSystem.rational",
+          "role": "characterisation",
+          "statement": "Equivalently, the classes [σ̄(λ,τ)] for types in S span K(Rep_F(G)) ⊗ Q."
+        },
+        {
+          "name": "BMSystem.mono",
+          "role": "relation",
+          "statement": "If S ⊆ S′ and S is a Breuil–Mézard system, so is S′."
+        },
+        {
+          "name": "BMSystem.unique",
+          "role": "relation",
+          "statement": "For a Breuil–Mézard system, cycles satisfying Conjecture 8.1.1 are unique if they exist."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BMSystem.empty",
+          "kind": "degenerate",
+          "statement": "S = ∅ is never a Breuil–Mézard system, since K(Rep_F(G)) ≠ 0."
+        },
+        {
+          "name": "BMSystem.GL1",
+          "kind": "computation",
+          "statement": "For n = 1 each tame type reduces to a single character of k^×, so the set of all tame types is a Breuil–Mézard system with zero cokernel."
+        },
+        {
+          "name": "BMSystem.single_type",
+          "kind": "non-example",
+          "statement": "A single type is not a Breuil–Mézard system once G has more than one Serre weight."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B05",
@@ -5142,7 +5394,69 @@
       "locator": "§8.1 PDF164–165",
       "statement": "Given a versal ring R^ver_rho of X_n, form the crystalline quotient and the effective algebraic versal ring R^alg_rho of X_n,red. The effective map i_rho:Spec R^alg_rho->X_n,red induces pullback of component cycles; formal fibers preserve their multiplicities. Record the dependence on the chosen versal ring.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06",
+          "how": "The versal conjecture is stated on Spec R_ρ^alg."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+          "how": "Lemma 8.2.2 uses the pullbacks i_x^*."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Theorem 8.3.5(1) uses R∞ = R_ρ ⊗̂ R^p as a versal ring."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V10",
+          "how": "Primes p_σ(ρ̄) come from pulled-back components."
+        }
+      ],
+      "api": [
+        {
+          "name": "Versal.algRing",
+          "role": "constructor",
+          "statement": "Spf R_ρ^alg := Spf R_ρ^ver ×_{X_n} X_{n,red}; the versal map is effective, giving i_ρ : Spec R_ρ^alg → X_{n,red} ([24, Definition 2.2.9])."
+        },
+        {
+          "name": "Versal.typeRing",
+          "role": "constructor",
+          "statement": "Spf R_ρ^{ver,λ+η,τ} := Spf R_ρ^ver ×_{X_n} X^{λ+η,τ} is a versal ring of X^{λ+η,τ} at ρ."
+        },
+        {
+          "name": "Versal.pullback",
+          "role": "functoriality",
+          "statement": "i_ρ^* : Z[X_{n,red}] → Z[Spec R_ρ^alg]; the components of Spec R_ρ^alg map onto the components of X_{n,red} containing ρ ([75, Tag 0DRB])."
+        },
+        {
+          "name": "Versal.pullback_mult",
+          "role": "relation",
+          "statement": "Multiplicities are preserved: i_ρ^*(Z_{λ,τ}) = Z(Spec R_{ρ,F}^{ver,λ+η,τ}) ([75, Tag 0DRD])."
+        },
+        {
+          "name": "Versal.change",
+          "role": "compatibility",
+          "statement": "Two versal rings have a common formally smooth cover, which identifies components and multiplicities (Remark 8.1.6(1))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Versal.not_on_component",
+          "kind": "degenerate",
+          "statement": "If ρ ∉ C_σ, then i_ρ^*(C_σ) = 0."
+        },
+        {
+          "name": "Versal.detects",
+          "kind": "characterisation",
+          "statement": "i_ρ^*(C_σ) ≠ 0 iff ρ ∈ C_σ."
+        },
+        {
+          "name": "Versal.not_injective",
+          "kind": "non-example",
+          "statement": "i_ρ^* is not injective on Z[X_{n,red}]: it kills every component not containing ρ."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06",
@@ -5151,7 +5465,60 @@
       "locator": "Conjecture8.1.5; Remark8.1.6 PDF165",
       "statement": "Conjecture effective cycles Z_sigma(rho) satisfying all equations for S on a chosen versal ring. A common formally smooth cover transports the assertion to another versal ring. This general conjecture is not marked proved.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B08",
+          "how": "The geometric conjecture implies it (Proposition 8.2.1)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Minimal patching functors prove it with Z_σ(ρ) = Z(M∞(σ)) (Theorem 8.3.5(1))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B31",
+          "how": "Corollary 8.5.2 is a versal statement for generic ρ̄."
+        }
+      ],
+      "api": [
+        {
+          "name": "VersalBM.statement",
+          "role": "other",
+          "statement": "Conjectural interface: effective Z_σ(ρ) ∈ Z[Spec R_ρ^alg] with Z_{λ,τ}(ρ) = Σ_σ[σ̄(λ,τ):σ]Z_σ(ρ) for every type in S."
+        },
+        {
+          "name": "VersalBM.indep",
+          "role": "compatibility",
+          "statement": "The statement for one versal ring implies it for any other (Remark 8.1.6(1))."
+        },
+        {
+          "name": "VersalBM.of_patching",
+          "role": "relation",
+          "statement": "A minimal patching functor for ρ and S gives Z_σ(ρ) := Z(M∞(σ)) satisfying it (Theorem 8.3.5(1))."
+        },
+        {
+          "name": "VersalBM.recover",
+          "role": "compatibility",
+          "statement": "For S the minimal types and R_ρ^ver = R_ρ, it recovers [23, Conjecture 4.2.1] with effectivity (Remark 8.1.6(2))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "VersalBM.from_geometric",
+          "kind": "characterisation",
+          "statement": "Conjecture 8.1.1 for S implies Conjecture 8.1.5 for S at every ρ (Proposition 8.2.1)."
+        },
+        {
+          "name": "VersalBM.not_theorem",
+          "kind": "non-example",
+          "statement": "It is not proved in general; the paper proves it for generic data."
+        },
+        {
+          "name": "VersalBM.far",
+          "kind": "degenerate",
+          "statement": "If ρ lies on no component of any type in S, both sides are 0 and the cycles can be taken to be 0."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
@@ -5160,7 +5527,60 @@
       "locator": "§8.1.1 PDF165",
       "statement": "For a finite module on a type's special-fiber versal ring, its top-dimensional cycle sums each irreducible component with coefficient equal to the length of the module localized at its generic prime.",
       "status": "missing",
-      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: SchemeAndStackFoundations. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B06",
+          "how": "Z_σ(ρ) = Z(M∞(σ)) is a module cycle."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Z(M∞(σ̄°(λ,τ))) = Z_{λ,τ}(ρ) ([23, Lemma 2.2.10])."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36",
+          "how": "The recursion manipulates Z(M∞(σ)) and Z(M∞(σ̄(τ)))."
+        }
+      ],
+      "api": [
+        {
+          "name": "ModuleCycle.def",
+          "role": "constructor",
+          "statement": "For finite M over R_{ρ,F}^{ver,λ+η,τ}, Z(M) := Σ_C length(M_{p_C})·C over the irreducible components C, with p_C the generic prime of C."
+        },
+        {
+          "name": "ModuleCycle.additive",
+          "role": "relation",
+          "statement": "Z is additive in short exact sequences ([23, Lemma 2.2.7])."
+        },
+        {
+          "name": "ModuleCycle.effective",
+          "role": "relation",
+          "statement": "Z(M) is effective, and zero iff Supp M has smaller than top dimension."
+        },
+        {
+          "name": "ModuleCycle.ring",
+          "role": "compatibility",
+          "statement": "Z(R_{ρ,F}^{ver,λ+η,τ}) = Z_{λ,τ}(ρ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ModuleCycle.zero",
+          "kind": "degenerate",
+          "statement": "Z(0) = 0."
+        },
+        {
+          "name": "ModuleCycle.two_lines",
+          "kind": "computation",
+          "statement": "For R = F[[x,y]]/(xy) and M = R/(x), Z(M) = C_{x=0}: M has length 1 at (x) and is 0 at (y)."
+        },
+        {
+          "name": "ModuleCycle.closed_point",
+          "kind": "non-example",
+          "statement": "A module supported at the closed point has Z(M) = 0, though M ≠ 0."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B08",
@@ -5178,7 +5598,60 @@
       "locator": "§8.2 PDF166",
       "statement": "For P contained in residual stack points, define i_P^* as the product of versal pullbacks. P meets all components of S if every component supporting some type in S contains a point of P.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
+          "how": "Lemma 8.2.2: injectivity and effectivity detection."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B11",
+          "how": "Proposition 8.2.3: uniqueness of descended cycles."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
+          "how": "P_ss meets all components of S_{Λ,t} (Lemma 8.4.9)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TestSet.pullback",
+          "role": "constructor",
+          "statement": "i_P^* := ∏_{x∈P} i_x^* : Z[X_{n,red}] → ∏_{x∈P} Z[Spec R_x^alg]."
+        },
+        {
+          "name": "TestSet.MeetsAll",
+          "role": "characterisation",
+          "statement": "P meets all components of S iff every C ∈ C(S), the components in the support of some X^{λ+η,τ} with type in S, contains a point of P."
+        },
+        {
+          "name": "TestSet.injective",
+          "role": "relation",
+          "statement": "If P meets all components of S, i_P^* is injective on Z[C(S)], and Z ∈ Z[C(S)] is effective iff every i_x^*(Z) is (Lemma 8.2.2)."
+        },
+        {
+          "name": "TestSet.mono",
+          "role": "relation",
+          "statement": "If P ⊆ P′ and P meets all components of S, so does P′."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TestSet.Pss",
+          "kind": "characterisation",
+          "statement": "P_ss meets all components of S_{Λ,t} (Lemma 8.4.9)."
+        },
+        {
+          "name": "TestSet.missing_component",
+          "kind": "non-example",
+          "statement": "If some C ∈ C(S) contains no point of P, then i_P^*(C) = 0, so i_P^* is not injective on Z[C(S)]."
+        },
+        {
+          "name": "TestSet.empty_S",
+          "kind": "degenerate",
+          "statement": "Every P, including ∅, meets all components of S = ∅."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B10",
@@ -5205,7 +5678,60 @@
       "locator": "Definition8.3.1; Remark8.3.2 PDF167",
       "statement": "A weight is (rho,S_elim)-irrelevant if it occurs in a type whose ordered semistable deformation ring is zero; it is (P,S_elim)-irrelevant if this holds for each rho in P. Weak patching vanishes on such weights. If versal BM holds, their cycles vanish as well.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+          "how": "(P, S̃_elim)-Breuil–Mézard systems span modulo irrelevant weights."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
+          "how": "Weights outside W?(x|_I) are irrelevant (Lemma 8.4.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16",
+          "how": "The proof of Theorem 8.3.5(2) uses M∞(σ) = 0 on irrelevant weights (Remark 8.3.2)."
+        }
+      ],
+      "api": [
+        {
+          "name": "Irrelevant.def",
+          "role": "characterisation",
+          "statement": "σ is (ρ, S_elim)-irrelevant iff some (λ+η,τ) ∈ S_elim has σ ∈ JH(σ̄(λ,τ)) and R_ρ^{λ+η,⪯τ} = 0; (P, S_elim)-irrelevant iff this holds for every ρ ∈ P."
+        },
+        {
+          "name": "Irrelevant.patching_zero",
+          "role": "relation",
+          "statement": "For any weak patching functor for ρ, M∞(σ) = 0 on ρ-irrelevant σ (Remark 8.3.2)."
+        },
+        {
+          "name": "Irrelevant.cycle_zero",
+          "role": "relation",
+          "statement": "If the versal conjecture holds for S_elim, then Z_σ(ρ) = 0 for (ρ, S_elim)-irrelevant σ."
+        },
+        {
+          "name": "Irrelevant.of_not_predicted",
+          "role": "relation",
+          "statement": "For (6n−2)-generic tame ρ|_I, σ ∉ W?(ρ|_I) is (ρ, S̃_{Λ,t,elim})-irrelevant (Lemma 8.4.2)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Irrelevant.empty_elim",
+          "kind": "degenerate",
+          "statement": "With S_elim = ∅ no weight is irrelevant."
+        },
+        {
+          "name": "Irrelevant.one_witness",
+          "kind": "non-example",
+          "statement": "Irrelevance needs only one type in S_elim containing σ with vanishing ring; other types containing σ may have nonzero rings."
+        },
+        {
+          "name": "Irrelevant.empty_P",
+          "kind": "characterisation",
+          "statement": "For P = ∅ every weight is vacuously (P, S_elim)-irrelevant."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
@@ -5214,7 +5740,69 @@
       "locator": "Definition8.3.3 first part PDF167–168",
       "statement": "For S, sigma S-covers kappa when every type in S containing sigma has C_kappa in its special-fiber support. Define S-disjointness from S' by excluding every such component from all S' supports. For S contained in S_tilde, relative genericity means S_tilde-disjointness from S_tilde minus S.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
+          "how": "S_P is defined through (S, S̃)-generic weights."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B18",
+          "how": "tr_{σ,S} keeps the components σ S̃-covers."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B21",
+          "how": "For (3n−1)-deep σ, S̃_{Λ,t}-covering implies covering (Lemma 8.4.5)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
+          "how": "Generic weights are (S_{Λ,t}, S̃_{Λ,t})-generic (Lemma 8.4.8)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TypeSet.Covers",
+          "role": "characterisation",
+          "statement": "σ S-covers σ′ iff for every (λ+η,τ) ∈ S with σ ∈ JH(σ̄(λ,τ)), C_{σ′} lies in X^{λ+η,τ}_F."
+        },
+        {
+          "name": "TypeSet.Disjoint",
+          "role": "characterisation",
+          "statement": "σ is S-disjoint from S′ iff no κ S-covered by σ has C_κ in X^{λ+η,τ}_F for any (λ+η,τ) ∈ S′."
+        },
+        {
+          "name": "TypeSet.RelGeneric",
+          "role": "characterisation",
+          "statement": "For S ⊆ S̃, σ is (S, S̃)-generic iff σ is S̃-disjoint from S̃ ∖ S."
+        },
+        {
+          "name": "TypeSet.covers_anti",
+          "role": "relation",
+          "statement": "If S ⊆ S′ and σ S′-covers σ′, then σ S-covers σ′, since there are fewer types to check."
+        },
+        {
+          "name": "TypeSet.covers_to_covers",
+          "role": "relation",
+          "statement": "For (3n−1)-deep σ, S̃_{Λ,t}-covering implies covering in the sense of Definition 2.3.10 (Lemma 8.4.5)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TypeSet.vacuous",
+          "kind": "degenerate",
+          "statement": "If σ lies in no type of S, σ S-covers every σ′."
+        },
+        {
+          "name": "TypeSet.not_reflexive",
+          "kind": "non-example",
+          "statement": "σ need not S-cover itself: C_σ ≤ Z_{λ,τ} is not known a priori (Remark 8.3.4)."
+        },
+        {
+          "name": "TypeSet.relGeneric_self",
+          "kind": "characterisation",
+          "statement": "Every σ is (S, S)-generic, since S ∖ S = ∅."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
@@ -5223,7 +5811,60 @@
       "locator": "Definition8.3.3 second part PDF168",
       "statement": "S_tilde is a (P,S_elim)-BM system if every Serre class has a nonzero integer multiple that is an integral combination of its type classes modulo irrelevant weights. Define S_P by requiring all constituents to be relatively generic. This quotient-spanning definition differs from B04.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Theorem 8.3.5(2) assumes S̃ is a P-Breuil–Mézard system containing S."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
+          "how": "S̃_{Λ,t} is a (P_ss, S̃_{Λ,t,elim})-Breuil–Mézard system (Lemma 8.4.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+          "how": "Theorem 8.4.10 applies Theorem 8.3.5 with these systems."
+        }
+      ],
+      "api": [
+        {
+          "name": "RelBMSystem.def",
+          "role": "characterisation",
+          "statement": "S̃ is a (P, S̃_elim)-Breuil–Mézard system iff for every σ there are d_σ ≠ 0 and n^σ_{λ,τ} ∈ Z with d_σ[σ] − Σ_{(λ+η,τ)∈S̃} n^σ_{λ,τ}[σ̄(λ,τ)] supported on (P, S̃_elim)-irrelevant weights."
+        },
+        {
+          "name": "RelBMSystem.of_BM",
+          "role": "relation",
+          "statement": "A Breuil–Mézard system is a (P, S_elim)-Breuil–Mézard system for every P and S_elim."
+        },
+        {
+          "name": "GoodSubsystem.def",
+          "role": "constructor",
+          "statement": "For S ⊆ S̃ with S̃ a P-Breuil–Mézard system, S_P ⊆ S consists of the types all of whose constituents are (S, S̃)-generic."
+        },
+        {
+          "name": "GoodSubsystem.proved",
+          "role": "relation",
+          "statement": "Under Theorem 8.3.5(2), Conjecture 8.1.1 holds for S_P."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RelBMSystem.from_BM",
+          "kind": "compatibility",
+          "statement": "If S̃ has finite cokernel, take d_σ to be an exponent of the cokernel and no irrelevant part."
+        },
+        {
+          "name": "RelBMSystem.weaker",
+          "kind": "non-example",
+          "statement": "A P-Breuil–Mézard system need not be a Breuil–Mézard system, since spanning holds only modulo irrelevant weights."
+        },
+        {
+          "name": "GoodSubsystem.empty",
+          "kind": "degenerate",
+          "statement": "If S = ∅, then S_P = ∅."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
@@ -5259,7 +5900,66 @@
       "locator": "Proof8.3.5; Lemmas8.3.6–8.3.7 PDF169–171",
       "statement": "Define tr_{sigma,S} by retaining exactly the covered components, and its compatible versal version. It kills cycles of excluded types and fixes the patching cycle of sigma. These facts allow rational inversion without introducing undesired components.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B16",
+          "how": "The proof of Theorem 8.3.5(2) defines Z_σ with tr_{σ,S}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B17",
+          "how": "The proof of Theorem 8.3.5(4) compares truncated cycles."
+        }
+      ],
+      "api": [
+        {
+          "name": "Trunc.def",
+          "role": "constructor",
+          "statement": "tr_{σ,S} : Z[X_{n,red}] → Z[X_{n,red}] sends C_{σ′} to C_{σ′} if σ S̃-covers σ′, and to 0 otherwise."
+        },
+        {
+          "name": "Trunc.idem",
+          "role": "structure",
+          "statement": "tr_{σ,S} is an idempotent linear projection preserving effectivity."
+        },
+        {
+          "name": "Trunc.versal",
+          "role": "compatibility",
+          "statement": "There is a unique tr_{σ,S}(x) on Z[Spec R_x^alg] with i_x^*∘tr_{σ,S} = tr_{σ,S}(x)∘i_x^* ([75, Tags 0DRB, 0DRD])."
+        },
+        {
+          "name": "Trunc.kills_excluded",
+          "role": "relation",
+          "statement": "tr_{σ,S}(Z_{λ,τ}) = 0 for (λ+η,τ) ∈ S̃ ∖ S, when σ is (S, S̃)-generic (Lemma 8.3.6)."
+        },
+        {
+          "name": "Trunc.fixes_patched",
+          "role": "relation",
+          "statement": "tr_{σ,S}(x)(Z_σ(x)) = Z_σ(x) (Lemma 8.3.7)."
+        },
+        {
+          "name": "Trunc.defZ",
+          "role": "constructor",
+          "statement": "Z_σ := tr_{σ,S}((1/d_σ)·Σ n^σ_{λ,τ} Z_{λ,τ}), a priori with rational coefficients; integrality follows from i_x^*(Z_σ) = Z_σ(x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Trunc.nothing_covered",
+          "kind": "degenerate",
+          "statement": "If σ S̃-covers no weight, tr_{σ,S} = 0."
+        },
+        {
+          "name": "Trunc.idempotent",
+          "kind": "characterisation",
+          "statement": "tr_{σ,S} ∘ tr_{σ,S} = tr_{σ,S}."
+        },
+        {
+          "name": "Trunc.needed",
+          "kind": "non-example",
+          "statement": "Before truncation, (1/d_σ)Σ n^σ_{λ,τ} Z_{λ,τ} can have non-integral coefficients and components that σ does not cover; truncation removes the latter."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B19",
@@ -5268,7 +5968,69 @@
       "locator": "§8.4 PDF171",
       "statement": "For a finite dominant-weight set Lambda containing zero, define S_{Lambda,t} using subordinate dominant weights and tame types with both P_{lambda+eta,e}-genericity and (6n-2+h_{lambda+eta})-depth. Define P_ss, S_tilde by adjoining 2n-generic weight-zero types, and S_tilde_elim by adjoining all extremal tame-inertia weight-zero types. Keep these three type systems distinct.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
+          "how": "Lemmas 8.4.2 and 8.4.4 are stated for these systems."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
+          "how": "Lemma 8.4.9: P_ss meets all components of S_{Λ,t}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+          "how": "Theorem 8.4.10 is stated for S_{Λ,t} and P_ss."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+          "how": "Lemma 8.4.11 places P_{P,Λ,e}-generic types in S_{P,Λ,t}."
+        }
+      ],
+      "api": [
+        {
+          "name": "TypeSystem.S",
+          "role": "constructor",
+          "statement": "S_{Λ,t} is the set of extremal types (λ+η, τ) with λ dominant, λ ≤ λ′ for some λ′ ∈ Λ, and τ a P_{λ+η,e}-generic and (6n−2+h_{λ+η})-generic tame inertial type."
+        },
+        {
+          "name": "TypeSystem.Pss",
+          "role": "constructor",
+          "statement": "P_ss := {x ∈ X_n(F) : x|_{I_K} is a (6n−2)-generic tame inertial F-type}."
+        },
+        {
+          "name": "TypeSystem.Stilde",
+          "role": "constructor",
+          "statement": "S̃_{Λ,t} := S_{Λ,t} ∪ {(η,τ) : τ 2n-generic tame}, and S̃_{Λ,t,elim} := S_{Λ,t} ∪ {(η,τ) extremal with ρ_τ tame}."
+        },
+        {
+          "name": "TypeSystem.chain",
+          "role": "relation",
+          "statement": "S_{Λ,t} ⊆ S̃_{Λ,t} ⊆ S̃_{Λ,t,elim}."
+        },
+        {
+          "name": "TypeSystem.BM",
+          "role": "relation",
+          "statement": "S̃_{Λ,t} is a (P_ss, S̃_{Λ,t,elim})-Breuil–Mézard system (Lemma 8.4.4)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TypeSystem.chain_test",
+          "kind": "characterisation",
+          "statement": "S_{Λ,t} ⊆ S̃_{Λ,t} ⊆ S̃_{Λ,t,elim}."
+        },
+        {
+          "name": "TypeSystem.Lambda0",
+          "kind": "degenerate",
+          "statement": "For Λ = {0}, S_{{0},t} consists of the (η,τ) with τ P_{η,e}-generic and (6n−2+h_η)-generic."
+        },
+        {
+          "name": "TypeSystem.distinct",
+          "kind": "non-example",
+          "statement": "A 2n-generic tame τ that is not (6n−2+h_η)-generic gives (η,τ) ∈ S̃_{{0},t} ∖ S_{{0},t}, so the systems differ."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B20",
@@ -5295,7 +6057,60 @@
       "locator": "Definition8.4.6; Remark8.4.7 PDF172",
       "statement": "A weight is generic when it occurs in S_{0,t} and covers no constituent of any type in S_tilde_{0,t} outside S_{0,t}. It is consequently (6n-2)-deep, and every weight it covers is again generic.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B25",
+          "how": "Theorem 8.4.10(2) constructs Z_σ for generic σ."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B33",
+          "how": "Generic Z_σ form a basis (Proposition 8.6.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
+          "how": "W_gen(r̄) uses this genericity (Definition 9.1.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "SerreWeight.IsBMGeneric",
+          "role": "characterisation",
+          "statement": "σ is generic iff σ ∈ JH(σ̄(τ)) for some (η,τ) ∈ S_{{0},t}, and σ covers no weight of JH(σ̄(τ′)) for any (η,τ′) ∈ S̃_{{0},t} ∖ S_{{0},t}."
+        },
+        {
+          "name": "SerreWeight.IsBMGeneric.deep",
+          "role": "relation",
+          "statement": "A generic weight is (6n−2)-deep (Remark 8.4.7(1))."
+        },
+        {
+          "name": "SerreWeight.IsBMGeneric.covers",
+          "role": "relation",
+          "statement": "If σ is generic and covers σ′, then σ′ is generic (Remark 8.4.7(2))."
+        },
+        {
+          "name": "SerreWeight.IsBMGeneric.relGeneric",
+          "role": "relation",
+          "statement": "A generic σ is (S_{Λ,t}, S̃_{Λ,t})-generic for every Λ (Lemma 8.4.8)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SerreWeight.BMGeneric_absent",
+          "kind": "degenerate",
+          "statement": "A weight that lies in σ̄(τ) for no (η,τ) ∈ S_{{0},t} is not generic."
+        },
+        {
+          "name": "SerreWeight.BMGeneric_depth_insufficient",
+          "kind": "non-example",
+          "statement": "Depth is not enough: a (6n−2)-deep weight covering a constituent of some 2n-generic type outside S_{{0},t} is not generic."
+        },
+        {
+          "name": "SerreWeight.BMGeneric_GL2",
+          "kind": "computation",
+          "statement": "For GL₂, covering between 3-deep weights is equality (N45), so σ is generic iff it occurs in some σ̄(τ) with (η,τ) ∈ S_{{0},t} and in no σ̄(τ′) with (η,τ′) ∈ S̃_{{0},t} ∖ S_{{0},t}."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B23",
@@ -5340,7 +6155,60 @@
       "locator": "Equation8.1 PDF174",
       "statement": "For an integral polynomial f and dominant omega, define f^omega as the finite product over lattice points nu in Conv(omega) of f(X-nu). Build P_{P,Lambda,e} from the shifted product of P_{eta,e}P_{7n-3}; distinguish this polynomial from the original local-model P_{lambda,e}.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
+          "how": "Lemma 8.4.11 and Corollary 8.4.12 use P_{P,Λ,e}."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B30",
+          "how": "Lemma 8.5.1 transports P_{P,Λ,e}-genericity along admissibility."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08",
+          "how": "Theorem 9.1.6's polynomial includes P^η_{η,e₀} from (8.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "ShiftPoly.def",
+          "role": "constructor",
+          "statement": "For f ∈ Z[t₁,…,t_n] and dominant ω, f^ω(t) := ∏_{ν∈Conv(ω)∩Z^n} f(t − ν) (8.1)."
+        },
+        {
+          "name": "ShiftPoly.P",
+          "role": "constructor",
+          "statement": "P̃_{η,e} := P_{η,e}·P_{7n−3}, and P_{P,Λ,e} := ∏_{λ∈Λ} ∏_{j∈J} P̃_{η,e}^{(λ+η−w₀(η))_j}."
+        },
+        {
+          "name": "ShiftPoly.generic_iff",
+          "role": "characterisation",
+          "statement": "a is f^ω-generic iff a − ν is f-generic for every lattice point ν of Conv(ω), since a product is a unit iff each factor is."
+        },
+        {
+          "name": "ShiftPoly.used",
+          "role": "relation",
+          "statement": "If μ is P_{P,Λ,e}-generic, then (λ+η, τ) ∈ S_{P,Λ,t} for every λ ∈ Λ (Lemma 8.4.11)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ShiftPoly.zero",
+          "kind": "degenerate",
+          "statement": "For ω = 0, Conv(0) = {0} and f^0 = f."
+        },
+        {
+          "name": "ShiftPoly.GL2",
+          "kind": "computation",
+          "statement": "For n = 2 and ω = (1,0), the lattice points of Conv(ω) are (1,0) and (0,1), so f^ω(t₁,t₂) = f(t₁−1, t₂)·f(t₁, t₂−1)."
+        },
+        {
+          "name": "ShiftPoly.not_Plambda",
+          "kind": "non-example",
+          "statement": "P_{P,Λ,e} is not the local-model polynomial P_{λ,e}; the shift over Conv(λ+η−w₀(η)) is essential for Lemma 8.4.11."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B28",
@@ -5403,7 +6271,65 @@
       "locator": "§8.6.1 PDF177",
       "statement": "For 2n-generic tame residual inertia, the pair (w,w1) indexing sigma in W? defines delta_rho(sigma)=length(t_eta)-length((w_h w)^-1 w0 w1). It is independent of the lowest-alcove presentation, nonnegative, and zero exactly on obvious weights.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
+          "how": "Proposition 8.6.3: the unique defect-maximizing weight."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B36",
+          "how": "The recursion runs by induction on defect."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Lemma 9.1.10 uses strictly defect-lowering types."
+        }
+      ],
+      "api": [
+        {
+          "name": "Defect.def",
+          "role": "constructor",
+          "statement": "For 2n-generic tame ρ and σ ∈ W?(ρ) corresponding to (w̃, w̃₁) under (2.14), δ_ρ(σ) := ℓ(t_η) − ℓ((w̃_h w̃)⁻¹ w₀ w̃₁)."
+        },
+        {
+          "name": "Defect.indep",
+          "role": "compatibility",
+          "statement": "δ_ρ(σ) is independent of the lowest-alcove presentation, since changing it conjugates by Ω, which preserves length."
+        },
+        {
+          "name": "Defect.nonneg",
+          "role": "relation",
+          "statement": "δ_ρ(σ) ≥ 0, with equality iff σ ∈ W_obv(ρ), by Wang's theorem."
+        },
+        {
+          "name": "Defect.max",
+          "role": "relation",
+          "statement": "If w̃(ρ,τ) ∈ Adm^reg(η), then W?(ρ) ∩ JH(σ̄(τ)) has a unique weight of maximal defect (Proposition 8.6.3)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Defect.GL2",
+          "kind": "computation",
+          "statement": "For GL₂ every Herzig weight is obvious (N65), so δ_ρ ≡ 0."
+        },
+        {
+          "name": "Defect.GL3_bound",
+          "kind": "computation",
+          "statement": "For GL₃, ℓ(t_η) = 1 + 1 + 2 = 4; the 6 obvious weights have defect 0 and the 3 shadow weights have positive defect."
+        },
+        {
+          "name": "Defect.domain",
+          "kind": "degenerate",
+          "statement": "δ_ρ is defined only on W?(ρ) for 2n-generic ρ."
+        },
+        {
+          "name": "Defect.not_length",
+          "kind": "non-example",
+          "statement": "δ_ρ(σ) is not ℓ(w̃); it measures the gap to ℓ(t_η)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B35",
@@ -5421,7 +6347,60 @@
       "locator": "Equation8.3; Remark8.6.4 PDF178–179",
       "statement": "Choose a type for each predicted sigma so that every other constituent in its predicted intersection has smaller defect. Compute the sigma cycle from the type cycle by subtracting the lower-defect terms and dividing by its positive multiplicity. The displayed (8.3) must exclude kappa=sigma from the sum; the image verifies the omission, recorded in E21. Component-meeting semisimple test points recover global coefficients.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
+          "how": "The alternative proof of Theorem 8.4.10(3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B37",
+          "how": "Proposition 8.6.5 repeats the recursion for very generic weights."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Lemma 9.1.10 uses the same defect-lowering choice of τ."
+        }
+      ],
+      "api": [
+        {
+          "name": "BMRecursion.choose",
+          "role": "constructor",
+          "statement": "For σ ∈ W?(ρ) corresponding to (w̃, w̃₁), choose τ with w̃(τ) = w̃(ρ)(w̃_h w̃)⁻¹w₀w̃₁; then W?(ρ) ∩ JH(σ̄(τ)) consists of σ and weights of strictly smaller defect."
+        },
+        {
+          "name": "BMRecursion.step",
+          "role": "relation",
+          "statement": "[σ̄(τ):σ]·Z_σ(ρ)^gen = Z_τ(ρ)^gen − Σ_{κ∈W?(ρ)∩JH(σ̄(τ)), κ≠σ} [σ̄(τ):κ]·Z_κ(ρ)^gen, which is (8.3) with the exclusion κ ≠ σ of E21."
+        },
+        {
+          "name": "BMRecursion.base",
+          "role": "relation",
+          "statement": "If δ_ρ(σ) = 0, then W?(ρ) ∩ JH(σ̄(τ)) = {σ} (Corollary 2.6.5), so [σ̄(τ):σ]·Z_σ(ρ)^gen = Z_τ(ρ)^gen."
+        },
+        {
+          "name": "BMRecursion.global",
+          "role": "relation",
+          "statement": "Choosing ρ on C_{σ′} for each σ′ covered by σ recovers the coefficient of C_{σ′} in Z_σ (Remark 8.6.4, via Proposition 8.2.3)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BMRecursion.obvious",
+          "kind": "degenerate",
+          "statement": "If σ is obvious (δ = 0), no subtraction occurs."
+        },
+        {
+          "name": "BMRecursion.E21",
+          "kind": "non-example",
+          "statement": "Including κ = σ in the subtracted sum, as (8.3) is printed, would subtract Z_σ(ρ)^gen from both sides and give a false identity (E21)."
+        },
+        {
+          "name": "BMRecursion.GL2",
+          "kind": "computation",
+          "statement": "For GL₂ all Herzig weights are obvious, so each Z_σ(ρ)^gen is read off one type: [σ̄(τ):σ]·Z_σ(ρ)^gen = Z_τ(ρ)^gen with τ from Corollary 2.6.5."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B37",
@@ -10990,6 +11969,19 @@
         "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 (15 June 2022) as latest; freshly downloaded v2 compared at the specific locators.",
         "2026-09-23: https://math.rice.edu/~bl70/ links the published PDF without an erratum; the separate HNTheory correction concerns a different article. Springer article landing page timed out, so its correction listing was not inspected."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E39",
+      "kind": "misprint",
+      "locator": "Lemma 8.4.9, statement and proof, published PDF173 (checked on the page image)",
+      "printed": "Lemma 8.4.9 The set P_ss meets all components of S_{Λ,τ}. Any tame ρ̄ ∈ X^{λ,τ}(F) where (λ,τ) ∈ S_{Λ,τ} is (6n − 2)-generic. Proof: If C_σ is a component of X^{λ+η,τ} for (λ+η,τ) ∈ S_{Λ,τ}, …",
+      "correction": "Read S_{Λ,t}, the type system defined at the start of §8.4, in all three places, and X^{λ+η,τ}(F) with (λ+η,τ) ∈ S_{Λ,t} in the second sentence.",
+      "reason": "§8.4 defines S_{Λ,t} (subscript t for tame), and the surrounding results (Lemma 8.4.8, Theorem 8.4.10) use it. No set S_{Λ,τ} is defined, and τ is the bound variable of the type in the same sentence. Types are written (λ+η,τ), as in the proof, so the stack in the statement is X^{λ+η,τ}. The proof's genericity 6n − 2 + h_{λ+η} is exactly the one in the definition of S_{Λ,t}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: the article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum."
+      ]
     }
   ],
   "gaps": [
@@ -11068,22 +12060,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G22",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B02",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B04",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B09",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B12",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B13",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B34",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A05",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A11",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain. A second cc-442dc5 pass supplied the same for the sixteen §6 and §9 entries P01–P08, V01–V06, V08 and V10 (published PDF125–131 and PDF180–186); 56 of 152 now have literal itemwise uses/API/three typed tests and 96 remain."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain. A second cc-442dc5 pass supplied the same for the sixteen §6 and §9 entries P01–P08, V01–V06, V08 and V10 (published PDF125–131 and PDF180–186); 56 of 152 now have literal itemwise uses/API/three typed tests and 96 remain. A third cc-442dc5 pass did the same for the seventeen §8 entries B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36 (published PDF162–180); 73 of 152 now have literal itemwise uses/API/three typed tests and 79 remain."
     },
     {
       "id": "library-item-audit",
@@ -12923,6 +13906,14 @@
         "remainingDefinitionConstructionCensus": 96,
         "newlyCompleted": 16,
         "handChecks": "GL1 framed and typed lifting rings over Q_p (p odd), the completed-tensor dimension formula, the GL2 Hecke characteristic polynomial, the decomposition of S(U,W) by double cosets, the dual of Sym^r⊗det^a for GL2(F_p) and P_m for n = 1."
+      },
+      "thirdPass": {
+        "scope": "Itemwise uses/API/typed tests for B01–B07, B09, B12–B14, B18, B19, B22, B27, B34, B36; one new unreviewed finding E39 (Lemma 8.4.9 notation). No statements, statuses, routes or IDs changed.",
+        "itemwiseApiUsesAndThreeTypedTests": 73,
+        "remainingDefinitionConstructionCensus": 79,
+        "newlyCompleted": 17,
+        "sourceIssues": 39,
+        "handChecks": "GL1 component count p^f−1, the two-component module cycle over F[[x,y]]/(xy), the lattice points of Conv((1,0)) for n = 2, ℓ(t_η) = 4 for GL3, the GL1 Breuil–Mézard system and the extremality of GL3 Jordan types."
       }
     }
   },

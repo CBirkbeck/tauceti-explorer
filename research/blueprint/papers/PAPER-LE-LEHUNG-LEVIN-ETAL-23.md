@@ -2,6 +2,28 @@
 
 This is a **partial checkpoint**, continuing PR #2301. It keeps the 480 items (60 library, 8 planned, 412 missing), the 15 route identities and the 38 unreviewed source findings unchanged. No statement, status, route, finding or ID was altered, and no Lean file was written or compiled.
 
+## Third pass (same session): §8 Breuil–Mézard definitions
+
+A third pass read published PDF162–180 (§8) afresh. It supplied itemwise interfaces for seventeen entries:
+- **Cycles and types.** B01 (stack cycles and the representation Grothendieck group) and B02 (extremal types and Z_{λ,τ}).
+- **The two conjectures.** B03 and B06, recorded as conjectural interfaces, not theorems.
+- **Systems and pullbacks.** B04 (Breuil–Mézard systems), B05 (versal pullback) and B07 (module cycles).
+- **The §8.3 framework.** B09 (component-meeting test sets), B12 (irrelevant weights), B13 (covering, disjointness and relative genericity) and B14 (relative systems and S_P).
+- **Constructions.** B18 (truncation idempotents), B19 (the systems S_{Λ,t}, S̃_{Λ,t}, S̃_{Λ,t,elim} and P_ss), B22 (generic weights) and B27 (shifted polynomials).
+- **Defect.** B34 (defect) and B36 (the recursion, with the E21 exclusion).
+
+**Hand-checked cases behind the tests:**
+- the GL₁ component count p^f − 1;
+- a module cycle on F[[x,y]]/(xy);
+- the lattice points of Conv((1,0)) for n = 2;
+- ℓ(t_η) = 4 for GL₃, with defect 0 exactly on the 6 obvious weights;
+- the GL₁ Breuil–Mézard system;
+- the extremality of GL₃ Jordan types.
+
+**A new finding, E39 (misprint, unreviewed).** Lemma 8.4.9 writes S_{Λ,τ} three times for the system S_{Λ,t} defined in §8.4, and X^{λ,τ} for X^{λ+η,τ}. This was checked on the page image of PDF173.
+
+**Census.** It now stands at **73 of 152**; **79 remain**.
+
 ## Second pass (same session): §6 and §9 definitions
 
 A second pass read published PDF125–131 (§6) and PDF180–186 (§9) afresh (same hash). It supplied itemwise `uses`, `api` and typed tests for sixteen more entries.
