@@ -833,6 +833,106 @@
       "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
       "target": "PadicMeasuresIwasawaAlgebras:L6",
       "reason": "Use one finite-presentation Fitting-ideal carrier. Gorenstein orders over a DVR, zero-dimensional self-injective quotients, and system-specific exterior contractions have different hypotheses; the PR323 homological module roadmap does not supply this order theory. Import the existing anchor carrier; higher-Fitting/order-specific and arithmetic containment theorems remain with their application owners."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:KU-iwasawamodules",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "AutomorphicCongruences:L0",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "ColemanPowerSeries:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "IntegralIwasawaTheory:L2",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L5",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "target": "PadicMeasuresIwasawaAlgebras:L6",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "ColemanPowerSeries:L3",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "IntegralIwasawaTheory:L1",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "DeformationAndDerivedPatchingAlgebra:P7",
+      "target": "SelmerIwasawaCohomology:L0",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L5 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.6",
+      "reason": "Protocol 15 forwarding of the narrowed PadicMeasuresIwasawaAlgebras:L6 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L4",
+      "target": "ColemanPowerSeries:L2",
+      "reason": "Protocol 15 forwarding of the narrowed ColemanPowerSeries:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L2",
+      "target": "ColemanPowerSeries:L3",
+      "reason": "Protocol 15 forwarding of the narrowed ColemanPowerSeries:L2 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "NoncommutativeAndEquivariantIwasawa:NE.4",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:I.4 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "EulerSystemsCyclotomicMainConjecture:L3",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
+    },
+    {
+      "source": "PadicMeasuresIwasawaAlgebras:L5",
+      "target": "SelmerIwasawaCohomology:L4",
+      "reason": "Protocol 15 forwarding of the narrowed IntegralIwasawaTheory:L1 to its consumer (review correction); inherited interface, not a claim that every supplier statement is used."
     }
   ],
   "owners": [
@@ -1014,5 +1114,14 @@
         "SpecialValuesBirchTate:B.6"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-16",
+    "date": "2026-09-23",
+    "notes": "All 38 stages of the four members have entries (17 narrow, 21 keep). The 16 evidence pairs each share an owner entry. The extension of PadicMeasuresIwasawaAlgebras is titled exactly as a Part II of Tau Ceti ProfiniteProPGroups, whose Layer 9 does own the completed group algebra of the orientation image and linear Weierstrass division. The sampled narrowings (L0a, L4, L5, L6) keep every target not supplied by a named owner, and the Mathlib imports L4 relies on (Weierstrass division, Noetherianity, UFD of R⟦X⟧ over a PID) exist at the pin. StableReduction Layer 1 is the only planned owner of Fitting ideals, since neither pinned library has them. One correction: 20 §15 forwarding links were missing and have been added; the one remaining unforwarded pair (LAD L4 to LAD L3) is justified in the proposal and would close a cycle. With the twelve accepted restructurings applied, every link applies and none closes a cycle. See REV-RS-16.md.",
+    "corrections": [
+      "links: added the 20 missing §15 forwarding links from the suppliers of the narrowed PMIA L4, L5, L6, ColemanPowerSeries L1, L2 and IntegralIwasawaTheory I.4, L1 to those layers' atlas consumers (listed in REV-RS-16.md). LocallyAnalyticDistributions:L4 -> L3, which forwarding L0a would require, was deliberately not added: the proposal explains that L3 needs only the retained character, and the link would close a cycle through LAD L3 -> L4."
+    ]
+  }
 }
