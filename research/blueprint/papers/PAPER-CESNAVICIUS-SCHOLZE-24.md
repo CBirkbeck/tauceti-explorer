@@ -2,6 +2,8 @@
 
 Issue #1071. Claude Code, session cc-442dc5. The extraction is complete. Implementation and proof closure are not claimed.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #1072, job `REV-PAPER-CESNAVICIUS-SCHOLZE-24`): **accepted**, all seven routes accepted, all fourteen recorded mistakes confirmed — E1 by a counterexample the review constructed. Two corrections: the PDF's SHA-256, recorded here but absent from the result file's source block, was copied in; and route 1's reason no longer says 'EDC.2 excludes absolute purity' (it does not mention it — no stage in the atlas does, which is the stronger justification). No item, status, route target or locator changed. See [REV-PAPER-CESNAVICIUS-SCHOLZE-24.md](../reviews/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md).
+
 Kęstutis Česnavičius and Peter Scholze, *Purity for flat cohomology*, Ann. of Math. 199 (2024), no. 1, 51–180 (doi 10.4007/annals.2024.199.1.2; arXiv 1912.10932).
 
 The result has **143 items**:

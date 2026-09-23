@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The new roadmap PurityForFlatCohomology, 39 items — the paper's main line: virtual dimension, the key formula, perfectoid purity, purity for complete intersections, Gabber's conjectures and Brauer purity. I checked the exclusions myself: no stage in the atlas mentions absolute purity at all (EDC.2, the nearest candidate, plans smooth trace, relative purity and Poincaré duality without it), 'local Picard' has no stage, and the only fppf-cohomology stage is HeightsRationalPointsAndObstructions RP.1, which uses it rather than developing purity. The id is free and the area algebraicgeometry is a galaxy id. Splitting the general tools out to routes 2–6 and keeping only the purity line here is the right shape, and I would build it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Part II SchemeAndStackFoundationsFlatCohomologyPartII, 45 items. Parent exists, id free, area algebraicgeometry. SF.2 owns the fppf site and its cohomology, and excision, continuity, fpqc descent, invariance under Henselian pairs and the animated deformation triangle are general properties of that cohomology, not purity statements — the purity roadmap is one consumer among others. The Brauer group of a scheme belongs here too: the atlas's existing Brauer material is the Brauer group of a field in Tau Ceti's ClassFieldTheory layers 5, 6 and 10, and the Brauer–Manin pairing of RP.2, which consumes Br(X) rather than constructing it."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Part II PerfectoidQuotientsIntegralPerfectoidPartII, 16 items. Parent exists, id free, area padic. The integral perfectoid material the paper needs beyond Q0 — tilting of étale cohomology, the arc-descent inputs and the perfectoid constructions of §2 — extends that roadmap in its own direction."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Part II EtaleDualityAbsolutePurityPartII, 6 items. Parent exists, id free, area etale. Absolute purity for étale cohomology is the étale-duality roadmap's own direction and is not planned by any of its stages, so a Part II rather than a source is right."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The new roadmap ArcTopologyAndDescent, 11 items. The arc and p-complete arc topologies of Bhatt–Mathew, with their descent theorems, are a self-contained body used by this paper and by others; the atlas has no arc topology, and keeping it separate lets the purity roadmap and the perfectoid Part II both import it instead of each restating it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II PrismaticCohomologyPartIIPrismaticDieudonneTheory, 6 items. Parent exists, id free, area padic. Prismatic Dieudonné theory extends the prismatic roadmap, and the paper uses it as an input rather than developing it."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "DeformationAndDerivedPatchingAlgebra R03.1, 1 item. A deformation-theoretic statement owned there."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026 (review job issue #1072). I fetched arXiv 1912.10932v3 myself; its SHA-256 is 2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4, matching the hash the report records. Verdict: accept. All 14 sourceIssues are confirmed, each checked at its locator. E1, the single error, I settled with a counterexample of my own: Theorem 7.1.2 allows each O_{X,z} to be 'regular of dimension ≥ d − 1', which at d = 1 permits a field, so X = Spec k ⊔ Spec k with Z one of the points satisfies every hypothesis while H^0(X,G) → H^0(X∖Z,G) is not injective; the extraction's repair (dimension ≥ max(d−1,1), or d ≥ 2) is right, and every application in the paper has d ≥ 2. Three of the misprints are confirmed by the paper contradicting itself: p. 79 writes 'the analogues of (5.7.2.1), (5.7.2.2), and (5.7.2.2)' where p. 80 concludes the same argument with '(5.7.2.3)'; p. 85 writes the Cohen-structure ideal as (p, x_1, …, x_n)² where p. 29 states it correctly with x_d; and p. 75 thanks 'Akhil Matthew' where the acknowledgements, the text and two bibliography entries all spell it Mathew. The rest are index and range slips each visible in its own sentence (π_* against π_i, τ_{≤n} without its argument, n ≥ 0 where µ_n needs n ≥ 1, vdim(R_d) for vdim(R), π_0(A) for π_0(A′), A for Ã). No later version or erratum corrects any of them: arXiv stops at v3, itself the final version, and Crossref shows no update on the DOI. Two corrections were made. The PDF's SHA-256, which the report records but the machine-readable source block did not, was copied in with a note saying the review did so — without it a checker reading only the JSON cannot tie the locators to a fixed file. And route 1's reason said 'EDC.2 excludes absolute purity', which its description does not: no stage in the atlas mentions absolute purity at all, which is the stronger and accurate justification, and the reason now says that, together with where the atlas's existing Brauer material actually lives. Everything else holds: the 3 library items' declarations resolve at the pinned commits; all 16 planned items cite stages that exist; the 124 missing items are routed exactly once across seven routes; and every Part II parent exists with a free id and a galaxy area. python3 scripts/check_paper.py reports ok."
+}
