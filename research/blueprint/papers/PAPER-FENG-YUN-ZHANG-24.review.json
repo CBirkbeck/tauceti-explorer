@@ -1,0 +1,22 @@
+{
+  "paper": "PAPER-FENG-YUN-ZHANG-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Joins the ShtukaSpecialCyclesAndHigherSiegelWeil Part II, with the same id, parent, title and area as PAPER-YUN-ZHANG-17 and PAPER-YUN-ZHANG-19. The route now also carries item 34 (the U(n)-specific Lemmas 6.7 and 6.9). The brief gains the review additions: the modification convention, the ω_{X′}-dual convention, Lemma 10.5 for w_1 and h_1 only (E22), Lemma 10.10 on Z^♡, and sgn̄_j."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "GN.3 plans local representation densities; the Hermitian Cho–Yamauchi formula of §2 is a source for it. Item 5 now carries the correct weight of Remark 2.4 (E4) and the unramified-or-split hypothesis."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "FA.6 plans automorphic forms over function fields; the unitary Siegel–Eisenstein series and its Fourier coefficients are a source for it. Item 6 records that the split case of Lemma 2.7 is only asserted."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1230).\n\nSources read: the whole of arXiv v4, with the same SHA-256 as the extraction. The published article is open access at Springer, but Springer's bot protection blocked the download here, and the eScholarship copy is the author version. Statement, section and equation numbers were checked against arXiv v4; the extraction's journal-page locators were not re-checked.\n\nMethod: three read-only helper agents of this session split the paper (§§1–5; §§6–9; §§10–12). They computed local densities (n ≤ 2), W_d character identities (d ≤ 6) and dimension counts. The reviewer checked every finding and every change at the page image or in the text, and re-derived the Lemma 10.5 counterexample and the Frobenius action on π_0 for X_{k′}.\n\nSource issues: E1–E3 confirmed. E4–E28 added. The main one is E22: Lemma 10.5's u_1 is not étale in general, but w_1 and h_1, which are all that is used, are étale by a corrected argument. Also added: two proof gaps (E13 Lemma 6.7 for X_{k′}, E19 Lemma 7.6 over imperfect fields), six false but unused sentences, and misprints. Theorem 1.1 is unaffected.\n\nItems corrected in place: 1, 4–6, 8, 12–19, 22–27, 29, 31, 33. Item 15's modification convention was reversed and is corrected. New item 34 (missing, routed to the Part II): the U(n)-specific Lemmas 6.7 and 6.9. Statuses unchanged; every planned stage id exists in data/atlas.json.\n\nEvery missing item is routed exactly once (29). check_paper.py reports ok."
+}

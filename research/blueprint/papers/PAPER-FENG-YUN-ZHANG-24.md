@@ -2,7 +2,7 @@
 
 Tony Feng, Zhiwei Yun and Wei Zhang, *Higher Siegel–Weil formula for unitary groups: the non-singular terms*, [Invent. Math. 235 (2024), no. 2, 569–668](https://doi.org/10.1007/s00222-023-01228-y); arXiv [2103.11514](https://arxiv.org/abs/2103.11514).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1230). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-FENG-YUN-ZHANG-24.result.json](PAPER-FENG-YUN-ZHANG-24.result.json): 33 items (5 planned, 28 missing), 3 routes, 20 prerequisite entries and 3 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1230). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-FENG-YUN-ZHANG-24.result.json](PAPER-FENG-YUN-ZHANG-24.result.json): 34 items after the independent review, which added item 34 (originally 33: 5 planned, 28 missing), 3 routes, 20 prerequisite entries and 28 recorded source issues (E1–E3 from the extraction, E4–E28 from the independent review).
 
 **Source.** The article is open access (CC BY 4.0), so the **published version** was read in full (100 pp., SHA-256 `f4ebe96f…3155fcd`, fetched 2026-09-22); locators are its journal pages. **arXiv v4** (29 November 2023) carries exactly the same 112 numbered statements and the same reading at each recorded misprint.
 
@@ -65,3 +65,55 @@ Links and reasons are in the JSON.
 - The cited stages (GS.0–GS.2, SF.5, EDC.5, EDC.7, EDC.8, R34.1, GN.3, FA.6) and the parent were checked against `data/atlas.json`, every accepted restructure in `data/restructure/` and `data/roadmap-retirements.json`: none is restructured or retired. Library verdicts come from `data/library-coverage.json`.
 - The new Part II id was checked free against every existing extraction, `research/blueprint/reserved-ids.json` and the atlas data.
 - The character computations used scripts in the worker's scratch directory; no Lean was written, as none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-FENG-YUN-ZHANG-24, 23 September 2026)
+
+**What was read.** The published article is open access (CC BY) at Springer, but Springer's bot protection blocked the download here. The eScholarship copy is the author version.
+- The review therefore read arXiv v4, which has the same SHA-256 as the extraction's, in full.
+- It checked every statement, section and equation number against arXiv v4.
+- It could not re-check the extraction's journal-page locators.
+
+**Method.** Three read-only helper agents split the paper (§§1–5; §§6–9; §§10–12). They checked densities and character identities by computer, and dimension counts by hand and script. The reviewer checked every finding at the page image or in the text.
+
+**Routes and statuses.** All three routes are accepted, and the Part II brief gets review additions. Statuses are unchanged: every planned stage id exists.
+
+**Recorded issues.** E1–E3 are confirmed.
+
+The line above saying that no mathematical error or gap was found is superseded by the following.
+
+**New issues (E4–E28).**
+- **E22 (error in a stated result).** Lemma 10.5's claim that u_1 is étale fails for some very good framings.
+  - Example: n = 2, with both points over a split x in Div(s). The fibre then contains a P¹ of self-dual lattices.
+  - The proof's isomorphism M_{d,e} ≅ M_d ×_{A_d} A_{d,e} fails even for n = 1.
+  - The maps actually used later, w_1 and h_1, are étale by a corrected argument through divisors with disjoint support. So Lemma 10.7, Theorems 10.1–10.2 and Theorem 1.1 stand.
+- **Proof gaps, each with a short repair:**
+  - E13: the proof of Lemma 6.7 fails for X′ = X_{k′}, where Frobenius swaps the components, so the Lang map lands in the even components.
+  - E19: Lemma 7.6's reduction to κ̄ fails for imperfect κ.
+  - E18: the k^×-torsor claim in the proof of Proposition 7.5.
+- **False sentences that are not used later:**
+  - E8: Remark 4.8's d′.
+  - E9: (X′_{2d})^σ ≅ X_d needs ν étale.
+  - E11: the middle map of (4.1).
+  - E20: the "local complete intersections" claim at the start of §9.
+  - E21: Proposition 9.5(1) says "partition" for a cover.
+  - E27: a display in the proof of Lemma 12.4.
+- **Misprints.** The rest, including:
+  - E4: Remark 2.4's weight m(t′(Q′)) should be m(t′(Q′^⊥/Q′)); read literally it gives wrong densities.
+  - E14: the sign of the Lemma 6.7 square.
+  - E15: ν^*ω_{X′}^{1/2} for ν^*ω_X^{1/2}.
+  - E26: sgn_j for sgn̄_j in Proposition 12.3.
+  - Bundles of slips in §§2–5, §§6–9, §10 and §11.
+
+None affects Theorem 1.1.
+
+**Items corrected in place:**
+- **Item 15.** The modification convention was reversed: the paper has lower at x′_i and upper at σ(x′_i).
+- **Item 14.** F_n = (ν^*ω_X^{1/2}, h_1)^{⊕n}, the ω_{X′}-dual convention, and dim Bun_{U(n)} = n²(g−1).
+- **Item 17.** The dimension bounds of Proposition 9.1 are placed correctly, with n ≥ 2 and Claim 9.2.
+- **Item 23.** Lemma 10.5 is now stated for w_1 and h_1 only.
+- **Items 24, 22.** Proposition 10.9 needs a representable map, and Lemma 10.10 holds on Z^♡. §10.5 treats the geometrically disconnected cases, and Theorem 10.2 needs X′ geometrically connected.
+- **Items 26, 29.** The definition of ρ_i, and sgn̄_j.
+- **Items 5, 12.** The weight in Remark 2.4 corrected, the split/unramified hypothesis, and the global Den(T, Q).
+- **Other items.** 1, 4, 6, 8, 16, 18, 19, 25, 31 and 33, with smaller fixes.
+- **Locators.** Items 13, 15, 16, 17 and 27 (statement and section numbers).
+- **New item 34 (missing, Part II).** The U(n)-specific Lemmas 6.7 and 6.9, split off from item 15. They are the dimension input for §§7–8.
