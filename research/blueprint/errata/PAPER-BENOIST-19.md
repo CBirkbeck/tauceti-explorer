@@ -17,7 +17,7 @@ Job ERRATA-PAPER-BENOIST-19. Worker: Claude Code, session `cc-442dc5`, 23 Septem
 
 **Effect on the main results.** The period-index theorems for real surfaces use only the uniform case Ψ = Θ of Propositions 4.4–4.5, where the repairs hold. So the main results stand. Beyond that:
 - **E1, E3 and E4 reach stated results.** §3.1's model is not a finite cover, and Propositions 4.4, 4.5 and 6.6 are not established in general.
-- **Eight gaps affect only proofs,** each with a repair: E2, E5, E7, E8, E9, E10, E13 and one more step in E4's neighbourhood.
+- **Seven gaps affect only proofs,** each with a repair: E2, E5, E7, E8, E9, E10 and E13.
 - **The rest are misprints.**
 
 ## Findings in brief
