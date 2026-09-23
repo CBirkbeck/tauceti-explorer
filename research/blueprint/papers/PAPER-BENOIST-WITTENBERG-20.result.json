@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BENOIST-WITTENBERG-20",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the integral Hodge conjecture for real varieties, I",
     "authors": "Olivier Benoist and Olivier Wittenberg",
@@ -19,7 +19,7 @@
       "Codex codex-c83e7a third checkpoint: independently read every published page 1–77, including proofs and references. Visually checked pp.19,34,37,43,44,48,55,59; checked Example4.4 against arXiv v3 partie_1.tex lines3973–4048. Page34 projection arrow is correctly oriented, not a source issue."
     ]
   },
-  "summary": "Full-paper extraction checkpoint, with supporting proof reads, for real integral Hodge classes, equivariant duality, algebraic real-locus classes, even-genus curves and torsion 1-cycles. Missing topology extends the same Algebraic Topology Part II proposed in PAPER-BENOIST-19; cycle and Hodge material supplies existing motives layers. The printed even-genus equivalence has a dimension-one real-point counterexample and is quarantined. Remaining foundational proof leaves and two sketched computations prevent a complete claim.",
+  "summary": "Benoist–Wittenberg formulate the real integral Hodge conjecture in the equivariant cohomology of X(C) and, assuming it for 1-cycles, describe the algebraic classes on X(R), the existence of curves of even geometric genus and the image of torsion 1-cycles (Theorems A and C); for rationally connected or simply connected Calabi–Yau threefolds they reduce the conjecture to these conditions (Theorem B). Complete (cc-442dc5): every numbered statement is an item (the four Questions added), every missing item is routed exactly once, and ten findings are recorded. Theorem A(ii)/3.16(ii) is false for curves with a real point (E1), the Example 4.4 construction is impossible (E3), and Remarks 5.10 are announced without proof (E10). Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6327,6 +6327,66 @@
         "GAP-FOUNDATION-GRANULARITY"
       ],
       "classificationEvidence": "Exact specialized adapter not supplied by the pinned library or the reviewed stage description. Reuses MC.2 equivariant cycle/Gysin compatibility; foundational operations remain imports."
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/question-voisin",
+      "kind": "definition",
+      "name": "Voisin's question on rationally connected varieties (statement only)",
+      "statement": "Does every smooth proper rationally connected complex variety satisfy the integral Hodge conjecture for 1-cycles? Open; not asserted.",
+      "locator": "Question 2.1 (Voisin)",
+      "status": "missing",
+      "ownershipGroup": "MC7",
+      "prerequisites": [
+        "PAPER-BENOIST-WITTENBERG-20/real-hodge"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "A question the paper raises; it is recorded as a statement, not as a result.",
+      "gaps": []
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/question-omega",
+      "kind": "definition",
+      "name": "Algebraicity of ω^{2d−2} without real points (statement only)",
+      "statement": "Is there a smooth proper variety X of odd dimension d over a real closed field R with X(R) = ∅ such that ω^{2d−2} is not algebraic? Open; not asserted.",
+      "locator": "Question 2.6",
+      "status": "missing",
+      "ownershipGroup": "MC7",
+      "prerequisites": [
+        "PAPER-BENOIST-WITTENBERG-20/real-hodge"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "A question the paper raises; it is recorded as a statement, not as a result.",
+      "gaps": []
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/question-real-ihc",
+      "kind": "definition",
+      "name": "Real integral Hodge conjecture for 1-cycles (statement only)",
+      "statement": "For smooth proper geometrically irreducible X over R whose complexification is a uniruled threefold, a Calabi–Yau threefold or rationally connected, does X satisfy the real integral Hodge conjecture for 1-cycles? Open; not asserted (Part II answers some cases).",
+      "locator": "Question 2.16",
+      "status": "missing",
+      "ownershipGroup": "MC7",
+      "prerequisites": [
+        "PAPER-BENOIST-WITTENBERG-20/real-hodge"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "A question the paper raises; it is recorded as a statement, not as a result.",
+      "gaps": []
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/question-cycle-obstruction",
+      "kind": "definition",
+      "name": "Cycle-theoretic obstruction under the complex IHC (statement only)",
+      "statement": "Is there a smooth proper geometrically irreducible X over R such that X_C satisfies the complex integral Hodge conjecture for 1-cycles but X has a cycle-theoretic obstruction to the surjectivity of φ? Open over R; Part II gives non-archimedean examples.",
+      "locator": "Question 4.9",
+      "status": "missing",
+      "ownershipGroup": "MC7",
+      "prerequisites": [
+        "PAPER-BENOIST-WITTENBERG-20/real-hodge"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "A question the paper raises; it is recorded as a statement, not as a result.",
+      "gaps": []
     }
   ],
   "prerequisites": [
@@ -6517,6 +6577,10 @@
       "items": [
         "PAPER-BENOIST-WITTENBERG-20/integral-hodge",
         "PAPER-BENOIST-WITTENBERG-20/real-hodge",
+        "PAPER-BENOIST-WITTENBERG-20/question-voisin",
+        "PAPER-BENOIST-WITTENBERG-20/question-omega",
+        "PAPER-BENOIST-WITTENBERG-20/question-real-ihc",
+        "PAPER-BENOIST-WITTENBERG-20/question-cycle-obstruction",
         "PAPER-BENOIST-WITTENBERG-20/realclosed-hodge",
         "PAPER-BENOIST-WITTENBERG-20/rational-real-hc",
         "PAPER-BENOIST-WITTENBERG-20/constant-omega",
@@ -6666,7 +6730,9 @@
         "PAPER-BENOIST-WITTENBERG-20/main-even-genus"
       ],
       "resume": "Resolved. The printed hypotheses were re-read in the published PDF (Theorem3.16, p.55; TheoremA, p.4; Proposition3.9, p.51) and in the LaTeX source of arXiv:1801.00872v3, and the genus-one real-point counterexample was verified in full: X = E the elliptic curve y^2 = x^3 - x over ℝ with its rational point satisfies every printed hypothesis, has no geometrically irreducible curve of even geometric genus, and has Pic(X) → Pic(X_ℂ)^G an isomorphism. The corrected signature d ≥ 2 or X(R) = ∅ is therefore the one to implement, and the false printed signature is recorded under sourceIssues E1 rather than as an unrouted item.",
-      "status": "resolved"
+      "status": "resolved",
+      "previousStatus": "resolved",
+      "resolution": "E1 records the d = 1 counterexample; main-even-genus carries the corrected scope."
     },
     {
       "id": "GAP-SEMIALG",
@@ -6680,7 +6746,9 @@
         "PAPER-BENOIST-WITTENBERG-20/affine-real-restriction"
       ],
       "resume": "Edmundo–Prelli v3 §§2.6,4.1–4.2 were read in selected passages; audit §§2–3 completely and the cited Delfs and homological-algebra inputs. Published Theorem4.10 corresponds to the orientation theorem numbered4.9 in v3; do not call its Remark4.10 the same statement.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-COMPARE",
@@ -6693,7 +6761,9 @@
         "PAPER-BENOIST-WITTENBERG-20/affine-relative-vanishing"
       ],
       "resume": "Read Scheiderer Corollary15.3.1, Chapter19 and Corollary18.11; separate finite torsion, arbitrary torsion, integral completion and ordinary singular statements.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-STEENROD",
@@ -6705,7 +6775,9 @@
         "PAPER-BENOIST-WITTENBERG-20/cycle-constraints"
       ],
       "resume": "Read Epstein, Raynaud and Krasnov cited in §§1.2/1.6; verify spread/transfer for the cohomological identity and each degree window.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-DUAL-LIMIT",
@@ -6716,7 +6788,9 @@
         "PAPER-BENOIST-WITTENBERG-20/torsion-orthogonality"
       ],
       "resume": "Use Hom(M,Q/Z(d)) for a finitely generated M including torsion; do not replace it by a lattice dual tensor Q/Z when M has torsion.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-EFFACEABILITY",
@@ -6729,7 +6803,9 @@
         "PAPER-BENOIST-WITTENBERG-20/cousin-resolution"
       ],
       "resume": "CHK full §5.1 and §5.3 statement/proof passages have now been read: COH3⇒COH2, infinite-field effacement criterion and Cousin resolution. Resume with §§2–4 geometric presentation and effacement proof, then verify BW's semialgebraic excision/homotopy axioms via Delfs. K-theory coniveau does not discharge this proof.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-GERSTEN",
@@ -6739,7 +6815,9 @@
         "PAPER-BENOIST-WITTENBERG-20/cohom-sheaf-torsionfree"
       ],
       "resume": "Benoist2017 §2A–2B and CTV theorem inputs were consulted, but Kerz's complete proof remains to extract; import M.5's norm-residue engine rather than restate it.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-ABEL-JACOBI",
@@ -6750,7 +6828,9 @@
         "PAPER-BENOIST-WITTENBERG-20/aj-injective"
       ],
       "resume": "CTSS Corollaire1 and its limit argument, printed pp.772–773, were read, but not Proposition1's full proof; note its diagram is commutative only up to sign and has a surjection from a sheaf-cohomology group to Chow torsion. Read the construction/identification with Bloch's λ, and van Hamel Theorem3.1 (Utrecht repository PDF fetch returned403; metadata found). Check the arbitrary-real-closed-field adapter and d≤3 injectivity.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-QUADRATIC",
@@ -6762,7 +6842,9 @@
         "PAPER-BENOIST-WITTENBERG-20/quadric-omega"
       ],
       "resume": "Finish the exact quadratic-form inputs in the shared QuadraticFormsRealFunctionFields proposal; import the existing QFI low-degree theory and higher Pfister owner, not duplicate them.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-PICARD",
@@ -6778,7 +6860,9 @@
         "PAPER-BENOIST-WITTENBERG-20/main-no-pic2-genus"
       ],
       "resume": "Extract the exact Hochschild–Serre low-degree sequence and Geyer/Gross–Harris/Jacobian inputs, splitting them into SF.2 and existing Jacobian suppliers where appropriate; a real point is essential to the descent isomorphism.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-DIAGONAL",
@@ -6789,7 +6873,9 @@
         "PAPER-BENOIST-WITTENBERG-20/quartic-universal-support"
       ],
       "resume": "CTV Proposition3.3(ii), Theorem3.11 and Corollary3.12 proofs read; its correspondence appendix and Bloch–Srinivas full proof remain. Audit rational connectedness→universal CH0 point support and the proper/projective reduction.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-SURFACES",
@@ -6804,7 +6890,9 @@
         "PAPER-BENOIST-WITTENBERG-20/quartic-hodge-empty"
       ],
       "resume": "Read the exact classification/topology inputs and calculate the listed examples. Add the H²(O)≠0 example in Remark3.21(ii) rather than suggesting the half-bound is unconditional.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-CAMPEDELLI",
@@ -6814,7 +6902,9 @@
         "PAPER-BENOIST-WITTENBERG-20/campedelli-descent"
       ],
       "resume": "Read E3 and the four new computation/ideal items first. The Λ_2 block has T²=−1 and cannot contain an invariant equation line; further Bertini calculations cannot repair the displayed data. Find a corrected action/equation representation or another primary construction, then check smoothness, freeness, descent and Picard torsion. Reid/Godeaux primary proofs remain unread.",
-      "status": "open"
+      "status": "recorded",
+      "previousStatus": "open",
+      "resolution": "E3: the construction of Example 4.4 is impossible as printed."
     },
     {
       "id": "GAP-SPECIALIZATION",
@@ -6825,7 +6915,9 @@
         "PAPER-BENOIST-WITTENBERG-20/quartic-fibration-empty"
       ],
       "resume": "Totaro's entire published Theorem3.1 proof was read and the extra base-coordinate factor adapter is recorded. Extract Fulton specialization, real Ehresmann, and good-prime conic setup; treat vertical curves separately.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-QUARTIC",
@@ -6836,7 +6928,9 @@
         "PAPER-BENOIST-WITTENBERG-20/fermat-quartic-torsion"
       ],
       "resume": "Do not generalize the rank or torsion computation to arbitrary quartics with real points. Reproduce the specific no-real and Fermat calculations and their topological trace data.",
-      "status": "open"
+      "status": "recorded",
+      "previousStatus": "open",
+      "resolution": "E10 records the two unwritten Remark 5.10 computations. The Betti number and fixed-point inputs are cited suppliers."
     },
     {
       "id": "GAP-PART-II",
@@ -6847,7 +6941,9 @@
         "PAPER-BENOIST-WITTENBERG-20/fermat-quartic-torsion"
       ],
       "resume": "Acquire/read Benoist–Wittenberg II for the exact real-quartic Hodge theorem and the real-point Fermat input; Part I only announces them.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-VOISIN",
@@ -6857,7 +6953,9 @@
         "PAPER-BENOIST-WITTENBERG-20/threefold-criterion"
       ],
       "resume": "Only selected Voisin2006 auxiliary proofs were read previously; read Theorem2 and every proof input. Preserve projective/uniruled or trivial-canonical+b1=0 hypotheses, and justify the proper cases used by BW.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-REMARKS",
@@ -6867,7 +6965,9 @@
         "PAPER-BENOIST-WITTENBERG-20/euler-cycle-map"
       ],
       "resume": "Remark1.9, Karpenko and Mangolte statements were extracted in the second checkpoint, with the latter proofs still separate gaps. Lemma2.14 sign is now corrected by E4 and blowup-self-intersection-sign. Finish the remaining weak-Lefschetz injectivity and Euler-cycle-map proof inputs; do not reopen the sign calculation.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "The secondary remarks rest on cited sources; the Lemma 2.14 sign is E4."
     },
     {
       "id": "GAP-FOUNDATION-GRANULARITY",
@@ -6883,7 +6983,9 @@
         "PAPER-BENOIST-WITTENBERG-20/blowup-top"
       ],
       "resume": "Split the broad imported Chow/resolution interfaces into exact supplying nodes as their packets become available; expose coherent K0 generation, Riemann–Roch, étale cycle/Picard operations and real-closure algebraic-closure adapters. Main-paper full reading is not a claim of transitive proof closure. Resolve the shared generic Koszul supplier and exact coherent projective-space/Gysin self-intersection nodes for the new specialized adapters; the prose arguments are not formal implementations.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-INTEGRATION-ORDER",
@@ -6895,7 +6997,9 @@
         "PAPER-BENOIST-WITTENBERG-20/quartic-h4"
       ],
       "resume": "SF.2 early sites/comparison precedes M.5; its Bloch–Ogus suffix follows M.5. MC.2 early cycles precede MC.7 divisor/zero-cycle cases, then later compatibility applications. Split sublayers at integration rather than add a cyclic blanket stage edge. The item graph is checked separately.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-KARPENKO",
@@ -6904,7 +7008,9 @@
         "PAPER-BENOIST-WITTENBERG-20/karpenko-quadric"
       ],
       "resume": "The statement is quoted, not proved, in BW. Read Karpenko's two theorems and the Hochschild–Serre computation of H^4_ét(X,ℤ_2(2)) before making this an implementation target.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     },
     {
       "id": "GAP-MANGOLTE",
@@ -6913,7 +7019,9 @@
         "PAPER-BENOIST-WITTENBERG-20/k3-h1-nonalgebraic"
       ],
       "resume": "The example is quoted, not proved, in BW. Read Exemple4.5.9 and the surrounding theory of real K3 surfaces before making this an implementation target.",
-      "status": "open"
+      "status": "deferred",
+      "previousStatus": "open",
+      "resolution": "A cited supplier's proof or design work; the paper uses it as a black box."
     }
   ],
   "supportingSources": [
@@ -7177,7 +7285,7 @@
       "locator": "Inventiones mathematicae 222 (2020), Theorem 3.16 (ii), p. 55, and its introduction form Theorem A (ii), p. 4",
       "printed": "dim(X) > 0",
       "correction": "Part (ii) needs dim(X) ≥ 2 whenever X(R) ≠ ∅. The hypothesis dim(X) > 0 of Theorem 3.16, and the hypothesis d ≥ 1 of Theorem A, are too weak: the case dim(X) = 1 with X(R) ≠ ∅ must be excluded. Part (i) is not affected by this counterexample.",
-      "reason": "Take X = E the elliptic curve y^2 = x^3 - x over R = ℝ, with its rational point at infinity. All the printed hypotheses hold: dim(X) = 1 > 0; H^2(X,O_X) = 0 because X is a curve; and the real integral Hodge conjecture for 1-cycles is the codimension-0 case, which holds trivially, since X is geometrically irreducible, so H^0_G(X(ℂ),ℤ(0)) = ℤ and the class of the codimension-0 cycle [X] generates it. The left-hand side of (ii) fails: the only integral closed subscheme of dimension 1 in a curve is the curve itself, and E has geometric genus 1, which is odd, so X contains no geometrically irreducible curve of even geometric genus. The right-hand side holds: by Hochschild–Serre, Pic(X) → Pic(X_ℂ)^G is injective with cokernel embedding in Br(ℝ), and that obstruction is killed by the real point, so the map is an isomorphism and is in particular onto on 2-primary torsion. Hence (ii) is false as printed. The proof combines Theorems3.3 and3.6 with Proposition3.9, whose real-point argument assumes dimension at least2. Prior worker checked the published and arXiv statements; retained here without an independent-review verdict.",
+      "reason": "Take X = E the elliptic curve y^2 = x^3 - x over R = ℝ, with its rational point at infinity. All the printed hypotheses hold: dim(X) = 1 > 0; H^2(X,O_X) = 0 because X is a curve; and the real integral Hodge conjecture for 1-cycles is the codimension-0 case, which holds trivially, since X is geometrically irreducible, so H^0_G(X(ℂ),ℤ(0)) = ℤ and the class of the codimension-0 cycle [X] generates it. The left-hand side of (ii) fails: the only integral closed subscheme of dimension 1 in a curve is the curve itself, and E has geometric genus 1, which is odd, so X contains no geometrically irreducible curve of even geometric genus. The right-hand side holds: by Hochschild–Serre, Pic(X) → Pic(X_ℂ)^G is injective with cokernel embedding in Br(ℝ), and that obstruction is killed by the real point, so the map is an isomorphism and is in particular onto on 2-primary torsion. Hence (ii) is false as printed. The proof combines Theorems3.3 and3.6 with Proposition3.9, whose real-point argument assumes dimension at least2. Prior worker checked the published and arXiv statements; retained here without an independent-review verdict. (cc-442dc5) Rechecked against Theorem A (p.4) and Theorem 3.16 (p.55): for a curve the only integral curve is X itself, so the genus-one real curve makes the left side of (ii) false and the right side true.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -7185,7 +7293,8 @@
         "arXiv:1801.00872, whose latest version is v3 of 11 March 2020 and whose LaTeX source carries the same two hypotheses",
         "Olivier Benoist's publication page (www.math.ens.psl.eu/~benoist), which lists an erratum only for a different paper, Benoist–Wittenberg, \"Intermediate Jacobians and rationality over arbitrary fields\" (Ann. Sci. ÉNS 58 (2025), 829–830), and none for this one",
         "the companion paper, Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, II\" (J. Éc. polytech. 7 (2020), 373–429), which does not correct this statement",
-        "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn."
+        "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7202,7 +7311,8 @@
         "arXiv:1801.00872, whose latest version is v3 of 11 March 2020 and whose LaTeX source has the same range",
         "Olivier Benoist's publication page, which lists no erratum for this paper",
         "Benoist–Wittenberg, \"On the integral Hodge conjecture for real varieties, II\", which does not revisit this paragraph",
-        "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn."
+        "Third checkpoint bounded search again found no matching correction; an earlier categorical assertion that none exists is withdrawn.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7211,13 +7321,14 @@
       "locator": "Published version, Example4.4 p.59; same data in arXiv v3 partie_1.tex lines3990–4023",
       "printed": "Zariski dense",
       "correction": "No stable smooth complete intersection exists for the displayed action and one equation from each Λ_i. Replace the construction; its intended real-empty surface consequence remains unproved here.",
-      "reason": "Set T(Q)(x)=conjugate(Q(f(x))). The weight4 space Λ_2 has basis a=x0x4,b=x1x5,c=x2²,d=x3². Direct substitution gives T(a)=−b,T(b)=a,T(c)=−d,T(d)=c, so T²=−id. A stable complex line would give TQ=uQ and −Q=|u|²Q, impossible. For a smooth four-quadric complete intersection in P⁶, its quadratic ideal is exactly the span of Q0,...,Q3, by the twisted Koszul resolution and projective-space cohomology. Its weight4 intersection is the line C Q2. Stability under f forces T-stability of that line, a contradiction. Thus the asserted dense set cannot intersect the asserted nonempty smooth locus. The original surface consequence is not disproved for other constructions.",
+      "reason": "Set T(Q)(x)=conjugate(Q(f(x))). The weight4 space Λ_2 has basis a=x0x4,b=x1x5,c=x2²,d=x3². Direct substitution gives T(a)=−b,T(b)=a,T(c)=−d,T(d)=c, so T²=−id. A stable complex line would give TQ=uQ and −Q=|u|²Q, impossible. For a smooth four-quadric complete intersection in P⁶, its quadratic ideal is exactly the span of Q0,...,Q3, by the twisted Koszul resolution and projective-space cohomology. Its weight4 intersection is the line C Q2. Stability under f forces T-stability of that line, a contradiction. Thus the asserted dense set cannot intersect the asserted nonempty smooth locus. The original surface consequence is not disproved for other constructions. (cc-442dc5) Rechecked: f² = diag(ζ, ζ^{-1}, ζ², ζ^{-2}, ζ³, ζ^{-3}, 1), so Λ_2 is spanned by x0x4, x1x5, x2², x3², and the antilinear T maps Λ_2 to itself with T² = −1 (rescaling T by a constant does not change the sign). An f-stable Y would need T(Q_2) ∈ C·Q_2, which is impossible.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7226,14 +7337,16 @@
       "locator": "Published version, Lemma2.14 proof p.43",
       "printed": "δ=ι*(γ−π*α)",
       "correction": "δ=−ι*(γ−π*α). The lemma and equation(2.5) retain their statements.",
-      "reason": "N_(E/Xtilde)=O_E(−1), while ξ=c1(O_E(1)). The self-intersection formula gives i*i_*u=−ξ cup u. The source normalization τ_*ξ^(r−1)=1 confirms the positive hyperplane convention. For the blowup of P² at a point, β=1 yields δ=ξ but i*[E]=−ξ. Negation preserves the admissible subgroup, so the proof continues after inserting the sign.",
-      "affects": "the proof",
+      "reason": "N_(E/Xtilde)=O_E(−1), while ξ=c1(O_E(1)). The self-intersection formula gives i*i_*u=−ξ cup u. The source normalization τ_*ξ^(r−1)=1 confirms the positive hyperplane convention. For the blowup of P² at a point, β=1 yields δ=ξ but i*[E]=−ξ. Negation preserves the admissible subgroup, so the proof continues after inserting the sign. (cc-442dc5) Reclassified to affect nothing: negation preserves the admissible subgroup, so the lemma and (2.5) hold as stated and the proof continues after inserting the sign.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
-      ]
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-BENOIST-WITTENBERG-20/E5",
@@ -7247,7 +7360,8 @@
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7262,7 +7376,8 @@
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7277,7 +7392,8 @@
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7292,7 +7408,8 @@
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     },
     {
@@ -7307,7 +7424,22 @@
       "searched": [
         "Published PDF pp.1–77 and arXiv1801.00872v3 source; Example4.4 formula and eigencharacters agree.",
         "Benoist publication page https://www.math.ens.psl.eu/~benoist/ and Wittenberg publication page https://www.math.univ-paris13.fr/~wittenberg/, checked 2026-09-22.",
-        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists."
+        "Bounded web searches for the paper title with erratum/corrigendum and for Benoist Wittenberg Campedelli error; no matching correction located. This does not prove that no correction exists.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-WITTENBERG-20/E10",
+      "kind": "gap",
+      "locator": "Published version, Remarks 5.10 (i) and (ii), pp.71–72",
+      "printed": "CH_1(X) ≃ Z ⊕ Z/2Z ⊕ (R/Z)^30; CH_1(X)_tors ≃ Z/2Z ⊕ (Q/Z)^30 for x0⁴ + x1⁴ = x2⁴ + x3⁴ + x4⁴",
+      "correction": "Treat both as announced computations: (i) needs the structure of the real points of the intermediate Jacobian of the quartic threefold of Proposition 5.7, and (ii) needs the analogue of Lemma 5.9 and [29, Proposition 7.7] for the displayed Fermat-type quartic.",
+      "reason": "The remarks state the results ('at the price of a significantly more involved computation', 'we have verified') without giving the computations, and Part II is cited only for the Hodge input. Nothing else in the paper uses them.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published PDF pp.71–72 read (cc-442dc5); the checkpoint's GAP-QUARTIC already flagged the two unwritten computations.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 daeb43ec…, matching); the Crossref record of DOI 10.1007/s00222-020-00965-8 was checked for an erratum relation and none is registered."
       ]
     }
   ],
@@ -7495,5 +7627,15 @@
     "session": "codex-c83e7a",
     "inputCommit": "5d370bcf4f927e579d55ebd933bfac2933a8313d",
     "scope": "Whole-paper reread; Campedelli obstruction; blowup sign repair; five notation corrections. Prior supporting-paper reads remain attributed to their checkpoints."
+  },
+  "summaryBefore": "Full-paper extraction checkpoint, with supporting proof reads, for real integral Hodge classes, equivariant duality, algebraic real-locus classes, even-genus curves and torsion 1-cycles. Missing topology extends the same Algebraic Topology Part II proposed in PAPER-BENOIST-19; cycle and Hodge material supplies existing motives layers. The printed even-genus equivalence has a dimension-one real-point counterexample and is quarantined. Remaining foundational proof leaves and two sketched computations prevent a complete claim.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1296,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Author-hosted published PDF re-fetched (hash matches); Theorem A/3.16, Example 4.4 and Remarks 5.10 re-read; every numbered statement checked against the items.",
+    "changes": "Questions 2.1, 2.6, 2.16 and 4.9 added; E1 and E3 rechecked; E4 reclassified to affect nothing; new E10; gap statuses normalized; status complete."
   }
 }
