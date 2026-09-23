@@ -1,0 +1,216 @@
+{
+  "paper": "PAPER-HE-21",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-HE-21/E1",
+      "kind": "gap",
+      "locator": "He21, published Forum of Mathematics, Pi 9 (2021), e9, §6.3, paragraph invoking [He15, Theorem 2.27]; construction in §5.4.",
+      "printed": "[He15, Theorem 2.27]",
+      "correction": "Supply basic nonemptiness for the constructed a t^γ without assuming that this new alcove is shrunken. A general criterion still requires its own hypotheses to be proved; replacing the citation alone is not a proof.",
+      "reason": "The cited survey theorem assumes a shrunken alcove. In split adjoint A2 take λ=ω2∨, x=s2s1, y=1. The published construction gives J=∅, J′={s1}, x′=s2, z=s1, γ=λ, y′=1 and a=s1s2. On the negative base alcove u<0, v<0, u+v>−1, w sends (u,v) to (v−1,1−u−v), with positive-root ranges (−2,−1),(1,2),(0,1). The seed a t^γ sends it to (1−u−v,u), whose second coordinate lies in the critical strip (−1,0). Both finite factors have full support. This disproves applicability of the cited theorem, not nonemptiness or the main result. The extraction’s stronger claim that every nonregular γ causes failure is false and is not retained.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E2",
+      "kind": "misprint",
+      "locator": "He21, published version, §6.2, application of GHN15 Lemma 3.6.3, with the definition in §6.1.",
+      "printed": "(J, σ^{-1}(y), σ)",
+      "correction": "Use (J,x,σ), with x the left factor in w=x t^λ y. Apply the obstruction to x^{-1}wσ(x)=t^λσ(ησ(w)).",
+      "reason": "GHN15 uses the chamber factor x. The corrected finite factor is in W_J because J is σ-stable and contains the support of ησ(w). The printed conjugator can fail even the defining parabolic-membership condition: in split A2 take x=s2, y=s1s2 and λ=3ρ∨. Then η=yx=s1 and J={s1}, whereas y^{-1}xy²=s2 is outside W_J. The different element printed inside the Kottwitz map, σ^{-1}(y)wy^{-1}=ησ(w)t^λ, nevertheless has the same Levi Kottwitz image as the corrected one. Thus the numerical obstruction survives. The existential wording of §6.5 is not counted as a separate counterexample.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E3",
+      "kind": "misprint",
+      "locator": "He21, published version, Proposition 5.1 and Corollary 5.3, proof displays in §5.1; compare arXiv:2001.03325v1 p.9.",
+      "printed": "Σ Nα",
+      "correction": "Use simple coroots α∨, not roots α, in the cone expressions for differences of coweights.",
+      "reason": "These proofs use the integral coroot order defined in §2.2. Roots are in the dual lattice and do not supply that order. The correction applies to the support sums for γ1,γ2 and to the full-cone comparisons, not to roots occurring as arguments of the root–coweight pairing. E4 separately corrects strictness.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E4",
+      "kind": "misprint",
+      "locator": "He21, published version, Proposition 5.1 proof, the full-Δ cone displays; compare arXiv:2001.03325v1 p.9.",
+      "printed": "Σ_{α∈Δ} Z_{>0}α",
+      "correction": "Use nonnegative integral coefficients over the whole of Δ: Σ_{α∈Δ} Nα∨. Retain strict positivity on the selected nonzero supports J1 and J2.",
+      "reason": "Feasibility gives a nonnegative coroot difference, not a strictly positive coefficient at every node. In positive rank λ=λ′=μ1′=μ2′=0 satisfies the hypotheses and produces zero. The componentwise lower-bound argument still works after allowing zero coefficients and making E3’s coroot correction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E5",
+      "kind": "gap",
+      "locator": "He21, published version, Proposition 5.1 proof, existence of the asserted unique minimal feasible coweight.",
+      "printed": "a unique minimal element",
+      "correction": "Add nonemptiness and existence of a minimal element before using the proved common-lower-bound property. Use μ0=λ−λ′+N·2ρ∨, where 2ρ∨ is the sum of all positive coroots, for sufficiently large integral N.",
+      "reason": "Each simple-root pairing with 2ρ∨ is 2, so μ0 is dominant for large N and μ0+λ′−λ is in the nonnegative integral coroot cone. If μ≤_Zμ0 is dominant and μ0−μ=Σ n_iα_i∨, then Σ n_i=〈ρ,μ0−μ〉≤〈ρ,μ0〉; hence there are finitely many such μ. A minimal feasible element below μ0 exists, and lower-directedness makes it globally least. This is a routine completion, not a false theorem. The inherited proposed direction Σ(simple coroots) is wrong: in D4 its simple-root pairings are (1,−1,1,1). Input item /53 already uses the valid 2ρ∨ direction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E6",
+      "kind": "gap",
+      "locator": "He21, published version, §2.2 standing reduction and §§5.2–5.4 auxiliary coweights and translations.",
+      "printed": "simple and quasi-split",
+      "correction": "Specify the adjoint/full-coweight datum in which the auxiliary construction is performed, and justify transfer of the final geometric statement to the original group. Do not demand nonexistent lifts of intermediate translations.",
+      "reason": "For split SL3, ω1∨=(2α1∨+α2∨)/3 is not a cocharacter, so the factor t^{ρ_J∨} with J={s1} is not in its Iwahori–Weyl group. The obstruction can persist in γ: in unramified simply connected ²A2, let σ exchange the nodes, λ=(3,3), x=1,y=s1 in fundamental-coweight coordinates. Then x′=s2 and γ=λ−ω1∨+s2ω2∨=(3,2), with coroot coordinates (8/3,7/3), whereas λ has integral coroot coordinates (3,3). Equality of auxiliary Kottwitz coinvariants does not produce a lift. GHN’s adjoint comparison is componentwise after its erratum and carries an equal-characteristic coprimality restriction; ramified and mixed-characteristic applications need their actual comparison. No counterexample to He21 Theorem 6.1 is claimed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E9",
+      "kind": "misprint",
+      "locator": "He14, Geometric and homological properties of affine Deligne–Lusztig varieties, Ann. of Math. 179 (2014), Proposition 11.6 statement, p.399; published PDF image.",
+      "printed": "supp_δ(v)=J",
+      "correction": "Replace v by x: supp_δ(x)=J.",
+      "reason": "The Weyl-group factor introduced in the statement is x. The letter v denotes the Hecke parameter, not a Weyl-group element with support. The induction and the later HZZ formulation use x.",
+      "affects": "nothing",
+      "known": "Later reformulation, not a formal erratum: He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23. The corresponding induction uses the corrected expression.",
+      "searched": [
+        "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
+        "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E10",
+      "kind": "misprint",
+      "locator": "He14, published version, Proposition 11.6 proof, p.399, left descent of x1; published PDF image.",
+      "printed": "i∈δ^{-1}(J1)",
+      "correction": "Choose i∈J∖δ^{-1}(J1) with s_i x1<x1.",
+      "reason": "The chosen x1 is a minimal left W_{δ^{-1}(J1)}-coset representative, so it has no left descent in δ^{-1}(J1). If nonidentity it has a left descent in J, necessarily outside that subset. This also supplies δ(i)∉J1, the condition used in the subsequent minimality statement for t^μ y s_{δ(i)}. HZZ’s later proof chooses outside the excluded set.",
+      "affects": "the proof",
+      "known": "Later reformulation, not a formal erratum: He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23. The corresponding induction uses the corrected expression.",
+      "searched": [
+        "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
+        "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E11",
+      "kind": "misprint",
+      "locator": "He14, published version, Proposition 11.6 proof of claim (a), p.399; published PDF image.",
+      "printed": "supp(x′)=J",
+      "correction": "Restore the twist: supp_δ(x′)=J.",
+      "reason": "The preceding calculation identifies δ-saturated supports. It does not prove ordinary support is all of J. In A2 with the node-exchange automorphism, s1 has saturated support {s1,s2} and ordinary support {s1}. The induction needs the saturated condition, as retained in the later HZZ proof.",
+      "affects": "the proof",
+      "known": "Later reformulation, not a formal erratum: He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23. The corresponding induction uses the corrected expression.",
+      "searched": [
+        "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
+        "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E13",
+      "kind": "error",
+      "locator": "GHN15, P-alcoves and nonemptiness of affine Deligne–Lusztig varieties, Ann. Sci. ÉNS 48 (2015), Proposition 2.2.1, p.651.",
+      "printed": "the injective map π0(Flag)→π0(Flag_ad)",
+      "correction": "Retain the componentwise flag isomorphisms. Assert a global immersion only with injectivity of the component-group map, and retain the characteristic hypothesis of the comparison.",
+      "reason": "The authors’ erratum, Proposition 0.0.1, removes automatic injectivity and gives the corrected componentwise statement. In equal characteristic the comparison assumes char(k) does not divide |π1(G_ad)|. Its subsequent description of the kernel by torsion in cocharacter coinvariants is stated for semisimple G, not arbitrary reductive G. The He21 adjoint reduction must import the corrected result, rather than the original global assertion.",
+      "affects": "a stated result",
+      "known": "Authors’ erratum, Proposition 0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "searched": [
+        "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
+        "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
+        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E14",
+      "kind": "error",
+      "locator": "GHN15, published version, Proposition 3.5.1, p.657, and Remark 3.6.2; original proposition checked in the published page image.",
+      "printed": "Let [b] be a σ-conjugacy class in G(L)",
+      "correction": "Add that [b] is basic to the assertion of uniqueness of a Levi σ-conjugacy class in [b]∩M_J(L).",
+      "reason": "For GL2 and its diagonal torus, diag(ε,1) and diag(1,ε) are conjugate by the permutation matrix but cannot be torus-σ-conjugate: the ordered pair of valuations is preserved by torus σ-conjugation. The authors’ erratum, Proposition 0.0.2, gives the basic version. This does not add a basic hypothesis to the obstruction direction of GHN Corollary 3.6.1 or He21 Theorem 6.3; He21’s footnote explicitly distinguishes that direction.",
+      "affects": "a stated result",
+      "known": "Authors’ erratum, Proposition 0.0.2: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "searched": [
+        "2026-09-23: original GHN15 published PDF, https://www.numdam.org/item/10.24033/asens.2254.pdf, at the specified proposition.",
+        "2026-09-23: all three pages of https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.",
+        "2026-09-23: arXiv:1211.3784 submission history; the authors' separate erratum is the positive correction evidence."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E15",
+      "kind": "misprint",
+      "locator": "He21, published version, §6.1 heading; also visible in arXiv:2001.03325v1 p.12.",
+      "printed": "(J,w,δ)",
+      "correction": "Use (J,x,σ) in the heading to match the definition immediately below it.",
+      "reason": "The body uses x for the conjugator, σ for the twist and w for the element being tested. This is only an editorial consistency correction, with no change of mathematical meaning or hypotheses.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E16",
+      "kind": "misprint",
+      "locator": "He21, published version, §2.1, choice of the representative of w; arXiv:2001.03325v1 p.4.",
+      "printed": "N(L)",
+      "correction": "Write N(F̆), using the local-field notation introduced in the paper.",
+      "reason": "The completion of the maximal unramified extension is denoted F̆ here. No local field L is introduced. The later L-action is a different defined term, not a field supplying the displayed normalizer points.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge Core article 10.1017/fmp.2021.10 and Forum of Mathematics, Pi volume 9 listing; no correction notice located.",
+        "2026-09-23: arXiv:2001.03325 submission history and relevant v1 pages; v1 is not identical to the published article.",
+        "2026-09-23: https://hkumath.hku.hk/~xuhuahe/selected.html and title searches with erratum/corrigendum; no formal He21 correction located."
+      ]
+    },
+    {
+      "id": "PAPER-HE-21/E17",
+      "kind": "misprint",
+      "locator": "He14, published version, Proposition 11.6 proof, p.400, induction display in the branch supp_δ(s_i x′)≠J; published PDF image.",
+      "printed": "T_{s_i x′ t^μ y s_i}",
+      "correction": "The final reflection is s_{δ(i)}: use T_{s_i x′ t^μ y s_{δ(i)}}.",
+      "reason": "The preceding twisted-conjugation step ends in y s_{δ(i)}, and this branch transfers that representative into the complementary δ-Coxeter factor. Replacing it by s_i loses the twist unless δ fixes i. The p.400 image confirms this is printed, not a lost PDF subscript. The analogous second branch of HZZ Proposition 3.4.2 uses yσ(s). This additional finding concerns the proof, not a counterexample to Proposition 11.6.",
+      "affects": "the proof",
+      "known": "Later reformulation, not a formal erratum: He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23. The corresponding induction uses the corrected expression.",
+      "searched": [
+        "2026-09-23: Annals article 10.4007/annals.2014.179.1.6, volume 179 listing and title/erratum searches; no formal correction located.",
+        "2026-09-23: arXiv:1201.4901 submission history (v1 and v2); this finding is verified in the published PDF, not claimed checked in every preprint version.",
+        "2026-09-23: author's selected-publications page and He–Zhou–Zhu, arXiv:2109.02594v1, Proposition 3.4.2, pp.22–23."
+      ]
+    }
+  ]
+}
