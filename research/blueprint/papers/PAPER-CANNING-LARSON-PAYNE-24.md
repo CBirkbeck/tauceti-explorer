@@ -149,3 +149,33 @@ target found no mismatched cross-references in this paper.
   published version at `doi:10.1017/fmp.2024.24` has the same sentence: checking the Cambridge Core text on
   22 September 2026 shows `k \geq 14` in the proof and `k \leq 14` in the statement, so the slip was not caught in
   production. It affects nothing.
+
+## Review (REV-PAPER-CANNING-LARSON-PAYNE-24, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1363), **accepted** this
+extraction and all three routes, and needed no correction. The full record is
+[REV-PAPER-CANNING-LARSON-PAYNE-24.md](../reviews/REV-PAPER-CANNING-LARSON-PAYNE-24.md).
+
+The recorded arXiv e-print hash reproduces byte for byte and the archive holds the recorded
+`STEForumPiRevision.tex`, 1506 lines. 93 items with all 87 missing ones routed exactly once; both
+source stage ids and all five planned ids resolve; the single library item's `ModularForm`,
+`CuspForm` and `SlashInvariantForm` are all in Mathlib.
+
+**The new roadmap is justified on the checks, not merely permitted.** `MotivicStructuresInModuliOfCurves`
+appears in neither `data/atlas.json` nor `research/blueprint/roadmaps/` nor `reserved-ids.json`, and
+a title scan of the atlas finds no roadmap on moduli of curves or tautological rings. The five
+planned items import Hodge structures, weights, motives, moduli representability, local cohomology
+and pointed stable curves from their owners rather than replanning them.
+
+**Locators were checked mechanically.** The review rebuilt the paper's shared theorem counter from
+its twelve `\newtheorem` declarations, all `[thm]`-counted by section, and found that **84 of the 85
+statement references resolve to a statement of exactly the cited kind and number**; the one that does
+not, item 49's `Lemma 10.5`, is labelled as Canning–Larson's own numbering in its locator.
+
+**The single finding is confirmed verbatim**: the proof of Theorem 1.5(3) opens "for even `k ≥ 14`"
+while the theorem states "for even `k ≤ 14`" and the proof's own next-but-one sentence uses
+"`k ≤ 14`". Conjecture 1.8 — open for `k = 16, 18, 20` — is the statement for even `k ≤ 20`.
+
+The review reports one provenance gap it did not fill: no `libraryPins` are recorded. It notes that
+`PAPER-BHATT-MATHEW-23`, `PAPER-WOOD-19` and `PAPER-HACON-WITASZEK-23` have the same gap, so the
+omission looks systematic and may deserve a queue-level fix.

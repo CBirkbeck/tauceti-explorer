@@ -1285,7 +1285,12 @@
    "searched": [
     "the arXiv listing and submission history of arXiv:2307.08830, read 22 September 2026: v1 (17 July 2023), v2 and v3 (25 October 2024), the version read, described by the authors as the final version to appear in Forum of Mathematics, Pi; there is no later version",
     "the published version, doi:10.1017/fmp.2024.24 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the sentence recorded below appears there in the same form"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the arXiv v3 source, whose e-print hash reproduces exactly (7828f493…). The proof of Theorem 1.5(3) opens `We now show that $H_k(\\Mb_{g,n})$ is tautological for even $k \\geq 14$', and two sentences later uses `When $g\\geq 3$, in all of these cases with $k\\leq 14$ we know that $\\M_{g,n}$ has the CKgP and $A^*(\\M_{g,n})=R^*(\\M_{g,n})$'. The theorem it is proving states `$H_k(\\Mb_{g,n})$, for even $k \\leq 14$, for all $g$ and $n$', and Conjecture 1.8 is `$RH^*(\\Mb_{g,n})$ contains $H^k(\\Mb_{g,n})$ for even $k \\leq 20$'. So the printed inequality is reversed, the proof is correct with $\\leq$, and with $\\geq$ it would assert the statement in degrees the paper itself lists as open. I also rebuilt the shared theorem counter from the source's twelve `\\newtheorem` declarations, all sharing the `thm` counter numbered by section: Theorem 1.5 is `thm:taut` and Conjecture 1.8 is `lowk`, so the finding's statement numbers are exactly right.",
+    "by": "Claude Code, session cc-7b31c4, issue #1363"
+   }
   }
  ]
 }
