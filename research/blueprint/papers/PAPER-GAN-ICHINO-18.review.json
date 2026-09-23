@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-GAN-ICHINO-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "No roadmap owns the theta correspondence as a correspondence or the discrete spectrum of Mp_2n, so the Part II is justified. Its brief states Theorems 1.1 and 1.4 exactly. The review replaced its sentence on the E1–E3 proof obligations, since all three are rejected, and added a corrections paragraph and nine items."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Howe duality, the conservation relation, the induction principle, the MVW involution and the unramified correspondence are local facts about the dual pair, which MP.3 owns. The review added two items here: ψ-dependence only through the square class, and the unramified correspondence below the equal-rank range."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Arthur's classification inputs for classical groups and hypothesis (6.1) belong to ML.4, which keeps conditional hypotheses visible. The review added Arthur's sign character ε_φ′ and the local components of symplectic and orthogonal cuspidal representations as planned there. It also recorded that (6.1) must include the near-equivalence decomposition for non-split SO(V)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The lift SO_2n+1 → GL_2n and the descent are known transfers, which ML.5 registers."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The archimedean LLC for GL_n is Langlands' classification, in AF.1."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Strong multiplicity one follows from the Rankin–Selberg theory of AL.3. The review added the Jacquet–Shalika bound here, and the analytic properties of partial L-functions as planned at AL.2–AL.3."
+    }
+  ],
+  "notes": "Reviewed against the published paper (Ann. of Math. 188 (2018), 965–1016; SHA-256 be54266f…), read in full again by four checkers, with arXiv v3 compared. Corrections were made in place: 29 statements and 8 locators. Among them, automorphic-theta now has the complex conjugate of ϕ(g), and local-shimura has Θ = θ for p-adic F only. There are 15 new items (3 planned, 12 missing). E1–E3 are rejected. E1: Gan–Savin's proof of their Lemma 7.4 already covers s > −1/2. E2: Adams–Barbasch Th. 8.4 and Kudla's framework give the induction principle as used. E3: Ichino–Lapid–Mao state the Mp analogue of their Lemma A.2 in their Appendix A. E4 is confirmed. There are three new findings. E5: the proof of Proposition 3.1 needs L^S_ψ(r − n + 1/2, π) ≠ 0 for the pole, which absolute convergence gives. E6 is a misprint. E7: Proposition A.2 is unproved as printed for n ≥ 2, because the cited Jiang–Soudry Th. 2.2(2) fails for ψ-generic supercuspidals whose parameter contains S_2 (Bakić–Hanzer, Prop. 3.5(2)). The fix is to assume θ_{ψ_{v0}}(π_{v0}) supercuspidal, which holds in the only application (Proposition A.1). Theorems 1.1 and 1.4 stand, the latter still conditional on (6.1)."
+}
