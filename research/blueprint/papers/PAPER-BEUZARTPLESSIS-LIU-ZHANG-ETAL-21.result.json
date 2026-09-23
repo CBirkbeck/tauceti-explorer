@@ -1,0 +1,954 @@
+{
+  "paper": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture",
+    "authors": "Raphaël Beuzart-Plessis, Yifeng Liu, Wei Zhang and Xinwen Zhu",
+    "venue": "Annals of Mathematics 194 (2021), no. 2, 519–584",
+    "doi": "10.4007/annals.2021.194.2.5",
+    "arxiv": "1912.07169",
+    "url": "https://annals.math.princeton.edu/2021/194-2/p05",
+    "readSections": [
+      "arXiv 1912.07169v3 (19 June 2021, 'minor revision; 48 pages; to appear in Annals of Mathematics'), read in full from its TeX source, the file GGP_Annals_fin.tex (e-print SHA-256 6dd3c272ef2f716ceac30991cf0472db4d6bcb26c8c4e1858a4d9193dc4cd5cc; fetched from arxiv.org on 2026-09-23), with the PDF (SHA-256 f2834146d4fee02b38c4849ee9a7ef76a3dbc1131e7eef799e6f95b0f0d0ac13) for numbering and pages: §1 Introduction (Theorems 1.1–1.10), §2 Multipliers of the Schwartz convolution algebra, §3 Isolation of spectrum, §4 Application to the Gan–Gross–Prasad conjecture, Appendix A (Delorme's theorem for reductive groups) and the bibliography.",
+      "The Annals version (pp. 519–584, September 2021) is paywalled and was not read. v3 is the authors' final version: posted three months before publication as a minor revision 'to appear in Annals', its source file is named for the Annals, and it thanks the referee. Numbers and pages below are those of the arXiv PDF.",
+      "Cited inputs (Zydor, Chaudouard–Zydor, W. Zhang, Xue, Yun, Beuzart-Plessis, Delorme, Donnelly, Kostant, Flicker, Ramakrishnan, Sakellaridis) were not read; items that rest on one state it as the paper uses it."
+    ]
+  },
+  "summary": "The paper isolates prescribed cuspidal pieces of the automorphic L²-spectrum by multipliers of the convolution algebra of Schwartz test functions, and uses this to prove the global Gan–Gross–Prasad conjecture for U(n) × U(n+1) in the stable case (Theorem 1.8), a nonvanishing theorem for central Rankin–Selberg values (Theorem 1.9) and the Ichino–Ikeda conjecture for tempered stable pairs (Theorem 1.10), removing the earlier requirement of a split place where both representations are supercuspidal. §2 constructs multipliers μ⋆ of the Schwartz algebra S(G) of a real reductive group for every W-invariant holomorphic μ of moderate growth along the sets Y*_ϑ attached to the real form (Theorem 2.13), extending Delorme (Appendix A) by difference operators and Kostant's tensor-product theory; §3 combines these with spherical Hecke operators and Donnelly's bound on cuspidal eigenvalues to annihilate every cuspidal component of the coarse Langlands decomposition except those in which a given character occurs (Theorems 3.6, 3.7, 3.19); §4 runs Zydor's Jacquet–Rallis relative trace formulas with multipliers compatible under base change, which preserve smooth transfer (Proposition 4.8), and also proves weak base change for unitary groups without the endoscopic classification (Theorem 4.14). The atlas plans the (g, K)-module foundations (AF.1), finiteness of automorphic forms (AF.2), the spectral decomposition (AS.4), Rankin–Selberg integrals (AL.3), the Mok/KMSW classification (ML.4) and the Ginzburg–Rallis–Soudry descent (ML.5); the Gan–Gross–Prasad framework is pending in GanGrossPrasadConjecturesForClassicalGroups. Nothing plans Schwartz multipliers, Harish-Chandra's Plancherel formula, the isolation theorems, or the Jacquet–Rallis global trace formulas and their comparison beyond the local layers pending in JacquetRallisRelativeTraceComparison (PAPER-ZHANG-21). Nine source issues are recorded; the one of substance is that the proof of Proposition 4.13(1) (archimedean compatibility of weak base change) covers only a cuspidal base change as written, which Theorem 3.19 repairs.",
+  "items": [
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/1",
+      "kind": "theorem",
+      "name": "Theorem 1.1: isolating the nearly isotypic cuspidal part of a non-CAP representation",
+      "statement": "Let F be a number field, G connected reductive over F, K ⊂ G(A_F^∞) open compact, and π = ⊗_v π_v an irreducible admissible representation of G(A_F) with unitary automorphic central character ω. Suppose there is no pair (P, σ), P a proper parabolic subgroup of G and σ a cuspidal automorphic representation of its Levi quotient M(A_F), with π_v a constituent of Ind_P^G(σ_v) for almost all v. Then there is a multiplier μ⋆ of S(G(A_F))_K such that for every f ∈ S(G(A_F))_K: (1) R(μ⋆f) maps L²(G(F)∖G(A_F)/K, ω) into the π-nearly isotypic subspace L²_cusp(G(F)∖G(A_F)/K, ω)_π (the K-invariants of the irreducible subrepresentations π̃ with π̃_v ≅ π_v for almost all v); (2) π(μ⋆f) = π(f).",
+      "locator": "§1.1, Theorem 1.1, p. 2; special case of Theorem 3.6 (T = S, χ = χ_{π^T})",
+      "status": "missing",
+      "note": "Remark 1.2: it fails for compactly supported test functions; the Schwartz algebra is essential."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/2",
+      "kind": "theorem",
+      "name": "Theorem 1.3: isolating one cuspidal component for Res_{F′/F} GL_n",
+      "statement": "In the situation of Theorem 1.1 with G = Res_{F′/F} GL_n and π an irreducible constituent of Ind_P^G(σ) for a parabolic P and a cuspidal automorphic σ of its Levi quotient: there is a multiplier μ⋆ of S(G(A_F))_K such that R(μ⋆f) maps L²(G(F)∖G(A_F)/K, ω) into the cuspidal component L²_{(M,σ)}(G(F)∖G(A_F)/K, ω) and π(μ⋆f) = π(f).",
+      "locator": "§1.1, Theorem 1.3, p. 2; special case of Theorem 3.19 with strong multiplicity one",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/3",
+      "kind": "definition",
+      "name": "Definition 1.5: conjugate self-dual and hermitian representations of GL_n(A_E)",
+      "statement": "For a quadratic extension E/F of number fields with involution c and an isobaric automorphic representation Π of GL_n(A_E): Π is conjugate self-dual if Π^∨ ≅ Π ∘ c; Π is hermitian if it is an isobaric sum of mutually non-isomorphic cuspidal Π_1, …, Π_d, each conjugate self-dual with L(s, Π_i, As^{(−1)^n}) regular at s = 1.",
+      "locator": "§1.2, Definition 1.5, p. 3",
+      "status": "missing",
+      "note": "Equivalently each Π_i has the conjugate-self-dual sign (−1)^{n−1} of U(n)-parameters; for cuspidal Π exactly one Asai L-function has a pole at s = 1."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/4",
+      "kind": "definition",
+      "name": "Definition 1.6: weak automorphic base change",
+      "statement": "For a hermitian space V over E of rank n, G = U(V) and an irreducible admissible π of G(A_F), an isobaric automorphic Π of GL_n(A_E) is a weak automorphic base change of π if for almost all places v of F split in E, the split local base change of π_v is isomorphic to Π_v. It is unique up to isomorphism (Ramakrishnan, Theorem A) and denoted BC(π).",
+      "locator": "§1.2, Definition 1.6 and Remark 1.7, pp. 3–4",
+      "status": "missing",
+      "note": "Weaker than the usual notion (no local–global compatibility at nonsplit places), chosen to keep the argument independent of the endoscopic classification of unitary groups."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/5",
+      "kind": "theorem",
+      "name": "Theorem 1.8: the global Gan–Gross–Prasad conjecture for U(n) × U(n+1), stable case",
+      "statement": "Let Π_n, Π_{n+1} be hermitian cuspidal automorphic representations of GL_n(A_E), GL_{n+1}(A_E). The following are equivalent: (1) L(½, Π_n × Π_{n+1}) ≠ 0; (2) there are a hermitian space V_n of rank n (with V_{n+1} = V_n ⊕ E·e, e of norm 1), for m = n, n+1 irreducible subrepresentations π_m ⊆ A_cusp(G_m), G_m = U(V_m), with BC(π_m) ≅ Π_m, and cusp forms φ_m ∈ π_m with 𝒫(φ_n, φ_{n+1}) = ∫_{G_n(F)∖G_n(A_F)} φ_n(h)φ_{n+1}(h) dh ≠ 0 (Tamagawa measure).",
+      "locator": "§1.2, Theorem 1.8, p. 4; proof §4.4, pp. 41–42",
+      "status": "missing",
+      "note": "Previously known when Π_n and Π_{n+1} are supercuspidal at a prime of E split over F (Zhang, Xue, Beuzart-Plessis). Remark 4.17 strengthens (1) ⇒ (2) with archimedean compatibility and hyperspecial fixed vectors."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/6",
+      "kind": "theorem",
+      "name": "Theorem 1.9: a nonvanishing theorem for central Rankin–Selberg values",
+      "statement": "For every hermitian cuspidal automorphic Π_{n+1} of GL_{n+1}(A_E) there is a hermitian cuspidal automorphic Π_n of GL_n(A_E) with L(½, Π_n × Π_{n+1}) ≠ 0.",
+      "locator": "§1.2, Theorem 1.9, p. 4; proof §4.4, p. 42",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/7",
+      "kind": "theorem",
+      "name": "Theorem 1.10: the Ichino–Ikeda conjecture for U(n) × U(n+1), stable tempered case",
+      "statement": "In the situation of (2) of Theorem 1.8, if π_n and π_{n+1} are everywhere tempered, the Ichino–Ikeda conjecture (R. N. Harris's formulation, Conjecture 1.2) holds for π_n and π_{n+1}.",
+      "locator": "§1.2, Theorem 1.10, p. 4; proof §4.4, p. 42",
+      "status": "missing",
+      "note": "The proof uses the endoscopic classification of generic packets (Mok, Kaletha–Minguez–Shin–White) and the local Gan–Gross–Prasad conjecture, and then follows Beuzart-Plessis's proof of his Theorem 5 in 'Plancherel formula for GL_n(F)∖GL_n(E)…'."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/8",
+      "kind": "theorem",
+      "name": "The Ichino–Ikeda conjecture for unitary groups (Harris's formulation)",
+      "statement": "(Ichino–Ikeda; R. N. Harris, IMRN 2014, Conjecture 1.2; see also W. Zhang, JAMS 2014, Conjecture 1.1) For everywhere tempered cuspidal π_n ⊠ π_{n+1} of U(V_n) × U(V_{n+1}), an explicit formula for |𝒫(φ_n, φ_{n+1})|² in terms of the central value L(½, BC(π_n) × BC(π_{n+1})), adjoint L-values at s = 1 and normalised local integrals of matrix coefficients over H(F_v); the paper cites the conjecture and does not restate it.",
+      "locator": "§1.2, before Theorem 1.10, p. 4",
+      "status": "missing",
+      "note": "The GGP candidate's brief reserves the refined (Ichino–Ikeda) conjecture for the first consumer that needs it; this paper is that consumer."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/9",
+      "kind": "theorem",
+      "name": "The local Gan–Gross–Prasad conjecture for unitary groups (Beuzart-Plessis)",
+      "statement": "(Beuzart-Plessis, Astérisque 418 (archimedean case), as cited for the places in □) For tempered L-parameters of U(n) × U(n+1) over a local field, exactly one member of the Vogan packet has a nonzero H-invariant functional, as predicted; in particular the local Jacquet–Langlands transfer from relevant tempered representations of pure inner forms to stable tempered classes of the quasi-split form is injective.",
+      "locator": "§4.2, proof of Lemma 4.9, p. 36; proof of Theorem 1.10, p. 42",
+      "status": "missing",
+      "note": "GanGrossPrasadConjecturesForClassicalGroups lists this known case ('unitary p-adic and real tempered, Beuzart-Plessis') among its cited theorems."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/10",
+      "kind": "definition",
+      "name": "Schwartz functions and the Schwartz algebra of a real reductive group",
+      "statement": "For G = G(R), G connected reductive over R, a Schwartz function is a smooth f with Df bounded for every algebraic differential operator D on G (Wallach). S(G) is a Fréchet algebra under convolution; for every Fréchet representation of moderate growth, π(f)v = ∫_G f(g)π(g)v dg converges. S(G) ⊆ ∩_{p>0} 𝒞^p(G) (Harish-Chandra L^p-Schwartz spaces), with equality iff the centre is compact (Remark 2.11). By the Sobolev lemma, S(G) = {f ∈ L²(G) : Df ∈ L²(G) for all D}, with the Fréchet topology given by f ↦ ‖Df‖_{L²} (Remark 2.12). Adelically, S(G(A_F)) := S(G_∞) ⊗ S(G(A_F^∞)) (Definition 3.1).",
+      "locator": "§1.1, p. 2; §2.3, pp. 11–12 and Remarks 2.11–2.12; §3.1, Definition 3.1, p. 21",
+      "status": "missing",
+      "note": "Not Mathlib's SchwartzMap (on normed spaces): here the growth is measured by algebraic differential operators on the group."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/11",
+      "kind": "definition",
+      "name": "Multipliers of an algebra",
+      "statement": "For a complex algebra 𝒮, Mul(𝒮) is the algebra of linear maps μ⋆ : 𝒮 → 𝒮 with μ⋆(f ∗ g) = (μ⋆f) ∗ g = f ∗ (μ⋆g) for all f, g ∈ 𝒮.",
+      "locator": "§1.1, p. 2; §1.4, p. 7",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/12",
+      "kind": "theorem",
+      "name": "Definition 2.1 and Lemma 2.2: Weierstrass products of finite rank",
+      "statement": "A subset Λ ⊆ C has rank p if it is countable and p is the least integer ≥ 0 with Σ_{λ∈Λ∖{0}} |λ|^{−(p+1)} < ∞. For such Λ the Weierstrass product Ψ_{Λ,p}(z) = z^δ ∏_{λ≠0} E_p(z/λ), E_p(z) = (1 − z)exp(z + ⋯ + z^p/p), is an entire function of order at most p + 1 with zero set exactly Λ.",
+      "locator": "§2.1, Definition 2.1 and Lemma 2.2, p. 9",
+      "status": "missing",
+      "note": "Classical complex analysis; the pinned Mathlib has no Weierstrass factorisation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/13",
+      "kind": "theorem",
+      "name": "Definition 2.3, Proposition 2.4 and Corollaries 2.5–2.6: holomorphic functions of moderate vertical growth with prescribed zeros",
+      "statement": "For a finite-dimensional real U, a holomorphic μ on U_C has moderate vertical growth if for every M > 0 there is r_M with sup_{‖Re z‖<M} |μ(z)|(1 + ‖z‖)^{r_M} < ∞. (2.4) For a polynomial λ : U_C → C and an entire Ψ of finite order e there is ν of moderate vertical growth with zero set λ^{−1}(Ψ^{−1}(0)) (ν(z) = exp(z_1^{2q} + ⋯ + z_r^{2q})Ψ(λ(z)), q odd > (deg λ)e). (2.5) Hence for Λ ⊆ C of finite rank there is such ν with zero set λ^{−1}Λ. (2.6) For a lattice L ⊆ U_C and a finite A ⊆ U_C there is ν of moderate vertical growth vanishing on L ∖ A and nowhere zero on A.",
+      "locator": "§2.1, Definition 2.3, Proposition 2.4, Corollaries 2.5–2.6 and Remark 2.7, pp. 9–10",
+      "status": "missing",
+      "note": "Printed with ν for μ in Definition 2.3 (sourceIssues E2)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/14",
+      "kind": "definition",
+      "name": "Definition 2.8: the spaces of multiplier functions M_θ, N_θ and M^♯_θ",
+      "statement": "For a root datum with Weyl group W, h* = X* ⊗ R, and a W-stable set θ of automorphisms ϑ of order ≤ 2, with h*_ϑ (resp. h*^−_ϑ) the ±1 eigenspaces and Y*_ϑ the projection of ρ + X* to h*^−_ϑ: M_θ(h*_C) is the space of holomorphic μ with sup_{α∈h*_{ϑ,C}, ‖Re α‖<M, ϖ∈Y*_ϑ} |μ(α+ϖ)|(1 + ‖α+ϖ‖)^{r_{ϑ,M}} < ∞ for some r_{ϑ,M}, for all ϑ ∈ θ and M; N_θ(h*_C) requires this for every r (rapid decay); M^♯_θ(h*_C) ⊆ M_{θ∪{1}}(h*_C) consists of μ vanishing on h*_{ϑ,C} + ϖ for all but finitely many ϖ ∈ Y*_ϑ, for each ϑ ∈ θ. All are algebras stable under W; M(h*_C) · M^♯_θ ⊆ M^♯_θ (Remark 2.9).",
+      "locator": "§2.2, Definition 2.8 and Remark 2.9, pp. 10–11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/15",
+      "kind": "theorem",
+      "name": "Lemma 2.10: nonvanishing elements of M^♯_θ",
+      "statement": "For every α_0 ∈ h*_C there is μ ∈ M^♯_θ(h*_C)^W with μ(α_0) ≠ 0.",
+      "locator": "§2.2, Lemma 2.10, p. 11",
+      "status": "missing",
+      "note": "From Corollary 2.6 applied, for each ϑ, to a lattice of h*^−_{ϑ,C} containing Y*_ϑ."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/16",
+      "kind": "theorem",
+      "name": "The Harish-Chandra isomorphism, infinitesimal characters and Casselman–Wallach representations",
+      "statement": "Z(g) ≅ C[h*_C]^W (Harish-Chandra), so characters of Z(g) are W-orbits in h*_C and μ(χ) makes sense for μ ∈ O(h*_C)^W; admissible representations are smooth admissible Fréchet representations of moderate growth (Casselman–Wallach), equivalent to Harish-Chandra (g, K)-modules by taking K-finite vectors; each irreducible one has an infinitesimal character χ_π.",
+      "locator": "§2.3, p. 11",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.1"
+      ],
+      "note": "AF.1 plans (g, K)-modules, the centre of U(g) with infinitesimal-character subspaces, and the Casselman–Wallach globalisation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/17",
+      "kind": "theorem",
+      "name": "Theorem 2.13 (= Theorem 1.4): multipliers of the Schwartz algebra of a real reductive group",
+      "statement": "Let G be connected reductive over R, G = G(R), and θ the W-stable set of automorphisms of the root datum of G_C of order ≤ 2 of the form wϑ with ϑ inducing the real form. For every μ ∈ M_{θ∪{1}}(h*_C)^W there is a unique linear μ⋆ : S(G) → S(G) with π(μ⋆f) = μ(χ_π)·π(f) for every f ∈ S(G) and every irreducible admissible π; in particular μ⋆ ∈ Mul(S(G)). It is continuous and preserves the bi-K-finite functions (Remark 2.26).",
+      "locator": "§2.3, Theorem 2.13, p. 12; proof §2.4, pp. 13–21",
+      "status": "missing",
+      "note": "Proof: first for N_{θ∪{1}}(h*_C)^W with L²-bounds (Proposition 2.24), then μ_n = exp(−P(α/n))μ with a positive W_θ-invariant homogeneous polynomial P."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/18",
+      "kind": "theorem",
+      "name": "Remarks 2.14–2.17 and Example 2.15: θ_G and the conjectural description of multipliers",
+      "statement": "θ_G ⊆ θ, the set of involutions induced by the maximal tori of G, satisfies: θ_G = θ iff G is quasi-split; 1 ∈ θ_G iff G is split; −1 ∈ θ_G iff G has an anisotropic maximal torus; θ_G = {−1} iff G is anisotropic. Conjecture (Remark 2.16): μ ∈ O(h*_C)^W gives a multiplier as in Theorem 2.13 iff μ ∈ M_{θ_G}(h*_C)^W (known for G anisotropic, for G split by Theorem 2.13, and for SL_2(R) by Barker). For SL_2: M_{±1}^W consists of even entire functions of moderate vertical growth and polynomial growth on Z. Theorem 2.13 gives a homomorphism M^♯_θ(h*_C)^W → Mul(S(G)) (Remark 2.17).",
+      "locator": "§2.3, Remarks 2.14, 2.16, 2.17 and Example 2.15, pp. 12–13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/19",
+      "kind": "theorem",
+      "name": "Lemma 2.18: elements of M^♯_θ see only finitely many K-types",
+      "statement": "For μ ∈ M^♯_θ(h*_C)^W there is a finite set 𝔗(μ) of K-types such that every irreducible admissible π with μ(χ_π) ≠ 0 contains a member of 𝔗(μ).",
+      "locator": "§2.3, Lemma 2.18, p. 13",
+      "status": "missing",
+      "note": "Proof: Harish-Chandra's discrete series infinitesimal characters leave finitely many (M, σ) up to conjugation and unramified twist; Langlands quotients inherit the minimal K-types of their standard modules (Knapp, Thm. 15.10)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/20",
+      "kind": "theorem",
+      "name": "Discrete series infinitesimal characters and minimal K-types",
+      "statement": "(Harish-Chandra; Vogan, as in Knapp, Theorem 15.10) The infinitesimal characters of discrete series of Levi subgroups are described by Harish-Chandra's parametrisation; for a standard module the Langlands quotient contains its minimal K-types.",
+      "locator": "§2.3, proof of Lemma 2.18, p. 13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/21",
+      "kind": "theorem",
+      "name": "Lemma 2.19: maximal tori give elements of θ",
+      "statement": "For a maximal torus T of G with T = A_T T_c and a universal isomorphism T_C ≅ H inducing h* = a*_T ⊕ i t*_c, there is a unique ϑ ∈ θ with a*_T = h*_ϑ and i t*_c = h*^−_ϑ (ϑ is induced by complex conjugation on T).",
+      "locator": "§2.4, Lemma 2.19, p. 13",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/22",
+      "kind": "theorem",
+      "name": "Lemmas 2.20, 2.21 and 2.23: difference operators on holomorphic functions",
+      "statement": "Let W̃ = X* ⋊ W, ℓ_s affine functions vanishing on the fixed hyperplanes of reflections s ∈ W̃, R the algebra generated by translations t_w and multiplication by polynomials, 𝒮 = C[h*_C][ℓ_s^{−1}] ⊗ R and 𝒯 = C(h*_C) ⊗ R. (2.23, after Kostant–Kumar) An element of 𝒯 preserving C[h*_C] lies in 𝒮. (2.21) If μ vanishes on H_s, then p_{ϑ,M,r}(ℓ_s^{−1}μ) ≤ C·p_{ϑ′,M+M_s,r}(μ) for suitable ϑ′ ∈ θ ∪ {1}. (2.20) An S ∈ 𝒮 preserving C[h*_C] extends continuously to O(h*_C) with p_{ϑ,M,r}(Sμ) ≤ C·p_{ϑ,M+M_S,r+r_S}(μ); it preserves N_{θ∪{1}}(h*_C), and N_{θ∪{1}}(h*_C)^W if it maps C[h*_C] into C[h*_C]^W.",
+      "locator": "§2.4, Lemmas 2.20, 2.21 and 2.23, pp. 14–17",
+      "status": "missing",
+      "note": "Lemma 2.21's proof has |u| = 1 where |u| ≤ 1 is needed (sourceIssues E4)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/23",
+      "kind": "theorem",
+      "name": "Kostant: tensoring with a finite-dimensional representation",
+      "statement": "(Kostant, J. Funct. Anal. 20 (1975), Thms 4.8 and 4.9) For a finite-dimensional algebraic τ and δ : U(g) → U(g) ⊗ End(W_τ), X ↦ X ⊗ 1 + 1 ⊗ τ(X), the centraliser R_τ of δ(U(g)) is a finitely generated free Z(g)-module, and P_z(δ(z)) = 0 for z ∈ Z(g), where P_z(X) = ∏_{λ∈Λ(τ)} (X − t_λ z).",
+      "locator": "§2.4, before and in the proof of Lemma 2.22, p. 16",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/24",
+      "kind": "theorem",
+      "name": "Lemma 2.22: the action of the centre on R_τ by difference operators",
+      "statement": "For every basis v_1, …, v_r of R_τ over Z(g) there are S_1, …, S_r ∈ 𝒮 mapping C[h*_C] to C[h*_C]^W with δ(z) = Σ_i S_i(z) v_i for every z ∈ Z(g).",
+      "locator": "§2.4, Lemma 2.22, p. 16",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/25",
+      "kind": "theorem",
+      "name": "Harish-Chandra's Plancherel formula and the infinitesimal characters of tempered representations",
+      "statement": "(Harish-Chandra, 1975–76) There is a measure dπ on the tempered dual with ‖f‖²_{L²} = ∫_{Temp(G)} ‖π(f)‖²_{HS} dπ for f ∈ S(G); the infinitesimal characters of tempered representations form exactly ∪_{ϑ∈θ_G} i h*_ϑ ⊕ Y*_ϑ.",
+      "locator": "§2.4, proof of Proposition 2.24, pp. 17–18",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/26",
+      "kind": "theorem",
+      "name": "Proposition 2.24: Theorem 2.13 for rapidly decreasing μ, with L²-bounds",
+      "statement": "Theorem 2.13 holds for μ ∈ N_{θ∪{1}}(h*_C)^W. Moreover, for every algebraic differential operator D there is M_D > 0 such that for every f ∈ S(G) and r there is C_{D,f,r} with ‖D(μ⋆f)‖_{L²} ≤ C_{D,f,r}·max_{ϑ∈θ} p_{ϑ,M_D,r}(μ) for all such μ.",
+      "locator": "§2.4, Proposition 2.24 and proof, pp. 17–20",
+      "status": "missing",
+      "note": "Proof: Delorme's multipliers on bi-K-finite functions (Proposition A.1), the Plancherel formula for D = 1, and for polynomial D the identity P(μ⋆f) = Σ S_i(μ) ⋆ P_{ij} L(u_{ij}) f from Lemma 2.22, checked on generic principal series (Lemma 2.25)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/27",
+      "kind": "theorem",
+      "name": "Lemma 2.25: generic principal series tensored with τ are semisimple",
+      "statement": "For a minimal parabolic P_0 = M_0N_0, an irreducible σ of M_0 and ξ an unramified character of M_0 in general position, I_{P_0}^G(σ ⊗ ξ) ⊗ τ is a direct sum of irreducible admissible representations.",
+      "locator": "§2.4, Lemma 2.25 and proof, p. 20",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/28",
+      "kind": "definition",
+      "name": "L²-spectrum with central character, quasi-cuspidal test functions",
+      "statement": "For Z the maximal F-split torus in the centre of G and a unitary automorphic character ω of Z(A_F), L²(G(F)∖G(A_F), ω) with right regular action R and cuspidal subspace L²_cusp; S(G(A_F)) acts continuously. f ∈ S(G(A_F)) is ω-quasi-cuspidal if R(f) maps L²(G(F)∖G(A_F), ω) into L²_cusp (Definition 3.2).",
+      "locator": "§3.1, pp. 21–22; Definition 3.2",
+      "status": "missing",
+      "note": "AF.3 and AS.4 plan cusp forms and the L²-spectrum; the Schwartz test functions acting on it and quasi-cuspidality are new."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/29",
+      "kind": "definition",
+      "name": "Definitions 3.3–3.5: T-characters, (G′, T)-CAP characters and T-multipliers",
+      "statement": "For a set T of primes containing S_G (ramified primes), a T-character is χ = (χ_∞, χ^{∞,T}) with χ_∞ a character of Z(g) and χ^{∞,T} of the spherical Hecke algebra H_G^T = ⊗′_{v∉T} C[K_{0,v}∖G(F_v)/K_{0,v}]. For an inner form G′, χ is (G′, T)-CAP if for a proper parabolic P′ of G′ and a cuspidal automorphic σ of M_{P′}(A_F), the spherical representation of χ_v is a constituent of I_{P′}^{G′}(σ_v) for almost all v ∉ T with G_v ≅ G′_v (after Piatetski-Shapiro). A T-multiplier of S(G(A_F))_K is an element of M^♯_θ(h*_C)^W ⊗ H_G^T; it acts as a multiplier since H_G^T is central in S(G(A_F^∞))_K. L²_cusp(…/K, ω)[χ] is the largest closed subspace on which Z(g) ⊗ H_G^T acts by χ.",
+      "locator": "§3.1, Definitions 3.3–3.5, pp. 22–23",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/30",
+      "kind": "theorem",
+      "name": "Theorem 3.6: isolation for non-CAP characters",
+      "statement": "If χ is not (G, T)-CAP, there is a T-multiplier μ of S(G(A_F))_K with μ(χ) = 1 such that, for every f ∈ S(G(A_F))_K, R(μ⋆f) maps L²(G(F)∖G(A_F)/K, ω) into L²_cusp(G(F)∖G(A_F)/K, ω)[χ]; in particular μ⋆f is ω-quasi-cuspidal.",
+      "locator": "§3.1, Theorem 3.6, p. 23; proof p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/31",
+      "kind": "theorem",
+      "name": "Theorem 3.7: isolation inside the cuspidal spectrum",
+      "statement": "For every T-character χ there is a T-multiplier μ with μ(χ) = 1 such that R(μ⋆f) maps L²_cusp(G(F)∖G(A_F)/K, ω) into L²_cusp(G(F)∖G(A_F)/K, ω)[χ] for every f ∈ S(G(A_F))_K.",
+      "locator": "§3.1, Theorem 3.7, p. 23; proof p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/32",
+      "kind": "theorem",
+      "name": "The coarse Langlands decomposition by cuspidal data",
+      "statement": "(Langlands, Lemma 4.6(i); Mœglin–Waldspurger II.2.4) L²(G(F)∖G(A_F), ω) = ⊕̂_{(M,σ)} L²_{(M,σ)}(G(F)∖G(A_F), ω) over cuspidal data (M standard Levi, σ ∈ 𝔆(M, ω) up to unitary twist and W(G, M_0)-conjugacy; Definition 3.9), each component the closure of the pseudo-Eisenstein series E(g, Φ) = Σ_{γ∈P(F)∖G(F)} Φ̃(γg) of Paley–Wiener sections Φ; components are equal iff the data are equivalent; likewise after taking K-invariants (3.2).",
+      "locator": "§3.2, Definition 3.9 and (3.1)–(3.2), pp. 24–25",
+      "status": "planned",
+      "planned": [
+        "AutomorphicSpectralTheory:AS.4",
+        "AutomorphicSpectralTheory:AS.1"
+      ],
+      "note": "AS.4 plans the complete spectral decomposition over associate cuspidal data with Eisenstein wave packets; AS.1 the induced families."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/33",
+      "kind": "theorem",
+      "name": "Finiteness of cusp forms with fixed infinitesimal character, K-types and level",
+      "statement": "(Harish-Chandra, LNM 62) There are only finitely many cuspidal automorphic representations of G(A_F), up to isomorphism, with a given infinitesimal character, a given finite set of K_∞-types and nonzero invariants under a given open compact subgroup.",
+      "locator": "§1.3, p. 6; §4.3, proof of Proposition 4.13, p. 38",
+      "status": "planned",
+      "planned": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3"
+      ],
+      "note": "AF.2 plans the finiteness of automorphic forms with fixed level, finitely many K-types and an infinitesimal-character ideal; AF.3 the finite multiplicity of cuspidal constituents."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/34",
+      "kind": "theorem",
+      "name": "Donnelly: counting cuspidal eigenvalues",
+      "statement": "(Donnelly, J. Differential Geom. 17 (1982), Thm. 9.1) For a finite-volume locally symmetric space and a fixed finite set of K-types, the counting function of cuspidal Casimir (Laplace) eigenvalues satisfies a Weyl-type upper bound; as used here, the set of these eigenvalues has finite rank and each eigenvalue has finite multiplicity.",
+      "locator": "§3.3, proofs of Lemmas 3.12–3.13, p. 26",
+      "status": "missing",
+      "note": "Remark 3.20 mentions Müller's trace class theorem as the alternative for the Langlands decomposition by discrete data."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/35",
+      "kind": "definition",
+      "name": "Definition 3.11: χ_∞-typical cuspidal data",
+      "statement": "For a standard Levi M with derived group M_der, b*_M the weight space of the maximal torus of M_der, c*_M = ker(h* → b*_M) ⊇ a*_M, γ_M = γ_M^+ ⊕ γ_M^− : h* → c*_M/a*_M ⊕ b*_M, and λ_M the Casimir polynomial of M_der: σ ∈ 𝔆(M, ω)^♥ is χ_∞-typical if γ_M^+(χ_{σ_∞}) ∈ γ_M^+(χ_∞) and λ_M(γ_M^−(χ_{σ_∞})) ∈ λ_M(γ_M^−(χ_∞)). (Remark 3.10: c*_M/a*_M is the cotangent space of Z_M(A_F)^1Z(A_F).)",
+      "locator": "§3.3, Remark 3.10 and Definition 3.11, p. 25",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/36",
+      "kind": "theorem",
+      "name": "Lemmas 3.12–3.14 and Proposition 3.15: killing all but finitely many cuspidal components",
+      "statement": "For fixed K and the finite set 𝔗 of K_∞-types of Lemma 2.18: (3.12) the Casimir values λ_M(γ_M^−(χ_{σ_∞})) for σ ∈ 𝔆(M, ω; K_M, 𝔗_M) form a set of finite rank; (3.13) only finitely many classes in 𝔆(M, ω; K_M, 𝔗_M)^♥ are χ_∞-typical; (3.14) for each standard Levi M there is μ_∞^M ∈ M^♯_θ(h*_C)^W with μ_∞^M(χ_∞) ≠ 0 vanishing on the infinitesimal characters χ^G_{σ_s,∞} of Ind_{P_M}^G(σ_{s,∞}) for every non-typical σ and every s ∈ a*_{M,C}; (3.15) μ_∞ = μ_∞^0 ∏_M μ_∞^M ∈ M^♯_θ(h*_C)^W has μ_∞(χ_∞) ≠ 0, and R(μ_∞⋆f) annihilates every component L²_{(M,σ)}(…/K, ω) outside the finite set 𝔇(G, ω; K, 𝔗)^♥_{χ_∞}.",
+      "locator": "§3.3, Lemmas 3.12–3.14 and Proposition 3.15, pp. 26–27",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/37",
+      "kind": "theorem",
+      "name": "Definition 3.16, Proposition 3.17 and Theorem 3.19: isolating the components in which χ occurs",
+      "statement": "χ occurs in (M, σ) if for some s ∈ a*_{M,C}, χ^G_{σ_s,∞} = χ_∞ and, for every prime v ∉ T, the spherical representation of χ_v is a constituent of Ind_{P_M}^G(σ_{s,v}). (3.17) If χ does not occur in (M, σ), there is a T-multiplier μ_{(M,σ)} with μ_{(M,σ)}(χ) ≠ 0 whose R(μ_{(M,σ)}⋆f) annihilates L²_{(M,σ)}(…/K, ω), built from an exponential-type 'mixed' element ν† of O_exp(h*_C)^W ⊗ H_G^T (after Lindenstrauss–Venkatesh). (3.19) For every T-character χ there is a T-multiplier μ with μ(χ) = 1 such that the image of R(μ⋆f) lies in ⊕_{(M,σ)∈𝔇(G,ω)^♥_χ} L²_{(M,σ)}(G(F)∖G(A_F)/K, ω) (a finite sum) for every f ∈ S(G(A_F))_K.",
+      "locator": "§3.4, Definition 3.16, Proposition 3.17, Theorem 3.19 and proofs, pp. 28–30",
+      "status": "missing",
+      "note": "Printed with '(3.9)' for the decomposition (3.2) in Theorem 3.19 (sourceIssues E5)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/38",
+      "kind": "theorem",
+      "name": "Remark 3.20: the refinement by the Langlands decomposition",
+      "statement": "Using the Langlands decomposition of L² by discrete data (Langlands; Arthur, Thm. 7.2) and Müller's trace class theorem instead of Donnelly, Theorem 3.19 holds with Langlands components L²_{(M,σ)}(…)′ for discrete automorphic σ; the resulting subspace can be strictly smaller (for PGL_2, the diagonal torus with trivial σ and the trivial representation of G(A_F)).",
+      "locator": "§3.4, Remark 3.20, p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/39",
+      "kind": "theorem",
+      "name": "Delorme's multipliers for semisimple groups",
+      "statement": "(Delorme, Duke Math. J. 53 (1986), Théorème 1.7) For G semisimple, linear and connected, every μ ∈ N(h*_C)^W gives a linear map μ⋆ : C_c^∞(G)_{(K)} → S(G)_{(K)} with π(μ⋆f) = μ(χ_π)π(f) for all irreducible admissible π. (Delorme 1984: for G without compact factors, only polynomials give multipliers of C_c^∞(G), and only exponential-type functions give multipliers of C_c^∞(G)_{(K)}.)",
+      "locator": "§1.1, p. 3; Appendix A, pp. 43–45",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/40",
+      "kind": "theorem",
+      "name": "Proposition A.1: Delorme's theorem for reductive groups",
+      "statement": "For G = G(R) connected reductive and every μ ∈ N(h*_C)^W there is a unique linear μ⋆ : C_c^∞(G)_{(K)} → S(G)_{(K)} with π(μ⋆f) = μ(χ_π)·π(f) for every f and every irreducible admissible π.",
+      "locator": "Appendix A, Proposition A.1 and proof, pp. 43–45",
+      "status": "missing",
+      "note": "Printed with N(h*_C) for N(h*_C)^W (sourceIssues E8). Reduction to G^0 = (Z^0 × G^0_der)/Z^0_der, with Delorme for G^0_der and Sakellaridis for Z^0, then projective tensor products for fixed K-types and supports."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/41",
+      "kind": "theorem",
+      "name": "Lemma A.2 and its inputs: Paley–Wiener for split tori and tensor products of Schwartz spaces",
+      "statement": "N(z*_C) ⊗̂ N(h*_{der,C})^W ≅ N(h*_C)^W, from the Paley–Wiener isomorphisms S(A) ≅ N(a*_C) for split real tori A (Fourier transform) and S(A_1 × A_2) = S(A_1) ⊗̂ S(A_2) (Aizenbud–Gourevitch, Cor. 2.6.3, for Schwartz functions on Nash manifolds, also used to approximate by pure tensors in §4); with Sakellaridis's multipliers on the centre (Thm. 2.1.2) and the extension of separately continuous bilinear maps on Fréchet spaces to projective tensor products (Trèves, Thm. 34.1).",
+      "locator": "Appendix A, Lemma A.2 and proof, p. 44; §4.2, pp. 34–35",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/42",
+      "kind": "definition",
+      "name": "The Jacquet–Rallis setup: groups, subgroups and regular semisimple orbits",
+      "statement": "For E/F quadratic with character η_{E/F}: G′ = Res_{E/F}GL_n × Res_{E/F}GL_{n+1} with H′_1 the graph of GL_n → GL_{n+1} and H′_2 = GL_{n,F} × GL_{n+1,F}, the character η = (η^{n−1} ∘ det) ⊠ (η^n ∘ det) of H′_2(A_F), regular semisimple γ (H′_1γH′_2 closed with free action) and B′ = H′_1∖G′/H′_2; for V = (V_n, V_{n+1}) in the set 𝔙 of pairs of hermitian spaces with V_{n+1} = V_n ⊕ Ee, G^V = U(V_n) × U(V_{n+1}) with the diagonal H^V and B^V = H^V∖G^V/H^V. B′ ≅ B^V canonically, defining matching pairs.",
+      "locator": "§4.1, pp. 30–32",
+      "status": "missing",
+      "note": "After Jacquet–Rallis and W. Zhang (Ann. Math. 2014, §3.1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/43",
+      "kind": "definition",
+      "name": "Global relative characters and relative orbital integrals",
+      "statement": "For cuspidal Π of G′ and π^V of G^V: I_Π(f′) = Σ_{φ∈B(Π)} (∫_{H′_1(F)∖H′_1(A)} Π(f′)φ) · conj(∫_{Z′(A)H′_2(F)∖H′_2(A)} φ η), J_{π^V}(f^V) = Σ_φ (∫_{H^V(F)∖H^V(A)} π^V(f^V)φ) · conj(∫_{H^V(F)∖H^V(A)} φ) (Beuzart-Plessis, §3.1); for regular semisimple γ, δ^V the relative orbital integrals O_η(γ, f′) = ∫∫ f′(h_1^{−1}γh_2)η(h_2) and O(δ^V, f^V) = ∫∫ f^V(h_1^{−1}δ^V h_2), and in general Zydor's regularised I_γ, J_{δ^V}.",
+      "locator": "§4.1, (4.1)–(4.4), pp. 31–32",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/44",
+      "kind": "theorem",
+      "name": "Propositions 4.1–4.2: Zydor's Jacquet–Rallis relative trace formulas for quasi-cuspidal Schwartz functions",
+      "statement": "(Zydor, J. reine angew. Math. 762 (2020), Théorèmes 5.9–5.10, 6.6–6.7, extended to Schwartz test functions) For quasi-cuspidal f′ ∈ S(G′(A_F)): Σ_{Π∈𝔆(G′,1)} I_Π(f′) = Σ_{γ∈B′(F)} I_γ(f′); for quasi-cuspidal f^V ∈ S(G^V(A_F)): Σ_{π^V} J_{π^V}(f^V) = Σ_{δ^V∈B^V(F)} J_{δ^V}(f^V); all sums absolutely convergent.",
+      "locator": "§4.1, Propositions 4.1–4.2, p. 32",
+      "status": "missing",
+      "note": "The paper asserts that Zydor's proofs for C_c^∞ work for Schwartz functions. The text after (4.4) says I_γ for J_{δ^V} (sourceIssues E6)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/45",
+      "kind": "definition",
+      "name": "Definitions 4.3–4.4: relative hyperspecial subgroups and smooth transfer",
+      "statement": "At v unramified in E, K′_v = GL_n(O_{E_v}) × GL_{n+1}(O_{E_v}) and K^V_v = U(L_n) × U(L_{n+1}) (L_n self-dual, L_{n+1} = L_n ⊕ O_{E_v}e) are relative hyperspecial. f′_□ and f^V_□ have matching orbital integrals if O(δ^V, f^V_□) = Ω_□(γ)·O_η(γ, f′_□) for matching regular semisimple pairs (Ω a transfer factor); f′ and f^V are smooth transfer if they are unit functions of relative hyperspecial subgroups outside a finite □ and match on □; complete smooth transfer if f′ and every f^V match (almost all f^V zero).",
+      "locator": "§4.2, Definitions 4.3–4.4, p. 33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/46",
+      "kind": "theorem",
+      "name": "The Jacquet–Rallis relative fundamental lemma",
+      "statement": "(Yun, Duke Math. J. 156 (2011) (large p); Beuzart-Plessis, arXiv:1901.02653 (all p)) At a place v unramified in E, 1_{K′_v} and 1_{K^V_v} have matching orbital integrals; so Definition 4.4(2) does not depend on □ (Remark 4.5).",
+      "locator": "§4.2, Remark 4.5, p. 33; §4.3–4.4",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/47",
+      "kind": "theorem",
+      "name": "Proposition 4.6: existence of smooth transfer",
+      "statement": "(W. Zhang, Thm. 2.6 (nonarchimedean); H. Xue, Thm. 2.7 (archimedean)) At every place v there are dense subspaces S_tr(G′(F_v)) ⊆ S(G′(F_v)) and S_tr(G^{V_v}(F_v)) ⊆ S(G^{V_v}(F_v)), equal to the whole spaces if v is nonarchimedean or split in E, whose elements have smooth transfers: every f′_v ∈ S_tr has matching (f_v^{V_v})_{V_v}, and every f_v^{V_v} ∈ S_tr has a matching f′_v with f^{W_v}_v = 0 for W_v ≠ V_v.",
+      "locator": "§4.2, Proposition 4.6, p. 33",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/48",
+      "kind": "theorem",
+      "name": "Proposition 4.7 (Chaudouard–Zydor): equality of the geometric sides",
+      "statement": "(Chaudouard–Zydor, Compos. Math. 157 (2021), Théorème 16.2.4.1, extended from pure tensors) If f′ and (f^V)_V are complete smooth transfer, then Σ_{γ∈B′(F)} I_γ(f′) = Σ_{V∈𝔙} Σ_{δ^V∈B^V(F)} J_{δ^V}(f^V), the sum over V being finite.",
+      "locator": "§4.2, Proposition 4.7, p. 34",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/49",
+      "kind": "theorem",
+      "name": "Beuzart-Plessis: local Plancherel formulas and matching of relative characters",
+      "statement": "(Beuzart-Plessis, 'Plancherel formula for GL_n(F)∖GL_n(E) and applications…', Invent. Math. 2021, (5.5.10), (5.5.3), Thms 5.4.1 and 5.4.3) For local test functions, ∫_{B′_rss} O_η(γ, f′_1) conj(O_η(γ, f′_2)) dγ and ∫_{B^V_rss} O(δ, f^V_1) conj(O(δ, f^V_2)) dδ equal spectral integrals of products of local relative characters I_{BC(π)} and J_π against explicit Plancherel measures (|γ*(0, π, Ad, ψ′)|/|S_π| and μ*_{G^V}); matching orbital integrals imply matching relative characters κ_V J_π(f^V) = I_{BC(π)}(f′), the measures agree under the local Jacquet–Langlands map, and κ_V conj(κ_V) = |τ|^{n(n−1)/2}.",
+      "locator": "§4.2, proof of Lemma 4.9, pp. 35–36",
+      "status": "missing",
+      "note": "At primes inert in E this relies on Mok and Kaletha–Minguez–Shin–White (Remark 4.10)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/50",
+      "kind": "theorem",
+      "name": "Lemma 4.9: matching orbital integrals versus matching relative characters",
+      "statement": "Let □ contain all archimedean places and only primes split in E. For f′ ∈ S(G′(F_□)) and f^V ∈ S(G^V(F_□)): f′ and f^V have matching orbital integrals iff κ_{V_□} J_π(f^V) = I_{BC(π)}(f′) for every π ∈ Temp_{H^V_□}(G^V_□).",
+      "locator": "§4.2, Lemma 4.9 and proof, pp. 35–36; Remark 4.10",
+      "status": "missing",
+      "note": "Remark 4.10: the same holds for inert primes in □, using Mok and Kaletha–Minguez–Shin–White."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/51",
+      "kind": "theorem",
+      "name": "Proposition 4.8: multipliers compatible with base change preserve smooth transfer",
+      "statement": "With T = S ∪ T_0 (T_0 the primes nonsplit in E), the base change maps bc^V_∞ : O(h′*_C)^{W′} → O(h^{V*}_C)^{W^V} (restriction along h^{V*} ⊆ h′*) and bc^T_V : H^T_{G′} → H^T_{G^V}, and bc^V = bc^V_∞ ⊗ bc^T_V: if f′ = ⊗f′_v and f^V = ⊗f^V_v match at every place and μ^V = bc^V(μ′) for T-multipliers μ′, μ^V, then μ′⋆f′ and μ^V⋆f^V are smooth transfer.",
+      "locator": "§4.2, (4.5)–(4.7) and Proposition 4.8, pp. 34–35",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/52",
+      "kind": "theorem",
+      "name": "Proposition 4.11: Gaussian test functions at compact archimedean places",
+      "statement": "At an archimedean place v nonsplit in E with V_v positive definite, S_tr(G^{V_v}(F_v)) contains every f^{V_v}_v with J_{π_v}(f^{V_v}_v) = 0 for all but finitely many tempered π_v.",
+      "locator": "§4.2, Proposition 4.11 and proof, pp. 36–37",
+      "status": "missing",
+      "note": "Not used in the paper; it gives the Gaussian test functions of Rapoport–Smithling–Zhang. The proof writes J_{π_0}(f^V) = 1 for J_{π_0}(f^V_1) = 1 (sourceIssues E7)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/53",
+      "kind": "theorem",
+      "name": "Lemma 4.12: choosing T-multipliers compatible under base change",
+      "statement": "Given T-multipliers μ′ of S(G′(A_F))_{K′} and μ^V of S(G^V(A_F))_{K^V} (V ∈ 𝔙°_{(S)}) with μ′(χ′) = 1 = μ^V(χ^V), there are T-multipliers μ̃′ = (multiple of μ′), μ̃^V = (multiple of μ^V) with μ̃′(χ′) = 1 = μ̃^V(χ^V) and μ̃^V = bc^V(μ̃′), namely μ̃′ = (μ′)² ∏_V cb^V((μ^V)²) for linear sections cb^V of bc^V.",
+      "locator": "§4.3, Lemma 4.12 and proof, p. 37",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/54",
+      "kind": "theorem",
+      "name": "Positive-type test functions and the Burger–Sarnak trick",
+      "statement": "(W. Zhang, Ann. Math. 2014, Propositions 2.12 and 2.14) Local test functions of positive type exist with J_{π_v}(f_v) > 0 when the local period is nonzero; and for cuspidal π_{n+1} of U(V_{n+1}) there is a cuspidal π_n of U(V_n), supercuspidal at a prescribed split prime, with nonzero period 𝒫 on π_n ⊠ π_{n+1} (and π_{n+1} generic or supercuspidal there if π_{n+1} is).",
+      "locator": "§4.3, proofs of Proposition 4.13 and Theorem 4.14, pp. 38–39; §4.4, p. 42",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/55",
+      "kind": "theorem",
+      "name": "Flicker: distinction and poles of Asai L-functions",
+      "statement": "(Flicker, Bull. SMF 116 (1988)) A cuspidal Π of GL_m(A_E) has a nonzero period over GL_m(A_F) twisted by η^{m+1}_{E/F} iff L(s, Π, As^{(−1)^{m+1}}) has a pole at s = 1.",
+      "locator": "§4.3, proof of Proposition 4.13, p. 39; §4.4, proof of Theorem 1.8, p. 41",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/56",
+      "kind": "theorem",
+      "name": "Strong multiplicity one for GL_n with a density-zero exceptional set",
+      "statement": "(Ramakrishnan, arXiv:1806.08429, Theorem A) Isobaric automorphic representations of GL_n(A_E) that agree at the places above almost all primes of F split in E are isomorphic.",
+      "locator": "§1.2, Definition 1.6, p. 3; §4.4, proof of Theorem 1.8, p. 41",
+      "status": "missing",
+      "note": "PAPER-GAN-SAVIN-23-B routed Jacquet–Shalika's strong multiplicity one to LocalLanglandsCorrespondenceForG2; the review should give strong multiplicity one for GL_n one owner."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/57",
+      "kind": "theorem",
+      "name": "Proposition 4.13: weak base change from nonvanishing periods",
+      "statement": "Let V ∈ 𝔙_{(S)} and π^V ∈ 𝔆(G^V, 1) with 𝒫(φ) = ∫_{H^V(F)∖H^V(A_F)} φ ≠ 0 for some φ ∈ L²(G^V, π^V), and assume (a) π^V is not (G^V, T)-CAP, or (b) π^V_{v_0} is supercuspidal at some prime v_0 split in E. Then the weak base change Π = BC(π^V) = Π_n ⊠ Π_{n+1} exists; (1) the base change of χ_{π^V_∞} is χ_{Π_∞}; (2) in case (b), Π_m is cuspidal and hermitian.",
+      "locator": "§4.3, Proposition 4.13 and proof, pp. 38–39",
+      "status": "missing",
+      "note": "The proof of (1) as written covers only the case where Π is cuspidal (sourceIssues E1); Theorem 3.19 closes it."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/58",
+      "kind": "theorem",
+      "name": "Theorem 4.14: weak base change for unitary groups without endoscopy",
+      "statement": "Let V° be a hermitian space, G° = U(V°) and π an irreducible admissible representation of G°(A_F). (1) If π is cuspidal automorphic and π_v is generic at infinitely many primes split in E, BC(π) exists. (2) If π is cuspidal automorphic and supercuspidal at some prime split in E, BC(π) exists and is cuspidal and hermitian. (3) If BC(π) exists and is hermitian, π is not (G•, T_0)-CAP for any pure inner form G• of G°. (4) If BC(π) exists and is hermitian, the base change of χ_{π_∞} is χ_{BC(π)_∞}.",
+      "locator": "§4.3, Theorem 4.14 and proof, pp. 39–40; Remarks 1.7 and 4.15",
+      "status": "missing",
+      "note": "By induction on rank with the Burger–Sarnak trick and Proposition 4.13; independent of the endoscopic classification (which also implies it). (3) is consistent with Jiang's CAP conjecture. (4) rests on Proposition 4.13(1) (sourceIssues E1)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/59",
+      "kind": "theorem",
+      "name": "Lemma 4.16: descent of hermitian representations to quasi-split unitary groups",
+      "statement": "For a hermitian isobaric Π of GL_m(A_E) and V of rank m with U(V) quasi-split, there is a cuspidal π of U(V)(A_F) which is unramified at the split primes where Π is, with base change of χ_{π_v} equal to χ_{Π_v} there; hence Π ≅ BC(π) and the base change of χ_{π_∞} is χ_{Π_∞}.",
+      "locator": "§4.4, Lemma 4.16 and proof, p. 41",
+      "status": "missing",
+      "note": "Existence by the Ginzburg–Rallis–Soudry descent; the archimedean statement by Theorem 4.14(4)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/60",
+      "kind": "theorem",
+      "name": "The Ginzburg–Rallis–Soudry automorphic descent",
+      "statement": "(Ginzburg–Rallis–Soudry, 2011) The descent from GL_m to classical and unitary groups constructs, for a hermitian isobaric Π, a cuspidal automorphic representation of the quasi-split unitary group whose unramified components correspond to those of Π.",
+      "locator": "§4.4, proof of Lemma 4.16, p. 41",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.5"
+      ],
+      "note": "ML.5 registers the Ginzburg–Rallis–Soudry descent among known transfers (as TwistedAutomorphicDescents, from PAPER-JIANG-ZHANG-20, imports it)."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/61",
+      "kind": "theorem",
+      "name": "Rankin–Selberg periods and central values for GL_n × GL_{n+1}",
+      "statement": "(Jacquet–Piatetski-Shapiro–Shalika) For cuspidal Π = Π_n ⊠ Π_{n+1}, the H′_1-period ∫_{H′_1(F)∖H′_1(A_F)} φ is the Rankin–Selberg zeta integral at s = ½; some cusp form with prescribed unramified components has nonzero period iff L(½, Π_n × Π_{n+1}) ≠ 0.",
+      "locator": "§4.4, proof of Theorem 1.8, p. 41",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "note": "AL.3 plans the GL_n × GL_m Rankin–Selberg integrals with their unfolding and unramified computation."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/62",
+      "kind": "theorem",
+      "name": "The endoscopic classification of unitary groups",
+      "statement": "(Mok; Kaletha–Minguez–Shin–White) The endoscopic classification of representations of quasi-split unitary groups and their inner forms, used for generic packets in the proof of Theorem 1.10 and for Lemma 4.9 at inert primes.",
+      "locator": "§4.2, Remark 4.10, p. 36; §4.4, proof of Theorem 1.10, p. 42",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "note": "ML.4 owns the Arthur/Mok/KMSW classification inputs."
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/63",
+      "kind": "theorem",
+      "name": "§4.4: proofs of Theorems 1.8–1.10 and Remark 4.17",
+      "statement": "(2) ⇒ (1): π^V is not CAP (Theorem 4.14(3)), so the argument of Proposition 4.13(a) with isolating multipliers compatible under base change gives I_Π(μ′⋆f′) ≠ 0, hence a nonzero H′_1-period and L(½, Π) ≠ 0. (1) ⇒ (2): with f′ from Flicker and Jacquet–Piatetski-Shapiro–Shalika, I_Π(f′) ≠ 0; descend χ′ = χ_{Π^T} to each V ∈ 𝔙_{(S)} (Lemma 4.16), isolate on both sides (Theorem 3.6, Lemma 4.12, Proposition 4.8), and run Propositions 4.1, 4.7, 4.2 to find π on some G^V with J_π(f^V) ≠ 0. Theorem 1.9 from the Burger–Sarnak trick and Theorem 4.14(2). Remark 4.17: in (2) one may also ask for archimedean compatibility and hyperspecial fixed vectors.",
+      "locator": "§4.4, pp. 41–42",
+      "status": "missing",
+      "note": ""
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Zydor, Les formules des traces relatives de Jacquet–Rallis grossières, J. reine angew. Math. 762 (2020), 195–259",
+      "link": "10.1515/crelle-2018-0027",
+      "why": "Théorèmes 5.9–5.10 and 6.6–6.7: the coarse Jacquet–Rallis relative trace formulas (Propositions 4.1–4.2), used for Schwartz test functions."
+    },
+    {
+      "citation": "P.-H. Chaudouard and M. Zydor, Le transfert singulier pour la formule des traces de Jacquet–Rallis, Compos. Math. 157 (2021), 303–434",
+      "link": "10.1112/S0010437X20007599",
+      "why": "Théorème 16.2.4.1: equality of the full geometric sides for complete smooth transfer (Proposition 4.7)."
+    },
+    {
+      "citation": "W. Zhang, Fourier transform and the global Gan–Gross–Prasad conjecture for unitary groups, Ann. of Math. 180 (2014), 971–1049",
+      "link": "10.4007/annals.2014.180.3.4",
+      "why": "Theorem 2.6 (nonarchimedean smooth transfer), Propositions 2.12 and 2.14 (positive-type test functions, the Burger–Sarnak trick), §3.1 (B′ ≅ B^V)."
+    },
+    {
+      "citation": "H. Xue, On the global Gan–Gross–Prasad conjecture for unitary groups: approximating smooth transfer of Jacquet–Rallis, J. reine angew. Math. 756 (2019), 65–100",
+      "link": "10.1515/crelle-2017-0016",
+      "why": "Theorem 2.7: archimedean smooth transfer on a dense subspace (Proposition 4.6)."
+    },
+    {
+      "citation": "Z. Yun, The fundamental lemma of Jacquet and Rallis (with an appendix by J. Gordon), Duke Math. J. 156 (2011), 167–227",
+      "link": "10.1215/00127094-2010-210",
+      "why": "The relative fundamental lemma (Remark 4.5)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, A new proof of the Jacquet–Rallis fundamental lemma, Duke Math. J. 170 (2021)",
+      "link": "10.1215/00127094-2020-0090",
+      "why": "The relative fundamental lemma in all residue characteristics (Remark 4.5)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, Plancherel formula for GL_n(F)∖GL_n(E) and applications to the Ichino–Ikeda and formal degree conjectures for unitary groups, Invent. Math. 225 (2021), 159–297",
+      "link": "10.1007/s00222-021-01032-6",
+      "why": "(5.5.3), (5.5.10), Theorems 5.4.1 and 5.4.3 and §5.7.3 (Lemma 4.9); the proof of Theorem 5 there, reused for Theorem 1.10."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, Comparison of local relative characters and the Ichino–Ikeda conjecture for unitary groups, J. Inst. Math. Jussieu 20 (2021), 1803–1854 (arXiv:1602.06538)",
+      "link": "10.1017/s1474748019000707",
+      "why": "§§3.1–3.4: the global relative characters I_Π, J_π and the transfer factors."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, A local trace formula for the Gan–Gross–Prasad conjecture for unitary groups: the Archimedean case, Astérisque 418 (2020)",
+      "link": "10.24033/ast.1120",
+      "why": "The local Gan–Gross–Prasad conjecture used in Lemma 4.9 and Theorem 1.10."
+    },
+    {
+      "citation": "P. Delorme, Formules limites et formules asymptotiques pour les multiplicités dans L²(G/Γ), Duke Math. J. 53 (1986), 691–731",
+      "link": "10.1215/S0012-7094-86-05338-X",
+      "why": "Théorème 1.7: multipliers of bi-K-finite functions for semisimple groups, extended in Appendix A."
+    },
+    {
+      "citation": "P. Delorme, Multipliers for the convolution algebra of left and right K-finite compactly supported smooth functions on a semisimple Lie group, Invent. Math. 75 (1984), 9–23",
+      "link": "10.1007/BF01403087",
+      "why": "Why compactly supported test functions admit too few multipliers (§1.1)."
+    },
+    {
+      "citation": "H. Donnelly, On the cuspidal spectrum for finite volume symmetric spaces, J. Differential Geom. 17 (1982), 239–253",
+      "link": "10.4310/jdg/1214436921",
+      "why": "Theorem 9.1: the distribution of cuspidal Casimir eigenvalues (Lemmas 3.12–3.13)."
+    },
+    {
+      "citation": "B. Kostant, On the tensor product of a finite and an infinite dimensional representation, J. Funct. Anal. 20 (1975), 257–285",
+      "link": "10.1016/0022-1236(75)90035-x",
+      "why": "Theorems 4.8–4.9: the Z(g)-module R_τ and the polynomial identity P_z(δ(z)) = 0 (Lemma 2.22)."
+    },
+    {
+      "citation": "B. Kostant and S. Kumar, The nil Hecke ring and cohomology of G/P for a Kac–Moody group G, Adv. Math. 62 (1986), 187–237",
+      "link": "10.1016/0001-8708(86)90101-5",
+      "why": "Lemma 4.9: difference operators preserving polynomials (Lemma 2.23)."
+    },
+    {
+      "citation": "Harish-Chandra, Harmonic analysis on real reductive groups. I. The theory of the constant term, J. Funct. Anal. 19 (1975), 104–204",
+      "link": "10.1016/0022-1236(75)90034-8",
+      "why": "Infinitesimal characters of tempered representations (Proposition 2.24)."
+    },
+    {
+      "citation": "Harish-Chandra, Harmonic analysis on real reductive groups. III. The Maass–Selberg relations and the Plancherel formula, Ann. of Math. 104 (1976), 117–201",
+      "link": "10.2307/1971058",
+      "why": "The Plancherel formula for real reductive groups (Proposition 2.24)."
+    },
+    {
+      "citation": "N. R. Wallach, Asymptotic expansions of generalized matrix entries of representations of real reductive groups, in Lie Group Representations I, Lecture Notes in Math. 1024 (1983), 287–369",
+      "link": "10.1007/BFb0071436",
+      "why": "§§2.5–2.6: the Schwartz algebra S(G) and its action on representations of moderate growth."
+    },
+    {
+      "citation": "A. Aizenbud and D. Gourevitch, The de-Rham theorem and Shapiro lemma for Schwartz functions on Nash manifolds, Israel J. Math. 177 (2010), 155–188",
+      "link": "10.1007/s11856-010-0042-9",
+      "why": "Corollary 2.6.3: Schwartz spaces of products are completed tensor products (Lemma A.2, §4.2)."
+    },
+    {
+      "citation": "Y. Sakellaridis, Transfer operators and Hankel transforms between relative trace formulas, I: Character theory, Adv. Math. 394 (2022), 108010 (arXiv:1804.02383)",
+      "link": "10.1016/j.aim.2021.108010",
+      "why": "Theorem 2.1.2: multipliers on the centre (Appendix A)."
+    },
+    {
+      "citation": "Y. Z. Flicker, Twisted tensors and Euler products, Bull. Soc. Math. France 116 (1988), 295–313",
+      "link": "10.24033/bsmf.2099",
+      "why": "Distinction by GL_m(A_F) versus poles of Asai L-functions (Proposition 4.13, Theorem 1.8)."
+    },
+    {
+      "citation": "D. Ramakrishnan, A theorem on GL(n) à la Tchebotarev, arXiv:1806.08429",
+      "link": "arXiv:1806.08429",
+      "why": "Theorem A: strong multiplicity one from agreement at the split places (Definition 1.6, Theorem 1.8)."
+    },
+    {
+      "citation": "E. Lindenstrauss and A. Venkatesh, Existence and Weyl's law for spherical cusp forms, Geom. Funct. Anal. 17 (2007), 220–251",
+      "link": "10.1007/s00039-006-0589-0",
+      "why": "The idea behind the mixed multipliers of Proposition 3.17."
+    },
+    {
+      "citation": "R. N. Harris, The refined Gross–Prasad conjecture for unitary groups, Int. Math. Res. Not. IMRN 2014, 303–389",
+      "link": "10.1093/imrn/rns219",
+      "why": "Conjecture 1.2: the Ichino–Ikeda conjecture for unitary groups (Theorem 1.10)."
+    },
+    {
+      "citation": "A. Ichino and T. Ikeda, On the periods of automorphic forms on special orthogonal groups and the Gross–Prasad conjecture, Geom. Funct. Anal. 19 (2010), 1378–1425",
+      "link": "10.1007/s00039-009-0040-4",
+      "why": "The original refined conjecture that Harris adapts to unitary groups."
+    },
+    {
+      "citation": "W. Müller, The trace class conjecture in the theory of automorphic forms, Ann. of Math. 130 (1989), 473–529",
+      "link": "10.2307/1971453",
+      "why": "Theorem 0.1, for the refinement of Theorem 3.19 by Langlands components (Remark 3.20)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "AutomorphicSpectralTheory",
+      "roadmap": "AutomorphicSpectralTheoryPartIISchwartzMultipliers",
+      "title": "Automorphic spectral theory and trace distributions, Part II: Schwartz multipliers and the isolation of cuspidal spectrum",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/1",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/2",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/10",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/11",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/12",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/13",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/14",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/15",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/17",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/18",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/19",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/20",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/21",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/22",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/23",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/24",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/25",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/26",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/27",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/28",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/29",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/30",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/31",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/34",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/35",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/36",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/37",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/38",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/39",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/40",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/41"
+      ],
+      "brief": "Part II of Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory). It starts where that roadmap stops: AS.0–AS.4 build the functional analysis, Eisenstein series and the spectral decomposition of L² over cuspidal data, with compactly supported test functions; this Part II adds Schwartz test functions, their multipliers and the isolation of prescribed cuspidal components. Source: Beuzart-Plessis–Liu–Zhang–Zhu, 'Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture' (Ann. of Math. 194 (2021), 519–584; arXiv:1912.07169), §§2–3 and Appendix A. Final theorems, as the paper states them. Theorem 2.13: for G connected reductive over R and every μ ∈ M_{θ∪{1}}(h*_C)^W there is a unique linear μ⋆ : S(G) → S(G) with π(μ⋆f) = μ(χ_π)π(f) for all irreducible admissible π (a continuous multiplier preserving bi-K-finite functions). Theorem 3.6: for a T-character χ that is not (G, T)-CAP there is a T-multiplier μ with μ(χ) = 1 such that R(μ⋆f) maps L²(G(F)∖G(A_F)/K, ω) into L²_cusp(G(F)∖G(A_F)/K, ω)[χ] for all f ∈ S(G(A_F))_K. Theorem 3.7: for every χ, the same into L²_cusp[χ] from L²_cusp. Theorem 3.19: for every χ there is μ with μ(χ) = 1 whose R(μ⋆f) has image in the finite sum of cuspidal components L²_{(M,σ)} in which χ occurs. Theorems 1.1 and 1.3 (the nearly isotypic and Res_{F′/F}GL_n cases); Proposition A.1 (Delorme's multipliers on bi-K-finite C_c^∞ functions for reductive groups). Cover, in this order: (1) entire functions with prescribed zeros: Weierstrass products of finite rank and moderate vertical growth (Definitions 2.1, 2.3, Lemma 2.2, Proposition 2.4, Corollaries 2.5–2.6); (2) the spaces M_θ, N_θ, M^♯_θ attached to a root datum and the set θ of a real form, θ_G from maximal tori, and Lemmas 2.10, 2.19 (Definition 2.8, Remarks 2.9, 2.14–2.17); (3) the Schwartz algebra S(G) of a real reductive group (Wallach), with its L²-Sobolev description and relation to Harish-Chandra's L^p-Schwartz spaces; (4) Harish-Chandra's Plancherel formula and the infinitesimal characters of tempered representations; Delorme's theorems (1984, 1986) and Proposition A.1 with Lemma A.2 (Paley–Wiener on split tori, Aizenbud–Gourevitch tensor products, Sakellaridis on the centre, Trèves); (5) difference operators on holomorphic functions (Lemmas 2.20, 2.21, 2.23, after Kostant–Kumar) and Kostant's tensor-product theorems with Lemma 2.22; (6) Proposition 2.24, Lemma 2.25 and Theorem 2.13, with minimal K-types and Lemma 2.18; (7) the adelic setup: Schwartz test functions, quasi-cuspidal functions, T-characters, CAP characters and T-multipliers (Definitions 3.1–3.5); (8) χ_∞-typical data, Donnelly's bound, Lemmas 3.12–3.14 and Proposition 3.15; (9) Definition 3.16, Proposition 3.17 (the Lindenstrauss–Venkatesh-style mixed multipliers), Theorem 3.19, Theorems 3.6–3.7, 1.1, 1.3 and Remark 3.20 (the refinement by Langlands components with Müller's trace class theorem). Import from: Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.0, AS.1 and AS.4, for the functional analysis, induced families and the decomposition of L² over cuspidal data; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1–AF.3, for (g, K)-modules, the Harish-Chandra isomorphism and infinitesimal characters, Casselman–Wallach globalisation, automorphic forms, finiteness at fixed level and K-types, and cusp forms; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.4, for spherical Hecke algebras; Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), for root data and real forms.",
+      "reason": "AutomorphicSpectralTheory owns the automorphic L²-spectrum and its decomposition over cuspidal data (AS.4), but only for compactly supported test functions; the Schwartz algebra, its multipliers and the isolation of cuspidal components extend that roadmap in its own direction and are used by every relative trace formula that needs cuspidal test functions (here Jacquet–Rallis; later papers in the queue by Beuzart-Plessis–Chaudouard–Zydor use the same device). Real harmonic analysis on S(G) (Harish-Chandra's Plancherel formula, Delorme's multipliers) is not planned anywhere and is only needed here, so it is planned in this Part II rather than in AF.1, which stops at (g, K)-modules and their globalisation."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EndoscopicTransferAndUnitaryTraceComparison",
+      "roadmap": "JacquetRallisRelativeTraceComparison",
+      "title": "Endoscopic transfer and unitary trace comparison, Part II: Jacquet–Rallis relative transfer and Weil-equivariant trace comparison",
+      "area": "modular",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/5",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/6",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/7",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/42",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/43",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/44",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/45",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/46",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/47",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/48",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/49",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/50",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/51",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/52",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/53",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/54",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/55",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/56",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/57",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/58",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/59",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/63"
+      ],
+      "brief": "This route coalesces with JacquetRallisRelativeTraceComparison, proposed by PAPER-ZHANG-21 (W. Zhang, Weil representation and arithmetic fundamental lemma); keep its id, title, parent, area and brief. That brief plans the Jacquet–Rallis relative quotients, matching, orbital integrals with transfer factors, local smooth and partial transfer, the partially linearised relative trace formula and the group and semi-Lie fundamental lemma. Beuzart-Plessis–Liu–Zhang–Zhu, 'Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture' (Ann. of Math. 194 (2021), 519–584; arXiv:1912.07169), §4 and §1.2, adds a global spectral layer on top of it. Final theorems of that layer, as the paper states them. Theorem 1.8: for hermitian cuspidal Π_n, Π_{n+1} of GL_n(A_E), GL_{n+1}(A_E), L(½, Π_n × Π_{n+1}) ≠ 0 iff there are hermitian spaces V_n ⊂ V_{n+1} = V_n ⊕ Ee (e of norm 1), cuspidal π_m ⊆ A_cusp(U(V_m)) with BC(π_m) ≅ Π_m and cusp forms φ_m with ∫_{U(V_n)(F)∖U(V_n)(A_F)} φ_nφ_{n+1} ≠ 0 (Tamagawa measure). Theorem 1.9: every hermitian cuspidal Π_{n+1} admits a hermitian cuspidal Π_n with L(½, Π_n × Π_{n+1}) ≠ 0. Theorem 1.10: the Ichino–Ikeda conjecture for everywhere tempered pairs as in Theorem 1.8(2). Theorem 4.14: weak automorphic base change for unitary groups ((1) exists when π_v is generic at infinitely many split primes; (2) exists, cuspidal and hermitian, when π is supercuspidal at a split prime; (3) a hermitian base change forces π not CAP for any pure inner form; (4) then the archimedean infinitesimal characters match), proved without the endoscopic classification. Also Proposition 4.13 and Lemma 4.16. Add, after the candidate's local layers: (1) the global relative characters I_Π, J_π (Beuzart-Plessis) and Zydor's coarse relative trace formulas for quasi-cuspidal Schwartz test functions (Propositions 4.1–4.2); (2) smooth transfer in the global sense of Definition 4.4 with relative hyperspecial subgroups, existence of transfer on dense subspaces (W. Zhang, Xue; Proposition 4.6) and the relative fundamental lemma in all residue characteristics (Yun; Beuzart-Plessis), sharing the candidate's matching and transfer factors; (3) Chaudouard–Zydor's singular transfer (Proposition 4.7); (4) Beuzart-Plessis's local Plancherel formulas and comparison of relative characters, Lemma 4.9 and Remark 4.10; (5) base change of multipliers and Proposition 4.8, Proposition 4.11 (Gaussian test functions, consistent with the candidate's corrected Gaussians), Lemma 4.12; (6) positive-type test functions, the Burger–Sarnak trick, Flicker's Asai criterion and strong multiplicity one; (7) Proposition 4.13 and Theorem 4.14; (8) Lemma 4.16 with the Ginzburg–Rallis–Soudry descent, and the proofs of Theorems 1.8–1.10 (Remark 4.17). Treat as a proof obligation the archimedean compatibility in Proposition 4.13(1) when the weak base change is not cuspidal (sourceIssues E1): run the argument with the isolating multiplier of Theorem 3.19 on the general linear side, whose image is zero if the character occurs in no cuspidal datum. State as cited theorems, with their exact hypotheses, the extensions of Zydor's and Chaudouard–Zydor's results from C_c^∞ to Schwartz test functions, which the paper asserts without proof. Additional imports: The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20 and extended by this extraction) for hermitian representations, weak base change, the global and refined (Ichino–Ikeda) conjectures and the local Gan–Gross–Prasad theorems; Automorphic spectral theory and trace distributions, Part II: Schwartz multipliers and the isolation of cuspidal spectrum (AutomorphicSpectralTheoryPartIISchwartzMultipliers, proposed here) for multipliers and isolation; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3 for Rankin–Selberg integrals; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4 for Mok's and Kaletha–Minguez–Shin–White's classification and ML.5 for the Ginzburg–Rallis–Soudry descent; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.4.",
+      "reason": "PAPER-ZHANG-21 proposed JacquetRallisRelativeTraceComparison as the owner of Jacquet–Rallis relative transfer and trace comparison, a Part II of EndoscopicTransferAndUnitaryTraceComparison; the Jacquet–Rallis setup, smooth transfer and the fundamental lemma used here are its local layers, and the global coarse trace formulas, the comparison of geometric sides and the spectral applications to Gan–Gross–Prasad are the same comparison carried to the spectral side, so they coalesce there rather than in a second roadmap. The route keeps the candidate's area value 'modular', which is the parent roadmap's group and not a galaxy id in data/galaxies.json; the review should correct it on both routes together (automorphic is the natural galaxy)."
+    },
+    {
+      "route": "new",
+      "roadmap": "GanGrossPrasadConjecturesForClassicalGroups",
+      "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+      "area": "automorphic",
+      "items": [
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/3",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/4",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/8",
+        "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/9"
+      ],
+      "brief": "This route coalesces with GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20; keep its id, title, area and brief. Beuzart-Plessis–Liu–Zhang–Zhu (Ann. of Math. 194 (2021)) is one of the consumers that brief anticipates. It adds to the candidate's targets, for U(n) × U(n+1) (Bessel periods with ℓ = 0): hermitian isobaric representations of GL_n(A_E) (Definition 1.5: isobaric sums of distinct conjugate self-dual cuspidals with L(s, Π_i, As^{(−1)^n}) regular at s = 1); weak automorphic base change through the split places (Definition 1.6) and its uniqueness; the refined (Ichino–Ikeda) conjecture in R. N. Harris's formulation (IMRN 2014, Conjecture 1.2), which the brief reserves for the first consumer that needs it; and the local Gan–Gross–Prasad theorem for tempered unitary pairs (Beuzart-Plessis, Astérisque 418), with the injectivity of the local Jacquet–Langlands map on relevant tempered representations. The proofs of the stable-case global conjecture and of the refined conjecture belong to the consumer, JacquetRallisRelativeTraceComparison (proposed by PAPER-ZHANG-21 and extended by this extraction); record there that they are proved in the stable case.",
+      "reason": "PAPER-JIANG-ZHANG-20 proposed GanGrossPrasadConjecturesForClassicalGroups as the single owner of the Gan–Gross–Prasad framework and named this paper among its consumers; the definitions and the conjectures this paper states or cites belong there."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E1",
+      "kind": "gap",
+      "locator": "§4.3, proof of Proposition 4.13, p. 39",
+      "printed": "Suppose that weak automorphic base change of π^V does not exists. Then χ′ is not (G′, T)-CAP and L²_cusp(G′(F)∖G′(A_F)/K′, 1)[χ′] = {0}. … However, this is a contradiction since the image of R(μ′⋆f′) is contained in L²_cusp(G′(F)∖G′(A_F)/K′, 1)[χ′], which is zero. Therefore, 𝔇(G′, 1)^♥_{χ′} ≠ ∅, that is, weak automorphic base change of π^V exists. … For (1), it follows from the fact that 𝔇(G′, 1)^♥_{χ′} ≠ ∅.",
+      "correction": "Suppose instead that 𝔇(G′, 1)^♥_{χ′} = ∅, and take μ′ from Theorem 3.19 (for G′ and χ′) rather than Theorem 3.6. Then R(μ′⋆f′) = 0, so μ′⋆f′ is quasi-cuspidal and every I_{Π̃}(μ′⋆f′) vanishes, while the unitary side still gives a nonzero sum (Proposition 4.2 with Theorem 3.6 in case (a), or the supercuspidal component in case (b)). This contradiction gives 𝔇(G′, 1)^♥_{χ′} ≠ ∅, which is existence together with (1).",
+      "reason": "The contradiction as written rules out only 'weak base change does not exist', which by Definition 1.6 concerns the split places. 𝔇(G′, 1)^♥_{χ′} ≠ ∅ says more: some cuspidal datum realises χ′ including its archimedean component χ′_∞, the base change of χ_{π^V_∞}, and that is statement (1). The two differ when BC(π^V) exists but is not cuspidal, for example an endoscopic π^V, which is not CAP (case (a)) but has an isobaric-sum base change. Then χ′ is (G′, T)-CAP, Theorem 3.6 does not apply, and nothing in the written argument reaches the archimedean component. Theorem 4.14(4) (hermitian, possibly non-cuspidal, base change) and the archimedean assertion of Lemma 4.16 rest on (1) in exactly this case. Theorems 1.8–1.10 use only cuspidal Π_m, where the written argument suffices.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E2",
+      "kind": "misprint",
+      "locator": "§2.1, Definition 2.3, p. 9, and Remark 2.7, p. 10",
+      "printed": "Let μ be a holomorphic function on U_C. We say that μ has moderate vertical growth if for every M > 0, there exists r_M ∈ R such that sup_{‖Re z‖<M} |ν(z)|·(1 + ‖z‖)^{r_M} < ∞ … (Remark 2.7) we may even require μ in Corollary 2.5 and Corollary 2.6 to have exponential decay on vertical strips.",
+      "correction": "… sup_{‖Re z‖<M} |μ(z)|·(1 + ‖z‖)^{r_M} < ∞ … (Remark 2.7) we may even require ν in Corollary 2.5 and Corollary 2.6 …",
+      "reason": "The function being defined is μ; the functions in Corollaries 2.5–2.6 are called ν.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E3",
+      "kind": "misprint",
+      "locator": "§2.4, proof of Theorem 2.13, p. 21",
+      "printed": "By Definition 2.8(2), for every M > 0, we may choose r_M ∈ R such that p_{ϑ,M,r_M}(μ) < ∞ holds for every ϑ ∈ θ ∪ {1}.",
+      "correction": "By Definition 2.8(1), …",
+      "reason": "μ ∈ M_{θ∪{1}}(h*_C)^W, the space of Definition 2.8(1) (moderate growth); Definition 2.8(2) defines N_θ (rapid decay), where the bound holds for every r.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E4",
+      "kind": "misprint",
+      "locator": "§2.4, proof of Lemma 2.21, (2.2) and the next display, p. 15",
+      "printed": "|μ(α+ϖ)/ℓ_s(α+ϖ)| ⩽ 2 sup_{|u|⩽1} ‖μ(α + uα_s + ϖ)‖. (2.2) Choose C_{s,M,r} > 0 so that 2(1 + ‖α+ϖ‖)^r ⩽ C_{s,M,r}·min_{u∈C^×,|u|=1} (1 + ‖α + uα_s + ϖ‖)^r",
+      "correction": "… 2 sup_{|u|⩽1} |μ(α + uα_s + ϖ)| (2.2); choose C_{s,M,r} so that 2(1 + ‖α+ϖ‖)^r ⩽ C_{s,M,r}·min_{|u|⩽1} (1 + ‖α + uα_s + ϖ‖)^r",
+      "reason": "The supremum in (2.2) runs over the closed disc |u| ≤ 1, so the comparison of weights needs the minimum over the same disc; such a constant exists for the same reason. μ is scalar-valued, so ‖·‖ in (2.2) is the absolute value.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E5",
+      "kind": "misprint",
+      "locator": "§3.4, Theorem 3.19(1), p. 29",
+      "printed": "is contained in ⨁_{(M,σ)∈𝔇(G,ω)^♥_χ} L²_{(M,σ)}(G(F)∖G(A_F)/K, ω) under the decomposition (3.9)",
+      "correction": "… under the decomposition (3.2)",
+      "reason": "(3.9) is Definition 3.9, not a decomposition (the TeX has \\eqref{de:component}); the decomposition of L²(G(F)∖G(A_F)/K, ω) into cuspidal components is (3.2).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E6",
+      "kind": "misprint",
+      "locator": "§4.1, after (4.4), p. 32",
+      "printed": "In general, the distribution I_γ is a certain regularization of relative orbital integrals, whose precise definition is complicated and will not be used in our later discussion, hence we will not recall. The following proposition is Zydor's extension of the Jacquet–Rallis trace formula for G^V.",
+      "correction": "In general, the distribution J_{δ^V} is …",
+      "reason": "The paragraph concerns the unitary distributions J_{δ^V} of (4.4) (Zydor, Théorème 6.6); the sentence is copied from the corresponding paragraph for G′.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E7",
+      "kind": "misprint",
+      "locator": "§4.2, proof of Proposition 4.11, p. 37",
+      "printed": "By Proposition 4.6(2), we may find an element f^V_1 ∈ S_tr(G^V(F)) satisfying J_{π_0}(f^V) = 1",
+      "correction": "… satisfying J_{π_0}(f^V_1) = 1",
+      "reason": "f^V is the given function, already normalised by J_{π_0}(f^V) = 1; the new function chosen from the dense subspace is f^V_1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E8",
+      "kind": "misprint",
+      "locator": "Appendix A, Proposition A.1, p. 43",
+      "printed": "For every element μ ∈ N(h*_C), there is a unique linear operator μ⋆ : C_c^∞(G)_{(K)} → S(G)_{(K)}, such that π(μ⋆f) = μ(χ_π)·π(f) …",
+      "correction": "For every element μ ∈ N(h*_C)^W, …",
+      "reason": "μ(χ_π) is defined only for W-invariant μ (χ_π is a W-orbit), and the next sentence and the proof construct the bilinear map on N(h*_C)^W × C_c^∞(G)_{(K)}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21/E9",
+      "kind": "misprint",
+      "locator": "Appendix A, proof of Proposition A.1, display before (A.6), p. 45",
+      "printed": "µ⋆ : C^∞_Ω(G^0)_{(𝔗)} ≃ (C^∞_{Ω_Z}(Z^0)_{(𝔗_Z)} ⊗̂ C^∞_{Ω_der}(G^0_der)_{(𝔗_der)})^{Z^0_der} → (S(G^0_der)_{(𝔗_Z)} ⊗̂ S(Z^0)_{(𝔗_der)})^{Z^0_der} → S(G^0)_{(𝔗)}",
+      "correction": "… → (S(Z^0)_{(𝔗_Z)} ⊗̂ S(G^0_der)_{(𝔗_der)})^{Z^0_der} → …",
+      "reason": "μ_1⋆ maps into S(Z^0)_{(𝔗_Z)} and μ_2⋆ into S(G^0_der)_{(𝔗_der)}; the printed target swaps both the factors and their K-type subscripts.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.4007/annals.2021.194.2.5: no correction, erratum, update-to or relation entries (23 September 2026)",
+        "arXiv 1912.07169: v3 (19 June 2021) is the last version and is the authors' final text for the Annals; the Annals PDF (paywalled) was not compared"
+      ]
+    }
+  ]
+}
