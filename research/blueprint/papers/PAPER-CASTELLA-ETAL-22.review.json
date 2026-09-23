@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-CASTELLA-ETAL-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "BSD.7a owns the Eisenstein-prime main-conjecture proofs (residual-character comparison, μ = 0, local Euler factors, congruences) and BSD.7 the Eisenstein BSD formulas; §§1–2, Theorem C, Corollary D, the control theorem, Greenberg–Vatsal and Theorem F are sources for both. Items 12, 15, 16, 30, 31, 39 are corrected in place (E34–E38)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "HE.8/HE.8b own the anticyclotomic Heegner classes, Howard's divisibility and the Heegner/BDP comparison; Theorems 4.1.1–4.1.2 and Proposition 4.2.1 are their residually reducible branch. Item 26 now states the §3.2 hypotheses (D_K prime to Np)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ES.4 owns error-tolerant Kolyvagin-system bounds and ES.8 their Iwasawa variation, which is what §3 proves. Items 17, 19–21 and 24 are corrected; the citations to Howard and Mazur–Rubin are fixed (E22–E24) and the missing control at γ − 1 recorded (E32)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "SelmerIwasawaCohomology L3 owns local Iwasawa cohomology and control; the local computations of §1.1 are general facts of that kind."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "PadicMeasuresIwasawaAlgebras L4 owns Weierstrass theory and module structure; Lemma 1.1.2 is a module-structure lemma."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "AutomorphicPadicLFunctions L3h owns the anticyclotomic μ = 0 theorems proved by the CM-integrality method; Hida's theorem for Katz p-adic L-functions belongs with it. Item 10 now records that Hida's hypotheses hold here."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "ST.5 is the accepted home of BKLOS's 3-isogeny Selmer statistics (PAPER-BURUNGALE-TIAN-26). Item 36 now says that the local-conditions version the paper needs follows from BKLOS Thm. 2.1, not Thm. 2.6 (E2)."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Coalesces with PAPER-BURUNGALE-TIAN-26's CMAllPrimeMainConjectures (same id, parent, title and area); Rubin's anticyclotomic character components belong there. The brief already asks for L_ψ tamely ramified at p (E3)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Coalesces with the RankOneConverse Part II of PAPER-SKINNER-20 (same id, parent, title and area). The brief is narrowed: Corollary 5.2.3 only for curves with a twist of good reduction at 3, via the BKLOS subfamily version; Remark 5.2.4's 41.6%/25% not to be stated (E33); the Cassels–Tate step for Corollary 5.2.2 (E39)."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-39fac3 (issue #1286).\n\nSources read:\n- the whole of arXiv v2, with the same PDF and TeX SHA-256 as the extraction. Unpaywall lists only the arXiv copy.\n- the texts of Howard (The Heegner point Kolyvagin system) and Mazur–Rubin (Kolyvagin systems), for the citations of §3;\n- BKLOS (Duke 2019) and Hida (Ann. of Math. 2010), for Corollary 5.2.3 and item 10.\n\nMethod: three read-only helper agents of this session split the paper (Introduction and §1; §3; §§2, 4–5). They recomputed the §0.3 examples, the BSD bookkeeping of §5 on an explicit rank-one curve at p = 5, and the §3 algebra in PARI and Python. The reviewer checked every finding and every change at the page image or in the text.\n\nSource issues: E1–E13 confirmed. E1, E2, E3, E7 and E9 are refined in place, and E8 and E11 now affect the proof. E14–E41 added: 1 error in a stated result (E33, Remark 5.2.4's proportions), 1 gap in a stated result (E34, Corollary D's missing p ∤ D_K), 7 gaps in definitions, proofs or citations (two affecting the proof: E14 λ, μ on Λ^ur and E32 control at γ − 1) and 19 misprints.\n\nItems corrected in place: 2–5, 7–10, 12, 13, 15–17, 19–21, 24–26, 30, 31, 36–39. Statuses unchanged: item 1's Mathlib names (Weierstrass preparation, with uniqueness) and every planned stage id and anchor were checked against the pinned Mathlib and data/atlas.json.\n\nEvery missing item is routed exactly once (29). check_paper.py reports ok."
+}
