@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BROWNING-SAWIN-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Polarization, coefficient-count identities, iterative shrinking and the uniform minor-arc bound are sources for ES.0–ES.1."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Artin–Schreier sheaves, the Fourier input and Lang–Weil belong to FF.2."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The spectral-sequence carrier belongs to LI.3."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ES.0–5 develops numerical estimates, not compact-support complexes of mapping spaces; the Part II is justified and its title has the parent prefix. The review added eight missing items (among them the smooth projective closure and geometric irreducibility of X, which the paper uses without proof, the relative major-arc spectral sequence, fibre-dimension stratification, and the compact-open counterexample to Conjecture 7.1 at j = 1)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "GN.0–GN.1 are real Euclidean; the ultrametric shrinking lemmas extend the parent in its own direction."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "LPV.5 proves only the odd-dimensional symplectic case; the review added the geometric monodromy group of a lisse sheaf."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The Tau Ceti algebraic-topology roadmap owns ordinary topology but not configuration spaces or rational loop spaces; this Part II extends it without re-planning it. The review added the Euler products for squarefree and monic polynomials and the invariant-dimension formula for S_m-twisted tensor powers, and found the extraction's topology analysis of §7 (items 120–136) sound."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5 and Codex sessions a71f92 and c83e7a. The extraction read arXiv v3; the review read the published version (Ann. of Math. 191 (2020), 893–948, free on the Annals site) in full with three checkers and compared it with the v3 TeX, giving every item its published locator. Statements: 8 corrected (schreier, goodarciso, universalmonodromy, stalkminor, smallcounter (n ≥ 3), Nbound (k ≥ 3), tracepairingconjecture, conditionaldegeneration). All library citations exist at the pinned commits. All 33 of the extraction's corrected, conservative-repair, gate and continuation items are sound; in particular its topology analysis (items 120–136) correctly shows that Lemma 7.2 fails for the compact-open reading of the germ space (for k = 3, d = 2, n = 40, π₁ of the mapping space surjects onto Z while Ω²X is simply connected), and the review adds that Conjecture 7.1 also fails there at j = 1. 13 new items (2 planned, 11 missing). All 28 existing source issues confirmed and still present in print (E6, E8 and E20 reclassified to affect nothing; E2 is sharper: the printed argument for Proposition 2.6 works only for (k, d) = (3, 2)). 18 new source issues: the p. 898 claim that 2(n−2)(n−3)−1 cohomology groups are computed is false for typical d; Lemma 4.4 needs 0 ≤ m ≤ d (like E16); geometric irreducibility of X is used but never proved (true: X̄ is a smooth projective hypersurface); a non-emptiness gap in Remark 1.5; and misprints."
+}
