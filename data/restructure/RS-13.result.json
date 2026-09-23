@@ -1,0 +1,106 @@
+{
+  "family": "RS-13",
+  "roadmaps": {
+    "AutomorphicLFunctionsAndLocalFactors": {
+      "action": "keep",
+      "reason": "The analytic constructions AL.0-AL.5 have independent local and adelic content and existing consumers outside this family. They are not subsumed by motivic period assembly. Preserve all stage IDs, scope restrictions and existing imports; specialize existing library and Tau Ceti constructions rather than rebuilding them."
+    },
+    "PeriodsAndSpecialValues": {
+      "action": "keep",
+      "reason": "PS.0 and PS.2-PS.9 own comparison-period, regulator, integral fundamental-line, equivariant, BSD, certified-computation, mirror and multiple-zeta assembly not supplied by the analytic roadmap. Narrow PS.1 to motivic constructions and comparison adapters, importing the overlapping analytic and arithmetic special-value inputs. Neither whole roadmap is an extension or replacement of the other."
+    }
+  },
+  "layers": {
+    "AutomorphicLFunctionsAndLocalFactors:AL.1": {
+      "action": "keep",
+      "reason": "Keep Tate local zeta integrals, rationality at finite places, archimedean meromorphy, L/epsilon/gamma factors, ramification/conductors/Gauss sums, and the global Euler product, continuation and functional equation including trivial-character poles. This owns the analytic GL1 inputs imported by PS.1, not motivic period algebraicity."
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.4": {
+      "action": "keep",
+      "reason": "Keep Satake/L-group unramified Euler polynomials and their functoriality, partial products with supplied convergence bounds, and comparisons under an actual proved local-compatibility theorem. PS.1 constructs a different, motivic completion from admitted Galois/Weil-Deligne data; the flagged pair is a handoff, not duplicate construction. Neither stage gains general local Langlands or general analytic continuation."
+    },
+    "AutomorphicLFunctionsAndLocalFactors:AL.5": {
+      "action": "keep",
+      "reason": "Keep the complex/formal local-polynomial interfaces, finite Euler corrections, the scoped GL2/Rankin normalization and algebraicity inputs, conductor/test-vector/twist comparisons and explicit zero-factor limiting/derivative results. Source-specific p-adic constructions remain with their existing owners; this is not a motivic period-comparison theorem."
+    },
+    "PeriodsAndSpecialValues:PS.1": {
+      "action": "narrow",
+      "keeps": "Construct completed motivic L-functions from admitted local Weil-Deligne/Galois realization data with all compatibility hypotheses visible. Derive critical integers using simultaneous regularity of the infinity factor and its dual factor. Retain Deligne-type statements with signs, Tate twists, powers of 2 pi i, coefficient embeddings, rationality field and Galois equivariance. Distinguish the finite L-value in the Deligne formula from the completed L-value. Prove the Dirichlet/Tate motivic comparison adapters using PS.0 period computations and the imported analytic and Bernoulli/Gauss special-value identities; those identities are not reconstructed here. Retain the separately sourced modular-form motivic comparison adapters, including the actual identification of automorphic rational structures/periods with the chosen Betti/de Rham periods before transporting the AL.5 formula. Retain all ramified and primitive/imprimitive corrections through imported formulas, exact-versus-up-to-unit distinctions, basis/embedding compatibility and the original acceptance tests. General Deligne assertions remain conditional, and algebraicity never supplies nonvanishing.",
+      "suppliedBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "DirichletPadicLFunctions:L0"
+      ],
+      "reason": "Remove only duplicate construction/proof of Tate analytic factors and functional equations, the scoped automorphic GL2/Rankin normalization/correction identities, and generalized-Bernoulli Dirichlet algebraicity. AL.1, AL.5 and DirichletPadicLFunctions:L0 supply these respectively; all motivic constructions and comparison proofs remain here. The existing AL.4 comparison input is retained, not promoted to a supplier of arbitrary ramified Weil-Deligne or motivic factors. PS.7 is the only recorded consumer of PS.1 and receives direct replacement supplier links."
+    }
+  },
+  "links": [
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "PeriodsAndSpecialValues:PS.1",
+      "reason": "Retain existing input: Tate analytic L/epsilon/gamma factors and functional equations in the admitted GL1 cases; not Dirichlet period algebraicity."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+      "target": "PeriodsAndSpecialValues:PS.1",
+      "reason": "Retain existing input: unramified Satake/Euler comparison only under its actual local-compatibility hypotheses. This is a comparison between distinct constructions, not a replacement of the motivic or ramified factors."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "target": "PeriodsAndSpecialValues:PS.1",
+      "reason": "Retain existing input: scoped GL2/Rankin critical-value normalization and ramified/imprimitive corrections; the motivic period-identification adapter remains in PS.1."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L0",
+      "target": "PeriodsAndSpecialValues:PS.1",
+      "reason": "Add the missing arithmetic input: generalized Bernoulli numbers, primitive-character Gauss identities and algebraic-to-complex Dirichlet special-value comparisons. PS.1 transports these through actual motivic period comparisons."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "target": "PeriodsAndSpecialValues:PS.7",
+      "reason": "Direct replacement input for the analytic GL1 factors, functional equation and pole conventions formerly reachable through the overlapping part of PS.1; numerical algorithms and error bounds remain in PS.7."
+    },
+    {
+      "source": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "target": "PeriodsAndSpecialValues:PS.7",
+      "reason": "Direct replacement input for scoped automorphic normalization and explicit local correction factors formerly reachable through PS.1; no cancellation of vanishing factors and no unproved algebraicity."
+    },
+    {
+      "source": "DirichletPadicLFunctions:L0",
+      "target": "PeriodsAndSpecialValues:PS.7",
+      "reason": "Direct replacement input for exact Dirichlet algebraic factors and character-conductor comparisons formerly included in PS.1; PS.7 still imports PS.1 for the motivic period identification."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Analytic Tate/GL1 local L, epsilon and real/complex gamma factors, with ramified-character computations and global functional equation in the admitted Tate cases (not motivic period algebraicity).",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "formerly": [
+        "PeriodsAndSpecialValues:PS.1"
+      ]
+    },
+    {
+      "target": "The scoped complex/formal GL2 and Rankin critical-value normalization interface and its primitive/imprimitive and ramified local corrections, as inputs to a separately proved motivic-period comparison.",
+      "owner": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "formerly": [
+        "PeriodsAndSpecialValues:PS.1"
+      ]
+    },
+    {
+      "target": "The algebraic-to-complex comparison of Dirichlet special values, L(χ, 1−n) = −B_{n,χ}/n with the primitive-character Gauss and conductor identities it uses; the Deligne motivic specialization in PS.1 is an adapter, not this comparison. Where the generalized Bernoulli quantities themselves are defined is left to RS-14, which proposes the Tau Ceti ModularForms layer 0 and keeps this comparison in L0.",
+      "owner": "DirichletPadicLFunctions:L0",
+      "formerly": [
+        "PeriodsAndSpecialValues:PS.1"
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-13",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was ChatGPT Pro, session astra-20260921-f6b2d8. The reviewer read both member documents and all sixteen layer descriptions, the six family leads, PS.1's audited targets, DirichletPadicLFunctions L0 and KU-zeta, every recorded consumer of PS.1, AL.1, AL.4 and AL.5, and the neighbouring proposals RS-07 (accepted), RS-14 and RS-21. Duplication: the three flagged pairs are handled correctly. AL.1 and AL.5 own the analytic GL1 and scoped GL2/Rankin inputs; L0 owns the Dirichlet algebraic-to-complex comparison; AL.4↔PS.1 is a comparison between distinct constructions, not a duplicate. No further duplicate between the members was found. Nothing lost: PS.1 keeps every motivic target (the completed motivic L-function, criticality, the Deligne statement, and the Dirichlet/Tate and modular motivic comparisons). Its only consumer, PS.7, gets direct links from all three suppliers, and the new edges create no cycle (PS.1 and PS.7 have no path back to AL.1, AL.5 or L0). No anchors, no Tau Ceti roadmap and no extension are involved. The format follows PROTOCOL §15, and check_restructure.py passes. One correction was made (see corrections). Two notes for the orchestrator, outside the JSON: RS-13.md still says \"Keep … AN.1 → PS.1\", but RS-07 (accepted) dropped AN.1 and rewired PS.1 to the upstream Mathlib Dirichlet L-functions, so that sentence is stale (the JSON adds no AN.1 edge); and RS-14 (unreviewed) names AN.1 as a supplier of L0 although RS-07 dropped it.",
+    "corrections": [
+      "owners[2] (owner DirichletPadicLFunctions:L0): the target is narrowed from \"Generalized Bernoulli numbers and the primitive-character Gauss/conductor identities giving the algebraic-to-complex Dirichlet special-value comparison\" to the comparison itself. RS-14 proposes the Tau Ceti ModularForms layer 0 as owner of the generalized Bernoulli quantities while keeping this comparison in L0; the corrected entry is compatible with RS-14 whether or not it is accepted. Old target: Generalized Bernoulli numbers and the primitive-character Gauss/conductor identities giving the algebraic-to-complex Dirichlet special-value comparison; the Deligne motivic specialization is an adapter, not this arithmetic construction."
+    ]
+  }
+}
