@@ -6,64 +6,70 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
       "kind": "error",
       "locator": "Theorem 4.1, JAMS p.928, proof p.929; author p.13–14",
-      "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk, p.4.)",
-      "correction": "Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.",
-      "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction). (cc-442dc5) Rechecked: the proof on p.929 says 'after maybe shrinking the polydisk', so the intended statement is the shrunken one, and §4.1 needs only finitely many shrunken charts; Theorem 1.3 is unaffected. The printed statement for the whole punctured polydisk is still false, so the finding keeps 'a stated result'.",
+      "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk; see §1.3.)",
+      "correction": "Replace the whole-unit-polydisk assertion by a local assertion after shrinking to (∆*_ρ)^n for a sufficiently small 0<ρ<1, with the Hodge-compatible fixed maximal compact. In §4.1 choose such smaller charts around every point of the compactification and then a finite subcover. Do not justify the several-variable step by calling the remaining punctured annular pieces compact. This correction specifies the necessary domain change; it does not discharge the separate proof gaps recorded below.",
+      "reason": "with τ(z)=2i+ε exp(−(1+z)/(1−z)), take ε>0 small enough that its image lies in a quotient-injective disk for Γ(3)\\H. The trivial integral rank-two local system, its holomorphic weight-one Hodge line and the standard polarization give a PVHS; transversality is automatic in weight one. The fibre at π(2i+ε/e) is EXACTLY {2πin/(2+2πin):n∈Z\\{0}} on ∆*. Solving the exponential equation proves equality, not just containment; it is infinite and discrete with accumulation only at the excluded outer boundary. A definable discrete subset of R² is finite. The y>1 strip in the proof covers only |q|<exp(−2π), and Lemma 4.2 explicitly permits shrinking. Confirmed for the literal whole-disk statement. Repaired the original insufficient 'contains' argument and removed the several-variable compact-annulus shortcut. This does not refute Theorem 1.3.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent check: with τ(z)=2i+ε exp(−(1+z)/(1−z)), take ε>0 small enough that its image lies in a quotient-injective disk for Γ(3)\\H. The trivial integral rank-two local system, its holomorphic weight-one Hodge line and the standard polarization give a PVHS; transversality is automatic in weight one. The fibre at π(2i+ε/e) is EXACTLY {2πin/(2+2πin):n∈Z\\{0}} on ∆*. Solving the exponential equation proves equality, not just containment; it is infinite and discrete with accumulation only at the excluded outer boundary. A definable discrete subset of R² is finite. The y>1 strip in the proof covers only |q|<exp(−2π), and Lemma 4.2 explicitly permits shrinking. Confirmed for the literal whole-disk statement. Repaired the original insufficient 'contains' argument and removed the several-variable compact-annulus shortcut. This does not refute Theorem 1.3.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
       "kind": "gap",
       "locator": "Lemma 4.5 proof, JAMS p.930; author p.15",
       "printed": "\"Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}\"",
-      "correction": "State the lemma, and verify its curve hypothesis, on wider sectors Σ_n^R={|x_i|<R,y₁≥⋯≥y_n>1} for every R, with constants depending on R. The substitution maps Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The application needs original-source bounded-real-width uniformity for Schmid Corollary 5.29 and the CKS/Kashiwara norm estimates; G3 records that this is still unverified. The R-quantifier of the target Theorem 1.5 is not evidence for its prerequisites.",
-      "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
+      "correction": "The induction needs bounds for the substituted functions on their actual domains. Supply a domain-transfer argument, or restate and prove the lemma for every bounded-real-width sector Σ_n^R={|x_i|<R,y_1≥…≥y_n>1}, with constants allowed to depend on R, and verify that stronger curve hypothesis in the application. The substitution z_1=mz_2+c sends Σ_(n−1)^R′ into Σ_n^(mR′+|c|). The required bounded-width Schmid/CKS/Kashiwara inputs are not verified by this review; a wider-sector formulation alone is not a completed repair.",
+      "reason": "Independent domain check in Definition 4.4 and the printed induction: x_1=mx_2+c>1 for c≥1 and 0<x_2<1, while for c=0 the original domain requires x_2<1/m. Thus the stated curve hypothesis on Σ_n cannot simply be applied on all of Σ_(n−1) as printed. Confirmed as a gap in this step, not as a counterexample to Lemma 4.5. Revised the correction/reason so that the stronger bounded-width input and its application are explicitly requirements, not an independently completed repair. The finite-difference sign is separately E22.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent domain check in Definition 4.4 and the printed induction: x_1=mx_2+c>1 for c≥1 and 0<x_2<1, while for c=0 the original domain requires x_2<1/m. Thus the stated curve hypothesis on Σ_n cannot simply be applied on all of Σ_(n−1) as printed. Confirmed as a gap in this step, not as a counterexample to Lemma 4.5. Revised the correction/reason so that the stronger bounded-width input and its application are explicitly requirements, not an independently completed repair. The finite-difference sign is separately E22.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
       "kind": "error",
       "locator": "§4.5, JAMS p.933; author p.18",
-      "printed": "\"Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0.\"",
-      "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
+      "printed": "Published p.933: “then b will also be (e, C″)-reduced for some C″ = C″(e, e′, C′) > 0.” Author copy/arXiv v2 p.18: the same clause has C″(e, C, e′, C′).",
+      "correction": "The ordered-basis conclusion cannot hold as printed. At a minimum it must allow finitely many permutations of e (and retain dependence on the condition-(3) constant C). The following paragraph already allows finitely many orderings. The counterexample verifies the necessity of this correction, not every estimate in the general basis-change argument.",
       "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent counterexample: for e′=(e_1,e_2), e=(e_2,e_1), and b=diag(1,T), T≥1, the three e′-reduction conditions hold with constant 2, and condition (3) for e holds with constant 2. But ordered condition (2) for e requires T<C″ for arbitrarily large T. Allowing finitely many orderings is explicitly used immediately afterwards. Confirmed the ordered-basis slip, with no refutation of Theorem 1.5. Corrected the quotation's version attribution: the author/arXiv texts include C among the arguments of C″; the published p.933 omits it.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
@@ -75,16 +81,18 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published boundary definition and the later proof of Proposition A.2. A local boundary component is obtained by setting one corner coordinate to zero, so has dimension n−1; for [0,∞) it is a point. The later sentence on p.936 uses n−1. Confirmed the dimension misprint (Joyce's boundary with local boundary components, not an assertion that the topological boundary embeds at every corner).",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
@@ -96,79 +104,87 @@
       "affects": "a stated result",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.1 and Theorem 1.2(1)",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read published Theorem 1.1(1), Definition 2.5 and Proposition 2.7 and the complete official erratum. The latter explicitly changes them to fixed K. Checked the geometry behind §1.6.1 using x=2i: the K_(2i)-orbit of i is a circle with centre (5/2)i and radius 3/2; positive diagonal dilation makes its real coordinate unbounded. Finitely many standard K_i-Siegel translates cannot contain this tail: non-upper-triangular translates have bounded height and upper-triangular ones have bounded real width. The quotient-graph argument is the erratum's. Confirmed an already published correction, not a new discovery.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
       "kind": "error",
       "locator": "Theorem 1.1(2), JAMS p.919",
       "printed": "\"(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable.\"",
-      "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
+      "correction": "Restrict the theorem to the sufficient class in erratum Theorem 1.2(2): Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′)⊂Γ, φ(M′)⊂gMg⁻¹, φ(K′)⊂gKg⁻¹, and θ_(gKg⁻¹) preserving φ(g′). Do not assert that these conditions are necessary for each individual map to be definable. Hodge morphisms satisfy them by erratum Corollary 1.3.",
       "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
       "affects": "a stated result",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §§1.1, 1.3 and Theorem 1.2(2)",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Orr–Schnell correction https://www.math.stonybrook.edu/~cschnell/pdf/papers/correction.pdf, SHA-256 072a33331f6e2db326da03a8b88ca421ce8a5597a4c451fc9af6644407876afc: §§A–C read for the corrected conditions and counterexamples; no claim of a full audit of its later auxiliary proofs."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unrestricted printed statement is expressly withdrawn by erratum §§1.1,1.3. Read Orr–Schnell's correction §§A–C: their torus and semisimple examples retain compact inclusion but fail the Cartan condition and Siegel containment. The erratum §1.6.2 explains the resulting nondefinability. Confirmed the published correction after removing 'Only': the theorem gives a sufficient class, and the examples do not prove that every map outside it is nondefinable.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
       "kind": "error",
       "locator": "§4.5, JAMS p.932; author p.17",
       "printed": "\"By [B-HC62, 7.5] the preimage of any Siegel set S ⊂ X is contained in the union of finitely many Siegel sets of D.\"",
-      "correction": "Cite Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, instead. [B-HC62, 7.5] concerns real Siegel sets and does not give this rational statement.",
+      "correction": "Replace the citation by Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, as directed by erratum §1.5. Retain its hypotheses: reductive Q-groups H⊂G, K_H=K_G∩H(R), and forward containment of every K_H-Siegel set in finitely many G(Q)-translates of a K_G-Siegel set. Then a fixed K_G-Siegel set meets H(R) inside finitely many H(Q)-translates of a K_H-Siegel set. The forward-containment input must be checked in the application with the corrected compact data; the proposition is not an unconditional inverse-image theorem.",
       "reason": "The erratum (§1.5) states that the proof of Theorem 1.3 is otherwise correct, with this citation replaced. BGST Proposition 28.1 needs a forward-containment hypothesis, which the extraction retains.",
       "affects": "the proof",
       "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.5",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely.",
+        "BGST https://benjamin-bakker.github.io/finiteness.pdf, SHA-256 5dd8ad61c1dab6a781bc8edad76f1df964d5a5472b413cf1e03f67f1a02a170b: §28 and Proposition 28.1, with proof, freshly read."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the original citation in the published page image, official erratum §1.5, and BGST §28 including all of Proposition 28.1 and its proof. BGST explicitly distinguishes rational Siegel sets from the cited real-group statement and assumes forward containment. Its proof combines arithmetic covering, that forward containment, and the finite Siegel-intersection property. Confirmed the erratum's citation correction, with the hypotheses now written out. This verdict does not certify every external reduction-theory input or an unconditional inverse-image assertion.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E8",
       "kind": "error",
       "locator": "Lemma 2.1 first proof, JAMS p.923; author §2.1",
-      "printed": "G/M ≃ p(G·v)",
-      "correction": "The displayed invariant-polynomial map need not separate right M-cosets. Use the second, proper semialgebraic-quotient proof, with its external quotient theorem explicitly imported.",
+      "printed": "“It identifies G(R)/M with the image p(G(R))”",
+      "correction": "Remove the asserted identification by the M-invariant polynomial map. Supply a valid semialgebraic quotient argument, for example by justifying the proper-quotient theorem cited in the paper's second proof. This finding refutes the first map's injectivity, not the existence of the quotient; this review does not claim to have re-proved the external quotient theorem.",
       "reason": "Let G=SL₂(R), M=SO₂(R), W=Sym₂(R)⊕R with g·(A,t)=(gAgᵀ,t), v=(I,1). This line has stabilizer M. For g=diag(2,1/2) and k=[[0,−1],[1,0]]∈M, all M-invariant polynomials have equal values on g·v and kg·v. Yet gM≠kgM: the symmetric matrices diag(4,1/4) and diag(1/4,4) differ. Thus the proposed identification via p fails. This does not refute existence of a semialgebraic homogeneous quotient.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches.",
+        "Independent version collation: the corresponding author-copy passages at https://benjamin-bakker.github.io/DefArith.pdf were read; author SHA-256 b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e. E1–E4 were also checked in https://arxiv.org/pdf/1810.04801v2, SHA-256 9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc. This is targeted collation, not a claim of rereading every version completely."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E8"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the printed first proof and recomputed the counterexample. In Sym²(R²)⊕R, v=(I,1) has line stabilizer SO₂ because the last coordinate forces the scalar on the line to be 1. For g=diag(2,1/2) and k=[[0,−1],[1,0]], M-invariance gives p(gv)=p(kgv), whereas ggᵀ=diag(4,1/4) and (kg)(kg)ᵀ=diag(1/4,4), so gM≠kgM. Confirmed failure of the identification. Replaced the paraphrased formula by a literal short quote and limited the correction to the missing valid quotient argument.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E9",
@@ -180,16 +196,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E9"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed pairs are (g,gm). Taking m=1 and g outside M already shows that the second coordinate need not lie in M. Read in the page image. Confirmed G×M must be G×G; no change to the intended equivalence relation.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E10",
@@ -201,37 +218,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E10"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In equation (2.3) the fixed element has coordinates (n₀,a₀,m₀), and the image is obtained by multiplying it on the left of the variable (n,a,m). The n-component starts n₀, and the m-component is m₀m. Confirmed 'right' should be 'left'; the formula itself is unchanged.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11",
       "kind": "misprint",
       "locator": "Theorem 1.5, JAMS p.921",
-      "printed": "|Re z_i| ≤ C",
+      "printed": "|Re z| ≤ C",
       "correction": "Use R in the definition of H_(R,η), consistently with the quantified parameter.",
       "reason": "The statement quantifies R>0 and η>0; C is not bound there.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Theorem 1.5 in the published page image: it quantifies R and η, but bounds |Re z| by C. The next line defines |Re z| as the supremum over coordinates. Confirmed C→R. Corrected the inherited quotation from a coordinatewise paraphrase to the printed |Re z|.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12",
@@ -243,16 +262,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the paragraph after Remark 4.3 and both parts of Theorem 1.1. The invoked conclusion is definability of π restricted to a Siegel set, which is part (1), not the quotient-morphism assertion in part (2). Confirmed, retaining the erratum's fixed-K qualification.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13",
@@ -264,37 +284,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof immediately after Theorem 4.8 invokes its part (1) to establish rough monomiality and then proves the roughly polynomial assertion. Proposition 4.6 is unnumbered internally; Lemma 4.7 has precisely those two parts. Confirmed the reference should be Lemma 4.7(1).",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E14",
       "kind": "misprint",
       "locator": "§4.6 heading, JAMS p.933",
       "printed": "Theorem 1.1",
-      "correction": "Theorem 1.3 is the direct period-map input in the proof.",
-      "reason": "The proof begins by applying Theorem 1.3 to the period map f. Theorem 1.1 is a preceding arithmetic-quotient supplier, not that assertion.",
+      "correction": "No mathematical correction is established by this finding. Theorem 1.3 is the immediate input in §4.6, but Theorem 1.1 is an upstream input to its proof; the heading can describe that indirect implication.",
+      "reason": "Rejected as an established misprint. Theorem 1.3 is indeed the direct input cited by the proof of Theorem 4.12, but its proof uses Theorem 1.1. An expository heading may describe this indirect dependence. The original reason establishes a more immediate reference, not that the printed heading is erroneous. E16 remains a separate, specific mis-citation.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E14"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E14",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as an established misprint. Theorem 1.3 is indeed the direct input cited by the proof of Theorem 4.12, but its proof uses Theorem 1.1. An expository heading may describe this indirect dependence. The original reason establishes a more immediate reference, not that the printed heading is erroneous. E16 remains a separate, specific mis-citation.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15",
@@ -306,16 +328,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 1.1 has exactly two numbered parts. The §5 assertion concerns definability of a Hodge morphism and requires part (2), with the sufficient compatibility checked for Hodge morphisms in erratum Corollary 1.3. Confirmed the nonexistent '(3)' is a misprint.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16",
@@ -327,122 +350,128 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The sentence in §5 directly attributes definability of the period map Φ_S to Theorem 1.1, which supplies quotient structures and morphisms but does not state period-map definability. Theorem 1.3 is that assertion. Confirmed this local citation correction; unlike E14 it is a direct statement attribution, not a broad heading.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E17",
       "kind": "gap",
       "locator": "Appendix A.3 proof of Proposition A.2, JAMS pp.935–936",
       "printed": "relatively compact",
-      "correction": "Choose smaller semialgebraic corner boxes whose closures lie inside larger analytic charts. Prove definability of the compact matching graph and cover it by finitely many neighborhoods of analytic transition extensions. Mere boundedness of the smaller domains is insufficient.",
-      "reason": "Analytic coordinate changes between relatively compact domains need not be R_an-definable: F(x)=x+(x²/4)sin(1/x), 0<x<1, has derivative greater than 1/4 and maps diffeomorphically to a bounded interval. If F were definable, the zero set of F(x)−x, containing exactly x=1/(nπ), n≥1, would contradict o-minimality. Reparametrize an analytic arc in a compact circle by F. Thus a buffer in larger charts is necessary for the printed immediate inference. The new buffered-transition-graph item supplies a proof of the theorem, not a counterexample to its conclusion.",
+      "correction": "Choose smaller semialgebraic corner boxes whose closures lie inside larger analytic charts. On the compact matching graph for two closed boxes, cover by finitely many neighborhoods carrying analytic transition extensions, restrict each to bounded boxes, and use finite unions and projections to obtain definable overlaps and transitions. This is sufficient control; boundedness of the coordinate domains alone does not establish compatibility.",
+      "reason": "Read the chart definition and entire proof of Proposition A.2. F(x)=x+(x²/4)sin(1/x) on (0,1) is an analytic diffeomorphism to a bounded interval because F′=1+(x/2)sin(1/x)−(1/4)cos(1/x)>1/4. The zero set of F−id is exactly {1/(nπ):n≥1}, so F is not definable in an o-minimal structure. Two analytic charts on an arc of a compact circle can have this transition despite bounded semianalytic domains. Confirmed that the immediate compatibility inference needs more control. Checked the buffered-box repair via a finite cover of the compact matching graph by analytic transition germs; compactness alone is not asserted to imply definability. Removed the unqualified claim that buffering is necessary in every possible construction.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E17"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the chart definition and entire proof of Proposition A.2. F(x)=x+(x²/4)sin(1/x) on (0,1) is an analytic diffeomorphism to a bounded interval because F′=1+(x/2)sin(1/x)−(1/4)cos(1/x)>1/4. The zero set of F−id is exactly {1/(nπ):n≥1}, so F is not definable in an o-minimal structure. Two analytic charts on an arc of a compact circle can have this transition despite bounded semianalytic domains. Confirmed that the immediate compatibility inference needs more control. Checked the buffered-box repair via a finite cover of the compact matching graph by analytic transition germs; compactness alone is not asserted to imply definability. Removed the unqualified claim that buffering is necessary in every possible construction.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E18",
       "kind": "gap",
       "locator": "§3.2 reduction to g=e, JAMS p.927",
       "printed": "Int(g⁻¹)",
-      "correction": "Keep the rational homomorphism φ unchanged and factor through compact data M_g=gMg⁻¹, K_g=gKg⁻¹ in the target, followed by right translation by g. Justify transport of the fixed-K quotient structures.",
-      "reason": "The definition permits arbitrary g∈G(R), but conjugating a rational homomorphism by such a g need not remain defined over Q. The preceding conjugation discussion assumed rational g. The displayed composition also reverses the functional order of the two arrows. A rationality-free right-translation adapter avoids both problems; it remains separate from the official Cartan correction.",
+      "correction": "Keep φ defined over Q. First map into the target with M_g=gMg⁻¹ and K_g=gKg⁻¹, then use right translation hM_g↦hgM. Erratum Remark 1.1(1) supplies the transport: if S is a Siegel set for K_g then Sg is one for g⁻¹K_g g=K. This corrects the real-g reduction without conjugating φ out of the category of Q-groups; the remaining morphism theorem still uses erratum Theorem 1.2(2).",
+      "reason": "Read the real-g morphism definition and the rational-g conjugation paragraph in §3.2. For g=diag(2^(1/4),2^(−1/4)) in SL₂(R), conjugation scales a rational root vector by sqrt(2), so need not be Q-defined. The printed order of composition is also not the correctly typed factorization. The right-translation factorization with M_g,K_g avoids this. Erratum Remark 1.1(1) states precisely the Siegel-set transport needed, so this is confirmed but reclassified as addressed by that published correction, rather than 'new'.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Official erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025, Remark 1.1(1): right translation transports Siegel sets with the maximal compact conjugated. This supplies the required real-g reduction.",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E18"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E18",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the real-g morphism definition and the rational-g conjugation paragraph in §3.2. For g=diag(2^(1/4),2^(−1/4)) in SL₂(R), conjugation scales a rational root vector by sqrt(2), so need not be Q-defined. The printed order of composition is also not the correctly typed factorization. The right-translation factorization with M_g,K_g avoids this. Erratum Remark 1.1(1) states precisely the Siegel-set transport needed, so this is confirmed but reclassified as addressed by that published correction, rather than 'new'.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E19",
       "kind": "error",
       "locator": "§3.2 surjective case, JAMS p.928",
-      "printed": "S_(Γ′,G′,M′) = S_(Γ₁,G,M₁) × S_(Γ_H,H,M_H)",
-      "correction": "A product decomposition of the semisimple group does not decompose an arbitrary compact stabilizer. Supply a compact-stabilizer quotient adapter in addition to the finite-index arithmetic step.",
+      "printed": "S_(Γ′,G′,M′) = S_(Γ′∩G,G,M′∩G) × S_(Γ′∩H,H,M′∩H)",
+      "correction": "Do not identify the quotient by an arbitrary compact M′ with the product of quotients by its intersections with the normal factors. Supply an argument for the compact-stabilizer quotient map (for example factoring through the full preimage of the target stabilizer), in addition to the finite-index arithmetic step. This review verifies the displayed product's failure, not a complete replacement proof.",
       "reason": "Take G′=PSL₂(R)×PSL₂(R), projection to the first factor, Γ′=Γ₁×Γ₂ with torsion-free arithmetic factors, and M′ the diagonal SO₂. Its intersections with the two normal factors are trivial. The left-hand quotient has real dimension 5, whereas the displayed product of intersection-stabilizer quotients has dimension 6. Passing to finite-index arithmetic subgroups does not fix that discrepancy. The corrected morphism theorem may still hold; this literal intermediate equality does not.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E19"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the product equality in the p.928 image. Take the adjoint product PSL₂(R)×PSL₂(R), projection to the first factor, a product of torsion-free arithmetic lattices, and diagonal SO₂ as M′. Both intersection stabilizers are trivial. The original quotient has dimension 6−1=5, while the claimed product has dimension 3+3=6; finite-index changes do not alter this. The data can satisfy the erratum's Cartan-compatible compact conditions, so the example is not merely a repeat of E6. Confirmed the intermediate product error; the correction now explicitly requires, rather than claims to supply, a stabilizer-quotient argument. Replaced the inherited schematic equality by the printed one.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20",
       "kind": "error",
       "locator": "Lemma 4.7(1),(2) and Theorem 4.8(1),(2), JAMS p.931",
-      "printed": "u ∈ J_σ",
+      "printed": "Let u ∈ J_C^{s₁,…,sₙ}.",
       "correction": "Require u≠0 for positive two-sided monomial comparisons.",
       "reason": "At u=0 the squared norm is identically zero and cannot be bounded below by a positive multiple of a positive monomial. The extraction already imposes the nonzero hypothesis. (cc-442dc5) Reclassified to affect nothing: the two-sided monomial comparison is meant for u ≠ 0, the only case in which it has content.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
       "previousAffects": "a stated result",
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At u=0 the displayed positive two-sided monomial comparisons in Lemma 4.7 and Theorem 4.8 are impossible: the norm is zero and the positive monomial is not. Read both statements and Definition 4.4 in the images. Confirmed the omitted nonzero qualification. Retained affects=nothing in the protocol's intended-mathematics sense: the basis-vector use is nonzero; this is not a claim that the literal quantified formula includes zero correctly. Corrected the quotation to the printed superscript notation J_C^{s₁,…,sₙ}.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21",
       "kind": "misprint",
       "locator": "Lemma 4.7 proof, JAMS p.931, definition of B",
       "printed": "Hermitian",
-      "correction": "B(u,v)=Q(u,conj v) is (−1)^k-Hermitian in weight k. For odd weight it is skew-Hermitian; i^kB is Hermitian. Retain phase factors in all determinant and Hodge-metric formulas.",
+      "correction": "Call B(u,v)=Q(u,conj v) a (−1)^k-Hermitian sesquilinear form: it is skew-Hermitian in odd weight, and i^kB is Hermitian. Keep the phase conventions in the determinant/Hodge-metric computation; the printed equation (4.4) already contains its phase factor and is not being declared false here.",
       "reason": "Q(v,u)=(−1)^kQ(u,v), hence B(v,u)=(−1)^k conjugate(B(u,v)). For the standard weight-one alternating form and u=(1,i), B(u,u)=−2i. Nondegeneracy and the sesquilinear determinant identities remain valid with the correct parity.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a weight-k polarization, Q(v,u)=(−1)^kQ(u,v), hence B(v,u)=(−1)^k conjugate(B(u,v)). For the standard alternating form and u=(1,i), B(u,u)=−2i, which cannot be the diagonal of a Hermitian form. Confirmed the parity terminology slip. Narrowed the correction to avoid implying a missing phase in equation (4.4), where the phase is already printed.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22",
@@ -454,37 +483,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the displayed sum in the image and checked exactly that (1/r!)Σ_(i=0)^r(−1)^i binom(r,i)i^d is zero for d<r and (−1)^r for d=r. In particular r=1 gives f_(m,0)−f_(m,1). Confirmed the missing sign in the asserted leading-coefficient identity; its absolute-value estimate is unchanged.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E23",
       "kind": "gap",
       "locator": "§3.1 first paragraph, JAMS p.926",
       "printed": "open real analytic charts",
-      "correction": "Choose open buffered pieces and establish a finite local slice/chart refinement after the finite proper relation construction. Do not identify entire Siegel pieces with injective coordinate charts.",
+      "correction": "Distinguish the quotient presentation from a coordinate atlas. Use open pieces where needed, and supply a finite local slice/chart refinement compatible with the semialgebraic quotient construction. Finite overlap does not make the map from an entire Siegel piece injective. This records a missing chart-construction justification, not a counterexample to the fixed-K definable-structure theorem.",
       "reason": "The paragraph chooses U_i,W_i compact but then declares the images V_i open charts. Finite overlap alone gives a quotient relation, not injectivity of each piece; projected Siegel pieces can have self-identifications. The continuation proves properness of the relation, but deliberately leaves this finite local chart adapter in G2.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E23"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E23",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read §3.1 and the earlier definition of a Siegel set. The proof uses compact U_i,W_i and declares their quotient images to be open coordinate charts. Even with open pieces, finite overlap is not injectivity: for Γ(3) acting on H, a unipotent interval wider than 3 contains z and z+3 with the same quotient image. Thus a whole-piece parametrization is not automatically a chart. Confirmed only this missing local-atlas justification; the existence of a proper quotient or the fixed-K theorem is not disproved. The correction no longer implies that the local refinement has already been constructed in this review.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E24",
@@ -496,16 +527,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E24"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E24",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both occurrences in §3.1 use cl(F_i), whereas the pieces just introduced are S_i and their closures. No F_i is defined. Confirmed the notation correction, independently of the chart gap E23.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E25",
@@ -517,16 +549,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E25"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The appendix defines charts as φ_i:U_i→X and ψ_j:V_j→X, and earlier correctly gives ψ_j⁻¹∘φ_i for a transition. The mixed-atlas expression reverses both inverses and order. Read the image; confirmed the typing misprint.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26",
@@ -538,80 +571,329 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked both images: §4.5 begins with S_H^b despite the n local coordinates, and the displayed claim uses H_Q despite the rational fibre V_Q fixed in §4.2. Neither b nor H_Q has been introduced as the corresponding datum. Confirmed both notation slips.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27",
       "kind": "gap",
       "locator": "§1.3 and §4.2, JAMS pp.920 and 928",
       "printed": "G(Z) ⊂ GL(V_Z)",
-      "correction": "Use a group that acts on the variation's rational representation, or explicitly pass to a faithful adjoint/central-cover representation and compare the resulting arithmetic quotients and period maps.",
-      "reason": "In §1.3 G is the adjoint Mumford–Tate group. Its action on the original fibre is not automatic: the standard weight-one SL₂ representation does not descend to PGL₂ since −I acts nontrivially. This is a missing presentation adapter, not a claim that adjoint groups have no faithful rational representations.",
+      "correction": "Use a group acting on the actual rational variation, as the Hodge-manifold presentation in erratum §1.4 does by taking the Q-Zariski closure of t(S¹) inside GL(V_R). If retaining the original adjoint presentation, explicitly compare the arithmetic quotients, monodromy and period maps with that acting group. The erratum supplies the change of presentation, but this review does not infer an unwritten comparison from it.",
+      "reason": "The published §1.3 expressly chooses the adjoint generic Mumford–Tate group, while §4.2 treats G as acting on the original fibre. The standard representation of SL₂ does not descend to PGL₂ because −I acts nontrivially. Confirmed that a representation/presentation adapter is missing from that transition. However official erratum §1.4 now takes a Q-group inside GL(V_R), addressing the acting-group choice; amended known and the correction to credit that published change. No claim is made that the erratum spells out the comparison with the original adjoint presentation.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Official erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025, §1.4 changes the Hodge-manifold presentation to a Q-group inside GL(V_R). It does not spell out the comparison with the original adjoint presentation.",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published §1.3 expressly chooses the adjoint generic Mumford–Tate group, while §4.2 treats G as acting on the original fibre. The standard representation of SL₂ does not descend to PGL₂ because −I acts nontrivially. Confirmed that a representation/presentation adapter is missing from that transition. However official erratum §1.4 now takes a Q-group inside GL(V_R), addressing the acting-group choice; amended known and the correction to credit that published change. No claim is made that the erratum spells out the comparison with the original adjoint presentation.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28",
       "kind": "error",
       "locator": "§5, JAMS pp.933–934, definition of the target Hodge locus",
       "printed": "union of special subvarieties",
-      "correction": "For the exceptional locus use the proper Mumford–Tate-drop subdata, excluding the generic identity image. Establish its correspondence with exceptional tensors.",
+      "correction": "For the exceptional Hodge locus, use proper Mumford–Tate-drop subdata relative to the generic Hodge datum, not the union of every special image including the identity. Supply the correspondence with exceptional Hodge tensors. The proof's stronger assertion that the inverse image of each special subvariety is algebraic is compatible with this correction; Theorem 1.6 is not refuted.",
       "reason": "As defined immediately above, a special image may be the image of the identity Hodge morphism. Including it makes the union the whole target, whose pullback is all S, whereas §1.4 defines HL(S,V) using exceptional Hodge tensors. The extraction uses proper special images; the correspondence remains G6. (cc-442dc5) Reclassified to affect nothing: §1.4 defines the Hodge locus through exceptional Hodge tensors, i.e. proper Mumford–Tate-drop special images; including the identity image in §5's description is a slip that the statement of Theorem 1.6 does not use.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
       "previousAffects": "a stated result",
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed definition admits the identity Hodge morphism as a special image, so its union is the whole target and its pullback is all of S. In a constant variation no point has extra tensors relative to the generic fibre, so the exceptional Hodge locus of §1.4 is empty. Confirmed the literal mismatch. Kept affects=nothing for Theorem 1.6 as intended: the proof establishes algebraicity for every special inverse image, which also applies after excluding the generic image. The tensor/Mumford–Tate correspondence is identified as required input, not certified here.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E29",
       "kind": "gap",
       "locator": "Theorem 4.12 and proof, JAMS p.933",
       "printed": "smooth complex algebraic manifold S×S_(Γ,G,K)",
-      "correction": "Either restrict this proof to smooth S or supply algebraicity descent through a resolution/stratification and the necessary singular-source analytic comparison.",
+      "correction": "Restrict the displayed argument to smooth S, or add the singular-source reduction and algebraicity-descent argument (for instance using a resolution or stratification with the required analytic comparison). This is a missing step at the stated generality, not a counterexample to Borel's algebraicity theorem.",
       "reason": "The theorem quantifies an arbitrary complex algebraic variety S, while the proof applies Theorem 1.3 and the stated smooth-source definable Chow theorem to S itself. Smoothness does not follow from that hypothesis. This is a gap in the displayed proof of the stated generality, not a counterexample to Borel's theorem.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Published JAMS copy at https://par.nsf.gov/servlets/purl/10200187, read completely; listed formula locations also checked in page images.",
-        "Official four-page erratum https://benjamin-bakker.github.io/DefArithErr.pdf, reread completely on 2026-09-23; addresses K-dependence, Cartan-compatible morphisms and the rational-Siegel citation, not these additional points.",
-        "Author copy https://benjamin-bakker.github.io/DefArith.pdf compared at the findings; Bakker and Tsimerman author pages checked for corrections on 2026-09-23.",
-        "arXiv https://arxiv.org/abs/1810.04801 checked: latest listed version v2, 2020-06-22. Prior continuation compared E1–E4 with its PDF; this continuation does not claim a new full arXiv collation.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published JAMS text from NSF PAR re-fetched (23 pages, pp.917–939); the official erratum (JAMS 36, 2023) remains the recorded correction for E5–E7.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the typeset JAMS version (NSF PAR copy, 23 pages, SHA-256 b7cf4579…) re-fetched; the printed prose of each finding was found in its text layer, and formula-only quotes rely on the extraction's page-image checks",
-        "Official erratum: 'Erratum to “Tame topology of arithmetic quotients and algebraicity of Hodge loci”', J. Amer. Math. Soc., DOI 10.1090/jams/1025 (Crossref record, issued 11 May 2023); it corrects E5–E7 and none of the others",
-        "arXiv 1810.04801: versions up to v2 (22 June 2020), which predates the erratum; no later version"
+        "Independent review by Codex, codex-a71f92, 2026-09-23: published JAMS 33 (2020), 917–939, DOI 10.1090/jams/952, public PDF https://par.nsf.gov/servlets/purl/10200187, SHA-256 b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058. Entire text and the finding's source context read; page images checked for mathematical transcriptions.",
+        "Independent review: official erratum https://benjamin-bakker.github.io/DefArithErr.pdf, SHA-256 86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7, read completely. Its corrections include fixed K, restricted functoriality and the rational-Siegel citation; Remark 1.1(1) and §1.4 are also relevant to E18 and E27. This supersedes the inherited assertion that it concerns E5–E7 and none of the other findings.",
+        "Correction search on 2026-09-23: Bakker's publication page https://benjamin-bakker.github.io/ links the main paper and the 2023 erratum; Tsimerman's page https://www.math.toronto.edu/jacobt/ links the main paper. https://arxiv.org/abs/1810.04801 lists v2 (2020-06-22) as latest. The Crossref record https://api.crossref.org/works/10.1090/jams/1025 confirms the erratum's DOI and online date 2023-05-11. This is not an exhaustive proof that no other correction exists.",
+        "Searches for the exact paper title with erratum/correction and for Theorem 4.1 with shrinking located the known official erratum, not another relevant correction. Direct AMS article access and Klingler's publications page were unavailable in this check; no successful reading of them is claimed. 'new' means no matching published correction was located in the accessible searches."
       ],
-      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E29"
+      "extraction": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E29",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 4.12 assumes an algebraic variety S, while the proof calls S×S_(Γ,G,K) smooth and uses Theorem 1.3 and the stated smooth-ambient Theorem 4.13. A singular S does not satisfy these hypotheses; no singular-source reduction occurs in the displayed proof. Confirmed a gap at this generality, not a false conclusion. The proposed resolution/stratification route is a required additional argument, not a completed descent proof in this review.",
+        "by": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+      }
     }
-  ]
+  ],
+  "independentReviewAudit": {
+    "job": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "inputCommit": "7df732206da7737e256394a1c960a378ded16b36",
+    "inputAuthor": "Claude Code, cc-442dc5",
+    "scope": "All 29 inherited findings checked at the published locators. 28 confirmed with the precise limitations in each reason, E14 rejected. No new finding added. Confirming a missing proof step does not certify a complete repair or independently re-prove the paper.",
+    "amendments": [
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
+        "changedFields": [
+          "printed",
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
+        "changedFields": [
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
+        "changedFields": [
+          "printed",
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E8",
+        "changedFields": [
+          "printed",
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E9",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E10",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E11",
+        "changedFields": [
+          "printed",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E12",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E13",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E14",
+        "changedFields": [
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E15",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E16",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E17",
+        "changedFields": [
+          "correction",
+          "reason",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E18",
+        "changedFields": [
+          "correction",
+          "reason",
+          "known",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E19",
+        "changedFields": [
+          "printed",
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E20",
+        "changedFields": [
+          "printed",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E21",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E22",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E23",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E24",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E25",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E26",
+        "changedFields": [
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E27",
+        "changedFields": [
+          "correction",
+          "reason",
+          "known",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E28",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      },
+      {
+        "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E29",
+        "changedFields": [
+          "correction",
+          "searched",
+          "review"
+        ]
+      }
+    ],
+    "priorVersion": "The complete pre-review text, including the inherited correction-search assertions replaced here, is preserved at the input commit. The paper extraction and its sourceIssues are unchanged.",
+    "submissionInputCommit": "8e1ac31281b0512d48b0dc4b33087c447f806412"
+  }
 }
