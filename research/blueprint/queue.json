@@ -2176,8 +2176,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1143"
+   "state": "pending",
+   "note": "released on GitHub issue #1143"
   },
   {
    "id": "REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -6209,7 +6209,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ICHINO-PRASANNA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1375"
   },
   {
    "id": "REV-PAPER-ICHINO-PRASANNA-23",
