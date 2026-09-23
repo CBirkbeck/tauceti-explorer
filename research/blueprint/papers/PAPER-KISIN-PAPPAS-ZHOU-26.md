@@ -10,6 +10,32 @@ Issue [#1342](https://github.com/CBirkbeck/tauceti-explorer/issues/1342). Status
 - **Items.** The result has **205 items: 14 library, 13 planned and 178 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** Fourteen are recorded under `sourceIssues`. The checkpoint described four printed issues in its report but recorded none.
 
+## Independent review (REV-PAPER-KISIN-PAPPAS-ZHOU-26)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-ZHOU-26.md`; the counts in the sections below it are the earlier ones
+and are superseded by these.
+
+- **Items: 287** (14 library, 16 planned, 257 missing), each missing item routed once.
+  - 199 fields corrected: 96 statements, 96 locators, 6 names, 1 kind.
+  - 88 items added for definitions, constructions and cited inputs the proofs use, four of them planned (ShimuraData D4,
+    ReductiveGroupsPartII RG2.2–RG2.3, NeronModelsAndSemistableAbelianVarieties R11.5).
+  - Six removed as not in the paper: F31, P11, and I06, I08, I09, I10, which are steps inside the proofs of Daniels–van
+    Hoften–Kim–Zhang that this paper does not cite.
+- **Routes.** All eight stand. Three Part II titles now begin with their parents' exact atlas titles; routes 2, 4, 5 and 8
+  name the confirmed corrections their designs must carry, route 6's brief is rewritten around the two results the paper
+  uses, and route 7's says which shtuka results the paper cites.
+- **Prerequisites.** Rebuilt as 43 cited works with DOIs or stable links.
+- **Mistakes: 88** (63 misprints, 11 gaps, 14 errors). Of the 81 in this paper, 3 reach a stated result and 11 a proof;
+  none reaches the main theorems.
+  - **E1–E7**, the authors' corrections of Kisin–Pappas (2018) and Pappas (2023), and **E8–E14** are confirmed; E6 and
+    E9 are revised.
+  - **E15–E88** are new, each checked independently. The main ones:
+    - **E36:** §3.4.5 and Proposition 3.4.6 need H of classical type.
+    - **E69:** Proposition 6.3.2 needs the cocharacter twisted by the inverse scalar cocharacter.
+    - **E62, E71:** the proofs of Theorem 6.1.9 and Corollary 6.3.5 use Λ̃^* for the ψ-dual and a family that is not a chain.
+    - **E79, E81, E84:** the paragraph after Definition 7.2.7 is false, leaving gaps in Propositions 7.2.10 and 7.2.16(2).
+
 ## This continuation (cc-442dc5)
 
 **Printed corrections of other papers.** The paper corrects Kisin–Pappas 2018 ([KP18]) and Pappas 2023 ([P23]) in §1.3, Remark 5.1.17, footnote 8 and §7.3. These are recorded with `known` values that name this paper:

@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-KISIN-PAPPAS-ZHOU-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ReductiveGroupsPartII RG2.0a, RG2.2 and RG2.3 plan affine Weil restriction, buildings with the group action and the stabilizer and parahoric group schemes; §2's R-smoothness, tame fixed points, stabilizer embeddings and the cited Bruhat–Tits, Edixhoven, Prasad–Yu and Kottwitz inputs refine those layers, as do the classical-group lattice facts of §6. Proposition 2.2.2's items T06 and T07 now carry the corrections E20 and E22."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer plans the minuscule test sets, root-curve lengths and Cartan bounds of §4.2–4.3; the candidate continues the one proposed by He (2021). Title set to the parent's exact atlas title (hyphenated 'Cartan-Killing') with that candidate's subtitle. The brief names E9, E39 and E48."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "No layer plans Weyl modules over Z_p and the modular root action (§§3.3.9, 4.2.5–4.2.9); title already begins with 'Reductive algebraic groups, Part II'."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "No layer plans the Pappas–Zhu and Levin local models, their embeddings and the tangent spaces of affine Schubert varieties (§§3–4); the id is shared with Kisin–Zhou (2025) and Kisin–Pappas (2018). The brief names E9, E34, E36, E38 and E42."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "No layer plans the corrected connection isomorphism, very good embeddings and their construction (§§5–6); shared id. The brief names E60, E61, E62, E69 and E71."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "No layer plans full faithfulness of the diamond functor on normal integral models (Scholze–Weinstein Prop. 18.4.1) or the v-sheaf of a flat closure, both used in §3.4 and §7.1. Title set to the parent's atlas title, 'Pro-étale descent, diamonds and small v-stacks'. The brief is rewritten: it asked for DvHKZ Lemmas A3.4–A3.5 and Scholze–Weinstein 18.3.1, which the paper neither states nor cites, and those items (I08–I10) are removed."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "No layer plans canonical integral models through 𝒢-shtukas (Pappas–Rapoport, DvHKZ) and the reduction of Corollary 7.2.24; shared id. Title set to the parent's atlas title, 'Hecke correspondences and local shtuka cohomology'; the brief now says which shtuka results the paper itself uses. I06 (DvHKZ Lemma 4.3.4) is removed as not in the paper, and P11 (generic-fibre shtuka moduli) as unused."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "No layer plans integral models of Hodge- and abelian-type Shimura varieties at parahoric level (§7); shared id, title already correct. The brief names E79, E81 and E84 alongside the authors' own errata E1–E7."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-KISIN-PAPPAS-ZHOU-26 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a, #1683) and completed by Claude Code (cc-442dc5, #2141). The published Forum Math. Pi PDF (89 pages) was downloaded from Cambridge Core and read in full on page images in six ranges, against every item; arXiv v3, the latest version, was compared where the printed text was in doubt. Its SHA-256 differs from the extraction's record because Cambridge stamps each download. Corrected in place: 199 item fields (96 statements, 96 locators, 6 names, 1 kind) and 2 notes; six items removed as not in the paper (F31; P11; I06, I08, I09 and I10, which are steps inside DvHKZ's proofs that the paper does not cite); 88 items added for definitions, constructions and cited inputs the proofs use; four items made planned (Hodge- and abelian-type data at ShimuraData D4, the lattice-chain building at ReductiveGroupsPartII RG2.2–RG2.3, Néron–Ogg–Shafarevich at NeronModelsAndSemistableAbelianVarieties R11.5); three Part II titles set to their parents' exact atlas titles; route 6's brief rewritten and route 7's clarified; prerequisites rebuilt as 43 cited works with DOIs or stable links. Statuses: all 14 library declarations opened at the pinned commits and all planned stages checked in the atlas. Mistakes: E1–E14 confirmed (E6 revised: the quotation is the published p. 205 and it is H, not H^♯, that may fail the condition; E9 revised to an error whose reach is kept at a stated result, with a proposed repair recorded; E10 and E12 widened to further places with the same slip). 77 new claims were checked a second time, independently: 68 confirmed, 5 reclassified, 4 rejected; with one found by an independent check they are E15–E88. The main new ones: Proposition 3.4.6 needs H classical (E36); Proposition 6.3.2 needs a twisted cocharacter (E69); the proofs of Theorem 6.1.9 (E62) and Corollary 6.3.5 (E71) use a wrong dual and a non-chain; the paragraph after Definition 7.2.7 is false (E79), leaving gaps in Propositions 7.2.10 (E81) and 7.2.16 (E84). The main theorems (Theorems 1.1.1 = 7.2.21 and 1.2.3 = 4.4.3, Corollary 7.2.24) are not affected."
+}
