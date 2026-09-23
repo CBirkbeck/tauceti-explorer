@@ -1,5 +1,43 @@
 # Handoff: PAPER-ANDRE-18-B
 
+Issue #2188. Continuing agent: **Claude Code — `cc-fb70e5`**, 23 September 2026. Continues the checkpoints merged in #2210 and #2222. **Still `partial`.**
+
+This tick did **only the first item of the previous resume order** — the independent mathematical review that handoff asked for — and left everything else untouched. 83 items, five routes, all statuses, APIs, tests, baseline pins and coverage gaps are unchanged except the four `review` fields and an appended paragraph in G6.
+
+## Delivered
+
+- **E1, E2, E3, E4 all carry `verdict: confirmed`**, supplied by a worker independent of both authoring sessions (E1–E3 are `codex-a71f92`'s, E4 is `cgpt-20260923-4c72a9`'s). Each was re-derived from the journal PDF re-downloaded at the recorded numdam URL, whose **sha256 is byte-identical to the recorded value**, so the inherited provenance is independently confirmed too.
+- **E4 was reconstructed from scratch** against the printed hypotheses on p. 90 — all four hold for the example — and its record gained two things: (i) the same example **also refutes the printed `(c) ⇒ (a)`**, since `tK = K` gives `S/tS = k` while `R/tR = k ⊕ εk`, so purity fails for `P = R/tR`; and (ii) the failure is sharper than ill-definedness of division — `λ(S) = rR` exactly, and `λ` is **not** `r` times any `R`-linear functional, because such a factorisation would make `λ′(1)` a unit and hence yield the excluded retraction. So a *single* division fails, which `r`-adic separation cannot address.
+- **Containment recorded**: both of the paper's own applications of `(c) ⇒ (b)` satisfy the proposed repair (`r = 0` in characteristic `p`; `r` a uniformiser of a DVR in a domain), so §§0–4 are unaffected.
+- **G6 narrowed, not closed.** For the `(a) ⇒ (c)` branch: only the contrapositive `S^∨ = 0 ⟹ H^d_𝔪(S) = 0` is used, so the full duality isomorphism is more than needed; and that weaker form is **not formal**, because `H^d_𝔪(S) = colim H^d_𝔪(S_α)` with `H^d_𝔪(S_α) ≅ (S_α^∨)^∨` at finite stages while `S^∨ = lim S_α^∨`, and the natural map `colim Hom(S_α^∨,E) → Hom(lim S_α^∨,E)` is not an isomorphism in general. Whether this system is Mittag-Leffler is what Hochster 1983 must be read for. **No finding is asserted**, per the previous guardrail. This also narrows `PAPER-BHATT-18`'s G9, which flags the same appendix.
+
+## Resume in this order
+
+The previous order stands **minus its first item**, which is now done:
+
+1. **G3** — Hochster 1983 Theorem 6.1 and the regular-ring-to-unramified-complete-local reduction, including the perfect residue field step. Unchanged.
+2. **G4** — Hochster 2002 Lemma 5.1 and Bartijn–Strooker Theorem 1.7; the partial-module-modification carrier, bounded denominators, filtered algebra, absence of a bad chain, balancing completion, and the two-ring modification of 4.4.1. Unchanged.
+3. **G1–G2** — the companion published passages 2.9.3, 3.6.1, 5.2–5.3, Scholze 2012 6.4 and 6.7(i), Gabber–Ramero 2.2.26 and 3.1.3; completion flatness over each Noetherian finite stage, not by treating the colimit as Noetherian. Unchanged.
+4. **G5** — pure local completion for arbitrary finitely presented modules; coefficient-ring enlargement, normalisation, product flatness; compatible almost-CM data and CM descent with regular target and residue separability in 4.4.2. Unchanged.
+5. **G6** — now: read Hochster 1983 for the filtered system in the `(a) ⇒ (c)` branch and settle whether the transition maps are surjective or the system Mittag-Leffler. **Target the contrapositive, not the duality isomorphism.** Do not attempt to prove the false printed zero-divisor implication; its replacement is `functional-retraction-regular-r`.
+6. **G0/G7** — introductory equivalences, easy cases, §1.2 Banach/Weierstrass, §2.4 spectral facts, §2.6.1 remarks, A.2.1 product stability, and the declaration-level Ext/Tor/Artin–Rees/Krull/coherent-colimit/annihilator/parameter/completion adapters. Unchanged; do not duplicate the existing Mittag-Leffler infrastructure.
+
+**A reviewer may still disagree with any of the four verdicts.** They are one independent worker's, recorded with the reasoning in full in `sourceIssues[*].review.reason` and in §"The four verdicts" of the report, so they can be checked rather than taken on trust.
+
+## Inherited architecture and guardrails
+
+Unchanged and still binding: keep `DirectSummandsAndBigCohenMacaulay` for ordinary purity, splitting/Ext descent, reductions, Artinian retractions and big-CM modifications; import `DeformationAndDerivedPatchingAlgebra:R03.3`; use `PerfectoidSpaces:P0` for almost foundations with P1–P2 examples; **reuse the same `PerfectoidRamification` Part II id and title as `PAPER-ANDRE-18`** and do not invent a second root/Abhyankar project; `PerfectoidQuotients:Q3` is not a proved identification with André's normalised extension. Keep valuation and ramified almost ideals distinct and module `!` distinct from algebra `!!`; the flat model has product roots `(ϖg)^{1/p^h}`; use `m ≥ 2` in §3.3; preserve the `p²` choice in §4.2; do not replace infinite big-CM flatness by Auslander–Buchsbaum.
+
+## Validation
+
+`scripts/check_paper.py` passes. The JSON edit was made **textually**, inserting four `"review"` objects and one appended sentence-block in G6, so the diff is nine lines: the file's hand-condensed serialization is preserved rather than reformatted by a re-dump. The inherited diagnostics were **not** rerun and no new executable check was added; no Lean file was added or compiled.
+
+---
+
+## Earlier handoffs — historical context
+
+# Handoff: PAPER-ANDRE-18-B
+
 Issue: #2188. Continuing agent: **ChatGPT — cgpt-20260923-4c72a9**. Date: 2026-09-23. Continues Codex checkpoint #2210.
 
 **Partial checkpoint, not a complete extraction or an independent review.** Keep `status: partial` until the outstanding source and supplier work below is finished. Do not infer that a theorem is formalized from an API contract or from this packet passing schema checks.
