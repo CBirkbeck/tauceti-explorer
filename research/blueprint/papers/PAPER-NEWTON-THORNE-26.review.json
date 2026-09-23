@@ -1,0 +1,92 @@
+{
+  "paper": "PAPER-NEWTON-THORNE-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "R16.3 compares the explicit rank-two local descriptions and R16.4 owns the global GL₂ comparisons, so the tamely dihedral definition, its supercuspidality and the self-twist form of non-CM belong there. The printed induction indices in Definition 2.4 are reversed (E3)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "ML.3 plans Newton–Thorne symmetric-power automorphy as an endpoint, and Theorem A, Theorem 6.4 and SP_n are its planned endpoints. The route keeps the endpoint obligations: the automorphy predicate and convention bridge (ML.0), Lemma 2.1, Theorem 6.5(2) and the Clozel–Thorne reductions (ML.3), and the low-rank transfers and base change (ML.5, planned). The review moved out what the extraction had also routed here. The method of §§3–6 now forms route 15, and the polarized inputs (Newton–Thorne 2020, BLGGT14 Theorem 4.2.1, Clozel–Thorne's isobaric ordinarity) route 5. The Newton–Thorne II template is route 16 and Thorne 2024 route 17. Proposition 4.4 is planned in GL2ModularityLifting R22.2 and R17.3. ML.2 was dropped from the stages because nothing there remains."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "G7, R01.1 and R01.4 own residual-image and dimension-general image criteria, and the paper's image lemmas are applications of them. The review moved Dimitrov's large-image theorem to route 13 and added two items: the NT23 enormous-image criterion (to be compared with ACC+ Definition 6.2.29 in G7) and the algebraic-group facts of Lemma 2.2. It named adequacy (G7) and Dickson's classification (R01.4) as planned. It also corrected the E1 bound in Proposition 5.4 and restored p^a > M in Theorem 5.9."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The fixed-type, Steinberg, potentially semistable, finite-flat and dyadic local rings the paper cites are in R08.2–R08.5 and L7. The review named the planned definition of inertial types with monodromy (R08.2), and corrected Lemma 3.6 (rings of the residual s̄) and the Steinberg-domain item (the identification is proved in the paper)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Added by the review, replacing the extraction's route to PotentialAutomorphyInfrastructure PA.2/PA.3 and its route to IHG.0. Those layers follow ACC+ in the unpolarized setting and plan determinants in general. Thorne 2015, Allen–Newton–Thorne 2020, ι-ordinarity, BLGGT14 Theorem 4.2.1 with ∼ and potential diagonalisability, and the Newton–Thorne 2020 pseudodeformation ring and adjoint Selmer vanishing are polarized automorphy lifting. The pending PolarizedAutomorphyLifting owns this material, and the reviews of PAPER-NEWTON-THORNE-21 and -21-B already route it there. With this route the three Newton–Thorne extractions give each of these results one owner."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "AG2.0, AG2.2 and AG2.6 own fields of rationality, polarized systems and coefficient-prime comparison. Clozel's Théorème 3.13, Lemma 5.2 and unitary descent are sources there. The review restored the polarization hypothesis of the G_{F⁺}-extension (χ_v(−1) = (−1)^n), and added [CHT08, Lemma 4.1.4] and the independence of ι for the automorphy of an irreducible tensor product."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "R02.3 owns restricted ramification; the field F(S), the one-new-prime Kummer computation and Maire's rank bound are applications. The review stated Maire's bound as used and added the class-field-theory formula for d₀."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "ET.6 owns local Langlands and Jacquet–Langlands for GL_m and inner forms; Bushnell–Henniart's level-zero description is an input there."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "G7, R04.3 and R04.5 own polarized deformation problems, global presentations and Taylor–Wiles primes, including the separate p = 2 construction. The review corrected the locator of Thorne 2015's framework and where m_D is defined."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "R24.2 owns characteristic-zero points from finiteness, which is how Lemma 3.1 and Proposition 3.9 use the Khare–Wintenberger method."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "R03.6 owns support and component arguments. The review added the definition of the connectedness dimension to that item."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "R21.2 owns Hida control for Hilbert modular forms. BLGG12 Theorem 6.1.9 is now stated with all the hypotheses and conclusions the proof of Proposition 6.1 uses."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Added by the review, in the slot of the extraction's IHG.0 route. Dimitrov's Proposition 3.8 is a large-image theorem for the compatible family of a fixed Hilbert eigenform, which R19.3 constructs. The Ribet–Momose theorem goes to the same place in the other two Newton–Thorne reviews."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "R07.3 owns Fontaine–Laffaille theory; the residual weight comparison of Proposition 5.4 and Lemma 5.7 is an application."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Added by the review. ML.3 plans the endpoint, not the proof, and no layer or pending candidate plans this method. Its three new elements are the untwisted tensor of §3 (congruent deformation problems and generic primes), the functoriality lifting theorem for tensor products (Theorem 4.1) and the propagation over the coefficient field's Galois group (§5). The three other symmetric-power Part IIs use different methods, and this follows the treatment of Newton–Thorne I and II. The brief states Theorems 3.2, 4.1, 5.5, 5.9 and Propositions 6.1 and 6.3 as printed, names every import, and records the corrections the design job must respect, above all E24 (the proof of Theorem 4.1 must enlarge S by σ's ramification)."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Added by the review. The extraction routed the Newton–Thorne II patching template to ML.3. Its owner is the pending SymmetricPowerAutomorphyLifting, and the addendum asks for it to be built so that Theorem 4.1 can reuse it."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "Added by the review. Thorne 2024 (level raising, automorphy lifting with a Steinberg place, the residual automorphy of the two blocks, the induction step and the non-paritious reduction) continues the Clozel–Thorne programme. Its pending owner is SymmetricPowersByUnitaryLevelRaising."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against the arXiv v2 PDF and TeX, which were read in full. Three checkers covered §§1–2 and 6, §3, and §§4–5. The coordinator verified the substantive findings (E1, E8, E9, E16, E24–E27). It corrected 29 items (25 statements, 3 locators and one status) and annotated four more. The material corrections are Definition 2.5(1), the attached Galois representation, BLGG12, Lemmas 3.4 and 3.7, the deformation problems of §3, BLGGT14 Theorem 4.2.1, Propositions 4.9 and 5.4, and Theorem 5.9. It added 34 items, giving 164 in total (4 library, 24 planned, 136 missing). Routes: the method moved from ML.3 to a new Part II (route 15), and the general inputs were coalesced with PolarizedAutomorphyLifting, SymmetricPowerAutomorphyLifting and SymmetricPowersByUnitaryLevelRaising (routes 5, 16, 17). Dimitrov's large image went to R19.3 (route 13), matching the reviews of PAPER-NEWTON-THORNE-21 and -21-B. Source issues: E1 and E2 were confirmed with refinements, and E3–E31 are new. The most serious is E24: the printed proof of Theorem 4.1 takes S = S_p ∪ Σ, with Σ the ramification of π only, and so does not cover its application in Lemma 5.8. There σ = Sym^{r−1}σ′ is Steinberg at v₀, while γπ becomes unramified there. The repair is routine. E8, E22 and E25 are further proof gaps with direct repairs. No stated result is shown false."
+}
