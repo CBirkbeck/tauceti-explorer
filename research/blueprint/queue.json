@@ -8147,8 +8147,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SKINNER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2170"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2170",
+   "finishedAt": "2026-09-23T09:48:29Z"
   },
   {
    "id": "REV-PAPER-SKINNER-20",
@@ -8254,7 +8255,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2182"
   },
   {
    "id": "REV-PAPER-BHATT-18",
@@ -8289,7 +8291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2184"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-21",
