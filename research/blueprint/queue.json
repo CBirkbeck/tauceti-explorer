@@ -2174,7 +2174,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1143"
   },
   {
    "id": "REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -2209,8 +2210,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUAN-ZHANG-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1145"
+   "state": "pending",
+   "note": "released on GitHub issue #1145"
   },
   {
    "id": "REV-PAPER-YUAN-ZHANG-18",
