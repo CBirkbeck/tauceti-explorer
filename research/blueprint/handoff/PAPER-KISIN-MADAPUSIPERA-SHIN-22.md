@@ -1,27 +1,27 @@
 # PAPER-KISIN-MADAPUSIPERA-SHIN-22 handoff
 
-Codex, session codex-c83e7a; issue #1314. **Partial checkpoint.**
+Codex, codex-c83e7a; issue #1314; 23 September 2026. **Partial checkpoint.**
 
-The complete 41-page Berkeley author PDF, including Appendix A and references, was read. Its hash and selected original Kottwitz/Rapoport–Richartz read scopes are in the JSON. Final published text was not acquired. The extraction contains 172 stable item IDs, 27 inspected pinned declarations, 73 definition/construction APIs, 219 test specifications, six routes and eight executed exact acceptance checks. All 125 missing items are routed once, and the item graph is acyclic. No Lean file was compiled or formalization claimed.
+182 stable items (all prior 172 IDs/statuses preserved): 17 library, 32 planned, 133 missing; 75 definitions/constructions with 226 APIs and canonical tests; six routes; twelve scoped source findings; 27 pinned declaration records. The full 41-page author PDF and all 21 pages of Kottwitz85 were freshly read; key formulas were checked as images. No final Duke text was obtained. No Lean file was authorized or compiled.
 
-Resume in this order:
+C01–C10 construct the quasi-split ordinary class and prove the quaternion inner-form obstruction. Preserve b↦bJ, κ shift +1, Newton shift +(1/2,1/2), and the even-exponent norm identity. For μ_m=(m+1,m), the unique admissible class is basic with ν=(m+1/2,m+1/2); there is no ordinary class. The inverse Hodge case is m=−1. The class's rational representative and ordinary existence are separate. Do not infer a global counterexample to local-integrality density from this local calculation.
 
-1. Acquire the final Duke text through an authorized public/library route. Compare the source displays listed in the report. Preserve the GL3 counterexample to the normalizer statement and the nonreduced counterexample to Lemma 2.2.11. Only the author-PDF decency endpoint is already repaired against Kottwitz85; do not attribute defects to the final publication without checking it.
-2. Close G-local and G-ordinary. N29 now has a proved correct formulation, with w in the absolute Weyl group W(G,T) (Claude Code, cc-fb70e5), and N32's inner-form branch uses it. Resolve the existence of the maximal Newton class and (1.1.3.1) separately. S15–S19 currently retain these hypotheses.
-3. Read the Noot09/06 originals. The kernel-factorization step T23 is proved with the corrected auxiliary group G×_{G^ab}T (cc-fb70e5); its remaining inputs are Noot and Corollary 2.1.9. Verify the all-primes Noot input used by T16 independently of the later theorem T20. Prove the Tannakian functor S11 without equating a proper monodromy subgroup with G.
-4. Close Appendix A from its original Faltings, Ogus, de Jong and Madapusi Pera sources. The entire main-paper appendix is read, but those proofs are not. Preserve horizontal/vertical log structure and convergent/overconvergent distinctions.
-5. Close global transfer and Hasse hypotheses, finite-field Tate including p, the normal-model extension and density component argument. Split remaining grouped source contracts into declaration-sized nodes, replacing generic proof sketches with complete named dependencies and exact supplier-node requests.
-6. Reconcile the reused AbelianSchemesFiniteFieldsPartII candidate with PAPER-SMITH-24. It is a prior checkpoint proposal, not an accepted supplier. Keep the generic Hom/End API at A6, the finite-field comparison at that continuation, B(G) at BG0/BG1, and PEL group/Hasse calculations at M3. Do not create parallel owners.
+Preserve cc-fb70e5's full N29 absolute-Weyl and T23 fibre-product proofs. E1–E7 keep the existing errata IDs; E8–E12 record ordinary scope, the Tannakian gap, rational subgroup typo, tensor-power exchange and inverse-Hodge sign in Proposition 2.3.11. These findings concern the identified author version, with no independent-review verdict added.
 
-Conjecture 2.3.4 is intentionally conditional for general Hodge type. Completion requires correctly extracting that hypothesis, not proving the conjecture. PEL A/C, type-D disconnected and unpolarized statements have distinct scopes. Keep every item's implementation status unchecked.
+Resume:
 
-Validation to repeat after edits:
+1. Acquire and collate the final Duke text for E1–E12. Do not label an author-version finding as a verified published defect.
+2. Close G-local: Kot97/Kot03 and the minuscule unramified argument, central-quotient/torsion-free kernel, the K2 rational-conjugacy input used by Kot85 Proposition 6.2, and bounded Newton finiteness needed for openness. Reading Kot85 does not close all its references.
+3. Close G-model: MP19 component connectedness, irreducibility and level-changing Hecke transport; audit KP18 Corollary 0.3 and special versus very special/quasi-split scope. Arbitrary inner-form ordinary existence is false; do not try to remove C10's inhabitant requirement.
+4. Close G-noot/G-tensors: acquire Noot09/06 independently of the later Weil-point theorem. S11 spells out restriction to the actual monodromy subgroup and descent of all invariant morphisms/idempotents; the printed equality with the full tensor stabilizer is not justified.
+5. Close G-crystal, G-global, G-tate and the type-D exercise from originals. Keep the general off-diagonal Tate-with-tensors conjecture conditional.
+6. T27 now shares the current PAPER-SMITH-24 owner FaltingsFinitenessAndIsogenyTheorems:R28.4. Its finite-field/ crystalline source contract does not follow from number-field Faltings. Do not recreate the obsolete AbelianSchemesFiniteFieldsPartII route. Preserve A6 ownership of generic Hom/End.
+
+The report embeds the new 2,942-assertion exact certificate and eight inherited acceptance families. Rerun them, the item DAG/route/API/test/pinned-statement validation, and these repository checks:
 
 ```text
 python3 scripts/check_paper.py research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json
 python3 research/blueprint/intake.py check-files research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md research/blueprint/handoff/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md
 ```
 
-Explicitly check all three files exist: the intake path checker alone does not guarantee that. Re-run the report's exact Python certificate and verify the item graph, API/test coverage, pinned-reference coverage and one-route-per-missing-item invariant. Refresh atlas input hashes before submission. Mark complete only after original-source closure, source discrepancies, owner refinement and remaining declaration splits are resolved.
-
-Continuation log: Claude Code, cc-fb70e5, 22 September 2026. Corrected and proved N29, updated N32, and proved T23 with the fibre-product repair. No routes or other items changed.
+All 565 recorded input blobs were refreshed and screened; the original three deliverable guards were retained. The source hashes and precise read scope are in the JSON. Mark complete only after the remaining source gates, grouped declarations and supplier granularity are genuinely closed.
