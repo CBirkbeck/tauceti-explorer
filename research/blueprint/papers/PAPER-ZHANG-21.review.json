@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-ZHANG-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Hermitian forms and self-dual lattices belong to GN.2; the review added two planned items there (self-dual hermitian lattices, hermitian spaces with prescribed local data)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "AL.0/AL.1 own the Schwartz, Fourier and Tate-integral tools used here."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The holomorphic SL₂ spaces and Fourier uniqueness are generic automorphic infrastructure; the review added generation of SL₂ by unipotent subgroups."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The Weil operators, index and theta kernel are MP.2/MP.4/MP.5 material."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Green divisors and arithmetic degrees belong to R35.1, shared with PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Supported filtrations, Adams operations and the K-to-Chow comparison belong to S.4/S.6/S.7."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Chow groups and intersection operations via SF.5."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "This Part II id is shared, with the same title, with PAPER-LI-ZHANG-22-B, PAPER-LI-LIU-22 and others, as the brief says; the review added nearby hermitian spaces and the RSZ canonical-model comparison."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "ET plans stable/endoscopic transfer, not the Jacquet–Rallis relative transfer or the Weil-equivariant RTF; the Part II is justified and its id and title are shared consistently with the other unitary-RTF extractions. The review added 14 missing items and appended the corrections the layers must respect, above all that Proposition 4.12(i)/2.7(i) is proved only for q ≥ n + 1, so the printed AFL proof (Theorem 15.1(a)) has a gap at p = n."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Appendix B is reusable formal supported K-theory; the review added the supported cup product."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Shared, with the same title, with the other unitary-cycle extractions; the review added seven missing items (strata-curve inputs, local constancy against strata, the vertex-lattice support criterion, the projection formula, the Petersson metric, Kudla's Green functions, complex uniformisation of CM cycles)."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5 and Codex session a71f92. The published version (Ann. of Math. 193 (2021), 863–978, 116 pages, YMSC mirror, same SHA-256 6f8ac537… as the extraction) was read in full again by four checkers, with the author's preprint and Mihatsch–Zhang (JEMS) consulted. Statements: 53 corrected; locators: 69. Library citations (items 141–148) all exist at the pinned commits. The extraction's repairs are sound (97, 99, 100, 102, 106, 109, 111, 119–122, 125, 126), except 101, whose construction was incomplete and is supplied in its note. 28 new items (3 planned, 25 missing). E1–E28 confirmed; E2 and E9 reclassified to affect nothing, E12 to affect a stated result (Mihatsch–Zhang §7.2 fn. 5 corrects §12's Gaussians), E25 to an error in [47] that affects nothing here; E5's page corrected. 32 new source issues. Most consequential: the proof of Proposition 4.12(i) (and 2.7(i)) needs a norm-one ξ making both det(1 − ξg′) and 1 − ξd units, which exists only for q ≥ n + 1 (FL counterexample at q = n = 3), so the printed proof of the AFL (Theorem 15.1(a)) at p = n has a gap and the FL at q = n (Theorem 13.9(a)) rests on Beuzart-Plessis; Theorem 5.5 is proved only for q ≥ n (Mihatsch proves it in general). Also: Lemmas 4.3(iii)/4.9(iii) need det(1 − g) ≠ 0; Lemma 4.10's 'srs' is false (counterexample); Proposition 7.9(b)'s étaleness is false; (8.11) needs 4π; (9.12) double-counts complex places; Lemma 12.6 omits an archimedean phase; §11.4 and §12.5 use opposite sign conventions; Propositions 2.7(ii)/4.12(ii) are applied outside their printed q-bound (harmless, their proofs do not use it); and several gaps and misprints. All cases with q ≥ n + 1 are unaffected."
+}
