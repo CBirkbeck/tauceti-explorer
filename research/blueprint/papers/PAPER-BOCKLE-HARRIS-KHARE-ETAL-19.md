@@ -60,3 +60,30 @@ Deliberately **not** recorded: readings that turned out to be artefacts of the t
 ## Checks
 
 `scripts/check_paper.py` passes. 31 missing items, each routed exactly once; 5 planned items carry stage ids owned by the named roadmaps. The new roadmap id `GValuedDeformationsAndPotentialAutomorphy` is free in `data/atlas.json` and in `research/blueprint/roadmaps/`.
+
+## Review (REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1469](https://github.com/CBirkbeck/tauceti-explorer/issues/1469). **Verdict: accept.**
+No item, status or route changed.
+
+- **The published text is available and was read.** The extraction recorded that it "could
+  not be consulted (Acta Mathematica is not open access)". Unpaywall reports the DOI as gold
+  open access and the publisher serves the full text; the review fetched it (111 pages,
+  SHA-256 `15c4b966…ba2c`, printed page = PDF page), re-checked all 16 findings against it,
+  recorded it under `source.publishedVersion`, and added published page numbers to twelve
+  locators.
+- **The published text differs from arXiv v2.** Copyediting repaired two recorded slips —
+  E14(b) ("Theorem 90" → "Hilbert's Theorem 90", p. 88) and E16(b) (the misspelling
+  "correspondenec"). Both are annotated in place as slips of v2 only, **not** mistakes in
+  published work.
+- **All 16 confirmed**, several decisively in print: E4 (p. 69 writes `σ̄_m(Frob_v)`, p. 71
+  writes `ρ̄_m(Frob_v)` twice for the same element); E8 (p. 34 prints the same group on both
+  sides of an identity, forcing `(r−1)#Q = 0`); E14(a) (Proposition 11.2 contradicts the
+  proof of Theorem 11.1 on the same page); E12 (the local Artin map given source `K^×`).
+- Where a finding bundles several elements, or its correction rests on a page-image reading
+  of a hat the text layer flattens, **the verdict says so explicitly**.
+- **Items and routes:** no library items; 5 planned items resolving; 31 missing items routed
+  exactly once; the single Part II title is an exact prefix extension and its name is free.
+
+Full report: `research/blueprint/reviews/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md`.
