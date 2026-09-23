@@ -7,223 +7,220 @@
       "kind": "error",
       "locator": "Published §3.1 p.76",
       "printed": "finite double cover",
-      "correction": "The projective equation gives a proper generically degree-two map, finite flat on S0; introduce its finite Stein model separately. The explicit model and resolution are now174–185. The same finite-cover wording on p86 must refer only to the finite model or to the complement of the exceptional set, not to the full pullback of the auxiliary curve.",
-      "reason": "At r=s=0 the fibre of rv²=sw² is P1, not a finite scheme. G1 remains a geometric comparison obligation. At an auxiliary-curve point with r=0 and g nonzero, its full inverse image still contains the exceptional P1; its two graph sections are strict-transform components.",
+      "correction": "Call the incidence model proper and generically of degree two, finite flat over S0. Distinguish the finite flat model Spec_S(O_S ⊕ L^(-1)(-R)), with multiplication given by rs, from the incidence model and its resolution.",
+      "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E1"
+      "extraction": "PAPER-BENOIST-19/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E2",
       "kind": "gap",
       "locator": "Lemma1.4 p.70",
       "printed": "p*p*α̃",
-      "correction": "Choose beta compatibly so beta modulo n equals p*aTilde before taking its trace.",
-      "reason": "Being an integral lift of the same Brauer class alone allows a Picard difference. Lemma1.3 kills the Bockstein of this chosen Kummer lift and permits the compatible choice.",
+      "correction": "Before Lemma 1.4 choose beta whose reduction modulo n is exactly p*alphaTilde. Lemma 1.3 kills the Bockstein of that class, so this choice exists.",
+      "reason": "An arbitrary integral representative of the pulled-back Brauer class can differ modulo n by a Picard class. The trace congruence does not follow for such an arbitrary choice. A compatible choice gives p_*beta mod n = dn alphaTilde = 0, and the rest of the proof works.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E2"
+      "extraction": "PAPER-BENOIST-19/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An arbitrary integral representative of the pulled-back Brauer class can differ modulo n by a Picard class. The trace congruence does not follow for such an arbitrary choice. A compatible choice gives p_*beta mod n = dn alphaTilde = 0, and the rest of the proof works. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E3",
       "kind": "gap",
       "locator": "Proposition4.4 p.84, after(4.8)",
       "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
-      "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.",
-      "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1. (cc-442dc5) Reclassified to affect a stated result: the step fails whenever Ξ ≠ ∅ and Ψ ≠ Ξ, so Propositions 4.4, 4.5 and 6.6 are not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
-      "affects": "a stated result",
+      "correction": "Write a=[alphaTilde]_0 on Psi. The computation gives [zeta]_1=a[e]_1, and the printed adjustment leaves (1+a)[e]_1. For constant a=t, multiply the Picard correction by t. A repair for unrestricted a is not established here.",
+      "reason": "The degree-one component of the displayed Bockstein is b+a[e]_1; b=0 does not remove a. Nonconstant a does not by itself imply a nonzero residual. Theta is the NONZERO evaluation locus. In Proposition 6.7, a=(n/2) mod 2 on Psi=Theta of the original class, so the uniform repair applies for either value of t. No counterexample to Propositions 4.4, 4.5 or 6.6 is asserted.",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E3"
+      "extraction": "PAPER-BENOIST-19/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The degree-one component of the displayed Bockstein is b+a[e]_1; b=0 does not remove a. Nonconstant a does not by itself imply a nonzero residual. Theta is the NONZERO evaluation locus. In Proposition 6.7, a=(n/2) mod 2 on Psi=Theta of the original class, so the uniform repair applies for either value of t. No counterexample to Propositions 4.4, 4.5 or 6.6 is asserted. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E4",
       "kind": "gap",
       "locator": "Proposition4.5 pp.84–85",
       "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
-      "correction": "Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
-      "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish. (cc-442dc5) Reclassified to affect a stated result: the typed replacement covers only a constant evaluation on Ψ, so Proposition 4.5 (and 6.6) is not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
-      "affects": "a stated result",
+      "correction": "Replace the mod-2 summand by an integral class constructed from (7.2): alphaTilde=eta mod 2-phi(zeta), b=p*eta-psi(zeta), b mod 2=p*alphaTilde, p_*b=2eta. Compare beta with b, divide the resulting integral Picard equality using primitivity, and include the real-component and curve corrections described in the report. The checked repair assumes constant evaluation t on Psi.",
+      "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition.",
+      "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E4"
+      "extraction": "PAPER-BENOIST-19/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E5",
       "kind": "gap",
       "locator": "Proposition4.5 p.85, application of Assumption4.1(ii)",
       "printed": "δ−cl(θ₂)",
-      "correction": "Subtract an additional Picard class nu made from the allowed curves before applying Proposition3.3; include2nu in the final theta.",
-      "reason": "Assumption4.1(ii) gives generation by pushforwards AND curve classes. It does not identify its kernel with the pushforward image alone.",
+      "correction": "After making the real first component zero on Psi, subtract cl(nu), where nu is a combination of the curves allowed by Assumption 4.1(ii), before applying Proposition 3.3. Add 2nu to the final theta.",
+      "reason": "The restriction kernel is generated by a pushforward subspace together with curve classes. Kernel membership alone is not membership in the pushforward subspace. The curve adjustment is already handled correctly in the analogous argument on p.82.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E5"
+      "extraction": "PAPER-BENOIST-19/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The restriction kernel is generated by a pushforward subspace together with curve classes. Kernel membership alone is not membership in the pushforward subspace. The curve adjustment is already handled correctly in the analogous argument on p.82. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E6",
       "kind": "misprint",
       "locator": "Lemma7.3 p.98 and equation(7.13) p.103",
       "printed": "p*η+ψ(ζ)",
-      "correction": "Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.",
-      "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs. (cc-442dc5) Reclassified to affect nothing: with the displayed (1, −φ) convention the sign is forced, and the traced equations used afterwards are unchanged.",
+      "correction": "Use p*eta-psi(zeta) in Lemma 7.3 and (7.13), consistently with (1,-phi) in (7.2). Equation (7.14) is unchanged.",
+      "reason": "Modulo n, psi equals p*phi, whereas alphaTilde=eta mod n-phi(zeta). For n=4 the sheet vector (1,0,0,0) gives psi=(−3,1,1,1), detecting the sign difference. Its trace is zero, so subsequent traced equations are unaffected.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E6"
+      "extraction": "PAPER-BENOIST-19/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Modulo n, psi equals p*phi, whereas alphaTilde=eta mod n-phi(zeta). For n=4 the sheet vector (1,0,0,0) gives psi=(−3,1,1,1), detecting the sign difference. Its trace is zero, so subsequent traced equations are unaffected. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E7",
-      "kind": "gap",
+      "kind": "misprint",
       "locator": "Proof of Lemma7.3 p.99",
       "printed": "Q→j*j*Q",
-      "correction": "Use injectivity of the TARGET p_*(Z/n)→j_*j*p_*(Z/n). Item157 proves it in this setting.",
-      "reason": "Equality of maps after restriction can be cancelled through a target monomorphism. A monomorphism on their source cannot justify this step.",
-      "affects": "the proof",
+      "correction": "Use injectivity of p_*(Z/n) → j_*j*p_*(Z/n), the target of the two sheaf maps.",
+      "reason": "Restriction equality is detected by a target monomorphism. Here p^(-1)(S*) is dense in smooth T, and a locally constant section of Z/n vanishing there vanishes everywhere. Thus the required target monomorphism is immediate; replace the incorrectly named source rather than leave an unresolved sheaf-theoretic gap.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E7"
+      "extraction": "PAPER-BENOIST-19/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Restriction equality is detected by a target monomorphism. Here p^(-1)(S*) is dense in smooth T, and a locally constant section of Z/n vanishing there vanishes everywhere. Thus the required target monomorphism is immediate; replace the incorrectly named source rather than leave an unresolved sheaf-theoretic gap. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E8",
-      "kind": "gap",
+      "kind": "misprint",
       "locator": "Proposition6.7 statement and proof p.95",
       "printed": "n/2",
-      "correction": "Separate the odd case from the half-period hypothesis; initially conclude the restricted period divides n/2.",
-      "reason": "The half-period class is undefined for odd n. Killing it for even n gives divisibility; the index inequalities at the end force equality.",
-      "affects": "the proof",
+      "correction": "State the odd-period case separately; impose the half-period lift condition only for even n. Retain the exact period n/2 after restriction.",
+      "reason": "The odd case is already treated separately in the proof, but the statement asks for (n/2)alpha without restricting n. For even n, if m is the restricted period then m divides n/2; corestriction of restriction is 2alpha, of order n/2, so n/2 divides m. The inherited concern about the exact restricted period is withdrawn.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E8"
+      "extraction": "PAPER-BENOIST-19/E8",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The odd case is already treated separately in the proof, but the statement asks for (n/2)alpha without restricting n. For even n, if m is the restricted period then m divides n/2; corestriction of restriction is 2alpha, of order n/2, so n/2 divides m. The inherited concern about the exact restricted period is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E9",
       "kind": "gap",
       "locator": "Proof of Theorem0.12 p.95",
       "printed": "K=∪iKi",
-      "correction": "Include a transcendence basis of K/R in K0 before expressing K as the union of finite extensions of K0.",
-      "reason": "Descent of the Brauer coefficients alone need not make K/K0 algebraic.",
+      "correction": "Enlarge the chosen finitely generated K0 by a transcendence basis of K/R before writing K as a union of finite extensions Ki/K0.",
+      "reason": "Descent of a Brauer class alone does not ensure K/K0 is algebraic. Adding two transcendence-basis elements preserves finite generation and the descended class, makes K/K0 algebraic, and justifies the directed union and the subsequent surface reduction.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E9"
+      "extraction": "PAPER-BENOIST-19/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Descent of a Brauer class alone does not ensure K/K0 is algebraic. Adding two transcendence-basis elements preserves finite generation and the descended class, makes K/K0 algebraic, and justifies the directed union and the subsequent surface reduction. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E10",
       "kind": "gap",
-      "locator": "Proof of Theorem0.13 p.96",
+      "locator": "Published proof of Theorem 0.12, lower bound, p.96; arXiv v2 p.28",
       "printed": "not proportional",
-      "correction": "Choose local parameters jointly so det(dy1,dy2) is nonzero, after restricting to a smooth point.",
-      "reason": "With dyj=a+c dzj, avoiding proportionality of each dzj to a separately does not force the pair of dyj to be independent; G6 retains the joint genericity proof.",
+      "correction": "Choose x smooth and first replace w by wPrime=(w^2−1)/(2w). Then wPrime has residue i and wPrime^2+1 lies in m^2. For any regular parameter pair z1,z2, use yj=(1+zj)^2+(wPrime+zj)^2.",
+      "reason": "Writing a=[w^2+1] and c=2(1+i), the original construction gives [yj]=a+c[zj]. With a nonzero, z1=e2 and z2=−2a/c−e2 are independent and individually not proportional to a, but their y-images are opposite. The repair follows from wPrime^2+1=(w^2+1)^2/(4w^2), giving [yj]=c[zj]. Both yj remain sums of two squares. The inherited locator incorrectly called this the proof of Theorem 0.13.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E10"
+      "extraction": "PAPER-BENOIST-19/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Writing a=[w^2+1] and c=2(1+i), the original construction gives [yj]=a+c[zj]. With a nonzero, z1=e2 and z2=−2a/c−e2 are independent and individually not proportional to a, but their y-images are opposite. The repair follows from wPrime^2+1=(w^2+1)^2/(4w^2), giving [yj]=c[zj]. Both yj remain sums of two squares. The inherited locator incorrectly called this the proof of Theorem 0.13. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E11",
@@ -231,22 +228,21 @@
       "locator": "Equation(2.1) p.72",
       "printed": "M(−k)",
       "correction": "Use coefficient M(dprime-d) in the source of the Gysin map.",
-      "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula. (cc-442dc5) Reclassified to affect nothing: the cited BW1 (1.22) has the correct twist, and every later use is equal-dimensional.",
+      "reason": "For f:Xprime→X with dimensions dprime,d, the relative orientation twist is dprime−d, independent of cohomological degree k. The cited BW arXiv v2 (1.22), p.13, uses minus the codimension. An identity morphism must preserve coefficients even in odd degree. This is a notation slip with a uniquely determined intended formula.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E11"
+      "extraction": "PAPER-BENOIST-19/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For f:Xprime→X with dimensions dprime,d, the relative orientation twist is dprime−d, independent of cohomological degree k. The cited BW arXiv v2 (1.22), p.13, uses minus the codimension. An identity morphism must preserve coefficients even in odd degree. This is a notation slip with a uniquely determined intended formula. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E12",
@@ -254,44 +250,43 @@
       "locator": "Equation(5.7) p.88",
       "printed": "H⁰(C,N_C/T)",
       "correction": "The normal-sequence boundary lands in H¹(C,N_C/T).",
-      "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree. (cc-442dc5) Reclassified to affect nothing: the exact sequence (5.8) and the cited Benoist 2018 Proposition 2.1 fix the degree.",
+      "reason": "The boundary from the normal-bundle sequence (5.8) sends H0(C,N_T/X|C) to H1(C,N_C/T); the following boundary sends this H1 to H2(T,O_T). Thus the H0 printed in the middle of (5.7) has the wrong degree. The correction follows directly from the two displayed exact sequences.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E12"
+      "extraction": "PAPER-BENOIST-19/E12",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The boundary from the normal-bundle sequence (5.8) sends H0(C,N_T/X|C) to H1(C,N_C/T); the following boundary sends this H1 to H2(T,O_T). Thus the H0 printed in the middle of (5.7) has the wrong degree. The correction follows directly from the two displayed exact sequences. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E13",
       "kind": "gap",
       "locator": "Proof of Proposition0.7 p.108",
-      "printed": "(0:−1:1:1)",
-      "correction": "Use general real points of the divisor u=0 away from zeros and poles, with the required sign, and justify simultaneous specialization.",
-      "reason": "A previously fixed point can be a zero or pole of the specialized rational functions. G9 keeps the generic-point/specialization repair open.",
+      "printed": "[0:−1:1:0]",
+      "correction": "Use general real points of D={u=0} on each of the arcs v/w<0 and v/w>0, avoiding zeros and poles of the unit parts of f0 and g0. Interpret sign constancy on punctured neighbourhoods and specialize only away from zeros and poles.",
+      "reason": "The printed fixed point is [0:−1:1:0], not the point transcribed in the inherited entry. Factoring f0=u^m h and g0=u^n k at general points of D, with h,k units, the negative-v arc forces m,n even. On the positive-v arc their punctured signs then cannot change across u=0, contrary to the quadrant condition. Integer powers of the positive Puiseux parameter do not change signs; smooth points away from uv=0 lift, justifying the specialization on a dense open set. This repairs the omitted generic-point argument.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E13"
+      "extraction": "PAPER-BENOIST-19/E13",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed fixed point is [0:−1:1:0], not the point transcribed in the inherited entry. Factoring f0=u^m h and g0=u^n k at general points of D, with h,k units, the negative-v arc forces m,n even. On the positive-v arc their punctured signs then cannot change across u=0, contrary to the quadrant condition. Integer powers of the positive Puiseux parameter do not change signs; smooth points away from uv=0 lift, justifying the specialization on a dense open set. This repairs the omitted generic-point argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E14",
@@ -299,21 +294,21 @@
       "locator": "Proof of Proposition0.7 p.107",
       "printed": "Br(R(S))",
       "correction": "Use Br(K(S)), for the real Puiseux field K defined in this proof.",
-      "reason": "Both functions f,g and the surface S are defined over K here.",
+      "reason": "The surface, its two rational functions and the quaternion class are over the Puiseux field K in this proof. The field inside Br must consequently be K(S).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E14"
+      "extraction": "PAPER-BENOIST-19/E14",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The surface, its two rational functions and the quaternion class are over the Puiseux field K in this proof. The field inside Br must consequently be K(S). Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E15",
@@ -321,44 +316,43 @@
       "locator": "Proof of Theorem0.6 p.107",
       "printed": "unique δ",
       "correction": "Say unique NONZERO delta with component0 zero, as in the preceding paragraph on p.106.",
-      "reason": "The zero class also has component0 zero. Item118 already records the nonzero condition.",
+      "reason": "The preceding paragraph on p.106 explicitly supplies a unique nonzero class with this property. Zero also has component zero equal to zero, so the repeated uniqueness sentence on p.107 must retain nonzero.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E15"
+      "extraction": "PAPER-BENOIST-19/E15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding paragraph on p.106 explicitly supplies a unique nonzero class with this property. Zero also has component zero equal to zero, so the repeated uniqueness sentence on p.107 must retain nonzero. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E16",
       "kind": "misprint",
       "locator": "Proof of Proposition7.1 p.103, following(7.14)",
       "printed": "kernel",
-      "correction": "Use torsion-freeness of the cokernel of the Picard cycle map.",
-      "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem. (cc-442dc5) Reclassified to affect nothing: the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses.",
+      "correction": "No correction is needed at this locator: it already says cokernel in the published PDF, current author PDF and arXiv v2.",
+      "reason": "The inherited printed quotation kernel is inaccurate. The published p.103 image visibly says cokernel after (7.14), as does arXiv v2 p.33. BW v2 Proposition 2.9, p.34, confirms that this is exactly the primitivity statement used.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E16"
+      "extraction": "PAPER-BENOIST-19/E16",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The inherited printed quotation kernel is inaccurate. The published p.103 image visibly says cokernel after (7.14), as does arXiv v2 p.33. BW v2 Proposition 2.9, p.34, confirms that this is exactly the primitivity statement used. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E17",
@@ -366,60 +360,65 @@
       "locator": "Proof of Theorem1.5 p.71",
       "printed": "n=dl",
       "correction": "Distinguish Voisin’s hypersurface-degree parameter from the period n; substitute m=dn for surfaces in |dnH|.",
-      "reason": "The symbol l is not defined in this section. The family was defined on p.69 with hypersurface degree dn; this is only a parameter concordance.",
+      "reason": "The family in this section is |dnH|, with n the Brauer period. The symbol l in this parameter substitution has not been defined. Renaming the external degree parameter m avoids collision and gives m=dn; this is a parameter-concordance slip.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
-        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
-        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
-        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E17"
+      "extraction": "PAPER-BENOIST-19/E17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The family in this section is |dnH|, with n the Brauer period. The symbol l in this parameter substitution has not been defined. Renaming the external degree parameter m avoids collision and gives m=dn; this is a parameter-concordance slip. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E18",
       "kind": "misprint",
-      "locator": "Published §3.1 p77 first line; author-copy p15 has the same wording",
+      "locator": "Published §3.1 p.77; current author PDF page 15; arXiv v2 p.12",
       "printed": "v",
       "correction": "The fixed singular points over Sing R are where w vanishes, with v nonzero.",
-      "reason": "At such a point r=0 and s is a unit, so rv²=sw² forces w=0. Setting v=0 instead forces w=0 too and gives no projective point. Published p77 and author text were checked. (cc-442dc5) Reclassified to affect nothing: the equation rv² = sw² with r = 0 and s a unit forces w = 0, which determines the intended centre.",
+      "reason": "Over Sing R, r=0 and s is a unit, so rv^2=sw^2 forces w=0 and v≠0. The point v=0 would force both projective coordinates to vanish. The same word is in all three copies; the equation unambiguously determines the intended blow-up centre.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published p77 image and author-copy p15 compared; published article page and title/erratum search on2026-09-23. No correction identified in these checks.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "previousAffects": "the proof",
-      "extraction": "PAPER-BENOIST-19/E18"
+      "extraction": "PAPER-BENOIST-19/E18",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over Sing R, r=0 and s is a unit, so rv^2=sw^2 forces w=0 and v≠0. The point v=0 would force both projective coordinates to vanish. The same word is in all three copies; the equation unambiguously determines the intended blow-up centre. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     },
     {
       "id": "PAPER-BENOIST-19/E19",
       "kind": "misprint",
       "locator": "Published(5.5) p87, with the normalization fixed in §5.1 p86",
       "printed": "rg",
-      "correction": "The restriction coefficient is sqrt(a1)rg before rescaling g by the nonzero scalar sqrt(a1).",
-      "reason": "The chosen graph is v=sqrt(a1)g*w and the trace-zero root is z=rv/w. This scalar does not affect the later injectivity argument; the printed expression can be retained after explicitly renormalizing g.",
+      "correction": "No mandatory correction: choose the identification of the anti-invariant summand using zPrime=rv/(sqrt(a1)w), so its restriction to C is rg. With z=rv/w instead, the coefficient is sqrt(a1)rg.",
+      "reason": "The involution specifies an eigensummand, but does not fix its scalar identification with L^(-1)(-R). The source does not stipulate z=rv/w. Scaling the anti-invariant identification by 1/sqrt(a1) is permitted and gives the printed map (1,rg), with g unchanged. The inherited finding imposed an unstated normalization; either choice gives the same injectivity argument.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Published pp86–87 compared with the local chart and section equations; title/erratum search on2026-09-23. No correction identified in these checks.",
-        "Rechecked by cc-442dc5 on 23 September 2026: the published Numdam PDF re-fetched (SHA-256 8dfc0f22…, matching); the Numdam article page links no erratum and the Crossref record of DOI 10.1007/s10240-019-00108-7 registers no update relation.",
-        "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-019-00108-7",
-        "Springer article page and Numdam item page, 23 September 2026: no erratum or corrigendum linked",
-        "arXiv 1804.03642: versions v1–v2; v2 (15 May 2019) is the latest; no later version",
-        "O. Benoist's homepage (math.ens.fr/~benoist), 23 September 2026: lists the paper with no erratum (the only erratum listed there concerns a different paper, with Wittenberg, on intermediate Jacobians)"
+        "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
+        "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
+        "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
       ],
-      "extraction": "PAPER-BENOIST-19/E19"
+      "extraction": "PAPER-BENOIST-19/E19",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The involution specifies an eigensummand, but does not fix its scalar identification with L^(-1)(-R). The source does not stipulate z=rv/w. Scaling the anti-invariant identification by 1/sqrt(a1) is permitted and gives the printed map (1,rg), with g unchanged. The inherited finding imposed an unstated normalization; either choice gives the same injectivity argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+        "by": "REV-ERRATA-PAPER-BENOIST-19"
+      }
     }
   ]
 }
