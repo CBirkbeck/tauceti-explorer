@@ -15583,14 +15583,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Rendered p. 6. For P=0,Q=N the printed condition holds trivially by q′=q,p=0, but the cokernel is N, not a group. The required condition is q+q′=phi(p)."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E2",
@@ -15599,21 +15603,25 @@
    "printed": "integral monoid",
    "correction": "Require Gamma sharp integral and gamma a nonunit, or explicitly redefine the prelog map and allowed log-base map.",
    "reason": "For Gamma=Z multiplicatively written, two inverse nonidentity elements would both map to zero while their product maps to one. Also gamma=1 is incompatible with the standard base generator mapping to zero. The valuation monoids actually used satisfy the corrected assumptions. (cc-442dc5) Reclassified to affect nothing: every monoid to which Definition 2.9 is applied (N, Q≥0) is sharp, and the chosen γ are nonunits.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read and rendered pp. 7–8. A nontrivial group is integral, but sending both a nonidentity unit and its inverse to zero while sending their product to one is not multiplicative. Sharpness fixes the prelog map; gamma must be nonunit for compatibility with the standard log base. Relevant N and positive-value-monoid applications survive."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E3",
@@ -15629,14 +15637,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Rendered p. 8 and independently read AGV v3 Definitions 2.1.15–17 p. 30. The reduced unit-torus cofiber is T, and the conventional Tate twist is T[-1]. Stabilization agrees, but subsequent named twist formulas need this correction."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E4",
@@ -15652,14 +15664,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read Remark 2.17 p. 9: its fibre product is X×_S X′, so the second tensor factor must be Q_S(X′)."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E5",
@@ -15675,14 +15691,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Theorem 2.20 proof p. 11 cites Ogu90 with book-style locators I.2.2.5 and IV.3.1.11, while its bibliography identifies Ogu90 as the 1990 convergent-topos article and separately lists the 2018 logarithmic-geometry book. Confirm the bibliographic mismatch only. Ogu18 is a candidate replacement; the exact corollaries were not acquired, so G3 remains open."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E6",
@@ -15698,14 +15718,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read Remark 2.8 p. 7 in its allowed equal-characteristic scope: in characteristic p, O_X[1/p] is the zero ring, whereas inverting the pseudo-uniformizer gives the generic fibre. The intended replacement by pi is clear."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E7",
@@ -15721,14 +15745,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Rendered p. 22. For X a point and k=1, the torus motive has both degree-zero unit and reduced Tate summands. The two displayed equalities omit the unit and, in higher rank, the intermediate binomial summands. Restoring them preserves membership in the good-reduction-generated subcategory."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E8",
@@ -15737,44 +15765,52 @@
    "printed": "nilpotent endomorphism",
    "correction": "Restrict to finite-dimensional modules with invertible Frobenius, or require nilpotent N separately.",
    "reason": "D=Q_p, phi=0, N=identity satisfies N phi=p phi N in the printed endomorphism category but N is not nilpotent. Actual HK isocrystals have invertible Frobenius, so their monodromy filtration remains available. (cc-442dc5) Reclassified to affect nothing: Definition 3.1 does not require φ bijective (φ = 0, N = id is a counterexample to 'N is nilpotent'), but Definition 5.1 is applied only to Hyodo–Kato cohomology, where φ is bijective and N is nilpotent.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read Definition 3.1 p. 15 and Definition 5.1 p. 27. On Q_p with phi=0,N=id the relation holds and N is not nilpotent. Beilinson §1.15 p. 21 explicitly assumes finite dimension and invertible phi. The intended cohomological isocrystals have that narrower scope, but the literal definition needs repair."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E9",
    "kind": "error",
    "locator": "v2 Remark5.8 p29 and Theorem5.6 rank-one step p28; v1 same remark p28",
    "printed": "geometrically connected",
-   "correction": "Retain geometric connectedness in the rank-one proof or prove a genuine componentwise argument. For the cited SGA2 connectedness result retain ampleness of the cutting divisor at every application.",
+   "correction": "Retain geometric connectedness in the rank-one proof or prove a genuine componentwise argument. For the cited SGA2 connectedness result retain ampleness of the cutting divisor at every application. This confirms the false unrestricted Remark 5.8; interpreting the main theorem still requires the variety convention. It does not refute its conclusion.",
    "reason": "On P1×P1 over an algebraically closed field, X0X1 in O(2,0) cuts out two disjoint smooth P1 fibres: a positive-dimensional scheme-theoretic hypersurface. SGA2 XII3.5 explicitly assumes an ample line bundle, absent from BKV §4. Its top cohomology has rank two, so one nonzero map to a rank-one target need not split it. Scholze2012 Theorem9.6 explicitly assumes geometric connectedness. If 'variety' in Theorem5.6 is intended to mean integral, that convention resolves the endpoint restriction over C_p but not the unrestricted wording of Remark5.8; the reviewer must settle this. This is not a counterexample to weight–monodromy itself.",
-   "affects": "the proof",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher metadata/abstract/references and exposed appendix, https://link.springer.com/article/10.1007/s00222-025-01344-x, checked 2026-09-22. Full journal PDF returned a paywall HTML page; no full journal collation is claimed.",
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Rendered Remark 5.8 p. 29. X0X1 in O(2,0) on P1×P1 cuts out two disjoint smooth P1 fibres, a positive-dimensional scheme-theoretic hypersurface. Independently read SGA2 XII Corollary 3.5, printed p. 120: its line bundle is ample. Confirm the unrestricted connectedness assertion is false; the impact on Theorem 5.6 depends on the integral-variety convention and no counterexample to weight–monodromy is claimed."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E10",
@@ -15790,14 +15826,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "The proposed connected reducible curve counterexample is valid if variety means an arbitrary finite-type scheme, but it does not satisfy the common integral-variety convention. The base in Remark 3.21 is algebraically closed. No explicit source convention admitting reducible varieties was established, so reject this as a confirmed source error. Retain geometric irreducibility in the extracted general trace contract and keep the interpretation question in G2."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E11",
@@ -15813,14 +15853,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read the two proofs on pp. 23–24 and Proposition 3.8 on pp. 16–17: Proposition 3.8 has no numbered part (2). Confirm the broken locator only; reconstructing the intended arithmetic comparisons remains G7, without guessing a replacement."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E12",
@@ -15836,19 +15880,23 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Read the introductory Theorem 1.3 and Corollary 3.13 p. 18. The latter explicitly uses RΓ_HK^(e), with N/e. The introduction identifies its result with that corollary, so treat the omitted normalization as notation to restore, not a new failure of the comparison theorem."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E13",
    "kind": "error",
-   "locator": "v2 AppendixA.1 p29; same passage in v1",
+   "locator": "v2 AppendixA.1 p29; same passage in v1; independently confirmed in the published Appendix A.1 HTML",
    "printed": "only one algebra morphism",
    "correction": "Keep the chosen projection augmentation over arbitrary perfect k. It is unique when k is algebraic over F_p; generally augmentations form a torsor under k* tensor_Z Q.",
    "reason": "BGV23 v2 Remark4.17 explicitly gives this torsor and the finite-residue-field condition; Remark4.18 gives the unit-change term. For k the perfect closure of F_p(t), the class of t is nonzero. AppendixA initially assumes only perfect k, so the selected augmentation exists but is not uniquely determined in that generality.",
@@ -15859,14 +15907,18 @@
     "arXiv https://arxiv.org/abs/2207.00369: v2 dated 10 June2025 is the latest listed version. Full v2 read; v1 Remark2.6, Remark5.8 and AppendixA augmentation passage compared, not the whole v1.",
     "Federico Binda https://fedebinda.eu/research.html and Alberto Vezzani https://sites.unimi.it/vezzani/Pages/Research.htm checked 2026-09-22: no correction to this paper located. Binda's listed small erratum concerns a different paper. No authenticated mathematician Hiroki Kato homepage was identified.",
     "Exact title/arXiv/DOI with erratum/correction searches on 2026-09-22 found no BKV-specific correction. 'new' means not found in this search, not a priority claim. Findings await independent review; no author contacted.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Rendered p. 29 and read the published Appendix A.1 HTML. Both assert uniqueness over arbitrary perfect k. BGV v2 Remarks 4.17–18 p. 32 identify the augmentation torsor with k× tensor_Z Q; for the perfect closure of F_p(t), the class of t is nonzero. The chosen projection remains valid, and uniqueness holds when k is algebraic over F_p."
   },
   {
    "id": "PAPER-BINDA-KATO-VEZZANI-25/E14",
@@ -15880,14 +15932,128 @@
    "searched": [
     "Martin Gallauer's author publication list links the erratum, https://mgallauer.warwick.ac.uk/writing.html; full publisher PDF read 2026-09-22.",
     "AGV arXiv:2010.15004v3, 12 August2024; Definitions2.1.15–16 read for the Tate normalization.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-025-01344-x registers no update relation; Unpaywall lists only a repository (submitted-version) copy, so the version of record could not be collated; arXiv v2 is the authors' revised version.",
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
    ],
    "owner": "PAPER-BINDA-KATO-VEZZANI-25",
    "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
    "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Independently read all three pages of the published 2025 AGV erratum, including Example 2.1.4 bis. The omitted refinement and hypercover hypotheses are real. The erratum states all uses in AGV remain valid; this is an already corrected external input, not proof that BKV’s applications fail."
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25/E15",
+   "kind": "gap",
+   "locator": "arXiv v2 Definition 3.1 and Remark 3.2 p. 15",
+   "printed": "a compact object is given by a bounded complex of finite dimensional",
+   "correction": "Specify the finite-isocrystal bounded enhancement and its appropriate Ind-completion, and prove coefficient-colimit comparisons; do not identify it with the unrestricted derived category without proof. See item 139/G11.",
+   "reason": "Under the literal unrestricted endomorphism-module definition, for k=F_p the category is modules over R=Q_p<F,N>/(NF-pFN). The free rank-one R-module in degree zero is compact in D(Mod R), but infinite-dimensional over Q_p (R surjects onto Q_p[F]). Thus the stated compactness description cannot hold literally. Beilinson §1.15 instead defines finite-dimensional invertible-Frobenius modules and their bounded derived category. This confirms a missing category convention/comparison, not a failure of the geometric theorem.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
+   ],
+   "owner": "PAPER-BINDA-KATO-VEZZANI-25",
+   "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Under the literal unrestricted endomorphism-module definition, for k=F_p the category is modules over R=Q_p<F,N>/(NF-pFN). The free rank-one R-module in degree zero is compact in D(Mod R), but infinite-dimensional over Q_p (R surjects onto Q_p[F]). Thus the stated compactness description cannot hold literally. Beilinson §1.15 instead defines finite-dimensional invertible-Frobenius modules and their bounded derived category. This confirms a missing category convention/comparison, not a failure of the geometric theorem. Confirmed only in arXiv 2207.00369v2; main journal text not collated."
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25/E16",
+   "kind": "misprint",
+   "locator": "arXiv v2 §1.2 p. 3, cohomology of the equal-characteristic approximant",
+   "printed": "Z^an_Cp",
+   "correction": "Use Z^an_(Cp-flat) in the argument of the tilted realization.",
+   "reason": "The rendered formula places the equal-characteristic variety over C_p even though RΓ_HK-flat was defined immediately above on varieties over C_p-flat. A characteristic-p variety cannot acquire this characteristic-zero field extension.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
+   ],
+   "owner": "PAPER-BINDA-KATO-VEZZANI-25",
+   "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "The rendered formula places the equal-characteristic variety over C_p even though RΓ_HK-flat was defined immediately above on varieties over C_p-flat. A characteristic-p variety cannot acquire this characteristic-zero field extension. Confirmed only in arXiv 2207.00369v2; main journal text not collated."
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25/E17",
+   "kind": "misprint",
+   "locator": "arXiv v2 Remark 2.30 p. 13, lower middle object of the Frobenius square",
+   "printed": "logFDA^v(O_K^×)",
+   "correction": "Use logFDA^v(O_(K-flat)^×) for this lower lax-Frobenius-fixed-point category.",
+   "reason": "The upper middle object and the right-hand rigid categories are over K-flat; the left vertical operation takes lax fixed points of Frobenius and does not change the field. In mixed characteristic O_K has no absolute characteristic-p Frobenius used in this diagram.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
+   ],
+   "owner": "PAPER-BINDA-KATO-VEZZANI-25",
+   "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "The upper middle object and the right-hand rigid categories are over K-flat; the left vertical operation takes lax fixed points of Frobenius and does not change the field. In mixed characteristic O_K has no absolute characteristic-p Frobenius used in this diagram. Confirmed only in arXiv 2207.00369v2; main journal text not collated."
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25/E18",
+   "kind": "misprint",
+   "locator": "arXiv v2 Proposition 3.8 proof p. 17, final cohomology computation",
+   "printed": "H^1_HK(G_m) ≅ K0^nr(1)",
+   "correction": "With the conventional cohomological Tate convention use K0^nr(-1).",
+   "reason": "Frobenius sends dlog(T) to p*dlog(T), while the conventional Tate twist (1) has Frobenius p^(-1). The negative twist agrees with the reduced motive T=1(1)[1] after contravariant realization. This sign is separate from Definition 2.11’s missing shift.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
+   ],
+   "owner": "PAPER-BINDA-KATO-VEZZANI-25",
+   "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "Frobenius sends dlog(T) to p*dlog(T), while the conventional Tate twist (1) has Frobenius p^(-1). The negative twist agrees with the reduced motive T=1(1)[1] after contravariant realization. This sign is separate from Definition 2.11’s missing shift. Confirmed only in arXiv 2207.00369v2; main journal text not collated."
+  },
+  {
+   "id": "PAPER-BINDA-KATO-VEZZANI-25/E19",
+   "kind": "misprint",
+   "locator": "arXiv v2 Remark A.13 p. 32 and published Appendix A.13 HTML, final map",
+   "printed": "gr_i H^n → gr_(i-2) H^n(1)",
+   "correction": "Replace the target twist (1) by (-1), and use the same sign in the planning API for item 129.",
+   "reason": "The preceding displayed map has source H^q(X^(-p))(1) and target H^(q-2)(X^(-p-2)); moving the source twist across gives target (-1). Equivalently N phi=p phi N makes N:D→D(-1) Frobenius-equivariant. The rank-two phi=diag(1,p), N(e2)=e1 example distinguishes the signs. BGV v2 Theorem 1.7(2) also has (-1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review, 23 September 2026: https://arxiv.org/abs/2207.00369 lists v2 (10 June 2025) as latest; exact-title correction/erratum searches found no itemized BKV correction. This is not proof of novelty.",
+    "Read https://fedebinda.eu/research.html and https://sites.unimi.it/vezzani/Pages/Research.htm. BKV links lead to arXiv/publisher; the erratum note on Binda’s page concerns a different paper, Connectivity and purity for logarithmic motives.",
+    "Read https://link.springer.com/article/10.1007/s00222-025-01344-x : main article is a subscription preview, but the complete Appendix A is public HTML. E13 and E19 persist there; other main-body findings are confirmed only in arXiv v2.",
+    "https://api.crossref.org/works/10.1007/s00222-025-01344-x has empty relation and no update-to field. https://arxiv.org/abs/2010.15004 identifies v3 as incorporating the published AGV erratum; https://arxiv.org/abs/2306.05099 lists v2 (31 October 2024)."
+   ],
+   "owner": "PAPER-BINDA-KATO-VEZZANI-25",
+   "file": "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+   "citation": "Binda–Kato–Vezzani, \"On the p-adic weight-monodromy conjecture for complete intersections in toric varieties\", Inventiones Mathematicae (2025)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BINDA-KATO-VEZZANI-25",
+   "reviewReason": "The preceding displayed map has source H^q(X^(-p))(1) and target H^(q-2)(X^(-p-2)); moving the source twist across gives target (-1). Equivalently N phi=p phi N makes N:D→D(-1) Frobenius-equivariant. The rank-two phi=diag(1,p), N(e2)=e1 example distinguishes the signs. BGV v2 Theorem 1.7(2) also has (-1). Confirmed in arXiv v2 and the published Appendix HTML."
   },
   {
    "id": "PAPER-BINYAMINI-22/E1",
