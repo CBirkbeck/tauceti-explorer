@@ -1,3 +1,148 @@
+# LLHLM23 continuation — Claude Code, cc-442dc5, 23 September 2026
+
+This is a **partial checkpoint**, continuing PR #2301. It is now merged with the concurrent codex-7e92bd checkpoint #2317. It keeps that checkpoint's 506 items (61 library, 14 planned, 431 missing), 18 routes and 40 unreviewed source findings unchanged, and adds two new unreviewed findings, E41 and E42. No statement, status, route, inherited finding or ID was altered, and no Lean file was written or compiled.
+
+## Merge with #2317 (same issue, concurrent)
+
+#2317 (codex-7e92bd) ran on the same issue at the same time and was merged first; its handoff records how the claims crossed. Main was merged into this branch, and the two sets of changes were combined as follows:
+- **#2317 is kept unchanged.** Its 26 new items, routes and findings are kept, and so are its own itemwise interfaces for A06 and N57. They replace the ones this continuation had written for those two entries.
+- **A06 gains one test.** The only addition to #2317's A06 is the non-example test `PolarizedGroup.adjoint_j`, which goes with E42.
+- **Findings renumbered.** #2317 took the IDs E39 and E40, so this continuation's findings are now E41 (Lemma 8.4.9 notation; E39 in the earlier commits of this PR) and E42 (the adjoint representation of G_n).
+- **Census.** After the merge it stands at **90 of 155** definitions and constructions, with **65 remaining**.
+
+## Fourth pass (same session): Appendix A deformation and patching definitions
+
+A fourth pass read published PDF188–201 (Appendix A.1–A.5) afresh. It supplied itemwise interfaces for thirteen entries (its A06 interface gave way to #2317's in the merge):
+- **Deformation theory.** A05 (liftings, strict equivalence and det), A07 (Definition A.3.1, local deformation problems), A08 (fixed-determinant quotients and their O-flat quotients), A09 (global G_n-deformation data and type S), A10 (T-framed deformations, R^loc_{S,T} → R_S^T and the frame isomorphism) and A11 (relative tangent spaces and the Selmer cone C_{S,T}, with E22 and E23).
+- **Taylor–Wiles data.** A13 (the ψ_v ⊕ s_v condition), A15 (Δ_Q, O[Δ_Q] → R_{S_Q} and augmentation descent) and A16 (the block parahorics p_v, p_{v,1} and U_0(Q)/U_1(Q) ≅ Δ_Q).
+- **Patching.** A19 (the projected finite modules M_{m,K_p,r}, their framed versions and O_∞, S_∞), A20 (the ultrafilter module M_∞ and (A.4)), A22 (R_∞ with the corrected g of E24, and the lift S_∞ → R_∞) and A23 (the exact covariant functor M_∞(−), its augmentation quotients and the nonvanishing criterion of Lemma A.1.1(1)).
+
+The `uses` entries point to the Appendix A theorems that consume each object (A01, A12, A14, A17, A18, A21, A24, A26, A27, A29, A33) and, for the patching data, to the §6 interfaces P03 and P04.
+
+**Hand-checked cases behind the tests:**
+- Ad(j) on Lie G_n and the j-stable line spanned by (½I, 1) for p > 2;
+- j(j(g,a)j)j = (g,a), and the case n = 1;
+- GL₁ liftings to F[ε], and the failure of Hom(m/m², F) for A = O (E22);
+- the Iwahori case n = 2, d_v = 1, where p_v/p_{v,1} ≅ k_v^×(p) through the lower-right entry;
+- k_v^×(p) ≅ Z/p^N when Nv − 1 = p^N·u with p ∤ u;
+- O ⊗_R ∏_m O/ϖ^r ≅ O/ϖ^r for the ultrafilter;
+- g = q − [F⁺:Q] for n = 2.
+
+**A new finding, E42 (error, unreviewed; affects nothing).** §A.3.3 defines ad r̄ as the representation "obtained by the projection Lie G_n ↠ gl_n" after writing Lie G_n ≅ gl_n × gl_1. Differentiating j(g,a)j = (a·ᵗg⁻¹, a) gives Ad(j)(X, b) = (b·I − ᵗX, b). So Ad(j)(0, b) = (b·I, b), and the kernel of the coordinate projection is not j-stable. The intended representation is the summand ker(dν) = gl_n × 0, on which j acts by X ↦ −ᵗX. For p > 2 this equals the quotient along the stable line spanned by (½I, 1). The cited sources [16] and [78] use this representation, so no result changes. The same sentence appears in arXiv 2007.05398v2.
+
+**Census.** After the merge it stands at **90 of 155**; **65 remain**. They are 16 U entries (§3), 14 M (§4), 17 K (§5) and 12 G (§7), with Q01, Q02, Q07, Z02, L05 and Z15.
+
+## Third pass (same session): §8 Breuil–Mézard definitions
+
+A third pass read published PDF162–180 (§8) afresh. It supplied itemwise interfaces for seventeen entries:
+- **Cycles and types.** B01 (stack cycles and the representation Grothendieck group) and B02 (extremal types and Z_{λ,τ}).
+- **The two conjectures.** B03 and B06, recorded as conjectural interfaces, not theorems.
+- **Systems and pullbacks.** B04 (Breuil–Mézard systems), B05 (versal pullback) and B07 (module cycles).
+- **The §8.3 framework.** B09 (component-meeting test sets), B12 (irrelevant weights), B13 (covering, disjointness and relative genericity) and B14 (relative systems and S_P).
+- **Constructions.** B18 (truncation idempotents), B19 (the systems S_{Λ,t}, S̃_{Λ,t}, S̃_{Λ,t,elim} and P_ss), B22 (generic weights) and B27 (shifted polynomials).
+- **Defect.** B34 (defect) and B36 (the recursion, with the E21 exclusion).
+
+**Hand-checked cases behind the tests:**
+- the GL₁ component count p^f − 1;
+- a module cycle on F[[x,y]]/(xy);
+- the lattice points of Conv((1,0)) for n = 2;
+- ℓ(t_η) = 4 for GL₃, with defect 0 exactly on the 6 obvious weights;
+- the GL₁ Breuil–Mézard system;
+- the extremality of GL₃ Jordan types.
+
+**A new finding, E41 (misprint, unreviewed; E39 before the merge).** Lemma 8.4.9 writes S_{Λ,τ} three times for the system S_{Λ,t} defined in §8.4, and X^{λ,τ} for X^{λ+η,τ}. This was checked on the page image of PDF173.
+
+**Census.** Before the merge it stood at **73 of 152**, with **79 remaining**.
+
+## Second pass (same session): §6 and §9 definitions
+
+A second pass read published PDF125–131 (§6) and PDF180–186 (§9) afresh (same hash). It supplied itemwise `uses`, `api` and typed tests for sixteen more entries.
+- **The §6 patching data.**
+  - P01, the framed lifting ring, and P02, the type quotients R^{λ,τ} and R^{λ,⪯τ}.
+  - P03, the patched ring R∞ with its η-shifted type quotients.
+  - P04–P08: the weak, minimal, potentially diagonalizable, detectable and S-minimal patching functors.
+- **The §9 global setting.**
+  - V01, definite unitary groups, and V02, S(U,W).
+  - V03, Hecke algebras and r_m, and V04, modular weights.
+  - V05, geometric and BM weights, and V06, the conjectural interfaces.
+  - V08, the genericity polynomial, and V10, the component primes p_σ(ρ̄).
+
+**Hand-checked cases behind the tests:**
+- GL₁ lifting rings over Q_p for p odd: O[[X,Y]] framed, and O[[X]] with the type fixed.
+- The completed-tensor dimension formula dim R∞(λ,τ) = dim R^{λ+η,τ} + dim R^p − 1.
+- The GL₂ Hecke polynomial 1 − T^{(1)}X + N(w)T^{(2)}X².
+- The double-coset decomposition of S(U,W).
+- The dual of Sym^r⊗det^a.
+- P_m = (−1)^m m! for n = 1.
+
+**Census.** Before the merge it stood at **56 of 152**, with **96 remaining**.
+
+## What this continuation does
+
+It closes the §2 part of the definition-API gap. The thirty §2 definitions and constructions that had no itemwise interface now each have:
+- recorded `uses`, pointing to the items and passages that consume them;
+- an `api` outline in the protocol's roles;
+- at least three typed unit tests.
+
+The thirty entries are N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66; N57's interface later gave way to #2317's. Before the merge the literal census counted **40 of 152** definitions and constructions with itemwise uses, API and three typed tests.
+
+## How the interfaces were derived
+
+- **The source.** The same author-hosted published PDF was re-downloaded; its SHA-256 matches. PDF24–53 (§1.8 notation and all of §2) were read in the text layer, and PDF34 and PDF42 as page images.
+- **Where the uses came from.** Each use was found by searching the whole text layer (PDF54–212) for the notion and reading the passage that consumes it. Examples:
+  - AP(λ) labels the top components of the naive special fibre (PDF92).
+  - Adm(λ+η) is the condition of Corollary 5.5.8 (PDF123, 130).
+  - P-genericity is the hypothesis of Theorem 7.3.2(2) and Theorem 9.1.6 (PDF151, 184).
+  - Covering is used through Remark 4.7.4(2), §8.6 and Lemma A.2.1 (PDF98, 179, 189).
+- **API items.** They serve these uses or the standard needs of the object:
+  - the defining characterisation, with its convention made explicit (right translation for genericity, the η-shift for depth, t_{ω−η}w̃₁ for the central lift per E2, and the E/F shift of Remark 2.4.2);
+  - W-invariance, stability and mixing results such as Proposition 2.1.12;
+  - the bijections the paper proves (Corollary 2.1.7, Propositions 2.3.7 and 2.6.2, Lemmas 2.2.4, 2.3.2 and 2.4.4).
+- **Anti-multiplicativity of the star.** For (−)*, the API records that it is a group isomorphism onto the opposite group, as E1 requires.
+
+## Tests, and the small cases behind them
+
+The tests are chosen so that a plausible wrong definition fails one of them. The small cases were checked by hand:
+
+- **Admissible sets for GL₂.**
+  - Adm((1,0)) = {t_{(1,0)}, t_{(0,1)}, t_{(1,0)}s} has 3 elements, and its regular part has 2.
+  - Adm((2,0)) has 5 elements, 4 of them regular. This matches the four generic constituents of R̄⊗Std, which is how AP((1,0)+η) gets 4 elements.
+  - Ω = ⟨t_{(1,0)}s⟩, with (t_{(1,0)}s)² = t_{(1,1)}. W̃₁⁺ = Ω for GL₂, so covering between 3-deep GL₂ weights is equality.
+- **Star, depth and genericity.**
+  - (t_{(1,0)}s)* = s t_{(1,0)}, whereas t_{(1,0)}*·s* = t_{(1,0)}s; so the star is not multiplicative.
+  - At p = 7, λ = (3,0) is 2-deep but not 3-deep, and P₁(λ) = −8 is a unit mod 7.
+  - λ = (−1,0) shows that depth is measured after the η-shift.
+- **Dot action and Herzig's involution.**
+  - s·(1,0) = (−1,2), and s·0 = (−1,1) ≠ 0.
+  - For GL₂ with η = (1,0): R(Sym^r⊗det^b) = Sym^{p−2−r}⊗det^{r+b+1−p}, and R² is the twist by det^{−p}.
+- **Herzig sets.** By Proposition 2.6.2, |W?| = |W_obv| = 2 for GL₂. For GL₃, |W?| = 9 (3 lower-alcove pairs and 6 upper-alcove pairs) and |W_obv| = 6.
+- **Tame types.**
+  - τ(s,(a,b)) = ω₂^{a+pb} ⊕ ω₂^{b+pa} for the transposition, consistent with the explicit characters of (2.12).
+  - The E-compatible and F-compatible central classes of the same GL₂ presentation differ by η|_Z = 1.
+  - The class of w̃(ρ̄,τ) in W̃/W_a is always (λ+η)|_Z, so it is never 1 for GL_n with n ≥ 2 and λ = 0.
+
+These are hand computations recorded as planning contracts, not machine certificates.
+
+## Validation and resume point
+
+- **Checks.** `check_paper.py` and the three-file intake pass after each pass. After each pass, a structural comparison with the previous commit confirmed two things. The only items that changed were the ones listed for that pass. They changed only in `uses`, `api` and `tests`.
+- **Other changes.** Only these top-level parts were extended:
+  - `source.continuationReadings`;
+  - `summary`;
+  - `gaps` (the `definition-api` entry);
+  - `validation` (the `claudeCc442dc5Continuation` entry, with a subkey for each later pass);
+  - `sourceIssues`, where E41 and E42 were appended.
+
+  Inherited findings, routes and Appendix B data are unchanged.
+- **Merge check.** Against merged main, the only changes are the 75 items listed in the passes (in `uses`, `api` and `tests` only), the added A06 test, the two appended findings and the extended top-level entries.
+- **Vocabulary.** Every API role and test kind is in the protocol vocabulary, and every `uses` reference to an item resolves.
+
+Resume with the handoff's list, with item 4 narrowed to the 65 remaining entries listed above. The §7 entries (G) are a natural next batch, because G04 and G09 already have itemwise interfaces to follow.
+
+## Earlier checkpoint reports (historical, preserved)
+
+The concurrent codex-7e92bd report from #2317 and the older reports follow unchanged.
+
 # LLHLM23 global-descent continuation — Codex, codex-7e92bd
 
 This partial checkpoint continues PR #2301 with **506 items (61 library, 14 planned, 431 missing), 18 routes and 40 unreviewed source findings**. All 480 inherited item statements, all 38 inherited findings and the Appendix B data are preserved. No Lean file was required or compiled; none of the mathematics is claimed formalized.

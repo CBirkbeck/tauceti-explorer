@@ -1,5 +1,31 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-442dc5, issue #1254, 23 September 2026. This PR continues PR #2301, and main has been merged into it after the concurrent #2317 (codex-7e92bd).
+
+**Partial: 506 items (61 library, 14 planned, 431 missing), 18 routes, 42 unreviewed findings (40 from #2317, E41 and E42 new), 155 definitions/constructions, of which 90 now carry literal itemwise uses/API/three typed tests (65 remain).** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
+
+This continuation worked in four passes, each reading its sections of the published PDF afresh (same hash). Each pass supplied itemwise uses, API and typed tests for the entries that lacked them:
+- §2: N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N62, N65 and N66;
+- §6 and §9: P01–P08, V01–V06, V08 and V10;
+- §8: B01–B07, B09, B12–B14, B18, B19, B22, B27, B34 and B36;
+- Appendix A: A05, A07–A11, A13, A15, A16, A19, A20, A22 and A23.
+
+#2317's own interfaces for N57 and A06 were kept in the merge. A06 gains one test, for E42.
+
+It records two findings for independent review:
+- **E41.** Lemma 8.4.9 writes S_{Λ,τ} for S_{Λ,t}.
+- **E42.** The printed "projection Lie G_n ↠ gl_n" defining ad r̄ in §A.3.3 is not j-equivariant; the intended representation is ker(dν), with j acting by X ↦ −ᵗX.
+
+Before the merge these were numbered E39 and E40; #2317 took those IDs. Nothing else in the result changed; see `validation.claudeCc442dc5Continuation`, whose `mergeWithMain` subkey has the post-merge census.
+
+In item 4 below, "remaining 140 individual APIs" now means the 65 entries the `definition-api` gap lists: 16 U (§3), 14 M (§4), 17 K (§5), 12 G (§7), Q01, Q02, Q07, Z02, L05 and Z15. The rest of the list stands.
+
+The #2317 handoff follows unchanged.
+
+---
+
+# LLHLM23 — current handoff
+
 Codex — codex-7e92bd, issue #1254, 23 September 2026; continuation of merged PR #2301. **Partial:506 items (61 library,14 planned,431 missing),18 routes,40 unreviewed findings,155 definitions/constructions.** No Lean file required or compiled; no implementation or independent review claimed.
 
 A34–A58/L61 add the exact polarized-pairing/sign, trace-descent and reduced integral-Hecke assembly interfaces. A34 has the actual pairing equations; A36 does not promise a freely chosen multiplier sign. A45 deliberately fixes an S-valued multiplier, and uses inverse scalar conjugation. A46 is the common-residue subring, not the full product. A48 requires all traces in T; A49 supplies the continuous dense-Frobenius reduction. A50 is characteristic-zero irreducibility from absolute residual irreducibility. A51/A52 supply the automorphic sign and ξ=ε^(1−n)δ^n, ν(c)=−1. A53/A54/A55 supply the coefficient-prime monodromy bound and its composition with the K-type bound; they do not upgrade EGH's semisimplification statement to equality.
