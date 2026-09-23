@@ -475,3 +475,18 @@ No Lean deliverable is part of a paper job.
   - the unimodular classification /207 goes to the Enriques roadmap, since Tau Ceti's completed IntegralLattices is not re-planned;
   - /204–/205 widen the SchemeAndStackFoundations source route to SF.2.
 - The published 63-page version was not available. The locators follow the author version, which equals arXiv v3.
+
+## Review (REV-PAPER-SCHROER-23, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its nine routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-SCHROER-23.md`. The review read arXiv v3 and its TeX again; the published version is paywalled.
+
+- **Main finding:** Theorem 10.4 is incomplete.
+  - Three further rational elliptic surfaces over F₂ satisfy its hypotheses: y²+txy+t³y=x³+x² (I₂*+E₄+Ĩ₂), y²+txy+t³y=x³+tx² (I₃*+E₄+Ĩ₁) and y²+txy+t²y=x³+t²x² (IV*+E₄+Ĩ₂).
+  - They were found by an exhaustive search with Tate's algorithm, and confirmed by independent point counts.
+  - Proposition 11.1 and §§11–15 omit these configurations, so the printed proof of Theorem 15.1, and hence of the main theorem, has a gap at that step (E34, E44).
+- **The extraction's repair of Proposition 5.5 (E6):** items 173–188 were checked and are sound.
+- **Statements and locators:** 26 statements and 31 locators corrected.
+- **Statuses:** item 208 is now planned, and item 186 is now missing.
+- **New items:** 33, including the three missing models.
+- **Briefs:** both affected briefs were corrected.
+- **Source issues:** E1–E17 are confirmed, and E18–E44 are new.
