@@ -4,6 +4,8 @@ Peter Koymans and Carlo Pagano, *On Stevenhagen's conjecture*, arXiv [2201.13424
 
 Extraction by Claude Code, session `cc-39fac3`, 23 September 2026 (issue #2194). Status: **complete**. Every missing item is routed once.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #2195, job `REV-PAPER-KOYMANS-PAGANO`): **accepted**, all six routes accepted, all 51 recorded mistakes confirmed at their locators. Four corrections were amended in place (E12, E13, E17, E18); no item, status or route changed. See [REV-PAPER-KOYMANS-PAGANO.md](../reviews/REV-PAPER-KOYMANS-PAGANO.md).
+
 The machine-readable extraction is [PAPER-KOYMANS-PAGANO.result.json](PAPER-KOYMANS-PAGANO.result.json). It has:
 - 264 items: 6 library, 17 planned, 241 missing;
 - 6 routes: one Part II and five sources of existing layers;
@@ -106,12 +108,12 @@ The `venue` field therefore says "to appear (accepted; not yet assigned to a vol
 - **E21 and E35:** in the proof of Theorem 5.10(i), and in Definition 7.9, where boxes can be empty for large C_compr. Neither affects anything.
 
 **Gaps.**
-- **E13:** Theorem 4.6 for s = 1 applies Theorem 3.2 with an empty base set, which that theorem excludes. Theorems 5.2 and 5.3 inherit this.
+- **E13:** Theorem 4.6 for s = 1 applies Theorem 3.2 with an empty base set, which that theorem excludes (§3.1 takes n ≥ 1, and the proof uses it at the real places); and the reduction to subsets T of size 2 is then vacuous, leaving (a/p₁(1)) = 1 unproved. The Hilbert symbol (a, p₁(1)p₁(2)) supplies both. Theorems 5.2 and 5.3 inherit this.
 - **E17, E18:** the end of the proof of Theorem 5.5 needs a vanishing that is left unsaid (Hilbert reciprocity supplies it), and the proof of Theorem 5.6 never checks that its expansion map is Pellian.
 - **E41:** the telescoping in §8.1 starts with Theorem 8.2 at m = 2, which that theorem excludes. The 8-rank step needs a box form of [CKMP, Theorem 6.1].
 - **E46:** (8.17) does not follow from the displayed estimates, but the weaker bound that does is enough.
 - **E48:** the trivial bound Λ(x) ≤ R does not close the proof that Theorem 8.13 implies Theorem 8.10. Cauchy–Schwarz with (8.20)–(8.21) does.
-- **E12:** Lemma 4.5 assumes all decomposition groups are cyclic, but only cyclicity at p is used.
+- **E12:** Lemma 4.5 assumes all decomposition groups are cyclic, but only cyclicity at p is used — and Proposition 4.4, which p. 29 cites for the global claim, gives only the local one. (The review struck the entry's other half: the ramification index in Lemma 4.5(ii) does equal 2.)
 
 **Misprints worth knowing.**
 - **Statement slips:**
