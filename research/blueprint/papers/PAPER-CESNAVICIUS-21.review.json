@@ -1,0 +1,22 @@
+{
+ "paper": "PAPER-CESNAVICIUS-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Part II of SchemeAndStackFoundations for excellence variants and Macaulayfication. I checked the ownership claim myself: no layer of the atlas plans an (S₂)-ification, a Macaulayfication, quasi-excellence, or the openness of the (S_n) and Cohen–Macaulay loci, and the two existing Part IIs of the parent are about mixed-characteristic birational geometry and positivity, which this theorem precedes. One overstatement in the reason was corrected in place: catenarity does appear in the atlas, in DeformationAndDerivedPatchingAlgebra R03.3, but only as a hypothesis to be stated, not as a theory to be built. The title has the required '<parent title>, Part II: <topic>' form, the area is the galaxy id algebraicgeometry, the brief is 519 words and states the final theorems and the imports. I would build on it."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Part II of DeformationAndDerivedPatchingAlgebra for local cohomology, dualizing complexes and Cohen–Macaulay blowing ups. The ownership claim survives checking, with one correction made in place: dualizing complexes occur elsewhere in the catalogue than the reason said — in DeligneWeightsAndPurity and EndoscopicTransferAndUnitaryTraceComparison as well as EtaleDualityAndPerverseSheaves, and, as a coherent rather than perverse object, in the Tau Ceti roadmap StableReduction, Layer 2, which builds the relative dualizing complex for proper flat relative Cohen–Macaulay curves. That is a special case in a roadmap that is never re-planned, so the Part II is still the right vehicle for the general Noetherian theory. This route also gains item 38a, the Čech and spectral-sequence calculus of local cohomology, which the extraction had left in the brief's prose rather than as an item. Title, area (commutative) and the 481-word brief are in order. I would build on it."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Source route sending the Nagata compactification to SchemeAndStackFoundations SF.0. I checked whether anything already owns it: AlgebraicModuliForArithmeticGeometry R09.7 and R09.7d mention it only to say that 'no general Nagata compactification is silently assumed', and AdicCoefficientsAndComparisons L4 uses it without planning it. So nothing owns the theorem, and SF.0 — schemes and morphisms, with separatedness, properness and finite presentation stated as properties of named morphisms — is where a factorisation theorem for separated finite-type morphisms of qcqs schemes belongs. SF.0 is owned by SchemeAndStackFoundations, whose origin is campaign, so the route is admissible."
+  }
+ ],
+ "notes": "Accept. This is a careful extraction: 61 items in the paper's own order over §§1–5, 15 prerequisites with reasons, three routes, and a source block that records reading the arXiv e-print, the arXiv PDF and the author's copy of the published version and comparing them. I reproduced the two hashes it gives for the PDFs and they match. I re-derived the numbering of the paper independently and confirmed the locators that matter — Corollary 1.11, Lemma 2.11, Proposition 3.11, Theorem 3.14, Theorem 5.3, Proposition 5.5 — in both PDFs; the extraction's claim that the published and arXiv numberings agree is right. Every cited declaration exists at the pinned commit and provides what is claimed, with one exception, now fixed: item 38 was marked library while its name and statement included the Čech computation, the composition spectral sequence and the H^1 identification, which the pinned Mathlib does not have — its own module docstring lists them under 'Future work'. The extraction said so in the item's note and scheduled them in the Part II brief, so this was a bookkeeping slip rather than a wrong claim; I split the item, leaving 38 as the library local-cohomology functor and adding 38a as a missing item routed to route 2. Two route reasons were sharpened in place, on catenarity and on dualizing complexes. The three sourceIssues are confirmed, each checked in both versions. No route was rejected and no item was deleted."
+}

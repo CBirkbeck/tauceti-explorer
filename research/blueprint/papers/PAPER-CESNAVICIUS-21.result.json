@@ -333,8 +333,8 @@
   {
    "id": "PAPER-CESNAVICIUS-21/38",
    "kind": "definition",
-   "name": "Local cohomology and its Čech and spectral-sequence calculus",
-   "statement": "For an ideal 𝔞 ⊂ R and an R-module M, the local cohomology modules H^i_𝔞(R,M) are the right derived functors of the 𝔞-torsion functor, computed by the colimit of Ext^i_R(R/𝔞^n, M) or by the Čech complex on generators of 𝔞, and depend only on the radical of 𝔞. The paper uses the Čech interpretation to bound H^j_{(r,r')} in degrees > 2, the vanishing H^0 for a regular element, the composition spectral sequence H^j_𝔞(R,H^{j'}_𝔟(R,M)) ⇒ H^{j+j'}_{𝔞+𝔟}(R,M) (Stacks 0BJC), and the identification H^1_{(r)}(R,M) = colim_m M/r^mM (Stacks 0A6R).",
+   "name": "Local cohomology",
+   "statement": "For an ideal 𝔞 ⊂ R and an R-module M, the local cohomology modules H^i_𝔞(R,M) are the right derived functors of the 𝔞-torsion functor, computed as the colimit of Ext^i_R(R/𝔞^n, M) over the powers of 𝔞, and they depend only on the radical of 𝔞.",
    "locator": "Used throughout §3, in particular in the proofs of Proposition 3.11 and Theorem 3.14, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0BJC, 0A6R, 0955, 0BJB)",
    "status": "library",
    "library": [
@@ -343,7 +343,19 @@
     "mathlib:localCohomology.isoOfSameRadical",
     "mathlib:localCohomology.idealPowersToSelfLERadical"
    ],
-   "note": "Mathlib defines local cohomology as the colimit of Ext over the ideal-powers diagram, proves independence of the ideal up to radical and the comparison with the cofinal diagram of ideals with the same radical. It does not have the Čech complex computation, the composition spectral sequence or the H^1 identification, which are the parts actually used; those are recorded as additions in the Part II brief."
+   "note": "Mathlib defines local cohomology as the colimit of Ext over the ideal-powers diagram, proves independence of the ideal up to radical and the comparison with the cofinal diagram of ideals with the same radical, which is exactly this item. Split from the calculus by REV-PAPER-CESNAVICIUS-21: the Čech computation, the composition spectral sequence and the H^1 identification that §3 actually uses are not in the pinned Mathlib — its own module docstring lists the Čech characterisation and the long exact sequences under 'Future work' — and are now item 38a rather than prose in the Part II brief."
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/38a",
+   "kind": "theorem",
+   "name": "The Čech and spectral-sequence calculus of local cohomology",
+   "statement": "For an ideal 𝔞 = (r_1,…,r_c) of a Noetherian ring R and an R-module M: H^i_𝔞(R,M) is computed by the Čech (extended alternating) complex on r_1,…,r_c, so it vanishes for i > c; H^0_{(r)}(R,M) = 0 for a nonzerodivisor r and H^1_{(r)}(R,M) = colim_m M/r^mM (Stacks 0A6R); and there is a composition spectral sequence H^j_𝔞(R, H^{j'}_𝔟(R,M)) ⇒ H^{j+j'}_{𝔞+𝔟}(R,M) (Stacks 0BJC).",
+   "locator": "Used throughout §3, in particular in the proofs of Proposition 3.11 and Theorem 3.14, Česnavičius, Macaulayfication of Noetherian schemes, Duke Math. J. 170 (2021), 1419–1455 (Stacks 0BJC, 0A6R, 0955, 0BJB)",
+   "status": "missing",
+   "note": "Added by REV-PAPER-CESNAVICIUS-21, splitting item 38. The pinned Mathlib has the local-cohomology functor but none of this calculus: Mathlib/Algebra/Homology/LocalCohomology.lean lists under '## Future work' the equivalence with the right-derived functor definition, the Koszul characterisation, the Čech characterisation and the long exact sequences. The extraction's item 38 already said so in its note and its route brief already schedules these as additions; this makes them a routed item rather than prose.",
+   "dependencies": [
+    "PAPER-CESNAVICIUS-21/38"
+   ]
   },
   {
    "id": "PAPER-CESNAVICIUS-21/39",
@@ -621,7 +633,7 @@
     "AlgebraicModuliForArithmeticGeometry",
     "FoundationsAndLibraryIntegration"
    ],
-   "reason": "SF.4 plans deformations, models and birational geometry and states that resolution is a theorem only in a named proved setting, without naming one; SF.0–SF.3 supply schemes, coherent modules, sites and curves. Nothing in the atlas defines quasi-excellence or catenarity, nothing plans the openness of the (S_n) or Cohen–Macaulay loci, and no layer plans an (S_2)-ification or a Macaulayfication. The two existing Part IIs of this roadmap concern mixed-characteristic birational geometry after Bhatt et al. and mixed-characteristic positivity; this theorem is unconditional in all characteristics and is their logical predecessor rather than a case of them.",
+   "reason": "SF.4 plans deformations, models and birational geometry and states that resolution is a theorem only in a named proved setting, without naming one; SF.0–SF.3 supply schemes, coherent modules, sites and curves. Nothing in the atlas defines quasi-excellence, and catenarity appears only as a hypothesis to be stated — DeformationAndDerivedPatchingAlgebra R03.3 says to ‘state hypotheses on catenarity and excellence rather than importing geometric conclusions for arbitrary local rings’, which is not a plan for their theory; nothing plans the openness of the (S_n) or Cohen–Macaulay loci, and no layer plans an (S_2)-ification or a Macaulayfication. The two existing Part IIs of this roadmap concern mixed-characteristic birational geometry after Bhatt et al. and mixed-characteristic positivity; this theorem is unconditional in all characteristics and is their logical predecessor rather than a case of them.",
    "items": [
     "PAPER-CESNAVICIUS-21/1",
     "PAPER-CESNAVICIUS-21/2",
@@ -678,7 +690,7 @@
     "EnhancedDerivedSheaves",
     "AlgebraicModuliForArithmeticGeometry"
    ],
-   "reason": "R03.3 plans regular sequences, depth, Cohen–Macaulay modules and equidimensionality, and P9 depth and support for perfect complexes, but the roadmap plans no local cohomology beyond what Mathlib already defines and no dualizing complexes; the only dualizing complexes in the atlas are the perverse-sheaf ones of EtaleDualityAndPerverseSheaves, which are a different object. Kawasaki's construction of Cohen–Macaulay blowing ups, and the secant, CM-secant and d-sequence calculus it rests on, are reusable local algebra with consumers beyond this paper, so they belong in the commutative-algebra roadmap rather than inside the geometric Part II that consumes them.",
+   "reason": "R03.3 plans regular sequences, depth, Cohen–Macaulay modules and equidimensionality, and P9 depth and support for perfect complexes, but the roadmap plans no local cohomology beyond what Mathlib already defines and no dualizing complexes; the dualizing complexes elsewhere in the catalogue are the perverse-sheaf ones of EtaleDualityAndPerverseSheaves, DeligneWeightsAndPurity and EndoscopicTransferAndUnitaryTraceComparison, together with the relative dualizing complex/sheaf for proper flat relative Cohen–Macaulay curves in the Tau Ceti roadmap StableReduction, Layer 2 — a special case, in a roadmap that is never re-planned, and not the theory over a general Noetherian ring that §3 needs, which are a different object. Kawasaki's construction of Cohen–Macaulay blowing ups, and the secant, CM-secant and d-sequence calculus it rests on, are reusable local algebra with consumers beyond this paper, so they belong in the commutative-algebra roadmap rather than inside the geometric Part II that consumes them.",
    "items": [
     "PAPER-CESNAVICIUS-21/34",
     "PAPER-CESNAVICIUS-21/35",
@@ -695,7 +707,8 @@
     "PAPER-CESNAVICIUS-21/47",
     "PAPER-CESNAVICIUS-21/48",
     "PAPER-CESNAVICIUS-21/49",
-    "PAPER-CESNAVICIUS-21/50"
+    "PAPER-CESNAVICIUS-21/50",
+    "PAPER-CESNAVICIUS-21/38a"
    ]
   },
   {
@@ -724,7 +737,12 @@
     "the author's copy of the published version, read in full, and its PDF content streams at this sentence",
     "the arXiv abstract page for 1810.04493, whose v2 of 3 September 2020 is described as the final version and is the latest; no erratum is announced",
     "the author's publications page, which lists the paper with its Duke reference and no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The sentence is verbatim in both versions read here: the author's copy of the published version (sha256 55ded201a17ae161400c1989d67ad7a09356c23f87b2e88eef2e763632939ac6, the same file the extraction records) and arXiv:1810.04493v2 (sha256 a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9), and in the LaTeX source it reads '$\\ov{X} \\setminus X$ is a \\up{possibly nonreduced} divisor in $X$'. X̄ ∖ X is a closed subset of X̄ and is disjoint from X, so it cannot be a divisor in X; X̄ is meant, as the rest of the statement makes plain. I also checked the number: both PDFs print this as Corollary 1.11 and neither has a Corollary 1.12.",
+    "by": "REV-PAPER-CESNAVICIUS-21"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-21/E2",
@@ -739,7 +757,12 @@
     "the author's copy of the published version, whose text at this point is identical to the preprint's",
     "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
     "the author's publications page, which lists no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. The LaTeX reads ``\\Stwon-ificaiton,'' in §1.13 and both PDFs print it. A pure typographical slip.",
+    "by": "REV-PAPER-CESNAVICIUS-21"
+   }
   },
   {
    "id": "PAPER-CESNAVICIUS-21/E3",
@@ -754,7 +777,12 @@
     "the proof of Lemma 2.11 in the published version and in arXiv:1810.04493v2, read in full; the two texts agree",
     "the arXiv abstract page for 1810.04493, which has no version after v2 and announces no erratum",
     "the author's publications page, which lists no corrigendum"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a gap, and a mild one. The final clause of Lemma 2.11 — if 𝓜 is (S₂) and the punctured spectrum of O_{closure(Supp 𝓜),x} has no isolated points at every x of height ≥ 2 in the closure, then 𝓜′ may be chosen (S₂) — is verbatim in the source, and the proof never returns to it: it proves the (S₁) and direct-sum cases and leaves only the parenthesis '(in the (S₂) case, this step is the reason for a direct sum in the statement)'. The missing sentence is short — after the reduction to a local X with U the punctured spectrum, the hypothesis says exactly that U₀, the set of isolated points of U, is empty, so no direct sum is needed and 𝓜′ = j_*(𝓜) is (S₂) — which is why 'affects nothing' is right. Recording it is still correct: the clause is stated and not proved.",
+    "by": "REV-PAPER-CESNAVICIUS-21"
+   }
   }
  ]
 }
