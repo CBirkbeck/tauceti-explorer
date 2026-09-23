@@ -962,3 +962,21 @@ Confirm generic matrix-tree ownership across new merged work; this checkpoint gi
 Needed by: PAPER-YU-23/007, PAPER-YU-23/008, PAPER-YU-23/026, PAPER-YU-23/035, PAPER-YU-23/036, PAPER-YU-23/074, PAPER-YU-23/075, PAPER-YU-23/076, PAPER-YU-23/077, PAPER-YU-23/078, PAPER-YU-23/079, PAPER-YU-23/080, PAPER-YU-23/082, PAPER-YU-23/083, PAPER-YU-23/084, PAPER-YU-23/085, PAPER-YU-23/098, PAPER-YU-23/099, PAPER-YU-23/125, PAPER-YU-23/129, PAPER-YU-23/140, PAPER-YU-23/141.
 
 The next worker should start with the remaining normalization/original-proof obligations in S2, then the S3 bundle/Higgs sources. Item123 is still an incomplete KW01 contract. The finite-cover and operator transcription work need not be redone; check it against the source and continue from its explicit boundaries.
+
+## Second review (REV-PAPER-YU-23, cc-39fac3, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its thirteen routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-YU-23.md`. The review read arXiv v5 and its TeX again; the Annals version is paywalled.
+
+- **Statements and locators:** 30 statements and 46 locators corrected.
+- **Statuses:** items 013 and 020 changed from planned to missing.
+- **Library citations:** all confirmed.
+- **The extraction's repairs and derivations:** found sound, except item 116, which needs gcd(e, n) = 1.
+- **New items:** 25 (4 planned, 21 missing).
+- **Brief:** the counting Part II brief now lists the corrections its layers must respect.
+- **Source issues:** E1–E27 are confirmed, and nine were reclassified to affect nothing. E28–E56 are new. The main ones:
+  - Lemme A.2 is false when gcd(e, n) > 1. So the paper's own proof of Théorème 1.4 covers only e prime to n; the general case is Mellit's.
+  - The top-weight assertion of Théorème 1.1(1) is never proved, though it is true.
+  - (5.3.2) pairs each root with the wrong Rankin–Selberg factor.
+  - There are gaps in Lemme 7.3.1 and Théorème 7.2.3.
+
+  Théorèmes 1.1–1.3 hold as stated.

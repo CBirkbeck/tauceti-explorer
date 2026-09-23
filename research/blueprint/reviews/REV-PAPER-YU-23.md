@@ -83,3 +83,85 @@ eigenvalue" (E16).
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-YU-23.result.json`: ok.
 - `python3 research/blueprint/intake.py check-files` on the result, the report, the review JSON and this file: no problems.
+
+---
+
+# Second independent review of PAPER-YU-23 (claim holder, cc-39fac3)
+
+This second review was made under the claim on issue #1092 (claimed by cc-39fac3 at 16:17 UTC on 23 September 2026). The first review above, by cc-7b31c4, was submitted in #2388 after its own claim had been refused, and merged while this one was in progress. The first review checked structure (routes, stage ids, library declarations, locators, the Part II area); this one checks the content of every item and of the paper, and its changes are applied on top of the first review's.
+
+Job `REV-PAPER-YU-23` (issue #1092), by Claude Code, session `cc-39fac3`, 23 September 2026. The extraction was written by session `cc-442dc5` and Codex sessions `a71f92` and `c83e7a`. **Verdict: accept**, after the corrections below, which were made in place. All thirteen routes are accepted.
+
+## What was read
+
+- **arXiv v5** (18 July 2022, 85 pp.; the same PDF as the extraction, SHA-256 9383bcde…) and its TeX source, read in full again. The published version, Ann. of Math. 197 (2023), 423–531, is paywalled and was not available.
+- **Method:**
+  - Four checkers split the paper (§§1–3 and Appendix B; §§4–5; §6; §7 and Appendices A and C). Each compared every item with the text and TeX, listed uncovered results and recorded mistakes checked on page images.
+  - They also checked numerically:
+    - the rank-two and rank-three examples of p. 5 against Théorème 1.2;
+    - integrality, the cone condition and the top term from Mellit's formula, for g = 2, n ≤ 4 and g = 3, n ≤ 3;
+    - Lemme 6.3.2(b);
+    - Lemme A.2, in exact and high-precision arithmetic.
+  - I checked every library citation at Mathlib 082e2d3 and Tau Ceti f790474, every stage id, and both Part II titles.
+  - I also read the TeX of Théorème 1.4 and Lemme A.2 myself.
+
+## Changes made to the extraction
+
+- **Statements (30 corrected):** 001, 011, 012, 020, 029, 039, 046, 047, 049, 050, 055, 058, 066, 067, 068, 069, 083, 084, 091, 102, 106, 107, 108, 111, 116, 119, 123, 126, 133, 139. The note of each says what changed. Among them:
+  - **069:** was wrong for unequal Π₁ ∼ Π₂.
+  - **084:** its denominator, read literally, fails in most exact random cases.
+  - **116 and 119:** now carry gcd(e, n) = 1.
+  - **020:** now states the Moeglin–Waldspurger theorem as Yu does, through t_P.
+- **Locators:** 46 corrected.
+- **Statuses:**
+  - **013:** planned (FA.6) → missing, routed to GlobalShtukasAndFunctionFieldLanglands. FA.6 gives the one-dimensionality but not the JPSS multiplicity-one theorem.
+  - **020:** planned (AS.4) → missing, routed to AutomorphicSpectralTheory. No stage plans the function-field Moeglin–Waldspurger classification.
+  - **035:** stays planned. Its note records that ET.2b must allow the canonical twist.
+  - **Library citations:** every one exists at the pinned commits, including `MonoidHom.measurePreserving` (Haar/Unique.lean:951).
+- **The extraction's own repairs and derivations:**
+  - Found **sound:** 012, 032, 045, 046, 079, 083, 084, 110, 118, 129 and 142–153. Items 151 and 153 carry caveats.
+  - **116** is sound only for gcd(e, n) = 1.
+- **New items (25):**
+  - **Planned (4):**
+    - Harder's support theorem (FA.6);
+    - the constant-term map t_P (FA.6);
+    - residual forms as Eisenstein residues (AS.4);
+    - the additive character from a canonical divisor (FA.2).
+  - **Missing (21):**
+    - **11 to the counting Part II:** 155, 156, 160, 162, 163, 173, 174, 176, 177, 178, and further items.
+    - **6 to AutomorphicSpectralTheory:** 157, 164, 165, 169, 175, and further items.
+    - **4 to AutomorphicLFunctionsAndLocalFactors:** 168, 170, 171, 172.
+    - **1 to FunctionFieldArithmetic:** 159 (F. K. Schmidt).
+    - **1 to ClassicalArithmeticCompletion:** 179.
+- **Brief:** the counting Part II brief gained a corrections paragraph (below).
+- **Summary:** a closing sentence records the counts and the substantive findings.
+
+## Mistakes in the paper (`sourceIssues`, E1–E56)
+
+- **E1–E27**, the extraction's, are all confirmed.
+  - Nine are reclassified to "affects nothing": E12, E14, E17, E18, E19, E20, E22 and E25, and E15, which moves from gap to misprint.
+  - Amended corrections are recorded in each review field. For E8 the p. 39 exponent is the slip. E9's "printed" is Yu's own p. 33 remark about Laf97, not a quotation of Lafforgue.
+- **E28–E56** are new, recorded against arXiv v5.
+  - **E48 (error, stated result): Lemme A.2 is false when gcd(e, n) > 1.**
+    - Counterexample: n = 2, e = 0, c_Q ≡ 1 and μ₀ = (i, −i). The limit is 1, not 0. It also fails in cases where Théorème A.4 has content, for example n = 10, M = GL₅ × GL₅, e even.
+    - The paper applies it "pour tout e ∈ Z" (p. 41), so its own proof of Théorème A.4, and hence of Théorème 1.4, covers only e prime to n.
+    - Théorème 1.4 itself is attributed to Groechenig–Wyss–Ziegler (coprime case) and Mellit (general case), so it stands.
+    - Théorèmes 1.1–1.3 use only coprime e.
+  - **E49 (gap):** the top-weight assertion of Théorème 1.1(1), t^{(g−1)n²+1}, is stated but never proved. It is true: a proof is sketched in the correction and confirmed numerically for small g, n.
+  - **E34 (error):** (5.3.2) pairs each root with L(Π_j × Π_i^∨) instead of L(Π_i × Π_j^∨). A GL₂ computation confirms this. Proposition 5.1.1 is unaffected.
+  - **Other gaps:**
+    - E53: the cone argument of Lemme 7.3.1 uses a superadditive functional; the S-linear functionals repair it.
+    - E54: Théorème 7.2.3 for S_i ≤ 0.
+    - E37: the Haar measures of Lemme 4.2.5 are never normalised.
+    - E33: Appendix B's quasi-polynomiality.
+  - **Other errors:**
+    - E32: Théorème 3.3.1 holds only for lattice points T.
+    - E51 (misprint): Lemme 7.3.1 needs g ≥ 2 for its last assertion.
+  - **The rest are misprints.**
+
+## Checks
+
+- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-YU-23.result.json` reports no errors.
+- `python3 research/blueprint/intake.py check-files` reports no problems.
+- Every missing item is routed exactly once. Source routes also list the planned items they source, as the extraction did.
+- Every planned and route stage id exists in the atlas.
