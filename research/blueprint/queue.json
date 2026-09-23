@@ -30785,7 +30785,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BHATT-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1874"
   },
   {
    "id": "REV-ERRATA-PAPER-BHATT-ETAL-23",
@@ -30855,8 +30856,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1878"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1878",
+   "finishedAt": "2026-09-23T09:19:50Z"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
