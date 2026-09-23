@@ -1237,8 +1237,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YU-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1091"
+   "state": "external",
+   "note": "claimed on GitHub issue #1091"
   },
   {
    "id": "REV-PAPER-YU-23",
@@ -3266,8 +3266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1205"
+   "state": "external",
+   "note": "claimed on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -3488,8 +3488,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1218"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1218",
+   "finishedAt": "2026-09-23T07:40:47Z"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
@@ -5437,8 +5438,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1328"
+   "state": "pending",
+   "note": "released on GitHub issue #1328"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
