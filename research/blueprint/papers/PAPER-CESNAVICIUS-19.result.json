@@ -9,19 +9,19 @@
     "doi": "10.1215/00127094-2018-0057",
     "arxiv": "1711.06456v4",
     "url": "https://arxiv.org/pdf/1711.06456v4",
-    "readDate": "2026-09-22",
+    "readDate": "2026-09-23",
     "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
     "version": "Author's final arXiv version: submitted 2018-12-01; PDF internally dated 2018-12-04. arXiv metadata identifies the published article. Publisher PDF was not available for a page-by-page comparison.",
     "readSections": [
-      "All 17 PDF pages: abstract, introduction, notation, §§2–6, Appendix A, all proofs, remarks, five numbered footnotes and references."
+      "Freshly read all 17 pages, including every proof, footnote, remark, Appendix A and references, on 2026-09-23. Same v4 hash as the inherited extraction."
     ]
   },
-  "summary": "Finite-flat descent and henselian completion reduce mixed-characteristic Brauer purity to a p-primary vanishing theorem for perfectoid generic fibres. Extracts the torus/global refinements and the finite-flat-cohomological characterization of fields of dimension at most one. Reuses shared scheme, completion, integral-perfectoid and adic-cohomology owners. Partial because cited proof interiors, the nonabelian injectivity issue and several approximation/limit interfaces remain explicitly unresolved; no formalization is claimed.",
+  "summary": "Finite-flat descent and henselian completion reduce mixed-characteristic Brauer purity to a p-primary vanishing theorem for perfectoid generic fibres. Extracts the torus/global refinements and the finite-flat-cohomological characterization of fields of dimension at most one. Reuses shared scheme, completion, integral-perfectoid and adic-cohomology owners. Partial because cited proof interiors, the nonabelian injectivity issue and several approximation/limit interfaces remain explicitly unresolved; no formalization is claimed. The 2026-09-23 continuation decomposes the original Noetherian Elkik approximation proof and writes a direct finite-conormal Newton step; four pinned library imports and two shared planned interfaces prevent duplicate foundations. The finite-data Henselian model and cotangent comparison gates remain explicit.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "atlasSnapshot": "1c16a3cd24b5b8e55dee3f5ef2fef8dd054bee96",
-    "session": "codex-a71f92",
+    "atlasSnapshot": "1ae784a7b82e4229b5b9e91d7ffa0fa6df2fe532",
+    "session": "codex-c83e7a",
     "declarations": [
       "mathlib:IsRegularLocalRing",
       "mathlib:IsRegularLocalRing.iff_finrank_cotangentSpace",
@@ -49,8 +49,16 @@
       "mathlib:WittVector.ext",
       "mathlib:WittVector.mk",
       "mathlib:WittVector.isDiscreteValuationRing",
-      "mathlib:WittVector.exists_eq_pow_p_mul'"
-    ]
+      "mathlib:WittVector.exists_eq_pow_p_mul'",
+      "mathlib:Algebra.Extension.CotangentSpace",
+      "mathlib:Algebra.Extension.cotangentComplex",
+      "mathlib:Algebra.Extension.cotangentComplex_mk",
+      "mathlib:Polynomial.exists_mul_sq_add_linear_part_eq_eval_add",
+      "mathlib:Polynomial.eval_add_of_sq_eq_zero",
+      "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
+      "tauceti:TauCeti.ArtinRees.exists_controlled_lift"
+    ],
+    "previousSession": "codex-a71f92"
   },
   "conventions": [
     "Rings are commutative with unit; regular local means Noetherian regular local, as in the pinned class.",
@@ -59,7 +67,8 @@
     "U_R removes every closed point when R is semilocal. In towers use the actual inverse-limit open, not a fictitious Noetherian spectrum.",
     "p is prime; the paper's perfectoid convention always includes p-torsion freeness. The broader BMS integral-perfectoid notion remains the shared owner.",
     "Statements/lemma names below are planning interfaces, not Lean declarations. Every test is unexecuted.",
-    "Source routes refine named existing stages; dependencies are item-level prefixes/suffixes, not blanket reverse edges between entire roadmaps."
+    "Source routes refine named existing stages; dependencies are item-level prefixes/suffixes, not blanket reverse edges between entire roadmaps.",
+    "Elkik §§0–II is Noetherian throughout. GR5.4.8 and the direct finite-conormal step allow arbitrary R but require t regular. H_Jac⊂H_fac=H_R uses a comparison; the first containment is not replaced by equality."
   ],
   "items": [
     {
@@ -96,17 +105,20 @@
         {
           "name": "regular-local.test1",
           "statement": "A field has dimension zero and is not a dim≥2 purity input.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "regular-local.test2",
           "statement": "The theorem must not accept a merely local non-Noetherian ring.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "regular-local.test3",
           "statement": "Cotangent-space dimension uses the residue field.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         }
       ],
       "library": [
@@ -191,17 +203,20 @@
         {
           "name": "henselian-pair.test1",
           "statement": "A complete adic ring supplies the existing instance.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "henselian-pair.test2",
           "statement": "The simple-root assumption cannot be dropped.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "henselian-pair.test3",
           "statement": "Henselian at the maximal ideal does not mean complete.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -235,6 +250,16 @@
           "where": "Theorem4.10 proof following (4.10.4)",
           "item": "PAPER-CESNAVICIUS-19/noetherian-approx",
           "how": "Uses Henselian pair to supply the stated prerequisite in Noetherian approximation system for the perfectoid comparison."
+        },
+        {
+          "where": "Elkik §0.1 and Lemma 2; PAPER-CLAUSEN-MATHEW-MORROW-21/044",
+          "item": "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import",
+          "how": "Supplies Henselian pair for Shared Henselian smooth lifting interface."
+        },
+        {
+          "where": "Elkik remark after Theorem 2 bis, pp560–561",
+          "item": "PAPER-CESNAVICIUS-19/smooth-open-congruence",
+          "how": "Supplies Henselian pair for High congruence preserves the chosen smooth open."
         }
       ],
       "sourceEvidence": {
@@ -277,17 +302,20 @@
         {
           "name": "azumaya.test1",
           "statement": "Matrix algebras are the intended split examples.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "azumaya.test2",
           "statement": "Finite dimensionality alone is not the Azumaya condition.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "azumaya.test3",
           "statement": "A field Brauer-group quotient is not H² of a scheme.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -341,17 +369,20 @@
         {
           "name": "etale-site.test1",
           "statement": "An identity covers.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "etale-site.test2",
           "statement": "A non-surjective étale family need not cover.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "etale-site.test3",
           "statement": "A strict-local stalk is not just a Zariski stalk.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -446,17 +477,20 @@
         {
           "name": "fppf-site.test1",
           "statement": "Finite locally free surjective maps are intended covers.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "fppf-site.test2",
           "statement": "The empty morphism does not cover a nonempty scheme.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "fppf-site.test3",
           "statement": "A radicial finite flat group scheme can occur here without being étale.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -532,17 +566,20 @@
         {
           "name": "sheaf-cohom.test1",
           "statement": "Identity induces identity.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "sheaf-cohom.test2",
           "statement": "Zero sheaf has zero cohomology.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "sheaf-cohom.test3",
           "statement": "Nonabelian H¹ does not instantiate this abelian construction.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -596,6 +633,11 @@
           "where": "Theorem4.10 and AppendixA",
           "item": "PAPER-CESNAVICIUS-19/kummer",
           "how": "Uses Abelian sheaf cohomology carrier to supply the stated prerequisite in Kummer exact sequences in the correct topology."
+        },
+        {
+          "where": "Proposition 2.2 proof; Gir71 V3.1.3",
+          "item": "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian",
+          "how": "Supplies Abelian sheaf cohomology carrier for Nonabelian degree-one comparison for finite pushforward."
         }
       ],
       "sourceEvidence": {
@@ -638,17 +680,20 @@
         {
           "name": "pretilt.test1",
           "statement": "Coefficients satisfy the p-power compatibility equation.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "pretilt.test2",
           "statement": "Addition is in R/p, not coordinatewise on arbitrary lifts in R.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "pretilt.test3",
           "statement": "This carrier alone is not a perfectoid Tate algebra.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -721,17 +766,20 @@
         {
           "name": "sharp.test1",
           "statement": "Sharp of 1 is 1.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "sharp.test2",
           "statement": "Multiplication commutes with sharp.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "sharp.test3",
           "statement": "A ring-homomorphism rewrite for a sum must fail without additional justification.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -788,17 +836,20 @@
         {
           "name": "punctured.test1",
           "statement": "For a field U_R is empty.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "punctured.test2",
           "statement": "For a product of two local rings both closed points are removed.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "punctured.test3",
           "statement": "Deleting only one closed point is not U_R in the semilocal case.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -872,17 +923,20 @@
         {
           "name": "strict-henselian.test1",
           "statement": "Separably closed need not be perfect in characteristic p.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "strict-henselian.test2",
           "statement": "Changing geometric point is controlled by the comparison, not definitional equality.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "strict-henselian.test3",
           "statement": "Completion and strict henselization are distinct operations.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "planned": [
@@ -909,6 +963,11 @@
           "where": "Theorem6.1; SGA4II VII5.9",
           "item": "PAPER-CESNAVICIUS-19/strict-support-stalk",
           "how": "Uses Strict henselization and strictly henselian local rings to supply the stated prerequisite in Strict-local computation of support stalks."
+        },
+        {
+          "where": "Proposition 2.2 proof; Gir71 V3.1.3",
+          "item": "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian",
+          "how": "Supplies Strict henselization and strictly henselian local rings for Nonabelian degree-one comparison for finite pushforward."
         }
       ],
       "sourceEvidence": {
@@ -953,17 +1012,20 @@
         {
           "name": "torus.test1",
           "statement": "G_m is split rank one.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "torus.test2",
           "statement": "A norm-one torus need not split over the base.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "torus.test3",
           "statement": "A smooth commutative affine group with a unipotent part is not a torus.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "imports": [
@@ -1045,17 +1107,20 @@
         {
           "name": "cohom-brauer.test1",
           "statement": "Noetherian integral regular X has torsion H² only after Lemma3.2.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "cohom-brauer.test2",
           "statement": "A completion result on Br' does not automatically prove a result on arbitrary H².",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "cohom-brauer.test3",
           "statement": "All-prime torsion vanishing needs a proved torsion premise.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [],
@@ -1126,17 +1191,20 @@
         {
           "name": "weil.test1",
           "statement": "Res along the identity is Y.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "weil.test2",
           "statement": "Res along a disjoint union gives a product.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "weil.test3",
           "statement": "Do not infer reductivity for an inseparable field extension.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "note": "The shared carrier belongs to RG2.0a; arbitrary-affine and ramified smoothness extensions remain missing. BLR proof not read.",
@@ -1211,17 +1279,20 @@
         {
           "name": "homogeneous-quotient.test1",
           "statement": "For π=id the quotient is terminal.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "homogeneous-quotient.test2",
           "statement": "For noncommutative G the product decomposition need not be a direct product of groups.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "homogeneous-quotient.test3",
           "statement": "On a rank-zero clopen component Res G and its quotient are terminal; isolate it before using π as an fppf cover.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         }
       ],
       "gaps": [],
@@ -1939,17 +2010,20 @@
         {
           "name": "generic-completion.test1",
           "statement": "f must be regular.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "generic-completion.test2",
           "statement": "The completion of R[1/f] in the unit ideal is not Bhat.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "generic-completion.test3",
           "statement": "A non-Noetherian henselian R remains within the intended theorem.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -1994,9 +2068,12 @@
       "locator": "GR03 preprint Definition5.4.1, Lemma5.4.2",
       "status": "missing",
       "ownershipGroup": "SF4",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import"
+      ],
       "proofSteps": [
-        "Reuse the cited carrier if available; otherwise construct this object and prove its defining universal property before its consumers."
+        "Import DD.0 for the full-L meaning of Ext¹. Build the annihilator ideal; the separate factor-ideal-comparison theorem identifies its finite conormal implementation.",
+        "GR Lemma 5.4.2 gives smooth-locus and base-change properties; retain containment under base change."
       ],
       "implementationStatus": "not formalized by this job",
       "api": [
@@ -2019,17 +2096,20 @@
       "tests": [
         {
           "name": "smoothness-ideal.test1",
-          "statement": "For a smooth algebra the ideal generates the unit ideal on Spec S.",
+          "kind": "degenerate",
+          "statement": "For F=R[X] and J=0, Ext¹(L_(F/R),0)=0 and H_R(F,0)=F.",
           "execution": "not executed in Lean"
         },
         {
           "name": "smoothness-ideal.test2",
-          "statement": "Base change gives the stated containment, not an unproved equality.",
+          "kind": "computation",
+          "statement": "For F=k[X], J=(X²), H_R=(X) if char(k)≠2 and H_R=(X²) in characteristic2, by the conormal cokernel calculation.",
           "execution": "not executed in Lean"
         },
         {
           "name": "smoothness-ideal.test3",
-          "statement": "The conormal map must be retained for a non-smooth quotient.",
+          "kind": "non-example",
+          "statement": "For R=Q[[t]], J=(X²(X−1)), the smoothness ideal is proper although its image under evaluation at X=1 is all R.",
           "execution": "not executed in Lean"
         }
       ],
@@ -2044,6 +2124,11 @@
           "where": "GR03 preprint Lemma5.4.8",
           "item": "PAPER-CESNAVICIUS-19/newton-improvement",
           "how": "Uses Approximation smoothness ideal to supply the stated prerequisite in Quantitative approximate-root improvement."
+        },
+        {
+          "where": "GR Lemma 5.4.2 and (5.4.4)",
+          "item": "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+          "how": "Supplies Approximation smoothness ideal for Ext annihilator equals conormal factorization ideal."
         }
       ],
       "sourceEvidence": {
@@ -2061,12 +2146,16 @@
       "status": "missing",
       "ownershipGroup": "SF4",
       "prerequisites": [
-        "PAPER-CESNAVICIUS-19/smoothness-ideal"
+        "PAPER-CESNAVICIUS-19/smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+        "PAPER-CESNAVICIUS-19/multivariate-taylor-square"
       ],
       "proofSteps": [
-        "Construct the obstruction in Ext¹ of the cotangent complex.",
-        "Multiplication by t^h kills it; regularity of t identifies the relevant quotient modules.",
-        "Lift the approximate section."
+        "Worker-derived direct proof: choose h₀∈H_R(F,J) with h₀(a)=t^h. Via factor-ideal-comparison choose u:S^N→J/J² with u d=h₀ id. Lift u(dX_k) to b_k∈J.",
+        "For every generator f_i, h₀f_i−Σ_k(∂_k f_i)b_k∈J². Evaluation gives t^h f_i(a)−Σ_k Jac_ik(a)b_k(a)∈t^(2n)I²; also b_k(a)∈t^nI.",
+        "Write b_k(a)=t^hδ_k with δ_k∈t^(n−h)I. Regularity of t implies f_i(a)−Σ_k Jac_ik(a)δ_k∈t^(2n−h)I²⊂t^(2n−2h)I².",
+        "The multivariate Taylor remainder at a−δ lies in (t^(n−h)I)². Thus b=a−δ has the required correction and error. This finite polynomial step needs neither Noetherianity nor completeness.",
+        "Alternative source proof: GR3.2.16 constructs ω∈Ext¹(L,t^nI/(t^nI)²); the square of maps α,β,γ,δ in GR5.4.8 transfers t^hω=0 to αω=0. The full morphism-obstruction theorem is optional for the direct finite-conormal proof, but the H_R-to-H_fac dictionary still imports DD.0."
       ],
       "implementationStatus": "not formalized by this job",
       "gaps": [
@@ -2083,7 +2172,17 @@
         "locator": "GR03 preprint Lemma5.4.8",
         "match": "Main-paper statement/proof or selected supporting-source passage read; unresolved external proof inputs are named in gaps.",
         "source": "GR"
-      }
+      },
+      "acceptance": [
+        {
+          "name": "boundary",
+          "statement": "n>2h is essential to iteration: over Z₂, f=X²+3, a=1, t=2, I=R, h=1, n=2 has f(a)=4 and derivative valuation 1 but no root, since −3≡5 mod 8 is not a square."
+        },
+        {
+          "name": "nonregular",
+          "statement": "Do not cancel t^h without regularity: in k[t,ε]/(ε²,tε), tε=0 while ε≠0."
+        }
+      ]
     },
     {
       "id": "PAPER-CESNAVICIUS-19/hensel-approx-root",
@@ -2095,12 +2194,14 @@
       "ownershipGroup": "SF4",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/newton-improvement",
-        "PAPER-CESNAVICIUS-19/henselian-pair"
+        "PAPER-CESNAVICIUS-19/henselian-pair",
+        "PAPER-CESNAVICIUS-19/henselian-noetherian-approx"
       ],
       "proofSteps": [
-        "In the complete case iterate the quadratic improvement.",
-        "Descend finitely many coefficients/ideal containments to Noetherian henselian subrings.",
-        "Apply Elkik's Noetherian approximation (GR5.4.12) there."
+        "In the tI-adically complete case iterate newton-improvement, applying the next step to strengthened error ideals so that the powers of I as well as t increase; preserve h₀(a_m)=t^h times a unit. The correction sequence is tI-adically Cauchy and retains the initial t^(n−h)I bound.",
+        "GR5.4.13 reduces finite coefficients, the chosen generators and the finite factorization witnesses to Noetherian Henselian subrings R_λ with I_λ=I∩R_λ. This finite-data Henselian model theorem is still an explicit unresolved G-ELKIK input, not supplied by smooth finite-presentation descent.",
+        "Correct the preliminary choice to a finite H⊂H_R(F,J) with t^h∈H+p_a, not t^h∈H. Complete R_λ along tI_λ, apply the complete case and henselian-noetherian-approx, and use (tI_λ)^(n−h)⊂t^(n−h)I_λ (n−h≥1). The base change is S̄_λ=R̄_λ⊗_(R_λ)S_λ.",
+        "Regularity of t survives the selected subring and, by flatness, its Noetherian completion. Do not replace the subring/model argument with a claim that an arbitrary non-Noetherian ring is itself Noetherian."
       ],
       "implementationStatus": "not formalized by this job",
       "gaps": [
@@ -2190,17 +2291,20 @@
         {
           "name": "idempotent-groupoid.test1",
           "statement": "The zero idempotent gives a legitimate rank-zero summand.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "idempotent-groupoid.test2",
           "statement": "Two stabilized presentations of the same module become isomorphic.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "idempotent-groupoid.test3",
           "statement": "A displayed matrix identity must descend to the cokernel, not be assumed from arbitrary representatives.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [],
@@ -2653,17 +2757,20 @@
         {
           "name": "perfectoid-integral.test1",
           "statement": "A nonzero ring of characteristic p is not p-torsion-free.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "perfectoid-integral.test2",
           "statement": "Requiring only Frobenius surjectivity is insufficient.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "perfectoid-integral.test3",
           "statement": "The witness is not necessarily literally a p-th root of p; equality of principal ideals suffices.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [],
@@ -2747,17 +2854,20 @@
         {
           "name": "bms-perfectoid.test1",
           "statement": "BMS permits cases beyond the p-torsion-free paper.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "bms-perfectoid.test2",
           "statement": "A principal θ-kernel is data/proposition to prove, not the definition of W(S^flat).",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "bms-perfectoid.test3",
           "statement": "The integral carrier must not be copied from a Tate-pair structure.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "planned": [
@@ -2873,17 +2983,20 @@
         {
           "name": "root-system.test1",
           "statement": "Root elements are not canonical although their ideals are.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "root-system.test2",
           "statement": "Check the exponent p^n at n=1.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "root-system.test3",
           "statement": "A sequence of unrelated p-th roots is not compatible.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -3095,17 +3208,20 @@
         {
           "name": "tate-model.test1",
           "statement": "Do not assume R=A° initially.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "tate-model.test2",
           "statement": "p is a topologically nilpotent unit in A.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "tate-model.test3",
           "statement": "The topology on A is not its algebraic p-adic ideal topology.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "imports": [
@@ -3301,17 +3417,20 @@
         {
           "name": "banach-norm.test1",
           "statement": "|p| uses the displayed normalization, not an unannounced p-adic convention.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "banach-norm.test2",
           "statement": "The base field need not itself be perfectoid.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "banach-norm.test3",
           "statement": "Changing integral model is done before declaring its unit ball.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [],
@@ -3366,17 +3485,20 @@
         {
           "name": "tilted-pair.test1",
           "statement": "Aflat has characteristic p although A has characteristic zero.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "tilted-pair.test2",
           "statement": "The inverse-limit carrier already exists in Mathlib.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "tilted-pair.test3",
           "statement": "Aflat is not R/p with varpi inverted.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "planned": [
@@ -3546,17 +3668,20 @@
         {
           "name": "adic-etale-site.test1",
           "statement": "A non-finite étale open immersion belongs to the site.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "adic-etale-site.test2",
           "statement": "A finite étale subcategory alone is not the whole étale site.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "adic-etale-site.test3",
           "statement": "Rational covers must remain covers after tilting.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         }
       ],
       "planned": [
@@ -3771,17 +3896,20 @@
         {
           "name": "noetherian-approx.test1",
           "statement": "The finite stages are Noetherian, not generally perfectoid.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "noetherian-approx.test2",
           "statement": "Henselization is not p-adic completion.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "noetherian-approx.test3",
           "statement": "The colimit identity must be proved, not inferred from a union of arbitrary models.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [
@@ -4054,17 +4182,20 @@
         {
           "name": "residue-tower.test1",
           "statement": "The colimit is not claimed complete.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "residue-tower.test2",
           "statement": "In the ramified presentation p lies in m².",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "residue-tower.test3",
           "statement": "A separably closed imperfect residue field still needs its purely inseparable algebraic closure.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [
@@ -4160,17 +4291,20 @@
         {
           "name": "perfectoid-tower.test1",
           "statement": "Finite R_m need not be perfectoid.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "perfectoid-tower.test2",
           "statement": "The residue field must be perfect for this construction.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "perfectoid-tower.test3",
           "statement": "Completion is p-adic, not automatically maximal-ideal-adic.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [
@@ -4603,17 +4737,20 @@
         {
           "name": "supports.test1",
           "statement": "Empty support gives zero.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "degenerate"
         },
         {
           "name": "supports.test2",
           "statement": "Full support recovers ordinary cohomology.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "supports.test3",
           "statement": "Relative cohomology and supported cohomology are not silently identified without a comparison.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -4961,17 +5098,20 @@
         {
           "name": "generic-injective-torus.test1",
           "statement": "G_m satisfies it by Lemma3.2.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "generic-injective-torus.test2",
           "statement": "Testing X alone is not the stated hypothesis.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "generic-injective-torus.test3",
           "statement": "The norm-one torus over P¹_R is an explicit failure example.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -5130,17 +5270,20 @@
         {
           "name": "flasque.test1",
           "statement": "Permutation/invertible lattices are intended examples.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "flasque.test2",
           "statement": "Dualizing switches flasque/coflasque conventions and must be explicit.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "flasque.test3",
           "statement": "A norm-one torus must not be declared flasque solely from its construction.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [
@@ -5222,17 +5365,20 @@
         {
           "name": "norm-torus.test1",
           "statement": "Positive and negative real fibres have different torsor classes.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "norm-torus.test2",
           "statement": "The torsor over G_m is not pulled back from Spec R.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "norm-torus.test3",
           "statement": "Over C the torus splits.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         }
       ],
       "gaps": [],
@@ -5313,17 +5459,20 @@
         {
           "name": "brauer-residue.test1",
           "statement": "An imperfect characteristic-p residue field does not qualify for the p-primary version.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "brauer-residue.test2",
           "statement": "A regular local codimension-one point is a DVR.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "brauer-residue.test3",
           "statement": "A finite-support global residue is separate from a product-valued map.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [
@@ -5470,17 +5619,20 @@
         {
           "name": "field-dimension-one.test1",
           "statement": "Do not replace this with only cd(k)≤1 in characteristic p.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "field-dimension-one.test2",
           "statement": "The quantifier covers nonconstant finite étale groups.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "field-dimension-one.test3",
           "statement": "The extra Brauer condition applies to all finite separable extensions.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         }
       ],
       "gaps": [],
@@ -5588,17 +5740,20 @@
         {
           "name": "cartier-dual.test1",
           "statement": "μ_p is dual to Z/p in characteristic p.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "cartier-dual.test2",
           "statement": "α_p has connected dual.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "cartier-dual.test3",
           "statement": "Cartier duality is not the character lattice of an arbitrary torus.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [],
@@ -6138,17 +6293,20 @@
         {
           "name": "witt.test1",
           "statement": "The zeroth coefficient behaves as the residue-coordinate map.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "witt.test2",
           "statement": "Equality follows from equality of every coefficient.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "witt.test3",
           "statement": "For p-torsion rings the higher addition coordinates are not componentwise sums.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "library": [
@@ -6418,17 +6576,20 @@
         {
           "name": "parafactorial.test1",
           "statement": "A field and a DVR are not parafactorial.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "parafactorial.test2",
           "statement": "A factorial local ring of dimension≥2 is parafactorial.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "computation"
         },
         {
           "name": "parafactorial.test3",
           "statement": "Parafactoriality need not ascend from A to its completion.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [
@@ -6449,6 +6610,11 @@
           "where": "SGA2 XI Theorem3.13(i), proof read",
           "item": "PAPER-CESNAVICIUS-19/regular-factorial",
           "how": "Uses Parafactorial pair and local ring to supply the stated prerequisite in Regular local factoriality via determinants."
+        },
+        {
+          "where": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+          "how": "Supplies Parafactorial pair and local ring for Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)."
         }
       ],
       "sourceEvidence": {
@@ -6491,17 +6657,20 @@
         {
           "name": "lefschetz-condition.test1",
           "statement": "The quantifier includes all neighborhoods, not just X.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "characterisation"
         },
         {
           "name": "lefschetz-condition.test2",
           "statement": "A sections comparison alone does not assert algebraizability.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "lefschetz-condition.test3",
           "statement": "The completed sheaf is over formal Xhat_Y.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         }
       ],
       "gaps": [
@@ -6517,6 +6686,11 @@
           "where": "SGA2 X Example2.1(i)",
           "item": "PAPER-CESNAVICIUS-19/local-lef",
           "how": "Uses Formal Lefschetz condition to supply the stated prerequisite in Depth criterion for local formal Lefschetz."
+        },
+        {
+          "where": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+          "how": "Supplies Formal Lefschetz condition for Picard comparison along the formal completion (SGA 2 XI 2.1 and 2.2)."
         }
       ],
       "sourceEvidence": {
@@ -6561,17 +6735,20 @@
         {
           "name": "effective-lefschetz.test1",
           "statement": "Leff implies Lef.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "compatibility"
         },
         {
           "name": "effective-lefschetz.test2",
           "statement": "Lef alone does not construct an algebraization.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         },
         {
           "name": "effective-lefschetz.test3",
           "statement": "An algebraization may exist only after shrinking.",
-          "execution": "not executed in Lean"
+          "execution": "not executed in Lean",
+          "kind": "non-example"
         }
       ],
       "gaps": [
@@ -6587,6 +6764,11 @@
           "where": "SGA2 XI Proposition3.12",
           "item": "PAPER-CESNAVICIUS-19/pic-formal-comparison",
           "how": "Uses Effective formal Lefschetz condition to supply the stated prerequisite in Picard comparison from effective Lefschetz."
+        },
+        {
+          "where": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+          "how": "Supplies Effective formal Lefschetz condition for Picard comparison along the formal completion (SGA 2 XI 2.1 and 2.2)."
         }
       ],
       "sourceEvidence": {
@@ -6623,6 +6805,11 @@
           "where": "SGA2 X Example2.1(ii)",
           "item": "PAPER-CESNAVICIUS-19/local-leff",
           "how": "Uses Depth criterion for local formal Lefschetz to supply the stated prerequisite in Depth criterion for effective local Lefschetz."
+        },
+        {
+          "where": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+          "how": "Supplies Depth criterion for local formal Lefschetz for Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)."
         }
       ],
       "sourceEvidence": {
@@ -6657,6 +6844,11 @@
           "where": "Corollary2.5; SGA2new XI3.13(ii), read with proof and surrounding XI3.1–3.17/X2.1 on2026-09-22",
           "item": "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
           "how": "Uses Depth criterion for effective local Lefschetz to supply the stated prerequisite in Local Grothendieck–Lefschetz Picard vanishing."
+        },
+        {
+          "where": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+          "how": "Supplies Depth criterion for effective local Lefschetz for Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)."
         }
       ],
       "sourceEvidence": {
@@ -6693,6 +6885,11 @@
           "where": "Corollary2.5; SGA2new XI3.13(ii), read with proof and surrounding XI3.1–3.17/X2.1 on2026-09-22",
           "item": "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
           "how": "Uses Picard comparison from effective Lefschetz to supply the stated prerequisite in Local Grothendieck–Lefschetz Picard vanishing."
+        },
+        {
+          "where": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+          "how": "Supplies Picard comparison from effective Lefschetz for Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)."
         }
       ],
       "sourceEvidence": {
@@ -6824,6 +7021,21 @@
           "where": "SGA 2 X Example 2.1 (i), first step",
           "item": "PAPER-CESNAVICIUS-19/local-lef",
           "how": "Uses the finiteness theorem for local cohomology to obtain coherence of the extension u_*(E) across the finitely many closed points of X outside a neighbourhood of Y."
+        },
+        {
+          "where": "SGA 2 VIII Corollaire 2.3; read on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/sga2-depth-coherence",
+          "how": "Supplies Finiteness theorem for local cohomology (SGA 2 VIII 2.1) for Depth criteria for coherence of local cohomology (SGA 2 VIII 2.3)."
+        },
+        {
+          "where": "SGA 2 IX Proposition 1.4 and Exemple 1.5; read with their proofs on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/formal-comparison-sections",
+          "how": "Supplies Finiteness theorem for local cohomology (SGA 2 VIII 2.1) for Formal comparison of sections on a punctured spectrum (SGA 2 IX 1.4 and 1.5)."
+        },
+        {
+          "where": "SGA 2 IX Théorème 2.2 and Corollaire 2.3; read with their proofs on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/formal-algebraization",
+          "how": "Supplies Finiteness theorem for local cohomology (SGA 2 VIII 2.1) for Algebraization of a coherent formal module on a punctured spectrum (SGA 2 IX 2.2 and 2.3)."
         }
       ],
       "sourceEvidence": {
@@ -6956,6 +7168,16 @@
           "where": "SGA 2 XI Proposition 3.12, hypothesis 2)",
           "item": "PAPER-CESNAVICIUS-19/pic-formal-comparison",
           "how": "Uses the infinitesimal Picard obstruction sequence to convert the vanishing of H^i(X, I^{n+1}/I^{n+2}) for i = 1, 2 into bijectivity of Pic(X-hat) → Pic(X_n)."
+        },
+        {
+          "where": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+          "how": "Supplies Infinitesimal Picard obstruction sequence (SGA 2 XI 1.1) for Picard comparison along the formal completion (SGA 2 XI 2.1 and 2.2)."
+        },
+        {
+          "where": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+          "how": "Supplies Infinitesimal Picard obstruction sequence (SGA 2 XI 1.1) for Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)."
         }
       ],
       "sourceEvidence": {
@@ -7061,6 +7283,11 @@
           "where": "Theorem 4.10 (4.10.6), footnote 3",
           "item": "PAPER-CESNAVICIUS-19/qcqs-site-limit",
           "how": "Uses the spectral-space limit, which the paper proves for its own Noetherian stages, as the part of the argument that transfers unchanged."
+        },
+        {
+          "where": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (ii); read with its proof on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/perfectoid-qcqs-limit",
+          "how": "Supplies Spectral-space limit of an affinoid Tate system (Scholze, diamonds, 6.4 (o)) for Qcqs étale-site limit for affinoid perfectoid stages (Scholze, diamonds, 6.4 (ii))."
         }
       ],
       "sourceEvidence": {
@@ -7092,6 +7319,11 @@
           "where": "Theorem 4.10 (4.10.6), footnote 3",
           "item": "PAPER-CESNAVICIUS-19/qcqs-site-limit",
           "how": "Uses the finite étale limit as the single remaining statement that footnote 3 must re-prove for Noetherian stages with perfectoid completed limit."
+        },
+        {
+          "where": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (ii); read with its proof on 2026-09-22",
+          "item": "PAPER-CESNAVICIUS-19/perfectoid-qcqs-limit",
+          "how": "Supplies Finite étale limit of an affinoid Tate system (Scholze, diamonds, 6.4 (i)) for Qcqs étale-site limit for affinoid perfectoid stages (Scholze, diamonds, 6.4 (ii))."
         }
       ],
       "sourceEvidence": {
@@ -7136,6 +7368,833 @@
         "source": "Sch17"
       },
       "note": "Stated for stages that are themselves affinoid perfectoid. The proof uses that hypothesis only through 6.4 (o) and 6.4 (i), so Česnavičius's footnote 3 — the same conclusion for Noetherian, integrally closed stages with perfectoid completed limit — reduces to those two statements at Noetherian stages."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/naive-conormal-map",
+      "kind": "construction",
+      "name": "Pinned conormal differential",
+      "statement": "For an R-algebra extension P of S, P.CotangentSpace = S ⊗[P.Ring] Ω[P.Ring⁄R] and P.cotangentComplex : P.Cotangent →ₗ[S] P.CotangentSpace sends the class of a kernel element f to 1⊗Df. For F=R[X₁,…,X_N]→S this is d:J/J²→S^N.",
+      "locator": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean:31–79",
+      "status": "library",
+      "ownershipGroup": "LIB",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the existing cotangent carrier and differential; specialize the polynomial differential basis. This is not the full derived cotangent complex."
+      ],
+      "implementationStatus": "pinned statement read; not recompiled",
+      "gaps": [],
+      "uses": [
+        {
+          "where": "GR (5.4.3)–(5.4.4); DerivedDeRhamCohomology DD.0",
+          "item": "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import",
+          "how": "Supplies Pinned conormal differential for Shared low cotangent comparison."
+        },
+        {
+          "where": "GR (5.4.4); worker-derived direct Newton interface",
+          "item": "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+          "how": "Supplies Pinned conormal differential for Conormal factorization ideal."
+        },
+        {
+          "where": "Elkik §0.2; GR 5.4.5",
+          "item": "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
+          "how": "Supplies Pinned conormal differential for Elkik minor–colon ideal."
+        },
+        {
+          "where": "Elkik II Lemma 3, pp562–564",
+          "item": "PAPER-CESNAVICIUS-19/conormal-stabilization",
+          "how": "Supplies Pinned conormal differential for Elkik conormal stabilization."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "pinned",
+        "locator": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean:31–79",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "library": [
+        "mathlib:Algebra.Extension.CotangentSpace",
+        "mathlib:Algebra.Extension.cotangentComplex",
+        "mathlib:Algebra.Extension.cotangentComplex_mk"
+      ],
+      "api": [
+        {
+          "name": "BrauerPurity.naive_conormal_map.mk",
+          "role": "characterisation",
+          "statement": "For f∈ker(P), d([f])=1⊗Df."
+        },
+        {
+          "name": "BrauerPurity.naive_conormal_map.linear",
+          "role": "compatibility",
+          "statement": "Use the existing S-linear map structure."
+        },
+        {
+          "name": "BrauerPurity.naive_conormal_map.polynomial_basis",
+          "role": "compatibility",
+          "statement": "Under Ω_(R[X]/R)⊗S≃S^N, d([f]) has entries ∂f/∂X_i modulo J; this basis adapter remains to implement."
+        }
+      ],
+      "tests": [
+        {
+          "name": "naive-conormal-map.zero_kernel",
+          "kind": "degenerate",
+          "statement": "For F=S=R[X] and J=0, the conormal module is zero and d is the zero map.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "naive-conormal-map.dual_numbers",
+          "kind": "computation",
+          "statement": "For k[X]/(X²), d([X²])=2X dX; in characteristic 2 this is zero.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "naive-conormal-map.relation",
+          "kind": "compatibility",
+          "statement": "For f,g∈J, d([fg])=0 in Ω_(F/R)⊗S, agreeing with [fg]=0 in J/J².",
+          "execution": "specification; not executed in Lean"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/univariate-taylor",
+      "kind": "theorem",
+      "name": "Pinned quadratic Taylor remainder",
+      "statement": "For a commutative semiring R, p∈R[X] and x,y∈R, there exists c∈R with c y²+p′(x)y+p(x)=p(x+y).",
+      "locator": "Mathlib/Algebra/Polynomial/Taylor.lean:163–181",
+      "status": "library",
+      "ownershipGroup": "LIB",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the exact existence theorem; square-zero evaluation is its existing corollary."
+      ],
+      "implementationStatus": "pinned statement read; not recompiled",
+      "gaps": [],
+      "uses": [
+        {
+          "where": "Elkik Lemma 1 equation (2); worker-derived finite polynomial proof",
+          "item": "PAPER-CESNAVICIUS-19/multivariate-taylor-square",
+          "how": "Supplies Pinned quadratic Taylor remainder for Finite polynomial quadratic remainder."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "pinned",
+        "locator": "Mathlib/Algebra/Polynomial/Taylor.lean:163–181",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "library": [
+        "mathlib:Polynomial.exists_mul_sq_add_linear_part_eq_eval_add",
+        "mathlib:Polynomial.eval_add_of_sq_eq_zero"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/artin-rees",
+      "kind": "theorem",
+      "name": "Pinned Artin–Rees filtration equality",
+      "statement": "For a Noetherian commutative ring R, finite R-module M, ideal I and submodule N, there is k such that n≥k implies (I^n M)∩N=I^(n−k)((I^k M)∩N).",
+      "locator": "Mathlib/RingTheory/Filtration.lean:387–391",
+      "status": "library",
+      "ownershipGroup": "LIB",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use Ideal.exists_pow_inf_eq_pow_smul with its Noetherian and finite-module hypotheses."
+      ],
+      "implementationStatus": "pinned statement read; not recompiled",
+      "gaps": [],
+      "uses": [
+        {
+          "where": "TauCeti/RingTheory/Ideal/ArtinRees.lean:70–98",
+          "item": "PAPER-CESNAVICIUS-19/artin-rees-lift",
+          "how": "Supplies Pinned Artin–Rees filtration equality for Pinned Artin–Rees controlled preimage."
+        },
+        {
+          "where": "Elkik I Lemma 1 and II Lemma 4; pinned Artin–Rees",
+          "item": "PAPER-CESNAVICIUS-19/principal-torsion-separation",
+          "how": "Supplies Pinned Artin–Rees filtration equality for Deep powers contain no principal torsion."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "pinned",
+        "locator": "Mathlib/RingTheory/Filtration.lean:387–391",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "library": [
+        "mathlib:Ideal.exists_pow_inf_eq_pow_smul"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/artin-rees-lift",
+      "kind": "theorem",
+      "name": "Pinned Artin–Rees controlled preimage",
+      "statement": "For R Noetherian, M finite, I⊂R and N⊂M there is k₀, independent of P, φ and m, such that any surjection φ:P→ₗ[R]N lifts v∈N∩I^(m+k₀)M to c∈I^mP.",
+      "locator": "TauCeti/RingTheory/Ideal/ArtinRees.lean:70–98",
+      "status": "library",
+      "ownershipGroup": "LIB",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/artin-rees"
+      ],
+      "proofSteps": [
+        "Reuse TauCeti.ArtinRees.exists_controlled_lift, whose proof applies the pinned Artin–Rees equality and transport of ideal multiples by a surjection."
+      ],
+      "implementationStatus": "pinned statement read; not recompiled",
+      "gaps": [],
+      "uses": [
+        {
+          "where": "Elkik I Theorem 1, pp558–560",
+          "item": "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+          "how": "Supplies Pinned Artin–Rees controlled preimage for Elkik approximation over a Noetherian complete pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "pinned",
+        "locator": "TauCeti/RingTheory/Ideal/ArtinRees.lean:70–98",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "library": [
+        "tauceti:TauCeti.ArtinRees.exists_controlled_lift"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import",
+      "kind": "theorem",
+      "name": "Shared Henselian smooth lifting interface",
+      "statement": "For a Henselian pair (A,a) and a smooth A-algebra B, every A-algebra map B→A/a lifts to B→A. Use the étale neighborhood special case for Tougeron’s auxiliary system.",
+      "locator": "Elkik §0.1 and Lemma 2; PAPER-CLAUSEN-MATHEW-MORROW-21/044",
+      "status": "planned",
+      "ownershipGroup": "IMPORT",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/henselian-pair"
+      ],
+      "proofSteps": [
+        "Import the existing SF.0 source obligation /044, not another Henselian carrier or another proof plan. Its equivalence with pinned monic-simple-root HenselianRing still needs a sourced EGA/Stacks proof."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik II Lemma 2, pp561–562",
+          "item": "PAPER-CESNAVICIUS-19/tougeron-root",
+          "how": "Supplies Shared Henselian smooth lifting interface for Tougeron quantitative exact root."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik §0.1 and Lemma 2; PAPER-CLAUSEN-MATHEW-MORROW-21/044",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "planned": [
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import",
+      "kind": "theorem",
+      "name": "Shared low cotangent comparison",
+      "statement": "For S=F/J with F a finite polynomial R-algebra, identify τ_{≥−1}L_(S/R) with [J/J²→Ω_(F/R)⊗S] in degrees −1,0; for any S-module N obtain Ext¹_S(L_(S/R),N)=coker(Hom_S(S^N,N)→Hom_S(J/J²,N)).",
+      "locator": "GR (5.4.3)–(5.4.4); DerivedDeRhamCohomology DD.0",
+      "status": "planned",
+      "ownershipGroup": "IMPORT",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/naive-conormal-map"
+      ],
+      "proofSteps": [
+        "Import the full cotangent owner DD.0 and compare with the existing naive presentation. Do not identify all of L with two terms or assert J/J² projective for an arbitrary quotient.",
+        "GR Proposition 3.2.16 is the morphism-lifting Ext¹ obstruction; object deformation in 3.2.9 instead has an Ext² obstruction. The lower Illusie foundations remain unread."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR03 preprint Definition5.4.1, Lemma5.4.2",
+          "item": "PAPER-CESNAVICIUS-19/smoothness-ideal",
+          "how": "Supplies Shared low cotangent comparison for Approximation smoothness ideal."
+        },
+        {
+          "where": "GR Lemma 5.4.2 and (5.4.4)",
+          "item": "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+          "how": "Supplies Shared low cotangent comparison for Ext annihilator equals conormal factorization ideal."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "GR",
+        "locator": "GR (5.4.3)–(5.4.4); DerivedDeRhamCohomology DD.0",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "planned": [
+        "DerivedDeRhamCohomology:DD.0"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+      "kind": "definition",
+      "name": "Conormal factorization ideal",
+      "statement": "For F=R[X₁,…,X_N], J finitely generated, S=F/J and M=J/J² with d:M→S^N, let H_fac={h∈F | ∃ S-linear u:S^N→M, u∘d=(h mod J) id_M}. This is an ideal of F containing J.",
+      "locator": "GR (5.4.4); worker-derived direct Newton interface",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/naive-conormal-map"
+      ],
+      "proofSteps": [
+        "Zero, addition and scalar multiplication of witnesses prove the ideal laws. A scalar in J acts as zero, witnessed by u=0.",
+        "All construction data use the pinned naive conormal map. Equality with the Ext-defined ideal is a separate comparison theorem."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR Lemma 5.4.2 and (5.4.4)",
+          "item": "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+          "how": "Supplies Conormal factorization ideal for Ext annihilator equals conormal factorization ideal."
+        },
+        {
+          "where": "GR Lemma 5.4.6",
+          "item": "PAPER-CESNAVICIUS-19/jacobian-factor-containment",
+          "how": "Supplies Conormal factorization ideal for Minor–colon elements factor the conormal map."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "GR",
+        "locator": "GR (5.4.4); worker-derived direct Newton interface",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "api": [
+        {
+          "name": "BrauerPurity.factor_smoothness_ideal.witness",
+          "role": "characterisation",
+          "statement": "h∈H_fac iff there exists u with u∘d=h id_M."
+        },
+        {
+          "name": "BrauerPurity.factor_smoothness_ideal.lift_columns",
+          "role": "compatibility",
+          "statement": "Lift each u(dX_k) to b_k∈J; then h f_i−Σ_k(∂_k f_i)b_k∈J² for every generator f_i."
+        },
+        {
+          "name": "BrauerPurity.factor_smoothness_ideal.ideal",
+          "role": "functoriality",
+          "statement": "H_fac is closed under F-linear combinations of witnesses and contains J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "factor-smoothness-ideal.polynomial",
+          "kind": "degenerate",
+          "statement": "If J=0 then M=0 and H_fac=F.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "factor-smoothness-ideal.dual_numbers",
+          "kind": "computation",
+          "statement": "For F=k[X], J=(X²), H_fac=(X) when char(k)≠2 and H_fac=(X²) when char(k)=2.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "factor-smoothness-ideal.evaluation",
+          "kind": "non-example",
+          "statement": "For R=Q[[t]], f=X²(X−1), J=(f) and a=1, 1∈H_fac+(X−1) but 1∉H_fac: smoothness at the chosen point does not make S globally smooth.",
+          "execution": "specification; not executed in Lean"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+      "kind": "theorem",
+      "name": "Ext annihilator equals conormal factorization ideal",
+      "statement": "With the preceding finite polynomial presentation, H_R(F,J)=H_fac as ideals in F. Every h in this ideal also annihilates Ext¹_S(L_(S/R),N) for every S-module N.",
+      "locator": "GR Lemma 5.4.2 and (5.4.4)",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import"
+      ],
+      "proofSteps": [
+        "Using the DD.0 low cotangent comparison, Ext¹(L,M) is coker(Hom(S^N,M)→End(M)). If h annihilates the cokernel then h[id_M]=0 and h id_M=u d.",
+        "Conversely any map M→N composed with u d shows that h kills every class in the corresponding cokernel. This proves both equality and the coefficient-uniform annihilation."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR03 preprint Lemma5.4.8",
+          "item": "PAPER-CESNAVICIUS-19/newton-improvement",
+          "how": "Supplies Ext annihilator equals conormal factorization ideal for Quantitative approximate-root improvement."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "GR",
+        "locator": "GR Lemma 5.4.2 and (5.4.4)",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
+      "kind": "definition",
+      "name": "Elkik minor–colon ideal",
+      "statement": "For chosen generators f₁,…,f_q of J⊂F=R[X₁,…,X_N], put H_Jac=Σ_α Δ_α·(J_α:J), where J_α=(f_i:i∈α), Δ_α is the ideal of |α|×|α| Jacobian minors and the empty minor is 1. The complement of its image’s vanishing locus in Spec(F/J) is the smooth locus.",
+      "locator": "Elkik §0.2; GR 5.4.5",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/naive-conormal-map"
+      ],
+      "proofSteps": [
+        "Use ideal sums, colon ideals and finite determinants on the fixed presentation. The smooth-locus statement is the finite-presentation Jacobian criterion; import the general scheme/algebra smoothness criterion.",
+        "Elkik permits any H_B contained in this sum for the quantitative theorem. Do not silently replace this presentation-dependent ideal by H_fac."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR Lemma 5.4.6",
+          "item": "PAPER-CESNAVICIUS-19/jacobian-factor-containment",
+          "how": "Supplies Elkik minor–colon ideal for Minor–colon elements factor the conormal map."
+        },
+        {
+          "where": "Elkik I Lemma 1, pp555–558",
+          "item": "PAPER-CESNAVICIUS-19/complete-principal-approx",
+          "how": "Supplies Elkik minor–colon ideal for Elkik approximation over a principal completion."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik/GR",
+        "locator": "Elkik §0.2; GR 5.4.5",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "api": [
+        {
+          "name": "BrauerPurity.jacobian_smoothness_ideal.minor_colon",
+          "role": "characterisation",
+          "statement": "A generator xδ uses xJ⊂J_α and δ a maximal minor of the chosen subsystem."
+        },
+        {
+          "name": "BrauerPurity.jacobian_smoothness_ideal.smooth_open",
+          "role": "compatibility",
+          "statement": "Spec S minus V(H_Jac S) is the smooth locus over R."
+        },
+        {
+          "name": "BrauerPurity.jacobian_smoothness_ideal.base_change",
+          "role": "functoriality",
+          "statement": "Under any R→R′, H_Jac F′⊂H_Jac′; colon ideals need only enlarge."
+        }
+      ],
+      "tests": [
+        {
+          "name": "jacobian-smoothness-ideal.empty",
+          "kind": "degenerate",
+          "statement": "For J=0 the empty subsystem has (0:0)=F and H_Jac=F.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "jacobian-smoothness-ideal.hypersurface",
+          "kind": "computation",
+          "statement": "For J=(X²) in F=k[X], H_Jac=(2X). In characteristic2 it is zero, whereas H_fac=(X²); only their vanishing loci on Spec(F/J) agree.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "jacobian-smoothness-ideal.redundant",
+          "kind": "compatibility",
+          "statement": "For J=(X) presented by generators X,0, the subsystem {X} has Jacobian minor 1 and colon ideal F, so H_Jac=F.",
+          "execution": "specification; not executed in Lean"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/jacobian-factor-containment",
+      "kind": "theorem",
+      "name": "Minor–colon elements factor the conormal map",
+      "statement": "For the preceding presentation H_Jac⊂H_fac; hence H_Jac⊂H_R(F,J) after the comparison.",
+      "locator": "GR Lemma 5.4.6",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal"
+      ],
+      "proofSteps": [
+        "For a chosen subsystem let φ:S^p→M send basis vectors to [f_α], and π:S^N→S^p select the minor columns. Then πdφ is the minor matrix M_α.",
+        "For its adjugate M_α′, φ M_α′πd is multiplication by δ on im φ. If xJ⊂J_α then xM⊂im φ; S-linearity gives (xφ M_α′π)d=xδ id_M. Sum these witnesses."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [],
+      "sourceEvidence": {
+        "source": "GR",
+        "locator": "GR Lemma 5.4.6",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/multivariate-taylor-square",
+      "kind": "theorem",
+      "name": "Finite polynomial quadratic remainder",
+      "statement": "For a commutative ring R, f∈R[X₁,…,X_N], a,δ∈R^N and an ideal K with every δ_i∈K, f(a−δ)−f(a)+Σ_i∂_i f(a)δ_i∈K².",
+      "locator": "Elkik Lemma 1 equation (2); worker-derived finite polynomial proof",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/univariate-taylor"
+      ],
+      "proofSteps": [
+        "Expand each monomial ∏(a_i−δ_i)^e_i. The terms containing zero or one δ are the value and negative differential; each remaining term has at least two δ factors and lies in K².",
+        "Alternatively iterate the pinned one-variable remainder, checking that a derivative evaluated at an intermediate point differs from its value at a by an element of K. No characteristic-zero division by factorials is used."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR03 preprint Lemma5.4.8",
+          "item": "PAPER-CESNAVICIUS-19/newton-improvement",
+          "how": "Supplies Finite polynomial quadratic remainder for Quantitative approximate-root improvement."
+        },
+        {
+          "where": "Elkik II Lemma 2, pp561–562",
+          "item": "PAPER-CESNAVICIUS-19/tougeron-root",
+          "how": "Supplies Finite polynomial quadratic remainder for Tougeron quantitative exact root."
+        },
+        {
+          "where": "Elkik I Lemma 1, pp555–558",
+          "item": "PAPER-CESNAVICIUS-19/complete-principal-approx",
+          "how": "Supplies Finite polynomial quadratic remainder for Elkik approximation over a principal completion."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik/worker",
+        "locator": "Elkik Lemma 1 equation (2); worker-derived finite polynomial proof",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/tougeron-root",
+      "kind": "theorem",
+      "name": "Tougeron quantitative exact root",
+      "statement": "Let (A,a) be a Noetherian Henselian pair, f₁,…,f_q∈A[X₁,…,X_N], Δ the ideal of q×q Jacobian minors and a₀∈A^N. If f_i(a₀)∈a^n, Δ(a₀)⊃a^h and n>2h, there is b≡a₀ mod a^(n−h) with every f_i(b)=0.",
+      "locator": "Elkik II Lemma 2, pp561–562",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import",
+        "PAPER-CESNAVICIUS-19/multivariate-taylor-square"
+      ],
+      "proofSteps": [
+        "Choose generators t_i of a^h. Adjugates and linear combinations of maximal minors produce matrices N_i with Jac(a₀)N_i=t_i id_q.",
+        "Taylor-expand at a₀ with a correction Σ_i t_i u_i. Express f(a₀) using products t_i t_j times coefficients in a^(n−2h). Substitute u_i=Σ_j N_j v_ij.",
+        "The resulting auxiliary equations have the form v_ij+Q_ij(v)+c_ij=0 with quadratic Q and c_ij∈a^(n−2h). Their Jacobian is the identity at v=0 modulo that ideal. Localize the determinant, use shared Henselian smooth lifting, and choose v in that ideal. The correction then lies in a^(n−h)."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik II Lemma 4, pp564–566",
+          "item": "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+          "how": "Supplies Tougeron quantitative exact root for Elkik approximation for a principal Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik II Lemma 2, pp561–562",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/conormal-stabilization",
+      "kind": "construction",
+      "name": "Elkik conormal stabilization",
+      "statement": "Let A be Noetherian, B=A[X₁,…,X_N]/J with q chosen generators of J, V⊂Spec B smooth over A. Put C=Sym_B(J/J²), with projection π:Spec C→Spec B and zero section. Over π⁻¹V, C is smooth of relative dimension N. Embed Spec C in A_A^(2N+q) by its usual N+q coordinates and N zero coordinates. On every affine open U⊂π⁻¹V, the conormal module of this embedding is free of rank N+q.",
+      "locator": "Elkik II Lemma 3, pp562–564",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/naive-conormal-map"
+      ],
+      "proofSteps": [
+        "Over V the original conormal sequence is split exact, so J/J² is a vector bundle of rank N−d on each relative-dimension-d component. Its symmetric algebra gives a vector bundle of rank N−d over V and hence smooth dimension N.",
+        "On an affine U, the differential sequence of the vector bundle splits and Ω_(C/A)|U≃(J/J²)|U⊕Ω_(B/A)|U≃O_U^N. For the N+q-coordinate embedding, its conormal K satisfies K⊕O_U^N≃O_U^(N+q).",
+        "Adding N zero coordinates adds O_U^N to K and makes the new conormal free of rank N+q. Finite generation and Nakayama lift a basis to equations on a neighborhood of U. Projection sends an approximating section back to B."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik II Lemma 4, pp564–566",
+          "item": "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+          "how": "Supplies Elkik conormal stabilization for Elkik approximation for a principal Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik II Lemma 3, pp562–564",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      },
+      "api": [
+        {
+          "name": "BrauerPurity.conormal_stabilization.retract",
+          "role": "characterisation",
+          "statement": "π composed with the zero section is id_SpecB."
+        },
+        {
+          "name": "BrauerPurity.conormal_stabilization.dimension",
+          "role": "compatibility",
+          "statement": "Over a smooth relative-dimension-d component of V, the vector bundle has rank N−d and its total space has dimension N over A."
+        },
+        {
+          "name": "BrauerPurity.conormal_stabilization.free_conormal",
+          "role": "compatibility",
+          "statement": "After adding N zero coordinates, the conormal on affine U is O_U^(N+q), even if the original J/J² was only locally free."
+        }
+      ],
+      "tests": [
+        {
+          "name": "conormal-stabilization.affine_space",
+          "kind": "degenerate",
+          "statement": "For J=0 and q=0, C=B=A[X₁,…,X_N]; the embedding (X,0) in A^(2N) has free conormal of rank N.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "conormal-stabilization.hyperplane",
+          "kind": "computation",
+          "statement": "For B=A[X₁,…,X_N]/(X_N), q=1, C=B[Y] has relative dimension N and the stabilized embedding has N+1 independent normal directions.",
+          "execution": "specification; not executed in Lean"
+        },
+        {
+          "name": "conormal-stabilization.rank",
+          "kind": "non-example",
+          "statement": "The total-space smooth dimension is N, not d or N+(N−d); the relative vector bundle is over V of dimension d.",
+          "execution": "specification; not executed in Lean"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/smooth-open-congruence",
+      "kind": "theorem",
+      "name": "High congruence preserves the chosen smooth open",
+      "statement": "For a Noetherian Henselian pair (A,a), finite type B/A and a formal section σ̂:B→Â, let K⊂B cut out the complement of an open V. If σ̂(K)Â⊃a^cÂ, every section σ:B→A congruent to σ̂ modulo a^m with m>c satisfies σ(K)A⊃a^c, hence maps Spec A minus V(a) into V.",
+      "locator": "Elkik remark after Theorem 2 bis, pp560–561",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/henselian-pair"
+      ],
+      "proofSteps": [
+        "Compare the evaluated ideals modulo a^m. Faithful flatness of Noetherian completion contracts the containment to a^c⊂σ(K)A+a^(c+1).",
+        "Apply Nakayama to the finite module (a^c+σ(K)A)/σ(K)A using a⊂Jac(A); it vanishes."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik I Theorem 1, pp558–560",
+          "item": "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+          "how": "Supplies High congruence preserves the chosen smooth open for Elkik approximation over a Noetherian complete pair."
+        },
+        {
+          "where": "Elkik II Lemma 4, pp564–566",
+          "item": "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+          "how": "Supplies High congruence preserves the chosen smooth open for Elkik approximation for a principal Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik remark after Theorem 2 bis, pp560–561",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/principal-torsion-separation",
+      "kind": "theorem",
+      "name": "Deep powers contain no principal torsion",
+      "statement": "For A Noetherian and t∈A, let T={x∈A | ∃r,t^r x=0}. There is k such that T∩t^nA=0 for every n≥k. Regularity of t is not assumed.",
+      "locator": "Elkik I Lemma 1 and II Lemma 4; pinned Artin–Rees",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/artin-rees"
+      ],
+      "proofSteps": [
+        "The t-power annihilator ideals stabilize in the Noetherian ring, so t^rT=0 for one r.",
+        "Apply Artin–Rees to T⊂A with I=(t): T∩t^nA=t^(n−c)(T∩t^cA) for n≥c. Choose k=c+r."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik I Lemma 1, pp555–558",
+          "item": "PAPER-CESNAVICIUS-19/complete-principal-approx",
+          "how": "Supplies Deep powers contain no principal torsion for Elkik approximation over a principal completion."
+        },
+        {
+          "where": "Elkik II Lemma 4, pp564–566",
+          "item": "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+          "how": "Supplies Deep powers contain no principal torsion for Elkik approximation for a principal Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik I Lemma 1 and II Lemma 4; pinned Artin–Rees",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/complete-principal-approx",
+      "kind": "theorem",
+      "name": "Elkik approximation over a principal completion",
+      "statement": "Let A be Noetherian and complete for (t), I⊂A an ideal, J⊂A[X₁,…,X_N] finitely generated and H_B⊂H_Jac. Choose k with A[t∞]∩t^kA=0. If H_B(a)⊃(t^h), J(a)⊂t^nI and n>max(2h,h+k), there is b−a∈t^(n−h)I A^N with J(b)=0.",
+      "locator": "Elkik I Lemma 1, pp555–558",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/multivariate-taylor-square",
+        "PAPER-CESNAVICIUS-19/principal-torsion-separation"
+      ],
+      "proofSteps": [
+        "Adjugates for every minor–colon generator give v∈t^nI A^N with Jac(a)v≡t^h f(a) modulo t^(2n)I. Write v=t^hδ with δ∈t^(n−h)I A^N.",
+        "The remaining t^h-torsion term lies in t^kA by the exponent inequality, so principal-torsion-separation cancels it at the needed depth. Taylor gives improved error in t^(2n−2h)I.",
+        "High congruence preserves the t^h smoothness witness because 1+t z is a unit. Repeat with n↦2n−2h; n>2h makes the exponents diverge. Completeness gives a limit and the original correction bound."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik I Theorem 1, pp558–560",
+          "item": "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+          "how": "Supplies Elkik approximation over a principal completion for Elkik approximation over a Noetherian complete pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik I Lemma 1, pp555–558",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+      "kind": "theorem",
+      "name": "Elkik approximation over a Noetherian complete pair",
+      "statement": "Let A be Noetherian and a-adically complete, B=A[X₁,…,X_N]/J finite type and H_B⊂H_Jac. For every h there are n₀,r such that n>n₀, H_B(a₀)⊃a^h and J(a₀)⊂a^n imply an exact root b≡a₀ mod a^(n−r).",
+      "locator": "Elkik I Theorem 1, pp558–560",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/complete-principal-approx",
+        "PAPER-CESNAVICIUS-19/artin-rees-lift",
+        "PAPER-CESNAVICIUS-19/smooth-open-congruence"
+      ],
+      "proofSteps": [
+        "Induct on the number of generators of an ideal of definition. Choose t₁ and s>max(2h,h+k), where k separates t₁-power torsion. Apply induction modulo t₁^s to produce a′ close to a₀ with J(a′)⊂(t₁^s)∩a^(n−r′).",
+        "Use Artin–Rees, or its pinned controlled-preimage theorem for multiplication by t₁^s, to obtain J(a′)⊂t₁^s a^(n−r′−λ). For n large, Nakayama preserves H_B(a′)⊃a^h and hence t₁^h.",
+        "Apply the principal complete lemma with I=a^(n−r′−λ); Noetherian a-adic completeness gives the required t₁-adic completeness for t₁∈a. Track the total loss r from r′,λ,s,h."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik II Theorem 2 bis, pp560–567; GR Lemma 5.4.12",
+          "item": "PAPER-CESNAVICIUS-19/henselian-noetherian-approx",
+          "how": "Supplies Elkik approximation over a Noetherian complete pair for Elkik approximation for a Noetherian Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik I Theorem 1, pp558–560",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+      "kind": "theorem",
+      "name": "Elkik approximation for a principal Henselian pair",
+      "statement": "Let A be Noetherian, (A,(t)) Henselian, B/A finite type and V⊂Spec B smooth over A. Every section over Â whose restriction to D(t) factors through V_Â can, for every n, be approximated modulo t^n by an A-section whose restriction to D(t) lies in V.",
+      "locator": "Elkik II Lemma 4, pp564–566",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/conormal-stabilization",
+        "PAPER-CESNAVICIUS-19/tougeron-root",
+        "PAPER-CESNAVICIUS-19/principal-torsion-separation",
+        "PAPER-CESNAVICIUS-19/smooth-open-congruence"
+      ],
+      "proofSteps": [
+        "Lift the formal section through the zero section of the conormal stabilization; project an eventual solution back. This makes the conormal free on affine smooth opens.",
+        "If K cuts out the nonsmooth complement, the formal section pulls K back to an ideal containing t^c. Approximate finitely many coefficients of its witness to choose h∈K with h(σ̂)=t^c(1+t u); thus D(h) contains the formal generic image.",
+        "Choose N−d equations f generating J near D(h), replace h by a power so hJ⊂(f), and find a power of t in the evaluated maximal Jacobian minors. Tougeron solves those equations to arbitrary precision.",
+        "High congruence preserves the power of t in h at the new point. Its residual J is killed by that power and lies in a sufficiently high t-power ideal. Principal torsion separation makes it zero, and smooth-open-congruence preserves V."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "Elkik II Theorem 2 bis, pp560–567; GR Lemma 5.4.12",
+          "item": "PAPER-CESNAVICIUS-19/henselian-noetherian-approx",
+          "how": "Supplies Elkik approximation for a principal Henselian pair for Elkik approximation for a Noetherian Henselian pair."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik II Lemma 4, pp564–566",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/henselian-noetherian-approx",
+      "kind": "theorem",
+      "name": "Elkik approximation for a Noetherian Henselian pair",
+      "statement": "Let (A,a) be a Noetherian Henselian pair, B/A finite type, Â the a-adic completion and V⊂Spec B an open smooth over A. Every Â-section of B_Â with image over Spec Â minus V(aÂ) in V_Â is approximable modulo a^m, for each m, by an A-section with image over Spec A minus V(a) in V.",
+      "locator": "Elkik II Theorem 2 bis, pp560–567; GR Lemma 5.4.12",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+        "PAPER-CESNAVICIUS-19/henselian-principal-approx"
+      ],
+      "proofSteps": [
+        "Retain the Noetherian blanket assumption from Elkik §0, p554; it is not repeated in the local statement.",
+        "Induct on the number of generators x₁,…,x_l of an ideal of definition inside a. Let A₁ be the x₁-adic completion. Apply induction over A/(x₁^n)=A₁/(x₁^n); nilpotence of x₁ removes one generator of the adic topology.",
+        "Choose n>max(n₀,m+r,h+r). The complete approximation theorem in A₁ corrects the resulting approximate section to an A₁-section congruent to σ̂ modulo a^m while preserving the smoothness ideal containing a^h.",
+        "Since a contains x₁, this A₁-section is smooth away from x₁. Principal Henselian approximation brings it back to A with x₁^m precision. Preserve the chosen V by the earlier high-congruence lemma."
+      ],
+      "implementationStatus": "planning only; not formalized",
+      "gaps": [
+        "G-ELKIK"
+      ],
+      "uses": [
+        {
+          "where": "GR03 preprint Proposition5.4.13",
+          "item": "PAPER-CESNAVICIUS-19/hensel-approx-root",
+          "how": "Supplies Elkik approximation for a Noetherian Henselian pair for Henselian exact-root approximation."
+        }
+      ],
+      "sourceEvidence": {
+        "source": "Elkik",
+        "locator": "Elkik II Theorem 2 bis, pp560–567; GR Lemma 5.4.12",
+        "match": "Fresh source/pinned statement read 2026-09-23; worker-derived steps are identified explicitly."
+      }
     }
   ],
   "prerequisites": [
@@ -7146,8 +8205,8 @@
     },
     {
       "citation": "Elkik, Solutions d'équations à coefficients dans un anneau hensélien (1973), ChII Theorem2bis",
-      "link": "https://arxiv.org/pdf/1711.06456v4#page=16",
-      "why": "Noetherian approximation input to GR5.4.12/13. Link is the main paper's bibliography; original proof not yet read."
+      "link": "https://www.numdam.org/item/10.24033/asens.1258.pdf",
+      "why": "The full Noetherian approximation path through Theorem2bis is now read and decomposed. Its EGA Henselian/étale foundations and GR finite-data Noetherian model reduction remain open."
     },
     {
       "citation": "Gabber, Some theorems on Azumaya algebras (1981), I Theorem2 and II Theorem1",
@@ -7379,9 +8438,22 @@
         "PAPER-CESNAVICIUS-19/formal-algebraization",
         "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
         "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
-        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent"
+        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+        "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/factor-ideal-comparison",
+        "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
+        "PAPER-CESNAVICIUS-19/jacobian-factor-containment",
+        "PAPER-CESNAVICIUS-19/multivariate-taylor-square",
+        "PAPER-CESNAVICIUS-19/tougeron-root",
+        "PAPER-CESNAVICIUS-19/conormal-stabilization",
+        "PAPER-CESNAVICIUS-19/smooth-open-congruence",
+        "PAPER-CESNAVICIUS-19/principal-torsion-separation",
+        "PAPER-CESNAVICIUS-19/complete-principal-approx",
+        "PAPER-CESNAVICIUS-19/complete-ideal-approx",
+        "PAPER-CESNAVICIUS-19/henselian-principal-approx",
+        "PAPER-CESNAVICIUS-19/henselian-noetherian-approx"
       ],
-      "reason": "Extend the existing lifting/obstruction/formal-algebraization direction with principal henselian approximation, idempotent groupoids, the iterated-completion adapter and the local parafactorial/Picard theorem. Import full cotangent complexes from DD.0, existing completion/regularity from upstream ModularCurves4D, and formal-scheme/GAGA carriers from their shared owners; do not rebuild them. Local Grothendieck–Lefschetz in dimension≥4 is not the curve Picard target of SF.3 or a vanishing-cycle Lefschetz-pencil theorem. The continuation of 2026-09-22 adds the SGA 2 statements behind the local Lefschetz and Picard machinery, read at their locators: the finiteness theorem VIII 2.1 and its depth criteria VIII 2.3, the formal comparison IX 1.4/1.5 and algebraization IX 2.2/2.3, the infinitesimal Picard obstruction sequence XI 1.1, the formal Picard comparison XI 2.1/2.2, and the hypersurface descent XI 3.16/3.17. They belong with the parafactoriality and Lefschetz nodes already routed here."
+      "reason": "Extend the existing lifting/obstruction/formal-algebraization direction with principal henselian approximation, idempotent groupoids, the iterated-completion adapter and the local parafactorial/Picard theorem. Import full cotangent complexes from DD.0, existing completion/regularity from upstream ModularCurves4D, and formal-scheme/GAGA carriers from their shared owners; do not rebuild them. Local Grothendieck–Lefschetz in dimension≥4 is not the curve Picard target of SF.3 or a vanishing-cycle Lefschetz-pencil theorem. The continuation of 2026-09-22 adds the SGA 2 statements behind the local Lefschetz and Picard machinery, read at their locators: the finiteness theorem VIII 2.1 and its depth criteria VIII 2.3, the formal comparison IX 1.4/1.5 and algebraization IX 2.2/2.3, the infinitesimal Picard obstruction sequence XI 1.1, the formal Picard comparison XI 2.1/2.2, and the hypersurface descent XI 3.16/3.17. They belong with the parafactoriality and Lefschetz nodes already routed here. The 2026-09-23 continuation adds the source-specific conormal/Newton and Elkik approximation proof stages here, importing the already-built Artin–Rees/Taylor/naive cotangent pieces, SF.0 Henselian smooth lifting and DD.0 low comparison. Zavyalov25/142 is the later algebraization of admissible formal models; Colmez–Nizioł17/158 uses approximation in a Galois comparison, not a second generic approximation foundation."
     },
     {
       "route": "source",
@@ -7619,12 +8691,15 @@
     },
     {
       "id": "G-ELKIK",
-      "detail": "GR5.4.1–42 is read on the selected path. Its5.4.12 cites Elkik1973 ChII Theorem2bis and5.4.8 needs the square-zero cotangent obstruction theorem; their proofs and finite-Noetherian henselian descent remain to extract. Recheck the published/preprint number mapping at final implementation.",
+      "detail": "Narrowed 2026-09-23: original Elkik pp553–568 and GR3.2.16/5.4.1–14 are now read; direct finite-conormal Newton proof and complete/principal/general Noetherian approximation paths are written. Still open: (1) finite-data Noetherian Henselian subring/model reduction in GR5.4.13, including descent of factorization witnesses; (2) SF.0 HenselianRing-to-étale/smooth lifting and the cited EGA completion/henselization foundations; (3) DD.0 full-L/naive low truncation comparison and underlying Illusie foundations, needed to match the Ext-defined H (full Ext obstruction machinery is optional for the direct Newton step); (4) formal implementation of the displayed proof adapters. Noetherianity is mandatory in Elkik2bis. Published GR numbering/interior still needs collation.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/smoothness-ideal",
         "PAPER-CESNAVICIUS-19/newton-improvement",
         "PAPER-CESNAVICIUS-19/hensel-approx-root",
-        "PAPER-CESNAVICIUS-19/projective-completion"
+        "PAPER-CESNAVICIUS-19/projective-completion",
+        "PAPER-CESNAVICIUS-19/henselian-noetherian-approx",
+        "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import",
+        "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import"
       ],
       "status": "open"
     },
@@ -7830,7 +8905,13 @@
       "readDate": "2026-09-22",
       "readScope": "§5.4 Definitions5.4.1/10/15 and proofs through5.4.42, including5.4.8/13/21/30/38/41/42; §§5.8.3–5.8.16 including5.8.5/7/14. Not the whole book.",
       "versionMapping": "Česnavičius's GR03 5.4.41 projective-module comparison is preprint Corollary5.4.42; preprint Lemma5.4.41 proves smoothness of its matrix isomorphism scheme.",
-      "remaining": "Elkik's Theorem2bis, cotangent obstruction foundations, and semisimple-embedding quotient input remain open."
+      "remaining": "Elkik's Theorem2bis, cotangent obstruction foundations, and semisimple-embedding quotient input remain open.",
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation.",
+      "freshReading": {
+        "date": "2026-09-23",
+        "scope": "Full §§5.4.1–5.4.14, pp116–119; §§3.2.1–3.2.18, pp41–43, including Proposition3.2.16 proof; §3.2.19–23 context on p44. PDF119 visually inspected. Earlier §§5.4.15–42 and5.8 reading is inherited.",
+        "version": "math/0201175v3, 22 July 2002, sixth final preprint release. Latest unversioned arXiv PDF freshly downloaded and byte-identical to the Michigan copy. Published 2003 book interior not collated."
+      }
     },
     {
       "id": "BMS",
@@ -7840,7 +8921,8 @@
       "readDate": "2026-09-22",
       "readScope": "Entire §3.2, Definition3.5 through Lemma3.21 with proofs, pp21–27; end of§3.1 diagrams. Not all§3.1 or the rest of the paper.",
       "versionMapping": "Later author version than the paper's BMS16 citation; selected numbering3.5/3.9/3.10/3.20/3.21 matches. No assertion that the files are identical.",
-      "remaining": "θ/Witt foundations, Davis–Kedlaya input and Sch12 Lemma5.6 proof remain open."
+      "remaining": "θ/Witt foundations, Davis–Kedlaya input and Sch12 Lemma5.6 proof remain open.",
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation."
     },
     {
       "id": "KL",
@@ -7849,7 +8931,8 @@
       "sha256": "a6a117423db62aec072442bb15b70e3175bcc3b631bdcd6d74f740e3c6cfd942",
       "readDate": "2026-09-22",
       "readScope": "§3.6 through Remark3.6.24, including complete proofs of3.6.2/3/5/9/11/13/14/15/20/21 and Remark3.6.23. Not the prior Banach/almost-algebra foundations or8.2.17.",
-      "remaining": "§§2,3.1–3.5 and8.2.17(c) proof dependencies; identify exact early P3 approximation node."
+      "remaining": "§§2,3.1–3.5 and8.2.17(c) proof dependencies; identify exact early P3 approximation node.",
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation."
     },
     {
       "id": "SGA2",
@@ -7859,7 +8942,8 @@
       "readDate": "2026-09-22",
       "readScope": "X §2 Lef/Leff definitions and full Example 2.1 proof; VIII §2 Théorème 2.1, Corollaires 2.2 and 2.3 with Lemmes 2.4 and 2.5 and the proof; IX §1 Propositions 1.2–1.4 and Exemple 1.5 with the proof, and §2 Théorèmes 2.1–2.2 and Corollaire 2.3 with the proof; XI §1 the sequence (1.1) and Proposition 1.1; XI 2.1–2.2; XI 3.1–3.18 including the full 3.13 (i)/(ii) proof, Lemmes 3.15–3.17 and the determinant and parafactorial descent arguments. Not the whole book.",
       "remaining": "The layer below: the dualizing-module and local-duality theory of IV–V and the Ext-coherence criteria of VII behind VIII 2.1; EGA 0_III 13.3.1 behind the comparison theorem IX 1.1; EGA 0_III 13.7.7 and EGA III 3.4.2 behind IX 2.1.",
-      "reading": "XI 3.17 (e) is printed as «pour tout y fermé de X, y ∈ Y» and is used as y ∉ Y; see the note on PAPER-CESNAVICIUS-19/pic-hypersurface-descent. The 1968 North-Holland original was not consulted."
+      "reading": "XI 3.17 (e) is printed as «pour tout y fermé de X, y ∈ Y» and is used as y ∉ Y; see the note on PAPER-CESNAVICIUS-19/pic-hypersurface-descent. The 1968 North-Holland original was not consulted.",
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation."
     },
     {
       "id": "Stacks",
@@ -7871,7 +8955,8 @@
         "https://stacks.math.columbia.edu/tag/069I",
         "https://stacks.math.columbia.edu/tag/07D3",
         "https://stacks.math.columbia.edu/tag/09Q7"
-      ]
+      ],
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation."
     },
     {
       "id": "Sch17",
@@ -7880,7 +8965,18 @@
       "sha256": "828adea41601491dc6c35d3d6a29bb94d8f6026861cc76ad4d36ee5e92f4d9f5",
       "readDate": "2026-09-22",
       "readScope": "§6: the statement of Proposition 6.4 with all of (o), (i), (ii), (iii), (iv), and the complete proof of (ii) together with the set-theoretic preamble. Not §§1–5 or the rest of §6.",
-      "remaining": "The proof of 6.4 (i), which is where affinoid perfectoidness of the stages enters, and the Noetherian-stage form of it that footnote 3 of the main paper asserts."
+      "remaining": "The proof of 6.4 (i), which is where affinoid perfectoidness of the stages enters, and the Noetherian-stage form of it that footnote 3 of the main paper asserts.",
+      "readingProvenance": "Inherited reading scope from earlier workers, not freshly reread in full this continuation."
+    },
+    {
+      "id": "Elkik",
+      "citation": "Renée Elkik, Solutions d’équations à coefficients dans un anneau hensélien, Ann. Sci. ENS 4e série 6(4) (1973), 553–603",
+      "url": "https://www.numdam.org/item/10.24033/asens.1258.pdf",
+      "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5",
+      "readDate": "2026-09-23",
+      "readScope": "Fresh complete printed pp553–568 (PDF2–17): introduction, §0, all §I and §II proofs through the corollaries. Printed p569 begins §III and was read only for context. Images checked at printed554,560,561,564–567.",
+      "versionMapping": "Original journal scan. Theorem2bis uses the blanket Noetherian convention on p554. GR5.4.12 restates it explicitly.",
+      "remaining": "§III onwards not claimed read, including non-Noetherian variants. EGA henselization and étale characterization remain supporting proof inputs."
     }
   ],
   "libraryAudit": {
@@ -7962,21 +9058,37 @@
       "The PrismaticCohomology PR.0 perfect-prism/perfectoid equivalence imports Q0's integral carrier; it is not a second owner.",
       "Compared the snapshot against main through fed53d6e8f8c7e36e1c34e49e261c00c4980d23c: only paper/handoff/queue files had changed; no catalogue/protocol/audit differences."
     ],
-    "limits": "No recompile of the pinned libraries; no Lean deliverable requested for this paper job. Reviewed audits are checked against actual declarations and exact source scope, not treated as sufficient evidence by themselves."
+    "limits": "No recompile of the pinned libraries; no Lean deliverable requested for this paper job. Reviewed audits are checked against actual declarations and exact source scope, not treated as sufficient evidence by themselves.",
+    "continuation20260923": {
+      "pinnedStatementsRead": [
+        "Mathlib/RingTheory/Extension/Cotangent/Basic.lean:31–79",
+        "Mathlib/Algebra/Polynomial/Taylor.lean:135–181",
+        "Mathlib/RingTheory/Filtration.lean:375–391",
+        "TauCeti/RingTheory/Ideal/ArtinRees.lean:70–98",
+        "Mathlib/RingTheory/Smooth/AdicCompletion.lean:10–42,82–103",
+        "Mathlib/RingTheory/Smooth/NoetherianDescent.lean:203–232",
+        "Mathlib/RingTheory/Henselian.lean:1–105"
+      ],
+      "nearMisses": [
+        "Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete requires global formal smoothness; it does not give Elkik approximation for a presentation smooth only off the adic closed set.",
+        "Algebra.Smooth.exists_subalgebra_fg descends a smooth algebra to a finitely generated base subalgebra. It does not alone supply Noetherian Henselian models preserving a generically smooth presentation and all ideal witnesses."
+      ],
+      "searchScope": "Both pinned trees searched for Elkik, Tougeron, henselian approximation, conormal/cotangent and Artin–Rees; inspected actual near-match statements. Reviewed SF.4 library audit and complete SF.4/DD.0 stage descriptions read; existing paper routes CMM21/044, Zavyalov25/142 and CN17/158 screened. No claim of global absence from keyword search alone."
+    }
   },
   "coverage": {
     "mainPaper": "All sections read and named results/remarks represented; source-specific proof interiors remain partial.",
-    "transitiveClosure": "open: see the 25 named gaps; G-NONABELIAN, G-LEFSCHETZ and G-ADIC-LIMIT are narrowed but not closed",
-    "definitions": 38,
-    "tests": 114,
-    "items": 159,
+    "transitiveClosure": "Open: the same 25 gap IDs remain. G-ELKIK is narrowed to explicit model/lifting/comparison foundations and implementation adapters; no full closure claimed.",
+    "definitions": 42,
+    "tests": 126,
+    "items": 178,
     "statusCounts": {
-      "library": 11,
-      "planned": 11,
-      "missing": 137
+      "library": 15,
+      "missing": 150,
+      "planned": 13
     },
     "missingRoutedExactlyOnce": true,
-    "lean": "Not applicable: no Lean file is a deliverable; planning tests not executed.",
+    "lean": "No Lean deliverable; all Lean/API tests are specifications. Separate exact arithmetic and structural diagnostics are recorded in the report.",
     "sourceQuotePolicy": "Statements are paraphrased mathematical specifications, not copies of the paper's prose."
   },
   "sourceCoverage": [
@@ -8091,10 +9203,11 @@
   "requests": [
     {
       "supplier": "DerivedDeRhamCohomology:DD.0",
-      "statement": "Truncated cotangent presentation and square-zero Ext¹ obstruction with base-change naturality needed by GR5.4.2/8; reuse the full cotangent owner.",
+      "statement": "DD.0 low truncation comparison τ≥−1L≃[J/J²→Ω⊗S] and the resulting Ext¹ cokernel identify H_R with H_fac. The direct finite-conormal Newton argument then avoids the full morphism-lifting obstruction theorem; import that theorem only for the alternative GR3.2.16 proof.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/smoothness-ideal",
-        "PAPER-CESNAVICIUS-19/newton-improvement"
+        "PAPER-CESNAVICIUS-19/newton-improvement",
+        "PAPER-CESNAVICIUS-19/cotangent-low-comparison-import"
       ],
       "status": "scope identified; exact supplier node/signature verification remains required"
     },
@@ -8136,6 +9249,97 @@
         "PAPER-CESNAVICIUS-19/adic-etale-site"
       ],
       "status": "scope identified; exact supplier node/signature verification remains required"
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "statement": "Shared Henselian smooth/étale lifting equivalence, coalescing PAPER-CLAUSEN-MATHEW-MORROW-21/044. Import this early foundation into SF.4 Tougeron approximation, without a whole-stage reverse edge.",
+      "consumers": [
+        "PAPER-CESNAVICIUS-19/henselian-smooth-lift-import",
+        "PAPER-CESNAVICIUS-19/tougeron-root"
+      ],
+      "status": "same existing supplier obligation; exact EGA/Stacks proof and implementation open"
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-CESNAVICIUS-19/E1",
+      "kind": "gap",
+      "locator": "Proposition 2.2 and its proof, p.4, in arXiv 1711.06456v4 (1 December 2018, the latest version; PDF SHA-256 a62a12bb…8709); the author's copy of 27 November 2018 on his homepage has the same text; the published text, Duke Math. J. 168 (2019), 1461–1486, was not collated",
+      "printed": "\"Proposition 2.2. For a finite, flat map R → R′ of local rings, an open subscheme V ⊂ Spec R, and an affine, smooth R-group scheme G, if (1) Γ(Spec R, O) ≅ Γ(V, O) via pullback; and (2) every G-torsor is trivial over R; then the following pullback is injective: H¹_et(V, G) ↪ H¹_et(V_{R′}, G). (2.2.1)\" Proof: \"… every element of X(V) lifts to (Res_{R′/R}(G_{R′}))(V), so, by [Gir71, III.3.2.2], the map H¹_et(V, G) → H¹_et(V, Res_{R′/R}(G_{R′})) (2.2.2) is injective.\"",
+      "correction": "State Proposition 2.2 for commutative G, which covers both of its uses (Proposition 2.3, with G = Res_{R′/R}(T_{R′})/T, and Corollary 2.4, with G = T). For noncommutative G, supply the missing step: for every G-torsor P over V, the twisted map (^P Res_{R′/R}(G_{R′}))(V) → (^P X)(V) must also be surjective.",
+      "reason": "Write H = Res_{R′/R}(G_{R′}) and X = H/G. Surjectivity of H(V) → X(V) shows that the fibre of H¹(V, G) → H¹(V, H) over the trivial class is trivial. When G is commutative this is injectivity, because the map is a group homomorphism. For a noncommutative G, H¹ is only a pointed set. The fibre through the class of a torsor P is the orbit set of (^P H)(V) acting on (^P X)(V), for the twists by P (Giraud III.3.2; cf. Serre, Galois Cohomology, I.5.5, Cor. 2). The proof checks only the untwisted case. The twisted forms ^P X live only over V, so hypothesis (1) and the affineness of X give no control of their V-points. If P extends to R it is trivial by (2), so the problem is exactly the torsors on V that do not extend. Proposition 2.2 is used only in the proofs of Proposition 2.3 (G = Res_{R′/R}(T_{R′})/T) and Corollary 2.4 (G = T, an R-torus), where G is commutative, so the main theorems are unaffected. Noted by the extraction (gap G-NONABELIAN, items h1-descent and h1-abelian), which did not claim the statement false; neither is it claimed false here.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0057, checked 22 September 2026: no erratum or other update is registered",
+        "arXiv 1711.06456: v1 (17 November 2017), v2 (24 November 2017), v3 (17 January 2018), v4 (1 December 2018, the latest)",
+        "the author's copy https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/brauer-purity.pdf (dated 27 November 2018, SHA-256 4187331e…97a1), checked 22 September 2026: Proposition 2.2 and its proof are unchanged, and no erratum is linked",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/E2",
+      "kind": "misprint",
+      "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+      "printed": "such that t^h ∈ H",
+      "correction": "Choose the finite subideal H with t^h∈H+p_a. This is precisely the condition used later for H_λ+p_(λ,a).",
+      "reason": "The hypothesis is evaluated smoothness, not global smoothness. For R=Q[[t]], I=R, a=1, J=(X²(X−1)), h=0 and n=1, the hypotheses hold: f(a)=0 and f′(a)=1. But S has a singular double-point component at X=0, so H_R is proper and cannot contain 1. A finite selection from a witness modulo p_a is sufficient.",
+      "affects": "the proof",
+      "affectedItems": [
+        "PAPER-CESNAVICIUS-19/hensel-approx-root"
+      ],
+      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+      "searched": [
+        "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
+        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/E3",
+      "kind": "misprint",
+      "locator": "Supporting source GR, math/0201175v3, Proposition5.4.13 proof, p119 (not a finding in the main Česnavičius text)",
+      "printed": "S̄_λ := R̄_λ ⊗_(R_λ) S",
+      "correction": "The completed finite-stage algebra is S̄_λ=R̄_λ⊗_(R_λ)S_λ, where S_λ=F_λ/J_λ. In the immediately preceding point-ideal list use X_N−c_N for its last generator.",
+      "reason": "The completed root c solves J_λ and gives a section of the base change of S_λ. Tensoring the full S over R_λ instead introduces coefficients from R with no chosen map to R̄_λ and does not supply that section. The final variable/subscript slip is merely typographical.",
+      "affects": "the proof",
+      "affectedItems": [
+        "PAPER-CESNAVICIUS-19/hensel-approx-root"
+      ],
+      "known": "new in this extraction; present in the latest available arXiv preprint. Published book correction status not established. Awaiting independent review.",
+      "searched": [
+        "2026-09-23 https://arxiv.org/pdf/math/0201175 — Latest unversioned arXiv download is byte-identical to v3 Michigan PDF, SHA256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8; the displayed slips remain on p119.",
+        "2026-09-23 https://link.springer.com/book/10.1007/b10047 — Publisher metadata checked; no accessible erratum located in this targeted search. Published book proof interior not read; correction status there is unknown."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/E4",
+      "kind": "misprint",
+      "locator": "Supporting source SGA2, Laszlo annotated edition, XI Lemma3.17(e); inherited finding from the 2026-09-22 continuation",
+      "printed": "pour tout y fermé de X, y ∈ Y",
+      "correction": "Replace y ∈ Y by y ∉ Y in this hypothesis.",
+      "reason": "The inherited proof audit observes that hypothesis(e) supplies XI Proposition3.12(3), namely parafactoriality at points outside open neighborhoods of Y. Points of Y lie in every such neighborhood. The application inside3.13(ii) checks all closed points, so that application survives either reading. This transfers the existing finding to the required sourceIssues ledger; it is not a new independent verification.",
+      "affects": "a stated result",
+      "known": "Inherited reading correction to the annotated edition; 1968 North-Holland original and any published correction remain uncollated. Awaiting independent review.",
+      "searched": [
+        "Inherited 2026-09-22 check of https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf at XI3.17(e), XI3.12 and XI3.13(ii), SHA256 1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1; this continuation did not reread that PDF or consult the 1968 original."
+      ]
+    }
+  ],
+  "sourceIssuesRegister": {
+    "canonicalInheritedFinding": "research/blueprint/errata/PAPER-CESNAVICIUS-19.json#PAPER-CESNAVICIUS-19/E1",
+    "note": "Issue instruction5a requires the sourceIssues list in this extraction. E1 is copied unchanged from the existing dedicated errata record, without a new verdict. The current collector does not deduplicate matching IDs across files; integration should coalesce these two occurrences of E1. This job may not edit the external errata file or collector."
+  },
+  "continuation": {
+    "session": "codex-c83e7a",
+    "date": "2026-09-23",
+    "preservedItemIds": 159,
+    "addedItemIds": 19,
+    "sourceIssues": "E1 copied verbatim from the separate canonical errata file as required by issue5a; E2–E3 are new local supporting-preprint slips; E4 transfers the inherited SGA2 correction. None is an independently reviewed verdict.",
+    "scope": "G-ELKIK depth checkpoint; all 17 source routes and all 25 gap IDs retained.",
+    "publicationInputScreen": {
+      "snapshot": "1ae784a7b82e4229b5b9e91d7ffa0fa6df2fe532",
+      "guardedInputs": 560,
+      "changesScreened": "Benoist19, Benoist–Wittenberg20, Bhatt–Scholze17, Bushnell–Henniart17, Kaletha16, Wood19 and Zhu17 completion changes: added open-question statements, Witt v-descent scopes, ramification/rigid-inner-twist and Grassmannian refinements. No change to the chosen SF.0/SF.4/DD.0 approximation owners or original deliverables. The subsequent BSTetal20 completion revises relative-genus, hyperelliptic discriminant and finite-field claims; none supplies or changes the approximation interfaces here."
+    }
+  }
 }
