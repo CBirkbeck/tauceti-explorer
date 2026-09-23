@@ -3322,7 +3322,8 @@
    ],
    "avoidAccountOf": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1204"
   },
   {
    "id": "PAPER-GLEASON-LIM-XU-26",
@@ -4543,8 +4544,9 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-WANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-WANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1275"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1275",
+   "finishedAt": "2026-09-23T17:50:37Z"
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22",
@@ -6593,8 +6595,9 @@
    ],
    "avoidAccountOf": "PAPER-BINYAMINI-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BINYAMINI-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1388"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1388",
+   "finishedAt": "2026-09-23T17:50:41Z"
   },
   {
    "id": "PAPER-CESNAVICIUS-22",
@@ -6929,7 +6932,8 @@
    ],
    "avoidAccountOf": "PAPER-HE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-HE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1407"
   },
   {
    "id": "PAPER-MERKURJEV-SCAVIA-26",
@@ -7232,8 +7236,9 @@
    ],
    "avoidAccountOf": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1423"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1423",
+   "finishedAt": "2026-09-23T17:50:43Z"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
@@ -7802,8 +7807,9 @@
    ],
    "avoidAccountOf": "PAPER-CHENEVIER-TAIBI-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1453"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1453",
+   "finishedAt": "2026-09-23T17:50:47Z"
   },
   {
    "id": "PAPER-BENOIST-19",
