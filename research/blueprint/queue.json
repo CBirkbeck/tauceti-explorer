@@ -563,7 +563,8 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1054"
   },
   {
    "id": "PAPER-CALMES-ETAL-26",
@@ -1597,7 +1598,8 @@
    ],
    "avoidAccountOf": "PAPER-ZHANG-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-ZHANG-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1108"
   },
   {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -1970,7 +1972,8 @@
    ],
    "avoidAccountOf": "PAPER-DEMARCO-KRIEGER-YE-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1128"
   },
   {
    "id": "PAPER-COUVEIGNES-20",
@@ -3051,8 +3054,8 @@
    ],
    "avoidAccountOf": "PAPER-CHARLES-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHARLES-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1189"
+   "state": "pending",
+   "note": "released on GitHub issue #1189"
   },
   {
    "id": "PAPER-KALETHA-16",
@@ -4177,8 +4180,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5797,8 +5800,9 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-PAPPAS-ZHOU-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1343"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1343",
+   "finishedAt": "2026-09-23T17:02:25Z"
   },
   {
    "id": "PAPER-PASKUNAS-QUAST-26",
@@ -7209,7 +7213,8 @@
    ],
    "avoidAccountOf": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1423"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
@@ -7470,8 +7475,9 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-GROSS-WANG-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1437"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1437",
+   "finishedAt": "2026-09-23T17:02:28Z"
   },
   {
    "id": "PAPER-GAO-GE-KUHNE-26",
@@ -7508,7 +7514,8 @@
    ],
    "avoidAccountOf": "PAPER-GAO-GE-KUHNE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1439"
   },
   {
    "id": "PAPER-DING-25",
@@ -7693,8 +7700,9 @@
    ],
    "avoidAccountOf": "PAPER-NEWTON-THORNE-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-NEWTON-THORNE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1449"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1449",
+   "finishedAt": "2026-09-23T17:02:31Z"
   },
   {
    "id": "PAPER-NEWTON-THORNE-21-B",
