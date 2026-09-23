@@ -1,0 +1,62 @@
+{
+  "paper": "PAPER-DING-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "New roadmap LocallyAnalyticRepresentationsOfLocalGroups, 33 items. Accepted. The reason distinguishes it from both near neighbours rather than asserting novelty: SmoothRepresentationsOfLocalGroups covers the smooth category only, and LocallyAnalyticDistributions L0–L4 builds Q_p-analytic distributions on O_F and its finite products — not the locally Q_p-analytic representation theory of GL_n(K) that §3.1 runs on (Orlik–Strauch functors, Emerton's Jacquet functor, the σ-analytic pieces). The name is free, and three other papers propose it identically, so this is a merge."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "New roadmap TriangulineVarietyAndItsLocalModel, 59 items. Accepted, and the reason does the right thing: it names PAPER-BREUIL-HELLMANN-SCHRAEN-19 as the originating proposal, cites the PR it was merged in, and positions this paper's §§2.1–2.4 as the infinitesimal theory of the same objects rather than as a rival construction. I reviewed that BHS extraction immediately before this one and confirmed there that the trianguline variety is unowned in the atlas — the word occurs only as an adjective inside hypotheses, never as the object X_tri(r̄). PAPER-DOSPINESCU-LEBRAS-17 and PAPER-NEWTON-THORNE-21 also co-propose it with identical id, parent and title."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "New roadmap PadicHodgeParametersInLocallyAnalyticRepresentations, 24 items, and the only one of the four unique to this paper. Accepted. The correspondence D ↦ π_min(D) is the paper's own theory and has no home in the atlas; the reason names the closest candidate and says exactly why it does not extend — PadicLocalLanglandsForGL2Qp is the n = 2, K = Q_p case built through Colmez's functor, whose methods do not generalise. The name is free and unproposed elsewhere."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Part II of CompletedCohomologyAndLocalGlobalCompatibility, 22 items. Accepted on the mathematics: §4 shows the locally built π_min(D) occurs inside the patched Banach representation Π_∞ and inside the completed cohomology of a definite unitary group, and is maximal such — which the parent, written for GL₂ over Q, does not plan. ONE POINT REFERRED UPWARD RATHER THAN EDITED: the title drops 'over Q' from the parent's title ('Completed cohomology and p-adic local–global compatibility over Q'), so it is not literally the '<base>, Part II: …' form PROTOCOL 15 prescribes. It is shared verbatim with PAPER-BREUIL-HELLMANN-SCHRAEN-19 and PAPER-NEWTON-THORNE-21, so editing it here alone would desynchronise three proposals and break the merge their agreement makes possible. I raised the same point in REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19; it is one decision for the maintainer, not three."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source additions to PhiGammaModulesAndIwasawaCohomology at PG.3 and PG.7. The paper works throughout with (φ,Γ)-modules over the Robba ring rather than with Galois representations, and the reason names precisely what it draws from those stages — the Herr complex and Liu's Euler characteristic formula, of which every dimension count in §2.3 is an instance, and the rank one modules R_{K,E}(χ). That is the right level of specificity for a source route, and it is the same pair of stages the Breuil–Hellmann–Schraen extraction routes its §3.3 to, which is a good sign of consistency across the two."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source additions to PadicHodgeTheory:P7. The reason is concrete about the dependency: W⁺_dR with its decomposition over Σ_K, without which no 'partially de Rham' statement can be formulated, and Berger's B-pairs with the comparison of (φ,Γ)-cohomology. P7 owns exactly that material."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source additions to SmoothRepresentationsOfLocalGroups at SR.1, SR.2 and SR.3. The reason correctly describes this as 'the smooth skeleton of the paper', which is standard and already planned — normalised parabolic induction and Jacquet functors at SR.2, admissibility and the Bernstein decomposition at SR.3, Hecke algebras at SR.1. Three items, no duplication of route 1's locally analytic material."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Source additions to LocalGaloisDeformationRings at R08.1 and R08.3, for the (φ,Γ)-module analogues R_D, R_{D,w}, R_{D,g} and the trianguline variety's ambient framed deformation space. The same boundary the Breuil–Hellmann–Schraen extraction draws: the ambient space is imported here, the trianguline variety itself goes to route 2."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source additions to CompletedCohomologyAndLocalGlobalCompatibility at R31.2 and R31.5, for the patched Banach representation Π_∞ over R_∞ and the patched eigenvariety built from J_B(Π_∞^{R_∞-an}). These are consumed rather than constructed in §4.1, so a source route is right, with the new material going to route 4."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "One source item to AutomorphicFormsOnReductiveGroups:AF.5, which identifies algebraic modular forms on a group compact at infinity with functions on finite adelic double cosets valued in an algebraic representation. That is exactly what §4.2.2 needs for the definite unitary group. A single, well-identified addition."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "One source item to OverconvergentAutomorphicForms:O0. The reason is careful in a way worth noting: it says plainly that the eigenvariety of §4.2.2 is Emerton's, built from the Jacquet module of a completed Banach space and NOT from overconvergent forms, but that it lives over the same weight space, which is what O0 owns. Routing it there for the weight space alone, while disclaiming the overconvergent construction, is the right call and is stated rather than glossed."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: nothing needed correcting in place. All 156 items, 11 routes and 24 recorded mistakes were checked against the published open-access Centre Mersenne text, re-fetched and hashing to 741a49c0…05ba, matching the record; printed page = PDF page, as the source block states. All 24 mistakes are confirmed. Eleven were verified in full, and several of those by arithmetic or by the paper contradicting itself. E1: the index set in (3.12) reads I ⊂ {1,…,n−1}, but p. 35 states the construction has '(2^n − 2)d_K constituents in total' and the same proposition asserts the dimension n + (2^n − 1)d_K; I checked that Σ_{i=1}^{n−1} C(n,i) = 2^n − 2 while Σ_{i=1}^{n−1} C(n−1,i) = 2^{n−1} − 1, so both stated numbers require I ⊂ {1,…,n}. E2: the printed direct sum (3.43) has dimension (2n−1)(1+d_K) against dim Hom(T(K),E) = n(1+d_K) — 10 against 6 for n = 3 over Q_p — so it cannot be direct, and the spanning statement the proof actually uses is what is true. E13: the corrected parenthesisation gives 2(1 + (n²−n+1)d_K) − (1 + (n²−2n+2)d_K) = 1 + n²d_K exactly, matching the assertion. E18: p. 40 defines the blocks with the offset h_{n_1+⋯+n_{i−1}+1} and then drops the +1 three lines below. E20: the same lemma is cited as [31, Lem. 2.26] and [32, Lem. 2.26] five lines apart on p. 38. E10: the direction of the universal extension is reversed relative to Corollary 3.25. E3 was settled on a page image, since it turns on whether the summation carries σ ∈ Σ_K — it does, so |λ| is a single integer while p. 9 defines z^k only for a tuple k ∈ Z^{Σ_K}. For the remaining thirteen the quotation was verified against the published text but the correction follows the extraction's reading of the surrounding argument; each of those verdicts says so explicitly rather than implying a check that was not made. All 18 planned items name atlas layers that exist, all 138 missing items are routed exactly once, and the extraction records no library items, which is right for this material. There is no run-together numbering anywhere in the file. Of the four proposed roadmaps, three are co-proposed by other papers with identical id, parent and title — LocallyAnalyticRepresentationsOfLocalGroups by three papers, TriangulineVarietyAndItsLocalModel by three, LocalGlobalCompatibilityPartIIEigenvarietyCompanions by two — so they are merges rather than conflicts, and route 2's reason names the originating Breuil–Hellmann–Schraen proposal and the PR it was merged in. The fourth, PadicHodgeParametersInLocallyAnalyticRepresentations, is unique to this paper and is its own contribution. ONE POINT IS REFERRED TO THE MAINTAINER RATHER THAN EDITED, and it is the same point raised in REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19: the shared Part II title drops 'over Q' from its parent's title, so it is not literally the '<base>, Part II: …' form. Three papers now carry it verbatim, so it is one decision for whoever merges them and not something a single reviewer should change. Every check is listed in research/blueprint/reviews/REV-PAPER-DING-25.md."
+}

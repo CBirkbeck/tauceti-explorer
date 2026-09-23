@@ -60,3 +60,26 @@ Hypotheses 4.10 and 4.15 are **hypotheses** and must not be planned as targets (
 ## Checks
 
 `scripts/check_paper.py`: ok with `"status": "complete"`, so the exactly-once routing of all 138 missing items is enforced. All route areas are galaxy ids of `data/galaxies.json`; the three proposed roadmap ids are free in the atlas and in `research/blueprint/roadmaps/`, and the two shared ids are proposed only by `PAPER-BREUIL-HELLMANN-SCHRAEN-19`; every `planned` stage id was checked against `data/atlas.json`, and the `part-ii` parent exists.
+
+## Review (REV-PAPER-DING-25, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1441](https://github.com/CBirkbeck/tauceti-explorer/issues/1441). **Verdict: accept.**
+Nothing needed correcting in place.
+
+- **All 24 recorded mistakes confirmed**, eleven of them verified in full. E1 by the paper's
+  own count — p. 35 states "(2ⁿ − 2)d_K constituents in total" and the proposition asserts
+  `n + (2ⁿ−1)d_K`, both of which require `I ⊂ {1,…,n}`, not the printed `{1,…,n−1}`. E2 by
+  dimension — the printed direct sum has dimension `(2n−1)(1+d_K)` against `n(1+d_K)`, 10
+  against 6 for `n = 3` over `Q_p`. E13 by arithmetic —
+  `2(1+(n²−n+1)d_K) − (1+(n²−2n+2)d_K) = 1 + n²d_K` exactly. E18 and E20 by the paper
+  contradicting itself three and five lines apart. E3 on a page image.
+- For the other thirteen the quotation was verified but the correction rests on the
+  extraction's reading; each verdict says so explicitly.
+- **Items and routes:** no library items; 18 planned items resolving; 138 missing items
+  routed exactly once; no run-together numbering. Three of the four proposed roadmaps are
+  co-proposed identically by other papers, so they are merges.
+- **Referred to the maintainer, not edited:** the Part II title drops "over Q" from its
+  parent's. Three papers now carry it verbatim, so it is one decision for the merger.
+
+Full report: `research/blueprint/reviews/REV-PAPER-DING-25.md`.
