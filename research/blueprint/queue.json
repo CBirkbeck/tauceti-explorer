@@ -1640,8 +1640,9 @@
    ],
    "avoidAccountOf": "PAPER-DIMITROV-GAO-HABEGGER-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1110"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1110",
+   "finishedAt": "2026-09-23T18:05:08Z"
   },
   {
    "id": "PAPER-NGODAC-21",
@@ -1678,8 +1679,9 @@
    ],
    "avoidAccountOf": "PAPER-NGODAC-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1112"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1112",
+   "finishedAt": "2026-09-23T18:05:12Z"
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -1904,7 +1906,8 @@
    ],
    "avoidAccountOf": "PAPER-JIANG-ZHANG-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-JIANG-ZHANG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1124"
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20",
@@ -2132,7 +2135,8 @@
    ],
    "avoidAccountOf": "PAPER-GAO-HABEGGER-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAO-HABEGGER-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1136"
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19",
@@ -4190,8 +4194,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8539,8 +8543,9 @@
    ],
    "avoidAccountOf": "PAPER-ANDRE-18-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2189"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2189",
+   "finishedAt": "2026-09-23T18:05:19Z"
   },
   {
    "id": "PAPER-NELSON-VENKATESH-21",
