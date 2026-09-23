@@ -1,3 +1,572 @@
+# Lipnowski–Tsimerman (2018): How large is A_g(F_q)?, extraction and routing
+
+Issue [#1332](https://github.com/CBirkbeck/tauceti-explorer/issues/1332). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues six merged checkpoints:
+  - Codex codex-c83e7a (#1652);
+  - Codex codex-a71f92 (#1848, #2155, #2199, #2228);
+  - ChatGPT Pro cgp-20260923-h7q4 (#2204);
+  - Codex codex-7e92bd (#2215).
+
+  Their items, proof outlines and findings are kept. The changes are listed under "What this continuation changed", and their reports follow unchanged as the checkpoint record.
+- **The paper.** M. Lipnowski and J. Tsimerman, *How large is A_g(F_q)?*, Duke Math. J. 167 (2018), no. 18, 3403–3453, DOI 10.1215/00127094-2018-0029; arXiv:1511.02212v1.
+- **Items.** The result has **184 items: 30 library, 33 planned and 121 missing**. Every missing item is routed exactly once.
+- **Mistakes.** 22 findings are recorded under `sourceIssues`, 5 of them already corrected by J. Lee (IMRN 2022). Four reach stated results in ways that matter:
+  - **Theorem 0.1's constant (E21).** The printed bound o(p^((17/2+ε)g²)) is not established. Three slips feed it:
+    - (14) and (20) count only half the ordered pairs of roots (E19);
+    - the class-group exponent in (26)–(27) is too small (E6, E20);
+    - powers of 2 with exponent of order g² are dropped (E7).
+
+    The corrected argument gives 2^(34g²)·p^((69/4)g²(1+o(1))) (Lee, Theorem 1.1). Lee improves this to p^((45/4)g²(1+o(1))). The qualitative result log B(p,g) = O_p(g²) stands.
+  - **The mass coefficient (E13).** Lemma 5.11 and (51)–(56) have leading term g² log g, but the mass formula the paper itself displays gives (1/2)g² log g. Theorems 0.2 and 0.3 survive with rescaled thresholds.
+  - **Theorem 0.2 and the real-Weil factor (E14).** Conjecture 5.2 does not cover isogeny classes containing B0, the abelian surface over F_p with Frobenius ±√p and quaternionic endomorphism algebra. Their polarization counts have the same leading term per dimension as those of E^g. So the conditional conclusion must allow a large factor B0^(h/2) as well as E^h.
+  - **Lemma 5.19 at p = 2 (E17).** The lemma is false for p = 2 (curves of trace ±1) and true for every odd p, by a two-line argument. Corollary 5.20 must exclude p = 2.
+  - **The rest.**
+    - Lemma 2.1's constant (E5).
+    - Steps in v1's local counting (E1–E4).
+    - Polarization normalisations (E8–E10).
+    - Details in (41) and (49) (E11, E12).
+    - The spacing measure and the enhanced Cohen–Lenstra definition (E15, E16).
+    - Proposition 4.14's alternative proof (E18).
+    - A misprint in Milne 1968, one of the paper's inputs.
+
+## The version read
+
+- **arXiv v1.** This is the only public version (6 November 2015, 38 pages, SHA-256 `5ceed816…`). It was read in full, with page images of pp.11–16 for the constants. Locators are to v1.
+- **The published version was not read.** The Duke article (51 pages) is open on Project Euclid, but its PDF sits behind a JavaScript challenge that no available tool passes. Unpaywall lists only that PDF and arXiv v1. The two versions differ:
+  - Lee 2022 cites published Corollaries 3.7, 3.16–3.18 and 3.22, Proposition 3.23, and equations (14), (15), (25), (31) and (32), numbering that v1 lacks.
+  - Lee also quotes a revised local count from published p. 3421.
+  - Lee quotes the published Theorem 0.1 with the same exponent 17/2 as v1.
+
+  Findings E1–E4 concern v1's local count and may be v1-only. The maintainer's copy should be compared at review.
+- **Other sources read here.**
+  - Lee 2022 (arXiv:2002.04420v3) §§1–3.3, which records corrections to the published text.
+  - DiPippo–Howe (arXiv:math/9803097v3) §1.
+  - Lemmermeyer (arXiv:1309.1071) §1.
+
+  The earlier checkpoints read Conrad's notes on polarizations, Yun §§4.8–4.13, Waterhouse 1969, Tate 1966, Tate's Bourbaki exposé, Waterhouse–Milne 1971 and parts of Milne 1968 (see `source.readSections`).
+
+## What the paper proves
+
+**Isogeny classes (§2).** Tate's theorem says a g-dimensional abelian variety over F_q is determined up to isogeny by its Frobenius polynomial, a Weil q-polynomial. Counting these polynomials by their first g power sums bounds the number of isogeny classes by q^(g²/4) up to lower-order factors (Lemma 2.1 and Corollary 2.2; the printed constant is corrected in E5). DiPippo and Howe's lower bound shows that the exponent 1/4 is sharp for every q.
+
+**One isogeny class (§3).** Fix A0/F_p with Frobenius γ, and put G = End⁰(A0)^×.
+- **Lattices.** Abelian varieties with a quasi-isogeny to A0 correspond to tuples of lattices:
+  - γ-stable lattices in V_ℓ(A0) for ℓ ≠ p;
+  - F,V-stable lattices in the Dieudonné module.
+
+  Forgetting the quasi-isogeny is the quotient by G(Q) (9). Over F_p the Dieudonné side is a single Z_p-linear operator (Remark 3.2).
+- **Local counts.** Filtrations and resultants reduce the count to one isotypic block. There, Yun's bound on punctual Hilbert schemes of Z_ℓ[[x]] counts orbits (§3.1). Stabilizer indices are bounded the same way (§3.2.1).
+- **Global assembly.** Reduced norms and strong approximation turn the class set into class groups (21). Three inputs bound those class groups (22)–(27):
+  - the class number formula;
+  - regulator and residue bounds;
+  - a discriminant bound for p-Weil numbers.
+
+  The result is log B(p,g) = O_p(g²), which is Theorem 0.1 with a corrected constant.
+
+**Polarizations (§4).**
+- **Rosati orbits.** Principal polarizations of A are the Rosati-conjugacy orbits of Aut(A) on the positive symmetric automorphisms (Proposition 4.11). This rests on three inputs:
+  - Mumford's φ_L;
+  - the dictionary between Néron–Severi classes and symmetric elements;
+  - positivity (Lemma 4.6, Proposition 4.9, Koecher–Vinberg).
+- **Prime fields.** Over F_p, a simple A whose Frobenius field has no real place has a CM field as endomorphism algebra (Proposition 4.14).
+- **Few polarizations.** An abelian variety with no repeated factor and Frobenius polynomial prime to x²−p therefore has at most p^(O(g²)) principal polarizations (Proposition 4.16).
+- **Many polarizations.** E^g has far more, which gives Theorem 0.3.
+
+**Speculation (§5).**
+- **Counting on E^g.** Principal polarizations on E^g are unimodular hermitian lattices. The Siegel mass formula counts them as exp((1/2)g² log g + O(g²)) (Lemma 5.11, corrected).
+- **A conjecture.** Model rings with positive involution count polarizations heuristically (Conjecture 5.2). Assuming it, most ppavs have a huge isogeny factor (Theorem 0.2, corrected to allow B0).
+- **Consequences.** The spacing statistics of Frobenius angles are then far from GUE (Corollary 5.14). An enhanced Cohen–Lenstra model for the pair (A(F_p), A(F_(p²))) fails (Corollary 5.20).
+
+## What the atlas has
+
+- **Libraries.** 30 items are `library`, cited at the pinned commits:
+  - Tau Ceti's abelian varieties and isogenies;
+  - Mathlib's isocrystals, Witt vectors, CM fields, Dedekind zeta residue and class number formula;
+  - Tau Ceti's class-number bound h_K ≤ |D_K|·4^[K:Q], resultants, Brauer groups and centralizers;
+  - general algebraic suppliers.
+
+  All 61 cited declarations were found again at Mathlib 082e2d3 and Tau Ceti f790474.
+- **Planned elsewhere (33 items).** The main ones are:
+  - duals, φ_L, polarizations and the Rosati involution (AbelianSchemesAndArithmeticModuli A2);
+  - Tate modules (A4), and endomorphism algebras and the trace (A6);
+  - Dieudonné theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2);
+  - hermitian lattices, their local classification and the hermitian Hasse principle (GeometryOfNumbersAndQuadraticArithmetic GN.2), and masses (GN.3);
+  - strong approximation (AdelicAlgebraicGroups AA.4);
+  - the Cohen–Lenstra measure and Friedman–Washington (ArithmeticStatistics ST.5);
+  - the Hasse norm theorem and local invariants (Tau Ceti ClassFieldTheory, Layers 13 and 5);
+  - regulator lower bounds (Tau Ceti EffectiveBounds, Layer 3);
+  - the trace formula (WeilConjectures WC.0) and weights (DeligneWeightsAndPurity DWP.7).
+- **Not planned anywhere:**
+  - Honda–Tate theory and Waterhouse's classification;
+  - lattice and polarization counting over finite fields;
+  - the characteristic-polynomial comparison behind the p-adic Tate theorem;
+  - Lang's theorem;
+  - explicit residue bounds;
+  - DiPippo–Howe's lower bound.
+
+## Routes
+
+The checkpoints' routing is kept, with three changes: the finite-field Part II is re-centred on its final theorems, two small source routes are added, and one proposed Part II is withdrawn.
+
+- **Part II of Abelian Schemes and Arithmetic Moduli: finite-field isogeny classes** (AbelianSchemesAndArithmeticModuliPartIIFiniteFields, 49 items). This is the heart of the paper.
+  - **Contents.** Tate and Honda–Tate over finite fields, Waterhouse, the lattice description of an isogeny class, the adelic assembly, and the polarization counts.
+  - **Final theorems.** The corrected Theorem 0.1, Proposition 4.16, the corrected Lemma 5.11 and Theorem 0.3.
+  - **Why a Part II.** AbelianSchemes A1–A6 build abelian schemes, duals and realizations but nothing specific to finite fields, so this extends that roadmap rather than starting a new one.
+  - **The brief.** It was rewritten around those final theorems and is reproduced below.
+- **Sources of existing layers:**
+  - **AbelianSchemesAndArithmeticModuli.** A2 (16 items): polarizations, Néron–Severi and Conrad's corrections. A4 (1): Tate modules. A6 (9): endomorphism algebras, the trace (Remark 4.8, corrected), positivity and Albert's CM case.
+  - **FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2** (7): the Dieudonné inputs and the Witt-vector coefficient descent.
+  - **GeometryOfNumbersAndQuadraticArithmetic.** GN.2 (18): hermitian lattices, local orders and Yun's resultant formula. GN.3 (24): local orbit and stabilizer bounds, and the masses (39)–(55) with the corrected coefficient.
+  - **AdelicAlgebraicGroups AA.4** (5): level maps and finite-index comparisons.
+  - **PELModuli M6** (1): finiteness at fixed polarization degree, used in Tate's proof.
+  - **ArithmeticStatistics.** ST.0 (3): the counts as measures. ST.5 (13): Conjecture 5.2, the conditional Theorem 0.2 and Corollaries 5.13, 5.14 and 5.20, and the enhanced Cohen–Lenstra definitions.
+  - **AnalyticNumberTheory AN.4** (1, new route): Louboutin's residue bound, together with the lower bound that (49) needs.
+  - **ReductiveGroupsPartII RG2.3** (1, new route): Lang's theorem.
+- **Withdrawn: the proposed Part II of Tau Ceti LocalFieldsRamification**, "Witt constants and polynomial recognition".
+  - Its eight lemmas serve a single proof, the p-adic characteristic-polynomial comparison, so a design job of their own is disproportionate.
+  - The Witt-vector descent goes to R07.2, which owns Dieudonné modules.
+  - The resultant-recognition lemmas go to the finite-field Part II, their only consumer.
+
+## What this continuation changed
+
+- **Withheld claims.** The checkpoints kept 19 literal claims unrouted ("withheld"). PROTOCOL §18 says items use corrected statements, so each was resolved:
+  - **Merged (4).** Each literal item went into its corrected twin:
+    - power-sum-source → power-sum-count;
+    - local-orbit-source → repeated-block-orbit-bound;
+    - stabilizer-depth-source → nonisotypic-stabilizer-bound;
+    - elliptic-pgroups-source → elliptic-pgroups-large.
+  - **Dropped (1).** euler-source: §1 is motivation, "not used in the rest of the paper".
+  - **Restated (14).** Each was given its corrected form and routed or marked planned. These include Theorems 0.1–0.3.
+- **Added items (6):**
+  - DiPippo–Howe's lower bound (Remark 2.3);
+  - the positive-involution case of Albert's classification;
+  - the Hasse norm theorem;
+  - Lemmermeyer's exact sequence, for (31);
+  - the hermitian Hasse principle (Proposition 5.4);
+  - Lang's theorem, for (47).
+- **Findings.**
+  - **From Lee 2022.** E19–E21 are added, and E6 and E7 are marked known.
+  - **Upgraded.** E13 and E14 now reach "a stated result", with the corrected coefficient and the B0 argument.
+  - **Corrected.** E17: Lemma 5.19 is true for every odd p.
+  - **Flagged.** E1–E4 may be v1-only.
+  - **Searches.** Every finding's `searched` list now includes Lee, OpenAlex and Crossref.
+- **Housekeeping.**
+  - Each of the gaps G0–G9 is now marked resolved, handed to the design job, withdrawn, or open. Only G0, the published text, stays open.
+  - Prerequisite links that pointed at LT's own arXiv page are replaced by DOIs.
+  - The earlier verification record is kept under `verification.previousVerification`.
+
+## The routes in detail
+
+### Route 1: source of AbelianSchemesAndArithmeticModuli:A2
+
+**Missing items taken (9).** Correct graph-pullback normalization (/graph-pullback); Kernel of the Mumford map (/phi-kernel); Rational Néron–Severi space (/ns-rational); Normalized Néron–Severi/Rosati map (/ns-rosati-map); Ample classes and positive symmetric elements (/positive-ample); Polarizations as Rosati-conjugacy orbits (/polarization-orbits); No-CM elliptic-power orbit example (/integer-matrix-example); Polarizations for a maximal CM endomorphism order (/cm-unit-orbits); Prime-to-characteristic divisibility of a polarization (/polarization-divisibility).
+
+**Planned items the paper is a source for (7).** Dual variety and rigidified Poincaré bundle (/dual-poincare); Polarization as a positive symmetric morphism (/polarization); Mumford homomorphism of a line bundle (/mumford-map); Ample line bundles induce isogenies (/phi-ample-isogeny); Isomorphism of symmetric morphisms (/polarized-isomorphism); Pullback covariance (/phi-pullback); Rosati involution (/rosati).
+
+### Route 2: source of AbelianSchemesAndArithmeticModuli:A4
+
+**Planned items the paper is a source for (1).** Prime-to-characteristic Tate module (/tate-module).
+
+### Route 3: source of AbelianSchemesAndArithmeticModuli:A6
+
+**Missing items taken (4).** Real ample-cone matrix description (/real-cone); Torsion detects integral quasi-homomorphisms (/torsion-integrality-detection); Remark 4.8, corrected: trace versus reduced trace (/reduced-trace-source); A positive involution of a CM field is complex conjugation (/positive-involution-cm).
+
+**Planned items the paper is a source for (5).** Rational endomorphism algebra (/rational-endomorphism); Isogeny decomposition and semisimplicity (/poincare-decomposition); Geometric endomorphism trace (/endomorphism-trace); Degree characteristic polynomial (/degree-polynomial); Positive Rosati trace pairing (/rosati-positivity).
+
+### Route 4: source of FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
+
+**Missing items taken (4).** Prime-field linear-dual realization (/prime-field-covariant-dual); Canonical p-adic constants in Witt vectors (/witt-constant-embedding); Frobenius-fixed Witt vectors are precisely p-adic constants (/witt-frobenius-fixed-ring); Integral characteristic polynomial descends along Witt Frobenius (/semilinear-charpoly-descent).
+
+**Planned items the paper is a source for (3).** Integral Dieudonné realization (/dieudonne-lattice); Exact finite-level contravariant Dieudonné comparison (/finite-dieudonne-exactness); Dieudonné length measures group-scheme rank (/finite-dieudonne-length-rank).
+
+### Route 5: source of GeometryOfNumbersAndQuadraticArithmetic:GN.2
+
+**Missing items taken (14).** Local monogenic order (/local-order); Normalized lattice sandwiches (/saturation-normalization); Stable lattice with prescribed flag quotients (/flag-fiber); Model ring with positive involution (/model-ring); Totally positive unit norm labels (/unit-norm-label); Unitary group of a definite hermitian space (/unitary-group); Free unimodular lattices and Gram congruence (/gram-orbit-bijection); Norm ideal of a local hermitian lattice (/norm-ideal); Free versus projective mass classes (/free-projective-comparison); Monogenic conductor and dual sandwich (/monogenic-conductor-bound); Residue-correct coefficient DVR (/coefficient-dvr-model); Isotypic integral stabilizer via a congruence kernel (/isotypic-stabilizer-congruence-bound); Determinant index of a stable DVR lattice (/finite-dvr-determinant-index); Unique local orbit away from the minimal-polynomial discriminant (/good-prime-lattice-orbit).
+
+**Planned items the paper is a source for (4).** Integral projective hermitian lattice (/hermitian-lattice); Dual and unimodularity (/hermitian-dual); Local unimodular classification input (/local-hermitian-classification); Genus of a hermitian lattice (/hermitian-genus).
+
+### Route 6: source of GeometryOfNumbersAndQuadraticArithmetic:GN.3
+
+**Missing items taken (22).** Centralizer shears identify equivalent extensions (/extension-shear); Resultant cardinality of a disjoint-spectrum fiber (/yun-resultant-fiber); Bound after removing zero eigenspaces (/extension-determinant-bound); Finite-colength ideal count (/punctual-hilbert-count); Yun finite-colength partition formula (/yun-partition-formula); Crude partition upper bound (/hilbert-crude-bound); Positive-unit model orbit count (/model-orbit-count); Hermitian genus as a unitary class set (/genus-double-cosets); Elementary CM relative-discriminant bound (/relative-discriminant); Factorial product asymptotic (/factorial-asymptotic); Minkowski finite integral group bound (/finite-integral-group); Passing from mass to class count (/mass-cardinality-comparison); Ramified-prime count from the relative discriminant (/ramification-count); Weighted partition cumulative bound (/weighted-partition-cumulative-bound); Rank-one local ideal-class bound (/rank-one-local-class-bound); Repeated-block local orbit bound (/repeated-block-orbit-bound); Semisimple local orbit bound with multiplicities (/semisimple-local-orbit-bound); Adelic local-orbit bound for Weil polynomials (/adelic-local-orbit-bound); Integral stabilizer controlled by successive graded lattices (/nonisotypic-stabilizer-bound); Stabilizer volume of a self-dual hermitian lattice (Gan–Yu), as used in (39) (/density-source); Mass of unimodular hermitian lattices, corrected (51)–(53) (/mass-asymptotic-source); Orbit count on a model ring, corrected (55) (/model-count-source).
+
+**Planned items the paper is a source for (2).** Weighted hermitian genus mass (/hermitian-mass); Unitary Tamagawa mass formula (/tamagawa-mass).
+
+### Route 7: source of AdelicAlgebraicGroups:AA.4
+
+**Missing items taken (4).** Nested right-level map on double cosets (/double-coset-level-map); Finite-index bound for a double-coset level change (/double-coset-level-cardinality); Conjugate right levels have equivalent double-coset sets (/double-coset-conjugate-level); Index of product subgroups with finite exceptional support (/finite-support-product-index).
+
+**Planned items the paper is a source for (1).** Strong approximation supplier (/strong-approximation).
+
+### Route 8: source of ArithmeticStatistics:ST.0
+
+**Missing items taken (1).** Number of polarizations on a fixed variety (/polarization-fiber).
+
+**Planned items the paper is a source for (2).** Unweighted abelian-variety count (/unpolarized-count); Unweighted principally polarized count (/ppav-count).
+
+### Route 9: source of ArithmeticStatistics:ST.5
+
+**Missing items taken (11).** Conjectural comparison with the model ring (/model-comparison-conjecture); Convex mass-concentration inequality (/convex-concentration); Normalized eigenangle spacing measure (/spacing-measure); Proposed enhanced Cohen–Lenstra law (/enhanced-cl); Two-extension zero-cokernel probability at two (/cl-two-prime); Uniform positive bound at odd primes (/cl-odd-prime); Source enhanced-statistics conjecture (/enhanced-cl-conjecture); Theorem 0.2 (Corollary 5.13), corrected: a large elliptic or B0 factor, conditionally (/main-elliptic-source); Proposition 5.10, corrected threshold (/model-concentration-source); Corollary 5.14, corrected: spacing discrepancy (/spacing-source); Corollary 5.20, corrected: odd p (/enhanced-failure-source).
+
+**Planned items the paper is a source for (2).** Cohen–Lenstra probability measure (/cl-measure); Random integral matrices and Cohen–Lenstra (/friedman-washington).
+
+### Route 10: Part II — Abelian Schemes and Arithmetic Moduli, Part II: finite-field isogeny classes (AbelianSchemesAndArithmeticModuliPartIIFiniteFields, area arithmeticgeometry)
+
+**Brief for the design job.** Count abelian varieties and principally polarized abelian varieties over a prime field F_p as g→∞, following Lipnowski–Tsimerman, "How large is A_g(F_q)?" (Duke Math. J. 167 (2018)), with the corrections of J. Lee (IMRN 2022, §3.1) and those recorded in PAPER-LIPNOWSKI-TSIMERMAN-18 sourceIssues. Final theorems, as corrected: (T1) Isogeny classes (Lemma 2.1, Corollary 2.2 and DiPippo–Howe, Theorem 1.3): the number of isogeny classes of g-dimensional abelian varieties over F_q is at most (4g+1)^g q^(g(g+1)/4), and its logarithm is (1/4)g² log q (1+o(1)). (T2) Theorem 0.1: for fixed p, B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))); in particular log B(p,g) = O_p(g²). Do not state the printed exponent 17/2+ε. Lee's sharper p^((45/4)g²(1+o(1))) is optional. (T3) Proposition 4.16: an abelian variety over F_p with no repeated simple isogeny factor and Frobenius polynomial coprime to x²−p has at most p^(Cg²) principal polarizations up to isomorphism, C absolute. (T4) Lemma 5.11: if p splits in Q(√−d) for one of the nine class-number-one d, some E/F_p with End(E) the maximal order has exp((1/2)g² log g + O_p(g²)) principal polarizations on E^g (printed coefficient 1). (T5) Theorem 0.3 (Proposition 4.17): for such p, the proportion of g-dimensional ppavs over F_p that have no repeated isogeny factor and Frobenius polynomial coprime to x²−p tends to 0. What to cover: (1) Frobenius polynomials, their integrality, independence of ℓ and reciprocity; Tate's isogeny theorem over finite fields and its p-adic analogue on Dieudonné modules, including the characteristic-polynomial comparison (via R07.2's Witt descent and this route's resultant-recognition lemmas); Honda–Tate with Tate's local invariants; Waterhouse's realization of orders (Theorem 6.1) in the nonreal prime-field case; Proposition 4.14 (End⁰ of a simple A/F_p is a CM field unless Frobenius is ±√p). (2) The lattice description of an isogeny class (§3): marked quasi-isogenies correspond to Frobenius-stable lattice tuples; isomorphism classes are G(Q)-orbits; over F_p the p-component reduces to one Z_p-linear Frobenius (Remark 3.2). (3) Local lattice-orbit counts and stabilizer indices (the checkpoint replacement items: repeated-block, adelic and non-isotypic bounds) and the adelic assembly with class sets via reduced norms. (4) Class-number bounds (22)–(27) with the corrected exponents, or the library bound h_K ≤ |D_K|·4^[K:Q] where constants do not matter. (5) Principal polarizations as Rosati orbits (Proposition 4.11), the CM case (Example 4.13) with the Hasse norm theorem and Lemmermeyer's exact sequence, and T3–T5. Keep the real-Weil factor B0 (Frobenius ±√p, quaternionic End⁰) explicit throughout. Imports, by title and id: Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2, A4, A6; Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, including the hermitian mass formula; Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups) AA.3–AA.4; Siegel and PEL moduli problems (PELModuli) M6, for finiteness at fixed polarization degree in Tate's proof (never the count being proved); Deligne weights and purity (DeligneWeightsAndPurity) DWP.1, for the Riemann hypothesis for abelian varieties; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layers 5 and 13; Effective bounds (tauceti:Completed/EffectiveBounds) Layers 1 and 3; Analytic number theory (AnalyticNumberTheory) AN.4; Reductive groups, Part II (ReductiveGroupsPartII) RG2.3, for Lang's theorem. Arithmetic statistics (ArithmeticStatistics) ST.0 owns the counting measures and ST.5 the conditional statements (Theorem 0.2, Corollaries 5.13, 5.14, 5.20). Scope: T2–T5 are over prime fields only (Remarks 3.2 and 4.18). The published text (51 pages) was not available to the extraction: locators are to arXiv v1, and Lee's corrections cite the published numbering (Corollaries 3.16–3.18 and 3.22, Proposition 3.23, equations (25), (31), (32)).
+
+**Missing items taken (49).** Tate full faithfulness over finite fields (/tate-hom); Frobenius polynomial and reciprocity (/weil-polynomial); Frobenius polynomial determines the isogeny class (/isogeny-polynomial); Honda–Tate simple isogeny classification (/honda-tate); Lemma 2.1, corrected: counting Weil polynomials (/power-sum-count); Asymptotic count of isogeny classes (/isogeny-class-upper); Prime-to-p and p lattice spaces (/marked-lattice-space); Marked quasi-isogenies classified by lattices (/marked-quasi-isogeny); Isomorphism classes as rational orbits (/forget-marking); The prime-field p-component reduction (/prime-p-centralizer); Adelic class set of the endomorphism group (/adelic-class-set); Class-set comparison by reduced norms (/nonabelian-class-comparison); Correct elementary discriminant estimate (/weil-discriminant-bound); Line-bundle realization over a finite field (/finite-field-polarization-descent); Commutative endomorphisms in the nonreal prime-field case (/prime-field-end-algebra); Realization of nonreal prime-field orders (/waterhouse-orders); Squarefree nonreal polarization bound (/squarefree-pol-count); Density of primes splitting in a class-number-one CM field (/split-prime-density); Elliptic curve with class-number-one endomorphisms (/cm-elliptic-existence); Lemma 5.19, corrected: odd characteristic (/elliptic-pgroups-large); Point counts are isogeny invariant (/point-count-isogeny); Conditional rational-orbit bound from local lattices (/conditional-rational-orbit-bound); Tate’s isotropic image lemma (/tate-isotropic-image); Tate full faithfulness at a split Frobenius prime (/tate-split-commutant); Integral Tate full faithfulness at the characteristic prime (/p-tate-hom); Prime-field p-realization Frobenius polynomial (/prime-field-p-frobenius); Finite-support lattice tuples are realized over the prime field (/prime-field-lattice-realization); Prime-field marked and unmarked classification (/prime-field-marked-classification); Finite-support adelic stabilizers in a prime-field isogeny class (/prime-field-adelic-stabilizers); Coarse prime-field isomorphism count at fixed adelic level (/prime-field-isogeny-class-bound); Dieudonné determinant detects the p-part of isogeny degree (/p-realization-degree-valuation); Characteristic polynomial on the p-realization (/p-realization-characteristic-polynomial); Semisimplicity of the linear q-Frobenius realization (/p-frobenius-semisimplicity); Saturated injection on integral p-realization Hom groups (/p-realization-saturated-hom); Algebra acting on a Frobenius polynomial block (/p-frobenius-block-algebra); Central simplicity of a Frobenius block algebra (/p-frobenius-block-split); Dimension of the semilinear Frobenius commutant (/p-frobenius-centralizer-dimension); Rational p-Tate comparison (/rational-p-tate-hom); Characteristic-prime invariant of a simple endomorphism algebra (/p-endomorphism-local-invariant); Monic polynomial lifting at an ideal-power precision (/monic-coefficient-lift); Resultant respects congruence in the second polynomial (/resultant-congruence); A shifted approximate factor detects its multiplicity (/resultant-factor-slope); Monic polynomials are determined by nonzero resultant valuations (/resultant-valuation-recognition); Integer polynomial tests determine a monic p-adic polynomial (/padic-resultant-recognition); Theorem 0.1, corrected: abelian varieties over F_p number p^(O(g²)) (/main-unpolarized-source); Theorem 0.3 (Proposition 4.17): most ppavs over F_p have a repeated factor (/main-repeated-source); Lemma 5.11, corrected: principal polarizations on E^g (/elliptic-power-source); DiPippo–Howe lower bound for isogeny classes (/dipippo-howe); Units that are norms modulo norms of units (Lemmermeyer) (/ambiguous-unit-norms).
+
+
+### Route 11: source of PELModuli:M6
+
+**Missing items taken (1).** Finite-field finiteness at fixed polarization degree (/fixed-polarization-finiteness).
+
+
+### Route 12: source of AnalyticNumberTheory:AN.4
+
+**Missing items taken (1).** Explicit residue bound for Dedekind zeta functions (Louboutin) (/residue-source).
+
+
+### Route 13: source of ReductiveGroupsPartII:RG2.3
+
+**Missing items taken (1).** Lang's theorem over finite fields (/lang-theorem).
+
+
+## Prerequisite papers the atlas does not cover
+
+- Yun, Orbital integrals and Dedekind zeta functions (2013), arXiv v2 (https://arxiv.org/abs/1303.2420). Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint. Continuation L5–L8 now supplies a separate coarse repeated-block/local-orbit argument; the regular-semisimple theorem is still not applied directly beyond its scope, and general global stabilizer closure remains outstanding. S2–S3 freshly recheck the full §4.8/Lemma 4.9 proof and supply the repeated-multiplicity version directly by an invertible Sylvester operator; S4–S6 close the abstract finite-index gluing only under explicit arithmetic inputs.
+- Conrad, Polarizations, VIGRE notes (https://virtualmath1.stanford.edu/~conrad/vigregroup/vigre04/polarization.pdf). All ten pages read; corrects graph pullback, finite-field descent and Rosati positivity. Underlying Mumford representability and intersection theory still belong to A2/A6.
+- Waterhouse, Abelian varieties over finite fields, Ann. Sci. ENS 2 (1969), 521–560 (https://www.numdam.org/article/ASENS_1969_4_2_4_521_0.pdf). Read introduction and all Chapters 1–3, the Porism 4.3 order-patching proof, Chapter 6 and bibliography; Theorem 6.1 proof additionally checked as an image. Finite-flat/Dieudonné and Brauer inputs are imported, not claimed proved from this paper. Chapters 4–5,7 and Appendix have not received a full source audit.
+- Tate, Endomorphisms of abelian varieties over finite fields (1966); Honda, Isogeny classes (1968) (https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf). Tate 1966 prime-to-p proof reading inherited from codex-a71f92; D1–D5 now read the original characteristic-p comparison and invariant proofs in WM71 Part II with M68 pp.65–66. Honda CM existence and original finite Dieudonné/degree suppliers remain unfinished. Tate’s projected second endomorphism paper never appeared; use WM71, whose bibliography explicitly says so.
+- Gan–Yu, Group schemes and local densities, Duke Math. J. 105 (2000), 497–524 (doi:10.1215/S0012-7094-00-10535-2). Acquire Theorem 10.20 and §10.9, measure conventions and residue-characteristic-two exclusions before accepting (39). Original exact public source URL remains to establish.
+- Jacobowitz, Hermitian forms over local fields, Amer. J. Math. 84 (1962), 441–465 (doi:10.2307/2372982). Read Theorems 7.1,8.2 and Proposition 10.4, including dyadic norm/scale ideals and split cases; locator as cited by main paper.
+- Lang, Divisors and endomorphisms on an abelian variety, Amer. J. Math. 79 (1957), 761–777 (doi:10.2307/2372433). Original positivity and NS comparison, cited as [15]; exact public article link not yet established.
+- Louboutin (2000), Explicit bounds for residues; Skoruppa (1993), Quick lower bounds for regulators (doi:10.1006/jnth.2000.2545 (Louboutin); Skoruppa: Enseign. Math. (2) 39 (1993), 137–141, no DOI). Original references [18],[24] not acquired. Their hypotheses and residue-ratio lower bound remain G8; this link identifies the checked bibliography only.
+- Friedman–Washington (1989), On the distribution of divisor class groups of curves over a finite field (doi:10.1515/9783110852790.227). Original [9] and joint matrix-cokernel limit/tightness needed. The ordinary CL law does not alone imply Definition 5.16.
+- Serre (2007), Bounds for the orders of finite subgroups of G(k) (Group representation theory (EPFL Press, 2007), 405–450; no DOI). Original [23] congruence/primes-in-progressions input remains to acquire; main-paper proof of Lemma 5.8 was read.
+- Tate, Classes d’isogénie des variétés abéliennes sur un corps fini, Séminaire Bourbaki, exposé 352 (November 1968), printed 1971, pp.95–110 (https://numdam.org/item/SB_1968-1969__11__95_0/). Whole extracted text surveyed; §§1–2 read with rendered formulas on pp.96,98,99. Normalizes inv_v(E)=f_v ord_v(π)/a and records the p-divisible full-faithfulness argument’s unsupplied proof details. §§3–6 formulas have not all been image-audited; do not treat this as a complete Honda/CM proof read. D1–D5 replace only the p-proof unread-source boundary by the original WM71 Part II proof; no fresh full Honda/CM audit is asserted.
+- Waterhouse–Milne, Abelian varieties over finite fields, Proc. Symp. Pure Math. 20 (1971), 53–64 (https://www.jmilne.org/math/articles/1971a.pdf). All twelve pages freshly image-read. Part II supplies the original p-Tate and p-local invariant proofs; R07.2 exact classification, local cyclic invariant and Honda existence remain imports.
+- Milne, Extensions of abelian varieties defined over a finite field, Invent. Math. 5 (1968), 63–84 (https://www.jmilne.org/math/articles/1968a.pdf). Only pp.63–67 and p.84 freshly image-read. The independent p-characteristic-polynomial comparison is pp.65–66; the Lang uniqueness citation is expanded by a valuation argument, not claimed read. The proposed p.67 Newton-abscissa misprint is incorporated from the handoff. Later Ext proofs and the author’s corrections to pp.78–81 are outside this extraction scope.
+- DiPippo and Howe, Real polynomials with all roots on the unit circle and abelian varieties over finite fields, J. Number Theory 73 (1998), 426–450; corrigendum 83 (2000), 182 (doi:10.1006/jnth.1998.2302 (arXiv:math/9803097)). Theorem 1.3, the lower bound behind Remark 2.3, read at the source; needed for T1 of the finite-field Part II.
+- Lemmermeyer, The ambiguous class number formula revisited, J. Ramanujan Math. Soc. 28 (2013), 415–421 (arXiv:1309.1071). Proposition 1 (read) bounds the units that are norms modulo norms of units, used in (31).
+- Scharlau, Quadratic and Hermitian Forms, Grundlehren 270 (1985), Chapter 10 (doi:10.1007/978-3-642-69971-9). The Hasse principle for hermitian forms used in Proposition 5.4; for GN.2.
+- Lee, On the lower bound of the number of abelian varieties over F_p, IMRN 2022, 4290–4317 (doi:10.1093/imrn/rnaa153 (arXiv:2002.04420)). Not a prerequisite of LT but of its corrected form: §3.1 corrects LT's published constants (Theorem 1.1) and Theorem 1.4 improves them. The finite-field Part II follows it.
+
+## Mistakes found (`sourceIssues`)
+
+Locators are to arXiv v1, with published locators where Lee 2022 gives them. Where each finding was searched for an existing correction is recorded in the result. Text marked [cc-442dc5] was added in this continuation.
+
+- **E1** (error; affects the proof), v1 p.10, §3.1.5 (13); final 2018 text not obtained.
+  - *Printed:* Σ_(a₁+⋯+a_n≤δn)1 ≤ (nδ)^n/n!
+  - *Correction:* Use the weighted-partition/rank-one argument L3–L6 for a coarse replacement; do not retain this weak-composition bound.
+  - *Why:* At n=1,δ=0 the two sides are 1 and 0; even δ=1 gives 2≤1. The source's claimed sharper final exponent is not proved by the replacement. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), "[7, p. 3421] and inequalities (14) and (15)"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]
+- **E2** (error; affects the proof), v1 p.12, §3.2.1 orbit-map display; final 2018 text not obtained.
+  - *Printed:* gM ↦ (m ↦ gm mod R^n)
+  - *Correction:* This formula does not descend from elements to orbit points. Use the isotypic congruence-kernel argument L9; general blocks still need work.
+  - *Why:* Take ℓ=3,F=Q₃(i),R=Z₃[3i],S=Z₃[i],M=S,n=1. Both 1 and −1 belong to GL₁(R), and M=(−1)M; evaluating the two proposed maps at i gives i and −i modulo R, differing by 2i∉R. Also S⊆R^∨, so the claimed target is defined. No element outside GL₁(R) is used. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), "[7, p. 3421] and inequalities (14) and (15)"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]
+- **E3** (misprint; affects the proof), v1 p.9, §3.1.4 display after (10); final 2018 text not obtained.
+  - *Printed:* M'/(F(M)∩W') ⊂ M'/F(M')
+  - *Correction:* There is a canonical surjection M'/F(M')→M'/F(M), not the displayed inclusion. Since F(M)⊆M', the denominator intersection is redundant.
+  - *Why:* F(M')⊆F(M)⊆M'. Passing to quotients reverses the direction of the natural map. The cardinality upper bound survives via this surjection; see L5. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), "[7, p. 3421] and inequalities (14) and (15)"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]
+- **E4** (error; affects the proof), v1 p.10, §3.1.5, power-series quotient assertion; final 2018 text not obtained.
+  - *Printed:* R is a quotient of Z_ℓ[[X]]
+  - *Correction:* First pass to the unramified coefficient DVR O₀ with residue field R/rad R; then R is a quotient of O₀[[T]].
+  - *Why:* An unramified quadratic order has residue field F_(ℓ²), whereas the local ring Z_ℓ[[X]] has residue F_ℓ; no such local quotient is possible. L2 also tracks the residue degree in colength. Lee 2022 §3.3 quotes a different local count from the published version (a factor ℓ^(n(n−1)δ/2), partitions weighted by (ℓ^d)^(a−ℓ(λ)), "[7, p. 3421] and inequalities (14) and (15)"), so the published proof of this step differs from v1 and may already avoid this finding; the published text could not be read. [cc-442dc5]
+- **E5** (error; affects a stated result), v1 p.5, Lemma 2.1; final 2018 text not obtained.
+  - *Printed:* (2g)^g q^(g(g+1)/4)
+  - *Correction:* For reciprocal polynomials use the safe bound (4g+1)^g q^(g(g+1)/4); impose reciprocity explicitly for the reconstruction by g coefficients.
+  - *Why:* At g=1,q=2 there are five reciprocal polynomials X²−aX+2 with −2≤a≤2, exceeding 2√2. The root-radius condition alone also admits X²−q, which does not satisfy the asserted reciprocity.
+- **E6** (error; affects the proof), v1 p.15, (26); final 2018 text not obtained.
+  - *Printed:* (2√p)^binom(d,2)
+  - *Correction:* The elementary discriminant bound has exponent d(d−1).
+  - *Why:* The discriminant is the square of the Vandermonde product. Each unordered pair contributes two differences, so the displayed argument loses a square. The corrected bound is retained by weil-discriminant-bound; the sharp main constant is not certified. *Known:* J. Lee, "On the lower bound of the number of abelian varieties over F_p", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2): "The upper bound in the inequality (31) of [7] should be corrected to (2√p)^(2·C(d,2))" (published (31) = v1 (26)).
+- **E7** (gap; affects the proof), v1 p.16, (28), final fixed-p asymptotic; final 2018 text not obtained.
+  - *Printed:* p^((33/4)g²(1+o(1)))
+  - *Correction:* Keep powers of 2 with exponents proportional to g² in the fixed-p leading coefficient, or export only exp(O_p(g²)).
+  - *Why:* For fixed p, log_p(2) is a nonzero constant; C·g²·log_p(2) is not o(g²). Neither the displayed equality nor the stated sharp main coefficient follows from discarding it. *Known:* J. Lee, "On the lower bound of the number of abelian varieties over F_p", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 and (9)–(10) keep the factor 2^(34g²); Lee's Lemma 3.1 (|d′(A_0)|_∞ ≤ (2g)^(2g) p^(C(2g,2))) removes it in his improved bound.
+- **E8** (error; affects the proof), v1 p.16, §4.1 graph-pullback assertion; final 2018 text not obtained.
+  - *Printed:* (1,φ_L)*P_A = L
+  - *Correction:* Use [2]*L⊗L^(−2), up to the chosen rigidification, with Néron–Severi class 2[L].
+  - *Why:* Inherited checked Conrad Example 2.2 supplier from PR #1652: the Poincaré biextension pullback is not L. On a symmetric ample L its class is twice that of L. The continuation preserves that primary-source evidence; it does not claim a fresh full Conrad reading.
+- **E9** (error; affects a stated result), v1 pp.17–18, §4.2 and Lemma 4.6; final 2018 text not obtained.
+  - *Printed:* Φ_f : NS(A) → S⁰(A)
+  - *Correction:* Use NS(A)⊗Q for the claimed rational vector-space isomorphism and rational pullback D_f on quasi-endomorphisms.
+  - *Why:* The domain displayed is an integral lattice, whereas S⁰(A) is rational. The formula on End⁰(A) needs rationalized pullback. At a principal class L₀, Φ_f(L₀)=1/2 and D_f(1,1)=2[L₀], consistent only after the domain and normalization are made explicit.
+- **E10** (error; affects a stated result), v1 p.18, Remark 4.8; final 2018 text not obtained.
+  - *Printed:* t = reduced trace_(D/Q)
+  - *Correction:* Use the trace of the Tate representation, including representation multiplicity over the reduced trace.
+  - *Why:* For a simple positive-dimensional abelian variety with End⁰(A)=Q, t(1)=2g but Trd_(Q/Q)(1)=1. The identity without multiplicity is false.
+- **E11** (misprint; affects the proof), v1 p.27, (41), quadratic discriminant factor; final 2018 text not obtained.
+  - *Printed:* p sin²θ
+  - *Correction:* The absolute quadratic discriminant factor is 4p sin²θ.
+  - *Why:* If α=√p exp(iθ), then (α−conj α)²=−4p sin²θ. Restoring the factor does not change the O_p(d) logarithmic bound.
+- **E12** (gap; affects the proof), v1 p.29, (49); final 2018 text not obtained.
+  - *Printed:* log L(1,χ_(L/K)) = O([K:Q] log[K:Q])
+  - *Correction:* Supply lower as well as upper controls for the residue ratio before asserting this two-sided logarithmic bound.
+  - *Why:* Equation (24) only supplies upper bounds for each residue; subtracting their logarithms does not bound their difference without lower bounds. No claim that the displayed bound itself is false.
+- **E13** (error; affects a stated result), v1 p.30, (51), compared with p.26 (39); final 2018 text not obtained.
+  - *Printed:* [K:Q] n² log n + O(n²[K:Q]²)
+  - *Correction:* The displayed factorial product contributes (1/2)[K:Q]n²log n+O([K:Q]n²). Recheck the mass normalization and all consumers before asserting a total asymptotic. The corrected leading coefficient is 1/2 throughout: log #C_σ = (1/2)[K:Q]n² log n + O_p([K:Q]²n²), (55) becomes (1/2)Σ[K_i:Q]n_i² log n_i + O_p(g²), and Lemma 5.11 (56) becomes exp((1/2)g² log g + O_p(g²)). Example 4.12's "≈ exp(g² log g)" becomes exp((1/4)g² log g + O(g²)) (unimodular Z-lattices). Theorems 0.2 and 0.3 survive with rescaled thresholds (Proposition 5.10: 0.495g² log g). [cc-442dc5]
+  - *Why:* Σ_(d=1)^n log((d−1)!)=(1/2)n²log n+O(n²). For fixed K, a missing half of n²log n is not absorbed by O(n²[K:Q]²). No corrected full mass theorem is asserted without Gan–Yu and the remaining factors. Lemma 5.11 and Example 4.12 state the wrong leading term, so a stated result is affected. For E^g the principal polarizations are the classes of unimodular hermitian O_K-lattices of rank g, whose mass has logarithm (1/2)g² log g + O(g²) (the unitary group has dimension g²); Aut groups are exp(O(g log g)) by Lemma 5.8. [cc-442dc5]
+- **E14** (gap; affects a stated result), v1 p.33, Corollary 5.13 proof applying Conjecture 5.2; final 2018 text not obtained.
+  - *Printed:* Conjecture 5.2 and Proposition 5.10 imply the bound for bad A
+  - *Correction:* Assume in addition the analogue of Conjecture 5.2 for isogeny classes with factors B0 (Frobenius ±√p, End⁰ the definite quaternion algebra over Q(√p)), and conclude that a large factor E^h or B0^(h/2), h ≥ 0.99g, occurs with probability tending to 1. The printed conclusion (an elliptic factor) is not established.
+  - *Why:* Conjecture 5.2 assumes products of matrix algebras over CM fields; Q(√p) real Frobenius factors with quaternionic endomorphisms were already separated in §3.2.2. No covering estimate for this omitted family is supplied by that conjecture. The omitted family is not negligible. Principal polarizations on B0^n correspond to classes of unimodular quaternion-hermitian lattices of rank n over O_D; their mass is ∏_(i≤n)|ζ_(Q(√p))(1−2i)| up to exp(O(n²)) factors, with logarithm 2n² log n + O(n²) = (1/2)(2n)² log n. That is the same leading term per dimension as E^g (E13), so Proposition 5.10's dichotomy must allow B0^(h/2), and Corollary 5.13 cannot conclude an elliptic factor. Corollaries 5.14 and 5.20 (odd p) survive with the B0 alternative, because B0^(h/2) has the roots ±√p with multiplicity h and #B0(F_p) = (p−1)². [cc-442dc5]
+- **E15** (error; affects the proof), v1 p.34, Corollary 5.14 proof; final 2018 text not obtained.
+  - *Printed:* αδ₀, with α=h/g
+  - *Correction:* For 2g cyclic gaps, two distinct roots each repeated h times force zero mass at least (2h−2)/(2g)=h/g−1/g; state a limiting discrepancy conclusion in a specified metric.
+  - *Why:* Each group of h equal roots contributes h−1 zero gaps. At g=h with two distinct roots the exact zero mass is 1−1/g, not 1. Other coincident roots can only increase the lower bound.
+- **E16** (gap; affects a stated result), v1 pp.35–36, Definition 5.16 and Example 5.17; final 2018 text not obtained.
+  - *Printed:* CL_(n,ℓ) := lim_(g→∞) Haar_g(...)
+  - *Correction:* Prove existence and total mass one of the joint limiting law. The odd-prime union bound supplies a positive liminf, not convergence.
+  - *Why:* A definition by a limit requires that limit; pointwise convergence alone also need not preserve mass without tightness. A uniform positive lower bound does not imply convergence. The ℓ=2 special calculation is not a proof for general tuples.
+- **E17** (error; affects a stated result), v1 p.36, Lemma 5.19 and its proof; Corollary 5.20 at p = 2.
+  - *Printed:* E(F_p) and E(F_(p²)) are not both p-groups
+  - *Correction:* The lemma holds exactly for odd p. For odd p: if p^i = p+1−a and p^j = p+1+a then p^i+p^j = 2p+2, which forces i = 0 or j = 0 modulo p and then p^(j) = 2p+1, impossible. For p = 2 the curves with a = ±1 are counterexamples. The printed proof ("a = 1 and b = 1") is wrong for every p, since #E(F_(p²)) = p²+1−(a²−2p). Corollary 5.20 must exclude p = 2.
+  - *Why:* Over F₂, y²+xy=x³+x²+1 is smooth and has 2 points over F₂ and 8 over F₄. Both groups are 2-groups. PR #1652 enumerated them; the continuation retains its finite check and the source argument's small-prime failure. p = 2 satisfies the hypothesis of Lemma 5.11 (2 splits in Q(√−7)), so Corollary 5.20 as stated covers p = 2, where its proof fails; there #B0(F_2) = #B0(F_4) = 1 as well. [cc-442dc5]
+- **E-MILNE68-NEWTON-ABSCISSA** (misprint; affects nothing), Milne, Extensions of abelian varieties defined over a finite field, Invent. Math. 5 (1968), published p.67, proof of Theorem 1(c), definition of the Newton polygon; author-hosted published page image..
+  - *Printed:* (c_i, ord_p(c_i))
+  - *Correction:* Use (i, ord_p(c_i)) for each nonzero coefficient c_i of F^i.
+  - *Why:* The horizontal coordinate is the exponent. For 1+F the printed point set has just (1,0), whereas the Newton polygon has endpoints (0,0) and (1,0). General coefficients lie in a p-adic field, not canonically in R. The subsequent formula ord_s(lambda)=min_i(ord_p(c_i)-s i) also confirms the intended exponent coordinate. This is a notation slip, not a disproof of Theorem 1(c), and is outside the degree-comparison proof used above.
+- **E18** (error; affects the proof), LT arXiv:1511.02212v1, p.21, Proposition 4.14(1), final sentence of the alternative p-adic proof; final journal text not acquired..
+  - *Printed:* the centralizer of F, which is not a division algebra
+  - *Correction:* A Frobenius centralizer can be a division algebra (a field). Use the preceding local-invariant calculation to prove splitting over each local center; being a Q_p-centralizer or merely not being a division algebra does not establish that splitting.
+  - *Why:* Take E/F_5: y²=x³+1. Its discriminant is nonzero mod 5 and it has six rational points, so P_E=X²+5 and Q(π)=Q(√−5) has no real place. On the two-dimensional prime-field rational realization F has this characteristic polynomial; it is irreducible over Q_5 by Eisenstein. Hence the commutant is Q_5[F]≅Q_5[X]/(X²+5), a field and therefore a division algebra. In companion coordinates F=[[0,−5],[1,0]], every commuting matrix is xI+yF with determinant x²+5y²; unequal parity of valuations prevents a nonzero zero determinant. The proposition is not disproved: the preceding invariant proof is valid, and a field is split over its own center.
+- **E19** (error; affects the proof), v1 p.11, (14), and p.14, (20); published Corollary 3.18 and (25) in the proof of Corollary 3.22 (numbering from Lee 2022).
+  - *Printed:* ≤ (∏_(λ≠μ)|λ−μ|_∞)^4 ≤ (2p^(1/2))^(4·C(2g,2)) in (14), and #G(Ẑ)/Stab(L) ≤ (2p^(1/2))^(4·C(2g,2)) in (20)
+  - *Correction:* (2p^(1/2))^(8·C(2g,2)) in both places.
+  - *Why:* The exponent in §3.1.6 sums val_ℓ(λ−μ) over ordered pairs of unequal roots (δ_i = val_ℓ disc(R_i) is an ordered-pair sum), and there are 2g(2g−1) = 2·C(2g,2) ordered pairs, each with |λ−μ| ≤ 2√p. (19) gives (20) the same way. *Known:* J. Lee, "On the lower bound of the number of abelian varieties over F_p", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(1)(c) and (2).
+- **E20** (error; affects the proof), v1 p.15, (27); published (32) (numbering from Lee 2022).
+  - *Printed:* #∏Cl(O_K) ≤ (2√p)^(g²/2)·(g/2)^g·(log 2√p)^g·500^g e^g = (2√p)^((g²/2)(1+o(1)))
+  - *Correction:* (2√p)^(2g²(1+o(1))) with the corrected (26) (E6); even with (26) as printed the exponent is g²(1+o(1)).
+  - *Why:* The fields K are the Frobenius fields of the simple factors, of degrees d_i with Σd_i ≤ 2g, so Σ(1/2)C(d_i,2) can be as large as (1/2)C(2g,2) ≈ g², not g²/2; with |D_K| ≤ (2√p)^(d(d−1)) the square root contributes (2√p)^(C(d,2)) and the total is (2√p)^(C(2g,2)) ≈ (2√p)^(2g²). *Known:* J. Lee, "On the lower bound of the number of abelian varieties over F_p", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), §3.1(2), inequality (8).
+- **E21** (error; affects a stated result), v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23.
+  - *Printed:* B(p,g) = o_ε(p^((17/2+ε)g²)), from #{isomorphism classes in an isogeny class} ≤ p^((33/4)g²(1+o(1))) in (28)
+  - *Correction:* B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))) by the corrected argument; the sharpest published bound is B(p,g) ≤ p^((45/4)g²(1+o(1))) (Lee, Theorem 1.4). The exponent 17/2 is not established.
+  - *Why:* Combine E19 (a factor 2 in two exponents), E20 (a factor 4 in the class-group exponent) and E7 (powers of 2 with exponent of order g² are not p^(o(g²)) for fixed p): (28) becomes 2^(34g²)p^(17g²(1+o(1))) and B(p,g) gains the factor p^(g²/4) of Corollary 2.2. *Known:* J. Lee, "On the lower bound of the number of abelian varieties over F_p", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 ("a (corrected) main result of [7]") and Theorem 1.4.
+
+## Gaps
+
+- **G0** (open). The published text is still not readable here (Project Euclid returns a JavaScript challenge). Lee 2022 shows that §3 was renumbered and its local count revised in print; its corrections are recorded as known (E6, E7, E19–E21). The maintainer's copy should be compared at review. [cc-442dc5] Earlier: Final 2018 paper not acquired; legitimate publisher download returned security HTML. All findings are v1-only.
+- **G1** (resolved). The unpolarized constant is settled by E21: the corrected statement is Lee's Theorem 1.1, and the item states it. [cc-442dc5] Earlier: Sharp unpolarized numerical coefficient and original lower-count proof interiors remain unverified; existing corrected reciprocal/discriminant bounds retained.
+- **G2** (handed to design). The replacement local and adelic bounds are routed (GN.2, GN.3, AA.4, the finite-field Part II); proving them is the design job's work. [cc-442dc5] Earlier: L1–L9/S1–S6 provide coarse local orbit/stabilizer and abstract D_*³h bounds. C3–C6 now give prime-field linear-dual conventions, torsion integrality detection, a finite-flat construction realizing finite-support tuples, the marked/rational-orbit comparison, and a finite-support adelic stabilizer assembly. The latter explicitly consumes p-Tate full faithfulness and the p-Frobenius-polynomial comparison, whose original arithmetic proofs are now decomposed in D1–D5, while their R07.2/A3/A6 geometric imports remain G8. Local order/maximal-order, coefficient-DVR, topology, trace-dual and flag-carrier adapters are not implemented; AA.1/AA.3 group/class-set hypotheses still require formal composition. General-q covariance is not solved. The sharp linear 4nδ estimate and literal stabilizer-depth-source remain withheld.
+- **G3** (resolved). E8–E10 are recorded and the items use the corrected normalizations; reduced-trace-source now states the corrected Remark 4.8. [cc-442dc5] Earlier: Polarization normalization, rational NS, geometric/reduced trace and original Lang supplier closure remain as in predecessor.
+- **G4** (resolved in part). The mass coefficient is 1/2 (E13). Gan–Yu (39) is routed to GN.3 with the check it needs; the residue-ratio lower bound (E12) goes to AnalyticNumberTheory AN.4; the free/projective comparison is routed. [cc-442dc5] Earlier: Gan–Yu dyadic measures, mass leading coefficient, residue-ratio bounds and free/projective comparison unresolved.
+- **G5** (resolved). E14 now shows that the real-Weil factor B0 is not negligible; Theorem 0.2 is restated with the B0 alternative and an extended conjecture. [cc-442dc5] Earlier: Real-Weil/quaternionic conditional-scope and reduced-norm/narrow class-set obstructions unresolved.
+- **G6** (resolved). Lemma 5.19 holds exactly for odd p (elliptic-pgroups-large); Corollary 5.20 is restated for odd p (E17). [cc-442dc5] Earlier: F₂ counterexample retained; only p≥7 repaired source lemma is routed; final-version comparison outstanding.
+- **G7** (resolved). Corollary 5.14 is restated with the Kolmogorov distance and the (h−1)/g zero-gap mass (E15); CL limits remain a hypothesis (E16), routed to ST.5. [cc-442dc5] Earlier: Spacing normalization, asymptotic quantifiers, enhanced joint-limit existence/tightness and odd-prime convergence unresolved.
+- **G8** (handed to design). The classical inputs (Tate, Honda–Tate, Dieudonné classification, Waterhouse) are items with owners; their proofs belong to the design and blueprint jobs, not to the extraction. [cc-442dc5] Earlier: D1–D5 freshly read WM71 Part II and M68 pp.65–66 and decompose p-realization degree/characteristic polynomials, semisimplicity, saturated injection, Frobenius block algebras and dimension counts, rational/integral p-Tate, and the p-local invariant. The previous original-p-proof lookup is discharged. Remaining: original R07.2 finite/p-divisible Dieudonné exact classification and length/rank proofs; A3 finite-flat quotient/torsion; A6 intrinsic degree polynomial and finite-rank Hom; PEL fixed-polarization/twist finiteness; polarization divisibility/positivity; split-prime existence; generic semisimple intertwiner assembly; the precise generic valuation-separation, fixed-Witt-ring, unramified tensor and central-simple descent adapters; local cyclic-invariant/algebraic–cohomological Brauer proof; global Brauer classification and Honda CM existence. Gan–Yu/Jacobowitz/Lang/Friedman–Washington and the inherited Euler/trace-formula and atomic-closure gaps remain. All are proof/source or adapter obligations, not new parallel carriers. V1–V5 close the mathematical decomposition and exact baseline audit of the fixed-Witt-ring and valuation-separation placeholders, replacing splitting-field valuations by quotient-ring determinant congruences. Eight generic implementation items are routed to a proposed LocalFields Part II; these are not implemented or independently reviewed. Unramified-field/tensor identification and central-simple descent remain separate, as do all named geometric and source obligations.
+- **G9** (withdrawn). API outlines and unit tests are blueprint requirements (PROTOCOL §§4, 12), not paper-v1 extraction requirements (§16). The design and blueprint jobs derive them. [cc-442dc5] Earlier: Legacy schema/API normalization: of 44 definition/construction items, 37 inherited entries retain API/tests only in prose notes, and the inherited double-coset-level-map has string tests. The six structured entries (three inherited and three new here) each have a nonempty API, explicit uses and ≥3 typed tests. Preserve the existing mathematical content, but normalize the 38 legacy entries to consumer-derived API/uses and §12 name/kind/statement test objects before claiming complete. check_paper.py does not enforce this requirement.
+
+## Validation
+
+- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json`: ok, with status complete.
+- `python3 research/blueprint/intake.py check-files` on the result, this report and the handoff note: 0 problems.
+- **Library checks.** All 61 cited declarations were found again at Mathlib 082e2d3 and Tau Ceti f790474 (git grep). The new inputs were searched for too: the Hasse norm theorem, Lang's theorem, positive involutions and hermitian forms. None is in either library; the Hasse norm theorem is planned in Tau Ceti ClassFieldTheory Layer 13.
+- **Checked by cc-442dc5.**
+  - The v1 constants (14), (20), (26), (27) and (28), on the page images, against Lee §3.1.
+  - The factorial asymptotic behind E13, and the corrected thresholds of Proposition 5.10.
+  - The mass comparison behind E14.
+  - Lemma 5.19 for odd p, and its counterexamples at p = 2.
+  - The formula t = (2g/(em))·Trd in Remark 4.8.
+  - DiPippo–Howe's Theorem 1.3 on its page image, and Lemmermeyer's Proposition 1.
+- **Lean.** No Lean file is part of a paper job; none was written or compiled.
+
+## Item index
+
+| Item | Kind | Name | Locator | Status | Layers, declarations or route |
+|---|---|---|---|---|---|
+| /abelian-variety | definition | Abelian variety over a field | §0; §3 setup | library | tauceti:TauCeti.AlgebraicGeometry.AbelianVariety, tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.dim, tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.smooth |
+| /unpolarized-count | definition | Unweighted abelian-variety count | §0 p.1 | planned | ArithmeticStatistics:ST.0 |
+| /ppav-count | definition | Unweighted principally polarized count | §0 pp.1–2 | planned | ArithmeticStatistics:ST.0 |
+| /polarization-fiber | definition | Number of polarizations on a fixed variety | §4.4; Conjecture 5.2 | missing | routed: ArithmeticStatistics:ST.0 |
+| /main-unpolarized-source | theorem | Theorem 0.1, corrected: abelian varieties over F_p number p^(O(g²)) | Theorem 0.1; §3.2.3 (28), with Corollary 2.2 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /main-repeated-source | theorem | Theorem 0.3 (Proposition 4.17): most ppavs over F_p have a repeated factor | Theorem 0.3; Proposition 4.17 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /main-elliptic-source | theorem | Theorem 0.2 (Corollary 5.13), corrected: a large elliptic or B0 factor, conditionally | Theorem 0.2; Corollary 5.13 | missing | routed: ArithmeticStatistics:ST.5 |
+| /trace-formula | theorem | Compactly supported trace formula | §1 (1)–(2) | planned | WeilConjectures:WC.0 |
+| /weights-source | theorem | Weights used in the point-count heuristic | §1 p.3 | planned | DeligneWeightsAndPurity:DWP.7 |
+| /isogeny | definition | Isogeny of abelian varieties | §3 setup | library | tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny, tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_iff |
+| /rational-endomorphism | definition | Rational endomorphism algebra | §3 pp.6–7 | planned | AbelianSchemesAndArithmeticModuli:A6 |
+| /poincare-decomposition | theorem | Isogeny decomposition and semisimplicity | §3.2.2; Proposition 4.16 | planned | AbelianSchemesAndArithmeticModuli:A6 |
+| /tate-module | definition | Prime-to-characteristic Tate module | §3 setup | planned | AbelianSchemesAndArithmeticModuli:A4 |
+| /tate-hom | theorem | Tate full faithfulness over finite fields | §3 lattice classification; [25] | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /weil-polynomial | definition | Frobenius polynomial and reciprocity | §2; §4.3 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /isogeny-polynomial | theorem | Frobenius polynomial determines the isogeny class | Corollary 2.2, Tate input | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /honda-tate | theorem | Honda–Tate simple isogeny classification | §0; §3.2.2; Proposition 4.14 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /power-sum-count | theorem | Lemma 2.1, corrected: counting Weil polynomials | §2 Lemma 2.1 (corrected constant) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /isogeny-class-upper | theorem | Asymptotic count of isogeny classes | Corollary 2.2 with repaired power-sum-count | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /isocrystal | definition | Frobenius isocrystal carrier | §3 p-adic realization | library | mathlib:WittVector.Isocrystal, mathlib:WittVector.Isocrystal.frobenius, mathlib:WittVector.IsocrystalHom |
+| /dieudonne-lattice | definition | Integral Dieudonné realization | §3 setup | planned | FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /marked-lattice-space | definition | Prime-to-p and p lattice spaces | §3 equations (5)–(6) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /marked-quasi-isogeny | theorem | Marked quasi-isogenies classified by lattices | §3 (5)–(6) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /forget-marking | theorem | Isomorphism classes as rational orbits | §3 (7) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /prime-p-centralizer | theorem | The prime-field p-component reduction | Remark 3.2 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /local-order | definition | Local monogenic order | §3.1.2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /saturation-normalization | theorem | Normalized lattice sandwiches | §3.1.2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /flag-fiber | definition | Stable lattice with prescribed flag quotients | §3.1.3; Yun §4.8–4.9 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /extension-shear | theorem | Centralizer shears identify equivalent extensions | Lemma 3.1 and proof | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /yun-resultant-fiber | theorem | Resultant cardinality of a disjoint-spectrum fiber | Yun Lemma 4.9 pp.14–15; LT §3.1.1 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /extension-determinant-bound | theorem | Bound after removing zero eigenspaces | §3.1.4 pp.8–10 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /punctual-hilbert-count | definition | Finite-colength ideal count | Yun §4.12–4.13 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /yun-partition-formula | theorem | Yun finite-colength partition formula | Yun Proposition 4.13 pp.16–17 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /hilbert-crude-bound | theorem | Crude partition upper bound | LT §3.1.5; Yun Proposition 4.13 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /adelic-class-set | definition | Adelic class set of the endomorphism group | §3.2 (15) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /strong-approximation | theorem | Strong approximation supplier | §3.2.2 before (21) | planned | AdelicAlgebraicGroups:AA.4 |
+| /nonabelian-class-comparison | theorem | Class-set comparison by reduced norms | §3.2.2 (21) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /class-formula | theorem | Analytic class number formula | §3.2.2 (22) | library | mathlib:NumberField.dedekindZeta_residue, mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT |
+| /coarse-class-bound | theorem | Available uniform class-number bound | Coarser available replacement for §3.2.2 | library | tauceti:NumberField.classNumber_le_bound |
+| /weil-discriminant-bound | theorem | Correct elementary discriminant estimate | §3.2.2 (26), corrected exponent | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /regulator-source | theorem | Explicit lower bound for regulators (Skoruppa), as quoted | §3.2.2 (23), [24] | planned | tauceti:Completed/EffectiveBounds#… |
+| /residue-source | theorem | Explicit residue bound for Dedekind zeta functions (Louboutin) | §3.2.2 (24), [18]; used again in §5.4.2 (49) | missing | routed: AnalyticNumberTheory:AN.4 |
+| /dual-poincare | definition | Dual variety and rigidified Poincaré bundle | §4.1; Conrad §1 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /polarization | definition | Polarization as a positive symmetric morphism | Definition 4.1; Conrad Definitions 2.1,3.2 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /mumford-map | construction | Mumford homomorphism of a line bundle | §4.1; Conrad Example 2.2 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /graph-pullback | theorem | Correct graph-pullback normalization | Conrad Example 2.2 pp.6–7, correcting LT §4.1 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /phi-kernel | theorem | Kernel of the Mumford map | §4.1 (1)–(2); Conrad Lemma 2.3 and p.8 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /phi-ample-isogeny | theorem | Ample line bundles induce isogenies | §4.1 (3); Conrad Remark 2.4 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /finite-field-polarization-descent | theorem | Line-bundle realization over a finite field | Remark 4.2; Conrad Theorem 2.6 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /polarized-isomorphism | definition | Isomorphism of symmetric morphisms | Definition 4.3 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /phi-pullback | theorem | Pullback covariance | Remark 4.4 (29) | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /rosati | definition | Rosati involution | Definition 4.5; Conrad §3 | planned | AbelianSchemesAndArithmeticModuli:A2 |
+| /ns-rational | definition | Rational Néron–Severi space | §4.2 with rationalization made explicit | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /ns-rosati-map | construction | Normalized Néron–Severi/Rosati map | §4.2, Lemma 4.6 with rational domain corrected | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /endomorphism-trace | definition | Geometric endomorphism trace | Definition 4.7; Conrad Definition 3.3 | planned | AbelianSchemesAndArithmeticModuli:A6 |
+| /degree-polynomial | theorem | Degree characteristic polynomial | §4.3, Mumford §19 Theorem 4 | planned | AbelianSchemesAndArithmeticModuli:A6 |
+| /rosati-positivity | theorem | Positive Rosati trace pairing | §4.3; Conrad Theorem 3.4 pp.9–10 | planned | AbelianSchemesAndArithmeticModuli:A6 |
+| /positive-ample | theorem | Ample classes and positive symmetric elements | Proposition 4.9 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /real-cone | theorem | Real ample-cone matrix description | Proposition 4.10 | missing | routed: AbelianSchemesAndArithmeticModuli:A6 |
+| /polarization-orbits | theorem | Polarizations as Rosati-conjugacy orbits | Proposition 4.11 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /integer-matrix-example | theorem | No-CM elliptic-power orbit example | Example 4.12 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /cm-field | definition | CM field and maximal real subfield | §4.4.1; Definition 5.1 | library | mathlib:NumberField.IsCMField |
+| /cm-conjugation | definition | Intrinsic CM conjugation | Definition 5.1 | library | mathlib:NumberField.IsCMField.complexConj, mathlib:NumberField.IsCMField.complexEmbedding_complexConj, mathlib:NumberField.IsCMField.complexConj_apply_apply |
+| /cm-unit-orbits | theorem | Polarizations for a maximal CM endomorphism order | Example 4.13 | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /prime-field-end-algebra | theorem | Commutative endomorphisms in the nonreal prime-field case | Proposition 4.14(1) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /waterhouse-orders | theorem | Realization of nonreal prime-field orders | Proposition 4.14(2), Waterhouse Theorem 6.1 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /squarefree-pol-count | theorem | Squarefree nonreal polarization bound | Proposition 4.16 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /model-ring | definition | Model ring with positive involution | Definition 5.1 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /model-orbit-count | definition | Positive-unit model orbit count | Definition 5.1; Conjecture 5.2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /model-comparison-conjecture | theorem | Conjectural comparison with the model ring | Conjecture 5.2 | missing | routed: ArithmeticStatistics:ST.5 |
+| /unit-norm-label | definition | Totally positive unit norm labels | §5.2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /unitary-group | definition | Unitary group of a definite hermitian space | §5.2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /hermitian-lattice | definition | Integral projective hermitian lattice | Definition 5.3 | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /hermitian-dual | definition | Dual and unimodularity | Definition 5.3 | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /gram-orbit-bijection | theorem | Free unimodular lattices and Gram congruence | Proposition 5.4 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /norm-ideal | definition | Norm ideal of a local hermitian lattice | Definition 5.5 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /local-hermitian-classification | theorem | Local unimodular classification input | Proposition 5.6 and following paragraph | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /hermitian-genus | definition | Genus of a hermitian lattice | §5.3 (37) | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /genus-double-cosets | theorem | Hermitian genus as a unitary class set | §5.3 (37) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /hermitian-mass | definition | Weighted hermitian genus mass | §5.4 (38) | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /tamagawa-mass | theorem | Unitary Tamagawa mass formula | §5.4 (38) | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /density-source | theorem | Stabilizer volume of a self-dual hermitian lattice (Gan–Yu), as used in (39) | §5.4 (39); Gan–Yu [10, Theorem 10.20] | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /relative-discriminant | theorem | Elementary CM relative-discriminant bound | §5.4.1 (41), corrected factor | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /factorial-asymptotic | theorem | Factorial product asymptotic | §5.4.3, elementary audit of (39) to (51) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /mass-asymptotic-source | theorem | Mass of unimodular hermitian lattices, corrected (51)–(53) | §§5.4.3–5.4.4 (51)–(53) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /gl-card | theorem | Finite general linear group cardinality | Lemma 5.8; Example 5.17 | library | mathlib:Matrix.card_GL_field, mathlib:Matrix.card_matrix |
+| /finite-integral-group | theorem | Minkowski finite integral group bound | Lemma 5.8 and full proof | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /mass-cardinality-comparison | theorem | Passing from mass to class count | §5.4.4 (52)–(53) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /free-projective-comparison | theorem | Free versus projective mass classes | Remark 5.7; (54) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /model-count-source | theorem | Orbit count on a model ring, corrected (55) | §5.4.5 (55) | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /convex-concentration | theorem | Convex mass-concentration inequality | Lemma 5.9 | missing | routed: ArithmeticStatistics:ST.5 |
+| /model-concentration-source | theorem | Proposition 5.10, corrected threshold | Proposition 5.10 | missing | routed: ArithmeticStatistics:ST.5 |
+| /split-prime-density | theorem | Density of primes splitting in a class-number-one CM field | Lemma 5.11 proof | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /cm-elliptic-existence | theorem | Elliptic curve with class-number-one endomorphisms | Lemma 5.11 proof | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /elliptic-power-source | theorem | Lemma 5.11, corrected: principal polarizations on E^g | Lemma 5.11 (56) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /spacing-measure | definition | Normalized eigenangle spacing measure | §5.6, expanded convention | missing | routed: ArithmeticStatistics:ST.5 |
+| /spacing-source | theorem | Corollary 5.14, corrected: spacing discrepancy | Corollary 5.14 | missing | routed: ArithmeticStatistics:ST.5 |
+| /cl-measure | definition | Cohen–Lenstra probability measure | §5.7.1 | planned | ArithmeticStatistics:ST.5 |
+| /friedman-washington | theorem | Random integral matrices and Cohen–Lenstra | §5.7.1 [9] | planned | ArithmeticStatistics:ST.5 |
+| /enhanced-cl | definition | Proposed enhanced Cohen–Lenstra law | Definition 5.16 | missing | routed: ArithmeticStatistics:ST.5 |
+| /cl-two-prime | theorem | Two-extension zero-cokernel probability at two | Example 5.17, first case | missing | routed: ArithmeticStatistics:ST.5 |
+| /cl-odd-prime | theorem | Uniform positive bound at odd primes | Example 5.17, second case | missing | routed: ArithmeticStatistics:ST.5 |
+| /enhanced-cl-conjecture | theorem | Source enhanced-statistics conjecture | Conjecture 5.18 | missing | routed: ArithmeticStatistics:ST.5 |
+| /elliptic-pgroups-large | theorem | Lemma 5.19, corrected: odd characteristic | Lemma 5.19 (corrected: p odd) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /point-count-isogeny | theorem | Point counts are isogeny invariant | Corollary 5.20 proof | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /enhanced-failure-source | theorem | Corollary 5.20, corrected: odd p | Corollary 5.20 | missing | routed: ArithmeticStatistics:ST.5 |
+| /reduced-trace-source | theorem | Remark 4.8, corrected: trace versus reduced trace | Remark 4.8 | missing | routed: AbelianSchemesAndArithmeticModuli:A6 |
+| /ramification-count | theorem | Ramified-prime count from the relative discriminant | §5.4.2 (44), sharper elementary bound | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /monogenic-trace-dual-library | theorem | Monogenic trace-dual formula | Mathlib/RingTheory/DedekindDomain/Different.lean:592–631 at 082e2d37e8b0463410cdb532e111cd43d5a66174 | library | mathlib:traceForm_dualSubmodule_adjoin, mathlib:Submodule.traceDual, mathlib:Submodule.traceDual_span_of_basis |
+| /complete-hensel-library | theorem | Hensel lifting from adic completeness | Mathlib/RingTheory/Henselian.lean:88–178 at 082e2d37e8b0463410cdb532e111cd43d5a66174 | library | mathlib:IsAdicComplete.henselianRing, mathlib:HenselianRing.is_henselian |
+| /local-length-scalar-library | theorem | Length under restriction of local scalars | Mathlib/RingTheory/LocalRing/Length.lean:54–81 at 082e2d37e8b0463410cdb532e111cd43d5a66174 | library | mathlib:IsLocalRing.length_restrictScalars |
+| /monogenic-conductor-bound | theorem | Monogenic conductor and dual sandwich | §3.1.2; continuation L1 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /coefficient-dvr-model | theorem | Residue-correct coefficient DVR | Yun §4.12; LT §3.1.5; continuation L2 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /weighted-partition-cumulative-bound | theorem | Weighted partition cumulative bound | Yun Proposition 4.13; continuation L3 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /rank-one-local-class-bound | theorem | Rank-one local ideal-class bound | LT §3.1.2 and corrected §3.1.5; continuation L4 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /repeated-block-orbit-bound | theorem | Repeated-block local orbit bound | LT §§3.1.3–3.1.5; continuation L5–L6 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /semisimple-local-orbit-bound | theorem | Semisimple local orbit bound with multiplicities | LT §§3.1.1–3.1.6 and Yun Lemma 4.9; continuation L7 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /adelic-local-orbit-bound | theorem | Adelic local-orbit bound for Weil polynomials | LT §3.1.6; continuation L8 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /isotypic-stabilizer-congruence-bound | theorem | Isotypic integral stabilizer via a congruence kernel | LT §3.2.1 p.12; continuation L9 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /smith-quotient-supplier | theorem | Full-rank PID quotient in Smith coordinates | Mathlib/LinearAlgebra/FreeModule/Finite/Quotient.lean:37–77; FreeModule/PID.lean:576–641 | library | mathlib:Submodule.quotientEquivPiSpan, mathlib:Submodule.smithNormalFormBotBasis_def, mathlib:Submodule.smithNormalFormCoeffs_ne_zero |
+| /prime-power-cardinality-supplier | theorem | Cardinality of a prime-power quotient | Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean:52–85,112–180 | library | mathlib:cardQuot_pow_of_prime, mathlib:Submodule.cardQuot_apply |
+| /dvr-unit-power-supplier | theorem | Unit times uniformizer power in a DVR | Mathlib/RingTheory/DiscreteValuationRing/Basic.lean:320–344 | library | mathlib:IsDiscreteValuationRing.eq_unit_mul_pow_irreducible |
+| /double-coset-relation-supplier | theorem | Representative criterion for a double coset | Mathlib/GroupTheory/DoubleCoset.lean:73–126 | library | mathlib:DoubleCoset.eq |
+| /orbit-index-supplier | theorem | Index of a stabilizer equals its orbit cardinal | Mathlib/GroupTheory/Index.lean:891–900 | library | mathlib:MulAction.index_stabilizer |
+| /finite-dvr-determinant-index | theorem | Determinant index of a stable DVR lattice | Yun v2 Lemma 4.9 determinant/length step; continuation S1 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /nonisotypic-stabilizer-bound | theorem | Integral stabilizer controlled by successive graded lattices | LT v1 §§3.1.1,3.2.1, especially (20); Yun v2 Lemma 4.9 proof; replacement proof S2–S3 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.3 |
+| /double-coset-level-map | construction | Nested right-level map on double cosets | LT v1 §3.2, (15) and use of (20); AA.4 level-map specialization; continuation S4 | missing | routed: AdelicAlgebraicGroups:AA.4 |
+| /double-coset-level-cardinality | theorem | Finite-index bound for a double-coset level change | LT v1 §3.2.3 level-index step; continuation S4 | missing | routed: AdelicAlgebraicGroups:AA.4 |
+| /double-coset-conjugate-level | theorem | Conjugate right levels have equivalent double-coset sets | LT v1 §3.2 choice of integral compact subgroup; continuation S5 | missing | routed: AdelicAlgebraicGroups:AA.4 |
+| /finite-support-product-index | theorem | Index of product subgroups with finite exceptional support | LT v1 (20), local-to-global index step; continuation S5 | missing | routed: AdelicAlgebraicGroups:AA.4 |
+| /conditional-rational-orbit-bound | theorem | Conditional rational-orbit bound from local lattices | LT v1 §§3.1.6,3.2.1–3.2.3; continuation S5–S6 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /semisimple-bicommutant-supplier | theorem | Finite semisimple-module bicommutant supplier | Mathlib/RingTheory/SimpleModule/Basic.lean:552–584, pinned commit | library | mathlib:Module.Finite.toModuleEnd_moduleEnd_surjective, mathlib:jacobson_density |
+| /padic-compactness-supplier | theorem | Compactness of p-adic integers | Mathlib/NumberTheory/Padics/ProperSpace.lean:38–61, pinned commit | library | mathlib:PadicInt.compactSpace |
+| /compact-subsequence-supplier | theorem | Convergent subsequences in first-countable compact sets | Mathlib/Topology/Sequences.lean:284–302, pinned commit | library | mathlib:IsCompact.tendsto_subseq |
+| /fixed-polarization-finiteness | theorem | Finite-field finiteness at fixed polarization degree | Tate 1966 §2, printed p.136, Hyp(k,A,d,ℓ) | missing | routed: PELModuli:M6 |
+| /polarization-divisibility | theorem | Prime-to-characteristic divisibility of a polarization | Tate 1966 Proposition 1 proof, p.137, invoking Weil [12] | missing | routed: AbelianSchemesAndArithmeticModuli:A2 |
+| /tate-isotropic-image | theorem | Tate’s isotropic image lemma | Tate 1966 Proposition 1, pp.136–137 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /tate-split-commutant | theorem | Tate full faithfulness at a split Frobenius prime | Tate 1966 Proposition 2 and following paragraph, pp.137–138 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-tate-hom | theorem | Integral Tate full faithfulness at the characteristic prime | WM71 Part II Theorem 1, pp.60–61; integral saturation in Part I pp.55–57; Waterhouse 1969 §1.2. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /prime-field-covariant-dual | construction | Prime-field linear-dual realization | Waterhouse 1969 §§1.2 and 2.1; LT v1 Remark 3.2; continuation C3 | missing | routed: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /torsion-integrality-detection | theorem | Torsion detects integral quasi-homomorphisms | Waterhouse 1969 §1.1–1.2; Tate 1966 Lemma 1; continuation C4 | missing | routed: AbelianSchemesAndArithmeticModuli:A6 |
+| /prime-field-lattice-realization | theorem | Finite-support lattice tuples are realized over the prime field | Waterhouse 1969 §§1.1–1.2 and lattice changes in Theorem 6.1; LT v1 §3 (5)–(6); continuation C4 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /prime-field-marked-classification | theorem | Prime-field marked and unmarked classification | LT v1 §3 (5)–(7); continuation C4 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /good-prime-lattice-orbit | theorem | Unique local orbit away from the minimal-polynomial discriminant | LT v1 §3.1 integral-order setup; Waterhouse 1969 Theorem 6.1 good-prime step; continuation C5 | missing | routed: GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /prime-field-adelic-stabilizers | theorem | Finite-support adelic stabilizers in a prime-field isogeny class | LT v1 §§3.1.6,3.2.1–3.2.3; continuation C5 | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /prime-field-isogeny-class-bound | theorem | Coarse prime-field isomorphism count at fixed adelic level | LT v1 §§3.1.6–3.2.3; continuation C6, coarse replacement only | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /prime-field-p-frobenius | theorem | Prime-field p-realization Frobenius polynomial | M68 §1 pp.65–66; WM71 Part II p.60; specialization a=1 of p-frobenius-semisimplicity. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /simple-module-end-dimension-supplier | theorem | Dimension of an endomorphism algebra over a simple algebra | TauCeti/RingTheory/Semisimple/EndAlgebra.lean, variables at lines 109–145 and theorem at line 144, pinned f790474. | library | tauceti:TauCeti.IsSimpleRing.finrank_end_mul_finrank_eq_sq |
+| /brauer-opposite-supplier | theorem | Opposite algebra gives the inverse Brauer class | TauCeti/Algebra/BrauerGroup/Group.lean, lines 130–207, mk_op. | library | tauceti:TauCeti.BrauerGroup.mk_op |
+| /centralizer-tensor-supplier | construction | Tensor decomposition along a central simple subalgebra | TauCeti/Algebra/CentralSimple/Centralizer.lean, Centralizer section, tensorCentralizerAlgEquiv and tensorCentralizerAlgEquiv_tmul. | library | tauceti:TauCeti.tensorCentralizerAlgEquiv, tauceti:TauCeti.tensorCentralizerAlgEquiv_tmul |
+| /finite-dieudonne-exactness | theorem | Exact finite-level contravariant Dieudonné comparison | WM71 Part I Theorem 4, p.56; M68 §1, p.65. | planned | FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /finite-dieudonne-length-rank | theorem | Dieudonné length measures group-scheme rank | WM71 Part I Theorem 4, p.56; M68 §1, p.65. | planned | FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /local-cyclic-invariant-supplier | theorem | Invariant of an unramified cyclic algebra | WM71 Part II proof of Theorem 2, p.61; imported local invariant convention in ClassFieldTheory Layer 5. | planned | tauceti:TauCetiRoadmap/ClassFieldTheory#… |
+| /p-realization-degree-valuation | theorem | Dieudonné determinant detects the p-part of isogeny degree | M68 §1, p.65, determinant/length/degree comparison; WM71 Part I pp.56–57. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-realization-characteristic-polynomial | theorem | Characteristic polynomial on the p-realization | M68 §1, pp.65–66; WM71 Part I p.57 and Part II p.60; handoff P1 expanded in report D1. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-frobenius-semisimplicity | theorem | Semisimplicity of the linear q-Frobenius realization | M68 p.66, paragraph before Theorem 1; WM71 Part I p.57 and Part II p.60. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-realization-saturated-hom | theorem | Saturated injection on integral p-realization Hom groups | WM71 Part I Theorems 3 and 5, pp.55–56, and saturation step p.57; expanded handoff P2/report D2. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-frobenius-block-algebra | construction | Algebra acting on a Frobenius polynomial block | WM71 Part II p.60 cyclic quotient and p.61 presentation; explicit finite-sum presentation of handoff P3. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-frobenius-block-split | theorem | Central simplicity of a Frobenius block algebra | WM71 Part II pp.60–61; weighted-cycle expansion of handoff P3/report D3. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-frobenius-centralizer-dimension | theorem | Dimension of the semilinear Frobenius commutant | WM71 Part II Theorem 1 proof, pp.60–61; handoff P3/report D3. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /rational-p-tate-hom | theorem | Rational p-Tate comparison | WM71 Part II Theorem 1 proof, pp.60–61. | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /p-endomorphism-local-invariant | theorem | Characteristic-prime invariant of a simple endomorphism algebra | WM71 Part II Theorem 2 and proof, pp.60–61; LT v1 Proposition 4.14(1). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /witt-coordinate-supplier | theorem | Witt maps and Frobenius act on Witt coordinates | Mathlib/RingTheory/WittVector/Basic.lean:253–267; Frobenius.lean:258–278. | library | mathlib:WittVector.map_coeff, mathlib:WittVector.map_injective, mathlib:WittVector.coeff_frobenius_charP, mathlib:WittVector.frobenius_zmodp |
+| /witt-prime-comparison-supplier | construction | Prime-field Witt vectors are the p-adic integers | Mathlib/RingTheory/WittVector/Compare.lean:155–208. | library | mathlib:WittVector.equiv, mathlib:WittVector.toPadicInt, mathlib:WittVector.fromPadicInt |
+| /prime-field-fixed-supplier | theorem | Fixed elements of absolute Frobenius in a field | Mathlib/FieldTheory/Finite/Basic.lean:720–756. | library | mathlib:Subfield.mem_bot_iff_pow_eq_self, mathlib:mem_bot_iff_intCast |
+| /padic-approximation-supplier | construction | Bounded integral representatives modulo p powers | Mathlib/NumberTheory/Padics/RingHoms.lean:354–440. | library | mathlib:PadicInt.appr, mathlib:PadicInt.appr_lt, mathlib:PadicInt.appr_spec |
+| /monic-factor-integrality-supplier | theorem | A monic fraction-field factor has integral coefficients | Mathlib/RingTheory/Polynomial/GaussLemma.lean:57–104. | library | mathlib:IsIntegrallyClosed.eq_map_mul_C_of_dvd |
+| /monic-norm-resultant-supplier | theorem | Norm in a monic polynomial quotient equals the resultant | TauCeti/RingTheory/Polynomial/Resultant/AdjoinRoot.lean:269–303. | library | tauceti:AdjoinRoot.norm_mk_eq_resultant, tauceti:AdjoinRoot.norm_mk_eq_det_mulModByMonic |
+| /resultant-algebra-supplier | theorem | Base change, multiplicativity and monic degree padding for resultants | Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:140,581–585,641–665,908–921; TauCeti/RingTheory/Polynomial/Resultant/Basic.lean:65–71. | library | mathlib:Polynomial.resultant_map_map, mathlib:Polynomial.resultant_mul_left, mathlib:Polynomial.resultant_pow_left, mathlib:Polynomial.resultant_eq_zero_iff, tauceti:Polynomial.Monic.resultant_of_le |
+| /charpoly-conjugacy-supplier | theorem | Characteristic polynomials commute with scalar maps and conjugation | Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean:175–178,285–293. | library | mathlib:Matrix.charpoly_map, mathlib:Matrix.charpoly_units_conj |
+| /witt-constant-embedding | construction | Canonical p-adic constants in Witt vectors | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /witt-frobenius-fixed-ring | theorem | Frobenius-fixed Witt vectors are precisely p-adic constants | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /semilinear-charpoly-descent | theorem | Integral characteristic polynomial descends along Witt Frobenius | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 |
+| /monic-coefficient-lift | theorem | Monic polynomial lifting at an ideal-power precision | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /resultant-congruence | theorem | Resultant respects congruence in the second polynomial | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /resultant-factor-slope | theorem | A shifted approximate factor detects its multiplicity | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /resultant-valuation-recognition | theorem | Monic polynomials are determined by nonzero resultant valuations | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /padic-resultant-recognition | theorem | Integer polynomial tests determine a monic p-adic polynomial | M68 §1, p.65, coefficient and polynomial uniqueness inputs; self-contained adapter proof in report V1–V5 (not an assertion that Lang VII §1 Lemma 1 was read). | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /dipippo-howe | theorem | DiPippo–Howe lower bound for isogeny classes | Remark 2.3; [6] DiPippo–Howe, J. Number Theory 73 (1998), Theorem 1.3 (arXiv:math/9803097v3, p.2) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /positive-involution-cm | theorem | A positive involution of a CM field is complex conjugation | §4.5 before Proposition 4.16 and its proof; [19, §21] (Albert's classification) | missing | routed: AbelianSchemesAndArithmeticModuli:A6 |
+| /hasse-norm-theorem | theorem | Hasse norm theorem for cyclic extensions | Example 4.13 | planned | tauceti:TauCetiRoadmap/ClassFieldTheory#… |
+| /ambiguous-unit-norms | theorem | Units that are norms modulo norms of units (Lemmermeyer) | Example 4.13, [17] Lemmermeyer, Proposition 1 (arXiv:1309.1071v1, p.2) | missing | routed: part-ii AbelianSchemesAndArithmeticModuliPartIIFiniteFields |
+| /hermitian-hasse-principle | theorem | Hasse principle for hermitian forms (Landherr) | Proof of Proposition 5.4; [22, Chapter 10, Theorem 1.1] (Scharlau) | planned | GeometryOfNumbersAndQuadraticArithmetic:GN.2 |
+| /lang-theorem | theorem | Lang's theorem over finite fields | §5.4.2, the exact sequence before (47) | missing | routed: ReductiveGroupsPartII:RG2.3 |
+
+---
+
+# Checkpoint record (preserved)
+
+The reports of the earlier checkpoints follow unchanged. Item notes cite their sections (L1–L9, S1–S7, C0–C7, D0–D7, V0–V6). Where they call a claim withheld, or a route or gap open, the sections above supersede them.
+
 # Coefficient recognition before the p-Tate comparison
 
 **Partial checkpoint — Codex, codex-a71f92, 23 September 2026; Refs #1332.**
