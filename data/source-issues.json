@@ -32277,6 +32277,47 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-YANG-ZHAO-25/E8",
+   "kind": "gap",
+   "locator": "arXiv2209.11086v4 p.45, paragraph before Theorem6.3 and §6.4 character choice; journal passage not inspected",
+   "printed": "We choose a non-trivial additive character ψ : Fp → Λ*",
+   "correction": "First replace Λ by the finite local faithfully free algebra B of Q01, run the character-admitting proof there and descend by Q07–Q10. Do not divide by the coefficient extension degree.",
+   "reason": "For geometric characteristic p=3 and coefficients Λ=F2, the multiplicative group Λ× is trivial. These coefficients satisfy §6.1, but the requested character does not exist. F4 supplies it, with degree 2 noninvertible in F2; a linear retraction, not normalized field trace, detects equality. The previous checkpoint recorded this omission in G07; it now has a sourceIssues entry and an explicit repair.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv2209.11086 history still lists v4 as latest; full v4 read, especially p.45 image.",
+    "2026-09-23: Springer DOI10.1007/s00222-025-01319-y landing page; PDF endpoints returned HTML. No linked correction located, and no assertion about the inaccessible journal passage.",
+    "2026-09-23: Enlin Yang https://yelmath.github.io/, which labels PFF.pdf an alternative fibration proof; title plus correction/erratum search found no matching correction. PFF full reading is inherited from PR1963, not repeated."
+   ],
+   "owner": "PAPER-YANG-ZHAO-25",
+   "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
+   "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YANG-ZHAO-25/E9",
+   "kind": "misprint",
+   "locator": "Saito, On the proper push-forward of the characteristic cycle of a constructible sheaf, arXiv1607.03156v1 p.3, paragraph preceding (8); journal text not inspected",
+   "printed": "equals the support of X",
+   "correction": "The base of SS(F) is the support of F.",
+   "reason": "The zero complex on a nonempty smooth X has empty singular support, whose base is empty, whereas the support of X is nonempty. Conjecture1 and the following Lemma2 correctly use the support of F. This slip does not alter the finite étale specialization M17.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: Saito author bibliography https://www.ms.u-tokyo.ac.jp/~t-saito/publ.html, entry for this paper has no linked correction. Its separately listed corrections concern other papers.",
+    "2026-09-23: arXiv1607.03156 history lists only v1; p.3 image inspected. The 2018 journal text was not compared."
+   ],
+   "owner": "PAPER-YANG-ZHAO-25",
+   "file": "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
+   "citation": "Yang–Zhao, \"Cohomological Milnor formula and Saito's conjecture on characteristic classes\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-YU-23/E1",
    "kind": "misprint",
    "locator": "Yu arXiv:1807.04659v5, 18 July2022: §2.3.1 p9 and §3.3.1 p18",
