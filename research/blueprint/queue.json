@@ -30680,7 +30680,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1868"
   },
   {
    "id": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -30785,8 +30786,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BHATT-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1874"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1874",
+   "finishedAt": "2026-09-23T09:21:50Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BHATT-ETAL-23",
