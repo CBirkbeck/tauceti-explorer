@@ -2,7 +2,7 @@
 
 Job ERRATA-PAPER-BURUNGALE-TIAN-26. Worker: Claude Code, session `cc-fb70e5`, 22 September 2026. The findings are in `PAPER-BURUNGALE-TIAN-26.json` beside this file.
 
-**Paper and version read.** Ashay A. Burungale and Ye Tian, Annals of Mathematics 203 (2026), 1–13, DOI 10.4007/annals.2026.203.1.1. The public version is arXiv 2506.03465v2 (11 October 2025, SHA-256 `cbb8284a…4664`). The earlier work cites it, and its locators refer to it. v1 (4 June 2025) was compared word by word. The two differ only in the Smith reference, one citation label ("Cor." for "Thm." before Theorem 3.3) and the acknowledgements, so every mistake below is in both, except the "Munster" slip in E12.
+**Paper and version read.** Ashay A. Burungale and Ye Tian, Annals of Mathematics 203 (2026), 1–13, DOI 10.4007/annals.2026.203.1.1. The public version is arXiv 2506.03465v2 (11 October 2025, SHA-256 `cbb8284a…4664`). The earlier work cites it, and its locators refer to it. v1 (4 June 2025) was compared word by word. The two differ only in the Smith reference, one citation label ("Cor." for "Thm." before Theorem 3.3) and the acknowledgements, so every mistake below is in both. The one difference is [5] in E12, which v1 misprints in its own way.
 
 **Earlier work.**
 - The extraction PAPER-BURUNGALE-TIAN-26, by Codex (session `codex-a71f92`), noted E3, E7 and E8.
@@ -108,9 +108,44 @@ The paper mentions none of these. The curve y² = x³ − x satisfies Smith's hy
 - **E11, §2.2.1:** "coefficents" should read "coefficients".
 - **E12, references and address:**
   - [1] should be titled "… in quadratic twist families over a number field" (Duke Math. J. 168 (2019)).
-  - [5]: "Munster J. Math." should read "Münster". v1 prints it correctly.
+  - [5]: "Munster J. Math." should read "Münster". v1 misprints it differently, as "M´unster" with a stray acute accent (corrected by the review; this entry first said v1 was right).
   - [15]: "Birkheser" should read "Birkhäuser".
   - The second author's postal code "Beijing 10049" should read 100049.
+
+## Added by the review REV-ERRATA-PAPER-BURUNGALE-TIAN-26
+
+The independent review was done by Claude Code, session `cc-442dc5`, on 23 September 2026.
+- **E1–E12 confirmed.** Each was checked at its locator in arXiv v2, against Kato's Astérisque 295 (the Numdam copy), Johnson-Leung–Kings arXiv 0804.2828v2, BKLOS arXiv 1709.09790v2 and Smith arXiv 2207.05674.
+- **E12 corrected in place.** v1 does not print "Münster" correctly, as this file first said.
+- **Three findings added.** All three reach nothing.
+
+## E13. Footnote 4 and the case K ⊂ Q(ζ_{p^∞}) (gap; affects nothing)
+
+**What the paper says.** Footnote 4 says that, for (Λ⊗Q)-modules, the hypotheses of Kato's Lemma 15.13 hold.
+
+**Why it is incomplete.** Working with Λ⊗Q secures only the lemma's condition that 2 and the order of Δ be invertible in the residue field. The lemma also assumes that K is not contained in Q(ζ_{p^∞}). That fails for:
+- K = Q(i) or Q(√−2) with p = 2;
+- K = Q(√−p) with p ≡ 3 mod 4.
+
+These are exactly the cases the paper needs. Theorem 1.2 uses p = 2 for the congruent number curve, with K = Q(i). Remark 3.6(i) uses p = 3 with K = Q(ζ_3).
+
+**Why nothing is lost.** Kato's 15.14 gives the modified lemma, with G_∞ replaced by Gal(Q(ζ_{p^∞})/K), and his proofs of 15.15 and 15.17 go through with it. The equality step of E2 uses only the lemma's conclusions. The proof body cites all of Kato §15, so Theorem 2.6 stands, and only the footnote is wrong.
+
+## E14. "(1.1) holds" in Theorem 1.1 (misprint; affects nothing)
+
+**What the paper says.** Theorem 1.1 ends: "In particular, if E descends to Q, then (1.1) holds."
+
+**Why it is wrong.** (1.1) is displayed for every r, as "the rank r p-converse". The theorem proves only r = 0, as the title says.
+
+**Correction.** Read "(1.1) holds for r = 0".
+
+## E15. The target of ψ (misprint; affects nothing)
+
+**What the paper says.** The proof of Theorem 1.1 takes "ψ : A_K^×/K^× → K^×".
+
+**Why it is wrong.** A character of the idele class group with infinity type (−1, 0) is z ↦ z^{−1} on C^×, so it does not take values in K^×.
+
+**Correction.** Read ψ : A_K^×/K^× → C^×. Its values on ideals prime to the conductor lie in K, as in Kato 15.7.
 
 ## Not recorded
 
