@@ -76661,6 +76661,26 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E53",
+   "kind": "error",
+   "locator": "Printed32/PDF36, remark(ii) following Theorem4.1; supplementary author notes, not a statement in LLHLM23. Published book text not independently matched.",
+   "printed": "would have dimension n!",
+   "correction": "Do not assert dimension n! for all irreducible admissible archimedean representations. A dimension theorem needs a restricted representation class and an exact algebraic Whittaker convention. For this application use the continuous functional constructed by the integral; no algebraic dimension count is needed.",
+   "reason": "Take the one-dimensional trivial irreducible admissible representation of GL_2(R). On its Harish–Chandra module the positive-root Lie algebra acts by zero. For ψ(x)=exp(2πix), an algebraic Whittaker functional λ would satisfy 0=λ(dπ(E12)v)=dψ(E12)λ(v)=2πiλ(v), so λ=0. Thus the dimension is zero, not 2!=2. The group-equivariant version likewise vanishes since ψ is nontrivial. This disproves the unqualified generality; it does not dispute a theorem for an appropriately restricted generic/principal-series class.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: current author-hosted Fields notes and Cogdell’s publications/notes page https://people.math.osu.edu/cogdell.1/; no linked correction to this remark found.",
+    "2026-09-23 targeted searches for Cogdell, Whittaker, n!, correction/errata and author-domain errata produced no identified correction. The published book version was not independently acquired or matched."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
