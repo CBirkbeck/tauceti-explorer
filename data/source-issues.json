@@ -95100,12 +95100,12 @@
   {
    "id": "PAPER-SCHIFFMANN-16/E1",
    "kind": "misprint",
-   "locator": "Lemma 2.2, the labels of its three parts; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Lemma 2.2, the labels of its three parts; in arXiv v2, the version read (the published version could not be consulted) Published version: corrected, at Lemma 2.3 on printed p. 309, where the three parts are labelled (i), (ii), (iii).",
    "printed": "\\item[i)] $Coh(X)$ is a Krull-Schmidt category … \\item[ii)] Let $M$ be indecomposable. Then $k_M:=\\text{End}(M)/rad(\\text{End}(M))$ is a field. \\item[ii)] Let $M,M'$ be distinct indecomposables. Then any composed map $M \\to M' \\to M$ lies in $rad(\\text{End}(M))$.",
    "correction": "The third part should be labelled iii).",
    "reason": "The lemma has three parts and the second and third are both labelled ii). The mislabelling makes the references to it ambiguous: the proof of Lemma 2.3 says 'It follows from Lemma 2.2, ii) that U is a nilpotent ideal in End(M)', and the property used there is the third one, that a composite through a different indecomposable lies in the radical, not the second one, that the endomorphism ring of an indecomposable is local modulo its radical.",
    "affects": "nothing",
-   "known": "new",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), 297–362, where the statement is Lemma 2.3 on p. 309 and its three parts are labelled (i), (ii), (iii) (checked by REV-PAPER-SCHIFFMANN-16, 23 September 2026)",
    "searched": [
     "the arXiv listing and submission history of arXiv:1406.3839, read 22 September 2026: v1 (15 June 2014) and v2 (4 October 2014), the version read, whose comment records that some corollaries on the number of irreducible components of the stable global nilpotent cone were added; there is no later preprint version",
     "the published version, Annals of Mathematics 183 (2016), no. 1, 297–362: the journal page and its PDF are reachable, but no PDF text extraction is available in this environment, so the published text could not be read and it is not known whether these slips were corrected between October 2014 and publication",
@@ -95114,14 +95114,14 @@
    "owner": "PAPER-SCHIFFMANN-16",
    "file": "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
    "citation": "Olivier Schiffmann, \"Indecomposable vector bundles and stable Higgs bundles over smooth projective curves\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHIFFMANN-16",
+   "reviewReason": "Confirmed as a slip of the preprint, but NOT a mistake in the published paper, and this review has recorded that. arXiv v2 does label the second and third parts of the lemma both ii), and the finding is right that the property used in the proof of the next lemma is the third one. The published Annals text, which this review obtained, corrects it: the statement is renumbered Lemma 2.3 on printed p. 309 and its parts are labelled (i), (ii), (iii). The `known` field now records the published version as the correction, so the register will list this under mistakes already corrected in print rather than as a new mistake in published work."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E2",
    "kind": "misprint",
-   "locator": "Proposition 5.1, the displayed identity; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Proposition 5.1, the displayed identity; in arXiv v2, the version read (the published version could not be consulted) Published version: the same two slips, at Proposition 5.1 on printed p. 322, where the factor is written X_{r_1,…,r_s}(z_s,…,z_1;w) and the second factor takes (z_r,…,z_1;w); the published text renames A^{≥0} to Y^{≥0} but does not touch either slip.",
    "printed": "G^{\\geq 0}_{r_s, \\ldots, r_1}(z_s, \\ldots, z_1;w)=X_{r_1, \\ldots, r_s}(z_s, \\ldots, z_1;w) \\cdot A^{\\geq 0}_{r_s, \\ldots, r_1}(z_r, \\ldots, z_1;w)",
    "correction": "G^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w) = X_{r_s,…,r_1}(z_s,…,z_1;w)·A^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w)",
    "reason": "Two slips in the same formula. The index of the factor X is written in the reverse order, X_{r_1,…,r_s}, whereas the definition given four lines below in the same proposition reads X_{r_s,…,r_1}(z_s,…,z_1;w) = Exp(…); and the first argument of A^{≥0} is written z_r, whereas A^{≥0}_{r_s,…,r_1} takes the s variables z_s,…,z_1, as its own definition on the intervening line states. There is no variable z_r in the statement: r denotes Σ_i r_i elsewhere in the paper, and s is the number of variables.",
@@ -95135,14 +95135,14 @@
    "owner": "PAPER-SCHIFFMANN-16",
    "file": "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
    "citation": "Olivier Schiffmann, \"Indecomposable vector bundles and stable Higgs bundles over smooth projective curves\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHIFFMANN-16",
+   "reviewReason": "Confirmed, and it survives in print. Published Proposition 5.1, on printed p. 322, reads ‘G^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w) = X_{r_1,…,r_s}(z_s,…,z_1;w) · Y^{≥0}_{r_s,…,r_1}(z_r,…,z_1;w)’. Both slips are there: the index of X is in the reverse order to its own definition four lines below, and the first argument of the second factor is z_r, a variable that does not occur in the statement — r denotes Σ_i r_i elsewhere and s is the number of variables. The published text renames the second factor from A^{≥0} to Y^{≥0} without touching either slip, which is itself evidence that the passage was retyped and the errors survived."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E3",
    "kind": "misprint",
-   "locator": "the list of examples following Corollary 1.10; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "the list of examples following Corollary 1.10; in arXiv v2, the version read (the published version could not be consulted) Published version: the same slip, in the list on printed p. 306, which follows published Corollary 1.9; the third and fourth entries are still written A_{g,3,d} and A_{g,4,d} without the argument 0.",
    "printed": "We list below the values $A_{g,r,d}(0)$ for $r \\leq 4$: $A_{g,1,d}(0)=1, \\quad A_{g,2,d}(0)=\\binom{g}{1}, \\quad A_{g,3,d}=4\\binom{g}{2}+\\binom{g}{1}, \\quad A_{g,4,d}=32\\binom{g}{3}+20\\binom{g}{2}+\\binom{g}{1}.$",
    "correction": "A_{g,3,d}(0) = 4C(g,2) + C(g,1) and A_{g,4,d}(0) = 32C(g,3) + 20C(g,2) + C(g,1).",
    "reason": "The sentence introducing the list says that it gives the values A_{g,r,d}(0), and the first two entries are written with the argument 0; the third and fourth drop it. Without the argument the entries would assert that the counting polynomials themselves are these integers, which is false already for r = 1, where A_{g,1,d} = ∏_{i=1}^{2g}(1 − α_i) while A_{g,1,d}(0) = 1. The sentence after the list, that A_{g,r,d}(0) is a polynomial in g of degree r − 1, confirms the reading.",
@@ -95156,14 +95156,14 @@
    "owner": "PAPER-SCHIFFMANN-16",
    "file": "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
    "citation": "Olivier Schiffmann, \"Indecomposable vector bundles and stable Higgs bundles over smooth projective curves\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHIFFMANN-16",
+   "reviewReason": "Confirmed, and it survives in print. The list on printed p. 306 still reads ‘A_{g,1,d}(0) = 1, A_{g,2,d}(0) = …, A_{g,3,d} = 4… + …, A_{g,4,d} = 32… + 20… + …’, so the third and fourth entries drop the argument that the introducing sentence and the first two entries carry. Without it the entries would assert that the counting polynomials are these integers, which is false already at r = 1, where A_{g,1,d} = ∏(1 − α_i) and only its value at 0 is 1."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E4",
    "kind": "misprint",
-   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted) Published version: all three slips survive — Σ n_i = n on printed p. 349, Σ_i l_j = i on printed p. 351, and the unmatched parenthesis q^{2(1+(g−1)r²} in published Corollary 1.4(i) on printed p. 301, the last read on a rendered page image.",
    "printed": "Corollary 1.6: $\\lambda=\\prod_j \\sigma_j^{n_j}, \\qquad \\sum n_i=n$. Corollary 1.9 i): the Frobenius eigenvalues in $H^i(\\Lambda^{st}_{r,d}, \\overline{\\mathbb{Q}_l})$ all of the form $\\prod_j \\alpha_j^{l_j}$ with $\\sum_i l_j=i$.",
    "correction": "Σ_j n_j = n in Corollary 1.6, and Σ_j l_j = i in Corollary 1.9 i).",
    "reason": "In both statements the eigenvalue is a product over j of powers with exponents indexed by j, so the constraint is on the sum of those exponents over j. Corollary 1.6 writes Σ n_i, introducing an index i that appears nowhere else in the statement; Corollary 1.9 i) writes Σ_i l_j, summing over i a quantity that does not depend on i, and the letter i is already in use as the cohomological degree on the same line. Corollary 1.9 i) also carries an unmatched parenthesis in the exponent of the displayed Poincaré dual, q^{2(1+(g−1)r^2}, which should read q^{2(1+(g−1)r²)}.",
@@ -95177,9 +95177,9 @@
    "owner": "PAPER-SCHIFFMANN-16",
    "file": "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
    "citation": "Olivier Schiffmann, \"Indecomposable vector bundles and stable Higgs bundles over smooth projective curves\", Annals of Mathematics 183 (2016), no. 1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SCHIFFMANN-16",
+   "reviewReason": "Confirmed in all three parts, and all three survive in print. On printed p. 349 the eigenvalue is written ‘λ = ∏_j σ_j^{n_j}, Σ n_i = n’, with an index i that occurs nowhere else in the statement; on printed p. 351 the condition is ‘Σ_i l_j = i’, summing over i a quantity independent of i while i is simultaneously the cohomological degree; and published Corollary 1.4(i) on printed p. 301 prints the Poincaré dual with the exponent q^{2(1+(g−1)r²}, two opening parentheses and none closing. I read that last one on a rendered page image rather than in the text layer, since a dropped bracket is exactly what a text layer invents."
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16/E1",
