@@ -931,7 +931,8 @@
    ],
    "avoidAccountOf": "PAPER-CHEN-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CHEN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1074"
   },
   {
    "id": "PAPER-CARAIANI-SCHOLZE-24",
@@ -6300,8 +6301,9 @@
    ],
    "avoidAccountOf": "PAPER-DOR-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DOR-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1374"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1374",
+   "finishedAt": "2026-09-23T14:07:44Z"
   },
   {
    "id": "PAPER-ICHINO-PRASANNA-23",
@@ -29982,8 +29984,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BURUNGALE-TIAN-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1702"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1702",
+   "finishedAt": "2026-09-23T14:07:48Z"
   },
   {
    "id": "ERRATA-PAPER-YUAN-26",
@@ -30408,7 +30411,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1706"
   },
   {
    "id": "ERRATA-PAPER-BENNETT-SIKSEK-20",
@@ -31176,7 +31180,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1859"
   },
   {
    "id": "ERRATA-PAPER-HACON-WITASZEK-23",
@@ -31595,8 +31600,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-PAPPAS-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1879"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1879",
+   "finishedAt": "2026-09-23T14:07:51Z"
   },
   {
    "id": "ERRATA-PAPER-ANDRE-18",
