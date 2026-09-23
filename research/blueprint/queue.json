@@ -5534,8 +5534,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1332"
+   "state": "pending",
+   "note": "released on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -8482,8 +8482,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOYMANS-PAGANO.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2194"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2194",
+   "finishedAt": "2026-09-23T10:56:13Z"
   },
   {
    "id": "REV-PAPER-KOYMANS-PAGANO",
@@ -30981,7 +30982,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1853"
   },
   {
    "id": "REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
