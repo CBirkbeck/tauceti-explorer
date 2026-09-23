@@ -8189,17 +8189,17 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 76, printed as quoted: 'To a section s ∈ B, we associate the surface T := {rv² = sw²} ⊂ X with projection p : T → S. It is a finite double cover of S ramified over Δ.' It is not finite. Over a point x ∈ S the fibre equation is r(x)v² − s(x)w² = 0 on the fibre P¹ of X = P_S(O_S ⊕ L); this is a nonzero binary quadric, hence cuts out a finite scheme, unless r(x) = s(x) = 0, in which case it vanishes identically and the whole P¹ lies in T. Since D = {s = 0} meets R = {r = 0} (B consists of sections whose zero locus meets R transversally in its smooth locus), that locus R ∩ D is non-empty in general. The paper itself confirms the correction one page later: on p. 77 it defines 'S⁰ := S ∖ Sing(Δ) the locus over which p is finite flat', and Sing(Δ) = Sing(R) ⊔ (R ∩ D). Over Sing(R) the map is still finite — there r = 0 but s is a unit, so the fibre equation is w² = 0, the ordinary double point the paper describes. So the non-finiteness is exactly over R ∩ D. The classification 'affects a stated result' is right for the sentence itself, while nothing downstream breaks, because §3.2 onwards works over S* and S⁰ throughout. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E2",
    "kind": "gap",
-   "locator": "Lemma1.4 p.70",
+   "locator": "Lemma 1.4 p.70",
    "printed": "p*p*α̃",
    "correction": "Choose beta compatibly so beta modulo n equals p*aTilde before taking its trace.",
-   "reason": "Being an integral lift of the same Brauer class alone allows a Picard difference. Lemma1.3 kills the Bockstein of this chosen Kummer lift and permits the compatible choice.",
+   "reason": "Being an integral lift of the same Brauer class alone allows a Picard difference. Lemma 1.3 kills the Bockstein of this chosen Kummer lift and permits the compatible choice.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -8212,16 +8212,16 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 70. The proof of Lemma 1.4 prints 'the image of p_*β ∈ H²(S(C),Z) in H²(S(C),Z/n) is p_*p*α̃ = dn·α̃ = 0'. The second and third equalities are fine — p has degree dn, and n·α̃ = 0 — but the first needs β mod n = p*α̃ in H²(T(C),Z/n), which is not established. β is any lift of p*α under (1.2) and α̃ any lift of α under (1.1); by the exact sequence (1.1) for T, β mod n and p*α̃ are two lifts of the same class p*α ∈ Br(T)[n], so they differ by an element of Pic(T)/n, and p_* of that difference need not vanish. The extraction's repair — choose β compatibly with the fixed Kummer lift before taking its trace — is the right shape. I did not verify that Lemma 1.3 supplies the compatible choice, so that part rests on the extraction. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E3",
    "kind": "gap",
-   "locator": "Proposition4.4 p.84, after(4.8)",
+   "locator": "Proposition 4.4 p.84, after(4.8)",
    "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
-   "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.",
+   "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item 162; the general case remains G4a.",
    "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1. (cc-442dc5) Reclassified to affect a stated result: the step fails whenever Ξ ≠ ∅ and Ψ ≠ Ξ, so Propositions 4.4, 4.5 and 6.6 are not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
    "affects": "a stated result",
    "known": "new",
@@ -8235,16 +8235,16 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 84, and the mechanism is exactly as the extraction states. The page prints the diagonal arrow of (4.8) as '(a, b, c) ↦ (0, b + a ⌣ [e]₁, β_Z(b) + b ⌣ [e]₁)', and then concludes '([ζ]₁)|_Ψ = ([e]₁)|_Ψ, by our hypothesis that ([α̃]₁)|_Ψ = 0 ∈ H¹(Ψ)'. Feeding α̃|_{S*}, whose restriction decomposes as ([α̃]₀, [α̃]₁, [α̃]₂), through that formula gives ([ζ]₁)|_Ψ = ([α̃]₁ + [α̃]₀ ⌣ [e]₁)|_Ψ, so with the hypothesis [α̃]₁|_Ψ = 0 it gives [α̃]₀ ⌣ [e]₁, not [e]₁. The stated hypothesis kills b but says nothing about a, and a is not 1: p. 79 defines Ξ := {x ∈ U(R) : α|_x = 0} and fixes Ψ ⊂ U(R) open and closed *containing Ξ*, and [α̃]₀ evaluates α at each real point, so [α̃]₀ = 0 on Ξ ⊆ Ψ. The step therefore holds on Ψ ∖ Ξ and fails on Ξ whenever Ξ ≠ ∅ and [e]₁|_Ξ ≠ 0. I confirm this as a gap in the printed justification and, like the extraction, do not claim Proposition 4.4 false. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E4",
    "kind": "gap",
-   "locator": "Proposition4.5 pp.84–85",
+   "locator": "Proposition 4.5 pp.84–85",
    "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
-   "correction": "Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
+   "correction": "Supply a typed replacement. Items 158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
    "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish. (cc-442dc5) Reclassified to affect a stated result: the typed replacement covers only a constant evaluation on Ψ, so Proposition 4.5 (and 6.6) is not established as stated. The evaluation [α̃]_0 is α|_x on Ψ, so it is 0 on Ξ and 1 on Ψ∖Ξ. The main theorems use these propositions only through Proposition 6.7, which takes Ψ = Θ = {x : α|_x = 0}; there the evaluation of the lift of (n/2)α is identically 0, the uniform case the checkpoint repairs. Theorems 0.3–0.5, 0.10 and 0.12 are therefore unaffected (up to the Jannsen input of G10).",
    "affects": "a stated result",
    "known": "new",
@@ -8258,17 +8258,17 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 84, where the proof of Proposition 4.5 prints 'β|_{T_U} = p*α̃ + 2ε + cl(ϕ)'. The identity does not typecheck as written: the hypothesis of the proposition takes α̃ ∈ H²_G(U(C), Z/2), so p*α̃ has Z/2 coefficients, while β, ε and cl(ϕ) are classes in H²_G(−, Z(1)) — and the exact sequence (2.17) invoked to produce ε and ϕ has Z(1) coefficients in its left-hand term. An integral lift of p*α̃ on T_U is needed, and its existence is exactly what is at issue, since the obstruction downstairs need not vanish. Confirmed as a gap in the printed argument; I do not claim the proposition false. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E5",
    "kind": "gap",
-   "locator": "Proposition4.5 p.85, application of Assumption4.1(ii)",
+   "locator": "Proposition 4.5 p.85, application of Assumption 4.1(ii)",
    "printed": "δ−cl(θ₂)",
-   "correction": "Subtract an additional Picard class nu made from the allowed curves before applying Proposition3.3; include2nu in the final theta.",
-   "reason": "Assumption4.1(ii) gives generation by pushforwards AND curve classes. It does not identify its kernel with the pushforward image alone.",
+   "correction": "Subtract an additional Picard class nu made from the allowed curves before applying Proposition 3.3; include2nu in the final theta.",
+   "reason": "Assumption 4.1(ii) gives generation by pushforwards AND curve classes. It does not identify its kernel with the pushforward image alone.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -8281,14 +8281,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 85, and the paper contradicts itself three pages earlier. Assumption 4.1(ii), on p. 80, reads: 'The kernel of the restriction map H¹(S(R)) → H¹(Ψ) is generated by the image of the push-forward p_* : H¹(T(R)) → H¹(S(R)) AND by the Borel–Haefliger classes of curves on S whose real locus does not meet Ψ.' The proof of Proposition 4.5 on p. 85, having obtained ([δ − cl(θ₂)]₁)|_Ψ = 0, concludes 'from Proposition 3.3 and Assumption 4.1 (ii) that there exists γ with p*γ = δ − cl(θ₂)', which uses only the first generator and silently drops the curve classes. The proof of Proposition 4.4, on p. 82, does the same step correctly: 'By Assumption 4.1 (ii), this claim implies that there exists θ ∈ Pic(S) such that [δ]₁ − clR(θ) is in the image of p_*.' The extraction's repair — subtract a Picard class built from the allowed curves first, and carry 2ν into the final θ — matches what p. 82 does. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E6",
    "kind": "misprint",
-   "locator": "Lemma7.3 p.98 and equation(7.13) p.103",
+   "locator": "Lemma 7.3 p.98 and equation(7.13) p.103",
    "printed": "p*η+ψ(ζ)",
    "correction": "Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.",
    "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs. (cc-442dc5) Reclassified to affect nothing: with the displayed (1, −φ) convention the sign is forced, and the traced equations used afterwards are unchanged.",
@@ -8304,16 +8304,16 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed, and forced by the paper's own conventions. Lemma 7.2 (p. 98) states that α̃|_{U⁰} is the image 'under the morphism (1, −φ)' of (η, ζ), i.e. α̃|_{U⁰} = η̄ − φ(ζ). Diagram (7.4) on p. 99 gives p*∘φ = (ψ mod n). Hence p*α̃|_{U⁰} = p*η̄ − p*φ(ζ) = reduction mod n of p*η − ψ(ζ). Lemma 7.3 (p. 98) instead prints 'the reduction modulo n of p*η + ψ(ζ)', and (7.13) on p. 103 repeats the same sign. 'Affects nothing' is right: the only later use pushes (7.13) forward by p, and p_*ψ(ζ) = 0 because Tr∘ψ = 0, so (7.14) is unchanged under either sign. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E7",
    "kind": "gap",
-   "locator": "Proof of Lemma7.3 p.99",
+   "locator": "Proof of Lemma 7.3 p.99",
    "printed": "Q→j*j*Q",
-   "correction": "Use injectivity of the TARGET p_*(Z/n)→j_*j*p_*(Z/n). Item157 proves it in this setting.",
+   "correction": "Use injectivity of the TARGET p_*(Z/n)→j_*j*p_*(Z/n). Item 157 proves it in this setting.",
    "reason": "Equality of maps after restriction can be cancelled through a target monomorphism. A monomorphism on their source cannot justify this step.",
    "affects": "the proof",
    "known": "new",
@@ -8327,14 +8327,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 99. To show that p*∘φ and (ψ mod n), two morphisms Q → p_*(Z/n) that agree on S*(C), agree on S(C), the paper prints 'Since Q → j_*j*Q is injective, they coincide over S(C).' That is injectivity on the source, and it does not license the cancellation. The correct argument sets h := p*∘φ − (ψ mod n), notes h|_{S*} = 0, and uses the naturality square Q → p_*(Z/n) → j_*j*p_*(Z/n): the composite is j_*(h|_{S*}) = 0, so h = 0 provided the TARGET unit map p_*(Z/n) → j_*j*p_*(Z/n) is injective. Injectivity of Q → j_*j*Q gives nothing here. The extraction's correction names exactly the right map. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E8",
    "kind": "gap",
-   "locator": "Proposition6.7 statement and proof p.95",
+   "locator": "Proposition 6.7 statement and proof p.95",
    "printed": "n/2",
    "correction": "Separate the odd case from the half-period hypothesis; initially conclude the restricted period divides n/2.",
    "reason": "The half-period class is undefined for odd n. Killing it for even n gives divisibility; the index inequalities at the end force equality.",
@@ -8350,14 +8350,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 95. Proposition 6.7 is stated for α ∈ Br(R(S))[n] 'of period n' with no parity restriction, yet its hypothesis reads 'let ξ ∈ H²_G(U(C), Z/2) be a lift of (n/2)α in (2.16)' — and (n/2)α is undefined when n is odd, so the hypothesis cannot even be stated in the generality claimed. The proof does dispose of odd n first ('If n is odd, that ind(α) = n follows from de Jong's theorem and a norm argument'), which is why this is a defect of statement rather than of mathematics. The second half of the correction is also sound: the proof asserts that α_{R(T)} 'has period n/2', whereas applying Proposition 6.6 to the period-2 class (n/2)α only kills it, giving period dividing n/2; the induction still closes, since ind(α) | 2·ind(α_{R(T)}) | n and per(α) = n | ind(α) force equality. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E9",
    "kind": "gap",
-   "locator": "Proof of Theorem0.12 p.95",
+   "locator": "Proof of Theorem 0.12 p.95",
    "printed": "K=∪iKi",
    "correction": "Include a transcendence basis of K/R in K0 before expressing K as the union of finite extensions of K0.",
    "reason": "Descent of the Brauer coefficients alone need not make K/K0 algebraic.",
@@ -8373,14 +8373,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 95. The proof of Theorem 0.12 picks 'R ⊂ K₀ ⊂ K a subfield of K finitely generated over R such that α is the image of a class α₀ ∈ Br(K₀)[2]', then writes 'K = ∪ᵢKᵢ as the union of all finite extensions of K₀'. The second step needs K/K₀ algebraic, which descending the Brauer class alone does not give: K₀ is only required to carry α, and K has transcendence degree 2 over R, so ∪ᵢKᵢ is in general the relative algebraic closure of K₀ in K and not K. Enlarging K₀ to contain a transcendence basis of K/R — still finitely generated — repairs it, exactly as the correction says. A small gap with an easy fix, but the printed step does not stand. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E10",
    "kind": "gap",
-   "locator": "Proof of Theorem0.13 p.96",
+   "locator": "Proof of Theorem 0.12 p.96",
    "printed": "not proportional",
    "correction": "Choose local parameters jointly so det(dy1,dy2) is nonzero, after restricting to a smooth point.",
    "reason": "With dyj=a+c dzj, avoiding proportionality of each dzj to a separately does not force the pair of dyj to be independent; G6 retains the joint genericity proof.",
@@ -8396,9 +8396,9 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 96, and I checked it by direct computation. The text chooses local parameters z₁, z₂ at x 'such that neither z₁ nor z₂ is proportional to w²+1 in m/m²' and sets y_j := (1+z_j)² + (w+z_j)², asserting that y₁, y₂ 'also forms a local system of parameters at x'. Expanding modulo m² and using that w is a unit with w(x) = √−1 gives y_j ≡ a + c·z_j where a := [w²+1] and c := 2(1+√−1) ≠ 0. Writing a = α z₁ + β z₂ in the basis (z₁, z₂) of m/m², the printed hypothesis says exactly α ≠ 0 and β ≠ 0, while y₁, y₂ are dependent precisely when α + β = −c. Those are compatible: take α = β = −c/2 = −(1+√−1), both non-zero, with α + β = −c. So the stated condition does not imply the conclusion, and the correction — choose the parameters jointly so that det(dy₁, dy₂) ≠ 0 — is the right one. The locator was wrong and the review corrected it: this passage is in the proof of Theorem 0.12 (the u(R(S)) ≥ 4 half), not Theorem 0.13; no proof of Theorem 0.13 appears on p. 96. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E11",
@@ -8419,9 +8419,9 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 72. Equation (2.1) prints the push-forward for a proper f : X′ → X of smooth equidimensional varieties of dimensions d′ and d as f_* : H_G^{k+2(d′−d)}(X′(C), M(−k)) → H_G^k(X(C), M). The twist on the source is wrong: a Gysin map shifts degree by 2(d′−d) and the twist by the same geometric amount, so a source of degree k+2(d′−d) landing in H^k(X, M) = H^k(X, M(0)) must carry M(d′−d). The printed M(−k) makes the twist depend on the cohomological degree, which no push-forward does. 'Affects nothing' is right: the cited [9, (1.22)] has the correct twist and the paper's own uses are equal-dimensional. Worth noting that route 6's brief already instructs builders to use 'the dimension twist M(d′−d), not the degree twist printed in Benoist (2.1)'. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E12",
@@ -8429,7 +8429,7 @@
    "locator": "Equation(5.7) p.88",
    "printed": "H⁰(C,N_C/T)",
    "correction": "The normal-sequence boundary lands in H¹(C,N_C/T).",
-   "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree. (cc-442dc5) Reclassified to affect nothing: the exact sequence (5.8) and the cited Benoist 2018 Proposition 2.1 fix the degree.",
+   "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition 2.1 uses the corrected degree. (cc-442dc5) Reclassified to affect nothing: the exact sequence (5.8) and the cited Benoist 2018 Proposition 2.1 fix the degree.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -8442,15 +8442,15 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 88, and the degree is forced internally. Equation (5.7) prints the chain '… → H⁰(C, N_{T/X}|_C) → H⁰(C, N_{C/T}) → H²(T, O_T)', whose last two arrows are said to be the boundary maps of (5.8) 0 → N_{C/T} → N_{C/X} → N_{T/X}|_C → 0 and (5.9) 0 → O_T → O_T(C) → N_{C/T} → 0. The boundary of (5.8) sends H⁰(C, N_{T/X}|_C) to H¹(C, N_{C/T}), and only from H¹ does the boundary of (5.9) reach H²(T, O_T); from H⁰ it would land in H¹(T, O_T), contradicting the printed target. So the third term must be H¹(C, N_{C/T}). Typographical, and 'affects nothing' is right. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E13",
    "kind": "gap",
-   "locator": "Proof of Proposition0.7 p.108",
-   "printed": "(0:−1:1:1)",
+   "locator": "Proof of Proposition 0.7 p.108",
+   "printed": "[0 : −1 : 1 : 0]",
    "correction": "Use general real points of the divisor u=0 away from zeros and poles, with the required sign, and justify simultaneous specialization.",
    "reason": "A previously fixed point can be a zero or pole of the specialized rational functions. G9 keeps the generic-point/specialization repair open.",
    "affects": "the proof",
@@ -8465,14 +8465,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed in substance at published p. 108, but the extraction's quotation was wrong and the review corrected it. The paper prints '[u : v : w : z] = [0 : −1 : 1 : 0] ∈ Q(R)', not the '(0:−1:1:1)' the finding recorded; I checked this on the page image, and the arithmetic settles it too, since Q = {z² = w² − u² − v²} contains [0:−1:1:0] (0 = 1 − 0 − 1) and does not contain [0:−1:1:1] (1 ≠ 0). With the quotation repaired the finding stands: the proof fixes that one explicit point and asserts that 'the signs of f₀ and g₀ are constant in a neighbourhood' of it, without checking that the point avoids the zeros and poles of the specialised f₀, g₀ — which were produced from f, g chosen earlier and are not controlled at a pre-selected point. The repair is the extraction's: take a general real point of {u = 0} away from the zeros and poles, with the required sign, and justify the simultaneous specialisation. Note the paper does take this care at the *second* point, a few lines later ('such that x does not belong to any divisor of poles of f₀ or g₀ distinct of D'), which makes the omission at the first point the more clearly an oversight. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E14",
    "kind": "misprint",
-   "locator": "Proof of Proposition0.7 p.107",
+   "locator": "Proof of Proposition 0.7 p.107",
    "printed": "Br(R(S))",
    "correction": "Use Br(K(S)), for the real Puiseux field K defined in this proof.",
    "reason": "Both functions f,g and the surface S are defined over K here.",
@@ -8488,17 +8488,17 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 107. The proof of Proposition 0.7 works throughout over the real closed Puiseux field K := ∪_n R((t^{1/n})) — 'Let [u : v : w] be coordinates on P²_K, where K is the real closed field ∪_n R((t^{1/n}))' — and S is a K3 surface over K. The sentence 'there exist f, g ∈ K(S)* such that α = (f, g) ∈ Br(R(S))' then names the wrong field: with f, g ∈ K(S)* the quaternion class lies in Br(K(S)). Pure notation; 'affects nothing' is right. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E15",
    "kind": "misprint",
-   "locator": "Proof of Theorem0.6 p.107",
+   "locator": "Proof of Theorem 0.6 p.107",
    "printed": "unique δ",
    "correction": "Say unique NONZERO delta with component0 zero, as in the preceding paragraph on p.106.",
-   "reason": "The zero class also has component0 zero. Item118 already records the nonzero condition.",
+   "reason": "The zero class also has component0 zero. Item 118 already records the nonzero condition.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -8511,17 +8511,17 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 107, and the paper supplies its own correction. The proof of Theorem 0.6 prints 'Then there is a unique δ ∈ H¹_G(S(C), Z/2) with [δ]₀ = 0', but the zero class also satisfies [δ]₀ = 0, so uniqueness is false as stated. The preceding paragraph on p. 106 has it right: 'there exists a non-zero class δ ∈ H¹_G(S(C), Z/2) with [δ]₀ = 0 if and only if one of the two halves of S is empty, and that this class is unique.' The word 'non-zero' has simply been dropped. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E16",
    "kind": "misprint",
-   "locator": "Proof of Proposition7.1 p.103, following(7.14)",
+   "locator": "Proof of Proposition 7.1 p.103, following(7.14)",
    "printed": "kernel",
    "correction": "Use torsion-freeness of the cokernel of the Picard cycle map.",
-   "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem. (cc-442dc5) Reclassified to affect nothing: the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses.",
+   "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition 2.9 is explicitly a cokernel theorem. (cc-442dc5) Reclassified to affect nothing: the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -8534,14 +8534,14 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Rejected: the paper does not contain this mistake. The finding records 'kernel' as printed in the proof of Proposition 7.1 following (7.14) and asks that it be replaced by torsion-freeness of the COKERNEL of the Picard cycle class map. But p. 103 already prints exactly that: 'Since the cokernel of Krasnov's cycle class map cl : Pic(U⁰) → H²_G(U⁰(C), Z(1)) is torsion-free [9, Proposition 2.9], and since the restriction map Pic(S) → Pic(U⁰) is surjective, there exists μ ∈ Pic(S) such that η − p_*γ = cl(μ|_{U⁰}).' I searched every occurrence of 'kernel' in the published text: they are the two Ker[…] definitions on pp. 70 and 71, and Assumption 4.1(ii) on p. 80 ('the kernel of the restriction map H¹(S(R)) → H¹(Ψ)'), none of which concerns the cycle class map. Both places where the paper invokes [9, Proposition 2.9] — p. 85 and p. 103 — say 'cokernel' and say 'torsion-free'. The finding's own correction is therefore already the printed text, and recording it would put a non-existent mistake into the public errata register. The extraction had already softened it to 'affects nothing' with the note that 'the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses', which is the same observation stopping one step short of withdrawal."
   },
   {
    "id": "PAPER-BENOIST-19/E17",
    "kind": "misprint",
-   "locator": "Proof of Theorem1.5 p.71",
+   "locator": "Proof of Theorem 1.5 p.71",
    "printed": "n=dl",
    "correction": "Distinguish Voisin’s hypersurface-degree parameter from the period n; substitute m=dn for surfaces in |dnH|.",
    "reason": "The symbol l is not defined in this section. The family was defined on p.69 with hypersurface degree dn; this is only a parameter concordance.",
@@ -8557,9 +8557,9 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 71: 'we may apply [57, Proposition 9] for n = dl'. The letter l is defined nowhere in §1 — I checked every occurrence of a standalone l on pp. 68–72 and this is the only one. The family was fixed on p. 69 as B ⊂ |dnH|, so the hypersurface-degree parameter of Voisin's proposition is dn; the paper's own n is the period of α, which is what makes the collision. A parameter concordance, affecting nothing. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E18",
@@ -8577,9 +8577,9 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 77, first line. The sentence spanning pp. 76–77 reads that the singular points of T 'are exactly the points lying above the singular locus of R where v vanishes'. It is w that vanishes there: at x ∈ Sing(R) one has r(x) = 0, while s(x) ≠ 0 because D meets R only in its smooth locus, so the fibre equation r(x)v² = s(x)w² becomes s(x)w² = 0 and forces w = 0, with v ≠ 0 — the point (v : w) = (1 : 0). Setting v = 0 instead would force w = 0 as well and leave no point of P¹. 'Affects nothing' is right, since the centre of the blow-up is determined either way. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-19/E19",
@@ -8597,9 +8597,9 @@
    "owner": "PAPER-BENOIST-19",
    "file": "research/blueprint/papers/PAPER-BENOIST-19.result.json",
    "citation": "Benoist, \"The period-index problem for real surfaces\", Publications Mathématiques de l'IHÉS (2019)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BENOIST-19",
+   "reviewReason": "Confirmed at published p. 87, given the normalisation fixed on p. 86. Section 5.1 chooses the component of the strict transform 'where v = √a₁ g w', so on C the trace-zero root is z = rv/w = √a₁ rg. The map in (5.5), 0 → p_*O_T(−C) → O_S ⊕ L^{⊗−1}(−R) → O_C, is therefore (1, √a₁ rg), while the paper prints (1, rg); the same coefficient recurs in (5.6) on p. 88. Harmless, and the extraction says why: s was chosen with a₁ > 0, so √a₁ is a non-zero real scalar and may be absorbed by renormalising g, and the later step only needs injectivity of cup-product with ∂(rg), which a non-zero scalar does not affect. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62."
   },
   {
    "id": "PAPER-BENOIST-WITTENBERG-20/E1",
