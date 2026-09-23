@@ -1,573 +1,1571 @@
 {
   "paper": "PAPER-NELSON-VENKATESH-21",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "The orbit method and analysis of automorphic forms",
     "authors": "Paul D. Nelson and Akshay Venkatesh",
     "venue": "Acta Mathematica 226 (2021), no. 1, 1–209",
     "doi": "10.4310/ACTA.2021.v226.n1.a1",
-    "arxiv": "1805.07750v3",
-    "url": "https://arxiv.org/abs/1805.07750",
-    "sha256": "9bce49cb7d3f6f2f6994c7af0ecbf3f12c3e4f79599091543d331824f522c03e",
-    "accessed": "2026-09-23",
-    "version": "arXiv v3, 7 January 2021, 148 pages, 'to appear in Acta Mathematica', with revisions to §§5.3, 8.8 and 17.4 over v2. The published text (Acta Math. 226 (2021), 1–209) is paywalled and was not read; all locators are to v3. The paper numbers its theorems 1–25 consecutively, independently of the section numbers, and this extraction follows that numbering.",
+    "arxiv": "1805.07750",
+    "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf",
+    "sha256": "85e14654d2b367f4b0d4a21c9555576f6def6649c8b6707afc78e1dfbdaea76e",
+    "readDate": "2026-09-23",
+    "version": "The published Acta text (open-access International Press PDF, 209 pages, created 30 March 2021), read in full; locators and page numbers are the published ones. arXiv v3 (https://arxiv.org/pdf/1805.07750v3, 7 January 2021, SHA-256 9bce49cb7d3f6f2f6994c7af0ecbf3f12c3e4f79599091543d331824f522c03e) was compared at every finding. Pages 42, 50, 128, 130, 166 and 182 were checked on page images.",
     "readSections": [
-      "§1 (Introduction) in full: the branching coefficient, the Ichino–Ikeda/Harris formula (1.1), the main result in its informal form (1.2)–(1.3), the weakly subconvex bound (1.4), the role of Ratner's theorem, and §1.2 on the random matrix heuristic.",
-      "The statements, not the proofs, of all twenty-five numbered theorems, and the definitions they depend on: symbol classes and the operator assignment (§§2–5), the star product (§§4, 7), coadjoint multiorbits and the Kirillov formula (§§6, 11), stability and the invariant theory of GGP pairs (§§13–17), relative characters (§§18–19), inverse branching (§§20–24), limit states and the global argument (§§25–31).",
-      "The section structure of the whole paper and the index. Proofs were not read, and Appendix A was surveyed only at section level.",
-      "The cited inputs (Ichino–Ikeda; Harris; Zhang; Gross–Prasad; Ratner; Kirillov; Vogan; Rossmann; Sun–Zhu; Katz–Sarnak; Soundararajan) were not read; each item that rests on one says so."
+      "§1 Introduction",
+      "Part I (§§2–6)",
+      "Part II (§§7–12)",
+      "Part III (§§13–19)",
+      "Appendix A",
+      "Part IV (§§20–24)",
+      "Part V (§§25–31)",
+      "References"
     ]
   },
-  "summary": "Nelson and Venkatesh develop the orbit method in a quantitative, analytic form — a microlocal calculus for representations of reductive Lie groups — and apply it to the analytic theory of automorphic forms. The main global result (Theorem 25) is an asymptotic formula for averages of Gan–Gross–Prasad branching coefficients in arbitrary rank: for a GGP pair (G, H), a form of (SO_n, SO_{n−1}) or (U_n, U_{n−1}) over a number field with compact adelic quotients, a fixed automorphic representation Π of G, and the family F_h of representations Σ of H that are locally distinguished by Π and whose Satake parameters at a distinguished archimedean place lie in h^{-1}Ω, the average of the branching coefficient L(Π, Σ) over F_h tends to 1/τ(G), which is 1/2 under the paper's standing hypotheses. Under the Ichino–Ikeda and N. Harris conjectures this says that the average of Δ_G^{(R)} L^{(R)}(1/2, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨) is 2, in agreement with the random matrix heuristic for an orthogonal family with positive root numbers; the family has size roughly the fourth power of the analytic conductor, and shrinking it gives the weakly subconvex bound L(Π, Σ) = o(cond(Π × Σ)^{1/4}).\n\nThe machinery is a pseudodifferential calculus on the dual of the Lie algebra. Symbols on g^∧ are quantized to operators Op_h(a) on a tempered irreducible representation π; the composition is governed by a star product with an asymptotic expansion (Theorems 1–3, 6–7), and traces are computed by integration over rescaled coadjoint multiorbits — a quantitative Kirillov formula (Theorems 4, 5, 9). Part III studies the geometry of GGP pairs: stability of elements of g under H, the principal H-bundle structure of the stable locus over the space of stable pairs of invariants (Theorems 10–14), and, as the main analytic output, uniform asymptotic expansions of relative characters away from the conductor-dropping locus (Theorem 15). Part IV inverts the branching problem, producing symbols whose quantizations reproduce a prescribed weight on the distinguished spectrum (Theorems 17–18). Part V takes limits of the resulting states on the automorphic quotient (Theorems 19–20), shows the limit measures are invariant under a centralizer and applies Ratner's classification to conclude equidistribution (Theorems 21–22), and converts that into the asymptotic formula (Theorems 23–25).\n\nWhat it needs. The libraries have the substrate and nothing else: Mathlib's Schwartz space, Fourier transform and Haar measure are exactly what the symbol classes and operator assignments are built on, and Tau Ceti builds Hermite functions on top of them. There are no coadjoint orbits, no unitary representations of Lie groups, no characters, no Plancherel measure, no pseudodifferential calculus and no automorphic forms as analytic objects at the pinned commits.",
+  "summary": "Nelson and Venkatesh develop the orbit method quantitatively: a microlocal calculus Op_h on unitary representations of Lie groups, with symbol classes, composition, localization and trace estimates coming from the Kirillov formula (Parts I–II). They study Gan–Gross–Prasad pairs (stability ⇔ no conductor drop; stable fibres are H-torsors; volume-form identities) and prove asymptotics for relative characters away from the conductor-dropping locus (Part III). They solve inverse branching problems at archimedean and p-adic places (Part IV). With limit states, Ratner's theorem and a truncated spectral expansion, they show that for a fixed generic tempered Π on an anisotropic GGP pair, the branching coefficients L(Π, Σ) average to 1/τ(G) = 1/2 over families of Σ with growing archimedean parameter; under Ichino–Ikeda/N. Harris this is an average of central L-values in arbitrarily large rank, with a weak subconvex bound (Part V). The atlas has none of this and neither library has coadjoint orbits or unitary representation calculi. Routes: a Part II of the Tau Ceti Lie-groups roadmap for the calculus (39 items) and a new roadmap for the GGP application (54 items). Complete (cc-442dc5). Main findings: the proof of Lemma 27.3 fails for (SO3, SO2), leaving Theorem 27.1 and the main theorem unproven there when Π is dihedral for the torus's quadratic field; a gap in the non-stationary-phase proof (Lemma 7.8); an invalid example after Lemma 24.10; a wrong citation for the orthogonal non-vanishing result; misprints. Not formalised.",
   "items": [
     {
-      "id": "PAPER-NELSON-VENKATESH-21/branching-coefficient",
-      "kind": "definition",
-      "name": "The automorphic branching coefficient L(Π, Σ)",
-      "statement": "Let π ⊆ L²([G]) be a tempered irreducible unitary subrepresentation. There are two ways to restrict it to H: globally, a smooth vector v ∈ π restricts to a function v|_{[H]} whose L²-norm decomposes as Σ_σ ‖projection of v|_{[H]} to σ‖²; and locally, the abstract restriction π|_H decomposes as a direct integral ∫ m_σ σ with multiplicities m_σ ∈ {0,1} over the tempered dual of H against Plancherel measure, giving components pr_σ(v) with ‖v‖² = ∫_σ ‖pr_σ(v)‖². For σ ⊆ L²([H]) irreducible tempered with m_σ = 1 — a π-distinguished σ — multiplicity one lets one define L(π, σ) ≥ 0 by requiring ‖projection of v|_{[H]} to σ‖² = L(π, σ) · ‖pr_σ(v)‖² for every smooth v ∈ π. The constant depends on the choices of Haar measure; the general definition, for cuspidal Π and Σ and a fixed finite set R of places outside which they are spherical, is in §25.4.",
-      "locator": "arXiv:1805.07750v3, §1.1, p. 2; §1.4, (1.5)–(1.7), pp. 6–7; §25.4, p. 119",
-      "status": "missing",
-      "note": "The multiplicity one property that makes the definition possible is the archimedean\n       multiplicity one theorem of Sun–Zhu together with its nonarchimedean counterparts, and is\n       verified for the pairs of interest in §18."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/ggp-pair",
-      "kind": "definition",
-      "name": "Gan–Gross–Prasad pairs",
-      "statement": "The pairs (G, H) considered are forms of (SO_n, SO_{n−1}) or (U_n, U_{n−1}), with H ↪ G the standard inclusion; these are the Gan–Gross–Prasad pairs, and the definition of L(Π, Σ) applies to them for tempered Π and Σ.",
-      "locator": "arXiv:1805.07750v3, §1.1, p. 2; §13, pp. 64–67",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/ichino-ikeda",
+      "id": "PAPER-NELSON-VENKATESH-21/1",
       "kind": "theorem",
-      "name": "The Ichino–Ikeda and N. Harris conjecture",
-      "statement": "L(Π, Σ) = 2^{−β} · L^{(R)}(1/2, −, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨) · Δ_G^{(R)}, where 2^β is the size of the Arthur component group of Π ⊠ Σ^∨ on G × H, L^{(R)} omits the Euler factors in R, and Δ_G is the L-function whose local factor at almost every p is p^{dim G}/#G(F_p).",
-      "locator": "arXiv:1805.07750v3, §1.1, (1.1), p. 2",
-      "status": "missing",
-      "note": "Conjectured by Ichino–Ikeda and N. Harris; proved in the unitary case by W. Zhang under local assumptions permitting a simple trace formula. Cited, not proved here — the paper's results are unconditional statements about L(Π, Σ), and only their translation into L-values uses this conjecture."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/main-theorem-informal",
-      "kind": "theorem",
-      "name": "The main global result, in the form stated in §1.1",
-      "statement": "Assume certain local conditions, including compactness of G(F)\\G(A) and H(F)\\H(A). For each sufficiently small h > 0 let F_h be the family of all Σ locally distinguished by Π, with Satake parameters at a fixed archimedean place inside the rescaling h^{-1}Ω of a fixed nice compact set Ω, and of fixed level at the remaining places of R. Then lim_{h→0} (1/|F_h|) Σ_{Σ ∈ F_h} L(Π, Σ) = 1/2.",
-      "locator": "arXiv:1805.07750v3, §1.1, (1.2), p. 3",
-      "status": "missing",
-      "note": "The precise form is Theorem 25. Under the Ichino–Ikeda/Harris conjecture this says that the average of L^{(R)}(1/2, −, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨) · Δ_G^{(R)} is 2 (1.3); §1.2 explains why that agrees with the random matrix heuristic for an orthogonal family with positive root numbers, where the global factor is lim_N ∫_{SO(2N)} det(1 − x) = 2."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/weak-subconvexity",
-      "kind": "theorem",
-      "name": "The weakly subconvex bound",
-      "statement": "By ignoring all but one term and slowly shrinking the family, L(Π, Σ) = o(cond(Π × Σ)^{1/4}), for Π fixed and Σ traversing a sequence whose archimedean Satake parameters all tend to ∞ at the same rate.",
-      "locator": "arXiv:1805.07750v3, §1.1, (1.4), p. 3",
-      "status": "missing",
-      "note": "The size of F_h is roughly the fourth power of the analytic conductor of the relevant L-function (§31.4), which is how the strength of (1.2) is normalized."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/ratner-input",
-      "kind": "theorem",
-      "name": "Ratner's measure classification as an input",
-      "statement": "A major global ingredient is an application of Ratner's theorem to measures invariant under the centralizer of a regular nilpotent element of G(F). The resulting estimate is ineffective, and the application of Ratner is solely responsible for the ineffectivity; an effective version for this case would give a subconvex estimate for L(Π, Σ).",
-      "locator": "arXiv:1805.07750v3, §1.1, p. 4",
-      "status": "planned",
-      "note": "Cited, not proved. This is the only place ineffectivity enters.",
-      "planned": [
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
-      ]
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/schwartz-space",
-      "kind": "definition",
-      "name": "The Schwartz space of g^∧ and its Fourier transform",
-      "statement": "The Schwartz space S(g^∧) of rapidly decreasing smooth functions on the dual of the Lie algebra, its Fourier transform, and the Haar measures on g, g^∧ and on the groups, which together carry the whole calculus.",
-      "locator": "arXiv:1805.07750v3, §1.14; §2, pp. 18–20",
+      "name": "Schwartz spaces and Fourier inversion on the Lie algebra",
+      "statement": "With dx a Haar measure on g and dξ the dual measure on g^∧ ≅ ig*, φ ↦ φ^∧(ξ) = ∫ φ(x)e^{xξ}dx and a ↦ a^∨(x) = ∫ a(ξ)e^{−xξ}dξ are mutually inverse isomorphisms S(g) ≅ S(g^∧).",
+      "locator": "§2, §2.1, p. 25",
       "status": "library",
       "library": [
         "mathlib:SchwartzMap",
-        "mathlib:VectorFourier.fourierIntegral",
-        "mathlib:MeasureTheory.Measure.IsHaarMeasure"
+        "mathlib:SchwartzMap.fourierTransformCLM",
+        "mathlib:SchwartzMap.fourierTransformCLE"
       ],
-      "note": "Mathlib at 082e2d3 has the Schwartz space of a normed space as `SchwartzMap` (Mathlib/Analysis/Distribution/, with e.g. `SchwartzMap.fourierMultiplierCLM` at FourierMultiplier.lean:50), the Fourier transform `VectorFourier.fourierIntegral` (Mathlib/Analysis/Fourier/FourierTransform.lean:82) and Haar measure (Mathlib/MeasureTheory/Group/Measure.lean:785); Tau Ceti builds Hermite functions as Schwartz maps on top of them. This is the substrate the paper's symbol classes and operator assignments are defined on — and the only part of the paper that the libraries have."
+      "planned": [],
+      "note": "Mathlib's Schwartz space and its Fourier transform with inversion on a finite-dimensional real inner product space (082e2d3); the paper's pairing e^{xξ}, ξ ∈ ig*, is a change of normalisation."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/symbol-classes",
+      "id": "PAPER-NELSON-VENKATESH-21/2",
+      "kind": "definition",
+      "name": "The operator assignment Op and its rescaling Op_h",
+      "statement": "For a small even neighbourhood G of 0 in g on which exp is an analytic isomorphism, a cut-off χ ∈ X(G) (even, [0,1]-valued, ≡ 1 near 0), a unitary representation π of the unimodular Lie group G and a ∈ S(g^∧): Op(a, χ : π) = ∫_g χ(x)a^∨(x)π(exp x)dx and Op_h(a, χ) = Op(a_h, χ) = ∫ χ(hx)a^∨(x)π(exp(hx))dx, a_h(ξ) = a(hξ). Op(a, χ)* = Op(ā, χ), and π(g)Op(a, χ)π(g)⁻¹ = Op(g·a, g·χ) when Ad(g)supp(χ) ⊆ G.",
+      "locator": "§2, §2.2, p. 25",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "(2.1)–(2.2), §§2.3–2.4."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/3",
+      "kind": "construction",
+      "name": "The star product and the composition formula",
+      "statement": "With x∗y = log(exp x exp y) on G×G ⊆ G′ and χ′ ≡ 1 on supp χ ∗ supp χ, the star product a1⋆a2 = (χa1^∨ ⋆ χa2^∨)^∧ (group convolution pulled back to g) satisfies Op(a1, χ)Op(a2, χ) = Op(a1⋆a2, χ′), and Op_h(a, χ)Op_h(b, χ) = Op(a⋆_h b, χ′) with (a⋆_h b)_h = a_h⋆b_h.",
+      "locator": "§2, Lemma 2.1, p. 27",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/4",
+      "kind": "definition",
+      "name": "Sobolev spaces and operator classes Ψ^m",
+      "statement": "∆ = 1 − Σ_{x∈B} x² (B a basis of g) is positive self-adjoint with ‖∆⁻¹‖ ≤ 1; π^s is the completion of π^∞ for ⟨v1, v2⟩_{π^s} = ⟨∆^s v1, v2⟩. An operator T: π^∞ → π^{−∞} has order ≤ m if θ_u(T) = [π(x1), [..., [π(xn), T]]] is bounded π^s → π^{s−m} for all s ∈ Z and u ∈ U; Ψ^m, Ψ^{−∞} = ∩Ψ^m and Ψ^∞ = ∪Ψ^m carry the evident topologies.",
+      "locator": "§3, Definition 3.1, p. 29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§§3.1–3.3 with (3.1)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/5",
+      "kind": "theorem",
+      "name": "Composition and basic members of the operator classes",
+      "statement": "Composition gives continuous maps Ψ^{m1} × Ψ^{m2} → Ψ^{m1+m2} (Lemma 3.3); π(∆)^m ∈ Ψ^{2m} and π(x1…xm) ∈ Ψ^m (Lemma 3.4); T ∈ Ψ^{−∞} iff every ∆^N T ∆^N is bounded (Lemma 3.5); π(f) ∈ Ψ^{−∞} continuously for f ∈ C_c^∞(G) (Lemma 3.6).",
+      "locator": "§3, Lemma 3.3, p. 30",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 3.3–3.6; Lemma 3.4 is proved in the general form of Proposition 8.6."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/6",
       "kind": "definition",
       "name": "Symbol classes S^m and S^m_δ",
-      "statement": "For the dual g^∧ of the Lie algebra, the classes S^m of symbols with the standard derivative bounds, their rescaled analogues S^m_δ for δ ∈ [0, 1/2) (and more generally δ ∈ [0,1)), and the spaces S^∞, S^{−∞} and S(g^∧) of Schwartz functions.",
-      "locator": "arXiv:1805.07750v3, §4, pp. 22–26",
+      "statement": "S^m: smooth a on g^∧ with |∂^α a(ξ)| ≤ C_α⟨ξ⟩^{m−|α|}; S^{−∞} = S(g^∧). For δ ∈ [0,1), S^m_δ: smooth h-dependent a with |∂^α a(ξ)| ≤ C_α h^{−δ|α|}⟨ξ⟩^{m−|α|} uniformly in h ∈ (0,1]; h^η S^m_δ is the rescaled class.",
+      "locator": "§4, Definition 4.1, p. 33",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "Definitions 4.1 and 4.3, §4.5."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/operator-assignment",
+      "id": "PAPER-NELSON-VENKATESH-21/7",
+      "kind": "theorem",
+      "name": "Asymptotics of the star product",
+      "statement": "(i) ⋆ extends uniquely to continuous S^∞ × S^∞ → S^∞, S^{m1} × S^{m2} → S^{m1+m2}, and for δ ∈ [0, 1/2), ⋆_h: S^{m1}_δ × S^{m2}_δ → S^{m1+m2}_δ. (ii) a⋆b ≡ Σ_{j<J} a⋆^j b mod S^{m1+m2−J} and a⋆_h b ≡ Σ_{j<J} h^j a⋆^j b mod h^{(1−2δ)J} S^{m1+m2−J}_δ with continuously varying remainder, where ⋆^j is the bidifferential operator (4.5) from the BCH remainder {x,y} = x∗y − x − y; a⋆^0 b = ab and a⋆^1 b is a multiple of the Poisson bracket.",
+      "locator": "§4, Theorem 4.5, p. 35",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With (4.2)–(4.6), (4.10)–(4.11); proved as Theorem 7.4."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/8",
+      "kind": "theorem",
+      "name": "Polynomial symbols",
+      "statement": "For p ∈ Sym(g_C), viewed as a polynomial on g^∧, Op(p, χ) = π(sym(p)), sym the symmetrisation map; in particular Op(⟨ξ⟩²) = ∆ for an orthonormal basis.",
+      "locator": "§5, Lemma 5.1, p. 37",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proved in §8.1."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/9",
       "kind": "definition",
-      "name": "The operator assignment Op and Op_h",
-      "statement": "For a tempered irreducible unitary representation π of a reductive Lie group G, the assignment sending a Schwartz function on g^∧ to an operator on π^∞, together with its rescaled form Op_h(a) for a parameter h > 0, and the operator classes Ψ^m(π), Ψ^m_δ(π) they land in.",
-      "locator": "arXiv:1805.07750v3, §§2–3, pp. 18–22; §5, pp. 26–30",
+      "name": "h-dependent operator classes Ψ^m_δ",
+      "statement": "For h-dependent π, Ψ^m_δ consists of h-dependent T with ‖h^{nδ}θ_{x1…xn}(T)‖_{π^s→π^{s−m}} bounded uniformly in h; h^∞Ψ^m = ∩_η h^ηΨ^m_δ. Lemma 5.3: h-uniformly continuous seminorms on Ψ^m are O(h^{−M}) on Ψ^m_δ, and continuous functionals on Ψ^{−N} restrict continuously to Ψ^{−N′}_δ.",
+      "locator": "§5, Definition 5.2, p. 37",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "Definition 5.2 and Lemma 5.3."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/star-product",
+      "id": "PAPER-NELSON-VENKATESH-21/10",
+      "kind": "theorem",
+      "name": "Independence of the cut-off",
+      "statement": "For χ1, χ2 ∈ X(G): Op(a, χ1) ≡ Op(a, χ2) mod Ψ^{−∞} for a ∈ S^∞, and Op_h(a, χ1) ≡ Op_h(a, χ2) mod h^∞Ψ^{−∞} for a ∈ S^∞_δ, with continuously varying remainder.",
+      "locator": "§5, Lemma 5.4, p. 39",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/11",
+      "kind": "theorem",
+      "name": "Near-equivariance",
+      "statement": "For δ ∈ [0,1), ε > 0 and h-dependent g ∈ G with ‖Ad(g)‖ ≪ h^{−1+δ+ε}: Op_h(g·a) ≡ π(g)Op_h(a)π(g)⁻¹ mod h^∞Ψ^{−∞} for a ∈ S^∞_δ.",
+      "locator": "§5, Lemma 5.5, p. 39",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/12",
+      "kind": "theorem",
+      "name": "Op maps symbols to operators, compatibly with composition",
+      "statement": "Op(S^m) ⊆ Ψ^m continuously for m ∈ Z ∪ {±∞}, and Op(a)Op(b) = Op(a⋆b, χ′) ≡ Op(a⋆b) mod Ψ^{−∞}; hence Op(a)Op(b) ≡ Σ_{j<J} Op(a⋆^j b) mod Ψ^{m1+m2−J} (Corollary 5.7).",
+      "locator": "§5, Theorem 5.6, p. 40",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 5.6 and Corollary 5.7; proved in §8.7."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/13",
+      "kind": "theorem",
+      "name": "The rescaled calculus",
+      "statement": "For δ ∈ [0, 1/2) and m ∈ Z, Op_h(S^m_δ) ⊆ h^{min(0,m)}Ψ^m_δ, and Op_h(a)Op_h(b) ≡ Op_h(a⋆_h b) mod h^∞Ψ^{−∞}; for M, N there is J with Op_h(a)Op_h(b) ≡ Σ_{j<J} h^j Op_h(a⋆^j b) mod h^NΨ^{−M}_δ (Corollary 5.9).",
+      "locator": "§5, Theorem 5.8, p. 40",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 5.8 and Corollary 5.9; proved in §8.8."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/14",
       "kind": "definition",
-      "name": "The star product",
-      "statement": "The product ⋆ on symbols characterized by Op(a)Op(b) = Op(a ⋆ b), defined initially on Schwartz spaces in §2.5, with its rescaled form ⋆_h and the bilinear operations ⋆^j appearing in its asymptotic expansion.",
-      "locator": "arXiv:1805.07750v3, §2.5, p. 20; §4, (4.12)–(4.13), p. 25",
+      "name": "Coadjoint orbits, normalized symplectic measure and multiorbits",
+      "statement": "A coadjoint orbit O ⊆ g^∧ carries σ_ξ(ad*_xξ, ad*_yξ) = [x,y]ξ/i and ω_O = (1/d!)(σ/2π)^d, d = ½dim O; ∫_O f dω_O = t^{−d}∫_{tO} f(t⁻¹x)dω_{tO} (6.1). A (regular) coadjoint multiorbit is a finite union of (regular) orbits with one infinitesimal character; their number per infinitesimal character is bounded in terms of G.",
+      "locator": "§6, §6.1, p. 41",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "(6.1) is printed for f ∈ C_c^∞(g); read g^∧ (sourceIssues PAPER-NELSON-VENKATESH-21/E8)."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-1",
+      "id": "PAPER-NELSON-VENKATESH-21/15",
       "kind": "theorem",
-      "name": "Theorem 1 — the star product and its asymptotic expansion",
-      "statement": "(i) The star product extends uniquely to a continuous bilinear map ⋆ : S^∞ × S^∞ → S^∞, inducing continuous maps S^{m_1} × S^{m_2} → S^{m_1+m_2} and, for δ ∈ [0, 1/2), ⋆_h : S^{m_1}_δ × S^{m_2}_δ → S^{m_1+m_2}_δ. (ii) For J ∈ Z_{≥0}, a ∈ S^{m_1} and b ∈ S^{m_2}, a ⋆ b ≡ Σ_{0≤j<J} a ⋆^j b modulo S^{m_1+m_2−J}, with remainder varying continuously in a and b; in particular a ⋆_h b ≡ ab modulo h S^{m_1+m_2−1}.",
-      "locator": "arXiv:1805.07750v3, §4, Theorem 1, p. 26",
+      "name": "The Kirillov character formula (Rossmann; cited)",
+      "statement": "For G real reductive and π tempered irreducible there is a unique non-empty regular coadjoint multiorbit O_π ⊆ g^∧ with χ_π(e^x)√j(x) = ∫_{O_π} e^{xξ}dω(ξ) as distributions near 0; its infinitesimal character is that of π, and it is a single orbit if λ_π is regular.",
+      "locator": "§6, Theorem 6.1, p. 43",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "Rossmann [Ros1, Ros2, Ros4]; Harish-Chandra's locally L¹ character χ_π is an input."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-2",
+      "id": "PAPER-NELSON-VENKATESH-21/16",
       "kind": "theorem",
-      "name": "Theorem 2 — Op maps symbols to operator classes",
-      "statement": "For any m ∈ Z ∪ {±∞}, Op(S^m) ⊆ Ψ^m, and the induced map is continuous. In particular elements of Op(S^∞) act on π^∞ and may be composed, with Op(S^{m_1})Op(S^{m_2}) ⊆ Op(S^{m_1+m_2}) + Ψ^{−∞}; more precisely Op(a)Op(b) = Op(a ⋆ b, χ_0) ≡ Op(a ⋆ b) mod Ψ^{−∞}, with continuously varying remainder.",
-      "locator": "arXiv:1805.07750v3, §5, Theorem 2, p. 29",
+      "name": "Trace estimates for the calculus",
+      "statement": "For N large: (i) tr(Op_h(a)) = h^{−d}(∫_{hO_π} a dω_{hO_π} + O(h)) for a ∈ S^{−N}, uniformly in tempered π; (ii) every T ∈ Ψ^{−N}(π) is trace class, continuously and uniformly in π; (iii) h^d Op_h(a) has bounded trace norm for a ∈ S^{−N}_δ, δ < 1/2.",
+      "locator": "§6, Theorem 6.3, p. 44",
       "status": "missing",
-      "note": "Corollary 1 combines this with Theorem 1 to give the J-term expansion of a composition."
+      "library": [],
+      "planned": [],
+      "note": "With (6.3)–(6.4) and Remarks 6.4–6.6; refined in Theorem 12.2."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-3",
+      "id": "PAPER-NELSON-VENKATESH-21/17",
       "kind": "theorem",
-      "name": "Theorem 3 — the rescaled calculus",
-      "statement": "For δ ∈ [0, 1/2) and m ∈ Z, Op_h(S^m_δ) ⊆ h^{min(0,m)} Ψ^m_δ, and for a, b ∈ S^∞_δ, Op_h(a)Op_h(b) = Op_h(a ⋆_h b, χ_0) ≡ Op_h(a ⋆_h b) mod h^∞ Ψ^{−∞}.",
-      "locator": "arXiv:1805.07750v3, §5, Theorem 3, p. 29",
+      "name": "Star products for pairs of subalgebras",
+      "statement": "For Lie subalgebras g1, g2 ⊆ g with g1 + g2 = g (of unimodular subgroups), ⋆: S(g1^∧) × S(g2^∧) → S(g^∧) extends uniquely to continuous S^{m1}(g1^∧) × S^{m2}(g2^∧) → S^{m1+m2}(g^∧) for admissible (m1, m2) (m2 = −∞ if g1 ≠ g, m1 = −∞ if g2 ≠ g); for δ1 + δ2 < 1, a⋆_h b ≡ Σ_{j<J} h^j a⋆^j b mod h^{(1−δ1−δ2)J} S^{m1+m2−J}_{max δ}(g^∧).",
+      "locator": "§7, Theorem 7.4, p. 48",
       "status": "missing",
-      "note": "Corollary 2 gives the finite expansion Op_h(a)Op_h(b) ≡ Σ_{j<J} h^j Op_h(a ⋆^j b) mod h^N Ψ^{−M}_δ, which is the form used throughout."
+      "library": [],
+      "planned": [],
+      "note": "With Example 7.1, Definition 7.2 and Lemma 7.3."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/coadjoint-multiorbit",
-      "kind": "definition",
-      "name": "Regular coadjoint multiorbits",
-      "statement": "The space R of regular coadjoint multiorbits O ⊆ g^∧ — finite unions of regular coadjoint orbits with multiplicities, carrying a normalized symplectic measure ω_O — and its topology.",
-      "locator": "arXiv:1805.07750v3, §6, p. 30; §11, pp. 58–61",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-4",
+      "id": "PAPER-NELSON-VENKATESH-21/18",
       "kind": "theorem",
-      "name": "Theorem 4 — the Kirillov formula",
-      "statement": "There is a unique nonempty regular coadjoint multiorbit O_π ⊆ g^∧ such that, for all x in a fixed neighbourhood of the origin in g, χ_π(e^x)√(j(x)) equals the Fourier transform ∫_{ξ ∈ O_π} e^{xξ} dω_{O_π}(ξ) of the normalized symplectic measure on O_π. Moreover (i) the infinitesimal character of O_π is that of π, and (ii) if the infinitesimal character of π is regular then O_π is a single coadjoint orbit.",
-      "locator": "arXiv:1805.07750v3, §6, Theorem 4 with (6.2), p. 31",
+      "name": "Taylor bound for the BCH phase",
+      "statement": "With Ω(x,y,ζ) = e^{{x,y}ζ} = Σ_j Ω_j and ρ = max(|x|, |y|, |x||y||ζ|): ∂_ζ^δ(Ω − Σ_{j<J}Ω_j) ≪ ρ^J on G1 × G2 × g^∧.",
+      "locator": "§7, Lemma 7.6, p. 48",
       "status": "missing",
-      "note": "Stated for tempered π; the identity is independent of the choice of Haar measure. The paper emphasizes that although G may have several orbits with the same infinitesimal character, only one contributes in the regular case."
+      "library": [],
+      "planned": [],
+      "note": "The printed intermediate bound (7.4) is not right for ρ < 1 (sourceIssues PAPER-NELSON-VENKATESH-21/E4)."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-5",
+      "id": "PAPER-NELSON-VENKATESH-21/19",
       "kind": "theorem",
-      "name": "Theorem 5 — traces and the orbital integral",
-      "statement": "Fix N large in terms of G. (i) For a ∈ S^{−N}, π tempered irreducible unitary and h ∈ (0,1), tr(Op_h(a)) = h^{−d}(∫_{hO_π} a dω_{hO_π} + O(h)), with implied constant independent of π and h and continuous in a. (ii) Any T ∈ Ψ^{−N}(π) is trace class, with trace norm depending continuously on T uniformly in π. (iii) The same with a ∈ S^{−N}_δ for fixed δ ∈ [0, 1/2) and h-dependent π.",
-      "locator": "arXiv:1805.07750v3, §6, Theorem 5 with (6.5), pp. 31–32",
+      "name": "Non-stationary phase",
+      "statement": "If φ: Ω → iR is smooth on Ω ⊆ R^n with |∂φ| ≥ ε, then |∫ f e^{tφ}| ≪ t^{−N} Σ_{|α|≤N} ‖∂^α f‖_{L¹} for f ∈ C_c^∞(Ω), t > 0, continuously in φ; consequently ∂^γ_ζF(ξ, η, ζ) ≪ t^{−N} when t = |(ξ, η)| ≥ ½|ζ|.",
+      "locator": "§7, Lemma 7.8, p. 50",
       "status": "missing",
-      "note": "This is the quantitative Kirillov formula that drives the whole paper: traces of quantized symbols are integrals over rescaled coadjoint orbits."
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 7.7–7.8; the printed proof has a gap (sourceIssues PAPER-NELSON-VENKATESH-21/E2)."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-6",
+      "id": "PAPER-NELSON-VENKATESH-21/20",
+      "kind": "construction",
+      "name": "Localized symbols and dyadic–Planck partitions",
+      "statement": "a ∈ S^m_δ is localized at ω if supported on U_ω = {|ξ − ω| ≤ ½h^δ⟨ω⟩}; then a(ξ) = ⟨ω⟩^m φ((ξ−ω)/(h^δ⟨ω⟩)) and a_h^∨(x) = ⟨ω⟩^m e^{−xω/h}A^{dim g}φ^∨(Ax), A = h^{δ−1}⟨ω⟩. There is an h-dependent Ω ⊆ g^∧ with bounded overlaps, polynomial counting and a partition of unity, so every a ∈ S^m_δ is Σ_ω ⟨ω⟩^m a_ω with a_ω ∈ S^0_δ localized.",
+      "locator": "§7, Lemma 7.10, p. 51",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definition 7.9, Lemmas 7.10–7.12 (sourceIssues PAPER-NELSON-VENKATESH-21/E10)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/21",
       "kind": "theorem",
-      "name": "Theorem 6 — star product asymptotics in general",
-      "statement": "The star product extends uniquely to a compatible family of continuous maps ⋆ : S^{m_1}(g^∧_1) × S^{m_2}(g^∧_2) → S^{m_1+m_2}(g^∧) over the admissible pairs (m_1, m_2); and for δ_1, δ_2 ∈ [0,1) with δ_1 + δ_2 < 1, J ∈ Z_{≥0} and an admissible pair, a ⋆_h b ≡ Σ_j h^j a ⋆^j b modulo h^{(1−δ_1−δ_2)J} S^{…}_{max(δ_1,δ_2)}.",
-      "locator": "arXiv:1805.07750v3, §7, Theorem 6, p. 34",
+      "name": "Remainder estimates for localized star products",
+      "statement": "For δ1 + δ2 < 1 and a ∈ S^0_{δ1}(g1^∧), b ∈ S^0_{δ2}(g2^∧) localized at ω1, ω2, the remainder r = a⋆_h b − Σ_{j<J} h^j a⋆^j b satisfies ∂^γ r(ζ) ≪ h^N⟨ζ⟩^{−N} times ⟨ω1⟩^{±}, ⟨ω2⟩^{±} factors as in cases (a)–(d), uniformly in ω1, ω2.",
+      "locator": "§7, Proposition 7.13, p. 53",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": []
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-7",
+      "id": "PAPER-NELSON-VENKATESH-21/22",
       "kind": "theorem",
-      "name": "Theorem 7 — composition for admissible pairs",
-      "statement": "For admissible (m_1, m_2) and δ ∈ [0, 1/2), with a ∈ S^{m_1}_δ(g^∧_1) and b ∈ S^{m_2}_δ(g^∧_2), Op_h(a)Op_h(b) = Op_h(a ⋆_h b); and for each M, N ∈ Z_{≥0} there is J with Op_h(a)Op_h(b) ≡ Σ_{0≤j<J} h^j Op_h(a ⋆^j b) mod h^N Ψ^{−M}_δ.",
-      "locator": "arXiv:1805.07750v3, §8, Theorem 7 with (8.36), p. 50",
+      "name": "Asymptotics for convolution with a bump",
+      "statement": "For ψ ∈ C_c^∞(g) and a ∈ S^m_δ, the b with b_h^∨ = ψa_h^∨ lies in S^m_δ and b ≡ Σ_{j<J}(−h)^j Σ_{|α|=j} (∂^αψ(0)/α!) ∂^α a mod h^{(1−δ)J}S^{m−J}_δ.",
+      "locator": "§7, Lemma 7.14, p. 56",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": []
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-8",
+      "id": "PAPER-NELSON-VENKATESH-21/23",
       "kind": "theorem",
-      "name": "Theorem 8 — the topology on multiorbits",
-      "statement": "Let O_j ∈ R be a sequence of regular coadjoint multiorbits and set O := {ξ ∈ g^∧_reg : ξ_j → ξ for some ξ_j ∈ O_j}. (i) If O_j has a nonempty limit O_lim ∈ R then O_lim = O. (ii) If O is nonempty and contains all regular subsequential limits of the sequence, then O ∈ R and O_j → O.",
-      "locator": "arXiv:1805.07750v3, §11, Theorem 8, p. 59",
+      "name": "Fourier transforms of symbols away from the origin",
+      "statement": "For a ∈ S^∞, a^∨ is smooth off 0 with ∂^α a^∨(x) ≪ |x|^{−N} when |α| + m − N ≤ −dim g − 1, and ∂^α a_h^∨(x) ≪ h^{−dim g}|x/h^{1−δ}|^{−N} for a ∈ S^m_δ; a^∨ is n-times differentiable at 0 if m ≤ −dim g − 1 − n.",
+      "locator": "§8, Lemma 8.1, p. 57",
       "status": "missing",
-      "note": "Follows from arguments of Rossmann, who also characterizes when O is nonempty; the paper records it because it does not appear to be stated in this form in the literature."
+      "library": [],
+      "planned": []
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-9",
+      "id": "PAPER-NELSON-VENKATESH-21/24",
       "kind": "theorem",
-      "name": "Theorem 9 — trace estimates with the infinitesimal character",
-      "statement": "For N ∈ 2Z_{≥0} with N > d: (i) for δ ∈ [0,1) and a ∈ S^{−N}_δ, tr(Op_h(a)) ≪ h^{−d}⟨h λ_π⟩^{d−N}, and h^d tr(Op_h(a)) = ∫_{hO_π} a dω_{hO_π} + O(h^{1−δ}⟨h λ_π⟩^{d−N−1}); in particular, for h-independent a and π admitting a limit orbit, the trace converges to the orbital integral.",
-      "locator": "arXiv:1805.07750v3, §12, Theorem 9 with (12.1)–(12.2), p. 62",
+      "name": "Membership criterion for Ψ^m",
+      "statement": "T ∈ Ψ^m iff for every u ∈ U: sup ‖θ_u(T)v‖²/⟨∆^m v, v⟩ < ∞ (m ≥ 0), or sup ‖θ_u(T)x1…x_{−m}v‖/‖v‖ < ∞ over x_i ∈ {1} ∪ B (m ≤ 0); and π(t) ∈ Ψ^m for every t ∈ U[∆⁻¹] of order ≤ m (Proposition 8.6).",
+      "locator": "§8, Proposition 8.2, p. 59",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "Proposition 8.2, Definition 8.3, Lemmas 8.4–8.5, Proposition 8.6."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/stability",
-      "kind": "definition",
-      "name": "H-stable elements and stable pairs",
-      "statement": "An element x ∈ g is H-stable when its H-orbit is closed with trivial stabilizer, in the sense made precise in §14; a pair (λ, µ) ∈ [g] × [h] is stable if the non-obvious eigenvalue multisets satisfy ev(λ) ∩ ev(µ) = ∅, equivalently if ev(λ) + ev(−µ) does not contain zero.",
-      "locator": "arXiv:1805.07750v3, §14, pp. 67–73",
-      "status": "missing",
-      "note": "§15 interprets the multiset sum through the Satake parameters of the associated L-function, so that failure of stability corresponds to the conductor-dropping locus."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-10",
+      "id": "PAPER-NELSON-VENKATESH-21/25",
       "kind": "theorem",
-      "name": "Theorem 10 — a criterion for stability",
-      "statement": "For x ∈ g, x is H-stable if and only if ev(x) ∩ ev(x_H) = ∅.",
-      "locator": "arXiv:1805.07750v3, §14, Theorem 10, p. 68",
+      "name": "L²-boundedness of order-zero operators",
+      "statement": "Op(a) is bounded on π for a ∈ S^0, and Op_h(a) is bounded uniformly in h for a ∈ S^0_δ, δ < 1/2, with norm controlled continuously by a and uniformly in π.",
+      "locator": "§8, Proposition 8.7, p. 61",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "Via ‖Op_h(a)‖ ≤ ‖a^∨‖_{L¹} (Lemma 8.8), Lemma 8.9 and the Cotlar–Stein lemma."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-11",
+      "id": "PAPER-NELSON-VENKATESH-21/26",
       "kind": "theorem",
-      "name": "Theorem 11 — the stable locus is a principal H-bundle",
-      "statement": "The morphism {H-stable x ∈ g} → {stable (λ, µ) ∈ [g] × [h]}, x ↦ ([x], [x_H]), is a principal H-bundle; in particular, for stable (λ, µ) the fibre O^{λ,µ} = {x ∈ g : [x] = λ, [x_H] = µ} consists of H-stable elements and is an H-torsor.",
-      "locator": "arXiv:1805.07750v3, §14, Theorem 11 with (14.4)–(14.5), p. 70",
+      "name": "The Cotlar–Stein lemma (cited)",
+      "statement": "If T_j: V1 → V2 satisfy sup_j Σ_k ‖T_j*T_k‖^{1/2} ≤ C and sup_j Σ_k ‖T_jT_k*‖^{1/2} ≤ C, then Σ_j T_j converges in operator norm to T with ‖T‖ ≤ C.",
+      "locator": "§8, Lemma 8.10, p. 61",
       "status": "missing",
-      "note": ""
+      "library": [],
+      "planned": [],
+      "note": "[Hör, Lemma 18.6.5]; not in the pinned libraries."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-12",
+      "id": "PAPER-NELSON-VENKATESH-21/27",
       "kind": "theorem",
-      "name": "Theorem 12 — compatibility of volume forms",
-      "statement": "Fix Haar volume forms β_G, β_H on g^*, h^* and equip [g^*], [h^*] with the corresponding normalized affine volume forms γ_G, γ_H. For stable (λ, µ), equipping the regular orbits with their symplectic volume forms and O^{λ,µ} with its orbital volume form α, in each of the three sequences of the statement either α or −α is the fibral volume form.",
-      "locator": "arXiv:1805.07750v3, §16, Theorem 12, p. 78",
+      "name": "Composition across proper subgroups",
+      "statement": "For admissible (m1, m2), δ < 1/2, a ∈ S^{m1}_δ(g1^∧), b ∈ S^{m2}_δ(g2^∧): Op_h(a)Op_h(b) = Op_h(a⋆_h b) ≡ Σ_{j<J} h^j Op_h(a⋆^j b) mod h^NΨ^{−M}_δ; if the preimages in g^∧ of supp a and supp b are disjoint, Op_h(a)Op_h(b) ∈ h^∞Ψ^{−∞} continuously (Lemma 8.12).",
+      "locator": "§8, Theorem 8.11, p. 71",
       "status": "missing",
-      "note": "The bookkeeping that makes the measures of §17 consistent; recorded by its content, with the three sequences not transcribed."
+      "library": [],
+      "planned": [],
+      "note": "Theorem 8.11 and Lemma 8.12."
     },
     {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-13",
+      "id": "PAPER-NELSON-VENKATESH-21/28",
       "kind": "theorem",
-      "name": "Theorem 13 — the real form of the bundle",
-      "statement": "The map g^∧_stab → {stable (λ, µ)} is a principal H-bundle over its image, with fibres O^{λ,µ}; in particular, for stable (λ, µ) ∈ [g^∧] × [h^∧], either O^{λ,µ} is empty or it is an H-torsor, a closed H-invariant subset on which H acts simply transitively and which consists of H-stable regular elements.",
-      "locator": "arXiv:1805.07750v3, §17, Theorem 13, p. 82",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-14",
-      "kind": "theorem",
-      "name": "Theorem 14 — integration over the fibres",
-      "statement": "Integration defines a continuous map {stable (λ, µ) ∈ [g^∧] × [h^∧]} × S(g^∧) → C, (λ, µ, a) ↦ ∫_{O^{λ,µ}} a, and the disintegration ∫_{O^λ} a dω = ∫ (∫_{O^{λ,µ}} a) of the symplectic measure over the fibres holds.",
-      "locator": "arXiv:1805.07750v3, §17, Theorem 14 with (17.4), p. 83",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/relative-character",
-      "kind": "definition",
-      "name": "Relative characters H_σ",
-      "statement": "For tempered irreducible unitary representations π of G and σ of H, the relative character H_σ(T) attached to an operator T on π, defined by matrix coefficient integrals as in the Ichino–Ikeda conjecture, together with the multiorbit O_{π,σ} attached to the pair.",
-      "locator": "arXiv:1805.07750v3, §18, pp. 85–86",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-15",
-      "kind": "theorem",
-      "name": "Theorem 15 — asymptotics of relative characters",
-      "statement": "Fix a compact U ⊆ g^∧ of H-stable elements, let h → 0 along a sequence, fix δ ∈ [0, 1/2) and a ∈ S^{−∞}_δ(g^∧) supported in U, and let π, σ be h-dependent tempered irreducible unitary representations of G and H. Then H_σ(Op_h(a)) = ∫_{hO_{π,σ}} a + O(h^{1−2δ}). More precisely there are differential operators D_j on g^∧ with D_0a = a, ord D_j ≤ 2j and D_j homogeneous of degree j, such that for each J, H_σ(Op_h(a)) = Σ_{0≤j<J} h^j ∫_{hO_{π,σ}} D_j a + O(h^{(1−2δ)J}).",
-      "locator": "arXiv:1805.07750v3, §19, Theorem 15 with (19.7)–(19.8), p. 88",
-      "status": "missing",
-      "note": "The paper singles this out in the introduction: general and uniform asymptotic expansions of relative characters away from the conductor-dropping locus, giving a robust supply of analytic test vectors for the local matrix coefficient integrals of Ichino–Ikeda."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-16",
-      "kind": "theorem",
-      "name": "Theorem 16 — the analogue for a general pair",
-      "statement": "The same expansion as Theorem 15, with (G, H) replaced by a pair (M, S) as in §19.5: for a compact U ⊆ m^∧ of S-stable elements, δ ∈ [0, 1/2), a ∈ S^{−∞}_δ(m^∧) supported in U and h-dependent tempered π of M, there are differential operators D_j with the properties of Theorem 15 giving the corresponding asymptotic expansion.",
-      "locator": "arXiv:1805.07750v3, §19, Theorem 16, pp. 90–91",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/inverse-branching",
-      "kind": "definition",
-      "name": "The inverse branching problem",
-      "statement": "Given the rescaled test function k_h and a target behaviour on the π-distinguished tempered dual Ω, the problem of producing symbols a whose quantizations reproduce it: for each ε and N one seeks nonnegative a, a_1, a_2, a_nt ∈ C_c^∞(V) controlling k_h(σ) from above and below through relative characters.",
-      "locator": "arXiv:1805.07750v3, §20, p. 100; §22, pp. 101–107",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-17",
-      "kind": "theorem",
-      "name": "Theorem 17 — inverse branching at the distinguished archimedean place",
-      "statement": "Let k, U, V be as in (22.1)–(22.2), satisfying (22.3)–(22.4), and assume k ≥ 0. Then for each ε > 0 and N ∈ Z_{≥0} there are nonnegative a, a_1, a_2, a_nt ∈ C_c^∞(V) such that (i) ∫_O a_1^2 dω is bounded in terms of k and V, while ∫_O a_2^2 dω and ∫_O a_nt^2 dω are bounded by ε; (ii) |∫_{[h^∧]} k − ∫_O a^2 dω| ≤ ε; and (iii) for all sufficiently small h > 0 and tempered σ of H with h λ_σ ∈ U and O_{π,σ} nonempty, |k_h(σ)| ≤ |H_σ(Op_h(a_1)^2)| and |k_h(σ) − H_σ(Op_h(a)^2)| ≤ |H_σ(Op_h(a_2)^2)|.",
-      "locator": "arXiv:1805.07750v3, §22, Theorem 17 with (22.9)–(22.10), p. 103",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-18",
-      "kind": "theorem",
-      "name": "Theorem 18 — allowable l-components",
-      "statement": "Any l-component of cuspidal type is allowable, in the sense of Definition 1 of §24.2.",
-      "locator": "arXiv:1805.07750v3, §24, Theorem 18, p. 112",
-      "status": "missing",
-      "note": "The paper remarks that all l-components are expected to be allowable. The difficulty is controlling the non-tempered spectrum, which meets the tempered spectrum in several ways — the complementary series can approach both the Steinberg representation and a tempered principal series."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/limit-states",
-      "kind": "definition",
-      "name": "Limit states and the brackets [a_1, …, a_k]",
-      "statement": "The functionals [a_1, …, a_k]_h on [G] built from Op_h(a_1) ⋯ Op_h(a_k) acting on the fixed automorphic representation Π, and their limits as h → 0 along a subsequence.",
-      "locator": "arXiv:1805.07750v3, §26, pp. 121–126",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-19",
-      "kind": "theorem",
-      "name": "Theorem 19 — existence of limit states",
-      "statement": "After passing to a subsequence of {h}, there are continuous maps [·] : S(g^∧)^k → C^∞([G]) for k ∈ Z_{≥1}, depending on π and the subsequence, such that (i) [a_1, …, a_k]_h → [a_1, …, a_k] in the C^∞ topology, continuously in the arguments; (ii) [a_1, …, a_k] = [a_1 ⋯ a_k], so that [a_1 ⋯ a_k] = lim_h h^d [Op_h(a_1) ⋯ Op_h(a_k)]; (iii) [a, ā] ≥ 0; (iv) a ≥ 0 implies [a] ≥ 0; (v) [·] is G-equivariant; and the further properties (vi)–(…) of the statement.",
-      "locator": "arXiv:1805.07750v3, §26, Theorem 19 with (26.5), p. 124",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-20",
-      "kind": "theorem",
-      "name": "Theorem 20 — disintegration of the limit state",
-      "statement": "With the assumptions of Theorem 19, there is a G-equivariant linear map O → {probability measures on [G]}, ξ ↦ [δ_ξ], such that for all a ∈ C_c^∞(g^∧) and Ψ ∈ C_c([G]), ∫_{[G]} [a]Ψ = ∫_{ξ ∈ O} a(ξ)(∫ [δ_ξ]Ψ) dω(ξ). Consequently [δ_ξ] is invariant under the G-centralizer of ξ.",
-      "locator": "arXiv:1805.07750v3, §26, Theorem 20 with (26.7)–(26.9), p. 125",
-      "status": "missing",
-      "note": "The measures [δ_ξ] and their invariance generalize the microlocal lift of quantum unique ergodicity; the invariance under the centralizer of a regular nilpotent element is what Ratner's theorem is applied to."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-21",
-      "kind": "theorem",
-      "name": "Theorem 21 — equidistribution of limit states",
-      "statement": "For any a ∈ S(g^∧), (1/τ(H)) ∫_{[H]} [a] = (1/τ(G)) ∫_{[G]} [a].",
-      "locator": "arXiv:1805.07750v3, §27, Theorem 21 with (27.1), p. 127",
-      "status": "missing",
-      "note": "The proof uses the assumption that G is quasi-split; without it O = ∅ by §11.4.2, so [a] = 0 by Theorem 20 and the conclusion is empty. This is the step where Ratner's classification enters, through Theorem 22."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-22",
-      "kind": "theorem",
-      "name": "Theorem 22 — invariance of the limit measure",
-      "statement": "Under the assumptions (i)–(vii) of §27, the measure µ is G^+_∞-invariant, where G^+_∞ is the connected component of the group of archimedean points.",
-      "locator": "arXiv:1805.07750v3, §27, Theorem 22, p. 129",
-      "status": "missing",
-      "note": "Proved by reducing to a quotient Γ\\G_∞ and applying Ratner's measure classification; this is the ineffective step."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-23",
-      "kind": "theorem",
-      "name": "Theorem 23 — the spectral expansion of the H-period",
-      "statement": "For a ∈ C_c^∞(g^∧) supported in the preimage of W, ∫_{[H]} [a] = lim_{h→0} h^d Σ_{Σ : σ good} P_Σ(Op_h(a)); and more generally ∫_{[H]} [a_1 ⋯ a_k] = lim_{h→0} h^d Σ_{Σ : σ good} P_Σ(Op_h(a_1) ⋯ Op_h(a_k)).",
-      "locator": "arXiv:1805.07750v3, §29, Theorem 23 with (29.3)–(29.4), p. 133",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-24",
-      "kind": "theorem",
-      "name": "Theorem 24 — the smoothly weighted asymptotic formula",
-      "statement": "The smoothly weighted average satisfies the asymptotic identity of §30 relating ∫k and ∫k′ by the factor τ(H)/τ(G).",
-      "locator": "arXiv:1805.07750v3, §30, Theorem 24, p. 136",
-      "status": "missing",
-      "note": "Recorded by its shape: the display in the source is a two-line formula whose notation is set up across §§29–30, and it was not transcribed here."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/theorem-25",
-      "kind": "theorem",
-      "name": "Theorem 25 — the normalized asymptotic formula",
-      "statement": "Let (G, H) be a GGP pair over a number field F, R a large enough finite set of places, Π a fixed automorphic representation of G unramified outside R satisfying the conditions of §25.7, q ∈ R a fixed archimedean place, H = H(F_q) and H′ = ∏_{p ∈ R−{q}} H(F_p). Let U, U′ be admissible subsets of the tempered distinguished spectra of H and H′, and F_h the corresponding family as in (31.1). Then (1/|F_h|) Σ_{Σ ∈ F_h} L(Π, Σ) = 1/τ(G) + o_{h→0}(1). Assuming the Ichino–Ikeda/N. Harris conjectures, or restricting to cases where they are known, (1/|F_h|) Σ_{Σ ∈ F_h} (τ(G)τ(H)/2^β) Δ_G^{(R)} L^{(R)}(1/2, −, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨) = τ(H) + o_{h→0}(1).",
-      "locator": "arXiv:1805.07750v3, §31, Theorem 25 with (31.4)–(31.5), p. 142",
-      "status": "missing",
-      "note": "The main theorem. Under the conditions of §25.7 one has τ(G) = τ(H) = 2, which is how the informal statement (1.2) with limit 1/2 arises."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/family-and-conductor",
-      "kind": "definition",
-      "name": "The family F_h and its size",
-      "statement": "The family F_h of automorphic representations Σ of H, unramified outside R, attached to admissible subsets of the tempered distinguished spectra at the distinguished archimedean place and at the remaining places of R; §31.4 computes that its size is roughly the fourth power of the analytic conductor of the relevant L-function.",
-      "locator": "arXiv:1805.07750v3, §25, pp. 117–121; §31, (31.1) and §31.4, pp. 140–142",
-      "status": "missing",
-      "note": ""
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/local-conditions-25-7",
-      "kind": "definition",
-      "name": "The standing hypotheses of §25.7",
-      "statement": "The conditions imposed on (G, H, Π): compactness of the adelic quotients, G quasi-split, Π unramified outside R and tempered, with the local distinction conditions at the places of R, under which τ(G) = τ(H) = 2.",
-      "locator": "arXiv:1805.07750v3, §25.7, pp. 119–121",
-      "status": "missing",
-      "note": "These are what the informal statement of §1.1 calls 'certain local conditions'; a formalisation would have to carry them explicitly."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/plancherel-technicalities",
-      "kind": "theorem",
-      "name": "The Plancherel-formula technicalities of Appendix A",
-      "statement": "The facts about the Plancherel formula and measure for the groups in question used in Part III: the disintegration of matrix coefficient integrals and the continuity statements recorded in Appendix A.",
-      "locator": "arXiv:1805.07750v3, Appendix A, pp. 96–100",
-      "status": "missing",
-      "note": "Recorded as one item: the appendix was surveyed, not extracted statement by statement."
-    },
-    {
-      "id": "PAPER-NELSON-VENKATESH-21/satake-and-l-functions",
-      "kind": "definition",
-      "name": "Satake parameters and the associated L-functions",
-      "statement": "The dictionary of §15 between the eigenvalue multisets ev(λ), ev(µ) attached to a stable pair and the Satake parameters of Π and Σ, through which the failure of stability corresponds to the conductor-dropping locus of L(1/2, Π × Σ^∨).",
-      "locator": "arXiv:1805.07750v3, §15, pp. 73–76",
+      "name": "The GIT quotient [g*_C] and the Harish-Chandra isomorphism",
+      "statement": "[g*_C] = Spec Sym(g_C)^G is an affine space (Chevalley: t*_C/W_C ≅ [g*_C]) with real form [ig*] = {λ = −λ̄}; Harish-Chandra's γ: Z(U) ≅ C[[g*_C]] (γ(z) = σ(z_T), ρ-shifted projection along (9.4)) defines the infinitesimal character λ_π ∈ [g*_C] of every representation on which Z acts by scalars.",
+      "locator": "§9, §9.1–§9.5, p. 72",
       "status": "planned",
-      "note": "",
+      "library": [],
       "planned": [
-        "SmoothRepresentationsOfLocalGroups:SR.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.4"
-      ]
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+        "AutomorphicFormsOnReductiveGroups:AF.1"
+      ],
+      "note": "Example 9.1 identifies [g*_C] for GL_n with characteristic polynomials of ξ/i."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/29",
+      "kind": "theorem",
+      "name": "Infinitesimal characters of duals and conjugates",
+      "statement": "λ_{π*} = −λ_π, λ_{π̄} = λ̄_π and λ_{π⁺} = −λ̄_π; hence λ_π ∈ [ig*] for irreducible unitary π (Corollary 9.3).",
+      "locator": "§9, Lemma 9.2, p. 75",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma 9.2 and Corollary 9.3."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/30",
+      "kind": "theorem",
+      "name": "The Langlands classification (cited)",
+      "statement": "Each irreducible π is the unique irreducible quotient of i^G_P σ for a unique conjugacy class of (P, σ) with σ tempered on the derived group of M and |central character| strictly dominant; λ_σ maps to λ_π under [m*_C] → [g*_C].",
+      "locator": "§9, §9.6, p. 75",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[Kn, Theorem 8.54, Proposition 8.22]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/31",
+      "kind": "theorem",
+      "name": "Infinitesimal criterion for temperedness",
+      "statement": "For compact Ω ⊆ [ig*]_reg there is h0 > 0 such that every irreducible unitary π with hλ_π ∈ Ω, 0 < h < h0, is tempered.",
+      "locator": "§9, Lemma 9.4, p. 76",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/32",
+      "kind": "theorem",
+      "name": "Eigenvalues of ∆ and infinitesimal characters",
+      "statement": "∆ has an eigenvalue of size O(1 + |λ_π|²) on each irreducible unitary π (via ∆ = 2∆_K − 1 − C, Vogan's minimal K-types and Blattner's formula); and γ∘sym(p) − p has order ≤ n − 1 for p ∈ Sym(g_C)^G of order ≤ n (Lemma 9.6).",
+      "locator": "§9, Lemma 9.5, p. 77",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 9.5–9.6 and the norms of §9.8."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/33",
+      "kind": "theorem",
+      "name": "Approximate division",
+      "statement": "For δ1, δ2 < 1/2, a ∈ S^{−∞}_{δ1} and q ∈ S^∞_0 with |q| ≥ h^{δ2} on supp a, there are b, b′ ∈ h^{−δ2}S^{−∞}_δ with Op_h(a) ≡ Op_h(q)Op_h(b) ≡ Op_h(b′)Op_h(q) mod h^NΨ^{−M}_δ.",
+      "locator": "§10, Lemma 10.1, p. 79",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/34",
+      "kind": "theorem",
+      "name": "Localizing near the locus of a symbol",
+      "statement": "If H: Ψ^{−∞} → C is h-uniformly continuous and H(Op_h(p)T) = λH(T) (or H(T Op_h(p)) = λH(T)), then H(Op_h(a)) ≪ h^{−M}⟨λ⟩^{−N}, and ≪ h^N⟨λ⟩^{−N} if |p − λ| ≥ h^δ on supp a.",
+      "locator": "§10, Lemma 10.3, p. 80",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/35",
+      "kind": "theorem",
+      "name": "Localizing near infinitesimal characters",
+      "statement": "If H: Ψ^{−∞}(π) → C factors (H × H)-equivariantly through Ψ^{−∞}(σ) → C, then H(Op_h(a)) ≪ h^{−M}⟨hλ_π⟩^{−N}⟨hλ_σ⟩^{−N}, and ≪ h^N⟨hλ_π⟩^{−N}⟨hλ_σ⟩^{−N} if a is supported off {ξ: dist([ξ], hλ_π) ≤ h^δ, dist([ξ|_h], hλ_σ) ≤ h^δ}.",
+      "locator": "§10, Lemma 10.4, p. 81",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof's (10.12), (10.14) write p(hλ_σ) for every p (sourceIssues PAPER-NELSON-VENKATESH-21/E13)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/36",
+      "kind": "theorem",
+      "name": "Topology on regular coadjoint multiorbits (after Rossmann)",
+      "statement": "Topologise regular multiorbits by weak-* convergence of ω_O. If O_j has a non-empty limit it is the set O of regular limits of points ξ_j ∈ O_j; conversely if O ≠ ∅ contains all regular subsequential limits, O_j → O. (Lemmas 11.2–11.3: λ ↦ ω_λ and ξ ↦ ω_{G·ξ}|_U vary continuously.)",
+      "locator": "§11, Theorem 11.1, p. 83",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 11.1 with Lemmas 11.2–11.3 [Ros2, Ros3]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/37",
+      "kind": "theorem",
+      "name": "Uniform bounds for symplectic measures",
+      "statement": "sup_O |∫_O a dω| < ∞ for a ∈ C_c(g^∧), and sup_O ⟨[O]⟩^ε ∫_O ⟨ξ⟩^{−d(O)−ε}dω_O < ∞, over non-empty regular multiorbits.",
+      "locator": "§11, Lemma 11.4, p. 85",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 11.4–11.5."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/38",
+      "kind": "theorem",
+      "name": "Limit orbits of fixed representations",
+      "statement": "An h-dependent tempered π has limit orbit O if hO_π → O. A fixed tempered π has a limit orbit O ⊆ N_reg, and O ≠ ∅ ⇔ π has maximal Gelfand–Kirillov dimension ⇔ π is generic (G quasi-split, Whittaker model).",
+      "locator": "§11, Lemma 11.6, p. 86",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§11.4.1 and Lemma 11.6 [BV, Ros5, Kos3, Cas1]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/39",
+      "kind": "theorem",
+      "name": "Refined trace estimates",
+      "statement": "For even N > d and tempered h-dependent π: tr(Op_h(a)) ≪ h^{−d}⟨hλ_π⟩^{d−N}; h^d tr(Op_h(a)) = ∫_{hO_π} a dω + O(h^{1−δ}⟨hλ_π⟩^{d−N−1}) and = Σ_{j<J} h^j ∫_{hO_π} D_j a dω + O(h^{(1−δ)J}) for constant-coefficient D_j of degree j; lim h^d tr(Op_h(a)) = ∫_O a dω under a limit orbit; ∆_h^{−N/2} is trace class with norm ≍ h^{−d}⟨hλ_π⟩^{d−N}; ‖T‖_1 ≤ C⟨λ_π⟩^{d−N}‖T‖_{π^0→π^N}; Op_h(S^{−N}_0) ⊆ h^{−d}⟨hλ_π⟩^{d−N}T_1; products and conjugates as in (12.7)–(12.9).",
+      "locator": "§12, Theorem 12.2, p. 88",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With §12.1 (classes T_p) and Lemma 12.1 (approximate inverse of ∆_h)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/40",
+      "kind": "theorem",
+      "name": "Uniform bounds for K-types and matrix coefficients",
+      "statement": "There is κ ∈ U(k) acting by κ_τ on τ ∈ K̂ with dim τ ≤ κ_τ^{1/2} and Σκ_τ⁻¹ < ∞; dim(Kv)^{1/2}‖v‖ ≤ ‖κv‖ and tr π(κ)⁻² ≤ C. With the Harish-Chandra function Ξ, |⟨gu, v⟩| ≤ cΞ(g)‖u‖_{π^s}‖v‖_{π^s} for tempered π (Lemma A.2, from Cowling–Haagerup–Howe).",
+      "locator": "Appendix A, Lemma A.1, p. 137",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas A.1–A.2 and (A.1) [CHH]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/41",
+      "kind": "theorem",
+      "name": "Uniform trace-class property of ∆^{−N}",
+      "statement": "For N large in terms of G: sup_π tr π(∆^{−N}) < ∞ over the unitary dual, and ∫_{tempered} tr π(∆^{−N}) < ∞ for Plancherel measure.",
+      "locator": "Appendix A, Lemma A.3, p. 138",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/42",
+      "kind": "definition",
+      "name": "Gan–Gross–Prasad pairs",
+      "statement": "For k of characteristic 0, k1 ∈ {k, a quadratic field, k × k} with involution ι, and (V, ⟨,⟩) a non-degenerate ι-symmetric k1-form, G = Aut(V/k1, ⟨,⟩)⁰ ⊆ GL(V); for e with ⟨e,e⟩ ≠ 0 and V_H = (k1e)^⊥, H = Aut(V_H)⁰ ↪ G. A GGP pair is such an inclusion with its standard representations: (SO_n, SO_{n+1}), (U_n, U_{n+1}) or (GL_n, GL_{n+1}) forms.",
+      "locator": "§13, §13.2, p. 92",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§§13.1–13.3, (III.1)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/43",
+      "kind": "definition",
+      "name": "Eigenvalue invariants ev(x)",
+      "statement": "The coefficients of the characteristic polynomial of x ∈ g (skew-adjoint) generate the invariant ring, with the Pfaffian added in the even orthogonal case; ev(x) is the multiset of eigenvalues on V⁺ (minus one zero in the odd orthogonal case) and [x] ↦ (ev(x), pf(x)) or ev(x) is injective on [g].",
+      "locator": "§13, §13.4.1, p. 93",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/44",
+      "kind": "theorem",
+      "name": "Eigenvalues and isotropic eigenvectors; a regularity criterion",
+      "statement": "c ∈ ev(x) ⇔ x has an isotropic eigenvector in V⁺ with eigenvalue c ⇔ one in V⁻ with eigenvalue −c (Lemma 13.1). If every isotropic subspace of V⁺ on which x is scalar has dimension ≤ 1 (and, orthogonally, dim ker x ≤ 2), x is regular (Lemma 13.2).",
+      "locator": "§13, Lemma 13.1, p. 93",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 13.1–13.2."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/45",
+      "kind": "theorem",
+      "name": "GGP pairs are spherical (cited)",
+      "statement": "H has an open orbit with trivial stabilizer on the flag variety of G × H (H embedded diagonally).",
+      "locator": "§13, Lemma 13.3, p. 95",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[BP3, §6.4]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/46",
+      "kind": "theorem",
+      "name": "GIT stability background (cited)",
+      "statement": "For reductive H acting on affine M over algebraically closed k: M//H is affine, φ: M → M//H surjective and universal; the H-stable locus M^s (finite stabilizer, closed orbit) and φ(M^s) are open, and if stabilizers on M^s are trivial then M^s → φ(M^s) is a principal H-bundle (étale locally trivial). Hilbert–Mumford: x is unstable iff some non-trivial cocharacter has only non-negative weights on x.",
+      "locator": "§14, Lemma 14.1, p. 96",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[MFK, Proposition 0.9], [Mi]; §14.1.1 moment-map form of finiteness; (14.2)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/47",
+      "kind": "theorem",
+      "name": "Stability for GGP pairs",
+      "statement": "For x ∈ g: x is H-stable ⇔ ev(x) ∩ ev(x_H) = ∅ (x_H = ExE on V_H) ⇔ x has no isotropic eigenvector in V_H⁺ ∪ V_H⁻ ⇔ k1[x]e is all of V (unitary) or a non-degenerate subspace of codimension ≤ 1 (orthogonal). A pair (λ, µ) ∈ [g]×[h] is stable if ev(λ) ∩ ev(µ) = ∅; stable pairs are dense open.",
+      "locator": "§14, Theorem 14.2, p. 97",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 14.2, Definition 14.3, Lemmas 14.4 and 14.8; Remark 14.9 compares Rallis–Schiffmann and notes an inaccuracy there (footnote 5)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/48",
+      "kind": "theorem",
+      "name": "Stable fibres are H-torsors",
+      "statement": "x ↦ ([x], [x_H]) from the H-stable locus of g onto the stable pairs in [g]×[h] is a principal H-bundle; each fibre O^{λ,µ} is an H-torsor. The map g → [g]×[h] is surjective, and stable x has x, x_H regular.",
+      "locator": "§14, Theorem 14.5, p. 99",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 14.5 with Lemmas 14.6–14.7; uses (14.8)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/49",
+      "kind": "theorem",
+      "name": "Infinitesimal characters and Langlands parameters",
+      "statement": "For π with Langlands parameter φ_π, φ_π|_{C*}(e^t) = exp(tλ_π + t̄µ_π) (µ_π = −λ̄_π if π tempered), and under g^∨//G^∨ ≅ [g*_C] the element λ_π is the infinitesimal character of π.",
+      "locator": "§15, Lemma 15.2, p. 104",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§15.1, (15.1)–(15.2), Example 15.1."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/50",
+      "kind": "theorem",
+      "name": "Satake parameters of the Rankin–Selberg L-function",
+      "statement": "For the Rankin–Selberg representation ρ of L(H × G) (dimensions (2n−2)·2n, (2n)², 2n(n−1)), the eigenvalues of ρ(A^∨ × B^∨) are (ev(A′) + ev(B′)) × {±1} (unitary) or × {1} (orthogonal); so L_R(π × σ, ρ, s) = ∏ Γ_R(s + λ_i⁺ + ε_i) over these parameters.",
+      "locator": "§15, Lemma 15.3, p. 105",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§§15.2–15.4."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/51",
+      "kind": "theorem",
+      "name": "Stability is absence of conductor dropping",
+      "statement": "For π, σ with infinitesimal characters λ, µ: (λ, µ) is stable ⇔ no Satake parameter of L(π × σ^∨, ρ, s) is zero.",
+      "locator": "§15, Lemma 15.4, p. 107",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/52",
+      "kind": "definition",
+      "name": "Fibral, Haar, symplectic and affine volume forms",
+      "statement": "A smooth X → Y → Z with volume forms β on Y, γ on Z gives the fibral form α = β/γ; Haar forms on h*; the symplectic volume form σ^d/d! on each regular orbit O^µ_reg (the unique open orbit in its fibre, Kostant); and affine forms dp1 ∧ … ∧ dpr on [h*], with (16.3) its pull-back ∏_{α>0}⟨µ, α^∨⟩ ∧H_i.",
+      "locator": "§16, §16.1–§16.4, p. 108",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma 16.2 [Kos2]; Examples 16.1, 16.3."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/53",
+      "kind": "theorem",
+      "name": "The normalized affine form",
+      "statement": "For each Haar form β_H on h* there is a unique affine form γ_H on [h*] such that for every µ the fibral form of O^µ_reg → h* → [h*] is the symplectic volume form.",
+      "locator": "§16, Lemma 16.4, p. 110",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[Ros2, Lemma C]; Definition 16.5, Remark 16.6."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/54",
+      "kind": "theorem",
+      "name": "Compatibility of orbital volume forms",
+      "statement": "For Haar forms β_G, β_H, normalized affine forms γ_G, γ_H and stable (λ, µ), the orbital volume form α on O^{λ,µ} (transported from H) is, up to sign, the fibral volume form in each of the three sequences of (16.4): O^{λ,µ} → O^λ_reg × O^{−µ}_reg → h*, O^{λ,µ} → O^λ_reg → [h*], and O^{λ,µ} → g*_reg → [g*] × [h*].",
+      "locator": "§16, Theorem 16.7, p. 111",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proofs in §16.5.1 (Lagrangian fibration) and §16.5.2 (spherical degeneration)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/55",
+      "kind": "definition",
+      "name": "Measure normalizations over R",
+      "statement": "|dx| = Lebesgue/√(2π) on A¹ (self-dual for e^{ix}); dx on g compatible with dg, dξ its Fourier dual, β with |β| = dξ, |ω_alg| = ω, and the normalized affine measure |γ| on [g^∧], giving ∫_{g^∧} a = ∫_{[g^∧]}∫_{O^λ_reg} a dω (17.2).",
+      "locator": "§17, §17.1–§17.2, p. 115",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/56",
+      "kind": "theorem",
+      "name": "Stable fibres over R and the disintegration formulas",
+      "statement": "g^∧_stab → {stable (λ, µ)} is a principal H-bundle over its image with fibres O^{λ,µ} (empty or H-torsors of stable regular elements); for regular multiorbits O, O(µ) and O_{π,σ} = O_π(λ_σ) = O^{λ_π,λ_σ} when stable. Integration over O^{λ,µ} (Haar transported from H) is continuous in (λ, µ, a), and ∫_{O^λ_reg} a dω = ∫_{[h^∧]} ∫_{O^{λ,µ}} a, more generally ∫_O a dω = ∫_{[h^∧]}∫_{O(µ)} a.",
+      "locator": "§17, Theorem 17.2, p. 118",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorems 17.1–17.2 and (17.3)–(17.5)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/57",
+      "kind": "theorem",
+      "name": "A Łojasiewicz-type inequality",
+      "statement": "For H-stable ξ there are c1, c2 > 0 and a neighbourhood U of ξ with |s·η| > c1|s|^{c2} for all η ∈ U, s ∈ H.",
+      "locator": "§17, Lemma 17.3, p. 118",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/58",
+      "kind": "theorem",
+      "name": "Plancherel measure and affine measure",
+      "statement": "For a complex group and a non-empty bounded open U ⊆ [h^∧] with null boundary, (Plancherel measure of {σ tempered: λ_σ ∈ h⁻¹U}) / (normalized affine measure of h⁻¹U) → 1 as h → 0.",
+      "locator": "§17, Lemma 17.4, p. 120",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Sketched via the Plancherel and Kirillov formulas (§17.5)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/59",
+      "kind": "theorem",
+      "name": "Relative characters",
+      "statement": "For a GGP pair over a local field, ∫_H Ξ_G|_H Ξ_H < ∞ [II, HarN]; for tempered π, σ, H_σ(v1 ⊗ v̄2) = Σ_{u∈B(σ)}∫_H⟨sv1, v2⟩⟨u, su⟩ converges to an H-invariant Hermitian form, tr(T) = ∫_{Ĥ_temp} H_σ(T) (Plancherel), and archimedeanly H_σ extends continuously to Ψ^{−N}(π), uniformly in π, σ, by (18.5).",
+      "locator": "§18, Lemma 18.1, p. 121",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemma 18.1 and (18.1); proof in Appendix A.6."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/60",
+      "kind": "theorem",
+      "name": "Positivity of relative characters (cited; archimedean case expected)",
+      "statement": "H_σ(v ⊗ v̄) ≥ 0, so H_σ(v) = ‖ℓ_σ(v)‖² for an H-invariant ℓ_σ: π → σ unique up to phase; known for F non-archimedean [SVe].",
+      "locator": "§18, Remark 18.2, p. 122",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Used only through the manifest positivity of global periods (Remark 22.3)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/61",
+      "kind": "theorem",
+      "name": "A-priori bounds for relative characters",
+      "statement": "H_σ(Op_h(a)) ≪ h^{−N} for a ∈ S^{−∞}_δ, and ≪ h^N⟨hλ_π⟩^{−N}⟨hλ_σ⟩^{−N} unless (hλ_π, hλ_σ) is o(1)-close to the image of supp a.",
+      "locator": "§19, Lemma 19.1, p. 123",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 19.1–19.2."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/62",
+      "kind": "theorem",
+      "name": "Asymptotics of relative characters in the stable case",
+      "statement": "Fix compact U ⊆ g^∧ of H-stable elements, 0 ≤ δ < 1/2, a ∈ S^{−∞}_δ(g^∧) supported in U, and h-dependent tempered π, σ. Then H_σ(Op_h(a)) = ∫_{hO_{π,σ}} a + O(h^{1−2δ}); more precisely there are D_j of order ≤ 2j, homogeneous of degree j, D_0 = 1, with H_σ(Op_h(a)) = Σ_{j<J} h^j ∫_{hO_{π,σ}} D_j a + O(h^{(1−2δ)J}), constants Cν(a).",
+      "locator": "§19, Theorem 19.3, p. 125",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With (19.9)–(19.11). The proof reduces (§19.4) to Theorem 19.4 for M = G × H, S = diag H, τ = π ⊠ σ̄, whose printed (19.16) omits the factor h^j (sourceIssues PAPER-NELSON-VENKATESH-21/E5)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/63",
+      "kind": "theorem",
+      "name": "Small, medium and huge elements of S",
+      "statement": "(Lemma 19.5) ∫ Θ(y/h^{δ′})j_S(y)tr(π(exp y)Op_h(a))dy = Σ_{j<J} h^j ∫_{hO_π∩s⊥} D_j a + O(h^{(1−2δ)J}) for δ < δ′ < 1/2; (Lemma 19.6) ∫_{‖s−1‖≥h^{−N′}} tr(π(s)Op_h(a)) ≪ h^N; (Lemmas 19.7–19.8) for S-stable ω some unit u ∈ m has |s·u| ≍ |(s·u)ω| ≫ ‖s‖^ε, and tr(π(s)Op_h(a)) ≪ h^∞ when ‖s−1‖ ≥ h^{1/2−η}.",
+      "locator": "§19, Lemma 19.5, p. 129",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 19.5–19.8 and (19.31); the proof of Lemma 19.5 has a normalisation slip (sourceIssues PAPER-NELSON-VENKATESH-21/E6)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/64",
+      "kind": "theorem",
+      "name": "The Plancherel formula (cited)",
+      "statement": "f(1) = ∫_{Ĝ_temp} χ_π(f) for f ∈ C_c^∞(G) (and n-fold differentiable compactly supported f), for the Plancherel measure dual to dg; for non-archimedean G, ∫ dim π^U < ∞ over the tempered dual.",
+      "locator": "Appendix A, §A.3, p. 138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Harish-Chandra; Waldspurger [Wld] for p-adic groups; §A.4.1."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/65",
+      "kind": "theorem",
+      "name": "Plancherel formula for Ξ-integrable functions",
+      "statement": "For f in the space F (all G × G-derivatives in L¹(Ξ dg)) and tempered π, there is a unique continuous π(f): π^∞ → π^∞ with ⟨π(f)u, v⟩ = ∫ f(g)⟨gu, v⟩; f ↦ π(f) is continuous into trace class, ∫‖π(f)‖_1 < ∞, and the Plancherel formula holds on F.",
+      "locator": "Appendix A, Lemma A.4, p. 140",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§A.5 and §A.6 (proof of Lemma 18.1)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/66",
+      "kind": "definition",
+      "name": "Distinguished duals and the functionals ℓ_σ",
+      "statement": "Ĥ^π_temp = {σ tempered: Hom_H(π, σ) ≠ 0}; H_σ ≠ 0 exactly on Ĥ^π_temp for F non-archimedean [BP3, Wll]; ℓ_σ with H_σ(v1 ⊗ v̄2) = ⟨ℓ_σ v1, ℓ_σ v2⟩ (20.1), extended crudely to non-tempered σ; for compact H, π|_H = ⊕ σ and every finitely supported k on Ĥ^π_temp is H_σ(T) for some T (positive definite if k ≥ 0).",
+      "locator": "§20–§22, §20, p. 142",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§20 and §21."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/67",
+      "kind": "definition",
+      "name": "Orbit-distinction",
+      "statement": "σ ∈ Ĥ_temp is orbit-distinguished by π if O_{π,σ} ≠ ∅. For hλ_σ in a fixed compact subset of [h^∧] ∩ image(O_stab) and small h, orbit-distinction implies distinction (by Theorem 19.3); the converse is expected.",
+      "locator": "§20–§22, §22.2, p. 145",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Remark 22.1."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/68",
+      "kind": "theorem",
+      "name": "Archimedean inverse branching",
+      "statement": "Let π have limit orbit O, k ∈ C_c^∞([h^∧] ∩ image(O_stab)), k ≥ 0, with U, V as in (22.2)–(22.4); k_h(σ) = k(hλ_σ) for tempered orbit-distinguished σ, else 0. For ε > 0, N there are a, a1, a2, a_nt ≥ 0 in C_c^∞(V) with ∫_O a1² dω ≪ 1, ∫_O a2², ∫_O a_nt² ≤ ε, |∫k − ∫_O a² dω| ≤ ε, and for small h: |k_h(σ)| ≤ |H_σ(Op_h(a1)²)|, |k_h(σ) − H_σ(Op_h(a)²)| ≤ |H_σ(Op_h(a2)²)| for tempered σ with hλ_σ ∈ U, O_{π,σ} ≠ ∅; and H_σ(Op_h(a)²) = H_σ(Op_h(a_nt)²) + O(h^N) for non-tempered σ with hλ_σ ∈ U.",
+      "locator": "§20–§22, Theorem 22.2, p. 146",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With (22.5)–(22.8) and Remark 22.3."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/69",
+      "kind": "theorem",
+      "name": "Test functions for the Weyl law",
+      "statement": "For k ≥ 0 as above, ε > 0, N and small h there are positive-definite f, f1 in the Hecke algebra, supported on 1 + o(1), with |∫k − h^d f(1)| ≤ ε, f1(1) ≤ εh^{−d} and |k_h(σ) − χ_σ(f)| ≤ χ_σ(f1) + O(h^N⟨hλ_σ⟩^{−N}) for all σ.",
+      "locator": "§20–§22, Lemma 22.4, p. 148",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/70",
+      "kind": "theorem",
+      "name": "Good compact open subgroups and invariant vectors",
+      "statement": "For suitable K there are good (normal in K, Iwahori-factorized for every standard parabolic) J_n forming a basis at 1 [MP]; for good J, a supercuspidal τ of M has J_M-fixed vectors iff some (every) subquotient of i^H_P τ has J-fixed vectors.",
+      "locator": "§23, Lemma 23.2, p. 153",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 23.1–23.2; uses Jacquet's lemma [Cas2, Theorem 3.3.3] and [BZ, §2.13]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/71",
+      "kind": "theorem",
+      "name": "Supercuspidal support and the Bernstein center",
+      "statement": "Each irreducible π is a subquotient of i^H_M τ for a unique class [(M, τ)] with τ supercuspidal (its infinitesimal character); the Bernstein center Z(H) = O(⊔Θ) acts on every smooth representation, by z(λ_π) on irreducibles, and z·v = h_z ∗ v for a central h_z ∈ H^J.",
+      "locator": "§23, Lemma 23.3, p. 154",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.1"
+      ],
+      "note": "Lemmas 23.3 and 23.5, §§23.5–23.6; SR.3 plans the Bernstein decomposition and centre."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/72",
+      "kind": "theorem",
+      "name": "Tempered representations from square-integrable ones (cited)",
+      "statement": "Each tempered irreducible π is a submodule of i^H_M σ for a unique class [(M, σ)] with σ square-integrable.",
+      "locator": "§23, Lemma 23.4, p. 155",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[Wld, Proposition III.4.1]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/73",
+      "kind": "definition",
+      "name": "l-components",
+      "statement": "The Langlands map l: Ĥ_temp → ⊔D, σ ↦ [(M, τ)] with σ ↪ i^H_M τ, τ square-integrable; l-components D ≅ X^0_M/Γ (compact tori mod finite groups), each mapping continuously to one Bernstein component; only finitely many contain representations with J-fixed vectors.",
+      "locator": "§23, §23.7, p. 156",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§§23.7–23.8; generic irreducibility [Cas2, Theorem 6.6.1]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/74",
+      "kind": "theorem",
+      "name": "Strong multiplicity one (cited) and the structure of Ω",
+      "statement": "l is injective on Ω = Ĥ^π_temp (non-archimedean GGP) and l(Ω) is a union of l-components, so Ω is a union of finite quotients of compact tori on which σ ↦ H_σ is continuous (24.1).",
+      "locator": "§24, Lemma 24.1, p. 157",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 24.1–24.2 [MW, BP1, BP2, FLO]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/75",
+      "kind": "definition",
+      "name": "Allowable components and functions",
+      "statement": "An l-component D ⊆ Ω^J is allowable if every non-negative k ∈ C(D) can be approximated: for each ε there are positive-definite T, T₊ ∈ π^J ⊗ π̄^J with tr T₊ ≤ ε and |k(σ) − H_σ(T)| ≤ H_σ(T₊) for all σ ∈ Ĥ, and φ, φ₊ ∈ H^J with φ₊(1) ≤ ε and |k(σ) − tr σ(φ)| ≤ tr σ(φ₊); k is allowable if supported on finitely many allowable components.",
+      "locator": "§24, Definition 24.3, p. 159",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "With Remark 24.4 and (24.7)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/76",
+      "kind": "theorem",
+      "name": "Cuspidal-type components are allowable",
+      "statement": "Every l-component whose inducing data are supercuspidal (e.g. the unramified principal series) is allowable.",
+      "locator": "§24, Theorem 24.5, p. 160",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof in §§24.4–24.5 (Steps 1–6)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/77",
+      "kind": "theorem",
+      "name": "Uniform distinction and the Stone–Weierstrass inputs",
+      "statement": "There is positive-definite T with H_σ(T) ≥ 1 on Ω^J (Lemma 24.6); Θ̄^nt ∩ Θ^0 has measure zero (Lemma 24.8); regular functions on the real form of Θ separate λ(D) from λ(D′) (Lemma 24.9) and give f with |f| ≤ 2 on Θ^unit, f ≥ 1 on Θ^nt and ∫_{Θ^0} f² ≤ ε (Lemma 24.10).",
+      "locator": "§24, Lemma 24.6, p. 164",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 24.6–24.10, Example 24.7; the example given after Lemma 24.10 does not satisfy it (sourceIssues PAPER-NELSON-VENKATESH-21/E3)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/78",
+      "kind": "theorem",
+      "name": "Stone–Weierstrass, Urysohn and Tietze (used)",
+      "statement": "Real subalgebras of C(X, R) separating points on compact X are dense; disjoint closed sets in a normal space are separated by continuous functions; continuous functions on closed subsets of normal spaces extend.",
+      "locator": "§24, Lemma 24.9 (proof), p. 166",
+      "status": "library",
+      "library": [
+        "mathlib:ContinuousMap.subalgebra_topologicalClosure_eq_top_of_separatesPoints",
+        "mathlib:exists_continuous_zero_one_of_isClosed",
+        "mathlib:ContinuousMap.exists_extension"
+      ],
+      "planned": [],
+      "note": "Used in Lemmas 24.9–24.10 and 31.3."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/79",
+      "kind": "definition",
+      "name": "Global setting, Tamagawa measures and assumptions",
+      "statement": "(G, H) a GGP pair over a number field F with smooth models outside a finite set R of places; Tamagawa measures on [G], [H] with K, J of volume 1; a fixed cuspidal Π unramified outside R, Π_R = π ⊗ π′ at a distinguished archimedean q; assumptions: π, π′ tempered; G, H anisotropic ((U_{n+1}, U_n), n ≥ 1, or (SO_{n+1}, SO_n), n ≥ 2), so τ(G) = τ(H) = 2; G_p compact at archimedean p ≠ q; G quasi-split at q and π generic.",
+      "locator": "§25, §25.7, p. 171",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§§25.1–25.3, 25.6–25.7; Example 25.3 (F = Q(√5)) and Remark 25.4. Tamagawa measures are planned in AdelicAlgebraicGroups AA.2; τ(G) = τ(H) = 2 is cited from Weil and Ono."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/80",
+      "kind": "definition",
+      "name": "The branching coefficient L(Π, Σ)",
+      "statement": "For (Π_R, Σ_R) distinguished and tempered, P(v1⊗v2⊗u1⊗u2) = ∫_{[H]}v1ū1 · ∫_{[H]}v̄2u2 and H = ∫_{H_R}⟨hv1,v2⟩⟨u1, hu2⟩ span the same line when H ≠ 0, and L(Π, Σ) ≥ 0 is defined by P = L(Π, Σ)·H.",
+      "locator": "§25, §25.4, p. 168",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/81",
+      "kind": "theorem",
+      "name": "The Ichino–Ikeda and N. Harris conjectures (conjectural; cited)",
+      "statement": "Conjecture: if (Π_R, Σ_R) is distinguished and tempered then H ≠ 0 and L(Π, Σ) = 2^{−β} (L^{(R)}(½, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨)) ∆_G^{(R)}, with 2^β the order of the component group of the Arthur parameter.",
+      "locator": "§25, Conjecture 25.1, p. 169",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[II], [HarN]; proved in unitary cases under local conditions by W. Zhang [Z1]. Remark 25.2 expects 2^β = τ(G)τ(H) generically (Kottwitz)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/82",
+      "kind": "construction",
+      "name": "Limit states",
+      "statement": "For fixed positive T′ ∈ π′ ⊗ π̄′ of trace 1, T ↦ [T] (diagonal restriction of T ⊗ T′) is a positivity-preserving G-equivariant map T_1 → C^∞([G]) with ∫[T] = tr T (Lemma 26.2); [a1,…,ak]_h = h^d[Op_h(a1)⋯Op_h(ak)] is h-uniformly continuous (Lemma 26.3), and along a subsequence converges in C^∞ to G-equivariant [a1⋯ak] with [a, ā] ≥ 0, [a] ≥ 0 for a ≥ 0, and ∫_{[G]}[a] = ∫_O a dω (Theorem 26.4).",
+      "locator": "§26, Theorem 26.4, p. 177",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§26.3, Example 26.1, Lemmas 26.2–26.3, Theorem 26.4."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/83",
+      "kind": "theorem",
+      "name": "Disintegration of limit states",
+      "statement": "There is a G-equivariant ξ ↦ [δ_ξ] from O to probability measures on [G] with ∫_{[G]}[a]Ψ = ∫_O a(ξ)[δ_ξ](Ψ)dω(ξ); each [δ_ξ] is invariant under the centralizer G_ξ.",
+      "locator": "§26, Theorem 26.5, p. 178",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "(26.9); uses Riesz representation and Radon–Nikodym."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/84",
+      "kind": "theorem",
+      "name": "Arzelà–Ascoli and Radon–Nikodym (used)",
+      "statement": "Bounded equicontinuous families of continuous functions on compact spaces are precompact; a measure absolutely continuous with respect to a σ-finite measure has a Radon–Nikodym derivative.",
+      "locator": "§26, Theorem 26.4 (proof), p. 177",
+      "status": "library",
+      "library": [
+        "mathlib:BoundedContinuousFunction.arzela_ascoli₁",
+        "mathlib:MeasureTheory.Measure.rnDeriv"
+      ],
+      "planned": [],
+      "note": "Used in the proofs of Theorems 26.4–26.5."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/85",
+      "kind": "theorem",
+      "name": "Equidistribution of limit states on [H]",
+      "statement": "For every a ∈ S(g^∧), (1/τ(H))∫_{[H]}[a] = (1/τ(G))∫_{[G]}[a].",
+      "locator": "§27, Theorem 27.1, p. 181",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unproven as printed for (SO3, SO2) when Π ≅ Π ⊗ (η_{K/F}∘θ) (sourceIssues PAPER-NELSON-VENKATESH-21/E1); Remark 27.2."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/86",
+      "kind": "theorem",
+      "name": "Reduction to G∞⁺-invariance",
+      "statement": "If every [δ_ξ] is G∞⁺-invariant then Theorem 27.1 holds; each G∞⁺-orbit on [G]/U has the same measure, using strong approximation for the simply connected cover.",
+      "locator": "§27, Lemma 27.3, p. 181",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 27.3–27.4; the proof of Lemma 27.3 needs H(A) → G(F)G∞⁺U\\G(A) surjective, which fails for (SO3, SO2) (sourceIssues PAPER-NELSON-VENKATESH-21/E1)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/87",
+      "kind": "theorem",
+      "name": "Strong approximation (cited)",
+      "statement": "For a simply connected F-group each of whose F-simple factors has non-compact F_q-points, G(F)G(F_q) is dense in G(A).",
+      "locator": "§27, Lemma 27.4 (proof), p. 181",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "note": "[PR, Theorem 7.12]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/88",
+      "kind": "theorem",
+      "name": "Regular nilpotents (Kostant; cited)",
+      "statement": "A nilpotent x ∈ n (b = t ⊕ n a Borel) is regular iff its component along every simple root is non-zero; its centralizer is abelian of dimension rank G.",
+      "locator": "§27, Lemma 27.5, p. 183",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[Kos1, Theorem 5.3]; Example 27.6; abelian centralizer [Kur]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/89",
+      "kind": "theorem",
+      "name": "Ratner's measure classification (cited)",
+      "statement": "An ergodic invariant probability measure on Γ\\G∞ for a subgroup generated by unipotent one-parameter subgroups is the homogeneous measure on a closed orbit xS of a closed connected subgroup S containing it.",
+      "locator": "§27, Theorem 27.7 (proof), p. 184",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[Rat]; with ergodic decomposition [EW, §8.7]."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/90",
+      "kind": "theorem",
+      "name": "Unipotent-invariant measures are G∞⁺-invariant",
+      "statement": "With G quasi-split at q, G anisotropic, ξ ∈ N_reg with centralizer u and U = ⟨exp u⟩: every (Z(A)·U)-invariant probability measure on [G] is G∞⁺-invariant.",
+      "locator": "§27, Theorem 27.7, p. 183",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Lemmas 27.8–27.11 (Zariski closure S is reductive, contains G⁺; strong approximation)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/91",
+      "kind": "theorem",
+      "name": "Reductive subgroups containing a regular nilpotent centralizer",
+      "statement": "If G is quasi-split real reductive, S ⊆ G a connected reductive subgroup and s ⊇ g_ξ for a regular nilpotent ξ, then S = G.",
+      "locator": "§27, Lemma 27.12, p. 186",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/92",
+      "kind": "theorem",
+      "name": "Period formula and Parseval identity",
+      "statement": "P_Σ(T ⊗ T′) = ‖projection to Σ of (T ⊗ T′)|_{[H]}‖² satisfies ∫_{[H]}[T] = Σ_Σ P_Σ(T) (28.3), and P_Σ(T) = L(Π, Σ)H_σ(T)H_{σ′}(T′) when L(Π, Σ) is defined (28.5).",
+      "locator": "§28–§29, §28.1, p. 187",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "(28.1)–(28.6), §29.1; spectral decomposition of L²([H]) for compact [H] is planned in AS.4."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/93",
+      "kind": "theorem",
+      "name": "Weak Weyl law and truncated spectral expansion",
+      "statement": "#{Σ: P_Σ ≠ 0, |λ_σ| ≤ x} ≪ x^{O(1)} (29.2); for a ∈ C_c^∞(g^∧) supported over W, ∫_{[H]}[a1⋯ak] = lim h^d Σ_{σ good} P_Σ(Op_h(a1)⋯Op_h(ak)), 'good' excluding hλ_σ ∉ U and tempered σ with hO_σ ∩ W = ∅.",
+      "locator": "§28–§29, Theorem 29.1, p. 190",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§29.2 and Theorem 29.1."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/94",
+      "kind": "theorem",
+      "name": "Smoothly weighted asymptotic formula",
+      "statement": "For k ∈ K = C_c^∞([h^∧] ∩ image(O_stab)) and k′ ∈ K′ (products of arbitrary functions at compact archimedean places and allowable functions at finite p ∈ R): h^d Σ_{σ, σ′ tempered, O_{π,σ} ≠ ∅} L(Π, Σ)k_h(σ)k′(σ′) = (τ(H)/τ(G))∫k∫k′ + o(1).",
+      "locator": "§30–§31, Theorem 30.1, p. 194",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "§30.2, Definition 30.2, Lemmas 30.3–30.6."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/95",
+      "kind": "theorem",
+      "name": "Summing against approximable weights and sets",
+      "statement": "Theorem 30.1 extends to k, k′ approximable by K, K′ (Corollary 31.4), in particular characteristic functions of admissible (nice, allowable) sets (Lemmas 31.3, 31.6), giving h^d Σ_{Σ∈F_h} L(Π, Σ) = (τ(H)/τ(G))vol(U)vol(U′) + o(1) (Corollary 31.8) for the family F_h of Definition 31.7.",
+      "locator": "§30–§31, Corollary 31.8, p. 202",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Definitions 31.1–31.2, 31.5, 31.7; Lemma 31.3, Corollary 31.4, Lemma 31.6."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/96",
+      "kind": "theorem",
+      "name": "Size of the family (Weyl law)",
+      "statement": "h^d|F_h| = τ(H)vol(U)vol(U′) + o(1).",
+      "locator": "§30–§31, Lemma 31.9, p. 202",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Via the trace formula on compact [H] with the test functions of Lemma 22.4 and (24.4), (24.6)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/97",
+      "kind": "theorem",
+      "name": "Analytic conductor",
+      "statement": "C(Π, Σ) ≍ |F_h|⁴ for Σ ∈ F_h, since C(Π, Σ) ≍ h^{−ε m_G m_H} and 4 dim B_H = ε m_G m_H (Table 1).",
+      "locator": "§30–§31, Lemma 31.10, p. 202",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/98",
+      "kind": "theorem",
+      "name": "Main theorem: the averaged Gan–Gross–Prasad period",
+      "statement": "Under the assumptions of §25.7, for admissible U, U′ and the family F_h: (1/|F_h|)Σ_{Σ∈F_h} L(Π, Σ) = 1/τ(G) + o(1) (= 1/2); assuming Conjecture 25.1 (or where it is known), (1/|F_h|)Σ (τ(G)τ(H)/2^β)∆_G^{(R)} L^{(R)}(½, Π×Σ^∨)/L^{(R)}(1, Ad, Π×Σ^∨) = τ(H) + o(1).",
+      "locator": "§30–§31, Theorem 31.11, p. 203",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 1.1 of the introduction. For (SO3, SO2) with Π ≅ Π ⊗ (η_{K/F}∘θ) it rests on the gap in Lemma 27.3 (sourceIssues PAPER-NELSON-VENKATESH-21/E1)."
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/99",
+      "kind": "theorem",
+      "name": "Weak subconvexity",
+      "statement": "For fixed Π and Σ whose archimedean Satake parameters at q tend to ∞ at the same rate, L(Π, Σ) = o(C(Π × Σ)^{1/4}).",
+      "locator": "Introduction, §1.1 (1.4), p. 4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "From (31.3) by positivity and slowly shrinking families; §31.4."
     }
   ],
+  "coverage": {
+    "counts": {
+      "library": 3,
+      "planned": 3,
+      "missing": 93
+    },
+    "policy": "Every numbered definition, lemma, proposition, theorem and corollary is covered, with closely linked statements merged into one item and named in its note; cited theorems the proofs depend on (Kirillov formula, Langlands classification, Plancherel, Ratner, GIT, strong multiplicity one, Ichino–Ikeda) are items; examples and remarks only where they carry mathematics used later."
+  },
   "prerequisites": [
     {
-      "citation": "A. Ichino and T. Ikeda, On the periods of automorphic forms on special orthogonal groups and the Gross–Prasad conjecture, Geom. Funct. Anal. 19 (2010), 1378–1425",
-      "link": "https://doi.org/10.1007/s00039-009-0040-4",
-      "why": "The conjectural formula (1.1) relating the branching coefficient to central L-values, in the orthogonal case, and the matrix-coefficient integrals the relative characters of §§18–19 compute."
-    },
-    {
-      "citation": "R. N. Harris, The refined Gross–Prasad conjecture for unitary groups, Int. Math. Res. Not. IMRN 2014, 303–389",
-      "link": "https://doi.org/10.1093/imrn/rns219",
-      "why": "The unitary case of the same conjecture."
-    },
-    {
-      "citation": "W. Zhang, Fourier transform and the global Gan–Gross–Prasad conjecture for unitary groups, Ann. of Math. 180 (2014), 971–1049",
-      "link": "https://doi.org/10.4007/annals.2014.180.3.4",
-      "why": "The proof of (1.1) in the unitary case under local assumptions allowing a simple trace formula; it is what makes the L-value form (31.5) of the main theorem unconditional in those cases."
-    },
-    {
-      "citation": "B. H. Gross and D. Prasad, On the decomposition of a representation of SO_n when restricted to SO_{n−1}, Canad. J. Math. 44 (1992), 974–1002",
-      "link": "https://doi.org/10.4153/cjm-1992-060-8",
-      "why": "The branching problem itself, and the Gan–Gross–Prasad pairs of §13."
-    },
-    {
-      "citation": "B. H. Gross, On the motive of a reductive group, Invent. Math. 130 (1997), 287–313",
-      "link": "https://doi.org/10.1007/s002220050186",
-      "why": "The L-function Δ_G appearing in the interpolation formula (1.1)."
+      "citation": "W. Rossmann, Kirillov's character formula for reductive Lie groups, Invent. Math. 48 (1978), 207–220; Limit characters of reductive Lie groups, Invent. Math. 61 (1980); Limit orbits in reductive Lie algebras and Tempered representations and orbits, Duke Math. J. 49 (1982)",
+      "link": "https://doi.org/10.1007/bf01390244",
+      "why": "[Ros1–Ros4]: the Kirillov formula (Theorem 6.1) and the continuity of orbital measures (Theorem 11.1, Lemma 11.2, Lemma 16.4)."
     },
     {
       "citation": "M. Ratner, On Raghunathan's measure conjecture, Ann. of Math. 134 (1991), 545–607",
       "link": "https://doi.org/10.2307/2944357",
-      "why": "The measure classification applied in §27 to the limit measures invariant under the centralizer of a regular nilpotent element; the source of the ineffectivity."
+      "why": "[Rat]: measure classification behind Theorem 27.7."
     },
     {
-      "citation": "A. A. Kirillov, Merits and demerits of the orbit method, Bull. Amer. Math. Soc. 36 (1999), 433–488",
-      "link": "https://doi.org/10.1090/S0273-0979-99-00849-6",
-      "why": "The orbit method as a philosophy, and the Kirillov character formula that Theorem 4 makes quantitative."
+      "citation": "A. Ichino and T. Ikeda, On the periods of automorphic forms on special orthogonal groups and the Gross–Prasad conjecture, Geom. Funct. Anal. 19 (2010), 1378–1425",
+      "link": "https://doi.org/10.1007/s00039-009-0040-4",
+      "why": "[II]: Conjecture 25.1 (orthogonal case), the integrability (18.1) and the local integral formula of §1.2."
     },
     {
-      "citation": "D. A. Vogan, Jr., The method of coadjoint orbits for real reductive groups, in Representation Theory of Lie Groups, IAS/Park City Math. Ser. 8 (2000), 179–238",
-      "link": "https://doi.org/10.1090/pcms/008/05",
-      "why": "The orbit method for real reductive groups; the framework for the coadjoint multiorbits of §§6 and 11."
+      "citation": "R. N. Harris, The refined Gross–Prasad conjecture for unitary groups, Int. Math. Res. Not. 2014, 303–389",
+      "link": "https://doi.org/10.1093/imrn/rns219",
+      "why": "[HarN]: Conjecture 25.1 (unitary case), (18.1)."
     },
     {
-      "citation": "W. Rossmann, Limit characters of reductive Lie groups, Invent. Math. 61 (1980), 53–66",
-      "link": "https://doi.org/10.1007/BF01389894",
-      "why": "Limit characters, from which Theorem 8 on the topology of regular coadjoint multiorbits follows."
+      "citation": "W. Zhang, Fourier transform and the global Gan–Gross–Prasad conjecture for unitary groups, Ann. of Math. 180 (2014), 971–1049",
+      "link": "https://doi.org/10.4007/annals.2014.180.3.4",
+      "why": "[Z1]: Conjecture 25.1 proved in unitary cases under local conditions, making (31.4) unconditional there."
     },
     {
-      "citation": "W. Rossmann, Limit orbits in reductive Lie algebras, Duke Math. J. 49 (1982), 215–229",
-      "link": "https://doi.org/10.1215/S0012-7094-82-04914-6",
-      "why": "Limit orbits and the characterization of when the limit set is nonempty, also used for Theorem 8."
+      "citation": "Y. Sakellaridis and A. Venkatesh, Periods and harmonic analysis on spherical varieties, Astérisque 396 (2017)",
+      "link": "arXiv:1203.0039",
+      "why": "[SVe]: positivity (18.7) of H_σ in the non-archimedean case, used in §24.4."
     },
     {
-      "citation": "B. Sun and C.-B. Zhu, Multiplicity one theorems: the Archimedean case, Ann. of Math. 175 (2012), 23–44",
-      "link": "https://doi.org/10.4007/annals.2012.175.1.2",
-      "why": "The multiplicity one property of the Gan–Gross–Prasad pairs that makes the branching coefficient well defined at the archimedean places."
+      "citation": "C. Mœglin and J.-L. Waldspurger, Sur les conjectures de Gross et Prasad. II, Astérisque 347 (2012); R. Beuzart-Plessis, Compos. Math. 151 (2015), 1309–1371 and Mém. Soc. Math. Fr. 149 (2016)",
+      "link": "arXiv:1001.0826",
+      "why": "[MW, BP1, BP2]: strong multiplicity one (Lemma 24.1)."
     },
     {
-      "citation": "N. M. Katz and P. Sarnak, Zeroes of zeta functions and symmetry, Bull. Amer. Math. Soc. 36 (1999), 1–26",
-      "link": "https://doi.org/10.1090/S0273-0979-99-00766-1",
-      "why": "The symmetry types of families of L-functions, against which §1.2 checks the main theorem: the family here is orthogonal with positive root numbers."
+      "citation": "J.-L. Waldspurger, Une formule intégrale reliée à la conjecture locale de Gross–Prasad, 2e partie: extension aux représentations tempérées, Astérisque 346 (2012), 171–312",
+      "link": "arXiv:0904.0314",
+      "why": "Proposition 5.7: H_σ ≠ 0 exactly on the distinguished tempered dual (§20, orthogonal case); cited in arXiv v3 but missing from the published bibliography (sourceIssues)."
     },
     {
-      "citation": "K. Soundararajan, Weak subconvexity for central values of L-functions, Ann. of Math. 172 (2010), 1469–1498",
-      "link": "https://doi.org/10.4007/annals.2010.172.1469",
-      "why": "The weak subconvexity to which the bound (1.4) is compared."
+      "citation": "J.-L. Waldspurger, La formule de Plancherel pour les groupes p-adiques (d'après Harish-Chandra), J. Inst. Math. Jussieu 2 (2003), 235–333",
+      "link": "https://doi.org/10.1017/s1474748003000082",
+      "why": "[Wld]: p-adic Plancherel formula and the tempered classification (Lemma 23.4)."
+    },
+    {
+      "citation": "R. Beuzart-Plessis, A local trace formula for the Gan–Gross–Prasad conjecture for unitary groups: the archimedean case, Astérisque 418 (2020)",
+      "link": "arXiv:1506.01452",
+      "why": "[BP3]: spherical property (Lemma 13.3), non-vanishing of H_σ (§20), archimedean multiplicity one."
+    },
+    {
+      "citation": "F. Sauvageot, Principe de densité pour les groupes réductifs, Compositio Math. 108 (1997), 151–184",
+      "link": "https://doi.org/10.1023/a:1000216412619",
+      "why": "[Sau]: the density principle behind allowable functions (§24.2); the authors flag a step there they do not follow (footnote 7)."
+    },
+    {
+      "citation": "M. Cowling, U. Haagerup and R. Howe, Almost L² matrix coefficients, J. Reine Angew. Math. 387 (1988), 97–110",
+      "link": "https://doi.org/10.1515/crll.1988.387.97",
+      "why": "[CHH]: the bound (A.1) for tempered matrix coefficients."
+    },
+    {
+      "citation": "B. Kostant, Lie group representations on polynomial rings, Amer. J. Math. 85 (1963); On Whittaker vectors and representation theory, Invent. Math. 48 (1978); D. Barbasch and D. Vogan, The local structure of characters, J. Funct. Anal. 37 (1980)",
+      "link": "https://doi.org/10.2307/2373130",
+      "why": "[Kos2, Kos3, BV]: regular orbits in fibres (Lemma 16.2) and generic ⇔ maximal GK dimension (Lemma 11.6)."
+    },
+    {
+      "citation": "D. Mumford, J. Fogarty and F. Kirwan, Geometric Invariant Theory, 3rd ed., Springer, 1994",
+      "link": "https://doi.org/10.1007/978-3-642-57916-5",
+      "why": "[MFK]: Lemma 14.1 and the Hilbert–Mumford criterion."
     }
   ],
   "routes": [
     {
-      "route": "new",
-      "roadmap": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
-      "title": "The orbit method in quantitative form: microlocal analysis on representations of reductive groups",
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "roadmap": "LieGroupsPartIIOrbitMethodCalculus",
+      "title": "Lie groups and the Lie algebra correspondence, Part II: the orbit method and a microlocal calculus for unitary representations",
       "area": "representations",
-      "brief": "A new roadmap for the local and analytic half of Nelson–Venkatesh, 'The orbit method and analysis of automorphic forms' (Acta Math. 226 (2021), 1–209; arXiv:1805.07750): a pseudodifferential calculus for representations of reductive Lie groups, in which symbols on the dual of the Lie algebra are quantized to operators on a tempered representation and traces are computed by integration over coadjoint orbits. Final theorems, as the paper states them, with its own consecutive numbering. Theorem 4 (Kirillov, after Rossmann): for tempered π there is a unique nonempty regular coadjoint multiorbit O_π ⊆ g^∧ with χ_π(e^x)√(j(x)) = ∫_{ξ ∈ O_π} e^{xξ} dω_{O_π}(ξ) near the origin, whose infinitesimal character is that of π, and which is a single orbit when that character is regular. Theorem 5: for a ∈ S^{−N} and h ∈ (0,1), tr(Op_h(a)) = h^{−d}(∫_{hO_π} a dω + O(h)) with the implied constant independent of π, and every T ∈ Ψ^{−N}(π) is trace class with trace norm uniform in π. Theorems 1, 2, 3, 6, 7: the star product extends continuously to the symbol classes, Op(S^m) ⊆ Ψ^m, Op_h(a)Op_h(b) = Op_h(a ⋆_h b), and the composition has the asymptotic expansion Σ_j h^j Op_h(a ⋆^j b) with controlled remainders. Theorem 8: the description of the topology on regular coadjoint multiorbits by limit sets. Theorem 9: trace bounds uniform in the infinitesimal character. Theorems 10–14: for a Gan–Gross–Prasad pair of Lie algebras h ⊆ g, an element is H-stable exactly when its eigenvalue multiset is disjoint from that of its H-component; the stable locus is a principal H-bundle over the space of stable pairs of invariants, with fibres O^{λ,µ} that are H-torsors; and the symplectic, affine and orbital volume forms are compatible, so that ∫_{O^λ} a dω disintegrates over the fibres. Theorems 15 and 16: relative characters have uniform asymptotic expansions H_σ(Op_h(a)) = Σ_{j<J} h^j ∫_{hO_{π,σ}} D_j a + O(h^{(1−2δ)J}) on compact sets of H-stable elements, with D_0 = 1, ord D_j ≤ 2j and D_j homogeneous of degree j. Theorems 17 and 18: the inverse branching problem — given a weight on the distinguished tempered spectrum, produce symbols whose quantizations sandwich it — solved at an archimedean place and at auxiliary p-adic places. Cover, in this order: (1) symbol classes S^m and S^m_δ on g^∧, the operator assignment Op and its rescaling Op_h, the operator classes Ψ^m(π), and the star product, with the composition and expansion theorems 1–3 and 6–7; note that Op_h specializes essentially to the Weyl calculus for the standard representations of Heisenberg groups, and that Op_h(a) = π(exp(h x)) when a is the Fourier mode of x; (2) coadjoint orbits and regular coadjoint multiorbits with their symplectic measures, the topology of Theorem 8, and the Kirillov character formula in the quantitative form of Theorems 4, 5 and 9 — this is the part the whole calculus rests on; (3) the invariant theory of a GGP pair of reductive Lie algebras: stability, the principal bundle structure and the volume-form compatibilities (Theorems 10–14); (4) relative characters, their disintegration and their asymptotics (Theorems 15–16), and the inverse branching problem (Theorems 17–18); (5) the Plancherel formula and measure for the groups involved, at the level of the technicalities of Appendix A, which nothing in the atlas currently plans. Do not attempt the global application here: the limit states on the automorphic quotient, the appeal to Ratner's theorem and the asymptotic formula for averaged branching coefficients belong with the automorphic and dynamical owners, and are routed separately by this extraction. Nothing in the atlas plans any of this. Searches for 'orbit method', 'coadjoint', 'geometric quantization', 'Kirillov' (as a theorem rather than an author), 'microlocal', 'pseudodifferential', 'star product', 'deformation quantization', 'Weyl quantization', 'semiclassical', 'wavefront set', 'relative character' and 'Plancherel' return nothing across all stages and decomposition files, and Tau Ceti's representation theory hub excludes infinite-dimensional unitary representations of noncompact groups, Plancherel theory and the tempered spectrum by design. Import from: Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups) for Ad and ad, the universal enveloping algebra and its centre, Weyl integration and the Cartan/Iwasawa/KAK decompositions; Semisimple Lie algebras, highest weight theory and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight) for the Harish-Chandra isomorphism and infinitesimal characters; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.3 and SR.4 for temperedness, matrix-coefficient criteria and the Satake transform on the p-adic side; Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups) for the group structure; and Mathlib's Schwartz space, Fourier transform and Haar measure, which are the substrate and are already available. Design the roadmap so that the character-theoretic Part IIs already proposed for SmoothRepresentationsOfLocalGroups — SmoothRepresentationsCharactersPartII and SmoothRepresentationsPartIIUnitaryDual — supply the p-adic local input rather than being duplicated.",
+      "brief": "Design LieGroupsPartIIOrbitMethodCalculus, the Part II of Lie groups and the Lie algebra correspondence (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups), following Nelson–Venkatesh, The orbit method and analysis of automorphic forms (Acta Math. 226 (2021)), Parts I–II and Appendix A.1–A.3: a quantitative orbit method, i.e. a microlocal calculus of operators Op_h(a) on unitary representations of a unimodular Lie group attached to symbols on g^∧. Final theorems, as the paper states them: Theorems 5.6 and 5.8 (Op_h(S^m_δ) ⊆ h^{min(0,m)}Ψ^m_δ and the composition formula), Theorems 4.5 and 7.4 (star-product asymptotics, including pairs of subalgebras with g1 + g2 = g), Proposition 8.7 (L² boundedness), Theorem 8.11 and Lemma 8.12, Lemmas 10.1–10.4 (division and localization near a symbol's locus and near infinitesimal characters), Theorem 11.1 and Lemma 11.6 (limit orbits; a fixed tempered π has non-empty limit orbit in N_reg iff it is generic), and Theorem 12.2 (trace and trace-norm estimates h^d tr Op_h(a) = ∫_{hO_π} a dω + …, uniform in tempered π). Cover: symbol classes S^m, S^m_δ and h-dependent families; Sobolev scales π^s and operator classes Ψ^m, Ψ^m_δ with the commutator characterisation (Proposition 8.2); cut-off independence and near-equivariance; polynomial symbols Op(p) = π(sym p); coadjoint orbits, normalized symplectic measures and multiorbits; infinitesimal characters, their behaviour under duality (Lemma 9.2), the temperedness criterion (Lemma 9.4), ∆-eigenvalue bounds (Lemma 9.5) and γ∘sym (Lemma 9.6); K-type and matrix-coefficient bounds and the uniform trace-class property of ∆^{−N} (Lemmas A.1–A.3). Keep the paper's δ < 1/2 (Planck-scale) restriction and its h-dependent conventions (§1.14). Import rather than re-plan: the exponential map, Ad and Baker–Campbell–Hausdorff from this parent's layers 0, 1 and 3 and the KAK decomposition from layer 9; the centre of U(g) and the Harish-Chandra isomorphism from Lie algebras: highest weight theory (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight, layer 7); (g, K)-modules and infinitesimal characters from Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups AF.1); trace-class and Hilbert–Schmidt operators and unbounded self-adjoint operators from Automorphic spectral theory (AutomorphicSpectralTheory AS.0); Schwartz spaces and the Fourier transform from Mathlib. Cited inputs to be planned or taken as theorem boundaries: Harish-Chandra's locally integrable character, Rossmann's Kirillov formula and orbital-limit results, the Langlands classification, Vogan's minimal K-types and Blattner's formula, the Cowling–Haagerup–Howe bound, Kostant and Barbasch–Vogan on generic representations, the Cotlar–Stein lemma and Nelson's analytic-vector theorem.",
+      "reason": "Parts I–II are general harmonic analysis on unitary representations of Lie groups: a pseudodifferential calculus on g^∧ with the Kirillov formula as its trace formula. They extend the Tau Ceti Lie-groups roadmap (exponential map, Ad, BCH, KAK) in its own direction, and no atlas layer plans coadjoint orbits, Kirillov's formula or such a calculus. Keeping them separate from the automorphic application lets other work (the sequel on the microlocal lift, sup-norm and subconvexity problems) import them.",
       "items": [
-        "PAPER-NELSON-VENKATESH-21/symbol-classes",
-        "PAPER-NELSON-VENKATESH-21/operator-assignment",
-        "PAPER-NELSON-VENKATESH-21/star-product",
-        "PAPER-NELSON-VENKATESH-21/theorem-1",
-        "PAPER-NELSON-VENKATESH-21/theorem-2",
-        "PAPER-NELSON-VENKATESH-21/theorem-3",
-        "PAPER-NELSON-VENKATESH-21/coadjoint-multiorbit",
-        "PAPER-NELSON-VENKATESH-21/theorem-4",
-        "PAPER-NELSON-VENKATESH-21/theorem-5",
-        "PAPER-NELSON-VENKATESH-21/theorem-6",
-        "PAPER-NELSON-VENKATESH-21/theorem-7",
-        "PAPER-NELSON-VENKATESH-21/theorem-8",
-        "PAPER-NELSON-VENKATESH-21/theorem-9",
-        "PAPER-NELSON-VENKATESH-21/stability",
-        "PAPER-NELSON-VENKATESH-21/theorem-10",
-        "PAPER-NELSON-VENKATESH-21/theorem-11",
-        "PAPER-NELSON-VENKATESH-21/theorem-12",
-        "PAPER-NELSON-VENKATESH-21/theorem-13",
-        "PAPER-NELSON-VENKATESH-21/theorem-14",
-        "PAPER-NELSON-VENKATESH-21/relative-character",
-        "PAPER-NELSON-VENKATESH-21/theorem-15",
-        "PAPER-NELSON-VENKATESH-21/theorem-16",
-        "PAPER-NELSON-VENKATESH-21/inverse-branching",
-        "PAPER-NELSON-VENKATESH-21/theorem-17",
-        "PAPER-NELSON-VENKATESH-21/theorem-18",
-        "PAPER-NELSON-VENKATESH-21/limit-states",
-        "PAPER-NELSON-VENKATESH-21/theorem-19",
-        "PAPER-NELSON-VENKATESH-21/theorem-20",
-        "PAPER-NELSON-VENKATESH-21/theorem-21",
-        "PAPER-NELSON-VENKATESH-21/theorem-22",
-        "PAPER-NELSON-VENKATESH-21/theorem-23",
-        "PAPER-NELSON-VENKATESH-21/theorem-24",
-        "PAPER-NELSON-VENKATESH-21/plancherel-technicalities"
-      ],
-      "reason": "Six searches of the atlas — the orbit method and coadjoint orbits; microlocal and pseudodifferential analysis; Plancherel and tempered representations of real groups; relative characters; Ratner and homogeneous dynamics; and automorphic families as analytic objects — return essentially nothing. 'Kirillov' appears twice in the whole atlas, both as a bibliography author; 'microlocal', 'pseudodifferential', 'star product', 'deformation quantization', 'semiclassical', 'wavefront set', 'coadjoint', 'relative character' and 'Plancherel' have no stage at all, and Tau Ceti's representation theory hub rules out noncompact unitary representations, Plancherel theory and the tempered spectrum by design. A Part II of Tau Ceti's LieGroups roadmap would be the nearest home for coadjoint orbits alone, but the calculus, the invariant theory of GGP pairs and the inverse branching problem exceed what a Part II of it could carry, so this is a new roadmap that imports it."
+        "PAPER-NELSON-VENKATESH-21/2",
+        "PAPER-NELSON-VENKATESH-21/3",
+        "PAPER-NELSON-VENKATESH-21/4",
+        "PAPER-NELSON-VENKATESH-21/5",
+        "PAPER-NELSON-VENKATESH-21/6",
+        "PAPER-NELSON-VENKATESH-21/7",
+        "PAPER-NELSON-VENKATESH-21/8",
+        "PAPER-NELSON-VENKATESH-21/9",
+        "PAPER-NELSON-VENKATESH-21/10",
+        "PAPER-NELSON-VENKATESH-21/11",
+        "PAPER-NELSON-VENKATESH-21/12",
+        "PAPER-NELSON-VENKATESH-21/13",
+        "PAPER-NELSON-VENKATESH-21/14",
+        "PAPER-NELSON-VENKATESH-21/15",
+        "PAPER-NELSON-VENKATESH-21/16",
+        "PAPER-NELSON-VENKATESH-21/17",
+        "PAPER-NELSON-VENKATESH-21/18",
+        "PAPER-NELSON-VENKATESH-21/19",
+        "PAPER-NELSON-VENKATESH-21/20",
+        "PAPER-NELSON-VENKATESH-21/21",
+        "PAPER-NELSON-VENKATESH-21/22",
+        "PAPER-NELSON-VENKATESH-21/23",
+        "PAPER-NELSON-VENKATESH-21/24",
+        "PAPER-NELSON-VENKATESH-21/25",
+        "PAPER-NELSON-VENKATESH-21/26",
+        "PAPER-NELSON-VENKATESH-21/27",
+        "PAPER-NELSON-VENKATESH-21/29",
+        "PAPER-NELSON-VENKATESH-21/30",
+        "PAPER-NELSON-VENKATESH-21/31",
+        "PAPER-NELSON-VENKATESH-21/32",
+        "PAPER-NELSON-VENKATESH-21/33",
+        "PAPER-NELSON-VENKATESH-21/34",
+        "PAPER-NELSON-VENKATESH-21/35",
+        "PAPER-NELSON-VENKATESH-21/36",
+        "PAPER-NELSON-VENKATESH-21/37",
+        "PAPER-NELSON-VENKATESH-21/38",
+        "PAPER-NELSON-VENKATESH-21/39",
+        "PAPER-NELSON-VENKATESH-21/40",
+        "PAPER-NELSON-VENKATESH-21/41"
+      ]
     },
     {
       "route": "new",
-      "roadmap": "GanGrossPrasadConjecturesForClassicalGroups",
-      "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+      "roadmap": "AveragedGanGrossPrasadPeriods",
+      "title": "Averages of Gan–Gross–Prasad periods via the orbit method (after Nelson–Venkatesh)",
       "area": "automorphic",
-      "brief": "This route coalesces with GanGrossPrasadConjecturesForClassicalGroups, proposed by PAPER-JIANG-ZHANG-20 and extended by PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21, PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22, PAPER-BEUZARTPLESSIS-CHAUDOUARD-25, PAPER-LESLIE-25 and PAPER-LIU-ETAL-22; keep its id, title, area and brief. Nelson–Venkatesh add the analytic side of the branching problem and one global theorem: the automorphic branching coefficient L(π, σ), defined for a tempered irreducible π ⊆ L²([G]) and a π-distinguished tempered σ ⊆ L²([H]) by comparing the two restrictions of π to H — the global one, restricting smooth vectors to [H], and the local one, the direct integral decomposition of π|_H against Plancherel measure — through ‖projection of v|_{[H]} to σ‖² = L(π, σ)‖pr_σ(v)‖², which is well defined by multiplicity one; the Gan–Gross–Prasad pairs themselves, forms of (SO_n, SO_{n−1}) and (U_n, U_{n−1}); the Ichino–Ikeda and N. Harris formula L(Π, Σ) = 2^{−β}(L^{(R)}(1/2, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨))Δ_G^{(R)}, which the roadmap should keep a conjecture except in the unitary cases proved by W. Zhang; and Theorem 25, the asymptotic formula (1/|F_h|)Σ_{Σ ∈ F_h} L(Π, Σ) = 1/τ(G) + o(1) for the families F_h of §25, whose L-value form under Ichino–Ikeda is the statement that the average of Δ_G^{(R)}L^{(R)}(1/2, Π × Σ^∨)/L^{(R)}(1, Ad, Π × Σ^∨) is τ(H) = 2, together with the weakly subconvex consequence L(Π, Σ) = o(cond(Π × Σ)^{1/4}) and the standing local hypotheses of §25.7 that make τ(G) = τ(H) = 2. The machinery behind it — the microlocal calculus, the relative-character asymptotics and the inverse branching — is routed by this extraction to a separate new roadmap, and the equidistribution step to the geometry-of-numbers owner; keep this route to the automorphic statements and their consequences.",
+      "brief": "Design AveragedGanGrossPrasadPeriods, a new roadmap following Nelson–Venkatesh, The orbit method and analysis of automorphic forms (Acta Math. 226 (2021)), Parts III–V. Final theorem, exactly as the paper states it: Theorem 31.11 — for a GGP pair (G, H) over a number field F with G, H anisotropic ((U_{n+1}, U_n), n ≥ 1, or (SO_{n+1}, SO_n), n ≥ 2), a fixed cuspidal Π unramified outside R, tempered at R, with G quasi-split and Π_q generic at one archimedean place q and G compact at the other archimedean places, and admissible sets U, U′ defining families F_h: (1/|F_h|)Σ_{Σ∈F_h} L(Π, Σ) = 1/τ(G) + o(1), and under the Ichino–Ikeda/N. Harris conjecture the corresponding average of (τ(G)τ(H)/2^β)∆_G^{(R)}L^{(R)}(½, Π×Σ^∨)/L^{(R)}(1, Ad, Π×Σ^∨) is τ(H) + o(1); with Theorem 30.1 (smoothly weighted form), Lemma 31.9 (family size), Lemma 31.10 (conductor ≍ |F_h|⁴) and the weak subconvex bound (1.4). Intermediate theorems to state as printed: Theorems 14.2 and 14.5 (stability ⇔ ev(x) ∩ ev(x_H) = ∅; stable fibres are H-torsors), Lemma 15.4 (stability ⇔ no conductor drop), Theorem 16.7 and Theorem 17.2 (volume forms and disintegration), Lemma 18.1 (relative characters), Theorem 19.3 (asymptotics of relative characters away from the conductor-dropping locus), Theorem 22.2 and Lemma 22.4 (archimedean inverse branching), Theorem 24.5 (cuspidal-type l-components are allowable), Theorems 26.4–26.5 (limit states), Theorem 27.1 (equidistribution on [H], via Ratner) and Theorem 29.1. Keep visible that the proof of Lemma 27.3 fails for (SO3, SO2), where the torus's spinor norms are norms from K = F(√−disc V_H): there Theorem 27.1 needs Π ≇ Π ⊗ (η_{K/F}∘θ) or a new argument. Import rather than re-plan: the orbit-method calculus from Lie groups and the Lie algebra correspondence, Part II (LieGroupsPartIIOrbitMethodCalculus, proposed with this paper); Hecke algebras, induction, Jacquet modules, admissibility and the Bernstein centre from Smooth representations of local groups (SmoothRepresentationsOfLocalGroups SR.1–SR.3); Tamagawa measures and strong approximation from Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups AA.2, AA.4); spectral decomposition and trace-class machinery from Automorphic spectral theory (AutomorphicSpectralTheory AS.0, AS.4); automorphic representations from AutomorphicFormsOnReductiveGroups AF.1–AF.2; Rankin–Selberg local factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors AL.3). Coordinate with the Gan–Gross–Prasad roadmap proposed by the Beuzart-Plessis–Chaudouard–Zydor extractions (GanGrossPrasadConjecturesForClassicalGroups), which should own GGP pairs, local multiplicity one and the Ichino–Ikeda formulas if accepted. Cited inputs with no atlas owner, to be taken as theorem boundaries or planned separately: Ratner's measure classification (a homogeneous-dynamics roadmap is recommended), Mumford's GIT and the Hilbert–Mumford criterion, Kostant on regular nilpotents, Harish-Chandra's and Waldspurger's Plancherel formulas, Mœglin–Waldspurger and Beuzart-Plessis strong multiplicity one, Sakellaridis–Venkatesh positivity, the Tamagawa numbers τ(SO_n) = τ(U_n) = 2 (Weil, Ono), and the Ichino–Ikeda and N. Harris conjectures with W. Zhang's theorem.",
+      "reason": "Nothing in the atlas studies Gan–Gross–Prasad periods analytically: there is no layer for GGP pairs and their stability, relative characters and their asymptotics, inverse branching, limit states with Ratner-type equidistribution, or averages of branching coefficients. The GGP roadmap proposed by other extractions (not yet accepted) is algebraic (relevant pairs, Vogan packets, trace-formula comparison), so the paper's application is a new roadmap that imports the calculus of the Part II above and the local and adelic foundations that exist.",
       "items": [
-        "PAPER-NELSON-VENKATESH-21/ggp-pair",
-        "PAPER-NELSON-VENKATESH-21/branching-coefficient",
-        "PAPER-NELSON-VENKATESH-21/ichino-ikeda",
-        "PAPER-NELSON-VENKATESH-21/main-theorem-informal",
-        "PAPER-NELSON-VENKATESH-21/weak-subconvexity",
-        "PAPER-NELSON-VENKATESH-21/theorem-25",
-        "PAPER-NELSON-VENKATESH-21/family-and-conductor",
-        "PAPER-NELSON-VENKATESH-21/local-conditions-25-7"
-      ],
-      "reason": "The automorphic statements — the branching coefficient, the Gan–Gross–Prasad pairs, the Ichino–Ikeda/Harris formula and the main asymptotic Theorem 25 with its hypotheses and its subconvex consequence — belong to the Gan–Gross–Prasad roadmap that six extractions already propose and that the atlas does not yet contain. 'Gan–Gross–Prasad' appears in the atlas exactly once, as an exclusion in the GrossZagierAndArithmeticHeights scope, and 'Ichino' only as an author name."
+        "PAPER-NELSON-VENKATESH-21/42",
+        "PAPER-NELSON-VENKATESH-21/43",
+        "PAPER-NELSON-VENKATESH-21/44",
+        "PAPER-NELSON-VENKATESH-21/45",
+        "PAPER-NELSON-VENKATESH-21/46",
+        "PAPER-NELSON-VENKATESH-21/47",
+        "PAPER-NELSON-VENKATESH-21/48",
+        "PAPER-NELSON-VENKATESH-21/49",
+        "PAPER-NELSON-VENKATESH-21/50",
+        "PAPER-NELSON-VENKATESH-21/51",
+        "PAPER-NELSON-VENKATESH-21/52",
+        "PAPER-NELSON-VENKATESH-21/53",
+        "PAPER-NELSON-VENKATESH-21/54",
+        "PAPER-NELSON-VENKATESH-21/55",
+        "PAPER-NELSON-VENKATESH-21/56",
+        "PAPER-NELSON-VENKATESH-21/57",
+        "PAPER-NELSON-VENKATESH-21/58",
+        "PAPER-NELSON-VENKATESH-21/59",
+        "PAPER-NELSON-VENKATESH-21/60",
+        "PAPER-NELSON-VENKATESH-21/61",
+        "PAPER-NELSON-VENKATESH-21/62",
+        "PAPER-NELSON-VENKATESH-21/63",
+        "PAPER-NELSON-VENKATESH-21/64",
+        "PAPER-NELSON-VENKATESH-21/65",
+        "PAPER-NELSON-VENKATESH-21/66",
+        "PAPER-NELSON-VENKATESH-21/67",
+        "PAPER-NELSON-VENKATESH-21/68",
+        "PAPER-NELSON-VENKATESH-21/69",
+        "PAPER-NELSON-VENKATESH-21/70",
+        "PAPER-NELSON-VENKATESH-21/72",
+        "PAPER-NELSON-VENKATESH-21/73",
+        "PAPER-NELSON-VENKATESH-21/74",
+        "PAPER-NELSON-VENKATESH-21/75",
+        "PAPER-NELSON-VENKATESH-21/76",
+        "PAPER-NELSON-VENKATESH-21/77",
+        "PAPER-NELSON-VENKATESH-21/79",
+        "PAPER-NELSON-VENKATESH-21/80",
+        "PAPER-NELSON-VENKATESH-21/81",
+        "PAPER-NELSON-VENKATESH-21/82",
+        "PAPER-NELSON-VENKATESH-21/83",
+        "PAPER-NELSON-VENKATESH-21/85",
+        "PAPER-NELSON-VENKATESH-21/86",
+        "PAPER-NELSON-VENKATESH-21/88",
+        "PAPER-NELSON-VENKATESH-21/89",
+        "PAPER-NELSON-VENKATESH-21/90",
+        "PAPER-NELSON-VENKATESH-21/91",
+        "PAPER-NELSON-VENKATESH-21/92",
+        "PAPER-NELSON-VENKATESH-21/93",
+        "PAPER-NELSON-VENKATESH-21/94",
+        "PAPER-NELSON-VENKATESH-21/95",
+        "PAPER-NELSON-VENKATESH-21/96",
+        "PAPER-NELSON-VENKATESH-21/97",
+        "PAPER-NELSON-VENKATESH-21/98",
+        "PAPER-NELSON-VENKATESH-21/99"
+      ]
     }
   ],
-  "completion": {
-    "agent": "Claude Code",
-    "session": "cc-d67081",
-    "issue": 2190,
-    "date": "2026-09-23",
-    "status": "partial",
-    "reading": "arXiv v3 §1 in full; the statements of all twenty-five theorems and the definitions they rest on; the section structure of the rest. Proofs were not read.",
-    "changes": "First extraction.",
-    "lean": "none"
-  }
+  "sourceIssues": [
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E1",
+      "kind": "gap",
+      "locator": "Proof of Lemma 27.3, p. 182 (also arXiv v3)",
+      "printed": "G=SOn: in this case, the spinor norm injects G(Fv)/G(Fv)+ into Fv× modulo squares, and our assertion follows from the surjectivity of the spinor norm on SOn−1 (for n−1⩾2).",
+      "correction": "The spinor norm is surjective on SO_{n−1} only when n − 1 ≥ 3 (or the binary space is split). For (G, H) = (SO3, SO2), allowed by §25.7, the claimed surjectivity of H(A) onto ε = G(F)G∞⁺U\\G(A) fails for small U, and Theorem 27.1 (hence Lemma 30.4, Theorems 30.1 and 31.11) needs another argument. The argument still works when Π ≇ Π ⊗ (η_{K/F}∘θ), K = F(√−disc V_H): then ∫_{[G]}[a]·(η_{K/F}∘θ) = 0 (multiplication by the automorphic character carries Π into the orthogonal Π ⊗ η∘θ), so the G∞⁺-components that [H] meets carry the average mass. For Π ≅ Π ⊗ (η_{K/F}∘θ) (Π dihedral with respect to K) that integral need not vanish and the proof gives nothing.",
+      "reason": "For SO2 = SO(V_H) with V_H an anisotropic plane (as it is here, G being anisotropic), θ(SO2(F_v)) = N(K_v^×)F_v^{×2}, of index 2 in F_v^×/F_v^{×2} wherever K_v is a field. Globally the spinor norms of G(F)H(A)G(A)⁺ lie in F^×N(A_K^×)(A^×)², which is the kernel of η_{K/F} (class field theory), while θ(SO3(F_v)) = F_v^×/F_v^{×2} contains a uniformizer at any inert v. So η_{K/F}∘θ is a non-trivial character of G(A) trivial on G(F)H(A)G(A)⁺, and G(F)H(A) → G(A)/G(A)⁺ is not surjective. It stays non-trivial on ε whenever θ(U) ⊆ ker η_{K/F}, e.g. for U small, and then [H] meets only half of the G∞⁺-orbits. Checked on the page image of p. 182.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E2",
+      "kind": "gap",
+      "locator": "Proof of Lemma 7.8, p. 50 (also arXiv v3)",
+      "printed": "Let ∆ denote the multiple of the standard Laplacian for which e^φ=|∂φ|^{−2}∆(e^φ), and set D:=|∂φ|^{−2}∆. Integrating by parts repeatedly, we obtain I = t^{−N}∫ f D^r(e^{tφ}) = t^{−N}∫ D^r(f)e^φ",
+      "correction": "Use the first-order operator L = t^{−1}|∂φ|^{−2}Σ_j (conj ∂_jφ)∂_j, for which L(e^{tφ}) = e^{tφ} because φ is iR-valued, and integrate by parts N times with its transpose L^T; the coefficients of (L^T)^N are polynomials in derivatives of φ and |∂φ|^{−2}, bounded by the lower bound ε and the C^∞ bounds on φ.",
+      "reason": "∆(e^{tφ}) = (t²Σ_j(∂_jφ)² + t∆φ)e^{tφ}, so no multiple of the Laplacian reproduces e^{tφ} unless ∆φ = 0 and |∂φ| is handled separately; also the integration by parts produces the transpose of D, not D. The lemma itself is the standard non-stationary-phase estimate. Checked on the page image of p. 50.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E3",
+      "kind": "error",
+      "locator": "Lemma 24.10, the example after it, p. 166 (also arXiv v3)",
+      "printed": "For instance, in the above PGL2(F) example, the conclusion of the lemma holds with f := (α^{−n}+α^{−n+2}+...+α^n)/n for n∈Z⩾1 taken large enough in terms of ε.",
+      "correction": "Drop the example, or replace it by a function bounded on Θ^unit ≅ C^(1) ∪ [q^{−1/2}, q^{1/2}]/∼; the lemma is proved independently by Urysohn and Stone–Weierstrass.",
+      "reason": "The first requirement is |f| ≤ 2 on Θ^unit, which contains the real points α ∈ [q^{−1/2}, q^{1/2}] (complementary series, trivial and Steinberg). There f(α) ≥ α^n/n, and at α = q^{1/2} this is q^{n/2}/n → ∞, so f fails the first requirement for n large. It does satisfy the other two: f ≥ (n+1)/n on the real points, and ∫_{C^(1)} f² = (n+1)/n². The bound is needed in Step 5 of §24.4 because the Steinberg representation, in D′, has infinitesimal character α = q^{1/2}. Checked on the page image of p. 166.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E4",
+      "kind": "error",
+      "locator": "Proof of Lemma 7.6, display (7.4), p. 49 (also arXiv v3)",
+      "printed": "∂_ζ^δ x^α y^β ζ^γ ≪ (|x| |y|)^{|δ|} ρ^j ≪ ρ^j.   (7.4)",
+      "correction": "∂_ζ^δ x^α y^β ζ^γ ≪ (|x||y|)^{|δ|}ρ^{j−|δ|} ≪ ρ^j (using |x||y| ≤ ρ² and |x|, |y| ≪ 1).",
+      "reason": "Differentiating in ζ lowers the ζ-degree: for α = β = γ = δ = (1) (j = 1), ∂_ζ(xyζ) = xy, and |xy| > |x||y|ρ whenever ρ < 1. The final bound ≪ ρ^j, which is all that is used, is true.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E5",
+      "kind": "misprint",
+      "locator": "Theorem 19.4, (19.16), p. 128 (also arXiv v3)",
+      "printed": "H(Oph(a)) = Σ_{0⩽j<J} ∫_{h Oπ∩s⊥} D_j a + O(h^{(1−2δ)J}).",
+      "correction": "H(Op_h(a)) = Σ_{j<J} h^j ∫_{hO_π∩s⊥} D_j a + O(h^{(1−2δ)J}).",
+      "reason": "Theorem 19.4 is Theorem 19.3 transported to M = G × H, whose expansion (19.8) has the factor h^j; so do (19.17) and (19.18). Checked on the page image of p. 128.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 19.5, (19.20)–(19.21), p. 130 (also arXiv v3)",
+      "printed": "b(h η) = h^{δ′ dim(s)} Θ^∨(h^{δ′} η) … ∫_{η∈s^∧} η^α b(η) = 1_{α=0}",
+      "correction": "∫ η^α b(η) = h^{dim s}1_{α=0}; correspondingly the Kirillov expansion (12.4) enters with its factor h^{−d}.",
+      "reason": "From the displayed formula b(ζ) = h^{δ′ dim s}Θ^∨(h^{δ′−1}ζ), so ∫ b = h^{δ′ dim s}·h^{(1−δ′)dim s}∫Θ^∨ = h^{dim s}. The proof also drops the h^{−d} of (12.4) when passing to (19.22). The two factors cancel because d = dim S = dim H (H has an open orbit with trivial stabilizer on the flag variety of G × H, Lemma 13.3), so (19.18) is right. Checked on the page image of p. 130.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E7",
+      "kind": "misprint",
+      "locator": "§20, p. 142 (citation; also the bibliography)",
+      "printed": "(see [BP3, Theorem 5] in the unitary case and [Wll, Proposition 5.7] in the special orthogonal case)",
+      "correction": "[Wal2, Proposition 5.7] as in arXiv v3: J.-L. Waldspurger, Une formule intégrale reliée à la conjecture locale de Gross–Prasad, 2e partie, Astérisque 346 (2012), 171–312, which should be added to the bibliography.",
+      "reason": "The published [Wll] is Wallach, Real Reductive Groups I (correctly cited for Lemma 2.A.2.4 at (19.31)), which does not treat Gan–Gross–Prasad periods; arXiv v3 cites Waldspurger's paper here, and it is absent from the published bibliography.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E8",
+      "kind": "misprint",
+      "locator": "§6.1, before (6.1), p. 42 (also arXiv v3)",
+      "printed": "if t∈R×+ and f∈C_c^∞(g), then ∫_{x∈O} f(x)dω_O(x) = …",
+      "correction": "f ∈ C_c^∞(g^∧)",
+      "reason": "O ⊆ g^∧, and f is integrated against measures on coadjoint orbits. Checked on the page image of p. 42.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E9",
+      "kind": "misprint",
+      "locator": "§4.4, after Definition 4.3, p. 34 (also arXiv v3)",
+      "printed": "|∂^α a(ξ)| ⩽ h^η C_α h^{−δ|α|} ⟨ξ⟩^{m−α}",
+      "correction": "⟨ξ⟩^{m−|α|}",
+      "reason": "α is a multi-index; (4.8) has m − |α|.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E10",
+      "kind": "misprint",
+      "locator": "Lemma 7.11, p. 51, and (7.10), p. 51 (also arXiv v3)",
+      "printed": "Lemma 7.11. Fix δ∈(0, 1]. … (7.10) ∫_{x∈g} |a_h^∨(x)| |x|^n ≪ A^{−n}",
+      "correction": "δ ∈ [0, 1); and (7.10) for a ∈ S^m_δ reads ≪ ⟨ω⟩^m A^{−n} (as printed it is the case m = 0).",
+      "reason": "Lemma 7.12 and the proof of Theorem 7.4 apply the partition to S^m_δ with δ ∈ [0, 1), including the main case δ = 0; the construction works verbatim there. (7.9) carries the factor ⟨ω⟩^m, and (7.10) is only used with m = 0 (Proposition 7.13).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E11",
+      "kind": "misprint",
+      "locator": "§8.7, p. 63 (also arXiv v3)",
+      "printed": "the corresponding operator Op(p) acts both on π^∞ and on π^{−∞}. This observation is a consequence of §5.5.",
+      "correction": "a consequence of §5.2 (Lemma 5.1: Op(p) = π(sym p))",
+      "reason": "§5.5 is near-equivariance; the fact used is Lemma 5.1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E12",
+      "kind": "misprint",
+      "locator": "§8.8.2, p. 65 (also arXiv v3)",
+      "printed": "‖v‖²_{π^s} = ∫_ξ |v^∧(ξ)|² ⟨ξ⟩^m dξ",
+      "correction": "⟨ξ⟩^{2s}",
+      "reason": "For π = L²(R^n), ∆ acts as multiplication by ⟨ξ⟩² and ‖v‖²_{π^s} = ⟨∆^s v, v⟩; with this weight the next line ‖Op(b)‖_{π^s→π^{s−m}} = sup |b|/⟨ξ⟩^m follows.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E13",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 10.4, (10.12) and (10.14), p. 82 (also arXiv v3)",
+      "printed": "Op_h(p′) acts by the scalar p_h(λσ) = p(hλσ). … H(Op_h(p′)T) = p(hλσ)H(T)",
+      "correction": "p(hλ_π) for p = p_G (acting on π) and p(hλ_σ) for p = p_H (acting through σ)",
+      "reason": "p ∈ Sym(ig)^G acts on π through λ_π (10.10); only the H-invariants act through σ. The estimates that follow use both.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E14",
+      "kind": "misprint",
+      "locator": "Appendix A, p. 136 (also arXiv v3)",
+      "printed": "π(f) := ∫_{g∈G} π(f)f(g) dg",
+      "correction": "π(g)f(g) dg",
+      "reason": "The definition of π(f) for f ∈ L¹(G).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    },
+    {
+      "id": "PAPER-NELSON-VENKATESH-21/E15",
+      "kind": "misprint",
+      "locator": "p. 109 (§16.4), p. 125 ((19.10)), p. 152 (§23.2), p. 154 (Lemmas 23.3–23.4), p. 202 (proof of Lemma 31.10) (also arXiv v3)",
+      "printed": "generators … for the ring of G-invariant regular functions on h*; Hσ(Oph(a1)…Oph(aj)) = ∫ a1…ak; a maximal compact subgroup K of G for which KP0 = H; σ is a supercuspidal representation of M … subquotient of i^G_M τ; 4dim(B_H) = εn_G n_H",
+      "correction": "H-invariant; a_k; K of H; τ and i^H_M; ε m_G m_H (Table 1)",
+      "reason": "Notational slips; the intended meaning is clear from context.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Acta Mathematica 226 (2021) article page and issue at International Press (intlpress PDF of 30 March 2021, read); no correction notice",
+        "Crossref: no update or erratum registered for 10.4310/acta.2021.v226.n1.a1",
+        "arXiv 1805.07750: v3 (7 January 2021) is the latest version; compared at every finding",
+        "web search for errata to the paper (23 September 2026): none found"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-inputs",
+      "detail": "Cited theorems (Rossmann, Harish-Chandra, Waldspurger, Ratner, Mœglin–Waldspurger, Beuzart-Plessis, Sakellaridis–Venkatesh, Mumford, Kostant, Cowling–Haagerup–Howe) were read only as the paper states them.",
+      "status": "deferred",
+      "resolution": "Named in the briefs as imports or theorem boundaries; prerequisites list the sources."
+    },
+    {
+      "id": "G-SO3",
+      "detail": "Whether Theorem 31.11 actually fails for (SO3, SO2) with Π dihedral for K was not decided; only that its proof does not cover that case.",
+      "status": "open",
+      "resolution": "The design job for AveragedGanGrossPrasadPeriods should either add the hypothesis Π ≇ Π ⊗ (η_{K/F}∘θ) or compute ∫[a]·η∘θ in the dihedral case."
+    }
+  ]
 }
