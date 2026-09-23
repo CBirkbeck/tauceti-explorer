@@ -214,3 +214,34 @@ None of the papers EHLS rests on is in the paper registry. The list in the resul
 - Every planned layer id exists in data/atlas.json.
 - The library claim was read in the source file at Mathlib 082e2d3. The library survey used the pinned declaration index, and the reviewed audit (data/library-coverage.json) of every layer cited was read.
 - Lean: none. Nothing here is formalised, and no Lean file was written or built.
+
+## Review (REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1401](https://github.com/CBirkbeck/tauceti-explorer/issues/1401). **Verdict: accept.**
+No item, status, route or locator changed.
+
+- **The published version is available**, contrary to the source block's note that Cambridge
+  returned 404/HTML. The landing page's `citation_pdf_url` (a long, unguessable path) serves the
+  PDF to a browser user-agent with a Cambridge referer: 160 pages, printed page = PDF page. The
+  recipe is recorded in `source.publishedVersion`; the arXiv v5 hash was re-verified byte for
+  byte; and since the Cambridge PDF's own hash is not reproducible, a stamp-stripped text hash
+  was recorded.
+- **All 160 findings were checked against the published text**, with the basis stated per
+  finding: **99 located in the published article**; **60** whose quotations are mathematical
+  displays that no text search reproduces, where the verdict says it rests on the extraction's
+  reading of v5 and not on a check of this review's own. Six of that group were spot-checked and
+  all six were present in print.
+- **⚠️ E160 is partly corrected in publication.** At least three of its bundled slips are *not*
+  mistakes in the published work: v5's unbalanced `(upon restriction to U(V).` reads
+  `(upon restriction to U (V )).` in print, `open neighborhood neighborhood` reads
+  `open neighborhood`, and `the isomorphisms 9` does not occur. Others survive. Since the
+  register records mistakes in published work, those three must be struck or the entry split —
+  recorded in the verdict rather than edited, since re-partitioning a bundle is the extraction's
+  call.
+- **Items and routes:** the single library citation is correct; 417 planned items resolving;
+  40 missing routed exactly once; the one route is a Part II with an exact prefix-extension
+  title, a free name, and an identical co-proposal from PAPER-CAI-FRIEDBERG-KAPLAN-24. The
+  unusual 417-planned split is real: `AutomorphicPadicLFunctions:L4` already names this paper.
+
+Full report: `research/blueprint/reviews/REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md`.
