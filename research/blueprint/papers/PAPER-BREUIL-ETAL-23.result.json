@@ -30,7 +30,7 @@
       "id": "PAPER-BREUIL-ETAL-23/graded-iwahori",
       "kind": "theorem",
       "name": "Graded Iwasawa algebra of the pro-p Iwahori",
-      "statement": "The graded ring gr_m F[[I1/Z1]] for the m-adic filtration is computed explicitly (Theorem 5.3.4); it is not commutative, since I1/Z1 is not uniform.",
+      "statement": "Theorem 5.3.4: for a field F of characteristic p, the graded ring gr_m F[[G]] for the m-adic filtration is Auslander-regular, and (gr_m F[[G]])/I_G is a commutative Cohen-Macaulay F-algebra of dimension f. More precisely, if k embeds in F then (i) the sequence (h_0, ..., h_{f-1}) is a regular sequence of central elements of gr_m F[[G]] and the quotient by it is isomorphic to the polynomial ring F[e_j, f_j ; 0 <= j <= f-1] in 2f variables, and (ii) the further statements of loc. cit. Applied to G = I_1/Z_1 this is the graded Iwasawa algebra of the pro-p Iwahori modulo the centre; it is not commutative, since I_1/Z_1 is not uniform.",
       "locator": "arXiv:2009.03127v7 (final version), §5.3, Theorem 5.3.4",
       "status": "missing",
       "prerequisites": [
@@ -38,7 +38,7 @@
         "PAPER-BREUIL-ETAL-23/gk-dim"
       ],
       "implementationStatus": "unchecked",
-      "note": "Statement from the paper's own formulation; hypotheses abbreviated as in §1.2 and §8.1."
+      "note": "Statement from the paper's own formulation; hypotheses abbreviated as in §1.2 and §8.1. Reviewer's correction (issue #1242): the statement previously said only that the graded ring 'is computed explicitly', which is not a statement a blueprint can consume. Theorem 5.3.4's actual content is transcribed above, because the parts that are consumed downstream are exactly the Auslander-regularity, the central regular sequence (h_0, ..., h_{f-1}) and the resulting polynomial ring in 2f variables: gk-bound lists this item among its prerequisites."
     },
     {
       "id": "PAPER-BREUIL-ETAL-23/gk-bound",
@@ -71,7 +71,7 @@
       "id": "PAPER-BREUIL-ETAL-23/iwahori-mult-one",
       "kind": "theorem",
       "name": "Multiplicity one for the pro-p Iwahori (Theorem 1.5)",
-      "statement": "If π is admissible smooth over F with a central character satisfying (i) and (ii) of Theorem 6.4.7, then [π[m^3_{I1/Z1}] : χ] = [π[m_{I1/Z1}] : χ] for every character χ of I with [π[m_{I1/Z1}] : χ] ≠ 0.",
+      "statement": "If π is admissible smooth over F with a central character satisfying (i) and (ii) of Theorem 1.4, then [π[m^3_{I1/Z1}] : χ] = [π[m_{I1/Z1}] : χ] for every character χ of I with [π[m_{I1/Z1}] : χ] ≠ 0.",
       "locator": "arXiv:2009.03127v7 (final version), Proposition 6.4.6; Theorem 1.5 (introduction form)",
       "status": "missing",
       "prerequisites": [
@@ -81,7 +81,7 @@
         "PAPER-BREUIL-ETAL-23/no-embedding"
       ],
       "implementationStatus": "unchecked",
-      "note": "Statement from the paper's own formulation; hypotheses abbreviated as in §1.2 and §8.1."
+      "note": "Statement from the paper's own formulation; hypotheses abbreviated as in §1.2 and §8.1. Reviewer's correction (issue #1242): the hypothesis is (i) and (ii) of Theorem 1.4, which is what the paper's Theorem 1.5 cites, not of Theorem 6.4.7. The two differ in (i): Theorem 1.4(i) asks for an isomorphism pi^{K_1} = D_0(rbar_v^vee)^{oplus r} of GL_2(k)-representations, whereas Theorem 6.4.7(i) asks only that JH(soc_K pi) = W(rhobar) up to multiplicity. The extraction's own local-gk item records that 1.4 is the special case of 6.4.7, so the two items were inconsistent with each other."
     },
     {
       "id": "PAPER-BREUIL-ETAL-23/local-gk",
@@ -1443,7 +1443,7 @@
         "PAPER-BREUIL-ETAL-23/proj-iso",
         "PAPER-BREUIL-ETAL-23/faithfully-flat"
       ],
-      "brief": "Hilbert modular varieties and Shimura curves, extended to the mod p cohomology of Shimura curves at infinite level at an inert place v over a totally real field unramified at p: Taylor–Wiles–Kisin patching with the functor M∞, freeness of patched modules of lattices, the structure of K1-invariants, the Gelfand–Kirillov dimension f of the r-part π, Banach lifts, and flatness of the dual of completed cohomology over the big Hecke algebra. Final theorems: Corollaries 8.3.9, 8.4.4, 8.4.6, 8.5.1 and Theorems 8.4.1–8.4.2. Import patching algebra from DeformationAndDerivedPatchingAlgebra and global deformation rings from GlobalGaloisDeformations.",
+      "brief": "Hilbert modular varieties and Shimura curves, extended to the mod p cohomology of Shimura curves at infinite level at an inert place v over a totally real field unramified at p: Taylor–Wiles–Kisin patching with the functor M∞, freeness of patched modules of lattices, the structure of K1-invariants, the Gelfand–Kirillov dimension f of the r-part π, Banach lifts, and flatness of the dual of completed cohomology over the big Hecke algebra. Final theorems: Corollaries 8.4.4, 8.4.6, 8.5.1 and Theorems 8.3.9, 8.4.1–8.4.2. Import patching algebra from DeformationAndDerivedPatchingAlgebra and global deformation rings from GlobalGaloisDeformations.",
       "reason": "The global endpoint concerns the mod p cohomology of Shimura curves; patching inputs are imported from the deformation roadmaps."
     }
   ],
@@ -1459,7 +1459,12 @@
       "known": "new",
       "searched": [
         "arXiv v7 (SHA-256 8f06c68b…), the latest arXiv version and the one the authors mark final, read by cc-442dc5 on 23 September 2026; Crossref lists no correction for 10.1007/s00222-023-01202-8. The Springer PDF returned HTML."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper settles it against itself. The introduction prints `Theorem 1.8 (Corollary 8.3.9)', while p. 101 carries `Theorem 8.3.9.' and the only corollary in that neighbourhood is Corollary 8.3.10; the introduction itself says three pages earlier that the result `is ultimately proven in Theorem 8.3.9', and §8.3's own text refers to `the proof of Theorem 8.3.9'. No statement in the paper is numbered Corollary 8.3.9. The attribution is otherwise right, so nothing depends on it. I note that the same mislabel is repeated inside this extraction, in the brief of the Hilbert-modular Part II route, which lists 8.3.9 among the corollaries; I have corrected that in place.",
+        "by": "Claude Code, session cc-7b31c4, issue #1242"
+      }
     }
   ],
   "completion": {
