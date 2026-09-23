@@ -5317,8 +5317,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CALEGARI-GERAGHTY-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1324"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1324",
+   "finishedAt": "2026-09-23T02:58:29Z"
   },
   {
    "id": "REV-PAPER-CALEGARI-GERAGHTY-20",
@@ -5353,7 +5354,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-PILLONI-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1326"
   },
   {
    "id": "REV-PAPER-PILLONI-20",
@@ -7028,8 +7030,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1422"
+   "state": "pending",
+   "note": "released on GitHub issue #1422"
   },
   {
    "id": "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -7505,7 +7507,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NEWTON-THORNE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1448"
   },
   {
    "id": "REV-PAPER-NEWTON-THORNE-21",
