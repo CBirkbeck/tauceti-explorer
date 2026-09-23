@@ -140,3 +140,35 @@ Fourteen entries, all with DOIs confirmed on Crossref except the arXiv preprints
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.result.json` reports no errors.
 - Every planned and route stage id exists in `data/atlas.json`.
+
+## Review (REV-PAPER-PASKUNAS-QUAST-26, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1345), **accepted** this
+extraction and all six routes, and made no correction beyond a source note. The full record is
+[REV-PAPER-PASKUNAS-QUAST-26.md](../reviews/REV-PAPER-PASKUNAS-QUAST-26.md).
+
+**Source.** The published Cambridge hash does not reproduce and cannot: a fresh download gave
+`b336113e…` against the recorded `c265f54f…`, and every page of the new copy carries a footer with
+the date and the requesting IP. A `sha256Note` now records that and names the arXiv e-print
+(`05a2306e…`, `defG_REV.tex`, 6796 lines) as the reproducible pin — the sixth instance of this in the
+corpus. Both findings are verbatim in that source.
+
+**Structure.** 84 items with all 80 missing ones routed exactly once; all seven source stage ids and
+all three planned ids resolve; the Part II title reproduces the parent's atlas title exactly and its
+area `langlands` is a galaxy id; the library item's `CondensedSet`, `Condensed.discrete` and
+`CondensedSet.isDiscrete_tfae` are all in Mathlib. 112 of 114 locator checks land exactly and the two
+others are right too.
+
+**Both findings are confirmed.** `E2` is a substitution slip. `E1` is an error in a stated result and
+the review sharpens why: §11 assumes only that `κ` is algebraically closed, and the proof of
+Proposition 11.5 disposes of `ψ = ω^{±1}` by "then `ψ^{p−1} = 1`", which holds because the reduction
+of the cyclotomic character has order dividing `p − 1` — a characteristic-`p` fact. In characteristic
+zero that step fails, and Lemma 11.4, to which the rest of the proof reduces, has `ψ ≠ ω^{±1}` as its
+first hypothesis; so the case the proof handles separately is exactly the one its own lemma excludes.
+The recorded `PGL₂` counterexample sits in that gap, and the correction's evidence checks out: the
+proposition's only application, Proposition 14.5, works throughout on the special fibre, so
+`char κ = p` there and nothing downstream is affected.
+
+The review reports one provenance gap it did not fill: no `libraryPins` are recorded. It notes this
+is the seventh extraction reviewed that day with the same gap, confirming it as a queue-level
+omission.
