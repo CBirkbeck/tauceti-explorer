@@ -1,0 +1,386 @@
+{
+ "roadmapId": "MordellLawrenceVenkatesh",
+ "protocol": "errata-v1",
+ "sourceIssues": [
+  {
+   "id": "MordellLawrenceVenkatesh/E1",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§1.5 (Structure of the paper), p. 7, arXiv:1807.02721v3",
+   "printed": "§10 proves the main result, Proposition 10.1, which shows that fibers of good reduction lie in a Zariski-closed subset of the base.",
+   "correction": "Theorem 10.1. (The statement is also a little loose: what is proved is that Y(Z[S^{-1}]) is not Zariski dense in Y, that is, lies in a *proper* Zariski-closed subset.)",
+   "reason": "The statement in question is set as a numbered theorem sharing the paper's single theorem counter, and prints as 'Theorem 10.1'; it is called 'Theorem 10.1' at each of its three other citations, in §10.5 ('Setup for the proof of Theorem 10.1', p. 57), in §10.7 ('let us conclude the proof of Theorem 10.1', p. 60) and in §11.4 (p. 68). There is no Proposition 10.1 in the paper.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E2",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "§2.3, Lemma 2.3, p. 9, with the standing notation of §2, p. 8, arXiv:1807.02721v3",
+   "printed": "Lemma 2.3 (Faltings). Fix integers w, d ⩾ 0, and fix K and S as above. There are, up to conjugation, only finitely many semisimple Galois representations ρ : G_K → GL_d(Q_p) such that (a) ρ is unramified outside S, and (b) ρ is pure of weight w … (c) For ℘ as above the characteristic polynomial of Frobenius at ℘ has integer coefficients. — where, on p. 8, 'S a finite set of finite places of K containing all the archimedean places' and 'p a (rational) prime number such that no place of S lies above p'.",
+   "correction": "State the lemma for an arbitrary finite set T of places of K in place of S, and read every application of it with T = S ∪ {w : w | p}. Hermite–Minkowski finiteness, and Faltings's Satz 5 which the lemma cites, hold for any finite T.",
+   "reason": "Every application of the lemma is to the p-adic étale cohomology of a fibre, which is crystalline — hence in general ramified — at the places above p: the proof of Proposition 3.4 ('For any y as in (3.14) the Galois representation ρ_y belongs to a finite set of isomorphism classes (Lemma 2.3)', p. 20), the proof of Lemma 4.2 ('By Lemmas 4.4 and 2.3, it is enough to verify the finiteness …', p. 23), and the paragraph after Lemma 6.1 ('Thus, by Lemma 2.3, there are only finitely many possibilities for the isomorphism class of the pair (K(y'), ρ_{y'})', p. 31). Since the standing S contains no place above p, hypothesis (a) as printed excludes exactly these representations, so each of those steps applies the lemma outside its stated scope. Nothing else changes: the finiteness assertion is insensitive to which finite set of places is allowed to ramify.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E3",
+   "kind": "error",
+   "affects": "a stated result",
+   "locator": "§2.4, Lemma 2.8, p. 12, arXiv:1807.02721v3",
+   "printed": "Lemma 2.8. Let v be any friendly place of K, lying above the prime p of Q. For any continuous character η : Gal(K̄/K) → Q_p^*, ramified at only finitely many places, pure of weight w, and locally algebraic at each prime above p, one has η²|_{K_v^*} = χ · Norm_{K_v/Q_p}^w, where χ has finite order. In particular, w is even and the Hodge–Tate weight of η at the place v equals w/2.",
+   "correction": "The identity holds on the local units: η²|_{O_{K_v}^*} = χ · Norm_{K_v/Q_p}^w with χ of finite order. It does not hold on all of K_v^*. The final sentence — w even, Hodge–Tate weight w/2 at v — is correct, and is what Lemmas 2.9 and 2.10 use.",
+   "reason": "Counterexample: K = Q (which has no CM subfield, so every finite place is friendly), v = p, η = χ_cyc^{-1}. Then η is ramified only at p, locally algebraic there, and pure of weight w = 2, since geometric Frobenius at ℓ acts by ℓ. As an idele class character η(p) = 1, because the local Artin image of a uniformizer acts trivially on μ_{p^∞} in either normalisation; so η²(p) = 1 while Norm_{Q_p/Q_p}(p)^w = p², and χ(p) = p^{-2} has infinite order. On units η(u) = u and η² = Norm², so the identity does hold there. The proof cannot give more: local algebraicity is the hypothesis that η_p 'agrees, in a neighbourhood of the identity, with the Q_p-points of an algebraic homomorphism' (p. 12), and the closing step — 'any Q_p-rational character of (Res_{E/Q} G_m)^1 is trivial upon pullback to E_v^*' — is a statement about that algebraic character, hence controls η only on an open subgroup of E_v^*, not on a uniformizer.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E4",
+   "kind": "gap",
+   "affects": "nothing",
+   "locator": "§2.7, Lemma 2.12, p. 14, arXiv:1807.02721v3",
+   "printed": "The following statement is an algebraic version of Goursat's lemma (cf. [40, Lemma 5.2.1]). One uses the fact that the Lie algebra sp_V of Sp(V) is simple, and that all the automorphisms of sp_V are inner. — followed by the statement of Lemma 2.12, with no proof.",
+   "correction": "Supply a proof. The point the two quoted sentences do not address is the role of the second hypothesis: an element g ∈ G whose projections π_i(g), π_j(g) are unipotent with fixed spaces of different dimensions rules out the graph of an isomorphism between the i-th and j-th factors, which is exactly the alternative Goursat's lemma leaves open.",
+   "reason": "The two sentences quoted are all that is offered for Lemma 2.12; the cited Ribet lemma is a Goursat lemma for a subgroup of a product of two groups and says nothing about the unipotent condition. The lemma is true: after passing to Lie algebras, a subalgebra of sp_V^N projecting onto each factor is a product of diagonals of factors glued by isomorphisms, and an element with two unipotent projections of different fixed-space dimension cannot lie in such a diagonal. The packet isolates the missing step as MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma and proves it. Lemma 2.12 is used only through Lemma 8.7, so nothing else is affected.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E5",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§3.3, p. 17, arXiv:1807.02721v3",
+   "printed": "This crystalline cohomology V_v = H^q_dR(X_0/K) is equipped with a Frobenius operator φ_v : V_v → V_v, which is semilinear with respect to the Frobenius on the unramified extension K_v/Q_p.",
+   "correction": "V_v = H^q_dR(X_0/K_v): the subscript is missing on K.",
+   "reason": "Equation (3.4) on p. 16 sets V = H^q_dR(X_0/K) and then defines V_v as V ⊗_K K_v, and the diagram (3.9) immediately above the quoted sentence has V_v = H^q_dR(X_{y_0}/K_v). A σ-semilinear φ_v for the Frobenius σ of K_v/Q_p does not act on the K-form V at all, so the sentence as printed is not even well posed; the intended object is the K_v-space.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E6",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "§3.4, Lemma 3.2, p. 18, arXiv:1807.02721v3",
+   "printed": "Suppose given power series B_0, …, B_N ∈ K[[z_1, …, z_m]] such that all B_i are absolutely convergent, with no common zero, both in the v-adic and complex disks U_v = {z̲ : |z_i|_v < ε} and U_C = {z̲ : |z_i|_C < ε}.",
+   "correction": "Allow independent radii: U_v = {|z_i|_v < ε_v} and U_C = {|z_i|_C < ε_C}. The proof uses only that each family of series converges on its own polydisk.",
+   "reason": "Lemma 3.3 applies Lemma 3.2 to the period series, and there the two radii are different: the v-adic disk must be the whole residue disk {|z_i|_v < 1} = (pO_v)^m, since the conclusion is about Φ_v(Ω_v), while the complex disk is a small polydisk — §3.3 (p. 17) states the flat sections are 'v-adically absolutely convergent for |z_i|_v < |p|_v^{1/(p−1)} … and ι-adically absolutely convergent for sufficiently small |z_i|_C'. No single ε serves both. The proof of Lemma 3.2 never compares the radii: it uses only that a power series converging on a polydisk and vanishing there is the zero series, and then that a K_v-solution of a K-linear system is a K_v-combination of K-solutions.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E7",
+   "kind": "gap",
+   "affects": "a stated result",
+   "locator": "§5, Proposition 5.3, p. 26, arXiv:1807.02721v3",
+   "printed": "Suppose that X → Y' → Y admits a good model over the ring O of S-integers of K. Let v ∉ S be a friendly place of K (Definition 2.7).",
+   "correction": "Add the two further conditions on v that the proof uses, from the set-up of §3.1: the residue characteristic p of v is odd, and no prime above p lies in S. (The third condition of §3.1, that K_v is unramified over Q_p, already follows from friendliness.) The same two conditions must be imposed when v is chosen in the proof of Theorem 5.4, where only friendliness and the two conditions (ii), (iii) on q_v are required; Chebotarev supplies infinitely many v, so excluding p = 2 and the finitely many rational primes below S costs nothing.",
+   "reason": "The proof of Proposition 5.3 in §6 works throughout in the set-up of §3.1, which fixes a place v with 'if p is the rational prime below v, then p > 2, and K_v is unramified over Q_p, and no prime above p lies in S' (p. 15). Both of the two conditions are used: p > 2 makes the residue disk (pO_v)^m lie inside the region |z_i|_v < |p|_v^{1/(p-1)} of convergence of the Gauss–Manin flat sections (p. 17), and 'no prime above p lies in S' is what makes the fibres over Y(K) = Y(O) have good reduction at the places above p, so that ρ_y is crystalline at v and (3.9) applies. Neither follows from 'v ∉ S friendly': Definition 2.7 asks only that v be unramified over Q and, when K has a CM subfield, inert in it over its totally real subfield. So the proposition as printed is not established.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E8",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "§5, proof of Theorem 5.4, pp. 27–28, arXiv:1807.02721v3",
+   "printed": "We want to bound the number of elements of M belonging to T-orbits of size less than 8. These elements are contained in the union of the submodules ker(T^i − 1) for 1 ⩽ i ⩽ 8. … Hence, the number of elements of M contained in the union of the submodules ker(T^i − 1) for 1 ⩽ i ⩽ 8 is at most 8 · 2^g (q − 1)^g. … of which at most 8 · 2^g (q − 1)^g belong to Frobenius orbits of size 8 or smaller.",
+   "correction": "1 ⩽ i ⩽ 7 in both unions, and 'orbits of size less than 8' in the last clause. The displayed bound 8 · 2^g (q − 1)^g is unchanged (it is then a bound for seven submodules, so a fortiori valid), and so is the rest of the proof.",
+   "reason": "size_v counts the elements lying in Frobenius orbits of size < 8 (Definition 5.2), that is, the elements killed by T^i − 1 for some i ⩽ 7; i = 8 is not needed. It is also not available: the next step reads 'For every odd prime factor r of q − 1 we know that q_v^i is not congruent to 1 modulo r', and that is precisely condition (iii) imposed on v two pages earlier, that the class of q_v in (Z/r)^* has order at least 8. An order exactly 8 is allowed, and then q_v^8 ≡ 1 mod r, so (q_v^8 − 1) need not be prime to r and the conclusion 2⟨m_1, m_2⟩ = 0 fails for i = 8. With i ⩽ 7 every step is correct.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E9",
+   "kind": "error",
+   "affects": "the proof",
+   "locator": "§6, proof of Lemma 6.1, p. 32, arXiv:1807.02721v3",
+   "printed": "We now return to the proof of Lemma 6.1. Fix any (y'_0, w) above (y_0, v) with [K(y'_0)_w : K_v] ⩾ 8. Such a (y'_0, w) exists because of the assumption that y_0 ∈ Y(K)^*. In view of the Sublemma and (6.7), it is enough to show that there are only finitely many y ∈ Y(K) ∩ Ω_v such the projection of Φ_v(y) to H_{(y'_0,w)} lies in the subvariety H^bad_{(y'_0,w)} ⊂ H_{(y'_0,w)}.",
+   "correction": "Range over all pairs (y'_0, w) above (y_0, v) with [K(y'_0)_w : K_v] ⩾ 8, and show that for each of them the corresponding set of y is finite; the bad y are then contained in a finite union of finite sets.",
+   "reason": "The Sublemma produces, for each bad y separately, some pair (y', w) above (y, v) with local degree ⩾ 8 carrying a Frobenius-stable subspace. Under the identification (6.4) of the pairs above (y, v) with the pairs above (y_0, v) this corresponds to some pair (y'_0, w_0) of the same local degree, and which one it is depends on y. A pair fixed once and for all therefore does not catch every bad y, and the reduction as written does not follow. The repair is immediate and costs nothing, since only finitely many pairs lie above (y_0, v), so Lemma 6.1 and Proposition 5.3 stand.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E10",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "§6, Lemma 6.3, p. 33, together with the definition of H^bad in the proof of Lemma 6.1, p. 32, arXiv:1807.02721v3",
+   "printed": "p. 33: 'If F ⊂ V is a Lagrangian L_w-subspace, corresponding to a point of A(K_v), there is no φ-invariant L_w-subspace W of V satisfying (6.12).' p. 32: 'H^bad_{(y'_0,w)} ⊂ H_{(y'_0,w)} defined as the Lagrangian, K(y'_0)_w-subspaces F ⊂ V_{y'_0,w} … for which there exists a Frobenius-stable subspace W ⊂ V_{y'_0,w}, satisfying (6.12) dim(F ∩ W) ⩾ ½ dim(W)'.",
+   "correction": "In both places require 0 ≠ W ≠ V, as the Sublemma does ('a nonzero proper Frobenius-stable subspace W^dR_{y',w}') and as Lemma 6.4 does ('there exists a proper nonzero subspace W ⊂ V such that dim(F_j ∩ W) ⩾ ½ dim(W) for every j').",
+   "reason": "Both W = 0 and W = V satisfy (6.12) for every Lagrangian F, and both are φ-stable: for W = 0 the inequality reads 0 ⩾ 0, and for W = V it reads dim F ⩾ ½ dim V, an equality since F is Lagrangian. So, read literally, H^bad is the whole of H_{(y'_0,w)} and the only Zariski-open A that Lemma 6.3 can offer is the empty one; the step 'By the lemmas that follow, H^bad_{(y'_0,w)} is contained in a proper closed K_v-subvariety' then fails. With 0 ≠ W ≠ V the statement is exactly what the printed proof establishes, by reduction to Lemma 6.4, and exactly what the Sublemma feeds it.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E11",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§7.1, Proposition 7.1(ii), p. 35, arXiv:1807.02721v3",
+   "printed": "If we take the fiber of this morphism of relative curves above y' ∈ Y'(K̄), the resulting map Z_{y'} → Y of curves is ramified exactly at π(y'). The induced homomorphism π_1^geom(Y − y', y_0) → Aut_G(Z_{(y',y_0)}) ≅ G is exactly (in the conjugacy class of) the surjection from (i) classified by y'.",
+   "correction": "π_1^geom(Y − π(y'), y_0).",
+   "reason": "y' is a point of Y', not of Y, so 'Y − y'' is not defined. The preceding sentence says the cover Z_{y'} → Y is ramified exactly at π(y'), and part (i) attaches to y' a conjugacy class of surjections π_1^geom(Y − y, *) ↠ G with y = π(y'); so the group meant is the one of the punctured curve Y − π(y').",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E12",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "§7.3, proof of Lemma 7.4, p. 38, arXiv:1807.02721v3",
+   "printed": "Now the long exact sequence for homotopy groups of a fibration gives rise to an exact sequence of topological fundamental groups; in the setting at hand this is short exact because the π_2 of Y − {y_0} vanishes.",
+   "correction": "'… because the π_2 of Y vanishes': the relevant group is π_2 of the base of the fibration, not of its fibre.",
+   "reason": "The fibration is the second map of (7.5), (Y² − Δ, y) → (Y, y_0), (y, y') ↦ y', whose fibre over y_0 is Y − {y_0}. Its long exact sequence reads π_2(Y) → π_1(Y − {y_0}) → π_1(Y² − Δ) → π_1(Y) → π_0, so injectivity on the left is governed by π_2 of the base Y; π_2 of the fibre enters the sequence one step earlier and is irrelevant to it. The conclusion is correct because Y is a closed surface of genus ⩾ 2, hence aspherical, so π_2(Y) = 0 — and in any case only the middle exactness, which gives the normality of Γ in Γ̃^geom that the argument goes on to use, is needed.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E13",
+   "kind": "error",
+   "affects": "a stated result",
+   "locator": "§8.3, Lemma 8.2, p. 42, arXiv:1807.02721v3",
+   "printed": "Let e be a simple closed curve in Y − {y}. Then the classes of the preimages [e_1], …, [e_k] in the homology of Z are linearly independent; projected to H_1^Pr(Z, Y), their span has dimension k − 1.",
+   "correction": "Require e to be nonseparating in Y, equivalently [e] ≠ 0 in H_1(Y; Q).",
+   "reason": "For e separating with trivial monodromy the classes are dependent: then Cov(e) = 1, so k = q and Σ_i [e_i] = π^*[e] = 0 because [e] = 0 in H_1(Y; Q). In the extreme case where e bounds a disk in Y − {y}, every e_i bounds a disk in Z, so all [e_i] vanish and their span projects to 0 rather than to a space of dimension q − 1. LV's own definition of a simple closed curve — 'the image of a smooth embedding S¹ → Y' — admits such curves. The printed proof needs the hypothesis as well: it opens 'Y admits the structure of a CW complex with one 2-cell such that e belongs to the 1-skeleton', and if e separates Y then the complement of any 1-complex containing e is disconnected, so it cannot be a single open 2-cell. Every application in the paper is to a nonseparating curve — a liftable curve has monodromy projecting to a generator of F_q^*, so its class in H_1(Y) is nonzero — so the results downstream are unaffected.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E14",
+   "kind": "error",
+   "affects": "a stated result",
+   "locator": "§8.3, Lemma 8.3, p. 42, arXiv:1807.02721v3",
+   "printed": "Suppose Z → Y is an Aff(q)-cover. Let e be a simple closed curve in Y, and take M such that D_e^M ∈ MCG(Y)_Z. Then the rank of Mon(D_e^M) − Id acting on H_1^Pr(Z, Y) determines the conjugacy class of Cov(e) in the symmetric group Sym(F_q).",
+   "correction": "Require e to be a nonseparating simple closed curve in Y − {y}; the rank is then k − 1, where k is the number of cycles of Cov(e), and k determines the cycle type.",
+   "reason": "The lemma is deduced from Lemma 8.2, which needs e nonseparating (finding E13), and it fails without that hypothesis. If e bounds a disk in Y − {y} then Mon(D_e^M) = Id and the rank is 0, while Cov(e) = 1; if e is nonseparating with Cov(e) a q-cycle then k = 1 and the rank is again 0. Two different conjugacy classes give the same rank, so the rank does not determine the class. With e nonseparating the three possible cycle types in Aff(q) — (1^q), (q) and (1, r, …, r) — have k = q, 1 and 1 + (q − 1)/r cycles respectively, all distinct, and the lemma holds. The applications, in the proof of Lemma 8.9, are to nonseparating curves.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E15",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§8.3, Lemma 8.3, p. 42, and §8.5, Lemma 8.9, p. 47, arXiv:1807.02721v3",
+   "printed": "p. 42: 'take M such that D_e^M ∈ MCG(Y)_Z'. p. 47: 'Lemma 8.9. The monodromy map Mon : MCG(Y)_{Z_i} → Sp(H_1^Pr(Z_i, Y)) has Zariski-dense image.'",
+   "correction": "MCG(Y − {y})_Z and MCG(Y − {y})_{Z_i}.",
+   "reason": "The covers Z_i of §8 are the singly ramified Aff(q)-covers of (Y, y): covers of Y − {y}, classified by homomorphisms π_1(Y − {y}) → Aff(q), and it is the mapping class group of the punctured surface that acts on the set of them. §8.2 defines MCG(Y − {y})_0 as the intersection of the groups MCG(Y − {y})_{Z_i} (p. 40) and it is that group which carries the monodromy map (8.3) and appears in Lemma 8.7; Lemma 8.9 is invoked to prove Lemma 8.7 ('We are now reduced to proving Lemma 8.9'), so the same group is meant. §8.3 itself says of a curve e in Y − {y} that 'we can regard D_e as an element of MCG(Y − {y})'. Nothing but the abbreviation is at fault.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E16",
+   "kind": "gap",
+   "affects": "nothing",
+   "locator": "§8.5, proof of Lemma 8.6, p. 46, arXiv:1807.02721v3",
+   "printed": "We leave the simple topological proof to the reader.",
+   "correction": "Supply a proof. One is available: put the cover in the normal form of Proposition 8.5, push a point along a suitable nonseparating curve in the split part, and compute that the resulting unipotent acts nontrivially on H_1^Pr(Z_i, Y).",
+   "reason": "The main text gives no proof that the image of π_1(Y, y)_0 in each Sp(H_1^Pr(Z_i, Y)) is non-central, and the statement is what lets Lemma 8.7 be promoted to Theorem 8.1. The footnote attached to the quoted sentence sketches an alternative argument — the theorem of the fixed part, Torelli, then de Franchis — but that too is a sketch, and it is algebro-geometric where the rest of §8 is topological. The lemma is true; the packet proves it at MordellLawrenceVenkatesh:LV.10/push-monodromy-noncentral by the point-pushing computation just described, so nothing downstream is affected.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E17",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§8.5, footnote to the proof of Lemma 8.6, p. 46, arXiv:1807.02721v3",
+   "printed": "One can also give an algebro-geometric argument, as follows. Suppose to the contrary. Now, as in §7, there is an associated finite covering Y' → Y such that the various Z_i fit together into a curve fibration Z → Y'. If (a) were false, the theorem of the fixed part means that the Hodge structure of the fibers of Z → Y' are constant, at least over one component of Y'.",
+   "correction": "'If the conclusion of the lemma were false' — or simply delete the clause, since the argument has already said 'Suppose to the contrary'.",
+   "reason": "Lemma 8.6 is a single unlabelled assertion with no parts; neither Theorem 8.1 nor any neighbouring statement in §8 has a part labelled (a). The reference is a leftover from an arrangement in which the assertion was one item of a list.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E18",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "§8.5, proof of Lemma 8.8, p. 47, with the caption of Figure 4, p. 48, arXiv:1807.02721v3",
+   "printed": "There exists a simple closed curve η ∈ π_1(Y − y) mapping to β_1β_2β_1^{-1}β_2^{q−c_1} under this map π_1(Y − y) → π_1(T − y): see Figure 8.5 and its caption. — whose caption ends 'The resulting word is the image of η under the map π_1(Y − y, y_0) → π_1(T − y, y_0), which we readily see is β_1β_2β_1^{-1}β_2^{2}.'",
+   "correction": "Give a construction valid for every exponent q − c_1, or say that the picture is drawn for one value and indicate how it varies.",
+   "reason": "c_1 is an arbitrary element of F_q^*, so the exponent q − c_1 runs over 1, …, q − 1, while the picture is drawn once, and its caption computes the word β_1β_2β_1^{-1}β_2^{2}, that is, the case q − c_1 = 2 only. Existence for every exponent is true — the packet obtains the curve for each exponent at MordellLawrenceVenkatesh:LV.10/covers-distinguished-by-curve — but it does not follow from the figure as drawn, and Lemma 8.8 is what feeds Lemma 2.12 in the proof of Lemma 8.7.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E19",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§8.5, p. 47, and §8.6, p. 50, arXiv:1807.02721v3",
+   "printed": "p. 47: 'see Figure 8.5 and its caption'. p. 50: 'For a picture of the curve A(w, j), see Figure 8.6.'",
+   "correction": "'see Figure 4' and 'see Figure 5' respectively.",
+   "reason": "The paper has five figures, numbered 1 to 5: Figure 1 (p. 44) the curves α_1^± and α_2, Figure 2 (p. 45) Y as a connected sum, Figure 3 (p. 46) the curves β_1 and β_2, Figure 4 (p. 48) 'The curve η', Figure 5 (p. 49) 'The curves γ_j and w on Y'. There is no Figure 8.5 and no Figure 8.6; the intended targets are Figures 4 and 5, which are the two figures whose \\label is placed before the \\caption in the source, so that the cross-reference picks up the current theorem number instead of the figure number.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  },
+  {
+   "id": "MordellLawrenceVenkatesh/E20",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "§8.6, proof of Lemma 8.11, p. 49, arXiv:1807.02721v3",
+   "printed": "We can choose this basis in such a way that all powers β_1β_2^j with j non-negative are represented by simple closed curves on T°, which start and end at p.",
+   "correction": "Give a construction. The curves can be produced as the images of β_1 under powers of the Dehn twist about β_2, which carries simple closed curves to simple closed curves and sends β_1 to a representative of β_1β_2^j.",
+   "reason": "The assertion is made without proof or reference, and the accompanying Figure 5 draws only some of the curves. It carries the rest of Lemma 8.11: the curves γ_{j*} are defined as β_1β_2^j for j ∈ [0, q], and Lemma 8.11 is in turn what the proof of Lemma 8.10 — hence of Lemma 8.9, hence of Theorem 8.1 — rests on. The assertion is true: on a once-punctured torus β_1β_2^j is a primitive class, hence represented by a simple closed curve, and the representatives can be taken through the base point p.",
+   "known": "new",
+   "searched": [
+    "arXiv listing for 1807.02721, checked 23 September 2026: exactly three versions — v1 (7 July 2018), v2 (30 August 2018), v3 (25 October 2019). v3 is the latest and is the version read here (PDF sha256 e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b, matching the packet; e-print archive sha256 6f6972471b088f6943fab432a2a3c0b4f477c20659797d243a56d01603480a1b, whose LaTeX source was read alongside the PDF). No later arXiv version corrects anything.",
+    "Crossref record for the published version, doi 10.1007/s00222-020-00966-7 (Invent. Math. 221 (2020), no. 3, 893-999), fetched 23 September 2026: the 'relation' object is empty and there is no 'update-to' or 'updated-by' entry; the query filter=updates:10.1007/s00222-020-00966-7 returns 0 works. No correction or erratum is registered against the paper.",
+    "Crossref search of Inventiones mathematicae (ISSN 0020-9910) for a 'Correction to: Diophantine problems and p-adic period mappings', 23 September 2026: no such item exists (the only Inventiones correction returned was to an unrelated paper).",
+    "Akshay Venkatesh's publication page, https://www.math.ias.edu/~akshay/research/research.html, fetched 23 September 2026: the paper is listed without an erratum; the one erratum listed on that page is to a different paper (Einsiedler-Lindenstrauss-Michel-Venkatesh).",
+    "Brian Lawrence's pages could not be read: https://people.math.wisc.edu/~blawrence/ returns HTTP 403 and https://sites.google.com/view/brianlawrencemath redirects to a Google sign-in, so no erratum could be looked for there.",
+    "The published version itself could not be read: link.springer.com answers both the article page and the content/pdf link with a 3 KB 'Client Challenge' page, so no claim is made here about whether Springer's copy differs at this locator. Locators and quotations are to arXiv:1807.02721v3 throughout, as in the packet.",
+    "Present in arXiv:1807.02721v3 at the locator quoted; recorded as new."
+   ]
+  }
+ ]
+}
