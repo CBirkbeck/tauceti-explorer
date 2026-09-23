@@ -3,7 +3,7 @@
   "protocol": "paper-v1",
   "status": "partial",
   "agent": "Codex",
-  "session": "codex-c83e7a",
+  "session": "codex-a71f92",
   "source": {
     "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
     "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu",
@@ -17,7 +17,7 @@
       "Targeted original prerequisite sections; see readLedger"
     ]
   },
-  "summary": "Continuation of PR #2181: Partial extraction and routing of the integral unitary level-raising and two-reciprocity-law proof of conditional Bloch–Kato rank zero and one. It retains the exact main hypothesis boundary, records source repairs and open proof gates, reuses existing PEL/trace proposals and provides a consumer-derived API/test specification for every included definition or construction. It is not a claim of full census, proof closure or formalization.",
+  "summary": "Continuation of PR #2181: Partial extraction and routing of the integral unitary level-raising and two-reciprocity-law proof of conditional Bloch–Kato rank zero and one. It retains the exact main hypothesis boundary, records source repairs and open proof gates, reuses existing PEL/trace proposals and provides a consumer-derived API/test specification for every included definition or construction. It is not a claim of full census, proof closure or formalization. Continuation of PR #2205 (codex-a71f92): a one-sided rank-two localization lemma replaces the false diagonal-basis inference, preserving the distinguished class and the original 8rR bound conditional on actual abundant Frobenius evaluations; E1 remains open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -121,7 +121,9 @@
           "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean"
         ]
       }
-    }
+    },
+    "continuationInputCommit": "2a859df7aa051164e7676175f07fc698ae44f388",
+    "submissionInputCommit": "fad6c577337f027629e637ef4a71310652da1168"
   },
   "contexts": {
     "coefficients": "F/F+ is the source CM/totally-real extension with its chosen embedding, conjugation c, CM type and reflex field. Eλ is a finite extension of Qell, Oλ its valuation ring, λ a uniformizer. Rbar(m)=R/λ^m. Arithmetic Frobenius and Qell(1) of Hodge–Tate weight −1 are used. q is residue cardinality in Appendices B–C; p is the selected rational prime in the Shimura-model sections. Do not silently identify these in general local fields.",
@@ -1020,18 +1022,29 @@
     {
       "id": "PAPER-LIU-ETAL-22/localization-selmer",
       "kind": "theorem",
-      "name": "Diagonal evaluations after a bounded-index shrink",
-      "statement": "An abundant evaluation matrix need not admit a domain basis with off-diagonal evaluations zero. Over a DVR one can instead pass to a bounded-index submodule using the adjugate or a Smith decomposition, tracking the lost λ-exponent. Recovering the exact rank-two Selmer argument with its distinguished first class is an open repair.",
-      "locator": "Proposition 2.6.7, corrected replacement request; E2",
+      "name": "One-sided rank-two localization with a distinguished class",
+      "statement": "Let O be a DVR, π a uniformizer, Rn=O/π^n with n≥1, S a free Rn-module of rank two, v∈S primitive (v∉πS), and f1,f2:S→Rn linear. Suppose π^c Rn²⊆image(f1,f2) for 0≤c<n. After possibly interchanging f1 and f2, there exists a primitive t∈S such that f1(t)=0, expπ(f1(v))≥n−c and expπ(f2(t))≥n−c. A basis diagonalizing both maps is not asserted. For an actual abundant pair of Frobenius evaluations with targets π^m0(O/π^m), apply this after n=m−m0,c=4rR and use S25-norm for local cohomology.",
+      "locator": "Replacement for the rank-two use of Proposition 2.6.7 (p.135) in Theorem 8.3.2 (pp.317–320); original general basis claim E2 retained as a gap",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LIU-ETAL-22/S22",
-        "PAPER-LIU-ETAL-22/S24"
+        "PAPER-LIU-ETAL-22/S25-lift",
+        "PAPER-LIU-ETAL-22/S25-row",
+        "PAPER-LIU-ETAL-22/S05"
       ],
-      "note": "Source-specific statement; the common notation and coefficient conventions in contexts are part of this statement. No formalisation or proof closure is asserted by routing.",
-      "proofStatus": "open proof obligation; no unconditional Lean theorem proposed",
+      "note": "Preserves the stable item id and draft alias S25. Elementary theorem proved in this report, not attributed verbatim to the authors. Application is conditional on actual abundance and is separated into S25-consumer; no claim about existence of those Galois evaluations.",
+      "proofStatus": "complete mathematical argument and exhaustive finite-ring diagnostics supplied; independent review required; not formalized",
       "draftAlias": "PAPER-LIU-ETAL-22/S25",
-      "provenance": "Continues cc-d67081 / PR #2181; published-version refinement by Codex codex-c83e7a."
+      "provenance": "Continues cc-d67081 / PR #2181; published-version refinement by Codex codex-c83e7a.",
+      "proofSteps": [
+        "Choose a basis of S and any integral lift A of (f1,f2). By S25-lift, C=π^c A^−1 is integral.",
+        "If both fi(v) belonged to π^(c+1)Rn, reduction of C A=π^c I would force π^c v∈π^(c+1)Rn², contradicting primitivity since c<n. Thus one coordinate has valuation ≤c; label it f1.",
+        "Apply S25-row to that row. Its primitive kernel vector t has the required second evaluation. Neither row combination nor replacement of the actual Frobenius elements is used: only a permutation."
+      ],
+      "acceptance": [
+        "A=I allows any primitive v, choosing a row with unit value and the other coordinate vector for t.",
+        "A=[[π,1],[0,π]], n>2,c=2 retains v=(1,0) and t=(-1,π) without making them a basis.",
+        "The zero matrix with c=n does not satisfy the strict hypothesis, and v=πe1 is not accepted as primitive."
+      ]
     },
     {
       "id": "PAPER-LIU-ETAL-22/S26",
@@ -4044,7 +4057,7 @@
       "id": "PAPER-LIU-ETAL-22/theorem-1-1-9",
       "kind": "theorem",
       "name": "Conditional rank-one Selmer theorem",
-      "statement": "For the main adjacent-rank setup in contexts, assume Hypothesis 3.2.10 in both ranks, λ admissible and nonzero projected étale Abel–Jacobi class of the diagonal cycle. Then the tensor Bloch–Kato group has dimension one. The source proof’s exact diagonal-evaluation step E2 remains an explicit repair gate. Nonzero L-derivative alone is not a hypothesis sufficient for this theorem.",
+      "statement": "For the main adjacent-rank setup in contexts, assume Hypothesis 3.2.10 in both ranks, λ admissible and nonzero projected étale Abel–Jacobi class of the diagonal cycle. Then the tensor Bloch–Kato group has dimension one. The E2 diagonal-basis step is replaced by the one-sided rank-two lemma with unchanged error bounds; E1 and the remaining geometry/comparison gates are not closed. Nonzero L-derivative alone is not a hypothesis sufficient for this theorem.",
       "locator": "Theorem 8.3.2",
       "status": "missing",
       "prerequisites": [
@@ -4057,7 +4070,8 @@
         "PAPER-LIU-ETAL-22/S18",
         "PAPER-LIU-ETAL-22/S10",
         "PAPER-LIU-ETAL-22/hypothesis-3-2-10",
-        "PAPER-LIU-ETAL-22/diagonal-cycle"
+        "PAPER-LIU-ETAL-22/diagonal-cycle",
+        "PAPER-LIU-ETAL-22/S25-consumer"
       ],
       "note": "Source-specific statement; the common notation and coefficient conventions in contexts are part of this statement. No formalisation or proof closure is asserted by routing.",
       "draftAlias": "PAPER-LIU-ETAL-22/M12",
@@ -5223,10 +5237,151 @@
         "PAPER-LIU-ETAL-22/S10",
         "PAPER-LIU-ETAL-22/S18",
         "PAPER-LIU-ETAL-22/localization-selmer",
-        "PAPER-LIU-ETAL-22/torsion-class-system"
+        "PAPER-LIU-ETAL-22/torsion-class-system",
+        "PAPER-LIU-ETAL-22/S25-consumer"
       ],
       "note": "Continuation of the corresponding PR #2181 item; the published version and the current hypothesis boundary govern this refined item.",
       "provenance": "Continues cc-d67081 / PR #2181; published-version refinement by Codex codex-c83e7a."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/L06",
+      "kind": "theorem",
+      "name": "Matrix times adjugate",
+      "statement": "For any commutative ring A and finite decidable index type ι, every square matrix M satisfies M adj(M)=det(M) I.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean:264 at Mathlib 082e2d3; used in the E2 replacement proof",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.mul_adjugate"
+      ],
+      "prerequisites": [],
+      "note": "Actual statement and variable hypotheses read; imports the algebraic identity only, not the bounded-image lemma."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/L07",
+      "kind": "theorem",
+      "name": "Adjugate times matrix",
+      "statement": "For any commutative ring A and finite decidable index type ι, every square matrix M satisfies adj(M) M=det(M) I.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean:269 at Mathlib 082e2d3; used in the E2 replacement proof",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.adjugate_mul"
+      ],
+      "prerequisites": [],
+      "note": "Actual statement and variable hypotheses read; no inversion of a nonunit determinant in the DVR is asserted."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/L08",
+      "kind": "theorem",
+      "name": "Matrix unit criterion",
+      "statement": "For any commutative ring A and finite decidable index type ι, a square matrix M is a unit in the matrix ring if and only if det(M) is a unit in A.",
+      "locator": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean:127 at Mathlib 082e2d3; used in the E2 replacement proof",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.isUnit_iff_isUnit_det"
+      ],
+      "prerequisites": [],
+      "note": "Use this for U=I+π^(n-c)D over the local DVR, never for the generally nonunit matrix A itself."
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S25-lift",
+      "kind": "theorem",
+      "name": "Bounded-image matrix has an integral scaled inverse",
+      "statement": "Let O be a DVR with uniformizer π, fraction field K, n≥1 and 0≤c<n. If a square d×d matrix A over O has reduction Abar whose image contains π^c(O/π^n)^d, then A is invertible over K and C=π^c A^−1 has entries in O, with AC=CA=π^c I. This holds for every integral lift A of Abar.",
+      "locator": "Worker-supplied elementary proof refining the inference in Proposition 2.6.7, published p.135; proof in report §Rank-two replacement",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/L06",
+        "PAPER-LIU-ETAL-22/L07",
+        "PAPER-LIU-ETAL-22/L08"
+      ],
+      "note": "Source refinement assigned to ES.4, not a claim that the printed paper states this lemma or that the baseline already implements it.",
+      "proofStatus": "complete mathematical argument supplied; not independently reviewed or Lean formalized",
+      "proofSteps": [
+        "Choose preimage columns modulo π^n and lift to B over O, giving AB=π^c I+π^n D=π^c U.",
+        "Since c<n, U reduces to I modulo the maximal ideal, so det U is a unit. Use L08 to invert U over O.",
+        "C=B U^−1 is integral and AC=π^c I. Determinants in the domain imply det A≠0; over K, C=π^c A^−1 and hence CA=π^c I."
+      ],
+      "acceptance": [
+        "A=π^c I satisfies the claim with C=I.",
+        "The hypothesis c<n matters: A=0 and c=n give the vacuous image bound but no inverse.",
+        "No completeness, characteristic-zero or finite-residue-field hypothesis is needed."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S25-row",
+      "kind": "theorem",
+      "name": "Primitive kernel vector preserves the second error bound",
+      "statement": "Let O,π,n,c be as in S25-lift and A a 2×2 integral lift of a bounded-image matrix. Write its first row as π^a(u1,u2), where a is the minimum entry valuation and at least one ui is a unit. Then a≤c, t=(-u2,u1) reduces to a primitive vector in (O/π^n)^2, the first row kills t exactly, and the second row evaluated at t has valuation v(det A)−a≤c. In particular its reduction has exponent at least n−c.",
+      "locator": "Worker-supplied elementary proof for Proposition 2.6.7, p.135 and Theorem 8.3.2, pp.317–320",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/S25-lift"
+      ],
+      "note": "Only one row is killed. Neither a basis diagonalization nor freeness of the full kernel is claimed.",
+      "proofStatus": "complete mathematical argument supplied; not independently reviewed or Lean formalized",
+      "proofSteps": [
+        "The image bound forces each row's image ideal to contain π^c, hence a≤c<n.",
+        "Divide the first integral row by its common π^a factor. Its normalized row has a unit coordinate, so t is primitive and is killed by that row.",
+        "The second evaluation is det A/π^a. In C=π^c adj(A)/det A, a cofactor coming from a first-row entry has valuation c+a−v(det A)≥0 because C is integral. Thus v(det A)−a≤c."
+      ],
+      "acceptance": [
+        "For A=[[π,1],[0,π]], c=2 and n>2, t=(-1,π) has first evaluation zero and second π².",
+        "A=π^c I gives t=(0,1) and exact exponent n−c.",
+        "t need not form a basis with a preselected primitive v; with v=(1,0) in the first example their determinant is π."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S25-norm",
+      "kind": "theorem",
+      "name": "Prime-to-ell unramified restriction preserves exponents",
+      "statement": "Let M be a finite Oλ-module and h an automorphism with h^g=1, where g≥1 is prime to ell. The norm N=1+h+⋯+h^(g−1) induces an Oλ-linear isomorphism M/(h−1)M→M^h. For an unramified local representation with arithmetic Frobenius h and the unramified degree-g extension killing its action, restriction on H1_ns is this norm map under Frobenius evaluation. Thus evaluation after restriction vanishes exactly when the original nonsingular class vanishes and preserves its λ-exponent.",
+      "locator": "Proposition 2.6.7 second paragraph, p.135; Definition 2.2.2, p.124; explicit normalization supplied in report",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/local-conditions",
+        "PAPER-LIU-ETAL-22/S02"
+      ],
+      "note": "A source refinement of SelmerIwasawaCohomology:L0/L2. The degree is g=ord(hγ), not the order of an independently chosen lift in a larger Galois closure. This local statement does not settle E1.",
+      "proofStatus": "elementary norm proof supplied; profinite H1/Frobenius comparison remains the named supplier interface",
+      "proofSteps": [
+        "e=N/g is an idempotent with image M^h. Moreover ker e=(h−1)M: one inclusion is immediate; for the other use (h−1)Σ(i h^i)=g−N.",
+        "Therefore the projection M→M^h induces an isomorphism on coinvariants and N is g times that isomorphism.",
+        "For a cocycle z and arithmetic Frobenius F, z(F^g)=Σh^i z(F). This identifies restriction to the degree-g unramified extension with N; the finite-module procyclic H1 comparison is imported from the local-condition owner."
+      ],
+      "acceptance": [
+        "For h=1,g=1 the map is the identity.",
+        "For h=−1,g=2 and ell odd both source and target vanish.",
+        "If g is not invertible, M=Z/ell with h=1,g=ell gives a zero norm, so the conclusion fails."
+      ]
+    },
+    {
+      "id": "PAPER-LIU-ETAL-22/S25-consumer",
+      "kind": "theorem",
+      "name": "One-sided localization retains the rank-one error budget",
+      "statement": "In the setup of the proof of Theorem 8.3.2, suppose the actual (S,γ)-abundant pair has been obtained, with m>mper+mlat+mΣ+8rR+mdif. Put n=m−mΣ,c=4rR and choose the primitive v=π^mΣ s0 in S where π^mper s0=s as in footnote 33. After possibly interchanging the two evaluations, there is a primitive t∈S with loc_w1(t)=0, expλ loc_w2(t)≥m−mΣ−4rR and expλ loc_w1(s)≥m−mper−4rR. Consequently, conditional on the source's geometric reciprocity outputs, level comparison and perfect local pairing, the distinguished local pairing with its constructed c2 has exponent at least m−mper−mlat−mΣ−8rR. The error bound is unchanged; no basis containing s or v is required.",
+      "locator": "Proof of Theorem 8.3.2, printed pp.317–320, especially footnote 33 and (8.11)–(8.14); worker-supplied E2 replacement",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LIU-ETAL-22/localization-selmer",
+        "PAPER-LIU-ETAL-22/S25-norm",
+        "PAPER-LIU-ETAL-22/second-reciprocity-law",
+        "PAPER-LIU-ETAL-22/X06",
+        "PAPER-LIU-ETAL-22/S18",
+        "PAPER-LIU-ETAL-22/S10"
+      ],
+      "note": "Conditional repair of the E2 inference only. Actual joint Galois lifting E1, integral comparison E13 and the other geometric proof gates remain open; this is not a new unconditional proof of Theorem 8.3.2.",
+      "proofStatus": "mathematical replacement and complete exponent accounting supplied; independent review required",
+      "proofSteps": [
+        "The evaluations of S land in the submodule annihilated by π^n in the free rank-one O/π^m target, namely π^mΣ times that target. Identify this submodule with O/π^n by multiplication by π^mΣ; abundance is precisely the image bound π^c(O/π^n)^2.",
+        "Apply localization-selmer to the distinguished primitive v. S25-norm transports exact zero and the two exponent inequalities back from evaluation to unramified local cohomology.",
+        "Use π^mper v=π^mΣ s, rather than a negative uniformizer power: since n−c−mper>0, scaling the nonzero localization gives exp loc_w1(s)≥m−mper−c.",
+        "Keep (8.12) and (8.13) with the same right sides. Pair t with c2. Vanishing at w1 uses only loc_w1(t)=0; no condition on loc_w2(v) is needed. The two losses c+c give 8rR, while mper,mlat,mΣ and mdif are unchanged."
+      ],
+      "acceptance": [
+        "At rR=0 the replacement loses no additional λ-power.",
+        "The example A=[[π,1],[0,π]] is accepted even though no diagonal domain basis exists.",
+        "If mΣ<mper the identity π^mper v=π^mΣ s still avoids undefined division in the torsion module."
+      ]
     }
   ],
   "routes": [
@@ -5251,7 +5406,8 @@
         "PAPER-LIU-ETAL-22/selmer-reduction",
         "PAPER-LIU-ETAL-22/S02",
         "PAPER-LIU-ETAL-22/S03",
-        "PAPER-LIU-ETAL-22/S04"
+        "PAPER-LIU-ETAL-22/S04",
+        "PAPER-LIU-ETAL-22/S25-norm"
       ],
       "reason": "Source-specific finite conditions and procyclic lemmas refine the existing cohomology, duality and Selmer interfaces. Pinned continuous H1 and inflation–restriction are imported, not replanned. The different-valued FL pairing remains explicit.",
       "suggestedLeanFile": "TauCeti/Roadmap/SelmerIwasawaCohomology/RankinSelberg.lean",
@@ -5291,7 +5447,9 @@
         "PAPER-LIU-ETAL-22/S22",
         "PAPER-LIU-ETAL-22/S23",
         "PAPER-LIU-ETAL-22/S24",
-        "PAPER-LIU-ETAL-22/localization-selmer"
+        "PAPER-LIU-ETAL-22/localization-selmer",
+        "PAPER-LIU-ETAL-22/S25-lift",
+        "PAPER-LIU-ETAL-22/S25-row"
       ],
       "reason": "The existing simultaneous-Chebotarev and error-tolerant descent layers own these shared evaluation and bounded-denominator arguments. They are reused by the level-raising annihilator application without claiming a norm-compatible Euler system.",
       "suggestedLeanFile": "TauCeti/Roadmap/EulerSystemsAndKolyvaginSystems/RankinSelberg.lean",
@@ -5310,7 +5468,7 @@
         },
         {
           "item": "PAPER-LIU-ETAL-22/localization-selmer",
-          "title": "Diagonal evaluations after a bounded-index shrink"
+          "title": "One-sided rank-two localization with a distinguished class"
         }
       ]
     },
@@ -5877,9 +6035,10 @@
         "PAPER-LIU-ETAL-22/main-obstacles",
         "PAPER-LIU-ETAL-22/assumption-7-1-1",
         "PAPER-LIU-ETAL-22/torsion-class-system",
-        "PAPER-LIU-ETAL-22/bound-by-annihilators"
+        "PAPER-LIU-ETAL-22/bound-by-annihilators",
+        "PAPER-LIU-ETAL-22/S25-consumer"
       ],
-      "brief": "For relevant cuspidal Π0,Π1 of ranks n0=2r0 and n1=2r1+1 with r0+r1=n≥2, retain Hypothesis 3.2.10 in both ranks and every admissibility condition L1–L7. The final rank-zero theorem uses nonzero L(1/2,Π0×Π1); the rank-one theorem uses nonzero projected diagonal Abel–Jacobi class. Import SelmerIwasawaCohomology L0–L4, EulerSystemsAndKolyvaginSystems ES.1/ES.4 for shared simultaneous localization and uniform error control, UnitaryRapoportZinkSpacesAndRSZModels, UnitaryLevelRaisingTypesAndHeckeOperators, PolarizedAutomorphyLifting, SemistablePotentialMaps, JacquetRallisRelativeTraceComparison and the Igusa/Galois/trace owners. Prove the three-piece localized weight analysis, odd Tate-cycle isomorphism, even arithmetic level raising at every depth λ^m and both explicit reciprocity laws with their different equality/inequality conclusions. Track mper, mlat, mΣ, rR and the coefficient different in the global pairing contradictions. Resolve E1/E2 before presenting either proof as closed; rank one additionally needs the distinguished-class diagonalization repair. Conjecture 8.3.1 and Abel–Jacobi injectivity remain hypotheses, and no norm-compatible Euler system is claimed.",
+      "brief": "For relevant cuspidal Π0,Π1 of ranks n0=2r0 and n1=2r1+1 with r0+r1=n≥2, retain Hypothesis 3.2.10 in both ranks and every admissibility condition L1–L7. The final rank-zero theorem uses nonzero L(1/2,Π0×Π1); the rank-one theorem uses nonzero projected diagonal Abel–Jacobi class. Import SelmerIwasawaCohomology L0–L4, EulerSystemsAndKolyvaginSystems ES.1/ES.4 for shared simultaneous localization and uniform error control, UnitaryRapoportZinkSpacesAndRSZModels, UnitaryLevelRaisingTypesAndHeckeOperators, PolarizedAutomorphyLifting, SemistablePotentialMaps, JacquetRallisRelativeTraceComparison and the Igusa/Galois/trace owners. Prove the three-piece localized weight analysis, odd Tate-cycle isomorphism, even arithmetic level raising at every depth λ^m and both explicit reciprocity laws with their different equality/inequality conclusions. Track mper, mlat, mΣ, rR and the coefficient different in the global pairing contradictions. Resolve E1 before presenting either proof as closed. For rank one use the one-sided rank-two localization replacement and S25-consumer: it preserves the distinguished class and the 8rR bound without a false diagonal-basis assertion. The E2 finding and this proposed replacement require independent review. Conjecture 8.3.1 and Abel–Jacobi injectivity remain hypotheses, and no norm-compatible Euler system is claimed.",
       "reason": "The geometric-cycle annihilator method is new in the Selmer direction while the general cohomological, descent, unitary geometric and representation interfaces retain their existing owners. Preserve the proposal id from PR #2181, but classify it as an extension of SelmerIwasawaCohomology as §15 requires and as its prior handoff explicitly considered. The legacy id is not an assertion of Euler-system norm relations.",
       "suggestedLeanFile": "TauCeti/Roadmap/ArithmeticLevelRaisingAndBipartiteEulerSystems/RankinSelberg.lean",
       "planets": [
@@ -6062,7 +6221,7 @@
       "kind": "gap",
       "locator": "Proposition 2.6.7, p.135; published Inventiones 228 (2022), NSF PDF SHA-256 dd821abd…ec89d97",
       "printed": "θS(ψi)(sj) = 0 if i ≠ j",
-      "correction": "An image bound does not yield diagonalization by a domain basis alone. Replace by a bounded-index shrink and track its loss, or prove an extra property of these evaluation maps. Compatibility with the distinguished first class in rank one remains open.",
+      "correction": "The general diagonal-basis assertion is not justified by abundance. For the rank-two application replace it by localization-selmer: retain a chosen primitive v, permute the two actual evaluation rows to make f1(v) have exponent ≥n−c, and choose a primitive t in ker(f1) with exp f2(t)≥n−c. The integral scaled-inverse and normalized-row proof is given in the report. S25-consumer shows that the original 8rR error budget is preserved. No bounded-index shrink or row combination of Galois evaluations is needed.",
       "reason": "Over O/λ^m with m>4, A=[[λ,1],[0,λ]] has image containing λ²O² and hence λ⁴O². Its total image has index |k|² but its two coordinate projections have indices 1 and |k|; a diagonal matrix with those projections would have index |k|. Right multiplication by a basis change preserves the image, so cannot diagonalize it. Thus the claimed implication from Definition 2.6.5 is false for general linear maps. This example is not presented as a realized Selmer evaluation system, so the finding is a proof gap rather than a counterexample under every global hypothesis.",
       "affects": "the proof",
       "known": "new",
@@ -6071,8 +6230,10 @@
         "2026-09-23: published NSF-hosted Springer PDF read completely (269 pages, printed 107–375).",
         "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
         "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
-        "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
-      ]
+        "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim.",
+        "2026-09-23 codex-a71f92: rechecked arXiv metadata (still v3); exact-title/Proposition 2.6.7 correction query found no primary correction. Published page images 135,317,318 collated. No expanded claim about the inaccessible publisher erratum index."
+      ],
+      "repairStatus": "Proposed rank-two application repair, supplied by Codex codex-a71f92; awaiting independent review. General printed diagonalization remains false as a linear-algebra inference; E1 is not repaired."
     },
     {
       "id": "PAPER-LIU-ETAL-22/E3",
@@ -6317,7 +6478,8 @@
         "modDate": "D:20220304140812+05'30'",
         "trapped": "",
         "encryption": null
-      }
+      },
+      "reacquiredBy": "codex-a71f92 on 2026-09-23; identical SHA-256 verified"
     },
     {
       "id": "arxiv",
@@ -6396,23 +6558,40 @@
         217,
         247,
         249
-      ]
+      ],
+      "attribution": "Inherited reading record from Codex codex-c83e7a / PR #2205; not a claim of a fresh complete reread by codex-a71f92."
     },
     {
       "source": "arxiv",
-      "coverage": "Selected comparison pages only: 20,24,82,83,86,133,143,164 fully, and relevant portions of 21,87,98,134,163,165. No full-version reading claimed."
+      "coverage": "Selected comparison pages only: 20,24,82,83,86,133,143,164 fully, and relevant portions of 21,87,98,134,163,165. No full-version reading claimed.",
+      "attribution": "Inherited reading record from Codex codex-c83e7a / PR #2205; not a claim of a fresh complete reread by codex-a71f92."
     },
     {
       "source": "survey",
-      "coverage": "All 35 pages of arXiv:2509.16881v1; pp.9–10 reread after clipping. Remark 8.2 refinement recorded; Conjectures 6.3,6.4,10.8 retained as conjectures."
+      "coverage": "All 35 pages of arXiv:2509.16881v1; pp.9–10 reread after clipping. Remark 8.2 refinement recorded; Conjectures 6.3,6.4,10.8 retained as conjectures.",
+      "attribution": "Inherited reading record from Codex codex-c83e7a / PR #2205; not a claim of a fresh complete reread by codex-a71f92."
     },
     {
       "source": "rigid",
-      "coverage": "PDF pp.27–36 fully: §§3.5–3.6, proof of Theorem 3.6.3 and beginning of §4.1. Remaining pages not fully read."
+      "coverage": "PDF pp.27–36 fully: §§3.5–3.6, proof of Theorem 3.6.3 and beginning of §4.1. Remaining pages not fully read.",
+      "attribution": "Inherited reading record from Codex codex-c83e7a / PR #2205; not a claim of a fresh complete reread by codex-a71f92."
     },
     {
       "source": "potential",
-      "coverage": "PDF pp.5–17 fully: entire §2 and beginning of §3. Includes full proofs of Theorems 2.16/2.18 and Proposition 2.19. Remaining pages not fully read."
+      "coverage": "PDF pp.5–17 fully: entire §2 and beginning of §3. Includes full proofs of Theorems 2.16/2.18 and Proposition 2.19. Remaining pages not fully read.",
+      "attribution": "Inherited reading record from Codex codex-c83e7a / PR #2205; not a claim of a fresh complete reread by codex-a71f92."
+    },
+    {
+      "source": "main",
+      "reader": "Codex — codex-a71f92",
+      "date": "2026-09-23",
+      "coverage": "Fresh targeted continuation: §§2.3,2.5–2.7 through Lemma 2.7.1, Proposition 2.6.7 and the entire proof of Theorem 8.3.2 on printed pp.316–320; local condition passages 2.2.1–2.2.7. No new whole-paper reading claim.",
+      "imagesChecked": [
+        29,
+        211,
+        212
+      ],
+      "imageConvention": "1-based PDF pages, respectively printed 135,317,318; checked displayed basis claim, distinguished-class normalization and (8.11)–(8.12)."
     }
   ],
   "coalescence": {
@@ -6475,13 +6654,13 @@
     "completeExtraction": false,
     "completeProofClosure": false,
     "gaps": [
-      "G1: The full published paper and survey have been read, but this 192-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.",
+      "G1: The full published paper and survey have been read, but this 199-item checkpoint is not a complete definition/key-theorem census. Split the remaining bundled results and implicit definitions before completion; especially §2.2 FL categories, §§4.5/5.10 special moduli functors, §5.11 component maps, §§6–7 multipart assertions and Appendix C case lists.",
       "G2: Resolve E1 in the actual GI(T²−1), j=1 tensor setting, including the joint norm/power condition in the Galois closure. The j=2 Kummer witness disproves the broader lemma, not either final application theorem.",
-      "G3: Repair E2 with bounded-index shrink or an extra evaluation-image theorem, preserving the distinguished first class and every mΣ/4rR/8rR loss in the rank-one proof. This is a priority mathematical closure task.",
+      "G3: The rank-two application of E2 now has an explicit one-sided replacement, proof and exhaustive small-ring tests, retaining the distinguished class and every mΣ/4rR/8rR loss. Independently review that replacement and its conditional arithmetic handoff; do not restore the false arbitrary-rank diagonal-basis statement. E1 remains a separate existence gate.",
       "G4: Close the localized connecting-map assertion in E8, the uniform integral comparison E13 and the nonproper support extension X03; do not replace them by freeness or dimensions alone.",
       "G5: Read and decompose the original Saito weight sequence/monodromy, Fujii purity, Fontaine–Laffaille/Faltings, Serre large-image and semisimplicity, Xiao–Zhu cycles, Hotta–Matsui finite types, Mok/KMSW/Rogawski packets, Caraiani–Scholze torsion, Labesse/Morel/Shin transfer, Thorne adequacy, CHT08, Khare–Thorne complexes and Carayol multiplicity inputs. Their exact bibliographic entries are in the fully read main references.",
       "G6: Establish the precise Fp² descent for the geometric fibres used in A.1.4(4), use reduced H0 at rank two, and settle the global projective-bundle triviality claim U1. Separate a repaired statement from a merely plausible proof route.",
-      "G7: Refine every provisional statement to a complete standalone signature, all multipart items to single assertions and all D/C APIs to a full consumer census; complete dependency closure below the present high-level graph. The current graph is acyclic but is not a proof certificate.",
+      "G7: Refine every provisional statement to a complete standalone signature, all multipart items to single assertions and all D/C APIs to a full consumer census; complete dependency closure below the present high-level graph. The current graph is acyclic but is not a proof certificate. Inherited D/C entries currently have only two unitTestSpecifications apiece, not the protocol's required three typed tests; complete those consumer-specific tests before marking the extraction complete.",
       "G8: Read the complete original prerequisites beyond the targeted R=T and potential-map sections; complete publisher errata collation if accessible. No Lean compilation was possible without a configured toolchain."
     ]
   },
@@ -6500,16 +6679,16 @@
     }
   ],
   "validation": {
-    "items": 192,
+    "items": 199,
     "statuses": {
-      "library": 5,
+      "library": 8,
       "planned": 20,
-      "missing": 167
+      "missing": 171
     },
     "definitionsAndConstructions": 76,
     "apiEntries": 228,
     "unitTestSpecifications": 152,
-    "dependencyEdges": 324,
+    "dependencyEdges": 339,
     "routes": 21,
     "sourceIssues": 15,
     "missingRoutedExactlyOnce": true,
@@ -6598,8 +6777,33 @@
       ]
     },
     "leanCompiled": false,
-    "leanReason": "Lean launcher present but no default toolchain configured; no compiled proof or skeleton is claimed.",
-    "priorIDsPreservedOrMapped": 42
+    "leanReason": "No Lean deliverable is authorized for this paper job; no compilation or formalization is claimed. Previous checkpoint additionally recorded no configured toolchain.",
+    "priorIDsPreservedOrMapped": 42,
+    "rankTwoRepair": {
+      "proof": "Complete elementary DVR proof supplied, awaiting independent review",
+      "matrices": 15265,
+      "abundantMatrices": 12894,
+      "primitiveKernelChecks": 25788,
+      "distinguishedVectorChecks": 742644,
+      "rings": [
+        "Z/4",
+        "Z/8",
+        "Z/9",
+        "F2[t]/t^3",
+        "F4"
+      ],
+      "mode": "Every 2×2 matrix and every primitive distinguished vector; actual image containment checked by enumerating the image. Minimum nonvacuous c tested. Not a Lean proof or a Galois-realization check."
+    },
+    "continuationChecks": {
+      "date": "2026-09-23",
+      "paperValidator": "pass",
+      "intake": "3 files, 0 problems",
+      "repositoryTests": 48,
+      "priorExactProgramAssertions": 1806,
+      "rankTwoExactProgram": "pass",
+      "structural": "all 192 prior IDs retained; 199 unique items; 339-edge internal DAG; every missing item routed once",
+      "submissionInput": "fad6c577337f027629e637ef4a71310652da1168; all relevant source, owner, protocol and audit files unchanged from continuation input"
+    }
   },
   "continuation": {
     "previousPR": 2181,
@@ -7321,6 +7525,31 @@
       "reading": "arXiv v3 §1 in full, the statements listed in readSections, and the section structure of the rest. Proofs were not read; §§4–5 and the appendices were surveyed only at section level.",
       "changes": "First extraction.",
       "lean": "none"
+    },
+    "rankTwoCheckpoint": {
+      "previousPR": 2205,
+      "previousAgent": "Codex",
+      "previousSession": "codex-c83e7a",
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "claimComment": 5793440768,
+      "confirmationComment": 5793444288,
+      "scope": "Preserve all 192 existing item IDs and source findings; refine localization-selmer, add seven proof/library leaves, and replace G3's unresolved distinguished-class task by an explicit one-sided proof awaiting independent review. No generic diagonalization claim."
     }
+  },
+  "continuationEvidence": {
+    "date": "2026-09-23",
+    "upstreamDocumentsReadFully": [
+      "content/tau-ceti/ProfiniteCohomology/README.md (1873 lines)",
+      "content/tau-ceti/GlobalNumberFields/README.md (703 lines)"
+    ],
+    "ownerDocumentReadFully": "content/campaign/EulerSystemsAndKolyvaginSystems/README.md",
+    "reviewedAudits": [
+      "AUDIT-24 entries EulerSystemsAndKolyvaginSystems:ES.1,ES.4 in data/library-coverage.json"
+    ],
+    "routing": "Keep 21 routes and all proposal identities. Generic matrix identities are imported from Mathlib; the bounded-error lemmas refine ES.4, local norm restriction refines Selmer L0/L2, and the arithmetic application stays in the existing proposed Selmer Part II.",
+    "search": "rg across both complete pinned Lean trees for abundant|bounded.index|simultaneous.*localiz|rank.two.*kernel|primitive.*kernel found no applicable localization lemma; atlas packets, roadmaps, decompositions and reserved IDs searched for adjugate|bounded.index|abundant|primitive.*kernel|rank.two.*kernel. These are bounded negative searches, not exhaustive semantic proof of absence.",
+    "upstreamShape": "Read Matrix.mul_adjugate, Matrix.adjugate_mul and Matrix.isUnit_iff_isUnit_det including their hypotheses at 082e2d3. Read the matrix inverse convention: never treat the totalized inverse over O as the fraction-field inverse when det A is a nonunit.",
+    "ecosystem": "Read-only Mathlib PR search 'bounded matrix DVR' returned none; bounded Zulip search found no relevant replacement design. Use existing Matrix and linear-map carriers; introduce no wrapper objects."
   }
 }
