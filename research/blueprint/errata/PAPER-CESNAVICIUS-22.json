@@ -24,7 +24,12 @@
         "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the defect is sharper than the author's own wording. I read the footnote at author p.20 verbatim: « Added after publication. As Gabber pointed out, the isomorphism ε_z ≅ Spec(k_z[u_z]/(u_z²)) deduced here from the Cohen structure theorem is a priori not an isomorphism of k_m-schemes unless the field k_m is perfect », continuing with the [CTHK97] presentation and the translations t ↦ t+α that this entry's correction records; the published p.18 carries the same sentence with no footnote, so `known` is exact. The counterexample also checks out and shows the k_m-structure genuinely fails rather than merely not following: in O/I_z² = k_m[t]/(u²) with u = t^p − s, Frobenius gives (Σ c_j t^j)^p = Σ c_j^p (s+u)^j = h(s) + h′(s)u with h ∈ k_m^p[X]; expanding in the k_m^p-basis 1, s, …, s^{p−1} of k_m, h(s) = s forces the degree-one component to be 1 and the others 0, so h′(s) = 1 ≠ 0. No element of O/I_z² has p-th power s, hence no k_m-algebra map k_z = k_m(s^{1/p}) → O/I_z². Reach `the proof` is right: the footnote itself supplies the repair.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E2",
@@ -38,7 +43,12 @@
       "searched": [
         "2026-09-23: Gille publication list https://math.univ-lyon1.fr/~gille/publis-an.html and author-hosted published erratum https://math.univ-lyon1.fr/~gille/publis/erratum05.pdf; all three erratum pages read, including the correction to Lemme 3.12 on pp.268–269.",
         "2026-09-23: Original author-hosted 2002 paper p.239 read as a page image; CES22 author p.25 and published p.23 explicitly cite Gil05."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at both ends. In Gille's 2002 article, printed p.239, the proof of Lemme 3.12 runs « On peut donc supposer la classe γ_η isotrope. Il existe donc un k-sous-groupe parabolique j : Q/k = Z_G(S₀)·R_uQ ⊂ G/k (avec S₀ ⊂ S) tel que γ_η = j_*(β) ∈ Im(H¹(k(t),Q)_an → H¹(k(t),G)) » with nothing in between, so the k-parabolic is asserted without argument, as recorded. Gille's published erratum (Transform. Groups 10 (2005), pp.268–269) inserts exactly the argument this entry gives — E(X_I), the scheme of parabolics of type I, is proper over P¹_k and has a k(t)-point, hence a P¹_k-point, and the fibre at infinity is X_I because E_∞ is trivial, so X_I(k) ≠ ∅ — then repeats the « Il existe donc » sentence verbatim and says « Le reste de la preuve est inchangé ». The lemma's statement is unchanged and CES22 cites [Gil05] at the point of use (author p.25), both as recorded.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E3",
@@ -52,7 +62,12 @@
       "searched": [
         "2026-09-23: Gille publication list https://math.univ-lyon1.fr/~gille/publis-an.html links the Kneser–Tits survey and author errata. Read the 2026-05-26 errata p.4 correction and p.5 references at https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf.",
         "2026-09-23: Numdam published 2009 survey, https://numdam.org/item/AST_2009__326__39_0.pdf, printed pp.53–54 (PDF pp.16–17); the proof on p.54 was read as a page image."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with one sub-claim of the correction flagged as unverified. Both printed passages are in the Astérisque text at printed p.54: « Vu que Z_ℌ(𝔖)/𝔖 est un schéma en groupe réductif dont la fibre spéciale est anisotrope, la théorie de Bruhat–Tits montre que (Z_ℌ(𝔖)/𝔖)(O) = (Z_ℌ(𝔖)/𝔖)(K) [10, 4.6.33] » and « il est bien connu que 𝔖(K) ⊂ ℌ(K)^+ [7, prop. 6.11] ». Gille's errata of 26 May 2026, p.4, headed « proof of Lemma 4.5 (pointed out by A. Zidani) », opens « There is more work to do to prove that M(O) = M(K) » and gives precisely the repair recorded here: the singleton comparison Par(M)(K) ≅ Par(M)(O) ↠ Par(M)(k), so M_K has no proper K-parabolic; the character-lattice argument over a Galois extension splitting T = rad(M), so T_K is anisotropic; then Guo's Proposition 6 for M(O) = M(K). Unverified: the final sentence of the correction, replacing « [7, prop. 6.11] » by Corollaire 6.8. Gille's errata does not touch that citation; [7] is Borel–Tits, « Homomorphismes “abstraits” de groupes algébriques simples », Ann. of Math. 97 (1973), which is not publicly accessible here; and the swap cannot refer to the 1965 « Groupes réductifs », whose 6.8 is a proposition on the restriction X*(T) → X*(S) and whose corollary in that range is 6.9. The verdict is on the gap itself, which is what the register carries.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E4",
@@ -71,7 +86,12 @@
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
       ],
-      "priorExtractionRepair": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair."
+      "priorExtractionRepair": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at three independent points. Definition 8.1 (author p.23) defines total isotropicity pointwise — « for every s ∈ S », with the canonical decomposition over O_{S,s} and each factor containing G_{m,O_{S,s}}, equivalently having a proper parabolic O_{S,s}-subgroup — so it supplies a parabolic over each local ring, while the proof of Proposition 8.4 claim (2) writes « the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1) ». The author's post-publication footnote in the survey (arXiv 2201.06424v4, p.26) states the same defect in his own words: for semilocal A the assumption must be strengthened so that each G^{r_i} contains G_{m,S_i}, « whereas total isotropicity would supply such a parabolic only after base change to each local ring of A ». I also checked the load-bearing steps of the counterexample: 2 has order 3 mod 7 and nontrivial class in (Z/7)^×/{±1}, so it is inert in the cyclic cubic field ℚ(ζ₇+ζ₇^{-1}) and its valuation is not divisible by 3 in the unramified cubic extension of ℚ₂, whence 2 is not a norm and D = (L₁/ℚ, σ, 2) is division; L₁ splits D and ℚ(i) splits (−1,−1), which is what makes the patching data match; and parabolics of SL₂(D) and SL₃(H) have reduced dimensions in {3} and in {2,4}, disjoint, so no parabolic R-subgroup exists, its type being constant on the connected Spec R. I did not re-derive the conductor-square bookkeeping of the patching. Reach is right: Theorem 9.1 applies Proposition 8.4 to quasi-split G, which has a Borel over R.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E5",
@@ -89,7 +109,12 @@
         "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at glyph level in both versions, and the same page settles it. In the author PDF p.25 the runs read R ((t)) ↠ ∏ with a 7.97pt fraktur 𝔪 subscript, then a full-size k followed immediately by ((t)) with no subscript of any size; published p.24 is the same in its own fonts, the 𝔪 after the product set in the subscript face and the following k in the text face. Two lines above, the display of the very same surjectivity prints (ℛ_u(P))(R((t))) ↠ ∏_𝔪 (ℛ_u(P))(k_𝔪((t))) with the subscript present, and claim (2) writes k_𝔪 throughout, so the bare k is a slip and the correction is the paper's own notation, as recorded.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E6",
@@ -107,7 +132,12 @@
         "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both versions: published p.26 and author p.28 print « y ∈ H¹(R, Out(G, B)) whose image in H¹(R, Out(G)) is also x̄ », while the short exact sequence displayed immediately above is 1 → B^ad → Aut(G, B) → Out(G) → 1 and the splitting invoked in the preceding sentence is Out(G) → Aut(G, B). Out(G, B) occurs nowhere else in the paper and is never defined, so the intended group is Aut(G, B) and the reach is nil, as recorded.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E7",
@@ -125,7 +155,12 @@
         "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the example holds. The proof of Corollary 9.6 opens exactly as quoted and then twists only by SO(E)- and O(E)-torsors, so pure inner twists are all it uses — which is the recorded reach of nothing. The unrestricted sentence is false for even n: (−1,−1)_ℚ ramifies at {2, ∞} and (−1,3)_ℚ at {2, 3} — at 3 because −1 is not a square mod 3, at 2 by the unit formula, and split at ∞ because 3 > 0 — so they are non-isomorphic division algebras, and A = H ⊗ H′ with σ = γ ⊗ γ′ is a degree-4 algebra with orthogonal involution of trivial discriminant whose SO(A, σ) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E), because a 4-dimensional form of trivial discriminant is similar to a quaternion norm form, whose even Clifford algebra is Q × Q with equal factors. The entry's real-place check is correct too, and avoids the classification of algebras with involution: the example has Lie algebra su(2) ⊕ sl₂(ℝ), while so(4), so(2,2) and so(3,1) are su(2) ⊕ su(2), sl₂(ℝ) ⊕ sl₂(ℝ) and the simple sl₂(ℂ).",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E8",
@@ -144,7 +179,12 @@
         "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
         "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist.",
         "2026-09-23: https://arxiv.org/abs/1911.07666v2 confirms the authors, title and v2 date 2020-07-29. Compared the published citation image, the adjacent correct URL and the author/v7 bibliography."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published bibliography, p.27: the entry prints « Preprint, 2020. arXiv: 1911.0766v2. » and carries, in the same entry, the URL http://arxiv.org/abs/1911.07666v2 — the identifier is one digit short of its own link. The author version p.29 gives only the correct form, so this is publication-specific, as recorded, and harmless.",
+        "by": "REV-ERRATA-PAPER-CESNAVICIUS-22"
+      }
     }
   ],
   "sources": [
