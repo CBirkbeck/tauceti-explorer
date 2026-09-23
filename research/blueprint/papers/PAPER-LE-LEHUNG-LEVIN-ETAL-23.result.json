@@ -16964,14 +16964,15 @@
       "locator": "Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, printed32–33/PDF36–37, local-component restriction and Corollary4.1.2; explicit nonvanishing adapter.",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
         "AutomorphicFormsOnReductiveGroups:AF.2",
-        "SmoothRepresentationsOfLocalGroups:SR.5",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L68",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
       ],
       "proofOutline": "Transport Lambda across the one-place factorization. If it vanished on every x tensor w, L68 would identify it with zero. Choose a detecting pure tensor and freeze its second factor; TensorProduct.mk/curry give linearity, and equivariance holds because the local unipotent acts only on x. Flath's factorization, including the passage from global smooth vectors to the algebraic tensor at one finite place, is imported from AF.2, not proved by L68. Only finite-place genericity is claimed, so no archimedean completed-tensor inference is hidden here. Neither local uniqueness nor an Euler-product factorization of Lambda is needed.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-7b31c4, 23 September 2026, against Cogdell's Fields Institute notes, Lecture 4, printed 32–33 (PDF 36–37): the functional/model dictionary and Definition 4.1 on printed 32, the archimedean remark (ii) on the same page, and Corollary 4.1.2 on printed 33. Author PDF SHA-256 2c5ec050…18a7 re-downloaded and re-read; note that for this PDF printed page = PDF page − 4, not − 3 as an earlier handoff line said (the item locators already use − 4 and are right).",
       "tests": [
         {
           "name": "LocalGeneric.choose_good_frozen_vector",
@@ -16987,7 +16988,29 @@
           "name": "LocalGeneric.scalar_ambiguity",
           "kind": "compatibility",
           "statement": "Replacing the detecting w by c w for c≠0 multiplies lambda_v by c; the existence conclusion has no preferred normalization."
+        },
+        {
+          "name": "A71.finite_sum_linear_independence",
+          "kind": "computation",
+          "statement": "Every element of V_(Pi_v) tensor_C V^v is a finite sum sum_j x_j tensor w_j with the w_j linearly independent; if all the frozen functionals lambda_(w_j) vanished, Lambda would vanish on that element. This is the whole of the nonvanishing step, and it uses only linearity."
+        },
+        {
+          "name": "A71.archimedean_place_excluded",
+          "kind": "non-example",
+          "statement": "At v|infinity the functional obtained by freezing a vector is algebraic and need not be the continuous one: Cogdell records n! algebraic Whittaker functionals on the K-finite vectors against a single continuous one. The statement is therefore made for a finite place, and nothing here supplies the archimedean continuity that A106 is about."
+        },
+        {
+          "name": "A71.no_uniqueness_claimed",
+          "kind": "non-example",
+          "statement": "The construction produces one nonzero functional and says nothing about the dimension of the space of them; local uniqueness is a separate theorem (Gelfand-Kazhdan, Shalika) and is not used, so this item must not be cited for multiplicity one."
         }
+      ],
+      "proofSteps": [
+        "Setup, and why the abstract factorization is the right input. A107 supplies an isomorphism of GL_n(F_v)-representations V_Pi = V_(Pi_v) tensor_C V^v under which GL_n(F_v), and in particular N_n(F_v), acts only on the first factor, V^v carrying the smooth action of the away-from-v part. A107 also carries Cogdell's caveat verbatim, that this is an abstract decomposition and does not factor automorphic forms into products of local functions, which is exactly why the detecting vector below has to be produced rather than named: with the restricted tensor product one embeds V_(Pi_v) using the distinguished K_u-fixed vectors xi^o_u, and Cogdell's own construction on printed32 does that ('any Whittaker functional Lambda on V_pi determines a family of compatible Whittaker functionals Lambda_v on the V_(pi_v) by Lambda_v : V_(pi_v) into tensor' V_(pi_v) = V_pi to C such that Lambda = tensor Lambda_v'), but the two-factor form of A107 offers no distinguished vector in V^v.",
+        "Every frozen vector gives an equivariant functional. For w in V^v set lambda_w(x) = Lambda(x tensor w); this is C-linear in x because the tensor map is. For u in N_n(F_v), embedded at v with trivial components elsewhere, Pi(u)(x tensor w) = (Pi_v(u)x) tensor w, since GL_n(F_v) acts through the first factor only; and psi_N(u) = psi_v(u) for such a u, the other local components of psi_N being evaluated at 1. Hence lambda_w(Pi_v(u)x) = Lambda(Pi(u)(x tensor w)) = psi_N(u)Lambda(x tensor w) = psi_v(u) lambda_w(x). So lambda_w is a psi_v-equivariant Whittaker functional on V_(Pi_v) for every w, with no hypothesis on w at all. Only nonvanishing is at stake.",
+        "Some frozen vector detects Lambda. Lambda is nonzero, so fix xi in V_Pi with Lambda(xi) != 0. Under the isomorphism of A107, xi is a finite sum xi = sum_(j=1)^m x_j tensor w_j, and we may take the w_j linearly independent in V^v by rewriting the sum over a basis of the span of its second factors. Then 0 != Lambda(xi) = sum_j lambda_(w_j)(x_j) by linearity of Lambda, so lambda_(w_j) != 0 for at least one j; take w to be that w_j and lambda_v = lambda_w. Linearity of Lambda is all that is used here, and L68 is the pinned form of the fact that a linear map on a tensor product is determined by its values on pure tensors, so no continuity or topology on V^v enters. This step is the content of the item's own warning that an arbitrary reference tensor need not work: the test A71 records for Lambda(x tensor y) = x_1 y_1 on C^2 tensor C^2, where freezing e_1 succeeds and freezing e_2 gives zero, is a two-dimensional instance of exactly this.",
+        "Conclusion, and the translation into genericity. lambda_v is a nonzero psi_v-equivariant linear functional on V_(Pi_v). When Pi_v is irreducible admissible, Cogdell's dictionary on printed32 turns it into a Whittaker model, 'a functional Lambda_v gives a model by setting W_(xi_v)(g) = Lambda_v(pi_v(g)xi_v)', and Definition4.1 on the same page defines a representation having a Whittaker model to be generic. So Pi_v is generic, which is the local half of Corollary4.1.2 on printed33, 'If (pi,V_pi) is cuspidal with pi = tensor' pi_v then pi and each of its local components pi_v are generic'.",
+        "What is not claimed, and why v is finite. Nothing here asserts uniqueness of the Whittaker functional: that is Theorem4.1 of the same lecture, due to Gelfand-Kazhdan and Shalika, and it is not used. Nor is Lambda = tensor Lambda_v asserted; Cogdell's converse direction on printed32 requires the restricted tensor product together with the suitability condition Lambda_v(xi^o_v) = 1 at almost all places, and A107 gives neither. The restriction to a finite place is what keeps the argument purely algebraic: at an archimedean place Cogdell's remark (ii) on printed32 records that 'the space of (algebraic) Whittaker functionals on (V_(pi_v))^K would have dimension n!, but only one extends continuously to V_(pi_v) with its (smooth moderate growth) Frechet topology', so the functional produced by freezing a vector would not by itself be the continuous one that A70 and A106 are about."
       ]
     },
     {
@@ -17002,7 +17025,7 @@
       ],
       "proofOutline": "For u∈N_n(K), det(u)=1, so the twisted and untwisted actions of u coincide. Hence exactly the same linear maps satisfy the character-equivariance equation. This is an identity of Hom spaces on a fixed carrier, not a statement about a Galois character, its cyclotomic normalization, or continuity under an isomorphism of coefficient fields.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-7b31c4, 23 September 2026, from the item's own outline; the only input is that unitriangular matrices have determinant one, so no source reading beyond the recorded locator was required.",
       "tests": [
         {
           "name": "WhittakerTwist.unipotent_determinant",
@@ -17018,7 +17041,23 @@
           "name": "WhittakerTwist.not_automatic_genericity",
           "kind": "non-example",
           "statement": "For n>=2 a one-dimensional determinant representation has no nonzero functional for a nontrivial psi_N; determinant twisting does not turn this nongeneric representation into a generic one."
+        },
+        {
+          "name": "WhittakerTwist.same_subspace_not_just_iso",
+          "kind": "characterisation",
+          "statement": "The conclusion is an equality of two subsets of Hom_C(V_pi, C), not an isomorphism of abstractly defined spaces; a formalization that produces only a bijection has proved something weaker than what the downstream use (A73's normalization twist) needs."
+        },
+        {
+          "name": "WhittakerTwist.psi_change_is_different",
+          "kind": "non-example",
+          "statement": "Replacing psi_K by a conjugate psi_K^t for t in the diagonal torus does change the Hom space in general; the invariance proved here is under determinant twists only."
         }
+      ],
+      "proofSteps": [
+        "The twisted action on the same carrier. By definition pi tensor (chi o det) has the same underlying complex vector space as pi, with (pi tensor (chi o det))(g)x = chi(det g) pi(g) x. So Hom_C(V_pi, C) is one and the same space for the two representations, and the two Whittaker Hom spaces are subsets of it rather than merely isomorphic spaces.",
+        "Unipotent matrices have determinant one. An element u of N_n(K) is upper triangular with all diagonal entries 1, so det(u) = 1 and chi(det u) = chi(1) = 1. Hence (pi tensor (chi o det))(u) = pi(u) as endomorphisms of V_pi, for every u in N_n(K). Nothing about chi is used beyond its being a homomorphism on K^x.",
+        "The two equivariance conditions are the same equation. A linear lambda : V_pi -> C lies in Hom_(N_n(K))(pi, psi_K) exactly when lambda(pi(u)x) = psi_K(u) lambda(x) for all u in N_n(K) and x in V_pi, and by the previous step that is verbatim the condition for lambda to lie in Hom_(N_n(K))(pi tensor (chi o det), psi_K). The two subsets of Hom_C(V_pi, C) therefore coincide, which is the asserted equality.",
+        "Consequences and their limits. Genericity, being nonvanishing of that space, transfers in both directions, and the statement covers every modulus twist |det|^s at a fixed convention, in particular s = (1-n)/2, since |det|^s is a smooth character of K^x composed with det. What the argument does not give: it says nothing about whether pi is generic to begin with, nothing about a change of the additive character psi_K (conjugating psi_K by a diagonal torus element permutes the Hom spaces, and that is a different statement), and nothing about a Galois-side cyclotomic normalization or about continuity under an isomorphism of coefficient fields, both of which the item's statement already excludes."
       ]
     },
     {
@@ -17029,6 +17068,7 @@
       "locator": "LLHLM23 TheoremA.4.1 PDF196–198 and EGH7.2.1 PDF55–56; Labesse5.3 split-place comparison as A59; Cogdell, Lectures on L-functions, Converse Theorems, and Functoriality for GL_n, Fields Institute notes (2003), Lecture4, Corollary4.1.2 printed33/PDF37.",
       "status": "missing",
       "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A107",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A70",
@@ -17037,7 +17077,7 @@
       ],
       "proofOutline": "First discharge A62's input isomorphism; its positive-summand argument makes the base change cuspidal. Apply A70 and A71 to Pi, then transport along A59's actual split-place isomorphism, including ramified split places. A72 preserves genericity under the normalization twist. Whittaker nonvanishing does not prove the missing Speh/Galois isomorphism, does not force temperedness, and does not replace the sigma(lambda,tau)^* occurrence dictionary or the p-adic Hodge/monodromy hypotheses used by A55/A65.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-7b31c4, 23 September 2026, as an assembly of A59, A62, A70, A71 and A72; the conditional hypothesis is kept as a hypothesis and step 7 states the boundaries explicitly. Cogdell's Fields notes, Corollary 4.1.2 printed 33 (PDF 37), re-read for step 3.",
       "tests": [
         {
           "name": "SplitGeneric.not_residual_genericity",
@@ -17054,6 +17094,15 @@
           "kind": "non-example",
           "statement": "Whittaker nonvanishing alone does not imply Hom_K(sigma(tau),pi)≠0 for a prescribed tau, nor a specified Hodge type."
         }
+      ],
+      "proofSteps": [
+        "The standing hypothesis, kept as a hypothesis. This item is conditional and stays conditional: it assumes the exact Galois realization of all discrete Speh constituents that A62 needs, and that the stable residual lattice is absolutely irreducible. Under that assumption A62's positive-summand argument produces a base-change constituent Pi of GL_n(A_F) and makes it cuspidal. Nothing below proves that input; the test A73 records for the GL_2 Speh quotient of length two is the reminder that a single discrete block is not enough until its length is known to be one.",
+        "A global functional. Pi is a nonzero cuspidal automorphic representation of GL_n(A_F) in A66's convention, so A70 supplies a nonzero psi_N-equivariant functional Lambda on V_Pi, continuous for the smooth moderate-growth topology. A70's nonvanishing comes from A69, and A69 in turn from the Piatetski-Shapiro-Shalika expansion of A67 and A68; that is the whole of the input, and in particular no uniqueness statement is used anywhere.",
+        "Genericity at one finite place. Let v = w w^c be a finite split place of F^+. Applying A71 at the finite place w of F, with A107's one-place factorization V_Pi = V_(Pi_w) tensor_C V^w, yields a w in V^w whose frozen functional lambda_w is nonzero and psi_w-equivariant on V_(Pi_w); since Pi_w is irreducible admissible, Cogdell's dictionary turns it into a Whittaker model and Pi_w is generic. This is the local half of Corollary4.1.2 of Cogdell's Fields notes, printed33.",
+        "Transport to the unitary group. A59 supplies the actual split-place isomorphism G(F^+_v) = GL_n(F_w), under which sigma_v corresponds to Pi_w. Genericity is a property of the pair (representation, character of the unipotent radical), and the isomorphism carries the upper unitriangular subgroup to the upper unitriangular subgroup and the chosen additive character to the chosen additive character, so a nonzero psi-equivariant functional transports to a nonzero psi-equivariant functional. Nothing in steps 2 and 3 excluded ramified split places or places above the coefficient prime, so the conclusion covers them, as the statement says.",
+        "The normalization twist. A72 gives Hom_(N_n)(sigma_v, psi) = Hom_(N_n)(sigma_v tensor |det|^((1-n)/2), psi) as subsets of one and the same dual space, because unitriangular matrices have determinant one. Hence the twist by |det|^((1-n)/2) is generic exactly when sigma_v is, which is the second assertion of the statement.",
+        "Coefficient transport. If coefficients are moved along a chosen abstract field isomorphism Qpbar = C, the smooth Whittaker Hom space is defined by linear equations over the coefficient field and its nonvanishing is preserved under any field isomorphism; that is all that is claimed. No topological isomorphism is asserted, and no descent of the functional to a finite coefficient field.",
+        "What this does not prove. Genericity of the split local factors does not supply the missing Speh/Galois isomorphism of step 1, does not force temperedness of sigma_v, does not replace the sigma(lambda,tau)^* occurrence dictionary, and does not touch the p-adic Hodge-theoretic and monodromy hypotheses that A55 and A65 carry. The three non-example tests on this item record exactly those boundaries, and the proof above uses none of them."
       ]
     },
     {

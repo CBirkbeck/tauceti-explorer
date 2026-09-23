@@ -5160,3 +5160,55 @@ components (Cogdell's Corollary 4.1.2) is reached through A71, not asserted.
 **Locators verified.** Both items' inherited Cogdell locators are correct: PDF page 35 is printed page 31,
 PDF 36 is printed 32, and PDF 37 is printed 33, carrying Corollary 4.1.2 and the displayed
 `Λ(φ) = W_φ(e) = ∫_{N(k)\N(A)} φ(n)ψ^{−1}(n) dn`.
+
+### Continuation, 23 September 2026 (Claude Code, session `cc-7b31c4`): the chain is closed
+
+This pass proved out `A71`, `A72` and `A73`, the last three theorem items of the generic-local-factor
+chain. No item was added, no route changed, and `routes`, `sourceIssues`, `source` and `sourceData`
+are byte-identical to the inherited file.
+
+**A71 — a global Whittaker functional yields a nonzero finite-place functional.** Five steps, and the
+one that matters is the third. Cogdell's own construction (Fields notes, printed 32) embeds
+`V_{π_v} ↪ ⊗′V_{π_v} ≅ V_π` using the distinguished `K_u`-fixed vectors `ξ°_u` at almost all places,
+which is what makes `Λ_v` available for free. A107 deliberately gives only the *abstract* two-factor
+form `V_Π ≅ V_{Π_v} ⊗_C V^v` — Cogdell's caveat, that the decomposition does not factor automorphic
+forms into products of local functions, is carried in A107 verbatim — and that form has no
+distinguished vector in `V^v`. So the detecting vector has to be produced:
+
+    ξ = Σ_{j=1}^m x_j ⊗ w_j  with the w_j independent,   0 ≠ Λ(ξ) = Σ_j λ_{w_j}(x_j),
+
+whence `λ_{w_j} ≠ 0` for some `j`. The preceding step shows that *every* frozen `w` gives a
+`ψ_v`-equivariant functional, with no hypothesis on `w` at all — `N_n(F_v)` acts through the first
+factor and `ψ_N(u) = ψ_v(u)` for `u` embedded at `v` — so nonvanishing is the only thing at stake,
+which is exactly what the item's inherited `choose_good_frozen_vector` test is about. The last step
+fixes the scope: no uniqueness (Gelfand–Kazhdan and Shalika, Theorem 4.1, is unused), no `Λ = ⊗Λ_v`
+(that needs the restricted product and `Λ_v(ξ°_v) = 1` at almost all places), and the place is finite
+precisely so that the functional produced is the right object — at `v | ∞` Cogdell's remark (ii)
+gives `n!` algebraic Whittaker functionals on the K-finite vectors against a single continuous one.
+
+**A72 — determinant twists preserve the Whittaker functional space.** Four steps, elementary and worth
+stating precisely: the twist has the same carrier, a unitriangular matrix has determinant one, so
+`(π ⊗ (χ∘det))(u) = π(u)` for every `u ∈ N_n(K)` and the two equivariance conditions are *the same
+equation*. The conclusion is therefore an equality of two subsets of `Hom_C(V_π, C)`, not an
+isomorphism of abstractly defined spaces — a new `characterisation` test records that, because it is
+what A73's normalization twist consumes. A second new test records that conjugating `ψ_K` by a torus
+element is a different statement and is not covered.
+
+**A73 — conditional split-place genericity.** Seven steps assembling A59, A62, A70, A71 and A72. The
+conditional hypothesis is kept as a hypothesis in step 1 and the four boundaries the item's own
+non-example tests name are stated in step 7: the argument supplies no Speh/Galois isomorphism, forces
+no temperedness, replaces no occurrence dictionary, and touches none of the p-adic Hodge or monodromy
+input of A55 and A65. Step 4 is where the transport happens: genericity is a property of the pair
+(representation, character of the unipotent radical), and A59's split-place isomorphism carries
+unitriangular to unitriangular and the chosen character to the chosen character, so nothing excludes
+ramified split places or places above the coefficient prime.
+
+**Two prerequisite edges added** — `A71 → A66` and `A73 → A107` — bringing the internal graph to 418
+edges, still acyclic.
+
+**A locator correction.** For Cogdell's Fields Institute notes, printed page = PDF page − 4: PDF 36
+carries the running head `32` and PDF 37 carries `33`. The item locators already use −4 and are
+right; an evidence line in an earlier handoff said −3, and that is corrected there. The Fields PDF's
+recorded hash reproduces. The PCMI notes' hash also reproduces, but their text layer is unusable on
+the pages of Lecture 1 — not merely dropping the letter `c`, as an earlier note said, but broken
+wholesale — so quotations from PCMI must be read from page images. Nothing in this pass needed them.
