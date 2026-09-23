@@ -333,5 +333,12 @@
         "TorsionCohomologyInfrastructure:TC.3"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-24",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was ChatGPT Pro, session gpt-20260921-c74f2a. The reviewer read both member documents and all twelve layer descriptions, the eight (unreviewed-audit) leads, the RS-24 report, the supplier and consumer stages, and the neighbouring proposals RS-12, RS-16 and RS-21. Those three assign the same owners for the Cayley–Hamilton reconstruction (IHG.1), the spherical Hecke polynomial (IHG.3), interpolation (IHG.4), the integral Ribet theorem (IHG.6) and Satake (SR.4). Duplication: the four leads are supplier–consumer handoffs (generic algebra in IHG, its geometric instances in TC), and the fourteen owner entries give each shared target exactly one owner; the alleged IHG.6/TC.4 overlap is correctly rejected. The upstream-owner claim was checked at Mathlib 082e2d3: Mathlib/RingTheory/PolynomialLaw/Basic.lean (PolynomialLaw) and Mathlib/RingTheory/DividedPowerAlgebra/Init.lean exist. Nothing lost: the narrowings of IHG.0, IHG.3, TC.2, TC.3 and TC.4 remove only constructions supplied elsewhere, with supplier links, and every recorded external export (R01.5, AG2.0, AG2.3, IG.6, I.7) is preserved. AG2.0 relied on IHG.3 for the Hecke polynomial and Frobenius conversion, which IHG.3 keeps. Links: all 28 endpoints resolve; nine are new edges and a whole-atlas reachability check shows no cycle. There are no anchors and no extensions. The format follows PROTOCOL §15, and check_restructure.py passes. No corrections were needed. A minor point, left unchanged: the owner entry \"Actual geometric Hecke comparison…\" lists IHG.5 under formerly, although IHG.5 only states it as a hypothesis built by TC.",
+    "corrections": []
+  }
 }
