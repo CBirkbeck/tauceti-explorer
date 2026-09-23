@@ -3667,6 +3667,72 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-ANDRE-18-B/E1",
+   "kind": "misprint",
+   "locator": "Published version, Lemma A.2.1(4), proof of (c)⇒(b), p.90",
+   "printed": "Hom_S(S,R)",
+   "correction": "Hom_R(S,R). An R-linear functional, composed with multiplication by s, gives an R-linear retraction when its value on s is 1.",
+   "reason": "The statement supplies R-module structure on S and R, not an S-module structure on R. In general such an S-action on R does not exist. The proof only uses R-linearity. A finite sum of evaluations handles the general generator criterion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+    "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+    "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+    "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E2",
+   "kind": "misprint",
+   "locator": "Published version, Proposition A.3.1, proof of (c)⇒(b), p.91",
+   "printed": "une forme σ^m R-linéaire μ sur N",
+   "correction": "Replace N by M, the finite free direct summand selected in the preceding clause.",
+   "reason": "N is not introduced in this argument. The next clause extends μ by zero on a complement of M, which determines its intended domain. This correction does not certify the rest of Proposition A.3.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+    "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+    "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+    "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ANDRE-18-B/E3",
+   "kind": "misprint",
+   "locator": "Published version, Proposition 4.4.1, parenthesis after diagram (20), p.87",
+   "printed": "(B, x′, π′^(1/p^∞))",
+   "correction": "Use (B′,x′,π′^(1/p^∞)) for the almost Cohen–Macaulay condition on D′.",
+   "reason": "x′ is introduced as a system of parameters for B′, the right-hand vertical arrow is B′→D′, and the result concerns compatible algebras over B and B′. The unprimed B is a typographical slip, not an extra scalar restriction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: published Numdam PDF and journal article page https://pmihes.centre-mersenne.org/articles/10.1007/s10240-017-0097-9/; no linked corrigendum found",
+    "2026-09-23: https://arxiv.org/abs/1609.00345 submission history shows only 2016 v1, not a later correction of the published appendix",
+    "2026-09-23: https://webusers.imj-prg.fr/~yves.andre/ has contact information, no correction link",
+    "2026-09-23: searches for exact title with erratum/corrigendum and for title with A.3.1 found no explicit correction; this is not an exhaustive absence guarantee"
+   ],
+   "owner": "PAPER-ANDRE-18-B",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
+   "citation": "André, \"La conjecture du facteur direct\", Publications Mathématiques de l'IHÉS 127 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ANDRE-18/E1",
    "kind": "error",
    "locator": "Published §2.2.4, second paragraph, p. 13; the same assertion and proof are in arXiv:1609.00320v1 §2.2.4, p. 12",
