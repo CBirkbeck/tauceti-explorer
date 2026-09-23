@@ -1,0 +1,1056 @@
+{
+  "paper": "PAPER-ABE-18",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Langlands correspondence for isocrystals and the existence of crystalline companions for curves",
+    "authors": "Tomoyuki Abe",
+    "venue": "Journal of the American Mathematical Society 31 (2018), no. 4, 921–1057",
+    "doi": "10.1090/jams/898",
+    "arxiv": "1310.0528",
+    "url": "https://doi.org/10.1090/jams/898",
+    "readSections": [
+      "arXiv 1310.0528v3 (9 April 2018; TeX source pcc.tex, archive SHA-256 78bbf4b8ddaba9a94aa6df3d81552b1b2c89d2035bd89cc0309234fa9e00c7bc, PDF SHA-256 b890ef139fd51ce395bf1e373cdeaa1312dbcb95f76d56eff495f96df8c8dd29, fetched from arxiv.org 22 September 2026), read in full: Introduction, §1 Preliminaries, §2 Arithmetic D-modules for algebraic stacks, §3 Cycle classes, correspondences and ℓ-independence, §4 Langlands correspondence, Appendix. The journal version (AMS, not reachable: HTTP 403) was not available; v3 postdates acceptance (its acknowledgements thank the three JAMS referees). Items and issues are based on it; the published text may differ.",
+      "Numbers and pages are those of the arXiv PDF (134 pages; results numbered section.subsection.n with a shared counter, displays (section.subsection.n.m), appendix A.n.m)."
+    ]
+  },
+  "summary": "Abe proves the Langlands correspondence for overconvergent F-isocrystals on curves over finite fields (Theorem 4.2.2): irreducible Q̄_p-isocrystals of rank r with finite determinant on open subsets of a curve X correspond to cuspidal automorphic representations of GL_r(A_F) with finite central character, with matching Frobenius and Hecke eigenvalues and local L- and ε-factors of pairs. Hence every lisse ℓ-adic sheaf with finite determinant on a curve has a crystalline companion (Theorem 4.4.1, Deligne's 'petits camarades'). The proof follows L. Lafforgue with p-adic cohomology: the p-adic principe de récurrence (Abe, with the Abe–Marmora product formula) reduces to constructing A_r → I_r, which is done by the cohomology of Lafforgue's (compactified) moduli of shtukas, his negligibility arguments, the Hecke action on the essential part and a trace computation transported from the ℓ-adic side by ℓ-independence of traces of correspondences. To make this possible the paper builds a six-operation formalism for holonomic arithmetic D-modules beyond realizable schemes: on realizable schemes, Beilinson's equivalence, Ind-categories, the constructible t-structure, extension of scalars to Q̄_p and trace maps for flat morphisms (§1); derived categories on algebraic stacks (and so on all separated algebraic spaces of finite type) by simplicial presentations, and the six operations with duality, Poincaré duality and weights on admissible and c-admissible stacks (§2); cycle classes, correspondences and ℓ-independence of their traces after Kato–Saito (§3); and Lefschetz, Čebotarev and Gabber–Fujiwara in the appendix.\nRoutes:\n- §§1–3 and the appendix join the pending Part II PadicDifferentialEquationsPartIIArithmeticDModules (proposed by PAPER-XU-ZHU-22, whose brief already names this paper as its main source);\n- §4 and the introduction form a new Part II of GlobalShtukasAndFunctionFieldLanglands for the Langlands correspondence with p-adic coefficients and crystalline companions, since GS.6 plans Lafforgue's ℓ-adic theorem only and the pending companion Part IIs source-gate or exclude the crystalline side;\n- Lafforgue's moduli of shtukas are planned at GS.2/GS.6.\nSource issues, each checked by hand:\n- in the foundations: the modified dual on stacks has the wrong twist sign; the proof of the weight bound for push-forwards (2.2.32(6), hence Theorem 2.3.38(i), used in §4) does not follow from the cited spectral sequence; the argument for independence of the Frobenius lift in Remark 1.1.2 is false; Lemma 2.2.4(iii) and Remark 2.3.1 need 'surjective';\n- in §3: the multiplicativity of the degrees d_Γ and the ring-homomorphism property of 'norm' fail for stacks with generic stabilisers, the remark on generic fibres of correspondences is false, and the normal-cone claim behind Lemma 3.2.6 holds only for immersions;\n- in the appendix: the Lefschetz formula A.3.2 has the wrong exponent, the stacky trace formula A.5.1 is false for n ≥ 2 as stated, and the definition of compatible systems is vacuous at points of degree > 1 as written;\n- misprints, including a sign in the pole corollary of 4.3.3 and the page numbers of Weil II.\nNone of them is known to invalidate the main theorems, which later work (Kedlaya, Abe–Esnault) has used and extended.",
+  "items": [
+    {
+      "id": "PAPER-ABE-18/1",
+      "kind": "definition",
+      "name": "Deligne's companion conjecture (petits camarades)",
+      "statement": "(Deligne, Weil II, 1.2.10) Let X be a normal connected scheme of finite type over F_p and F an irreducible lisse Q̄_ℓ-sheaf whose determinant is given by a character of finite order of π_1. (ii) There is a number field E ⊂ Q̄_ℓ such that det(1 − F_x t, F) has coefficients in E for every x ∈ |X|. (v) For suitable E and every non-archimedean place λ prime to p there is an E_λ-sheaf compatible with F (the same Frobenius eigenvalues). (vi) For λ above p one hopes for 'petits camarades cristallins': overconvergent F-isocrystals with the same Frobenius eigenvalues.",
+      "locator": "Introduction, Conjecture, p. 2 (Deligne, Publ. IHÉS 52, 1.2.10; made precise by Crew, 4.13)",
+      "status": "missing",
+      "note": "For curves, (ii) and (v) follow from L. Lafforgue's correspondence, and Deligne and Drinfeld proved them for smooth X; this paper proves (vi) for curves (Theorem 4.4.1). No stage plans p-adic companions."
+    },
+    {
+      "id": "PAPER-ABE-18/2",
+      "kind": "definition",
+      "name": "Realizable schemes and holonomic arithmetic D-modules",
+      "statement": "With k perfect of characteristic p, R a complete DVR with residue field k, K = Frac R and σ : R ≅ R lifting the s-th Frobenius (q = p^s): a k-scheme is realizable if it embeds into a proper smooth formal R-scheme 𝒫 (Definition 1.1.1). Hol(𝒫) is the thick subcategory generated by overholonomic D^†_{𝒫,Q}-modules admitting an s′-th Frobenius structure for some s | s′ (Caro), D^b_hol(𝒫) the complexes with cohomology in Hol(𝒫), and for X ⊂ 𝒫, D^b_hol(X/K) the complexes supported on X, independent of the embedding, triangulated, with t-structure of heart Hol(X/K) (equal to Abe–Caro's category via 'overholonomic after any base change'). Hol(X/K) does not depend on the Frobenius lift σ, although categories with Frobenius structure do (Remark 1.1.2).",
+      "locator": "§1.1, 1.1.1 Definition and construction, Remark, Remark 1.1.2, pp. 6–7",
+      "status": "missing",
+      "note": "Recalled from Caro and Abe–Caro. The argument printed for the independence of σ is wrong, though the conclusion holds (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/3",
+      "kind": "theorem",
+      "name": "The six operations on realizable schemes",
+      "statement": "For f : X → Y of realizable schemes there are f_!, f_+ : D^b_hol(X/K) → D^b_hol(Y/K) and f^!, f^+ in the other direction with: a closed symmetric monoidal structure (⊗, unit K_X, internal Hom right adjoint to ⊗); f^+ monoidal; transitivity for f^+ and f^!; adjunctions (f^+, f_+), (f_!, f^!); f_! → f_+ an isomorphism for proper f; j^+ ≅ j^! for open immersions; RΓ : D^b_hol(Spec k/K) ≅ D^b_fin(Vec_K); base change g^+f_! ≅ f′_!g′^+; the projection formula; the localisation triangle j_!j^! → id → i_+i^+; invariance under universal homeomorphisms (ι_+, ι^! mutually inverse with ι^+ ≅ ι^!); σ-pull-back X ↦ X^σ and the Frobenius pull-back F^* = F^+_{X/k} ∘ σ^*; and, for X_red smooth, the fully faithful specialisation sp_+ : Isoc^†(X/K) → Hol(X/K) with Sm(X/K) its image shifted by −d.",
+      "locator": "§1.1.3 (1)–(12), Lemma and Remark in 1.1.3, pp. 7–10",
+      "status": "missing",
+      "note": "Recalled from Abe–Caro, Virrion, Berthelot and Caro, with the paper's own Lemma on universal homeomorphisms. The printed 1.1.3(1) calls Hom a left adjoint of ⊗ (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/4",
+      "kind": "theorem",
+      "name": "Duality, internal Hom, base change maps and Künneth on realizable schemes",
+      "statement": "K^ω_X := p^!K and 𝔻_X := Hom(−, K^ω_X), with id ≅ 𝔻_X𝔻_X (Lemma in 1.1.4) and Hom(F, G) ≅ 𝔻_X(F ⊗ 𝔻_XG). The maps f_+(−) ⊗ f_+(−) → f_+(− ⊗ −), f_+Hom_X(F, F′) → Hom_Y(f_+F, f_+F′), and the isomorphism f_+Hom_X(F, f^!G) ≅ Hom_Y(f_!F, G) (first for proper f, then through a compactification), with Hom(F, f_+G) ≅ f_+Hom(f^+F, G) and f^!Hom(F, G) ≅ Hom(f^+F, f^!G) (1.1.5). The base change map g′^+f^! → f′^!g^+ (1.1.6). The exterior product M_1 ⊠ M_2 = p_1^+M_1 ⊗ p_2^+M_2 and the Künneth isomorphism f_+M ⊠ f′_+M′ ≅ (f × f′)_+(M ⊠ M′) (Proposition in 1.1.7).",
+      "locator": "§1.1.4–1.1.7, pp. 10–12",
+      "status": "missing",
+      "note": "The display defining the general-f isomorphism in 1.1.5 is ill-typed as printed; the isomorphism itself holds (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/5",
+      "kind": "theorem",
+      "name": "Beilinson equivalence for holonomic arithmetic D-modules",
+      "statement": "(Abe–Caro) For a realizable scheme X the canonical functor D^b(Hol(X/K)) → D^b_hol(X/K) is an equivalence of triangulated categories.",
+      "locator": "§1.1.8, Theorem, p. 13 (Abe–Caro, Selecta Math. 24 (2018))",
+      "status": "missing",
+      "note": "The starting point for defining D^b_hol on non-realizable schemes and stacks as D^b of the glued heart."
+    },
+    {
+      "id": "PAPER-ABE-18/6",
+      "kind": "theorem",
+      "name": "Ind-categories and derived functors of holonomic modules",
+      "statement": "For a noetherian abelian 𝒜, Ind(𝒜) is a locally noetherian Grothendieck category in which 𝒜 is fully faithful, filtrant colimits are exact and colimits of injectives are injective (1.2.2–1.2.4); left exact f_* : 𝒜 → ℬ extends to Rf_* : D^+(Ind 𝒜) → D^+(Ind ℬ), and D^b(𝒜) ≅ D^b_𝒜(Ind 𝒜) (Kashiwara–Schapira 15.3.1). Right satellites of δ-functors (1.2.5) and Lemma 1.2.6: a right adjoint of a triangulated f^* on D^b(𝒜) is the right derived functor of its H⁰. Applied to smooth φ (φ_+[−d], φ^+[d]), finite f (f_! ≅ f_+ and f^! = R(H⁰f^!) on D^b(Hol(Y))) and projections (p_{𝒜+} = p_+Hom(q^+𝒜, −), p^+_𝒜 = 𝒜 ⊠ (−), commuting with Frobenius pull-back) (1.2.7–1.2.10), and Lemma 1.2.11 on H^1(i_+i^!) for Ind-objects.",
+      "locator": "§1.2, 1.2.1–1.2.11, pp. 13–17",
+      "status": "missing",
+      "note": "Ind-categories supply enough injectives, which Hol(X) lacks. The printed 1.2.9 gives R(H⁰f^!) the direction D^+(M(X)) → D^+(M(Y)) (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/7",
+      "kind": "definition",
+      "name": "The constructible t-structure on realizable schemes",
+      "statement": "Supp(M) for M ∈ Hol(X/K); ^cD^{≥0} = {M : H^n(M) = 0 for n < 0 and dim Supp H^n(M) ≤ n}, ^cD^{≤0} = {M : H^k i_W^+(M) = 0 for every closed W and k > dim W} (1.3.1). These define a t-structure (Proposition 1.3.3), the constructible t-structure, with heart Con(X/K) and cohomology ^cH^*; i^+, j_!, i_+, j^+ preserve both halves (Lemma 1.3.2), f^+ is c-t-exact and f_+ left c-t-exact, i_+ and j_! c-t-exact (Lemma 1.3.4). Constructible modules are generically smooth (generic rank, Lemma 1.3.5); Con(X/K) is noetherian but not artinian (Lemma 1.3.6); vanishing is detected at closed points and f^+ between points is faithful and conservative (Lemma 1.3.7); ^cH^if_!(M) = 0 outside [0, 2d] when fibres have dimension ≤ d, so f_! is c-t-exact for quasi-finite f (Lemma 1.3.8); Mayer–Vietoris for open covers (Lemma 1.3.9) and Ind(Con(X)) (1.3.10).",
+      "locator": "§1.3, 1.3.1–1.3.10, Proposition 1.3.3, pp. 17–21",
+      "status": "missing",
+      "note": "The p-adic analogue of the standard t-structure, built by the method of Kiehl–Weissauer; in the Riemann–Hilbert picture Hol is perverse and Con constructible."
+    },
+    {
+      "id": "PAPER-ABE-18/8",
+      "kind": "definition",
+      "name": "Extension of scalars and Frobenius structures on categories; base tuples",
+      "statement": "For a K-additive 𝒜 and finite L/K, 𝒜_L is the category of objects with an L-structure ρ : L → End(X), with X ⊗_K L, for_L and ι_L; for separable L/K, Hom_{𝒜_L}(X, Y) ≅ L ⊗_{L⊗_KL} Hom_K(X, Y), the same for RHom, D^b(𝒜_L) → D^b(𝒜)_L is fully faithful, Ind(𝒜_L) ≅ Ind(𝒜)_L for noetherian 𝒜, and derived functors commute with for_L and ι_L (1.4.1–1.4.5). For a σ-semilinear F^*, F-𝒜 is the K_0-additive category of (X, Φ : F^*X ≅ X) (abelian when 𝒜 is and F^* exact), with (−)_F = ⊕_n (F^*)^n left adjoint to for_F, the K_0[F^{±1}]-module Hom_ρ(X, Y) and RHom(X, Y) ≅ RHom_{K_0[F^{±1}]}(K_0, RHom_ρ(X, Y)), and the L-versions with σ_L (1.4.6–1.4.9). Geometric base tuples (k, R, K, L) and arithmetic base tuples (k, R, K, L, s, σ), with Hol(X/𝔗), D(X/𝔗) := D(Ind Hol(X/𝔗)) (1.4.10); change of base field (Lemma 1.4.11 and Corollary); Tate twists X(n) := (X′, p^{−sn}Φ) (1.4.13); RΓ : D^+(Spec k/L_▲) → D^+(Vec_{L_0}) (1.4.14).",
+      "locator": "§1.4, 1.4.1–1.4.14, Lemma 1.4.11, pp. 21–28",
+      "status": "missing",
+      "note": "Following the scalar-extended isocrystals of Abe–Marmora 7.3. The printed 1.4.2 characterises Hom(X, Y) by '(a ⊗ 1)φ = (1 ⊗ a)φ = 0', which forces φ = 0, and the proof of the Corollary of 1.4.11 uses a tuple that is not an arithmetic base tuple (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/9",
+      "kind": "theorem",
+      "name": "Trace maps for flat morphisms and Poincaré duality",
+      "statement": "(Theorem in 1.5.1) Let 𝔐_d be the set of morphisms f : X → Y of realizable schemes that are flat of relative dimension d over a dense open U ⊂ Y with fibres of dimension < d over Y ∖ U. For f ∈ 𝔐_d there is a unique Tr_f : f_!f^+F(d)[2d] → F, functorial in F (Var 1), compatible with base change (Var 2), transitive for composable f ∈ 𝔐_d, g ∈ 𝔐_e whenever f ∘ g ∈ 𝔐_{d+e} (Var 3), equal to the degree times the inverse of the canonical isomorphism for finite locally free f and to the étale trace for étale f (Var 4), and compatible with ⊗ (Var 5). It is built from the étale case (Lemma 1.5.4, via Caro, Kedlaya and Virrion), smooth base change for open immersions (Lemma 1.5.5 and Corollary), the quasi-finite flat case (1.5.8–1.5.9, after SGA 4 XVII 6.2) and curves (1.5.10–1.5.11), and glued (1.5.12). (Theorem 1.5.13) For smooth f of relative dimension d the adjoint of Tr_f is an isomorphism f^+(d)[2d] ≅ f^!, and (1.5.14) it agrees with the earlier isomorphism of Abe (Padova 2014).",
+      "locator": "§1.5, Theorem in 1.5.1, 1.5.2–1.5.14, Theorem 1.5.13, pp. 28–40",
+      "status": "missing",
+      "note": "In the style of SGA 4 XVIII; replaces the ad hoc isomorphism f^! ≅ f^+(d)[2d] of the author's Padova paper and supplies the trace maps needed for cycle classes in §3. The printed (Var 3) omits the hypothesis f ∘ g ∈ 𝔐_{d+e} (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/10",
+      "kind": "definition",
+      "name": "Simplicial presentations and holonomic complexes on simplicial spaces",
+      "statement": "A space is a quasi-projective scheme (first reading) or a separated algebraic space of finite type (second reading); a good stack is an algebraic stack of finite type with quasi-projective diagonal (resp. any stack of finite type). An admissible simplicial space is a functor (Δ⁺)° → spaces with smooth face maps (Δ⁺: [i] = {0, …, i} and increasing injections); for a presentation X → 𝔛, cosk_0(X → 𝔛) with X_n the (n+1)-fold fibre product is a simplicial presentation. M(X_•/L) is the category of (not necessarily cartesian) sections of the cofibred category (X(φ)^*: M(X_i) → M(X_j)), with exact termwise kernels, cokernels and limits; Hol(X_•) and D^⋆_hol(X_•) are the subcategories with holonomic components, and D^⋆_tot(X_•) that with cartesian cohomology. ρ_i^* has adjoints ρ_{i!}, ρ_{i*}, M(X_•) is Grothendieck, E_1^{p,q} = Ext^q(M_p, N_p) ⇒ Ext^{p+q}(M_•, N_•), and D^b_tot(Hol(X_•)_•) ≅ D^b_hol(X_•).",
+      "locator": "§2.0–2.1.9, Definitions 2.1.2–2.1.4, (2.1.5.1), Lemmas 2.1.6 and 2.1.9, pp. 40–44",
+      "status": "missing",
+      "note": "The p-adic counterpart of the simplicial construction of Laszlo–Olsson and Olsson. The printed Definition 2.1.2 writes [i] = {0, …, n} and Definition 2.1.3 an n-fold product (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/11",
+      "kind": "theorem",
+      "name": "Smooth descent and the derived category of a stack",
+      "statement": "(Proposition 2.1.13) For a smooth surjective X → S of spaces and f : X_• = cosk_0(X/S) → S, (f^*, Rf_*) is an equivalence D^⋆_tot(X_•) ≅ D^⋆(S) and D^⋆_hol(X_•) ≅ D^⋆_hol(S) (⋆ ∈ {+, b}). (Proposition 2.1.15) For a good stack 𝔛, D^⋆_tot(X_•) and D^⋆_hol(X_•) with their t-structures are independent of the presentation, defining D^⋆(𝔛/L_▲), D^⋆_hol(𝔛/L_▲) with hearts M(𝔛), Hol(𝔛) (Definition 2.1.16); for realizable 𝔛 this is the category of §1, and ρ_0^* is conservative. Smooth objects Sm(𝔛) and supports are defined through presentations (2.1.17); RHom_{D(𝔛)} (2.1.18) and D^+_hol(𝔛 × 𝔜) ≅ D^+_hol((X × Y)_••) (2.1.19).",
+      "locator": "§2.1.10–2.1.19, Proposition 2.1.13, Proposition 2.1.15, Definitions 2.1.16–2.1.17, pp. 45–50",
+      "status": "missing",
+      "note": "Proof of 2.1.13 after Conrad's cohomological descent (Thm 7.2) and Giraud 6.15; two of its reduction steps need repair (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/12",
+      "kind": "theorem",
+      "name": "Finite morphisms, the modified dual and exterior products on stacks",
+      "statement": "For finite f : 𝔛 → 𝔜 of good stacks, f_+ and f^! (with f^! = R f^∘, f^∘ = H⁰f^!) descend from presentations with transitivity isomorphisms (2.2.1). The modified dual 𝔻̃_i = (−d_{X_i/𝔛}) ∘ 𝔻_{X_i} on X_i glues to 𝔻′_𝔛 : D^b_hol(𝔛)° → D^b_hol(𝔛) with 𝔻′𝔻′ ≅ id (2.2.2); 𝔻′_𝔜 ∘ f_+ ≅ f_+ ∘ 𝔻′_𝔛 for finite f, so f_+ has the left adjoint f^+ = 𝔻′f^!𝔻′ (Lemma and Definition 2.2.3). (Lemma 2.2.4) For finite f: (i) if f is surjective and radicial, f_+, f^+ are equivalences on D^b_hol and Hol; (ii) if f is étale, every M ∈ Hol is a direct factor of f^+f_+M; (iii) if f is flat and surjective, every M is a direct factor of f_+f^+M. ⊠ is exact and compatible with f_+, f^+, f^!, 𝔻′ (2.2.5–2.2.6).",
+      "locator": "§2.2.1–2.2.6, Lemmas 2.2.3–2.2.4 and 2.2.6, pp. 50–53",
+      "status": "missing",
+      "note": "Stated with corrections: the printed modified dual has the twist +d_{X_i/𝔛}, which makes the gluing isomorphism fail for Frobenius structures, and 2.2.4(iii) omits 'surjective' (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/13",
+      "kind": "theorem",
+      "name": "Smooth pull-back, open immersions and localisation on stacks",
+      "statement": "For smooth f of good stacks, f^* is exact and Rf_* is defined, both preserving holonomicity, with 𝔻′_𝔛 ∘ f^* ≅ (d) ∘ f^* ∘ 𝔻′_𝔜 for relative dimension d (2.2.7). For an open immersion j, Rj_* preserves D^b_hol (Lemma 2.2.8); j^+ := j^*, j_+ := Rj_*, j_! := 𝔻′j_+𝔻′ with j_! → j_+ and the intermediate extension j_{!+} = Im(H⁰j_! → H⁰j_+). (Lemma 2.2.9) For j : 𝔘 ⊂ 𝔛 open with complement i : ℨ → 𝔛 there are triangles i_+i^! → id → j_+j^+ → and j_!j^+ → id → i_+i^+ →.",
+      "locator": "§2.2.7–2.2.9, Lemmas 2.2.7–2.2.9, pp. 53–54",
+      "status": "missing",
+      "note": "Used throughout §4 (localisation in 4.3.11, 4.3.12) and in the Lefschetz formula A.3.2."
+    },
+    {
+      "id": "PAPER-ABE-18/14",
+      "kind": "theorem",
+      "name": "Push-forward along projections and cohomology of stacks",
+      "statement": "For admissible simplicial spaces X_•, Y_• and A ∈ M(X_•), p_A^* = A ⊠ (−) : M(Y_•) → M((X × Y)_••) has a right adjoint p_{A*} (Lemma 2.2.10), with the exactness of A ↦ p_{A*}(I) for injective I, the spectral sequence E_2^{p,q} = R^p p_{H^{−q}(C)*}(M) ⇒ R^{p+q}p_{C*}(M) and quasi-isomorphism invariance (2.2.11–2.2.13); p_{C+} := Rp_{C*}, p_C^+ := p_C^* form an adjoint pair (2.2.14); for A_• ∈ Hol(X_•), p_{A_•*} is the kernel of p_{0A_0*} ⇉ p_{1A_1*} (2.2.15), with the spectral sequence E_1^{i,j} = R^jp_{iA_i*}(M_i) ⇒ H^{i+j}p_{A+}(M) (Lemma 2.2.16). (Proposition 2.2.17) p_{A+}, p_A^+ preserve D^+_hol and are adjoint (boundedness can fail, e.g. BG_m); they descend to good stacks independently of presentations (2.2.18), and RΓ ∘ p_{A+}(M) ≅ RHom_{D(𝔛)}(A, M) (Proposition 2.2.19).",
+      "locator": "§2.2.10–2.2.19, pp. 54–58",
+      "status": "missing",
+      "note": "After SGA 4 XVIII 3.1 and Olsson, Sheaves on Artin stacks, Cor. 2.7."
+    },
+    {
+      "id": "PAPER-ABE-18/15",
+      "kind": "theorem",
+      "name": "Gluing, unit and dualizing complexes, and D^b(Hol) for Deligne–Mumford stacks",
+      "statement": "(Theorem 2.2.20, BBD 3.2.4) Given C_i ∈ D^b(X_i) with cocycle isomorphisms α_φ : X(φ)^*C_i ≅ C_j and R^kHom_{D(X_i)}(C_i, C_i) = 0 for all i ≥ 0 and k < 0, there is a unique C ∈ D^b_tot(X_•) with ρ_i^*C ≅ C_i compatibly. R^iHom(L_X, L_X) = 0 for i < 0 (2.2.21); the L_{X_i}[d_{X_i/𝔛}] glue to the unit complex L_𝔛, and L^ω_𝔛 := 𝔻′_𝔛L_𝔛 (2.2.22), with L_{𝔛×𝔜} ≅ L_𝔛 ⊠ L_𝔜, L^ω_{𝔛×𝔜} ≅ L^ω_𝔛 ⊠ L^ω_𝔜 and f^+L_𝔜 ≅ L_𝔛 for finite f (2.2.23); p_+ := p_{L_𝔛+}, p^+ := p^+_{L_𝔛} for projections (2.2.24) and the Künneth isomorphism p_{A+} ⊠ p′_{A′+} ≅ q_{A⊠A′+}(− ⊠ −) (2.2.25). (Proposition 2.2.26) For a separated Deligne–Mumford stack of finite type, D^b(Hol(𝔛)) → D^b_hol(𝔛) is an equivalence; this fails for general stacks (Hol(BG) for connected G is vector spaces while H^i(BG_m, L) ≅ H^i(P^i, L)).",
+      "locator": "§2.2.20–2.2.29, Theorem 2.2.20, Proposition 2.2.26, Question 2.2.29, pp. 58–61",
+      "status": "missing",
+      "note": "Theorem 2.2.20 is printed with the index clash 'R^iHom_{D(X_i)}(C_i, C_i) = 0 for any i < 0' and C_i ∈ D^b(X_•) (sourceIssues). Question 2.2.29 asks whether D^b(Con(X)) ≅ D^b_hol(X)."
+    },
+    {
+      "id": "PAPER-ABE-18/16",
+      "kind": "theorem",
+      "name": "Weights on algebraic stacks",
+      "statement": "Over k = F_q with ι : Q̄_p ≅ C, M ∈ Hol(𝔛/L_F) is ι-pure (mixed, of weight ≤ w, ≥ w) if f^*M is ι-pure (…) of weight w + d for every smooth f : X → 𝔛 of relative dimension d; a complex is mixed of weight ⋆ if H^iC is of weight ⋆ + i. (2.2.32) For f : 𝔛 → 𝔜 of stacks of finite type: 𝔻′ exchanges ≤ w and ≥ −w; for finite f, f_+ and f^! preserve mixedness, f_+ preserves weights and f^! preserves ≥ w; ⊠ adds weight bounds; L^ω_𝔛 (resp. L_𝔛) is mixed of weight ≥ 0 (resp. ≤ 0); j_{!+} preserves purity; and for a projection f and A of weight ≤ w′, f_{A+} sends weight ≥ w to weight ≥ w − w′.",
+      "locator": "§2.2.30–2.2.32, pp. 62–63",
+      "status": "missing",
+      "note": "Extends Abe–Caro's theory of weights (4.1.3, 4.2.3–4.3) from realizable schemes to stacks. The proof of the last property, the only one the paper proves, does not follow from the E_1 bound it cites (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/17",
+      "kind": "definition",
+      "name": "Admissible and c-admissible stacks",
+      "statement": "(Definition 2.3.1) A morphism of algebraic stacks is admissible if it is of finite type with finite diagonal; an admissible stack is one whose structure morphism is admissible. Admissible morphisms are quasi-compact and separated; an admissible stack is covered by finitely many opens with quasi-finite flat surjections from schemes, and has a dense open with a finite locally free surjection from a scheme (Remark 2.3.1). (Lemma 2.3.2) Admissibility is stable under composition and base change, g ∘ f admissible implies f admissible, separated representable morphisms of finite type (e.g. immersions) are admissible, and morphisms from schemes to admissible stacks are schematic. (Proposition 2.3.3, Corollary 2.3.4) An admissible stack has a proper generically finite surjection from a (smooth quasi-projective) scheme, not generically étale in general (Bα_p). (Definition 2.3.19, Lemma 2.3.20) f is compactifiable if it factors as an open immersion into an admissible stack followed by a proper morphism; c-admissible stacks and the category 𝔖_adm; separated algebraic spaces of finite type are c-admissible (Conrad–Lieblich–Olsson).",
+      "locator": "§2.3.1–2.3.4, §2.3.19–2.3.20, pp. 63–64, 72",
+      "status": "missing",
+      "note": "Adapts Olsson's proper coverings and de Jong's alterations; Remark 2.3.1(ii) omits 'surjective' (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/18",
+      "kind": "theorem",
+      "name": "Six operations on admissible stacks",
+      "statement": "For f : 𝔛 → 𝔜 of admissible stacks, factor 𝔛 → 𝔛 × 𝔜 → 𝔜 (graph finite, projection) and set f_+ := p_⊕ ∘ i_⊕, f^+ := i^⊕ ∘ p^⊕ with (f^+, f_+) adjoint (2.3.5); these agree with the finite-morphism functors (Lemma 2.3.6), are transitive with coherent isomorphisms (Lemma 2.3.7), satisfy f^* ≅ f^+[d], Rf_* ≅ f_+[−d] for smooth f (Lemma 2.3.8), smooth base change (Proposition 2.3.9), and f_+ preserves boundedness (2.3.10). Internal Hom and duality 𝔻_𝔛 := Hom(−, L^ω_𝔛) with biduality (2.3.11–2.3.13), tensor product and its adjunctions (2.3.14–2.3.16), 𝔻f_+ ≅ f_+𝔻 and base change for projective f (Lemma 2.3.17), proper base change (Proposition 2.3.18), f_! := g_+ ∘ j_! for a compactification with (f ∘ g)_! ≅ f_! ∘ g_! (2.3.21), and base change g^+f_! ≅ f′_!g′^+ in 𝔖_adm (Proposition 2.3.22).",
+      "locator": "§2.3.5–2.3.22, Lemmas 2.3.6–2.3.8, Propositions 2.3.9, 2.3.13, 2.3.18, 2.3.22, pp. 64–73",
+      "status": "missing",
+      "note": "The paper's route to a six-functor formalism on stacks: build f_+ from finite morphisms and projections, and compactify for f_!. The proof of 2.3.17 names 'p = 1' where the p = 0 term of the spectral sequence gives the trace (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/19",
+      "kind": "definition",
+      "name": "Constructible t-structures on stacks",
+      "statement": "On a realizable X, the constructible t-structure ^cD and the dual constructible ^{dc}D := 𝔻(^cD) (2.3.23). On a stack, M ∈ ^cD^⋆ iff ρ_i^*M ∈ ^cD^{⋆−d_i} and N ∈ ^{dc}D^⋆ iff ρ_i^*N ∈ ^{dc}D^{⋆+d_i}, defining c-modules and dc-modules (2.3.24); ^{dc}H^i ≅ 𝔻 ∘ ^cH^{−i} ∘ 𝔻 and smooth f^+ is c-t-exact (Lemma 2.3.25); L^ω_𝔛 is a dc-module and f_! is right dc-t-exact (Lemma 2.3.26); dc-modules (suitably shifted) descend along simplicial presentations (Lemma 2.3.27); generic base change for smooth pull-backs (Lemma 2.3.28) and the resolutions 0 → M → p⁰_{0+}(M_0[−d_0]) → p⁰_{1+}(M_1[−d_1]) and p⁰_{1!} → p⁰_{0!} → M → 0 (Lemma 2.3.29).",
+      "locator": "§2.3.23–2.3.29, pp. 73–75",
+      "status": "missing",
+      "note": "The heart Con(𝔛) is the p-adic analogue of constructible sheaves; §4 works mostly in it."
+    },
+    {
+      "id": "PAPER-ABE-18/20",
+      "kind": "theorem",
+      "name": "Trace maps, duality and Poincaré duality on c-admissible stacks",
+      "statement": "(Theorem 2.3.30) For f in 𝔖_adm there is a unique Tr^p_f : f_!L^ω_𝔛 → L^ω_𝔜, transitive, equal to the adjunction map for realizable schemes and L = K, and compatible with smooth base change. (Theorem 2.3.31, Duality) For every f in 𝔖_adm the natural map f_+ ∘ 𝔻_𝔛 → 𝔻_𝔜 ∘ f_! is an isomorphism; f^! := 𝔻f^+𝔻 is right adjoint to f_! (2.3.32). (Lemma 2.3.33) H^if_!(M) = 0 for i > 2 dim 𝔛 and M ∈ Con(𝔛). (Theorem 2.3.34, relative Poincaré duality) For f ∈ 𝔐^st_d (flat of relative dimension d over a dense open, fibres over the complement of dimension < d) there is a unique trace Tr^sm_f : f_!f^+(d)[2d] → id, agreeing with §1.5 for realizable schemes, compatible with base change and transitive, and f^+(d)[2d] ≅ f^! for smooth f. Projection formula f_!M ⊗ N ≅ f_!(M ⊗ f^+N) (2.3.35), Künneth for f_+ and f_! (2.3.36) and f_!M ⊗ g_!N ≅ h_!(M ⊠_𝔜 N) (2.3.37).",
+      "locator": "§2.3.30–2.3.37, Theorems 2.3.30, 2.3.31, 2.3.34, pp. 75–79",
+      "status": "missing",
+      "note": "The projection formula's proof is left to the reader."
+    },
+    {
+      "id": "PAPER-ABE-18/21",
+      "kind": "theorem",
+      "name": "Weights for admissible stacks",
+      "statement": "(Theorem 2.3.38) For f : 𝔛 → 𝔜 between admissible stacks: (i) f_+, f^+, 𝔻, ⊗ preserve ι-mixed complexes; f_+ (resp. f^+) preserves weight ≥ w (resp. ≤ w), 𝔻 exchanges ≤ w and ≥ −w, and ⊗ sends weights (≤ w, ≤ w′) to ≤ w + w′; (ii) for an immersion j and M ι-pure of weight w, j_{!+}(M) is ι-pure of weight w. Consequently, for proper f, f_+ preserves purity.",
+      "locator": "§2.3.38, Theorem, p. 79",
+      "status": "missing",
+      "note": "Stated as 'a direct consequence of 2.2.32'; the proof of 2.2.32(6) that (i) rests on has a gap, which can be bypassed for admissible stacks through finite flat surjections from schemes (sourceIssues). Used for purity in 4.3.3, 4.3.11, 4.3.14 and 4.3.20."
+    },
+    {
+      "id": "PAPER-ABE-18/22",
+      "kind": "definition",
+      "name": "Constructible modules on stacks locally of finite type and gerb-like morphisms",
+      "statement": "For quasi-compact 𝔛, Con(𝔛/L) is equivalent to cartesian sections of Con over 𝔛_sm (Lemma 2.4.1), which defines Con(𝔛) for 𝔛 locally of finite type, with f^+ for smooth f. For representable f of finite type (with separated fibres over smooth charts), (f^i_+M)_Y := ^cH^if_{Y+}ρ^+(M) and f^i_! glue (2.4.2); smooth surjective representable morphisms are universal effective descent for Con (Lemma 2.4.3); f^+ and ⊠_𝔇 on Con for all f (2.4.4); ^cH^if_! ≅ f^i_! and base change (Lemma 2.4.5). (Lemma 2.4.6, Corollary) For a gerb-like f with flat finite radicial structure group, f^+ : Con(𝔜) ≅ Con(𝔛), with quasi-inverse ^cH⁰f_!; (Lemma 2.4.7) Sm(𝒳) ≅ Sm(BG) for smooth connected G; (Lemma 2.4.8) for diagonally connected gerb-like f, f^+ : Sm(𝔜) ≅ Sm(𝔛) generically.",
+      "locator": "§2.4.1–2.4.8, Lemmas 2.4.1, 2.4.3, 2.4.5–2.4.8, pp. 79–83",
+      "status": "missing",
+      "note": "This partial formalism is what Proposition 4.3.11 needs for Lafforgue's stack C^{r,N}, which is only locally of finite type."
+    },
+    {
+      "id": "PAPER-ABE-18/23",
+      "kind": "theorem",
+      "name": "Nearby cycles and a smoothness criterion on stacks",
+      "statement": "For f : 𝔛 → A¹_{k′} from a c-admissible stack, Abe–Caro's Π^{a,b}_f, Ψ^un_f and Φ^un_f, with Ψ^un_f(M) ≅ lim_s Ker(j_{f!}(M^{−s,0}) → j_{f+}(M^{−s,0})) (2.4.9); the Robba-ring category Hol(𝐥) and the twisted nearby cycles Ψ_{𝐥,f} with Galois action (2.4.10–2.4.11). (Lemma 2.4.11) On a curve with f étale at s, if Φ^un_f(M) = 0 and Galois and monodromy act trivially on every Ψ_{𝐥,f}(M), then M is smooth. (Lemma 2.4.12) For proper h, Π^{a,b}, Ψ_{𝐥}, Φ^un commute with H^ih_+. (Lemma 2.4.13, Lafforgue A.9(i)) If p : 𝔛 → S is proper from a c-admissible stack to a smooth scheme, Res : 𝔛 → 𝔆 goes to a stack locally of finite type and (p, Res) is smooth, then p_+Res^+(M) is smooth for every M ∈ Con(𝔆).",
+      "locator": "§2.4.9–2.4.13, Lemmas 2.4.11–2.4.13, pp. 83–85",
+      "status": "missing",
+      "note": "Lemma 2.4.13 is the p-adic analogue of Lafforgue A.9(i), used twice in Proposition 4.3.11; its proof uses Shiho's cut-by-curves criterion and Kedlaya's full faithfulness."
+    },
+    {
+      "id": "PAPER-ABE-18/24",
+      "kind": "definition",
+      "name": "Q̄_p-coefficients and comparison with overconvergent isocrystals",
+      "statement": "For L algebraic over K with σ-stable finite subextensions M_n, D^b(𝔛/L_▲) := 2-lim D^b(𝔛/M_{n,▲}), and similarly Sm and Isoc^† (2.4.14). For X smooth separated of finite type of dimension d, s̃p_+ := sp_+(−d)[−d] : Isoc^†(X/L) ≅ Sm(X/L) ⊂ D^b_hol(X/L), compatible with pull-backs (s̃p_+ ∘ f^* ≅ f^+ ∘ s̃p_+), ⊗ and Hom, and H^*_rig(X, M) ≅ H^*f_+(s̃p_+M), H^*_rig,c(X, M) ≅ H^*f_!(s̃p_+M) when X has a smooth liftable compactification with divisorial boundary (2.4.15).",
+      "locator": "§2.4.14–2.4.16, pp. 85–86",
+      "status": "missing",
+      "note": "After Caro and Abe (Padova 2014). Question 2.4.16 asks for this comparison for all separated X."
+    },
+    {
+      "id": "PAPER-ABE-18/25",
+      "kind": "theorem",
+      "name": "Tannakian fundamental groups and Weil groups of isocrystals",
+      "statement": "For X smooth geometrically connected with geometric point x̄, π_1^isoc(X, x̄) := Aut^⊗(ω_x̄) and Isoc^†(X/K̄) ≅ Rep(π_1^isoc) (2.4.17); for k finite, Frob_X^* acts on π_1^isoc, W^isoc(X, x̄) := π_1^isoc ⋊ Z and Isoc^†(X/Q̄_{p,F}) ≅ Rep_{Q̄_p}(W^isoc(X, x̄)), with 1 → W^isoc(X ⊗ k′) → W^isoc(X) → Gal(k′/k) → 1 (2.4.18). ZW^isoc(U) := W^isoc(U) ⋊ Z for the partial Frobenius Frob_{X′} × id on U ⊂ X′ × X″; (Lemma 2.4.19, Lafforgue VI.13) ZW^isoc(X′ × X″) → W^isoc(X′) × W^isoc(X″) is surjective (faithfully flat); (Lemma 2.4.20) W^isoc(U) → W^isoc(X) is surjective for U ⊂ X open.",
+      "locator": "§2.4.17–2.4.20, pp. 86–88",
+      "status": "missing",
+      "note": "Crew's monodromy groups in the Weil-group form Lafforgue uses; the inputs to Lemma 4.3.6."
+    },
+    {
+      "id": "PAPER-ABE-18/26",
+      "kind": "definition",
+      "name": "Cohomology, local cohomology, generalized cycles and correspondences on stacks",
+      "statement": "For p : 𝔛 → Spec k c-admissible and M ∈ D^b_hol(𝔛), H^i(𝔛, M) := Hom(L, p_+M[i]), H^i_c(𝔛, M) := Hom(L, p_!M[i]), and local cohomology H^i_𝒵(𝔛, M) := Hom(L, p_+i_+i^!M[i]), with pull-back along cartesian squares and push-forward along proper maps (3.1.1); cup products and the maps f_+M ⊗ f_!N → f_!(M ⊗ N), i^!M ⊗ i^+N → i^!(M ⊗ N) (3.1.2). (Definition 3.1.3) A generalized cycle of codimension c on 𝔛 is a proper g : Γ → 𝔛 with dim 𝔛 − dim Γ = c; for φ a proper endomorphism of S and c-admissible f^{(′)} : 𝔛^{(′)} → S, a correspondence Γ : 𝔛 ⇝ 𝔛′ over φ is c_Γ : Γ → 𝔛 ×_{φ,S} 𝔛′ with Γ equidimensional of dimension dim 𝔛 and p_2 proper (or Γ empty).",
+      "locator": "§3.1.1–3.1.3, Definition 3.1.3, pp. 89–90",
+      "status": "missing",
+      "note": "The printed remark that c_Γ has codimension dim 𝔛′ holds only when S is a point (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/27",
+      "kind": "theorem",
+      "name": "Fake traces, cycle classes and the action of correspondences",
+      "statement": "For f : 𝒴 → 𝔛 with 𝔛 smooth, the fake trace fTr_f : f_!f^+L_𝔛(d)[2d] → L_𝔛 (d = dim 𝒴 − dim 𝔛) is the image of Tr_𝒴 under Poincaré duality (3.1.4), giving f_* : H^{*+2d}_c(𝒴)(d) → H^*_c(𝔛), the cycle class cl_𝔛(𝒵) ∈ H^{2c}_𝒵(𝔛)(c) of a generalized cycle (3.1.6(i)) and, for a correspondence on smooth 𝔛, ι_Γ : p_2^+L_{𝔛′} → p_1^!L_𝔛 and Γ^* : f′_!L_{𝔛′} → φ_+f_!L_𝔛, i.e. H^*_c(𝔛′) →^{p_2^*} H^*_c(Γ) →^{p_{1*}} H^*_c(𝔛) (3.1.6(ii)). (Lemma 3.1.5) fTr_i is the unique class with Tr_f(u) = Tr_g(fTr_i ∪ u); (Corollary 3.1.5) Tr_f = fTr_f for flat f to a smooth stack. (Lemma 3.1.7) Fake traces are compatible with cartesian base change under a density hypothesis, hence g^*f_* = f′_*g′^* and the projection formula f_*(α ∪ f^*β) = f_*α ∪ β (Corollary 3.1.7). (Lemma 3.1.8) For a family over S with an open Γ′ ⊂ Γ flat over 𝔛 whose fibre is dense, Γ^* commutes with restriction to the fibre. (Lemma 3.1.9) The graph of a proper ρ acts as ρ^*. (Lemma and Corollary 3.1.10) A generically locally free morphism of constant degree multiplies trace maps and cycle classes by its degree.",
+      "locator": "§3.1.4–3.1.10, Lemmas 3.1.5, 3.1.7–3.1.10, pp. 90–94",
+      "status": "missing",
+      "note": "After SGA 4½ [Cycle]. The Remark after Lemma 3.1.8, that its hypothesis holds over a dense open of S 'in general', is false (sourceIssues); smoothness of 𝔛 and 𝔛_s is also implicit there."
+    },
+    {
+      "id": "PAPER-ABE-18/28",
+      "kind": "theorem",
+      "name": "Composition of correspondences and comparison with Lafforgue's action",
+      "statement": "Corr_φ(𝔛, 𝔛′) is the Q-vector space on correspondences over φ, acting through Γ ↦ Γ^* and factoring through the relation Γ′ = deg(ρ)^{−1}Γ for generically locally free ρ : Γ → Γ′ of constant degree (Definition 3.1.11). For integral correspondences with étale (resp. finite) first projection, Γ′ ∘ Γ := Γ ×_{𝔛′} Γ′, and (Γ′ ∘ Γ)^* = Γ^* ∘ Γ′^* when a relevant projection is smooth (Lemma, Lafforgue A.7). For an integral Γ with p_1 generically finite dominant on a smooth admissible 𝔛, ρ : Γ → Γ^gr ×_{𝔛^gr} 𝔛 (Keel–Mori coarse spaces) is generically finite locally free of degree d_Γ, and norm(Γ) := d_Γ^{−1}Γ matches the p-adic action with Lafforgue's action on the cohomology of coarse spaces (3.1.12).",
+      "locator": "§3.1.11–3.1.12, Definition 3.1.11, Lemmas 3.1.11–3.1.12, pp. 94–96",
+      "status": "missing",
+      "note": "The printed claims d_{Γ′∘Γ} = d_Γ·d_{Γ′} and that norm is a ring homomorphism fail for stacks with non-trivial generic stabilisers (sourceIssues); §4.3.17 relies on them for the Hecke action."
+    },
+    {
+      "id": "PAPER-ABE-18/29",
+      "kind": "theorem",
+      "name": "ℓ-independence of traces of correspondences",
+      "statement": "(Theorem 3.2.1) Let 𝔛 be a smooth c-admissible stack over a finite field k and Γ ∈ Corr_S(𝔛). Then Tr(Γ^* : H^*_c(𝔛 ⊗ k̄, Q_ℓ)) = Tr(Γ^* : H^*_c(𝔛, L_{𝔛,∅})). (Corollary 3.2.1) For f : 𝔛 → S smooth to a smooth connected S and Γ ∈ Corr_S(𝔛), there is a dense open U ⊂ S such that Tr(Γ^* × F^n_x : f_!Q_ℓ) = Tr(Γ^* × F^n_x : f_!L_𝔛) for every closed x ∈ U with L ⊃ K_x and every n ∈ Z.",
+      "locator": "§3.2, Theorem 3.2.1, Corollary 3.2.1, pp. 96–97; proof §3.2.2–3.2.8, pp. 97–101",
+      "status": "missing",
+      "note": "Proof as in Kato–Saito (Ann. of Math. 168 (2008), 2.3.6): reduce by an alteration and Corollary 3.1.10 to schemes, identify Γ^* with cl(Γ) in H^{2d}_{!,*}(𝔛 × 𝔛)(d) ≅ ∏ End H^i_c (Lemma 3.2.7), and compare cycle classes with refined Gysin pull-backs (Lemmas 3.2.2–3.2.6, after Kresch and Fulton). Final step 'left to the reader'. Two steps of the printed proof need repair: the generic-fibre remark used for Corollary 3.2.1, and the normal-cone claim in §3.2.5 used for Lemma 3.2.6 (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/30",
+      "kind": "theorem",
+      "name": "Cycle classes, Chow groups and refined Gysin maps on stacks",
+      "statement": "(Lemma 3.2.2, SGA 4½ Cycle 2.3.8(ii)) Cycle classes pull back along flat base change: f^*cl(Γ) = cl(Γ′) ∈ H^{2c}_{Γ′}(𝔛′)(c). (Lemma 3.2.3) For X smooth of dimension d and a generalized cycle Z → X, cycle classes induce cl_X : CH_i(Z) → H^{2d−2i}_Z(X)(d − i). (Lemma 3.2.4, Kato–Saito 2.1.1) For a generalized cycle Γ on a smooth open 𝒰 ⊂ 𝔛 with proper i′, i_* ∘ i′^* is cup product with r(cl_𝒰(Γ)). (§3.2.5, Lemma 3.2.6, Kato–Saito 2.1.2) For a representable l.c.i. f : X → 𝒴 from a scheme and a cycle Γ → 𝒴, Kresch's refined Gysin class f^!([Γ]) ∈ CH_{n−d}(Γ′) satisfies cl(f^!([Γ])) = f^*cl(Γ). (Lemma 3.2.7, Kato–Saito 2.3.2) Γ^* is identified with cl(Γ) ∈ H^{2d}_{!,*}(𝒰 × 𝒰)(d) ≅ ∏_i End H^i_c(𝒰).",
+      "locator": "§3.2.2–3.2.7, Lemmas 3.2.2–3.2.4, 3.2.6–3.2.7, pp. 97–100",
+      "status": "missing",
+      "note": "Kresch, Invent. Math. 138 (1999); Fulton. §3.2.5 asserts that the normal cone of an l.c.i. morphism is a vector bundle, which holds for regular immersions but not for the alteration f × f the proof of Theorem 3.2.1 applies it to (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/31",
+      "kind": "definition",
+      "name": "Frobenius eigenvalues of Q̄_p-isocrystals at closed points",
+      "statement": "For k = F_q, the arithmetic base tuple 𝔗_k = (k, W(k), K, Q̄_p, s, σ = id), and for a finite extension k′ the tuple 𝔗_{k′}; Isoc^†(k′/𝔗_{k′}) is the category of finite-dimensional Q̄_p-vector spaces with an automorphism. For X smooth over k, a closed point x and a geometric point x̄ over it, ι_{x̄} : Isoc^†(X/𝔗_k) → Isoc^†(k(x)/𝔗_k) ≅ Isoc^†(k(x)/𝔗_{k(x)}) (via i_x^+ and the embedding K_x ⊂ Q̄_p); the automorphism obtained is the linearised geometric Frobenius at x, its inverse Frob_x the Frobenius at x, and its eigenvalues (independent of x̄) the Frobenius eigenvalues of the isocrystal at x.",
+      "locator": "§4.1.1–4.2.1, pp. 101–103",
+      "status": "missing",
+      "note": "Frob_x is normalised to match Lafforgue (the arithmetic Frobenius in ℓ-adic language). The categories with Q̄_p-coefficients come from §1.4 (extension of scalars)."
+    },
+    {
+      "id": "PAPER-ABE-18/32",
+      "kind": "theorem",
+      "name": "Langlands correspondence for isocrystals",
+      "statement": "Fix Q̄_p ≅ C. Let X be a geometrically connected proper smooth curve over k = F_q with function field F and adèles A_F, and r ≥ 1. Let I_r be the set of isomorphism classes of irreducible rank-r objects of 2-lim_{U⊂X} Isoc^†(U/𝔗_k) with determinant of finite order, and A_r the set of isomorphism classes of cuspidal automorphic representations of GL_r(A_F) with central character of finite order. (i) There are maps E_• : A_r ⇄ I_r : π_• corresponding in the sense of Langlands: for π ∈ A_r (resp. E ∈ I_r) the sets of unramified places of π and E_π (resp. of E and π_E) coincide, and at every unramified x the Frobenius eigenvalues of E_π (resp. E) equal the Hecke eigenvalues of π (resp. π_E). (ii) If π^{(′)} ∈ A_{r^{(′)}} and E^{(′)} ∈ I_{r^{(′)}} correspond, the local L-functions and ε-factors of the pairs (π, π′) and (E, E′) agree at every x ∈ |X|. The correspondence is unique if it exists.",
+      "locator": "§4.2, Theorem 4.2.2, pp. 103–104",
+      "status": "missing",
+      "note": "The main theorem. Its ℓ-adic counterpart is L. Lafforgue's theorem, planned at GlobalShtukasAndFunctionFieldLanglands GS.6; the p-adic version is new."
+    },
+    {
+      "id": "PAPER-ABE-18/33",
+      "kind": "theorem",
+      "name": "p-adic principe de récurrence",
+      "statement": "(Abe, Crelle; with the Abe–Marmora product formula for p-adic ε-factors) Let n ≥ 1 and assume Theorem 4.2.2 for r, r′ ≤ n. Then there is a map I_{n+1} → A_{n+1} in the sense of Langlands whose image of E is unramified wherever E is; and if there is a map A_{n+1} → I_{n+1} in the sense of Langlands whose image of π is unramified wherever π is, then Theorem 4.2.2 holds for r, r′ ≤ n + 1. In particular part (ii) follows once part (i) is proved.",
+      "locator": "§4.2.3, Theorem (Abe, 'Langlands program for p-adic coefficients and the petits camarades conjecture', §5), p. 104",
+      "status": "missing",
+      "note": "Deligne's principe de récurrence (converse theorems of Piatetski-Shapiro and Cogdell–Piatetski-Shapiro together with the product formula for ε-factors), transported to p-adic coefficients by the author and Marmora. Recalled from earlier work."
+    },
+    {
+      "id": "PAPER-ABE-18/34",
+      "kind": "definition",
+      "name": "Moduli of shtukas used for the p-adic correspondence",
+      "statement": "For a level N = Spec(O_N) ⊊ X, a convex polygon p : [0, r] → R and a ∈ A_F^× of degree 1, Lafforgue's stacks over S_N = (X − N) × (X − N): (1) Cht^{r,p̄≤p}_N/a^Z (smooth, not proper; Hecke algebra acts only after the limit over p); (2) its compactification Cht-bar^{r,p̄≤p}_N/a^Z (proper, not smooth); (3) the open Cht-bar′^{r,p̄≤p}_N/a^Z (smooth, not proper, carrying correspondences for each Hecke element but not a ring action). They are c-admissible stacks (quasi-projective over the proper serene Cht-bar^{r,d,p̄≤p}), with components indexed by the degree 1 ≤ d ≤ r; partial Frobenius endomorphisms Frob_∞, Frob_0 lie over Frob_X × id and id × Frob_X; Lafforgue's morphism Res to the stack C^{r,N} with its strata C^{r,N}_r (partitions r of r) and the boundary.",
+      "locator": "§4.2.4–4.2.5, table, pp. 104–105; §4.3.11, Steps 2–3, pp. 110–111 (L. Lafforgue, Invent. Math. 147 (2002), I.3, III.2–III.8, V.1, V.14)",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "The geometry is L. Lafforgue's, which GlobalShtukasAndFunctionFieldLanglands GS.6 plans (compactifications of shtukas, boundary analysis) on top of GS.2 (shtuka stacks and truncations). The paper only checks that the stacks are c-admissible, which it needs for its six operations."
+    },
+    {
+      "id": "PAPER-ABE-18/35",
+      "kind": "theorem",
+      "name": "L-functions of isocrystals and their poles",
+      "statement": "For X smooth over k and E ∈ I(X), L_x(E, Z) = det(1 − Z^{deg x}Frob_x^{−1}; ι_{x̄}(E))^{−1}, L_X(E, Z) = ∏_{x∈|X|} L_x(E, Z) = ∏_{ν=0}^{2 dim X} det(1 − Z·Frob_X; H^ν_c(X, E))^{(−1)^{ν+1}}. (Lafforgue VI.3, p-adic) For Y smooth geometrically connected, E mixed of weight ≤ n and E′ irreducible pure of weight m: (i) L_Y(E ⊗ E′^∨, Z) has no zeros in |Z| < q^{(m−n)/2 − dim Y + 1/2}; (ii) if Re(t) = (m − n)/2 and E′(t) occurs with multiplicity μ in E^ss, the L-function has a pole of order μ at Z = q^{t − dim Y} and no pole in |Z| < q^{(m−n)/2 − dim Y}. Hence, for E in the Grothendieck group with all components of weight ≤ n and Re(t) = (m − n)/2, the multiplicity of E′(t) in E is the order of the pole of L_Y(E ⊗ E′^∨, Z) at Z = q^{t − dim Y}.",
+      "locator": "§4.3.2–4.3.3, (4.3.2.1), Proposition and Corollary, pp. 106–107",
+      "status": "missing",
+      "note": "Uses the cohomological formula (Corollary A.3.3), the weights for admissible stacks (Theorem 2.3.38) and Poincaré duality. The printed corollary has E′(−t), which has weight 2m − n and cannot occur; the proposition's E′(t) is meant (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/36",
+      "kind": "definition",
+      "name": "Frobenius-twisted isocrystals on X × X and negligibility",
+      "statement": "For U ⊂ Y × Y stable under Frob_Y × id, ZI(U) is the category of objects of I(U) with an isomorphism (Frob_Y × id)^+E ≅ E; I(F) = 2-lim_U I(U) and ZI(F²) = 2-lim ZI(U), equivalently representations of the Weil-type groups WI(Y) and ZWI(U). (Lafforgue VI.14) An object (or element of QGr I(F²)) is r-negligible if every subquotient (component) is a direct factor of q′^+E′ ⊗ q″^+E″ with E′, E″ of rank < r in I(F); essential if no subquotient is r-negligible; a semisimple r-negligible object is complete if it is a direct sum of objects q′^+E′ ⊗ q″^+E″. Over the extension k′ of degree d_0, an irreducible object is r-negligible if it is contained in the base change of an r-negligible object over k.",
+      "locator": "§4.3.4–4.3.5 and Definition 4.3.9, pp. 107–109",
+      "status": "missing",
+      "note": "Lafforgue's definitions VI.14–VI.16 in p-adic coefficients; the Tannakian description uses the Weil group of isocrystals of §2.4."
+    },
+    {
+      "id": "PAPER-ABE-18/37",
+      "kind": "theorem",
+      "name": "Irreducibility of external products and completeness of Frobenius-invariant negligible objects",
+      "statement": "(i) For irreducible E′, E″ ∈ I(F), q′^+E′ ⊗ q″^+E″ is irreducible in ZI(F²). (ii) A semisimple r-negligible object (or r-negligible element of QGr I(F²)) invariant under (Frob_Y × id)^+ is complete; in particular ⊕_{n=1}^{r²!}(Frob^n_Y × id)^+(E) is complete for semisimple r-negligible E. (Lemma 4.3.10, Lafforgue VI.16) An irreducible E ∈ I(F²) (resp. I(F)) is r-negligible if E ⊗ k′ contains an r-negligible object over k′.",
+      "locator": "§4.3.5, Lemma 4.3.6, pp. 107–108; Lemma 4.3.10, p. 109",
+      "status": "missing",
+      "note": "Proof of (i) by the surjectivity of ZWI(U × U) onto WI(U) × WI(U) (the lemmas on Weil groups of isocrystals in §2.4); of (ii) because the kernel acts trivially on a complete object, with N ≤ r′r″ ≤ r² constituents; Lemma 4.3.10 by twisting with characters of Gal(k′/k). The paper uses r²! where Lafforgue uses r!."
+    },
+    {
+      "id": "PAPER-ABE-18/38",
+      "kind": "theorem",
+      "name": "The induction statement and the rank-one case",
+      "statement": "For n ≥ 1, (S)_n: (i) Theorem 4.2.2 holds for r, r′ ≤ n (hence I_{n+1} → A_{n+1} exists); (ii) for r′ ≤ n, the constructible object H^ν_c(Cht^{r′,p̄≤p}_N/a^Z) = cH^νf_!Q̄_p is smooth on S_N and (n+1)-negligible for all ν, N, a of degree 1 and p large enough. (S)_1 holds: (i) is class field theory with Tsuzuki's theorem on unit-root F-isocrystals of rank one, and for (ii) Cht^1_N/a^Z → S_N is an abelian covering with f_!Q̄_p ≅ ⊕ q′^+χ′_p ⊗ q″^+χ″_p by the ℓ-adic decomposition, trace comparison and Čebotarev density. Here {π}^r_N is the set of π ∈ A^r(F) with χ_π(a) = 1 and π^{K_N} ≠ 0, and for proper f the intersection cohomology IH^ν = cH^νf_+j_{!+}Q̄_p is pure of weight ν.",
+      "locator": "§4.3.7–4.3.8, pp. 108–109",
+      "status": "missing",
+      "note": "Tsuzuki, Duke Math. J. 111 (2002), Thm 7.1.1; Abe, Crelle 734 (2018), 6.5. The printed (S)_1 derivation writes ⊕ q′^+χ′_p ⊗ q″^+χ′_p for ⊕ q′^+χ′_p ⊗ q″^+χ″_p (sourceIssues)."
+    },
+    {
+      "id": "PAPER-ABE-18/39",
+      "kind": "theorem",
+      "name": "Boundary cohomology of compactified shtukas is negligible",
+      "statement": "(Lafforgue VI.17, p-adic) Let p be large with respect to X, N and 1 ≤ d ≤ r, C → C^{r,N} representable and quasi-projective, and 𝔛 = C ×_{C^{r,N}} (Cht-bar^{r,d,p̄≤p} ×_{X×X} S_N) with p_𝔛 : 𝔛 → S_N. (i) For M ∈ Con(C), cH^νp_{𝔛!}(Res^+M) is smooth on S_N for all ν. (ii) If M is supported on the boundary C^{r,N} − C^{r,N}_∅, these objects are r-negligible in I(F²).",
+      "locator": "§4.3.11, Proposition and Steps 1–7, pp. 109–114",
+      "status": "missing",
+      "note": "Proof: Res is smooth (Lafforgue III.7), induction on c_0 + dim Supp M with the localisation reduction (♣), Lafforgue's geometric decomposition of γ into gerb-like, finite flat radicial and finite étale morphisms, Künneth, and the induction hypothesis (S)_{r−1} applied to the pieces of smaller rank that hit or miss a zero or pole of N. C is only locally of finite type, so the paper uses the partial formalism of §2.4 for Con(−)."
+    },
+    {
+      "id": "PAPER-ABE-18/40",
+      "kind": "theorem",
+      "name": "Negligibility of the comparison maps between the three moduli spaces",
+      "statement": "For every ν the objects H^ν_c(Cht^{r,p̄≤p}_N/a^Z), H^ν_c(Cht-bar′^{r,p̄≤p}_N/a^Z), IH^ν(Cht-bar^{r,p̄≤p}_N/a^Z) are smooth on S_N, and the kernels and cokernels of the canonical maps H^ν_c(Cht) → H^ν_c(Cht-bar′) and H^ν_c(Cht) → IH^ν(Cht-bar) are r-negligible. (Corollary 4.3.15, Lafforgue VI.21) For large p ≤ q, the maps H^{2r−2}_c(Cht^{≤p}) → H^{2r−2}_c(Cht-bar′^{≤p}) and H^{2r−2}_c(Cht^{≤p}) → H^{2r−2}_c(Cht^{≤q}) have r-negligible kernels and cokernels.",
+      "locator": "§4.3.12, Corollary, pp. 114–115; Corollary 4.3.15, p. 117",
+      "status": "missing",
+      "note": "From the Proposition of 4.3.11 applied to the boundary strata."
+    },
+    {
+      "id": "PAPER-ABE-18/41",
+      "kind": "theorem",
+      "name": "The essential part of the cohomology of shtukas",
+      "statement": "(Lemma 4.3.13) Fix ℓ ≠ p and let H^*_{N,ess,ℓ} be Lafforgue's ℓ-adic essential part (VI.19). There is a unique H^*_{N,ess} ∈ QGr I(S_N) with Tr(Frob_x^s, H^*_{N,ess}) = Tr(Frob_x^s, H^*_{N,ess,ℓ}) at every closed x, and H^*_{N,ess} − (r²!)^{−1}Σ_{n=1}^{r²!}(Frob^n_X × id)^+H^*_c(Cht^{r,p̄≤p}_N/a^Z)^ss is complete r-negligible. (Proposition 4.3.14, Lafforgue VI.20) (i) No component of H^*_{N,ess} is r-negligible; all have positive multiplicity and are pure of weight 2r − 2. (ii) H^ν_c(Cht^{r,p̄≤p}_N/a^Z)^ss is r-negligible for ν ≠ 2r − 2, and H^*_{N,ess} − (r²!)^{−1}Σ_n (Frob^n_X × id)^+H^{2r−2}_c(Cht^{r,p̄≤p}_N/a^Z)^ss is r-negligible.",
+      "locator": "§4.3.13, Lemma; Proposition 4.3.14, pp. 115–117",
+      "status": "missing",
+      "note": "The ℓ-independence of traces of correspondences on c-admissible stacks (Theorem 3.2.1 of §3) and Čebotarev density transfer Lafforgue's ℓ-adic computation."
+    },
+    {
+      "id": "PAPER-ABE-18/42",
+      "kind": "theorem",
+      "name": "Hecke action on the essential part",
+      "statement": "For an algebraically closed F and an abelian F-category A with finite length and finite-dimensional Hom spaces, and a group G: for irreducible ρ and X, ρ ⊠ X is irreducible in G-A, and every irreducible object of G-A is of this form (Etingof et al. 4.15.8). Lafforgue's homomorphism ϱ : H^r_N/a^Z → Corr^{fin,et}_η((Cht^r_N/a^Z)_η) and the partial Frobenii Frob_∞, Frob_0 give, through the functorial filtration F^• (r-negligible and essential layers) and its even part H^{≤p}_even, an object H_{N,ess} of H^r_N/a^Z-ZI(S_N) whose class in Gr I(S_N) is H^*_{N,ess}; its multiplicities are positive integers. (Lemma 4.3.19) Traces of endomorphisms on graded pieces of a filtered mixed object are unique combinations of traces of its constituents, and Tr_{H_{N,ess}}(f × Frob^n_x) = Tr^{≤p}_{H^*_{N,ess}}(f × Frob^n_x) for large p, computed with the correspondences on Cht-bar′ that stabilise it (Lafforgue V.14).",
+      "locator": "§4.3.16–4.3.19, Lemma 4.3.19, pp. 117–120",
+      "status": "missing",
+      "note": "Uses full faithfulness of restriction of overconvergent F-isocrystals to dense opens (Kedlaya, Duke 2004, Thm 5.2.1) to extend the action from I(F²) to I(S_N)."
+    },
+    {
+      "id": "PAPER-ABE-18/43",
+      "kind": "theorem",
+      "name": "Trace of Hecke operators on the essential part and its decomposition",
+      "statement": "(Lafforgue VI.25) For f ∈ H^r_N/a^Z there is a dense open U_f ⊂ S_N such that for x ∈ U_f, with ∞_x, 0_x its projections (deg x = lcm(deg ∞_x, deg 0_x)) and s = deg(∞_x)s′ = deg(0_x)u′: Tr_{H_{N,ess}}(f × Frob_x^{−s/deg x}) = q^{(r−1)s} Σ_{π∈{π}^r_N} Tr_π(f) z_•^{−s′}(π_{∞_x}) z_•^{u′}(π_{0_x}), where z_•^t(π) = Σ_i z_i(π)^t over the Hecke eigenvalues. (Lemma 4.3.21, Lafforgue VI.26) As an object of H^r_N/a^Z-ZI(S_N), H_{N,ess} = ⊕_{π∈{π}^r_N} π ⊠ H_π(1 − r) with H_π pure of weight 0 and Tr_{H_π}(Frob_x^{−s/deg x}) = z_•^{−s′}(π_{∞_x}) z_•^{u′}(π_{0_x}) on a dense open U_π.",
+      "locator": "§4.3.20, Lemma; Lemma 4.3.21, pp. 120–123",
+      "status": "missing",
+      "note": "Via the ℓ-independence of traces of correspondences (Theorem 3.2.1, which §4.3.20 cites as 'Corollary 3.2.1') and Lafforgue's ℓ-adic trace computation (Arthur–Selberg trace formula and the Lefschetz formula for Cht-bar′)."
+    },
+    {
+      "id": "PAPER-ABE-18/44",
+      "kind": "theorem",
+      "name": "The isocrystal attached to a cuspidal representation",
+      "statement": "(Lafforgue VI.27, p-adic) For π ∈ {π}^r_N, H_π ≅ q′^+E_π ⊗ q″^+E_π^∨ in I(S_N), with E_π an isocrystal of rank r on X − N, pure of weight 0, corresponding to π in the sense of Langlands. Consequently (S)_r holds (Conclusion 4.3.23), and Theorem 4.2.2 follows by induction on r.",
+      "locator": "§4.3, Theorem 4.3.22, pp. 123–124; §4.3.23, p. 124",
+      "status": "missing",
+      "note": "Proof: restriction to X × {0} and Čebotarev give a common constituent q′^+E′ ⊗ q″^+E″ with H_π; rank E′, E″ ≥ r by comparing the radius of convergence of logarithmic derivatives of L-functions (Lafforgue B.10) with the pole forced by weights; then E′ ≅ E″^∨ up to a unitary twist by the poles of Rankin–Selberg L-functions."
+    },
+    {
+      "id": "PAPER-ABE-18/45",
+      "kind": "theorem",
+      "name": "Crystalline companions on curves",
+      "statement": "(Deligne 1.2.10(vi) for curves) Let X be a smooth curve over a finite field of characteristic p and ℓ ≠ p. Every irreducible lisse Q̄_ℓ-sheaf on X whose determinant has finite order has a petit camarade cristallin: an overconvergent F-isocrystal with the same Frobenius eigenvalues at every closed point.",
+      "locator": "§4.4, Theorem 4.4.1, p. 125",
+      "status": "missing",
+      "note": "Combine Theorem 4.2.2 with L. Lafforgue's ℓ-adic correspondence."
+    },
+    {
+      "id": "PAPER-ABE-18/46",
+      "kind": "theorem",
+      "name": "Mixedness of holonomic complexes and Čebotarev density",
+      "statement": "(Bertini-type conjecture 4.4.2) For X smooth over k and an irreducible L-isocrystal E there is a dense open U such that every x ∈ |U| lies on an immersed smooth curve C ⊂ U with E|_C irreducible. (Theorem 4.4.3) In the situation of 4.2.1 every complex in D^b_hol(X/Q̄_{p,F}) is mixed when dim X = 1, and for all X if Conjecture 4.4.2 holds. (Corollary 4.4.4) Čebotarev density holds for overconvergent F-isocrystals on smooth curves, and on smooth varieties under Conjecture 4.4.2.",
+      "locator": "§4.4, 4.4.2 Conjecture, Theorem 4.4.3, Corollary 4.4.4, p. 125",
+      "status": "missing",
+      "note": "Remark 4.4.6: Kedlaya later proved these without the conjecture, and Abe–Esnault proved the conjecture for finite k."
+    },
+    {
+      "id": "PAPER-ABE-18/47",
+      "kind": "theorem",
+      "name": "Converse companions from isocrystals to ℓ-adic sheaves (conditional)",
+      "statement": "Assume Conjecture 4.4.2. Let X be smooth of finite type over a finite field and E an irreducible Q̄_p-isocrystal with Frobenius structure and determinant of finite order. (i) There is a number field E ⊂ Q̄_p containing all coefficients of the Frobenius characteristic polynomials of E at closed points. (ii) For every ℓ ≠ p there is a lisse Q̄_ℓ-sheaf with the same Frobenius eigenvalues at every closed point.",
+      "locator": "§4.4, Theorem 4.4.5, pp. 125–126; Remark 4.4.6, p. 126",
+      "status": "missing",
+      "note": "By Deligne's and Drinfeld's methods (Esnault–Kerz, Drinfeld). Remark 4.4.6: Kedlaya removed the conjecture; the existence of crystalline companions on higher-dimensional smooth schemes is left open here (later settled by Kedlaya, 'Étale and crystalline companions')."
+    },
+    {
+      "id": "PAPER-ABE-18/48",
+      "kind": "theorem",
+      "name": "Beilinson–Drinfeld gluing of derived categories",
+      "statement": "For a cofibred category ℳ → Δ⁺ with abelian fibres and exact push-forwards, the categories sec_±(ℳ) of sections, the functors c_+ : C(sec_−) → C(sec_+), c_− adjoint with quasi-isomorphic units, the identification D_{tot+}(ℳ) ≅ D_{tot−}(ℳ) =: D_tot(ℳ), and the spectral sequence E_1^{p,q} = Ext^q_{ℳ_p}(N_p, M_p) ⇒ Hom_{D(ℳ)}(c_+N, M[p + q]) (A.1.2.1), with the filtered RHom of the Remark (SGA 4 XVII 1.2).",
+      "locator": "Appendix A.1, A.1.1–A.1.2, (A.1.2.1), p. 126 (Beilinson–Drinfeld, Hitchin, 7.4)",
+      "status": "missing",
+      "note": "Recalled; used in §2.1 to build derived categories on simplicial spaces."
+    },
+    {
+      "id": "PAPER-ABE-18/49",
+      "kind": "theorem",
+      "name": "Lemmas on algebraic stacks",
+      "statement": "(Lemma A.2.1) A gerb-like morphism with flat structural group becomes a neutral gerb after base change to a presentation. (Lemma A.2.2) For a representable morphism of algebraic stacks of finite presentation over an integral scheme S, separatedness of the generic fibre spreads to a dense open of S. (Lemma A.2.3) A representable morphism of locally noetherian stacks is separated on a dense open (representable morphisms of gerbs over a field are separated). (Lemma A.2.4) A morphism locally of finite type of reduced stacks with dim Aut_𝒴𝔛 = dim 𝒴 − dim 𝔛 factors over a dense open as a gerb-like morphism with structure group Aut_𝒴𝔛, a representable universal homeomorphism and a representable finite étale morphism.",
+      "locator": "Appendix A.2, Lemmas A.2.1–A.2.4, pp. 127–129",
+      "status": "missing",
+      "note": "Lemma A.2.2 is printed without a finiteness hypothesis and is false in that generality (sourceIssues); A.2.4 is used in Step 4 of Proposition 4.3.11."
+    },
+    {
+      "id": "PAPER-ABE-18/50",
+      "kind": "theorem",
+      "name": "Lefschetz trace formula and L-functions of holonomic complexes",
+      "statement": "(Theorem A.3.2, after Etesse–Le Stum) For X separated of finite type over k = F_q and E ∈ D^b_hol(X/L_F), Tr_L(Frob^n_X; RΓ_c(X, E)) = Σ_{x∈X(k_n)} Tr_{L_x}(F_x^{n/deg x}; ι_x̄(E)), where x runs over k_n-points, deg x is the degree of the underlying closed point and F_x is its q^{deg x}-Frobenius. (Corollary A.3.3) L_X(E, Z) := ∏_{x∈|X|} det(1 − Z^{deg x}F_x; ι_x̄(E))^{−1} equals ∏_ν det(1 − Z·Frob_X; H^ν_c(X, E))^{(−1)^{ν+1}}.",
+      "locator": "Appendix A.3, A.3.1, Theorem A.3.2, Corollary A.3.3, pp. 129–130",
+      "status": "missing",
+      "note": "The printed formula has F_x^n, which is wrong for points of degree > 1 (sourceIssues). Proof: dévissage to smooth objects on open subsets of A^d, where Etesse–Le Stum applies, then an n-th-root trick for coefficients L ⊋ K."
+    },
+    {
+      "id": "PAPER-ABE-18/51",
+      "kind": "theorem",
+      "name": "Čebotarev density for mixed overconvergent F-isocrystals",
+      "statement": "(Proposition A.4.1, after Tsuzuki) Let X be a smooth variety over a finite field and E, E′ ι-mixed overconvergent F-isocrystals in Isoc^†(X/L_F) with the same multisets of Frobenius eigenvalues at every closed point. Then E^ss ≅ E′^ss.",
+      "locator": "Appendix A.4, Proposition A.4.1, pp. 130–131",
+      "status": "missing",
+      "note": "Proof by the weight filtration (Abe–Caro 4.3.4) and the pole criterion of Proposition 4.3.3 applied to L(E ⊗ F^∨, Z); the printed proof writes L(E ⊗ F, Z) (sourceIssues). Used throughout §4.3."
+    },
+    {
+      "id": "PAPER-ABE-18/52",
+      "kind": "theorem",
+      "name": "Trace formula and Gabber–Fujiwara ℓ-independence for c-admissible stacks",
+      "statement": "(Theorem A.5.1) For a c-admissible stack 𝔛 over F_q and M ∈ D^b_hol(𝔛/Q̄_{p,F}): Σ_i (−1)^i Tr(F : H^i_c(𝔛, M)) = Σ_{x∈[𝔛(F_q)]} #Aut(x)^{−1} Tr(F : i_x^+M), and the same over each F_{q^n} with its q^n-Frobenius. (Definition A.5.2) E ∈ D^b_hol(𝔛/Q̄_{p,F}) and F ∈ D^b_c(𝔛/Q̄_ℓ) are compatible if Tr(F_{q^d}; i_x^+E) = Tr(F_{q^d}; i_x^*F) for every x ∈ [𝔛(F_{q^d})] and d ≥ 1; (Lemma A.5.3) compatibility can be checked on smooth charts. (Theorem A.5.4) For morphisms of c-admissible stacks, f_+, f_!, f^+, f^!, 𝔻 and ⊗ preserve compatible pairs, and so does j_{!+} for immersions.",
+      "locator": "Appendix A.5, Theorem A.5.1, Definition A.5.2, Lemma A.5.3, Theorem A.5.4, pp. 131–132",
+      "status": "missing",
+      "note": "Generalises Fujiwara's account of Gabber's ℓ-independence to stacks. As printed, A.5.1 sums over F_q-points with F^n for every n > 0, and A.5.2 compares traces of F on the induced objects ρ_+i_x^+E, which vanish for d > 1 (sourceIssues)."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math. 147 (2002), 1–241",
+      "link": "10.1007/s002220100174",
+      "why": "The whole geometric and cohomological skeleton of §4: compactified shtukas, Res and the strata of C^{r,N}, negligibility (VI.14–VI.21), the Hecke action and trace computation (VI.23–VI.27). GS.6 plans it but no extraction covers it yet."
+    },
+    {
+      "citation": "T. Abe, Langlands program for p-adic coefficients and the petits camarades conjecture, J. Reine Angew. Math. 734 (2018), 59–69",
+      "link": "10.1515/crelle-2015-0045",
+      "why": "The p-adic principe de récurrence (§5 there) that reduces Theorem 4.2.2 to the construction A_r → I_r, and the rank-one case (6.5)."
+    },
+    {
+      "citation": "T. Abe and A. Marmora, Product formula for p-adic epsilon factors, J. Inst. Math. Jussieu 14 (2015), 275–377",
+      "link": "10.1017/s1474748014000024",
+      "why": "The product formula for p-adic ε-factors, the input of the principe de récurrence and of Theorem 4.2.2(ii)."
+    },
+    {
+      "citation": "T. Abe and D. Caro, On Beilinson's equivalence for p-adic cohomology, Selecta Math. 24 (2018), 591–608",
+      "link": "10.1007/s00029-017-0370-2",
+      "why": "D^b(Hol(X)) ≅ D^b_hol(X) for realizable X, the starting point for gluing the derived category to all schemes and stacks."
+    },
+    {
+      "citation": "T. Abe and D. Caro, Theory of weights in p-adic cohomology, Amer. J. Math. 140 (2018), 879–975",
+      "link": "10.1353/ajm.2018.0021",
+      "why": "Weights, purity and the decomposition theorem for holonomic complexes on realizable schemes, extended here to admissible stacks (Theorem 2.3.38)."
+    },
+    {
+      "citation": "D. Caro, D-modules arithmétiques surholonomes, Ann. Sci. École Norm. Sup. 42 (2009), 141–192",
+      "link": "10.24033/asens.2092",
+      "why": "Overholonomic modules and their stability under the cohomological operations, the local six-functor formalism that §1 recalls."
+    },
+    {
+      "citation": "N. Tsuzuki, Morphisms of F-isocrystals and the finite monodromy theorem for unit-root F-isocrystals, Duke Math. J. 111 (2002), 385–419",
+      "link": "10.1215/s0012-7094-02-11131-4",
+      "why": "Unit-root F-isocrystals and finite monodromy (Thm 7.1.1), used for the rank-one case (S)_1 of the induction."
+    },
+    {
+      "citation": "K. S. Kedlaya, Semistable reduction for overconvergent F-isocrystals, I: Unipotence and logarithmic extensions, Compos. Math. 143 (2007), 1164–1212",
+      "link": "10.1112/s0010437x07002886",
+      "why": "Log extensions and full faithfulness results used for restriction to dense opens (§4.3.17), and the semistable reduction behind Caro–Tsuzuki's finiteness."
+    },
+    {
+      "citation": "K. S. Kedlaya, Semistable reduction for overconvergent F-isocrystals, IV: local semistable reduction at nonmonomial valuations, Compos. Math. 147 (2011), 467–523",
+      "link": "10.1112/s0010437x10005142",
+      "why": "The completion of semistable reduction, on which the finiteness of overconvergent F-isocrystals in the D-module theory rests."
+    },
+    {
+      "citation": "Y. Laszlo and M. Olsson, The six operations for sheaves on Artin stacks I: Finite coefficients, Publ. Math. IHÉS 107 (2008), 109–168",
+      "link": "10.1007/s10240-008-0011-6",
+      "why": "The ℓ-adic model for the simplicial construction of derived categories on algebraic stacks in §2."
+    },
+    {
+      "citation": "K. Kato and T. Saito, Ramification theory for varieties over a perfect field, Ann. of Math. 168 (2008), 33–96",
+      "link": "10.4007/annals.2008.168.33",
+      "why": "The argument (Prop. 2.3.6 there) translated in §3 to prove ℓ-independence of traces of correspondences."
+    },
+    {
+      "citation": "V. Drinfeld, On a conjecture of Deligne, Mosc. Math. J. 12 (2012), 515–542",
+      "link": "10.17323/1609-4514-2012-12-3-515-542",
+      "why": "Companions on smooth varieties from companions on curves, used for the conditional converse Theorem 4.4.5."
+    },
+    {
+      "citation": "J.-Y. Etesse and B. Le Stum, Fonctions L associées aux F-isocristaux surconvergents I. Interprétation cohomologique, Math. Ann. 296 (1993), 557–576",
+      "link": "10.1007/bf01445120",
+      "why": "The cohomological interpretation of L-functions of overconvergent F-isocrystals, extended in Appendix A.3 to holonomic complexes."
+    },
+    {
+      "citation": "T. Abe and H. Esnault, A Lefschetz theorem for overconvergent isocrystals with Frobenius structure, Ann. Sci. École Norm. Sup. 52 (2019), 1243–1264",
+      "link": "10.24033/asens.2408",
+      "why": "Proves the Bertini-type Conjecture 4.4.2 over finite fields, making Theorems 4.4.3–4.4.5 unconditional (Remark 4.4.6)."
+    },
+    {
+      "citation": "K. S. Kedlaya, Étale and crystalline companions, I, Épijournal Géom. Algébrique 6 (2022)",
+      "link": "10.46298/epiga.2022.6820",
+      "why": "Removes the Bertini hypothesis and extends the companion statements beyond curves (the open problem of Remark 4.4.6)."
+    },
+    {
+      "citation": "R. Crew, F-isocrystals and their monodromy groups, Ann. Sci. École Norm. Sup. 25 (1992), 429–464",
+      "link": "10.24033/asens.1655",
+      "why": "The precise p-adic form of Deligne's conjecture (vi) (4.13 there) and the Tannakian monodromy of F-isocrystals."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "PadicDifferentialEquationsAndRigidCohomology",
+      "roadmap": "PadicDifferentialEquationsPartIIArithmeticDModules",
+      "title": "P-adic differential equations, rigid cohomology and p-adic weights, Part II: arithmetic D-modules, the six operations and geometric Satake",
+      "area": "padic",
+      "items": [
+        "PAPER-ABE-18/2",
+        "PAPER-ABE-18/3",
+        "PAPER-ABE-18/4",
+        "PAPER-ABE-18/5",
+        "PAPER-ABE-18/6",
+        "PAPER-ABE-18/7",
+        "PAPER-ABE-18/8",
+        "PAPER-ABE-18/9",
+        "PAPER-ABE-18/10",
+        "PAPER-ABE-18/11",
+        "PAPER-ABE-18/12",
+        "PAPER-ABE-18/13",
+        "PAPER-ABE-18/14",
+        "PAPER-ABE-18/15",
+        "PAPER-ABE-18/16",
+        "PAPER-ABE-18/17",
+        "PAPER-ABE-18/18",
+        "PAPER-ABE-18/19",
+        "PAPER-ABE-18/20",
+        "PAPER-ABE-18/21",
+        "PAPER-ABE-18/22",
+        "PAPER-ABE-18/23",
+        "PAPER-ABE-18/24",
+        "PAPER-ABE-18/25",
+        "PAPER-ABE-18/26",
+        "PAPER-ABE-18/27",
+        "PAPER-ABE-18/28",
+        "PAPER-ABE-18/29",
+        "PAPER-ABE-18/30",
+        "PAPER-ABE-18/48",
+        "PAPER-ABE-18/49",
+        "PAPER-ABE-18/50",
+        "PAPER-ABE-18/51",
+        "PAPER-ABE-18/52"
+      ],
+      "brief": "This route coalesces with the PadicDifferentialEquationsPartIIArithmeticDModules candidate proposed by PAPER-XU-ZHU-22 (same id, title and area) and keeps its brief, whose stages (2)–(5) Abe's paper is the source for. Add the following targets from Abe, J. Amer. Math. Soc. 31 (2018), §§1–3 and Appendix. (a) Holonomic complexes beyond realizable schemes: glue Hol(X) from an open cover by realizable schemes, define D^b_hol(X) := D^b(Hol(X)) using Beilinson's equivalence (Abe–Caro, Selecta 2018), and construct f_+, f^! for finite morphisms and projections through Ind-categories, then for all morphisms of separated schemes of finite type. (b) The constructible t-structure, extension of scalars to finite extensions L/K and to Q̄_p with Frobenius structures (base tuples), and trace maps for flat morphisms in the style of SGA 4. (c) Holonomic complexes on algebraic stacks through simplicial presentations, the cohomological functors, and the full six operations on admissible stacks (finite diagonal) and c-admissible stacks, with base change, projection formula, Künneth, Poincaré duality and weights for admissible stacks; the partial formalism on Con(−) for stacks locally of finite type; Weil groups of isocrystals. (d) Cycle classes, correspondences and the ℓ-independence of traces of correspondences on c-admissible stacks (after Kato–Saito). (e) Appendix inputs: Beilinson–Drinfeld gluing of derived categories, lemmas on gerb-like and representable morphisms of stacks, the Lefschetz trace formula and cohomological L-functions for holonomic complexes (after Etesse–Le Stum), Čebotarev density for overconvergent F-isocrystals (after Tsuzuki), and Gabber–Fujiwara ℓ-independence with p-adic coefficients. Correct the statements recorded in PAPER-ABE-18's sourceIssues. Consumer: GlobalShtukasPartIICrystallineCompanions (PAPER-ABE-18), which needs (c)–(e) on Lafforgue's compactified shtuka stacks.",
+      "reason": "PAPER-XU-ZHU-22 proposed PadicDifferentialEquationsPartIIArithmeticDModules for holonomic arithmetic D-modules with the six operations, weights, nearby cycles and hyperbolic localisation, and its brief names this paper as the main source of those stages. §§1–3 and the appendix here are exactly that foundation, extended from realizable schemes to all separated schemes of finite type and to admissible algebraic stacks, with trace maps, cycle classes and ℓ-independence of traces of correspondences. The route keeps the candidate's id, title and area."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GlobalShtukasAndFunctionFieldLanglands",
+      "roadmap": "GlobalShtukasPartIICrystallineCompanions",
+      "title": "Global shtukas and Langlands over function fields, Part II: the Langlands correspondence for isocrystals and crystalline companions",
+      "area": "functionfields",
+      "items": [
+        "PAPER-ABE-18/1",
+        "PAPER-ABE-18/31",
+        "PAPER-ABE-18/32",
+        "PAPER-ABE-18/33",
+        "PAPER-ABE-18/35",
+        "PAPER-ABE-18/36",
+        "PAPER-ABE-18/37",
+        "PAPER-ABE-18/38",
+        "PAPER-ABE-18/39",
+        "PAPER-ABE-18/40",
+        "PAPER-ABE-18/41",
+        "PAPER-ABE-18/42",
+        "PAPER-ABE-18/43",
+        "PAPER-ABE-18/44",
+        "PAPER-ABE-18/45",
+        "PAPER-ABE-18/46",
+        "PAPER-ABE-18/47"
+      ],
+      "brief": "Extend GlobalShtukasAndFunctionFieldLanglands from ℓ-adic to p-adic coefficients for GL_r over a function field F = k(X), k = F_q. Final theorems (Abe, J. Amer. Math. Soc. 31 (2018)): Theorem 4.2.2, the Langlands correspondence between irreducible overconvergent F-isocrystals of rank r with finite determinant on open subsets of X and cuspidal automorphic representations of GL_r(A_F) with finite central character, with matching Frobenius and Hecke eigenvalues and local L- and ε-factors of pairs; and Theorem 4.4.1, crystalline companions (Deligne's 1.2.10(vi)) for lisse ℓ-adic sheaves on curves. Cover, in order. (1) Q̄_p-isocrystals on curves with Frobenius at closed points, L-functions and their cohomological formula, and the pole/zero bounds from weights (Lafforgue VI.3). (2) The p-adic principe de récurrence (Abe, J. Reine Angew. Math. 734 (2018)) with the Abe–Marmora product formula for p-adic ε-factors (J. Inst. Math. Jussieu 14 (2015)); source-gate the local p-adic ε-factor theory as an outside input if no roadmap owns it. (3) Rank one: class field theory and Tsuzuki's theorem on unit-root F-isocrystals (Duke Math. J. 111 (2002)). (4) r-negligible, essential and complete objects over F², Frobenius-twisted categories ZI and Weil groups of isocrystals; the induction statement (S)_n. (5) The p-adic form of Lafforgue VI.17 (boundary cohomology is negligible), VI.20–VI.21 (the essential part is pure of weight 2r − 2 and sits in degree 2r − 2), the Hecke action through the negligible/essential filtration, VI.23–VI.26 (traces of Hecke operators and the decomposition H_ess = ⊕_π π ⊠ H_π(1 − r)) and VI.27 (H_π = q′^+E_π ⊗ q″^+E_π^∨). Transfer Lafforgue's ℓ-adic essential part and trace computation by the ℓ-independence of traces of correspondences and Čebotarev density rather than re-deriving them. (6) Applications: companions on curves; mixedness of holonomic complexes on curves; Čebotarev density; and the converse companions under the Bertini-type conjecture, recording that Abe–Esnault (Ann. Sci. ENS 52 (2019)) proved that conjecture over finite fields and Kedlaya ('Étale and crystalline companions, I', Épijournal 2022) removed it. Import, and do not rebuild: moduli of shtukas, their compactifications Cht-bar and Cht-bar′, the map Res to C^{r,N} and its strata, Hecke correspondences and partial Frobenii from GS.2 and GS.6; L. Lafforgue's ℓ-adic theorem and his ℓ-adic essential-part computation from GS.6; holonomic arithmetic D-modules on c-admissible stacks, weights, ℓ-independence of traces of correspondences, Lefschetz and Čebotarev from PadicDifferentialEquationsPartIIArithmeticDModules; overconvergent F-isocrystals and full faithfulness of restriction to dense opens from PadicDifferentialEquationsAndRigidCohomology RD.3; class field theory for function fields from FunctionFieldArithmetic. Coordinate: the pending PadicDifferentialEquationsPartIIRigidCompanions should import Theorem 4.2.2 and Theorem 4.4.1 from here instead of source-gating them; GlobalShtukasPartIICompanions stays the ℓ-adic group-valued owner. Tests: r = 1 against class field theory; r = 2 for the Legendre family over F_q(t), comparing Frobenius traces of the rigid cohomology of the fibres with Hecke eigenvalues at small places.",
+      "reason": "GlobalShtukasAndFunctionFieldLanglands GS.6 owns L. Lafforgue's GL_n correspondence, and the roadmap fixes an ℓ-adic coefficient field with ℓ ≠ p; no stage plans p-adic coefficients, overconvergent F-isocrystals on moduli of shtukas, or crystalline companions. The pending PadicDifferentialEquationsPartIIRigidCompanions (PAPER-ESNAULT-GROECHENIG-20) explicitly source-gates 'Abe's crystalline shtuka realization' as an outside input, and the pending GlobalShtukasPartIICompanions (PAPER-KLEVDAL-PATRIKIS-25) states that it produces no crystalline companion. Abe's proof reruns Lafforgue's argument (GS.6) with a different cohomology theory, so it extends the GlobalShtukas direction: a Part II that imports GS.2/GS.6 geometry and the p-adic six operations."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ABE-18/E1",
+      "kind": "misprint",
+      "locator": "§4.3.3, Corollary, p. 107",
+      "printed": "For t ∈ C such that Re(t) = (m − n)/2, the multiplicity of E′(−t) in E is exactly the order of pole of L_Y(E ⊗ E′^∨, Z) at Z = q^{t − dim(Y)}.",
+      "correction": "… the multiplicity of E′(t) in E …",
+      "reason": "The Proposition just above attaches the pole at Z = q^{t − dim Y} to the multiplicity of E′(t), and that is what the computation gives: Q̄_p(t) has geometric Frobenius q^{−t deg x}, so L_Y(Q̄_p(t), Z) = Z_Y(q^{−t}Z), with its pole at Z = q^{t − dim Y}. A pole there comes from a summand Q̄_p(t) of E ⊗ E′^∨, that is from E′(t) ⊂ E^ss (of weight m − 2Re(t) = n), not from E′(−t).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E2",
+      "kind": "misprint",
+      "locator": "§4.3.8, proof of (S)_1(ii), p. 108",
+      "printed": "Thus, by Čebotarev density A.4.1, we get f_!Q̄_p ≅ ⊕ q′^+χ′_p ⊗ q″^+χ′_p.",
+      "correction": "f_!Q̄_p ≅ ⊕ q′^+χ′_p ⊗ q″^+χ″_p.",
+      "reason": "The ℓ-adic decomposition two lines earlier is f_!Q̄_ℓ = ⊕ q′^*χ′ ⊗ q″^*χ″, and χ″_p is defined in the same sentence as the isocrystal corresponding to χ″.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E3",
+      "kind": "misprint",
+      "locator": "Bibliography, [De1], p. 133",
+      "printed": "Deligne, P.: La conjecture de Weil. II, Publ. Math. de I.H.E.S. 52, p.313–428 (1981).",
+      "correction": "Publ. Math. IHÉS 52 (1980), 137–252.",
+      "reason": "Crossref (doi:10.1007/bf02684780) and the journal give pages 137–252 and the year 1980 for Weil II.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E4",
+      "kind": "error",
+      "locator": "§1.1, Remark 1.1.2, p. 7",
+      "printed": "For a D^†_{𝔛,Q}-module M, we have F^*(M^σ) ≅ F^*(G^*M^{σ′}) ≅ F′^*(M^{σ′}) … This shows that endowing M with a Frobenius structure with respect to σ is equivalent to endowing M with a Frobenius structure with respect to σ′. Thus, our category Hol(X/K) does not depend on the choice of σ.",
+      "correction": "Drop the display. Two lifts σ, σ′ of the Frobenius differ by an element of the finite group Aut(K/Frac W(k)), which σ normalises, so σ^N = σ′^N for some N ≥ 1; hence M admits an s′-th Frobenius structure for σ for some s′ iff it does for σ′, which is what the independence of Hol(X/K) needs.",
+      "reason": "Take p ≥ 3, k algebraically closed, R = W(k)[π] with π^{p−1} = −p, σ fixing π and σ′(π) = ωπ with ω ∈ μ_{p−1}, ω ≠ 1, and M = (O, d + π dx) on Spf R{x} with F = F′ : x ↦ x^p. Then F^*(M^σ) = (O, d + pπx^{p−1}dx) and F′^*(M^{σ′}) = (O, d + pωπx^{p−1}dx); a horizontal map between them is multiplication by C·exp((ω − 1)πx^p), whose coefficients (ω − 1)^nπ^n/n! of x^{pn} have absolute value p^{−s_p(n)/(p−1)}, not tending to 0, so C = 0. Thus the displayed isomorphism fails, and M has a Frobenius structure for σ (Dwork's) but none for σ′ with the same s. The conclusion about Hol(X/K), the only thing used later (Lemma 1.4.11(i)), is correct by the argument above.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E5",
+      "kind": "misprint",
+      "locator": "§1.1.5, p. 11",
+      "printed": "This morphism factorizes in Real(k/R) as X →j X̄ →f̄ Y where j is an open immersion and f̄ is proper. We define f_+Hom_X(F, f^!G) ≅ j_+Hom(f̄_+F, j^!G) ≅ Hom_Y(f_!F, G).",
+      "correction": "f_+Hom_X(F, f^!G) ≅ f̄_+Hom_{X̄}(j_!F, f̄^!G) ≅ Hom_Y(f̄_+j_!F, G) = Hom_Y(f_!F, G), using (⋆⋆) for j under f̄_+ and then (⋆) for the proper f̄.",
+      "reason": "With the stated factorisation F lives on X, so f̄_+F is undefined, and G lives on Y, so j^!G is undefined; the printed middle term fits a factorisation 'proper, then open immersion', which does not exist in general. The isomorphism itself holds (it also follows by Yoneda from the projection formula).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E6",
+      "kind": "misprint",
+      "locator": "§1.2.9, p. 16",
+      "printed": "Now, we have the associated right derived functor R(H⁰f^!) : D^+(M(X/K)) → D^+(M(Y/K)).",
+      "correction": "R(H⁰f^!) : D^+(M(Y/K)) → D^+(M(X/K)).",
+      "reason": "f : X → Y and f^! goes from Y to X; the next sentence identifies f^! with R(H⁰f^!) on D^b(Hol(Y/K)).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E7",
+      "kind": "misprint",
+      "locator": "§1.4.2, p. 22",
+      "printed": "Hom(X, Y) ≅ {φ ∈ Hom_K(X, Y) | (a ⊗ 1)φ = (1 ⊗ a)φ = 0 for any a ∈ L}.",
+      "correction": "… (a ⊗ 1)φ = (1 ⊗ a)φ for any a ∈ L, i.e. φ is killed by Ker(L ⊗_K L → L).",
+      "reason": "For a = 1 the printed condition forces φ = 0. A morphism of L-objects is one with ρ′(a) ∘ φ = φ ∘ ρ(a); the Lemma and Corollary that follow use the corrected set M_0 = {m : Im = 0}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E8",
+      "kind": "gap",
+      "locator": "§1.4, proof of the Corollary of Lemma 1.4.11, p. 27",
+      "printed": "Put 𝔗′_F := (k′, R′, K′, K′, s, id). Then by the lemma, we get Hol(X ⊗_k k′/𝔗′_F) ≅ Hol(X/𝔗_F).",
+      "correction": "Use Lemma 1.4.11(i) (without Frobenius) to identify Hol(X/K)_{K′} with Hol(X ⊗_k k′/K′) = ∏_τ Hol(X^τ/K′), check that F^*_{K′} (with σ_{K′} = id) becomes pull-back along F_X ⊗ id_{k′}, which permutes the X^τ cyclically, and continue with the construction N = ⊕_i (F^*)^iM as in the text.",
+      "reason": "By Definition 1.4.10 an arithmetic base tuple requires σ|_{K′} to lift the s-th Frobenius of the residue field k′; for k′ = F_{q^n} with n > 1 that Frobenius is not the identity, so (k′, R′, K′, K′, s, id) is not an arithmetic base tuple and Lemma 1.4.11(ii), which assumes one, does not apply. The statement of the Corollary appears correct (e.g. for X = Spec F_{p²} over F_p both sides are Q_{p²}-spaces with an automorphism).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E9",
+      "kind": "misprint",
+      "locator": "§1.1.3(1), p. 8",
+      "printed": "and ⊗ has the left adjoint functor Hom.",
+      "correction": "… the right adjoint functor Hom.",
+      "reason": "In a closed monoidal category Hom(A ⊗ B, C) ≅ Hom(A, Hom(B, C)), so Hom(B, −) is right adjoint to − ⊗ B; this is how it is used in 1.1.4 and 1.2.10.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E10",
+      "kind": "misprint",
+      "locator": "§1.5.1, Theorem, (Var 3), pp. 28–29; also Theorem 2.3.34(III), p. 77",
+      "printed": "(Var 3) Let X →g Y →f Z be morphisms of realizable schemes such that f ∈ 𝔐_d and g ∈ 𝔐_e. Then the following diagram is commutative: … Tr_{f∘g} …",
+      "correction": "Add 'and f ∘ g ∈ 𝔐_{d+e}', as the author's own phrasing in 1.5.7 ('when the homomorphisms in the diagrams of (Var 2) and (Var 3) are defined') indicates.",
+      "reason": "Tr_{f∘g} in degree d + e is only defined for f ∘ g ∈ 𝔐_{d+e}, and 𝔐 is not closed under composition: with f = pr_t : A² → A¹ (in 𝔐_1) and g : X → A² given by the projection on (A² ∖ {y = 0}) × A¹, the inclusion of {y = 0} and an extra point P ↦ (0, 0) (in 𝔐_1), every fibre of f ∘ g has dimension 2 but f ∘ g is not flat at the isolated point P, so f ∘ g ∉ 𝔐_2. The compositions used in the paper lie in 𝔐.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E11",
+      "kind": "error",
+      "locator": "§2.2.2, definition of the modified dual, p. 51",
+      "printed": "We modify this functor by putting 𝔻̃_i := (d_{X_i/𝔛}) ∘ 𝔻_{X_i} where d_{X_i/𝔛} denotes the relative dimension function",
+      "correction": "𝔻̃_i := (−d_{X_i/𝔛}) ∘ 𝔻_{X_i}.",
+      "reason": "The gluing map β_φ needs X(φ)^*𝔻̃_i(M_i) ≅ 𝔻̃_j(X(φ)^*M_i). By Lemma 2.1.1(ii), 𝔻_{X_j} ∘ X(φ)^* ≅ (X(φ)^* ∘ 𝔻_{X_i})(e) with e = d_j − d_i the relative dimension of X(φ). With twists t_i on 𝔻̃_i this requires t_i = t_j + e, i.e. t_k = −d_k up to a constant. The printed t_k = +d_k leaves a discrepancy (2(d_j − d_i)), which is non-trivial for Frobenius structures (for BG_m with X_0 = Spec k, d_0 = 1 and d_1 = 2). With −d the construction is consistent with Lemma 2.1.1(ii); only ▲ = F is affected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E12",
+      "kind": "error",
+      "locator": "§2.2, Lemma 2.2.4(iii), p. 52; §2.3.1, Remark (ii), p. 63",
+      "printed": "(iii) If f is a flat morphism, then for any M ∈ D^b_hol(𝔆′), M is a direct factor of f_+f^+(M). … there exists a finite covering {𝔘_i} such that 𝔘_i possesses a quasi-finite flat morphism V_i → 𝔘_i from a scheme. … In particular, there is a dense open substack 𝔘 of 𝔛 such that there exists a finite locally free morphism V → 𝔘 from a scheme.",
+      "correction": "'finite flat surjective' in (iii), and 'quasi-finite flat surjective', 'finite locally free surjective' in the Remark.",
+      "reason": "For f : ∅ → 𝔆′ (finite and flat) f_+f^+M = 0; the proof, unit followed by trace, multiplies by the degree, which must be nowhere zero. The later uses (the Duality theorem 2.3.31, Lemmas 2.3.26 and 2.3.33) take such a morphism from the Remark and need it surjective, which SGA 3 V 7.2 provides.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E13",
+      "kind": "gap",
+      "locator": "§2.2.32, proof of (6), pp. 62–63; Theorem 2.3.38(i), p. 79",
+      "printed": "…Rp_{iA_i*}(M_{i,j}) is of weight ≥ (w + d_i + d′_j) − (d_i + w′) = w − w′ + d′_j. Now, by the spectral sequence of Lemma 2.2.16, the claim follows. … The following is a direct consequence of 2.2.32",
+      "correction": "The E_1 bound does not give the claim; a different argument is needed. For admissible stacks one can reduce, by localisation on the support and a finite flat surjection from a scheme on a dense open (Lemma 2.2.4(iii) with 'surjective'), to push-forwards between schemes, where Abe–Caro 4.1.3 applies.",
+      "reason": "The spectral sequence of Lemma 2.2.16 is E_1^{i,j} = R^jp_{iA_i*}(M_i) ⇒ H^{i+j}p_{A+}(M). The printed estimate makes E_1^{i,j} of weight ≥ (w − w′ + d′) + j, but it contributes to H^{i+j}, which must have weight ≥ (w − w′ + d′) + i + j, so the bound falls short by i. For 𝔛 = BG with G finite and M = A = L, E_1^{i,0} = H⁰(G^i, L) is pure of weight 0 in total degree i; the statement survives only because these terms cancel at E_2. Theorem 2.3.38(i) ('f_+ preserves weight ≥ w') is derived from this and is used in 4.3.3, 4.3.11, 4.3.14 and 4.3.20.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E14",
+      "kind": "gap",
+      "locator": "§2.1, proof of Proposition 2.1.13, pp. 47–48",
+      "printed": "it suffices to show the equalities after taking i^!_s where s is a closed point of S … Thus, we can reduce to the situation where we have a section s : S → X_0 of f_0. … it suffices to show the claim when S is a point, and in particular there is a section S → X.",
+      "correction": "Pass to an étale surjection S′ → S over which X_0 acquires a section (EGA IV 17.16.3), using that étale pull-back is exact and conservative and commutes with Rf_* (Lemma 2.1.14), and run Conrad's homotopy argument there.",
+      "reason": "A smooth surjection onto Spec k(s) need not have a section when k(s) is not separably closed (Spec F_{q²} → Spec F_q), and k is only assumed perfect. The test by i_s^! at closed points is also not justified on D^+ of the Ind-category: the colimit over dense opens U of a curve of j_{U+}O_U[1] is non-zero in Ind(Hol(S)) yet killed by Ri_s^! at every closed point. The statement is not in doubt.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E15",
+      "kind": "misprint",
+      "locator": "§2.3.17, p. 70",
+      "printed": "By this spectral sequence, the trace map for p = 1 yields the desired trace map Tr_f.",
+      "correction": "… for p = 0 …",
+      "reason": "In E_1^{p,q} = Ext^q(f_{p+}L^ω_{X_p}, L^ω_{Y_p}) ⇒ Ext^{p+q}, the element Tr_f of Ext⁰ comes from E_1^{0,0} (the family (Tr_{f_p})_p is determined by Tr_{f_0}); the text then says (Tr_f)_p = Tr_{f_p}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E16",
+      "kind": "misprint",
+      "locator": "§2.1, Definitions 2.1.2 and 2.1.3, p. 42",
+      "printed": "For an integer i ≥ 0, let [i] = {0, …, n} be the ordered set … X_n := X ×_𝔛 × ⋯ ×_𝔛 X (n factors)",
+      "correction": "[i] = {0, …, i}; X_n is the (n + 1)-fold fibre product (so X_0 = X and X_1 = X ×_𝔛 X, as the paper uses later).",
+      "reason": "Standard indexing of the Čech nerve cosk_0; the paper's own later computations use X_1 = X_0 ×_𝔛 X_0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E17",
+      "kind": "misprint",
+      "locator": "§2.2, Theorem 2.2.20, p. 58",
+      "printed": "Assume given data {C_i, α_φ} where C_i ∈ D^b(X_•) … Assume moreover that R^iHom_{D(X_i)}(C_i, C_i) = 0 for any i < 0.",
+      "correction": "C_i ∈ D^b(X_i), and R^kHom_{D(X_i)}(C_i, C_i) = 0 for all i ≥ 0 and k < 0 (as in BBD 3.2.4).",
+      "reason": "The index i is used both for the simplicial degree and the Ext degree, so as printed the hypothesis is about C_i with i < 0, which do not exist.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E18",
+      "kind": "error",
+      "locator": "§3.1.12, p. 95",
+      "printed": "We can check easily that for composable correspondences Γ, Γ′, we have d_{Γ′∘Γ} = d_Γ·d_{Γ′}. Then we have a ring homomorphism norm : Corr^{fin,et}_φ(𝔛) → Corr^{fin,et}_φ(𝔛); Γ ↦ (d_Γ)^{−1}·Γ.",
+      "correction": "The identity holds when the correspondences have generically trivial stabilisers relative to their coarse spaces (then d_Γ = 1 and norm = id), but not in general; the compatibility of ϱ′ = norm ∘ ϱ with composition in §4.3.17 needs a separate justification for Lafforgue's Hecke correspondences.",
+      "reason": "Take G = Z/2 over a finite field, 𝔛 = BG, u : Spec k → BG the universal torsor and Γ = Spec k with c_Γ = (u, u). Γ is integral, p_1 = u is finite étale and p_2 proper, Γ^gr = Spec k and Γ^gr ×_{𝔛^gr} 𝔛 = BG, so ρ = u and d_Γ = 2. But Γ ∘ Γ = Spec k ×_{u,BG,u} Spec k = G is two copies C_1, C_2 of Γ, each with d = 2 ≠ 4. Hence norm(Γ) ∘ norm(Γ) = (C_1 + C_2)/4 while norm(Γ ∘ Γ) = (C_1 + C_2)/2.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E19",
+      "kind": "error",
+      "locator": "§3.1.8, Remark after Lemma 3.1.8, p. 93; used in the proof of Corollary 3.2.1, p. 97",
+      "printed": "In general, there exists an open dense subscheme U ⊂ S such that the condition of the lemma holds for any s ∈ U.",
+      "correction": "This holds when every irreducible component of Γ dominates 𝔛 via p_1 (generic flatness); otherwise the generic base change of Γ^* needs another argument.",
+      "reason": "Let S = A¹, 𝔛 = 𝔛′ = S × P¹ and Γ = S × {0} × P¹ ⊂ 𝔛 ×_S 𝔛′. Γ is a correspondence (integral of dimension 2 = dim 𝔛, p_2 an isomorphism), but p_1 factors through the divisor S × {0}, so no non-empty open Γ′ ⊂ Γ is flat over 𝔛 and the density hypothesis fails at every s. Corollary 3.2.1 is stated for all Γ ∈ Corr_S(𝔛); its application in §4.3.20 uses Hecke correspondences finite étale over an open, where the remark does hold.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E20",
+      "kind": "gap",
+      "locator": "§3.2.5, p. 99; proof of Lemma 3.2.6, p. 100; used in §3.2.8, p. 101",
+      "printed": "When f′ is l.c.i., C_{𝔛′}𝒴′ is known to be a vector bundle over 𝔛, in which case we denote it by N_{f′}. … N_f ×_X U → U is a trivial bundle so that we can write N_f ×_X U ≅ U × A^n.",
+      "correction": "The normal cone is a vector bundle for regular immersions; for an l.c.i. morphism that is not an immersion it is a vector-bundle stack. The deformation argument should be run for the graph immersion (with the smooth projection handled by flat pull-back, Lemma 3.2.2), at least when 𝒴 is Deligne–Mumford.",
+      "reason": "The deformation space is flat over A¹ with general fibre 𝒴′ of dimension m, so a vector-bundle special fibre over 𝔛′ (dimension n) would have rank m − n, negative for a smooth f′ of positive relative dimension (e.g. A¹ → Spec k, which the text lists as l.c.i.); the displayed U × A^n also has the wrong rank. The proof of Theorem 3.2.1 applies Lemma 3.2.6 to f × f for an alteration f, which is not an immersion, so this case is not covered as written. The statement is expected to hold.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E21",
+      "kind": "misprint",
+      "locator": "§3.1, Definition 3.1.3(ii), p. 90",
+      "printed": "Note that c_Γ is a generalized cycle of codimension dim(𝔛′) of 𝔛 ×_{φ,S} 𝔛′.",
+      "correction": "… of codimension dim(𝔛 ×_{φ,S} 𝔛′) − dim(𝔛).",
+      "reason": "For S a curve, 𝔛 = 𝔛′ = S and Γ the diagonal, c_Γ is an isomorphism, of codimension 0, not 1. The two agree when S is a point, the only case where cycle classes of c_Γ are used (§3.2.7–3.2.8).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E22",
+      "kind": "misprint",
+      "locator": "Appendix A.3, Theorem A.3.2, p. 129",
+      "printed": "Tr_L(Frob^n_X; RΓ_c(X, E)) = Σ_{x∈X(k_n)} Tr_{L_x}(F^n_x; ι_x̄(E)).",
+      "correction": "Σ_{x∈X(k_n)} Tr_{L_x}(F_x^{n/deg x}; ι_x̄(E)), deg x being the degree of the closed point underlying the k_n-point x; equivalently Σ_{x∈|X|, deg x | n} deg(x)·Tr(F_x^{n/deg x}).",
+      "reason": "By A.3.1, F_x is the automorphism of ι_x̄(E) ∈ D(k(x)/𝔗_{k(x)}), whose base tuple has s′ = [k(x):k]·s, so F_x is the q^{deg x}-Frobenius. For X = Spec k_2 and E the unit object with Frobenius scaled by c, the left side at n = 2 is 2c² while the printed right side is 2c⁴. Corollary A.3.3 (the formula (4.3.2.1)) holds with the corrected exponent.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E23",
+      "kind": "misprint",
+      "locator": "Appendix A.3, proof of Theorem A.3.2, p. 130",
+      "printed": "0 = Tr_K(Frob_X; RΓ_c(X, F^{(1/β)})) = Tr_{L/K}(Tr_L(Frob_X; RΓ_c(X, E^{(1/β)}))) = Tr_{L/K}(1) = [L : K]",
+      "correction": "Frob_X^n in all three places, and E^{(1/β)} (viewed over K) in place of F^{(1/β)}.",
+      "reason": "What was arranged two lines earlier is Tr_L(Frob^n_X; RΓ_c(X, E^{(1/β)})) = 1, and the vanishing on the left uses X(k_n) = ∅.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E24",
+      "kind": "error",
+      "locator": "Appendix A.5, Theorem A.5.1, p. 131",
+      "printed": "For x ∈ [𝔛(F_q)], we denote by i_x : Spec(F_q) → 𝔛 the corresponding morphism. Then, for any n > 0, we have Σ_i (−1)^i Tr(F^n : H^i_c(𝔛, M)) = Σ_{x∈[𝔛(F_q)]} (1/#Aut(x)) Tr(F^n : i_x^+(M)).",
+      "correction": "State it for n = 1 over each finite base field, or sum over x ∈ [𝔛(F_{q^n})] with the q^n-Frobenius and #Aut(x)(F_{q^n}).",
+      "reason": "For 𝔛 = Spec F_{q²} over F_q and M the unit object, H⁰_c is two-dimensional with F exchanging the two geometric points, so the left side at n = 2 is 2, while 𝔛(F_q) = ∅ makes the right side 0. Theorem A.5.4 only needs the n = 1 case over every F_{q^d}, which the sketched proof gives.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E25",
+      "kind": "misprint",
+      "locator": "Appendix A.5, Definition A.5.2, pp. 131–132",
+      "printed": "We say that E and F are compatible if for any point x ∈ [𝔛(F_{q^d})], the Frobenius trace of ρ_+ ∘ i_x^+(E) and ρ_* ∘ i_x^*(F) are equal.",
+      "correction": "… the traces of F^d on ρ_+i_x^+(E) and ρ_*i_x^*(F) (equivalently of the q^d-Frobenius on i_x^+E and i_x^*F) are equal; also D^b_c(𝔛/Q̄_ℓ) for D^b_c(X/Q̄_ℓ).",
+      "reason": "ρ_+ of an object over F_{q^d} is induced: F permutes d blocks cyclically, so its trace is 0 on both sides for d > 1. As written the condition only tests F_q-points, much weaker than what §4 uses with Čebotarev density (e.g. in the proof of Proposition 4.3.14).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E26",
+      "kind": "error",
+      "locator": "Appendix A.2, Lemma A.2.2, p. 127",
+      "printed": "Let f : 𝔛 → 𝔜 be a representable morphism of algebraic stacks over an integral scheme S. For the generic point η ∈ S, if f_η is separated, then there exists an open subscheme U ⊂ S such that f_U is separated. … by [EGA VI, 8.10.5]",
+      "correction": "Assume f of finite presentation and 𝔜 quasi-compact and quasi-separated, the setting of EGA IV 8.10.5 (printed as 'EGA VI').",
+      "reason": "Glue copies T_0, T_1, … of A¹ with T_0 ∩ T_i = A¹ ∖ {s_i} for infinitely many distinct closed points s_i: X → A¹ is representable and locally of finite type with separated generic fibre, but every non-empty open of A¹ contains some s_i, over which X has a doubled point. The lemma is applied later (A.2.3, A.2.4) only to morphisms of finite type over noetherian bases.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-18/E27",
+      "kind": "misprint",
+      "locator": "Appendix A.4, proof of Proposition A.4.1, p. 131",
+      "printed": "If μ is the multiplicity of F in E^ss, Proposition 4.3.3 implies that L(E ⊗ F, Z) has a pole of order μ at Z = q^{−dim(X)}.",
+      "correction": "L(E ⊗ F^∨, Z); with L-coefficients the pole order is μ·dim_L End(F).",
+      "reason": "The display just above compares L(E ⊗ F^∨, Z) and L(E′ ⊗ F^∨, Z). With L not algebraically closed and F not absolutely irreducible (e.g. X = Spec k, F of rank 2 with characteristic polynomial t² + 1 and √−1 ∉ L), the pole has order 2μ; the same factor appears for E and E′, so the conclusion stands.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
+        "arXiv 1310.0528: v3 (9 April 2018, after acceptance) is the last version and was read in full; the journal version on ams.org returns HTTP 403 to scripts and to WebFetch, and no author copy of the published text was found",
+        "Later literature that revisits the paper: Kedlaya, 'Notes on isocrystals' and 'Étale and crystalline companions, I' (Épijournal 2022), and Abe–Esnault, Ann. Sci. ENS 52 (2019); none records an error in it"
+      ]
+    }
+  ]
+}
