@@ -3794,7 +3794,8 @@
    ],
    "avoidAccountOf": "PAPER-GUO-REINECKE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GUO-REINECKE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1227"
   },
   {
    "id": "PAPER-DISEGNI-LIU-24",
@@ -4059,8 +4060,9 @@
    ],
    "avoidAccountOf": "PAPER-BREUIL-ETAL-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BREUIL-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1242"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1242",
+   "finishedAt": "2026-09-23T22:36:24Z"
   },
   {
    "id": "PAPER-NAKAMURA-23",
