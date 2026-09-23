@@ -9,10 +9,10 @@
     "doi": "10.4007/annals.2024.200.1.3",
     "arxiv": "2201.11190v2",
     "url": "https://arxiv.org/pdf/2201.11190v2",
-    "version": "arXiv v2, 15 February 2024, 25-page PDF; all sections and references read. Published Annals 200(1), pp.123–152 identified but not collated.",
+    "version": "arXiv v2, 15 February 2024, 25-page PDF, and the published text, Ann. of Math. 200 (2024), no. 1, 123–152, both read in full. Locators give the published pagination; arXiv v2 has the same numbering.",
     "accessed": "2026-09-21",
     "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
-    "archiveStatus": "Exact arXiv v2 PDF archived and SHA-256 checked on 2026-09-21. A public published-version URL at https://par.nsf.gov/servlets/purl/10625156 was identified, but both browser retrieval and a 50-second curl request timed out. No published-PDF hash or full collation is claimed.",
+    "archiveStatus": "arXiv v2 PDF archived, SHA-256 d71e9d3f…842614, checked 2026-09-21. The published version was retrieved from https://par.nsf.gov/servlets/purl/10625156 (NSF Public Access Repository), SHA-256 a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80, 31 pages; review REV-PAPER-FU-24 re-fetched it on 23 September 2026 and confirmed that hash. Earlier passes recorded the retrieval as having timed out; the timeouts were transient and this field is corrected accordingly.",
     "readSections": [
       "Sections 1-7 in full via the v2 HTML text, including proofs and references",
       "PDF text comparison and accessible page images; some diagram/page screenshot requests failed and no full visual collation is claimed",
@@ -30,7 +30,7 @@
       "accessed": "2026-09-22",
       "url": "https://arxiv.org/pdf/2201.11190v2",
       "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
-      "scope": "Independently read all 25 pages, §§1–7, every proof and references. Published PDF still unavailable: conventional Annals PDF path 404; NSF public URL timed out. Publisher metadata and author research page confirm the article identity, not a full version collation."
+      "scope": "Independently read all 25 pages, §§1–7, every proof and references. Published PDF still unavailable: conventional Annals PDF path 404; NSF public URL timed out. Publisher metadata and author research page confirm the article identity, not a full version collation. (Review REV-PAPER-FU-24: the published PDF was later retrieved successfully from NSF PAR and is the text the locators cite; this scope note describes the earlier pass only.)"
     },
     "publishedRead": {
       "url": "https://par.nsf.gov/servlets/purl/10625156",
@@ -39,7 +39,8 @@
       "date": "2026-09-23",
       "reader": "cc-442dc5",
       "collation": "Read in full and collated with arXiv v2: the numbered statements agree. The published Corollary 1.3 adds 'Suppose K_f is sufficiently small'; page images were checked at p. 146 (Theorem 5.7's proof). All locators now refer to the published pages."
-    }
+    },
+    "publishedSha256": "a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80"
   },
   "summary": "Fu proves a degree-one saving bound dim S_k(K_f) ≪ (min k_i)^{-1}∆(k) for cohomological cusp forms on SL₂ over a number field that is not totally real, hence dim ≍ k for Bianchi forms. The method passes completed homology through Ardakov–Wadsley's microlocalization. It shows that nonzero Iwasawa elements stay nonzero at every integral central character (Theorem 1.5), and it bounds the PBW growth of cyclic torsion modules. Complete (cc-442dc5): the published text was read and collated, every numbered statement is an item, every missing item is routed, and seven findings are recorded in §18 form. Theorem 5.7 is false as printed for non-integral characters (E7), and its proof at large radii has a gap (E5); the main theorems rest on Ardakov–Wadsley instead. Not formalised.",
   "agent": "Codex",
@@ -3862,6 +3863,11 @@
           "PAPER-FU-24/bianchi-boundary-estimate",
           "PAPER-FU-24/bianchi-cohomological-sharpness"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p. 125. Equation (2) is printed as dim_C H_c^{r₁+r₂}(Y(K_f), W_k) = 2^{r₁} dim_C S_k(K_f), and the following sentence says the space of cusp forms 'corresponds to the first compactly supported cohomology … by the Eichler–Shimura isomorphism (2)'. Eichler–Shimura identifies cusp forms with cuspidal (interior) cohomology; H_c carries boundary contributions as well, so the identification as printed is with the wrong group. The extraction is right that nothing downstream moves, since the boundary terms are bounded by a constant times the number of cusps, which the paper's degree-one saving absorbs. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -3892,6 +3898,11 @@
           "PAPER-FU-24/distribution-radius-completion",
           "PAPER-FU-24/frechet-stein"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p. 138. Equation (16) prints D_r(G,K) = {Σ λ_α b^α : sup_α |λ_α| r^{|α|} < ∞}, while the line above defines D_r(G,K) as the completion of D(G,K) for ‖·‖_r. A non-archimedean completion with respect to a sup-norm on an orthogonal basis is the space of series whose terms tend to zero, not the bounded ones — the difference between c₀ and ℓ^∞ — so the displayed set is strictly larger than the object being defined. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -3924,6 +3935,11 @@
           "PAPER-FU-24/induced-central-injectivity",
           "PAPER-FU-24/central-scalar-descent"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p. 147. Remark 5.8's second bullet prints 'The infinitesimal character λ is induced if and only if the valuation λ₀ is at least 2', and the justification it gives — 'since for any continuous character χ : T ≃ 1+pZ_p → 1+pZ_p, dχ(p²h₂) ∈ p²Z_p' — proves only that an induced character has v(λ₀) ≥ 2. The converse needs a square root to exist, which is the extraction's point; I verified its p = 3 instance to the extent that 2λ(Δ)+1 = 3 is not a square in Z_3, so that λ is not induced although its valuation is admissible. I did not re-derive the paper's normalisation of λ₀ against λ(Δ), so the exact form of the corrected criterion rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -3954,6 +3970,11 @@
           "PAPER-FU-24/microlocal-ore-set",
           "PAPER-FU-24/lazard-microlocal-identification"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the argument is short enough to check outright. Equation (17) at published p. 138 sets S₀ := ⋃_{a≥0} (p^a + m^{a+1}) ⊆ R[[G]] with R the ring of integers of a finite extension K/Q_p. If K is ramified then p ∈ m², so for every a ≥ 1 we have p^a ∈ m^{2a} ⊆ m^{a+1}, whence −p^a ∈ m^{a+1} and 0 = p^a + (−p^a) ∈ p^a + m^{a+1} ⊆ S₀. A multiplicative set containing 0 localises to the zero ring, so the microlocalisation defined from S₀ is trivial for ramified R. Taking R = Z_p or unramified, as [AW13, §10] does, and base-changing to K is the right reading. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -3998,6 +4019,11 @@
           "PAPER-FU-24/small-radius-log-exp",
           "PAPER-FU-24/small-radius-central-domain"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located at published pp. 145–146 and 147. The proof passes from the associated graded ring gr_{r′} D_r^λ ≃ gr_{r′} D_r / gr_{r′}(p²Δ + λ₀) being a domain to D_r^λ being one, which needs the filtration induced on the quotient to be separated — i.e. D_r ∩ D_{r′}(p²Δ + λ₀) = D_r(p²Δ + λ₀) — and that step is not made. I verified that the proof as printed contains no such argument; I did not establish whether the separatedness in fact holds, so the extraction's classification as a gap rather than an error is the right one and I have not strengthened it. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -4028,6 +4054,11 @@
           "PAPER-FU-24/weight-size",
           "PAPER-FU-24/bianchi-cohomological-sharpness"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p. 125. Theorem 1.2(3) prints dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(Δ(k)) and Corollary 1.3 prints dim_C H_c^n(Y(K_f), W_k) ∼_{K_f} k. Both are notation slips rather than mathematical errors: the index i ranges over the archimedean places, r₁ + r₂ of them, and ∼_{K_f} is two-sided boundedness by positive constants depending on K_f, neither of which the paper states. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     },
     {
@@ -4058,6 +4089,11 @@
           "PAPER-FU-24/radius-central-domain",
           "PAPER-FU-24/large-central-character-zero-quotient"
         ]
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p. 145: 'Theorem 5.7. Let p be an odd prime. If 1/p < r < 1, then D_r^λ(G, Q_p) is an integral domain', with λ an arbitrary infinitesimal character. The extraction's counterexample turns on λ of small valuation making Δ − λ a unit, so that D_r^λ is the zero ring, which is not an integral domain; the hypothesis v_p(λ₀) ≥ 2 — satisfied in the only case the paper uses — excludes it. I verified the statement as printed and that no such hypothesis appears in it or in the proof; I did not recompute the norm ‖Δ‖_r, so the numerical instance rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
+        "by": "REV-PAPER-FU-24"
       }
     }
   ],
@@ -4394,5 +4430,16 @@
         "Independent review of derived analytic proofs; no formalization is claimed."
       ]
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1084,
+    "job": "REV-PAPER-FU-24",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published Annals text, re-fetched from NSF PAR and hashed (a6a15856…a7fd80, the hash the locators cite), together with arXiv v2 (d71e9d3f…842614, matching the recorded hash); every recorded mistake checked at its locator in the published pagination.",
+    "changes": "All 7 sourceIssues carry a review verdict and all are confirmed. The source block's stale archiveStatus, version and continuationRead.scope — which said the published PDF had never been retrieved, while every locator cites it with a hash — were corrected, and the published copy's SHA-256 was recorded. No item, status, route or locator changed.",
+    "lean": "none"
+  }
 }
