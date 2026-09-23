@@ -348,6 +348,27 @@
             "readSections": "Fresh PDF8–12; inherit the prior full AppendixB reading and corrections E29–E31. No new source issue asserted."
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-23",
+        "main": "Bounded continuation of #2394: fresh published LLHLM PDF124-128 and193-198, especially the exact closure definition and corrected projected-Hecke consumer. No new full-paper or complete supplier-paper read claimed.",
+        "sources": [
+          {
+            "title": "Published LLHLM23 author-hosted PDF",
+            "url": "https://math.rice.edu/~bl70/LocModels.pdf",
+            "sha256": "e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd",
+            "retrieved": "2026-09-23",
+            "readSections": "PDF124-128 and193-198, text; quotient/monodromy notation cross-checked with rendered PDF126."
+          },
+          {
+            "title": "Stacks finite reduced algebra suppliers",
+            "url": "https://stacks.math.columbia.edu/tag/00JB",
+            "retrieved": "2026-09-23",
+            "readSections": "Complete theorem statements/proofs of 00JB,00J8,00EW; 00EJ inspected but not used."
+          }
+        ]
       }
     ],
     "smoothLocusContinuation": {
@@ -366,7 +387,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Global-descent continuation by codex-7e92bd adds26 items A34–A58 and L61: pairing/sign, integral trace descent, common-residue gluing, positive automorphic sign and the p-adic monodromy bound. A06 and A26 now import the carrier and image condition from ArithmeticGaloisRepresentations; three source routes reuse existing supplier owners. N57 transitivity and power-rank facts are promoted as A57/A58; L61 imports the pinned partition order. Five definition/construction APIs have itemwise consumers and typed tests. E39 records an adjacent CHT scalar-inverse misprint; E40 repairs the unjustified Galois-closure step in the adjacent sign paper. The extraction remains partial. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10). A third cc-442dc5 pass adds itemwise interfaces for the §8 Breuil–Mézard definitions and records E41 (Lemma 8.4.9 notation). A fourth cc-442dc5 pass adds itemwise interfaces for the Appendix A deformation and patching definitions (A05–A11, A13, A15, A16, A19, A20, A22, A23) and records E42 (the adjoint representation of G_n). Continuation codex-a71f92 adds A59-A62: a source-qualified Labesse compact-unitary branch, the discrete Speh quotient/classification and the conditional positive-summand irreducibility adapter. The White withdrawal is recorded as a source-provenance warning, not a newly proved error in LLHLM. The complete Speh-factor Galois twist realization, coefficient/type dictionary and genericity interface remain open. Section3 API continuation codex-a71f92: all16 universal-geometry definitions/constructions now have individual uses,98 API entries and49 typed tests. Literal API census107/156,49 remaining; E43/E44 add two unreviewed action/equation findings, total44. Item counts and all19 routes unchanged.",
+  "summary": "Partial continuation: 519 items (67 library, 18 planned, 434 missing), 19 routes, 44 unreviewed source findings; all 156 definitions/constructions retain individual uses/API/typed tests. A63-A65 separate characteristic-zero field-factor detection and conditional integral deformation-quotient factorization. L62-L67 reuse pinned generic algebra/topology. P02's closure-to-exact-type converse is corrected as an extraction overclaim, not a source-paper finding. All 510 prior item statements/statuses and all sourceIssues/sourceData preserved. Global automorphic/type suppliers and the other twelve recorded closure gaps remain.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -7116,7 +7137,7 @@
         "LocalGaloisDeformationRings:R08.1",
         "LocalGaloisDeformationRings:R08.3"
       ],
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted. Continuation codex-a71f92 corrects the previously overstrong TypeQuotient.points API: the source defines a closure, not a general iff exact-monodromy statement. No source-paper error is asserted by this extraction correction.",
       "uses": [
         {
           "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
@@ -7147,8 +7168,8 @@
         },
         {
           "name": "TypeQuotient.points",
-          "role": "characterisation",
-          "statement": "For finite E′/E, a map R_ρ̄ → E′ factors through R_ρ̄^{λ,τ} iff the corresponding lift is potentially semistable of type (λ,τ)."
+          "role": "relation",
+          "statement": "An E'-point of the stated exact potentially semistable Hodge/WD type lies in its Zariski closure, hence its map factors through R_rhobar^(lambda,tau). The converse is not inferred from the closure definition for a general WD type with nonzero monodromy; any exact point characterization needs a separate theorem. The potentially crystalline/minimal and full potentially semistable cases have the specific Kisin criteria of Remark6.1.1."
         },
         {
           "name": "TypeQuotient.dominated",
@@ -7169,6 +7190,11 @@
           "name": "TypeQuotient.mono",
           "role": "relation",
           "statement": "τ′ ⪯ τ implies Spec R_ρ̄^{λ,τ′} ⊆ Spec R_ρ̄^{λ,⪯τ}."
+        },
+        {
+          "name": "TypeQuotient.integral_Hecke_factor",
+          "role": "compatibility",
+          "statement": "For a reduced finite flat Hecke target, use A63-A65 to pass from the exact-type characteristic-zero constituents to factorization through the dominated closed union. The field factors are jointly faithful; neither nilpotent nor vertical-torsion targets satisfy this test without more hypotheses."
         }
       ],
       "tests": [
@@ -7191,6 +7217,11 @@
           "name": "TypeQuotient.remark611",
           "kind": "compatibility",
           "statement": "With N_τ = 0 the quotient agrees with the potentially crystalline ring of [49] (Remark 6.1.1)."
+        },
+        {
+          "name": "TypeQuotient.closure_does_not_imply_exact_stratum",
+          "kind": "non-example",
+          "statement": "For the rank-two nilpotent family N_t=t E12 over a characteristic-zero field, rank N_t=1 for t≠0 and N_0=0. The closure of the rank-one stratum contains the rank-zero point. This is a warning about the closure-to-exact-type inference only, not a constructed family of potentially semistable Galois representations with fixed Hodge data."
         }
       ]
     },
@@ -15369,9 +15400,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A61",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65"
       ],
-      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem. Continuation codex-a71f92 splits the compact-unitary base-change input as A59, the residual-spectrum carrier/theorem as A60-A61, and the positive-summand irreducibility argument as A62. LLHLM Section9.1 already assumes F+ is not Q, so Labesse's degree restriction is available. The exact algebraic normalization and Galois realization of all Speh factors, and the local genericity/type dictionary, remain explicit gaps; the withdrawn White preprint is not used as an unqualified closure certificate.",
+      "proofOutline": "Thorne first defines H_i,Q and its image Hecke algebra T_i,Q. Proposition5.9 identifies the projected level0 module with the original-level module. Proposition5.12 supplies the scalar-inertia splitting on the projected level1 image algebra. Apply these at each v∈Q; the operators at distinct places commute. The raw global representation and its local compatibility remain explicit global suppliers, rather than being inferred from the projector calculation alone. EGH supplies characteristic-zero representations in the correct arbitrary-rank compact-unitary setting, with Frobenius-semisimplified compatibility away from p and only semisimplified compatibility at p. CHT glues constituent representations over the reduced integral Hecke algebra using its Lemmas2.1.4,2.1.5,2.1.12; those exact descent declarations, the polarization sign and the requisite genericity consequence still need individual supplier checks. CHT3.4.4(8) itself also passes to a selected Hecke image T(Y). The integral descent is now split into A34–A50, the prescribed sign into A51–A52, and the p-adic monodromy bound into A53–A55. The unitary-to-cuspidal base-change identification and its generic local constituents are still required: A50 supplies irreducibility of the Galois representation but is not by itself an automorphic base-change theorem. Continuation codex-a71f92 splits the compact-unitary base-change input as A59, the residual-spectrum carrier/theorem as A60-A61, and the positive-summand irreducibility argument as A62. LLHLM Section9.1 already assumes F+ is not Q, so Labesse's degree restriction is available. The exact algebraic normalization and Galois realization of all Speh factors, and the local genericity/type dictionary, remain explicit gaps; the withdrawn White preprint is not used as an unqualified closure certificate. A63-A65 now isolate the finite reduced flat field-factor detection and the conditional point-to-integral deformation-quotient factorization; the automorphic constituent/type hypotheses remain separate.",
       "implementationStatus": "unchecked",
       "note": "Exact cited supplier, freshly read in continuation codex-c83e7a. No Lean implementation."
     },
@@ -16247,6 +16279,210 @@
         }
       ],
       "note": "A consumer-specific use of AG2.2's rank/discrete-parameter comparison and AG2.7's residual interface, not a second general residual-irreducibility theorem. No claim of genericity or full monodromy compatibility is deduced here."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L62",
+      "kind": "theorem",
+      "name": "Finite algebra over an Artinian ring is Artinian",
+      "statement": "For rings R,S with an R-module structure and compatible scalar tower R,S,S, if R is Artinian and S is finite as an R-module, then S is an Artinian ring.",
+      "locator": "Mathlib/RingTheory/Artinian/Module.lean:403 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsArtinianRing.of_finite"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L63",
+      "kind": "theorem",
+      "name": "Reduced Artinian ring is its finite product of residue fields",
+      "statement": "For a commutative Artinian reduced ring R, IsArtinianRing.equivPi R is an R-algebra equivalence R ≃ ∏_(m:MaximalSpectrum R) R/m; its component at m sends x to its residue class. The maximal spectrum is finite and each factor is a field.",
+      "locator": "Mathlib/RingTheory/Artinian/Module.lean:519 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsArtinianRing.setOfPred_isMaximal_finite",
+        "mathlib:IsArtinianRing.equivPi",
+        "mathlib:IsArtinianRing.equivPi_apply"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L64",
+      "kind": "theorem",
+      "name": "Localization preserves reducedness",
+      "statement": "For a commutative reduced ring R and a submonoid M, every localization of R at M is reduced.",
+      "locator": "Mathlib/RingTheory/LocalProperties/Reduced.lean:28 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:isReduced_localizationPreserves"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L65",
+      "kind": "theorem",
+      "name": "Localization at non-zero-divisors is injective",
+      "statement": "For commutative rings R,S, a submonoid M of R and IsLocalization M S, if M is contained in the non-zero-divisors of R, the algebra map R→S is injective.",
+      "locator": "Mathlib/RingTheory/Localization/Defs.lean:941 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:IsLocalization.injective"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L66",
+      "kind": "theorem",
+      "name": "Ideal-killing algebra homomorphism descends to a quotient",
+      "statement": "For a two-sided ideal I of an algebra A and an algebra map f:A→B killing every element of I, Ideal.Quotient.liftₐ I f gives A/I→B whose composite with the quotient map is f. Uniqueness follows from surjectivity of the quotient map; the ring-hom version is Ideal.Quotient.lift.",
+      "locator": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean:471 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Ideal.Quotient.liftₐ",
+        "mathlib:Ideal.Quotient.liftₐ_comp",
+        "mathlib:Ideal.Quotient.lift"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L67",
+      "kind": "theorem",
+      "name": "The topological ring quotient projection is an open quotient map",
+      "statement": "For a commutative topological ring R and an ideal I, the canonical map R→R/I, where R/I has the quotient topology, is an open quotient map. Thus continuity of a map out of R/I can be checked after composition with that projection.",
+      "locator": "Mathlib/Topology/Algebra/Ring/Ideal.lean:80 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:QuotientRing.isOpenQuotientMap_mk"
+      ],
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Exact statement and variable context read in the pinned tree by Codex — codex-a71f92, 2026-09-23. Existing generic supplier, not new formalization."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
+      "kind": "theorem",
+      "name": "Characteristic-zero field factors faithfully detect a reduced finite flat Hecke algebra",
+      "statement": "Let O be the ring of integers of a finite extension E/Qp, and T a nonzero commutative finite flat reduced O-algebra. There are finitely many finite field extensions E_i/E and O-algebra maps x_i:T→E_i whose product is injective. More precisely T[1/varpi] is a finite reduced E-algebra, canonically the product of its residue fields, and x_i are the localization map followed by these projections. Hence t=0 in T iff x_i(t)=0 for every i. No claim is made that T itself is a product of its integral field-factor rings.",
+      "locator": "CHT Proposition3.4.4 integral-Hecke descent (same source as A48); Stacks tags 00JB,00J8,00EW; explicit field-detection adapter for LLHLM23 A.4.1.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L64",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L65"
+      ],
+      "proofOutline": "O-flatness gives varpi-torsion-freeness, so powers of varpi are non-zero-divisors and L65 makes T→T[1/varpi] injective. Localizing finitely many O-module generators spans a finite-dimensional E-algebra. It is reduced by L64 and Artinian by L62. L63 identifies it with a finite product of its residue fields. Each residue field is a quotient of a finite-dimensional E-vector space and hence finite over E. Compose the injective localization map with the equivalence. This uses every field factor, including factors with repeated-looking eigenvalue data; no unproved density assertion replaces injectivity.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Consumer-specific adapter built from pinned imports, not a new general Artinian/quotient implementation. Owner: IntegralHeckeAndGaloisDeterminants",
+      "tests": [
+        {
+          "name": "FieldDetection.congruent_pair_order",
+          "kind": "non-example",
+          "statement": "For T={(a,b) in Zp^2:a≡b mod p}, T is local, finite free and reduced. Its two Qp-coordinate maps jointly detect zero, but T is not Zp×Zp: (1,0) is not in T."
+        },
+        {
+          "name": "FieldDetection.nilpotent_invisible",
+          "kind": "non-example",
+          "statement": "T=O[epsilon]/(epsilon^2) is finite flat. Every map to a characteristic-zero field kills epsilon, although epsilon is nonzero. Reducedness cannot be omitted."
+        },
+        {
+          "name": "FieldDetection.vertical_component",
+          "kind": "non-example",
+          "statement": "T=O×k is finite and reduced but not O-flat. Every O-algebra map to a characteristic-zero field kills (0,1). Flatness/torsion-freeness cannot be omitted."
+        },
+        {
+          "name": "FieldDetection.one_factor_not_enough",
+          "kind": "non-example",
+          "statement": "In the congruent-pair order the element (0,p) is zero under the first coordinate but not the second. One chosen characteristic-zero eigenpoint does not detect the whole algebra."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64",
+      "kind": "theorem",
+      "name": "Ideal factorization can be checked on jointly faithful coefficient maps",
+      "statement": "Let R,T and F_i be commutative O-algebras, I an ideal of R, f:R→T an O-algebra map and x_i:T→F_i O-algebra maps with injective product. Then f factors uniquely through R/I if and only if every composite x_i∘f kills I. For finite flat reduced T as in A63 it suffices to use all the characteristic-zero field factors. If f is continuous and R/I carries the quotient topology, the descended map is continuous; if f is local between local rings and I is contained in the maximal ideal of R, the descended map is local.",
+      "locator": "LLHLM23 §6.1.1 PDF125–126 and A.4.1 PDF196–198: explicit ideal-kernel adapter; pinned quotient and open-quotient-map universal properties.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L66",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L67"
+      ],
+      "proofOutline": "For a∈I, every x_i(f(a)) vanishes, so injectivity of the product forces f(a)=0. L66 constructs the unique algebra map R/I→T. Conversely a factored map kills I, so do all composites. For continuity apply L67's quotient-map universal property to the equality of the composite with f. Locality follows because an element outside the quotient maximal ideal has a representative outside the maximal ideal of R, whose image under a local map is a unit. No reducedness of R or flatness of R/I is needed for this algebraic step.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Consumer-specific adapter built from pinned imports, not a new general Artinian/quotient implementation. Owner: IntegralHeckeAndGaloisDeterminants",
+      "tests": [
+        {
+          "name": "IdealFactor.identity_ideal",
+          "kind": "degenerate",
+          "statement": "For I=0 the unique descended map is f under R/0≅R."
+        },
+        {
+          "name": "IdealFactor.nilpotent_target_failure",
+          "kind": "non-example",
+          "statement": "For R=T=O[epsilon]/(epsilon^2), f=id and I=(epsilon), every field-valued composite kills I, but f does not factor through R/I. The maps are not jointly faithful."
+        },
+        {
+          "name": "IdealFactor.vertical_torsion_failure",
+          "kind": "non-example",
+          "statement": "For R=T=O×k, f=id and I=0×k, all characteristic-zero points kill I but f does not. This fails the flatness hypothesis needed to obtain joint faithfulness."
+        },
+        {
+          "name": "IdealFactor.all_components",
+          "kind": "compatibility",
+          "statement": "If T embeds into two field factors, testing both composites suffices even when T is a proper congruence subring of the product; surjectivity onto the integral product is unnecessary."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65",
+      "kind": "theorem",
+      "name": "Integral Hecke representation factors through the closed monodromy-bounded quotient",
+      "statement": "In the corrected LLHLM23 AppendixA.4 setting, let T be a nonzero reduced finite flat local O-Hecke image algebra (the projected image T_i^pr at auxiliary level), and let f_v:R_rhobar_v^framed→T classify the local restriction of the already constructed integral representation. Set R_v^D=R_rhobar_v^(lambda_v+eta,<=tau_v), with the closed reduced-union convention of P02. Suppose that for every characteristic-zero field-factor map x_i of A63, after a finite coefficient extension if necessary, x_i∘f_v corresponds to a potentially semistable representation of Hodge type lambda_v+eta and WD inertial type tau_i<=tau_v. Then f_v factors uniquely, continuously and locally through R_v^D. Apply this separately at every v|p, preserving any determinant/multiplier equation already satisfied by f_v.",
+      "locator": "LLHLM23 §6.1.1 PDF125–126, DefinitionA.3.1 PDF190, A.4 setup PDF195–196 and TheoremA.4.1 PDF196–198; explicit assembly of A55 with the reduced integral Hecke algebra.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64"
+      ],
+      "proofOutline": "Let I_v define the reduced union R_v^D. Each exact-type characteristic-zero point lies in its own Zariski closure by definition, and that closure is one of the subspaces in the dominated union. Thus I_v is killed by every x_i∘f_v (vanishing after a finite field extension already implies vanishing before it). A64 gives the unique integral factorization. The quotient topology and local-ring hypotheses give its continuity/locality. Algebraic identities such as fixed determinant or multiplier survive this factorization; no new choice of polarization is made. This finishes the point-to-integral step conditional on the automorphic constituent/type inputs. It neither proves those inputs nor asserts that every point of an exact-type closure still has exact monodromy type. For the usual complete-local topologies, the quotient topology is the maximal-ideal-adic topology because the quotient maps each power of the source maximal ideal onto the corresponding power in the quotient.",
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-a71f92, 2026-09-23. Consumer-specific adapter built from pinned imports, not a new general Artinian/quotient implementation. Owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity",
+      "tests": [
+        {
+          "name": "IntegralType.bound_not_equality",
+          "kind": "non-example",
+          "statement": "A type tau_i strictly below tau_v is allowed in the hypothesis. The conclusion is factorization through the dominated union, not an assertion of exact tau_v monodromy."
+        },
+        {
+          "name": "IntegralType.crystalline_bound",
+          "kind": "compatibility",
+          "statement": "When N_tau_v=0 is minimal, the dominated branch reduces to the potentially crystalline ring under P02/Remark6.1.1; retain the lambda_v+eta shift."
+        },
+        {
+          "name": "IntegralType.projected_image",
+          "kind": "compatibility",
+          "statement": "At auxiliary level use T_i^pr and the already proved projector local conditions. The ring-factor argument cannot justify substituting the unprojected full Hecke algebra."
+        },
+        {
+          "name": "IntegralType.no_classical_constituent_proof",
+          "kind": "non-example",
+          "statement": "Reducedness and flatness alone do not establish the local p-adic Hodge types of the field factors. Without the stated characteristic-zero type hypothesis, no deformation-quotient factorization follows."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -16676,7 +16912,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A33",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A65"
       ],
       "reason": "Reuse the CEGGPS all-rank patching candidate. The extra source obligation is the exact weak/detectable/minimal functor interface and arbitrary away-from-p-level construction, not another abstract patching roadmap.",
       "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
@@ -16951,7 +17188,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A45",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A46",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A48",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A64"
       ],
       "reason": "Trace descent and gluing actual representations over a reduced integral Hecke algebra refine the existing reconstruction and finite-image-algebra layers. These are suppliers of patching, not a second automorphic construction."
     },
@@ -17695,7 +17934,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers. Continuation codex-c83e7a read Thorne Definition2.3, Lemma4.2, Lemma4.3, Proposition4.4 and its full proof, plus Proposition5.9 and its proof. A26/A27 record the exact G_n adequacy and trace-kernel suppliers. Remaining projector and CHT local-global prerequisites are not thereby closed. CHT2.1.1/2.1.4/2.1.5/2.1.8–2.1.12 and3.4.4 descent have now been freshly read and split as A34–A50, with fixed multiplier explicit. Bellaïche–Chenevier published1.2 and BLGGT l=p II1.1 supply A51/A53. Remaining fine inputs include the self-dual-lattice maximality argument, the complete-local Carayol recursion, split-prime Chebotarev, residual Brauer–Nesbitt and, critically, the unitary strong-base-change decomposition identifying these constituents with RACSDC cuspidal systems and proving generic local components. Do not mark the latter implication closed merely from A50. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
     },
     {
       "id": "split-and-hypotheses",
@@ -18174,7 +18413,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A29",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A30"
       ],
-      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
+      "detail": "Thorne projector statements/proofs, EGH Theorem7.2.1 with its §7.1 setting, and CHT Proposition3.4.4 with proof and the projected use on PDF114–115 have now been read. Do not list these bounded sources as wholly unread. Finish exact atom closure for CHT2.1.4/2.1.5/2.1.12 integral polarized descent, the prescribed multiplier sign, generic local constituents and the at-p monodromy-dominance passage in the arbitrary-away-level setting. EGH gives only semisimplified compatibility at p, so it cannot silently supply equality of monodromy. E38 remains the missing unprojected implication; use A30–A33 on projected Hecke images. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
     },
     {
       "id": "global-descent-supplier-atoms",
@@ -18193,7 +18432,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A54",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A55"
       ],
-      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs."
+      "detail": "Source statements and proof decompositions are established at the recorded reading depth; formal supplier closure is not. Audit Baire/countability of finite p-adic extensions; the self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology. For A54 prove the precise inertia Clifford decomposition and equivalence of Jordan-partition dominance with all power ranks. For A30/A55 audit White/Labesse strong unitary base change, the decomposition into regular algebraic cuspidal systems with twists, cuspidality/genericity from the absolutely irreducible residual eigensystem, the σ(λ,τ)^* coefficient/constituent dictionary, and the deformation quotient point criterion. BC sign and BLGGT monodromy theorem statements are imported from their existing owners, not newly proved. The whole BC eigenvariety proof has not been read in this continuation. Continuation codex-a71f92 freshly checked Labesse5.3 (degree [F+:Q]>1 is present in LLHLM9.1) and the Moeglin-Waldspurger introduction; see A59-A62. The positive-rank direct-sum argument is explicit, but its input isomorphism still requires the algebraic normalization and Galois realization of every cuspidal Speh factor with exact twists, dense Frobenius comparison and semisimple uniqueness. Split-place automorphic comparison is available from Labesse5.3; the global Whittaker/generic-local consequence and the sigma(lambda,tau)^* coefficient/type dictionary still require exact supplier closure. White1106.1127 was withdrawn in v8; no assertion about which theorem in it fails is made here, and it is not an unchecked substitute for those proofs. Continuation codex-a71f92 now separates the conditional integral point criterion as A63-A65, using the already available reduced-Artinian product and quotient APIs L62-L67. Exact-type points imply membership in their closure; the former P02 API's converse has been removed as unsupported by the closure definition. Automorphic type occurrence, reducedness/flatness of the actual Hecke image, and the previous global supplier obligations remain prerequisites, not consequences of this algebraic factorization."
     },
     {
       "id": "unitary-base-change-source-version",
@@ -19990,6 +20229,54 @@
       "inputScope": "Eighteen current protocol, atlas, reviewed-coverage, owner, audit, roadmap and checker inputs guarded. Seventeen matched the local reads byte-for-byte; AUDIT-33 changed, so its current L7 row was fetched and reread. Allthree original deliverable blobs are unchanged.",
       "lean": "No Lean deliverable for this paper extraction; not run. All new plans remain implementationStatus unchecked.",
       "publicationBase": "cca5940641794771337b3eaa6e4be2b4df0b51c3"
+    },
+    "codexA71f92IntegralPoints": {
+      "date": "2026-09-23",
+      "base": "58abf5c053e07211aeee4b30a4536518de24d187",
+      "items": 519,
+      "statusCensus": {
+        "library": 67,
+        "planned": 18,
+        "missing": 434
+      },
+      "routes": 19,
+      "sourceIssues": 44,
+      "definitionConstructionCensus": 156,
+      "scope": "A63-A65 and L62-L67; correction of P02's overstrong TypeQuotient.points API; A30 gains A65 dependency. All510 previous statements/statuses and all44 sourceIssues/sourceData retained. No general exact-monodromy point iff is claimed.",
+      "reading": "Published PDF124-128,193-198 and rendered126; Stacks00JB/00J8/00EW statements/proofs; seven pinned Mathlib source files. Current IHG0-6 and L7/R08.1/R08.3 contracts and reviewed R03.1 audit read. No direct reviewed IHG or LocalGaloisDeformationRings rows exist in data/library-coverage.json.",
+      "librarySearch": "Targeted searches across both pinned trees found the generic Artinian, localization, quotient and quotient-topology suppliers. No exact finite-Hecke/deformation type-factorization adapter was found; the consumer-specific assembly is conservatively missing and routed to existing owners.",
+      "lean": "No Lean file required or compiled. Finite diagnostics are regression checks, not general proofs.",
+      "sourceCorrection": "The P02 API converse was introduced by an earlier extraction continuation, not asserted by the quoted source closure definition. The new matrix rank-drop test is not a family of p-adic Galois representations; no new sourceIssue is justified by it.",
+      "checks": {
+        "paper": "ok",
+        "tests": {
+          "paper": 9,
+          "queue": 3,
+          "intake": 29
+        },
+        "items": 519,
+        "priorStatementsStatusesPreserved": 510,
+        "changedOldObjects": [
+          "P02 api/note/tests",
+          "A30 prerequisites/proofOutline"
+        ],
+        "sourceIssuesPreserved": 44,
+        "sourceDataPreserved": true,
+        "definitionsWithUsesAPIThreeTypedTests": 156,
+        "internalEdges": 300,
+        "acyclic": true,
+        "exactlyOneRoutePerMissing": true,
+        "diagnostics": {
+          "congruenceOrderOperations": 32836,
+          "unitChecks": 122,
+          "dualNumberProducts": 121,
+          "nilpotentRankDropCases": 68,
+          "jointCoordinateCases": 1834
+        },
+        "meaning": "Exact finite diagnostics only. No formal proof, actual p-adic monodromy family, or characteristic-zero density theorem established by these tests."
+      },
+      "publicationBase": "0d9a9e0fda317432de1abbc59db4fca0f3fffac7",
+      "publicationGuard": "All3 original deliverable GitHub blob IDs unchanged; all310 content/roadmap/atlas/audit/protocol/checker inputs byte-identical. Six cited Mathlib files byte-verified against the exact remote pin; no conflicting source update."
     }
   },
   "definitionApiGroups": [
