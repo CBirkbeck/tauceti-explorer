@@ -112,3 +112,17 @@ Since the published version is 22 journal pages longer than v1 and was refereed 
 - Every library declaration cited was read at the pinned commits: Mathlib 082e2d3 and Tau Ceti f790474.
 - Every prerequisite DOI was resolved on Crossref; the Tadić link was checked on Numdam.
 - The quadratic form of E9 and the Cartan matrix of the corrected roots were verified in exact arithmetic; the Dynkin and dimension counts of §4.1 were checked by hand.
+
+## Review (REV-PAPER-GAN-SAVIN-23, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its four routes, including the new roadmap, after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23.md`. The published version is closed access, so arXiv v1 remains the source.
+
+- **Statements and locators:** 29 statements and 6 locators corrected.
+- **Repairs:** both of the extraction's repairs are sound.
+- **New items:** 20 (1 planned, 19 missing). The new roadmap's brief has a corrections paragraph that turns the unproved steps into layer obligations.
+- **Source issues:** E1–E22 are confirmed, and the reach of the unproved steps E10, E12, E13 and E20–E22 is sharpened. E23–E52 are new:
+  - Proposition 10.4 is applied to a non-generic τ that Shahidi's method does not cover (E42);
+  - the genericity clause of Theorems 8.2(i)/8.5(iii) fails for nontempered generic τ (E30);
+  - §8.1 omits the trivial representation (E29);
+  - the quotients in Propositions 3.1(iii)/3.2(iii) are J_Q(1, ·);
+  - the rest are smaller gaps, errors and 19 misprints.

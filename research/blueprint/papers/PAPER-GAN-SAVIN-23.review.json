@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-GAN-SAVIN-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "A new roadmap is justified. Nothing in the atlas plans p-adic exceptional groups, their minimal representations, exceptional dual pairs or the representation theory of p-adic G_2. MetaplecticAutomorphicForms covers classical theta for the Weil representation, and SR the general smooth theory. The review added nine items and a corrections paragraph to the brief. The paragraph lists the unproved steps of arXiv v1 as layer obligations, the gap in Proposition 10.4, the genericity error in Theorems 8.2(i)/8.5(iii), and the §3 and §13 corrections."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Classical theta correspondences (MP.3) are inputs. The review added finiteness for Sp(V_6) × Sp(V_2) and Waldspurger's lifts from PB^× to S̃L_2."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The Bernstein decomposition and temperedness belong in SR.3. The review added eight general items here: Whittaker models and Rodier heredity, the Steinberg representation, the Langlands and Harish-Chandra classifications, degenerate Whittaker models, the mirabolic subgroup, Whittaker data, isotypic quotients of the regular representation, and finite length via Jacquet modules."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The LLC for GSp_4 (Gan–Takeda) is an ML.4 classification input."
+    }
+  ],
+  "notes": "Reviewed against arXiv v1 (the only version; SHA-256 8b3b6702…) and its TeX, by four checkers. The published version (Invent. Math. 232 (2023), 1–78) is closed access and could not be read. Corrections were made in place: 29 statements and 6 locators. There are 20 new items (1 planned, 19 missing). Both of the extraction's repairs are sound (prop-3-1, pgsp6-roots). E1–E22 are confirmed, and the reach of the unproved steps E10, E12, E13 and E20–E22 is sharpened. E20 carries the dichotomy and §§6–8. E10 carries tempered Howe duality for generic π. E23–E52 are new, 19 of them misprints. The substantive ones are four more gaps (Proposition 10.4 applied to the non-generic τ_ρ; the split case of Proposition 13.3; Lemma 6.4's E; Proposition 5.5's second case) and two errors in stated results. §8.1 omits the trivial representation of PGL_3. The genericity clause of Theorem 8.2(i), and the 'if' direction of Theorem 8.5(iii), fail for nontempered generic τ whose G_2 standard module is reducible, e.g. Ind(|·| ⊗ μ ⊗ |·|^{−1}μ^{−1}). There are also errors in the proofs of §13.4 (Proposition 13.7's δ′, and Lemma 13.8's B̄). The quotients in Propositions 3.1(iii)/3.2(iii) are J_Q(1, ·). The main Theorems 1.1 and 1.2 are presumably true. Their printed proofs in arXiv v1 are incomplete, and whether the published version fills the gaps could not be checked."
+}
