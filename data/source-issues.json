@@ -38709,6 +38709,46 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-NEWTON-THORNE-26/E1",
+   "kind": "gap",
+   "locator": "Proposition 5.4 and its proof, arXiv v2 pp. 39–40; the same step in the proof of Lemma 5.7, p. 42",
+   "printed": "PSL₂(F_{p^a}) contains an element of order t₁ (and t₁ ≠ p), and therefore that t₁ divides p^a − 1 or p^a + 1. In particular, we must have p^a > M. … this projective image either contains SL₂(F_{l^a}) for some l^a > t or is dihedral.",
+   "correction": "From t₁ | p^a ± 1 and t₁ > M one gets only p^a ≥ t₁ − 1 ≥ M (and in Lemma 5.7 only l^a ≥ t − 1). Either conclude p^a ≥ M, or assume t_i > M + 1. Every use needs only the weaker bound: Theorem 5.9 uses l^b ≥ M > p^{a₀(p)} > max(4r, 5), and Lemma 5.7 uses l^a ≥ t − 1 > 4r + 1.",
+   "reason": "Equality p^a = t₁ − 1 = M is possible: for p = 2, M = 16 and t₁ = 17 (a Fermat prime), 2⁴ ≡ −1 mod 17, so PSL₂(F₁₆) contains elements of order 17, and nothing in the argument forces a larger field. The strict inequality is not proved in that case.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2212.03595 submission history (v1 7 December 2022, v2 19 February 2025); v2, the version read, is the accepted manuscript (Annals 203 (2026), 283–347); the published text was not available to compare",
+    "Crossref metadata for the Annals article and a web search for an erratum, 23 September 2026: none found"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-26",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-26.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for Hilbert modular forms\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NEWTON-THORNE-26/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.8, checks (3) and (8), arXiv v2 p. 43",
+   "printed": "(3) r̄_{π,ι_l}(G_F) contains a conjugate of SL₂(F_{l^a}) for some l^a > 5 by hypothesis. … (8) The tensor product r_{γπ,ι} ⊗ Sym^{r−1} r_{σ′,ι} is automorphic, by assumption",
+   "correction": "(3) should concern r̄_{γπ,ι_l} (the representation fed to Theorem 4.1), and (8) should read ι_l for ι.",
+   "reason": "Theorem 4.1 is applied to γπ and δγπ with respect to ι_l. The hypothesis of Theorem 5.5(4) covers every prime l and every ι_l, hence r̄_{γπ,ι_l} = r̄_{π,γ^{−1}ι_l}, so the check holds as intended.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2212.03595 submission history (v1 7 December 2022, v2 19 February 2025); v2, the version read, is the accepted manuscript (Annals 203 (2026), 283–347); the published text was not available to compare",
+    "Crossref metadata for the Annals article and a web search for an erratum, 23 September 2026: none found"
+   ],
+   "owner": "PAPER-NEWTON-THORNE-26",
+   "file": "research/blueprint/papers/PAPER-NEWTON-THORNE-26.result.json",
+   "citation": "Newton–Thorne, \"Symmetric power functoriality for Hilbert modular forms\", Annals of Mathematics 203 (2026), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-NGODAC-21/E1",
    "kind": "misprint",
    "locator": "HAL v1, printed p.9, sentence preceding Proposition 2.5",
