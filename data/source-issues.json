@@ -51553,7 +51553,7 @@
    "kind": "gap",
    "locator": "Proposition 2.6.7, p.135; published Inventiones 228 (2022), NSF PDF SHA-256 dd821abd…ec89d97",
    "printed": "θS(ψi)(sj) = 0 if i ≠ j",
-   "correction": "An image bound does not yield diagonalization by a domain basis alone. Replace by a bounded-index shrink and track its loss, or prove an extra property of these evaluation maps. Compatibility with the distinguished first class in rank one remains open.",
+   "correction": "The general diagonal-basis assertion is not justified by abundance. For the rank-two application replace it by localization-selmer: retain a chosen primitive v, permute the two actual evaluation rows to make f1(v) have exponent ≥n−c, and choose a primitive t in ker(f1) with exp f2(t)≥n−c. The integral scaled-inverse and normalized-row proof is given in the report. S25-consumer shows that the original 8rR error budget is preserved. No bounded-index shrink or row combination of Galois evaluations is needed.",
    "reason": "Over O/λ^m with m>4, A=[[λ,1],[0,λ]] has image containing λ²O² and hence λ⁴O². Its total image has index |k|² but its two coordinate projections have indices 1 and |k|; a diagonal matrix with those projections would have index |k|. Right multiplication by a basis change preserves the image, so cannot diagonalize it. Thus the claimed implication from Definition 2.6.5 is false for general linear maps. This example is not presented as a realized Selmer evaluation system, so the finding is a proof gap rather than a counterexample under every global hypothesis.",
    "affects": "the proof",
    "known": "new",
@@ -51562,7 +51562,8 @@
     "2026-09-23: published NSF-hosted Springer PDF read completely (269 pages, printed 107–375).",
     "2026-09-23: Wei Zhang publications page https://math.mit.edu/~wz2113/math/pub.html and bounded exact-title erratum/correction searches; no standalone correction located.",
     "2026-09-23: arXiv:2509.16881v1 survey read completely (35 pages); no explicit correction of these findings located there.",
-    "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim."
+    "Publisher article/erratum access at https://link.springer.com/article/10.1007/s00222-021-01088-4 failed; this is not a complete publisher errata search. “new” means no correction found in this bounded search, not a priority claim.",
+    "2026-09-23 codex-a71f92: rechecked arXiv metadata (still v3); exact-title/Proposition 2.6.7 correction query found no primary correction. Published page images 135,317,318 collated. No expanded claim about the inaccessible publisher erratum index."
    ],
    "owner": "PAPER-LIU-ETAL-22",
    "file": "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
