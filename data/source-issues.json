@@ -82916,12 +82916,12 @@
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E1",
-   "kind": "error",
+   "kind": "gap",
    "locator": "Lemma 5.2(ii), p.956, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
    "printed": "\"(ii) The number of supersingular points in X₀(N)(F_{p²}) that correspond to supersingular elliptic curves over F_{p²} with the Frobenius trace a_{p²} = 2p or −2p and the j-invariant different from 0 and 1728 is at least µ(⌊(p−1)/12⌋ − 3/2 + (−3/p) + ½(−1/p)). In particular, there is a supersingular point with a_{p²} = 2p or −2p in X₀(N)(F_{p²}) over X(1)(F_{p²})∖{0,1728} that is unramified for π if p ≡ 1 mod 12 or p ≥ 31.\"",
-   "correction": "The \"in particular\" follows for p ≡ 1 mod 12 and for p ≥ 31 with p ≠ 47. At p = 47 the displayed lower bound is 0 and gives nothing. The existence of an unramified supersingular point at p = 47 comes instead from Lemma 5.2(iii), since 47 ≡ 2 mod 3.",
-   "reason": "The conclusion needs the lower bound to exceed the number of ramification points, which (i) bounds by µ/6. At p = 47: ⌊46/12⌋ = 3, (−3/47) = −1 (47 ≡ 2 mod 3) and (−1/47) = −1 (47 ≡ 3 mod 4), so the bound is µ(3 − 3/2 − 1 − 1/2) = 0 < µ/6. A computation over all primes 31 ≤ p ≤ 400 finds 47 as the only failure, and beyond that the floor term dominates. The main theorem is unaffected: Lemma 5.2(iii) covers p = 47, and Rubin's own verification (Remark 2.3) covers small p. Found by the review REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.",
-   "affects": "a stated result",
+   "correction": "The displayed bound is valid, but at p = 47 it equals 0, so the \"in particular\" does not follow from it. The \"in particular\" is nevertheless true, and for every p ≥ 13. By the Eichler–Deuring count and the N(t) table in the proof, each of the ⌊(p−1)/12⌋ supersingular j ≠ 0, 1728 has models over F_{p²} with a_{p²} = ±2p and µ points of X_0(N)(F_{p²}) above it. That gives µ⌊(p−1)/12⌋ ≥ µ > µ/6 such points. The displayed bound equals µ(⌊(p−1)/12⌋ − 2δ − ε) in the notation p − 1 = 12m + 4δ + 6ε of the proof, and is weaker than this count.",
+   "reason": "The deduction needs the lower bound to exceed the number of ramification points, which (i) bounds by µ/6. At p = 47: ⌊46/12⌋ = 3, (−3/47) = −1 and (−1/47) = −1, so the displayed bound is µ(3 − 3/2 − 1 − 1/2) = 0 < µ/6. Every other prime p ≥ 31 passes. The count from the proof's own facts is 3µ at p = 47, so the statement holds and only the deduction from the displayed bound fails. The construction of §5 (p.957) cites Lemma 5.2(ii) and (iii) together, and Rubin's verification (Remark 2.3) covers p = 47, so nothing downstream is affected. Found by the review REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21. Reclassified by REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21 from \"error; affects a stated result\".",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 22 September 2026: no erratum or corrigendum is linked",
@@ -82932,9 +82932,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked at p.956 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The arithmetic is right: at p = 47 the displayed bound is 0, so the \"in particular\" does not follow from it. This review corrects the reach in place. The entry called this a false stated result, but the \"in particular\" is true, including at p = 47. The facts in the paper's own proof (p.957) give more than the displayed bound. Write p − 1 = 12m + 4δ + 6ε. The N(t) table gives N(2p) = N(−2p) = m + δ + ε, and the classes with t = ±p and t = 0 occur only for j = 0 and j = 1728. So each of the m = ⌊(p−1)/12⌋ supersingular j-invariants other than 0 and 1728 has models over F_{p²} with a_{p²} = ±2p. Each has µ points of X_0(N)(F_{p²}) above it, by étaleness and Lemma 5.1(i). The true count is therefore µ⌊(p−1)/12⌋. The displayed bound equals µ(m − 2δ − ε), which is valid but weaker. Since there are at most µ/6 ramification points, the \"in particular\" holds for every p ≥ 13; at p = 47 the count is 3µ. So this is a gap in the deduction, not a false statement, and it reaches nothing. The kind, affects, correction and reason are updated accordingly. I confirmed by hand that 47 is the only prime p ≥ 31 at which the displayed bound fails."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E2",
@@ -82954,9 +82954,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked at pp.952–954 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The page images print \"a Hecke character of order l^m\" (p.952 and Proposition 3.3), \"the conductor fl^m of ϕ̄ν\" (p.953) and \"let l^m be the conductor\" (p.954). For l split, the part of the ring class group of conductor l^n coming from l is a quotient of (Z/l^n)^×. Its l-Sylow subgroup is cyclic of order l^{n−1} (the entry's \"the l-part … of order (l−1)l^{n−1}\" means the whole local factor). So a ν of exact order l^m ≥ l has conductor l^{m+1}O_K. Then L_m (degree l^m) does not lie in K(fl^m p^{n+1}), contrary to the definition of M_{n,m}, while z_{fl^m}, (3.6)–(3.7) and the proof of 3.3(3) all use l^m as the conductor. Reading l^m as the conductor and indexing L_m to match is consistent. So is the alternative of keeping \"order\" and using z_{fl^{m+1}}. Nothing else changes."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E3",
@@ -82976,9 +82976,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.958 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"[Φ′_s : Φ] = p^{s−1}(p+1)\". No Φ′_s is defined, and (O/p^sO)^×/(Z/p^sZ)^× has order p^{s−1}(p+1), the degree of Ψ′_s over Φ."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E4",
@@ -82998,9 +82998,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The index-p superlattices (1+ap^s)/p^{s+1}·Z_pt + T of T_s have conductor p^{s+1}, so they correspond to the conjugates of x_{s+1}, and the next display T_p x_s = Σ_σ σx_{s+1} + x_{s−1} uses x_{s+1}."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E5",
@@ -83020,9 +83020,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). The p+1 index-p superlattices of T are permuted by Gal(Ψ′_1/Φ), the image of ∆′, of order p+1. ∆ = Gal(Φ_0/Φ) has order p²−1 and does not act on points over Ψ′_1. Definition 5.4 sums over ∆′, and the s = 0 relation needed there is y_0 = Σ_{σ∈∆′} σx_1 = T_p x_0 = 0."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E6",
@@ -83042,9 +83042,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.959 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"V_∞/V^{∗,−}_∞\" is printed without the star. V^{∗,−}_∞ is a submodule of V^∗_∞, and the proof below and Theorem 5.8 use V^∗_∞/V^{∗,−}_∞."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E7",
@@ -83064,9 +83064,9 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.960 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named). I verified the relation independently from Coleman's norm relation ∏_{w∈F[π]} f(X[+]w) = f([π]X). With h = f′/(fλ′), it gives Σ_{w∈F[π]} h(X[+]w) = π·h([π]X). At X = 0 this is Σ_{γ∈∆} h(v_0^γ) = (π − 1)h(0), so δ_1 = (1 − π^{−1})δ = (1 + p^{−1})δ. The trivial character has conductor p^0 and lies in Ξ⁺, so δ_1 vanishes on V^{∗,−}_∞, and hence so does δ. The same relation reconciles (3.6) with (3.7) through the Euler factor 1 − ϕ̄ν(pO_K)/p² = 1 + 1/p. It also shows that δ is well defined on V^∗_∞, since δ_1 kills (σ − 1)U^∗_∞."
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E8",
@@ -83086,9 +83086,53 @@
    "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
    "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Checked on the page image of p.962 of the Caltech repository copy of the publisher PDF (SHA-256 77ff3290…790e, the version named): \"factoring through Gal(Ψ_n/Ψ)\". No field Ψ is defined, and λ_χ (p.955) is defined for characters of Gal(Ψ_n/Φ)."
+  },
+  {
+   "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9",
+   "kind": "misprint",
+   "locator": "Lemma 5.1(ii), p.956, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
+   "printed": "\"(ii) Let A be an elliptic curve over O that is a lift of A̅. Then the Honda type of the associated formal group Â is ±x² + p. In particular, Â is Lubin–Tate with parameter ∓p.\" (with a_q(A̅) = ±2p)",
+   "correction": "\"… the Honda type of Â is ∓x² + p. In particular, Â is Lubin–Tate with parameter ±p.\" That is, a_{p²} = 2p gives parameter p, and a_{p²} = −2p gives parameter −p.",
+   "reason": "By (i), φ_q = ±p on A̅ when a_q = ±2p. For a Lubin–Tate group with parameter π, [π] reduces to the q-power Frobenius. So π = φ_q = ±p, not ∓p. The paper's own set-up confirms this. §5.0.1 takes E/Q with a_p = 0, whose reduction has a_{p²} = a_p² − 2p = −2p, and states that Ê ≅ F, the Lubin–Tate group with parameter −p; the printed (ii) would give +p. Honda's type p − a_p x + x² for E/Z_p is x² + p there, whereas the printed (ii) would give −x² + p. The pairing of types with parameters in (ii) is right; only the link to the sign of a_q is reversed. Only \"Â is Lubin–Tate\" is used afterwards (p.958), so nothing is affected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 23 September 2026: pages 943–966, no erratum or corrigendum is linked",
+    "Crossref record of DOI 10.4007/annals.2021.194.3.8, checked 23 September 2026: no update or correction is registered",
+    "arXiv: no version of this paper was found (as the errata job records)",
+    "The review found it at the locator in the version named."
+   ],
+   "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
+   "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21."
+  },
+  {
+   "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/E10",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.2(ii), (iii), p.957, in the published version, Annals of Mathematics 194 (2021), 943–966 (Caltech repository copy of the publisher PDF, SHA-256 77ff3290…790e)",
+   "printed": "\"Since p is relatively prime to 6, the ramification index of π̄ at elliptic points is 2 or 3. So there are µ points in the fiber of each supersingular point in X(1) except j = 0, 1728, …\"",
+   "correction": "\"… the ramification index of X_0(N) → X(1) at elliptic points is 2 or 3.\"",
+   "reason": "π̄ : X_0(N)_{F_p} → E̅ is the reduced modular parametrization (p.955), whose ramification points Lemma 5.2(i) bounds. Elliptic points and the fibres over X(1) belong to the projection X_0(N) → X(1), which the sentence is about.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08, checked 23 September 2026: pages 943–966, no erratum or corrigendum is linked",
+    "Crossref record of DOI 10.4007/annals.2021.194.3.8, checked 23 September 2026: no update or correction is registered",
+    "arXiv: no version of this paper was found (as the errata job records)",
+    "The review found it at the locator in the version named."
+   ],
+   "owner": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "file": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
+   "citation": "Burungale–Kobayashi–Ota, \"Rubin's conjecture on local units in the anticyclotomic tower at inert primes\", Annals of Mathematics 194 (2021), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+   "reviewReason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21."
   },
   {
    "id": "PAPER-BURUNGALE-TIAN-26/E1",
@@ -89650,9 +89694,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'The Massey product of $\\alp_0,\\dots,\\alp_{n-1}$ contains~$0$ if and only if $V(k) \\neq 0$.' V is a variety, so the condition is nonemptiness; the sentence continues 'In other words, V constitutes a splitting variety', which is the intended reading."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E2",
@@ -89672,9 +89716,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'the image of $\\Br(V^c)$ in $\\Br(V)$, where $V^c$ is any choice of a smooth compactification of $V^c$'. A compactification of V^c would be V^c itself; the parenthesis that follows, on independence of the choice of V^c, shows V is meant."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E3",
@@ -89694,9 +89738,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Both the statement ('If $2 \\leq n \\leq 6$, the outer exponent of $\\U^1$ is equal to $p$') and the first step of its proof are verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The definition on p. 13 is that the outer exponent is the smallest e | d such that the powering action of (Z/d)^× on conjugacy classes factors through (Z/e)^×. For p = 2 that action factors through the trivial group (Z/2)^×, so the outer exponent is 1, not 2, and the proof's opening claim that it is divisible by p fails for the same reason: the abelianization having exponent 2 forces nothing, since (Z/2)^× is trivial. So the lemma is false at p = 2 and 'a stated result' is right. The correction is the right one, and the use downstream is unaffected: e enters only through the requirement that L contain the e-th roots of unity, which is vacuous for e ∈ {1, 2}."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E4",
@@ -89716,9 +89760,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'By Lemma~\\ref{l:exponent-0}, the exponent of $\\U^1$ is divisible by $9$. Hence it suffices to show that $M^4$ is conjugate to $M$'. The inference needs the exponent to divide 9: then the relevant group is (Z/9)^×, whose kernel to (Z/3)^× is {1,4,7}, generated by 4, which is exactly why M⁴ ~ M suffices."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E5",
@@ -89738,9 +89782,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: 'we may write $Q$ as the product $Q = e_{n-2,n}^{b_{n-2}} \\dots e_{0,2}^{b_0} e_{0,3}$'. In the case at hand Q is the lift built from a₂ ≠ 0, so the last factor carries that exponent."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E6",
@@ -89760,9 +89804,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. Two slips in one sentence: the statement being proved is Proposition 5.3, not a lemma, and the lift is of a homomorphism to U/Z, so it is a lift to U; the obstruction group named immediately afterwards, H²(K,Z), is the obstruction to lifting to U."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E7",
@@ -89782,9 +89826,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator at both places, and the same paragraph names the map correctly in between: 'we will show that the retraction $\\rho_{u,v}\\colon\\P^{r,s} \\lrar \\Z$ itself extends to $\\mS$'. Only the order of the subscripts is wrong in the two quoted occurrences."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E8",
@@ -89804,9 +89848,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator in the displayed diagram (eq:brvw): the target of the top map is written '\\Br_{1,\\nr}(W)/\\Br_0(V)'. The vertical map below it lands in H^1(k, \\what{\\P}^{r,s}), which is the W side, so the quotient must be by Br_0(W)."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E9",
@@ -89826,9 +89870,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. The reduction 'We are thus reduced to checking that $W(k_v)\\neq\\emptyset$ for any place~$v$ of~$k$' is verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator, and so is the convention that fixes the gap: 'Here and below, by a \\emph{local field}, we mean a complete discretely valued field with finite residue field.' Proposition 5.3 is therefore available only at the finite places, while the reduction quantifies over all of them. The archimedean cases are easy in the way the correction says, but they do need saying."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E10",
@@ -89848,9 +89892,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The class [γ] is taken in H¹(Γ, Hom(C,A)) for discrete Γ-modules A and C, and Hom(C,A) with the discrete topology is a discrete Γ-module only when the stabilizers are open, which finite generation of C guarantees and which can fail otherwise. The only application has C = P^{r,s}/Z finite, so adding the hypothesis costs nothing."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E11",
@@ -89870,9 +89914,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. P_4 is defined in the preceding sentence as the subgroup of U^1 spanned by the e_{i,j} with j ≤ 4, whose indices run over 0,…,4; that is a group of unitriangular 5 × 5-matrices, not 4 × 4."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E12",
@@ -89892,9 +89936,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. The bijection is asserted verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. A defining system is a collection of cochains a_{i,j} in which the adjacent ones a_{i,i+1} are arbitrary cocycle representatives of the classes α_i, whereas a lift of the fixed homomorphism α: Γ_k → A(W) has its adjacent entries pinned to the chosen representatives, so the two sets are not in bijection without the restriction. The existence statements used later are unaffected, as the entry says."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E13",
@@ -89914,9 +89958,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator: Theorem 7.4 opens 'Fix $n \\geq 3$ and let $R=\\FF_p$ for a prime number $p$' and then speaks of classes in H¹(k, M_{i,i+1}) without introducing k. Section 7 opens with generalities over Γ_k for an unspecified field, so k is not fixed earlier, and the proof runs through the number-field results of §5."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E14",
@@ -89936,9 +89980,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The indexing settles it: U^m is generated by the e_{i,j} with j − i > m, so U^m/U^{m+1} is spanned by those with j − i = m + 1, and e_{i,j} corresponds to Hom_R(N_j, N_i); the eigenspaces are therefore Hom_R(N_{i+m+1}, N_i)."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E15",
@@ -89958,9 +90002,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed. Verbatim in arXiv:1904.06512v2, which the errata records as identical to the author final version it read; I fetched its PDF (sha256 a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4) and its LaTeX e-print on 23 September 2026 and read the source at this locator. The two families overlap: i = 0 in the first gives Hom_R(N_n, N_0), and so does j = n in the second, so the expression is not a direct sum. Either reading in the correction repairs it."
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23/E16",
@@ -89980,9 +90024,9 @@
    "owner": "PAPER-HARPAZ-WITTENBERG-23",
    "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
    "citation": "Harpaz–Wittenberg, \"The Massey vanishing conjecture for number fields\", Duke Mathematical Journal (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "reviewReason": "Confirmed; I checked the ones I could locate in the source and each is as recorded — p.3 'Under genericity assumptions on the classes $\\alp_1,...,\\alp_n$' against the paper's own indexing α_0,…,α_{n−1}, p.7 'Let $V a homogeneous space' and 'which is orthogonal $\\Br_{\\nr}(V)$' with the preposition missing. Collecting these minor slips in one entry is reasonable; none carries mathematical content."
   },
   {
    "id": "PAPER-HE-21/E1",
