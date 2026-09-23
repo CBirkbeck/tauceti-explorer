@@ -2,21 +2,21 @@
   "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Complete catalogue-wide screen of tauceti:TauCetiRoadmap/NumberFieldArithmetic (NFA; the whole document and all eight layers read) against the 211 other atlas roadmaps and the new roadmap MordellLawrenceVenkatesh. This packet continues an earlier partial checkpoint. All 19 of its links and 4 of its overlaps were re-read against both stage texts and kept; three link reasons were extended with further evidence. Every roadmap was screened by summary, stage titles and a keyword-in-context search of stage descriptions and documents. Candidate pairs were decided by reading both stage descriptions in full. Result: 60 links (28 explicit, 32 inferred) and 10 overlaps; 22 roadmaps have links or overlaps and 190 have none. Incoming (7): LocalFieldsRamification Layers 0, 2, 3 → NFA Layers 5–6 (local extensions, e and f, unramified local Frobenius, local monogenicity, lower filtration, different theorems), and EffectiveBounds Layer 1 → NFA 3.3 and 8.2. Outgoing (53). Layer 2 (Artin symbol, tower laws, idealsAway/artinHomAway, cyclotomic Frobenius, complexConjugationAt) feeds Chebotarev Layers 1, 2, 4, 6, 7, 8, 11, 12, 13, GlobalNumberFields 2, 4, 10, ClassFieldTheory 11, HeegnerPointEulerSystems HE.0, ShimuraVarieties V5, ComplexMultiplication CM.3, AnalyticNumberTheory AN.4, ArithmeticGaloisRepresentations R01.5, MordellLawrenceVenkatesh LV.1 and LV.10, ClassicalArithmeticCompletion CA.5 and FoundationsAndLibraryIntegration LI.4. Layer 5 (local-field instance on completions, canonical completion maps, semilocal decomposition, norm/trace, decompositionHom, discriminant localization) feeds GlobalNumberFields 0, 1, 8, GlobalQuadraticForms 0, 2, 4, 5, 7, ClassFieldTheory 10, 11, 12, 13, 14, EllipticCurves 7, SmallRamification R25.1 and MordellLawrenceVenkatesh LV.1, LV.5, LV.6. Layer 1 feeds Chebotarev 1, 7, 8, 10 and IntegralIwasawaTheory L1. Layer 3 feeds PolynomialGaloisGroups 5 (the contracted Dedekind theorem), CA.5 and ComputationalNumberTheory CN.2. Layer 4 feeds Chebotarev 2, ClassFieldTheory 13 and CA.5. Layer 7 feeds CA.5 and CN.2. Overlaps: rescope Chebotarev's ramifiedPrimes onto NFA 4.3; rescope three Dedekind-generic duplications in AlgebraicCurves Layers 6–8 (Kummer's theorem, decomposition/inertia residue formulas and composita, localization of the different); rescope FunctionFieldArithmetic FA.3 onto NFA 1.3 and 4.1–4.3; rescope the discriminant-ideal definition shared by LocalFieldsRamification Layer 3 and NFA 4.1; keep NFA 7.1 versus PolynomialGaloisGroups 0, NFA 3.1–3.3 versus GlobalNumberFields 11, NFA 2.6 versus Chebotarev 4, and NFA 2.6 versus Multiquadratic 1. No merger of whole roadmaps is recommended. The overlap between AlgebraicCurves 7–8 and NFA 5–6 is already recorded in the AlgebraicCurves packet and is not repeated here.",
+  "summary": "Independently reviewed all 60 original links and 10 overlaps against their full endpoint stages; checked all eight focal layers and the current pinned NFA library audit. After four removals and five additions there are 61 links (18 explicit, 43 inferred) and 10 overlaps. Current LV consumers are LV.1, LV.6, LV.7 and LV.11, not topology LV.5 or monodromy LV.10. Removed the retired LI.4 process edge and the unsupported old LV.1 conjugation construction. Repaired nine one-sided explicit classifications, scope/hypothesis boundaries and already-landed ownership claims. Catalogue-wide completeness belongs to the original author's 212-roadmap examined ledger; this independent review spot-checks all eight focal stages across the current 2007-stage catalogue, rather than claiming a fresh full-catalogue review.",
   "links": [
     {
       "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
       "target": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-      "confidence": "explicit",
-      "reason": "EffectiveBounds Layer 1 (landed in Tau Ceti under `TauCeti/NumberTheory/EffectiveBounds/`) proves the discriminant bound |d_F| ≤ |disc b| for a basis of algebraic integers, whose proof is the change-of-basis identity disc b = index² · d_F. NFA 3.3 lists Tau Ceti `EffectiveBounds/` among its prerequisites and sharpens that inequality to the equation disc(minpoly θ) = (index θ)² · discr K for an integral primitive element.",
+      "confidence": "inferred",
+      "reason": "EffectiveBounds Layer 1 supplies the algebraic-integer basis discriminant bound and its determinant/change-of-basis infrastructure, explicitly consumed in NFA 3.3. This is reuse, not deduction of an equality from an inequality alone: at pinned Tau Ceti f790474, TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr (NumberField/Index/Discriminant.lean:56) already proves the exact power-order index equation. The consumer should import that equation rather than plan it again.",
       "evidence": [
         {
           "stageId": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
-          "quote": "**Discriminant from a basis of integers.** `|d_F| ≤ |disc b|` for any `ℚ`-basis `b` of algebraic integers (the index of `b` in a maximal order is a nonzero integer, and `disc b = index² · d_F`)."
+          "quote": "**Discriminant from a basis of integers.** `|d_F| ≤ |disc b|` for any `ℚ`-basis `b` of\n  algebraic integers (the index of `b` in a maximal order is a nonzero integer, and\n  `disc b = index² · d_F`)."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-          "quote": "*Prerequisites:* Layers 3.1 and 3.2; Mathlib `NumberField.discr`, `Algebra.discr_of_matrix_vecMul`; Tau Ceti `NumberField/Discriminant/OfIntegralBasis.lean` and `EffectiveBounds/`."
+          "quote": "*Prerequisites:* Layers 3.1 and 3.2; Mathlib `NumberField.discr`,\n`Algebra.discr_of_matrix_vecMul`; Tau Ceti\n`NumberField/Discriminant/OfIntegralBasis.lean` and `EffectiveBounds/`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
@@ -27,7 +27,7 @@
     {
       "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
       "target": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "The NFA 8.2 page-coverage map names Tau Ceti `EffectiveBounds/` as a source for the class-group and class-number data of an LMFDB page (certification level carrier-only or worked-only). EffectiveBounds Layer 1 supplies the explicit class-number bound h_F ≤ |d_F|·4ⁿ and the explicit ideal count behind it. The link records a source citation in the coverage table: no NFA theorem computes a class number from the bound.",
       "evidence": [
         {
@@ -80,15 +80,15 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
-          "quote": "Define the **Frobenius element** `Frob L/K ∈ Gal(L/K)` as the preimage of `x ↦ x^q`, named `frobeniusAlgEquiv`, and prove that `Gal(L/K)` is cyclic of order `f`, generated by it."
+          "quote": "Define the\n  **Frobenius element** `Frob L/K ∈ Gal(L/K)` as the preimage of `x ↦ x^q`, named\n  `frobeniusAlgEquiv`, and prove that `Gal(L/K)` is cyclic of order `f`, generated by it."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
-          "quote": "Every later statement about Frobenius is stated at that declaration, and never at an arbitrary generator of `Gal(L/K)`"
+          "quote": "Every later statement about Frobenius is stated at\n  that declaration, and never at an arbitrary generator of `Gal(L/K)`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "compatibility with the residue maps; and the statement that an `IsArithFrobAt` element maps to the local Frobenius."
+          "quote": "compatibility with the residue\n  maps; and the statement that an `IsArithFrobAt` element maps to the local Frobenius."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
@@ -132,7 +132,7 @@
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
       "target": "AnalyticNumberTheory:AN.4",
       "confidence": "inferred",
-      "reason": "AN.4 builds the Dedekind and Artin L-function interfaces and checks Euler factors, including ramified ones, against the Frobenius conventions. The local factor at an unramified prime is defined from the Artin class (NFA 2.3). At a ramified prime NFA pins that only the Frobenius coset modulo inertia is canonical. The analytic continuation and Artin-induction arguments are the consumer's.",
+      "reason": "AN.4 builds the Dedekind and Artin L-function interfaces and checks Euler factors, including ramified ones, against the Frobenius conventions. The local factor at an unramified prime is defined from the Artin class (NFA 2.3). At a ramified prime NFA pins that only the Frobenius coset modulo inertia is canonical. The analytic continuation and Artin-induction arguments are the consumer's. At a ramified prime the Artin Euler factor uses the induced Frobenius on inertia invariants; a chosen lift acting on the full representation is not a canonical ramified Euler factor.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
@@ -160,7 +160,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "A representation with finite image that is unramified at `v` is trivial on `I_v`. The image of any lift of arithmetic Frobenius is therefore well defined up to conjugacy, and its characteristic polynomial is an invariant of `v`."
+          "quote": "A representation with finite image that is unramified at `v` is trivial on `I_v`. The\n  image\n  of any lift of arithmetic Frobenius is therefore well defined up to conjugacy, and its\n  characteristic polynomial is an invariant of `v`."
         },
         {
           "stageId": "ArithmeticGaloisRepresentations:R01.5",
@@ -196,7 +196,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-          "quote": "Then the primes of `B` over `p` correspond to the monic irreducible factors of `minpoly A θ mod p`."
+          "quote": "Then the primes of\n`B` over `p` correspond to the monic irreducible factors of `minpoly A θ mod p`."
         },
         {
           "stageId": "ClassicalArithmeticCompletion:CA.5",
@@ -212,7 +212,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
-          "quote": "This layer adds the discriminant ideal that Mathlib never defines, and the identities that need nothing beyond it."
+          "quote": "This layer adds the\ndiscriminant ideal that Mathlib never defines, and the identities that need nothing beyond it."
         },
         {
           "stageId": "ClassicalArithmeticCompletion:CA.5",
@@ -224,15 +224,15 @@
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
       "target": "ClassicalArithmeticCompletion:CA.5",
       "confidence": "inferred",
-      "reason": "CA.5 reuses the owners of integral bases and unit groups and records which invariant is certified in quadratic and cyclotomic examples. NFA Layer 7 supplies the quadratic integral-basis package with the dyadic splitting law (7.2) and the rank-one explicit unit certificate with the exact regulator value (7.4). Class groups are not supplied by NFA.",
+      "reason": "CA.5 reuses the integral-basis and unit-group owners. NFA 7.2 supplies the quadratic integral-basis/dyadic-splitting package, and 7.4 supplies the rank-one unit minimality criterion and regulator calculation; its finite polynomial elimination certificate additionally requires prime field degree. These are scoped inputs to certified examples, not arbitrary-rank unit algorithms or class-group computations. Existing pinned quadratic results are imports, not new proofs.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
-          "quote": "Nothing in Mathlib certifies that a **named** unit generates modulo torsion."
+          "quote": "Nothing in Mathlib certifies that a **named** unit generates modulo\ntorsion."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
-          "quote": "Consume the existing `NumberField/Quadratic/RingOfIntegers.lean` theorems giving `𝓞_{ℚ(√d)}` with the case split on `d mod 4`"
+          "quote": "Consume the existing `NumberField/Quadratic/RingOfIntegers.lean` theorems giving\n`𝓞_{ℚ(√d)}` with the case split on `d mod 4`"
         },
         {
           "stageId": "ClassicalArithmeticCompletion:CA.5",
@@ -264,11 +264,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-          "quote": "Then the primes of `B` over `p` correspond to the monic irreducible factors of `minpoly A θ mod p`."
+          "quote": "Then the primes of\n`B` over `p` correspond to the monic irreducible factors of `minpoly A θ mod p`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-          "quote": "the criterion itself; and the corollary `Squarefree (f mod p) → ¬ p ∣ index θ`."
+          "quote": "the criterion itself; and the\ncorollary `Squarefree (f mod p) → ¬ p ∣ index θ`."
         },
         {
           "stageId": "ComputationalNumberTheory:CN.2",
@@ -294,37 +294,17 @@
     },
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-      "target": "FoundationsAndLibraryIntegration:LI.4",
-      "confidence": "explicit",
-      "reason": "LI.4 integrates NumberFieldArithmetic from the pinned supplier snapshot and audits the arithmetic/geometric Frobenius conventions against consumers. It is the campaign's integration owner for UPSTREAM:NumberFieldArithmetic. The integration covers the whole roadmap; the link is anchored at Layer 2, which fixes the arithmetic Frobenius convention and carries the frozen Artin-symbol and ideal-Artin-map contract.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "The frozen contract is `artinSymbol`, `artinSymbol_map_restrictNormalHom`, `exists_isArithFrobAt_pow_inertiaDeg`, `idealsAway`, `artinHomAway`,"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "\"Frobenius\" unqualified always means arithmetic. The geometric Frobenius is its inverse and is always called geometric."
-        },
-        {
-          "stageId": "FoundationsAndLibraryIntegration:LI.4",
-          "quote": "Integrate NumberFieldArithmetic, GlobalNumberFields, LocalFieldsRamification, ClassFieldTheory, ProfiniteCohomology, Chebotarev, ModularForms and EllipticCurves from the pinned supplier snapshots. Audit local/global reciprocity, norms, arithmetic/geometric Frobenius, ramification and class formations against the actual stage consumers."
-        }
-      ]
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
       "target": "HeegnerPointEulerSystems:HE.0",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "HE.0 names NumberFieldArithmetic as a dependency. It derives ring class fields and Artin maps from class field theory, including splitting, complex conjugation and the generalized-dihedral action. The splitting of a prime is read from its Frobenius (NFA 2.3: order f and generation of the decomposition group at unramified primes). The complex conjugation of the ring class field, which is Galois over ℚ, is the place-dependent element `complexConjugationAt w` of NFA 2.7. That element depends on the chosen complex place, and a ring class field is in general not a CM field, so `IsCMField.complexConj` does not apply.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "`orderOf (Frob Q) = f(Q/𝔭)`; `Subgroup.zpowers (Frob Q) = MulAction.stabilizer` at an unramified `Q`"
+          "quote": "`orderOf (Frob Q) = f(Q/𝔭)`; `Subgroup.zpowers (Frob Q) = MulAction.stabilizer` at an\n  unramified `Q`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "Define `complexConjugationAt w hw : L ≃ₐ[K] L` as the unique element satisfying `ComplexEmbedding.IsConj w.embedding`."
+          "quote": "Define\n`complexConjugationAt w hw : L ≃ₐ[K] L` as the unique element satisfying\n`ComplexEmbedding.IsConj w.embedding`."
         },
         {
           "stageId": "HeegnerPointEulerSystems:HE.0",
@@ -339,8 +319,8 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
       "target": "IntegralIwasawaTheory:L1",
-      "confidence": "explicit",
-      "reason": "IntegralIwasawaTheory names NumberFieldArithmetic among the dependencies of its L-block. L1 constructs maximal abelian pro-p extensions with a prescribed ramification condition, and the composita needed to identify their Galois groups. That a compositum of extensions unramified at a prime is unramified there is the NFA 1.5 compositum law. The class-field-theoretic parts (ray-class reciprocity and the unit exact sequence) come from ClassFieldTheory.",
+      "confidence": "inferred",
+      "reason": "IntegralIwasawaTheory names NumberFieldArithmetic among the dependencies of its L-block. L1 constructs maximal abelian pro-p extensions with a prescribed ramification condition, and the composita needed to identify their Galois groups. That a compositum of extensions unramified at a prime is unramified there is the NFA 1.5 compositum law. The class-field-theoretic parts (ray-class reciprocity and the unit exact sequence) come from ClassFieldTheory. This supplies the finite-level compositum law, not the infinite pro-p extension or inverse-limit Galois group.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
@@ -357,46 +337,14 @@
       ]
     },
     {
-      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-      "target": "MordellLawrenceVenkatesh:LV.1",
-      "confidence": "inferred",
-      "reason": "LV.1 defines friendly places through E_K, the largest CM or totally real subfield, cut out by products of two complex conjugations. At finite level, inside a Galois closure of K over ℚ, these are the place-dependent elements `complexConjugationAt w` of NFA 2.7, with conjugacy covariance and CM specialization. The CM-field classification it relies on is the consumer's (Milne, CM).",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "- conjugacy covariance `complexConjugationAt (σ • w) = σ * complexConjugationAt w * σ⁻¹`;"
-        },
-        {
-          "stageId": "MordellLawrenceVenkatesh:LV.1",
-          "quote": "the largest CM-or-totally-real subfield $E_K$ of $K$ as the fixed field of the products of two complex conjugations"
-        }
-      ]
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-      "target": "MordellLawrenceVenkatesh:LV.10",
-      "confidence": "inferred",
-      "reason": "LV.10 chooses a friendly place v with (q_v, q−1) = 1 and prescribed orders of q_v modulo the odd primes dividing q−1, by Chebotarev in K′(ζ_{q−1})/ℚ. Turning a Frobenius class in the cyclotomic factor into a congruence on the residue cardinality is the NFA 2.6 identification (Frobenius at p goes to p mod n under galEquivZMod), together with the restriction law of 2.4. The density statement is Chebotarev Layer 10.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "*Cyclotomic.* For `K` a cyclotomic field of conductor `n` and `p` coprime to `n`, prove `galEquivZMod n K (Frob Q) = ZMod.unitOfCoprime p hp`."
-        },
-        {
-          "stageId": "MordellLawrenceVenkatesh:LV.10",
-          "quote": "a friendly place $v\\notin S$ with $(q_v,q-1)=1$ and $q_v$ of order $\\ge8$ modulo every odd   prime divisor of $q-1$ (Chebotarev in $K'(\\zeta_{q-1})/\\mathbb Q$ and the Chinese remainder theorem)"
-        }
-      ]
-    },
-    {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "MordellLawrenceVenkatesh:LV.1",
       "confidence": "inferred",
-      "reason": "LV Lemma 2.10 in LV.1 is the identity Σ_{u|v} [L_u:K_v]·a_u(ρ) = [L:K]·w/2 over the places of L above v. With constant a_u it reduces to the finite-place local degree formula Σ_{w|v} [L_w:K_v] = [L:K] of NFA 5.3, and its local terms use the canonical completions L_u/K_v of 5.2.",
+      "reason": "LV.1's weighted Hodge identity uses canonical local extensions L_u/K_v and the degree-sum input of NFA 5.2–5.3. The local degrees are the coefficients in its displayed sum. NFA supplies neither Hodge weights nor the assertion that their weighted average equals w/2; those require the consumer's hypotheses and argument. Only the unweighted degree sum follows from the semilocal dictionary.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "Consequence: `Σ_{w ∣ v} [L_w : K_v] = [L : K]`, the finite-place analogue of Mathlib's archimedean `InfinitePlace.sum_inertiaDeg_eq_finrank`."
+          "quote": "Consequence: `Σ_{w ∣ v} [L_w : K_v] = [L : K]`, the finite-place analogue of Mathlib's\narchimedean `InfinitePlace.sum_inertiaDeg_eq_finrank`."
         },
         {
           "stageId": "MordellLawrenceVenkatesh:LV.1",
@@ -406,37 +354,21 @@
     },
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-      "target": "MordellLawrenceVenkatesh:LV.5",
+      "target": "MordellLawrenceVenkatesh:LV.6",
       "confidence": "inferred",
-      "reason": "In the S-unit reductions of LV.5 an auxiliary place v inert in the cyclic field K(t^{1/m}) is chosen so that t is not a square in K_v. The step from inert to not a local square is the semilocal dictionary of NFA 5.3 and 5.5: K_v ⊗_K L is a product of the completions above v, a single field of degree e·f = m when v is inert. The existence of such a v is Chebotarev's.",
+      "reason": "LV.6 now owns the S-unit/Kummer reductions. For its cyclic extension L=K(t^(1/m)) of degree m and chosen unramified inert place v, NFA 5.2–5.5 supplies the canonical extension L_w/K_v, semilocal decomposition and local degree e*f=m. With the consumer's mu_m and even-m hypotheses this rules out t being a local square. Chebotarev supplies existence of the place, and local unramified-extension theory is a separate input. The general finite-etale size criterion formerly quoted here has moved to LV.7.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "semilocalEquiv v : K_v ⊗[K] L ≃ₐ[K_v] ∏ (w : W v), L_w"
+          "quote": "semilocalEquiv v : K_v ⊗[K] L  ≃ₐ[K_v]  ∏ (w : W v), L_w"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
           "quote": "Then derive `[L_w : K_v] = e(w ∣ v)·f(w ∣ v)` from the local degree theorem"
         },
         {
-          "stageId": "MordellLawrenceVenkatesh:LV.5",
-          "quote": "an auxiliary place $v$ inert in the cyclic field (Chebotarev), so that $t$ is not a square in $K_v$"
-        }
-      ]
-    },
-    {
-      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-      "target": "MordellLawrenceVenkatesh:LV.6",
-      "confidence": "inferred",
-      "reason": "LV.6 indexes a residue disk by the splitting E_y ⊗_K K_v = ∏_{(y′,w)} K(y′)_w of the finite étale K-algebra E_y. Applied to each field factor K(y′), this is exactly the NFA 5.3 semilocal equivalence K_v ⊗_K L ≃ ∏_{w|v} L_w, with its pure-tensor formula and the local degrees used in Lemma 6.1.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "semilocalEquiv v : K_v ⊗[K] L ≃ₐ[K_v] ∏ (w : W v), L_w"
-        },
-        {
           "stageId": "MordellLawrenceVenkatesh:LV.6",
-          "quote": "the splitting $E_y\\otimes_K K_v=\\prod_{(y',w)}K(y')_w$ (LV (6.1))"
+          "quote": "- *Reductions*: enlarging $K$ and $S$ ($\\mu_8\\subseteq K$, places above $2$ in $S$), $U\\subseteq\\bigcup_j U_1^{2^j}$\n  with $U_1$ the non-square solutions; the Kummer fields $K(t^{1/m})$ (cyclic of degree $m$, unramified outside\n  $S$, finitely many); an auxiliary place $v$ whose Frobenius generates $\\mathrm{Gal}(L/K)$, so $v$ is inert."
         }
       ]
     },
@@ -464,11 +396,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "The residue-degree weights come from `Ideal.relNorm P = 𝔭 ^ f(P/𝔭)`. Every exponent computation of Layer 6 reduces to this formula."
+          "quote": "The residue-degree weights come from `Ideal.relNorm P = 𝔭 ^ f(P/𝔭)`. Every exponent computation\nof Layer 6 reduces to this formula."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "trace commutes with completion; trace dual commutes with flat base change; inverse fractional ideals commute with it;"
+          "quote": "trace commutes with completion;\ntrace dual commutes with flat base change; inverse fractional ideals commute with it;"
         },
         {
           "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
@@ -492,7 +424,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-1-consumed-frobenius-classes-and-powers-of-conjugacy-classes",
-          "quote": "Prove that the class at a split-completely prime is the identity and that the class cardinal is invariant under the chosen representative."
+          "quote": "Prove that the class at a split-completely prime is the\nidentity and that the class cardinal is invariant under the chosen representative."
         }
       ]
     },
@@ -524,7 +456,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
-          "quote": "Prove that a prime unramified in `M` is unramified in both factors, and that the primes ramified in `M` but not in `L` all lie above `q`, hence form a finite set."
+          "quote": "Prove\nthat a prime unramified in `M` is unramified in both factors, and that the primes ramified in `M`\nbut not in `L` all lie above `q`, hence form a finite set."
         }
       ]
     },
@@ -588,11 +520,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "compatibility with `AlgEquiv.restrictNormalHom`, at the level of the conjugacy class, as `artinSymbol_map_restrictNormalHom`;"
+          "quote": "compatibility with `AlgEquiv.restrictNormalHom`, at the level of the conjugacy class, as\n  `artinSymbol_map_restrictNormalHom`;"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
-          "quote": "Because restriction `Gal(M/K) → Gal(L/K)` is a homomorphism carrying `Frob_{M/K}(𝔭)` to `Frob_{L/K}(𝔭)` unpowered, every prime-power term counted by `ψ_{(σ,τ)}^{M/K}` is counted by `ψ_σ^{L/K}`"
+          "quote": "Because\nrestriction `Gal(M/K) → Gal(L/K)` is a homomorphism carrying `Frob_{M/K}(𝔭)` to `Frob_{L/K}(𝔭)`\nunpowered, every prime-power term counted by `ψ_{(σ,τ)}^{M/K}` is counted by `ψ_σ^{L/K}`"
         }
       ]
     },
@@ -624,7 +556,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
-          "quote": "by the dependent condition that there exists an unramifiedness proof `hur` with `artinSymbol 𝔭.asIdeal hur = C`."
+          "quote": "by the dependent condition that there exists an unramifiedness proof `hur` with\n`artinSymbol 𝔭.asIdeal hur = C`."
         }
       ]
     },
@@ -636,7 +568,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "*Edge cases.* `𝔭` ramified, where the symbol is not defined and only the coset modulo inertia exists; `L/K` abelian, where the class is a single element (Layer 2.5)."
+          "quote": "*Edge cases.* `𝔭` ramified, where the symbol is not defined and only the coset modulo inertia\n  exists; `L/K` abelian, where the class is a single element (Layer 2.5)."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
@@ -652,15 +584,15 @@
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
       "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density",
       "confidence": "inferred",
-      "reason": "The rational specialization in Chebotarev Layer 6 identifies the Frobenius fibre of σ_a in ℚ(ζ_m)/ℚ with the primes p ≡ a (mod m) and requires that arithmetic Frobenius go to a and not a⁻¹. NFA 2.6 is exactly this identification: galEquivZMod sends the Frobenius at p to p mod n. The general-base Frobenius action of Chebotarev Layer 4 remains that roadmap's.",
+      "reason": "The rational specialization in Chebotarev Layer 6 identifies the Frobenius fibre of σ_a in ℚ(ζ_m)/ℚ with the primes p ≡ a (mod m) and requires that arithmetic Frobenius go to a and not a⁻¹. NFA 2.6 is exactly this identification: galEquivZMod sends the Frobenius at p to p mod n. The general-base root-of-unity action is already available at the Tau Ceti pin (AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one and autToPow_eq_absNorm); Chebotarev retains character-weight and conductor assembly.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "*Cyclotomic.* For `K` a cyclotomic field of conductor `n` and `p` coprime to `n`, prove `galEquivZMod n K (Frob Q) = ZMod.unitOfCoprime p hp`."
+          "quote": "*Cyclotomic.* For `K` a cyclotomic field of conductor `n` and `p` coprime to `n`, prove\n`galEquivZMod n K (Frob Q) = ZMod.unitOfCoprime p hp`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-6-cyclotomic-dirichlet-density",
-          "quote": "The specialization must send arithmetic Frobenius to `a`, not `a⁻¹`, and should be proved by comparison with Mathlib's Dirichlet-primes-in-AP theorem"
+          "quote": "The specialization must send arithmetic Frobenius to `a`,\nnot `a⁻¹`, and should be proved by comparison with Mathlib's Dirichlet-primes-in-AP theorem"
         }
       ]
     },
@@ -699,7 +631,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
       "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
-      "reason": "NFA 4.3 already supplies the finite ramified support and its exact membership criterion for number fields. These discharge the arithmetic finite-set construction here; the consumer adds its comparison with the union of unramified Artin fibres. Reuse needs an explicit ramifiedPrimes-to-ramifiedSupport adapter, recorded also as a scope-overlap request, rather than a second finiteness proof.",
+      "reason": "NFA 4.3 already supplies the finite ramified support and its exact membership criterion for number fields. These discharge the arithmetic finite-set construction here; the consumer adds its comparison with the union of unramified Artin fibres. Reuse needs an explicit ramifiedPrimes-to-ramifiedSupport adapter, recorded also as a scope-overlap request, rather than a second finiteness proof. At the pin this is TauCeti.NumberField.ramifiedSupport in NumberField/Discriminant/RamifiedSupport.lean; compare the precise base-prime carrier before identifying it with ramifiedPrimes.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -728,15 +660,15 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
-          "quote": "Define `complexConjugationAt w hw : L ≃ₐ[K] L` as the unique element satisfying `ComplexEmbedding.IsConj w.embedding`."
+          "quote": "Define\n`complexConjugationAt w hw : L ≃ₐ[K] L` as the unique element satisfying\n`ComplexEmbedding.IsConj w.embedding`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-          "quote": "`Art_ℝ` has kernel `ℝ_{>0} = N_{ℂ/ℝ}(ℂˣ)` and sends a negative element to conjugation"
+          "quote": "`Art_ℝ` has kernel `ℝ_{>0} = N_{ℂ/ℝ}(ℂˣ)` and sends a negative element to\nconjugation"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-          "quote": "The proof should factor through `globalArtinMap_ideal`, `NumberFieldArithmetic.artinHomAway_apply_prime` and `IsArithFrobAt`"
+          "quote": "The proof should factor through `globalArtinMap_ideal`,\n`NumberFieldArithmetic.artinHomAway_apply_prime` and `IsArithFrobAt`"
         }
       ]
     },
@@ -744,19 +676,19 @@
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
       "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
       "confidence": "inferred",
-      "reason": "CFT Layer 13 proves the abelian conductor–discriminant formula for `abelianConductor`. Its discriminant side is the relative discriminant ideal of L/K, which NFA Layer 4 defines as `relDiscr` (the relative norm of the different) together with its tower formula and ramification criterion. NFA's boundaries assign the formula itself to ClassFieldTheory and define no conductor.",
+      "reason": "CFT Layer 13 proves the abelian conductor–discriminant formula for `abelianConductor`. Its discriminant side is the relative discriminant ideal of L/K, which NFA Layer 4 defines as `relDiscr` (the relative norm of the different) together with its tower formula and ramification criterion. NFA's boundaries assign the formula itself to ClassFieldTheory and define no conductor. The definition is already TauCeti.relDiscr in RingTheory/DedekindDomain/Discriminant/Basic.lean:35, with its separable tower theorem in Separable.lean:50.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
-          "quote": "This layer adds the discriminant ideal that Mathlib never defines, and the identities that need nothing beyond it."
+          "quote": "This layer adds the\ndiscriminant ideal that Mathlib never defines, and the identities that need nothing beyond it."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
-          "quote": "Reciprocity, class fields, and the abelian conductor–discriminant formula belong to `ClassFieldTheory`."
+          "quote": "Reciprocity, class fields, and the abelian conductor–discriminant formula belong to\n`ClassFieldTheory`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-          "quote": "Prove the abelian conductor–discriminant formula for `abelianConductor` from the local formula and the character dictionary"
+          "quote": "Prove the abelian conductor–discriminant formula for `abelianConductor` from the\nlocal formula and the character dictionary"
         }
       ]
     },
@@ -764,11 +696,11 @@
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
       "confidence": "inferred",
-      "reason": "Class Field Theory Layer 10 defines the finite local invariants `finiteInvAt`, which apply the Layer 5 local invariant map `invMap` (built for a nonarchimedean local field) at every finite completion v.adicCompletion K. That needs the canonical `IsNonarchimedeanLocalField (v.adicCompletion K)` instance of NFA 5.1, which NFA lists among its exports to other subjects. The idele-layer identification of H²(Gal(L/K), I_L) with local Brauer groups additionally uses the completion maps of 5.2. The Brauer sequence and the global invariant are CFT's.",
+      "reason": "Class Field Theory Layer 10 defines the finite local invariants `finiteInvAt`, which apply the Layer 5 local invariant map `invMap` (built for a nonarchimedean local field) at every finite completion v.adicCompletion K. That needs the canonical `IsNonarchimedeanLocalField (v.adicCompletion K)` instance of NFA 5.1, which NFA lists among its exports to other subjects. The idele-layer identification of H²(Gal(L/K), I_L) with local Brauer groups additionally uses the completion maps of 5.2. The Brauer sequence and the global invariant are CFT's. The completion local-field instance and residue comparison already occur in pinned DedekindDomain/AdicValuation/ValuativeRel.lean; remaining global completion-map/coherence work must not reimplement these instances.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
@@ -776,7 +708,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
-          "quote": "the local column consumes `invMap` on `K` itself, the global column consumes it at every completion"
+          "quote": "the local column consumes `invMap` on `K`\nitself, the global column consumes it at every completion"
         }
       ]
     },
@@ -796,7 +728,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         }
       ]
     },
@@ -816,7 +748,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-          "quote": "the index computation `index_kummerNormSubgroup` from the local indices `p²/‖p‖_v` and the product formula"
+          "quote": "the index computation `index_kummerNormSubgroup` from the local\n  indices `p²/‖p‖_v` and the product formula"
         }
       ]
     },
@@ -836,11 +768,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "The residue-degree weights come from `Ideal.relNorm P = 𝔭 ^ f(P/𝔭)`. Every exponent computation of Layer 6 reduces to this formula."
+          "quote": "The residue-degree weights come from `Ideal.relNorm P = 𝔭 ^ f(P/𝔭)`. Every exponent computation\nof Layer 6 reduces to this formula."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-          "quote": "Prove the abelian conductor–discriminant formula for `abelianConductor` from the local formula and the character dictionary"
+          "quote": "Prove the abelian conductor–discriminant formula for `abelianConductor` from the\nlocal formula and the character dictionary"
         }
       ]
     },
@@ -852,11 +784,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
-          "quote": "Define each finite local Hilbert invariant by applying `localSymbol` at the completion (`finiteHilbertInvariantAt`)"
+          "quote": "Define each finite local Hilbert invariant by applying `localSymbol` at the completion\n(`finiteHilbertInvariantAt`)"
         }
       ]
     },
@@ -868,19 +800,19 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "Compatibility with the `L ≃ₐ[K] L`-action on the primes over `v`, with no placeholder."
+          "quote": "Compatibility with the `L ≃ₐ[K] L`-action on the primes over\n  `v`, with no placeholder."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-          "quote": "the finite and infinite places with their completions; embeddings `Kˢᵉᵖ → K_vˢᵉᵖ` (equivalently a decomposition-group construction) with independence of the choice up to conjugacy;"
+          "quote": "the finite and infinite places with their completions; embeddings\n  `Kˢᵉᵖ → K_vˢᵉᵖ` (equivalently a decomposition-group construction) with independence of the\n  choice up to conjugacy;"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-          "quote": "with the finite-level comparison (`H¹` as the colimit over finite Galois quotients)"
+          "quote": "with the finite-level comparison (`H¹` as the colimit over finite Galois\n  quotients)"
         }
       ]
     },
@@ -956,7 +888,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
@@ -987,12 +919,12 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "GlobalQuadraticForms 0.1 localizes a form at every finite place over v.adicCompletion K and names NFA's `isNonarchimedeanLocalField_adicCompletion` (5.1) as a prerequisite. Its tower item (base change along K_v → L_w for a place w of L above v) names `completionAlgHom` (5.2).",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
@@ -1000,23 +932,23 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-0-places-completions-and-scalar-extension",
-          "quote": "R Number Field Arithmetic `isNonarchimedeanLocalField_adicCompletion`. The tower item, and only the tower item, also uses R Number Field Arithmetic `completionAlgHom`."
+          "quote": "R Number Field Arithmetic\n`isNonarchimedeanLocalField_adicCompletion`. The tower item, and only the tower item, also uses\nR Number Field Arithmetic `completionAlgHom`."
         }
       ]
     },
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "GlobalQuadraticForms Layer 2 applies the local Hasse invariant and the local isotropy lists of QuadraticFormInvariants at each finite completion. Almost-all triviality (2.2) names NFA Layer 5.1 as a prerequisite, and the consumer contract table assigns the 5.1 instance to 2.1.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
-          "quote": "R Quadratic Form Invariants `hilbertSymbol_unramified` and Layer 6D's rank-by-rank isotropy list; R Number Field Arithmetic Layer 5.1."
+          "quote": "R Quadratic Form Invariants `hilbertSymbol_unramified` and Layer 6D's\nrank-by-rank isotropy list; R Number Field Arithmetic Layer 5.1."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-2-finite-place-invariants-and-finite-support",
@@ -1027,12 +959,12 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "The openness and continuity lemmas of GlobalQuadraticForms 4.5 (squares open at every finite completion, via Hensel or the dyadic local square theorem) name NFA Layer 5.1, the local-field structure of v.adicCompletion K.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
@@ -1043,7 +975,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "In the quaternary case of Hasse–Minkowski (GlobalQuadraticForms 5.1), local isotropy over K is pushed into the completions of E = K(√d) through the tower base change, which names NFA's `completionAlgHom` (5.2). The rank-at-least-five step 5.4 uses the 5.1 local-field instance, per the consumer contract table.",
       "evidence": [
         {
@@ -1052,7 +984,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-          "quote": "*Prerequisites:* L 0.2, L 0.1 tower item, L 4.2, L 4.3; R Number Field Arithmetic `completionAlgHom`;"
+          "quote": "*Prerequisites:* L 0.2, L 0.1 tower item, L 4.2, L 4.3; R Number Field Arithmetic\n`completionAlgHom`;"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
@@ -1063,12 +995,12 @@
     {
       "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
       "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-      "confidence": "explicit",
+      "confidence": "inferred",
       "reason": "GlobalQuadraticForms 7.1 constructs, at every finite place, a regular local form over v.adicCompletion K with prescribed invariants, using the realization theorem for nonarchimedean local fields. The consumer contract table assigns NFA's `isNonarchimedeanLocalField_adicCompletion` (5.1) to 7.1.",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance `IsNonarchimedeanLocalField (v.adicCompletion K)`."
+          "quote": "For `v : HeightOneSpectrum (𝓞 K)`, give the instance\n`IsNonarchimedeanLocalField (v.adicCompletion K)`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
@@ -1076,7 +1008,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants",
-          "quote": "From an admissible `I : GlobalFormInvariants K`, construct at each finite place a regular local form with invariants `(I.rank, I.discr_v, I.finiteHasse v)` using `exists_of_realization`."
+          "quote": "From an admissible `I : GlobalFormInvariants K`, construct at each finite place a regular local\nform with invariants `(I.rank, I.discr_v, I.finiteHasse v)` using\n`exists_of_realization`."
         }
       ]
     },
@@ -1095,6 +1027,99 @@
           "quote": "This layer does **not** prove Dedekind's factorization theorem. Number Field Arithmetic Layer\n3.10 owns it, as `exists_gal_fullCycleType_eq_factorizationType`"
         }
       ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "target": "MordellLawrenceVenkatesh:LV.11",
+      "confidence": "inferred",
+      "reason": "LV.11 chooses a friendly auxiliary place through cyclotomic Frobenius in a compositum. NFA 2.4–2.6 supplies finite-level restriction and the arithmetic Frobenius/root-of-unity congruence, turning the chosen class into conditions on q_v modulo q-1. The general-base formula is already AlgHom.IsArithFrobAt.autToPow_eq_absNorm at the pinned library. Chebotarev existence, the Weil pairing (with its separate inverse convention), and the small-orbit count remain consumer work.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+          "quote": "*Cyclotomic.* For `K` a cyclotomic field of conductor `n` and `p` coprime to `n`, prove\n`galEquivZMod n K (Frob Q) = ZMod.unitOfCoprime p hp`."
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.11",
+          "quote": "- *Choice of $v$*: a friendly place with odd residue characteristic outside a given finite set, $(q_v,q-1)=1$ and\n  $q_v$ of order $\\ge8$ modulo every odd prime divisor of $q-1$ (Chebotarev in $K'(\\zeta_{m'})/\\mathbb Q$)."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "target": "MordellLawrenceVenkatesh:LV.6",
+      "confidence": "inferred",
+      "reason": "For LV.6's finite cyclic Kummer extension, Frobenius at an unramified place generates its decomposition group and has order the residue degree (NFA 2.3). Thus a Frobenius generating the entire cyclic Galois group makes that place inert. Chebotarev supplies existence, Kummer theory the cyclic extension and degree; neither follows from the Frobenius dictionary alone.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+          "quote": "`orderOf (Frob Q) = f(Q/𝔭)`; `Subgroup.zpowers (Frob Q) = MulAction.stabilizer` at an\n  unramified `Q`"
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.6",
+          "quote": "- *Reductions*: enlarging $K$ and $S$ ($\\mu_8\\subseteq K$, places above $2$ in $S$), $U\\subseteq\\bigcup_j U_1^{2^j}$\n  with $U_1$ the non-square solutions; the Kummer fields $K(t^{1/m})$ (cyclic of degree $m$, unramified outside\n  $S$, finitely many); an auxiliary place $v$ whose Frobenius generates $\\mathrm{Gal}(L/K)$, so $v$ is inert."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "target": "MordellLawrenceVenkatesh:LV.7",
+      "confidence": "inferred",
+      "reason": "LV.7's size_v criterion indexes local terms by places w above v and weights them by [E_w:K_v]. Applying NFA 5.2–5.5 to each field factor of the finite etale algebra gives canonical completion factors, semilocal decomposition and degrees. Identification with Frobenius orbit lengths additionally uses the unramified hypothesis and Frobenius/decomposition theory; no ramified equality between orbit size and full e*f degree is asserted. The semilinear Frobenius/Lagrangian and finiteness arguments remain LV's.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+          "quote": "semilocalEquiv v : K_v ⊗[K] L  ≃ₐ[K_v]  ∏ (w : W v), L_w"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+          "quote": "Consequence: `Σ_{w ∣ v} [L_w : K_v] = [L : K]`, the finite-place analogue of Mathlib's\narchimedean `InfinitePlace.sum_inertiaDeg_eq_finrank`."
+        },
+        {
+          "stageId": "MordellLawrenceVenkatesh:LV.7",
+          "quote": "- *$\\mathrm{size}_v$* (LV Definition 5.2), its independence of choices and the monotonicity (5.3); Frobenius\n  orbits on geometric points as places above $v$, of sizes $[E_w:K_v]$."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "target": "KTheoryFiniteLocalFields:L.7",
+      "confidence": "inferred",
+      "reason": "L.7 states compatibility of restriction/transfer and arithmetic operations with completion of a number field at a finite place. NFA 5.1–5.2 supplies the canonical local-field completion and extension map K_v -> L_w for a chosen place above v. This is the field-level input for completion squares; it supplies no K-theory transfer, Chern-class or trace naturality theorem, which remain L.7's responsibility.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+          "quote": "completionAlgHom v w : K_v →ₐ[K] L_w"
+        },
+        {
+          "stageId": "KTheoryFiniteLocalFields:L.7",
+          "quote": "Prove compatibility of local restriction/transfer, arithmetic Chern classes, Hilbert symbols, and cyclotomic traces with completion of a number field at a finite place. This supplies N's local conditions and D's regulator map. The unramified p>3 K₃ regulator theorem is owned by D, using the completed K₃ model established here."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "target": "SelmerIwasawaCohomology:L2",
+      "confidence": "inferred",
+      "reason": "L2 forms the finite-extension Selmer global-to-local map using all places above each v and decomposition-stable local conditions. NFA 5.2 and 5.6 supply finite-level canonical completion extensions and the decomposition-group comparison, including conjugation compatibility; these underlie the local factors rather than selecting just one completion. Passage to separable closures, continuous Galois cohomology, local conditions, the cohomological direct-sum map and duality remain the Selmer roadmap's work.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+          "quote": "completionAlgHom v w : K_v →ₐ[K] L_w"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+          "quote": "decompositionHom v w : MulAction.stabilizer (L ≃ₐ[K] L) w.asIdeal →* (L_w ≃ₐ[K_v] L_w)."
+        },
+        {
+          "stageId": "SelmerIwasawaCohomology:L2",
+          "quote": "For a finite extension F'/F define the Selmer group as the kernel of the global-to-local quotient map, with semilocal direct sums over all places above each v."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
     }
   ],
   "overlaps": [
@@ -1105,7 +1130,7 @@
       ],
       "detail": "NFA 4.3 defines the finite set of ramified base primes by relative-discriminant support. Chebotarev 2 asks for the same set under ramifiedPrimes, with an additional Artin-fibre complement theorem.",
       "recommendation": "rescope",
-      "proposal": "Make ramifiedPrimes an abbreviation of ramifiedSupport or prove a named equality immediately; import its membership/finiteness API. Keep the union-of-Frobenius-fibres theorem and later exceptional-set operations in Chebotarev. Do not make ramifiedSupport depend on any Artin map."
+      "proposal": "Reuse the already landed TauCeti.NumberField.ramifiedSupport (NumberField/Discriminant/RamifiedSupport.lean), comparing the precise base-prime carriers by an abbreviation or named equality with ramifiedPrimes. Import membership and finiteness; retain the Artin-fibre complement theorem in Chebotarev. Do not make ramifiedSupport depend on an Artin map."
     },
     {
       "stages": [
@@ -1123,7 +1148,7 @@
       ],
       "detail": "NFA 3.1–3.3 treat the index and discriminant of a primitive integral element's power order; GNF 11 treats arbitrary number-field orders, their conductor, index and discriminant. These agree only after specializing the general order to Z[theta]; field generation and finite index cannot be dropped.",
       "recommendation": "keep",
-      "proposal": "Keep NFA's primitive-element input and its index/exponent distinctions. The change-of-basis identity disc(sublattice basis) = index² · disc should be one shared determinant lemma. The landed EffectiveBounds inequality `abs_discr_le_of_basis_isIntegral` is its inequality form, NFA 3.3 its equality for power orders, and GNF Layer 11 its version for an arbitrary `NumberFieldOrder`. GNF should add a named comparison of `NumberFieldOrder` at ℤ[θ] with NFA's `index θ`. Leave nonmaximal-order Picard carriers and all proper-versus-invertible issues in GNF; NFA's early splitting API must not depend on the order/Picard development."
+      "proposal": "Keep the primitive-element and arbitrary-order interfaces distinct. NFA's exact power-order equation already exists as TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr (NumberField/Index/Discriminant.lean:56), not merely the EffectiveBounds inequality. Reuse this and existing determinant/change-of-basis infrastructure, and add the comparison of a NumberFieldOrder at Z[theta] with index theta where needed. General nonmaximal-order Picard carriers and proper-versus-invertible issues stay in GNF; early splitting must not depend on them."
     },
     {
       "stages": [
@@ -1132,16 +1157,16 @@
       ],
       "detail": "NFA 2.6 identifies rational cyclotomic Frobenius with p modulo the conductor. Chebotarev 4 states the cyclotomic Frobenius action over an arbitrary number-field base and builds character weights.",
       "recommendation": "keep",
-      "proposal": "Reuse NFA's finite-level arithmetic Frobenius and the rational identification. Retain the general-base root-of-unity action, conductor comparison and character weights in Chebotarev. A rational p-mod-n calculation alone is not the general-base theorem; never insert an inverse."
+      "proposal": "Keep the rational Frobenius adapter and the character-weight/conductor interface distinct, but import the already landed general-base root action AlgHom.IsArithFrobAt.apply_eq_pow_absNorm_of_pow_eq_one and autToPow_eq_absNorm (NumberField/Cyclotomic/Frobenius.lean:96,133). Its exponent is the absolute norm, not its inverse, at a prime avoiding the root-of-unity order. Neither owner should plan a second proof of that action."
     },
     {
       "stages": [
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields"
       ],
-      "detail": "NFA 3.6 generalizes Kummer–Dedekind to an arbitrary Dedekind extension A ⊆ B with fraction fields K ⊆ L. For θ generating L/K and p coprime to the conductor of A[θ], the primes of B over p correspond to the monic irreducible factors of minpoly θ mod p, with f the degree, e the multiplicity and the span formula. AlgebraicCurves Layer 6 proves Kummer's theorem for a function-field extension F′ = F(y) at a place P. Its Conclusion A (each irreducible factor gives a place with f ≥ its degree) needs no hypothesis. Its Conclusion B holds under the monogenicity hypothesis 𝒪′_P = 𝒪_P[y], equivalently P prime to the conductor: these are all the places over P, with e = multiplicity and f = degree. Conclusion B is the Dedekind-generic theorem of NFA 3.6 applied to 𝒪_P ⊆ 𝒪′_P or to the affine models R_x ⊆ R′_x.",
+      "detail": "NFA 3.6 generalizes Kummer–Dedekind to an arbitrary Dedekind extension A ⊆ B with fraction fields K ⊆ L. For θ generating L/K and p coprime to the conductor of A[θ], the primes of B over p correspond to the monic irreducible factors of minpoly θ mod p, with f the degree, e the multiplicity and the span formula. AlgebraicCurves Layer 6 proves Kummer's theorem for a function-field extension F′ = F(y) at a place P. Its Conclusion A (each irreducible factor gives a place with f ≥ its degree) still requires the integral generator at the place, but not the conductor-avoiding/local-monogenicity hypothesis. Its Conclusion B holds under the monogenicity hypothesis 𝒪′_P = 𝒪_P[y], equivalently P prime to the conductor: these are all the places over P, with e = multiplicity and f = degree. Conclusion B is the Dedekind-generic theorem of NFA 3.6 applied to 𝒪_P ⊆ 𝒪′_P or to the affine models R_x ⊆ R′_x.",
       "recommendation": "rescope",
-      "proposal": "Prove the conductor-avoiding factorization once, as NFA 3.6 over AKLB, in the Dedekind-generic directory that NFA designates for such halves (TauCeti/NumberTheory/RamificationInertia/). AlgebraicCurves then derives Conclusion B by instantiating it at 𝒪_P ⊆ 𝒪′_P or R_x ⊆ R′_x through its Layer 2 place/prime bridge. It keeps the unconditional Conclusion A, which NFA does not state, and the chart change for places over ∞. Neither roadmap then needs the other's function-field or number-field layers."
+      "proposal": "Reuse pinned TauCeti.KummerDedekind.primesOverEquivNormalizedFactorsMinPolyMk and its span, residue-degree and ramification-index theorems in RingTheory/DedekindDomain/KummerDedekind.lean. They require an integral generator, a nonzero maximal base prime and the conductor-avoiding hypothesis, with the declared domain/integral-closure/torsion-free setup. AlgebraicCurves obtains Conclusion B through its place/prime bridge, retains Conclusion A under its integral-generator hypotheses and the infinity-chart change. Do not reprove this generic theorem or depend on NFA's number-field layers."
     },
     {
       "stages": [
@@ -1159,7 +1184,7 @@
       ],
       "detail": "NFA 4.2 builds the localization chain for a separable Dedekind extension: trace, `Submodule.traceDual`, `FractionalIdeal.dual`, `differentIdeal` and `Ideal.relNorm` commute with localization at a prime of the base, as the named lemmas `trace_localization` to `relNorm_localization`, with `relDiscr_localization` their composite. AlgebraicCurves Layer 7 begins its local route to the exact tame exponent by proving that localization preserves the trace dual and the different ideal on the affine models R_x of a function field.",
       "recommendation": "rescope",
-      "proposal": "State localization of the trace dual and of `differentIdeal` once, in AKLB generality with the separability hypothesis of Mathlib's different theory: these are NFA 4.2's `traceDual_localization` and `differentIdeal_localization`. AlgebraicCurves Layer 7 imports them for R_x ⊆ R′_x. The completion step (the different commutes with completion) is the separate matter already covered by the AlgebraicCurves/NFA 5–6 overlap in the AlgebraicCurves packet."
+      "proposal": "Reuse pinned TauCeti.span_traceDual_one_eq_traceDual_one, extended_dual_one_eq_dual_one and map_differentIdeal_eq_differentIdeal (RingTheory/DedekindDomain/Different/Localization.lean:110,176,247), respecting the finite-module, fraction-ring, integral-closure and separability hypotheses of the appropriate statements. AlgebraicCurves specializes these at its affine models. Completion is a separate operation: these localization declarations alone do not settle NFA 5.9's completion comparison."
     },
     {
       "stages": [
@@ -1167,27 +1192,27 @@
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
         "FunctionFieldArithmetic:FA.3"
       ],
-      "detail": "FunctionFieldArithmetic FA.3 constructs, for finite separable extensions of a global function field, integral closures, decomposition and inertia groups, the different and discriminant, and the ramification filtrations. The discriminant ideal with its ramification criterion and tower formula (NFA 4.1–4.3), and the decomposition/inertia dictionary that needs no residue separability (NFA 1.3), are Dedekind-generic results. They apply unchanged to the Dedekind rings of S-integers of a global function field.",
+      "detail": "FA.3 and NFA 1.3/4.1–4.2 share Dedekind-generic decomposition/inertia and relative-discriminant mathematics applicable to S-integer rings of global function fields. NFA 4.3's packaged ramifiedSupport, however, has number-field types at the pin: it cannot be applied unchanged to a function field. Generic ideal support/finiteness may be reused underneath a correctly typed function-field adapter.",
       "recommendation": "rescope",
-      "proposal": "FA.3 should import NFA's `relDiscr` (4.1–4.2: tower formula, and p ramifies iff p divides relDiscr) and the NFA 1.3 dictionary, applied to rings of S-integers, instead of redefining them. For the curve-level different, Hurwitz formula and ramification groups it should reuse AlgebraicCurves Layers 7–8, as the AlgebraicCurves packet records, and for local filtrations LocalFieldsRamification. FA.3 keeps Artin–Schreier and Witt-vector theory, purely inseparable extensions and the statements specific to global function fields."
+      "proposal": "Import the existing generic TauCeti.relDiscr definition and separable tower/discriminant theory, together with the generic decomposition/inertia dictionary under its hypotheses. Do not use the number-field-specific ramifiedSupport carrier for function fields. Share the underlying ideal-factorization support argument and state a function-field adapter if required. FA.3 retains Artin–Schreier/Witt, inseparable and global-function-field-specific results; AlgebraicCurves owns its different/Hurwitz/curve bridge. Residue separability and the finite-residue-field boundary must not be silently dropped."
     },
     {
       "stages": [
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
         "tauceti:TauCetiRoadmap/Multiquadratic#layer-1-the-prime-splitting-law"
       ],
-      "detail": "Multiquadratic Layer 1 identifies the Frobenius at an odd prime p ∤ d₁⋯dₙ in ℚ(√d₁,…,√dₙ) with the Legendre sign vector ((d₁/p),…,(dₙ/p)) under Gal ≅ (𝔽₂)ⁿ, and shows that p splits completely iff every (dⱼ/p) = 1. NFA 2.6 proves the n = 1 case for its own chosen Frobenius element: for p odd and p ∤ d, Frob Q = 1 iff legendreSym p d = 1. NFA's inventory records `Multiquadratic/Frobenius.lean` as the (ℤ/2)ⁿ instance of its Layers 1 and 2.",
+      "detail": "Multiquadratic Layer 1 identifies the Frobenius at an odd prime p ∤ d₁⋯dₙ in ℚ(√d₁,…,√dₙ) with the Legendre sign vector ((d₁/p),…,(dₙ/p)) under Gal ≅ (𝔽₂)ⁿ with the roadmap's standing square-class-independence hypothesis, and shows that p splits completely iff every (dⱼ/p) = 1. NFA 2.6 proves the n = 1 case for its own chosen Frobenius element: for p odd and p ∤ d, Frob Q = 1 iff legendreSym p d = 1. NFA's inventory records `Multiquadratic/Frobenius.lean` as the (ℤ/2)ⁿ instance of its Layers 1 and 2.",
       "recommendation": "keep",
-      "proposal": "Keep the boundary NFA already states: the uniform Frobenius, Artin symbol and splitting criteria are NFA's, and everything specific to (ℤ/2)ⁿ is Multiquadratic's. Add one comparison lemma, in whichever roadmap lands second: the Multiquadratic sign vector is the `artinSymbol` (a singleton class) of the multiquadratic extension, and NFA 2.6's quadratic statement is its n = 1 projection. Neither roadmap should reprove the other's result."
+      "proposal": "Keep the uniform finite-level Artin/splitting interface and the multiquadratic sign-vector interface distinct. Reuse the already landed square-root Frobenius calculation; add a named comparison with artinSymbol only if it is not already available. The full (F2)^n Galois identification requires independent square classes; a redundant radicand list only gives a constrained sign vector. The quadratic adapter is the one-factor projection, not a new reciprocity proof."
     },
     {
       "stages": [
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
       ],
-      "detail": "LocalFieldsRamification Layer 3 defines the local different 𝔡_{L/K} by the trace dual, compares it with Mathlib's `differentIdeal`, and defines the discriminant 𝔩_{L/K} = N_{L/K}(𝔡_{L/K}) ⊆ 𝒪[K]. NFA 4.1 defines the hypothesis-free, Dedekind-generic `relDiscr A B := Ideal.relNorm A (differentIdeal A B)`. For A = 𝒪[K] and B = 𝒪[L] this is the same ideal, so the discriminant ideal of a finite extension is defined twice.",
+      "detail": "LocalFieldsRamification Layer 3 defines the local different 𝔡_{L/K} by the trace dual, compares it with Mathlib's `differentIdeal`, and defines the discriminant 𝔩_{L/K} = N_{L/K}(𝔡_{L/K}) ⊆ 𝒪[K]. NFA 4.1 defines the Dedekind-generic, defined without a separability assumption but with its ring/module hypotheses `relDiscr A B := Ideal.relNorm A (differentIdeal A B)`. For A = 𝒪[K] and B = 𝒪[L] this is the same ideal, so the discriminant ideal of a finite extension is defined twice.",
       "recommendation": "rescope",
-      "proposal": "Keep one definition. NFA 4.1 needs nothing from LocalFieldsRamification, so its one-line definition can sit in the Dedekind-generic directory that NFA designates (TauCeti/RingTheory/DedekindDomain/). LocalFieldsRamification can import that file without depending on NFA's number-field layers. LocalFieldsRamification then defines 𝔩_{L/K} as `relDiscr 𝒪[K] 𝒪[L]`, or proves that equality as a named lemma immediately, and keeps `discriminantExponent` and δ = f·d. NFA keeps the global theory (4.2–4.3) and the valuation formula 5.10. This preserves the declared direction LocalFieldsRamification → NumberFieldArithmetic."
+      "proposal": "Reuse the single already landed TauCeti.relDiscr in RingTheory/DedekindDomain/Discriminant/Basic.lean:35. It is generic below both roadmaps, not a reason to add a reverse LocalFieldsRamification -> late NFA -> LocalFieldsRamification dependency. Once the local integer rings satisfy its Dedekind/finite-module/torsion-free setup, define the local discriminant by it or prove a named equality. LFR retains discriminantExponent and delta=f*d; NFA retains global assembly. Separability is needed for nonvanishing and the relevant theorems, not for the bare definition."
     }
   ],
   "examined": [
@@ -1518,8 +1543,8 @@
     },
     {
       "roadmapId": "FoundationsAndLibraryIntegration",
-      "result": "links",
-      "note": "1 link(s), 0 overlap(s). All six stages read. LI.4 integrates NumberFieldArithmetic from its pinned snapshot and audits the arithmetic/geometric Frobenius conventions; it is the campaign integration owner of UPSTREAM:NumberFieldArithmetic. One explicit link anchored at NFA Layer 2; the integration covers the whole roadmap, and campaign consumers such as CA.1, CN.2, ST.0, GN.2 and CM.0 reach NFA through it."
+      "result": "none",
+      "note": "Review removes the link to retired integration/process stage LI.4. This is not a current mathematical dependency."
     },
     {
       "roadmapId": "FunctionFieldArithmetic",
@@ -1658,8 +1683,8 @@
     },
     {
       "roadmapId": "KTheoryFiniteLocalFields",
-      "result": "none",
-      "note": "Screened: atlas summary, stage titles, and a keyword-in-context search of stage descriptions and document for NFA objects (Frobenius and Artin symbol, prime splitting, Dedekind–Kummer and cycle types, index and monogenicity, relative discriminant and different, completions and the local–global dictionary, ramification groups, normal closures, units and regulators, LMFDB labels). No NFA output is used and no NFA mathematics is duplicated."
+      "result": "links",
+      "note": "Review adds NFA 5 -> L.7 after reading L.7 in full: canonical completion extension maps supply field-level inputs to the explicitly requested local-to-global compatibility squares. No K-theory compatibility theorem is claimed supplied."
     },
     {
       "roadmapId": "KTheoryLowDegrees",
@@ -1873,8 +1898,8 @@
     },
     {
       "roadmapId": "SelmerIwasawaCohomology",
-      "result": "none",
-      "note": "Keyword hits read (semilocal sums, decomposition group at p). Local conditions are Galois-cohomological; no NFA declaration is used."
+      "result": "links",
+      "note": "Review adds NFA 5 -> L2 after reading L2 in full: finite-level canonical completion/decomposition comparisons underlie all local factors over a finite extension. Continuous cohomology, absolute groups and Selmer conditions remain the consumer's."
     },
     {
       "roadmapId": "SerreWeightAndLevelOptimisation",
@@ -2249,7 +2274,7 @@
     {
       "roadmapId": "MordellLawrenceVenkatesh",
       "result": "links",
-      "note": "5 link(s), 0 overlap(s). New roadmap (research/blueprint/roadmaps); document and all eleven stages read. Although NFA is not among its declared prerequisites, LV.1 uses place-dependent complex conjugations (NFA 2.7) and the local degree sum (NFA 5.3); LV.5 uses the semilocal dictionary to pass from an inert place to a nonsquare in K_v; LV.6 uses the splitting E_y ⊗_K K_v = ∏ K(y′)_w (NFA 5.3); LV.10 converts Frobenius classes in K′(ζ_{q−1})/ℚ into congruences on q_v (NFA 2.6). Five inferred links. Chebotarev density and Hermite–Minkowski are other owners."
+      "note": "Independent review reads current LV.1, LV.5, LV.6, LV.7, LV.10 and LV.11 in full. Retain the LV.1 degree input, place S-unit completion and Frobenius-generator uses at LV.6, semilocal degree factors at LV.7 and auxiliary cyclotomic arithmetic at LV.11. Removed the obsolete complex-conjugation quote at LV.1. Five current links; Chebotarev existence, Hodge theory and geometric monodromy stay with their owners."
     }
   ],
   "provenance": {
@@ -2263,9 +2288,81 @@
     "sourceIssuesNoted": [
       "Chebotarev 12.1 says deleting finitely many Euler factors keeps the Dedekind-zeta residue; the residue is multiplied by the product of (1 − N𝔭⁻¹) over the deleted primes, and only the coefficient 1 of the logarithmic-derivative pole is unchanged.",
       "NFA 5.6 states that an IsArithFrobAt element maps to the local Frobenius without restricting to unramified w; LocalFieldsRamification's frobeniusAlgEquiv exists only for unramified Galois extensions, so the statement should carry the unramified hypothesis (the recorded LocalFieldsRamification Layer 2 → NFA Layer 5 link is scoped to that branch)."
-    ]
+    ],
+    "originalSummary": "Complete catalogue-wide screen of tauceti:TauCetiRoadmap/NumberFieldArithmetic (NFA; the whole document and all eight layers read) against the 211 other atlas roadmaps and the new roadmap MordellLawrenceVenkatesh. This packet continues an earlier partial checkpoint. All 19 of its links and 4 of its overlaps were re-read against both stage texts and kept; three link reasons were extended with further evidence. Every roadmap was screened by summary, stage titles and a keyword-in-context search of stage descriptions and documents. Candidate pairs were decided by reading both stage descriptions in full. Result: 60 links (28 explicit, 32 inferred) and 10 overlaps; 22 roadmaps have links or overlaps and 190 have none. Incoming (7): LocalFieldsRamification Layers 0, 2, 3 → NFA Layers 5–6 (local extensions, e and f, unramified local Frobenius, local monogenicity, lower filtration, different theorems), and EffectiveBounds Layer 1 → NFA 3.3 and 8.2. Outgoing (53). Layer 2 (Artin symbol, tower laws, idealsAway/artinHomAway, cyclotomic Frobenius, complexConjugationAt) feeds Chebotarev Layers 1, 2, 4, 6, 7, 8, 11, 12, 13, GlobalNumberFields 2, 4, 10, ClassFieldTheory 11, HeegnerPointEulerSystems HE.0, ShimuraVarieties V5, ComplexMultiplication CM.3, AnalyticNumberTheory AN.4, ArithmeticGaloisRepresentations R01.5, MordellLawrenceVenkatesh LV.1 and LV.10, ClassicalArithmeticCompletion CA.5 and FoundationsAndLibraryIntegration LI.4. Layer 5 (local-field instance on completions, canonical completion maps, semilocal decomposition, norm/trace, decompositionHom, discriminant localization) feeds GlobalNumberFields 0, 1, 8, GlobalQuadraticForms 0, 2, 4, 5, 7, ClassFieldTheory 10, 11, 12, 13, 14, EllipticCurves 7, SmallRamification R25.1 and MordellLawrenceVenkatesh LV.1, LV.5, LV.6. Layer 1 feeds Chebotarev 1, 7, 8, 10 and IntegralIwasawaTheory L1. Layer 3 feeds PolynomialGaloisGroups 5 (the contracted Dedekind theorem), CA.5 and ComputationalNumberTheory CN.2. Layer 4 feeds Chebotarev 2, ClassFieldTheory 13 and CA.5. Layer 7 feeds CA.5 and CN.2. Overlaps: rescope Chebotarev's ramifiedPrimes onto NFA 4.3; rescope three Dedekind-generic duplications in AlgebraicCurves Layers 6–8 (Kummer's theorem, decomposition/inertia residue formulas and composita, localization of the different); rescope FunctionFieldArithmetic FA.3 onto NFA 1.3 and 4.1–4.3; rescope the discriminant-ideal definition shared by LocalFieldsRamification Layer 3 and NFA 4.1; keep NFA 7.1 versus PolynomialGaloisGroups 0, NFA 3.1–3.3 versus GlobalNumberFields 11, NFA 2.6 versus Chebotarev 4, and NFA 2.6 versus Multiquadratic 1. No merger of whole roadmaps is recommended. The overlap between AlgebraicCurves 7–8 and NFA 5–6 is already recorded in the AlgebraicCurves packet and is not repeated here.",
+    "independentReview": {
+      "job": "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+      "agent": "Codex — codex-a71f92",
+      "base": "505932860029f1aff21179b16fe289cd57c1da68",
+      "date": "2026-09-23",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "fullEndpointReview": "All 60 original links, all 10 overlaps; current replacement/addition stages read in full. Previously read LFR 0/2/3 document verified byte-identical.",
+      "spotCheck": "All eight focal layers; case-insensitive searches over 2007 current stages. Regexes and decisions in the report.",
+      "otherPackets": "Current CFT packet has NFA1->CFT13, NFA2->CFT12, NFA6->CFT13; GQF repeats NFA5->GQF0/2/4/5. These are compatible supplier-to-consumer pairs, not extra distinct edges to add here. Native atlas has no incident NFA link.",
+      "scope": "Accepted link/overlap packet, not a proof audit of all upstream roadmap mathematics or an independent re-read of their cited books."
+    }
   },
   "validation": {
     "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+    "date": "2026-09-23",
+    "notes": "Accepted after repairs; every original edge/overlap reviewed, eight-layer completeness spot-check. Exact quotes, cycle checks and validation results are recorded in the report. Historical claims remain explicitly attributed to the original author.",
+    "removed": [
+      {
+        "originalIndex": 17,
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "target": "FoundationsAndLibraryIntegration:LI.4",
+        "reason": "Retired LI.4 is a process/integration stage, not a current mathematical consumer."
+      },
+      {
+        "originalIndex": 20,
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "target": "MordellLawrenceVenkatesh:LV.1",
+        "reason": "Current LV.1 no longer states the quoted fixed-field construction by products of complex conjugations; remaining CM vocabulary does not establish this specific dependency."
+      },
+      {
+        "originalIndex": 21,
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "target": "MordellLawrenceVenkatesh:LV.10",
+        "reason": "LV.10 is now monodromy, not the auxiliary-place arithmetic. Replaced by a newly evidenced edge to current LV.11."
+      },
+      {
+        "originalIndex": 23,
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "target": "MordellLawrenceVenkatesh:LV.5",
+        "reason": "LV.5 is now surface topology. The S-unit use is repaired at existing NFA 5 -> current LV.6, avoiding two copies of that pair."
+      }
+    ],
+    "added": [
+      {
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "target": "MordellLawrenceVenkatesh:LV.11",
+        "reason": "LV.11 chooses a friendly auxiliary place through cyclotomic Frobenius in a compositum. NFA 2.4–2.6 supplies finite-level restriction and the arithmetic Frobenius/root-of-unity congruence, turning the chosen class into conditions on q_v modulo q-1. The general-base formula is already AlgHom.IsArithFrobAt.autToPow_eq_absNorm at the pinned library. Chebotarev existence, the Weil pairing (with its separate inverse convention), and the small-orbit count remain consumer work."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+        "target": "MordellLawrenceVenkatesh:LV.6",
+        "reason": "For LV.6's finite cyclic Kummer extension, Frobenius at an unramified place generates its decomposition group and has order the residue degree (NFA 2.3). Thus a Frobenius generating the entire cyclic Galois group makes that place inert. Chebotarev supplies existence, Kummer theory the cyclic extension and degree; neither follows from the Frobenius dictionary alone."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "target": "MordellLawrenceVenkatesh:LV.7",
+        "reason": "LV.7's size_v criterion indexes local terms by places w above v and weights them by [E_w:K_v]. Applying NFA 5.2–5.5 to each field factor of the finite etale algebra gives canonical completion factors, semilocal decomposition and degrees. Identification with Frobenius orbit lengths additionally uses the unramified hypothesis and Frobenius/decomposition theory; no ramified equality between orbit size and full e*f degree is asserted. The semilinear Frobenius/Lagrangian and finiteness arguments remain LV's."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "target": "KTheoryFiniteLocalFields:L.7",
+        "reason": "L.7 states compatibility of restriction/transfer and arithmetic operations with completion of a number field at a finite place. NFA 5.1–5.2 supplies the canonical local-field completion and extension map K_v -> L_w for a chosen place above v. This is the field-level input for completion squares; it supplies no K-theory transfer, Chern-class or trace naturality theorem, which remain L.7's responsibility."
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "target": "SelmerIwasawaCohomology:L2",
+        "reason": "L2 forms the finite-extension Selmer global-to-local map using all places above each v and decomposition-stable local conditions. NFA 5.2 and 5.6 supply finite-level canonical completion extensions and the decomposition-group comparison, including conjugation compatibility; these underlie the local factors rather than selecting just one completion. Passage to separable closures, continuous Galois cohomology, local conditions, the cohomological direct-sum map and duality remain the Selmer roadmap's work."
+      }
+    ]
   }
 }
