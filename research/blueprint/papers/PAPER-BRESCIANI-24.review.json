@@ -1,0 +1,91 @@
+{
+  "paper": "PAPER-BRESCIANI-24",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SF.1 owns the general gerbes/root stacks/tame valuative direction. Exact suppliers are identified and existing sites/IsStack are imported. Acceptance adds these sources; it does not claim the entire valuative proof is recursively implemented."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "IG.0/IG.1 own finite covers, arithmetic exactness and relative specialization; affine-base restrictions and the split-completion import are explicit."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "IG.2 is the Hilbert-irreducibility owner. The general Hilbertian finite-cover criteria are source additions with their hypotheses, not claims of existing Lean results."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "R02.1 owns the compact-coefficient/inverse-limit comparison. Ordinary profinite completion is now separated from power-quotient completion; finite Kummer injectivity is imported, and /176 is independent of its anabelian consumer."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The geometric projection, etale divisor and spreading-out sources belong to SF.3; import upstream AlgebraicCurves. The same-degree monic choice is explicit. A countable-enumeration shortcut is not part of acceptance."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "The unrestricted main endpoint is unresolved in the nonsplit quadratic-boundary branch over positive transcendence degree. The replacement brief now exposes this and the still-unverified Stix book supplier; do not create an executable design promising unrestricted TheoremA."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "After moving general weights and semiabelian Tate modules to their shared owners, this extends precisely upstream’s excluded unpointed/open-curve scope. The endpoint and torsor-before-neutralization comparison are supported by the inspected Spieß–Szamuely/Harari–Szamuely/Bresciani sources."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "The finite-K/Qp Mattuck endpoint has an explicit small-logarithm/compactness proof and imports its analytic and algebraic suppliers. Its tests retain p=2 and arbitrary ramification; no global logarithm or broad complete-field proof is advertised."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The integral/all-prime refinement belongs to the rational Tate-isogeny owner R28.4 as a new source obligation. The extraction explicitly requires saturation and does not credit the rational theorem as the stronger statement."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The finite-generated-kernel split-completion proof /140–/146 closes by characteristic finite-index subgroups and finite semidirect quotients; existing completion universal property and finite-index theorems are imported. No residual-finiteness or general nonsplit exactness hypothesis is invented."
+    },
+    {
+      "route": 11,
+      "verdict": "reject",
+      "reason": "The small-ball replacement was checked and now imports the existing multivariable analytic inverse, but the brief copies the much broader unreviewed Caro–Pasten formal/integral/full-disc scope. Coalesce a bounded verified contribution with that candidate without authorizing its unresolved proof as a design endpoint."
+    },
+    {
+      "route": 12,
+      "verdict": "reject",
+      "reason": "The two classical-point/compactness leaves have the right existing candidate owner, but its copied whole brief includes resolution, Shilov-density and constant-rank results not independently validated here. Keep the candidate; narrow or separately verify the full executable brief."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "L0 owns the remaining fixed-radius analytic Banach/substitution adapter. The existing restricted-series carrier and Gauss norm are now explicit imports, with coefficient bounds distinguished from pointwise containment."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Field projectivity/symmetric ample bundle sources refine A1/A2, importing upstream square/cube theory. The corrected Milne formulas and nonzero tangent criterion are retained; no arbitrary-base projectivity is asserted."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "DWP.0/DWP.1 already own disjoint weights and the abelian Weil estimate. Good-reduction specialization and the integral-to-rational bridge are explicit imports; the generic theorem is removed from the curve-specific continuation."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "C4 owns semiabelian extensions; import A3/A4 and R02.1 for full Tate exactness. Only the curve-specific comparison remains in the generalized-Albanese continuation."
+    }
+  ],
+  "notes": "Finished independent review of all179 inherited items, all14 inherited routes and all7 inherited findings. Added library item180, corrected NC.6 coverage, credited analytic/series infrastructure, and moved two generic suppliers to existing owners. 13 routes accepted as scoped source/design contributions; routes6,11,12 rejected. Extraction partial; unresolved main-paper gap is explicit. See research/blueprint/reviews/REV-PAPER-BRESCIANI-24.md.",
+  "reviewer": "independent-review-REV-PAPER-BRESCIANI-24",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "date": "2026-09-23"
+}

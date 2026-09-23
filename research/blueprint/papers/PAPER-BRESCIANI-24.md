@@ -1,3 +1,17 @@
+# Bresciani 2024 — reviewed extraction, revision required
+
+This section supersedes the completion/acceptance claims in the historical extraction notes below. Independent reviewer: Codex `codex-7e92bd`, 2026-09-23. Verdict **revise**; extraction **partial**. See [the independent review](../reviews/REV-PAPER-BRESCIANI-24.md) for the proof checks, source versions, every route verdict and changed-field ledger.
+
+The current result contains180 items (13 library,9 planned,158 missing) and16 routes. Every missing item has exactly one provisional owner. Thirteen routes are accepted as scoped contributions; routes6,11,12 are rejected. The nonsplit quadratic-boundary case over positive-transcendence-degree fields remains unresolved in the reverse direction of TheoremA. The number-field replacement has now received an independent mathematical check relative to its named suppliers; it is not part of the published paper or a Lean proof.
+
+The review adds the existing multivariable analytic inverse as /180, credits restricted-series/Gauss-norm infrastructure, removes NC.6's process-layer credit for the section-conjecture proposition, and moves generic weights and semiabelian Tate exactness to DWP.0/DWP.1 and C4. It also corrects locators, the power-completion name, explicit monic-degree and substitution hypotheses, and the symmetric ample-bundle formula. Twenty source findings have independent confirmed verdicts at explicitly limited versions; four are already corrected in later publications. Current JSON and the independent report are authoritative over earlier prose.
+
+Validation: paper checker, intake scope/schema checks and independent coverage/change accounting pass; 16 library source files byte-match the pins. No Lean compilation is claimed.
+
+## Historical extraction and continuation notes
+
+The following is retained as provenance, including earlier workers' reading claims and provisional decisions. It must not override the current review or status above.
+
 # Bresciani (2024): extraction and routing
 
 Issue [#1233](https://github.com/CBirkbeck/tauceti-explorer/issues/1233). Status: **complete**. Implementation and proof closure are not claimed.
