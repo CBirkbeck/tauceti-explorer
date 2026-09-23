@@ -1,0 +1,97 @@
+{
+  "paper": "PAPER-ZHU-17",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The stages SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.4 own this: General perfect spaces, pfp models, Frobenius approximation and perfect morphism properties belong to the common foundation, already used by BS17 and HE21."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The stages SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.2 own this: Own perfect-site torsors, groupoids and the revised free-action quotient theorem once, including A.30–A.31 flatness."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The stages RelativeFarguesFontaine:RF0 own this: Reuse the ramified Witt coefficient owner."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The stages ReductiveGroupsPartII:RG2.0a, ReductiveGroupsPartII:RG2.1, ReductiveGroupsPartII:RG2.2, ReductiveGroupsPartII:RG2.3, ReductiveGroupsPartII:RG2.4, ReductiveGroupsPartII:RG2.5 own this: Reuse integral representations, Weil restriction, buildings, parahorics, Cartan/Iwahori–Weyl data and the dual datum."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The stages BunGAndNewtonStrata:BG0, BunGAndNewtonStrata:BG1 own this: The existing G-isocrystal/Kottwitz owner supplies ν, κ, J_b and component comparisons; ADLV only adds its geometric application."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The stages GeometricSatakeAndFusion:GS0:Witt-geometry own this: Add Zhu’s original perfect algebraic-space construction, relative positions, resolutions and explicit deperfections to the existing GS0 owner. Items G07 and G09 carry E38 and E39."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The stages EtaleDualityAndPerverseSheaves:EDC.0, EtaleDualityAndPerverseSheaves:EDC.1:adjoint, EtaleDualityAndPerverseSheaves:EDC.1:biduality, EtaleDualityAndPerverseSheaves:EDC.2:trace-purity, EtaleDualityAndPerverseSheaves:EDC.3, EtaleDualityAndPerverseSheaves:EDC.4, EtaleDualityAndPerverseSheaves:EDC.5, EtaleDualityAndPerverseSheaves:EDC.6, EtaleDualityAndPerverseSheaves:EDC.7 own this: Extend the shared ordinary coefficient/duality/perverse theory to perfect models and finite-level equivariance."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "The stages GeometricSatakeAndFusion:GS1, GeometricSatakeAndFusion:GS2:correspondences, GeometricSatakeAndFusion:GS2:Satake-closure, GeometricSatakeAndFusion:GS4:rational-reductivity, GeometricSatakeAndFusion:GS4:integral-dual-group own this: Reuse the common rational category, convolution, weight and dual-group interfaces. Items S05, S07, S13 and Q02 carry E46, E48, E51 and E53."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The stages SmoothRepresentationsOfLocalGroups:SR.1, SmoothRepresentationsOfLocalGroups:SR.4 own this: The classical algebraic Satake transform precedes the geometric proof and already has an owner."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The stages GlobalShtukasAndFunctionFieldLanglands:GS.1 own this: The equal-characteristic geometric Satake theorem and its opposition-sign specialization feed the LY numerical identity independently of mixed Satake."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "The stages MotivesAndAlgebraicCycles:MC.6 own this: The neutral reconstruction theorem already has this common owner."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "The stages SchemeKTheoryOperations:S.3 own this: Reuse the supported-complex/localization and quasi-isogeny comparison owner identified in BS17; import the exact category and K-spectrum machinery from the existing K-theory roadmaps."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Reuse the existing candidate identifier and shared supplier; this is an additional source, not a second roadmap."
+    },
+    {
+      "route": 14,
+      "verdict": "accept",
+      "reason": "Reuse the existing candidate identifier and shared supplier; this is an additional source, not a second roadmap."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Reuse the existing candidate identifier and shared supplier; this is an additional source, not a second roadmap. The brief names E19, E20 and E64."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "Reuse the existing candidate identifier and shared supplier; this is an additional source, not a second roadmap. Title set to the parent's atlas title, 'Finite flat group schemes and integral p-adic Hodge theory'."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "Reuse the existing candidate identifier and shared supplier; this is an additional source, not a second roadmap. Title set to the parent's atlas title, 'Hecke correspondences and local shtuka cohomology'; the brief names E21 and E64."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "GS3:fusion explicitly retains the FS fusion proof. Title set to the parent's atlas title, 'Geometric Satake over the Fargues–Fontaine curve'; the brief names E15, E57, E58 and E61."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-ZHU-17 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a) and completed by Claude Code (cc-442dc5, #2123). The published Annals version (90 pages, pp. 403–492; hash matching) was read in full on page images in seven ranges against every item, with arXiv v2 and v3 compared where recorded mistakes concern them. Corrected in place: 163 item fields (88 statements, 74 locators, 1 name) and 10 notes; item G29e removed as a duplicate of G24; 104 items added for definitions, constructions and cited inputs the proofs use; three Part II titles set to their parents' exact atlas titles; the briefs of routes 15, 17 and 18 and the items of the source routes carry the confirmed corrections; prerequisites rebuilt as 23 cited works with DOIs or stable links. Statuses: all library declarations opened at the pinned commits and all planned stages checked. Mistakes: of the extraction's 34, E18 is rejected on review (Liu–Yun do derive the theorem as described) and the rest are confirmed, 15 revised as the independent checks upheld (E1 a gap in arXiv v2 fixed in v3; E27 worse than recorded: the top-degree trace depends on the model up to powers of p). 44 new claims were checked a second time, independently: 37 confirmed, 5 reclassified, 2 rejected; one was folded into another, and the rest are E35–E75. The main new ones: Theorem 3.10(3) fails when {μ} is not defined over Q_p unless b is taken in G(W)σ(μ)(p)G(W) (E64); errors in the proofs of Corollary 2.10 (E51), Lemma 2.11 (E53) and Lemma 2.32 (E58), and in Proposition 2.5's refinement (E46); gaps in Lemmas 1.3 and 1.5 (E38, E39), Corollary 2.8 (E48) and the twisted trace formula (E61). The geometric Satake equivalence and the dimension formula stand."
+}
