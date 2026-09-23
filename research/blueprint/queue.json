@@ -1590,8 +1590,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1111"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1111",
+   "finishedAt": "2026-09-23T03:44:54Z"
   },
   {
    "id": "REV-PAPER-NGODAC-21",
@@ -3095,8 +3096,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1197"
+   "state": "external",
+   "note": "claimed on GitHub issue #1197"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
@@ -6998,8 +6999,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1420"
+   "state": "external",
+   "note": "claimed on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
