@@ -1,0 +1,1398 @@
+{
+  "paper": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Explicit Chabauty–Kim for the split Cartan modular curve of level 13",
+    "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+    "venue": "Annals of Mathematics 189 (2019), no. 3, 885–944",
+    "doi": "10.4007/annals.2019.189.3.6",
+    "arxiv": "1711.05846",
+    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+    "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8",
+    "readDate": "2026-09-23",
+    "version": "Published text, read in full: the 60-page PDF served openly by the Annals site (fetched 23 September 2026, SHA-256 above, created 30 April 2019). arXiv v1 (15 November 2017, the only version, 41 pages, SHA-256 77c57b0307c8915959a771c15bc89c6c46ae4c2d3b344c81ce898cfa9b90c917) was read in full first. It is the submitted version: the KU Leuven Lirias copy is byte-identical to it. The published text was revised (received 7 July 2018, revised 20 December 2018): §§4–6 and Appendix A are renumbered and several arXiv slips are corrected (see the report). Locators give published numbering and pages, with arXiv v1 numbering where it differs. Formula pages 21–22, 24–25, 27, 29, 31, 33 of arXiv v1 were checked on page images.",
+    "readSections": [
+      "Published: abstract, §1 (1.1–1.8), §2 (2.1–2.3), §3 (3.1–3.4, Remarks 3.5–3.12), §4 (4.1–4.5, Theorem 4.11 and its proof), §5 (5.1–5.5, Lemmas 5.2–5.7), §6 (6.1–6.6, Remark 6.9), Appendix A (A.1–A.2), references.",
+      "arXiv v1: the whole text, including the zero tables of §§6.4–6.5 and Appendix A.3 (Theorems A.7, A.8) that the published version moved or dropped.",
+      "Authors' code: github.com/jtuitman/Cartan13 (readme, hodge.m, heights.m, U1.m, data.pdf) and github.com/steffenmueller/QCMod (hodge.m, heights.m, qc_modular.m), read only where they bear on E2 and E3.",
+      "Sequel: BDMTV 2023 (arXiv 2101.01862v4, SHA-256 738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d) §§3.2, 3.5.2, 4.1–4.2."
+    ]
+  },
+  "summary": "The paper determines X_s(13)(Q): six CM points and one cusp. This completes the split Cartan case of Serre's uniformity question (the primes are {2, 3, 5, 7}) and, via Baran's isomorphism, gives |X_ns(13)(Q)| = 7 and a new proof of the class number one theorem. Its method extends explicit quadratic Chabauty to non-hyperelliptic curves with r = g and ρ > 1. It builds quadratic Chabauty pairs from Nekovář's p-adic height of the twisted mixed extension A_Z(b,x) attached to a nice correspondence Z. It computes the local height at p through the Hodge filtration (Hadian's universal property) and the Frobenius structure (a universal property of unipotent isocrystals) of a universal connection. It then runs the algorithm at p = 17 with Tate classes from T_7 and T_11. As the maintainer routed it, the paper is a source of existing layers: its theory goes to NC.5 with the Tannakian and comparison machinery to NC.2, the algorithm and the X_s(13) computation to ED.6, and the semi-stable models of X_s(ℓ) to ModularCurvesPartII R13.5. The atlas lacks Nekovář's p-adic heights, universal unipotent objects, Hadian's and Chiarellotto–Le Stum's theorems, and models of X_0(ℓ²) at ℓ. Complete (cc-442dc5): every numbered statement is an item, and every missing item is routed exactly once. Eight findings are recorded; the only one reaching a stated result is Lemma 4.7, which the authors retracted in 2023 and do not use. Not formalised.",
+  "items": [
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/1",
+      "kind": "definition",
+      "name": "Split and non-split Cartan modular curves",
+      "statement": "For a prime ℓ, X_s(ℓ) := X(ℓ)/C_s(ℓ)^+, where C_s(ℓ)^+ is the normaliser of a split Cartan subgroup of GL_2(F_ℓ); it is well defined up to Q-isomorphism because all such subgroups are conjugate. X_ns(ℓ) is defined in the same way from the normaliser of a non-split Cartan subgroup. A non-cuspidal rational point of X_s(ℓ) comes from an elliptic curve E/Q whose mod-ℓ image lies in a conjugate of C_s(ℓ)^+.",
+      "locator": "Published §1.1, p.887 (arXiv v1 §1.1, p.2)",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering"
+      ],
+      "note": "Tau Ceti ModularCurves layer 9 plans the coarse quotients X_H for subgroups H of GL_2(Z/N) and layer 10 their compactifications with cusps; X_s(ℓ) and X_ns(ℓ) are instances."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/2",
+      "kind": "theorem",
+      "name": "Bilu–Parent–Rebolledo (cited)",
+      "statement": "For every prime ℓ > 7 with ℓ ≠ 13, X_s(ℓ)(Q) consists of cusps and CM points [BP11, BPR13]. Hence for these ℓ no elliptic curve E/Q without CM has mod-ℓ image in the normaliser of a split Cartan subgroup.",
+      "locator": "Published §1.1, p.887",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Cited input to Theorem 1.2; Bilu–Parent (Ann. Math. 2011) and Bilu–Parent–Rebolledo (AIF 2013) are prerequisite papers."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/3",
+      "kind": "theorem",
+      "name": "Chen's isogeny decomposition (cited)",
+      "statement": "Jac(X_s(ℓ)) ∼ Jac(X_0^+(ℓ²)) ∼ J_0(ℓ) × Jac(X_ns(ℓ)) [Che98]. Since J_0(13) = 0, Jac(X_s(13)) ∼ Jac(X_ns(13)), and Jac(X_s(13)) is absolutely simple, which is why Mazur's method fails at ℓ = 13.",
+      "locator": "Published §1.1, p.887 (arXiv v1 attributes it to Momose [Mom86])",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Context for the choice of method; the simplicity used later is re-proved in §6.1 (item on End(J))."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/4",
+      "kind": "theorem",
+      "name": "Baran's isomorphism (cited)",
+      "statement": "There is a Q-isomorphism X_ns(13) ≃ X_s(13) [Bar14a, Bar14b], obtained from explicit smooth plane quartic models and, independently, from Torelli's theorem and an isomorphism of Jacobians. No modular interpretation is known.",
+      "locator": "Published §1.1, (1), p.888",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/5",
+      "kind": "theorem",
+      "name": "Theorem 1.1",
+      "statement": "The rational points on X_s(13) consist of six CM points and one cusp.",
+      "locator": "Published Theorem 1.1, p.888",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "In the model Q of §6.3 the seven points are P0,…,P6 (item on the model). Checked by cc-442dc5: the six imaginary quadratic orders of class number one in which 13 splits (discriminants −3, −4, −12, −16, −27, −43) give the six CM points."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/6",
+      "kind": "theorem",
+      "name": "Theorem 1.2",
+      "statement": "The set of primes ℓ for which there exists an elliptic curve E/Q without CM such that ρ_{E,ℓ} is contained in the normaliser of a split Cartan subgroup is {2, 3, 5, 7}.",
+      "locator": "Published Theorem 1.2, p.888 (arXiv v1 states it as 'if and only if ℓ ≤ 7')",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 1.1 plus the cited Bilu–Parent–Rebolledo theorem (ℓ > 7, ℓ ≠ 13) and ℓ = 11 inside it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/7",
+      "kind": "theorem",
+      "name": "Corollary 1.3",
+      "statement": "|X_ns(13)(Q)| = 7, and all these points are CM.",
+      "locator": "Published Corollary 1.3, p.888",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Via Baran's isomorphism. Checked by cc-442dc5: the class-number-one discriminants in which 13 is inert are −7, −8, −11, −19, −28, −67, −163, seven in all."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/8",
+      "kind": "theorem",
+      "name": "Remark 1.4: class number one",
+      "statement": "A complete determination of X_ns(N)(Q) for some N gives the class number one problem [Ser97]; Corollary 1.3 therefore gives a new proof of it.",
+      "locator": "Published Remark 1.4, p.888",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: if Q(√−q) has class number one and q > 52, every prime below q/4 is inert, so 13 is inert and the CM curve gives a rational point of X_ns(13); Corollary 1.3 leaves room only for the seven known discriminants."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/9",
+      "kind": "definition",
+      "name": "Standing notation",
+      "statement": "X/Q is a smooth projective geometrically connected curve of genus g ≥ 2 with X(Q) ≠ ∅ and Jacobian J; r := rk J(Q), ρ := rk NS(J), K := End(J) ⊗ Q; b ∈ X(Q) is a base point and p a prime of good reduction; E := H^0(X_{Q_p},Ω¹)* ⊗ H^0(X_{Q_p},Ω¹)*; T_0 is the set of bad primes, T = T_0 ∪ {p}, G_T the maximal quotient of G_Q unramified outside T, and G_v the absolute Galois group of Q_v.",
+      "locator": "Published §1.2, (2), p.889",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.3",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "note": "Curves, Jacobians and Néron–Severi groups come from SF.3; NC.5 fixes r, g and ρ as the quadratic-Chabauty data."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/10",
+      "kind": "construction",
+      "name": "Chabauty–Coleman",
+      "statement": "The p-adic integration pairing J(Q_p) × H^0(J_{Q_p},Ω¹) → Q_p, (D, ω) ↦ ∫_0^D ω, gives log: J(Q_p) → H^0(X_{Q_p},Ω¹)* and AJ_b(x) = (ω ↦ ∫_0^{[x−b]} ω), with the commutative diagram (3). If r < g, the p-adic closure of J(Q) has codimension ≥ 1, so some nonzero ω_J vanishes on it and x ↦ AJ_b(x)(ω_J) kills X(Q); on each residue disk it is a convergent power series with finitely many zeros, so X(Q) is finite (Chabauty).",
+      "locator": "Published §1.3, (3)–(4), pp.889–890",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EffectiveDiophantineMethods:ED.4",
+        "ColemanIntegration:L1"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/11",
+      "kind": "definition",
+      "name": "Quadratic Chabauty pair",
+      "statement": "Assume r = g and that the p-adic closure of J(Q) has finite index in J(Q_p), so AJ_b gives J(Q) ⊗ Q_p ≃ H^0(X_{Q_p},Ω¹)*. A quadratic Chabauty pair is a function θ: X(Q_p) → Q_p and a finite set Υ ⊂ Q_p such that (a) on each residue disk (AJ_b, θ): X(Q_p) → H^0(Ω¹)* × Q_p has Zariski dense image and is a convergent power series; (b) there are an endomorphism E of H^0(Ω¹)*, a functional c ∈ H^0(Ω¹)* and a bilinear form B on H^0(Ω¹)* with θ(x) − B(AJ_b(x), E(AJ_b(x)) + c) ∈ Υ for all x ∈ X(Q). E, c and B are its endomorphism, constant and pairing. For α ∈ Υ, X(Q_p)_α := {x : θ(x) − B(AJ_b(x), E(AJ_b(x)) + c) = α}; X(Q) ⊂ ⊔_α X(Q_p)_α, a finite set by (a).",
+      "locator": "Published §1.4, (5), pp.890–891",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/12",
+      "kind": "theorem",
+      "name": "Lemma 1.5: the determinant criterion",
+      "statement": "Let P_1,…,P_m ∈ X(Q) be such that AJ_b(P_i) ⊗ (E(AJ_b(P_i)) + c) form a basis of E, let ψ_1,…,ψ_m be a basis of E*, P_i ∈ X(Q_p)_{α_i}, and Ψ_j(x) := ψ_j(AJ_b(x) ⊗ (E(AJ_b(x)) + c)). Let T(x) be the (m+1)×(m+1) matrix with rows (θ(x) − α, Ψ_1(x),…,Ψ_m(x)) and (θ(P_i) − α_i, Ψ_1(P_i),…,Ψ_m(P_i)). If x ∈ X(Q_p)_α, then det T(x) = 0.",
+      "locator": "Published Lemma 1.5, (6), p.891",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: B is a linear combination of the ψ_j, so every row satisfies the same linear relation."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/13",
+      "kind": "theorem",
+      "name": "Equivariant heights reduce the number of points",
+      "statement": "If s is a K-equivariant splitting of the Hodge filtration then h(αE_1, E_2) = h(E_1, αE_2) for α ∈ K [BD17, §4.1], so E may be replaced by H^0(Ω¹)* ⊗_{K⊗Q_p} H^0(Ω¹)* in Lemma 1.5; a priori 1 + g² rational points are needed, and when K has degree g this drops to 1 + g (four points for X_s(13)). Given generators of a finite-index subgroup of J(Q) and an algorithm for p-adic heights on J(Q), one rational point suffices.",
+      "locator": "Published Remark 1.6, §1.7, Remark 1.7, Remark 3.9, pp.892, 895, 908",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/14",
+      "kind": "definition",
+      "name": "Bloch–Kato set-up and the extended Chabauty diagram",
+      "statement": "V := H^1_ét(X_{Q̄},Q_p)*, V_dR := H^1_dR(X_{Q_p})* with the dual Hodge filtration, so V_dR/Fil⁰ ≃ H^0(X_{Q_p},Ω¹)*. Bloch–Kato give H^1_f(G_p,V) ≃ V_dR/Fil⁰, H^1_f(G_p,V) ⊂ H^1(G_p,V) being the crystalline classes, and H^1_f(G_T,V) := loc_p^{-1} H^1_f(G_p,V); with the Kummer maps κ, κ_p this gives the commutative diagram (8) extending (3) [BK90, 3.10.1].",
+      "locator": "Published §2.1, (8), pp.896–897",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeRegulators:L1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/15",
+      "kind": "definition",
+      "name": "Unipotent étale fundamental groups and the unipotent Kummer map",
+      "statement": "U_n^ét = U_n^ét(b) is the maximal n-unipotent quotient of the Q_p-étale fundamental group of X_{Q̄} at b, a finite-dimensional unipotent Q_p-group with continuous G_Q-action containing the maximal n-unipotent pro-p quotient as a lattice; U_1^ét = V and U_2^ét is a central extension 1 → Coker(Q_p(1) →∪* ∧²V) → U_2 → V → 1 (10). Path torsors U_n^ét(b,x) give j_n^ét: X(Q) → H^1(G_T, U_n^ét) and local maps j_{n,v}^ét.",
+      "locator": "Published §2.1, (9)–(10), p.897",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/16",
+      "kind": "definition",
+      "name": "Selmer varieties",
+      "statement": "By [Ols11, Th. 1.11], j_{n,p}^ét(X(Q_p)) ⊂ H^1_f(G_p,U_n^ét). H^1(G_p,U_n^ét) and H^1(G_T,U_n^ét) are represented by algebraic varieties over Q_p [Kim05], and H^1_f(G_p,U_n^ét), H^1_f(G_T,U_n^ét) by subvarieties [Kim09, p.119]. Sel(U_n) ⊂ H^1_f(G_T,U_n^ét) is the subvariety of classes c ∈ ⋂_{v∈T_0} loc_{n,v}^{-1}(j_{n,v}^ét(X(Q_v))) whose image in H^1_f(G_T,V) lies in the image of J(Q) ⊗ Q_p; Sel(U) is defined the same way for a Galois-stable quotient U. For X_s(13), which has potentially good reduction everywhere, the local conditions are vacuous (Remark 2.1).",
+      "locator": "Published §2.1, Remark 2.1, pp.897–898",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/17",
+      "kind": "definition",
+      "name": "De Rham fundamental group and Kim's classification",
+      "statement": "π_1^dR(X_L,b) is Deligne's Tannakian fundamental group of unipotent vector bundles with flat connection with fibre functor b*; U_n^dR(b) is its maximal n-unipotent quotient with path torsors U_n^dR(b,x), which for L/Q_p finite are filtered φ-modules. Isomorphism classes of U_n^dR-torsors in filtered φ-modules are classified by U_n^dR/Fil⁰ [Kim09], giving j_n^dR: X(Q_p) → U_n^dR/Fil⁰; by [Ols11, Th. 1.11] D_cris(U_n^ét(b,x)) ≃ U_n^dR(b,x), making diagram (9) commute.",
+      "locator": "Published §2.1, (9), p.898",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/18",
+      "kind": "definition",
+      "name": "Chabauty–Kim loci",
+      "statement": "For a Galois-stable quotient U of U_n^ét, X(Q_p)_U := (j_{U,p}^ét)^{-1}(loc_{U,p} Sel(U)) ⊂ X(Q_p), and X(Q_p)_n := X(Q_p)_{U_n} (weakly global points); X(Q) ⊂ ⋯ ⊂ X(Q_p)_n ⊂ X(Q_p)_{n−1} ⊂ ⋯ ⊂ X(Q_p)_1 ⊂ X(Q_p).",
+      "locator": "Published §2.1, p.898",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.4"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/19",
+      "kind": "theorem",
+      "name": "Theorem 2.2 (Kim)",
+      "statement": "The bottom row of (9) consists of Q_p-points of algebraic varieties, loc_{n,p} and D are morphisms of schemes (D an isomorphism), and j_n^dR has Zariski dense image [Kim09, Th. 1] and is a power series on each residue disk. If loc_{U,p} is non-dominant, then X(Q_p)_U is finite.",
+      "locator": "Published §2.2, Theorem 2.2, p.899",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.4"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/20",
+      "kind": "theorem",
+      "name": "Theorem 2.3 (Balakrishnan–Dogra)",
+      "statement": "If r < g + ρ − 1, then X(Q_p)_2 is finite [BD18, Lemma 3]. Sketch: pushing out (10) gives a quotient U of U_2 with 1 → Q_p(1)^{⊕(ρ−1)} → U → V → 1, for which the global side has dimension ≤ r while dim H^1_f(G_p,U) = g + ρ − 1.",
+      "locator": "Published Theorem 2.3, p.899 (arXiv v1 Lemma 2.3)",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "note": "NC.5 plans 'the precise rank-versus-genus/Picard-number criterion'; this paper is a source for it. See E8 on the global dimension bound."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/21",
+      "kind": "definition",
+      "name": "Symmetric and nice correspondences",
+      "statement": "Z ∈ Pic(X × X) is symmetric if τ*Z = Z + π_1*Z_1 + π_2*Z_2 for some Z_1, Z_2 ∈ Pic(X), τ the swap. Z is nice if it is nontrivial, symmetric and its cycle class ξ_Z ∈ H¹(X) ⊗ H¹(X)(1) ≃ End H¹(X) has trace 0, in any Weil cohomology with coefficients of characteristic zero; the notion extends to Pic(X × X) ⊗ Q_p (Remark 2.5).",
+      "locator": "Published §2.3, p.900",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "note": "NC.5 plans the Néron–Severi contributions."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/22",
+      "kind": "theorem",
+      "name": "Lemma 2.4",
+      "statement": "If J is absolutely simple and Z ∈ Pic(X × X) is symmetric, the class of Z lies in ∧²H¹(X)(1) ⊂ H¹(X) ⊗ H¹(X)(1), and Z is nice if and only if the image of this class in H²(X)(1) under the cup product is zero.",
+      "locator": "Published Lemma 2.4, p.900",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof via [BL04, Prop. 11.5.3] (symmetric ⇔ Rosati-fixed) and [Mum70, §IV.20] (Rosati-fixed part of End(J) ⊗ Q ≃ NS(J) ⊗ Q)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/23",
+      "kind": "construction",
+      "name": "The depth-two quotient U_Z",
+      "statement": "For nice Z, Lemma 2.4 gives c_Z: Q_p(−1) → Ker(∧²H^1_ét(X_{Q̄},Q_p) → H²(X_{Q̄},Q_p)), and U_Z := U_2/Ker(c_Z*) sits in 1 → Q_p(1) → U_Z → V → 1. The computations use only the image of Z in H^1_dR(X) ⊗ H^1_dR(X)(1) (Remark 2.5).",
+      "locator": "Published §2.3, Remark 2.5, pp.900–901",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/24",
+      "kind": "definition",
+      "name": "Nekovář's p-adic height pairing",
+      "statement": "For V = H^1_ét(X_{Q̄},Q_p)* (which satisfies [Nek93, §2.1.2] by [Nek93, §5.3]) there is a continuous bilinear pairing h: H^1_f(G_T,V) × H^1_f(G_T,V*(1)) → Q_p (11), depending only on a continuous idèle class character χ: A_Q^×/Q^× → Q_p and a splitting s: V_dR/Fil⁰ → V_dR of the Hodge filtration.",
+      "locator": "Published §3.1, (11), p.901",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No p-adic height exists in either library or in any atlas layer (GZ.9 is the BDP/Brooks setting); NC.5 needs it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
+      "kind": "definition",
+      "name": "Definition 3.1: mixed extensions",
+      "statement": "For G = G_T or G_v (v ∈ T), M(G; Q_p, V, Q_p(1)) is the category of triples (M, M_•, ψ_•): a Q_p-representation M of G, a G-stable filtration M = M_0 ⊃ M_1 ⊃ M_2 ⊃ M_3 = 0 and G-isomorphisms M_0/M_1 ≅ Q_p, M_1/M_2 ≅ V, M_2/M_3 ≅ Q_p(1); morphisms respect filtrations and the ψ_i. M_f is the full subcategory crystalline at p. On isomorphism classes, π_1(M) = [M/M_2] ∈ H^1_f(G_T,V) and π_2(M) = [M_1] ∈ Ext¹_{G_T,f}(V, Q_p(1)) ≃ H^1_f(G_T,V) (Poincaré duality V ≃ V*(1)); M is a mixed extension of π_1(M) and π_2(M).",
+      "locator": "Published Definition 3.1, p.902",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
+      "kind": "theorem",
+      "name": "Local decomposition of the height",
+      "statement": "There are functions h_p: M_f(G_p;Q_p,V,Q_p(1)) → Q_p and h_v: M(G_v;Q_p,V,Q_p(1)) → Q_p (v ≠ p) with h = Σ_v h_v ∘ loc_v on M_f(G_T;Q_p,V,Q_p(1)), where h is read through (π_1, π_2), which is surjective [Nek93, §4.4]. The local heights do not factor through (π_1, π_2).",
+      "locator": "Published §3.1, pp.902–903",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
+      "kind": "construction",
+      "name": "The local height away from p",
+      "statement": "For v ≠ p, H^1(G_v, V) = 0: by local Tate duality and H^1_f(G_v,W) ≃ W^{I_v}/(Fr − 1)W^{I_v}, H^1(G_v,W) = 0 when H^0(G_v,W) = H^0(G_v,W*(1))* = 0, and this holds for V by the weight-monodromy theorem for curves [Gro72, IX]. So M ∈ M_f(G_v;…) splits as V ⊕ N with [N] ∈ H^1(G_v,Q_p(1)) ≃ Q_v^× ⊗̂ Q_p, and h_v(M) := χ_v([N]). It vanishes when M is unramified.",
+      "locator": "Published §3.2, p.903",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
+      "kind": "theorem",
+      "name": "Lemma 3.2",
+      "statement": "Let v ≠ p and M ∈ M(G_v; Q_p, V, Q_p(1)). If M is potentially unramified, then h_v(M) = 0.",
+      "locator": "Published Lemma 3.2, p.903",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: inflation–restriction for a finite Galois K_v/Q_v over which M is unramified; Q_p(1)^{G_{K_v}} = 0."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/29",
+      "kind": "definition",
+      "name": "Filtered φ-modules and their extensions",
+      "statement": "A filtered φ-module is a finite-dimensional Q_p-vector space with an exhaustive separated decreasing filtration and an automorphism φ (Definition 3.3). If W^{φ=1} = 0, then Ext¹_{Fil,φ}(Q_p, W) ≃ W/Fil⁰ (12), the class of 0 → W → E → Q_p → 0 being s^φ − s^Fil for the unique φ-equivariant splitting s^φ and any filtered splitting s^Fil.",
+      "locator": "Published Definition 3.3, (12), p.904",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.2"
+      ],
+      "note": "R06.2 constructs filtered (φ,N)-modules and D_cris; the Ext computation (12) is a source input for it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/30",
+      "kind": "definition",
+      "name": "Mixed extensions of filtered φ-modules",
+      "statement": "M_{Fil,φ}(Q_p, V, Q_p(1)) is the category of filtered φ-modules M with a filtration M = M_0 ⊃ M_1 ⊃ M_2 ⊃ M_3 = 0 by sub-filtered φ-modules and isomorphisms M_0/M_1 ≅ Q_p, M_1/M_2 ≅ V_dR, M_2/M_3 ≅ Q_p(1) (Definition 3.4); here Fil^i jumps only at i = 0, −1 (Remark 3.5). E_1(M) := M_dR/Q_p(1), E_2(M) := Ker(M_dR → Q_p) (13), and 0 → Q_p(1) → E_2/Fil⁰ → V_dR/Fil⁰ → 0 (14).",
+      "locator": "Published Definition 3.4, Remark 3.5, (13)–(14), pp.904–905",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31",
+      "kind": "construction",
+      "name": "The local height at p",
+      "statement": "For M_ét ∈ M_f(G_p;Q_p,V,Q_p(1)) and M = D_cris(M_ét): δ: V_dR/Fil⁰ →s V_dR → E_2 → E_2/Fil⁰ uses the unique Frobenius-equivariant splitting of 0 → Q_p(1) → E_2 → V_dR → 0; [M] and δ([E_1]) have the same image in V_dR/Fil⁰, their difference lies in Q_p(1) ≃ H^1_f(G_p,Q_p(1)) ≃ Z_p^× ⊗̂ Q_p, and h_p(M) := χ_p([M] − δ([E_1])) (15).",
+      "locator": "Published §3.3, (15), p.905",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
+      "kind": "theorem",
+      "name": "The height formula (17)",
+      "statement": "If s_0 is a vector-space splitting Q_p ⊕ V_dR ⊕ Q_p(1) ≅ M and, in chosen bases, s_0^{-1}∘s^φ = [[1,0,0],[α_φ,1,0],[γ_φ,β_φ^T,1]] and s_0^{-1}∘s^Fil = [[1,0,0],[0,1,0],[γ_Fil,β_Fil^T,1]] (16), then h_p(M) = χ_p(γ_φ − γ_Fil − β_φ^T·s_1(α_φ) − β_Fil^T·s_2(α_φ)), where s_1, s_2 are the idempotents of V_dR onto s(V_dR/Fil⁰) and Fil⁰.",
+      "locator": "Published (16)–(17), pp.905–906",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/33",
+      "kind": "construction",
+      "name": "A_Z(b), twisting and the pair (θ, Υ)",
+      "statement": "A_n^ét(b) := Q_p ⊗ Z_p[[π_1^{ét,p}(X,b)]]/I^{n+1}; the limit is the pro-universal enveloping algebra of the Q_p-unipotent étale fundamental group, and I²/I³ ≃ Coker(Q_p(1) →∪* V^{⊗2}). A_Z(b) is the pushout of A_2^ét(b) by cl_Z*: Coker(…) → Q_p(1), an object of M_f(G_T;Q_p,V,Q_p(1)) with a faithful unipotent U_Z-action. Twisting gives τ: H^1_f(G_T,U_Z) → M_f(G_T;…) and τ_p, P ↦ P ×^{U_Z} A_Z(b), with τ injective [BD18, §5.1]; A_Z(b,x) := τ([π_1^ét(X;b,x)]). θ(x) := h_p(A_Z(b,x)) (18) and Υ := {Σ_{v∈T_0} h_v(A_Z(b,x_v)) : (x_v) ∈ ∏ X(Q_v)} (19).",
+      "locator": "Published §3.4, (18)–(19), pp.906–907",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/34",
+      "kind": "theorem",
+      "name": "Theorem 3.6 (Kim–Tamagawa)",
+      "statement": "If v ≠ p, then j_{2,v}^ét: X(Q_v) → H^1(G_v, U_2) has finite image [KT08, Cor. 0.2]; hence Υ is finite.",
+      "locator": "Published Theorem 3.6, p.907",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "note": "NC.5 plans 'all bad-place local terms'."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/35",
+      "kind": "theorem",
+      "name": "Lemma 3.7",
+      "statement": "Let X be as in §1.4 and Z nice. Then (θ, Υ) is a quadratic Chabauty pair; its endomorphism E is induced by Z, its constant is c = [IA_Z(b)], and its pairing B is the global height h. The proof uses [BD17, Lemma 10]: (π_*, h_p∘τ_p): H^1_f(G_p,U_Z) → H^1_f(G_p,V) × Q_p is an isomorphism of schemes; and [BD18, §5.2]: (π_1, π_2)(A_Z(b,x)) = (AJ_b(x), E(AJ_b(x)) + c) for x ∈ X(Q).",
+      "locator": "Published Lemma 3.7, pp.907–908",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "See E8: the proof's identification H^1_f(G_T,V) ≃ H^1_f(G_p,V) needs finiteness of Sha(J/Q)[p^∞]; only the image of J(Q) ⊗ Q_p is used."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/36",
+      "kind": "theorem",
+      "name": "Corollary 3.8",
+      "statement": "If X has potentially good reduction everywhere and satisfies the assumptions of §1.4, then (θ, {0}) is a quadratic Chabauty pair, θ = h_p(A_Z(b, ·)), with endomorphism induced by Z, constant [IA_Z(b)] and pairing h.",
+      "locator": "Published Corollary 3.8, p.908",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/37",
+      "kind": "theorem",
+      "name": "Independence of the splitting and the character",
+      "statement": "For two splittings the local heights differ by a bilinear function factoring through Ext¹_{Fil,φ}(Q_p,V_dR) ⊗ Ext¹_{Fil,φ}(V_dR,Q_p(1)), so θ(x) − B(AJ_b(x), E(AJ_b(x)) + c) is independent of s (20); its dependence on χ is linear, so the zero set is independent of both choices since H^1(G_{Q,T},Q_p) is one-dimensional (Remark 3.12). For potentially good reduction everywhere χ only fixes D_dR(Q_p(1)) ≃ H^1_f(G_p,Q_p(1)) ≃ Q_p (Remark 3.10).",
+      "locator": "Published Remarks 3.10, 3.12, (20), pp.908–909",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/38",
+      "kind": "theorem",
+      "name": "Chow–Heegner points (Remarks 3.11, 5.6)",
+      "statement": "[IA_Z(b)] is the p-adic realisation of the Chow–Heegner point attached to the Néron–Severi class Z [DRS12], and [IA_Z(b)] = C·(β_φ(b,b) − β_Fil(b)) (47), C the cup-product matrix.",
+      "locator": "Published Remark 3.11, Remark 5.6, (47), pp.908, 925",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/39",
+      "kind": "definition",
+      "name": "Set-up for the explicit computation",
+      "statement": "Y ⊂ X is an affine open over Q, b ∈ Y(Q) integral at p, d := #(X∖Y)(Q̄), L/Q a field of definition of the points of D = X∖Y. ω_0,…,ω_{2g+d−2} ∈ H^0(Y_Q,Ω¹): ω_0,…,ω_{2g−1} of the second kind forming a symplectic basis of H^1_dR(X/Q), with ω_0,…,ω_{g−1} holomorphic (a basis of H^0(X,Ω¹); used in §4.5, see E4), and ω_{2g},…,ω_{2g+d−2} of the third kind. V_dR(Y) := H^1_dR(Y/Q)* with dual basis T_0,…,T_{2g+d−2}.",
+      "locator": "Published §4.1, pp.909–910",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: the holomorphy of ω_0,…,ω_{g−1} is added (E4)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/40",
+      "kind": "construction",
+      "name": "The universal unipotent connection on Y",
+      "statement": "A_n^dR(b) := A_n(C^dR(X), b*) with universal n-unipotent object A_n^dR(b) carrying a Hodge filtration with x*A_n^dR(b) ≃ A_n^dR(b,x) as filtered spaces. On Y: A_n^dR(Y) := ⊕_{i≤n} V_dR(Y)^{⊗i} ⊗ O_Y with ∇_n(v ⊗ 1) = −Σ_i (T_i ⊗ v) ⊗ ω_i (21); it is n-step unipotent with graded pieces carrying the trivial connection.",
+      "locator": "Published §4.2, (21), p.910",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/41",
+      "kind": "theorem",
+      "name": "Theorem 4.2 (Kim): universality",
+      "statement": "Let 1 = 1 ⊗ 1. Then (A_n^dR(Y), 1) is a universal pointed n-unipotent object in the sense of §A.1: for every n-step unipotent vector bundle V with connection on Y and every v in the fibre b*V, there is a unique morphism f: A_n^dR(Y) → V with f(1) = v in the fibre at b.",
+      "locator": "Published Theorem 4.2, p.910 (arXiv v1 Theorem 4.1)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: the paper says 'any section v of V' (E6)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/42",
+      "kind": "theorem",
+      "name": "Lemma 4.3: the trivialisation respects composition",
+      "statement": "For x ∈ Y the trivialisation gives s_0(b,x): ⊕_{i≤n} V_dR(Y)^{⊗i} ≅ A_n^dR(Y)(b,x) := x*A_n^dR(Y) (22). Composition A_n^dR(Y)(x_2,x_3) × A_n^dR(Y)(x_1,x_2) → A_n^dR(Y)(x_1,x_3), defined through α: A_n^dR(Y)(x_i,x_j) ≃ Hom(x*_{in}, x*_{jn}) (24), satisfies s_0(x_1,x_3)(f_2 f_1) = s_0(x_2,x_3)(f_2)·s_0(x_1,x_2)(f_1) for all f_1, f_2 ∈ A_n^dR(Y) and x_1, x_2, x_3 ∈ Y(Q_p).",
+      "locator": "Published (22)–(24), Lemma 4.3, p.911",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/43",
+      "kind": "theorem",
+      "name": "Corollary 4.4",
+      "statement": "A_n^dR(X)|_Y is the maximal quotient of A_n^dR(Y) that extends to a holomorphic connection (without log singularities) on X.",
+      "locator": "Published Corollary 4.4, pp.911–912",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/44",
+      "kind": "definition",
+      "name": "Filtered connections",
+      "statement": "A filtered connection is (V, ∇) on X with an exhaustive descending filtration satisfying Griffiths transversality ∇(Fil^i V) ⊂ Fil^{i−1}V ⊗ Ω¹; morphisms preserve filtrations and commute with ∇. A^dR[n] := Ker(A_n^dR(b) → A_{n−1}^dR(b)) ≃ I^n/I^{n+1} ⊗ O_X is trivial as a connection, and V_dR^{⊗n} ⊗ O_X → A^dR[n] gives it a filtration.",
+      "locator": "Published §4.3, p.912",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/45",
+      "kind": "theorem",
+      "name": "Theorem 4.5 (Hadian)",
+      "statement": "For all n > 0, the Hodge filtration on A_n^dR(b) is the unique filtration such that (1) it makes (A_n^dR(b), ∇) a filtered connection; (2) V_dR^{⊗n} ⊗ O_X → A_n^dR(b) → A_{n−1}^dR(b) → 0 is a sequence of filtered connections; (3) the identity element lies in Fil⁰.",
+      "locator": "Published Theorem 4.5, Remark 4.6, pp.912–913 (arXiv v1 Theorem 4.4)",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/46",
+      "kind": "definition",
+      "name": "Admissible Tate classes Z",
+      "statement": "A nonzero Z = Σ Z_ij ω_i ⊗ ω_j ∈ H^1_dR(X/Q) ⊗ H^1_dR(X/Q) with (a) Z ∈ (H^1_dR ⊗ H^1_dR)^{φ=p} after base change to Q_p; (b) Z ∈ Fil¹; (c) Z ↦ 0 under the cup product to H²_dR; (d) Z ↦ 0 in Sym² H^1_dR, so Z ∈ H²_dR(J/Q). The class of a nice correspondence satisfies (a)–(d) (by Lemma 2.4).",
+      "locator": "Published §4.4, p.913",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/47",
+      "kind": "theorem",
+      "name": "Lemma 4.7 (corrected)",
+      "statement": "The class of a nice element of Pic(X × X) ⊗ Q satisfies (a)–(d). The converse printed as Lemma 4.7 ('if ρ(J) = ρ(J_{Q_p}), every Z with (a)–(d) comes from a nice element of Pic(X × X)') is not established: the lifting step fails for Q_p-linear combinations of divisor classes (E5). The lemma is not used later.",
+      "locator": "Published Lemma 4.7, pp.913–914 (arXiv v1 Lemma 4.5)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Recorded in its corrected form (PROTOCOL.md §18); BDMTV 2023, §3.5.2 retracts the claim."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/48",
+      "kind": "construction",
+      "name": "The filtered connection A_Z",
+      "statement": "A_Z(b) is the pushout of 0 → A^dR[2] → A_2^dR → A_1^dR → 0 (25) along Z: V_dR ⊗ V_dR → Q(1), which factors through V_dR^{⊗2}/Im ∪* by (c); A^dR[2] ≃ Coker(Q(1) →∪* V_dR^{⊗2}) ⊗ O_X. A_Z is a filtered connection, and after base change to Q_p it carries a Frobenius structure with x*A_Z ≃ D_cris(A_Z(b,x)) for x ∈ X(Q_p) (Lemma 5.4).",
+      "locator": "Published (25), p.914",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/49",
+      "kind": "theorem",
+      "name": "The connection of A_Z on Y",
+      "statement": "There is a trivialisation s_0(b,·): (Q ⊕ V_dR ⊕ Q(1)) ⊗ O_Y ≅ A_Z(b)|_Y (26) in which ∇ = d + Λ, Λ = −[[0,0,0],[ω,0,0],[η,ω^T Z,0]] (27), in the basis 1, T_0,…,T_{2g−1}, S, for a differential η of the third kind in the span of ω_{2g},…,ω_{2g+d−2}; a change T_i ↦ T_i + α_i S removes the components of η along ω_0,…,ω_{2g−1} (Remarks 4.8, 4.9).",
+      "locator": "Published (26)–(27), Remarks 4.8–4.9, pp.914–915",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/50",
+      "kind": "construction",
+      "name": "Gauge transformations at the points of D",
+      "statement": "For x ∈ D with parameter t_x there is a trivialisation s_x of A_Z over L[[t_x]] with connection d, and C_x := s_x^{-1}∘s_0 satisfies C_x^{-1} dC_x = Λ (28), so C_x = [[1,0,0],[Ω_x,1,0],[g_x,Ω_x^T Z,1]] with dΩ_x = −ω and dg_x = Ω_x^T Z dΩ_x − η (29).",
+      "locator": "Published (28)–(29), p.915",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5 entry by entry from (27)–(28). arXiv v1 (19) prints a formula inconsistent with its own (17)–(18); the published text corrects it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/51",
+      "kind": "theorem",
+      "name": "Lemma 4.10: uniqueness of η",
+      "statement": "η in (27) is the unique differential in the span of ω_{2g},…,ω_{2g+d−2} for which ∇ extends to a holomorphic connection on X; equivalently Res_x(Ω_x^T Z dΩ_x − η) = 0 for all x ∈ D (30), since the kernel of the residue map H^1_dR(Y/Q) → L^d is H^1_dR(X/Q).",
+      "locator": "Published Lemma 4.10, (30), pp.915–916",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/52",
+      "kind": "theorem",
+      "name": "Theorem 4.11: the Hodge filtration of A_Z",
+      "statement": "Let N = (0_g, 1_g)^T ∈ Mat_{2g,g}(Q), the matrix of Fil⁰V_dR ↪ V_dR, and let γ_Fil ∈ O(Y) and b_Fil = (b_g,…,b_{2g−1})^T ∈ Q^g be the unique solutions of γ_Fil(b) = 0 and g_x + γ_Fil − b_Fil^T N^T Ω_x − Ω_x^T Z N N^T Ω_x ∈ L[[t_x]] for all x ∈ X∖Y. Then {1 + γ_Fil S, T_g + b_g S, …, T_{2g−1} + b_{2g−1} S} is a basis of Fil⁰A_Z in the trivialisation (26); with the filtration (31) on the source, s^Fil may be chosen with s_0^{-1}∘s^Fil = [[1,0,0],[0,1,0],[γ_Fil,β_Fil^T,1]], β_Fil = (0,…,0,b_g,…,b_{2g−1})^T (34), (36).",
+      "locator": "Published (31)–(36), Theorem 4.11, pp.916–918",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Needs ω_0,…,ω_{g−1} holomorphic (E4). Existence and uniqueness of (γ_Fil, b_Fil) are said to follow from Riemann–Roch; the proof is omitted, citing [BD17, Lemma 25]."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/53",
+      "kind": "construction",
+      "name": "Algorithm for the Hodge filtration",
+      "statement": "(i) compute η as the combination of ω_{2g},…,ω_{2g+d−2} with Res_x(Ω_x^T Z dΩ_x − η) = 0 for all x ∈ X∖Y (as in (30); the printed step has a different expression, E2); (ii) expand ω and η at each x ∈ X∖Y to order t_x^{d_x}, d_x the largest pole order, and solve (29) for g_x in L((t_x))/L[[t_x]]; (iii) compute b_Fil and γ_Fil from γ_Fil(b) = 0 and the condition of Theorem 4.11, and set β_Fil = (0,…,0,b_Fil).",
+      "locator": "Published end of §4.5, p.918",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/54",
+      "kind": "definition",
+      "name": "Unipotent isocrystals and the Frobenius structure",
+      "statement": "C^rig(X_{F_p}) is the category of unipotent isocrystals on the special fibre; pullback by absolute Frobenius is an auto-equivalence [CLS99, Prop. 2.4.2] acting on path torsors, φ_n: A_n^rig(b,x) → A_n^rig(b,x). Since the pullback of the universal pointed object is again universal, there is a Frobenius structure Φ_n: φ*A_n^rig(b) ≅ A_n^rig(b) of overconvergent isocrystals on (Y, X, 𝔛), for a Frobenius lift φ on a strict neighbourhood of ]U_{F_p}[, with the commutative diagram (37) at Teichmüller points x_0. X∖Y is assumed smooth over Z_p.",
+      "locator": "Published §5.1, (37), pp.918–919",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/55",
+      "kind": "theorem",
+      "name": "Lemma 5.2",
+      "statement": "The Frobenius structure on U_{F_p} for A_n^rig(b) is the unique morphism Φ_n: φ*A_n^rig(b) → A_n^rig(b) that sends 1 to 1 in the fibre at b.",
+      "locator": "Published Lemma 5.2, (38), p.919",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/56",
+      "kind": "theorem",
+      "name": "Theorem 5.3 (Chiarellotto–Le Stum)",
+      "statement": "Analytification is an equivalence (−)^an: C^dR(X_{Q_p}) ≅ C^rig(X_{F_p}); for x ∈ X(Q_p) with reduction x̄ there is a canonical isomorphism of fibre functors ι_x: x̄*∘(−)^an ≃ x*, and for x, y in one residue disk ι_x∘ι_y^{-1} is parallel transport T_{x,y} [CLS99, Prop. 2.4.1].",
+      "locator": "Published Theorem 5.3, p.920 (arXiv v1 Theorem A.7)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The non-abelian Berthelot–Ogus comparison; NC.2 plans 'comparison maps at the good-reduction coefficient prime' but names no source for it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/57",
+      "kind": "construction",
+      "name": "Frobenius operators on de Rham path torsors",
+      "statement": "Via ι_b and ι_x, Frobenius on X_{F_p} gives φ_n(b,x): A_n^dR(b,x) → A_n^dR(b,x), and for Teichmüller representatives b_0, x_0, φ_n(b,x) = τ_{b,x}∘φ_n(b_0,x_0)∘τ_{b,x}^{-1} with τ_{b,x}: Hom(b_0*,x_0*) ≅ Hom(b*,x*), g ↦ T_{x,x_0}∘g∘T_{b_0,b}; φ_n(b_0,x_0) is x_0*Φ_n through (42).",
+      "locator": "Published §5.2, (42), pp.920–921",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58",
+      "kind": "construction",
+      "name": "Iterated integrals and the transport τ_{b,x}",
+      "statement": "For x_1, x_2 in one residue disk, I(x_1,x_2) := 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0,…,ω_{2g+d−2}) w in ⊕_{i≤n} V_dR(Y)^{⊗i}, the sum over words in T_0,…,T_{2g+d−2} of length ≤ n (40; see E1 for the index). In the trivialisation (39), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0) (41). By Besser [Bes02], with Coleman integrals in (40) the same formula is the unique unipotent Frobenius-equivariant isomorphism A_n^dR(b_0,x_0) → A_n^dR(b,x) for any b, b_0, x, x_0 ∈ Y(Q_p).",
+      "locator": "Published §5.2.1, (39)–(41), pp.920–921 (arXiv v1 §5.1, Lemma 5.3, (20)–(21))",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ColemanIntegration:L1"
+      ],
+      "note": "Iterated Coleman integration in Besser's Tannakian form is ColemanIntegration L1's scope; this paper is a source for the transport formula."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/59",
+      "kind": "construction",
+      "name": "The Frobenius operator on A_Z(b,x)",
+      "statement": "Passing to the quotient by Z gives φ_Z(b,x) on A_Z^dR(b,x) and Φ_Z: φ*A_Z^rig(b) ≅ A_Z^rig(b) with diagram (43); φ_Z(b_0,x_0) = x_0*Φ_Z and φ_Z(b,x) = τ_{b,x}∘φ_Z(b_0,x_0)∘τ_{b,x}^{-1}. Left and right multiplication by (a, b, c) in Q_p ⊕ V_dR ⊕ Q_p(1) have matrices [[a,0,0],[b,a,0],[c,b^T Z,a]] and [[a,0,0],[b,a,0],[c,−b^T Z,a]] (44).",
+      "locator": "Published §5.3, §5.3.1, (43)–(44), pp.921–922",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/60",
+      "kind": "theorem",
+      "name": "The Frobenius structure (45)",
+      "statement": "On Y, A_Z^an and φ*A_Z^an have connections d + Λ and d + Λ_φ, Λ_φ = −[[0,0,0],[φ*ω,0,0],[φ*η,φ*ω^T Z,0]]. Write φ*ω = Fω + df with f(b_0) = 0. Then G = Φ_Z^{-1} is the invertible (2g+2)×(2g+2) matrix [[1,0,0],[f,F,0],[h,g^T,p]] with dg^T = df^T Z F, dh = ω^T F^T Z f + df^T Z f − g^T ω + φ*η − pη and h(b_0) = 0, and it solves Λ_φ G + dG = GΛ (using F^T Z F = pZ).",
+      "locator": "Published §5.3.2, (45), pp.922–923",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: the three nonzero off-diagonal blocks of Λ_φG + dG = GΛ give exactly the three equations. The constant in g is fixed by exactness of the right side of dh."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/61",
+      "kind": "theorem",
+      "name": "The Frobenius-equivariant splitting",
+      "statement": "Since φ acts on A_Z^dR(b_0,x_0) by G(x_0)^{-1}, s_0^{-1}∘s^φ(b_0,x_0) = [[1,0,0],[(I−F)^{-1}f,1,0],[(1/(1−p))(g^T(I−F)^{-1}f + h), g^T(F−p)^{-1},1]](x_0). For general b, x: s_0(b,x)^{-1}∘s^φ(b,x) = L(I(x_0,x))·R(I(b,b_0))·s_0(b_0,x_0)^{-1}∘s^φ(b_0,x_0), where L and R are the matrices (44) of left and right multiplication, so α_φ(b,x) = ∫_b^x ω.",
+      "locator": "Published §5.3.2, p.923",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: the published display uses I(x,x_0) and I(b_0,b) (E3). Checked by cc-442dc5: (I−F)^{-1}f(x_0) = ∫_{b_0}^{x_0} ω by Frobenius-equivariance of Coleman integration."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/62",
+      "kind": "theorem",
+      "name": "Lemma 5.4: comparison for A_Z",
+      "statement": "There is an isomorphism of filtered φ-modules D_cris(A_Z(b,x)) ≃ A_Z^dR(b,x): Olsson's comparison gives D_cris(A_n^ét(b,x)) ≅ A_n^dR(b,x) compatibly with D_cris(V)^{⊗n} ≅ V_dR^{⊗n} on graded pieces, hence diagram (46), and one pushes out along cl_Z*, using compatibility of the comparison with cycle classes [Fal89, Th. 5.6].",
+      "locator": "Published Lemma 5.4, (46), pp.923–924",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/63",
+      "kind": "theorem",
+      "name": "Olsson's non-abelian comparison",
+      "statement": "For x ∈ X(Q_p) there are isomorphisms of filtered φ-modules D_cris(A_n^ét(b,x)) ≅ A_n^dR(b,x), with respect to φ_n(b,x), inducing D_cris(V)^{⊗n} ≅ V_dR^{⊗n} on the graded pieces A[n] [Ols11, Th. 1.11].",
+      "locator": "Published proof of Lemma 5.4, p.923 (arXiv v1 Theorem A.8)",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/64",
+      "kind": "theorem",
+      "name": "Lemma 5.5: the local height at p",
+      "statement": "For x ∈ X(Q_p) ∩ ]U[, h_p(A_Z(b,x)) = χ_p(γ_φ(b,x) − γ_Fil(b,x) − β_φ(b,x)^T·s_1(α_φ)(b,x) − β_Fil(b)^T·s_2(α_φ)(b,x)).",
+      "locator": "Published Lemma 5.5, p.924 (arXiv v1 Lemma 5.4)",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/65",
+      "kind": "theorem",
+      "name": "Changing the base point (Lemma 5.7)",
+      "statement": "For b' ∈ X(Q) in a residue disk where no basis differential has a pole, β_Fil(b') = β_Fil(b) and γ_Fil(b',x) = γ_Fil(b,x) − γ_Fil(b,b') (48), and s_0^{-1}(b',b')∘s^φ(b',b') = [[1,0,0],[0,1,0],[0, β_φ(b,b)^T + 2∫_b^{b'} ω^T Z, 1]].",
+      "locator": "Published §5.5, (48)–(49), Lemma 5.7, pp.925–926 (arXiv v1 Lemma 5.5)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5 with Z antisymmetric: the published product L(I(b,b'))·R(I(b,b'))^{-1}·M gives the lemma. arXiv v1 printed L·M·R^{-1}, whose (3,1) entry is −β_φ(b)^T∫_b^{b'}ω."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/66",
+      "kind": "definition",
+      "name": "Rigid triples and overconvergent isocrystals",
+      "statement": "A rigid triple (Y, X, P): P a formal p-adic Z_p-scheme, X ⊂ P closed and proper over F_p, Y ⊂ X open with P smooth near Y; ]Y[ is the tube in P_{Q_p} and j†O_Y the overconvergent structure sheaf. An overconvergent isocrystal is a locally free j†O_Y-module with flat connection (Definition A.5); the category is independent of P up to canonical equivalence [Ber96, §2.3.1]; fibre functors y* use lifts ỹ, related by parallel transport T_{ỹ_1,ỹ_2}.",
+      "locator": "Published §A.2, Definition A.5, pp.937–938",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/67",
+      "kind": "definition",
+      "name": "Unipotent Tannakian categories and the universal objects A_n(C, ω)",
+      "statement": "A neutral Tannakian category C over K with fibre functor ω is unipotent if π_1(C,ω) is pro-unipotent, equivalently if every object admits a nonzero morphism from 1 (Definition A.1). A(C,ω) is the pro-universal enveloping algebra with augmentation ideal I, A_n(C,ω) := A(C,ω)/I^{n+1}, lim A_n(C,ω)* ≅ O(π_1(C,ω)), and A_n(C,ω) is the object of C with ω(A_n(C,ω)) = A_n(C,ω).",
+      "locator": "Published §A.1, Definition A.1, pp.934–935",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/68",
+      "kind": "definition",
+      "name": "Universal pointed objects",
+      "statement": "A pointed object is (V, v) with v ∈ ω(V); V is n-unipotent if it has a filtration V = V_0 ⊃ ⋯ ⊃ V_n with each quotient zero or a sum of trivial objects. (E, e) is a universal pointed n-unipotent object if it maps to every pointed n-unipotent (V, v) (Definition A.2); a universal pointed pro-object is a compatible system of these. Such objects are unique up to unique isomorphism.",
+      "locator": "Published Definition A.2, p.935",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/69",
+      "kind": "theorem",
+      "name": "Lemma A.3",
+      "statement": "(1) For all n, (A_n(C,ω), 1) is a universal pointed n-unipotent object of C. (2) {(A_n(C,ω), 1)}_n is a universal pointed pro-object.",
+      "locator": "Published Lemma A.3, p.935",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/70",
+      "kind": "construction",
+      "name": "Path torsors of the universal objects (Lemma A.4)",
+      "statement": "For fibre functors ω, ν, A_n(C;ω,ν) := A_n(C,ω) ×^{π_1(C,ω)} π_1(C;ω,ν), made precise through O(π_1(C;ω,ν))* as a free rank-one O(π_1(C,ω))*-module. Lemma A.4: ν(A_n(C,ω)) ≃ A_n(C;ω,ν) ≃ ω(A_n(C,ν)) functorially, via Hom(ω_n,ν_n); this gives composition maps A_n(C;ω_2,ω_3) × A_n(C;ω_1,ω_2) → A_n(C;ω_1,ω_3) and a right action of A_n(C,ω) on ν(A_n(C,ω)).",
+      "locator": "Published §A.1.2, Lemma A.4, pp.936–937",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/71",
+      "kind": "theorem",
+      "name": "X_0^+(ℓ²) ≃ X_s(ℓ)",
+      "statement": "Conjugation by [[ℓ,0],[0,1]] gives a Q-isomorphism X_0^+(ℓ²) ≃ X_s(ℓ), where X_0^+(ℓ²) = X_0(ℓ²)/w_{ℓ²}.",
+      "locator": "Published §6, p.926",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/72",
+      "kind": "definition",
+      "name": "Models, semi-stability and the Igusa curve",
+      "statement": "For a Dedekind domain R, a model of a smooth proper geometrically connected curve X over Frac(R) is a proper flat integral normal 𝔛 → Spec R with generic fibre X; it is semi-stable if all geometric fibres are reduced with at most ordinary double points. W = W(F̄_ℓ) with fraction field Q_ℓ^nr; Ig(ℓ) is the coarse moduli space over F_ℓ of elliptic curves with a Γ_1(ℓ)-Drinfeld structure on E^(ℓ) generating ker(V: E^(ℓ) → E) [KM85, §12.3].",
+      "locator": "Published §6.2, pp.927–928",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/73",
+      "kind": "theorem",
+      "name": "Theorem 6.5 (Edixhoven)",
+      "statement": "Let ℓ = 12k + 1 be prime. X_0(ℓ²) acquires semi-stable reduction over Q_ℓ^nr(ϖ), ϖ^{12k(6k+1)} = ℓ. The special fibre has k horizontal components, each u² = v^{ℓ+1} + 1, and four vertical components, two rational and two isomorphic to Ig(ℓ)/±1; each horizontal component meets each vertical one exactly once and there are no other intersections. w_{ℓ²} stabilises every horizontal component, acting by (u,v) ↦ (u,−v), swaps the two rational vertical components and stabilises the Igusa curves.",
+      "locator": "Published Theorem 6.5, p.928 (arXiv v1 Theorem 6.6)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Cited from [Edi90] and [Edi89, §2.2, 2.3.4]; restricted to ℓ ≡ 1 mod 12 so no supersingular j is 0 or 1728 (Remark 6.4)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/74",
+      "kind": "theorem",
+      "name": "Theorem 6.6",
+      "statement": "For ℓ = 12k + 1, X_s(ℓ) acquires semi-stable reduction over Q_ℓ^nr(ϖ), ϖ^{ℓ²−1} = ℓ². The model 𝔛/w_{ℓ²} is semi-stable, and its special fibre has k horizontal components, each u² = v^{6k+1} + 1 (genus 3k), and three vertical components, one rational and two isomorphic to Ig(ℓ)/C_4 (genus (k−1)(3k−2)/2); each horizontal component meets each vertical one exactly once, with no other intersections.",
+      "locator": "Published Theorem 6.6, pp.928–929 (arXiv v1 Theorem 6.7)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: [Ray90, Prop. 5] for the quotient model; H¹(⟨w_{ℓ²}⟩, 𝔪) = 0 since 2 is invertible, so the special fibre of the quotient is the quotient of the special fibre. The field is the same as in Theorem 6.5, since −1 is a ((ℓ²−1)/2)-th power in Q_ℓ^nr."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/75",
+      "kind": "theorem",
+      "name": "Genus of X_s(ℓ)",
+      "statement": "For ℓ = 12k + 1, the genus of X_s(ℓ) is 6k² − 3k.",
+      "locator": "Published §6.2, after Figure 1, p.929",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: 3k² + (k−1)(3k−2) + (2k−2) = 6k² − 3k, the last term being the first Betti number of the dual graph; this agrees with (ℓ² − 8ℓ + 11 − 4(−3/ℓ))/24."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/76",
+      "kind": "theorem",
+      "name": "Corollary 6.7",
+      "statement": "X_s(13) has good reduction outside 13 and acquires good reduction over Q_13^nr(ϖ), ϖ^84 = 13: for k = 1 all three vertical components are rational and can be contracted. By Baran's isomorphism the same holds for X_ns(13) (Remark 6.8).",
+      "locator": "Published Corollary 6.7, Remark 6.8, p.929 (arXiv v1 Corollary 6.8)",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/77",
+      "kind": "theorem",
+      "name": "End(J) and the Picard number of J_s(13)",
+      "statement": "The weight-2 cusp forms for Γ_0^+(169) form one Galois orbit over Q(ζ_7)^+, with f = q + αq² + (−α² − 2α)q³ + (α² − 2)q⁴ + (α² + 2α − 2)q⁵ + (−α − 1)q⁶ + ⋯, α³ + 2α² − α − 1 = 0. By [Shi70, Th. 7.14] and [Rib80, Cor. 4.2], End(J) ⊗ Q ≃ K := Q(ζ_7)^+, J is a simple abelian threefold, and ρ = 3.",
+      "locator": "Published §6.1, pp.926–927",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/78",
+      "kind": "definition",
+      "name": "The modular quotient A_f",
+      "statement": "A_f := J_0(169)/I_f, I_f the annihilator of f in the Hecke algebra, an optimal quotient (the kernel of J_0(169) → A_f is connected); J is Q-isogenous to A_f.",
+      "locator": "Published proof of Proposition 6.2, p.927",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ModularCurvesPartII:R14.5"
+      ],
+      "note": "R14.5 constructs A_f; the isogeny J ∼ A_f (used by Baran) is part of the ED.6 example."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/79",
+      "kind": "theorem",
+      "name": "Analytic rank one gives rank g (Gross–Zagier, Kolyvagin–Logachev)",
+      "statement": "If ord_{s=1} L(f,s) = 1, then rk A_f(Q) = dim A_f [GZ86, KL89].",
+      "locator": "Published proof of Proposition 6.2, p.927",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeegnerPointEulerSystems:HE.7",
+        "GrossZagierAndArithmeticHeights:GZ.8"
+      ],
+      "note": "HE.7 includes the Kolyvagin–Logachev extension to the admissible RM quotients of J_0(N). The same theorem gives finiteness of Sha(A_f), relevant to E8."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/80",
+      "kind": "definition",
+      "name": "L(f,s) and the Fricke sign",
+      "statement": "L(f,s) = Σ a_n(f) n^{-s}; the eigenvalue of f under the Fricke involution W_N fixes the sign of the functional equation, hence the parity of ord_{s=1} L(f,s).",
+      "locator": "Published proof of Proposition 6.2, p.927",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/81",
+      "kind": "definition",
+      "name": "The Fricke involution on S_2(Γ_0(N))",
+      "statement": "The normalised Fricke operator W_N acts on weight-k cusp forms of level N as an involution for even k, and S_k splits into its ±1 eigenspaces.",
+      "locator": "Published proof of Proposition 6.2, p.927 (W_169)",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.normalizedFrickeOperatorCusp",
+        "tauceti:TauCeti.normalizedFrickeOperatorCusp_involutive",
+        "tauceti:TauCeti.isCompl_eigenspace_normalizedFrickeOperatorCusp"
+      ],
+      "planned": [],
+      "note": "Read at Tau Ceti f790474, TauCeti/NumberTheory/ModularForms/Fricke/Normalized.lean (lines 136, 211, 442); the operator is defined on Γ_1(N) cusp forms and the eigenspace splitting needs Even k."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/82",
+      "kind": "theorem",
+      "name": "Proposition 6.2",
+      "statement": "rk J(Q) = 3 for J = Jac(X_s(13)).",
+      "locator": "Published Proposition 6.2, p.927 (arXiv v1 Proposition 6.3)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: J ∼ A_f; ord_{s=1} L(f,s) > 0 from the Fricke eigenvalue and an exact computation of c_{A_f}L(f,1)/Ω_{A_f} [AS05]; L'(f,1) > 0.6 for every embedding Q(α) ↪ C, numerically with error < 10^{-100}. Remark 6.3: a descent proof [BPS16] is conditional on GRH."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/83",
+      "kind": "theorem",
+      "name": "Eichler–Shimura on H^1_dR",
+      "statement": "For a prime q of good reduction, with ι: K ⊗ Q_q ↪ End(H^1_dR(X_{Q_q})), the Hecke operator T_q acts by ι(a_q)(f) = Fr_q + q Fr_q^{-1} (50).",
+      "locator": "Published §6.4, (50), p.930",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AutomorphicGaloisRepresentations:R19.1"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/84",
+      "kind": "construction",
+      "name": "Nice classes from Hecke operators",
+      "statement": "The correspondences used are T_q − Tr(T_q)·I: if A_q is the matrix of T_q on H^1_dR in the basis ω, then (6A_q − tr(A_q)I_6) times the inverse cup-product matrix gives a class satisfying (a)–(d).",
+      "locator": "Published §1.5, §6.4, pp.892, 930–931",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ModularCurvesPartII:R14.1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/85",
+      "kind": "theorem",
+      "name": "The model of X_s(13) and its seven rational points",
+      "statement": "Baran's quartic (−Y−Z)X³ + (2Y² + YZ)X² + (−Y³ + Y²Z − 2YZ² + Z³)X + (2Y²Z² − 3YZ³) = 0 has good reduction away from 13; the substitution (X:Y:Z) ↦ (X−Y : X+Y : X+Z) gives Q = Y⁴ + 5X⁴ − 6X²Y² + 6X³Z + 26X²YZ + 10XY²Z − 10Y³Z − 32X²Z² − 40XYZ² + 24Y²Z² + 32XZ³ − 16YZ³ (good away from 2 and 13), with known points P0 = (1:1:1), P1 = (1:1:2), P2 = (0:0:1), P3 = (−3:3:2), P4 = (1:1:0), P5 = (0:2:1), P6 = (−1:1:0).",
+      "locator": "Published §6.3, pp.929–930",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: Q vanishes at P0,…,P6; Q(X−Y, X+Y, X+Z) = 16·(Baran's quartic); Q is smooth mod 17 with 20 points over F_17."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/86",
+      "kind": "theorem",
+      "name": "The first chart: basis, Tate classes and Hodge data",
+      "statement": "On Y = {Z ≠ 0}, x = X/Z, y = Y/Z, b = P2 = (0,0): the six differentials ω (the first three (1, x, y)dx/Q_y) satisfy §4.1; T_7 and T_11 give Z_1, Z_2 (printed 6×6 antisymmetric integer matrices), independent Tate classes with (a)–(d); H^0(X, O(2D)) has basis 1, x, y, x², xy, y²; η_{Z_1} = −(44x² + (148/3)xy + 8y²)dx/Q_y, η_{Z_2} = (−40x² + 148xy + 36y²)dx/Q_y, β_{Fil,Z_1} = (0,0,0,0,1/2,1/2)^T, β_{Fil,Z_2} = (0,0,0,0,−1/2,−5/2)^T, γ_{Fil,Z_1} = 5y/6 + 3x/2, γ_{Fil,Z_2} = −5y/6 − 15x/2.",
+      "locator": "Published §6.4, pp.930–931",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "η_{Z_2} matches the authors' data sheet (github.com/jtuitman/Cartan13, data.pdf); arXiv v1 prints −(40x² + 148xy + 36y²). Not recomputed here (gap G-computations)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/87",
+      "kind": "construction",
+      "name": "Frobenius lifts and the functions θ_{Z_i}",
+      "statement": "U_1 := Y_{F_p} ∩ {Q_y ≠ 0}; Tuitman's methods [Tui16] give a Frobenius lift Φ on a strict neighbourhood of ]U_1[ with Φ(x) = x^p, p = 17, for which b = P2 is Teichmüller; §5.3 gives the Frobenius structure of A_{Z_i}^rig and Lemma 5.5 gives θ_{Z_1}, θ_{Z_2} as power series on every residue disk in ]U_1[.",
+      "locator": "Published §6.4, p.931",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/88",
+      "kind": "theorem",
+      "name": "Equivariant heights and the matrices T_i",
+      "statement": "K acts on H^1_dR(X) through ι(a_3), a_3 = −α² − 2α generating K; with a K-equivariant splitting, E = H^0(Ω¹)* ⊗_{K_p} H^0(Ω¹)*, E_1(x) = AJ_b(x), E_{2,Z}(x) = E(AJ_b(x)) + c. E_1(P5) ≠ 0 generates H^0(Ω¹)* over K_p; ι(a_3)^i(E_1(P5) ⊗ E_{2,Z_1}(P5)), i = 0,1,2, is a Q_p-basis of E with dual basis ψ_j; the printed relations express E_1(P_k) ⊗ E_{2,Z_1}(P_k), k = 1,3,5, through E_1(P5) ⊗ E_1(P5). T_i(x) has first row (θ_{Z_i}(x), Ψ_j(Z_i,x)) and rows (θ_{Z_1}(P_k), Ψ_j(Z_1,P_k)), k = 1,3,5, Ψ_j(Z,z) := ψ_j(E_1(z) ⊗ E_{2,Z}(z)); det T_i vanishes on X(Q_p)_2.",
+      "locator": "Published §6.4.1, pp.931–932 (arXiv v1 uses P4 in place of P5)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The Z_1 rows in T_2 are intended: the pairing B = h is the same for both classes, so every row satisfies the same linear relation, and Remark 6.9's check depends on it."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/89",
+      "kind": "theorem",
+      "name": "Precision and Newton polygons",
+      "statement": "If F_i ∈ Z_p[[t]] and G(t) = Σ c_n t^n = Σ a_ij ∫F_i(∫F_j) + Σ a_i ∫F_i + Σ b_i F_i, then v_p(c_n) ≥ min{v_p(a_i), v_p(a_ij), v_p(b_i)} − 2⌊log_p n⌋; so, with enough coefficients, the Newton polygon slopes beyond the precision are ≥ −1 and give no Q_p-rational zeros.",
+      "locator": "Published §6.4.1, pp.932–933",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: integration divides the t^n coefficient by n, costing v_p(n) ≤ ⌊log_p n⌋ each time. The residue-disk zero bounds in general are ED.4's."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/90",
+      "kind": "theorem",
+      "name": "Rational points on ]U_1[",
+      "statement": "All zeros of det T_1 and det T_2 on ]U_1[ are simple, and their only common zeros are P1, P2, P3, P5; hence these are the only rational points in ]U_1[. By construction det T_1 vanishes at P1, P2, P3, P5, while the vanishing of det T_2 at P1, P3, P5 is a check (Remark 6.9). The zero tables are in [BDM+].",
+      "locator": "Published §6.4.1, Remark 6.9, p.933",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: 17 of the 20 points of X(F_17) lie in U_1; the other three are (1:1:0), (1:−1:0), (1:1:1)."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/91",
+      "kind": "theorem",
+      "name": "Rational points on ]U_2[",
+      "statement": "On Y' = {X ≠ 0}, u = Z/X, v = Y/X, b = P6 = (0,−1), with a basis cohomologous to ω (so Z_1, Z_2 are unchanged; details in [BDM+]) and a Frobenius lift with Φ(u) = u^p on ]U_2[, U_2 := Y'_{F_p} ∩ {Q_v ≠ 0}: it suffices to treat the disks of (1:1:0), (1:−1:0), (1:1:1); on the first two, all zeros of det T_1' and det T_2' are simple and the common zeros are (0,1) = P4 and (0,−1) = P6.",
+      "locator": "Published §6.5, p.933",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: (1:1:0) and (1:−1:0) lie in U_2; (1:1:1) lies in neither U_1 nor U_2."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/92",
+      "kind": "theorem",
+      "name": "The residue disk of P0",
+      "statement": "On ](1:1:1)[, where the Frobenius lift is not defined, Lemma 5.7 with b' = P0 reduces the heights of A_Z(P0,x) to the single integrals ∫_b^{P0} ω, computed with the original lift by overconvergence over highly ramified extensions [BT17, Props. 3.8, 4.3]; for both Z the only root is P0, and it is simple. This completes the proof of Theorem 1.1.",
+      "locator": "Published §6.6, p.934",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    }
+  ],
+  "coverage": {
+    "counts": {
+      "library": 1,
+      "planned": 22,
+      "missing": 69
+    }
+  },
+  "prerequisites": [
+    {
+      "citation": "J. S. Balakrishnan and N. Dogra, Quadratic Chabauty and rational points, I: p-adic heights, Duke Math. J. 167 (2018), 1981–2038",
+      "link": "https://doi.org/10.1215/00127094-2018-0013",
+      "why": "Theorem 2.3, the twisting construction, Lemma 3.7's identity (π_1,π_2)(A_Z(b,x)) = (AJ_b(x), E AJ_b(x) + c)."
+    },
+    {
+      "citation": "J. S. Balakrishnan and N. Dogra, Quadratic Chabauty and rational points II: generalised height functions on Selmer varieties, IMRN 2021",
+      "link": "https://doi.org/10.1093/imrn/rnz362",
+      "why": "[BD17, Lemma 10] (π_*, h_p∘τ_p) is an isomorphism; K-equivariant heights; [BD17, Lemma 25] behind Theorem 4.11."
+    },
+    {
+      "citation": "M. Kim, The unipotent Albanese map and Selmer varieties for curves, Publ. RIMS 45 (2009), 89–133",
+      "link": "https://doi.org/10.2977/prims/1234361156",
+      "why": "Selmer varieties, Theorem 2.2, Zariski density of j_n^dR, Theorem 4.2."
+    },
+    {
+      "citation": "M. Kim, The motivic fundamental group of P¹∖{0,1,∞} and the theorem of Siegel, Invent. Math. 161 (2005)",
+      "link": "https://doi.org/10.1007/s00222-004-0433-9",
+      "why": "Representability of the Galois cohomology varieties."
+    },
+    {
+      "citation": "J. Nekovář, On p-adic height pairings, Séminaire de Théorie des Nombres, Paris 1990–91, Progr. Math. 108 (1993), 127–202",
+      "link": "https://doi.org/10.1007/978-1-4757-4271-8_8",
+      "why": "The height pairing (11), its local decomposition and the local heights (§§3.1–3.3)."
+    },
+    {
+      "citation": "M. Hadian, Motivic fundamental groups and integral points, Duke Math. J. 160 (2011), 503–565",
+      "link": "https://doi.org/10.1215/00127094-1444296",
+      "why": "Theorem 4.5."
+    },
+    {
+      "citation": "M. Olsson, Towards non-abelian p-adic Hodge theory in the good reduction case, Mem. AMS 210 (2011), no. 990",
+      "link": "https://doi.org/10.1090/s0065-9266-2010-00625-2",
+      "why": "The comparison D_cris(A_n^ét(b,x)) ≅ A_n^dR(b,x)."
+    },
+    {
+      "citation": "B. Chiarellotto and B. Le Stum, F-isocristaux unipotents, Compositio Math. 116 (1999), 81–110",
+      "link": "https://doi.org/10.1023/A:1000602824628",
+      "why": "Theorem 5.3 and the Frobenius action on π_1^rig."
+    },
+    {
+      "citation": "M. Kim and A. Tamagawa, The ℓ-component of the unipotent Albanese map, Math. Ann. 340 (2008), 223–235",
+      "link": "https://doi.org/10.1007/s00208-007-0151-x",
+      "why": "Theorem 3.6."
+    },
+    {
+      "citation": "A. Besser, Coleman integration using the Tannakian formalism, Math. Ann. 322 (2002), 19–48",
+      "link": "https://doi.org/10.1007/s002080100263",
+      "why": "The Frobenius-equivariant transport (41)."
+    },
+    {
+      "citation": "J. Tuitman, Counting points on curves using a map to P¹, Math. Comp. 85 (2016); II, Finite Fields Appl. 45 (2017)",
+      "link": "https://doi.org/10.1090/mcom/2996",
+      "why": "Frobenius lifts and the reduction algorithm behind (45); part II: https://doi.org/10.1016/j.ffa.2016.12.008."
+    },
+    {
+      "citation": "J. S. Balakrishnan and J. Tuitman, Explicit Coleman integration for curves, Math. Comp. 89 (2020)",
+      "link": "https://doi.org/10.1090/mcom/3542",
+      "why": "Coleman integrals to the disk of P0 (§6.6)."
+    },
+    {
+      "citation": "B. Edixhoven, Minimal resolution and stable reduction of X_0(N), Ann. Inst. Fourier 40 (1990), 31–67; and thesis, Utrecht 1989",
+      "link": "https://doi.org/10.5802/aif.1202",
+      "why": "Theorem 6.5."
+    },
+    {
+      "citation": "M. Raynaud, p-groupes et réduction semi-stable des courbes, Grothendieck Festschrift III (1990), 179–197",
+      "link": "https://doi.org/10.1007/978-0-8176-4576-2_7",
+      "why": "Semi-stability of the quotient model (proof of Theorem 6.6)."
+    },
+    {
+      "citation": "Y. Bilu and P. Parent, Serre's uniformity problem in the split Cartan case, Ann. of Math. 173 (2011); Y. Bilu, P. Parent and M. Rebolledo, Rational points on X_0^+(p^r), Ann. Inst. Fourier 63 (2013)",
+      "link": "https://doi.org/10.4007/annals.2011.173.1.13",
+      "why": "The case ℓ ≠ 13 of Theorem 1.2 (second paper: https://doi.org/10.5802/aif.2781)."
+    },
+    {
+      "citation": "B. Baran, An exceptional isomorphism between modular curves of level 13, J. Number Theory 145 (2014); and via Torelli's theorem, Math. Res. Lett. 21 (2014)",
+      "link": "https://doi.org/10.1016/j.jnt.2014.05.017",
+      "why": "The isomorphism (1), the quartic model and J ∼ A_f (second paper: https://doi.org/10.4310/MRL.2014.v21.n5.a1)."
+    },
+    {
+      "citation": "I. Chen, The Jacobians of non-split Cartan modular curves, Proc. LMS 77 (1998)",
+      "link": "https://doi.org/10.1112/s0024611598000392",
+      "why": "The isogeny decomposition in §1.1."
+    },
+    {
+      "citation": "V. A. Kolyvagin and D. Yu. Logachëv, Finiteness of the Shafarevich–Tate group and the group of rational points for some modular abelian varieties, Algebra i Analiz 1:5 (1989), 171–196; Leningrad Math. J. 1:5 (1990), 1229–1253",
+      "link": "https://www.mathnet.ru/eng/aa47",
+      "why": "Proposition 6.2 (HE.7 plans the extension)."
+    },
+    {
+      "citation": "K. Ribet, Twists of modular forms and endomorphisms of abelian varieties, Math. Ann. 253 (1980)",
+      "link": "https://doi.org/10.1007/bf01457819",
+      "why": "End(J) ⊗ Q ≃ Q(ζ_7)^+ (§6.1)."
+    },
+    {
+      "citation": "J. S. Balakrishnan, N. Dogra, J. S. Müller, J. Tuitman and J. Vonk, Quadratic Chabauty for modular curves: algorithms and examples, Compositio Math. 159 (2023), 1111–1152",
+      "link": "https://doi.org/10.1112/S0010437X23007170",
+      "why": "The authors' sequel: it retracts Lemma 4.7 (§3.5.2), restates §§4–5 with precision bounds, and ships QCMod, the successor of the code [BDM+]."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "stages": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "reason": "The maintainer routed this paper to NC.5 (quadratic Chabauty and height equations). These items are its theory. They cover quadratic Chabauty pairs and the determinant criterion, nice correspondences and the quotient U_Z, Nekovář's p-adic heights with their local decomposition (bad-place terms, Lemma 3.2), the local height at p through mixed extensions of filtered φ-modules, the twisted mixed extension A_Z(b,x), Lemma 3.7 and Corollary 3.8, and the D_cris comparison for A_Z. NC.5 plans the depth-two quotient, the height equations, the Néron–Severi and bad-place terms and the rank criterion; nothing in the atlas constructs a p-adic height (GZ.9 is the BDP setting). The planned Theorem 2.3, U_Z, Kim–Tamagawa and nice-correspondence items are listed too, as the paper is a good source for them.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/11",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/12",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/13",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/22",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/24",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/30",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/33",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/35",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/36",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/37",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/38",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/46",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/47",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/48",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/62",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/20",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/21",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/23",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/34"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "stages": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2"
+      ],
+      "reason": "NC.2 constructs the unipotent étale and de Rham fundamental groups through their Tannakian categories, with path torsors carrying filtration and Frobenius and the comparison maps. This route adds its explicit machinery. It covers the universal pointed n-unipotent objects and their path torsors (Appendix A), Kim's universal connection on an affine curve (Theorem 4.2, Lemma 4.3, Corollary 4.4), Hadian's characterisation of the Hodge filtration (Theorem 4.5), and unipotent isocrystals with their Frobenius structure (Lemma 5.2). It also covers the non-abelian Berthelot–Ogus comparison (Chiarellotto–Le Stum) and the Frobenius operators on de Rham path torsors via Besser's transport. These belong to the same roadmap as NC.5 and are its inputs, so this is not a re-route. Tau Ceti's Tannaka reconstruction for affine group schemes is the library starting point (library audit for NC.2).",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/40",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/41",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/42",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/43",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/44",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/45",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/54",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/55",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/56",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/57",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/67",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/68",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/69",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/70",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/63",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "EffectiveDiophantineMethods",
+      "stages": [
+        "EffectiveDiophantineMethods:ED.6"
+      ],
+      "reason": "The maintainer routed the algorithm and the X_s(13) computation to ED.6 (explicit higher methods and reproducible examples). This route covers the explicit connection and gauge transformations, the Hodge filtration algorithm (Lemma 4.10, Theorem 4.11), the Frobenius structure (45) and splittings, Lemmas 5.5 and 5.7, and the precision estimate. It also covers the whole worked example: model, rational points, Tate classes from T_7 and T_11, Hodge data, Frobenius lifts, the matrices T_i, the three chart computations, the rank (Proposition 6.2), and Theorems 1.1, 1.2 and Corollary 1.3 with their cited inputs (Bilu–Parent–Rebolledo, Chen, Baran). ED.6 requires certified termination and comparison with global points; the Magma code [BDM+] is public.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/2",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/3",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/4",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/5",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/6",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/7",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/8",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/39",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/49",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/50",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/51",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/52",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/53",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/59",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/60",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/61",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/64",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/65",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/77",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/82",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/85",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/86",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/87",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/88",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/89",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/90",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/91",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/92"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularCurvesPartII",
+      "stages": [
+        "ModularCurvesPartII:R13.5"
+      ],
+      "reason": "Potentially good reduction of X_s(13) is a statement about bad fibres of modular curves. R13.5 (bad fibres and regular/semistable models) owns the local models, supersingular intersections, Igusa components and base extensions, with its cases listed explicitly. These items add the cases X_0(ℓ²) over Q_ℓ^nr(ϖ) (Edixhoven) and the quotient by w_{ℓ²}, which gives X_s(ℓ) for ℓ ≡ 1 mod 12. They also add the genus formula and Corollary 6.7, which NC.5 consumes to make the local heights away from p vanish. Nothing else in the atlas computes models of X_0(ℓ²) at ℓ.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/71",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/72",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/73",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/74",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/75",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/76"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E1",
+      "kind": "misprint",
+      "locator": "Published (40), p.921; arXiv v1 §5.1, p.24 (both displays of C_n)",
+      "printed": "I(x_1, x_2) = 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0, …, ω_{2g+2d−2})",
+      "correction": "w(ω_0, …, ω_{2g+d−2}).",
+      "reason": "There are 2g + d − 1 differentials ω_0, …, ω_{2g+d−2} (§4.1), and the next sentence substitutes ω_i for T_i with T_0, …, T_{2g+d−2}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2",
+      "kind": "misprint",
+      "locator": "Published §4.5, step (i) at the end of the section, p.918",
+      "printed": "Compute η as in (27), as the unique linear combination of ω_{2g}, …, ω_{2g+d−2} such that dΩ_x^T Z Ω_x − η has vanishing residue at all x ∈ X∖Y.",
+      "correction": "… such that Ω_x^T Z dΩ_x − η has vanishing residue at all x ∈ X∖Y, as in (30).",
+      "reason": "(29) gives dg_x = Ω_x^T Z dΩ_x − η; checked by cc-442dc5 from C_x^{-1}dC_x = Λ. So (30) is the condition for g_x to exist, and it is the one used in the proof of Lemma 4.10. By property (d), Z is antisymmetric, so dΩ_x^T Z Ω_x = −Ω_x^T Z dΩ_x, and step (i) as printed flips the sign of that term. It then determines a different η unless the residues of Ω_x^T Z dΩ_x vanish. The authors' code (Cartan13 hodge.m, with Ω = −Ω_x) solves Σ_j η_j Res_x(ω_{2g+j}) = −Res_x(ω^T Z Ω), which is (30).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+        "arXiv v1 prints a different, also inconsistent, formula here ((19) and step (i), p.22). BDMTV 2023 §4.1 repeats 'dΩ_x^T Z Ω_x − η' with dΩ_x = ω."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E3",
+      "kind": "error",
+      "locator": "Published §5.3.2, display after 'Using the parallel transport formula from Section 5.3.1', p.923, and §5.3.1 ('When applied to the integrals I(x, x_0) and I(b_0, b) …'); arXiv v1 (24), p.25",
+      "printed": "s_0(b,x)^{-1}∘s^φ(b,x) is the product of [[1,0,0],[∫_x^{x_0}ω,1,0],[∫_x^{x_0}η + ∫_x^{x_0}ω^T Zω, ∫_x^{x_0}ω^T Z, 1]], [[1,0,0],[∫_{b_0}^b ω,1,0],[∫_{b_0}^b η + ∫_{b_0}^b ω^T Zω, −∫_{b_0}^b ω^T Z, 1]] and the matrix at (b_0, x_0).",
+      "correction": "By (41), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0). The first two factors are left multiplication by I(x_0,x) and right multiplication by I(b,b_0): all limits are swapped (∫_{x_0}^x and ∫_b^{b_0}).",
+      "reason": "s^φ(b,x) = τ_{b,x}∘s^φ(b_0,x_0). As printed, the (2,1) block gives α_φ(b,x) = α_φ(b_0,x_0) − ∫_{x_0}^x ω − ∫_b^{b_0} ω. But α_φ(b_0,x_0) = (I−F)^{-1}f(x_0) = ∫_{b_0}^{x_0} ω by Frobenius-equivariance of Coleman integration, and the Frobenius-invariant path from b to x has α_φ(b,x) = ∫_b^x ω = ∫_b^{b_0} + ∫_{b_0}^{x_0} + ∫_{x_0}^x. The printed product also fails to compose as paths. The authors' code transports the other way: Cartan13 U1.m parallel_transport(teichpoints[i], Qppoints[i], …)*frob_equiv_iso(…), and QCMod qc_modular.m pti*PhiAZb_to_b0*isoi with parallel_transport(bQ, b0, …), where parallel_transport(P1, P2) has (2,1) block ∫_{P1}^{P2} ω. The same orientation is printed in arXiv v1 (24) and in BDMTV 2023 (4.18).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+        "The conclusion stands: the published computations used code with the orientation of (41)."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E4",
+      "kind": "gap",
+      "locator": "Published §4.1, p.909, used in §4.5, pp.916–918 (N, the proof of Theorem 4.11, uniqueness of b_Fil)",
+      "printed": "The differentials ω_0, …, ω_{2g−1} are of the second kind on X and form a symplectic basis of H^1_dR(X/Q).",
+      "correction": "Also require ω_0, …, ω_{g−1} to be holomorphic, i.e. a basis of H^0(X, Ω¹), as in §6 (ω begins (1, x, y)dx/Q_y).",
+      "reason": "§4.5 uses it without stating it. N = (0_g, 1_g)^T is 'the matrix of the inclusion Fil⁰V_dR ↪ V_dR' only if [ω_0], …, [ω_{g−1}] span Fil¹. The proof of Theorem 4.11 says that Ω_x − NN^TΩ_x has entries in L[[t_x]], which needs ω_0, …, ω_{g−1} regular at every x ∈ D. It also says that Z has lower right block 0_g because Z ∈ Fil¹, which needs the basis adapted to the Hodge filtration. If some ω_i with i < g had a pole at a point of D (allowed by §4.1), the bundle spanned by (33) would not extend over that point.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+        "In arXiv v1 the corresponding Lemma 4.7 claimed a unique β ∈ K^{2g}, which fails whenever some ω_i is holomorphic (β + e_i is another solution). The published text fixes this with N and b_Fil ∈ Q^g, which requires this hypothesis."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E5",
+      "kind": "error",
+      "locator": "Published Lemma 4.7 and its proof, pp.913–914; arXiv v1 Lemma 4.5, p.20",
+      "printed": "Lemma 4.7. Let Z be a class satisfying properties (a)–(d). If ρ(J) = ρ(J_{Q_p}), then there exists a nice element of Pic(X × X) mapping to Z. … By the p-adic Lefschetz (1,1)-theorem of Berthelot–Ogus [BO83, §3.8], property (b) implies that it lifts to something in NS(J_{Q_p}) ⊗ Q_p.",
+      "correction": "Only the forward direction holds: classes of nice correspondences satisfy (a)–(d). The converse is not established. The space of Rosati-symmetric correspondences can have smaller dimension than ∧²H^1_dR(X_{Q_p})^{φ=p} ∩ Fil¹.",
+      "reason": "Property (a) and the Tate conjecture put Z in NS(J_{F_p}) ⊗ Q_p, a Q_p-linear combination of divisor classes. Berthelot–Ogus lifts a divisor class over F_p whose crystalline class lies in Fil¹. A Q_p-combination lying in Fil¹ need not be a combination of such classes: a Z-lattice can meet a Q_p-subspace in smaller rank than the dimension of its intersection with the lattice's Q_p-span. The conclusion 'an element of Pic(X × X)', rather than of Pic(X × X) ⊗ Q, also only holds up to a rational multiple.",
+      "affects": "a stated result",
+      "known": "BDMTV, Quadratic Chabauty for modular curves: algorithms and examples, Compositio Math. 159 (2023), §3.5.2: 'need not equal the dimension of ∧²H^1_dR(X_{Q_p})^{φ=p} ∩ Fil¹, as was erroneously claimed in [BDM+19, Lemma 4.5]' (arXiv numbering; Lemma 4.7 in print)",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
+        "The lemma is not used in the paper ('Though we will not need it in the sequel'); §6 takes Z_1, Z_2 from the Hecke operators T_7 and T_11."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E6",
+      "kind": "misprint",
+      "locator": "Published Theorem 4.2, p.910; arXiv v1 Theorem 4.1, p.18",
+      "printed": "for any n-step unipotent vector bundle V with connection on Y, and any section v of V, there exists a unique map f: A_n^dR(Y) → V such that f(1) = v.",
+      "correction": "… and any v in the fibre b*V, there is a unique morphism f with f(1) = v in the fibre at b, as for a pointed object (V, v), v ∈ ω(V), in §A.1.",
+      "reason": "The theorem says it holds 'in the sense of Section A.1', where pointed objects carry a vector in the fibre. For sections it is false already for n = 0: A_0^dR(Y) = (O_Y, d), whose morphisms to (O_Y, d) are multiplication by constants, so no f has f(1) = x for a nonconstant function x on Y.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E7",
+      "kind": "misprint",
+      "locator": "Published §6.5, p.933",
+      "printed": "we obtain the zeroes of det(T_1'(u)) and det(T_2(u'))",
+      "correction": "det(T_2'(u)).",
+      "reason": "The matrices on ]U_2[ are T_1'(u) and T_2'(u), defined in the preceding paragraph; u' is not defined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E8",
+      "kind": "gap",
+      "locator": "Published proof of Lemma 3.7, p.907, and the sketch of Theorem 2.3, p.899",
+      "printed": "By assumption, we have r = g and H^1_f(G_T, V) ≃ H^1_f(G_p, V) ≃ H^0(X_{Q_p}, Ω¹)*",
+      "correction": "Under the assumptions of §1.4 (r = g and J(Q) of finite index in J(Q_p)), what is available is κ(J(Q)) ⊗ Q_p ≃ H^1_f(G_p, V). The equality with H^1_f(G_T, V) needs Sha(J/Q)[p^∞] to be finite. The proof only needs h on κ(J(Q)) ⊗ Q_p. There π_1(A_Z(b,x)) = κ(x − b) lies for x ∈ X(Q), and π_2 = E_Z κ(x − b) + [IA_Z(b)] does too, [IA_Z(b)] being the class of a Chow–Heegner point (Remark 3.11).",
+      "reason": "dim H^1_f(G_T, V) = r + corank Sha(J/Q)[p^∞], so the stated isomorphism is an extra hypothesis. The sketch of Theorem 2.3 likewise bounds the global side by r; that holds for the Selmer variety, which §2.1 cuts down by the image of J(Q) ⊗ Q_p. For X_s(13), Sha is finite by Kolyvagin–Logachev, since each conjugate of f has analytic rank one; this is the theorem already used for Proposition 6.2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-computations",
+      "detail": "The Magma computations of §6 were not re-run: the Tate classes, η, β_Fil, γ_Fil, Frobenius structures and the zero tables.",
+      "status": "deferred",
+      "resolution": "ED.6 must certify them. The code [BDM+] (github.com/jtuitman/Cartan13) and its successor QCMod are public. This extraction checked by direct computation the model, the seven points, smoothness mod 17, #X(F_17) = 20 and the covering of residue disks by U_1, U_2 and (1:1:1)."
+    },
+    {
+      "id": "G-numerics",
+      "detail": "Proposition 6.2 rests on a numerical bound L'(f,1) > 0.6 with stated error < 10^{-100}.",
+      "status": "recorded",
+      "resolution": "ED.6 with ED.0's certified numerics must supply an error-controlled proof; Remark 6.3's descent alternative is conditional on GRH."
+    },
+    {
+      "id": "G-inputs",
+      "detail": "The cited theorems (Kim, Hadian, Olsson, Chiarellotto–Le Stum, Kim–Tamagawa, Nekovář, Besser, Edixhoven, Raynaud, Bilu–Parent–Rebolledo, Baran, Chen, Gross–Zagier, Kolyvagin–Logachev, Shimura, Ribet) were read here only as stated in the paper.",
+      "status": "deferred",
+      "resolution": "Listed under prerequisites for later batches."
+    }
+  ]
+}
