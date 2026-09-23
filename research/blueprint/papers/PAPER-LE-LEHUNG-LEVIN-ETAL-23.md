@@ -5085,3 +5085,48 @@ Bounded supplier reads only; the inherited main-paper reading stands and is not 
 
 No new findings were recorded: nothing in the supplier passages contradicts what the items assert,
 and the 52 inherited findings are unchanged.
+
+## The mirabolic induction, proved against the source (cc-d67081, second pass)
+
+The previous pass supplied A66–A73's analytic inputs (A104–A107) but left its own first resume
+item open: **A67 and A68 carried no `proofSteps` at all.** They stated the Piatetski-Shapiro–
+Shalika peeling and its inductive step as planning adapters. Both now carry a step-by-step proof
+read against Cogdell's proof of Theorem 1.1, together with three typed tests each. No item was
+added or removed and no route changed; only those two items differ.
+
+**A67 — one round of peeling.** Five steps. Restriction of a cusp form to `P_n(A)` keeping left
+`P_n(F)`-invariance and the constant-term vanishing; Fourier expansion along `Y_n ≅ F^{n-1}`
+using **A104** on the compact quotient `Y_n(F)\Y_n(A) = (F\A)^{n-1}` with Cogdell's pairing
+`⟨x,y⟩ = Σ x_i y_i`, integrated against **A105**'s probability measure; the vanishing of the zero
+coefficient, which is the *only* place cuspidality enters, `Y_n` being a standard unipotent
+subgroup of `GL_n` inside `P_n`; the two-orbit decomposition of `F^{n-1}` under `GL_{n-1}(F)`
+with the change of variable giving `C_{eγ}f(p) = C_e f(diag(γ,1)p)` and the indexing by
+`P_{n-1}(F)\GL_{n-1}(F)`; and the conclusion, where **A104's uniqueness half** is what turns
+"every coefficient vanishes at `p`" into `f(p) = 0`. That last implication is what A69 consumes.
+
+**A68 — the inductive step.** Four steps. The equivariance `C_e f(yp) = ψ(y_{n-1})C_e f(p)` for
+`y ∈ Y_n(A)`, which gives left `Y_n(F)`-invariance precisely because `ψ` is trivial on `F`; left
+`P_{n-1}(F)`-invariance of `f'_p`, from A67's equivariance and the fact that `P_{n-1}` fixes `e`;
+the descent of cuspidality, with the `n = 2` base where `P_1 = {1}` and there is nothing to
+check, which is where Cogdell says "This then begins our induction"; and the Whittaker identity
+`W_{f'_p}(p') = W_f(diag(p',1)p)`, obtained by unfolding `N_n = N_{n-1} ⋉ Y_n`.
+
+**Where A105 is load-bearing.** The unfolding in A68's last step turns one integral over
+`N_n(F)\N_n(A)` into an iterated integral over `N_{n-1}(F)\N_{n-1}(A)` and `Y_n(F)\Y_n(A)`. If
+those three invariant measures were normalised independently, the two sides would differ by a
+constant and the identity as stated would be false. A105's compatibility is exactly what
+removes that constant, and the test `A68.measure_compatibility_used` records it as a
+non-example so a later builder cannot quietly weaken A105 to "an invariant measure exists".
+
+### Source read for this pass
+
+Cogdell, *L-functions and Converse Theorems for GL_n*, PCMI notes (2002), SHA-256
+`09b82f9aed494d28327ed9692f5bf37e6bed229cf470e80927e0cc10ce70932a`: the proof of Theorem 1.1,
+printed 7–9 (PDF 11–13), read in full — the restriction to `P_n`, the Fourier expansion along
+`Y_n`, the orbit decomposition, the `n = 2` base, and the unfolding computation ending
+`W_{φ'_{δp}}(δ') = W_φ(δ'δp)`. Printed page = PDF page − 4. The warning recorded last pass
+stands and was needed here: this PDF's text layer drops the letter `c` throughout, so the
+quotations in the items were reconstructed with that in mind.
+
+No new findings: Cogdell's argument is as the items now describe it, and the 52 inherited
+findings are unchanged.
