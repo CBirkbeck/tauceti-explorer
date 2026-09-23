@@ -39073,9 +39073,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. The substitution in Lemma 7.1 gives the lower limit a√(a²−4)/(2√(K−a²)) ≍ a²K^{−1/2}. Exact counts by the reviewer, K = 10⁶ … 10¹¹, fitted as K(c₂L² + c₁L + c₀), give c₂ = 0.02108 (1/48 = 0.02083; the printed 1/36 = 0.0278). At K = 10¹⁰, N_a(K) minus the printed main term is −9.4√K, −97√K, −276√K for a = 10, 100, 1000; with −E_a(K) added it is within 1–20√K."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E2",
@@ -39094,9 +39094,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. Every x ≡ (3,0,0) mod 9 has M(x) ≡ 9 mod 27, and every x ≡ (1,0,0) mod 4 has M(x) ≡ 1 mod 8, so those lifts miss k ≡ 18 mod 27 and k ≡ 5 mod 8. The replacement points are exact ℤ₃- and ℤ₂-points, since the required square roots exist. Proposition 6.1 itself holds: M is onto every admissible class modulo 81 and modulo 64, and misses every non-admissible one."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E3",
@@ -39115,9 +39115,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. In the singular case, p | x_j for one j forces p | all three (p odd), and then k ≡ M(x) ≡ 0 mod p, contrary to the assumption p ∤ k; nothing is said about p²."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E4",
@@ -39136,9 +39136,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed: p.13 prints V₂ : (x₁,x₂,x₃) ↦ (x₁, x₁x₃ − x₁, x₃)."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E5",
@@ -39157,9 +39157,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. V₃ acts on (x₁, x₃) by [[1,0],[x₂,−1]], so A = [[x₂² − 1, −x₂],[x₂, −1]]. The reviewer computed V₁V₃-orbits of the base point (k − 4, k − 4, 2): size 3 for k = 3 and 5, infinite for k = 6, 7. The orbit of (−1, 2, 0) at k = 4 is infinite. The parametric families of §5.1(3)–(4) were checked symbolically."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E6",
@@ -39178,9 +39178,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. M(1,4,8) = 49 and V₁(1,4,8) = (31,4,8) ∈ V₄₉(ℤ); x₂ = 4 gives a hyperbolic element, so the orbit is infinite. V₄₉(ℤ) also has the finite orbit of (0,0,7), which is presumably what the authors had in mind, but \"has only a finite orbit\" is false and k = 49 does not illustrate a failure of (1.5)."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E7",
@@ -39199,9 +39199,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed at the locator: the printed square is (2x₁ − x₃)²."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E8",
@@ -39220,9 +39220,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. 11² ≡ 25 (mod 32) and 11 ≡ −1 (mod 12). The reviewer checked that k = 1456 is admissible, not exceptional, and has F⁺_{1456}(ℤ) = ∅, so it is a Hasse failure; 37 is the next ν."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E9",
@@ -39241,9 +39241,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. 60² − 4 = 3596 = 2²·29·31 has no odd prime factor ≡ ±2 (mod 5). For odd x₁, x₁ ± 2 are odd and ≡ ±2 (mod 5), so the claim holds where the proof uses it."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E10",
@@ -39262,9 +39262,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed at the locator."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E11",
@@ -39283,9 +39283,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. The reviewer counted the families of Proposition 8.1: case (i) has 0.416, 0.414, 0.413, 0.412 and case (ii) 0.097, 0.096, 0.096, 0.096 times √K(log K)^{−1/2} at K = 10⁸, 10¹⁰, 10¹², 10¹⁴. So the proof gives ≫, not the constant 1."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E12",
@@ -39304,9 +39304,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed: Σ_{√A ≤ a ≤ A} 1/a = ½ log A + O(A^{−1/2}), as (9.13) itself uses."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E13",
@@ -39325,9 +39325,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed at the locator: the modulus is s, the gcd in (9.24)."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E14",
@@ -39346,17 +39346,17 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. (s₁, s₂) = (2x₁ + ax₂, x₂) has s₁ − s₂ ≡ (a − 1)x₂ (mod 2), which is always even only for odd a. Both lattices have index 2, so the main terms stand."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E15",
    "kind": "error",
-   "locator": "Proposition B.1(b) and Proposition B.2(d) at p = 3, pp.46–47; Remark B.3 (arXiv v3)",
+   "locator": "Proposition B.1(b) and Proposition B.2(d) for every p ≡ 3 (mod 4), pp.46–47; Remark B.3 (arXiv v3)",
    "printed": "\"(b). if l ≥ 3 is odd, N_l(k) = … p^{−(l+1)/2} χ(k/p^{l−1}) if p^{l−1}|k\" and \"(d). if μ ≥ 2 and p|k, then δ_p(k) = 1 + (1 + 3χ(−1))p^{−1} + p^{−2} − p^{−μ/2−1}(1 − χ(k/p^μ)) if 2|μ\"",
-   "correction": "For p = 3 the k-term has the opposite sign: N_l(k) = −3^{−(l+1)/2}χ(k/3^{l−1}) when 3^{l−1} | k. In (d) with 2 | μ, δ₃(k) = 4/9 − 3^{−μ/2−1}(1 + χ(k/3^μ)). For p ≥ 5 the printed formulas are correct.",
-   "reason": "Direct counts modulo 3⁷ (and by brute force modulo 3⁵) give δ₃(9) = 2/9, δ₃(18) = 4/9 and δ₃(81) = 10/27. The printed formula gives 4/9, 2/9 and 4/9. The N_l with 3 ∤ k and the case of odd μ agree. For p = 5 and p = 7 the formulas agree with direct counts in every case tested. Remark B.3's conclusion (δ₃(k) > 0 unless k ≡ 3, 6 mod 9) still holds, and §9 uses p = 3 only through δ^{(m)} itself, so nothing downstream changes.",
+   "correction": "The k-term of B.1(b) carries the factor χ(−1): N_l(k) = χ(−1)p^{−(l+1)/2}χ(k/p^{l−1}) when p^{l−1} | k. In B.2(d) with 2 | μ, 1 − χ(k/p^μ) becomes 1 − χ(−k/p^μ); for p = 3 this is δ₃(k) = 4/9 − 3^{−μ/2−1}(1 + χ(k/3^μ)). The printed formulas are right for p ≡ 1 (mod 4) and wrong for every p ≡ 3 (mod 4). [review REV-PAPER-GHOSH-SARNAK-22]",
+   "reason": "Direct counts modulo 3⁷ (and by brute force modulo 3⁵) give δ₃(9) = 2/9, δ₃(18) = 4/9 and δ₃(81) = 10/27. The printed formula gives 4/9, 2/9 and 4/9. The N_l with 3 ∤ k and the case of odd μ agree. For p = 5 and p = 7 the formulas agree with direct counts in every case tested. Remark B.3's conclusion (δ₃(k) > 0 unless k ≡ 3, 6 mod 9) still holds, and §9 uses p = 3 only through δ^{(m)} itself, so nothing downstream changes. The review found that the error is not confined to p = 3. Direct counts modulo 7⁴ and 11⁴ give δ₇(49) = 34/49, δ₇(98) = 34/49, δ₇(147) = 36/49 and δ₁₁(121) = 98/121, δ₁₁(242) = 100/121, against the printed 36/49, 36/49, 34/49, 100/121 and 98/121, while δ₁₃(169) = 222/169 and δ₅(25) = 46/25 agree with the printed formulas. N₃ computed from counts modulo p² and p³ is −1/49 for (p, k) = (7, 49) and −1/9 for (3, 9), i.e. χ(−1)p^{−2}χ(k/p²). [review REV-PAPER-GHOSH-SARNAK-22]",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -39367,9 +39367,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed and extended by the review to every p ≡ 3 (mod 4); the correction above was rewritten accordingly. Counts: δ₃(9) = 2/9, δ₃(18) = 4/9, δ₃(81) = 10/27, δ₃(162) = 4/9 (modulo 3⁷); δ₇(49) = 34/49, δ₇(147) = 36/49 (modulo 7⁴); δ₁₁(121) = 98/121 (modulo 11⁴); p = 5, 13 agree with the printed formulas. Odd μ agrees for all p. Nothing downstream changes: §9.1 uses only C_p(k) ≥ −O(p^{−2})."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E16",
@@ -39388,9 +39388,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. In case (e) p ∤ k, so k/p^μ is not an integer. With χ((k − 4)/p^μ) the formula matches counts modulo 5⁵ for k = 29, 54, 79, 104, 629."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E17",
@@ -39409,9 +39409,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. From counts modulo p^l: for p = 5, (a₁, a₂) = (3, 7) (η₁ = η₂ = μ = 1), N₁, N₂ = 4/5, −1/25 (printed N₂ = −1/125). For p = 3, (4, 5) and (4, 13) (η = 1, μ = 2), N₁, N₂, N₃ = 2/3, 2/9, −1/27 (printed N₂ = −1/27, N₃ = 0). δ₃ = 50/27, as in Proposition B.5(d)."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E18",
@@ -39430,9 +39430,9 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. Counts modulo 2⁸ and 2⁹ give δ₂ = 3/4 for k = 1, 9 and 9/4 for k = 5, 13 (printed 3/2, 9/2). δ₂(16) = δ₂(32) = 11/8 (printed 5/4, 3/2). δ₂(24) = δ₂(48) = 1 (printed 5/2, 7/4). δ₂(8) = δ₂(40) = 5/2 (as printed). δ₂(20) = 11/4 and δ₂(36) = δ₂(−12) = 7/4. δ₂(2) = δ₂(6) = δ₂(12) = 1. The minimum 3/4, which §9.1 uses, holds."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E19",
@@ -39451,9 +39451,30 @@
    "owner": "PAPER-GHOSH-SARNAK-22",
    "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
    "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Confirmed. Counts modulo 2⁹ and 2¹⁰ give δ₂(4,3) = δ₂(4,5) = δ₂(12,3) = 5/4 (θ = 0; printed 1), and δ₂(6,3) = δ₂(10,5) = 3/2 (θ = 3, as printed)."
+  },
+  {
+   "id": "PAPER-GHOSH-SARNAK-22/E20",
+   "kind": "error",
+   "locator": "§5.2.1, p.17 (arXiv v3)",
+   "printed": "\"Since |x̂₁| ≥ 2, this element in SL₂(ℤ) is of infinite order, so that its orbit is infinite (since it is not acting on the origin) and its Zariski closure contains the conic section {x₁ = x̂₁} ∩ V_k.\"",
+   "correction": "For |x̂₁| ≥ 3 this is right: the slice is an irreducible conic (k ≠ x̂₁²). For |x̂₁| = 2 the slice is the pair of lines (x₂ ∓ x₃)² = k − 4, the element [[±2, −1],[1, 0]] is parabolic, and for x̂₁ = 2 it preserves x₂ − x₃, so the orbit lies on one line and its Zariski closure is that line, not the slice. The argument only needs a curve in the plane x₁ = x̂₁ in the closure, which still holds.",
+   "reason": "At x₁ = 2 the equation becomes x₂² + x₃² − 2x₂x₃ = k − 4, and (x₂, x₃) ↦ (2x₂ − x₃, x₂) maps x₂ − x₃ to itself. Such points exist for k = 4 + w² (e.g. k = 5, the point (2, 1, 0)), which (1.5) allows when k is not a square. The finiteness step \"infinitely many x̂₁ give infinitely many distinct curves\" is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
+    "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
+    "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
+   ],
+   "owner": "PAPER-GHOSH-SARNAK-22",
+   "file": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+   "citation": "Ghosh–Sarnak, \"Integral points on Markoff type cubic surfaces\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GHOSH-SARNAK-22",
+   "reviewReason": "Found and checked by the review: the orbit of (1, 0) under (x₂, x₃) ↦ (2x₂ − x₃, x₂) is (1+n, n), on the line x₂ − x₃ = 1."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E1",
@@ -79421,178 +79442,483 @@
   {
    "id": "PAPER-GILLE-PARIMALA-26/E1",
    "kind": "misprint",
-   "locator": "Lemma 3.2(3) and the proof of Lemma 3.2(2), v3 p.5, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (extraction report, \"Further recorded corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
-   "printed": "\"(3) We have V = Inf{v ∈ V[1/t] | |v| ≥ 0} and V is a clopen submodule of V[1/t].\" Proof of (2): \"Condition (II) implies that v′ ∈ R̂_0 ∖ tR̂_0 so that |v| = 0.\"",
-   "correction": "(3) V = {v ∈ V[1/t] : |v| ≤ 1}, the unit ball. In the proof of (2): v′ ∈ R̂_0 ∖ tR̂_0, so |v′| = 1.",
-   "reason": "With |v| = Inf{α^n : t^n v ∈ V} as in (2), v lies in V exactly when n = 0 is allowed, that is, when |v| ≤ α⁰ = 1. The printed set is not a set of vectors (\"Inf\" of a set of elements), and the condition |v| ≥ 0 holds for every v. Likewise, v′ ∉ tR̂_0 means v′ has norm 1, not v norm 0. The later use, \"we can assume that Υ ⊂ V × W according to Lemma 3.2.(3)\", needs the unit-ball description. Checked on the page image.",
+   "locator": "Lemma 3.2(3), arXiv 2301.07572v3, p. 5, and HAL hal-03938963v5, printed p. 8 (PDF p. 9). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "arXiv v3: V = Inf{v ∈ V[1/t] | |v| ≥ 0}. HAL v5: V = {v ∈ V[1/t] | |v| ≥ 0}.",
+   "correction": "V = {v ∈ V[1/t] : |v| ≤ 1}. Delete the extraneous Inf in arXiv v3. The arXiv proof-of-(2) mistakes formerly grouped here are retained separately as E21, because HAL v5 already fixes them.",
+   "reason": "The induced absolute value is |t| = α^(-1) < 1. Saturation V ∩ tⁿR̂₀ = tⁿV implies that an element of V[1/t] has norm at most 1 exactly when it lies in V. The condition |v| ≥ 0 selects the entire space; for V = R̂₀ it includes t^(-1), which is not in V.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the surviving unit-ball misprint in both PDFs. Revised the version claim: HAL removes Inf and corrects the proof of (2), but retains ≥ 0. Split that already-corrected proof into E21 rather than classifying it as new."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E2",
    "kind": "misprint",
-   "locator": "Proposition 3.3(ii), v3 p.6, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 37), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Proposition 3.3(ii), arXiv v3 p. 6 and HAL v5 printed p. 9. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "\"(ii) the differentials Df^a_0 : (F_0)^a → (F_0)^c and Df^b_0 : (F_0)^a → (F_0)^c satisfy Df^a_0(V[1/t]^a) + Df^b_0(V[1/t]^b) = (F_0)^c.\"",
    "correction": "Df^b_0 : (F_0)^b → (F_0)^c, and Df^a_0(V[1/t]^a) + Df^b_0(W[1/t]^b) = (F_0)^c.",
    "reason": "The conclusion gives v ∈ V^a and w ∈ W^b, and the proof uses the embedding V[1/t]^a × W[1/t]^b → (F_0)^a × (F_0)^b, with differential Df^a_0 + Df^b_0 restricted to it. Taken literally the proposition is false. With V = R̂_0, W = 0 and f(v, w) = w, hypothesis (ii) holds, but every value f(v, w) with w ∈ W is 0. Checked on the page image. Noted by the extraction (gap G1).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed both incorrect domains in both manuscripts. Checked the counterexample with a = b = c = 1, F₁ = F₂ = F₀, V = R̂₀, W = 0, f(v,w) = w: completeness, saturation and V + W = R̂₀ all hold. The intended statement and its proof use W in the second summand; retain misprint/nothing for intended mathematics."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E3",
    "kind": "misprint",
-   "locator": "Proof of Theorem 3.9, v3 p.10, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 62), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Proof of Theorem 3.9, arXiv v3 p. 10; proof of Theorem 3.13, HAL v5 printed p. 15. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "\"According to Proposition 3.7.(4), we can write h = h_1 h_2 with h_i ∈ H^+(E ⊗_F F_i) for i = 1, 2. Since x_1 = h.x_2, we obtain h_1^{−1}.x_1 = h_2^{−1}.x_2. This defines a point of X(E) = Z(F).\"",
    "correction": "h_1^{−1}.x_1 = h_2.x_2.",
    "reason": "From x_1 = h_1h_2.x_2 one gets h_1^{−1}.x_1 = h_2.x_2. The left side is a point over F_1 ⊗ E and the right side one over F_2 ⊗ E; they agree over F_0 ⊗ E and glue to a point over E. With h_2^{−1} the two sides need not agree. Noted by the extraction.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed in both manuscripts by left-multiplying x₁ = h₁h₂.x₂ by h₁⁻¹. The repaired equality identifies the F₁- and F₂-points over F₀; no inverse on h₂ is possible in that calculation."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E4",
    "kind": "error",
-   "locator": "Example 4.1 (published Example 5.1(b)), v3 p.10, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item on completed fraction fields; report \"Proof chain and corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Example 4.1(b), arXiv v3 p. 10 and HAL v5 printed p. 16; published Example 5.1(b) is the locator supplied by Gille’s erratum, p. 1. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "\"The t-adic completion of R_U is R̂_U = k[x][[t]]; we have F_U = Frac(R̂_U) = k(x)((t)).\"",
-   "correction": "Frac(k[x][[t]]) is a proper subfield of k(x)((t)). The erratum says this but gives the witness Σ_{n≥1} t^n/x^n, which lies in Frac(k[x][[t]]). A valid witness is Σ_{n≥1} t^n/x^{n!}.",
-   "reason": "The erratum's series equals t/(x − t), since 1/(x − t) = Σ_{n≥0} t^n/x^{n+1} in k(x)((t)), and x − t ∈ k[x][[t]]; so it is not in the complement. A correct witness: for c = a/b with a, b ∈ k[x][[t]], remove the common power of t so that b_0 ≠ 0, and let m = ord_x(b_0). The recursion c_n = (a_n − Σ_{i≥1} b_i c_{n−i})/b_0 gives ord_x(c_n) ≥ −m(n + 1). Every element of Frac(k[x][[t]]) therefore has x-poles growing at most linearly in n, while Σ t^n/x^{n!} has poles of order n!. The paper's general arguments use F_U = Frac(R̂_U), not this identification. Noted by the extraction, which also found the flaw in the erratum's witness.",
+   "correction": "F_U = Frac(k[x][[t]]) ⊊ k(x)((t)). A witness in the complement is Σ_{n≥1} tⁿ/x^(n!). The incorrect geometric-series witness in the author erratum is a separate finding, E18.",
+   "reason": "If c = a/b ∈ k(x)[[t]] with a,b ∈ k[x][[t]], cancel t-powers so b₀ ≠ 0; since c has nonnegative t-order this leaves a in k[x][[t]]. Put m = ord_x(b₀). Coefficient recursion b₀c_n = a_n − Σ_{i=1}^n b_i c_(n−i) gives ord_x(c_n) ≥ −m(n+1) by induction. The coefficients x^(-n!) violate every such linear bound. The general patching argument uses the fraction field definition, not the false equality.",
    "affects": "nothing",
-   "known": "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper (\"The fraction field of k[x][[t]] is not k(x)((t)); a typical element in the complement is Σ_{n≥1} t^n/x^n\"), which corrects the claim but with a witness that is itself in the fraction field",
+   "known": "Gille, Errata et compléments, 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1, corrects published Example 5.1(b). Its proposed witness is wrong; see E18.",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the false equality in both manuscripts and the author’s correction. Reproved strict inclusion by the coefficient-valuation bound. Separated the new error in the erratum’s witness from this already-known error, so the two have independent known statuses."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E5",
    "kind": "misprint",
-   "locator": "Proof of Lemma 4.3(2), v3 p.11, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 71), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
-   "printed": "\"We decompose f = f_1 + f_2 = Σ_i x^{m_i}(Σ_{j≥m_i} a_{i,j} x^{−j}) t^i + Σ_i x^{m_i}(Σ_{j<m_i} a_{i,j} x^{−j}) t^i. We observe that f_2 belongs to R̂_P so belongs to V. We recall that R_U is the localization of T[x] with respect to the elements which are units modulo t. We conclude that f_2 belongs to W as desired.\"",
-   "correction": "\"We observe that f_1 belongs to R̂_P so belongs to V … We conclude that f_2 belongs to W.\"",
-   "reason": "In f_1 the exponents m_i − j ≤ 0, so f_1 is a series in x^{−1} and t, an element of R̂_P = k[[t, x^{−1}]], hence of V. In f_2 the exponents are positive, a polynomial in x in each t-degree, hence in W. As printed, f_2 is placed in both V and W and f_1 in neither. Checked on the page image. Noted by the extraction.",
+   "locator": "Proof of Lemma 4.3(2), arXiv v3 p. 11; Remark 4.4, HAL v5 printed p. 17. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "arXiv v3: “f₂ belongs to R̂_P so belongs to V” followed by “f₂ belongs to W”. HAL v5: “f₁ belongs to R̂_U and ... f₂ belongs to R̂_P”.",
+   "correction": "In arXiv v3 replace the first f₂ by f₁. In HAL v5 interchange the two ring subscripts: f₁ ∈ R̂_P and f₂ ∈ R̂_U.",
+   "reason": "The first sum has x-exponents m_i − j ≤ 0, so belongs to k[[x⁻¹,t]] = R̂_P in this equal-characteristic example. Each coefficient of the second sum is a polynomial in positive powers of x, so that sum belongs to k[x][[t]] = R̂_U. The later version reverses both ring labels, a different slip from arXiv v3.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed by checking the exponent ranges in each displayed sum in both versions. Expanded the correction to address HAL’s two reversed ring labels; the old one-word replacement describes only arXiv v3."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E6",
    "kind": "error",
-   "locator": "Theorem 4.4(2) and Corollary 4.5(2), with the proof of Theorem 4.4(2), v3 pp.11–12, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 76 (Theorem 4.5(2) in the HAL v5 numbering)), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Theorem 4.4(2) and Corollary 4.5(2), arXiv v3 pp. 11–12; Theorem 4.5(2), Corollaries 4.6(2), 4.7(2), 4.8(2), HAL v5 printed pp. 18–19; type convention HAL §1.1(b), p. 3. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "Theorem 4.4(2): \"The Tits index Δ_0(G) is the smallest subset of Δ(G_{F_s}) which is stable under the ⋆-action of Gal(F_s/F) and such that Δ_0(G) ⊂ Δ_0(G_{F_U}) for each U ∈ U and Δ_0(G) ⊂ Δ_0(G_{F_P}) for each P ∈ P.\" Corollary 4.5(2) is worded the same way. The proof defines Θ by the same condition and uses \"Θ ⊂ Δ_0(G_{F_U}) so that Z(F_U) ≠ ∅\".",
-   "correction": "Δ_0(G) is the smallest ⋆-stable subset Θ of Δ(G_{F_s}) with Δ_0(G_{F_U}) ⊂ Θ for each U and Δ_0(G_{F_P}) ⊂ Θ for each P, and similarly in Corollary 4.5(2). In the proof, use Δ_0(G_{F_U}) ⊂ Θ, which is what makes Par_Θ have an F_U-point.",
-   "reason": "Δ_0 is the type of a minimal parabolic subgroup under the order-preserving correspondence I ↦ P_I (p.2). Over an extension field minimal parabolics shrink, so Δ_0(G_{F_U}) ⊂ Δ_0(G). A parabolic of type Θ exists over a field L exactly when Δ_0(G_L) ⊂ Θ. As printed, the \"smallest ⋆-stable subset contained in all the local Δ_0\" is the empty set, and the defining condition refers to Δ_0(G) itself. With the inclusions reversed, the statement follows from part (1) applied to Par_Θ, as the proof intends. Checked on the page image. Noted by the extraction (gap G3).",
+   "correction": "After the stated identifications of simple roots, Δ₀(G) is the smallest ⋆-stable subset Θ containing every relevant local Δ₀(G_L). Use Δ₀(G_L) ⊂ Θ, not Θ ⊂ Δ₀(G_L), to deduce Par_Θ(G)(L) ≠ ∅. Apply this correction to all four HAL statements and their proofs, and to the arXiv counterparts.",
+   "reason": "In the paper’s order-preserving convention, Δ₀(G) is the type of a minimal parabolic. Par_Θ(G)(L) has a point iff Δ₀(G_L) ⊂ Θ (with Θ stable over L); extension of fields can shrink this type. Let Θ be the smallest global ⋆-stable set containing the local types. The global type contains them, so Θ ⊂ Δ₀(G). The corrected local criterion and part (1) give a global Par_Θ point, hence Δ₀(G) ⊂ Θ. The printed smallest set contained in every local type would be empty, including when the group is anisotropic.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed by reading the type convention and following both inclusions in the parabolic-variety proof. Extended the locator/correction to HAL Corollaries 4.7(2) and 4.8(2). This affects a stated Tits-index characterization; the corrected characterization follows from the point-existence part."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E7",
    "kind": "misprint",
-   "locator": "Proof of Proposition 5.2 (published Proposition 6.2), v3 p.15, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (report, \"Further recorded corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Proof of Proposition 5.2, arXiv v3 p. 15 and HAL v5 printed p. 21 (two occurrences of the quotient); published numbering 6.2 comes from the author erratum. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "\"We apply now Theorem 1.1.(b) of [C-G-R] to the Z-group scheme Aut_I(G_0). It provides a finite Z-subgroup S_0 of Aut_I(G_0) … Furthermore the construction of S_0 is explicit in the proof, it is an extension of the finite constant group Aut_I(G_0)/T_0 by a finite subgroup of T_0.\"",
-   "correction": "\"… an extension of the finite constant group N_{Aut_I(G_0)}(T_0)/T_0 by a finite subgroup of T_0.\"",
-   "reason": "Aut_I(G_0) contains the adjoint group of G_0, so Aut_I(G_0)/T_0 is not finite. The finite group produced by the construction of Chernousov–Gille–Reichstein is the normalizer quotient, an extension of the diagram automorphisms stabilizing I by the Weyl group. Its order is what the hypothesis on p controls.",
+   "correction": "Replace Aut_I(G₀)/T₀ by N_{Aut_I(G₀)}(T₀)/T₀ in the finite-extension description and the ensuing order bound. This finite constant quotient is W ⋊ Aut_I(Dyn(G₀)).",
+   "reason": "For a nontrivial split semisimple group, the maximal torus is not normal in Aut_I(G₀), so the displayed quotient is not even a quotient group; its homogeneous space is positive-dimensional. The finite group in the Chernousov–Gille–Reichstein construction maps instead to the normalizer quotient. Checked Theorem 1.2(b) and the split integral construction, pp. 2 and 9–10, of the public author PDF RedStructure.pdf. Its theorem numbering differs from the citation in GP.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed in both GP PDFs and independently checked the cited construction. Corrected both HAL occurrences and sharpened the reason: lack of normality precedes the finiteness problem. The Weyl/diagram order hypothesis concerns the normalizer quotient."
   },
   {
    "id": "PAPER-GILLE-PARIMALA-26/E8",
    "kind": "gap",
-   "locator": "Proof of Proposition 5.2 (published Proposition 6.2), v3 p.15, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 145 and report), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+   "locator": "Proof of Proposition 5.2, arXiv v3 p. 15 and HAL v5 printed p. 21; author erratum p. 1 identifies this as published Proposition 6.2. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
    "printed": "\"We consider the local ring A = R_P of X at P and denote by A_D its localization at D.\"",
-   "correction": "\"We consider the completion A of the local ring R_P of X at P\", as in the author's erratum. The rest of the argument works because the completion of F_P = Frac(R_P) for the Grothendieck valuation of R_P equals the completion of Frac(A) for that of A.",
-   "reason": "The loop-torsor argument ([Gi2, Lemma 2.3, Theorem 4.1]) needs a complete (henselian) local ring. The erratum supplies the replacement and the comparison of the two valuation completions: they share a uniformizer and the residue field k(P)(u). Noted by the extraction.",
+   "correction": "Take A = R̂_P, the completion of the two-dimensional regular local ring R_P. Write L = Frac(R_P) = F and K = Frac(A) = F_P in the paper’s notation. If v and v̂ are their exceptional-divisor (order) valuations, the natural map identifies L_v with K_v̂. Do not use the erratum’s temporary notation F_P = Frac(R_P) as if it were the paper’s definition.",
+   "reason": "Gille’s published loop-torsor paper, §2.1 and Theorem 4 (printed pp. 161 and 163), assumes a henselian regular local ring; R_P need not be henselian, whereas R̂_P is. The completion map gives isomorphisms R_P/m^n ≅ R̂_P/m^nR̂_P, hence the same associated graded ring and a dense embedding for the order valuation. Approximating numerator and denominator shows L dense in K for v̂, so their valuation completions coincide. This is the exceptional divisor of the blow-up at P, a valuation of the original function field covered by the hypothesis. The shared parameter/residue field alone is replaced here by this explicit density argument.",
    "affects": "the proof",
-   "known": "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper (\"Proof of Proposition 6.2. We need to replace the sentence We consider the local ring A = R_P of X at P by We consider the completion A of the local ring R_P of X at P\")",
+   "known": "Gille, Errata et compléments, 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1, correction to published Proposition 6.2.",
    "searched": [
-    "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
-    "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
-    "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
-    "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
    ],
    "owner": "PAPER-GILLE-PARIMALA-26",
    "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
    "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the missing henselian hypothesis against the loop-torsor source and the author erratum. Repaired the original errata entry’s notation: in GP, F_P already means Frac(R̂_P). Henselianity is the cited requirement; completeness is a sufficient replacement. Verified equality of valuation completions by density, not merely by naming their residue fields."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E9",
+   "kind": "misprint",
+   "locator": "Lemma 2.3 proof, printed p. 7, HAL v5 (26 December 2025); same in arXiv v3, written J_j = I^j/I^(j+1) = I A_j. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "it comes with the ideal m_j = m^j/m^(j+1) = m A_j which satisfies m_j^2 = 0. We have A_j/m_j = A_(j−1) for j = 1, . . . , n − 1",
+   "correction": "In HAL v5 use m_j = m^j/m^(j+1) = ker(A_j → A_(j−1)); delete “= m A_j”. The displayed quotient relation holds for j = 1,…,n. In arXiv v3 delete “= I A_j”; its convention is I^n = 0 and A_j is indexed only through n−1, so its quotient range 1,…,n−1 is already correct.",
+   "reason": "For A = k[ε]/(ε³), j = 2, m A₂ = (ε) has nonzero square, whereas m²/m³ = (ε²) is square-zero. The dévissage needs the latter kernel. HAL chooses m^(n+1) = 0, while arXiv chooses I^n = 0: their upper indices must not be conflated.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the square-zero misidentification in HAL p. 7 and arXiv p. 4. Checked the different nilpotence-index conventions; the correction to the quotient range applies only to HAL. The proof needs the actual square-zero kernels."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E10",
+   "kind": "misprint",
+   "locator": "proof of Claim 3.4, printed p. 9, HAL v5 (26 December 2025); same in arXiv v3. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "it is strictly differentiable [Sc, I.5.6], that is, there exists an open neighborhood Θ of (0, 0) and a positive real number β such that |f(x2) − f(x1) − Df(0,0).(x2 − x1)| ≤ β|x2 − x1| ∀x1, x2 ∈ Θ.",
+   "correction": "For every β > 0 there is a neighbourhood Θ_β on which the displayed remainder estimate holds. Also justify strict differentiability of the inclusion i by its continuity and K-linearity, not merely by its 1-Lipschitz property.",
+   "reason": "One fixed β only bounds the remainder by a Lipschitz constant; it does not force the remainder/distance ratio to tend to zero. For example the zero function with the incorrectly proposed derivative identity satisfies the β = 1 estimate. The analytic map has the required uniform local remainder estimates, and the inclusion i is continuous K-linear with zero remainder, so the composition has the intended strict derivative. No assertion about a pinned Lean declaration is used here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the quantifier slip on HAL p. 9 and arXiv p. 6. The continuous linear inclusion supplies the missing reason in the next sentence. The intended analytic argument survives; removed the extraction’s unneeded unverified Mathlib citation."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E11",
+   "kind": "misprint",
+   "locator": "Proposition 3.6, printed p. 10, and its proof, p. 12, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "Then G(F0)^+ is an open subgroup of G(F0)^+ and we have the decomposition G(F0)^+ = G(F1)^+ G(F2)^+. … the Claim 3.7 yields that b′♯(v) ∈ G(F1)^+ (resp. b′♯(v) ∈ G(F2)^+)",
+   "correction": "G(F0)^+ is an open subgroup of G(F0); in the proof, b′♯(w) ∈ G(F2)^+. The same b′♯(v)/b′♯(w) slip recurs in the proof of Proposition 3.9(1), p. 13.",
+   "reason": "The printed openness is a tautology. The proof shows that G(F0)^+ contains the open set b′♯(Υ) of G(F0), and that openness in G(F0) is what Proposition 3.11 and the clopen arguments use.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the tautological ambient group in the HAL statement and the repeated v/w slips in its proof and Proposition 3.9. The displayed neighbourhood is open in G(F₀), so replacing the ambient group and the second variable repairs exactly what the proof establishes."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E12",
+   "kind": "gap",
+   "locator": "proof of Proposition 3.9(1)–(2), printed p. 13, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "We conclude that RG(F1) RG(F2) is an open subgroup of G(F0) and a fortiori an open subgroup of RG(F0). (2) If RG(F1) is furthermore dense in RG(F0), then (1) shows that RG(F1) RG(F2) is a dense open subset of RG(F0). Thus RG(F1) RG(F2) = RG(F0).",
+   "correction": "Let A = RG(F₁), B = RG(F₂). The proof of (1) establishes an identity neighbourhood N ⊂ AB, without proving AB is a subgroup. For g ∈ RG(F₀), choose a ∈ A ∩ gN⁻¹ by density; then g ∈ aN ⊂ AB. Also insert f(0,x) = f(x,0) = x. Where Υ and Υ_ε are coordinate neighbourhoods, put their images b′♯(Υ), b′♯(Υ_ε) in the group inclusions.",
+   "reason": "Neither subgroup closure of AB nor “dense open implies everything” is justified. The needed conclusion follows from left A-stability of AB and the neighbourhood already obtained. The density argument takes place in RG(F₀), with its subspace topology. The use of b′♯ keeps the coordinate neighbourhood and the group neighbourhood correctly typed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the two logical shortcuts on HAL p. 13. Checked the replacement directly: a = gn⁻¹ implies g = an ∈ AB. It uses only the proved identity neighbourhood and density. Also corrected the omitted identity value and the coordinate/group notation in the same passage."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E13",
+   "kind": "misprint",
+   "locator": "proof of Claim 3.12, printed p. 14, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "HAL p. 14 includes T♯(F₁) ⊂ RT♯(F₁), E♯(F₁) dense in E♯(F), and a closure inclusion involving T(F₁); it first requests T♯_(F₀) isomorphic to T and concludes projected unboundedness in T♯(F₀). The first displayed T♯(F₁) has no overbar in the page image.",
+   "correction": "Choose T♯_(F₀) G(F₀)-conjugate to T as an embedded maximal torus. The lifting gives T♯(F₁)^n ⊂ RT♯(F₁). Use density of E♯(F₁) in E♯(F₀), and conclude T♯(F₀)^n ⊂ closure(RT♯(F₁)). The projections of this closure are unbounded in G_i(F₀).",
+   "reason": "If π:E♯→T♯ and πf = [n], then x^n = πf(x) is R-trivial because E♯ is quasi-trivial; the argument does not make every x R-trivial. Approximate f(x) for x ∈ T♯(F₀) by E♯(F₁)-points to obtain the closure inclusion. Rationality of the maximal-torus variety and openness of the G(F₀)-conjugacy class provide an embedded conjugate torus; an abstract isomorphism alone does not control the factor projections. Each isotropic torus factor has an unbounded cocharacter direction, and taking n-th powers preserves unboundedness.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the power, base-field and ambient-group slips by reading the HAL page image (including the bars). Corrected the extraction’s inaccurate claim that the first T♯(F₁) was under a bar. Checked the lift/approximation argument; the closure must be of RT♯(F₁), and the chosen embedded torus must be conjugate to the product torus."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E14",
+   "kind": "gap",
+   "locator": "proof of Proposition 3.11(2), printed p. 15, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "This implies that RG(F1) [under a bar] is a normal subgroup of G(F0)^+ = G1(F0)^+ × · · · × Gc(F0)^+ which maps onto each factor. … Finally Proposition 3.9.(3) enables us to conclude that RG(F1) RG(F2) = RG(F0) = G(F0)^+.",
+   "correction": "Let H be the closure of RG(F1), an open subgroup by (1) with p_i(H) = G_i(F0)^+. Then H ∩ G_i(F0)^+ is normalized by H, hence by p_i(H) = G_i(F0)^+, and is open, so it is not central; by Tits' theorem it is G_i(F0)^+. So H = G(F0)^+. The last step should cite Proposition 3.9(2): RG(F1) is dense in RG(F0) = G(F0)^+.",
+   "reason": "Surjective projections do not imply normality: the diagonal of S3 × S3 maps onto both factors and is not normal. Proposition 3.9(3) assumes H_(F1 ⊗ E) strictly isotropic, which Proposition 3.11(2) does not. The proposition is not used later in the paper. The repair is item 57.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the unproved normality step on HAL p. 15: even the diagonal in S₃ × S₃ has surjective projections without normality. With H open, each H ∩ G_i(F₀)^+ is open and is normalized by the surjective projection p_i(H); it contains noncentral root-group elements. The Tits normal-subgroup result already invoked in the source then yields every factor. Checked that the final citation must be Proposition 3.9(2), since (3) has a stronger F₁-isotropy hypothesis."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E15",
+   "kind": "misprint",
+   "locator": "proof of Lemma 4.3, printed p. 17, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "we can assume that f = u/v ∈ R_U mapping to 0 in k((x^(-1))) with u, v ∈ T[x^(-1)] … Then u maps to zero in k[x^(-1)] ⊂ k((x^(-1))), so that u = t u♯ ∈ T[x^(-1)]. … (2) It is enough to show that F1 ∩ R̂0 is dense in F0.",
+   "correction": "u, v ∈ T[x], u maps to zero in k[x], u = t u♯ with u♯ ∈ T[x]; and in (2), F1 ∩ R̂0 is dense in R̂0.",
+   "reason": "R_U comes from the affine chart Spec(T[x]), so its representatives have numerator/denominator in T[x], with the denominator a unit modulo t; T[x⁻¹] is the wrong chart here. Also R̂₀ is a closed proper subset of F₀ (it omits t⁻¹), so a subset of R̂₀ cannot be dense in F₀. Surjectivity to the residue field and successive approximation prove density in R̂₀; multiplication by powers of t then proves F₁ dense in F₀.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed both slips in HAL Lemma 4.3, p. 17. The density claim as printed is impossible in the t-adic topology; its corrected form is precisely what the successive approximation proof establishes. This is distinct from the incomplete-module choice in E20."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E16",
+   "kind": "gap",
+   "locator": "proof of Corollary 4.7(1), printed p. 19, HAL v5 (26 December 2025). Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "Again Z_k is projective so that Z_k(D) = Z_k(k(D)) is not empty and in particular Z_k(k(P)) is not empty.",
+   "correction": "First replace the normal model by a regular model with strict-normal-crossing special fibre (Lipman's resolution; the reductive model and its flag scheme pull back). Its components are regular curves, and the valuative criterion then gives Z_k(D) = Z_k(k(D)). Corollary 4.6 is applied to the new model.",
+   "reason": "A component D of the closed fibre of a normal surface need not be regular at P. Properness extends the generic point over the normalization of D, whose points above P may have larger residue fields; it does not give a k(P)-point. For a concrete failure of that implication, D = Spec(R[x,y]/(x²+y²)) is integral with function field C(y) and a real singular point at the origin. The constant projective conic a²+b²+c²=0 has a point over C(y), but no real point at the origin. The local curve occurs as the special fibre of the regular surface x²+y²=t. Resolving the model and its closed-fibre divisor to regular components makes the DVR extension argument valid; local-point hypotheses over all discrete valuations survive the change of model.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the use of properness across a possibly singular component on HAL p. 19. Checked the explicit real-curve/conic diagnostic and the proposed resolution repair: pull back the reductive group and flag scheme, then use Corollary 4.6 on the new model. This is a proof gap, not a counterexample to the local-global theorem."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E17",
+   "kind": "error",
+   "locator": "Theorem 7.1, HAL v5 printed p. 23; published Theorem B.1, public publisher HTML at https://link.springer.com/article/10.1007/s00222-026-01403-x, read 23 September 2026, including the displayed restriction map.",
+   "printed": "Let X be a regular scheme of dimension 2. Let U be an open subcheme of X which contains the subset X^(1) ⊂ X of points x such that the local ring O_X,x is of dimension 1. … then we have the bijection H^1_fppf(X, G) ≅ H^1_fppf(U, G).",
+   "correction": "Require U to contain every point of codimension at most one. Alternatively, restrict X to be integral, as in the cited CTS79 theorem; these are alternative repairs, not equivalent assumptions.",
+   "reason": "Let X = A²_R ⊔ Spec(R) and U = A²_R. This is a regular scheme of dimension 2, and U contains all codimension-one points. Take G = PGL₂ over X. A trivial torsor and the torsor given by Hamilton’s quaternion algebra on the omitted Spec(R) component restrict to the same torsor over U, although they are different on X. Thus the displayed restriction map need not be injective. Adding the codimension-zero points prevents this omission. The paper applies the theorem to an integral model, so this counterexample does not invalidate that application.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed in the HAL PDF and the published HTML, including its equation image. Verified all hypotheses of the disconnected regular-scheme counterexample. Replaced the extraction’s “equivalently” by “alternatively”: requiring integrality is stronger than merely requiring U to contain the generic points."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E18",
+   "kind": "error",
+   "locator": "Gille, Errata et compléments, dated 26 May 2026, p. 1, correction to GP published Example 5.1(b); downloaded from https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf on 23 September 2026.",
+   "printed": "The fraction field of k[x][[t]] is not k(x)((t)); a typical element in the complement is Σ_(n≥1) t^n/x^n.",
+   "correction": "Replace the proposed complement element by Σ_{n≥1} tⁿ/x^(n!), with the coefficient-valuation proof in E4. Retain the erratum’s correction of the fraction-field equality.",
+   "reason": "The t-adic geometric-series identity Σ_{n≥1}(t/x)^n = t/(x−t) exhibits the proposed witness as a quotient of two elements of k[x][[t]]. The strict inclusion is nevertheless true; E4 proves that factorial pole growth supplies a valid witness.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed directly in the freshly downloaded May 26 erratum. Multiplying the printed series by x−t gives t. Split this out of the original E4 because it is a new mistake in the correction, whereas the underlying field equality is already acknowledged."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E19",
+   "kind": "error",
+   "locator": "Harbater–Hartmann–Karemaker–Pop, arXiv 1903.08007v3 (11 June 2020), proof of Lemma 2.4, p. 7, cited for GP Corollary 4.8. The arXiv record labels v3 “published version”; the separately typeset Contemp. Math. 767 (2021), pp. 135–146, was not obtained.",
+   "printed": "Similarly, since O^h_(X_i,P_i)/m O^h_(X_i,P_i) = O/m for all i, it follows that R/mR = O/m.",
+   "correction": "Write A_i = O_(X_i,P_i) and m_i for its maximal ideal. Then A_i^h has residue field k(P_i), and the local filtered colimit R = colim A_i^h has residue field colim k(P_i) = O/m. The maximal ideal of R is the union of the images of the m_i A_i^h; there is no need to extend the final ideal m backwards to each A_i^h.",
+   "reason": "Henselization preserves the residue field of each A_i, but that field can change with i. Blow up a k-rational point and choose a closed point on the exceptional P¹_k with residue field a proper finite extension L/k; continue the chain above it. The initial henselization has residue field k, whereas the final O/m contains L. Thus the asserted equality for every i fails. Filtered colimits of these local maps give the required final equality and henselian local ring; the lemma is preserved.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: https://arxiv.org/abs/1903.08007 lists v3, 11 June 2020, as its last revision and describes it as the published version. Read v3 pp. 6–7, including the full lemma and proof.",
+    "23 September 2026: checked the HHKP entry on https://staff.fnwi.uva.nl/v.z.karemaker/publications.html and searched the title with erratum. No correction for this passage found. The listed erratum on that page is for a different paper.",
+    "23 September 2026: the Harbater public PDF link returned 403; the Utrecht repository copy timed out; the AMS publication landing link did not yield the typeset chapter. No assertion of separate typeset collation is made."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the residue-field shortcut in the public version designated published by arXiv. Repaired both the residue-field equality and the use of the final maximal ideal at finite stages. Checked the local-colimit argument; no claim is made about unobserved typography in the separate AMS copy."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E20",
+   "kind": "gap",
+   "locator": "Proof of Theorem 4.5(1), HAL v5 printed p. 18, referring to Lemma 4.3, p. 17, and the completeness requirement in §3.1, p. 8. Published main-body passage not collated; confirmation is restricted to the named public manuscript(s).",
+   "printed": "V = F₁ ∩ R̂_p and W = F₂ ∩ R̂_p; the next sentence invokes Lemma 4.3 for these V and W.",
+   "correction": "Use V = R̂_P and W = R̂_U, exactly as in Lemma 4.3(1), and use Lemma 4.3(2) for density of F₁ in F₀. The intersections need not be complete, so they cannot replace the modules in that lemma.",
+   "reason": "In the case T = k[[t]], write y = x⁻¹. Then F₁ = Frac(k[[y,t]]) and R̂_p = k((y))[[t]]. Each truncation of c = Σ_{n≥1} tⁿ/y^(n!) lies in F₁ ∩ R̂_p; they form a t-adic Cauchy sequence with limit c in R̂_p. But c is not in Frac(k[[y,t]]): the coefficient-recursion argument in E4, now with coefficients in k[[y]], bounds y-pole growth of any such quotient by a linear function of n. Thus V is not complete in the topology required by §3.1. Lemma 4.3 instead proves completeness, saturation and the sum condition for R̂_P and R̂_U. Using those smaller modules repairs the invocation of Theorem 3.13.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "New finding from this review, confirmed by comparing the two module definitions and the required completeness hypothesis. Reused the independently proved factorial-pole obstruction to give an explicit Cauchy sequence without a limit in the intersection. The correction is supplied by the preceding lemma itself."
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/E21",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.2(2), arXiv 2301.07572v3, p. 5; compared with HAL v5 printed pp. 8–9.",
+   "printed": "For v = t^m v′, arXiv v3 factors the infimum with α^m and later writes |v| = 0.",
+   "correction": "For v′ ∈ V ∖ tV, saturation gives |v′| = 1, and |t^m v′| = α^(−m). Thus replace α^m by α^(−m) and |v| = 0 by |v′| = 1. HAL rewrites the calculation correctly as v = u/t^n with |u| = 1 and |v| = α^n.",
+   "reason": "The absolute value is defined with |t| = α⁻¹. Taking v = t and v′ = 1 already detects both printed errors. The proof is correct in HAL v5, unlike the surviving unit-ball inequality in E1.",
+   "affects": "nothing",
+   "known": "HAL hal-03938963v5, 26 December 2025, https://hal.science/hal-03938963v5/document, Lemma 3.2(2) and proof, printed pp. 8–9.",
+   "searched": [
+    "23 September 2026: downloaded and read Gille, Errata et compléments, dated 26 May 2026, https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf, p. 1. It corrects published Example 5.1(b) and Proposition 6.2; its fraction-field witness is separately checked as E18.",
+    "23 September 2026: compared the named passages in arXiv 2301.07572v3 (24 March 2023; submission history still lists v3) and HAL hal-03938963v5 (26 December 2025), downloaded successfully from https://hal.science/hal-03938963v5/document. This is a claim about these versions, not an assertion that no other manuscript exists.",
+    "23 September 2026: checked https://link.springer.com/article/10.1007/s00222-026-01403-x, including the publicly visible Appendices A and B. No correction notice found. The main body was behind access controls; the PDF request returned HTML, not a published PDF.",
+    "23 September 2026: https://api.crossref.org/works/10.1007/s00222-026-01403-x has no update-to or updated-by field and an empty relation object. This is a bounded metadata check, not proof of absence of a correction.",
+    "23 September 2026: checked https://math.univ-lyon1.fr/~gille/publis-an.html and searched for the paper title with errata/erratum. Found the author erratum above, no further correction of the listed passages."
+   ],
+   "owner": "PAPER-GILLE-PARIMALA-26",
+   "file": "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+   "citation": "Gille–Parimala, \"A local-global principle for twisted flag varieties\", Inventiones Mathematicae (2026)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "reviewReason": "Confirmed the historical arXiv slips and the complete repair in HAL. This separates the already-corrected portion of the original E1 from its still-new unit-ball mistake; it must not be counted as a new published error."
   },
   {
    "id": "PAPER-HACON-WITASZEK-23/E1",
