@@ -2344,8 +2344,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1151"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1151",
+   "finishedAt": "2026-09-23T07:27:57Z"
   },
   {
    "id": "REV-PAPER-ZHU-17",
@@ -4918,8 +4919,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1300"
+   "state": "external",
+   "note": "claimed on GitHub issue #1300"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-17",
