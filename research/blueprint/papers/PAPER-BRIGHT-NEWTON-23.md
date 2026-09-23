@@ -1,198 +1,165 @@
 # PAPER-BRIGHT-NEWTON-23: Evaluating the wild Brauer group
 
-Martin Bright and Rachel Newton, *Evaluating the wild Brauer group*, [Inventiones mathematicae 234 (2023), 819–891](https://doi.org/10.1007/s00222-023-01210-8), open access; arXiv [2009.03282](https://arxiv.org/abs/2009.03282).
+Martin Bright and Rachel Newton, [Inventiones mathematicae 234 (2023), 819–891](https://doi.org/10.1007/s00222-023-01210-8).
 
-Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1239). Status: **complete**. The whole paper was read, and every missing item is routed once.
+Original extraction: Claude Code, session cc-39fac3, issue #1239, PR #1962.
+Independent revision: Codex — codex-a71f92, REV-PAPER-BRIGHT-NEWTON-23, issue #1240, 23 September 2026.
 
-The machine-readable extraction is [PAPER-BRIGHT-NEWTON-23.result.json](PAPER-BRIGHT-NEWTON-23.result.json). It has:
-- 113 items: 4 planned, 109 missing;
-- 5 routes: 3 source routes and 2 Part II candidates;
-- 13 prerequisite entries;
-- 7 recorded source issues.
+Status: **partial**. The independent review is finished with verdict **revise**.
+The [result](PAPER-BRIGHT-NEWTON-23.result.json) contains 117 items: 4 library,
+4 planned and 109 missing. All missing items have one route, but routes 2, 4
+and 5 are rejected; a routing count is not a dependency-closure certificate.
+The [review](../reviews/REV-PAPER-BRIGHT-NEWTON-23.md) records the corrections
+and remaining work. There are 13 prerequisite entries and 14 source findings.
 
-**Sources read.**
-- **arXiv v5** (5 October 2023, "Final version"), read in full from its TeX source.
-- **The published Inventiones PDF** (73 pages), read in full. A word-level diff against v5 finds only typesetting and reference formatting.
+## What is being extracted
 
-Statement numbers are the same in both versions. Page numbers are the journal's (pp. 819–891).
+For a finite extension k/Q_p, let 𝒳/O_k be a smooth model of a smooth
+geometrically irreducible variety X/k with geometrically irreducible special
+fibre Y. Properness is not assumed for this local theory. The evaluation
+filtration quantifies over all finite k′/k and integral points of the base-changed
+model, with disc radius multiplied by e(k′/k).
 
-## What the paper proves
+Theorem A identifies this filtration with the modification of Kato's filtration:
+Ev_{−2}=ker ∂, Ev_{−1}=∂^{-1}H¹(𝔽,Q/Z), Ev_0=fil_0, and, for n≥1,
+Ev_n consists of classes in fil_{n+1} whose refined Swan conductor has zero
+second component. Unramified extensions suffice to test the condition.
+Items 1–5 and 82–93 retain the exact quantifiers and base-change cases.
 
-**Setting.**
-- k is a finite extension of Q_p, with residue field 𝔽, absolute ramification index e, and e′ = ep/(p−1).
-- X/k is smooth and geometrically irreducible, with a smooth model 𝒳/O_k, not necessarily proper, whose special fibre Y is geometrically irreducible.
-- F is the function field of Y.
-- A class A ∈ Br X of p-power order evaluates on 𝒳(O_{k′}) for every finite extension k′/k.
+Theorem B and Theorem 8.1 describe evaluation by the differential components
+[α,β] of rsw. Item 70 gives the first-order trace formula; items 71 and 73
+record the longer bilinear and higher-order surjectivity statements with their
+ramification and Cartier hypotheses. These are not abbreviated to an
+unconditional surjectivity assertion. The proof of the second formula of
+8.1(3) has the model/filtration obligation recorded in E12.
 
-**Main results.**
-- **The evaluation filtration.** Ev_n Br X consists of the classes whose evaluation is constant on every disc B(P, e(k′/k)(n+1)). Ev_{−1} means constant everywhere, and Ev_{−2} means zero everywhere.
-- **Theorem A.** Ev_n equals a modification fil~_n of Kato's Swan-conductor filtration:
-  - Ev_{−2} = ker ∂;
-  - Ev_{−1} = ∂^{−1}H¹(𝔽, Q/Z);
-  - Ev_0 = fil_0;
-  - for n ≥ 1, Ev_n = {A ∈ fil_{n+1} : rsw_{n+1}(A) ∈ [Ω²_F, 0]}.
+Theorem C applies to a smooth projective variety over a number field with a
+nonzero global 2-form and a specified place of good **ordinary** reduction.
+After finite extension it produces a Brauer class obstructing weak approximation
+at a place over that prime. It answers Question 1.3 negatively in general.
+The 2023 argument does not supply an ordinary prime for every such variety.
 
-  Unramified extensions k′ suffice.
-- **Theorem B / Theorem 8.1.** Write rsw_n(A) = [α, β]_{π,n}. Then α and β are regular at P₀, and:
-  - inv A(Q) = inv A(P) + (1/p) Tr β_{P₀}(v_n(P, Q)) on B(P, n), so the refined Swan conductor is exactly the "derivative" of the evaluation map;
-  - when β = 0, a bilinear formula in α_{P₀} governs the next discs;
-  - under explicit bounds on n, evaluation surjects onto Br k[p^{t+1}].
-- **Theorem C.** If H⁰(V, Ω²) ≠ 0, every prime of good ordinary reduction of V/L carries a Brauer–Manin obstruction to weak approximation after a finite extension. So Swinnerton-Dyer's Question 1.3 has a negative answer.
-- **Theorem D.** If Pic V̄ is finitely generated and torsion-free, evaluation of all of Br V is constant outside an explicit finite set of places. These are:
-  - the archimedean places;
-  - the places of bad reduction;
-  - the places with e_𝔭 ≥ p − 1;
-  - the places with H⁰(𝒱(𝔭), Ω¹) ≠ 0.
+Theorem D treats smooth proper geometrically irreducible varieties with
+finitely generated torsion-free geometric Picard group. All Brauer evaluations
+are constant outside the specified finite set: archimedean places, bad
+reduction, e≥p−1, and places where the special fibre has a global 1-form.
+Questions 1.3–1.5 are now problem definitions (items 6,7,9), not assertions
+to prove. Remarks 1.6 and 11.5 remain required extraction targets.
 
-  For K3 surfaces over Q this leaves ∞, the bad primes and 2.
-- **§10.** fil~ is not generated from any filtration on H¹ (Proposition 10.2). It is not the non-logarithmic Abbes–Saito filtration (10.8), nor the logarithmic one (10.9).
+A subsequent paper, [Ambrosi–Newton–Pagano, Wild Brauer classes via prismatic
+cohomology](https://arxiv.org/abs/2509.22025), Corollary 1.1.2, proves that
+weak approximation over all finite extensions forces H⁰(Ω²)=0. For the
+smooth projective varieties of Question 1.4, Hodge symmetry gives H²(O)=0.
+This is later progress, not an ordinary-reduction theorem proved in 2023.
+Only the sequel's introduction and stated comparison were checked here.
 
-**How it is proved.**
-- §2 sets up Kato's theory for a Henselian DVF K with imperfect residue field F:
-  - V^q(A) = H^q(i*Rj_*);
-  - fil_n H^q(K), tested by {χ, 1 + π^{n+1}T} = 0;
-  - λ_π and δ_r, through Bloch–Kato's filtration on p-adic vanishing cycles;
-  - rsw_n.
+## Source record
 
-  It also proves new lemmas: base change (2.16), dβ = (−1)^q nα (2.17), and Swan conductors of pχ (2.19).
-- §3 handles tame classes: A ∈ fil_0 evaluates through its residue ∂A ∈ H¹(Y, Q/Z).
-- §4 recalls Kato's geometric results on regular local rings: Theorem 7.1 (integrality) and Theorem 8.1 (blowups).
-- §§5–7 compute residues of log forms after blowing up a point, on P^n, and on tangent vectors.
-- §8 proves Theorem 8.1 by induction. Blowing up P₀ lowers the Swan conductor along the exceptional divisor E by 1, or by 2 when β = 0 (Lemmas 8.3–8.4). At conductor 0 the residue is an explicit Artin–Schreier class on E ∖ Z (Lemmas 8.6–8.7), and Lemma 3.3 turns it into a trace.
-- §9 deduces Theorem A; §11 deduces Theorems C and D.
+The reviewer read all 73 pages of the [published PDF](https://d-nb.info/1314744992/34),
+including proofs and references, and compared the relevant error passages with
+[arXiv v5](https://arxiv.org/pdf/2009.03282v5). This does not certify the
+original extractor's claim of a complete word-level diff of both versions.
 
-## What the atlas already has
+- Published PDF SHA-256: 0e96ca755aa61e748bca722ea2c1107bed115575ff4fa8d6c751b721c33e79d2.
+- Final-v5 PDF SHA-256: bc6926b9002f6d5a07a1c25647d3a60efaaf39f20553ecaf7f0c6a2a4d3f4fc1.
+- Borger, [Conductors and the moduli of residual perfection](https://maths-people.anu.edu.au/~borger/papers/_all/ConductorsAndTheModuliOfResidualPerfection.pdf), §§4.1–4.11 checked for coefficients, filtration and the correct log point; SHA-256 4b32ea9e723f4b2dbb2ebeaadd4b9ecf26b06179070ca24a336b5e7129244abc.
+- [Stacks 0FMU](https://stacks.math.columbia.edu/tag/0FMU), especially Definition 50.15.1 and Lemma 50.15.2, checked for the hypotheses and divisor-supported residue target.
+- ANP author PDF dated 30 October 2025, SHA-256 f081fa16b0362447ee560a7e654fecfeb446eef1afd387082033b46e9340ca68, §§1.1.1–1.1.3 checked, not the whole sequel.
 
-**Planned.**
-- The local Brauer group and its invariant, with restriction multiplying by the degree: Class field theory, Layer 5.
-- The Brauer–Manin pairing: HeightsRationalPointsAndObstructions:RP.2.
-- De Rham–Witt complexes with dlog: CrystallineCohomology:CR.4, with logarithmic coefficients at HigherLocalFieldsAndHigherClassFieldTheory:HL.2.
-- The Cartier operator: DerivedDeRhamCohomology:DD.3.
+Published page numbers are used in the extraction. The source search on
+23 September 2026 checked the publisher article, Crossref correction fields,
+arXiv version history, Newton's research list and bounded title/correction
+queries. No linked formal correction was found. E7 records the later resolution
+explicitly; the other findings' “new” classification is bounded by that search.
 
-**Not in the atlas or the libraries.**
-- Kato's Swan conductor for imperfect residue fields.
-- Bloch–Kato p-adic vanishing cycles.
-- Refined Swan conductors.
-- Abbes–Saito ramification.
-- Any evaluation theory of wild Brauer classes.
+## What is already supplied
 
-Searches covered "Swan", "Kato … filtration", "refined Swan", "evaluation", "Abbes–Saito", "imperfect residue", "Bloch–Kato", "vanishing cycle", "de Rham–Witt", "Cartier", "Brauer" and "Hochschild–Serre", across data/atlas.json, the proposed roadmaps and every earlier paper extraction.
+The pinned revisions are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
+and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-**Nearest existing owners.**
-- ArithmeticGaloisRepresentations:R01.3 is the perfect-residue numerical Swan conductor.
-- HL.4 plans ramification filtrations for higher local fields.
-- LefschetzPencilsAndVanishingCycles:LPV.0 plans the strict-Henselian RΨ.
+New items 114–117 explicitly import ordinary Kähler differentials and universal
+derivation, ordinary abelian-sheaf cohomology, the derived category of an abelian
+category, and the invertible-exponent Kummer short exact sequence of discrete
+Galois modules. Their declarations were read at the pins. None is a substitute
+for log differentials, hypercohomology, p-primary characteristic-p coefficients,
+or a cohomological Brauer comparison.
 
-None of these plans Kato's filtration on H^q of a general Henselian DVF.
+Items 12–16 retain these planned suppliers:
 
-**Libraries.**
-- Mathlib has Kähler differentials, Witt vectors, Henselian local rings and the Brauer group of a field as classes of central simple algebras.
-- Tau Ceti adds the base-change API for that Brauer group.
-- Neither has the cohomological Brauer group of a scheme, étale cohomology, the de Rham differential on Ω^•, log differentials, the Cartier operator or Galois-cohomological Swan conductors.
+- Class Field Theory, Layer 5: local cohomological Brauer invariant and residue;
+- HeightsRationalPointsAndObstructions:RP.2: adelic points and Brauer–Manin pairing;
+- CrystallineCohomology:CR.4: de Rham–Witt complexes;
+- HigherLocalFieldsAndHigherClassFieldTheory:HL.2: wild logarithmic coefficients;
+- DerivedDeRhamCohomology:DD.3: Cartier comparison.
 
-So no item is marked `library`.
+These are plans, not library implementations. Generic de Rham–Witt theory,
+logarithmic exactness and field-colimit adapters must be separated in the next
+atomic ledger. The reviewed coverage file has no CR.4/DD.3 entry at this snapshot;
+their current stage descriptions, not a nonexistent reviewed audit, were used.
 
-## Routes
+## Route decisions
 
-1. **Source → SchemeAndStackFoundations:SF.2** (5 items). These are general étale-cohomology inputs:
-   - Gabber's affine proper base change;
-   - invariance of H^q of proper varieties under extension of algebraically closed fields;
-   - purity Br 𝒳 = Br X ∩ Br O_{𝒳,Y} (the Česnavičius extraction already sends Brauer purity here);
-   - the Hochschild–Serre sequence for H¹ over a finite field (as in the Harpaz–Wittenberg extractions);
-   - Lemma 11.4 (vanishing of H¹ specialises).
-2. **Source → WeilConjectures:WC.5** (1 item). Lang–Weil, as PAPER-HARPAZ-WITTENBERG-16 already routed it.
-3. **Source → HeightsRationalPointsAndObstructions:RP.2** (1 item). The one-place Brauer–Manin test: non-constant local evaluation obstructs weak approximation, and surjective evaluation does not obstruct the Hasse principle. RP.2 plans exactly such effective tests.
-4. **Part II → LocalFieldsPartIIKatoSwanConductors**, "Local fields and ramification, Part II: Kato's Swan conductors for imperfect residue fields" (44 items; parent tauceti:TauCetiRoadmap/LocalFieldsRamification).
-   - **Contents:**
-     - Kato's coefficients and V^q(A);
-     - fil_n and sw, λ_π, δ_r and rsw_n;
-     - Kato's Propositions 6.1 and 6.3 and Theorem 5.1;
-     - Bloch–Kato's gr⁰ of p-adic vanishing cycles and Lemma 3.4;
-     - the paper's Lemmas 2.7–2.23;
-     - the geometric results of §4 (Kato's 7.1, 7.3, 7.4, 8.1 and Lemmas 4.5–4.7);
-     - the modified filtration fil~_n;
-     - all of §10 (the Abbes–Saito filtrations, Kato–Saito, and Propositions 10.2–10.9).
-   - **Why a separate owner:** this is local ramification theory that stands on its own, and other wild-ramification papers will need it. Keeping it out of the Brauer-evaluation roadmap avoids planning it twice. HL.4 should import it, not define a second Swan filtration.
-5. **Part II → HeightsRationalPointsPartIIWildEvaluation**, "Heights, rational points and obstructions, Part II: wild Brauer evaluation over p-adic fields" (58 items; parent HeightsRationalPointsAndObstructions).
-   - **Contents:**
-     - the evaluation filtration and Theorem A;
-     - tame evaluation (§3);
-     - the blowup, P^n and tangent-vector lemmas (§§5–7);
-     - Theorem 8.1 with its lemmas;
-     - §9;
-     - Theorems C and D with Lemmas 11.1–11.3, Bloch–Kato's ordinary theorem and Colliot-Thélène–Skorobogatov's Proposition 2.4;
-     - Questions 1.3–1.5 as questions;
-     - Remarks 1.6 and 11.5.
-   - **Why a Part II of this roadmap:** RP.2 owns the pairing, not how local evaluation varies on discs. None of the existing RP Part II candidates (homogeneous Massey, zero-cycles, random norm and conic fibrations) is about local evaluation.
-   - **Gaps it must flag:**
-     - Remark 1.6(1) needs Fontaine–Messing's mod-p comparison and Deligne–Illusie degeneration. Neither is planned, but no proof uses the remark.
-     - Theorem D's "H¹(O) = 0 ⇒ H⁰(Ω¹) = 0" needs Hodge symmetry in characteristic 0, which has no located owner.
+| Route | Destination | Review |
+|---|---|---|
+| 1 | SchemeAndStackFoundations:SF.2, items 19,48,88,106,110 | Accept as scoped sources: henselian-pair base change, purity, H¹ kernel and proper base-change inputs |
+| 2 | WeilConjectures:WC.5, item 87 | Reject: actual stage is smooth-projective, while the use needs arbitrary varieties and open loci |
+| 3 | HeightsRationalPointsAndObstructions:RP.2, item 14 | Accept the corrected one-place test |
+| 4 | LocalFieldsPartIIKatoSwanConductors | Reject pending atomic closure and supplier boundaries |
+| 5 | HeightsRationalPointsPartIIWildEvaluation | Reject pending atomic closure and the specified source-proof repairs |
 
-## Source issues (`sourceIssues` E1–E7)
+The Part II directions are reasonable candidates, not approved designs.
+The upstream local-fields roadmap assumes finite residue fields; it does not
+already construct general imperfect-residue Kato theory. HL.4 is the nearest
+ramification overlap and must import the reusable theory once, rather than
+acquire a second filtration. Generic nearby-cycle formalism is not itself the
+Bloch–Kato p-primary graded-piece theorem. Local invariants and global
+reciprocity are imported from upstream Class Field Theory.
 
-All seven appear identically in arXiv v5 and the published version. No correction was found:
-- arXiv has versions v1–v5 only;
-- Crossref records no update relation;
-- the Springer article page shows no correction.
+The rejected briefs are retained as revision material, with explicit review
+gates. Their source statements must not be treated as established implementation
+contracts until the review requirements are met.
 
-- **E1 (misprint, Lemma 6.1(3) proof, p. 859).**
-  - **Printed:** "X_i² d(X_j/X_j) form a basis for H⁰(H, Ω¹(2))".
-  - **Correction:** X_i² d(X_j/X_i).
-  - **Why:** d(X_j/X_j) = 0. Lemma 6.1(2) and the preceding computation both give X_i² d(X_j/X_i).
-- **E2 (misprint, Lemma 9.2 proof, p. 879).**
-  - **Printed:** "res_{k′/k}A ∈ fil_n Br X_{k′}".
-  - **Correction:** fil_{n+1}.
-  - **Why:** A ∈ fil_{n+1} and k′/k is unramified. The next sentence uses rsw_{n+1}(res A) = [α, 0] with α ≠ 0, which would vanish if res A were in fil_n.
-- **E3 (misprint, Lemma 9.5, p. 880).** The statement opens "For every r ≥ 1", but r appears nowhere.
-- **E4 (gap, Corollary 9.8(2) proof, p. 882).**
-  - **Printed step:** in the case α = 0, p ∤ e, the proof infers res A ∉ Ev_{en−1} from rsw_{en}(res A) ≠ 0.
-  - **Why it fails:** that only excludes fil_{en−1}. With β′ = 0 ≠ α′, res A would lie in Ev_{en−1}.
-  - **Why the statement survives:** β′ ≠ 0 always holds because A ∉ fil~_{n−1}. The proof of Lemma 9.2 says so, so the case table is right.
-- **E5 (misprint, Proposition 10.8 proof, p. 886).**
-  - **Printed:** "the equality does not hold for n = e′".
-  - **Correction:** the witness {ψ, π} satisfies f_K ≤ e′ = (e′ − 1) + 1 but lies outside fil~_{e′−1}. So the failure is at n = e′ − 1.
-- **E6 (error in the proof, Proposition 10.9, p. 886).**
-  - **Printed:** "Let L/K be any wildly ramified extension of degree p", followed by e′_L = pe′ and rsw_{e′_L}(res A) = [c̄_L ω, 0] with c̄_L ≠ 0.
-  - **Why it fails:** this is false for ferociously ramified L (e(L/K) = 1, a term the paper itself uses in Lemma 10.5). For L = K(x̃^{1/p}), res A = (x̃, ỹ)_p = 0.
-  - **Correction:** take L totally ramified, e.g. K(π^{1/p}). The proposition needs only one L, so it stands.
-- **E7 (gap, introduction before Theorem C, p. 823).**
-  - **Printed:** "It gives a positive answer to that question" (Wittenberg's Question 1.4).
-  - **Why this overstates it:** Theorem C assumes a prime of good ordinary reduction and uses ordinarity through Bloch–Kato's Theorem 0.7(iii). The paper itself notes that such primes are only conjectured in general (Serre, via Joshi); they are known for abelian surfaces and K3 surfaces.
-  - **Correction:** the answer to Question 1.4 is positive for varieties with an ordinary prime. The negative answer to Question 1.3 remains unconditional.
+## Source findings
 
-The items use the corrected statements.
+E1–E7 were independently checked; E8–E14 were added by the reviewer. The JSON
+contains each locator, correction, argument, bounded novelty search and verdict.
 
-## Prerequisites not yet covered
+- E1: zero differential in the printed projective-space basis.
+- E2: unramified restriction indexed by fil_n instead of fil_{n+1}.
+- E3: unused quantified r in Lemma 9.5.
+- E4: the proof of Corollary 9.8 needs the nonzero β component, not merely nonzero rsw.
+- E5: the Proposition 10.8 witness fails at e′−1, not the printed e′.
+- E6: choose a totally ramified degree-p extension; “wildly ramified” alone does not pin the required residue behaviour.
+- E7: the 2023 introduction overstates the ordinary-prime implication; the 2025 sequel resolves the general question.
+- E8: degree indices in Lemma 2.12 and the degree-two Brauer identification.
+- E9: the fractional-differential recipe and O_K-valued residue sequence in §2.3 are invalid; use the formal log point.
+- E10: the blowup coordinate formula needs an origin or a difference of coordinates.
+- E11: Lemma 8.4's refined conductor requires positive output level.
+- E12: Lemma 8.11's conductor bound cannot be imposed on the original model as written.
+- E13: Lemma 10.1 needs K×, not only units.
+- E14: the surjective-evaluation test needs n>1 for proper inclusion.
 
-1. Kato 1989, Contemp. Math. 83, the source of fil_n and rsw_n. The paper cites it 67 times.
-2. Bloch–Kato 1986, IHÉS 63.
-3. Illusie 1979.
-4. Abbes–Saito 2002.
-5. Kato–Saito 2019.
-6. Saito, arXiv:2004.03770.
-7. Matsuda 1997.
-8. Bright 2015 (bad reduction).
-9. Colliot-Thélène–Skorobogatov 2013.
-10. Colliot-Thélène–Saito 1996.
-11. Gabber 1994.
-12. Borger 2004.
-13. Kato's local class field theory II (1980).
+These findings do not assert counterexamples to Theorems A–D. In particular,
+E12 requires proof repair before certifying the strengthened evaluation formula.
 
-DOIs were checked against Crossref. The Colliot-Thélène–Saito DOI resolves through doi.org to OUP but has no Crossref record, and Kato 1980 has no DOI.
+## Work remaining
 
-## Checks
+Split bundled conclusions and construct a source-to-item proof-dependency ledger,
+including named results imported inside proofs. Important omitted inputs include
+the cohomological Brauer definition/comparison, all-degree cups and edge-map signs,
+the Kato residue complex, blowup/Rees and projective differential geometry,
+trace nondegeneracy, ordinary vanishing-cycle comparison, Picard and Hodge
+theory, higher-dimensional semicontinuity, and Fontaine–Messing/Deligne–Illusie.
 
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json` passes.
-- The generator asserts that every missing item is routed exactly once and that planned items carry no route.
-- **Checked by hand:**
-  - Lemma 2.19's binomial valuations and Remark 2.20;
-  - Lemma 3.3;
-  - the residue computations of Lemmas 5.1 and 6.1;
-  - the first steps of the §8 blowup induction;
-  - all of §9, including the use of Lemma 2.16's base-change formula in Corollary 9.8;
-  - Lemma 10.1 and Proposition 10.2;
-  - the conductor values of Lemmas 10.4–10.7 against Proposition 10.3 (for example, K(π^{1/p}) has sw = e′ with β ≠ 0, hence f_K = e′ + 1);
-  - Propositions 10.8 and 10.9;
-  - Lemmas 11.1–11.4 and the proofs of Theorems C and D.
-- Kato's and Bloch–Kato's cited theorems were used as quoted.
-- No Lean was written or compiled; this is an extraction.
+The 13 prerequisite entries are a bibliography, not an assertion that their
+required theorems have all been independently read or supplied. Select exact
+source statements and owners for each use. Do not replace missing generality
+by a curve-only or invertible-coefficient special case.
+
+## Validation
+
+The paper checker passes. The paper, source-issue and paper-queue regression
+tests pass. Additional checks verify all 109 missing items are routed exactly
+once, 14 source verdicts have the correct reviewer, the four library items cite
+pinned declarations, and finite diagnostics catch the origin and trivial-class
+edge cases. No Lean file is part of this review and no Lean compilation is claimed.
