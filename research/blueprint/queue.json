@@ -3862,8 +3862,9 @@
    ],
    "avoidAccountOf": "PAPER-FENG-YUN-ZHANG-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1231"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1231",
+   "finishedAt": "2026-09-23T22:22:22Z"
   },
   {
    "id": "PAPER-BRESCIANI-24",
