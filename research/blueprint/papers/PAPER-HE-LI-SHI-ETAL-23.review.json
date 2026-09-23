@@ -1,0 +1,22 @@
+{
+  "paper": "PAPER-HE-LI-SHI-ETAL-23",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Joins the UnitaryKudlaRapoportCycles Part II, with the same id, parent, title and area as PAPER-ZHANG-21, PAPER-LI-LIU-21/22 and PAPER-LI-ZHANG-22-B. The brief is amended: Lemma 9.6 fails in a special configuration and Theorem 9.7 needs the uncertainty-principle step there (E7, E8); Theorem 8.2 holds without its extra clause (E9); Theorem 3.19(2) needs type ≥ 2 (E14)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Joins the UnitaryRapoportZinkSpacesAndRSZModels Part II (same id, parent, title and area as PAPER-LIU-ETAL-22 and the others). The brief is amended with the polarization condition of Definition 2.2 (E16), the rank of 𝓕 (E17), and the standing hypotheses and ramified-place dependence of Theorems 10.1–10.2."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "GN.3 plans local representation densities; §§5–8 are the ramified hermitian densities and their derivatives. Theorem 7.1 and every §7 lemma were verified by exact computation. Items 25, 27, 31, 32, 34 and 36 record E22–E26 and the sign independence of §8."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1237).\n\nSources read: the authors' final version (Kramer.pdf) and arXiv v2, both with the extraction's SHA-256, in full; Li–Zhang and Li–Rapoport–Zhang for E1; RTW14 and Howard's paper for §3–4 citations.\n\nMethod: three read-only helper agents of this session split the paper (§§1–4; §§5–7; §§8–10). §§5–7 were checked by exact computation, including Theorem 7.1 for n ≤ 9 and direct local densities over Q₃(√3), and §8 by brute force at q = 3 and 5. The reviewer checked every finding at the page image or in the text, and re-derived the Lemma 9.6 counterexample and its parity obstruction.\n\nMain finding: Lemma 9.6 is false when the top invariant of L♭ + ⟨x⟩ is odd and a′₁ + ⋯ + a′ₙ₋₁ = val(L♭) − 1 (E7). This leaves a gap in the induction proving Theorem 9.7, and hence Theorem 1.3 and Theorems 10.1–10.2 at ramified places, in that configuration (E8). Li–Liu handle the analogous case with the uncertainty principle; this paper has no such step. No counterexample to the theorem is known.\n\nSource issues: E1–E6 confirmed (E2 now affects a stated result; quotations of E1 and E3 corrected). E7–E30 added: 5 errors in stated results (E7, E9, E14, E23, E24), 5 gaps in proofs (E8, E19, E20, E25, E26), and the rest minor.\n\nItems corrected in place: 1, 4, 12, 16, 19, 21, 25, 27, 31, 32, 34, 36, 37, 38, 40, 45, 46. Statuses unchanged; every planned stage id exists.\n\nEvery missing item is routed exactly once (43). check_paper.py reports ok."
+}
