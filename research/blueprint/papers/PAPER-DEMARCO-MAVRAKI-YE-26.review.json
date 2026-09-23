@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-DEMARCO-MAVRAKI-YE-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "DY.0 (iteration, periodicity and dynamical moduli), DY.4 (equidistribution and small points, with dynamical applications) and DY.6 (families and canonical heights in families) are the natural homes for M_d and its critically marked cover, for the critical height with Ingram's comparison, and for equidistribution of PCF parameters. None of them yet constructs these objects, so the paper is a good source."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans Chow varieties of cycles. R09.1–R09.2 (projective parameter spaces, Hilbert and Quot schemes, boundedness) is the closest owner, and Chow varieties of bounded-degree cycles are built from the same machinery (Kollár, Rational Curves, Ch. I)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "PAPER-YUAN-26 proposes this Part II with a brief covering Yuan–Zhang adelic divisors on quasi-projective schemes, Deligne pairings, non-degeneracy and the height inequality. DMY consumes the same theory (invariant extensions, the relative-dimension-0 Deligne pairing, [YZ, Thm. 1.3.2], Thms. 5.3.3 and 5.4.3), so coalescing there is right. The projective equidistribution theorem stays with DY.4, which is how PAPER-YUAN-26 records it."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Heights of cycles and Gao–Ge–Kühne Lemma 4.3 are already in the uniformity Part II (PAPER-GAO-GE-KUHNE-26 routes Lemma 4.3 there as its item 58), so this route only adds a consumer and duplicates nothing."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "No atlas layer treats complex dynamics in parameter space. The only hits for bifurcation, currents or plurisubharmonic functions are unrelated: Tau Ceti GeometricTopology's Thurston geometries, and the real Monge–Ampère theory in OptimalTransport. A Part II of ArithmeticDynamics, like ArithmeticDynamicsPartIIMarkoff, is right. The brief is amended in three ways. It imports subharmonic potential theory from Tau Ceti PDE, Lane C. It carries the corrections E7–E9. Its acceptance test no longer asks for the DeMarco–Wang–Ye theorem, which the paper uses only as an input."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1338). Sources read:\n- the whole published article (Forum Math. Pi 14 (2026) e4). The review's download differs in SHA-256 (c14888b9…2041) from the extraction's only by Cambridge Core's per-download watermark;\n- arXiv 2405.17343v3, the accepted version, compared at every place below;\n- DeMarco–Mavraki, arXiv 2212.13215v2, §4.3, for the rigid-repeller criterion;\n- Gao–Ge–Kühne Lemma 4.3, as extracted in PAPER-GAO-GE-KUHNE-26.\n\nAll 35 statements and locators match the paper. The Mathlib citation `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51, at 082e2d3) provides the Weil height over number fields. DY.1 plans Call–Silverman heights. Neither library has rational-map dynamics, bifurcation currents, Chow varieties or Yuan–Zhang theory.\n\nCorrections made in place:\n- item 14: degrees are relative to a fixed very ample bundle, on which B and N depend;\n- item 24: T_i ∧ T_i = 0;\n- item 26: Dujardin's density theorem is for a single family (f, …, f);\n- items 12, 16, 17, 22 and 27: locators and notes;\n- prerequisites: Buff–Epstein 2009, DeMarco–Wang–Ye 2015 and Douady–Hubbard 1985 added;\n- route 5 brief: amended as described in its route verdict;\n- summary: updated.\n\nSource issues: E1–E5 are confirmed. Four new issues are added and confirmed:\n- E6: PCF_d for PCF₂ in Example 1.4;\n- E7: a gap in Proposition 3.1. The witness is built on the diagonal, where ρ_ℓ has positive-dimensional fibres whenever dim ρ₁(X) < r + ℓ, so it is not transversely prerepelling over X^ℓ_V. For the lines in M₂ the curve Γ of Proposition 3.2 carries a constant map. µ_ℓ ≠ 0 stands;\n- E8: (4.4) holds only as c₁(L̄)^{∧(r+1)ℓ} ≥ α₁µ_ℓ, and the proof runs with the left side;\n- E9: a gap in the §5 induction for Theorem 1.5 in dimension ≥ 2. The threshold is measured against h_Ch of the ambient X_λ, while the induction hypothesis on the components Y(λ) uses h_Ch(Y(λ)).\n\nTheorems 1.1, 1.2 and 1.6 depend on E7 through Theorem 1.8, but not on E9. check_paper.py reports ok, and every missing item is routed exactly once."
+}

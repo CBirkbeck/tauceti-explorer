@@ -13,7 +13,7 @@
       "The entire published open-access article (§§1–5, references), 22 pages, read 2026-09-22 (PDF from Cambridge Core, SHA-256 7845e297f7c154ab6233cb9ea42702e1884764af6b0b6e2b286b62695abe4048); arXiv v3 (10 January 2026) is the accepted version."
     ]
   },
-  "summary": "Proves that for every degree d and D, the Zariski closure of X ∩ PCF_d, for complex X ⊂ M_d of degree ≤ D, has a uniformly bounded number of components of bounded degree (Theorem 1.1). It also proves that there are finitely many positive-dimensional PCF-special subvarieties of degree ≤ D (Theorem 1.2), with small-critical-height strengthenings over Q̄ (Theorems 1.5, 1.6). All of this is done without classifying PCF-special subvarieties. The key is a relative Bogomolov statement for fibre powers of maximally varying families (Theorem 1.8). Two non-degenerate Yuan–Zhang adelic line bundles built from bifurcation currents give a height inequality and equidistribution. A zooming argument at a parameter where one critical tuple is prerepelling and another critical point is in a parabolic basin shows the two limiting measures differ. The atlas plans canonical heights and equidistribution. It lacks complex bifurcation theory, the critical height and Ingram's theorem, Chow-variety parameter spaces and Yuan–Zhang quasi-projective adelic geometry.",
+  "summary": "Proves that for every degree d and D, the Zariski closure of X ∩ PCF_d, for complex X ⊂ M_d of degree ≤ D, has a uniformly bounded number of components of bounded degree (Theorem 1.1). It also proves that there are finitely many positive-dimensional PCF-special subvarieties of degree ≤ D (Theorem 1.2), with small-critical-height strengthenings over Q̄ (Theorems 1.5, 1.6). All of this is done without classifying PCF-special subvarieties. The key is a relative Bogomolov statement for fibre powers of maximally varying families (Theorem 1.8). Two non-degenerate Yuan–Zhang adelic line bundles built from bifurcation currents give a height inequality and equidistribution. A zooming argument at a parameter where one critical tuple is prerepelling and another critical point is in a parabolic basin shows the two limiting measures differ. The atlas plans canonical heights and equidistribution. It lacks complex bifurcation theory, the critical height and Ingram's theorem, Chow-variety parameter spaces and Yuan–Zhang quasi-projective adelic geometry. The independent review (REV-PAPER-DEMARCO-MAVRAKI-YE-26) confirmed E1–E5 and added four issues. The most significant are two gaps: the witness of Proposition 3.1 is built on the diagonal, where it cannot be transverse when dim ρ₁(X) < r + ℓ (E7), and the §5 induction for Theorem 1.5 in dimension ≥ 2 compares heights of different varieties (E9).",
   "items": [
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/1",
@@ -125,7 +125,7 @@
       "kind": "construction",
       "name": "Heights on Chow varieties",
       "statement": "A height h_Ch on each Ch(M_d, r, D), for instance a Philippon height of cycles; h_Ch(X) for a subvariety X of degree ≤ D.",
-      "locator": "§1, p.2; §2.5, citing Philippon [Ph], Forum Math. Pi 14 (2026) e4",
+      "locator": "§1, p.2; §2.5, p.7, citing Philippon [Ph], Forum Math. Pi 14 (2026) e4",
       "status": "missing",
       "note": "Heights of subvarieties are already in the uniformity Part II (DGH21 route); routed there."
     },
@@ -142,7 +142,7 @@
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/14",
       "kind": "theorem",
       "name": "Theorem 1.1 (uniform geometry of PCF points)",
-      "statement": "For d ≥ 2 and D ≥ 1 there are B = B(D,d) and N = N(D,d) such that for every complex algebraic subvariety X ⊂ M_d of degree ≤ D, the Zariski closure of X ∩ PCF_d has at most N irreducible components, each of degree ≤ B.",
+      "statement": "For d ≥ 2 and D ≥ 1 there are B = B(D,d) and N = N(D,d) such that for every complex algebraic subvariety X ⊂ M_d of degree ≤ D, the Zariski closure of X ∩ PCF_d has at most N irreducible components, each of degree ≤ B. Degrees are measured with respect to a fixed very ample line bundle on M_d (for example from Silverman's compactification), and B, N depend on that choice.",
       "locator": "Theorem 1.1, p.1; proof §5, pp.18–20, Forum Math. Pi 14 (2026) e4 (flexible Lattès points not defined over Q̄ are omitted in the proof, sourceIssues E4)",
       "status": "missing",
       "note": "A \"uniform Dynamical André–Oort\" obtained without classifying PCF-special subvarieties (Remark 1.7)."
@@ -161,7 +161,7 @@
       "kind": "theorem",
       "name": "Examples 1.3–1.4 (degree growth of Per_n(0), and uniform bound on Per₁(λ))",
       "statement": "The degrees of the irreducible components of Per_n(0) ⊂ M_d grow with n. There is N with #(Per₁(λ) ∩ PCF₂) ≤ N for all λ ≠ 0 (Per₁(λ) ⊂ M₂ the quadratic maps with a fixed point of multiplier λ, PCF-special iff λ = 0 [DWY]); similarly for Per_n(λ) in the cubic polynomial moduli space.",
-      "locator": "Examples 1.3–1.4, p.2, citing DeMarco–Wang–Ye [DWY], Baker–DeMarco [BD, Thm. 1.1], Favre–Gauthier [FG2, Thm. B], Forum Math. Pi 14 (2026) e4",
+      "locator": "Examples 1.3–1.4, p.2 (misprint E6: PCF_d for PCF₂), citing DeMarco–Wang–Ye [DWY], Baker–DeMarco [BD, Thm. 1.1], Favre–Gauthier [FG2, Thm. B], Forum Math. Pi 14 (2026) e4",
       "status": "missing",
       "note": "Corollaries of Theorems 1.1–1.2 with the cited special-curve results. Routed to the new Part II."
     },
@@ -170,9 +170,9 @@
       "kind": "theorem",
       "name": "Theorem 1.5 (critical-height gap principle)",
       "statement": "For d ≥ 2 and D ≥ 1 there are B, N and ε = ε(D,d) > 0 such that for every irreducible X ⊂ M_d over Q̄ of degree ≤ D and every 0 ≤ ε′ < ε, the Zariski closure of X ∩ {z ∈ M_d(Q̄) : ĥ_crit(z) ≤ ε′ max{1, h_Ch(X)}} has at most N components, each of degree ≤ B.",
-      "locator": "Theorem 1.5, p.2; proof §5, pp.18–20, Forum Math. Pi 14 (2026) e4 (misprint E3)",
+      "locator": "Theorem 1.5, p.2; proof §5, pp.18–20, Forum Math. Pi 14 (2026) e4 (misprint E3; for r ≥ 2 the induction step of §5 is incomplete, sourceIssues E9)",
       "status": "missing",
-      "note": "Routed to the new Part II."
+      "note": "Routed to the new Part II. The proof for subvarieties of dimension ≥ 2 needs the repair described in E9; the curve case and Theorems 1.1, 1.2 and 1.6 do not depend on it."
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/18",
@@ -215,9 +215,9 @@
       "kind": "theorem",
       "name": "Theorem 1.8 (relative critical-height Bogomolov)",
       "statement": "Let X → V be a maximally varying family of r-dimensional (r ≥ 1) subvarieties of M_d over an irreducible quasi-projective V of dimension ℓ ≥ 1, all over Q̄, with geometrically irreducible generic fibre. There is ε = ε(X) > 0 such that Z_ε(X) = {(λ, f₁,…,f_{ℓ+1}) ∈ X^{ℓ+1}_V(Q̄) : Σ_i ĥ_crit(f_i) < ε max{1, h_Ch(λ)}} is not Zariski dense in X^{ℓ+1}_V.",
-      "locator": "Theorem 1.8, p.4; proof §4, pp.13–18, Forum Math. Pi 14 (2026) e4 (misprint E5 in (4.3))",
+      "locator": "Theorem 1.8, p.4; proof §4, pp.13–18, Forum Math. Pi 14 (2026) e4 (misprint E5 in (4.3); E8 in (4.4); the witness from Proposition 3.1 needs E7)",
       "status": "missing",
-      "note": "Two non-degenerate adelic line bundles M₁, M₂ on X^{ℓ+1}_V, built from two r-tuples of critical points, give a height inequality (4.6) by [YZ, Thm. 1.3.2]. If small points were dense, Yuan–Zhang equidistribution would force the measures µ^{r+1}_λ and µ¹_λ to be proportional on X_λ (4.8). Zooming at a parameter where one tuple is transversely prerepelling while c_{r+1} is in a parabolic basin contradicts this (Lemma 4.1, [Ga2, Prop. 3.2]). Routed to the new Part II."
+      "note": "Two non-degenerate adelic line bundles M₁, M₂ on X^{ℓ+1}_V, built from two r-tuples of critical points, give a height inequality (4.6) by [YZ, Thm. 1.3.2]. The measure c₁(L̄)^{∧(r+1)ℓ} on X^ℓ_V is only ≥ α₁µ_ℓ, not equal to it (E8); the argument runs with it in place of µ_ℓ. If small points were dense, Yuan–Zhang equidistribution would force the measures µ^{r+1}_λ and µ¹_λ to be proportional on X_λ (4.8). Zooming at a parameter where one tuple is transversely prerepelling while c_{r+1} is in a parabolic basin contradicts this (Lemma 4.1, [Ga2, Prop. 3.2]). Routed to the new Part II."
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/23",
@@ -232,7 +232,7 @@
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/24",
       "kind": "construction",
       "name": "Bifurcation currents and the bifurcation measure",
-      "statement": "With ω̂ the pullback of a Fubini–Study form, T̂_f = lim d^{-n}(fⁿ)*ω̂ on M_d^cm × ℙ¹. T_i = π_*(T̂_f ∧ [Γ_{c_i}]) (2.2) is a positive (1,1)-current with continuous potentials. T_bif = Σ_i T_i (2.3) descends to M_d and equals DeMarco's bifurcation current, and the bifurcation measure T_bif^{∧(2d−2)} is non-zero (Bassanelli–Berteloot). For product maps Φ = (f₁,…,f_m) the Green current is T̂_Φ = Σ p_i*T̂_{f_i}.",
+      "statement": "With ω̂ the pullback of a Fubini–Study form, T̂_f = lim d^{-n}(fⁿ)*ω̂ on M_d^cm × ℙ¹. T_i = π_*(T̂_f ∧ [Γ_{c_i}]) (2.2) is a positive (1,1)-current with continuous potentials, and T_i ∧ T_i = 0. T_bif = Σ_i T_i (2.3) descends to M_d and equals DeMarco's bifurcation current, and the bifurcation measure T_bif^{∧(2d−2)} is non-zero (Bassanelli–Berteloot). For product maps Φ = (f₁,…,f_m) the Green current is T̂_Φ = Σ p_i*T̂_{f_i}.",
       "locator": "§2.3, (2.2)–(2.3), p.6; (3.2), pp.10–11, citing Dujardin–Favre [DF], DeMarco [De1], Bassanelli–Berteloot [BB], Forum Math. Pi 14 (2026) e4",
       "status": "missing",
       "note": "Routed to the new Part II."
@@ -250,7 +250,7 @@
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/26",
       "kind": "theorem",
       "name": "Prerepelling parameters and supports of bifurcation currents",
-      "statement": "An m-tuple a of marked points is transversely (resp. properly) prerepelling for Φ = (f₁,…,f_m) at λ₀ if each a_i lands on a repelling periodic point and the graphs of the landing maps and the continued repelling points meet transversely (resp. properly). Dujardin: parameters where (c₁,…,c_m) is transversely prerepelling are dense in supp T₁ ∧ ⋯ ∧ T_m [Du, Thm. 1.1]. Conversely, a properly prerepelling tuple over a parameter space of dimension ≥ m lies in the support of the corresponding wedge product; for rigid repellers of product maps, T̂_Φ^{∧m} ∧ [Γ_c] ≠ 0 [BE; Ga1, Thm. 6.2; Ga2, Thm. 2.3; BBD, Prop. 3.7; DM1, Prop. 4.8].",
+      "statement": "An m-tuple a of marked points is transversely (resp. properly) prerepelling for Φ = (f₁,…,f_m) at λ₀ if each a_i lands on a repelling periodic point and the graphs of the landing maps and the continued repelling points meet transversely (resp. properly). Dujardin: for a single family (f₁ = ⋯ = f_m = f) and m ≤ 2d − 2 marked critical points, parameters where (c₁,…,c_m) is transversely prerepelling are dense in supp T₁ ∧ ⋯ ∧ T_m [Du, Thm. 1.1]. Conversely, a properly prerepelling tuple over a parameter space of dimension ≥ m lies in the support of the corresponding wedge product; for rigid repellers of product maps, T̂_Φ^{∧m} ∧ [Γ_c] ≠ 0 [BE; Ga1, Thm. 6.2; Ga2, Thm. 2.3; BBD, Prop. 3.7; DM1, Prop. 4.8].",
       "locator": "§3, p.9, Forum Math. Pi 14 (2026) e4",
       "status": "missing",
       "note": "Routed to the new Part II."
@@ -260,9 +260,9 @@
       "kind": "theorem",
       "name": "Proposition 3.1 (the measure µ_ℓ on X^ℓ_V)",
       "statement": "For a maximally varying family X → V of r-dimensional varieties in M_d^cm with dim V = ℓ ≥ 1, π₁*(T_bif^{∧(r+1)}) ∧ ⋯ ∧ π_ℓ*(T_bif^{∧(r+1)}) ∧ [ρ_ℓ(X^ℓ_V)] ≠ 0, so µ_ℓ = ρ_ℓ*(…) is a non-zero positive measure on X^ℓ_V, witnessed by an ℓ(r+1)-tuple of marked critical points transversely prerepelling for (f₁,…,f₁,…,f_ℓ,…,f_ℓ) at some parameter.",
-      "locator": "Proposition 3.1 and proof, pp.9–11, Forum Math. Pi 14 (2026) e4 (misprint E1)",
+      "locator": "Proposition 3.1 and proof, pp.9–11, Forum Math. Pi 14 (2026) e4 (misprint E1; gap E7 in the construction of the witness)",
       "status": "missing",
-      "note": "Routed to the new Part II."
+      "note": "Routed to the new Part II. The proof builds the witness at a diagonal point (y₀, …, y₀), where ρ_ℓ has positive-dimensional fibres whenever dim ρ₁(X) < r + ℓ; the non-vanishing of µ_ℓ stands, but the witness must be found off the diagonal (E7)."
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/28",
@@ -402,6 +402,21 @@
       "citation": "M. Baker, L. DeMarco, Special curves and postcritically-finite polynomials, Forum Math. Pi 1 (2013)",
       "link": "https://doi.org/10.1017/fmp.2013.2",
       "why": "PCF-special curves and the conjectural classification (Conj. 1.10)."
+    },
+    {
+      "citation": "X. Buff, A. Epstein, Bifurcation measure and postcritically finite rational maps, in Complex Dynamics: Families and Friends, A K Peters (2009), 491–512",
+      "link": "https://doi.org/10.1201/b10617-16",
+      "why": "Transversely prerepelling parameters lie in the support of the bifurcation measure, and the rescaling at such a parameter (§3), used in the zoom (4.11) and in Proposition 3.1."
+    },
+    {
+      "citation": "L. DeMarco, X. Wang, H. Ye, Bifurcation measures and quadratic rational maps, Proc. London Math. Soc. 111 (2015), 149–180",
+      "link": "https://doi.org/10.1112/plms/pdv024",
+      "why": "Per₁(λ) ⊂ M₂ is PCF-special only for λ = 0; with Theorem 1.1 this gives Example 1.4."
+    },
+    {
+      "citation": "A. Douady, J. H. Hubbard, On the dynamics of polynomial-like mappings, Ann. Sci. ÉNS 18 (1985), 287–343",
+      "link": "https://doi.org/10.24033/asens.1491",
+      "why": "Polynomial-like renormalization, which puts the active critical point in the parabolic basin at parabolic parameters (proof of Proposition 3.2)."
     }
   ],
   "routes": [
@@ -491,7 +506,7 @@
         "PAPER-DEMARCO-MAVRAKI-YE-26/18",
         "PAPER-DEMARCO-MAVRAKI-YE-26/19"
       ],
-      "brief": "Nothing in the atlas treats complex dynamics in parameter space. This Part II builds the bifurcation theory of families of rational maps and proves the uniform geometry of PCF parameters. Import the moduli space M_d, its critically marked cover, the critical height and Ingram's comparison from ArithmeticDynamics DY.0 and DY.6, Call–Silverman heights from DY.1, and equidistribution of PCF parameters from DY.4. Import Yuan–Zhang adelic line bundles, their height inequality and equidistribution from ArakelovGeometryAndAbelianHeightsPartII, Chow varieties from AlgebraicModuliForArithmeticGeometry R09.1–R09.2, and heights of cycles and Gao–Ge–Kühne Lemma 4.3 from HeightsRationalPointsAndObstructionsPartII.\n\nConstruct:\n- positive closed currents with continuous potentials and Bedford–Taylor products;\n- the Green current of a family and the bifurcation currents T_i = π_*(T̂_f ∧ [Γ_{c_i}]) and T_bif, with non-vanishing of T_bif^{∧(2d−2)} (Bassanelli–Berteloot);\n- activity versus persistent preperiodicity (Dujardin–Favre), McMullen rigidity, and T_bif^{∧r} ≠ 0 on r-dimensional subvarieties off the flexible Lattès locus (Gauthier–Okuyama–Vigny);\n- Dujardin's support theorem and its prerepelling converse (Buff–Epstein, Gauthier, DeMarco–Mavraki);\n- Mañé–Sad–Sullivan J-stability with density of parabolic parameters, polynomial-like renormalization, and Thurston rigidity.\n\nState and prove, as in DeMarco–Mavraki–Ye (Forum Math. Pi 14 (2026) e4):\n- Proposition 2.1;\n- Propositions 3.1–3.2;\n- Lemma 4.1 and the Buff–Epstein/Gauthier zoom;\n- Theorem 1.8, that small points of X^{ℓ+1}_V with Σ ĥ_crit < ε max{1, h_Ch(λ)} are not Zariski dense for a maximally varying family;\n- Theorems 1.1, 1.2, 1.5 and 1.6 by induction on dimension, including the flexible Lattès points not defined over Q̄ (sourceIssues E4);\n- Examples 1.3–1.4.\n\nExport the uniform results to ArithmeticDynamics DY.6 as proven unlikely-intersection endpoints. Acceptance: M_d and the polynomial locus are PCF-special; Per₁(λ) ⊂ M₂ is PCF-special iff λ = 0; no classification of PCF-special subvarieties is assumed (Remark 1.7).",
+      "brief": "Nothing in the atlas treats complex dynamics in parameter space. This Part II builds the bifurcation theory of families of rational maps and proves the uniform geometry of PCF parameters. Import the moduli space M_d, its critically marked cover, the critical height and Ingram's comparison from ArithmeticDynamics DY.0 and DY.6, Call–Silverman heights from DY.1, and equidistribution of PCF parameters from DY.4. Import Yuan–Zhang adelic line bundles, their height inequality and equidistribution from ArakelovGeometryAndAbelianHeightsPartII, Chow varieties from AlgebraicModuliForArithmeticGeometry R09.1–R09.2, and heights of cycles and Gao–Ge–Kühne Lemma 4.3 from HeightsRationalPointsAndObstructionsPartII. Build the pluripotential theory on the harmonic and subharmonic functions and Perron's method of Tau Ceti PDE (TauCetiRoadmap/PDE), Lane C.\n\nConstruct:\n- positive closed currents with continuous potentials and Bedford–Taylor products;\n- the Green current of a family and the bifurcation currents T_i = π_*(T̂_f ∧ [Γ_{c_i}]) and T_bif, with non-vanishing of T_bif^{∧(2d−2)} (Bassanelli–Berteloot);\n- activity versus persistent preperiodicity (Dujardin–Favre), McMullen rigidity, and T_bif^{∧r} ≠ 0 on r-dimensional subvarieties off the flexible Lattès locus (Gauthier–Okuyama–Vigny);\n- Dujardin's support theorem and its prerepelling converse (Buff–Epstein, Gauthier, DeMarco–Mavraki);\n- Mañé–Sad–Sullivan J-stability with density of parabolic parameters, polynomial-like renormalization, and Thurston rigidity.\n\nState and prove, as in DeMarco–Mavraki–Ye (Forum Math. Pi 14 (2026) e4):\n- Proposition 2.1;\n- Propositions 3.1–3.2, with the witness of Proposition 3.1 found where ρ_ℓ is a local isomorphism (sourceIssues E7) and c₁(L̄)^{∧(r+1)ℓ} ≥ α₁µ_ℓ in place of (4.4) (E8);\n- Lemma 4.1 and the Buff–Epstein/Gauthier zoom;\n- Theorem 1.8, that small points of X^{ℓ+1}_V with Σ ĥ_crit < ε max{1, h_Ch(λ)} are not Zariski dense for a maximally varying family;\n- Theorems 1.1, 1.2, 1.5 and 1.6 by induction on dimension, including the flexible Lattès points not defined over Q̄ (sourceIssues E4); for Theorem 1.5 in dimension ≥ 2 the induction must control thresholds measured against the ambient variety (E9);\n- Examples 1.3–1.4.\n\nExport the uniform results to ArithmeticDynamics DY.6 as proven unlikely-intersection endpoints. Acceptance: M_d, the polynomial locus and Per₁(0) ⊂ M₂ are PCF-special; Example 1.4's uniform bound follows from Theorem 1.1 with the DeMarco–Wang–Ye theorem (Per₁(λ) is PCF-special only for λ = 0) as a stated hypothesis; no classification of PCF-special subvarieties is assumed (Remark 1.7).",
       "reason": "The proof rests on complex-dynamical bifurcation theory in parameter space: currents, J-stability, Thurston rigidity and prerepelling parameters. No atlas layer plans any of this. ArithmeticDynamics is the parent whose direction it extends, as MARTIN-25 did for Markoff actions. The main theorems are uniform Dynamical André–Oort results and are exported to DY.6."
     }
   ],
@@ -509,7 +524,12 @@
         "arXiv 2405.17343 versions (v3, 10 January 2026)",
         "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
         "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the page image of p.10: the displayed T_bif^{∧(r+1)} ∧ [Y] has no relation symbol, and '≠ 0' is what [GOV, Lemma 6.8] gives in the preceding line.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E2",
@@ -524,7 +544,12 @@
         "arXiv 2405.17343 versions (v3, 10 January 2026)",
         "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
         "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.17. From M₂ = (ρ_ε/ρ)(M₁ + 1) and M_{i+1} = ρ_ε/ρ^i + (ρ_ε/ρ)M_i the reviewer gets M₃ = ρ_ε/ρ² + (ρ_ε/ρ)²(M₁ + 1) and M₄ = (ρ_ε + ρ_ε²)/ρ³ + (ρ_ε/ρ)³(M₁ + 1), matching the corrected closed form; the printed 1/ρ^i gives ρ_ε/ρ³ at i = 3. M_i → 0 holds either way.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E3",
@@ -539,7 +564,12 @@
         "arXiv 2405.17343 versions (v3, 10 January 2026)",
         "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
         "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.19 (last display): the definition of Σ^r_{λ,ε} prints max{1, h_Ch(f)}, whereas h_Ch is a height on the Chow variety evaluated at λ, as in the curve case above it and in Theorem 1.8.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E4",
@@ -554,7 +584,12 @@
         "arXiv 2405.17343 versions (v3, 10 January 2026)",
         "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
         "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §5 bounds only the sets Σ_{λ,ε} ⊂ M_d(Q̄), while Theorem 1.1 concerns all of X ∩ PCF_d for complex X. By Thurston rigidity (§2.2) a PCF point outside M_d(Q̄) is flexible Lattès, and flexible Lattès maps with transcendental modulus are PCF and not algebraic points, so the missing points lie in X_λ ∩ L_d. The proposed Bézout repair is correct and applies equally in the step for r > 1, where the paper again concludes about X_λ ∩ PCF_d.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
     },
     {
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E5",
@@ -569,7 +604,92 @@
         "arXiv 2405.17343 versions (v3, 10 January 2026)",
         "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
         "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.14. L̄ is the tensor product over all marked tuples, so its height is κ Σ_{i≤ℓ} ĥ_crit(f_i) with κ = (r+1)(2d−2)^{ℓ(r+1)−1} when repeated critical points are allowed in a tuple (a different positive constant otherwise); the display also drops the hat on h_crit. The same tensor-product structure is behind E8.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
+    },
+    {
+      "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E6",
+      "kind": "misprint",
+      "locator": "Example 1.4, p.2 (published version)",
+      "printed": "\"And although PCF_d is Zariski-dense in M₂, Theorem 1.1 combined with the main result of [DWY] implies: There is a uniform bound N so that # Per₁(λ) ∩ PCF_d ≤ N for all λ ≠ 0 in ℂ.\"",
+      "correction": "PCF₂ in both places.",
+      "reason": "The example lives in M₂ ≅ ℂ², so d = 2; PCF_d for another d is not a subset of M₂.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+        "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+        "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page image of p.2.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
+    },
+    {
+      "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E7",
+      "kind": "gap",
+      "locator": "Proof of Proposition 3.1, pp.10–11 (published version)",
+      "printed": "\"In this way, we inductively construct a parameter y = (y₀, …, y₀) ∈ Y_ℓ and an ℓ(r + 1)-tuple of marked critical points c … which is transversely prerepelling for the map Φ at y over Y_ℓ. … Finally, since the map from X^ℓ_V to Y_ℓ is generically finite by Proposition 2.1, our initial choice of y₀ guarantees that the marked critical points c are also transversely prerepelling at a preimage of y, over X^ℓ_V.\"",
+      "correction": "The witness must be found at a point of supp µ_ℓ where ρ_ℓ is a local isomorphism, which is off the diagonal whenever dim ρ₁(X) < r + ℓ. One route is a density theorem for transversely prerepelling parameters, in the style of [Du, Theorem 1.1], for the product family Φ over X^ℓ_V applied to the non-zero measure ρ_ℓ^*(⋀ T_{c_{i,j}}). The paper states Dujardin's theorem only for a single family (f, …, f). The conclusion µ_ℓ ≠ 0 is not affected: it uses (3.2) over Y_ℓ, where the intersection at y is isolated.",
+      "reason": "The construction uses the same point y₀ in every factor, so y lies on the diagonal. Let k = dim ρ₁(X). The preimage ρ_ℓ^{−1}(y) contains {(λ′, y₀, …, y₀) : y₀ ∈ X_{λ′}}, which has dimension r + ℓ − k, the fibre dimension of ρ₁ that the proof itself fixes over U. The paper allows k < r + ℓ, and in §5, where V is a whole component of Ch(M_d, r, D), that is the usual case. All ℓ(r + 1) landing conditions depend only on (f₁, …, f_ℓ), so they hold along this fibre. Hence c is not even properly prerepelling at any preimage of y, and generic finiteness of ρ_ℓ says nothing on the diagonal. Example: the lines in M₂ ≅ ℂ² (ℓ = 2, r = 1, k = 2). The preimage of (y₀, y₀) is the pencil of lines through y₀. The curve Γ of Proposition 3.2's proof is then {(λ, y₀) : y₀ ∈ X_λ}, along which the map is constant, so c_{ℓ,r+1} is not active along Γ as that proof requires.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+        "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+        "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page images of pp.10–12 (arXiv v3 has the same text), with the dimension count and the lines-in-M₂ example worked by the reviewer.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
+    },
+    {
+      "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E8",
+      "kind": "error",
+      "locator": "Proof of Theorem 1.8, (4.4)–(4.5), p.14 (published version)",
+      "printed": "\"Moreover, since dim X^ℓ_V = ℓ(r + 1) we also have that Π₁^*(c₁(L̄))^{∧ℓ(r+1)+1} = 0. Thus, using also [YZ, Theorem 4.2.3] as before, we have c₁(L̄)^{∧(r+1)ℓ} = α₁ µ_ℓ (4.4) on X^ℓ_V\"",
+      "correction": "Only c₁(L̄)^{∧(r+1)ℓ} =: ν ≥ α₁µ_ℓ holds. Run (4.5), the equidistribution identity and (4.7) with ν in place of µ_ℓ. Then (4.8) holds for λ ∈ supp π_*ν, which contains supp π_*µ_ℓ and hence λ₁, and the rest of the proof is unchanged.",
+      "reason": "c₁(L̄) = κ Σ_{i≤ℓ} π_i^*T_bif for some κ > 0. Hence c₁(L̄)^{∧(r+1)ℓ} = κ^{(r+1)ℓ} Σ_a (multinomial) ⋀_i π_i^*(T_bif^{∧a_i}), summed over all a₁ + ⋯ + a_ℓ = (r + 1)ℓ, and µ_ℓ is only the term a = (r+1, …, r+1). The two facts cited, T_c^{∧2} = 0 and the dimension of X^ℓ_V, do not remove the other terms. Take ℓ = 2 and dim ρ₁(X) = r + 2 ≤ 2d − 2. The term π₁^*(T_bif^{∧(r+2)}) ∧ π₂^*(T_bif^{∧r}) integrates T_bif^{∧r}|X_λ over the fibres of X²_V → X against the measure T_bif^{∧(r+2)} on X. Both are non-zero by [GOV, Lemma 6.8], so the term is non-zero.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+        "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+        "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page image of p.14. The expansion was done by the reviewer, using that T_bif = Σ_i T_i with T_i ∧ T_i = 0.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
+    },
+    {
+      "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E9",
+      "kind": "gap",
+      "locator": "§5, the induction step for r > 1, p.20 (published version)",
+      "printed": "\"Note that Σ^r_{λ,ε} is not necessarily Zariski dense in Z(λ), so we apply the induction hypotheses (specifically, the constants from each of the statements of Theorems 1.1, 1.2, 1.5, 1.6 for subvarieties of dimension < r) to each irreducible component Y(λ) of Z(λ), for all λ ∈ U(ℂ). Thus, by reducing ε if needed, we conclude that the Zariski-closure of Σ^r_{λ,ε} ∩ Y(λ) has uniformly bounded number of components, each with uniformly bounded degree for all λ ∈ U(ℂ).\"",
+      "correction": "For λ ∈ U(Q̄) the step needs a uniform bound for the Zariski closure of Y(λ) ∩ {ĥ_crit < (ε/(ℓ+1)) max{1, h_Ch(λ)}}, a threshold measured against the ambient X_λ. Either prove Theorem 1.5 in that relative form (for Y ⊂ X of bounded degrees, with threshold ε max{1, h_Ch(X)}), so that the induction closes, or show h_Ch(Y(λ)) ≥ c h_Ch(λ) − c′ for the components that occur. Theorems 1.1, 1.2 and 1.6, and the curve case of Theorem 1.5, do not use a height-scaled threshold on Y(λ) and are unaffected.",
+      "reason": "The induction hypothesis (Theorem 1.5 for Y(λ)) controls only Y(λ) ∩ {ĥ_crit ≤ ε′ max{1, h_Ch(Y(λ))}}, and nothing bounds h_Ch(λ) by a multiple of h_Ch(Y(λ)). Reducing ε by a constant therefore does not bring one set inside the other. For instance, if a fixed Y lies in X_λ for all λ in a positive-dimensional W ⊂ V, then h_Ch(λ) is unbounded on W(Q̄) while h_Ch(Y) is fixed. For suitable λ the threshold then falls between ε′ max{1, h_Ch(Y)} and the essential minimum of ĥ_crit on Y, where the small points of Y are not dense and neither Theorem 1.5 nor Theorem 1.6 for Y bounds how many there are.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2405.17343 versions (v3, 10 January 2026, the accepted version: same text at these places)",
+        "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+        "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page images of pp.19–20 against the statements of Theorems 1.5 and 1.6 on pp.2–3.",
+        "by": "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
+      }
     }
   ]
 }
