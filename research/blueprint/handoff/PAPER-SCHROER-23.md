@@ -1,23 +1,30 @@
-# PAPER-SCHROER-23 handoff
+# Handoff: PAPER-SCHROER-23
 
-Status: partial. Codex, session codex-c83e7a, continuing merged checkpoint #1653 by codex-a71f92. Issue #1087. Date: 2026-09-21.
+Issue #1087. Claude Code, session cc-442dc5, 23 September 2026. It continues the merged checkpoints of Codex sessions codex-a71f92 (#1653) and codex-c83e7a (#1661).
 
-## Saved
+**Status: complete.**
+- 212 items: 16 library, 12 planned, 184 missing.
+- Every missing item is routed exactly once, across the nine routes of the checkpoints.
+- 17 mistakes are recorded under `sourceIssues`.
+- `scripts/check_paper.py` and the intake file check pass.
 
-188 stable items:15 library,8 planned,165 missing. IDs1–171 retained;17 items appended. All165 missing items are routed exactly once across nine routes. The prior unrouted /63 now has an explicit four-twist proof in the report and belongs to the Enriques consumer. It obtains a local cover over Z₂ using Num-only point counts, corrects the Q₂ difference by one of1,−1,2,−2, and extends the remaining unramified class5 through z²−z−1. Local projectivity via a section, doubling numerical classes and spreading ampleness supplies actual scheme models for Fontaine. The report distinguishes this worker deduction from the source and from formalization.
+## What this continuation did
 
-The entire52-page author version was reread and all displayed configuration diagrams in §§11–14 visually inspected; the52-page arXivv3 body comparison was rerun. Exact finite checks now total5,013 assertions: the earlier4,949 plus64 for dyadic classes, affine Dynkin multiplicities, and the six/four incidence orbit lists. Both scripts are embedded in the report. Imported pinned Hensel and Minkowski declarations were read, as were the earlier lattice declarations. Additional Stacks/Conrad/Fontaine reading, source hashes and current atlas input commit are recorded in the result. Published63-page version remains unacquired.
+- **Read and recomputed.**
+  - The arXiv v3 TeX source was read in full, with its PDF.
+  - Statement and equation numbers were simulated and matched to the PDF.
+  - The eleven Weierstrass equations and the Gram matrices (14) and (16) were recomputed independently. Everything agrees with the paper.
+- **Checked the repairs.** The repairs of Propositions 5.5, 9.3(v) and 9.5 (/63, /94, /97) were checked independently. The Proposition 5.5 gap was found from the paper before reading the checkpoint's argument, and was repaired the same way.
+- **Added items /189–/212.** These are inputs the paper uses in its proofs that had no item: Kodaira–Néron, Szydło, the canonical bundle formula, tame and wild fibers, Lang 1956, twisted forms of P¹, isogeny invariance of point counts, rational elliptic and quasi-elliptic surfaces, Lang 2000 as used, Tate's algorithm, Mathlib's Weierstrass curves, the Weil conjectures, cycle classes, the Brauer–Hasse–Noether sequence, Pic(ℤ) = Br(ℤ) = 0, Kummer sequences, Tsen, the unimodular classification, norm maps, minimal models, Enriques reducibility, Artin's representability and Raynaud's subgroup–torsor correspondence. The briefs of the genus-one fibrations Part II and the Enriques roadmap now name them.
+- **Converted the findings into `sourceIssues`.** The checkpoints' eleven findings were converted into E1–E17, and five slips were added (E2, E3, E9, parts of E16 and E17). Four entries carry repairs of proof steps: E6, E12, E13 and E14.
+- **Restored stripped spaces.** The spaces lost before digits in the checkpoint's strings ("Proposition5.5, p16") were restored in the result and the report.
 
-## Resume
+## What remains for the reviewer
 
-1. Independently check the four-twist proof /63 and local projectivity /184. Preserve the noncircular dependence on Num-only Corollary7.3. Never identify arbitrary canonical covers or use the non-étale integral model s²−5. Preserve the actual scheme-model step before Fontaine.
-2. Acquire Lang2000 in full and verify its classification and minimal-resolution/Kodaira computations behind /115,/117. The eleven equation invariants and finite graph tests do not prove exhaustiveness.
-3. Read Ekedahl–Shepherd-Barron math/0405510v2, Cossec–Dolgachev1989 at the exact cited locators, and Lang1983’s Enriques Reducibility Theorem. Retain both square0 and square−2 integral two-sections in §12.
-4. Complete recursive inputs to Schröer2021 Theorems2.5,6.1,7.2; full Fontaine1993 proof; Oort–Tate classification; LLR6.6 and its2018 corrigendum. Reading records inherited from codex-a71f92 are identified explicitly; this continuation reread only Fontaine’s indicated introduction/theorem pages among those originals.
-5. Independently check /94’s descent using Tsen over algebraically closed constants only and /97’s dual-projection-image lattice repair. The report also clarifies the cycle-versus-terminal-component argument in /89.
-6. All configuration diagrams have now been viewed, but the full geometric contradiction interiors still require validation with their primary suppliers. Add the remaining atomic genus-one/quasielliptic model, tame/wild, cohomological Brauer(Z)=0 and comparison dependencies. Numerical tests do not close those gaps.
-7. Obtain the63-page publication before attributing preprint precision findings to it. Recheck current atlas ownership, preserving built IntegralLattices, Hensel and arithmetic Minkowski imports.
-
-## Validation
-
-Paper checker, intake file checker, structural ID/routing/API checks, and both embedded regression scripts passed. All definitions/constructions have APIs and at least three discriminating tests. Only the two named deliverables and this handoff are submitted. No Lean deliverable or compilation is claimed. Keep status partial until recursive coverage and proof-case closure are complete.
+- **Check the repairs:** E6 (with /176–/179 and /184), E13, E14 and E12.
+- **Confirm the route choices:**
+  - the widened SchemeAndStackFoundations source route (SF.1–SF.2);
+  - /207 in the Enriques roadmap;
+  - /211–/212 in the A0-extension source route.
+- **Prerequisites.** Lang 2000, Lang 1983, Cossec–Dolgachev (1989 edition), Ekedahl–Shepherd-Barron and Fontaine 1993 are stated as the paper uses them. They were not re-derived. They are listed as prerequisites for the design jobs.
+- **Published version.** The 63-page published version was not available. Locators follow the author version, which equals arXiv v3.
