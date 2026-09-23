@@ -41964,7 +41964,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -41979,14 +41980,15 @@
    "locator": "Main paper Theorem1.4, PDF p.3, and its final proof PDF p.36; ACC+ published Theorem6.1.2(4), pp.1029–1030",
    "printed": "Let l be an odd prime number.",
    "correction": "For the cited proof impose l>n, or supply a different lifting theorem covering the remaining odd-prime range. Item010 uses the verified l>n range; the broader assertion remains open in this extraction.",
-   "reason": "ACC+6.1.2 explicitly assumes p>n, whereas Qian's statement and final check list no l>n. Enormity rules out l|n but no implication l>n has been established. This is a gap in the cited proof, not a counterexample to the broader theorem. The residual theorem uses a freely chosen l'>2ln+5 and is unaffected by this specific gap.",
-   "affects": "the proof",
+   "reason": "ACC+6.1.2 explicitly assumes p>n, whereas Qian's statement and final check list no l>n. Enormity rules out l|n but no implication l>n has been established. This is a gap in the cited proof, not a counterexample to the broader theorem. The residual theorem uses a freely chosen l'>2ln+5 and is unaffected by this specific gap. (cc-442dc5) Reclassified to affect a stated result. ACC+ Theorem 6.1.2(4) reads 'There exists σ ∈ G_F − G_F(ζ_p) such that ρ(σ) is a scalar. We have p > n.' This is in both arXiv 1812.09999v1, the version Qian cites, and v2. The final proof says 'it suffices to verify that the conditions (3) and (4) of that theorem holds … all conditions except decomposed genericity follows from the corresponding conditions of r', but Theorem 1.4 does not assume l > n. So for odd l ≤ n, Theorem 1.4 is not established by the paper. Theorem 1.1 (residual) is not affected.",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42008,7 +42010,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42030,7 +42033,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42052,7 +42056,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42074,7 +42079,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42096,7 +42102,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42118,7 +42125,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42140,7 +42148,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42162,7 +42171,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42184,7 +42194,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42206,7 +42217,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
@@ -42228,7 +42240,8 @@
     "Publisher record https://link.springer.com/article/10.1007/s00222-022-01161-6 checked2026-09-22; no linked erratum located. Read the entire publisher-formatted PDF https://par.nsf.gov/servlets/purl/10388233.",
     "arXiv https://arxiv.org/abs/2104.09761 lists v1 (20April2021); compared its selected endpoint statements/proof with the later journal PDF. https://arxiv.org/abs/2103.00106 and the full v1 companion PDF checked for the local ordinarity input.",
     "Author publication page https://web.stanford.edu/~lqian/ checked2026-09-22; no separate correction located. The published main paper itself records a correction to the early ordinary-automorphy argument.",
-    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted."
+    "Exact-title/arXiv/DOI erratum/correction searches found no additional applicable correction. 'new' means not found by this limited search, not a priority claim. All new findings require independent review; no author contacted.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1007/s00222-022-01161-6 registers no update relation, and no erratum was found."
    ],
    "owner": "PAPER-QIAN-23",
    "file": "research/blueprint/papers/PAPER-QIAN-23.result.json",
