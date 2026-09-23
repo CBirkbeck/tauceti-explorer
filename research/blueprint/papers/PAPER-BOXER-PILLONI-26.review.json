@@ -1,0 +1,117 @@
+{
+ "paper": "PAPER-BOXER-PILLONI-26",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept. A join of HigherHidaAndColemanTheory under PadicFamilies, an id already carried by PAPER-PILLONI-20, which proposed it, and by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and -25; the title reproduces the parent's atlas title exactly and `padic` is a galaxy id. The 247 items are the paper itself — ordinary cohomology with partial support for dynamic correspondences in the abstract, the Iwahori-level integral models and the Cousin spectral sequence, the higher Hida complexes $M^•_w$ over $\\Lambda$ with their duality, and the comparison with higher Coleman theory. None of it is owned upstream, where PadicFamilies plans ordinary projectors and eigenvarieties in degree 0. Large but coherent, and it is the natural continuation of the roadmap this paper's predecessor proposed."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. A join of IntegralCoherentHeckeComplexes under AutomorphicBundles, proposed by PAPER-CALEGARI-GERAGHTY-18 and carried by four other extractions. The 20 items are the parts of §§2 and 4.3 that are general theory of coherent cohomological correspondences rather than steps of the Hida argument — solid correspondences with their restriction and trace maps, the transpose and the duality of Theorem 2.7.4, the normalised operators on automorphic bundles — and they sit above what B3–B5 own."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. A join of ShimuraVarietiesHondaTatePartII under ShimuraVarieties, an id carried by nine other extractions and proposed by PAPER-KISIN-MADAPUSIPERA-SHIN-22. Four items only, and they are exactly the integral-model inputs of §§3.4.19–3.4.22 and 4.1.1: de Jong's stacks $\\mathcal A_{g,d}$ with $p\\mid d$ allowed, their polarization-type loci, normalisation as a definition of integral models, and the self-dual chain of isogenies at Iwahori level. E63, confirmed, is about the definition of those type loci and does not affect the routing."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. A join of ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary under ShimuraCompactifications, proposed by PAPER-FARB-KISIN-WOLFSON-24 and carried by two others. Two items, the partial toroidal compactification of the ordinary Igusa tower and the extension of the group schemes $\\mathrm{Gr}_i$ over the boundary, which the parent's C5 does not reach; E67, confirmed, is precisely about the second of these, which supports the routing rather than undermining it."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept, and this is the paper's own proposal rather than a join: no other extraction carries IgusaVarietiesAndTorsionConcentrationPartIISiegelOrdinary. The parent exists in the atlas with the title the route reproduces exactly, `langlands` is a galaxy id, and the brief is candid that the parent's IG.0–IG.3 treat only the split unitary datum with Igusa varieties over central leaves in characteristic $p$, so the ordinary Siegel formal tower over $\\Z_p$, its group $J_{\\mathrm{ord}}$, the finite-level quotients and their smoothness, and the comparison with Shimura varieties are genuinely new ground. 31 items is the right size for §3.4."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. AnalyticStacks owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the solid formalism $D(\\mathcal O_{X,\\blacksquare})$ of §2.2 with its projection formula, proper base change and $f^!$, which is what the whole of §2 runs on; the stages named exist in research/blueprint/roadmaps/AnalyticStacks.json, whose stages are keyed by `key` rather than `id`, so a checker reading only `id` reports them missing. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. ShimuraData owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the Kostant combinatorics of $(G,\\mu)$ — $^MW$, its length function, $C(\\kappa)$ and the Bruhat stratification of $P\\backslash G$ — together with the explicit $\\mathrm{GSp}_{2g}$ coordinates of §3.1. E1, E52 and E53, all confirmed, are defects in that recollection and the route is right not to inherit them. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. AdicCoefficientsAndComparisons owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the category of compactifications of a scheme and of a correspondence, with common refinements and the strictness lemmas of §2.1; E12, E13, E14 and E19 sit inside exactly this material and are confirmed as gaps in the arguments, not in what is supplied. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. SchemeAndStackFoundations owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: extension of coherent sheaves across an open immersion, flattening by blow-up, and the SGA 2 depth statements behind cohomology with support. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. SolidAnalyticRings owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the idempotence of $\\hat R_I$ and the solid completeness statements of §2.9, which is the analytic-ring layer the localisation sequences need. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. CompletedCohomologyPartII owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the duality between admissible complexes over $C^0(T'(\\Z_p),\\Z_p)$ and perfect complexes over $\\Lambda$, which is Remark 1.4.2 and Lemma 5.4.2. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 12,
+   "verdict": "accept",
+   "reason": "Accept. HodgeTateAndCanonicalSubgroups owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: Fargues's degree function and the degree inequalities of §4.2.7, which is where Proposition 4.2.8 and its corollaries live; E77, E78 and E81 are confirmed defects in those proofs and the route states only what is used. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 13,
+   "verdict": "accept",
+   "reason": "Accept. AlgebraicModuliForArithmeticGeometry owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the Rees-algebra blow-up separating two Cartier divisors (Proposition-construction 4.1.11) and the coherent base-change input. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 14,
+   "verdict": "accept",
+   "reason": "Accept. AutomorphicFormsOnReductiveGroups owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: Harris's theorem on limits of discrete series and $(\\mathfrak P,K_\\infty)$-cohomology in genus $g$; E5, E6 and E155 concern the paper's recollection of it and the route is right to take the statement in its correct form. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 15,
+   "verdict": "accept",
+   "reason": "Accept. DeformationAndDerivedPatchingAlgebra owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: Lemma 2.6.6 and Lemma 2.6.7, the minimal-representative and perfectness criteria over a local ring. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 16,
+   "verdict": "accept",
+   "reason": "Accept. ShimuraCompactifications owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the structure-sheaf pushforward and normality statements for changes of cone decomposition. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 17,
+   "verdict": "accept",
+   "reason": "Accept. AbelianSchemesAndArithmeticModuli owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: Katz's Serre–Tate local moduli, used in the proof of Proposition 3.4.9. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 18,
+   "verdict": "accept",
+   "reason": "Accept. AdicSpacesPartII owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the trace for finite locally free algebras, in the algebraic form the paper uses. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 19,
+   "verdict": "accept",
+   "reason": "Accept. FoundationsAndLibraryIntegration owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the homological input of Theorem 2.9.7, replacing a finite chain of bounded-above complexes by termwise split injections. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 20,
+   "verdict": "accept",
+   "reason": "Accept. IntegralHeckeAndGaloisDeterminants owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the finiteness of the ordinary Hecke algebra as a $\\Lambda$-algebra, §5.4. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 21,
+   "verdict": "accept",
+   "reason": "Accept. PerfectoidShimuraVarieties owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the toroidal and minimal compactification input for the Hodge–Tate period map at infinite level. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  },
+  {
+   "route": 22,
+   "verdict": "accept",
+   "reason": "Accept. SmoothRepresentationsOfLocalGroups owns this mathematics in the atlas, the named stages exist, and what is routed here is the paper's use of that layer rather than new theory: the integral double-coset Hecke operators at $p$ and the monoid $T^+(\\Q_p)$. The route's reason names the stage text it extends and what each stage must add, which is what a supplier job needs."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-7b31c4, issue #1200, 23 September 2026, of the extraction by Claude Code, session cc-72825f (issue #1199, PR #2307). Source read: the authors' version on V. Pilloni's homepage, higherhidaSiegel.pdf, 65 pages, built 5 November 2025, whose recorded sha256 af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6 reproduces byte for byte. The published Inventiones text is paywalled and was not compared, as the extraction states; every locator is a page of this version, printed page equal to PDF page, and that boundary is right.\n\nFindings. All 133 sourceIssues now carry verdicts and all 133 are confirmed: 14 errors, 28 gaps, 91 misprints. Nothing was rejected, nothing deleted, and I add no finding of my own. For each I located the quoted text on the page its locator names and checked the correction against the paper's own conventions; where the correction is a computation or a combinatorial claim I redid it.\n\nA striking number are settled by the paper contradicting itself, which is the strongest evidence available when only one version is in hand, and I checked each of those pairs directly: C(kappa) is defined with dominance in X*(T) on p. 3 and in X*(T)_Q on p. 48 (E3); the higher Hida complexes are defined with an ordinary tensor product on p. 5 and a completed one on p. 56 (E9); kappa is defined from nu on p. 5 and from nu_alg on p. 56 (E10); Proposition 4.1.13(3) gives D_{g-k} where its own proof gives D_{g-k-1} (E69); Z_i is defined with clashing indices on p. 42 and correctly on p. 45 (E71); Lemma 4.3.6 removes a sum to g in its statement and to an undefined d five times around it (E85); Proposition 6.2.13 states A/p^n and proves A/p^r (E130); Proposition 2.3.5 states H^i(X, j_!F) and proves H^i(X-bar, j_!F) (E24).\n\nThe substantive findings I checked in more detail. E45 is a genuine error: Lemma 2.10.1(4) claims finite cohomology for RGamma_Z(Y,F) with no boundedness on F, and i^! of an unbounded complex over k[x]/(x^2) breaks it. E122 is another: the second halves of Proposition 6.2.3(2)-(3) are false as inequalities of divisors, because part (1) of the same proposition orders D_{+,eps} and D_{+,eps'} the other way; what holds is the inclusion of supports. E63 is a third: the polarization-type substacks A_{g,delta} are defined by an etale-local condition that mu_{delta_i} cannot satisfy when p divides delta_i, which is exactly the case section 4.1.1 needs. The gaps that matter most are E25 (Corollary 2.3.14 needs the two maps of line bundles to lie over the structure maps, or the limit and colimit do not exist), E28 (the ordinary-part construction is not available in a triangulated category, as the paper's own footnote 2 concedes), E42 (Proposition 2.9.9 needs p_1 proper for its trace), E100 (Theorem 4.5.2 restricts the Cousin sum to C(kappa) without saying why the other summands have no ordinary part) and E126 (T^{++} generating T(Q_p) as a group does not propagate a lower bound on slopes; a cone argument does).\n\nLimits of my check. This PDF's text layer drops all citation brackets and all author names in the bibliography, so I could not verify any citation key from the source. For the two findings about the numbering inside [BP21] (E114, E129) I therefore rely on the extraction's reading of arXiv:2110.10251; E114 is a defect either way, since the references within one section cannot all belong to one version of that paper. The text layer also does not separate subscripts from superscripts, so for E34-style glyph positions - here E47 (interior marks and the sign on D) and E98 (K_p for K^p) - I rely on the extraction's renders and say so in those verdicts. In every such case the surrounding definitions settle the substance independently.\n\nTwo printed slips are recorded by no finding: 'the the closure' in the proof of Proposition 4.4.4 (p. 51), and, in the same vicinity, nothing else. I leave it for a later pass rather than manufacture a finding.\n\nStructure, verified in full. 417 items (372 missing, 37 planned, 8 library) and 22 routes: 17 source, 5 Part II. Every missing item is routed exactly once. All source stage ids resolve, including AnalyticStacks:AS.0/AS.2/AS.3 and SolidAnalyticRings:SA.3, which are absent from data/atlas.json but present in research/blueprint/roadmaps/, where stages are keyed by 'key' rather than 'id' - a checker reading only 'id' reports them missing, and four other extractions route to AnalyticStacks the same way. All 72 planned references of Stage:Layer form resolve in data/atlas.json; the other 8 use the corpus-wide tauceti:TauCetiRoadmap/...#layer-... form whose targets live in the Tau Ceti repository. All five Part II titles reproduce their parents' atlas titles exactly and all five areas are galaxy ids. Four of the five Part II routes join proposals that the corpus already contains - HigherHidaAndColemanTheory from PAPER-PILLONI-20, IntegralCoherentHeckeComplexes from PAPER-CALEGARI-GERAGHTY-18, ShimuraVarietiesHondaTatePartII from PAPER-KISIN-MADAPUSIPERA-SHIN-22 and ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary from PAPER-FARB-KISIN-WOLFSON-24 - and the fifth, IgusaVarietiesAndTorsionConcentrationPartIISiegelOrdinary, is this paper's own, carried by no other extraction, with its parent present in the atlas.\n\nTwo corrections made in place. (1) The extraction recorded no libraryPins; I added them, Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. (2) At those pins one of the 60 cited declarations does not exist: mathlib:CommRing.orzechProperty, on the item ext-nakayama-lemma. A search of the declaration index finds the class OrzechProperty and its five consequences in Mathlib/RingTheory/OrzechProperty.lean but no instance supplying it under any name, so the citation cannot be repaired by renaming. I removed it and recorded in the item's note what the remaining four citations give and that IsNoetherian.bijective_of_surjective_endomorphism covers the Noetherian case the paper's applications use. The other 59 declarations all resolve at the pins.\n\nWhat this review did not do. I did not read all 65 pages line by line; I read the pages every finding names, the statements the routes cite, and the surrounding material needed to judge them. I did not compare the published Inventiones text, so no finding here has been checked against the version of record. scripts/check_paper.py and research/blueprint/intake.py check-files both pass."
+}
