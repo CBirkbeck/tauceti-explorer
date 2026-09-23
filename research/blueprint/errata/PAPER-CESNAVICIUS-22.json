@@ -1,0 +1,274 @@
+{
+  "paper": "PAPER-CESNAVICIUS-22",
+  "protocol": "errata-v1",
+  "status": "complete",
+  "agent": "Codex",
+  "session": "codex-7e92bd",
+  "issue": 1862,
+  "date": "2026-09-23",
+  "summary": "Eight findings: all seven earlier findings preserved, plus a publication-specific bibliography misprint E8. E1–E4 have author or published corrections; E8 is already correct in the author/arXiv copy; no earlier correction for E5–E7 was located. Added version-specific locators, source hashes and a rigorous polynomial-dilation repair of the semilocal lifting step. No independent-review verdict is asserted.",
+  "sourceIssues": [
+    {
+      "id": "PAPER-CESNAVICIUS-22/E1",
+      "kind": "error",
+      "locator": "Proof of Lemma 6.3, author PDF p. 20 (the published version p. 18, without the footnote)",
+      "printed": "Consequently, by [BouAC, Chapitre IX, Section 3, numéro 3, Théorème 1], the thickening ε_z := Spec_{O_{C_{k_m}}}(O_{C_{k_m}}/I_z²) is isomorphic to Spec(k_z[u_z]/(u_z²)).",
+      "correction": "The Cohen-structure isomorphism need not be an isomorphism of k_m-schemes when k_m is imperfect, and the construction of j needs one. For imperfect (hence infinite) k_m, embed each ε_z in A¹_{k_m} by the geometric presentation theorem [CTHK97, Theorem 3.1.1] applied in C^sm_{k_m}, and make the images disjoint by translations t ↦ t + α with α ∈ k_m. For perfect k_m the printed argument stands.",
+      "reason": "Example: k_m = F_p(s), C = A¹_{k_m}, z = V(t^p − s), u = t^p − s. The p-th powers in O/I_z² = k_m[t]/(u²) lie in k_m^p[t^p] = k_m^p[s + u]; writing h ∈ k_m^p[x] by exponents mod p, h(s) = s forces h′(s) = 1, so h(s + u) ≡ s + u. No element has p-th power s, so there is no k_m-algebra map k_z = k_m(s^{1/p}) → O/I_z².",
+      "affects": "the proof",
+      "known": "The author's post-publication footnote on p. 20, in arXiv 2009.05299v7 (8 November 2022) and the author's PDF of the same date; the published version lacks it. See https://arxiv.org/abs/2009.05299v7 and https://webusers.imj-prg.fr/~kestutis.cesnavicius/split-unramified.pdf.",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E2",
+      "kind": "gap",
+      "locator": "Cited input: Gille, Torseurs sur la droite affine, Transform. Groups 7 (2002), proof of Lemme 3.12, p. 239; used in the proof of Proposition 8.4, claim (1), author PDF p. 25",
+      "printed": "On peut donc supposer la classe γ_η isotrope. Il existe donc un k-sous-groupe parabolique j : Q/k = Z_G(S_0)·R_uQ ⊂ G/k (avec S_0 ⊂ S) tel que γ_η = j_*(β) ∈ Im(H¹(k(t), Q)_an → H¹(k(t), G)).",
+      "correction": "First show that G has a k-parabolic of the type I of a minimal parabolic of the twisted group E(G)_{k(t)}: the scheme E(X_I) of parabolics of type I is proper over P¹_k and has a k(t)-point, so it has a P¹_k-point; its fibre at ∞ is X_I because E_∞ is trivial, so X_I(k) ≠ ∅. The rest of the proof is unchanged.",
+      "reason": "The existence of a k-parabolic of G carrying the generic class is asserted without argument; the isotropy of γ_η only gives a parabolic of the twisted group over k(t). CES22 already cites the correction ('see also [Gil05]'), and the lemma's statement is unchanged.",
+      "affects": "the proof",
+      "known": "Gille, Errata: « Torseurs sur la droite affine », Transform. Groups 10 (2005), 267–269, pp. 268–269; https://doi.org/10.1007/s00031-005-1010-z and https://math.univ-lyon1.fr/~gille/publis/erratum05.pdf",
+      "searched": [
+        "2026-09-23: Gille publication list https://math.univ-lyon1.fr/~gille/publis-an.html and author-hosted published erratum https://math.univ-lyon1.fr/~gille/publis/erratum05.pdf; all three erratum pages read, including the correction to Lemme 3.12 on pp.268–269.",
+        "2026-09-23: Original author-hosted 2002 paper p.239 read as a page image; CES22 author p.25 and published p.23 explicitly cite Gil05."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E3",
+      "kind": "gap",
+      "locator": "Cited input: Gille, Le problème de Kneser–Tits, Astérisque 326 (2009), proof of Lemme 4.5(1), p. 54 (page 15 in the errata, which use another pagination); used in the proof of Proposition 8.4, claim (2), author PDF p. 25",
+      "printed": "Vu que Z_ℌ(𝔖)/𝔖 est un schéma en groupe réductif dont la fibre spéciale est anisotrope, la théorie de Bruhat–Tits montre que (Z_ℌ(𝔖)/𝔖)(O) = (Z_ℌ(𝔖)/𝔖)(K) [10, 4.6.33]. […] Par ailleurs, il est bien connu que 𝔖(K) ⊂ ℌ(K)^+ [7, prop. 6.11]. (Symbols transcribed; the text layer is garbled.)",
+      "correction": "For M = Z_ℌ(𝔖)/𝔖, first prove that M_K is anisotropic. A proper K-parabolic would extend over O by properness of its fixed-type parabolic scheme and specialize to a proper k-parabolic, contradicting special-fiber anisotropy. Henselian smooth lifting and this properness argument give the singleton comparison Par(M)(K) = Par(M)(O) = Par(M)(k), where the whole group is counted as a parabolic; this is not a general assertion that reduction of a smooth proper scheme is injective. For the radical torus T = rad(M), lift a finite Galois splitting extension of k to O; its character-lattice description identifies the cocharacters over K, O and k. Hence T_K has no split subtorus. Together these prove generic anisotropy, and Guo Proposition 6 gives M(O) = M(K). Replace the Borel–Tits reference Proposition 6.11 by Corollaire 6.8.",
+      "reason": "Anisotropy of the special fibre does not by itself give M(O) = M(K); the cited Bruhat–Tits result needs M_K anisotropic, which the proof does not establish. The statement of the lemma is unchanged.",
+      "affects": "the proof",
+      "known": "Gille, Errata et compléments (math.univ-lyon1.fr/~gille/prenotes/errata.pdf), dated 26 May 2026, p. 4, pointed out by A. Zidani; https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf",
+      "searched": [
+        "2026-09-23: Gille publication list https://math.univ-lyon1.fr/~gille/publis-an.html links the Kneser–Tits survey and author errata. Read the 2026-05-26 errata p.4 correction and p.5 references at https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf.",
+        "2026-09-23: Numdam published 2009 survey, https://numdam.org/item/AST_2009__326__39_0.pdf, printed pp.53–54 (PDF pp.16–17); the proof on p.54 was read as a page image."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E4",
+      "kind": "gap",
+      "locator": "Proof of Proposition 8.4, claim (2), author PDF p. 25 (the published version p. 24)",
+      "printed": "For the claim (2), we first note that the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1).",
+      "correction": "Definition 8.1 gives a proper parabolic over each local ring, not necessarily over the semilocal base. One sufficient repair, explicitly supplied in the later author survey, strengthens the assumption: each simple factor over its own finite étale base contains G_m (and hence has a fiberwise proper parabolic). This is automatic in the quasi-split application of Theorem 9.1. Alternatively retain the original total-isotropy hypothesis and lift radical points separately at each maximal ideal. The earlier extraction proposes this via a Noetherian reduction and nonzerodivisor denominator clearing; its full proposal is preserved in priorExtractionRepair. A precise replacement is the finite-presentation polynomial dilation argument proved in the companion report: spread an identity-preserving affine-space parameterization to R_s with s outside the chosen maximal ideal and inside the others, clear denominators, and dilate again to kill the finitely many relation coefficients annihilated by powers of s. The resulting map A^d_R → G is identically 1 modulo s and has the desired parameterization after inverting s. Lift Laurent-series coordinates at the chosen residue field and evaluate this map; all other residue components are 1. Applying this to both opposite radicals and the corrected Whitehead factorization proves the needed loop-coset surjectivity. This argument allows zero divisors and needs no Noetherian reduction.",
+      "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), since the patching over each local ring is unique. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R. The counterexample disproves the asserted global-parabolic inference, not Proposition 8.4 or Theorem 9.1. A concrete choice is L₁ = Q(ζ₇ + ζ₇⁻¹) and D = (L₁/Q, σ, 2): 2 is inert in this cyclic cubic extension, so its valuation prevents 2 from being a norm and D is division. The companion report spells out the conductor patching and the local matrix decompositions.",
+      "affects": "the proof",
+      "known": "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025), p. 26: the post-publication footnotes to the proof of Lemma 3.5.5 (which cites [Čes22, proof of Proposition 8.4]) and to Remark 3.5.6 say that for semilocal A the total isotropy assumption should be strengthened, because it supplies a parabolic 'only after base change to each local ring'. Also present in the current 61-page author survey on pp.24–25: https://webusers.imj-prg.fr/~kestutis.cesnavicius/torsors-regular.pdf; versioned source https://arxiv.org/abs/2201.06424v4.",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
+      ],
+      "priorExtractionRepair": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E5",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 8.4, last sentence, author PDF p. 25 (the published version p. 24); in arXiv 2009.05299v7 the last sentence falls on p.26 (not p.25).",
+      "printed": "For this, we combine the surjectivity of the map R((t)) ↠ ∏_m k((t)) with [SGA 3 …]",
+      "correction": "R((t)) ↠ ∏_m k_m((t))",
+      "reason": "No field k is defined in this proof; the product runs over the maximal ideals m with residue fields k_m, as in the display of claim (2) just above.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E6",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 9.5, author PDF p. 28 (the published version p. 26)",
+      "printed": "y ∈ H¹(R, Out(G, B)) whose image in H¹(R, Out(G)) is also x̄",
+      "correction": "y ∈ H¹(R, Aut(G, B))",
+      "reason": "Out(G, B) is not defined; y is the image of x̄ under the splitting Out(G) ↪ Aut(G, B) of the displayed sequence 1 → B^ad → Aut(G, B) → Out(G) → 1, and twisting by it produces A₀.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E7",
+      "kind": "error",
+      "locator": "Proof of Corollary 9.6, first sentence, author PDF p. 28 (the published version p. 27)",
+      "printed": "Every inner form of SO_n is an SO(E) for a nondegenerate quadratic space E over R of rank n.",
+      "correction": "Every twist of SO_n by an SO_n-torsor is an SO(E) for such an E; these are the only twists the argument uses.",
+      "reason": "For even n ≥ 4, inner forms also come from central simple algebras with orthogonal involution. Over R = Q (allowed in Theorem 9.1 with O = Q), take H = (−1,−1) and H′ = (−1,3), non-isomorphic quaternion algebras ramified at {2, ∞} and {2, 3}. Then SO(H ⊗ H′, γ ⊗ γ′) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E): for E of trivial discriminant, SO(E) ≅ (SL₁(C) × SL₁(C))/μ₂ with isomorphic factors. For odd n every form is an SO(E), and the proof only twists by H¹(R, SO_n). As a second check, over the real numbers the example has Lie algebra su(2) ⊕ sl₂(R), with one compact and one split simple factor. A four-dimensional real quadratic space gives so(4) (both compact), so(2,2) (both split), or so(3,1) (real simple), never this mixed pair. Thus the Q-example is not SO(E) even without invoking the full classification of algebras with involution. The unrestricted inner-form assertion fails, while pure-inner twisting suffices for the stated corollary.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist."
+      ]
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E8",
+      "kind": "misprint",
+      "locator": "Published version, p.27, bibliography entry [BFFP20]; compare author/arXiv v7 p.29.",
+      "printed": "arXiv: 1911.0766v2.",
+      "correction": "arXiv:1911.07666v2 (insert the missing digit 6).",
+      "reason": "The arXiv record 1911.07666v2 has the stated authors Bayer-Fluckiger, First and Parimala and title On the Grothendieck–Serre Conjecture for Classical Groups. The adjacent URL in the same published entry already uses 1911.07666v2. The misspelled identifier was checked in a rendered image of published p.27, not inferred solely from PDF text extraction.",
+      "affects": "nothing",
+      "known": "The current author version and arXiv 2009.05299v7, bibliography p.29, already give the correct URL/identifier. This is a publication-specific citation typo; no separate erratum located, and no date of deliberate correction is inferred.",
+      "searched": [
+        "2026-09-23: Cambridge article page https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/grothendieckserre-in-the-quasisplit-unramified-case/9D047724E9541FA2BD7FE06FB9333B24 and downloaded published PDF: the quoted passages remain; no linked correction notice found.",
+        "2026-09-23: Cambridge journal all-issues index https://www.cambridge.org/core/journals/forum-of-mathematics-pi/all-issues and targeted web searches: site:cambridge.org/core/journals/forum-of-mathematics-pi erratum Česnavičius; site:cambridge.org/core/journals/forum-of-mathematics-pi corrigendum quasi-split; exact paper title with erratum/corrigendum. No matching separate journal correction located. This is a bounded search, not a proof of absence.",
+        "2026-09-23: https://arxiv.org/abs/2009.05299 lists v7 (2022-11-08) as latest; its comment identifies the post-publication p.20 footnote. Rechecked the flagged passages in v7 and the current author PDF.",
+        "2026-09-23: https://webusers.imj-prg.fr/~kestutis.cesnavicius/ links the main paper and survey; the main paper is byte-identical to the earlier author URL. No separate correction for E5–E7 located on the publication page.",
+        "2026-09-23: https://arxiv.org/abs/2201.06424 lists v4 (2025-05-05) as latest. Read the semilocal correction on v4 p.26; also searched the current author survey for all Added after publication footnotes and read them (pp.9,10,24–25,36,39). E4 is explicitly acknowledged; none of these footnotes corrects E5–E7.",
+        "2026-09-23: https://api.crossref.org/works/10.1017/fmp.2022.5 has no update-to or updated-by fields and relation is empty. Metadata alone is not evidence that a correction does not exist.",
+        "2026-09-23: https://arxiv.org/abs/1911.07666v2 confirms the authors, title and v2 date 2020-07-29. Compared the published citation image, the adjacent correct URL and the author/v7 bibliography."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/9D047724E9541FA2BD7FE06FB9333B24/S2050508622000051a.pdf",
+      "version": "Forum Math. Pi 10 (2022), e9, 30 pp.",
+      "retrieved": "2026-09-23",
+      "sha256": "2683a75d8ed39c5d65d3107ffc151392deb873496b6a8ed7e1c57b966e0db8ea",
+      "readingBoundary": "pp.18–19,22–24,26–27; all seven main-paper locators and their proof context. The downloaded publisher copy includes a dated footer, so its byte hash is retrieval-specific."
+    },
+    {
+      "id": "author",
+      "url": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/split-unramified.pdf",
+      "version": "Current author PDF, 32 pp.; post-publication footnote dated 2022-11-08",
+      "retrieved": "2026-09-23",
+      "sha256": "984748e90f36730ddf4295176ca4b12e6aa7235c141461c0354e40320ef7476a",
+      "readingBoundary": "Flagged passages and surrounding proofs in §§6,8,9, particularly pp.20,23–25,27–29. Byte-identical to https://www.imo.universite-paris-saclay.fr/~kestutis.cesnavicius/split-unramified.pdf."
+    },
+    {
+      "id": "arxiv-v7",
+      "url": "https://arxiv.org/pdf/2009.05299v7",
+      "version": "arXiv 2009.05299v7, 2022-11-08, 32 pp.",
+      "retrieved": "2026-09-23",
+      "sha256": "f922ad1617547938f190a6eea57f0ad769026e5b14fdde43e6f2020776565664",
+      "readingBoundary": "Flagged passages pp.20,25–26,28; author and arXiv pagination differ at the end of Proposition 8.4. Bibliography p.29 checked for E8."
+    },
+    {
+      "id": "gil02",
+      "url": "https://math.univ-lyon1.fr/~gille/publis/affine.pdf",
+      "version": "Gille, Torseurs sur la droite affine, Transform. Groups 7 (2002), 231–245",
+      "retrieved": "2026-09-23",
+      "sha256": "1fbebb2dcb61c5558aad6ff5330b3a9238b441cfccf5da6582b79bebe1913f86",
+      "readingBoundary": "Lemme 3.12 and its proof, printed p.239 = PDF p.9; page image read because text extraction is garbled."
+    },
+    {
+      "id": "gil05",
+      "url": "https://math.univ-lyon1.fr/~gille/publis/erratum05.pdf",
+      "version": "Gille, Errata: Torseurs sur la droite affine, Transform. Groups 10 (2005), 267–269",
+      "retrieved": "2026-09-23",
+      "sha256": "65b6bca93ed63a0a830ad72f89b88528ac7ecac69f9e5ad909a83fb15aade067",
+      "readingBoundary": "All three pages read. E2 is the correction on pp.268–269; the other correction concerns Proposition 2.3 and is outside this extraction dependency."
+    },
+    {
+      "id": "gil09",
+      "url": "https://numdam.org/item/AST_2009__326__39_0.pdf",
+      "version": "Gille, Le problème de Kneser–Tits, Astérisque 326 (2009), 39–81",
+      "retrieved": "2026-09-23",
+      "sha256": "1ee4a7de793305dae9862525f06e451763f34ed84faa239566fceddd96b06081",
+      "readingBoundary": "Printed pp.53–54 = PDF pp.16–17, including Lemma 4.5 proof as an image; the errata uses another pagination."
+    },
+    {
+      "id": "gil-errata",
+      "url": "https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf",
+      "version": "Gille, Errata et compléments, 2026-05-26, 7 pp.",
+      "retrieved": "2026-09-23",
+      "sha256": "6297d7a0dd6d2ea51c04c15f201b07efd2f25b56c8a5b19d17a7c966b79eba61",
+      "readingBoundary": "Date on p.1; Lemma 4.5 correction p.4 and its references p.5."
+    },
+    {
+      "id": "survey-v4",
+      "url": "https://arxiv.org/pdf/2201.06424v4",
+      "version": "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4, 2025-05-05, 63 pp.",
+      "retrieved": "2026-09-23",
+      "sha256": "da970a4ea0412899e911d80c4d2dd3ff58d265b7595b19925596d9081450085a",
+      "readingBoundary": "p.26, post-publication footnotes to Lemma 3.5.5 and Remark 3.5.6."
+    },
+    {
+      "id": "survey-author",
+      "url": "https://webusers.imj-prg.fr/~kestutis.cesnavicius/torsors-regular.pdf",
+      "version": "Current author survey, 61 pp.",
+      "retrieved": "2026-09-23",
+      "sha256": "04f4ee5abded3287b9da6b45396c6f817930594327b2d35131515a11567e228d",
+      "readingBoundary": "All Added after publication footnotes read at pp.9,10,24–25,36,39. E4 correction is pp.24–25, not p.26 in this copy."
+    }
+  ],
+  "scope": {
+    "earlierWork": [
+      "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+      "research/blueprint/papers/PAPER-CESNAVICIUS-22.md"
+    ],
+    "baselineCommit": "5e43299",
+    "reading": "Read the extraction (150 items, APIs/proof notes, gaps, metadata and sourceIssues) and its full report; checked the source passages identified by the seven findings. This is an errata conversion and source recheck, not a new full line-by-line extraction of every cited supplier. Also recorded the bibliography misprint E8 encountered on published p.27, checking its page image and the cited arXiv metadata.",
+    "excluded": "Deferred supplier proofs, unexecuted API tests and atlas coverage gaps are not asserted to be errors in published mathematics. Earlier deliverables remain unchanged.",
+    "lean": "No Lean file is a deliverable; no Lean compilation or formal verification performed.",
+    "review": "Reserved for the independent errata review; no review objects written."
+  },
+  "validation": {
+    "E1_first_order_Taylor_checks": 416,
+    "E4_parabolic_types": {
+      "index3": [
+        [
+          3
+        ]
+      ],
+      "index2": [
+        [
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "common": [],
+      "cyclic_cubic_polynomial_mod2": "irreducible (no root)"
+    },
+    "E4_dilation_zero_divisor_control": "[[1,x],[0,1+3x]] over Z/6 is SL2 after inverting 2; substituting 2x makes determinant 1 over Z/6 and gives the identity modulo 2; all six residues checked.",
+    "E7_Hilbert_-1": {
+      "2": -1,
+      "3": 1,
+      "5": 1,
+      "7": 1,
+      "infinity": -1
+    },
+    "E7_Hilbert_3": {
+      "2": -1,
+      "3": -1,
+      "5": 1,
+      "7": 1,
+      "infinity": 1
+    }
+  }
+}
