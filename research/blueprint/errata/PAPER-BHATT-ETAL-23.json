@@ -7,8 +7,8 @@
       "kind": "error",
       "locator": "Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29)",
       "printed": "\"More generally, let D be a fixed divisor and let A be a semiample Q-Cartier Q-divisor such that A ∼_Q M + Λ, where M is an effective Cartier divisor with no exceptional curve of Y → X in its support, and −δD ≤ Λ ≤ δD for δ > 0. Take x ∈ F ∩ M of multiplicity k ∈ Z_{>0} in M. Then ε_sa(A; x) converges to k when δ → 0.\"",
-      "correction": "Only a lower bound holds. For every rational γ with 0 < γ < k there is δ₀ > 0, depending only on f, D and γ, such that ε_sa(A; x) = ε(A; x) ≥ k − γ for all δ < δ₀ and all such A, M, Λ and x. Equivalently, liminf_{δ→0} ε_sa(A; x) ≥ k, uniformly. This is exactly what the printed proof establishes; there is no upper bound.",
-      "reason": "Counterexample with Λ = 0. Let k be a field of characteristic p > 0, X = A²_k, and f: Y → X the blow-up of the origin with exceptional curve E = F. Let M be the sum of the strict transforms of the two axes. Then M ∼ −2E, so M is effective, Cartier, globally generated over X (O_Y(−E) = m·O_Y) and has no exceptional component. Let x = E ∩ (strict transform of the y-axis), so mult_x M = 1 = k. Blow up x, with exceptional curve G and strict transform E′. Then E′² = −2, G² = −1, E′·G = 1 and π*M − tG ∼ −2E′ − (2+t)G, which has degree 2 − t on E′ and t on G. Hence ε(M; x) = 2. At t = 2 the ideal (x, y²) pulls back to O(−E′ − 2G) (charts x = ab, y = b, then a = c, b = cd, giving c²d, and a = ef, b = f, giving f²). So π*M − 2G ∼ −2E′ − 4G is globally generated and ε_sa(M; x) = 2. Taking A = M and Λ = 0 (any D), ε_sa(A; x) = 2 for every δ, not converging to k = 1. The proof only shows that π*A − (k − γ)E is nef. The consumers need only the lower bound: Proposition 8.15 (p.173) uses the first assertion ε_sa(M; x) ≥ 1, which is correct, and Claim 8.21 (p.178) needs ε_sa > 2 for k = 3. So the paper's results are unaffected. Checked on the page image and by exact arithmetic. Noted by the extraction (diagnostic A, gap-seshadri-limit); verified and proved in the corrected form by this continuation.",
+      "correction": "Only a lower bound holds. For every rational γ with 0 < γ < k there is δ₀ > 0, depending only on f, D and γ, such that ε_sa(A; x) = ε(A; x) ≥ k − γ for all δ < δ₀ and all such A, M, Λ and x. Equivalently, liminf_{δ→0} ε_sa(A; x) ≥ k, uniformly. This follows by the printed strategy after correcting its intersection estimate as in E9; the strategy provides no upper bound.",
+      "reason": "Counterexample with Λ = 0. Let k be a field of characteristic p > 0, X = A²_k, and f: Y → X the blow-up of the origin with exceptional curve E = F. Let M be the sum of the strict transforms of the two axes. Then M ∼ −2E, so M is effective, Cartier, globally generated over X (O_Y(−E) = m·O_Y) and has no exceptional component. Let x = E ∩ (strict transform of the y-axis), so mult_x M = 1 = k. Blow up x, with exceptional curve G and strict transform E′. Then E′² = −2, G² = −1, E′·G = 1 and π*M − tG ∼ −2E′ − (2+t)G, which has degree 2 − t on E′ and t on G. Hence ε(M; x) = 2. At t = 2 the ideal (x, y²) pulls back to O(−E′ − 2G) (charts x = ab, y = b, then a = c, b = cd, giving c²d, and a = ef, b = f, giving f²). So π*M − 2G ∼ −2E′ − 4G is globally generated and ε_sa(M; x) = 2. Taking A = M and Λ = 0 (any D), ε_sa(A; x) = 2 for every δ, not converging to k = 1. The proof aims to show that π*A − (k − γ)E is nef; its coefficient estimate must first be repaired as in E9. The consumers need only the lower bound: Proposition 8.15 (p.173) uses the first assertion ε_sa(M; x) ≥ 1, which is correct, and Claim 8.21 (p.178) needs ε_sa > 2 for k = 3. So the paper's results are unaffected. Checked on the page image and by exact arithmetic. Noted by the extraction (diagnostic A, gap-seshadri-limit); verified and proved in the corrected form by this continuation.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -20,9 +20,18 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E1"
+      "extraction": "PAPER-BHATT-ETAL-23/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after repairing the proposed explanation. Independently checked published pp.101–102, arXiv v1 pp.20–21, v2 p.26 and v3 p.29. The double blow-up has contracted-curve degrees 2−t and t, and the pullback of (x,y²) principalizes as O(−E′−2G), so the claimed limit is false already for constant Lambda=0 and multiplicity 1. The corrected uniform lower bound needs the coefficientwise estimate supplied in E9: the printed proof does not establish it exactly as written. Proposition 8.15 (p.173) and Claim 8.21 (p.178) need only the lower bounds. No assertion that these checks re-prove the whole MMP.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E2",
@@ -42,9 +51,18 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E2"
+      "extraction": "PAPER-BHATT-ETAL-23/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Read Definition 6.24 and Proposition 6.26 (pp.152–154), Lemma 4.27 (p.127), and the consumer Theorem 7.14 (p.165). Rechecked the DVR splitting/non-splitting example. The pure conclusion is explicit in v1 Proposition 6.22 p.48 and v2 Proposition 6.28 p.64; v3 p.71 has the garbled qualifier and published p.154 loses it. Retain misprint/nothing in the protocol sense that the intended mathematics is clear, while explicitly retaining the counterexample to the literal ordinary conclusion.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E3",
@@ -64,14 +82,23 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E3"
+      "extraction": "PAPER-BHATT-ETAL-23/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Published p.128 and v2 p.45/v3 p.50 have the positive twist. Corollary 3.7 p.107 requires negative powers. Reversing the twist gives both the needed vanishing and, under duality, the bundle in the lemma’s statement. Theorem 7.2 p.156 already has the corrected sign. This is a sign misprint; the lemma is explicitly unused.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E4",
       "kind": "misprint",
-      "locator": "Theorem 9.28(c), p.206 of the published version (also arXiv v2 and v3)",
+      "locator": "Theorem 9.28(c), p.206 of the published version; arXiv v2 Theorem 9.27 p.102 and v3 Theorem 9.28 p.113",
       "printed": "\"(c) For each Γ_i, −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0\"",
       "correction": "−4d_{Γ_i} ≤ (K_X + Δ)·Γ_i < 0, as in the introduction's statement of the same theorem (Theorem I(c), p.74: 0 < −(K_X + Δ)·_k C_i ≤ 4d_{C_i}).",
       "reason": "The proof of Theorem 9.28 (p.210) concludes −4d_C ≤ (K_X + Δ)·C < 0 from Lemma 9.29, whose bound is also non-strict (−4d ≤ (K_X + B)·Γ < 0). Every other statement of the length bound in the paper (pp.74, 96, 188, 194, 206–209) is non-strict, and no consumer uses strictness. Checked on the page image. Noted by the extraction (gap-cone-length).",
@@ -86,9 +113,18 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E4"
+      "extraction": "PAPER-BHATT-ETAL-23/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a consistency misprint, not as a proved counterexample to a possible stronger bound. Compared published Theorem I p.74, Theorem 9.28(c) p.206, Lemma 9.29 p.206 and the proof p.210; all supporting bounds use ≤. v2 Theorem 9.27 p.102 and v3 Theorem 9.28 p.113 retain the strict sign, and v3 p.117 proves only the non-strict bound. Corrected the locator to include the v2 numbering.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E5",
@@ -108,9 +144,18 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E5"
+      "extraction": "PAPER-BHATT-ETAL-23/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Read published Theorem K p.76, Theorem 10.6 p.216 and proof pp.218–219, and v3 p.122. Recomputed 3(10K)²+2(10K)K+c₂=319v+12χ≤325v+48, giving 373 at v=1; the fibre degree is 110. For L=8K the corresponding coefficient is 213. The literal 393 statement is weaker, not false.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E6",
@@ -130,10 +175,19 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
       "extraction": "PAPER-BHATT-ETAL-23/E6",
-      "previousAffects": "nothing"
+      "previousAffects": "nothing",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The page image p.85 quantifies over an arbitrary subscheme T. Taking T=X, for example X=A³ over a field, forces its inverse image to be all of Y, which cannot be a divisor. Add closed and nowhere dense. Read the resolution proof pp.85–86 and its boundary/centre use; this review does not claim a new proof of the cited resolution theorems. Retain stated-result reach.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E7",
@@ -142,7 +196,7 @@
       "printed": "\"coeff_E Fix(D) = min_{D′ ∈ |D|} coeff_E D′. Note that as D is Cartier the above coefficients are integers and hence the minimum exists.\"",
       "correction": "The minimum exists only when |D| ≠ ∅, so the definition needs that hypothesis.",
       "reason": "For D = O(−1) on P¹, |D| = ∅ and the minimum is over the empty set. Every use of Mob and Fix is in §8, on schemes Y and S′ that are projective and birational over the affine base Z = Spec R or over f(S). There H⁰(O(D)) = H⁰(g_*O(D)) ≠ 0 for every Cartier D, since g_*O(D) is a nonzero torsion-free coherent sheaf on an affine integral scheme. In addition, Setting 8.5 chooses K_X + S + B effective. Noted by the extraction (gap-empty-system).",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
@@ -153,17 +207,27 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
-      "extraction": "PAPER-BHATT-ETAL-23/E7"
+      "extraction": "PAPER-BHATT-ETAL-23/E7",
+      "previousAffects": "nothing",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed; changed reach from nothing to a stated result, because the printed assertion that the minimum exists is false on its advertised domain. Published Definition 2.19 p.88 allows arbitrary Cartier D. The empty system of O_P¹(−1) is a counterexample. For a proper birational map to an integral affine base, the pushforward of O(D) has rank one, hence nonzero global sections; this explains the uses in §8. The nonempty hypothesis repairs the definition without a claim against those applications.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     },
     {
       "id": "PAPER-BHATT-ETAL-23/E8",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Published version, proof of Lemma 4.20, p.122 (final step)",
       "printed": "Hence the map κ is an isomorphism (Lemma 2.36)",
-      "correction": "Apply Lemma 2.36 in the form that needs only D_X Q-Cartier. D_Y = ⌈π*L + A_Y⌉ on the normal Y need not be Q-Cartier.",
-      "reason": "Lemma 2.36 assumes D_Y and D_X are Q-Cartier. Its proof uses only D_X: f_*O_Y(D_Y) ⊆ O_X(f_*D_Y) always holds on normal schemes, and for g ∈ O_X(D_X), div(g) + D_X ≥ 0 pulls back to div(g) + f*D_X ≥ 0, so div(g) + D_Y ≥ 0 because D_Y ≥ f*D_X. With that form the step is valid. (cc-442dc5) Reclassified to affect the proof: in Lemma 4.20, π: Y → X is only a proper birational morphism from a normal integral scheme (p.121), so D_Y = ⌈π*L + A_Y⌉ need not be Q-Cartier and Lemma 2.36 as stated does not apply; the step holds with the stronger form of Lemma 2.36, so the conclusion stands.",
+      "correction": "Use the following stronger form of Lemma 2.36: for a proper birational f:Y→X of normal integral Noetherian schemes, let D_X be a Q-Cartier integral Weil divisor and D_Y an integral Weil divisor with f_*D_Y=D_X and D_Y≥floor(f*D_X). Then f_*O_Y(D_Y)=O_X(D_X); D_Y need not be Q-Cartier. Apply this to D_X=ceil(L), D_Y=ceil(π*L+A_Y).",
+      "reason": "The target divisor in Lemma 4.20 need not be Q-Cartier because Y is only normal. The stronger form is proved by sections as rational functions: if div(g)+D_X≥0, pullback gives div(g)+f*D_X≥0, and integrality gives div(g)+floor(f*D_X)=floor(div(g)+f*D_X)≥0. Thus D_Y≥floor(f*D_X) gives a section upstairs. Conversely push the effective divisor div(g)+D_Y down; normality identifies the resulting sections with O_X(D_X). The ceiling inequality on published p.122 is precisely equivalent to the floor bound, not to the stronger D_Y≥f*D_X. This fills a missing hypothesis adapter, so it affects the proof but supplies no counterexample to the result.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -172,10 +236,83 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the open-access Springer PDF (SHA-256 a07fcb79…) read at each locator",
         "Crossref, 23 September 2026: no update or correction registered for 10.1007/s10240-023-00140-8",
         "Springer article page, 23 September 2026: no correction, erratum or corrigendum linked",
-        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version"
+        "arXiv 2012.15801: versions v1–v3; v3 (5 December 2022) is the latest and predates publication; no later version",
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
       ],
       "extraction": "PAPER-BHATT-ETAL-23/E8",
-      "previousAffects": "nothing"
+      "previousAffects": "nothing",
+      "previousKind": "error",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after fixing the proposed repair and changing kind from error to gap. Published Lemma 2.36 p.94 assumes both divisors Q-Cartier, while pp.121–122 only give a normal Y. No counterexample to Lemma 4.20 is asserted. The stronger valid lemma allows an integral Weil D_Y but still requires f_*D_Y=D_X and D_Y≥floor(f*D_X). The old reason incorrectly replaced that by D_Y≥f*D_X, which the ceiling inequality on p.122 does not imply. The corrected section argument retains floor throughout.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E9",
+      "kind": "error",
+      "locator": "Published proof of Lemma 2.56, p.102, case C≠E meeting E; arXiv v2 p.26 and v3 p.29 (v1 p.21 even prints equality at this step)",
+      "printed": "γE·C + Λ·π_*C ≥ γE·C − δ|D·π_*C|",
+      "correction": "Write D=Σ_j d_jD_j with prime D_j and d_j≥0. For each exceptional curve C_i on Y use B_i=Σ_j d_j|D_j·C_i|, so Λ·C_i≥−δB_i. Replace |D·π_*C| by B_i. Choose δ<γ/(1+max_i B_i). This supplies the uniform lower bound in E1.",
+      "reason": "Coefficient inequalities do not bound intersection numbers by the absolute value of the sum when component intersections cancel. On Y=Bl_0 A² in characteristic p, let E be exceptional and D_x the strict transform of the x=0 axis. Set D=E+D_x, Λ=δE. Then −δD≤Λ≤δD but D·E=−1+1=0 and Λ·E=−δ<0. Take M the sum of the two strict axes and A=M+δE, so A∼_Q−(2−δ)E is relatively ample for rational 0<δ<2; all the lemma hypotheses hold. Blow up a point of E∩M and take C=E′. Thus the displayed inequality itself fails. For the repair, the coefficient condition forces D effective and |λ_j|≤δd_j. The triangle inequality gives the B_i bound. There are finitely many exceptional curves C_i on Y. In the proof case meeting the new exceptional curve, E_new·C≥1, so γE_new·C−δB_i>0 uniformly. The other cases use (k−γ)>0 and nefness of A. Published p.102 and both later preprints were checked; the lower-bound result survives this repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review. Coefficient inequalities do not bound intersection numbers by the absolute value of the sum when component intersections cancel. On Y=Bl_0 A² in characteristic p, let E be exceptional and D_x the strict transform of the x=0 axis. Set D=E+D_x, Λ=δE. Then −δD≤Λ≤δD but D·E=−1+1=0 and Λ·E=−δ<0. Take M the sum of the two strict axes and A=M+δE, so A∼_Q−(2−δ)E is relatively ample for rational 0<δ<2; all the lemma hypotheses hold. Blow up a point of E∩M and take C=E′. Thus the displayed inequality itself fails. For the repair, the coefficient condition forces D effective and |λ_j|≤δd_j. The triangle inequality gives the B_i bound. There are finitely many exceptional curves C_i on Y. In the proof case meeting the new exceptional curve, E_new·C≥1, so γE_new·C−δB_i>0 uniformly. The other cases use (k−γ)>0 and nefness of A. Published p.102 and both later preprints were checked; the lower-bound result survives this repair.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E10",
+      "kind": "misprint",
+      "locator": "Published Proposition 2.52, p.99, displayed adjunction formula; arXiv v3 Proposition 2.52, p.27",
+      "printed": "(K_X+S+B)|_Z ∼_R K_T+C+M+F+B_Z",
+      "correction": "Replace K_T by K_Z in this equality of divisor classes on Z.",
+      "reason": "The divisors C,M,F,B_Z and the restricted left side live on Z, whereas T is the base. The proof on the same page explicitly obtains K_{S^ν}|_Z=K_Z+M+F; substituting this into its preceding adjunction equality gives K_Z, with C pulled back and B_Z the boundary on Z. Viewed published p.99 and compared v3 p.27. This is a subscript slip, not a failure of the adjunction argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review. The divisors C,M,F,B_Z and the restricted left side live on Z, whereas T is the base. The proof on the same page explicitly obtains K_{S^ν}|_Z=K_Z+M+F; substituting this into its preceding adjunction equality gives K_Z, with C pulled back and B_Z the boundary on Z. Viewed published p.99 and compared v3 p.27. This is a subscript slip, not a failure of the adjunction argument.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E11",
+      "kind": "gap",
+      "locator": "arXiv v1 Lemma 4.25 and its proof, p.36; the acknowledged replacement is published §4.3.1 p.127 and arXiv v2 §4.3.1 pp.44–45",
+      "printed": "“Hence a simple spectral sequence implies our desired isomorphism.”",
+      "correction": "Do not use the claimed sheaf/complex isomorphism from v1. Use the revised definition with the direct sum of O_{X⁺}(−S_i⁺) and the revised adjoint-section results. In the old argument, the vanishing in degree d−1 proves surjectivity only; injectivity needs control of the preceding boundary map.",
+      "reason": "Let I=H⁰(K) and Q=H¹(K) in the old construction. The truncation triangle I→K→Q[−1] gives the exact segment H^{d−2}(RΓ_mRΓ Q)→H^d(RΓ_mRΓ I)→H^d(RΓ_mRΓ K)→H^{d−1}(RΓ_mRΓ Q), with the same twist throughout. The support bound used in v1 kills the last group, but does not kill the first group or its boundary map. Thus it does not establish the claimed isomorphism. This review confirms that proof gap, not a new counterexample to the old image statement. The authors explicitly call v1 Lemma 4.25 incorrect in v2 p.45 and published p.127, and replace the construction. It is already corrected in the published treatment and must not be registered as a new published error.",
+      "affects": "the proof",
+      "known": "Already acknowledged and replaced in arXiv:2012.15801v2, §4.3.1 pp.44–45 (8 June 2021), and published §4.3.1 p.127 (2023).",
+      "searched": [
+        "Independent review, Codex codex-c83e7a, 2026-09-23: freshly retrieved published Numdam PDF https://www.numdam.org/item/10.1007/s10240-023-00140-8.pdf (SHA-256 a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6), and arXiv v1/v2/v3 PDFs; locator comparisons are listed in the review report.",
+        "Independent review, 2026-09-23: https://arxiv.org/abs/2012.15801 lists v1 (2020-12-31), v2 (2021-06-08), and latest v3 (2022-12-05); no later version listed.",
+        "Independent review, 2026-09-23: https://link.springer.com/article/10.1007/s10240-023-00140-8 and Karl Schwede’s current papers page https://kschwede.github.io/papers.html link no separate correction for this article; title/DOI searches with erratum, correction and corrigendum found none.",
+        "Independent review, 2026-09-23: Crossref DOI record https://api.crossref.org/works/10.1007/s10240-023-00140-8 has empty relation and no update-to field. This checks this record, not an exhaustive reverse-update query."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review. Let I=H⁰(K) and Q=H¹(K) in the old construction. The truncation triangle I→K→Q[−1] gives the exact segment H^{d−2}(RΓ_mRΓ Q)→H^d(RΓ_mRΓ I)→H^d(RΓ_mRΓ K)→H^{d−1}(RΓ_mRΓ Q), with the same twist throughout. The support bound used in v1 kills the last group, but does not kill the first group or its boundary map. Thus it does not establish the claimed isomorphism. This review confirms that proof gap, not a new counterexample to the old image statement. The authors explicitly call v1 Lemma 4.25 incorrect in v2 p.45 and published p.127, and replace the construction. It is already corrected in the published treatment and must not be registered as a new published error.",
+        "by": "REV-ERRATA-PAPER-BHATT-ETAL-23"
+      }
     }
   ]
 }
