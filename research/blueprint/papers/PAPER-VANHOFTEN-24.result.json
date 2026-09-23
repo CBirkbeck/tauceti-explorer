@@ -2676,7 +2676,7 @@
       "kind": "theorem",
       "name": "Torsion-free inertia ensures connected fixer",
       "statement": "If pi1(G)_I is torsion-free, the full fixer of every relevant facet is its connected parahoric.",
-      "locator": "Lemma2.2.3 p12",
+      "locator": "Lemma2.2.2 p12",
       "status": "missing",
       "implementationStatus": "unchecked",
       "ownerKey": "local",
@@ -11829,7 +11829,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The deperfection definition in §2.1 reads \"with $Y$ an algebraic space of finite presentation\"; finite presentation is a condition on the model $Y_0$, not on $Y$, exactly as the correction says.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E2",
@@ -11846,7 +11851,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Lemma 2.1.6 asserts \"B is isomorphic to the integral closure of $A_0$ inside of $A$\". The correction's counterexample is right: for $A_0=k[t]$, $A=k[t^{1/p^\\infty}]$ every element of $A$ is integral over $A_0$, so the integral closure is all of $A$ and cannot be the finitely presented $B$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E3",
@@ -11863,7 +11873,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Lemma 2.1.7 argues \"injective on $k$-points, and hence universally injective\". Injectivity on field-valued points of one field does not give universal injectivity; the correction supplies the missing radicial/diagonal argument.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E4",
@@ -11882,7 +11897,12 @@
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
       "previousAffects": "a stated result",
-      "previousKind": "error"
+      "previousKind": "error",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 2.1.10 states \"Then $\\operatorname{Dim} X + d = \\operatorname{Dim} Y$\" where $d$ is the relative dimension of $Y\\to X$, so the equality must read $\\operatorname{Dim} Y = \\operatorname{Dim} X + d$ — the printed form has the summand on the wrong side. Harmless, and the proof uses the correct relation.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E5",
@@ -11899,7 +11919,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the classification as affecting the proof is right. The proof of Lemma 2.1.10 invokes \"going down holds for $\\mathcal{O}_{X,x} \\to \\mathcal{O}_{Y,y}$\" with the arrow written in the direction opposite to the one the dimension formula needs.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E6",
@@ -11917,7 +11942,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "a stated result"
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 2.1.12 and the paragraph 2.1.13 say \"for some positive integer $d_y$\"; the relative dimension there can be zero, so the quantifier must be over non-negative integers.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E7",
@@ -11934,7 +11964,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it is a real gap. The proof of Lemma 2.1.13 concludes \"$U_y \\cap U_{y'}$ is non-empty because $Y$ is connected\". Connectedness does not make two open sets meet — $\\operatorname{Spec} k[x,y]/(xy)$ is connected and has two disjoint opens — so the chain-of-opens argument the correction supplies is needed.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E8",
@@ -11951,7 +11986,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §2.2.5 says \"the standard Iwahori subgroup $\\mathcal{G}_\\emptyset(\\mathbb{Z}_p)$ contains a very special parahoric\". An Iwahori is the smallest parahoric and is contained in, not containing, a very special one; the containment is printed backwards.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E9",
@@ -11969,7 +12009,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the proof of Lemma 2.3.9 the display at arXiv v4 `main.tex:906` has the *same* quotient $[\\mathcal{M}^{\\mathrm{1-rdt}}_\\emptyset / \\operatorname{Ad}_\\sigma H_m]$ on both sides of the arrow and then sets it equal to $\\operatorname{Sht}^{(m',1)}$; the analogous display two paragraphs earlier correctly has $L^{m'}\\mathcal{G}_\\emptyset$ in the target. The equality holds only after passing to the $L^{m'}\\mathcal{G}$ quotient, which is the very gerbe the next display treats.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E10",
@@ -11986,7 +12031,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The passage after Lemma 2.4.5 sets \"$b' = g^{-1} b \\sigma(g)$ … via the map\"; the transport of the tensors through that identification is the step the correction repairs.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E11",
@@ -12003,7 +12053,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Remark 3.1.8 states outright that \"the square in [XZ17, top of page 113] does not commute\" and then leans on the SYZ21 route; the correction's alternative (Hoff23 Corollary 2.57 under Assumption 2.28, or a separately verified corrected argument) is the right shape of repair. This is one of the two places where the paper itself flags an external defect.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E12",
@@ -12020,7 +12075,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §3.1.9 defines the isogeny by \"$\\mathbb{D}_x[1/p] \\rightarrow \\mathbb{D}_{x'}[1/p]$ … sends $s_{\\alpha,0,x'}$ to $s_{\\alpha,0,x}$\" — the tensors are named in the order opposite to the arrow.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E13",
@@ -12037,7 +12097,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and it is a genuine gap. The diagram is at arXiv v4 `main.tex:1516-1519` and prints on published p. 31: its right-hand column is $\\operatorname{GL}(\\bigoplus_{i=1}^r \\Lambda_{i,p}) \\to \\operatorname{GL}(\\bigoplus_{i=1}^s \\Lambda_{s_i,p})$ with $s<r$. There is no such map on full automorphism groups — a general automorphism of the larger sum need not preserve the smaller one, and its principal block need not be invertible — so the restriction to chain-compatible automorphisms the correction describes is exactly what makes the square exist. The quasi-isogeny actually used is chain-compatible, so the repair is available.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E14",
@@ -12054,7 +12119,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the printed level. Published p. 39 footnote 22 reads \"h is proper and quasi-finite, and hence finite, which implies that f is finite\"; $f$ is the perfection, and finiteness does not descend along it in the way the footnote asserts.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E15",
@@ -12071,7 +12141,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Published p. 39 opens \"To show that $f'$ has finite fibres…\" two sentences after $f'$ has already been called finite, so the paragraph re-proves what it has just assumed.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E16",
@@ -12088,7 +12163,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The proof of Corollary 4.2.3 concludes \"to deduce that $\\hat{\\lambda}$ is weakly perfectly smooth of relative dimension $0$\"; the cited input gives the statement for the unhatted map, and the correction restores the missing step.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E17",
@@ -12105,7 +12185,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and \"affects a stated result\" is the right classification. §4.3.12 fixes \"an identification $\\mathbb{G}\\otimes\\mathbb{A}_f^p \\simeq \\mathbb{H}\\otimes\\mathbb{A}_f^p$ and an inner twisting $\\Psi$\" with no compatibility imposed between the two, yet Proposition 4.3.13 uses them together.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E18",
@@ -12123,7 +12208,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "a stated result"
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A1 defines \"$\\lambda\\preccurlyeq\\lambda'$ if $\\lambda-\\lambda'$ can be written as a sum of positive coroots with positive integral coefficients\" — the difference is taken in the wrong order for the relation as used throughout the appendix (and non-negative coefficients are needed for reflexivity).",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E19",
@@ -12140,7 +12230,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A2.1 prints \"$\\nu_w:=\\frac{t^\\lambda}{n}\\in X_*(T)_{I,\\mathbb{Q}}$\": the numerator should be the translation part $\\lambda$, not the group element $t^\\lambda$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E20",
@@ -12157,7 +12252,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma A2.3 defines $w_\\sharp := u w \\sigma(u)^{-1}$ and the proof on p. 57 drops the inverse, writing $\\sigma(u)$.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E21",
@@ -12175,7 +12275,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Published p. 57 says \"$\\ker(\\pi_1(M)\\to\\pi_1(G))$ is freely generated by the subset of simple roots contained in $M$ but not in $G$\" — every simple root of $M$ is a root of $G$, so the description as printed is empty; it is coroots of $G$ not in $M$ that are meant.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E22",
@@ -12192,7 +12297,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The Kottwitz-class comparison on p. 57 speaks of the images of $[b]_M$ and $[\\dot w_\\sharp]_M$ \"in $\\pi_1(M)_I$\", but the Kottwitz invariant of a $\\sigma$-conjugacy class lives in $\\pi_1(M)_\\Gamma$; the torsion-kernel argument must be run after passing to $\\sigma$-coinvariants, as the correction says.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E23",
@@ -12210,7 +12320,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Published p. 58 chooses $g_0$ with \"$g_0^{-1}\\dot w_\\sharp g_0=\\dot w$\" — ordinary conjugacy where the cited HZ result gives $\\sigma$-conjugacy.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E24",
@@ -12228,7 +12343,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The definition on p. 58 (arXiv v4 `main.tex:2425`) is \"where $w_i:=u_i^{-1}w_\\sharp\\sigma(u_i)$\", which is the twisted form; the surrounding argument needs it written consistently with the $\\sigma$-conjugation convention fixed earlier in the proof.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E25",
@@ -12245,7 +12365,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The sentence is at arXiv v4 `main.tex:2425`: \"Since $\\mathcal{U}_{-\\alpha_{i+1}}\\subset \\mathcal{I}\\dot{s}_{i+1}\\mathcal{I}$\". As stated this is false — the root subgroup contains the identity, which lies in $\\mathcal{I}$, not in the non-trivial double coset — so the containment must be restricted to the non-identity elements, which is all the argument uses.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E26",
@@ -12263,7 +12388,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A3.3 prints \"$x-x'=\\alpha^\\vee-\\sigma^r(\\alpha^\\vee)$\", which does not match the displayed intermediate parameters it is derived from.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E27",
@@ -12280,7 +12410,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Appendix A3.5 reads \"If $\\widetilde\\alpha$ is divisible, then … $G_\\alpha\\cong\\mathrm{Res}\\,SU_3$\"; the quasi-split unitary group in three variables arises for the *non*-divisible case of a ramified root, so the condition is stated the wrong way round.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E28",
@@ -12299,7 +12434,12 @@
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
       "previousAffects": "a stated result",
-      "previousKind": "error"
+      "previousKind": "error",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by direct computation. Appendix A3.7(3) gives \"$a\\mapsto i_\\alpha(u_1([a],\\frac{[a]^2}{2}))$\"; evaluating the second coordinate at $a=1$ gives $1/2\\neq 0$ where the cocycle condition forces $0$, so a sign (or a factor) is wrong as printed.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E29",
@@ -12316,7 +12456,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. The argument of A3.6–A3.9 picks \"a uniformiser $\\pi\\in\\breve K'$ such that $\\tau(\\pi)=-\\pi$\" and then applies the construction to cases where no such uniformiser exists (residue characteristic 2, and the non-quadratic ramified cases), so the existence claim needs the hypothesis the correction adds.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E30",
@@ -12334,7 +12479,12 @@
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and worth recording precisely: this slip exists **only in the published version**. Published p. 62 sets $P':=g(\\infty)=\\lim_{z\\to\\infty} g_x\\prod_{i=0}^{r-1}u'_{\\sigma^i(\\alpha)}(z^{-1})\\dot t^{\\sigma^i(\\alpha^\\vee)}L^+\\mathcal{G} = g_x\\dot t^{-\\sum_{i=0}^{r-1}\\sigma^i(\\alpha^\\vee)}L^+\\mathcal{G}$ — positive exponents inside the product, negative in the answer. arXiv v4 (`main.tex:2547-2548`) has only the final expression, with the correct negative sign; the intermediate limit was added in production. The next equality fixes the endpoint, so \"affects nothing\" is right.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E31",
@@ -12351,7 +12501,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Published p. 63 prints \"$\\beta$ is the unique root in $\\Sigma$ with $\\sigma^h(\\beta)$ and such that…\": the condition on $\\sigma^h(\\beta)$ is truncated mid-clause.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E32",
@@ -12368,7 +12523,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. At arXiv v4 `main.tex:2558` the display runs $g(z)^{-1}b\\sigma(g(z))\\in L^+\\mathcal{G}\\,u_{\\sigma^{r-h}(\\alpha)}(-c_2z)(\\dot t^{\\lambda}u_{\\sigma^r(\\alpha)+\\sigma^r(\\beta)}(c_1z)\\dot t^{-\\lambda})u_{\\sigma^{r-h}(\\alpha)}(c_2z)u_\\alpha(\\dots)$ and stops without the closing $L^+\\mathcal{G}$, so the right-hand side is not the double coset it must be.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E33",
@@ -12385,7 +12545,12 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §3.1.7 imports \"perfectly smooth by \\cite[Corollary 2.57]{HoffThesis}\" without checking that thesis's standing assumption, which is the gap the correction names.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     },
     {
       "id": "PAPER-VANHOFTEN-24/E34",
@@ -12402,7 +12567,33 @@
         "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
         "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
         "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The reduced-word induction on p. 58 (arXiv v4 `main.tex:2426`) asserts \"$g(0)=g_i\\mathcal{I}$ and $g(\\infty)=g_{i+1}\\mathcal{I}$\", and the second equality, cited to the displayed $h_\\alpha(\\infty)=\\dot{s}_\\alpha\\mathcal{I}$ at `main.tex:2418`, needs the extra step the correction supplies before the induction closes.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
+    },
+    {
+      "id": "PAPER-VANHOFTEN-24/E35",
+      "kind": "misprint",
+      "locator": "Published2024 Proposition3.1.12 proof p31, GL diagram delimiters",
+      "printed": "GL(direct_sum_{i=1}^r Lambda_{i,p}) in the top row is set with \\big delimiters while GL(direct_sum_{i=1}^s Lambda_{s_i,p}) in the bottom row is set with \\Big delimiters.",
+      "correction": "Move the vertical arrow out of the delimiter pair, so that both entries of the right-hand column are set at the same size.",
+      "reason": "In the source the top-right cell is \\operatorname{GL}\\left(\\bigoplus_{i=1}^r \\Lambda_{i,p} \\arrow{d} \\right): the tikzcd arrow command sits inside the \\left(...\\right) pair rather than after it. The two GL parentheses in the same column consequently print at different sizes. Purely typographic; the diagram is the one E13 is about.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Cambridge article DOI10.1017/fmp.2024.22 and its article listing, checked2026-09-22 for this paper (issue #1360): no linked corrigendum, so no published correction can exist for this entry either.",
+        "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked.",
+        "arXiv v4 source read directly by the reviewer2026-09-23: the misplaced \\arrow{d} is present at main.tex:1517, and the published p.31 sets the two GL delimiters at different sizes."
+      ],
+      "foundBy": "cc-fb70e5 (review of issue #1361)",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the reviewer from arXiv v4 main.tex:1517 and the published page 31, where the two right-column GL delimiters are set at different sizes.",
+        "by": "Claude Code (cc-fb70e5)"
+      }
     }
   ],
   "sourceArchives": [
