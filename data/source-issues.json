@@ -40538,6 +40538,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-SCHOLZE-26/E1",
+   "kind": "misprint",
+   "locator": "§2.4, type (3) points, p. 14 (arXiv v3; also v2)",
+   "printed": "In fact, it can be explicitly described as C⟨(T−a)^{pm1}⟩_{x_a}, the uniform completion of the free seminormed ring C[(T−a)^{±1}]_{x_a}",
+   "correction": "C⟨(T−a)^{±1}⟩_{x_a}",
+   "reason": "A LaTeX slip ('pm1' for \\pm 1): the same ring is written C[(T−a)^{±1}]_{x_a} in the same sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+    "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+    "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+   ],
+   "owner": "PAPER-SCHOLZE-26",
+   "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
+   "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SCHOLZE-26/E2",
+   "kind": "misprint",
+   "locator": "§6, proof of Theorem 6.3, p. 36; Lemma 6.5 and its proof, p. 37 (arXiv v3; also v2)",
+   "printed": "the complements of each of U, U_1, U_2 and V in P¹_A is a finite disjoint union of closed discs; … open subsets whose complements in P¹_A are finite disjoint unions of closed discs; … the complement of U in P¹_A is the union of closed discs Z_0, …, Z_d",
+   "correction": "P¹_C (the projective line over the algebraically closed field C)",
+   "reason": "In both places X = M_arc(C) and U, V ⊂ 𝔸¹_C; no Banach ring A is in scope.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+    "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+    "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+   ],
+   "owner": "PAPER-SCHOLZE-26",
+   "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
+   "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SCHOLZE-26/E3",
+   "kind": "misprint",
+   "locator": "§3, Example 3.6, p. 16 (arXiv v3; also v2)",
+   "printed": "Let A be any Banach ring. The map A → B = ∏^Ban_{x∈M(A)} K(x) is an arc-cover. The target is an example of a totally disconnected Banach ring as defined below.",
+   "correction": "The target is totally disconnected when A is analytic (all K(x) non-discrete), which can always be arranged by Example 3.4.",
+   "reason": "Definition 3.10 requires totally disconnected rings to be analytic, and Proposition 3.11 assumes the K_i non-discrete; for a discrete ring A (e.g. ℤ with the trivial norm) the residue fields are discrete and B is not analytic.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
+    "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
+    "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
+   ],
+   "owner": "PAPER-SCHOLZE-26",
+   "file": "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
+   "citation": "Scholze, \"Berkovich Motives\", Journal of the American Mathematical Society (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-SCHROER-23/E1",
    "kind": "misprint",
    "locator": "Lemma 1.1, p. 5 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
