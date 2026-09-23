@@ -5,7 +5,7 @@
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E1",
       "kind": "misprint",
-      "locator": "BSTTTZ, Taniguchi author copy dated 18 February 2017, proof of Theorem 2.1, printed p.4 (PDF index 3), product formula for the volume of B.",
+      "locator": "Taniguchi author copy dated 18 February 2017, proof of Theorem 2.1, p.4, volume display; also arXiv:1701.02458v1, p.4. Author-copy page image independently inspected.",
       "printed": "sqrt(pi) |Disc(K)|^(1/(2n)) |alpha|_v^(-1/m)",
       "correction": "For every complex place, square the whole displayed factor: its disc contributes pi R_v^2, not sqrt(pi) R_v. The body volume is 2^r pi^s sqrt(D_K)/N(I).",
       "reason": "A complex coordinate is two real dimensions. With K=Q(i), I=O_K and alpha=1, the radius is sqrt(2); the disc area is 2pi rather than sqrt(2pi). The latter is below the Minkowski threshold 4 in the ordinary metric, whereas the correct area is above it. The existing balanced-body item already uses the corrected formula, so the theorem and its route are unchanged. (cc-442dc5) Reclassified to affect nothing: the balanced-body item already uses the corrected volume, and Theorem 2.1 and its route are unchanged.",
@@ -18,18 +18,27 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified."
       ],
       "previousAffects": "the proof",
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "Independently multiplied r interval lengths 2R_v and s planar areas pi*R_v^2. Since n=r+2s and |Norm(alpha)|=N(I)^m, the volume is 2^r*pi^s*sqrt(|D_K|)/N(I), whose ratio to the Minkowski threshold is (pi/2)^s >= 1. For Q(i), I=O_K, alpha=1, the incorrect expression gives sqrt(2*pi)<4 whereas the area is 2*pi>4. The intended proof survives. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E2",
       "kind": "misprint",
-      "locator": "BSTTTZ, arXiv:1701.02458v1, §5.1, printed p.7, the sentence introducing the curves E_(±,A,B,C); the corresponding place in the February 2017 author copy was not checked",
+      "locator": "arXiv:1701.02458v1, §5.1, p.7, coefficient bounds; independently collated with the 18 February 2017 Taniguchi author copy, §5.1, p.7.",
       "printed": "where |A| <= |Disc(K)|^(1/3), B <= |Disc(K)|^(2/3), and C <= |Disc(K)|",
-      "correction": "|B| <= |Disc(K)|^(2/3) and |C| <= |Disc(K)|.",
-      "reason": "A, B and C are the coefficients of +-y^2 = x^3 + Ax^2 + Bx + C obtained by expanding f_beta(m) = Norm(beta - m) for beta ranging over a box symmetric about the origin, so each of them takes both signs; the first is printed with absolute values and the others are not. The deduction that each curve has |Disc(E)| << |Disc(K)|^2, and hence the |Disc(E)|^epsilon factor in the application of Theorem 5.1, needs the absolute values on all three.",
+      "correction": "State two-sided bounds |A| << D_K^(1/3), |B| << D_K^(2/3), |C| << D_K, with fixed-degree constants. Directly, if every conjugate has modulus at most R, the elementary-symmetric bounds are |A| <= 3R, |B| <= 3R^2, |C| <= R^3. No sharp constant 1 is asserted for A or B.",
+      "reason": "The discriminant estimate needs bounds on coefficient magnitudes, not merely upper bounds on signed B and C. The elementary-symmetric formulas give the stated two-sided bounds and |disc(x^3+Ax^2+Bx+C)| <= 486 R^6. Negating beta changes A and C but not B; therefore the inherited symmetric-box explanation alone did not justify its claim about the sign of B. The corrected magnitude argument does not rely on that claim.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -40,14 +49,24 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "previousCorrection": "|B| <= |Disc(K)|^(2/3) and |C| <= |Disc(K)|.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "Both preprints omit the absolute values. Recomputed the coefficient and discriminant estimates directly, replacing the inherited sharp-constant assertion with the proved fixed-degree bounds. This is a presentation slip, not a change to the asymptotic argument. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E3",
       "kind": "misprint",
-      "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.2, printed p.10, the displayed class number formula (checked on a page image); the corresponding place in the February 2017 author copy was not checked",
+      "locator": "arXiv:1701.02458v1, Remark 7.2, p.10 (page image independently inspected); collated with the 18 February 2017 Taniguchi author copy, Remark 7.2, p.11.",
       "printed": "|Pic^0(C)(k)| = |k|^g log|k| Res_(s=1) zeta_C(s)",
       "correction": "|Pic^0(C)(k)| = |k|^g (1 - |k|^(-1)) log|k| Res_(s=1) zeta_C(s).",
       "reason": "Write zeta_C(s) = Z(|k|^(-s)) with Z(T) = P(T)/((1-T)(1-|k|T)) and P(1) = |Pic^0(C)(k)|. The pole at s = 1 comes from the factor 1 - |k|T, and the residue is P(|k|^(-1))/((1 - |k|^(-1)) log|k|); the functional equation P(1/(|k|T)) = |k|^(-g) T^(-2g) P(T) at T = 1 gives P(|k|^(-1)) = |k|^(-g) P(1). Hence P(1) = |k|^g (1 - |k|^(-1)) log|k| Res, and the printed identity omits 1 - |k|^(-1). That factor lies in [1/2, 1), so the remark, which only compares growth in g, is unaffected.",
@@ -61,14 +80,23 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "For Z(T)=P(T)/((1-T)(1-qT)), the ordinary s-residue of Z(q^(-s)) at 1 is P(1/q)/((1-1/q)*log(q)). The functional equation gives P(1/q)=q^(-g)P(1), proving the correction. Already C=P^1 over F_q contradicts the printed identity: Pic^0 has size 1 but its right side is q/(q-1). The omitted factor lies between 1/2 and 1, so it does not alter the growth comparison. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
       "kind": "misprint",
-      "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.3, printed p.10 (checked on a page image); the corresponding place in the February 2017 author copy was not checked",
+      "locator": "arXiv:1701.02458v1, Remark 7.3, p.10 (page image independently inspected); collated with the 18 February 2017 Taniguchi author copy, Remark 7.3, p.11.",
       "printed": "Pic^0(C)(k)[2] subset Pic^0(C)(kbar)[2] and the latter group has size 2^(2g), or 2^g if the characteristic is 2",
       "correction": "... or at most 2^g if the characteristic is 2.",
       "reason": "Over an algebraically closed field of characteristic 2 the 2-torsion of a g-dimensional abelian variety is (Z/2)^f with f the 2-rank, 0 <= f <= g; f = g characterises the ordinary case and a supersingular Jacobian has f = 0. Only the upper bound is used: the remark compares |k|^g with 2^(2g) in odd characteristic and with 2^g in characteristic 2, and concludes that the first bound of Theorem 7.1 wins only for k = F_3. That conclusion is unaffected, and is correct with the corrected statement.",
@@ -82,17 +110,26 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "The smooth projective cubic y^2+y=x^3 in characteristic 2 has inverse (x,y+1); no affine geometric point equals its inverse, so its geometric 2-torsion consists only of the identity, not 2 points. In general [2]=V∘F on a g-dimensional abelian variety, deg(F)=2^g and deg([2])=2^(2g), so there are at most 2^g geometric kernel points. The group-scheme length is not the number of geometric points. Only the upper bound is needed here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5",
       "kind": "gap",
-      "locator": "Author copy §4, first paragraph, p.6 (index-two case of the proof of Theorem 1.1)",
+      "locator": "Taniguchi author copy dated 18 February 2017, §4, p.6, index-two case; independently collated with arXiv:1701.02458v1, p.6.",
       "printed": "by genus theory, the 2-torsion in the class group of K is bounded by the 2-torsion in the class group of F multiplied by O(2^t) … we obtain a bound of O_ε(|Disc(K)|^{1/4+ε})",
-      "correction": "Use the relative bound that is proved, h_2(K) ≤ 4^{e−1} h_2(F)² (Klüners–Wang, arXiv:2003.12161, Theorem 2.1, with e counting ramified places including real ones). With Theorem 1.1 for F (or Gauss genus theory when F is quadratic) and D_F ≤ D_K^{1/2}, this gives h_2(K) ≪ D_K^{1/2−1/(2n)+ε} for n > 4 and D_K^ε when n = 4, so Theorem 1.1 is unaffected; the D_K^{1/4+ε} bound for this case is not established.",
-      "reason": "The one-factor bound is asserted without proof or reference. The published relative genus bounds (Cornell; Klüners–Wang) carry the square of h_2(F); the linear form is proved there only when the base 2-rank is zero. The checkpoint already routes the Klüners–Wang replacement (quadratic-relative-rank, quadratic-relative-torsion).",
+      "correction": "A verified sufficient replacement is Klüners–Wang, arXiv:2003.12161v2, Theorem 2.1: h_2(K) <= 4^(e-1) h_2(F)^2, where t counts all ramified places including infinite ones and e=max(t,1), not simply t. Use this in a strong induction on n=[K:Q]. If m=[F:Q]=n/2>=3 and the lower-degree bound has exponent 1/2-1/(2m)+eta, then D_F^2<=D_K and 4^(e-1)<<_{n,eta}D_K^eta give exponent 1/2-1/n+O(eta), sufficient for the claimed 1/2-1/(2n)+epsilon when n>4. For n=4, quadratic genus theory for F gives D_K^epsilon. This replacement does not itself prove or refute the printed one-factor relative bound or its stronger D_K^(1/4+epsilon) conclusion.",
+      "reason": "The displayed one-factor estimate has no derivation or precise citation in either preprint. Klüners–Wang Theorem 2.1 and its proof give the squared estimate above; Remark 2.2 gives an improvement when the base 2-rank is zero. However, a weaker known upper bound is not evidence that a stronger bound is false or unavailable by a different argument. Independent confirmation of E5 as a source gap is therefore deferred pending a check of the intended relative-genus statement.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -100,17 +137,29 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified.",
+        "Codex read Klüners–Wang arXiv:2003.12161v2, pp.3–5, including Theorem 2.1, its proof, Remark 2.2 and the ramification estimate. This does not constitute a search of every stronger relative-genus theorem."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E8"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E8",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "previousCorrection": "Use the relative bound that is proved, h_2(K) ≤ 4^{e−1} h_2(F)² (Klüners–Wang, arXiv:2003.12161, Theorem 2.1, with e counting ramified places including real ones). With Theorem 1.1 for F (or Gauss genus theory when F is quadratic) and D_F ≤ D_K^{1/2}, this gives h_2(K) ≪ D_K^{1/2−1/(2n)+ε} for n > 4 and D_K^ε when n = 4, so Theorem 1.1 is unaffected; the D_K^{1/4+ε} bound for this case is not established.",
+      "previousReason": "The one-factor bound is asserted without proof or reference. The published relative genus bounds (Cornell; Klüners–Wang) carry the square of h_2(F); the linear form is proved there only when the base 2-rank is zero. The checkpoint already routes the Klüners–Wang replacement (quadratic-relative-rank, quadratic-relative-torsion).",
+      "independentCheck": {
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "status": "unresolved",
+        "reason": "The replacement theorem and the noncircular induction were checked, including t=0, but the source-gap verdict is not established. No review verdict has been assigned."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6",
       "kind": "error",
-      "locator": "Author copy Theorem 1.3 and the paragraph before it, pp.2–3; same statement in arXiv v1",
+      "locator": "Taniguchi author copy dated 18 February 2017, Theorem 1.3(a) and preceding Selmer estimate, p.2 (page image independently inspected); collated with arXiv:1701.02458v1, p.2. Part (b) is affected through its stated deduction, not refuted by this counterexample.",
       "printed": "|Sel_2(Jac(C))| = O_ε(|Disc(K)|^ε h_2(K)); (a) |Sel_2(Jac(C))| = O_ε(|Disc(K)|^{1/2−δ_n+ε}); (b) rank(Jac(C)) < c_ε + (1/2−δ_n+ε) log_2|Disc(K)|",
-      "correction": "The ε-factor must be |Disc(C)|^ε: |Sel_2(Jac C)| ≪_{n,ε} |Disc(C)|^ε h_2(K) ≪ |Disc(C)|^ε |Disc(K)|^{1/2−δ_n+ε}. Theorem 1.3 holds in the Disc(C) form that the remark after Theorem 1.3 allows.",
-      "reason": "K = Q[x]/(f) does not see the twists of C. Take f(x) = x³ − N²x: then K ≅ Q³, so Disc(K) = 1 and h_2(K) = 1, and (a) would bound |Sel_2| uniformly over the congruent-number curves y² = x³ − N²x. Their 2-Selmer ranks are unbounded (Heath-Brown 1993–94; Swinnerton-Dyer 2008; Kane 2013). Part (b) is deduced from (a), so it is not established with Disc(K); with Disc(C) both parts follow.",
+      "correction": "Remove the assertion that the etale-algebra discriminant alone bounds these Selmer groups and retain bad-reduction/model-discriminant dependence in descent. For the cubic elliptic case, Theorem 5.2 supplies |Sel_2(E)| <= 4*4^omega(|Delta_E|)*h_2(K), hence <<_epsilon |Delta_E|^epsilon h_2(K), and the corresponding rank upper bound follows. The inherited proposed all-hyperelliptic Disc(C) replacement is a candidate repair requiring an explicit discriminant convention and descent input; it is not certified in all degrees by this checkpoint. No assertion of unbounded Mordell–Weil ranks is made.",
+      "reason": "For f_N=x^3-N^2*x, K=Q^3, |Disc(K)|=h_2(K)=1, whereas the 2-Selmer dimensions of E_N:y^2=x^3-N^2*x are unbounded. Independently checked Kane, published Algebra & Number Theory 7 (2013), Theorems 2–3, pp.1253–1254: for the roots (0,1,-1), the three square tests are (-1,2,2), so the hypotheses hold and every dimension d>=2 has positive limiting density. This contradicts Theorem 1.3(a) and the preceding Selmer estimate. It invalidates the offered deduction of (b), but does not show (b) false: Selmer growth can come from Sha[2].",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -118,17 +167,29 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified.",
+        "Codex read Kane's author copy pp.1–3 and the published version https://msp.org/ant/2013/7-5/ant-v7-n5-p09-p.pdf, pp.1253–1255 (PDF pages 2–4), including Theorems 2–3. This is a supplier check, not a claim to have reread Kane's entire proof."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E9"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E9",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "previousCorrection": "The ε-factor must be |Disc(C)|^ε: |Sel_2(Jac C)| ≪_{n,ε} |Disc(C)|^ε h_2(K) ≪ |Disc(C)|^ε |Disc(K)|^{1/2−δ_n+ε}. Theorem 1.3 holds in the Disc(C) form that the remark after Theorem 1.3 allows.",
+      "previousReason": "K = Q[x]/(f) does not see the twists of C. Take f(x) = x³ − N²x: then K ≅ Q³, so Disc(K) = 1 and h_2(K) = 1, and (a) would bound |Sel_2| uniformly over the congruent-number curves y² = x³ − N²x. Their 2-Selmer ranks are unbounded (Heath-Brown 1993–94; Swinnerton-Dyer 2008; Kane 2013). Part (b) is deduced from (a), so it is not established with Disc(K); with Disc(C) both parts follow.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "Confirmed the split-etale-algebra counterexample using Kane's published positive-density theorem, with its no-rational-cyclic-4-subgroup hypothesis checked explicitly. Restricted the verified correction to the elliptic descent inequality and the general need for bad-prime dependence; the all-degree proposed repair still needs its own proof. Distinguished a false Selmer bound from an unsupported rank deduction. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7",
       "kind": "gap",
-      "locator": "Author copy Theorem 1.7 and Theorem 7.1, second assertion, with its one-sentence proof, pp.3 and 11–12",
+      "locator": "Taniguchi author copy dated 18 February 2017, Theorem 1.7 p.3 and Theorem 7.1 pp.11–12; collated with arXiv:1701.02458v1, pp.3 and 10–11.",
       "printed": "if C admits a degree n map to P¹ over k, then |Pic⁰(C)(k)[2]| ≪_n |k|^{(1−1/n)g}",
-      "correction": "Treat the second assertion as not established. The cited input has an ε-loss and a q-dependent constant (E10), so the analogy with §4 can give at most an ε-lossy bound whose constant depends on |k|, and the function-field version of §4 is not written out.",
-      "reason": "The proof reads 'we proceed just as in the proof of Theorem 1.1, but using … Sedunova [16, Theorem 1]'. The printed bound has no ε and a constant depending only on n. Neither follows from that input. The first assertion of Theorem 7.1 is proved in full and is unaffected.",
+      "correction": "The cited argument does not establish the epsilon-free, n-only second bound. An additional uniform endpoint estimate, or a different complete proof, is needed. Do not simply delete epsilon or hide q-dependence. This review does not assert that Theorem 7.1's second statement is false and does not certify a particular weaker function-field replacement without the omitted adaptation. Its first Riemann–Roch bound is unaffected.",
+      "reason": "Sedunova's cited v1 Theorem 1 contains an epsilon-loss. The published Acta Arithmetica 181.4 (2017), p.321, also retains epsilon and prints an implied constant depending only on d and epsilon, not q. That printed uniformity cannot hold for the stated full range: on Y=X^2 with I={degree<=2 polynomials}, |I|=q^3 and |S|=q^2, so at epsilon=1/12 the ratio to |I|^(1/2+epsilon) is q^(1/4). Thus q-independent use of the cited bound needs an additional repair or restricted range. Neither this constant issue nor the epsilon endpoint is addressed in BSTTTZ's one-sentence reduction. This supports a gap in that deduction, not falsity of the desired torsion bound.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -136,9 +197,35 @@
         "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
         "Published version, J. Amer. Math. Soc. 33 (2020), 1087–1099: the AMS PDF returned HTML on 23 September 2026 and Unpaywall lists no open copy, so these findings could not be checked against the published wording",
         "Crossref, 23 September 2026: no update or correction registered for 10.1090/jams/945",
-        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version"
+        "arXiv 1701.02458: only v1 exists (January 2017); there is no later version",
+        "Independent check by Codex, codex-a71f92, 23 September 2026: freshly downloaded arXiv:1701.02458v1 (SHA-256 99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871) and the 18 February 2017 Taniguchi author copy (bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec).",
+        "Independent correction search, 23 September 2026: arXiv lists only v1; Crossref DOI 10.1090/jams/945 has no update-to and an empty relation object; Taniguchi, Thorne and Tsimerman publication pages showed no correction notice for this paper; title+erratum/corrigendum searches found none. These negative searches do not establish absence of a correction.",
+        "Independent version-access check, 23 September 2026: AMS article and accepted/published PDF endpoints failed or returned HTTP 403; the JSTOR record did not expose article text. MPG item_3277755 identifies its public file_3277756 as a preprint, despite its November 2020 compilation date; its publisher-version file_3277757 is audience-restricted. No restricted copy was accessed. JAMS wording remains unverified.",
+        "Codex read Sedunova arXiv:1506.08757v1 pp.1–6 and the published Acta Arithmetica 181.4 (2017) pp.321–322; p.321 visually inspected. Published PDF: https://www.impan.pl/shop/publication/transaction/download/product/111360. The endpoint and printed constant issue persist in that supplier statement; this is not an erratum to BSTTTZ."
       ],
-      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E11"
+      "extraction": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E11",
+      "versionScope": "Confirmed checks below concern the named preprints only; no assertion is made that JAMS retained the same wording.",
+      "previousCorrection": "Treat the second assertion as not established. The cited input has an ε-loss and a q-dependent constant (E10), so the analogy with §4 can give at most an ε-lossy bound whose constant depends on |k|, and the function-field version of §4 is not written out.",
+      "previousReason": "The proof reads 'we proceed just as in the proof of Theorem 1.1, but using … Sedunova [16, Theorem 1]'. The printed bound has no ε and a constant depending only on n. Neither follows from that input. The first assertion of Theorem 7.1 is proved in full and is unaffected.",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "reason": "Checked the reduction in both preprints, Sedunova's v1 statement and proof section, and the published Sedunova statement on p.321. Replaced the inaccurate suggestion that Sedunova explicitly states q-dependence with the exact printed statement and a direct counterexample to uniformity in its full range. Kept the verdict at 'gap': an epsilon-lossy input cannot be promoted to its endpoint without further control, and no complete substitute function-field proof is supplied here. This verdict is confined to the specified public preprint versions. The published JAMS text was not collated, and the review job remains incomplete."
+      }
     }
-  ]
+  ],
+  "reviewCheckpoint": {
+    "job": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+    "worker": "Codex",
+    "session": "codex-a71f92",
+    "date": "2026-09-23",
+    "status": "partial",
+    "checkedVersionVerdicts": 6,
+    "unresolved": [
+      "Published BSTTTZ JAMS text has not been collated.",
+      "E5: assess the intended stronger relative-genus estimate before assigning a source-gap verdict.",
+      "E6: establish the all-degree corrected descent bound and an explicit discriminant convention."
+    ],
+    "completionGate": "The required final review report has deliberately not been submitted; the detailed checkpoint is in the job's handoff. These verdicts must not be counted as completed-review confirmations until the review is finished."
+  }
 }
