@@ -35,10 +35,11 @@
       "library": [
         "mathlib:SchwartzMap",
         "mathlib:SchwartzMap.fourierTransformCLM",
-        "mathlib:SchwartzMap.fourierTransformCLE"
+        "mathlib:SchwartzMap.instFourierTransform",
+        "mathlib:Continuous.fourierInv_fourier_eq"
       ],
       "planned": [],
-      "note": "Mathlib's Schwartz space and its Fourier transform with inversion on a finite-dimensional real inner product space (082e2d3); the paper's pairing e^{xξ}, ξ ∈ ig*, is a change of normalisation. (supersedes cc-d67081 item(s) schwartz-space.)"
+      "note": "Mathlib's Schwartz space and its Fourier transform with inversion on a finite-dimensional real inner product space (082e2d3); the paper's pairing e^{xξ}, ξ ∈ ig*, is a change of normalisation. (supersedes cc-d67081 item(s) schwartz-space.) Corrected by cc-7b31c4: SchwartzMap.fourierTransformCLE does not exist at 082e2d3 — the name occurs only in the module docstring of Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean, which promises the transform 'also given as a continuous linear equiv'. Inversion on Schwartz space is SchwartzMap.instFourierTransform (Fourier.lean:86), whose fourierInv_fourier_eq and fourier_fourierInv_eq are proved there, with the general statements Continuous.fourierInv_fourier_eq and MeasureTheory.Integrable.fourierInv_fourier_eq in Analysis/Fourier/Inversion.lean."
     },
     {
       "id": "PAPER-NELSON-VENKATESH-21/2",
