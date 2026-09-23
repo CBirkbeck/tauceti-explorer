@@ -4130,8 +4130,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8380,8 +8380,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2188"
+   "state": "external",
+   "note": "claimed on GitHub issue #2188"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
@@ -31531,7 +31531,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-ANDRE-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-ANDRE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1881"
   },
   {
    "id": "ERRATA-DESIGN-LV",
@@ -31547,8 +31548,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-DESIGN-LV.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1882"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1882",
+   "finishedAt": "2026-09-23T12:09:57Z"
   },
   {
    "id": "REV-ERRATA-DESIGN-LV",
