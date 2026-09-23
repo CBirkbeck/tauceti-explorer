@@ -31200,7 +31200,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2178"
   },
   {
    "id": "REV-ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -31235,8 +31236,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1866"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1866",
+   "finishedAt": "2026-09-23T11:21:22Z"
   },
   {
    "id": "REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26",
@@ -31493,7 +31495,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-ANDRE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1880"
   },
   {
    "id": "REV-ERRATA-PAPER-ANDRE-18",
