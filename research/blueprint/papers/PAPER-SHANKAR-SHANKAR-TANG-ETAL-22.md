@@ -139,3 +139,27 @@ Links and reasons are in the JSON.
   - Mathlib at 082e2d3: CliffordAlgebra Basic.lean:74, Grading.lean:32 and :111, Even.lean:54; OrdinaryHypergeometric.lean:71 and :81; Gamma/Basic.lean:287.
 - Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1394), **accepted** this
+extraction and all nine routes, with one correction in place. The full record is
+[REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md](../reviews/REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md).
+
+**Correction — provenance.** The SHA-256 recorded in `readSections` cannot be reproduced: the
+Cambridge Core PDF is stamped per download, and two downloads seconds apart gave `c444920f…` and
+`2897a064…`, neither equal to it. The same behaviour was documented for another Cambridge PDF in
+`REV-PAPER-HE-18`. A `sha256Note` records the evidence and points to the DOI as the stable citation;
+the content is unaffected and matched at every locator checked.
+
+97 items, all 89 missing routed exactly once; all stage and planned layer ids exist; all fifteen
+library declarations resolve at the pins; all 45 numbered environments are carried into items; 63 of
+70 locator checks land exactly, the rest being proofs on later pages than their statements. Both
+Part II titles reproduce their parents' atlas titles exactly and both ids are already proposed by the
+sibling extractions; the new roadmap's id appears in no other extraction.
+
+All six findings are **confirmed**. E3 is decided by the paper's own example (the Kuga–Satake variety
+of dimension 16 with `C⁺(V) ≅ M₄(Q)` forces `dim B = 2 = 2^{n−1}`), E5 by the display itself (the
+`N = 1` term has `log 1 = 0` in a denominator), and E2 and E4 are printed as quoted, `.here`
+included. For E6 the corrected title is confirmed from Crossref; the printed side rests on the
+extraction's reading, since the reference pages do not come through the reviewer's extraction.
