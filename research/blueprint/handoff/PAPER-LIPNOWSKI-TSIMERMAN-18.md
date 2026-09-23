@@ -1,3 +1,85 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — classification continuation
+
+Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**
+This continues PR #2155, not an independent review.
+
+Resume at the report's C0–C7 supplement. Inventory: 152 items
+(19 library, 26 planned, 107 missing); eleven routes with 88 missing
+and 25 planned items; 39 definition/construction API/test blocks;
+80 selected known-ID edges; the same 19 withheld claims and
+17 unchanged proposed v1 sourceIssues.
+
+This claim adds:
+
+- Three pinned suppliers: semisimple bicommutant surjectivity,
+  compact p-adic integers and compact-set subsequence extraction.
+- Tate 1966's original proof spine: fixed-polarization-degree finiteness,
+  divided polarization, isotropic image via a compact preimage argument,
+  split Frobenius commutant, and the remaining Hom-dimension/saturation steps.
+- Prime-field linear dual of Waterhouse's contravariant p-module,
+  with four discriminating API tests. This is not an all-q convention.
+- A quotient construction realizing finite-support lattice tuples:
+  choose NT⊆M, form L=N⁻¹M, quotient by its primary subgroups,
+  and use the marking Nq⁻¹.
+- Torsion detection of integral quasi-homomorphisms and the prime-field
+  marked/unmarked classification. These do not require p-Tate:
+  they test already algebraic rational maps.
+- Good-prime lattices via the squarefree minimal-polynomial discriminant;
+  finite-support conjugators and product stabilizers; the coarse
+  prime-field bound D_*³h with the class-set factor h retained.
+
+Every inherited ID, kind, status, statement and route assignment is retained.
+Seven notes are updated to remove obsolete unread-reference claims or fix
+the present convention boundary; tate-hom additionally gains its proof
+and dependencies. Historical verification, report and handoff remain
+preserved. All new mathematical endpoints remain missing implementations.
+
+Read boundaries and hazards:
+
+- Tate 1966 all text and p.137 image read. Its theorem is ℓ≠p;
+  the p-local invariant proof is expressly omitted.
+- Waterhouse introduction, Chapters 1–3, Porism 4.3 proof,
+  Chapter 6 text and bibliography read; p.551 rendered. This is not
+  all of Waterhouse, and the dyadic matrices in 6.2 are not fully
+  image-audited. Proposition 3.1 is embedding conjugacy, not realization.
+- Tate Bourbaki 352 all extracted text surveyed; §§1–2 with images
+  pp.96,98,99 audited. Later missing OCR formulas were not guessed.
+- p-Tate full faithfulness and the p-realization Frobenius polynomial
+  are separate explicit source leaves. Do not close them by a circular
+  dimension argument.
+- R07.2 is absent from consolidated reviewed coverage here.
+  AUDIT-37 is an unaccepted lead, corroborated by the accepted A4 import
+  row and pinned searches, not presented as an accepted audit.
+- PEL M6 fixed-degree finiteness must handle degree divisible by p and
+  actual k-isomorphism classes, not just coarse rational points.
+- The full LT v1 read is inherited from #2155; final journal comparison G0
+  is still open. No new source error is proposed.
+
+Next source work, in order of the remaining dependency boundary:
+
+1. Supply original p-realization/degree and p-Tate proofs (Manin/Oda/Milne
+   sources behind Waterhouse/Tate), without deriving the p-polynomial from
+   the same p-Tate dimension calculation that uses it.
+2. Supply finite-flat quotient/Dieudonné exactness and the polarization
+   divisibility/positivity inputs from their original sources; retain the
+   A2/A3/R07.2 ownership.
+3. Prove the finite-type fixed-polarization-degree/twist finiteness in PEL
+   M6, the generic semisimple intertwiner-dimension assembly and split-prime
+   existence. Existing bicommutant and compactness are already imported.
+4. Close AA.1/AA.3 group and class-set interfaces, then the quantitative h
+   comparison with its quaternionic/narrow-class restrictions.
+5. Continue Honda CM existence and the inherited G0–G8 source work.
+   Do not route the nineteen literal disputed claims merely to erase gaps.
+
+Validation: 32,608 fresh standard-library Python finite diagnostics pass.
+Final schema, regressions and publication-snapshot preservation are recorded
+in the current JSON verification. These checks are not mathematical proofs.
+No Lean file is authorized, written or compiled.
+
+---
+
+# Preserved previous handoff
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — stabilizer continuation
 
 Codex — codex-a71f92; 23 September 2026; Refs #1332. **Partial.**

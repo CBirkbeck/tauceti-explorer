@@ -1,3 +1,542 @@
+# Classification-source continuation: prime-field realizations and adelic levels
+
+**Status: partial; Codex, session codex-a71f92; 23 September 2026.**
+This continues PR #2155, following #1848 and #1652. It adds sixteen items:
+three pinned library suppliers and thirteen missing mathematical endpoints.
+The inventory is now **152 items: 19 library, 26 planned, 107 missing**.
+There are eleven routes: 88 missing items and 25 planned items are routed;
+the same nineteen disputed source claims remain withheld. There are thirty-nine
+definition/construction API-and-test blocks. All seventeen inherited findings
+remain version-qualified, unreviewed proposals; no source issue is added.
+
+The new result is a prime-field proof plan for the arithmetic inputs to S6,
+with its original-source leaves exposed. It does **not** certify a gap-free
+formal proof, a class-number estimate, an all-q classification, or agreement
+with the final journal article. The complete preceding report is preserved
+below. Historical statements about unread references are superseded only by
+the exact reading record here.
+
+## C0. Sources, library evidence and ownership
+
+The LT source remains [arXiv v1](https://arxiv.org/pdf/1511.02212v1).
+Its complete reading belongs to the preceding claim. This claim acquired:
+
+| Source | Reading extent | SHA-256 |
+| --- | --- | --- |
+| [Tate 1966](https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf), Invent. Math. 2, 134–144 | All 489 extracted lines, §§1–3 and references; p.137 additionally rendered | 47f284526522fb48840e1a1383b9bfc0bfc3f6aded39db6119a34a6e02214b87 |
+| [Waterhouse 1969](https://www.numdam.org/article/ASENS_1969_4_2_4_521_0.pdf), Ann. Sci. ENS 2, 521–560 | Introduction, Chapters 1–3, Porism 4.3 with its preceding proof, Chapter 6 and bibliography; p.551 additionally rendered | 7be2bf9dde45454afa3dd9a0ea1ba05acbe952b6b573a0c37c2b1b8f0cccbb47 |
+| [Tate, Bourbaki exposé 352](https://numdam.org/item/SB_1968-1969__11__95_0/), November 1968, printed 1971, pp.95–110 | All extracted text surveyed; §§1–2 checked with images of pp.96,98,99. Many later formulas are absent from OCR; §§3–6 are not a complete proof audit | a23d9cd18c2ccc155285428ca02f284bc546711c9eb9fe43555dd020fdd328f3 |
+
+Access date: 23 September 2026. Waterhouse is **not** recorded as read in full.
+In particular the dyadic matrices of Theorem 6.2 have not been image-audited,
+even though Chapter 6 text was read; no new dyadic endpoint is extracted.
+Tate 1966 proves the prime-to-characteristic Hom theorem; its p-local
+invariant discussion explicitly omits the proof. Bourbaki §2 is an outline
+with further inputs, not a complete original p-proof.
+
+At Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174**, statements read:
+
+- Module.Finite.toModuleEnd_moduleEnd_surjective and jacobson_density,
+  Mathlib/RingTheory/SimpleModule/Basic.lean, lines 552–584. The hypothesis
+  is **semisimple** module, not only simple; finiteness over End supplies
+  surjectivity onto the bicommutant.
+- PadicInt.compactSpace, Mathlib/NumberTheory/Padics/ProperSpace.lean,
+  lines 38–61: compactness of p-adic integers for a prime p.
+- IsCompact.tendsto_subseq, Mathlib/Topology/Sequences.lean, lines 284–302:
+  compact-set subsequence extraction in a first-countable space.
+
+These are existing results, not new roadmap tasks. Basis/topology transport
+to Tate-module matrices and the semisimple-algebra action comparison remain
+application obligations. At Tau Ceti
+**f790474821cf4256814db967cb154e7af3d0c369**, the complete field
+AbelianVariety/Isogeny.lean was read. It provides the finite-surjective
+isogeny predicate and closure properties, not the required finite-flat
+quotients, general [n] torsion theorem or realization functors.
+
+ASAM A2/A3/A4/A6 and PELModuli M0–M6 descriptions and reviewed coverage were
+read, together with AA.3 and the relevant AA.1 interface. The full ASAM
+campaign document and upstream JacobianChallenge and SemisimpleAlgebras
+documents were read. The latter determine granularity and existing-carrier
+boundaries; neither is re-planned.
+
+There is no consolidated R07.2 entry in data/library-coverage.json at the
+working snapshot. AUDIT-37 is a **lead, not an accepted review**.
+Its absence claims were checked against the reviewed A4 import row and
+fresh pinned-tree searches. Its one-dimensional isocrystal classification
+over an algebraically closed residue field is not Dieudonné classification
+of group schemes.
+
+Ownership remains:
+
+| New need | Owner / consumer |
+| --- | --- |
+| Positive division of a polarization | ASAM A2, with A3 torsion and pairings |
+| Integral quasi-homomorphism detection | ASAM A6, on its field Hom carrier |
+| Prime-field linear-dual realization | R07.2, on imported modules and existing linear dual |
+| Good-prime integral-order/lattice adapter | GN.2 |
+| Fixed-degree finite-field finiteness | PELModuli M6, with finite-type moduli and rational-family inputs |
+| Tate arithmetic applications, marked classification and counting assembly | Existing proposed ASAM finite-field Part II |
+| Restricted products and finite coarse class sets | AA.1 and AA.3 imports |
+
+The PEL route is the only new route. It requests the fixed-degree adapter,
+not another moduli stack. It includes degrees divisible by p; M2's
+good-prime smoothness alone is insufficient. Seven inherited item notes
+are updated. Every inherited ID, kind, status, statement and route
+assignment is retained. All source-issue objects are unchanged.
+
+## C1. Tate's proof without a circular counting input
+
+Let A/k have dimension g and a k-polarization θ of degree d², and let
+ℓ≠char(k). Tate's hypothesis is finiteness of k-isomorphism classes B
+admitting both a degree-d² k-polarization and an ℓ-power isogeny B→A.
+Over finite fields, fixed-dimension, fixed-polarization-degree finiteness
+suffices. **No unpolarized counting theorem is assumed.**
+
+The PEL M6 supplier must turn finite-type polarized geometry into finiteness
+of actual k-isomorphism classes. Rational coarse points alone do not account
+for descent and twists. Tate also describes a bounded projective-embedding
+argument; its original Mumford/Weil inputs remain unread source leaves.
+
+For a Galois-stable maximal θ-isotropic W⊂V=T_ℓ(A)⊗Q_ℓ, put
+
+\[
+T=T_\ell(A),\qquad X_n=(T\cap W)+\ell^nT.
+\]
+
+The intersection T∩W is saturated of rank g, so [T:X_n]=ℓ^{ng},
+without θ being principal. To produce f_n:B_n→A with image lattice X_n,
+take the finite étale subgroup represented by ℓ^{-n}X_n/T, quotient A
+by it, and factor [ℓ^n] through that quotient. This uses A3 torsion
+and quotients, **not** Tate full faithfulness.
+
+The pullback f_n*θ has degree ℓ^{2ng}d². Its alternating Tate form has
+values in ℓ^n Z_ℓ(1), by expanding on T∩W+ℓ^nT and using isotropy.
+The separate A2 polarization-divisibility item gives
+θ_n=ℓ^{-n}f_n*θ, of degree d². The perfect torsion pairing and
+quotient-by-[ℓ^n] detect divisibility as a homomorphism; positive scaling
+makes the quotient a polarization. Matrix divisibility does not replace
+the positivity input.
+
+Finiteness supplies infinitely many B_i isomorphic to a fixed B_n.
+Choose v_i:B_n→B_i and set u_i=f_i v_i f_n^{-1}. They preserve X_n
+and have image X_i. Its endomorphism lattice is a finite matrix power
+over Z_ℓ, hence compact. Extract u_i→u; the limit lies in
+E_ℓ=End_k(A)⊗Q_ℓ because this finite-dimensional subspace is closed.
+
+For y∈X_n, the limit u(y) lies in each closed X_j. Conversely, for
+x∈∩X_i choose y_i∈X_n with u_i(y_i)=x. Compactness gives a convergent
+subsequence y_i→y, and continuity gives u(y)=x. Therefore
+u(X_n)=∩X_i=T∩W and u(V)=W. This compact-preimage argument is essential;
+one cannot simply commute image and intersection.
+
+Now let k=F_q and suppose Q_ℓ[π] is split. Write D for the commutant
+of E_ℓ. Maximal π-stable isotropic subspaces are E_ℓ-images and hence
+D-stable. For smaller W, the split module W⊥/W has even dimension at
+least two; two distinct stable lines give larger isotropic extensions
+whose intersection is W. Descending induction makes every π-eigenline
+D-stable. An operator preserving every line of an eigenspace is scalar
+there, so D=Q_ℓ[π]. The existing semisimple bicommutant theorem gives
+E_ℓ=End_π(V).
+
+The remaining argument is recorded in the inherited tate-hom item.
+Centrality and semisimplicity make Q[π] finite étale; choose a prime
+splitting it completely. Two semisimple polynomial modules with
+factor multiplicities a_P,b_P have intertwiner dimension
+
+\[
+\sum_P a_Pb_P\deg P.
+\]
+
+This sum is unchanged when separable factors split further. Comparison
+with the split-prime result gives rational full faithfulness at every
+ℓ≠p; A×B yields Hom from End. The integral image is saturated because
+a homomorphism killing A[ℓ] factors through [ℓ]. Equal rank and
+saturation give integral full faithfulness.
+
+Still to supply atomically: fixed-degree moduli finiteness, original
+polarization positivity/divisibility, split-prime existence, the
+semisimple polynomial dimension adapter, and realization/topology
+interfaces. Density and compactness themselves are not missing.
+
+## C2. What Waterhouse supplies
+
+Chapter 1 uses different variances. Away from p, T_ℓ is covariant and
+V_ℓ/T_ℓ represents ℓ-power torsion. For q:A→B an isogeny,
+
+\[
+q_\ell^{-1}(T_\ell B)/T_\ell A=(\ker q)_\ell.
+\]
+
+At p, C(A)=Waterhouse's T_pA is **contravariant**:
+C(q):C(B)→C(A) is injective with finite cokernel, the Dieudonné module
+of the p-primary kernel. Finite p-subgroups correspond to full
+F,V-stable **sublattices** of C(A), not superlattices.
+
+For a simple variety over F_p with nonreal Frobenius field E=Q(π),
+the local invariant formula is
+
+\[
+\operatorname{inv}_v\operatorname{End}^0(A)
+ = f_v\,\operatorname{ord}_v(\pi)/a \pmod{\mathbb Z},
+ \qquad q=p^a.
+\]
+
+At a=1 all finite invariants vanish; there are no real ones.
+Brauer classification then gives End⁰(A)=E, a CM field. The simple,
+nonreal and prime-field hypotheses matter, and the invariant/Brauer
+supplier is distinct from the lattice calculation.
+
+Waterhouse Theorem 6.1(2) realizes every order R containing π and pπ^{-1}.
+Choose rank-one R_ℓ-lattices away from p, and one stable under
+F=π,V=pπ^{-1} at p. Only finitely many modifications are needed,
+because an order is maximal almost everywhere. C4's quotient construction
+realizes them. In C3's convention, take the linear dual of Waterhouse's
+chosen contravariant p-lattice.
+
+Theorem 6.1(3) uses a **special reference variety** with every local
+realization free of rank one over R_ℓ, so all its ideals are kernel
+ideals. A general R-lattice with multiplier order R need not be projective.
+The whole class set must not be replaced by Pic(R): the locally free
+classes form its Picard torsor but do not necessarily exhaust the set.
+The original order-realization item is expanded in place.
+
+Waterhouse Proposition 3.1 is conjugacy of endomorphism-algebra embeddings
+fixing π. It is **not** the lattice-realization theorem.
+
+## C3. Prime-field convention and two separate p-inputs
+
+Over F_p, W(F_p)=Z_p and scalar Frobenius is the identity. Define
+
+\[
+D^{\mathrm{lin}}_0(A)=\operatorname{Hom}_{\mathbb Z_p}(C(A),\mathbb Z_p),
+\quad F_D(\phi)=\phi\circ F_C,\quad V_D(\phi)=\phi\circ V_C.
+\]
+
+For f:A→B, D^lin₀(f) is precomposition with C(f):C(B)→C(A).
+Transposition reverses the reversed composition, hence gives a covariant
+realization of rank 2dim A with FV=VF=p and π_D=F_D.
+After inverting p, V_D=pF_D^{-1}.
+
+Use the existing linear dual, not a second Dieudonné category.
+This is **linear dual**, not an unannounced interchange of F,V by Cartier
+duality. Over F_(p^a), a>1, φ∘F is σ-semilinear rather than W-linear,
+so this formula is not the general-q construction. That inherited
+convention comparison remains G2.
+
+The JSON specifies constructor, evaluation, identity/composition laws,
+Frobenius compatibility and annihilator-lattice equivalence. Four tests
+cover zero rank, F=diag(1,p),V=diag(p,1), the [p] scaling direction,
+and failure of the naive formula over F_(p²).
+
+Two supplier theorems are kept separate:
+
+1. p-tate-hom: Hom(A,B)⊗Z_p identifies with the **contravariant**
+   F,V-equivariant maps C(B)→C(A), as stated in Waterhouse §1.2.
+2. prime-field-p-frobenius: the linear p-Frobenius is semisimple with
+   the same intrinsic characteristic polynomial as the ℓ≠p realizations;
+   Waterhouse Chapter 2 states semisimplicity and the component dimensions.
+
+The latter is required for one discriminant product D_* at every prime.
+Transposition preserves a polynomial but does **not** prove the
+cross-realization comparison. Tate's Bourbaki §2 outlines dimension
+comparison through p-divisible groups; its original realization/degree
+and rational-faithfulness inputs are not fully decomposed here. The
+integral upgrade needs finite-group-scheme faithfulness and saturation.
+Do not use the polynomial comparison to prove p-Tate and simultaneously
+derive it from p-Tate. Both source boundaries remain visible in G8.
+
+## C4. Realizing tuples and forgetting the marking
+
+Fix A₀/F_p with reference integral realizations T₀,ℓ (D^lin₀ at p).
+Take full lattices M_ℓ equal to T₀,ℓ almost everywhere, π-stable away
+from p and F,V-stable at p. Away from p the Frobenius determinant is
+an ℓ-adic unit, so π-stability implies inverse and Galois invariance.
+
+Choose N>0 with NT₀,ℓ⊆M_ℓ everywhere. Then
+
+\[
+L_\ell=N^{-1}M_\ell\supseteq T_{0,\ell}.
+\]
+
+The inverse scaling matters: multiplying M by N shrinks it.
+Away from p, L_ℓ/T₀,ℓ is a finite Galois-stable torsion subgroup.
+At p its annihilator
+
+\[
+L_p^\vee=\{c\in C(A_0)[1/p]:\phi(c)\in\mathbb Z_p
+                 \text{ for all }\phi\in L_p\}\subseteq C(A_0)
+\]
+
+is F,V-stable by the transpose identities. The finite Dieudonné
+anti-equivalence turns C(A₀)/L_p∨ into a finite subgroup H_p.
+Combine the finitely many primary subgroups inside A₀ to a finite
+flat H, and use A3 to form q:A₀→B=A₀/H. Exact realization comparisons
+give q_ℓ^{-1}(T_ℓB)=L_ℓ, including the p-realization.
+Thus **f=Nq^{-1}:B→A₀** transports the realization lattices to M_ℓ.
+The one quotient by H performs the primewise gluing.
+
+Injectivity is a separate integrality argument. Suppose an already
+algebraic rational morphism α:A→B carries all integral realizations
+into their targets. Write nα=h with h actual and n>0. For ℓ^a exactly
+dividing n, its realization is divisible by ℓ^a, so h kills A[ℓ^a].
+At p use finite group schemes and Dieudonné faithfulness, **not
+geometric points**. Hence h kills A[n] and factors through its quotient
+[n]; the factor is α. Apply this also to α^{-1} to detect isomorphisms.
+
+This does **not** use p-Tate full faithfulness: it tests an already
+algebraic rational morphism, not whether an arbitrary local linear map
+is algebraic. Equal transported tuples give α=(f′)^{-1}f, integral in
+both directions, hence the unique marked isomorphism. Postcomposition
+by Γ=End⁰(A₀)^× changes the marking, and Γ\\X is precisely the set
+of underlying F_p-isomorphism classes.
+
+The all-q target statements stay unchanged; this is their explicit
+prime-field restriction. Nonroutine inputs are the named A3/R07.2
+quotient, torsion and exactness suppliers, not an implicit classification.
+
+## C5. Finite support of the adelic conjugators
+
+Let f_min be the monic squarefree minimal polynomial of Frobenius.
+Its discriminant is nonzero. Away from its prime divisors,
+
+\[
+R_\ell=\mathbb Z_\ell[\pi]=S_\ell=\prod_i\mathcal O_{i,\ell}
+\]
+
+is finite étale and maximal. Integral idempotents split every full
+π-stable lattice into free modules over the DVR factors. There is one
+centralizer orbit, with stabilizer conjugate to ∏GL_{n_i}(O_i).
+This is the new GN.2 adapter.
+
+Use **f_min**, not the full characteristic polynomial: repeated factors
+make the latter discriminant zero. A scalar operator on rank n has
+minimal polynomial T−a of discriminant one. Finite-étale/maximal-order
+and local freeness interfaces are still implementation work.
+
+Use Tate away from p and both p-inputs of C3 to identify G(Q_ℓ),
+G=End⁰(A₀)^×, with the Frobenius centralizer. At p, V=pF^{-1},
+so the simultaneous centralizer is the F-centralizer and preserves
+the F,V-stable subset.
+
+Choose a finite exceptional set containing p and the divisors of
+disc(f_min). At good primes take H₀,ℓ=Stab(T₀,ℓ); at exceptional
+primes use S3 for the reference lattice. Their product K₀ is a compact
+open of the AA.1 restricted product.
+
+For a tuple M, use H_M,ℓ=H₀,ℓ and a_ℓ=1 outside that exceptional
+set and the support of M. At the remaining finitely many places,
+S3 gives H_M,ℓ conjugate to H₀,ℓ, containing
+S_M,ℓ=Stab(M_ℓ), of index at most ℓ^{Δ_ℓ}.
+These groups come from **successive graded saturations**, not the
+saturation of the whole mixed lattice. Each is a product of integral
+GL groups in block bases, giving local conjugacy in the centralizer.
+
+The tuple a=(a_ℓ) is an actual finite adele because its support is finite.
+Then K_M=aK₀a^{-1}. Componentwise stabilization gives
+Stab(M)=∏S_M,ℓ; almost all factors equal H₀,ℓ, so this product lies
+inside the restricted product. S5 yields
+
+\[
+[K_M:\operatorname{Stab}(M)]
+ =\prod_\ell[H_{M,\ell}:S_{M,\ell}]
+ \le\prod_\ell\ell^{\Delta_\ell}=D_*.
+\]
+
+The same support argument identifies adelic orbits with tuples of local
+orbits: choose conjugators 1 wherever both tuples are the reference.
+Good primes contribute one orbit. The F,V-stable p-subset is invariant
+under the same centralizer, so its orbits inject into the F-stable orbit
+set. L8 gives #G(A_f)\\X≤D_*². No strong approximation is used.
+
+## C6. Coarse bound and remaining boundary
+
+C4 identifies the desired isomorphism classes with Γ\\X.
+C5 supplies S6's arithmetic interfaces in terms of exact A3/R07.2/Tate/AA
+supplier theorems. For m=2g and
+
+\[
+h=\#\bigl(G(\mathbb Q)\backslash G(\mathbb A_f)/K_0\bigr)<\infty
+\]
+
+the resulting bound is
+
+\[
+\#\{\text{F}_p\text{-isomorphism classes isogenous to }A_0\}
+ \le D_*^3h
+ \le (2\sqrt p)^{3m(m-1)}h.
+\]
+
+This is assembly on named suppliers, not a claim that their proofs or
+Lean interfaces are complete. AA.3 must supply coarse class-set
+finiteness for this reductive semisimple-unit group and relate it to
+its archimedean-component formulation. The value h is **not estimated**.
+Real-Weil/quaternionic groups, norm images and narrow ideal classes
+are retained. D_*=1 gives at most h, not one rational class.
+
+G2 is narrowed, not closed. G8 now names remaining geometric,
+p-realization, split-prime, Brauer and Honda proof leaves rather than
+saying Tate and Waterhouse are unacquired. G0 final-journal comparison,
+G1 sharp estimates, G3 polarization/Lang, G4 mass/dyadic/residue,
+G5 quaternionic comparison, G6 small-prime repair and G7 statistical
+limits remain as before. No new source error is alleged.
+
+## C7. Reproducible finite checks
+
+The following standard-library-only diagnostic passed **32,608 assertions**:
+6,817 dual-composition cases; 3,984 F,V transpose cases and 3,984 rejected
+F/V swaps; 15,625 three-prime rank-two scaling/duality cases;
+1,230 denominator tests; 180 good-prime projection cases; 28 scalar
+cases; five bad-prime examples; 54 nested-image/projection checks;
+700 factor-refinement dimension checks; and one F_4 semilinearity test.
+
+These test signs, directions and finite algebra. They are not proofs
+of geometric representability, Tate/Dieudonné equivalence, compact
+limiting arguments or adelic finiteness.
+
+```python
+"""Finite diagnostics for continuation C1-C6; not geometric or infinite proofs."""
+from fractions import Fraction
+from itertools import product
+from collections import Counter
+
+counts = Counter()
+def ok(label, assertion):
+    assert assertion, label
+    counts[label] += 1
+
+def mul(A, B, m):
+    a,b,c,d = A
+    e,f,g,h = B
+    return ((a*e+b*g)%m, (a*f+b*h)%m,
+            (c*e+d*g)%m, (c*f+d*h)%m)
+def tr(A):
+    a,b,c,d = A
+    return (a,c,b,d)
+def det(A):
+    a,b,c,d = A
+    return a*d-b*c
+def inv(A,m):
+    a,b,c,d = A
+    u = pow(det(A)%m,-1,m)
+    return tuple(u*x%m for x in (d,-b,-c,a))
+def mv(A,v,p):
+    a,b,c,d=A
+    x,y=v
+    return ((a*x+b*y)%p,(c*x+d*y)%p)
+
+# Covariance: transposition reverses the contravariant matrix composition.
+for prime in (2,3):
+    mats=list(product(range(prime),repeat=4))
+    for A,B in product(mats,repeat=2):
+        ok("dual_composition", tr(mul(A,B,prime)) == mul(tr(B),tr(A),prime))
+
+# Linear F,V need transposition, not interchange. Test all integral basis changes mod p^2.
+for prime in (2,3):
+    m=prime**2
+    F=(1,0,0,prime)
+    V=(prime,0,0,1)
+    for P in product(range(m),repeat=4):
+        if det(P)%prime == 0:
+            continue
+        Q=inv(P,m)
+        A=mul(mul(P,F,m),Q,m)
+        B=mul(mul(P,V,m),Q,m)
+        ok("dual_fv", mul(tr(A),tr(B),m)==(prime,0,0,prime)
+           and mul(tr(B),tr(A),m)==(prime,0,0,prime)
+           and det(tr(A))==det(A)
+           and (tr(A)[0]+tr(A)[3])%m==(A[0]+A[3])%m)
+        ok("nontrivial_fv_swap", A != B)
+
+# F_4 = F_2[a]/(a^2+a+1): the naive transpose is not F_4-linear.
+def f4mul(a,b):
+    out=0
+    while b:
+        if b&1:
+            out ^= a
+        b >>= 1
+        a <<= 1
+        if a&4:
+            a ^= 7
+    return out
+sigma=lambda x:f4mul(x,x)
+ok("nonprime_semilinearity",sigma(2)!=2 and sigma(f4mul(2,1))!=f4mul(2,sigma(1)))
+
+# Diagonal lattice tuples at three primes, rank two each.
+# M_l has exponents a_l; choose v_l(N)=max(0,a_l1,a_l2).
+for exps in product(range(-2,3),repeat=6):
+    for offset in (0,2,4):
+        a,b=exps[offset:offset+2]
+        n=max(0,a,b)
+        L=(a-n,b-n)
+        dual=(-L[0],-L[1])
+        assert n>=a and n>=b and max(L)<=0 and min(dual)>=0
+        assert tuple(n+x for x in L)==(a,b)
+        assert tuple(-x for x in dual)==L
+    ok("tuple_scaling_and_dual",True)
+
+# A rational number belongs to all Z_l iff its reduced denominator is one.
+def vp(n,p):
+    if n==0:
+        return 10**9
+    n=abs(n)
+    out=0
+    while n%p==0:
+        out+=1
+        n//=p
+    return out
+primes=(2,3,5,7,11,13,17,19,23,29)
+for n,d in product(range(-20,21),range(1,31)):
+    x=Fraction(n,d)
+    integral=all(vp(x.numerator,p)>=vp(x.denominator,p) for p in primes)
+    ok("integrality_detection",integral==(x.denominator==1))
+
+# Finite quotient analogue of X_n = (T intersect W)+p^n T, W first coordinate.
+for p in (2,3,5):
+    for r in range(1,5):
+        m=p**r
+        previous=None
+        for n in range(r+1):
+            image=frozenset((x,(p**n*y)%m) for x,y in product(range(m),repeat=2))
+            ok("nested_images", len(image)==p**(2*r-n)
+               and (previous is None or image<=previous))
+            previous=image
+        ok("limit_projection",previous==frozenset((x,0) for x in range(m)))
+
+# Mod-l stable subspaces and integral idempotents at good primes.
+for p in (2,3,5,7,11):
+    zero=frozenset({(0,0)})
+    full=frozenset(product(range(p),repeat=2))
+    lines=[frozenset((t,t*s%p) for t in range(p)) for s in range(p)]
+    lines.append(frozenset((0,t) for t in range(p)))
+    spaces=[zero,full]+lines
+    for a,b in product(range(p),repeat=2):
+        stable=[W for W in spaces if all(mv((a,0,0,b),v,p) in W for v in W)]
+        if a!=b:
+            ok("good_prime_projections",len(stable)==4 and all(
+                (x,0) in W and (0,y) in W for W in stable for x,y in W))
+        else:
+            ok("scalar_repeated_block",len(stable)==p+3)
+    diagonal=frozenset((t,t) for t in range(p))
+    ok("bad_prime_no_idempotent", (1,0) not in diagonal
+       and all(mv((0,0,0,0),v,p) in diagonal for v in diagonal))
+
+# Splitting a separable factor preserves the intertwiner-dimension sum.
+for degree,a,b in product(range(1,9),range(5),range(5)):
+    for first in range(1,degree):
+        ok("hom_dimension_refinement",
+           a*b*degree==a*b*first+a*b*(degree-first))
+
+for label,count in sorted(counts.items()):
+    print(f"{label}: {count}")
+print(f"TOTAL: {sum(counts.values())}")
+```
+
+Validation and handoff results are recorded in the current JSON verification and handoff. No Lean file is authorized, written or compiled.
+
+---
+
+# Preserved earlier report
+
 # Lipnowski–Tsimerman: stabilizer and level-map continuation
 
 ## Continuation by codex-a71f92 — 23 September 2026
