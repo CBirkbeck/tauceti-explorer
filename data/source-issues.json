@@ -8927,9 +8927,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively, and the paper settles it against itself. Theorem 7 on p. 13 concludes 'P_{M(n)}(A(T) has no divisors of degree ⩽ θn | a₀ ≠ 0) ⩽ C₁n^{-c}' exactly as recorded, while its proof on p. 14 ends 'P_{M(n)}(A(T) has a divisor of degree ⩽ min{θ, 1/2}n) ⩽ Cn^{-c}' - the same bound with the negation in place. As printed the theorem asserts that small divisors are almost certain, which contradicts Theorem 1(a), deduced from it two sections later. The statement, not the proof, is what slipped. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E2",
@@ -8950,9 +8950,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively, and I checked the counterexample. Theorem 8(b) on p. 16 reads 'there is an integer P ⩽ n^{1/4} such that ...' with no further condition on P, although its own heading is 'controlled Fourier transform modulo four primes' and although Theorem 7(b), on p. 13, spells out 'there is an integer P ⩽ n^{1/4} that is the product of four distinct primes'. The proof of Theorem 8 applies Theorem 7, so the hypothesis is needed. With P = 1 no pair has QR = P and Q > 1, so (b) holds vacuously; taking μ₀ = δ_{-1} and μ_j = δ₀ for j ⩾ 1 satisfies (a) and (b) and a₀ ≠ 0, yet the only polynomial in the support is Tⁿ - 1, which is divisible by T - 1 and whose Galois group is abelian. The theorem as printed is therefore false, and the extraction's added hypothesis repairs it. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E3",
@@ -8973,9 +8973,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively. Corollary 2 on p. 5 reads 'A random polynomial in the setting of Theorems 1-5 is (n - 2)-fold irreducible with probability ⩾ 1 - n^{-c}, with the exception of part (b) of Theorem 1, where the probability is ⩾ δ - n^{-c}', while Theorem 6, eighteen lines above it on the same page, opens 'In the setting of Theorems 1(a) and 3-5' - Theorem 2 is excluded there and included here. The gap is not formal: Theorem 2 covers every μ with ‖μ‖_∞ ⩽ 1 - ε, including the uniform measure on {0, 1}, for which irreducibility of a random polynomial is an open problem the paper itself only skirts (it proves the absence of divisors of degree ⩽ θn, and cites Konyagin for the same measure). As printed the corollary claims an open result. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E4",
@@ -8996,9 +8996,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively, with the arithmetic checked. Page 25 prints 'Lemma 3.6 implies that |μ̂(k/P)| ⩽ 1 - 4ε · (log x)/(3xP²) ⩽ 1 - ε · (log x)/(3⁸x⁵) ..., where we used that P ⩽ (3x)⁴'. The second inequality needs 4 · 3⁸x⁵ ⩾ 3xP², i.e. P ≲ 3⁴x², but P is a product of four primes from (x, 3x], so only P ⩽ (3x)⁴ = 3⁴x⁴ is available and P² is of order x⁸. At x = 10, P = 11·13·17·19 = 46189 ⩽ (3x)⁴, and 4/(3xP²) = 6.25·10^{-11} is below 1/(3⁸x⁵) = 1.52·10^{-9}. The correct exponent is 9, so s = ⌈3¹⁰ε^{-1}x⁵⌉ becomes s ≍ ε^{-1}x⁹ and θ = γ/s ≍ ε/(log H)⁹; the last sentence of Theorem 2, 'θ = c′ε/(log H)⁵', is not proved. The rest of Theorem 2 survives, as the extraction says: s ≍ ε^{-1}(log H)⁹ still meets s ⩽ n^{1/20000}/4 under the printed hypothesis n ⩾ Cε^{-20000}(log H)^{10⁶}, since 20000·9 = 180000 < 10⁶. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E5",
@@ -9019,9 +9019,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively, in two lines. Pages 22-23 print 'Σ_{k (mod P)} |μ̂(k/P)| ⩽ 1 + P(P - 1)/H ⩽ 4/3 as long as H ⩾ P²/3'. The middle inequality is equivalent to H ⩾ 3P(P - 1), which H ⩾ P²/3 does not give: at P = 210 the printed threshold is H = 14700, where 1 + 210·209/14700 = 3.986, not ⩽ 4/3. P is the product of the four smallest primes with (p - 1, d) = 1 and so depends only on d, so only the constant H₀(d) of Theorem 4 moves. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E6",
@@ -9042,9 +9042,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 20 prints 'The number of D_p equals p^{m-1}' inside a sum over 0 ⩽ m < θn, so m = 0 occurs, and there p^{m-1} = 1/p is not a count: the only monic polynomial of degree 0 is 1, and it meets the side condition D_p(0) = a₀i₀^{-1} exactly when a₀ = i₀. The extraction's reading is right that the m = 0 term is O(δ_{a₀}/n), which the lemma's own O(1/n) absorbs; for m ⩾ 1 the count p^{m-1} is correct. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E7",
@@ -9065,9 +9065,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed, and the counterexample is genuine. Page 21 prints 'Then the prime p divides I_ℓ(N) for some ℓ, and thus |I_ℓ(N)| ⩾ p > p₀', which fails when A(N) = 0, since then some I_ℓ(N) = 0 and every prime divides it; the parenthetical 'any x ∈ X_j is divisible by at most one prime p > p₀' fails at 0 for the same reason. A(N) = 0 does occur in the lemma's own range: for 𝒩 = {-2, -1} (N = 2, d = 1) and A = Tⁿ - T^{n-1} - ⋯ - T - 2 ∈ Υ_𝒩(n), A(2) = 2ⁿ - (2ⁿ - 2) - 2 = 0, with free coefficient -2 ≠ 0. The repair is minimal and right: the paper itself notes that A ↦ A(N) is injective on each slice Υ_{𝒩,j}(n) ('these values form an arithmetic progression ... taking each value exactly once'), so at most one polynomial per slice is discarded and the error term absorbs it. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E8",
@@ -9088,9 +9088,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 36 prints 'Define the concentration function of a real-valued random variable X by Q(X; δ) := sup_{u∈ℝ} P(|X - u| < δ)' and then applies the Kolmogorov-Rogozin inequality, cited as [19, 34, 33], to X_j = a_j z^j for z ∈ ℂ ∖ {0}; Lemma 7.3 invokes Lemma 7.2 at z = e(1/d), which is not real. The extraction's repair is the standard one and I checked it goes through: project on a direction, A(z) = 0 forces Σ_j a_j Re(e^{-iφ}z^j) = -Re(e^{-iφ}zⁿ), only finitely many φ make some Re(e^{-iφ}z^j) vanish, and with δ = min_j |Re(e^{-iφ}z^j)|/2 the atom bound Q ⩽ ‖μ_j‖_∞ holds because a ball of radius ⩽ 1/2 holds at most one integer. The constant and the √(εn) rate are unchanged. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E9",
@@ -9111,9 +9111,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively. Page 53 prints '⩽ O(n^{-2/5}) + P_{M(n)}(E^c) + ... ≪_ε n^{-2/5} + n^{-c₁} + n^{-ε/20}, thus proving Proposition 2.2 with c = min{2/5, c₁, ε/20}'. The term bounded by O(n^{-2/5}) is P(∃D|A with deg D ⩽ n^{1/10} | a₀ ≠ 0), and the only estimate for it is Proposition 2.1, stated on p. 8 as '≪ n^{-7/20}' and invoked by name two paragraphs earlier in this same proof. Since 7/20 < 2/5 the printed exponent is stronger than anything proved. Nothing downstream moves: Proposition 2.2 does not name c. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E10",
@@ -9134,9 +9134,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 28 prints 'we may find an integer P ⩽ n⁴ that is the product of four primes', while Theorem 8(b), which is being applied, requires P ⩽ n^{1/4}. In each setting the proof has already produced such a P (210 for Theorems 1 and 5, the d-dependent P of Theorem 4, and a P ⩽ n^{1/4} checked in the proof of Theorem 3), so the exponent is a slip of the pen with no consequence. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E11",
@@ -9157,9 +9157,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Lemma 11.5 on p. 58 assumes 'sup_{0⩽j<n} Σ_{a≡0 (mod p)} μ_j(a) ⩽ 1 - 1/(log n)²', while Proposition 2.4 on p. 15, in whose proof it is used, assumes the same bound only for 1 ⩽ j < n and says nothing about μ₀. The extraction's repair is exactly right and I checked it against the printed proof: the hypothesis enters only through (9.17), and T^m | A_p forces a₀ ≡ ⋯ ≡ a_{m-1} ≡ 0 (mod p), so bounding the j = 0 factor by 1 already gives (1 - (log n)^{-2})^{m-1}, which is ≪ 1/n for m > (log n)³. The rest of the proof uses only Δ_p(n; n/log n) ⩽ 1/n and Proposition 8.1. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12",
@@ -9180,9 +9180,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed, and I checked both halves of the repair. E₁ (Lemma 12.2, p. 59) constrains only pairs of parts that are both ⩽ n/4: 'there are no integers k, ℓ ⩽ n/4 with gcd(k, ℓ) ⩾ n^{κα} such that {k, ℓ} ⊂ ρ'. In Case 2b and in Case 3 on p. 63 the companion cycle L₃ lies in the union of the r′ blocks met by L_i, a set that can be as large as the whole of [n], so its length mk, and with it the part k ∈ ρ, is not bounded by n/4, and the concluding 'contradicts our assumption that ρ ∈ E₁' is unlicensed. The long part ℓ_i is fine, being ⩽ n/log n. The repair stands up: (i) a cycle meeting r′ blocks of a single block orbit has length divisible by r′, so two long parts sharing a block orbit would have gcd ⩾ r′ > n^α with both ⩽ n/4, against E₁ - hence the orbits X_ℓ are pairwise disjoint; at most three cycles exceed n/4, and at most one ℓ falls in Case 2a (two would give s | ℓ, s | ℓ′ with s = n/r > n^α), so five long parts in Case 2 and four in Case 3 leave one whose companion cycles are all ⩽ n/4, where the printed argument applies verbatim; (ii) the strengthened E₅ is free, because the proof of Lemma 12.6 (p. 61) bounds P(B₅(r)) by P(Σ_{k∈ρ} f_r(k) ⩽ t L_r) with L_r = 2α(1 - 1/r) log n + O(log log n) → ∞, so replacing the threshold 1 by 4 is swallowed by tL_r for large n and the bound ≪ (log n)^κ n^{-2κα(1-1/r)} is unchanged. The statement of Lemma 12.9 is untouched. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E13",
@@ -9203,9 +9203,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed in all three parts, each by an explicit counterexample I checked. Remark 3.2 on p. 23 is printed as recorded. (i) The displayed identity computes the push-forward of the uniform measure on {1, ..., N} under f, not the uniform measure on the set 𝒩 = f({1,...,N}) that the remark defines: for f(x) = x(x - 3) on {1, 2, 3} the values are -2, -2, 0, so μ(-2) = 1/2 while the formula returns 2/3. The two agree exactly when f is injective there. (ii) #{k ∈ ℤ/Qℤ : f(k) ≡ b (mod Q)} ⩽ d^{ω(Q)} needs f - b non-constant modulo every p | Q: for f(x) = 5x, Q = 5, b = 0 all five residues are roots, against d^{ω(Q)} = 1. (iii) The final step bounds 2d^{ω(Q)} ⩽ Q^ε/2, which needs Q^ε ⩾ 4; with d = 1 the hypothesis 'all prime factors of Q are ⩾ d^{4/ε}' is empty and Q = 2 defeats it for every ε < 2. For d ⩾ 2 the hypothesis forces Q ⩾ 2^{4/ε} and the bound holds. The remark states results but is used nowhere else in the paper. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E14",
@@ -9226,9 +9226,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively by the paper against itself. Lemma 9.2 on p. 43 opens 'Fix θ ∈ (0, 1) and C₁, C₂ ⩾ 3', and its part (b) is stated 'uniformly for 1 ⩽ t ⩽ C₂'; the proof of Lemma 9.3 on p. 49 says 'We may therefore take the C₂ of Lemma 9.2 to be 2'. The t in play is 1 + ε/3 + O(1/log m) ∈ (1, 2), so C₂ = 3 serves and nothing else changes. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E15",
@@ -9249,9 +9249,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 20 prints 'Since ‖A‖₂ ⩽ H√n' for a polynomial of degree n all of whose coefficients lie in [-H, H]; there are n + 1 of them, so the bound is H√(n + 1). The slip is in the safe direction for the lemma as stated, since √(n+1) ⩽ √2·√n and the conclusion carries the constant 14 inside log(14√n H); I did not re-derive Mignotte's inequality itself. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16",
@@ -9272,9 +9272,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed at both places, and the pinned library agrees. Page 4 prints 'Recall that a polynomial is irreducible if and only if its Galois group is transitive' and p. 54 'Recall that A is irreducible if and only if G_A is transitive', both without a separability or positive-degree hypothesis; (T² - 2)² is reducible over ℚ and its Galois group acts transitively on its two distinct roots. Striking corroboration: the very declaration the extraction credits for item /87, TauCeti.isPretransitive_iff_irreducible at the pinned commit, carries the hypothesis p.Separable and its doc-string gives the same counterexample - 'Separability cannot be dropped: over ℚ the polynomial (X ^ 2 - 2) ^ 2 is reducible, yet its Galois group acts transitively on its two distinct roots.' Every use in the paper runs from irreducible to transitive, which needs no separability, so nothing downstream is affected. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E17",
@@ -9295,9 +9295,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively, and I rebuilt the counterexample from scratch. Remark 2.2(b) on p. 14 is printed as recorded. The displayed Hölder step is the interpolation Σ|x|^{2s} ⩽ (Σ|x|^{us})^{1/u}(Σ|x|^{vs})^{1/v}, whose left side is Σ|x|^{2s} and not Σ|x|^s - taking f = g = |x|^s in Hölder, or λ = 1/u in Lyapunov, both give exponent u^{-1}·us + v^{-1}·vs = 2s - and since |μ̂| ⩽ 1 the printed inequality is the stronger one, so it does not follow. It is also false, with its consequences: take P = 210 and μ uniform on {1, ..., 210} weighted 3/4 on the even and 1/4 on the odd residues, so that |μ̂(j/210)| = 1 at j = 0, 1/2 at j = 105 and 0 otherwise; the binding pair is Q = 2, giving γ(s) = 1 - log₂(1 + 2^{-s}). Then γ(1) = 0.41504 and γ(2) = 0.67807, so γ(s) ⩾ γ(us)/u + γ(vs)/v fails at s = 1, u = v = 2, and θ(1) = 0.41504 < 2θ(2) = 0.67807. The extraction's replacements are correct: γ is non-decreasing because |μ̂| ⩽ 1; θ = γ/s is non-increasing, from Σ|x|^s ⩽ Q^{1-s/t}(Σ|x|^t)^{s/t} for s ⩽ t, which is the 'θ is a decreasing function' the paper wanted; and γ is concave, being a minimum of the concave functions 1 - log(Σ|x|^s)/log Q. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E18",
@@ -9318,9 +9318,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed, and I checked the repair's exponents. Theorem 4 on p. 4 fixes 𝒩 = {k^d : 1 ⩽ k ⩽ H} and assumes n ⩾ max{n₀, (log H)³} with n₀ depending only on d; its proof on p. 23 says 'Since we also supposed that n ⩾ (log H)³, we may apply Theorem 7'. But the coefficients reach H^d, so condition (a) of Theorem 7, supp ⊆ [-exp(n^{1/3}), exp(n^{1/3})], needs n ⩾ (d log H)³, and for fixed d ⩾ 2 and H → ∞ along n = (log H)³ it fails. The extraction's repair (item /131) works: running §7 with H = exp(Cn^{1/3}) gives a Dobrowolski prime p ≪ C n^{1/3}(log n)³, hence P(D|A) ⩽ (1 - n^{-1/10})^{⌊(n-1)/p⌋} = exp(-Ω(n^{17/30}/(C(log n)³))), against #𝒟(n^{1/10}) ⩽ exp(O(Cn^{8/15})); since 17/30 > 8/15 the product still tends to 0 for n ⩾ n₀(C). With C = d this restores Theorem 4 exactly as printed, n₀ being allowed to depend on d. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E19",
@@ -9341,9 +9341,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. On p. 26 the sum (3.6) runs over Q₁ ∈ 𝒩_{i₁}(x) and R₁ ∈ 𝒩_{j₁}(x); on p. 27 the Cauchy-Schwarz step enlarges it to all coprime Q₁ ⩽ x^{i₁}, R₁ ⩽ x^{j₁}, and the change of variables q = Q₁R₁ then counts each q once for every coprime factorization in range. By the Chinese Remainder Theorem each such factorization contributes the same Σ_{a∈(ℤ/qℤ)*}|μ̂(a/q)|², so the left side is Σ_q r(q)·Σ_a |μ̂(a/q)|² with r(q) as large as 2^{ω(q)}: the stated '≪' with an absolute constant is not justified. The repair is the natural one - keep the restricted ranges, so that q ∈ 𝒩_{i₁+j₁}(x) has at most C(i₁+j₁, i₁) ⩽ 6 factorizations, the large sieve (3.5) still applies to the smaller sum, and only a factor √6 is lost. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E20",
@@ -9364,9 +9364,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively in both halves, by an independent recomputation of the whole table. With α(s, γ; P) = max_{QR=P, Q>1} max_ℓ Q^{γ-1} Σ_{k∈ℤ/Qℤ}|μ̂(k/Q + ℓ/R)|^s and μ uniform on N consecutive integers, α(s, γ; 210) < 1 holds exactly when γ < γ(s). Recomputing γ(s_N) over all 24 divisors Q > 1 of 210 and all ℓ, the printed γ of Table 1 exceeds γ(s_N) for N = 2, 10, 11, 12, 13, 14, 17, 18, 21, 22, 26, 27, 28, 33 and 34 - the extraction's list exactly - and there α lies between 1.0000030 (N = 26) and 1.0000276 (N = 11), so the table's claim 'α(s, γ; 210) < 1' fails for 15 of its 33 rows. The printed values are γ(s_N) rounded to nearest, and rounding up is what breaks them. For 𝒩 = {-1, 1} the paper prints γ = 0.500019700732702471..., which is γ(735) itself: at 60 digits γ(735) = 0.5000197007327024714749..., where α = 1 exactly, while Theorem 7 requires Σ ⩽ (1 - n^{-1/10})Q^{1-γ}, strictly below. Nothing qualitative moves, as the extraction says and as item /132 records: every γ(s_N) exceeds 1/2, and the δ = 0.00068053 of Theorem 3.5 survives because -log(1 - γ(735)/735) = 0.00068053042086..., though the margin is only 4.2·10^{-10}, so the printed δ needs n large enough that n^{-1/10}/log 1155 < 3.1·10^{-7}. Theorem 3.5 allows that, its n₀ depending only on P. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E21",
@@ -9387,9 +9387,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 37 prints 'we know from a result of Dobrowolski [8] that there are some absolute constants c, C ⩾ 1 such that M(D) ⩾ exp(1/L(m)), where L(m) = ½(log m/log log m)³ for all m > C' (read on the rendered page, since the exponent 3 sits in a display). That L amounts to log M(D) ⩾ 2(log log m/log m)³, i.e. the constant 2, whereas Dobrowolski's theorem gives M(α) > 1 + (1 - ε)(log log m/log m)³; the constant 2 - ε is Cantor-Straus and 9/4 - ε is Louboutin, neither of them [8]. The safe reading of [8] is L(m) = 2(log m/log log m)³, as item /69 now records, and it costs nothing: the prime p ⩽ 2L(m) log(2Hn) is still ≪ n^{1/3}(log n)³ for m ⩽ n^{1/10}, which is all the proof of Proposition 2.1 uses. I did not re-read [8] or Smyth's survey; the attribution is standard. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E22",
@@ -9410,9 +9410,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 38 prints '#𝒟(n^{1/10}) ⩽ 2(H + 2)^{n^{1/5}}' and derives it from 'two choices for the coefficient of T^{m₀} ... and ⩽ 2(H + 1)^{m₀} + 1 for the coefficient of T^m for each m < m₀'. Those choices give 2(2(H + 1)^{m₀} + 1)^{m₀}, and folding that into (H + 2)^{m₀²} would need (1 + 1/(H + 1))^{m₀} ⩾ 2, i.e. m₀ ≳ (H + 1) log 2, which is false here since m₀ = ⌊n^{1/10}⌋ and H may be as large as ⌊exp(n^{1/3})⌋. The conclusion is untouched: log(2·3^{m₀}(H + 1)^{m₀²}) ⩽ m₀ log 3 + m₀² log(H + 1) + log 2 ≪ n^{1/5}·n^{1/3} = n^{8/15}, so #𝒟(n^{1/10}) ≪ exp(n^{0.54}) as claimed. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E23",
@@ -9433,9 +9433,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively in both halves. Page 49 prints '≪ e^{(-t log t-t+1)(log m+O(1))} + n^{-1}': the exponent should be -(t log t - t + 1), as Lemma 9.2(b) on p. 44 and its proof on p. 48 both print it, and as the constant c = (1 + ε/3) log(1 + ε/3) - ε/3 defined on the next line confirms. And the union bound over the checkpoints m_j = 2^j m₀ sums Σ_{j⩾0} (2^j m₀)^{-c} = m₀^{-c}·2^c/(2^c - 1), so the implicit constant is rC·2^c/(2^c - 1), not the printed rC/(2^c - 1) = rC·Σ_{j⩾1}2^{-jc}, which drops the j = 0 term. Only an implicit constant moves. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24",
@@ -9456,9 +9456,9 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed. Page 62 prints '(the condition in E₁ holds for all p ⩾ n^{κα} ⩾ n^{1/40}, so it applies for p ∈ P)'. The chain runs backwards: α ⩽ 1/40 by (12.1) on p. 59 and κ ∈ (0, 1] by the hypotheses of Proposition 12.1, so n^{κα} ⩽ n^{1/40}. What the argument needs is p ⩾ n^{κα}, and that holds because P consists of primes > n^{1/8} > n^{1/40} ⩾ n^{κα}. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E25",
@@ -9479,9 +9479,29 @@
    "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
    "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "Confirmed decisively by the paper against itself, two lines apart. Lemma 3.1 on p. 18 assumes '𝒩 ... contained in [-N^{log log(100N)}, N^{log log(100N)}]', and its proof says 'so that T ≪ N^{0.695} if 𝒩 ⊂ [-N^{log log(3N)}, N^{log log(3N)}]'. The bound does hold on the stated range: for |a| ⩽ N^{log log(100N)}, log τ(a) ⩽ (log 2 + o(1)) log|a|/log log|a| and log log(100N)·log N/(log log N + log log log(100N)) ∼ log N, so T ≪ N^{log 2 + o(1)} ≪ N^{0.695}. The lemma is used nowhere in the paper, as it says itself. The published Inventiones text is paywalled and was not compared, as the extraction states; the verdict is for arXiv v3, whose SHA-256 this review re-fetched and matched."
+  },
+  {
+   "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26",
+   "kind": "misprint",
+   "locator": "proof of Lemma 12.9, Case 1, p. 63 (arXiv v3; the published pagination was not seen)",
+   "printed": "Since these lengths are merely mergings of parts of ρ, it follows that ρ too must possess a subset U of its parts such that Σ_{u∈U} = nr′/r.",
+   "correction": "Σ_{u∈U} u = nr′/r.",
+   "reason": "The sum has lost its summand. The preceding sentence prints the same construction correctly for the cycle lengths, 'Σ_{v∈V} v = nr′/r', and E₂ (Lemma 12.3), which the next sentence invokes, is about subsets of parts summing to a given value. Read on a rendered page image, not only in the extracted text layer. The intended reading is unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2007.14567 abstract page: v3 of 2 June 2023 is the latest version, marked 'Final version, to appear in Inventiones Mathematicae'; no v4 and no comment recording a correction (re-checked 23 September 2026 by this review).",
+    "The published Inventiones article (233 (2023), 1041-1120, doi 10.1007/s00222-023-01193-6) is paywalled and was not seen, so this review, like the extraction, reports the mistake in arXiv v3."
+   ],
+   "owner": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "file": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+   "citation": "Bary-Soroker–Koukoulopoulos–Kozma, \"Irreducibility of random polynomials: general measures\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+   "reviewReason": "New in this review, and confirmed on the rendered page rather than the text layer. In Case 1 of the proof of Lemma 12.9 (p. 63) the paper writes 'Thus there is some subset V of the lengths of the cycles of g such that Σ_{v∈V} v = nr′/r. Since these lengths are merely mergings of parts of ρ, it follows that ρ too must possess a subset U of its parts such that Σ_{u∈U} = nr′/r.' The second sum has lost its summand: it must read Σ_{u∈U} u = nr′/r, exactly parallel to the first, which is what E₂ (Lemma 12.3) is about. The intended reading is unambiguous and the argument is unaffected."
   },
   {
    "id": "PAPER-BENOIST-19/E1",
