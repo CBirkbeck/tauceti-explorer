@@ -141,3 +141,36 @@ Item numbers are the suffixes after `PAPER-CLAUSEN-MATHEW-MORROW-21/`.
 - Bloch–Esnault–Kerz (Algebr. Geom. 2014).
 
 Links are in `prerequisites`.
+
+## Review (REV-PAPER-CLAUSEN-MATHEW-MORROW-21, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1419), **accepted** this
+extraction and all nine routes, with one correction made in place. The full record is
+[REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md](../reviews/REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md).
+
+Both recorded hashes reproduce, the PDF and the e-print tarball, so the review checked every
+quotation against `rigidity_final.tex` itself. 122 items, all 103 missing ones routed exactly once;
+all six source stage ids and all 18 planned layer ids exist; the 159 numbered environments in the
+text all appear in items; 170 locator checks land exactly, the rest being proofs that cross a page
+boundary. The library item's third citation, `IsAdicComplete.henselianRing`, is at
+`Mathlib/RingTheory/Henselian.lean:170` — absent from the declaration index only because it is
+declared as `instance (priority := 100)` — and was read in the source. Both Part II titles reproduce
+the parent's atlas title exactly, and the three shared roadmap ids
+(`RefinedTraceMethodsPartIIHenselianPairs`, `…PadicDeformationOfKTheoryClasses`,
+`ArcTopologyAndDescent`) are the ones five other extractions already use, so this extraction joins
+existing proposals rather than opening parallel ones.
+
+**Correction.** Route 2's area was `motivic`, which is the parent roadmap's atlas **group**, not a
+galaxy id; it is now `ktheory`, as in route 1. The review also records that 33 of the 502 route areas
+across the paper extractions are group names rather than galaxy ids, that `check_paper.py` only
+checks the field is non-empty, and that `PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22` carries the same
+invalid area for this same roadmap id and needs the same fix in its own review.
+
+All seven findings are **confirmed** at the source: the duplicated `\cite{GH}` at line 397 (with
+GH = [30] and GL = [34] in the `.bbl`); (Law) asking for a left adjoint where the next sentence says
+right adjoint; the three slips and the `τ_{2s−2}`/`τ_{2s}` index shift in the proof of Theorem 5.7,
+where the corrected Bloch–Esnault–Kerz index costs at most a factor 6; `{R^{r−s}}_s` in the proof of
+Lemma 5.30 against `{R^{s−r}}_s` in its statement; `K(O_C; Z_p) ≃ K(C; C_p)`; and `π_{n+1}(𝒯𝒞/p^r)`
+described as the sheafification of `π_n`. E5 deserved the closest look and stands: the printed "we
+can assume `x^*α = 0`" assumes the statement being proved, and the normalization actually available
+is `x_0^*α = 0`.

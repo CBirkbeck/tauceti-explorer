@@ -1293,7 +1293,7 @@
    "parent": "RefinedTraceMethods",
    "roadmap": "RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses",
    "title": "Hochschild, cyclotomic and refined trace methods, Part II: p-adic deformation of K-theory classes",
-   "area": "motivic",
+   "area": "ktheory",
    "items": [
     "PAPER-CLAUSEN-MATHEW-MORROW-21/089",
     "PAPER-CLAUSEN-MATHEW-MORROW-21/090",
@@ -1306,7 +1306,7 @@
     "PAPER-CLAUSEN-MATHEW-MORROW-21/097"
    ],
    "brief": "This route adds a source to the Part II of Hochschild, cyclotomic and refined trace methods proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses). That brief already requires 'continuous invariants F^cts(X) = lim_n F(X_n) … with the continuity theorems saying which comparison maps F(X) → F^cts(X) are p-adic equivalences'. Clausen–Mathew–Morrow §5.2 proves those theorems for K and TC.\n\nPlan:\n- nilpotent, quickly converging, almost nilpotent and almost quickly converging towers of abelian groups and spectra, with Mathew's Lemmas 3.10–3.11 (Geom. Topol. 19) and Lemmas 5.13, 5.15–5.18;\n- Theorem 5.19 (continuity of THH and TC along almost quickly converging towers of connective E_1-rings);\n- Theorem 5.20 (derived p-adic continuity of TC for HZ-algebras);\n- Theorem 5.21 (derived p-adic continuity of K when π_0 is commutative and henselian along p);\n- Theorem 5.22 (p-adic continuity of K for commutative rings henselian along p with bounded p-power torsion, generalizing Geisser–Hesselholt's Theorem 5.10);\n- Remark 5.23's variant over the sphere.\n\nImport Theorem 4.36 (rigidity for henselian pairs) and Remark 2.8 from the proposed RefinedTraceMethodsPartIIHenselianPairs, and TC and THH from RefinedTraceMethods RT.2.\n\nUnit tests:\n- R = Z_p;\n- R = Z_p[x]/(px), with bounded p-torsion;\n- a ring with unbounded p-power torsion, where Theorem 5.22 does not apply.",
-   "reason": "The AMMN extraction's proposed Part II already owns the continuity theorems for K and TC of p-adic formal schemes; §5.2 proves them, so routing it there keeps one owner for p-adic continuity."
+   "reason": "The AMMN extraction's proposed Part II already owns the continuity theorems for K and TC of p-adic formal schemes; §5.2 proves them, so routing it there keeps one owner for p-adic continuity. Area corrected from 'motivic' to 'ktheory' by REV-PAPER-CLAUSEN-MATHEW-MORROW-21: 'motivic' is the atlas group of the parent roadmap, not a galaxy id in data/galaxies.json, and the sibling Part II of the same parent in this extraction uses 'ktheory'. The same invalid area is in PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22, which proposes this roadmap id too and is not this job's file."
   },
   {
    "route": "new",
@@ -1404,7 +1404,12 @@
     "Crossref metadata for DOI 10.1090/jams/961 (no update-to or correction relation)",
     "the AMS page of J. Amer. Math. Soc. 34 (2021) 411–473 (the PDF returned HTTP 403, not read)",
     "the second author's home page (links to arXiv only)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source. Line 397 of rigidity_final.tex reads 'it relies heavily on the calculations of Geisser--Levine \\cite{GH} and Geisser--Hesselholt \\cite{GH}', so the same key is used twice; §1.1 (line 275) and Theorem 1.5 cite \\cite{GL} correctly. In the .bbl the entries are numbered GH = [30] and GL = [34], exactly as the correction says.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E2",
@@ -1418,7 +1423,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Condition (Law) at line 1467 asks for a functor U with 'a left adjoint F : Sets -> C', and the sentence four lines later calls the free-object functor 'its right adjoint F'. The free functor is left adjoint to the forgetful functor, so the misprint is in the second mention and nothing depends on it.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E3",
@@ -1432,7 +1442,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, all three slips and the index shift. The source reads 'let b_1^{(j)},...,b_{w_j}^{(j)},c_1^{(j)},...,c_{w_j}^{(j)} \\in k_i', 'dlog(1+t^jb) \\wedge dlog(1+t^jc) \\equiv t^{2j} da \\wedge db' and 'tau_{2s-2} \\equiv \\sum_{i=1}^{w_s} b_i^{(s)} \\wedge c_i^{(s)}'. The elements belong to k_j, the two-form is db ∧ dc (a and b do not occur), and since the block j contributes at t^{2j}, the block s matches tau_{2s} rather than tau_{2s-2}. The recorded knock-on to the growth condition is right: Bloch–Esnault–Kerz bound w(tau_j) by N·C(j+2,j), which at index 2j is N·C(2j+2,2j) instead of the printed N·C(2j,2j-2), and C(2j+2,2j)/C(2j,2j-2) = (2j+2)(2j+1)/(2j(2j-1)) is at most 6 for j >= 1, so a sequence w_j defeating one bound defeats the other and the proof is unaffected.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E4",
@@ -1446,7 +1461,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. In the proof of Lemma 5.30 the two diagram arrows and the display of relative terms are labelled {R^{r-s}}_s, while the statement of the lemma and Illusie's sequence recalled just before it are labelled {R^{s-r}}_s. Restriction lowers the level by one, so the map W_s -> W_r for s >= r is R^{s-r}; r - s is non-positive.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E5",
@@ -1460,7 +1480,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it is not a harmless restatement. The preceding sentence sets the goal — find a Zariski neighbourhood U of x_0 with x_0^*alpha = x^*alpha for all sections x of U — so 'we can assume x^*alpha = 0' as printed assumes what is to be proved. Subtracting q^*x_0^*alpha gives exactly x_0^*alpha = 0, which is what the next step uses when it applies rigidity at the henselization of X at x_0 to make alpha vanish on an etale neighbourhood of x_0.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E6",
@@ -1474,7 +1499,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source: 'K(\\mathcal{O}_C; \\mathbb{Z}_p) \\simeq K(C; \\mathbb{C}_p)'. The coefficients are p-adic on both sides, and the same sentence continues that this is p-adic connective topological K-theory by Suslin, which is a statement about K(C; Z_p).",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E7",
@@ -1488,7 +1518,12 @@
    "searched": [
     "arXiv 1803.10897v2 TeX source and PDF",
     "Crossref metadata for DOI 10.1090/jams/961"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed at the source (line 3887): 'pi_{n+1}(\\mathcal{TC}/p^r) denotes the etale sheafification of the presheaf pi_n(TC(-)/p^r)'. The summand comes from the E_2^{1,-(n+1)} term of the etale descent spectral sequence, so the sheafified presheaf is pi_{n+1}, as the proof of Theorem 6.11 and Theorem 4.29 confirm.",
+    "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
+   }
   }
  ]
 }
