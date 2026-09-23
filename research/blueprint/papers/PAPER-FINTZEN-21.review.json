@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-FINTZEN-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The existing SR.0–3 contracts provide ambient category theory and Bernstein blocks but no general tame-group data or exhaustion construction. The original route’s GL_m absence claim is stale: ET.6 already owns that special case. The revised route imports it and removes generic finite oscillator and reductive orbit theory into their own foundational extensions. The local structural input remains in RG2.1–3."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "RG2.1 owns valued root-group filtrations and commutator estimates, RG2.2 buildings and their reduced/enlarged geometry, and RG2.3 connected parahorics, reductive quotients and congruence subgroups. Supply their blueprint with the exact real-indexed Moy–Prasad group/Lie/dual refinements, tame base-change and twisted-Levi building images, invariant form with lattice compatibility, mixed-depth groups and mock-exponential estimates, positive-depth exact sequences of tame tori, torus/derived generation and lifting of cocharacters. These are missing proofs within the existing local-structure layers, not a claim that those layers already prove them. Keep r≥0 for groups, r real for Lie lattices, r>0 for torus exactness, the valuation normalized on k, and the full Weyl-order hypothesis for the form. Import absolute root data from Tau Ceti and the new good-prime consequences from route 4. Representation depth, contained data, characters, types and exhaustion remain in route 1."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "An independent atlas-wide search finds the common oscillator owner MP.0–2, contrary to the original extraction’s claim of no Heisenberg/Weil owner. Its full README explicitly restricts its starting field to characteristic zero and requires a separately sourced extension for other characteristics. A finite Part II preserves that boundary and prevents a second oscillator theory hidden in the tame-types roadmap."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Full reads of the upstream reductive-groups document and LP3 show that the former owns carriers, tori, parabolics and root data and the latter good-filtration/cohomology statements. Neither plans rational orbit destabilization or the stated bad/torsion-prime arithmetic. These reusable missing foundations should extend the foundational reductive-group owner, not be declared supplied by LP3 or rebuilt inside a single smooth-representation construction."
+    }
+  ],
+  "notes": "Accepted after in-place revision by Codex — codex-c83e7a (REV-PAPER-FINTZEN-21). Read all 39 pages of the pinned public v2; 108 exact-scope items replace 33 bundled items, with 9 planned and 99 missing. Corrected the off-building inequality, epsilon perturbation, depth domains, subrepresentation scope, full Yu genericity and missing D2 argument. Rejected the original LP3 and finite-GL2 coverage claims; recognized ET.6 and the characteristic-zero MP owner. Every missing item has one of four accepted routes. SourceIssues E1–E5 are v2 notation slips confirmed from page images and adjoining formulas after correction searches. No cited declaration is claimed to discharge a full item; pinned whole-tree searches and current owner reads support the negative classifications. See the review report for the full original-item decision ledger and limits."
+}
