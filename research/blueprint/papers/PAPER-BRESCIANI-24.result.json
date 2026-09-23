@@ -10,13 +10,13 @@
     "arxiv": "2108.13397",
     "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
     "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
-    "readDate": "2026-09-22",
-    "version": "Published open-access PDF, 22 pages, online 26 September 2023; all pp.129–150 reread by codex-hjdg0j on 22 September 2026. arXiv:2108.13397v3 (15 September 2023) checked at the six source-issue passages; its SHA-256 is e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "readDate": "2026-09-23",
+    "version": "Published open-access PDF, 22 pages, online 26 September 2023; all pp.129–150 reread by codex-hjdg0j on 22 September 2026. arXiv:2108.13397v3 (15 September 2023) checked at the six source-issue passages; its SHA-256 is e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722. All22 published pages reread by codex-c83e7a on2026-09-23; identical published SHA-256. The v3 passage comparison remains attributed to codex-hjdg0j.",
     "readSections": [
       "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
     ]
   },
-  "summary": "Continuation of the full published-paper extraction: 152 items, 8 library, 8 planned, 136 missing, all missing items now routed exactly once. The generalized Albanese comparison is resolved with a torsor-aware proof and explicit band/neutralization suppliers. Seven source issues are recorded, including the three findings in the separate errata file, the comparison choice, a polynomial-lift correction and two reference/notational slips. The parabolic reduction and other named prerequisite readings remain open, so status stays partial. No formalization or complete source closure is claimed.",
+  "summary": "Continuation of PR1924: explicit finite-K/Qp Mattuck proof by normalized multiplication iterates on a small analytic ball, including p=2 and arbitrary reduction; compactness/finite torsion and the local Tate-invariant/cocycle steps are separated. Reuses the existing FormalLieTheory and RigidZariskiGeometry candidates. 168 items; original parabolic correctness gap and source/blueprint granularity gaps remain. Partial, no formalization claim.",
   "items": [
     {
       "id": "PAPER-BRESCIANI-24/1",
@@ -715,7 +715,16 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Mattuck’s original Theorem7 p.114 read in the university-hosted scan: it applies to complete ultrametric characteristic-zero k and gives an analytically isomorphic/homeomorphic copy of O_k^d, of finite index when k is locally compact. The present input is the finite-extension-of-Qp case. Its torsion injects into the finite quotient because O_K^d is torsion-free. Full proof decomposition remains design work."
+      "note": "The finite-K/Qp endpoint now has the explicit small-ball proof /153–/166. Projectivity and generic analytic-coordinate/series suppliers are recorded separately; no full recursive closure is claimed. The original complete-ultrametric-field theorem is broader and is not substituted for this stated finite-extension scope.",
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/164",
+        "PAPER-BRESCIANI-24/165",
+        "PAPER-BRESCIANI-24/166"
+      ],
+      "proofSteps": [
+        "Use /164 for the open subgroup U≃O_K^g.",
+        "By /166 and /165, A(K) is compact. Its open cosets form a cover, so a finite subcover gives finite index."
+      ]
     },
     {
       "id": "PAPER-BRESCIANI-24/63",
@@ -726,7 +735,11 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Use compact-coefficient low-degree exactness with transition maps; finiteness of each A[n](K) alone is insufficient."
+      "note": "Expanded by /167 and /168: a common exponent kills every compatible inverse-limit component, followed by an explicit coboundary argument.",
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/167",
+        "PAPER-BRESCIANI-24/168"
+      ]
     },
     {
       "id": "PAPER-BRESCIANI-24/64",
@@ -1526,7 +1539,14 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The open subgroup furnished by /62 is torsion-free and finite index; restriction of the quotient map to torsion is injective."
+      "note": "The open subgroup furnished by /62 is torsion-free and finite index; restriction of the quotient map to torsion is injective.",
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/62"
+      ],
+      "proofSteps": [
+        "The torsion subgroup intersects U trivially since the additive group O_K^g is torsion-free.",
+        "Its injection into the finite quotient A(K)/U proves finiteness; the order of a finite quotient need not equal the torsion order."
+      ]
     },
     {
       "id": "PAPER-BRESCIANI-24/136",
@@ -1722,6 +1742,524 @@
       "library": [],
       "planned": [],
       "note": "Elementary descent proof in the report: Isom is locally a simply transitive automorphism torsor; twisting s constructs the inverse, with descent for objects and arrows. Use fpqc torsors for profinite H. Test the trivial torsor, twisting by an H-torsor, and the independence of inner conjugation only for a commutative band. Owned by SF.1."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/153",
+      "kind": "theorem",
+      "name": "Contraction fixed point on a complete subset",
+      "statement": "For a complete subset S of an extended metric space, a self-map preserving S and contracting there with constant c<1 has a fixed point in the finite-distance component of any starting point x∈S with finite distance to f(x). Its iterates converge with the stated geometric error bound.",
+      "locator": "Pinned Mathlib/Topology/MetricSpace/Contracting.lean:153–166",
+      "status": "library",
+      "library": [
+        "mathlib:ContractingWith.exists_fixedPoint'"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "baseline"
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/154",
+      "kind": "construction",
+      "name": "Local inverse from an invertible strict derivative",
+      "statement": "For normed spaces over a nontrivially normed field, with complete domain, an invertible strict Fréchet derivative of f at a supplies an open partial homeomorphism with underlying function f and a in its source.",
+      "locator": "Pinned Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean:110–139",
+      "status": "library",
+      "library": [
+        "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph",
+        "mathlib:HasStrictFDerivAt.mem_toOpenPartialHomeomorph_source"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "ownerCandidate": "baseline",
+      "api": [
+        {
+          "name": "Bresciani24.n154.map",
+          "role": "data",
+          "statement": "The forward function is the original f."
+        },
+        {
+          "name": "Bresciani24.n154.inverse",
+          "role": "universal-property",
+          "statement": "On the chosen source/target, inverse composition is identity."
+        },
+        {
+          "name": "Bresciani24.n154.neighborhood",
+          "role": "structure",
+          "statement": "The source is an open neighborhood of a, and the target of f(a)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Bresciani24.n154.identity",
+          "kind": "computation",
+          "statement": "For f=id and derivative id, the local map is identity on its domain."
+        },
+        {
+          "name": "Bresciani24.n154.p_scaling",
+          "kind": "example",
+          "statement": "On K/Qp finite, multiplication by p has an invertible K-linear derivative and local inverse x↦x/p."
+        },
+        {
+          "name": "Bresciani24.n154.zero_derivative",
+          "kind": "non-example",
+          "statement": "The map x↦x² at 0 does not meet the derivative hypothesis."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BRESCIANI-24/156",
+          "how": "Supplies the topological local inverse in the smooth-point chart; analytic inverse is a separate supplier."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/155",
+      "kind": "construction",
+      "name": "Restricted multivariable analytic functions on a closed ball",
+      "statement": "For finite K/Qp and a radius r in |K×|, use the Banach algebra of restricted power series on the closed maximum-norm ball B_r⊂K^d. The norm is the weighted supremum of coefficients. Substitution by maps taking a ball into a smaller ball is admitted with the Gauss-norm bound; a Gauss-norm Cauchy sequence has an analytic limit.",
+      "locator": "LocallyAnalyticDistributions:L0; Mattuck pp.93–97, addition/multiplication/substitution and inversion",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "prerequisites": [],
+      "ownerCandidate": "LocallyAnalyticDistributions",
+      "api": [
+        {
+          "name": "Bresciani24.n155.gauss",
+          "role": "data",
+          "statement": "For f=Σa_αX^α, the norm is sup |a_α|r^|α|, with weighted coefficients tending to zero."
+        },
+        {
+          "name": "Bresciani24.n155.restrict",
+          "role": "functoriality",
+          "statement": "Restriction to a smaller radius is a continuous algebra map and respects composition."
+        },
+        {
+          "name": "Bresciani24.n155.limit",
+          "role": "compatibility",
+          "statement": "Convergence in the Gauss norm gives a restricted series and uniform convergence of its evaluations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Bresciani24.n155.polynomial",
+          "kind": "computation",
+          "statement": "The norm of X_i on B_r is r."
+        },
+        {
+          "name": "Bresciani24.n155.vector",
+          "kind": "example",
+          "statement": "Use the maximum of component norms for K^d-valued maps."
+        },
+        {
+          "name": "Bresciani24.n155.pointwise",
+          "kind": "non-example",
+          "statement": "Pointwise or bare uniform convergence is not substituted for convergence in the analytic Banach norm."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BRESCIANI-24/158",
+          "how": "Bounds quadratic and Lipschitz remainders."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/159",
+          "how": "Completes the logarithm sequence as an analytic function."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/163",
+          "how": "Completes inverse iteration analytically."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/156",
+      "kind": "theorem",
+      "name": "Smooth algebraic points have analytic coordinates",
+      "statement": "For finite K/Qp, a smooth finite-type K-scheme X and x∈X(K), a neighborhood of x in X(K) is a K-analytic manifold of dimension dim_x X. Algebraic morphisms between smooth schemes induce analytic maps in these charts, with the algebraic tangent derivative.",
+      "locator": "Mattuck implicit/inversion theorem pp.97–98; existing Howe–Klevdal /179 classical-point interface",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/154",
+        "PAPER-BRESCIANI-24/155"
+      ],
+      "ownerCandidate": "AdicSpacesPartIIRigidZariskiGeometry",
+      "proofSteps": [
+        "Choose a standard smooth affine presentation at x with an invertible Jacobian minor. Separate free coordinates and equation coordinates.",
+        "Solve the polynomial equations by the nonarchimedean analytic implicit-function theorem; the pinned inverse-function theorem supplies the underlying open partial homeomorphism. Analytic inverse and polynomial-to-manifold compatibility remain precise supplier obligations, not consequences of the name alone.",
+        "Regular maps are rational expressions with denominators nonzero near x, hence analytic on a smaller ball; the chain rule gives the tangent comparison."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/157",
+      "kind": "construction",
+      "name": "Small commutative analytic group law",
+      "statement": "In coordinates centered at the identity of a finite-dimensional commutative K-analytic group, its multiplication is a convergent vector series F(X,Y)=X+Y+terms of degree at least two, its inverse is −X+terms of degree at least two, and its multiplication-by-p series P(X) has linear term pX. On a sufficiently small closed ball, multiplication and inverse preserve the ball.",
+      "locator": "Local analytic replacement for Mattuck Theorem7; existing Caro–Pasten formal-n and multiplication-linear interfaces",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/155"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "api": [
+        {
+          "name": "Bresciani24.n157.laws",
+          "role": "structure",
+          "statement": "Export identity, inverse, commutativity and associativity on the chosen common domain."
+        },
+        {
+          "name": "Bresciani24.n157.multiplication",
+          "role": "simp",
+          "statement": "P is the p-fold sum in F, P(0)=0 and its derivative is p·id."
+        },
+        {
+          "name": "Bresciani24.n157.shrink",
+          "role": "functoriality",
+          "statement": "Restrict the same germ to a smaller invariant ball; the group laws and coordinate changes agree there."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Bresciani24.n157.additive",
+          "kind": "computation",
+          "statement": "F=X+Y has P=pX and no remainder."
+        },
+        {
+          "name": "Bresciani24.n157.multiplicative",
+          "kind": "computation",
+          "statement": "In the coordinate x=u−1, F=x+y+xy and P=(1+x)^p−1."
+        },
+        {
+          "name": "Bresciani24.n157.noncommutative",
+          "kind": "non-example",
+          "statement": "The power map need not be a homomorphism in a noncommutative group; that setting is excluded."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BRESCIANI-24/158",
+          "how": "Provides the analytic remainders to bound."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/160",
+          "how": "Commutativity makes P^n a homomorphism."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/164",
+          "how": "Models the abelian-variety identity chart."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/158",
+      "kind": "theorem",
+      "name": "Quantitative small-ball bounds",
+      "statement": "For F and P of /157, choose C>0 and r>0 in |K×| with ε=Cr/|p|<1. On B_r, R=P−p·id satisfies |R(x)|≤C|x|² and |R(x)−R(y)|≤Cr|x−y|; on every B_s with s≤r the latter bound is Cs. F−(X+Y) has the corresponding quadratic bound. Consequently |P(x)−P(y)|=|p||x−y|.",
+      "locator": "Explicit coefficient estimate in the continuation, from the convergent-series operations of Mattuck pp.93–97",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/157"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "Take a smaller radius inside a common convergence ball. The coefficients of all degree≥2 remainders are bounded by C times the radius weight of degree−2.",
+        "Factor the difference of each monomial as a telescoping sum. The ultrametric inequality bounds it by s^(degree−1)|x−y| on B_s; the same coefficient majorant gives Cs.",
+        "Shrink r until Cr<|p|. The linear term then strictly dominates the difference remainder, giving equality of norms. Bounds on multiplication and inverse make B_r a subgroup. No good-reduction or p>2 hypothesis occurs."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/159",
+      "kind": "construction",
+      "name": "Logarithm as normalized multiplication iterates",
+      "statement": "Under /158 define L_n(x)=p^(−n)P^[n](x), where P^[n] is n-fold composition. The sequence converges in the Gauss norm on B_r to L, with L(0)=0, derivative id, and |L_(n+1)(x)−L_n(x)|≤C|p|^(n−1)|x|².",
+      "locator": "Explicit replacement proof for the finite-K/Qp case of Mattuck Theorem7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/158"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "Induction using /158 gives |P^[n](x)|=|p|^n|x| and the same shrinking-ball bounds in the Gauss norm.",
+        "Write L_(n+1)−L_n=p^(−n−1)R(P^[n](x)); its bound is C|p|^(n−1)|x|². The Gauss bounds tend to zero, so their telescoping sum converges in the complete ultrametric Banach algebra /155.",
+        "The constant term remains zero and the linear term remains identity at every level and in the coefficient limit."
+      ],
+      "api": [
+        {
+          "name": "Bresciani24.n159.iterate",
+          "role": "data",
+          "statement": "L_0=id and L_(n+1)−L_n=p^(−n−1)R∘P^[n]."
+        },
+        {
+          "name": "Bresciani24.n159.normalization",
+          "role": "simp",
+          "statement": "L(0)=0 and the derivative at 0 is identity."
+        },
+        {
+          "name": "Bresciani24.n159.restrict",
+          "role": "compatibility",
+          "statement": "The same normalized limit restricts to every smaller admissible ball; it is independent of the radius after restriction."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Bresciani24.n159.additive",
+          "kind": "computation",
+          "statement": "For P=pX every L_n and L equal id."
+        },
+        {
+          "name": "Bresciani24.n159.multiplicative",
+          "kind": "example",
+          "statement": "For F=x+y+xy the limit is log(1+x) on a sufficiently small ball."
+        },
+        {
+          "name": "Bresciani24.n159.two_adic_boundary",
+          "kind": "non-example",
+          "statement": "At p=2, x=−2 corresponds to the torsion unit −1. The too-large ball 2Z2 cannot support an injective logarithm; 4Z2 is an admissible smaller ball."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BRESCIANI-24/160",
+          "how": "Supplies the limit whose group law is proved."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/161",
+          "how": "Supplies the remainder to control."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/163",
+          "how": "Provides the analytic inverse problem."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/160",
+      "kind": "theorem",
+      "name": "The normalized limit is a group homomorphism",
+      "statement": "On B_r with F as above, L(F(x,y))=L(x)+L(y).",
+      "locator": "Continuation proof, local form of Mattuck Theorem7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/157",
+        "PAPER-BRESCIANI-24/159"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "Since F is commutative, P^[n](F(x,y))=F(P^[n](x),P^[n](y)).",
+        "Divide by p^n. The difference from L_n(x)+L_n(y) has norm at most C|p|^n max(|x|,|y|)^2, which tends to zero. Pass to the limit."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/161",
+      "kind": "theorem",
+      "name": "The logarithm is an isometry near identity",
+      "statement": "For L of /159 and ε=Cr/|p|<1, h=L−id is ε-Lipschitz on B_r. Hence |L(x)−L(y)|=|x−y|, and L is injective.",
+      "locator": "Continuation proof, normalized-iterate difference estimate",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/158",
+        "PAPER-BRESCIANI-24/159"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "The n-th telescoping difference has Lipschitz constant at most C r |p|^(n−1), using /158 on B_(|p|^n r) and the exact contraction of P^[n].",
+        "The ultrametric sum is bounded by the maximum constant ε; its limit h has the same bound. Since ε<1, the identity term strictly dominates for x≠y."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/162",
+      "kind": "theorem",
+      "name": "The small logarithm maps onto the full coordinate ball",
+      "statement": "For each y∈B_r, x↦y−(L(x)−x) preserves B_r and contracts with constant ε<1. Its unique fixed point solves L(x)=y. Thus L is a homeomorphic group isomorphism from (B_r,F) onto (B_r,+).",
+      "locator": "Continuation proof using the pinned contraction theorem",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/153",
+        "PAPER-BRESCIANI-24/160",
+        "PAPER-BRESCIANI-24/161"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "h(0)=0 and |h(x)|≤ε|x| ensure the self-map remains in B_r. The ball is complete.",
+        "Apply /153, then use /161 for uniqueness and continuity of the inverse. The inverse is an isometry as well."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/163",
+      "kind": "theorem",
+      "name": "Analytic inverse of the small logarithm",
+      "statement": "The inverse of /162 is analytic, with identity derivative, so L is an analytic group isomorphism. Its germ agrees with the normalized characteristic-zero formal logarithm already owned by the FormalLieTheory continuation.",
+      "locator": "Mattuck inversion theorem pp.97–98; Gauss-norm inverse iteration in this continuation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/159",
+        "PAPER-BRESCIANI-24/161",
+        "PAPER-BRESCIANI-24/162"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "proofSteps": [
+        "Solve X=Y−h(X) by iteration in the vector Tate algebra on B_r. The coefficient telescoping estimate giving ε-Lipschitzness holds in its Gauss norm, so substitution is a contraction on the radius-r ball of series.",
+        "Completeness /155 gives a convergent analytic inverse series; evaluations are the unique fixed points of /162.",
+        "The derivative is id. For two normalized formal logarithms, compose with one inverse; an additive formal map in characteristic zero is linear, by comparing the mixed coefficients in H(X+Y)=H(X)+H(Y). Its identity derivative forces equality. This comparison does not import Caro–Pasten’s large-prime full-disc theorem."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/164",
+      "kind": "construction",
+      "name": "Open additive subgroup of local abelian-variety points",
+      "statement": "For finite K/Qp and an abelian variety A/K of dimension g, choose the identity chart /156 and a ball as above. Its inverse image U⊂A(K) is an open subgroup analytically isomorphic to (B_r,+), hence after scalar rescaling to (O_K^g,+).",
+      "locator": "Bresciani Lemma8; Mattuck Theorem7, finite-K/Qp specialization",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/60",
+        "PAPER-BRESCIANI-24/156",
+        "PAPER-BRESCIANI-24/157",
+        "PAPER-BRESCIANI-24/163"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuliPartIILocalPoints",
+      "api": [
+        {
+          "name": "Bresciani24.n164.subgroup",
+          "role": "structure",
+          "statement": "The chosen chart intertwines the group law on U and vector addition under L."
+        },
+        {
+          "name": "Bresciani24.n164.rank",
+          "role": "compatibility",
+          "statement": "Choosing r=|a| identifies B_r=aO_K^g and multiplication by a^−1 identifies it with O_K^g."
+        },
+        {
+          "name": "Bresciani24.n164.smallness",
+          "role": "functoriality",
+          "statement": "Smaller admissible balls give nested open torsion-free subgroups; no canonical radius is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Bresciani24.n164.dimension_zero",
+          "kind": "degenerate",
+          "statement": "For the zero abelian variety, U and O_K^0 are the trivial group."
+        },
+        {
+          "name": "Bresciani24.n164.bad_reduction",
+          "kind": "example",
+          "statement": "The construction uses smoothness over K and works for an elliptic curve with bad reduction."
+        },
+        {
+          "name": "Bresciani24.n164.two",
+          "kind": "example",
+          "statement": "At p=2 shrink the radius; there is no claim that the entire first residue disc is torsion-free."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-BRESCIANI-24/62",
+          "how": "Supplies the local subgroup in Mattuck’s input."
+        },
+        {
+          "where": "PAPER-BRESCIANI-24/135",
+          "how": "Makes its torsion kernel zero."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/165",
+      "kind": "theorem",
+      "name": "Compactness of projective local points",
+      "statement": "For finite K/Qp and a projective K-scheme X, X(K) with its usual K-adic topology is compact Hausdorff.",
+      "locator": "Mattuck compactness step pp.113,117; explicit normalized-coordinate proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/156"
+      ],
+      "ownerCandidate": "AdicSpacesPartIIRigidZariskiGeometry",
+      "proofSteps": [
+        "For P^N(K), normalize a nonzero coordinate vector by a coordinate of maximal absolute value. The finitely many charts with that coordinate equal to 1 are continuous images of compact O_K^N. They cover P^N(K).",
+        "A projective closed subscheme has a closed zero locus in P^N(K), so its K-points are compact. The affine-chart topology is Hausdorff and agrees with /156.",
+        "Compactness of O_K and the chart topology are imported from the existing local-field and analytic-point suppliers. Compactness is not inferred merely from the word proper in the algebraic carrier."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/166",
+      "kind": "theorem",
+      "name": "Projectivity of an abelian variety over a field",
+      "statement": "An abelian variety over a characteristic-zero field is projective and has a symmetric ample line bundle. This is a field theorem; it does not assert projectivity or an ample line bundle for an arbitrary abelian scheme over an arbitrary base.",
+      "locator": "Milne, Abelian Varieties, author revision 2022-01-02, Theorem7.1 and Corollary7.2, pp.10–12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/60"
+      ],
+      "ownerCandidate": "AbelianSchemesAndArithmeticModuli",
+      "proofSteps": [
+        "Over an algebraic closure choose finitely many divisors separating the identity from other points and nonzero tangent directions. The theorem of the square makes suitable translates linearly equivalent to three times their sum, separating all points and tangent directions.",
+        "Over a characteristic-zero field the divisors descend to a finite Galois extension; the sum of conjugates is ample and descends. Very ampleness is detected after field extension.",
+        "Tensor an ample line bundle with its inverse-pullback under [−1] to make it symmetric. The theorem of the square, Cartier descent and very-ampleness criteria are explicit algebraic supplier leaves, recorded as a gap until decomposed."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/167",
+      "kind": "theorem",
+      "name": "Bounded local torsion kills the inverse Tate invariants",
+      "statement": "For finite K/Qp and A/K, (TA)^G_K=lim_n A[n](K)=0, where the divisibility transition A[mn]→A[n] is multiplication by m.",
+      "locator": "Bresciani Lemma8 p.138; explicit bounded-exponent proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/61",
+        "PAPER-BRESCIANI-24/135"
+      ],
+      "ownerCandidate": "ArithmeticGaloisDuality",
+      "proofSteps": [
+        "Choose N annihilating the finite group A(K)_tors. For a compatible family a_n, a_n=N a_(Nn)=0 for every n.",
+        "Invariants commute with this inverse limit coordinatewise. The assertion uses the common bound N, not just finiteness of each A[n](K)."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/168",
+      "kind": "theorem",
+      "name": "Direct cocycle proof of the local H1 injection",
+      "statement": "For the exact compact G_K-modules 0→TT→TJ→TA→0 supplied by /57, the vanishing /167 gives injectivity H1_cont(K,TT)→H1_cont(K,TJ).",
+      "locator": "Bresciani Lemma8 p.138",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-BRESCIANI-24/57",
+        "PAPER-BRESCIANI-24/167"
+      ],
+      "ownerCandidate": "ArithmeticGaloisDuality",
+      "proofSteps": [
+        "Represent a class killed in H1(K,TJ) by a continuous TT-valued cocycle c with c(σ)=σj−j for some j∈TJ.",
+        "The image of j in TA is invariant and therefore zero by /167. Exactness places j in TT, proving c is already a TT-coboundary. No passage from termwise long exact sequences through an unchecked derived limit is used."
+      ]
     }
   ],
   "prerequisites": [
@@ -1773,7 +2311,7 @@
     {
       "citation": "Mattuck, Abelian varieties over p-adic ground fields, Ann.Math.62(1955),92–119",
       "link": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
-      "why": "Original scan acquired; Theorem7 p.114 read. The finite-index torsion-free subgroup proves finite torsion. Full analytic proof and its general ownership are the proposed local-points Part II work."
+      "why": "Theorem7 and its full printed proof pp.114–117, continuation remarks p.118, and pp.92–100,111–113,119 read on2026-09-23. The earlier Jacobian-proof portions pp.101–110 were not reread. The finite-K/Qp endpoint is supplied by the explicit normalized-iterate replacement /153–/168, with remaining analytic/algebraic supplier leaves recorded."
     },
     {
       "citation": "Saïdi–Tyler, On the birational section conjecture over finitely generated fields, ANT15(2021),435–460",
@@ -1809,6 +2347,11 @@
       "citation": "Harari–Szamuely, Galois sections for abelianized fundamental groups, with an appendix by E. V. Flynn",
       "link": "https://pagine.dm.unipi.it/tamas/bash5.pdf",
       "why": "Comparison passages in author §§1–2, especially the fundamental-group extension comparison in Proposition 2.2 and Remark 2.4, read. Supplies arithmetic descent and the generalized Albanese torsor interpretation of /58; does not replace a torsor by its group of translations."
+    },
+    {
+      "citation": "Milne, Abelian Varieties, author revision January2,2022, Theorem7.1 and Corollary7.2",
+      "link": "https://mail.jmilne.org/math/xnotes/AVs.pdf",
+      "why": "Read complete pp.9–12 and title/version p.1; projectivity proof and symmetric ample consequence. Used only in characteristic zero; deeper square/descent/very-ampleness suppliers remain explicit."
     }
   ],
   "routes": [
@@ -1885,7 +2428,9 @@
         "PAPER-BRESCIANI-24/48",
         "PAPER-BRESCIANI-24/49",
         "PAPER-BRESCIANI-24/63",
-        "PAPER-BRESCIANI-24/90"
+        "PAPER-BRESCIANI-24/90",
+        "PAPER-BRESCIANI-24/167",
+        "PAPER-BRESCIANI-24/168"
       ],
       "reason": "Compact/all-prime coefficient comparison, Kummer inverse limits, completed units, valuations and exactness belong to the existing topological-coefficient extension; the discrete upstream cohomology is imported."
     },
@@ -2019,9 +2564,10 @@
       "area": "arithmeticgeometry",
       "items": [
         "PAPER-BRESCIANI-24/62",
-        "PAPER-BRESCIANI-24/135"
+        "PAPER-BRESCIANI-24/135",
+        "PAPER-BRESCIANI-24/164"
       ],
-      "brief": "Extend Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli) with the local analytic theorem required by Bresciani Lemma8: for a finite extension K/Qp and abelian variety A/K, construct the K-adic topology and an open subgroup of A(K) isomorphic to the additive group O_K^dim A; deduce finiteness of A(K)_tors by compactness and finite index. Use Mattuck, Ann.Math.62(1955),92–119, Theorem7 on p.114, whose statement was read in the original scan. It gives the subgroup over any complete ultrametric characteristic-zero field, with finite index under local compactness. The present endpoint is the finite-extension-of-Qp case. Decompose the full proof before execution. Import the existing TauCeti.AlgebraicGeometry.AbelianVariety carrier, AbelianSchemesAndArithmeticModuli A1/A3/A4, local fields and general p-adic analytic charts/formal logarithms from their owners; do not reprove semistable reduction or claim a global logarithm isomorphism. Export lim_n A[n](K)=0 to ArithmeticGaloisDuality R02.1 for the TT→TJ H1 injection. Test an elliptic curve and zero-dimensional abelian variety; keep p=2 and arbitrary reduction. Full dependency-owner audit of analytic logarithms remains a design preparation task.",
+      "brief": "Extend Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli) with the local analytic theorem required by Bresciani Lemma8: for a finite extension K/Qp and abelian variety A/K, construct the K-adic topology and an open subgroup of A(K) isomorphic to the additive group O_K^dim A; deduce finiteness of A(K)_tors by compactness and finite index. Use Mattuck, Ann.Math.62(1955),92–119, Theorem7 on p.114, whose statement was read in the original scan. It gives the subgroup over any complete ultrametric characteristic-zero field, with finite index under local compactness. The present endpoint is the finite-extension-of-Qp case. Decompose the full proof before execution. Import the existing TauCeti.AlgebraicGeometry.AbelianVariety carrier, AbelianSchemesAndArithmeticModuli A1/A3/A4, local fields and general p-adic analytic charts/formal logarithms from their owners; do not reprove semistable reduction or claim a global logarithm isomorphism. Export lim_n A[n](K)=0 to ArithmeticGaloisDuality R02.1 for the TT→TJ H1 injection. Test an elliptic curve and zero-dimensional abelian variety; keep p=2 and arbitrary reduction. Full dependency-owner audit of analytic logarithms remains a design preparation task. Continuation: use /153–/168 for the finite-K/Qp proof. Import the normalized small-ball analytic logarithm from the existing Caro–Pasten candidate AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory, with no large-prime restriction after shrinking the ball. Import the generic classical-point chart and projective compactness from the existing Howe–Klevdal AdicSpacesPartIIRigidZariskiGeometry candidate, Gauss Banach operations from LocallyAnalyticDistributions:L0, and field projectivity from the A2 algebraic supplier. Keep generic logarithms out of this application route. Compactness yields finite index, and torsion injects into the finite quotient. This same endpoint continues to supply Harpaz–Wittenberg16 /49; no separate Mattuck theorem is planned there. The original broad-field proof is not claimed recursively closed.",
       "reason": "A1–A6 contain schemes, torsion, degree-one realizations and complex uniformization, but no Mattuck local-point theorem. R11.3 handles degeneration/Raynaud uniformization, which is not this small-open-subgroup statement. A local analytic continuation avoids hiding a generic theorem in the anabelian proof."
     },
     {
@@ -2052,6 +2598,60 @@
       ],
       "brief": "Take Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) as FIRST prerequisite, importing its Layer0 completion and quotient infrastructure and Layer3 topological-generation substrate. Do not rebuild those carriers or their already-implemented universal properties. The new endpoint is: for an abstract split extension 1→N→G→H→1 with N finitely generated and H arbitrary, its profinite completion is split exact, and hat G is isomorphic as a topological group to hat N⋊hat H with the action induced by the chosen splitting. Bekka, On Bohr compactifications and profinite completions of group extensions, arXiv:2305.04803v1, CorollaryC, independently states this endpoint; use the direct finite-quotient proof detailed in the paper report rather than importing his representation-theoretic TheoremB as an unexplained hypothesis.\n\nFirst reuse TauCeti.isTopologicallyFinitelyGenerated_of_fg and the nonzero-index form of finite_openSubgroup_index_eq, applied with discrete topology. Define C_n as the intersection of all index-n subgroups of N, prove finite index using Mathlib.Subgroup.finiteIndex_iInf, and prove characteristicity and C_n≤K for a given index-n K. Descend H's action to N/C_n, take its finite image Q_n in Aut(N/C_n), and construct the surjective finite quotient G→(N/C_n)⋊Q_n whose kernel restricts to C_n. Deduce the cofinal restriction property and injectivity/topological embedding of hat N→hat G. Separately prove general right exactness by identifying hat G/closure(N) with hat(G/N) through the existing universal property. Extend the abstract splitting to hat H, construct the completed action by conjugation, and prove the canonical semidirect-product comparison and its naturality for maps preserving the chosen splittings. No residual-finiteness, cohomological goodness or finite generation of H is a hypothesis.\n\nAdd the free-quotient splitting lemma using the existing abstract FreeGroup universal property. Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.1) imports it with the separate curve-topology/Riemann-existence input: smooth affine complex curves have free fundamental group and curve fibers have finitely generated fundamental group. This geometric application is owned there, never by this generic Part II. Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) likewise owns gerbes, not this roadmap. Profinite arithmetic (ProfiniteArithmetic) owns profinite powers and topological Aut/Out carriers; the present action is built via the closed-kernel comparison and does not construct another Aut topology.\n\nTests include finite groups, trivial action, all small dihedral quotients of Z⋊C2, a non-invariant index-two subgroup under coordinate swap, and the sharp negative split example (⊕_Z C2)⋊Z: coordinate-zero kernel cannot contain any restricted finite-quotient kernel, because a finite-order shift identifies e_0 and e_t. Thus finite generation cannot simply be deleted. Distinguish ordinary profinite completion from the paper's power-quotient completion of an arbitrary abelian group. Every construction has projection, multiplication, kernel, refinement, naturality and concrete unit-test obligations. No blanket left exactness of profinite completion, general goodness theorem, pro-p replacement, or geometric section of a curve family is claimed.",
       "reason": "The upstream roadmap's Layers0/3/5 provide completion, finite-subgroup counts and continuous profinite extensions, but do not state preservation of discrete split extensions under completion. This genuinely new generic theorem extends upstream as a Part II; the arithmetic curve-family application imports it once. A catalogue/content search found no existing owner for this exact preservation theorem."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory",
+      "title": "Abelian schemes and arithmetic moduli, Part II: integral formal Lie theory",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BRESCIANI-24/157",
+        "PAPER-BRESCIANI-24/158",
+        "PAPER-BRESCIANI-24/159",
+        "PAPER-BRESCIANI-24/160",
+        "PAPER-BRESCIANI-24/161",
+        "PAPER-BRESCIANI-24/162",
+        "PAPER-BRESCIANI-24/163"
+      ],
+      "reason": "Reuse this existing pending continuation with its original ID and scope; the present paper is a consumer of its early interfaces.  Add the arbitrary-small-ball finite-K/Qp logarithm by /157–/163: L_n=p^(−n)[p]^[n], Gauss-norm convergence, homomorphism, isometry, contraction surjectivity and analytic inverse. This uses only a commutative analytic germ, so retains p=2 and arbitrary ramification after shrinking. Identify the normalized germ with the existing formal logarithm instead of constructing a competing object. It does not extend Caro–Pasten’s large-prime full-residue-disc assertion.",
+      "brief": "Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1, Adic Spaces Part II (AdicSpacesPartII) F0/R1/R2, the built scalar analytic differentiation API and formal power series, tangent spaces and one-dimensional FormalGroup. Construct n-dimensional commutative formal laws on the existing series carrier, invariant integral derivations/forms, normalized formal Exp/Log, factorial/logarithmic denominator estimates, coordinate changes and convergence. Use commuting derivations D^α(t_j)(0)/α! and homogeneous integration of closed invariant forms, or acquire and verify Bourbaki III §5; the printed CP multiplication-series argument is invalid and is not an axiom. For finite K/Q_p with |π|=q⁻¹ and p>max(e+1,exp(e/exp(1))), prove inverse analytic Exp/Log on m_R^n, norm preservation, classification of one-parameter images by invariant-form hyperplanes, and short jets. Final interface: for primitive u and m<p the exponential jet is an integral closed immersion; for m≤p−2 every integral annihilating differential pulls back to zero after reduction. Prove the continuous-to-algebraic differential square and retain the stricter differential-freeness range. Include additive/multiplicative laws, ramified K, unit rescaling and m=p−1 torsion tests. No reconstruction of upstream elliptic formal groups and no assumption that a rank-one closure equals the full R-line. Source-gap G4 remains until the corrected formal construction is checked; give APIs, ≥3 tests per definition and suggested Lean signatures in the design job. Add the arbitrary-small-ball finite-K/Qp logarithm by /157–/163: L_n=p^(−n)[p]^[n], Gauss-norm convergence, homomorphism, isometry, contraction surjectivity and analytic inverse. This uses only a commutative analytic germ, so retains p=2 and arbitrary ramification after shrinking. Identify the normalized germ with the existing formal logarithm instead of constructing a competing object. It does not extend Caro–Pasten’s large-prime full-residue-disc assertion."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AdicSpacesPartII",
+      "roadmap": "AdicSpacesPartIIRigidZariskiGeometry",
+      "title": "Adic Spaces PartII, Part II: rigid-analytic Zariski geometry, classical points and resolution",
+      "area": "padic",
+      "items": [
+        "PAPER-BRESCIANI-24/156",
+        "PAPER-BRESCIANI-24/165"
+      ],
+      "brief": "Extend AdicSpacesPartII (Adic Spaces PartII: analytification, formal models, coherent sheaves, étale sites) with the Zariski-geometric facts about rigid analytic varieties over non-archimedean fields of characteristic zero that Howe–Klevdal II uses and the atlas does not plan, starting where R3 stops (coherent ideals, Kiehl finiteness). Final theorems: (1) classical points: rigid analytic points of Y^♢ correspond to classical points of Y, which are dense (Remark 2.2.2 of Howe–Klevdal II); (2) Conrad, Irreducible components of rigid spaces, Lemma 2.1.4: a Zariski closed subset of an irreducible rigid space other than the whole is nowhere dense; (3) Bhatt–Hansen, The six functors for Zariski-constructible sheaves in rigid geometry: weakly Shilov points (Definition 2.4) are dense and lie in no nowhere dense Zariski closed subset (Corollary 2.10); (4) Temkin's functorial resolution of singularities for rigid analytic varieties in characteristic zero (Duke Math. J. 161 (2012), Theorem 5.3.2 as cited), obtained from functorial desingularization of quasi-excellent schemes and gluing — importing the algebraic resolution of AlgebraicModuliForArithmeticGeometry R09.7, whose stated scope is varieties only; (5) stratification of a reduced rigid variety into finitely many smooth Zariski-locally closed subvarieties and density of the maximal-rank locus of df; (6) classical points of smooth rigid varieties as p-adic analytic manifolds, and Serre's constant rank (subimmersion) theorem for analytic maps (Lie algebras and Lie groups, Part II, Chapter III), with the submersivity of orbit maps; Mathlib's manifolds over complete fields and its inverse and implicit function theorems (ImplicitFunctionData) are the starting point; (7) Raynaud: over an algebraically closed residue field, a closed set containing the L'-points of a disc contains its Gauss point. Import AdicSpacesPartII R0–R3, the Tau Ceti Foundations of adic spaces roadmap, DiamondsAndVStacks D6. Tests: the closed disc and its Gauss point, a nodal curve and its normalization, and z ↦ z^2 on the disc (rank drop at 0). The local-points application needs only the early classical-point analytic chart and projective K-point compactness, /156 and /165. Import local-field compactness, the pinned strict inverse theorem and the analytic inverse-function supplier; no resolution, weakly Shilov theorem or Hecke period map is a prerequisite.",
+      "reason": "Reuse this existing pending continuation with its original ID and scope; the present paper is a consumer of its early interfaces.  The local-points application needs only the early classical-point analytic chart and projective K-point compactness, /156 and /165. Import local-field compactness, the pinned strict inverse theorem and the analytic inverse-function supplier; no resolution, weakly Shilov theorem or Hecke period map is a prerequisite."
+    },
+    {
+      "route": "source",
+      "roadmap": "LocallyAnalyticDistributions",
+      "stages": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/155"
+      ],
+      "reason": "The fixed-radius multivariable Gauss Banach algebra and substitution/limit estimates are inside L0. No new analytic function-space owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "items": [
+        "PAPER-BRESCIANI-24/166"
+      ],
+      "reason": "The field projectivity and symmetric ample line-bundle input refine the existing theorem-of-square and polarization direction. Import upstream JacobianChallenge Layer E algebraic carriers; no assertion about arbitrary-base relative projectivity."
     }
   ],
   "sourceIssues": [
@@ -2174,7 +2774,6 @@
       "title": "Remaining source verification and decomposition",
       "neededBy": [
         "PAPER-BRESCIANI-24/39",
-        "PAPER-BRESCIANI-24/62",
         "PAPER-BRESCIANI-24/79",
         "PAPER-BRESCIANI-24/80",
         "PAPER-BRESCIANI-24/83",
@@ -2185,7 +2784,136 @@
         "PAPER-BRESCIANI-24/126",
         "PAPER-BRESCIANI-24/128"
       ],
-      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish Mattuck analytic supplier ownership and the inherited valuative/coherence/density prerequisites. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work."
+      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish the inherited valuative/coherence/density prerequisites. Mattuck’s finite-local-field proof and ownership are now decomposed by /153–/168; the specific geometric/analytic implementation leaves are recorded separately. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work."
+    },
+    {
+      "title": "Supplier closure beneath the local logarithm and projectivity",
+      "neededBy": [
+        "PAPER-BRESCIANI-24/155",
+        "PAPER-BRESCIANI-24/156",
+        "PAPER-BRESCIANI-24/163",
+        "PAPER-BRESCIANI-24/165",
+        "PAPER-BRESCIANI-24/166"
+      ],
+      "detail": "The replacement argument is explicit, but source-to-blueprint closure still needs the multivariable analytic Banach/substitution API, algebraic smooth-point analytic charts and analytic inverse, local-field compactness comparison, and the theorem-of-square/Cartier-descent/very-ampleness leaves for Milne7.1. Existing candidate FormalLieTheory/RigidZariskiGeometry are not accepted stages. Do not claim these constructions exist in Lean."
+    },
+    {
+      "title": "Inherited API and dependency granularity",
+      "neededBy": [
+        "PAPER-BRESCIANI-24/1",
+        "PAPER-BRESCIANI-24/2",
+        "PAPER-BRESCIANI-24/3",
+        "PAPER-BRESCIANI-24/4",
+        "PAPER-BRESCIANI-24/5",
+        "PAPER-BRESCIANI-24/6",
+        "PAPER-BRESCIANI-24/7",
+        "PAPER-BRESCIANI-24/8",
+        "PAPER-BRESCIANI-24/9",
+        "PAPER-BRESCIANI-24/10",
+        "PAPER-BRESCIANI-24/11",
+        "PAPER-BRESCIANI-24/15",
+        "PAPER-BRESCIANI-24/16",
+        "PAPER-BRESCIANI-24/17",
+        "PAPER-BRESCIANI-24/18",
+        "PAPER-BRESCIANI-24/19",
+        "PAPER-BRESCIANI-24/20",
+        "PAPER-BRESCIANI-24/21",
+        "PAPER-BRESCIANI-24/22",
+        "PAPER-BRESCIANI-24/23",
+        "PAPER-BRESCIANI-24/25",
+        "PAPER-BRESCIANI-24/31",
+        "PAPER-BRESCIANI-24/34",
+        "PAPER-BRESCIANI-24/36",
+        "PAPER-BRESCIANI-24/37",
+        "PAPER-BRESCIANI-24/38",
+        "PAPER-BRESCIANI-24/41",
+        "PAPER-BRESCIANI-24/43",
+        "PAPER-BRESCIANI-24/46",
+        "PAPER-BRESCIANI-24/47",
+        "PAPER-BRESCIANI-24/49",
+        "PAPER-BRESCIANI-24/56",
+        "PAPER-BRESCIANI-24/57",
+        "PAPER-BRESCIANI-24/60",
+        "PAPER-BRESCIANI-24/61",
+        "PAPER-BRESCIANI-24/65",
+        "PAPER-BRESCIANI-24/75",
+        "PAPER-BRESCIANI-24/85",
+        "PAPER-BRESCIANI-24/89",
+        "PAPER-BRESCIANI-24/95",
+        "PAPER-BRESCIANI-24/102",
+        "PAPER-BRESCIANI-24/103",
+        "PAPER-BRESCIANI-24/107",
+        "PAPER-BRESCIANI-24/108",
+        "PAPER-BRESCIANI-24/119",
+        "PAPER-BRESCIANI-24/121",
+        "PAPER-BRESCIANI-24/125",
+        "PAPER-BRESCIANI-24/134",
+        "PAPER-BRESCIANI-24/140",
+        "PAPER-BRESCIANI-24/141",
+        "PAPER-BRESCIANI-24/149"
+      ],
+      "detail": "The earlier paper-format items retain API/test prose in note; this is not a claim that every inherited definition has a full structured three-test contract or every source prerequisite has a resolved node ID. The five new constructions do have explicit APIs, uses and three tests each. Complete the inherited contracts before closed blueprint status."
     }
-  ]
+  ],
+  "continuation": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "issue": 1233,
+    "previousPullRequest": 1924,
+    "date": "2026-09-23",
+    "inputCommit": "5c2f7e81c0b65adb77ea28915eb921e23ba06a69",
+    "previousFiles": {
+      "commit": "7812fe40b48a534f0ea900f4cf1f9093615096d7",
+      "files": [
+        {
+          "path": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+          "blobSha": "4790a81124a8fd1040786dd119fc2d2d807addba",
+          "sha256": "a7ad1887f506163bf24b3082548faab46b37d047136fa5b5a9075a89836df06d"
+        },
+        {
+          "path": "research/blueprint/papers/PAPER-BRESCIANI-24.md",
+          "blobSha": "fc0b63971c4f8264207a92c00ea5749aaa9bf418",
+          "sha256": "12ab21e43cf57591c3e67ec187308785bc1b60db61904236179f64035cd51ee1"
+        },
+        {
+          "path": "research/blueprint/handoff/PAPER-BRESCIANI-24.md",
+          "blobSha": "7f4813b644b0f3e42d52eefc406f43f63702b176",
+          "sha256": "ae17e6d13d989d773c68c08e1a4a7c476a5c3c47bedd53a860971e9819ff1c86"
+        }
+      ]
+    },
+    "newItems": [
+      "PAPER-BRESCIANI-24/153",
+      "PAPER-BRESCIANI-24/154",
+      "PAPER-BRESCIANI-24/155",
+      "PAPER-BRESCIANI-24/156",
+      "PAPER-BRESCIANI-24/157",
+      "PAPER-BRESCIANI-24/158",
+      "PAPER-BRESCIANI-24/159",
+      "PAPER-BRESCIANI-24/160",
+      "PAPER-BRESCIANI-24/161",
+      "PAPER-BRESCIANI-24/162",
+      "PAPER-BRESCIANI-24/163",
+      "PAPER-BRESCIANI-24/164",
+      "PAPER-BRESCIANI-24/165",
+      "PAPER-BRESCIANI-24/166",
+      "PAPER-BRESCIANI-24/167",
+      "PAPER-BRESCIANI-24/168"
+    ],
+    "reading": [
+      {
+        "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+        "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94",
+        "read": "Published pp.92–100 and111–119; complete Theorem7 proof; p.114 image. Pages101–110 not read in this continuation."
+      },
+      {
+        "url": "https://mail.jmilne.org/math/xnotes/AVs.pdf",
+        "sha256": "bffdf81c57c77420b5454b31270007989d12f332abea62424be15c424079fc7c",
+        "read": "Author January2,2022 version, title/version p.1 and entire pp.9–12; Theorem7.1 complete proof and Corollary7.2. Not a full49-page read."
+      }
+    ],
+    "baseline": "Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369. All eight inherited declaration statements reread plus /153,/154; real Lie logarithm LocalInverse.lean explicitly has NormedSpace ℝ and is not a p-adic supplier.",
+    "ownership": "Full current A, AdicSpacesPartII and LocallyAnalyticDistributions owner documents read; reviewed AUDIT08 A1/A2/A4 and AUDIT25 L0. No exact AdicSpacesPartII:R1/R2 audit entry in this snapshot. Caro–Pasten FormalLieTheory and Howe–Klevdal RigidZariskiGeometry briefs and relevant items read. Reuse their IDs; Harpaz–Wittenberg16 consumes the existing LocalPoints proposal. Upstream JacobianChallenge and GlobalNumberFields full readings from earlier programme work are retained; this pass’s LieGroups scope/read excerpt is not a claim to have reread that entire document.",
+    "correctionSearch": "Publisher landing page, arXiv history, title plus correction/erratum searches on2026-09-23 found no main-paper correction. The prior author-page and source-version checks retain their original attribution. No new source issue or independent-review verdict added."
+  }
 }
