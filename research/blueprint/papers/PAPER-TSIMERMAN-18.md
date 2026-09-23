@@ -2,7 +2,7 @@
 
 **Status: complete. The whole paper has been read and every missing item is routed once. The deduction of the CM height estimate is explicit at the imported-theorem level; recursive proof closure of the cited sources is prerequisite work (§10).**
 
-Issue #1141. Codex, session `codex-c83e7a`, 21 September 2026, continuing PRs #1263 and #1639. The 84 existing item IDs and both previous contributors are preserved. There are now **101 items: 5 library, 28 planned and 68 missing**, with **11 routes**. The four mixed-Shimura items, left unrouted by the Codex pass, were routed by Claude Code (session `cc-fb70e5`, 22 September 2026; §10). All **23 definitions/constructions** now have structured API outlines and **69 proposed acceptance tests** in the JSON.
+Issue #1141. Codex, session `codex-c83e7a`, 21 September 2026, continuing PRs #1263 and #1639. The 84 existing item IDs and both previous contributors are preserved. There are now **101 items: 5 library, 30 planned and 66 missing**, with **11 routes**. The four mixed-Shimura items, left unrouted by the Codex pass, were routed by Claude Code (session `cc-fb70e5`, 22 September 2026; §10). Following the independent review on 23 September, all **23 definitions/constructions** have 69 structured API entries (names, roles and statements), use records and **69 proposed acceptance tests** in the JSON.
 
 The new work supplies the quadratic-Hecke height argument, including the uniform convexity/Cauchy estimates, residue quotient, gamma and metric constants; imports Mathlib's existing discriminant tower identity; decomposes the uniform ideal count; and activates two proposed quantitative Part II briefs. None of this claims a new formal proof or complete recursive extraction of the source literature.
 
@@ -16,7 +16,7 @@ Additional reads in this continuation:
 
 | Source | What was actually read |
 | --- | --- |
-| [Pila–Tsimerman, Ax-Lindemann for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p05-p.pdf), Annals 179 (2014) | The complete published §7, pp. 673–678, including the page images and the final induction. Earlier checkpoint reads of Lemma 3.3 and Theorem 6.1 are retained. |
+| [Pila–Tsimerman, Ax-Lindemann for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p05-p.pdf), Annals 179 (2014) | The complete published §7, pp. 673–678, including the page images and the final induction. Review corrects the earlier nonexistent Lemma 3.3 citation: §2 definitions are on p. 663; the semialgebraic Theorem 6.1 and its reduction are on p. 670. |
 | [Tsimerman, Brauer–Siegel for arithmetic tori](https://arxiv.org/pdf/1103.5619), JAMS 25 (2012) | The arXiv §§7.1–7.2, PDF pp. 17–22, including images. The reduction Theorem 7.1 and local index arguments were read; the rest of the paper and a published-edition reconciliation were not completed. |
 | [Pila–Tsimerman, André–Oort for abelian surfaces](https://arxiv.org/pdf/1106.4023), Compositio 149 (2013) | Complete arXiv §3, PDF pp. 3–9, including images. Despite the title, Theorem 3.1 and its height proof are all-dimensional. |
 | [Silverberg–Zarhin, Rigidity theorems for abelian varieties](https://webapps.math.uci.edu/~asilverb/bibliography/rigidity.pdf) | All four pages; introduction and bibliography also inspected as images. This author-hosted paper explicitly states the Silverberg 1992 result needed here. It does not constitute direct access to the original Proposition 2.3. |
@@ -46,7 +46,7 @@ The continuation's repository input snapshot is `27a7807aa69923eadb1470ddbf1b36f
 
 The pins remain mathlib **`082e2d37e8b0463410cdb532e111cd43d5a66174`** and Tau Ceti **`f790474821cf4256814db967cb154e7af3d0c369`**.
 
-The aggregate contains accepted AUDIT-06, AUDIT-08, AUDIT-09, AUDIT-10 and AUDIT-14 records for the relevant analytic, abelian, height, CM and Faltings interfaces. **AUDIT-34 is in `pendingReview`; LD has no accepted aggregate record.** Its draft may guide a search but cannot certify a reviewed absence. The remaining missing statuses still require item-level checking, not a blanket inference from keyword searches.
+The aggregate contains accepted AUDIT-06, AUDIT-08, AUDIT-09, AUDIT-10 and AUDIT-14 records for the relevant analytic, abelian, height, CM and Faltings interfaces. **AUDIT-34 is in `pendingReview`; LD has no accepted aggregate record.** Its draft may guide a search but cannot certify a reviewed absence. The independent review completed the item-level search and supplier check; its ledger records the scope of those checks. No absence claim relies on pending AUDIT-34.
 
 ### Five directly checked library items
 
@@ -106,7 +106,7 @@ The statement carries the fraction-field, Dedekind-domain, finite-module and sca
 
 Both **EffectiveBounds** and **GlobalNumberFields** were read in full. Their blobs are `75f30b8637d98c1d4a134fd707e87c690dcbd963` and `8055760d129f0f8dc38c1e0d5f6b1055d03c0376`. GlobalNumberFields owns general field orders/Picard and ideal/idele/Hecke-character foundations; it does not supply all analytic L-function theory, and its single-field order carrier is not automatically the product-order carrier for `Z(End(A))`.
 
-The 211-roadmap stage portfolio, relevant owner documents, current proposed-roadmap/packet JSON, reserved IDs, and accepted AN/R28 source decompositions were screened. The AN decomposition already contains Tate's completion, Hecke comparison and the Artin-holomorphy distinction. Its source proof is still partial; it does not supply the uniform derivative estimate just by mentioning analytic continuation. The accepted R28 decomposition contains the Faltings height-variation and qualitative Hom/isogeny theorems, not the required polynomial minimum-degree bound. The two Part II routes below are therefore proposed extensions, subject to independent review, rather than manual reservations or edits to upstream roadmaps.
+The original 211-roadmap stage portfolio, relevant owner documents, current proposed-roadmap/packet JSON, reserved IDs, and accepted AN/R28 source decompositions were screened. The AN decomposition already contains Tate's completion, Hecke comparison and the Artin-holomorphy distinction. Its source proof is still partial; it does not supply the uniform derivative estimate just by mentioning analytic continuation. The accepted R28 decomposition contains the Faltings height-variation and qualitative Hom/isogeny theorems, not the required polynomial minimum-degree bound. The two Part II routes below are therefore proposed extensions, subject to independent review, rather than manual reservations or edits to upstream roadmaps.
 
 ## 3. Arithmetic chain: what is established and what remains
 
@@ -120,7 +120,7 @@ The printed Proposition 2.2 states existence of a distant pair, but its proof fi
 
 ### Quantitative isogenies and descent
 
-The required Masser–Wüstholz contract is a dimension-uniform polynomial bound for the minimum *geometric* isogeny degree in `max(1,h_F(A),[k:Q])`, after A and B are defined over a common number field. It is not required to preserve chosen polarizations. The previous checkpoint read [Factorization estimates](https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf), Theorem II and the field-degree discussion at printed pp. 7 and 24; that evidence is retained. R28.4's qualitative Tate/isogeny criterion does not provide this estimate.
+The required Masser–Wüstholz contract is a dimension-uniform polynomial bound for the minimum *geometric* isogeny degree in `max(1,h_F(A),[k:Q])`, after A and B are defined over a common number field. It is not required to preserve chosen polarizations. The previous checkpoint read [Factorization estimates](https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf), Theorem II and the field-degree discussion at printed pp. 6 and 23, independently rechecked in review (the former pp. 7 and 24 locators were wrong). R28.4's qualitative Tate/isogeny criterion does not provide this estimate.
 
 The author-hosted Silverberg–Zarhin introduction states the exact sufficient homomorphism theorem: for A,B over F and `n >= 3` prime to the characteristic, every geometric homomorphism A to B is defined over every extension where all n-torsion of **both** varieties is defined. Its reference [5] is Silverberg's 1992 paper. This closes the previous uncertainty about the sufficient n=3 hypothesis, while not pretending the original proposition was directly obtained.
 
@@ -130,49 +130,28 @@ In characteristic zero, full A[3] and mu_3 give full A-dual[3] by the perfect We
 
 This supplies a checked deduction from named imported contracts. It does **not** claim that the original proofs of Brauer–Siegel, Rademacher convexity, Bost or averaged Colmez have been recursively extracted. Those remain explicit prerequisites. The original Artin-route items are preserved for source fidelity; the height consumer now depends on the quadratic route instead.
 
-Let (E/F) be CM with ([F:mathbf Q]=g), (eta=eta_{E/F}), (D=D_E), and (Q=D_F Nmathfrak f_eta=D_E/D_F). The equality of the character conductor and the relative discriminant is a named class-field-theoretic proof leaf. In particular (1le Qle D). The character is primitive, nontrivial, real and odd at every real place.
+Let $E/F$ be CM, $[F:\mathbf Q]=g$, $D=D_E$, and $\eta=\eta_{E/F}$ its nontrivial quadratic character. Its primitive conductor gives
 
-1. **The metric comparison.** The finite Hodge lattices agree, but Yuan–Zhang divide the squared archimedean norm by ((2pi)^g). With the degree-weighted embedding sum this gives
-   [
-   h_{
-m YZ}=h_{
-m T}+rac g2log(2pi).
-   ]
-   Decreasing a norm increases the arithmetic degree. This sign follows directly from the two printed definitions; it is not an assumed shared convention.
-2. **The primitive completion.** Equations (2-3)–(2-6) of Thorner–Zaman give the entire completion
-   [
-   Lambda(s)=Q^{s/2}Gamma_{mathbf R}(s+1)^g L_f(s,eta),
-   quadGamma_{mathbf R}(s)=pi^{-s/2}Gamma(s/2),
-   quadLambda(s)=wLambda(1-s).
-   ]
-   The constant root number cancels on logarithmic differentiation. The trivial-character pole factors do not apply.
-3. **The value at one.** Euler factors give (zeta_E=zeta_F L_f(eta)), including ramified primes. Taking residues yields (L_f(1,eta)=kappa_E/kappa_F>0). The pinned real class-number formula supplies the residue value, but the comparison with complex continuation is a separate analytic adapter. Fixed-degree Brauer–Siegel, bounded roots of unity and that residue formula give (D_K^{-epsilon}llkappa_Kll D_K^epsilon), with constants uniform in bounded degree and possibly ineffective. Since (D_Fle D^{1/2}), allocate each residue exponent at most (2epsilon/3) to obtain (D^{-epsilon}ll L_f(1,eta)ll D^epsilon). The fixed-degree statement does not impose normality over (mathbf Q).
-4. **A uniform Cauchy contour.** Thorner–Zaman Lemma 2.3 has an explicit conductor factor (Q^{(1+r-sigma)/2}), a factor (zeta_{mathbf Q}(1+r)^g), and constants uniform in the field. For (r=min(epsilon,1/4)), the circle (|s-1|=r) lies inside its strip, has (|Im s|le r), and its exponent is at most (r). Entirety of (L_f), followed by Cauchy, gives
-   [
-   |L_f'(1,eta)|le r^{-1}sup_{|s-1|=r}|L_f(s,eta)|ll_{g,r} Q^rll D^epsilon.
-   ]
-   A zero on or inside this circle is harmless: apply Cauchy to (L_f), not to its logarithm. No uniform zero-free disk or general Artin holomorphy is assumed. Divide by the value bound, giving each factor exponent (epsilon/2), to bound (|L_f'/L_f(1,eta)|ll D^epsilon).
-5. **The gamma constants and the average.** Write (ell_j=L_f'(j,eta)/L_f(j,eta)). Nonvanishing at zero follows from the completion and nonvanishing at one. The identities (psi(1/2)=-gamma-2log2), (psi(1)=-gamma) give
-   [
-   ell_0+ell_1=-log Q+g(gamma+log(2pi)).
-   ]
-   Yuan–Zhang Theorem 1.1 states (operatorname{avg}h_{
-m YZ}=-ell_0/2-log Q/4). Thus the exact comparison of the two displayed source conventions is
-   [
-   operatorname{avg}h_{
-m T}
-    =rac14log Q+rac12ell_1-rac g2gamma-glog(2pi).
-   ]
-   This average is subpolynomial in (D). The deep averaged theorem and its erratum remain imports through #1143/#1145.
-6. **Individual heights and exponents.** If every height is at least the real Bost constant (c_g), then
-   [
-   h_{
-m T}(E,Phi)le 2^goperatorname{avg}h_{
-m T}-(2^g-1)c_gll_{g,epsilon}D^epsilon.
-   ]
-   All (2^g) types, including imprimitive types, occur in the average. Primitivity is used later for ideal-isogeny and endomorphism arguments, not for this height deduction. The new exponent-budget node also makes explicit why any (delta<1/(4kappa_g)) is compatible with the distant-isogeny exponent and the Masser–Wüstholz exponent (kappa_g).
+$$Q=D_F N\mathfrak f_\eta=D_E/D_F,\qquad 1\le Q\le D.$$
 
-The near-linear ideal count also has explicit proof nodes now. The local norm-counting Euler factor is coefficientwise bounded by ((1-T)^{-n}), where (n=[K:mathbf Q]); hence the norm-(m) coefficient is bounded by the fixed-order divisor function (d_n(m)). For large primes use (inom{a+n-1}{n-1}le n^ale p^{epsilon a}); at the finitely many smaller primes a polynomial divided by an exponential has finite supremum. This gives a constant independent of K and m, then summation gives (O_{n,epsilon}(X^{1+epsilon})). It remains an implementation/source obligation, not an assertion that the pinned quadratic-count theorem already proves the sharper bound.
+GlobalNumberFields supplies the character dictionary; ClassFieldTheory layers 11 and 13 supply reciprocity and conductor–discriminant. The character is real and odd at every real place. The following deduction is from named imported theorems, not a certification of their full proofs.
+
+1. Yuan–Zhang use squared metric $(2\pi)^{-g}$ times Tsimerman's volume metric, with the same finite lattice. Thus $h_{YZ}=h_T+(g/2)\log(2\pi)$: shrinking a norm increases arithmetic degree.
+2. The completion is $\Lambda(s)=Q^{s/2}\Gamma_{\mathbf R}(s+1)^g L_f(s,\eta)$, where $\Gamma_{\mathbf R}(s)=\pi^{-s/2}\Gamma(s/2)$. It is entire and satisfies $\Lambda(s)=w\Lambda(1-s)$. There is no trivial-character pole factor.
+3. Euler factors, including ramified primes, give $\zeta_E=\zeta_F L_f(\eta)$. Taking residues gives $L_f(1,\eta)=\kappa_E/\kappa_F>0$. The pinned theorem supplies the positive right-real residue; the complex-continuation comparison remains an analytic adapter. Fixed-degree Brauer–Siegel and the class-number formula give $D_K^{-\epsilon}\ll\kappa_K\ll D_K^\epsilon$, with bounded-degree constants, possibly ineffective. Since $D_F\le D^{1/2}$, exponent allocation gives two-sided subpolynomial bounds in $D$ for $L_f(1,\eta)$.
+4. Thorner–Zaman Lemma 2.3 has conductor exponent $(1+r-\sigma)/2$ and constants uniform in the field. On $|s-1|=r$, with $r=\min(\epsilon,1/4)$, that exponent is at most $r$ and the imaginary part is bounded. Cauchy's formula for the entire function $L_f$ gives $|L_f'(1,\eta)|\ll_{g,r}Q^r\ll D^\epsilon$. Zeros inside the circle cause no problem: Cauchy is applied to $L_f$, not its logarithm. Divide by the lower bound for $L_f(1,\eta)$, allocating half the desired exponent to each estimate.
+5. Set $\ell_j=L_f'(j,\eta)/L_f(j,\eta)$. Nonvanishing at zero follows from the functional equation and nonvanishing at one. Logarithmic differentiation, with $\psi(1/2)=-\gamma-2\log2$ and $\psi(1)=-\gamma$, gives
+
+   $$\ell_0+\ell_1=-\log Q+g(\gamma+\log(2\pi)).$$
+
+   Yuan–Zhang Theorem 1.1 gives $\operatorname{avg}h_{YZ}=-\ell_0/2-\log Q/4$. Consequently
+
+   $$\operatorname{avg}h_T=\tfrac14\log Q+\tfrac12\ell_1-\tfrac g2\gamma-g\log(2\pi).$$
+
+   This is subpolynomial in $D$. Import the averaged theorem with its corrected proof through #1143/#1145.
+6. Bost supplies a real constant $c_g$ bounding every height below. Averaging over all $2^g$ types, including imprimitive types, yields $h_T(E,\Phi)\le 2^g\operatorname{avg}h_T-(2^g-1)c_g\ll_{g,\epsilon}D^\epsilon$. Primitivity enters the later ideal-isogeny argument. Choose exponents sufficiently small that the distant-isogeny lower bound and the isogeny upper bound force any $\delta<1/(4\kappa_g)$ in the final orbit estimate.
+
+For the near-linear ideal count, the local norm-counting Euler series is coefficientwise dominated by $(1-T)^{-n}$, $n=[K:\mathbf Q]$. Hence the coefficient at an integer $m$ is at most $d_n(m)$. For large primes use $\binom{a+n-1}{n-1}\le n^a\le p^{\epsilon a}$; for the finitely many smaller primes, the quotient of that polynomial in $a$ by $p^{\epsilon a}$ has bounded supremum. The resulting bound $d_n(m)\ll_{n,\epsilon}m^\epsilon$ is uniform in $K$, and summing yields $O_{n,\epsilon}(X^{1+\epsilon})$. The pinned quadratic ideal bound and fixed-field linear asymptotic remain different statements.
 
 The retained general-Artin branch still requires its own induction/pole-cancellation and conductor estimates. None is inferred merely because the quadratic deduction works.
 
@@ -265,7 +244,7 @@ The machine-readable routes contain the complete design briefs, imports, exact t
 
 **FaltingsFinitenessAndIsogenyTheoremsPartII — Quantitative isogeny estimates.** Prove the dimension-uniform polynomial bound for minimum geometric degree in `max(1,h_F(A),[k:Q])`. The common field must define both varieties. Polarization removal, field-degree dependence and the geometric-versus-rational distinction must be proved from the full Masser–Wüstholz source. The existing accepted R28 decomposition supplies qualitative ingredients but does not supply this estimate.
 
-**Uniform analytic work refines AN.0/AN.4/AN.5.** It does not need a second Hecke carrier or another analytic roadmap. General continuation and the completed equation are source-routed to AL.1; the quadratic character imports GlobalNumberFields layers 9–10. The height metric adapter belongs to R35.1/R35.3. The current AN source decomposition is reused, including its explicit distinction between Artin continuation and the holomorphy conjecture.
+**Uniform analytic work refines AN.0/AN.4/AN.5.** It does not need a second Hecke carrier or another analytic roadmap. General continuation and the completed equation are source-routed to AL.1; the quadratic character imports GlobalNumberFields layers 9–10 **and ClassFieldTheory layer 11**; its conductor-discriminant identity imports **ClassFieldTheory layer 13**. These upstream constructions are not replanned in AN. The height metric adapter belongs to R35.1/R35.3. The current AN source decomposition is reused, including its explicit distinction between Artin continuation and the holomorphy conjecture.
 
 The four mixed-Shimura items are routed to LD.6 (§10). They are not assigned to the pure CM extension by analogy.
 
@@ -293,6 +272,18 @@ No Lean file is required for this paper intake, and no Lean compilation was run.
 
 **What stays outside this paper.** The mixed Shimura foundations and Gao's mixed Ax–Lindemann theorem are Gao's work (J. reine angew. Math. 732 (2017)), which is already in the prerequisites list. They are not items of this paper.
 
-**Gaps.** G5 (the unrouted mixed items) is resolved. G1–G4 and G6 stay open. They concern recursive proof closure of cited sources, audit refreshes and review of the proposed Part IIs. PROTOCOL §16 handles these through the prerequisites list, so they do not block completeness.
+**Gaps.** G5 (the unrouted mixed items) is resolved. At that completion checkpoint G1–G4 and G6 stayed open. The independent review below resolves G1 and G6; G2–G4 retain the specified recursive source obligations. They concern recursive proof closure of cited sources, audit refreshes and review of the proposed Part IIs. PROTOCOL §16 handles these through the prerequisites list, so they do not block completeness.
 
-**Check.** `python3 scripts/check_paper.py research/blueprint/papers/PAPER-TSIMERMAN-18.result.json` passes with status `complete` and no unrouted or doubly routed missing item. No new source errors were found.
+**Check.** `python3 scripts/check_paper.py research/blueprint/papers/PAPER-TSIMERMAN-18.result.json` passes with status `complete` and no unrouted or doubly routed missing item. That completion pass recorded no new source errors; the independent review below adds E6–E8.
+
+## 11. Independent review, 23 September 2026
+
+Codex, session `codex-hjdg0j`, job **REV-PAPER-TSIMERMAN-18 (#1142)**: accept the corrected extraction and all eleven routes. The review ledger is [REV-PAPER-TSIMERMAN-18.md](../reviews/REV-PAPER-TSIMERMAN-18.md). There are 101 preserved item IDs, now 5 library, 30 planned and 66 missing; every missing item has exactly one route.
+
+Corrections: the reciprocity subgroup uses the ideal map `t(I)=(a)`, keeping `r` for ideal classes. The common-field construction chooses a quotient polarization defined over the field already defining the ideal quotient. The exceptional-CM finiteness node now explicitly depends on Galois transport. Uniformization imports D5, V0/V1 and M3 and moves from the LD source route to the PEL route; the quadratic character and conductor formula import ClassFieldTheory layers 11/13. Corrected height/counting and Masser–Wüstholz page locators; replaced the nonexistent Pila–Tsimerman Lemma 3.3 locator by the actual semialgebraic Theorem 6.1 and its cited earlier reduction. Pila 2011 Theorem 3.2, p. 1793, directly confirms the coordinatewise degree and absolute-height convention. All 23 APIs now have three proposed names, roles, statements and use records; the 69 acceptance tests remain proposals, not executed Lean tests. The malformed mathematics in §3 was retypeset.
+
+The independent repository snapshot is `85e12faced69f184b09205c0a5abed1cabdd7594`: 218 roadmap documents and 2007 stages were searched, with all relevant supplier descriptions read. The two averaged-Colmez extractions already refer to the same pending CM Part II ID; its brief now explicitly requires one combined design, with the dedicated proof branches imported rather than duplicated.
+
+Existing source findings **E1–E5** remain in their [independently reviewed errata file](../errata/PAPER-TSIMERMAN-18.json). They were rechecked but are not copied into this extraction, because the register collector would duplicate them. The extraction's `sourceIssueReferences` links them. New `sourceIssues` **E6–E8** record the bound-variable slip in the definition of the lift set, the missing weakly-special/CM-point distinction in §6.4, and the missing positive-dimension qualification for parameter loci in §6.5. Published images, arXiv v5, the journal page, author publication page and correction searches were compared. These corrections do not change the main André–Oort theorem. The full 2014 proof supplies the two geometric qualifications.
+
+The review independently read the published main paper in full as text and pages 381–388 as images, selected auxiliary passages recorded in its report, and the actual pinned declarations. This does not upgrade the earlier sources to complete proof reads. G2–G4 remain prerequisite obligations for original Silverberg/CM stabilizer conventions, the general Artin branch, and full primary-source/edition reconciliation. G1 (status refresh) and G6 (Part II/API review) are resolved. No Lean file was required or compiled.
