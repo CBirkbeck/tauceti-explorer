@@ -9,6 +9,38 @@ Issue [#1434](https://github.com/CBirkbeck/tauceti-explorer/issues/1434). Status
 - **Items.** The result has **205 items: 17 library, 12 planned and 176 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** Five are recorded under `sourceIssues`. The checkpoint had none.
 
+## Independent review (REV-PAPER-KISIN-17)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-KISIN-17.md`; the counts in the sections below it are the checkpoint's and are
+superseded by these.
+
+- **Items: 297** (17 library, 16 planned, 264 missing), each missing item routed once.
+  - 97 fields corrected against the page images: 75 statements, 19 locators, 2 names, 1 kind.
+  - 96 items added for definitions, constructions and cited inputs the proofs use.
+  - 4 items removed that the paper never uses: P02 (Bruhat–Tits parahorics), P04 (pinned root subgroups), and X07, X08
+    (lemmas of the Chen–Kisin–Viehmann corrigendum, which this paper does not cite).
+- **Routes.** The nine routes stand. The four Part II titles now begin with their parents' exact atlas titles, and each brief
+  names the confirmed corrections its design must carry.
+- **Prerequisites.** Rebuilt as 18 papers the paper cites, one per entry with its DOI. Kisin–Pappas (2018) and
+  Kisin–Pappas–Zhou (2026) are dropped because they are already in the paper registry.
+- **Mistakes: 107** (74 misprints, 19 gaps, 14 errors).
+  9 reach a stated result, 18 a proof. E1–E5 are reviewed and confirmed; E6–E107 are
+  new, each checked independently on the page image. The main ones:
+  - **E53:** the definition of X̃^p(φ) in (3.6.1) admits ramified twists of ε_l. Lemma 3.6.2(2),(3), Corollary 3.6.4 and
+    Proposition 3.6.10 fail as printed when G^der is not simply connected. The fix is to require ε_l unramified for almost
+    all l, as footnote 20 has in mind.
+  - **E34:** Corollary (2.3.5) is false at a non-neat level over a small field, for example a supersingular elliptic curve
+    over F_5. The paper's later uses fit the corrected form (k large, or I_{/k}).
+  - **E70:** Corollary 3.8.6 omits the reflex degree r.
+  - **E8:** the isomorphism (1.1.14) needs G_{Z_p} connected.
+  - **E104:** Theorem 4.6.7 as printed omits p > 2, which Theorem 0.3 has.
+  - **E98:** the κ-step in the proof of Lemma 4.5.6 fails when π_1(G)_Γ has torsion; the lemma survives by the argument of
+    (3.4.2).
+  - **E7:** footnote 8's correction of [Ki 2]: T_p𝒢* should be T_p𝒢*(−1) in (1.4.2), (1.4.3) and (1.5.11).
+
+  None of these is shown to make the main theorem false.
+
 ## This continuation (cc-442dc5)
 
 **Findings.** The paper ends with "Errata for [Ki 2]", correcting Kisin's 2010 integral-models paper. These are printed corrections, recorded with `known` values that name this paper:
