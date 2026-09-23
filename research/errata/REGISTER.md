@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-0 new mistakes confirmed · 1539 awaiting review · 187 already corrected in print · 0 rejected on review · 6 extractions and packets not yet checked.
+0 new mistakes confirmed · 1539 awaiting review · 188 already corrected in print · 0 rejected on review · 6 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -3842,6 +3842,7 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 - Abe, "On the Serre conjecture for Artin characters in the geometric case", Inventiones Mathematicae (2025) (`PAPER-ABE-25`), Published Theorem 1.6 proof p.613, fixed-scheme base-change chain; page image checked: corrected in new (candidate awaiting independent review).
 - Abe, "On the Serre conjecture for Artin characters in the geometric case", Inventiones Mathematicae (2025) (`PAPER-ABE-25`), Published §1.3 p.609, invocation of Lu–Zheng Theorem 2.16 and displayed Theorem: corrected in new (candidate citation-scope gap, not a proved false theorem).
 - Abe, "On the Serre conjecture for Artin characters in the geometric case", Inventiones Mathematicae (2025) (`PAPER-ABE-25`), Published §3.2 p.621, second sentence: corrected in new (minor candidate awaiting independent review).
+- Abe, "On the Serre conjecture for Artin characters in the geometric case", Inventiones Mathematicae (2025) (`PAPER-ABE-25`), Published §3.3 p.621, first paragraph; same formula in arXiv2405.19601v2 p.14: corrected in new (extracting-worker finding awaiting independent review).
 - Alpöge–Bhargava–Shnidman, "Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field", Inventiones Mathematicae (2026) (`PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26`), Proof of Proposition 2.7, arXiv v1 p. 5: corrected in Corrected in the published version, Invent. Math. 243 (2025), p. 1135, which prints π(x, y) = (axy^{−2}, a^{(ℓ−1)/2}(y^{−ℓ} − rb))..
 - Alpöge–Bhargava–Shnidman, "Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field", Inventiones Mathematicae (2026) (`PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26`), §1 (introduction), arXiv v1 p. 2: corrected in Corrected in the published version, Invent. Math. 243 (2025), p. 1131: "Such a solution corresponds to the point (1, 1) on the Fermat curve ax^ℓ + 2rby^ℓ = 1 … sending (1, 1) to (a, t(1 − rb)b^{−1}) ∈ C_{r²t²}(F)"..
 - André, "Le lemme d'Abhyankar perfectoïde", Publications Mathématiques de l'IHÉS (2018) (`PAPER-ANDRE-18`), Published §2.2.4, second paragraph, p. 13; the same assertion and proof are in arXiv:1609.00320v1 §2.2.4, p. 12: corrected in New candidate finding in this extraction; no published correction located in the searches recorded below. This is not a claim of exhaustive historical novelty. Independent review pending..

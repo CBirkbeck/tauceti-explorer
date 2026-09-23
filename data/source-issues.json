@@ -662,6 +662,28 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-ABE-25/E6",
+   "kind": "error",
+   "locator": "Published §3.3 p.621, first paragraph; same formula in arXiv2405.19601v2 p.14",
+   "printed": "−μ_f",
+   "correction": "For dim X=n the identity Fourier nearby-cycle trace is (−1)^n μ_f, or equivalently (CCΛ,df). The printed negative sign is the curve specialization.",
+   "reason": "Saito arXiv1510.03018v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma4.11(1) gives CCΛ=(−1)^n[zero-section]. Abe Proposition2.5 identifies the Fourier class with −dt(RΦ). In odd characteristic f(u,v)=uv on the regular surface, with involution (u,v)↦(−u,−v), satisfies the theorem geometry and has critical colength1. The identity trace is therefore +1, not −1. The paper’s nonidentity theorem and dimension-one conclusion are unaffected.",
+   "affects": "a stated result",
+   "known": "new (extracting-worker finding awaiting independent review)",
+   "searched": [
+    "Published p.621 inspected as an image; arXiv v2 p.14 compared and history checked on2026-09-23; v2 remains latest.",
+    "Publisher article page and bounded exact DOI/title correction searches found no matching Abe correction.",
+    "Abe homepage https://member.ipmu.jp/tomoyuki.abe/ returned only an empty HTML body; there is no searchable publication/correction list. Novelty remains qualified.",
+    "Saito author publication page links a 2019 correction (both pages read; repairs Proposition7.4 and its proof on pp.670–671) and CCcor2.pdf (read, Chern-class corrections on pp.676–677). No claim is made to have collated all Saito versions."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E1",
    "kind": "misprint",
    "locator": "Proof of Proposition 2.7, arXiv v1 p. 5",
