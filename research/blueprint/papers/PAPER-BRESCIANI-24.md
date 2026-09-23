@@ -1,3 +1,184 @@
+# Bresciani: number-field nonsplit-boundary continuation
+
+Codex — session `codex-a71f92`, issue #1233, 2026-09-23. Continues PR #2032.
+Status: **partial**. This is a proposed replacement proof, awaiting independent
+review, relative to the source inputs identified below. It is not a Lean proof.
+
+The new argument treats the nonsplit quadratic-boundary parabolic case over
+number fields without using Lemma 16, quasi-t-birational lifting, Proposition 22
+or Theorem A. It does **not** repair the passage to all fields finitely generated
+over Q. There are 179 items: 12 library, 10 planned and 157 missing, with 14
+unchanged ownership routes. All 168 earlier IDs and seven source findings remain.
+
+## The number-field replacement
+
+Write L/k for a quadratic extension of a number field, D=Spec L embedded as a
+reduced degree-two divisor in P1, and X=P1 minus D. Suppose s is t-b.l. and,
+towards a contradiction, not geometric. There is no k-rational cusp on D.
+
+**Local point injectivity (/169, /171, /172).** If K/Qp is finite and D stays
+nonsplit over K, pass to its quadratic splitting field M. With geometric
+punctures a,b, the coordinate
+`φ(y)=(y−a)/(y−b)`, `φ(∞)=1`, identifies X_M with Gm_M; conjugation
+sends φ to its inverse. Equal point-section classes give equal finite Kummer
+classes for every positive n, so φ(x)/φ(y) belongs to every (M×)^n.
+
+That intersection is {1}. Its valuation is divisible by every n, hence zero.
+For every r the finite group (O_M/𝔪_M^r)× has an order N_r. An N_r-th root
+of the element is again a unit, so the element reduces to 1 modulo 𝔪_M^r.
+Separatedness gives equality with 1. This proves point-section injectivity,
+not surjectivity of the point-section map. The finite Kummer kernel and quotient
+injectivity are actual pinned Tau Ceti declarations; the compact gerbe comparison
+and finite-torsor compatibility still have their own suppliers.
+
+**Mixed primes (/170, /173).** For a finite k′/k with L not embedding into k′,
+choose a finite Galois M/k containing both. Set H=Gal(M/k′) and N=Gal(M/L).
+Galois correspondence gives H not contained in N. An element g of H minus N
+fixes a coset of H and acts nontrivially on L. Chebotarev gives a
+positive-density set of unramified places with its conjugacy class. Such a
+place admits k′→k_ν, while L⊗k_ν remains a field. Intersect this set with any
+density-one set.
+
+Requiring complete splitting would be wrong. For a non-Galois cubic with S3
+closure and its quadratic discriminant field, a transposition fixes one cubic
+embedding but is not identity on the closure. The required condition is a
+degree-one place of k′, not complete splitting of k′ or its closure.
+
+**Restricted diagonal unramifiedness (/174).** Choose a hyperbolic open
+U⊆X∩A1, for example by also deleting infinity and two rational points.
+A birational lift of s over k(t) restricts to a generic section r of
+`(U×U) minus Δ → U`.
+
+Let c∈U be closed with L not embedding into k(c). By Corollary 12, s is b.l.;
+choose a b.l. lift q to V=U minus the whole closed divisor C_c. It cannot be
+cuspidal: a k-rational cusp cannot lie on D, so its image in X would make s
+geometric. Stix's density alternative supplies a density-one set where the
+associated point of q lies in V. The mixed-prime lemma gives such a ν with
+k(c)→k_ν and nonsplit D.
+
+Every specialization r_c is b.l. over the number field k(c), by Lemma 11.
+Stix Proposition 1 says its localization is geometric or cuspidal. Its center
+maps to X(k_ν), since D(k_ν) is empty. The point injectivity above forces that
+center to equal the point x_ν∈V(k_ν) associated with q. It is therefore
+geometric on U minus {c}. All specializations have the same local class;
+Lemma 8 over k(c), at the degree-one place above ν, makes the loop constant.
+
+The auxiliary lift and finite place may vary with c. This argument does not
+choose a single adelic point for all c. It uses local Selmerness of globally
+b.l. sections of **hyperbolic** curves, never a claim that birational lifting
+base-changes through a transcendental completion.
+
+**The finite-level obstruction (/175–/177).** Push r along y↦t−y to a completed
+Kummer class z of k(t)×. Functoriality and the Gm loop criterion make its
+exponent e_c zero whenever c∈U and L does not embed into k(c). Possible
+remaining support consists of the fixed complement of U and closed points
+whose residue fields contain L.
+
+Choose one b.l. lift of s to U, and then a nonsplit finite place ν in its
+density-one set. Let x∈U(k_ν) be its local point. At level n=2 the restricted
+completed product has only finitely many nonzero exponents. Thus z modulo
+squares has a rational-function representative f_2. None of its factors vanish
+at x: deleted points are excluded by x∈U, and a root of a polynomial whose
+residue field contains L would embed L into k_ν. Hence f_2 is regular and
+nonzero at x. This is /176, stated generically with an exponent-vanishing
+hypothesis so that its foundational owner does not depend on /174.
+
+For every rational c∈U(k), c≠x, the loop is constant by /174. Lemma 11,
+local Selmerness and the same point injection identify the localized
+specialization with x. The moving-coordinate map gives
+`[f_2(c)]=[c−x]` in k_ν×/(k_ν×)^2. In particular,
+
+`v_ν(f_2(c)) ≡ v_ν(c−x) (mod 2).`
+
+The left side is constant near x, because f_2(x)≠0. The right side attains
+both parities arbitrarily close to x: for each sufficiently large m,
+approximate x+π^m by c∈k to precision greater than m. The resulting
+valuation is m. Deleting the finitely many excluded rational points does not
+affect this construction. This contradiction proves that s is geometric.
+
+It is essential to project to n=2 first. The full completed class may have
+infinitely many nonzero exponents; no finite-support assertion for it is used.
+
+## Consequences and the remaining gap
+
+For a split nonempty parabolic boundary, the local decomposition extension
+at a rational cusp maps onto the whole arithmetic fundamental extension;
+after coordinates these are A1 and Gm (/178). Thus all their section classes
+are cuspidal, without identifying a packet with a singleton.
+
+For a proper genus-zero curve, restrict a birational witness to an affine
+degree-two complement. Its geometric fiber is Gm, hence K(π,1); Schmidt's
+Theorem A gives splitting of the completion (/179). It does not split the
+boundary. An affine parabolic section first maps birationally to its proper
+completion, so the same step permits the P1 coordinates used above.
+
+These branches provide a proposed repair of the number-field open-lifting
+Lemma 16: a geometric point retained in the open lifts geometrically; a removed
+rational point lifts through its rational cuspidal packet. Existing cuspidal
+packets lift along smaller opens. Such sections are t-b.l. by the direct
+forward argument, independently of Theorem A's reverse direction.
+
+The positive-transcendence-degree case of /96 remains open. Proposition 22
+takes quasi-t-b.l. as an input, so it cannot be invoked to prove that input
+for a nonsplit parabolic curve. An embedding of a finitely generated field
+into a p-adic field does not supply a base change of its birational witness.
+The proposed number-field proof is not a claim that Theorem A has now been
+fully re-established or that the printed theorem is false.
+
+E2 and the other six source findings retain their earlier text and search
+provenance. E2's historical open-proof note is narrowed by this proposed
+number-field replacement, not by a published correction or review verdict.
+
+## Ownership, source reading and checks
+
+The existing birational-sections Part II owns /172, /174, /177–/179.
+ArithmeticGaloisDuality R02.1 owns generic completion/local Kummer lemmas
+/171, /175, /176. /173 imports the existing upstream Chebotarev layer 10.
+The finite Galois order anti-isomorphism is already Mathlib (/170).
+No roadmap, fundamental group, local field or Kummer carrier is re-created.
+
+This pass independently read all 22 pages of the published Bresciani PDF.
+It also read Stix arXiv:1203.3236v3 pp.1–4, including the complete Proposition 1
+proof and Theorem B's hypotheses, and Schmidt arXiv:1503.08108v1 pp.1–2 and
+the full §3 proof on pp.7–9. The JSON records their public URLs, hashes and
+precise scope. Stix's full density proof, Koenigsmann's original, and Schmidt's
+recursive Amitsur/Hilbert90/Hochschild–Serre inputs were not newly read.
+
+The pinned source statements for `TauCeti.kummerMap_eq_one_iff`,
+`TauCeti.kummerClassMap_injective` and
+`IsGalois.intermediateFieldEquivSubgroup` were read with their hypotheses.
+The older ten library claims retain their earlier verification attribution.
+Current relevant NC, R02, IG and Chebotarev stage descriptions and reviewed
+audit entries were read; searches of the current portfolio found no duplicate
+of the new application. The previously read upstream documents retain their
+original provenance.
+
+Paper schema and three-file intake checks passed. The custom check found
+179 unique items, exactly one route for each of 157 missing items, and
+77 acyclic **recorded** dependency edges. It also rejects imports from
+Lemma 16, /96, Proposition 22 and Theorem A into /177. These checks do not
+complete the inherited dependency graph.
+
+The exact diagnostic passed 10,116 finite assertions, and 673 additional
+structural assertions passed (10,789 total). It tests S_n mixed Frobenius
+conditions, finite unit quotients including p=2, quadratic Möbius coordinates,
+valuation parity, and finite-level versus global support. All 48 targeted
+repository regression tests passed. These are finite diagnostics and schema
+tests, not mathematical proof validation. The older logarithm diagnostic was
+not rerun. One inherited test-kind spelling, `example`, was normalized to
+`computation`; its mathematical statement is unchanged. No Lean file was
+written or compiled.
+
+Five explicit gaps remain: the finitely generated parabolic step, named source
+readings, local-logarithm/projectivity supplier closure, inherited API/DAG
+granularity, and the replacement proof's remaining supplier interfaces.
+
+## Earlier checkpoints (retained with their attribution)
+
+The remainder records earlier workers' work and source access. Earlier item
+counts and descriptions of the entirely open parabolic repair are historical;
+the current scope and unresolved boundary are stated above.
+
 # Bresciani: birational lifting and section specialization
 
 Codex — session `codex-c83e7a`, issue #1233, 2026-09-23. Continues PR #1924
