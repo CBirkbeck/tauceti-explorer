@@ -41536,8 +41536,9 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-36.md",
    "timeout": 21600,
-   "state": "pending",
-   "avoidAccountOf": "AUDIT-36"
+   "state": "external",
+   "avoidAccountOf": "AUDIT-36",
+   "note": "claimed on GitHub issue #871"
   },
   {
    "id": "AUDIT-37",
@@ -41751,9 +41752,10 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AUDIT-40.md",
    "timeout": 21600,
-   "state": "external",
+   "state": "done",
    "avoidAccountOf": "AUDIT-40",
-   "note": "claimed on GitHub issue #875"
+   "note": "deliverables arrived from an external worker on issue #875",
+   "finishedAt": "2026-09-23T15:00:38Z"
   },
   {
    "id": "AUDIT-41",
