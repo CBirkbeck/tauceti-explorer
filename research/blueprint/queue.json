@@ -4571,8 +4571,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ETAL-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1280"
+   "state": "external",
+   "note": "claimed on GitHub issue #1280"
   },
   {
    "id": "REV-PAPER-LIU-ETAL-22",
@@ -31133,8 +31133,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1862"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1862",
+   "finishedAt": "2026-09-23T11:50:15Z"
   },
   {
    "id": "REV-ERRATA-PAPER-CESNAVICIUS-22",
