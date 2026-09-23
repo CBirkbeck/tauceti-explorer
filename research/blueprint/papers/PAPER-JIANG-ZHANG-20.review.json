@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-JIANG-ZHANG-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans the GGP conjectures, Bessel models or periods; the new roadmap is shared, with the same id and title, by five other extractions (Nelson–Venkatesh, BP–Chaudouard–Zydor, Liu et al., BP–Liu–Zhang–Zhu, BP–Chaudouard), so it is one roadmap. The review added the cuspidality of automorphic members of generic global packets."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The paper's own theory (Fourier coefficients attached to nilpotent orbits, twisted descents, cuspidal automorphic modules) is new to the atlas. The review added five missing items and a corrections paragraph to the brief (Theorem 5.7 for unitary groups, Proposition 2.5, the ℓ = 0 Bessel module, Section 7.2, E3–E4)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AS.2 constructs intertwining operators and their normalizations; the review added three missing items there (normalized GL × GL and generic-data intertwiners, standard intertwiners for tempered data)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ML.4/ML.5 own Arthur packets and registered transfers; the review added a planned item on global Arthur packets of pure inner forms (ML.4)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "ET.6 owns the GL_m segment and Langlands-quotient theory."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "AF.1 owns real reductive representations and Vogan's unitary dual of GL_n(R)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "ML.4/ML.5 own Arthur packets and registered transfers; the review added a planned item on global Arthur packets of pure inner forms (ML.4)."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-d67081. The extraction read arXiv v4; the review read the published version (Ann. of Math. 191 (2020), 739–827, free on the Annals site) in full with two checkers, compared it with the v4 TeX, and gave every item its published locator (78 locators). Statements: 25 corrected (dropped complex conjugates in the periods, missing parity conditions for the Arthur parameters, missing hypotheses for (4.49), 𝔪 for m, index slips; print renumbers (A.8) as (A.9) and rewords Proposition 5.5). 10 new items (1 planned, 9 missing). E1–E5 confirmed and still present in print (E3: print cites the joint work with Soudry as 'in preparation'; E4: Chen–Zou, arXiv:2103.07956, now proves the generic even orthogonal case). 21 new source issues. The most substantive: Theorem 5.7's conclusion L(1/2, τ × σ) ≠ 0 is not justified for unitary groups, since the argument gives L(1/2, τ × σ∨) ≠ 0, matching the paper's sesquilinear period (a gap in a stated result; harmless for orthogonal groups); Proposition 2.5 needs y_κ for y_{−κ} (counterexample over Q); the ℓ = 0 Bessel module is used inconsistently with its definition; Section 7.2's 'without (H_m, σ)' fails for U_{2n}; the v4 proof of Proposition 5.6 had a gap that print repairs; and misprints, some new in print ('general' for 'generic', 'greatest common denominator')."
+}

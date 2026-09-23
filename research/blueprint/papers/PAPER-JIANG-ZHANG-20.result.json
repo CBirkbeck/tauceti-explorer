@@ -13,57 +13,58 @@
    "The whole of arXiv 1508.03205v4 (19 Nov 2019, 92 pages, https://arxiv.org/pdf/1508.03205v4, SHA-256 d97bf3048aa10de52f07ae5bbbc3970c974996ae4193d9cd7f12b17890df7bb4, accessed 2026-09-22), including both appendices, with formulas checked on page images",
    "The published version (Annals, received 7 July 2015, revised 26 November 2019) is paywalled and was not read; its abstract on the Annals page is identical to v4's, and v4 is the authors' final arXiv revision, a week before the journal's final revision date",
    "arXiv v1 (SHA-256 a411d7e90e2cb2fca7d8838ebd3965752e116b1363b319682c7f342c14cd0af0) and v3 (SHA-256 9d1a6b3dfd8bd26b78bc04390f1104a8bfd69596289345701830b03b3e622ba1) for the history of the source issues",
-   "Cited inputs (Gan–Gross–Prasad, Ginzburg–Rallis–Soudry, Arthur, Mok, KMSW, Mœglin–Waldspurger, Soudry and others) were not read; their statements are taken as the paper quotes them, and the items resting on them say so"
+   "Cited inputs (Gan–Gross–Prasad, Ginzburg–Rallis–Soudry, Arthur, Mok, KMSW, Mœglin–Waldspurger, Soudry and others) were not read; their statements are taken as the paper quotes them, and the items resting on them say so",
+   "Review REV-PAPER-JIANG-ZHANG-20 (Claude Code, cc-39fac3, 23 September 2026): the published version, Ann. of Math. 191 (2020), 739–827, free on the Annals site (https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p02-s.pdf, 89 pages, SHA-256 c016d9729f7f0cdca451e14a62015bd85cde861a9e07d3135e8feff071d0b15f), read in full by two checkers and compared with the arXiv v4 TeX; every item now carries its published locator (page = PDF page + 738) with the arXiv v4 page."
   ]
  },
- "summary": "Jiang and Zhang answer, for generic global Arthur parameters, the Arthur–Schmid question of how to construct a concrete module for a cuspidal automorphic representation from its parameter. For π on an orthogonal or unitary group G_n with generic parameter φ_τ, a cuspidal σ on a smaller group H_m, chosen by the Generic Summand Conjecture 2.3 from the first non-zero Bessel coefficient of π, gives a residual representation E_{τ⊗σ} on H_{a+m}, and its Bessel–Fourier coefficient, the twisted automorphic descent, is shown to be π, or π ⊕ π⋆ for even orthogonal groups, assuming Conjecture 2.3 and the local Gan–Gross–Prasad conjecture (Theorem 7.1). The engine is a family of global zeta integrals of Bessel type for G × GL, which unfold to Euler products of local Bessel functionals (Theorems 4.5, 4.7, 4.8), and the reciprocal non-vanishing of Bessel periods (Theorem 5.3). As consequences, one direction of the global Gan–Gross–Prasad conjecture holds for these groups (Theorem 5.7), and the other holds under Conjecture 6.8 (Theorem 6.10), unconditionally for SO_{2n+1} × SO_2 (Corollary 6.11). The atlas plans Arthur's, Mok's and KMSW's classification (ML.4), Eisenstein series and intertwining operators (AS.1–AS.2), the L-functions (AL.3–AL.4) and the local Langlands correspondence of GL_n (ET.6). It has nothing on the Gan–Gross–Prasad conjectures, Bessel models or periods, Fourier coefficients along nilpotent orbits, or automorphic descent, and the libraries have none of this. The extraction proposes two new roadmaps: one for the Gan–Gross–Prasad framework, which several queued papers also need, and one for the paper's theory. It routes six items as sources to AS.2, ML.4, ML.5, ET.6 and AF.1, and records five source issues: two misprints and three gaps (the unramified computation rests on an unpublished preprint; the classification for inner forms of orthogonal groups was only outlined; Proposition 2.2 has no proof).",
+ "summary": "Jiang and Zhang answer, for generic global Arthur parameters, the Arthur–Schmid question of how to construct a concrete module for a cuspidal automorphic representation from its parameter. For π on an orthogonal or unitary group G_n with generic parameter φ_τ, a cuspidal σ on a smaller group H_m, chosen by the Generic Summand Conjecture 2.3 from the first non-zero Bessel coefficient of π, gives a residual representation E_{τ⊗σ} on H_{a+m}, and its Bessel–Fourier coefficient, the twisted automorphic descent, is shown to be π, or π ⊕ π⋆ for even orthogonal groups, assuming Conjecture 2.3 and the local Gan–Gross–Prasad conjecture (Theorem 7.1). The engine is a family of global zeta integrals of Bessel type for G × GL, which unfold to Euler products of local Bessel functionals (Theorems 4.5, 4.7, 4.8), and the reciprocal non-vanishing of Bessel periods (Theorem 5.3). As consequences, one direction of the global Gan–Gross–Prasad conjecture holds for these groups (Theorem 5.7), and the other holds under Conjecture 6.8 (Theorem 6.10), unconditionally for SO_{2n+1} × SO_2 (Corollary 6.11). The atlas plans Arthur's, Mok's and KMSW's classification (ML.4), Eisenstein series and intertwining operators (AS.1–AS.2), the L-functions (AL.3–AL.4) and the local Langlands correspondence of GL_n (ET.6). It has nothing on the Gan–Gross–Prasad conjectures, Bessel models or periods, Fourier coefficients along nilpotent orbits, or automorphic descent, and the libraries have none of this. The extraction proposes two new roadmaps: one for the Gan–Gross–Prasad framework, which several queued papers also need, and one for the paper's theory. It routes six items as sources to AS.2, ML.4, ML.5, ET.6 and AF.1, and records five source issues: two misprints and three gaps (the unramified computation rests on an unpublished preprint; the classification for inner forms of orthogonal groups was only outlined; Proposition 2.2 has no proof). After the review (REV-PAPER-JIANG-ZHANG-20) there are 88 items (0 library, 9 planned, 79 missing) and 26 source issues. Every locator now gives the published version. The most substantive new finding is that Theorem 5.7's conclusion L(1/2, τ × σ) ≠ 0 is not justified for unitary groups: the argument gives L(1/2, τ × σ∨) ≠ 0, which matches the paper's sesquilinear Bessel period.",
  "items": [
   {
    "id": "PAPER-JIANG-ZHANG-20/relevant-pairs",
    "kind": "definition",
    "name": "Classical groups, pure inner forms and relevant pairs",
-   "statement": "Let F be a local or number field of characteristic 0, E = F or a quadratic extension F(√ς), and (V, q) a non-degenerate 𝔫-dimensional space over E, Hermitian if E ≠ F and quadratic if E = F; G_n = Isom(V, q)°, n = [𝔫/2], is a pure inner form of a quasi-split G*_n of the same type (inner twisting by H¹(F, G_n)). For an 𝔪-dimensional non-degenerate subspace (W, q) whose orthogonal complement W⊥ is F-split of odd dimension, H_m = Isom(W, q)° (m = [𝔪/2]) and (G_n, H_m) is a relevant pair; another pair (G′_n, H′_m) of pure inner forms is relevant to it when (W′)⊥ ≃ W⊥ as Hermitian spaces. Over a number field G_n is a pure inner form of G*_n at every place.",
-   "locator": "Section 2.1, pp. 10–13 (arXiv v4) ([GGP12, §2, Lemma 2.2])",
+   "statement": "Let F be a local field or a number field of characteristic 0, E = F or E = F(√ς) a quadratic extension, and (V, q) a non-degenerate 𝔫-dimensional space over E, Hermitian if E ≠ F and quadratic if E = F; G_n = Isom(V, q)° with n = [𝔫/2]. G_n is a pure inner F-form of an F-quasisplit G*_n = Isom(V*, q*)° of the same type, i.e. G_n is the twist of G*_n by a class in the pointed set H¹(F, G*_n); over a number field G_n is then a pure inner F_ν-form of G*_n at every place ν. For F local, if (W, q) ⊂ (V, q) is an 𝔪-dimensional non-degenerate subspace whose orthogonal complement (W⊥, q) is F-split of odd dimension, and H_m = Isom(W, q)° (m = [𝔪/2]), then (G_n, H_m) is a relevant pair [GGP12, §2]; if (G′_n, H′_m) = (Isom(V′, q′)°, Isom(W′, q′)°) is another relevant pair with G′_n, H′_m pure inner forms of G_n, H_m, then G′_n × H′_m is relevant to G_n × H_m iff ((W′)⊥, q′) ≅ (W⊥, q); [GGP12, Lemma 2.2(i)] lists the relevant pure inner forms of G*_n × H*_m. Over a number field relevance is defined in the same way.",
+   "locator": "Section 2.1, pp. 748–750 (relevant pairs and pure inner forms: p. 750) (arXiv v4: pp. 10–13) ([16] = [GGP12], §2, Lemma 2.2(i))",
    "status": "missing",
    "library": [
     "mathlib:Matrix.unitaryGroup",
     "tauceti:TauCeti.QuadraticMap.specialOrthogonalGroup"
    ],
-   "note": "The libraries have groups of points of orthogonal groups of a quadratic map and the unitary group of the standard Hermitian form, not Isom(V, q)° as an algebraic group over F, pure inner forms or relevance."
+   "note": "The libraries have groups of points of orthogonal groups of a quadratic map and the unitary group of the standard Hermitian form, not Isom(V, q)° as an algebraic group over F, pure inner forms or relevance. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The item copies the paper's 'inner twisting by H¹(F, G_n)'; pure inner forms of G*_n are the twists of G*_n by classes in H¹(F, G*_n) (misprint in print and in arXiv v4, recorded below). Also, in the paper relevance of a pair and of a product of pure inner forms is defined over a local field; over a number field it is 'defined in the same way' (p. 750). Review note: missing: confirmed. The cited declarations exist at the pinned commits and are points-level only (Mathlib 082e2d3 Mathlib/LinearAlgebra/UnitaryGroup.lean: Matrix.unitaryGroup, a Submonoid of matrices; Tau Ceti f790474 TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean: QuadraticMap.specialOrthogonalGroup, a Subgroup of M ≃ₗ M). Nothing in the atlas plans pure inner forms or relevance; route GanGrossPrasadConjecturesForClassicalGroups."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/vogan-packets",
    "kind": "definition",
    "name": "Local and global Vogan packets",
    "statement": "For a relevant pair of quasi-split groups G*_n × H*_m and a local L-parameter φ in Φ̃⁺_unit(G*_n × H*_m) (the localizations of generic global Arthur parameters), the local Vogan packet Π̃_φ[G*_n × H*_m] (3.4) is the union of the local L-packets Π̃_φ(G_n × H_m) over all relevant pure inner forms G_n × H_m, with Π̃_φ(G_n × H_m) = ∅ when φ is not G_n × H_m-relevant. The global Vogan packet Π̃_{φ×φ′}[G*_n × H*_m] of a pair of generic global Arthur parameters is formed from the local ones.",
-   "locator": "Section 3.2, (3.3)–(3.4), p. 26; Section 6.3, p. 69 (arXiv v4) ([GGP12], [Vog93])",
+   "locator": "Section 3.2, (3.3)–(3.4), p. 762 (arXiv v4: p. 26); global Vogan packets: Section 6.3, pp. 803–804 (arXiv v4: p. 69)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): Minor: the print defines the local Vogan packet as the union of Π̃_φ(G_n × H_m) over all pure inner F-forms G_n × H_m of G*_n × H*_m (empty when φ is not G_n × H_m-relevant), not only over relevant ones. The Hom spaces in (3.6) exist only for relevant pairs, so the item's restriction to relevant pure inner forms is the reading (3.6) needs (as in [GGP12]); the item should say that it restricts. The global Vogan packet Π̃_{φ×φ′}[G*_n × H*_m] is used (Section 6.3) but never defined in the paper."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/local-bessel-functionals",
    "kind": "definition",
    "name": "Local Bessel models",
    "statement": "For a relevant pair (G_n, H_m) over a local field F with 2ℓ + 1 = dim W⊥ = 𝔫 − 𝔪, let p_ℓ = [(2ℓ+1)1^{𝔫−2ℓ−1}], V_{p_ℓ} the associated unipotent subgroup and ψ_{O_ℓ} the generic character of an F-rational orbit O_ℓ such that H_m = H^{O_ℓ}_{ℓ⁻} normalizes V_{p_ℓ} and stabilizes ψ_{O_ℓ}; R_{O_ℓ} := H_m ⋉ V_{p_ℓ}. For π, σ irreducible admissible representations of G_n(F), H_m(F), the local Bessel functionals are Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}) (3.5); equivalently Hom_{H_m(F)}(J_{ψ_{O_ℓ}}(π) ⊗ σ, C) with J_{ψ_{O_ℓ}} the twisted Jacquet module.",
-   "locator": "Section 3.2, (3.5), pp. 26–27; Section 5.3, p. 53 (arXiv v4)",
+   "locator": "Section 3.2, (3.5), pp. 762–763 (arXiv v4: pp. 26–27); twisted Jacquet module form: Section 5.3, pp. 788–789 (arXiv v4: p. 53)",
    "status": "missing",
-   "note": "The partition is printed with exponent 𝔫 − 2ℓ + 1 on p. 26 (source issue E1); (2.9) has 𝔫 − 2ℓ − 1."
+   "note": "The partition is printed with exponent 𝔫 − 2ℓ + 1 on p. 26 (source issue E1); (2.9) has 𝔫 − 2ℓ − 1. Review note: Source issue E1 (exponent 𝔫 − 2ℓ + 1) is still present in print, p. 762; the item already uses 𝔫 − 2ℓ − 1. For ℓ = 0 the functional is Hom_{H_m(F)}(π ⊗ σ, C) (restriction), see the ℓ = 0 issue under bessel-modules."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/bessel-uniqueness",
    "kind": "theorem",
    "name": "Uniqueness of local Bessel models",
-   "statement": "For every local field F of characteristic 0 and π, σ as above, dim Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}) ≤ 1.",
-   "locator": "Section 3.2, p. 27; used in (2.10), (4.12), (5.14), Section 6.1 (arXiv v4) ([AGRS10], [SZ12], [GGP12], [JSZ10])",
+   "statement": "Let F be a local field of characteristic 0, (G_n, H_m) a relevant pair over F with 2ℓ + 1 = 𝔫 − 𝔪, R_{O_ℓ} = H_m ⋉ V_{p_ℓ} and ψ_{O_ℓ} as in (3.5). For irreducible smooth admissible representations π of G_n(F) and σ of H_m(F) (for F archimedean: irreducible Casselman–Wallach representations, with continuous functionals), dim Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}) ≤ 1.",
+   "locator": "Section 3.2, p. 763 (arXiv v4: p. 27); also invoked after (2.10), p. 756, after (4.12), p. 767, and before (4.38), p. 776 (arXiv v4: pp. 20, 31, 41)",
    "status": "missing",
-   "note": "Aizenbud–Gourevitch–Rallis–Schiffmann (p-adic), Sun–Zhu (archimedean), Gan–Gross–Prasad (reduction of the Bessel case), Jiang–Sun–Zhu (archimedean Bessel). Cited; not read."
+   "note": "Aizenbud–Gourevitch–Rallis–Schiffmann (p-adic), Sun–Zhu (archimedean), Gan–Gross–Prasad (reduction of the Bessel case), Jiang–Sun–Zhu (archimedean Bessel). Cited; not read. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: At archimedean places the uniqueness theorems ([SZ12], [JSZ10]) are for irreducible Casselman–Wallach (smooth Fréchet, moderate growth) representations and continuous functionals; 'irreducible admissible' should say so. Review note: missing: confirmed (no atlas stage plans multiplicity one for Bessel models); route GanGrossPrasadConjecturesForClassicalGroups."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/local-ggp",
    "kind": "theorem",
    "name": "The local Gan–Gross–Prasad conjecture (Conjecture 3.1)",
    "statement": "Conjecture: let G*_n and H*_m be a relevant pair of F-quasisplit classical groups over a local field F. For every local L-parameter φ in Φ̃⁺_unit(G*_n × H*_m), Σ_{π ⊗ σ ∈ Π̃_φ[G*_n × H*_m]} dim Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}) = 1 (3.6).",
-   "locator": "Section 3.2, Conjecture 3.1, p. 27 (arXiv v4)",
+   "locator": "Section 3.2, Conjecture 3.1, (3.6), p. 763 (arXiv v4: p. 27)",
    "status": "missing",
    "note": "A conjecture used as a hypothesis (Theorem 7.1, Corollaries 7.2, 7.4)."
   },
@@ -72,7 +73,7 @@
    "kind": "theorem",
    "name": "Known cases of the local conjecture (Theorem 3.2)",
    "statement": "Conjecture 3.1 holds for: (1) orthogonal pairs over p-adic F, for generic local L-parameters [MW12]; (2) orthogonal pairs over archimedean F, for tempered parameters [Luo, thesis 2020]; (3) unitary pairs over p-adic F or over R, for tempered parameters [Beuzart-Plessis]; (4) unitary pairs over p-adic F, for generic parameters [GI16]. Over R, H. He proves it for discrete series of unitary groups [He17].",
-   "locator": "Section 3.2, Theorem 3.2, p. 27 (arXiv v4)",
+   "locator": "Section 3.2, Theorem 3.2 and the remark after it, p. 763; survey at the start of Section 3, pp. 759–760 (arXiv v4: pp. 23–24, 27)",
    "status": "missing",
    "note": "Cited results (Waldspurger, Mœglin–Waldspurger, Beuzart-Plessis, Gan–Ichino, Luo, He); not read. The archimedean generic non-tempered cases remain open, as the paper says."
   },
@@ -80,50 +81,50 @@
    "id": "PAPER-JIANG-ZHANG-20/bessel-periods",
    "kind": "definition",
    "name": "Bessel periods",
-   "statement": "For an automorphic form φ_1 on the bigger group and φ_2 on the stabilizer G^{w_0} of the Bessel character, the Bessel period is P^{ψ_{ℓ,w_0}}(φ_1, φ_2) = ∫_{G^{w_0}(F)\\G^{w_0}(A)} F^{ψ_{ℓ,w_0}}(φ_1)(g) φ_2(g) dg (4.7), absolutely convergent if one of the forms is cuspidal (Bessel coefficients of forms of moderate growth have moderate growth, and those of rapidly decreasing forms are rapidly decreasing on Siegel sets); for cuspidal π, σ it is written ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩_{H} (5.6), an L²-inner product (4.8).",
-   "locator": "Section 4.1, (4.7)–(4.8), p. 30; Section 5.2, (5.6), p. 50 (arXiv v4) ([GRS11, Lemma 10.1], [JZ14, Prop. 2.1])",
+   "statement": "(4.7) For an automorphic form φ_{2a+𝔪} on H_{a+m}(A) and an automorphic form φ_{𝔪⁻} on the stabilizer G^{w_0}_{m⁻}(A) of ψ_{ℓ,w_0}, the Bessel period is the bilinear integral P^{ψ_{ℓ,w_0}}(φ_{2a+𝔪}, φ_{𝔪⁻}) := ∫_{G^{w_0}_{m⁻}(F)\\G^{w_0}_{m⁻}(A)} F^{ψ_{ℓ,w_0}}(φ_{2a+𝔪})(g) φ_{𝔪⁻}(g) dg. It converges absolutely if one of the two forms is cuspidal: Bessel–Fourier coefficients of forms of moderate growth have moderate growth, and those of rapidly decreasing forms are rapidly decreasing on Siegel sets of the stabilizer ([GRS11, Lemma 10.1], [6, Lemma 2.1], [7], [JZ14, Prop. 2.1]). (4.8) ⟨φ_1, φ_2⟩_G := ∫_{G(F)\\G(A)} φ_1(x) φ̄_2(x) dx. For cuspidal π on G_n and σ on H = H^{O_ℓ}_{ℓ⁻}, 'the Bessel period for (π, σ)' in Conjecture 2.3, (5.6) and Theorems 5.3, 5.7 and 6.10 is the sesquilinear ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩_H = ∫_{[H]} F^{ψ_{O_ℓ}}(φ_π)(x) φ̄_σ(x) dx, that is the bilinear period of (π, σ^∨) evaluated at (φ_π, φ̄_σ), with φ̄_σ in the complex-conjugate realization of σ^∨.",
+   "locator": "Section 4.1, (4.7)–(4.9), p. 766 (arXiv v4: p. 30); Section 5.2, (5.6), p. 785 (arXiv v4: p. 50)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The item hides the complex conjugations, which differ between the paper's two notations. (4.7) is bilinear: P^{ψ_{ℓ,w_0}}(φ_1, φ_2) = ∫ F^{ψ_{ℓ,w_0}}(φ_1)(g) φ_2(g) dg. (4.8) is sesquilinear: ⟨φ_1, φ_2⟩ = ∫ φ_1 φ̄_2. So (4.9) writes P(E, φ_π) = ⟨φ_π, conj F(E)⟩ (the bar is printed), while (5.6), Conjecture 2.3 and Theorems 5.3, 5.7 and 6.10 use ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩_H = ∫ F^{ψ_{O_ℓ}}(φ_π) φ̄_σ, which is P(φ_π, φ̄_σ) in the sense of (4.7). (5.6) nevertheless writes it P^{ψ_{O_ℓ*}}(φ_π, φ_σ). The item should state both pairings. Review note: missing: confirmed; route GanGrossPrasadConjecturesForClassicalGroups."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/global-ggp",
    "kind": "theorem",
    "name": "The global Gan–Gross–Prasad conjecture (Bessel periods)",
    "statement": "Conjecture [GGP12, Conj. 24.1, 26.1]: let φ, φ′ be generic global Arthur parameters of a relevant pair G*_n × H*_m. There is a pair (π, σ) in the global Vogan packet Π̃_{φ×φ′}[G*_n × H*_m], with cuspidal realizations, having a non-zero Bessel period ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩ if and only if L(1/2, φ × φ′) ≠ 0; such a pair is then unique (given the local conjecture at every place).",
-   "locator": "Section 1, p. 4; Sections 5.5 and 6.3, pp. 55–57, 69–70 (arXiv v4)",
+   "locator": "Section 1, pp. 742–743; Section 5.5, pp. 790–792; Section 6.3, pp. 803–804 (arXiv v4: pp. 4–5, 55–57, 69–70) ([16, Conj. 24.1, 26.1])",
    "status": "missing",
-   "note": "The paper proves one direction in general (Theorem 5.7) and the other under Conjecture 6.8 (Theorem 6.10), without the cuspidal multiplicity one hypothesis of [GGP12]. For simple generic parameters, [GJR04/05/09] has, the paper reports, a gap in the proof of its Proposition 5.3."
+   "note": "The paper proves one direction in general (Theorem 5.7) and the other under Conjecture 6.8 (Theorem 6.10), without the cuspidal multiplicity one hypothesis of [GGP12]. For simple generic parameters, [GJR04/05/09] has, the paper reports, a gap in the proof of its Proposition 5.3. Review (REV-PAPER-JIANG-ZHANG-20): Convention: the paper's condition ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩ ≠ 0 is sesquilinear, i.e. a bilinear period for (π, σ^∨). [GGP12, Conj. 24.1] uses the bilinear period of π ⊠ σ and L(1/2, π × σ). For orthogonal groups the two agree: σ^∨ ≅ σ or its Õ-twist, with the same L-function. For unitary groups the sesquilinear pairing goes with L(1/2, φ × (φ′)^∨) = L(1/2, BC(π) × BC(σ)^c), which in general differs from L(1/2, φ × φ′). The item combines the paper's pairing with GGP's L-value; it should fix one convention, and to state GGP it should use the bilinear period. Review note: missing: confirmed; route GanGrossPrasadConjecturesForClassicalGroups. Lead for the Section 5 reviewer, outside this range: p. 791 derives that L(s, τ × σ^∨) is holomorphic and non-zero at s = 1/2 and adds 'and so is L(s, τ × σ)' with no argument. That is automatic for orthogonal groups, but for unitary groups L(1/2, τ × σ^∨) = L(1/2, τ^∨ × BC(σ)) is a different central value from L(1/2, τ × BC(σ)) (e.g. anticyclotomic twists χ versus χ^{-1} = χ^c), so Theorem 5.7's conclusion L(1/2, τ × σ) ≠ 0 for unitary groups needs checking against the pairing convention."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/arthur-parameters",
    "kind": "definition",
    "name": "Global Arthur parameters of classical groups",
-   "statement": "Ψ̃_ell(N) is the set of conjugate self-dual elliptic global parameters ψ^N = ⊞_i (τ_i, b_i) of G_{E/F}(N), N = Σ a_i b_i, τ_i ∈ A_cusp(G_{E/F}(a_i)) conjugate self-dual, (τ_i, b_i) pairwise distinct; generic if all b_i = 1 (Φ̃_ell(N)), simple if r = 1. With n^∨ = 𝔫 for unitary and even orthogonal groups and 𝔫 − 1 for odd orthogonal ones, Ψ̃_2(G*_n, ξ) (N = n^∨) consists of the ψ of the form (2.5) attached to a twisted elliptic endoscopic datum (G, s, ξ); τ is of symplectic (resp. orthogonal) type if L^S(s, τ, ∧²) (resp. L^S(s, τ, Sym²)) has a pole at s = 1, and conjugate orthogonal/symplectic according to the pole of the Asai L-function, η_{(τ,b)} = κ_a(−1)^{a+b}. The sign κ of ξ is fixed to be 1.",
-   "locator": "Section 2.2, (2.3)–(2.5), pp. 13–16 (arXiv v4) ([Art13, §1.4], [Mok15, §2], [KMSW])",
+   "statement": "Ψ̃_el(N) is the set of conjugate self-dual elliptic global parameters ψ^N = (τ_1, b_1) ⊞ ⋯ ⊞ (τ_r, b_r) of G_{E/F}(N), with N = Σ a_i b_i, τ_i ∈ A_cusp(G_{E/F}(a_i)) conjugate self-dual (τ_i ≅ ι(τ_i)^∨), b_i the b_i-dimensional representation of SL_2(C), and the pairs (τ_i, b_i) pairwise distinct. It is generic if all b_i = 1 (the set Φ̃_el(N)) and simple if r = 1. Put N = n^∨, which is 𝔫 for unitary and even special orthogonal G_n and 𝔫 − 1 for odd special orthogonal G_n. Then Ψ̃_2(G*_n, ξ) ⊂ Ψ̃_el(N) consists of the ψ of the form (2.5) attached to the twisted elliptic endoscopic datum (G*_n, s, ξ). Equivalently, each (τ_i, b_i) lies in Ψ̃_2(G*_{n_i}, ξ_i) with a_i b_i = 𝔫_i^∨ and has the parity that ξ forces. For E = F: τ_i is of symplectic type (L^S(s, τ_i, ∧²) has a pole at s = 1) or of orthogonal type (L^S(s, τ_i, Sym²) has a pole); for G*_n = SO_{2n+1}, b_i is odd if τ_i is symplectic and even if τ_i is orthogonal (1.1); for G*_n = SO_{2n}, b_i is odd if τ_i is orthogonal and even if τ_i is symplectic. For E ≠ F: η_{τ_i} = κ_{a_i}(−1)^{a_i−1} = ±1 according as L(s, τ_i, As^{±}) has a pole at s = 1 (τ_i conjugate orthogonal or conjugate symplectic), and η_{(τ_i, b_i)} = η_{τ_i}(−1)^{b_i−1}. With the sign κ of ξ fixed to be 1, every summand has η_{(τ_i, b_i)} = (−1)^{N−1}, so parameters of odd unitary groups are conjugate orthogonal and those of even unitary groups conjugate symplectic. Φ̃_2(G*_n, ξ) is the generic subset.",
+   "locator": "Section 2.2, (2.3)–(2.5), pp. 750–753; Section 1.1, (1.1)–(1.2), p. 743 (arXiv v4: pp. 13–16, 5)",
    "status": "planned",
    "planned": [
     "ModularityAndLanglandsExtensions:ML.4"
    ],
-   "note": "ML.4 gives the Arthur/Mok/KMSW classification inputs explicit proof-source owners."
+   "note": "ML.4 gives the Arthur/Mok/KMSW classification inputs explicit proof-source owners. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Missing hypothesis: the item never says which simple summands are allowed in Ψ̃_2(G*_n, ξ). The paper fixes their parity: (1.1) for odd orthogonal groups; the signs η_{(τ,b)}, κ_i = (−1)^{N−N_i} and the choice κ = 1 for unitary groups (pp. 752–753)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/endoscopic-classification",
    "kind": "theorem",
    "name": "Theorem 2.1 (endoscopic classification)",
    "statement": "For every π ∈ A_disc(G_n) there is a G_n-relevant global Arthur parameter ψ ∈ Ψ̃_2(G*_n, ξ) such that π lies in the global Arthur packet Π̃_ψ(G_n). The discrete multiplicity is expected to be 1 unless G_n is even special orthogonal, where it can be 2; for generic packets the local multiplicity property holds at all places, so the multiplicities in generic global packets are known.",
-   "locator": "Section 2.2, Theorem 2.1, p. 16 (arXiv v4) ([Art13], [Mok15], [KMSW])",
+   "locator": "Section 2.2, Theorem 2.1 and the paragraph after it, p. 753 (arXiv v4: p. 16)",
    "status": "planned",
    "planned": [
     "ModularityAndLanglandsExtensions:ML.4"
    ],
-   "note": "For non-quasi-split orthogonal G_n, Arthur's book gives only an outline (Chapter 9), as the introduction says; source issue E4."
+   "note": "For non-quasi-split orthogonal G_n, Arthur's book gives only an outline (Chapter 9), as the introduction says; source issue E4. Review (REV-PAPER-JIANG-ZHANG-20): The print differs from arXiv v4 in the sentence after Theorem 2.1. v4 says the multiplicity property holds at all local fields 'for the generic local Arthur packets'; the print says 'for the general local Arthur packets, which is what we need in this paper', which contradicts the sentence before it. The item follows the v4 reading, which is the intended one (print misprint recorded below). Review note: Source issue E4 is still present in print (p. 753; the introduction, p. 740, says Arthur gives only 'an outline on general orthogonal groups in [3, Ch. 9]'). E4 needs an update: Chen–Zou (arXiv:2103.07956, accepted in JEMS) prove Arthur's multiplicity formula for the generic part of the discrete spectrum of even orthogonal and unitary groups of any Witt index by theta lifts, and a Fudan seminar abstract by Zou states it for (special) orthogonal groups. With Ishimoto for odd SO, this covers the generic parameters that the main results use; Theorem 2.1 for non-generic ψ on non-quasi-split orthogonal groups remains conditional. Planned ML.4, whose 'preserve source-specific conditional hypotheses' clause fits."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/outer-twist",
    "kind": "definition",
    "name": "The outer automorphism Õ(G_n) and the pairs {π, π⋆}",
    "statement": "Õ(G_n) := Õut_N(G_n) = Aut_N(G_n)/Int_N(G_n) [Art13, Ch. 8]; for G_n even special orthogonal it acts by ε-conjugation, ε ∈ O_{2n}(F) with det ε = −1 and ε² = 1, so the Õ(G_n)-orbit of π is {π} or a torsor {π, π⋆}, and an elliptic ψ^N may descend to two parameters {ψ, ψ⋆} with different packets but the same tensor product L-functions; otherwise Õ(G_n) is trivial. C_π denotes a fixed realization of π in the discrete spectrum.",
-   "locator": "Section 2.2, (2.6), pp. 16–17 (arXiv v4)",
+   "locator": "Section 2.2, (2.6) and the two paragraphs after it, pp. 753–754 (arXiv v4: pp. 16–17)",
    "status": "planned",
    "planned": [
     "ModularityAndLanglandsExtensions:ML.4"
@@ -135,7 +136,7 @@
    "kind": "definition",
    "name": "Localizations of generic parameters and generic local packets",
    "statement": "At a place ν the localization φ_ν of a generic global Arthur parameter is a local L-parameter L_{F_ν} → ^L G*_n (L_{F_ν} = W_{F_ν} × SL_2(C) for ν finite, W_{F_ν} for ν archimedean) given by a datum (L*_ν, φ^{L*}_ν, β): a Levi GL_{n_1} × ⋯ × GL_{n_t} × G*_{n_0}, tempered parameters φ_j of GL_{n_j} and φ_0 of G*_{n_0}, and β_1 > ⋯ > β_t > 0, with φ_ν = ⊕_j (φ_j|·|^{β_j} ⊕ φ_j^∨|·|^{−β_j}) ⊕ φ_0; the local L-packet Π̃_{φ_ν}(G*_n) contains a generic member, and all its members are irreducible and unitary (Φ̃⁺_unit).",
-   "locator": "Section 3.1, (3.2), pp. 24–25 (arXiv v4) ([MW12], [GI16], [Art13])",
+   "locator": "Section 3.1, (3.1)–(3.2), pp. 760–761 (arXiv v4: pp. 24–25)",
    "status": "planned",
    "planned": [
     "ModularityAndLanglandsExtensions:ML.4"
@@ -147,19 +148,19 @@
    "kind": "theorem",
    "name": "The local Langlands correspondence for GL_n",
    "statement": "The local Langlands correspondence for GL_n over local fields of characteristic 0 ([Lan89], [HT01], [Hen00], [Sch13]).",
-   "locator": "Section 3.1, p. 24; Section 4.6, p. 45; Appendix B, p. 85 (arXiv v4)",
+   "locator": "Section 3.1, p. 761; Section 4.6, p. 780; Appendix B, p. 818 (arXiv v4: pp. 24, 45, 85) ([55], [30], [27], [71])",
    "status": "planned",
    "planned": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
    ],
-   "note": "ET.6 plans the p-adic correspondence with full Weil–Deligne parameters. The archimedean case (Langlands) is routed to AF.1 by PAPER-CHENEVIER-TAIBI-20."
+   "note": "ET.6 plans the p-adic correspondence with full Weil–Deligne parameters. The archimedean case (Langlands) is routed to AF.1 by PAPER-CHENEVIER-TAIBI-20. Review (REV-PAPER-JIANG-ZHANG-20): Minor: the statement is only a citation. The properties the paper uses should be listed: the correspondence preserves L- and ε-factors of pairs, is compatible with contragredients, twists and parabolic induction (Langlands classification), and so defines L(s, τ_ν × π_ν) etc. through parameters at ramified places (p. 780)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/tensor-l-functions",
    "kind": "definition",
    "name": "Tensor product L-functions through Arthur parameters",
    "statement": "For π, σ cuspidal with generic global Arthur parameters, L(s, τ × π) := L(s, τ × φ_π) and L(s, τ × σ) are defined through the parameters (Rankin–Selberg L-functions of general linear groups), as are the local factors at ramified places; L(s, τ, ρ) for ρ = ∧², Sym² or the Asai representation As ⊗ ξ^m. They are meromorphic in s.",
-   "locator": "Section 4.6, pp. 44–45; Section 5.3, p. 52 (arXiv v4) ([Art13], [Mok15], [KMSW], [Mœ12])",
+   "locator": "Section 4.6, pp. 780–781; Section 5.3, pp. 786–788 (arXiv v4: pp. 44–45, 52)",
    "status": "planned",
    "planned": [
     "AutomorphicLFunctionsAndLocalFactors:AL.3",
@@ -173,7 +174,7 @@
    "kind": "definition",
    "name": "Structure of the classical groups G_n",
    "statement": "With (V_0, q) the F-anisotropic kernel of (V, q) of dimension 𝔡_0 = 𝔫 − 2𝔯 (𝔯 the Witt index = F-rank of G_n), V = V⁺ ⊕ V_0 ⊕ V⁻ with bases e_1, …, e_𝔯, e′_1, …, e′_{𝔡_0}, e_{−𝔯}, …, e_{−1} (2.1), q(e_i, e_{−j}) = δ_{ij}, q(e′_i, e′_i) = d_i; the matrices J (2.2); the minimal parabolic P_0 = (Res_{E/F}S × G_{𝔡_0}) ⋉ N_0; the relative root system of type B_𝔯, D_𝔯 (orthogonal) or BC_𝔯, C_𝔯 (unitary); standard parabolics P_J = M_J U_J and the maximal P_î with M_î ≅ G_{E/F}(i) × G_{n−i}, G_{E/F}(i) = Res_{E/F}GL_i.",
-   "locator": "Section 2.1, pp. 10–12 (arXiv v4)",
+   "locator": "Section 2.1, (2.1)–(2.2) and the following two paragraphs, pp. 748–749 (arXiv v4: pp. 10–12)",
    "status": "missing",
    "note": ""
   },
@@ -182,37 +183,37 @@
    "kind": "definition",
    "name": "Fourier coefficients attached to partitions",
    "statement": "For a quasi-split G*_n, P(𝔫, G*_n) is the set of partitions of type (𝔫, G*_n), parametrizing the F-stable nilpotent orbits O^{st}_p of g*_n(F). An F-rational orbit O_p gives a unipotent V_p and a character ψ_{O_p} of V_p(A) trivial on V_p(F), and F^{ψ_{O_p}}(φ)(g) = ∫_{V_p(F)\\V_p(A)} φ(vg) ψ_{O_p}^{−1}(v) dv (2.7), left H^{O_p}(F)-invariant with H^{O_p} = Cent_{N_{G*_n}(V_p)_{ss}}(ψ_{O_p})° (2.8). For π ∈ A_disc with realization C_π, F^{O_p}(C_π) is the ψ_{O_p}-Fourier module, p(π) the set of p with F^{O_p}(C_π) ≠ 0 for some O_p, and p^m(π) its maximal elements; for a pure inner form G_n, p is G_n-relevant if V_p is defined over F.",
-   "locator": "Section 2.3, (2.7)–(2.8), pp. 17–18 (arXiv v4) ([Jia14], [JL16])",
+   "locator": "Section 2.3, (2.7)–(2.8) and the two paragraphs after them, pp. 754–755 (arXiv v4: pp. 17–18)",
    "status": "missing",
    "library": [
     "tauceti:IsSl2Triple.map"
    ],
-   "note": "Tau Ceti has sl₂-triples, not the classification of nilpotent orbits of classical Lie algebras by partitions or these coefficients."
+   "note": "Tau Ceti has sl₂-triples, not the classification of nilpotent orbits of classical Lie algebras by partitions or these coefficients. Review note: missing: confirmed. tauceti:IsSl2Triple.map exists at f790474 (TauCeti/Algebra/Lie/Sl2/Basic.lean:369) and concerns sl₂-triples only. Note: for the trivial partition p_0 = [1^𝔫], (2.7)–(2.8) give F^{O_{p_0}}(φ) = φ and H^{O_{p_0}} = G_n; the paper's ℓ = 0 Bessel module is something else (see bessel-modules)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/bessel-modules",
    "kind": "definition",
    "name": "Bessel coefficients and Bessel modules",
-   "statement": "For p_ℓ = [(2ℓ+1)1^{𝔫−2ℓ−1}] (G_n-relevant iff ℓ ≤ 𝔯) and π ∈ A_disc(G_n), F^{O_ℓ}(π) := F^{O_{p_ℓ}}(π) is the ℓ-th Bessel module, a space of automorphic functions of moderate growth on H^{O_ℓ}_{ℓ⁻}(A) = Isom(W^{O_ℓ}, q)°(A), where (W^{O_ℓ}, q) is non-degenerate of dimension 𝔩⁻ = 𝔫 − 2ℓ − 1 (ℓ⁻ = [𝔩⁻/2]) and G_n × H^{O_ℓ}_{ℓ⁻} is a relevant pure inner form of G*_n × H*_{ℓ⁻}.",
-   "locator": "Section 2.3, (2.9), pp. 18–19 (arXiv v4)",
+   "statement": "For 0 ≤ ℓ ≤ 𝔯 (the Witt index, so that p_ℓ = [(2ℓ+1)1^{𝔫−2ℓ−1}] is G_n-relevant) and π ∈ A_disc(G_n) with realization C_π, the ℓ-th Bessel module F^{O_ℓ}(C_π) is defined as follows. For ℓ ≥ 1 it is the Fourier module F^{O_{p_ℓ}}(C_π) of (2.7) for an F-rational orbit O_ℓ ⊂ O^{st}_{p_ℓ}. For ℓ = 0, by the convention the paper uses, it is the space of restrictions to H^{w_0}_{0⁻}(A) of the forms in C_π, where w_0 ∈ V is F-anisotropic and 'O_0' denotes the G_{E/F}(1) × G_n-orbit of w_0. In both cases it is a space of automorphic functions of moderate growth on H^{O_ℓ}_{ℓ⁻}(A) = Isom(W^{O_ℓ}, q)°(A), a representation by right translation, where (W^{O_ℓ}, q) ≅ (V_(ℓ) ∩ w_0^⊥, q) is non-degenerate of dimension 𝔩⁻ = 𝔫 − 2ℓ − 1 (ℓ⁻ = [𝔩⁻/2]) and G_n × H^{O_ℓ}_{ℓ⁻} is a relevant pure inner form of G*_n × H*_{ℓ⁻}.",
+   "locator": "Section 2.3, (2.9) and the two paragraphs after it, pp. 755–756 (arXiv v4: pp. 18–19)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The ℓ = 0 case is inconsistent with the definitions it rests on (source issue recorded below). For p_0 = [1^𝔫], (2.7)–(2.8) give V_{p_0} = 1, F^{O_{p_0}}(φ) = φ and H^{O_{p_0}} = G_n, and O^{st}_{p_0} = {0} has a single rational orbit. Yet the paper, and this item, assert H^{O_0} = Isom(W^{O_0}, q)° with dim W^{O_0} = 𝔫 − 1, and use ℓ = 0 as Gan–Gross–Prasad's restriction case (Conjecture 2.3 with ℓ_0 = 0, Theorem 5.7 for SO_{n+1} × SO_n, and G_n anisotropic, where only p_0 is relevant). The item needs the ℓ = 0 convention stated."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-2-2",
    "kind": "theorem",
    "name": "Proposition 2.2 (cuspidality of Bessel modules)",
-   "statement": "For π ∈ A_cusp(G_n) with a cuspidal realization C_π there is ℓ_0 ∈ {0, 1, …, 𝔯} such that (1) F^{O_{ℓ_0}}(C_π) ≠ 0 but F^{O_ℓ}(C_π) = 0 for all ℓ > ℓ_0; and (2) F^{O_{ℓ_0}}(C_π) is cuspidal: its constant terms along all parabolic subgroups of H^{O_{ℓ_0}}_{ℓ_0⁻} vanish. (ℓ_0 = ℓ_0(C_π) is the first occurrence index.)",
-   "locator": "Section 2.3, Proposition 2.2, p. 19 (arXiv v4)",
+   "statement": "Let π ∈ A_cusp(G_n) with a cuspidal realization C_π, and let 𝔯 be the F-rank of G_n. Put ℓ_0 = ℓ_0(C_π) := max{ℓ ∈ {0, …, 𝔯} : F^{O_ℓ}(C_π) ≠ 0 for some F-rational orbit O_ℓ ⊂ O^{st}_{p_ℓ}} (ℓ = 0 qualifies, with the ℓ = 0 convention of bessel-modules). Then (1) F^{O_{ℓ_0}}(C_π) ≠ 0 for some O_{ℓ_0}, and F^{O_ℓ}(C_π) = 0 for every ℓ with ℓ_0 < ℓ ≤ 𝔯 and every O_ℓ; (2) for every O_{ℓ_0}, the module F^{O_{ℓ_0}}(C_π) is cuspidal, i.e. its constant terms along all proper parabolic F-subgroups of H^{O_{ℓ_0}}_{ℓ_0⁻} vanish.",
+   "locator": "Section 2.3, Proposition 2.2 and the sentence before it, p. 756 (arXiv v4: p. 19)",
    "status": "missing",
-   "note": "No proof beyond 'one may extend the proof of [GRS11, Theorem 7.3] to the current case' (source issue E5). Part (1) is immediate since ℓ = 0 gives φ itself."
+   "note": "No proof beyond 'one may extend the proof of [GRS11, Theorem 7.3] to the current case' (source issue E5). Part (1) is immediate since ℓ = 0 gives φ itself. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Quantifiers: F^{O_ℓ}(C_π) depends on the F-rational orbit O_ℓ, and the statement leaves open which orbits are meant. Read with the definition of p(π) (p. 755), (1) means non-vanishing for some O_{ℓ_0} and vanishing for every O_ℓ with ℓ > ℓ_0, so (1) only defines ℓ_0, and ℓ = 0 always qualifies. The content is (2), for every O_{ℓ_0}, and it is unproved for non-quasi-split G_n (E5, still present in print). Review note: Source issue E5 is confirmed in print, p. 756 ('One may extend the proof of [23, Th. 7.3] …'; [24] in v4 is [23] in print)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/bessel-decomposition",
    "kind": "theorem",
    "name": "Multiplicity-free decomposition of the first Bessel module",
    "statement": "For π ∈ A_cusp(G_n), F^{O_{ℓ_0}}(C_π) embeds in L²_cusp(H^{O_{ℓ_0}}_{ℓ_0⁻}) and decomposes as a multiplicity-free Hilbert direct sum σ_1 ⊕ σ_2 ⊕ ⋯ of irreducible cuspidal representations (2.10).",
-   "locator": "Section 2.3, (2.10), p. 20 (arXiv v4)",
+   "locator": "Section 2.3, (2.10) and the paragraph before it, p. 756 (arXiv v4: p. 20)",
    "status": "missing",
    "note": "Multiplicity freeness from the uniqueness of local Bessel models."
   },
@@ -221,92 +222,92 @@
    "kind": "theorem",
    "name": "Conjecture 2.3 (Generic Summand)",
    "statement": "Conjecture: if π ∈ A_cusp(G_n) has a G_n-relevant generic global Arthur parameter φ ∈ Φ̃_2(G*_n), there are a cuspidal realization C_π with first occurrence index ℓ_0 and an F-rational orbit O_{ℓ_0} in O^{st}_{p_{ℓ_0}} such that some σ ∈ A_cusp(H^{O_{ℓ_0}}_{ℓ_0⁻}) with an H^{O_{ℓ_0}}_{ℓ_0⁻}-relevant generic global Arthur parameter φ_σ ∈ Φ̃_2(H*_{ℓ_0⁻}) and a cuspidal realization C_σ has ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), φ_σ⟩ ≠ 0 for some φ_π ∈ C_π, φ_σ ∈ C_σ.",
-   "locator": "Section 2.3, Conjecture 2.3, p. 20 (arXiv v4)",
+   "locator": "Section 2.3, Conjecture 2.3, pp. 756–757 (arXiv v4: p. 20)",
    "status": "missing",
-   "note": "A hypothesis of Theorem 7.1; verified in the subregular case (Proposition 7.3)."
+   "note": "A hypothesis of Theorem 7.1; verified in the subregular case (Proposition 7.3). Review note: The pairing ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), φ_σ⟩ is the sesquilinear L²-inner product (4.8); see bessel-periods."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/explicit-bessel-data",
    "kind": "definition",
    "name": "Explicit Bessel data",
-   "statement": "V_ℓ is the unipotent group (2.11) (upper-left block z ∈ Z_ℓ, the maximal unipotent of G_{E/F}(ℓ)); ψ_E = ψ_F if E = F and ψ_F(½ tr_{E/F}(x/√ς)) otherwise; for an anisotropic w_0 ∈ (E^{𝔫−2ℓ}, q), ψ_{ℓ,w_0}(v) = ψ_E(Σ_{i=1}^{ℓ−1} z_{i,i+1} + q(y_ℓ, w_0)) (2.12), and H^{w_0}_{ℓ⁻} = Isom(V_{(ℓ)} ∩ w_0^⊥, q)° (2.13). The anisotropic kernel of W_{𝔩⁻} = V_{(ℓ)} ∩ w_0^⊥ has dimension 𝔡_0 ± 1 and its Witt index is 𝔯 − ℓ or 𝔯 − ℓ − 1 accordingly.",
-   "locator": "Section 2.4, (2.11)–(2.13), pp. 21–22 (arXiv v4)",
+   "statement": "Let 1 ≤ ℓ ≤ 𝔯. V_ℓ = V_{p_ℓ} is the group (2.11) of unipotent v ∈ G_n with upper-left block z ∈ Z_ℓ, the maximal upper-triangular unipotent subgroup of G_{E/F}(ℓ), and V_ℓ/[V_ℓ, V_ℓ] ≅ ⊕_{i=1}^{ℓ−1} g_{α_i} ⊕ E^{𝔫−2ℓ}. The F-rational orbits O_ℓ ⊂ O^{st}_{p_ℓ} are in bijection with the G_{E/F}(1) × G_{n−ℓ}-orbits of F-anisotropic vectors w_0 ∈ V_(ℓ) = E^{𝔫−2ℓ}. Fix a non-trivial character ψ_F of F\\A and set ψ_E = ψ_F if E = F and ψ_E(x) = ψ_F(½ tr_{E/F}(x/√ς)) otherwise. Then ψ_{O_ℓ}(v) = ψ_{ℓ,w_0}(v) := ψ_E(Σ_{i=1}^{ℓ−1} z_{i,i+1} + q(y_ℓ, w_0)), where y_ℓ is the last row of y (2.12). The Levi subgroup of P_{{ℓ+1,…,𝔯}} normalizes V_ℓ, and H^{O_ℓ}_{ℓ⁻} = H^{w_0}_{ℓ⁻}, the identity component of the stabilizer of ψ_{ℓ,w_0}, is (2.13) {diag(I_ℓ, γ, I_ℓ) ∈ G_n : γ J_{𝔫−2ℓ} w_0 = J_{𝔫−2ℓ} w_0}, identified with Isom(W_{𝔩⁻}, q)° where W_{𝔩⁻} = V_(ℓ) ∩ w_0^⊥ (𝔩⁻ = 𝔫 − 2ℓ − 1) is isometric to W^{O_ℓ}. The anisotropic kernel of W_{𝔩⁻} has dimension 𝔡_0 − 1 or 𝔡_0 + 1, the first case holding iff (V_0, q) represents q(w_0, w_0), and correspondingly the Witt index of W_{𝔩⁻} is 𝔯 − ℓ or 𝔯 − ℓ − 1.",
+   "locator": "Section 2.4, (2.11)–(2.13), pp. 757–758 (arXiv v4: pp. 21–22)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The item omits the parametrization it rests on: F-rational orbits O_ℓ ⊂ O^{st}_{p_ℓ} correspond to G_{E/F}(1) × G_{n−ℓ}-orbits of F-anisotropic vectors w_0 ∈ V_(ℓ). (2.11)–(2.12) need ℓ ≥ 1; for ℓ = 0 only (2.13), the stabilizer of the vector, applies (see bessel-modules). The 𝔡_0 ± 1 alternative is governed by whether (V_0, q) represents q(w_0) (see prop-2-5)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/lemma-2-4",
    "kind": "theorem",
    "name": "Lemma 2.4",
-   "statement": "If ℓ < 𝔯 (the Witt index of (V_{(ℓ)}, q) is non-zero), there is g ∈ G_{𝔫−2ℓ}(F) = Isom(V_{(ℓ)}, q)°(F) with g·w_0 = e_𝔯 + (−1)^{𝔫+1}(κ/2)e_{−𝔯} for some κ ∈ F^×; hence w_0 may be taken to be y_κ (2.14).",
-   "locator": "Section 2.4, Lemma 2.4 and (2.14), p. 22 (arXiv v4)",
+   "statement": "If ℓ < 𝔯 (equivalently, the Witt index of (V_(ℓ), q) is non-zero) and w_0 ∈ V_(ℓ) is F-anisotropic, then there is g ∈ G_{n−ℓ}(F) = Isom(V_(ℓ), q)°(F) with g·w_0 = y_κ := e_𝔯 + (−1)^{𝔫+1}(κ/2)e_{−𝔯}, where κ ∈ F^× is defined by q(w_0, w_0) = (−1)^{𝔫+1}κ. Hence w_0 may be taken to be y_κ (2.14).",
+   "locator": "Section 2.4, (2.14) and Lemma 2.4, pp. 758–759 (arXiv v4: p. 22)",
    "status": "missing",
-   "note": "Proof omitted in the paper ('straightforward'); a Witt-theorem argument."
+   "note": "Proof omitted in the paper ('straightforward'); a Witt-theorem argument. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The paper, and the item, write g ∈ G_{𝔫−2ℓ}(F). Since G_n is indexed by n = [𝔫/2], the group Isom(V_(ℓ), q)° is G_{n−ℓ}, as in the sentence before (2.14) (misprint recorded below). κ is determined by q(w_0, w_0) = (−1)^{𝔫+1}κ. Review note: missing: confirmed. The proof is the Witt extension theorem plus a correction into the identity component. q(y_κ) = (−1)^{𝔫+1}κ, since the hyperbolic plane ⟨e_𝔯, e_{−𝔯}⟩ represents every value of F^×. If g ∈ O(V_(ℓ)) has det −1, compose with the reflection in an anisotropic vector of y_κ^⊥ ∩ V_(ℓ); this exists because dim V_(ℓ) ≥ 2. Unitary groups are connected. For quadratic forms, Witt extension and cancellation are planned in tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory; the Hermitian analogue is not planned anywhere. Tau Ceti f790474 has TauCeti/LinearAlgebra/QuadraticForm/SpecialOrthogonalStabilizer.lean, which identifies SO(Q) with the stabilizer of (0, 1) in SO(Q ⊕ ⟨1⟩) on points: a special case of H^{w_0} ≅ Isom(w_0^⊥)°."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-2-5",
    "kind": "theorem",
    "name": "Proposition 2.5 (the stabilizer H^{O_ℓ})",
-   "statement": "For O_ℓ determined by w_0 as in Lemma 2.4, H^{O_ℓ}_{ℓ⁻} = H^{w_0}_{ℓ⁻} is defined by an 𝔩⁻-dimensional non-degenerate subspace (W_{𝔩⁻}, q) with a (𝔡_0 − 1)-dimensional anisotropic kernel if y_{−κ} lies in the G_{E/F}(1) × G_{n−ℓ}-orbit of a non-zero vector of (V_0, q), and with a (𝔡_0 + 1)-dimensional one otherwise.",
-   "locator": "Section 2.4, Proposition 2.5, p. 22 (arXiv v4)",
+   "statement": "Let ℓ < 𝔯 and let O_ℓ ⊂ O^{st}_{p_ℓ} be determined by w_0 = y_κ = e_𝔯 + (−1)^{𝔫+1}(κ/2)e_{−𝔯} (Lemma 2.4), so that q(w_0, w_0) = (−1)^{𝔫+1}κ. Then H^{O_ℓ}_{ℓ⁻} = H^{w_0}_{ℓ⁻} = Isom(W_{𝔩⁻}, q)° with W_{𝔩⁻} = V_(ℓ) ∩ w_0^⊥ = Span{e_{±(ℓ+1)}, …, e_{±(𝔯−1)}} ⊕ E·y_{−κ} ⊕ V_0, an 𝔩⁻-dimensional non-degenerate subspace of (V, q). Its F-anisotropic kernel has dimension 𝔡_0 − 1 if y_κ (= w_0) lies in the G_{E/F}(1) × G_{n−ℓ}-orbit of a non-zero vector of (V_0, q), equivalently if (V_0, q) represents (−1)^{𝔫+1}κ, and dimension 𝔡_0 + 1 otherwise. (If ℓ = 𝔯 the kernel always has dimension 𝔡_0 − 1.)",
+   "locator": "Section 2.4, Proposition 2.5, p. 759 (arXiv v4: p. 22)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The statement is false as printed (and in arXiv v4): y_{−κ} must be y_κ = w_0 (error recorded below). W_{𝔩⁻} = V_(ℓ) ∩ w_0^⊥ = H′ ⊕ E·y_{−κ}, where H′ = Span{e_{±(ℓ+1)}, …, e_{±(𝔯−1)}} ⊕ V_0 and q(y_{−κ}) = −q(y_κ). So its anisotropic kernel is that of V_0 ⊕ ⟨−q(w_0)⟩, which is isotropic iff V_0 represents q(w_0); equivalently, Witt cancellation in V_(ℓ) = W_{𝔩⁻} ⊕ ⟨w_0⟩. Counterexample to the printed version: F = Q, 𝔫 = 5, V = H² ⊕ ⟨1⟩, ℓ = 1, κ = 1. Then W_{𝔩⁻} ≅ ⟨1, −1⟩ is split, with kernel dimension 0 = 𝔡_0 − 1, while y_{−1} (norm −1) is in the orbit of no vector of V_0 = ⟨1⟩, so the printed rule predicts 𝔡_0 + 1 = 2. Review note: missing: confirmed. The authors' own commented-out remark in the v4 TeX (Section 4.3: G^{w_0}_{m⁻} is anisotropic only when a = ℓ + 1, 𝔯_𝔪 = 0 and '(−1)^{𝔪+1}κ is not represented by (W_0, q)') agrees with the corrected, y_κ, criterion. Proposition 2.5 is not cited elsewhere in the paper."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-2-6",
    "kind": "theorem",
    "name": "Proposition 2.6 (every H_m occurs)",
    "statement": "For every pure inner form H_m of an F-quasisplit classical group H*_m there are a pure inner form G_n of an F-quasisplit G*_n and a datum (p_ℓ, O_ℓ) with m = ℓ⁻ and H_m ≅ H^{O_ℓ}_{ℓ⁻}; moreover G_n × H_m is a relevant pure inner form of G*_n × H*_m.",
-   "locator": "Section 2.4, Proposition 2.6, p. 23 (arXiv v4)",
+   "locator": "Section 2.4, Proposition 2.6, p. 759 (arXiv v4: p. 23)",
    "status": "missing",
-   "note": "'Easy' from [GGP12]; no proof given."
+   "note": "'Easy' from [GGP12]; no proof given. Review note: missing: confirmed. The paper gives no proof; one is easy. Given H_m = Isom(W, q)°, take V = W ⊕ ⟨a⟩ ⊕ H^ℓ with a ∈ F^× and ℓ ≥ 0, and w_0 ∈ V_(ℓ) = W ⊕ ⟨a⟩ spanning ⟨a⟩. Then V_(ℓ) ∩ w_0^⊥ = W, W⊥ = ⟨a⟩ ⊕ H^ℓ is split of odd dimension, and p_ℓ is relevant since the Witt index of V is at least ℓ."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/eisenstein-series",
    "kind": "definition",
    "name": "The Eisenstein series E(h, φ_{τ⊗σ}, s)",
    "statement": "For τ = τ_1 ⊞ ⋯ ⊞ τ_r an irreducible unitary isobaric representation of G_{E/F}(a)(A) (τ_i ∈ A_cusp(G_{E/F}(a_i)) pairwise inequivalent; only genericity is needed for the unfolding) and σ an automorphic representation of H_m(A), P_â = M_â U_â the maximal parabolic of H_{a+m} with M_â = G_{E/F}(a) × H_m, λ_s(m, h) = |det m|^s_{A_E}, φ ∈ A(U_â(A)M_â(F)\\H_{a+m}(A))_{τ⊗σ} (4.2) and φ_s = λ_s φ: E(h, φ, s) = Σ_{δ ∈ P_â(F)\\H_{a+m}(F)} φ_s(δh) (4.3), absolutely convergent for Re(s) ≫ 0 with meromorphic continuation (Langlands); it realizes I_s(τ, σ) = Ind_{P_â(A)}^{H_{a+m}(A)}(τ|det|^s ⊗ σ) (4.10).",
-   "locator": "Section 4.1, (4.1)–(4.3) and (4.10), pp. 28–31 (arXiv v4) ([Lan76], [MW95])",
+   "locator": "Section 4.1, (4.1)–(4.3) and (4.10), pp. 764–767 (arXiv v4: pp. 28–31)",
    "status": "planned",
    "planned": [
     "AutomorphicSpectralTheory:AS.1",
     "AutomorphicSpectralTheory:AS.2"
    ],
-   "note": ""
+   "note": "Review note: planned AS.1/AS.2: partly. AS.1 constructs Eisenstein series from cuspidal data on M. Here τ is an isobaric sum (not cuspidal) and σ need not be cuspidal, so the series is induced from non-cuspidal data; that needs [MW95]'s general theory, or realizing E(h, φ_{τ⊗σ}, s) as a specialization of the cuspidal multi-variable series from τ_1 ⊗ ⋯ ⊗ τ_r ⊗ σ when σ is cuspidal. AS.2 should be checked to cover this. (Print misprint in (4.3), where the left side has h and the right side φ_s(δg); recorded below.)"
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/global-zeta-integral",
    "kind": "definition",
    "name": "Bessel–Fourier coefficients of E and the global zeta integral",
-   "statement": "For H_{a+m}-relevant p_ℓ = [(2ℓ+1)1^{m+2a−2ℓ−1}] (ℓ ≤ a + r_m), the Bessel–Fourier coefficient F^{ψ_{ℓ,w_0}}(E(·, φ, s))(h) = ∫_{N_ℓ(F)\\N_ℓ(A)} E(nh, φ, s) ψ^{−1}_{ℓ,w_0}(n) dn (4.4) with w_0 = y_κ = e_{a+r_m} + (−1)^{m+1}(κ/2) e_{−(a+r_m)} (4.5) (any anisotropic vector of W_0 when ℓ = a + r_m); R^{w_0}_ℓ = G^{w_0}_{m⁻} ⋉ N_ℓ (4.6), m⁻ = 2a + m − 2ℓ − 1. For π ∈ A_cusp(G^{w_0}_{m⁻}) the global zeta integral is Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}) := P^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s), φ_π) = ⟨φ_π, F^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s))⟩ (4.9); it converges absolutely and is holomorphic where E has no pole.",
-   "locator": "Section 4.1, (4.4)–(4.9), pp. 29–30 (arXiv v4) ([JZ14, Prop. 2.1], [GPSR97])",
+   "statement": "Let H_{a+m} = Isom(W_{𝔪+2a}, q)° with W_{𝔪+2a} = W ⊕ (a hyperbolic planes), and let 𝔯_𝔪 be the Witt index of (W, q). For an H_{a+m}-relevant p_ℓ = [(2ℓ+1)1^{𝔪+2a−2ℓ−1}] of type (𝔪 + 2a, H*_{a+m}) with ℓ ≤ a + 𝔯_𝔪, set F^{ψ_{ℓ,w_0}}(E(·, φ, s))(h) := ∫_{N_ℓ(F)\\N_ℓ(A)} E(nh, φ, s) ψ^{-1}_{ℓ,w_0}(n) dn (4.4), where N_ℓ is the unipotent group of p_ℓ (as V_ℓ in (2.11)). Here w_0 = y_κ = e_{a+𝔯_𝔪} + (−1)^{𝔪+1}(κ/2)e_{−(a+𝔯_𝔪)} with κ ∈ F^× if ℓ < a + 𝔯_𝔪 (4.5); if ℓ = a + 𝔯_𝔪, w_0 is any F-anisotropic vector of the anisotropic kernel W_0 of W, and then 𝔪⁻ = 𝔡_0(W) − 1 and G^{w_0}_{m⁻} is F-anisotropic. G^{w_0}_{m⁻} is the stabilizer of ψ_{ℓ,w_0}, of type 𝔪⁻ = 2a + 𝔪 − 2ℓ − 1 with m⁻ = [𝔪⁻/2], and (G^{w_0}_{m⁻}, H_m) is a relevant pair; R^{w_0}_ℓ := G^{w_0}_{m⁻} ⋉ N_ℓ (4.6). For π ∈ A_cusp(G^{w_0}_{m⁻}) and φ_π ∈ π, the global zeta integral is Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}) := P^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s), φ_π) = ∫_{G^{w_0}_{m⁻}(F)\\G^{w_0}_{m⁻}(A)} F^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s))(g) φ_π(g) dg = ⟨φ_π, conj F^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s))⟩_{G^{w_0}_{m⁻}} (4.9). It converges absolutely and is holomorphic at every s where E has no pole ([JZ14, Prop. 2.1]).",
+   "locator": "Section 4.1, (4.4)–(4.9), pp. 765–766 (arXiv v4: pp. 29–30)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Garbled notation and a dropped conjugation. (i) Dimensions are Fraktur: p_ℓ = [(2ℓ+1)1^{𝔪+2a−2ℓ−1}] of type (𝔪 + 2a, H*_{a+m}), ℓ ≤ a + 𝔯_𝔪 with 𝔯_𝔪 the Witt index of (W, q), w_0 = e_{a+𝔯_𝔪} + (−1)^{𝔪+1}(κ/2)e_{−(a+𝔯_𝔪)}, and 𝔪⁻ = 2a + 𝔪 − 2ℓ − 1 with m⁻ = [𝔪⁻/2]; the item writes m, r_m and 'm⁻ = 2a + m − 2ℓ − 1'. (ii) (4.9) reads P(E, φ_π) = ⟨φ_π, conj F^{ψ}(E)⟩ (bar printed); the item drops the bar, which by (4.8) changes the pairing."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/bessel-functional-factorization",
    "kind": "theorem",
    "name": "The zeta integral as a global Bessel functional",
-   "statement": "Away from the poles of E, Z(s, ·) defines an element ℓ_aut of Hom_{R^{w_0}_ℓ(A)}(I_s(τ, σ), π^∨ ⊗ ψ_{ℓ,w_0}) (4.11), a restricted tensor product of local Hom spaces (4.12), each of dimension at most one by the uniqueness of Bessel models (for Re(s) large); so ℓ_aut = c·Π_ν ℓ_ν (4.13).",
-   "locator": "Section 4.1, (4.11)–(4.13), p. 31 (arXiv v4)",
+   "statement": "(Motivation, not a theorem.) Away from the poles of E(φ_{τ⊗σ}, s), the map φ_{τ⊗σ} ⊗ φ_π ↦ Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}) defines ℓ^aut ∈ Hom_{R^{w_0}_ℓ(A)}(I_s(τ, σ), π^∨ ⊗ ψ_{ℓ,w_0}) (4.11). At each place ν where I_s(τ_ν, σ_ν) is irreducible, dim Hom_{R^{w_0}_ℓ(F_ν)}(I_s(τ_ν, σ_ν), π_ν^∨ ⊗ ψ_{ℓ,w_0,ν}) ≤ 1 by the uniqueness of Bessel models. The paper expects from this that ℓ^aut = c·Π_ν ℓ_ν (4.13), with ℓ_ν normalized at unramified data; Theorems 4.5 and 4.7 realize this factorization explicitly.",
+   "locator": "Section 4.1, (4.11)–(4.13), p. 767 (arXiv v4: p. 31)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Not a theorem of the paper. (4.13) is introduced with 'Hence we expect that this global functional … can be written as an Euler product', and the identification of (4.11) with the restricted tensor product (4.12) is asserted without argument. The factorization is proved only in the explicit form of Theorems 4.5 and 4.7, under their hypotheses. The print also changed the local qualifier: v4 has '(at least for Re(s) large)', the print has 'when I_s(τ_ν, σ_ν) is irreducible'. The item should be a remark or motivation, not a theorem."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-4-1",
    "kind": "theorem",
    "name": "Proposition 4.1 (unfolding the Bessel–Fourier coefficient)",
    "statement": "For Re(s) large, F^{ψ_{ℓ,w_0}}(E(·, φ_{τ⊗σ}, s))(h) = Σ_{ε_β} Σ_η Σ_δ ∫_{N^η_ℓ(A)\\N_ℓ(A)} ∫_{N^η_ℓ(F)\\N^η_ℓ(A)} φ_s(ε_β η δ u n h) ψ^{−1}_{ℓ,w_0}(un) du dn, where N^η_ℓ = N_ℓ ∩ η^{−1}P^{ε_{0,β}}_ℓ̂ η, the sums run over ε_β = ε_{0,β} ∈ E^0_{a,ℓ}, over η = diag(ε, γ, ε*) in N^0_{β,ℓ,w_0} (with the orthogonality condition on γw_0 when β > max{a − ℓ, 0}), and over δ ∈ G^η_{m⁻}(F)\\G^{w_0}_{m⁻}(F).",
-   "locator": "Section 4.2, Proposition 4.1, p. 33 (arXiv v4)",
+   "locator": "Section 4.2, (4.14) and Proposition 4.1, pp. 768–769 (arXiv v4: pp. 32–33)",
    "status": "missing",
-   "note": "Proved by extending [JZ14, Lemmas 3.1–3.2, Prop. 3.3] (the double cosets P_â\\H_{a+m}/P_ℓ̂ indexed by E_{a,ℓ}, [GRS11, §4.2]); details by reference."
+   "note": "Proved by extending [JZ14, Lemmas 3.1–3.2, Prop. 3.3] (the double cosets P_â\\H_{a+m}/P_ℓ̂ indexed by E_{a,ℓ}, [GRS11, §4.2]); details by reference. Review note: The double-coset parametrization E_{a,ℓ} = {ε_{α,β} : 0 ≤ α ≤ β ≤ a, a ≤ ℓ + β − α ≤ a + 𝔯_𝔪} used in the statement is not itemized; see coverage."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/open-cell-reduction",
    "kind": "theorem",
    "name": "Only the open double coset contributes",
    "statement": "By the cuspidality of φ_π only the Zariski-open double coset in P_â\\H_{a+m}/R^{w_0}_ℓ contributes to Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}): for a ≤ ℓ it equals the integral (4.16) with β = 0, and for a > ℓ the integral (4.17) with β = a − ℓ, η = diag{I_ℓ, γ_0, I_ℓ}, γ_0 in the open double coset with γ_0 w_0 not orthogonal to W⁻_{ℓ,β}.",
-   "locator": "Section 4.3, (4.15)–(4.17), pp. 33–34 (arXiv v4) ([JZ14, Prop. 3.6], [GRS11, Prop. 4.4])",
+   "locator": "Section 4.3, (4.15)–(4.17), pp. 769–770 (arXiv v4: pp. 33–34)",
    "status": "missing",
    "note": "The paper also corrects the integration domain of [JZ14, (3.36)] in (4.26)."
   },
@@ -314,35 +315,35 @@
    "id": "PAPER-JIANG-ZHANG-20/whittaker-induction-map",
    "kind": "theorem",
    "name": "Passage to the Whittaker model of τ",
-   "statement": "Combining the integrations over [Z_{β,η}] and [N^η_ℓ] gives φ_s ↦ φ^{Z_a,κ}_s(h) = ∫_{[Z_a]} φ_s(zh) ψ_{Z_a,κ}(z) dz (4.29) with the non-degenerate character ψ_{Z_a,κ} of (4.30); this is an H_{a+m}(A)-equivariant isomorphism I_s(τ, σ) → I_s(W_τ, σ), W_τ the global Whittaker model of τ.",
-   "locator": "Section 4.4, (4.29)–(4.30), p. 38 (arXiv v4)",
+   "statement": "(Case a > ℓ, β = a − ℓ.) Since N^η_ℓ Z_{β,η} ≅ Z_a, the maximal upper-triangular unipotent subgroup of G_{E/F}(a) ⊂ P_â, the integrations over [Z_{β,η}] and [N^η_ℓ] combine into φ^{Z_a,κ}_s(h) := ∫_{[Z_a]} φ_s(zh) ψ_{Z_a,κ}(z) dz (4.29), with ψ_{Z_a,κ}(z) = ψ_E(−z_{1,2} − ⋯ − z_{β−1,β} + (−1)^{𝔪+1}(κ/2) z_{β,β+1} + z_{β+1,β+2} + ⋯ + z_{a−1,a}) (4.30), a non-degenerate character of Z_a. The map φ_s ↦ φ^{Z_a,κ}_s is an H_{a+m}(A)-equivariant isomorphism I_s(τ, σ) → I_s(W_τ, σ), where W_τ = W_τ^{ψ̄_{Z_a,κ}} is the global Whittaker model of τ with respect to ψ̄_{Z_a,κ}.",
+   "locator": "Section 4.4, (4.29)–(4.30), p. 774 (arXiv v4: p. 38)",
    "status": "missing",
-   "note": "Uses Fourier expansion along mirabolic subgroups [JZ14, (3.38)]; the global Whittaker model of GL-cusp forms is part of AutomorphicLFunctionsAndLocalFactors AL.3's unfolding."
+   "note": "Uses Fourier expansion along mirabolic subgroups [JZ14, (3.38)]; the global Whittaker model of GL-cusp forms is part of AutomorphicLFunctionsAndLocalFactors AL.3's unfolding. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Missing conjugation and case: W_τ is the Whittaker model with respect to the conjugate character ψ̄_{Z_a,κ} = ψ^{-1}_{Z_a,κ} (printed W_τ := W_τ^{ψ̄_{Z_a,κ}}; indeed φ^{Z_a,κ}_s(z_0 h) = ψ_{Z_a,κ}(z_0)^{-1} φ^{Z_a,κ}_s(h)), and the formula belongs to the case a > ℓ with β = a − ℓ."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-4-2",
    "kind": "theorem",
    "name": "Proposition 4.2 (the twisted Jacquet map J_s)",
    "statement": "For Re(s) large, J_s(φ_s)(h) = ∫_{U⁻_{a,η}(A)} φ^{Z_a,κ}_s(n ε_{0,β} η h) ψ_{(m+a+ℓ,a−ℓ)}(n) dn (4.33) converges absolutely, and φ_s ↦ J_s(φ_s) restricted to G^{w_0}_{m⁻}(A) is a G^{w_0}_{m⁻}(A)-equivariant map from I_s(τ, σ) to the smooth induction I^{w_0}_s(ψ_{β−1,y_{−κ}}, σ^{w_q^ℓ}) from N^η_{ℓ,β−1}(A)H^η_m(A); with σ′ := σ^{w_q^ℓ} (4.34) this gives I_s(τ, σ) → I_s(W_τ, σ) → I^{w_0}_s(ψ_{β−1,y_{−κ}}, σ′) (4.35).",
-   "locator": "Section 4.4, (4.33)–(4.35) and Proposition 4.2, pp. 39–40 (arXiv v4)",
+   "locator": "Section 4.4, (4.31)–(4.33), p. 774; Proposition 4.2 and (4.34), p. 775; (4.35), p. 776; w_q defined after (4.18), p. 770 (arXiv v4: pp. 34, 38–40)",
    "status": "missing",
-   "note": "Absolute convergence for general groups is deferred to [JSZ] (source issue E3); w_q acts non-trivially on σ only for even special orthogonal H_m."
+   "note": "Absolute convergence for general groups is deferred to [JSZ] (source issue E3); w_q acts non-trivially on σ only for even special orthogonal H_m. Review note: E3: the print gives two short arguments for the absolute convergence of the U⁻_{a,η}-integral (4.33): comparison with [19, App. II to §5], [73], [75, Th. 3.1], and domination of the absolute integrand by a product of local intertwining operators (p. 774). The full proof for general groups is deferred to [43] (p. 775)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-4-3",
    "kind": "theorem",
    "name": "Proposition 4.3 (inner Bessel period)",
    "statement": "For Re(s) large, Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}) = ∫_g ∫_{[H^η_m]} F^{ψ^{−1}_{β−1,y_{−κ}}}(φ_π)(xg) J_s(φ_s)(xg) dx dg (4.36), g over R^η_{ℓ,β−1}(A)\\G^{w_0}_{m⁻}(A), R^η_{ℓ,β−1} = H^η_m ⋉ N^η_{ℓ,β−1}; the inner integral is the Bessel period P^{ψ^{−1}_{β−1,y_{−κ}}}(g ∗ φ_π, J_s(φ_s)(g)) of the pair (π, σ′) (4.37).",
-   "locator": "Section 4.4, Proposition 4.3, p. 40 (arXiv v4)",
+   "locator": "Section 4.4, Proposition 4.3 and (4.37), p. 776 (arXiv v4: p. 40)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): The case hypothesis should be explicit: the proposition is in Section 4.4 (a > ℓ, β = a − ℓ, η = diag{I_ℓ, γ_0, I_ℓ}); for a ≤ ℓ the analogue is (4.44)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/cor-4-4",
    "kind": "theorem",
    "name": "Corollary 4.4",
    "statement": "If the Bessel period for (π, σ′) is zero, then the global zeta integral Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}) is zero for all choices of data (case a > ℓ).",
-   "locator": "Section 4.4, Corollary 4.4, p. 41 (arXiv v4)",
+   "locator": "Section 4.4, Corollary 4.4, p. 776 (arXiv v4: p. 41)",
    "status": "missing",
    "note": ""
   },
@@ -351,16 +352,16 @@
    "kind": "theorem",
    "name": "Theorem 4.5 (Euler product, a > ℓ)",
    "statement": "Let E(φ_{τ⊗σ}, s) be as in (4.3) and π ∈ A_cusp(G^{w_0}_{m⁻}). The global zeta integral converges absolutely and is holomorphic where E has no pole. If φ_π = ⊗φ_{π_ν} and φ_s = ⊗φ_{s,ν} are factorizable and (π, σ′) has a non-zero Bessel period, then for Re(s) large Z(s, ·) = Π_ν Z_ν(s, ·), with the local zeta integrals Z_ν = ∫_{R^η_{ℓ,β−1}(F_ν)\\G^{w_0}_{m⁻}(F_ν)} P_ν^{ψ^{−1}_{β−1,y_{−κ}}}(g_ν ∗ φ_{π_ν}, J_{s,ν}(φ_{s,ν})(g_ν)) dg_ν (4.41).",
-   "locator": "Section 4.4, (4.38)–(4.41) and Theorem 4.5, pp. 41–42 (arXiv v4)",
+   "locator": "Section 4.4, (4.38)–(4.41) and Theorem 4.5, pp. 776–777 (arXiv v4: pp. 41–42)",
    "status": "missing",
-   "note": ""
+   "note": "Review note: For the Euler product to converge (the step from (4.40) to Π_ν Z_ν) the local integrals at almost all places must be controlled, which the paper gets only from Theorem 4.8. So the Euler product rests on [43] (E3) outside the split orthogonal case."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/cor-4-6",
    "kind": "theorem",
    "name": "Corollary 4.6",
    "statement": "If a ≤ ℓ and the Bessel period for (σ, π) is zero, then the global zeta integral is zero for all choices of data.",
-   "locator": "Section 4.5, Corollary 4.6, p. 43 (arXiv v4)",
+   "locator": "Section 4.5, Corollary 4.6, p. 779 (arXiv v4: p. 43)",
    "status": "missing",
    "note": ""
   },
@@ -369,7 +370,7 @@
    "kind": "theorem",
    "name": "Theorem 4.7 (Euler product, a ≤ ℓ)",
    "statement": "With the notation of Theorem 4.5 and a ≤ ℓ, the global zeta integral converges absolutely and is holomorphic where E has no pole; if the data are factorizable and (σ, π) has a non-zero Bessel period, then for Re(s) large Z(s, ·) = Π_ν Z_ν(s, ·) with Z_ν = ∫_{N^η_ℓ(F_ν)\\N_ℓ(F_ν)} P_ν^{ψ^{−1}_{m,ℓ−a;y_κ,ν}}(n_ν ∗ f_{W^κ_{τ_ν}⊗σ_ν,s}, φ_{π_ν}) ψ^{−1}_{ℓ,w_0,ν}(n_ν) dn_ν (4.46).",
-   "locator": "Section 4.5, (4.42)–(4.46) and Theorem 4.7, p. 44 (arXiv v4)",
+   "locator": "Section 4.5, (4.42)–(4.46) and Theorem 4.7, pp. 778–779 (arXiv v4: pp. 43–44)",
    "status": "missing",
    "note": "Not used in the paper; included for completeness."
   },
@@ -377,48 +378,48 @@
    "id": "PAPER-JIANG-ZHANG-20/local-l-factor",
    "kind": "definition",
    "name": "The local L-factor L(s, τ_ν, π_ν, σ_ν; ρ)",
-   "statement": "L(s, τ_ν, π_ν, σ_ν; ρ) = L(s + ½, τ_ν × π_ν) / (L(s + 1, τ_ν × σ_ν) L(2s + 1, τ_ν, ρ)) (4.47), with ρ = ∧² if H_{m+a} is even orthogonal, Sym² if odd orthogonal, As ⊗ ξ^m if unitary; at ramified finite places the factors are defined through the localized global Arthur parameters of π and σ. For even orthogonal H_m the factors of σ_ν and σ′_ν agree (O_m(C)-conjugate parameters).",
-   "locator": "Section 4.6, (4.47), pp. 44–45 (arXiv v4)",
+   "statement": "For τ = τ_1 ⊞ ⋯ ⊞ τ_r as in (4.1), and π ∈ A_cusp(G^{w_0}_{m⁻}), σ ∈ A_cusp(H_m) with generic global Arthur parameters, L(s, τ_ν, π_ν, σ_ν; ρ) := L(s + ½, τ_ν × π_ν) / (L(s + 1, τ_ν × σ_ν) L(2s + 1, τ_ν, ρ)) (4.47). Here ρ = ∧² if H_{m+a} is even orthogonal, ρ = Sym² if H_{m+a} is odd orthogonal, and ρ = As^{(−1)^𝔪} (As^+ for 𝔪 even, As^− = As ⊗ ω_{E/F} for 𝔪 odd, 𝔪 = dim W) if H_{m+a} is unitary. At archimedean and unramified places the factors are the usual ones; at ramified finite places they are defined through the localizations of the global Arthur parameters of π and σ. For even special orthogonal H_m, the local parameters of σ_ν and σ′_ν = σ_ν^{w_q^ℓ} are O_𝔪(C)-conjugate, so the factors of σ_ν and σ′_ν agree.",
+   "locator": "Section 4.6, (4.47) and the remarks after it, pp. 780–781 (arXiv v4: pp. 44–45)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Garbled in the source, and copied by the item: for unitary H_{m+a} the paper writes ρ = 'As ⊗ ξ^m'. ξ is not defined in Section 4 (elsewhere it is the L-embedding), and the exponent m = [𝔪/2] cannot track the parity of H_{m+a}. The factor L(2s + 1, τ_ν, ρ) is the second normalizing factor of the intertwining operator, and Proposition 5.2 needs L(s, τ_i, ρ) to have a pole at s = 1 exactly for τ_i of the parity opposite to φ_σ. So ρ = As^{(−1)^𝔪} in the notation of Section 2.2: As^+ if 𝔪 is even, As^− = As ⊗ ω_{E/F} if 𝔪 is odd (misprint recorded below)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/thm-4-8",
    "kind": "theorem",
    "name": "Theorem 4.8 (unramified computation)",
    "statement": "If all data are unramified and f_{W^κ_{τ_ν}⊗σ_ν,s}, φ_{σ_ν}, φ_{π_ν} are spherical vectors normalized to take the value 1 at the identity, then Z_ν(s, φ_{τ⊗σ′}, φ_π, ψ_{ℓ,w_0}) = L(s, τ_ν, π_ν, σ_ν; ρ) (4.48).",
-   "locator": "Section 4.6, Theorem 4.8, p. 45 (arXiv v4) ([JSZ], [Sou17], [Sou18], [GPSR97], [JZ14])",
+   "locator": "Section 4.6, Theorem 4.8 and the paragraph before it, p. 781 (arXiv v4: p. 45) ([43] = [JSZ], in preparation; [74], [75], [76], [19], [45])",
    "status": "missing",
-   "note": "The proof in this generality is deferred to Jiang–Soudry–Zhang [44], unpublished (source issue E3)."
+   "note": "The proof in this generality is deferred to Jiang–Soudry–Zhang [44], unpublished (source issue E3). Review note: Source issue E3 is confirmed in print: 'The full detail of the computation in this generality will appear in our joint work with D. Soudry ([43])', with [43] listed as 'in preparation' (p. 823). missing: confirmed."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/zeta-integral-formula",
    "kind": "theorem",
    "name": "The global zeta integral formula (4.49)",
-   "statement": "For S a finite set containing the archimedean and ramified places, Z(s, φ_{τ⊗σ′}, φ_π, ψ_{ℓ,w_0}) = Z_S(s, ·) · L^S(s, τ, π, σ; ρ) with Z_S = Π_{ν ∈ S} Z_ν and L^S the partial product of (4.47).",
-   "locator": "Section 4.6, (4.49), p. 46 (arXiv v4)",
+   "statement": "Let π ∈ A_cusp(G^{w_0}_{m⁻}) and σ ∈ A_cusp(H_m) have generic global Arthur parameters, τ as in (4.1), σ′ = σ^{w_q^ℓ} if a > ℓ and σ′ = σ if a ≤ ℓ. Let φ_π = ⊗φ_{π_ν} and φ_{τ⊗σ′,s} = ⊗φ_{s,ν} be factorizable, with non-zero Bessel period for (π, σ′) if a > ℓ, or for (σ, π) if a ≤ ℓ. Let S be a finite set of places containing the archimedean places and every place where some datum is ramified, the vectors at ν ∉ S being the normalized spherical ones of Theorem 4.8. Then, granting Theorem 4.8, for Re(s) sufficiently large Z(s, φ_{τ⊗σ′}, φ_π, ψ_{ℓ,w_0}) = Z_S(s, ·) · L^S(s, τ, π, σ; ρ), with Z_S = Π_{ν∈S} Z_ν(s, φ_{τ⊗σ′}, φ_π, ψ_{ℓ,w_0}) and L^S(s, τ, π, σ; ρ) = Π_{ν∉S} L(s, τ_ν, π_ν, σ_ν; ρ) (4.47).",
+   "locator": "Section 4.6, (4.49), p. 781 (arXiv v4: p. 46)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Missing hypotheses: (4.49) is derived from Theorems 4.5/4.7 and 4.8. So it holds for Re(s) large, for factorizable data with a non-zero Bessel period of (π, σ′) (a > ℓ) or (σ, π) (a ≤ ℓ), for π and σ cuspidal with generic parameters (needed to define (4.47)), and with normalized spherical vectors outside S. It is conditional on Theorem 4.8 (E3)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/intertwining-constant-term",
    "kind": "theorem",
    "name": "The leading constant term of E",
    "statement": "Among the non-zero constant terms of E(·, φ_{τ⊗σ}, s), the one with the highest-order pole at s = ½ is M(ω_0, τ ⊗ σ, s)(φ)(g) = ∫_{U_â(A)} λ_s φ(ω_0^{−1} n g) dn (5.1), and for factorizable φ it equals M(ω_0, τ ⊗ σ, s)_S(φ_S) · L^S(s, τ × σ)L^S(2s, τ, ρ) / (L^S(1 + s, τ × σ)L^S(1 + 2s, τ, ρ)) · λ_{−s}φ^S_{ω_0(τ⊗σ)} (5.2) (Langlands).",
-   "locator": "Section 5.1, (5.1)–(5.2), pp. 47–48 (arXiv v4) ([Lan71], [Sha10])",
+   "locator": "Section 5.1, (5.1)–(5.2), pp. 782–783 (arXiv v4: pp. 47–48) ([56] = Lan71, [72] = Sha10)",
    "status": "planned",
    "planned": [
     "AutomorphicSpectralTheory:AS.1",
     "AutomorphicSpectralTheory:AS.2"
    ],
-   "note": "AS.1 derives constant terms as Weyl sums of intertwining operators, AS.2 their factorization; the unramified evaluation uses AL.4's L-group factors."
+   "note": "AS.1 derives constant terms as Weyl sums of intertwining operators, AS.2 their factorization; the unramified evaluation uses AL.4's L-group factors. Review note: Planned only in part: AutomorphicSpectralTheory:AS.1 and AS.2 plan the constant term as a Weyl sum of intertwining operators and their factorization. They do not plan the unramified Gindikin–Karpelevich evaluation with L-functions defined through Arthur parameters, or the cuspidal-support claim that the ω_0-term carries the highest-order pole at s = ½."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/normalized-intertwining",
    "kind": "definition",
    "name": "Normalized local intertwining operators",
    "statement": "For ν ∈ S, N(ω_0, τ ⊗ σ, s)_ν := β_ν(s, τ, σ, ψ_F; ρ) · M(ω_0, τ ⊗ σ, s)_ν (5.3) with β_ν = L_ν(1 + s, τ × σ) L_ν(1 + 2s, τ, ρ) ε_ν(s, τ × σ, ψ_F) ε_ν(2s, τ, ρ, ψ_F) / (L_ν(s, τ × σ) L_ν(2s, τ, ρ)) (5.4) (Shahidi's normalization, local factors through Arthur parameters), so that M(ω_0, τ ⊗ σ, s) = N(ω_0, τ ⊗ σ, s) · L(s, τ × σ)L(2s, τ, ρ) / (L(1 + s, τ × σ)L(1 + 2s, τ, ρ)ε(s, τ × σ)ε(2s, τ, ρ)).",
-   "locator": "Section 5.1, (5.3)–(5.4), p. 48 (arXiv v4) ([Sha10])",
+   "locator": "Section 5.1, (5.3)–(5.4) and the displayed identity after (5.4), p. 783 (arXiv v4: p. 48) ([72] = Sha10)",
    "status": "missing",
    "note": "AS.2 constructs normalized intertwiners once their normalizing factors are supplied; routed there."
   },
@@ -427,16 +428,16 @@
    "kind": "theorem",
    "name": "Theorem 5.1 = Theorem B.2 (normalized intertwining operators)",
    "statement": "Let τ = τ_1 ⊞ ⋯ ⊞ τ_r be as in (4.1) and σ ∈ A_cusp(H_m) with a generic global Arthur parameter. For every place ν, N(ω_0, τ ⊗ σ, s)_ν: Ind(|·|^s τ_ν ⊗ σ_ν) → Ind(|·|^{−s} τ*_ν ⊗ σ_ν) is holomorphic and non-zero for Re(s) ≥ ½ (τ*_ν = ι(τ_ν)^∨). Locally (Theorem B.2): for φ⁺ the local component of an H_m-relevant generic global parameter, τ irreducible admissible unitary generic self-dual of G_{E/F}(a)(F) and σ ∈ Π̃_{φ⁺}(H_m), N(ω_0, τ ⊗ σ, s) is holomorphic and non-zero for Re(s) ≥ ½.",
-   "locator": "Section 5.1, Theorem 5.1, p. 48; Appendix B, Theorem B.2 and proof, pp. 85–87 (arXiv v4)",
+   "locator": "Section 5.1, Theorem 5.1, p. 783; Appendix B, Theorem B.2 and proof, pp. 818–820 (arXiv v4: p. 48; pp. 85–87). The wording is the same in print; E2 is still printed.",
    "status": "missing",
-   "note": "Proof: for generic σ [CKPSS04, Thm. 11.1]; otherwise the standard modules are irreducible (Proposition B.1), τ and σ are written through the generic unitary duals of GL (exponents < ½), and the operator factors into rank-one operators handled by [MW89] (Re > −1 for tempered GL data), [Kim05], [Wal03, IV.2.1] and [BW00, Lemma 4.4]. The third type is printed with τ(φ_i) for τ_j (source issue E2)."
+   "note": "Proof: for generic σ [CKPSS04, Thm. 11.1]; otherwise the standard modules are irreducible (Proposition B.1), τ and σ are written through the generic unitary duals of GL (exponents < ½), and the operator factors into rank-one operators handled by [MW89] (Re > −1 for tempered GL data), [Kim05], [Wal03, IV.2.1] and [BW00, Lemma 4.4]. The third type is printed with τ(φ_i) for τ_j (source issue E2). Review note: The proof's cited inputs [MW89], [Wal03, Prop. IV.2.1] and [BW00, Lemma 4.4], [Kim05] and [CKPSS04, Thm. 11.1] have no items (see coverage). The source route to AutomorphicSpectralTheory:AS.2 is plausible."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-5-2",
    "kind": "theorem",
    "name": "Proposition 5.2 (poles of E and its residue)",
    "statement": "Let σ ∈ A_cusp(H_m) have a generic global Arthur parameter φ_σ and τ = τ_1 ⊞ ⋯ ⊞ τ_r (distinct τ_i) with φ_τ of parity different from φ_σ. Then L(s, τ × σ) is holomorphic at s = ½, E(·, φ_{τ⊗σ}, s) has a pole at s = ½ of order at most r, and the order is r iff L(s, τ_i, ρ) has a pole at s = 1 for every i and L(½, τ × σ) ≠ 0. E_{τ⊗σ} denotes the r-th iterated residue at s = ½.",
-   "locator": "Section 5.1, Proposition 5.2, p. 49 (arXiv v4)",
+   "locator": "Section 5.1, Proposition 5.2, p. 784 (arXiv v4: p. 49)",
    "status": "missing",
    "note": ""
   },
@@ -444,26 +445,26 @@
    "id": "PAPER-JIANG-ZHANG-20/special-data",
    "kind": "definition",
    "name": "Special data for the Bessel periods",
-   "statement": "For π ∈ A_cusp(G_n) with G_n-relevant generic parameter φ = φ_τ (τ on G_{E/F}(N), N = n^∨) and a G_n-relevant p_{ℓ*} = [(2ℓ*+1)1^{𝔫−2ℓ*−1}] such that ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩ ≠ 0 for some σ ∈ A_cusp(H^{O_{ℓ*}}_{ℓ*⁻}) with generic parameter (5.6): take m = ℓ*⁻, 𝔪 = 𝔫 − 2ℓ* − 1, H_m = H^{O_{ℓ*}}_{ℓ*⁻}, a = N (5.7), H_{a+m} ⊃ G_{E/F}(a) × H_m, and p_{κ*} = [(2κ*+1)1^{2a+𝔪−2κ*−1}] with κ* = a − ℓ* − 1 (5.8); then 𝔪⁻ = 𝔫 and G_n is the stabilizer G^{w_*}_{m⁻} for a suitable anisotropic w_* (5.9).",
-   "locator": "Section 5.2, (5.5)–(5.9), pp. 49–50 (arXiv v4)",
+   "statement": "For π ∈ A_cusp(G_n) with a G_n-relevant generic global Arthur parameter φ = φ_τ ∈ Φ̃_2(G*_n) (τ on G_{E/F}(N)(A), N = 𝔫^∨) and a G_n-relevant partition p_{ℓ*} = [(2ℓ*+1)1^{𝔫−2ℓ*−1}] (5.5), assume F^{O_{ℓ*}}(C_π) ≠ 0. Assume also that there is σ ∈ A_cusp(H^{O_{ℓ*}}_{ℓ*⁻}) with a generic global Arthur parameter and a cuspidal realization C_σ such that P^{ψ_{O_{ℓ*}}}(φ_π, φ_σ) = ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H^{O_{ℓ*}}_{ℓ*⁻}} ≠ 0 for some φ_π ∈ C_π, φ_σ ∈ C_σ (5.6). Here ℓ* need not be the first occurrence index. Take m = ℓ*⁻, 𝔪 = 𝔫 − 2ℓ* − 1, H_m = H^{O_{ℓ*}}_{ℓ*⁻}, a = N = 𝔫^∨ (5.7), H_{a+m} the classical group containing G_{E/F}(a) × H_m, and p_{κ*} = [(2κ*+1)1^{2a+𝔪−2κ*−1}] with κ* = a − ℓ* − 1 (5.8), a partition of type (2a+𝔪, H_{a+m}). Then 𝔪⁻ = 2a + 𝔪 − 2κ* − 1 = 𝔫 (5.9), so (κ*)⁻ = m⁻ = n. For a suitable F-anisotropic vector w_* (that is, an F-rational orbit O_{κ*}), G_n is identified with the stabilizer G^{O_{κ*}}_{m⁻} = G^{w_*}_{m⁻}.",
+   "locator": "Section 5.2, (5.5)–(5.9), pp. 784–785 (arXiv v4: pp. 49–50)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The published period carries complex conjugations: (5.6) defines P^{ψ_{O_{ℓ*}}}(φ_π, φ_σ) = ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩ and Theorem 5.3 pairs φ_π with \\overline{F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})} (checked on the page images, pp. 785–786). The item drops the bars. This matters for unitary groups, where \\bar σ ≅ σ^∨ is not σ in general; Section 5.5 uses exactly this conjugation to pass from σ to σ^∨."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/thm-5-3",
    "kind": "theorem",
    "name": "Theorem 5.3 (reciprocal non-vanishing of Bessel periods)",
-   "statement": "Let σ ∈ A_cusp(H_m) have a generic global Arthur parameter, τ = τ_1 ⊞ ⋯ ⊞ τ_r on G_{E/F}(a)(A), a = N = n^∨, determining a generic parameter φ_τ of G*_n. Assume E_{τ⊗σ′} ≠ 0 and π ∈ A_cusp(G_n) has parameter φ_τ. Then the Bessel period ⟨φ_π, F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})⟩_{G_n} is non-zero for some data iff ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩_{H_m} is non-zero for some data.",
-   "locator": "Section 5.2, Theorem 5.3, pp. 50–51; proof Sections 5.3–5.4, pp. 51–55 (arXiv v4)",
+   "statement": "Let σ ∈ A_cusp(H_m) have a generic global Arthur parameter φ_σ, and let τ = τ_1 ⊞ ⋯ ⊞ τ_r be the irreducible unitary generic isobaric automorphic representation of G_{E/F}(a)(A), a = N = 𝔫^∨, that determines a generic global Arthur parameter φ_τ of G*_n. The data are those of Section 5.2. Assume that the residue E_{τ⊗σ′} (σ′ = σ^{w_q^ℓ}, (4.34)) is non-zero and that π ∈ A_cusp(G_n) has generic global Arthur parameter φ_τ. Then ⟨φ_π, \\overline{F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})}⟩_{G_n} ≠ 0 for some choice of data if and only if ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H_m} ≠ 0 for some choice of data. (Only ⇒ uses E_{τ⊗σ′} ≠ 0; the proof of ⇐ yields it.)",
+   "locator": "Section 5.2, Theorem 5.3, p. 786; ⇒ proved on p. 786; ⇐ proved in Sections 5.3–5.4, pp. 786–790 (arXiv v4: pp. 50–55)",
    "status": "missing",
-   "note": "⇒ by Corollary 4.4. ⇐: (5.12) with Propositions 5.4–5.6 shows that the pairing with E(·, s) has a pole of order r at ½, which yields E_{τ⊗σ′} ≠ 0 as a conclusion; Section 5.5 uses this without assuming it."
+   "note": "⇒ by Corollary 4.4. ⇐: (5.12) with Propositions 5.4–5.6 shows that the pairing with E(·, s) has a pole of order r at ½, which yields E_{τ⊗σ′} ≠ 0 as a conclusion; Section 5.5 uses this without assuming it. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The published period carries complex conjugations: (5.6) defines P^{ψ_{O_{ℓ*}}}(φ_π, φ_σ) = ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩ and Theorem 5.3 pairs φ_π with \\overline{F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})} (checked on the page images, pp. 785–786). The item drops the bars. This matters for unitary groups, where \\bar σ ≅ σ^∨ is not σ in general; Section 5.5 uses exactly this conjugation to pass from σ to σ^∨. Review note: ⇐ rests on Theorem 4.8 and on the local convergence and continuation deferred to [43] (E3)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-5-4",
    "kind": "theorem",
    "name": "Proposition 5.4 (normalized local zeta integrals)",
    "statement": "Under the assumptions of Theorem 5.3, with Z*_ν := Z_ν / L(s, τ_ν, π_ν, σ_ν; ρ) (5.10) and Z(s, ·) = Z*_S(s, ·) L(s, τ, π, σ; ρ) (5.11): (1) Z*_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is meromorphic in s for every smooth section; (2) it is holomorphic at s = ½ for every smooth section (holomorphic at archimedean places, flat at finite ones).",
-   "locator": "Section 5.3, (5.10)–(5.13) and Proposition 5.4, pp. 51–53 (arXiv v4)",
+   "locator": "Section 5.3, (5.10)–(5.13) and Proposition 5.4 with proof, pp. 786–788 (arXiv v4: pp. 51–53)",
    "status": "missing",
    "note": "L(s, τ, π, σ; ρ) has a pole of order r at ½ (from L(s + ½, τ × π)), and the left side of (5.12) has one of order at most r by Proposition 5.2."
   },
@@ -471,35 +472,35 @@
    "id": "PAPER-JIANG-ZHANG-20/bessel-normalization",
    "kind": "theorem",
    "name": "Factorization of the Bessel period",
-   "statement": "For factorizable φ_π = ⊗φ_{π_ν}, φ_σ = ⊗φ_{σ_ν}: ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩_{H_m} = c_{π,σ} Π_ν b_ν^{ψ_{O_{ℓ*}}}(φ_{π_ν}, φ_{σ_ν}) (5.14), with b_ν the unique (up to scalar) element of Hom_{H_m(F_ν)}(J_{ψ_{O_{ℓ*}}}(π_ν) ⊗ σ_ν, C), equal to 1 on normalized spherical vectors at unramified places and normalized by (A.8) at ν ∈ S.",
-   "locator": "Section 5.3, (5.14), pp. 53–54; Appendix A, (A.8), p. 79 (arXiv v4)",
+   "statement": "For factorizable φ_π = ⊗φ_{π_ν} and φ_σ = ⊗φ_{σ_ν}: ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H_m} = c_{π,σ} Π_ν b_ν^{ψ_{O_{ℓ*}}}(φ_{π_ν}, φ_{σ_ν}) (5.14). Here b_ν is a non-zero element of the space Hom_{H_m(F_ν)}(J_{ψ_{O_{ℓ*}}}(π_ν) ⊗ σ_ν, C), which is at most one-dimensional ([AGRS10], [SZ12], [GGP12], [JSZ10]). It is normalized by b_ν = 1 on normalized spherical vectors at unramified places, and by W^κ_{τ_ν}(I_a) · b_ν(v_{π_ν}, v_{σ_ν}) = 1 (A.9) at ν ∈ S.",
+   "locator": "Section 5.3, (5.14), p. 789; Appendix A, (A.9), p. 813 (arXiv v4: pp. 53–54; (A.8), p. 79). From (A.3) onwards the published Appendix A numbers one more equation than v4, because it numbers the second expression for Z_ν.",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: (5.14) is stated for ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H_m} (complex conjugate on φ_σ), and the normalization at ν ∈ S is (A.9) in print ((A.8) is the v4 number)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-5-5",
    "kind": "theorem",
    "name": "Proposition 5.5 = Proposition A.1 (local non-vanishing)",
    "statement": "Under the assumptions of Theorem 5.3, fix s_0 ∈ C. For φ_{σ_ν}, φ_{π_ν} with b_ν^{ψ_{O_{ℓ*}}}(φ_{π_ν}, φ_{σ_ν}) ≠ 0 for every ν ∈ S there is a section φ_{τ_ν⊗σ′_ν} such that Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is a non-zero constant at s = s_0. Locally (Proposition A.1): if b_ν(v_{π_ν}, v_{σ_ν}) ≠ 0 then for every s_0 there is a holomorphic section in I_{s,ν}(W_{τ_ν}, σ′_ν) with Z_ν(s_0, ·) ≠ 0.",
-   "locator": "Section 5.3, Proposition 5.5, p. 54; Appendix A, Proposition A.1 and proof, pp. 77–84 (arXiv v4)",
+   "locator": "Section 5.3, Proposition 5.5, p. 789; Appendix A, Proposition A.1, p. 811, proof pp. 811–817 (arXiv v4: p. 54; pp. 77–84). Print rewords Proposition 5.5: 'If for every ν ∈ S, the local pairing b_ν(φ_{π_ν}, φ_{σ_ν}) is non-zero for some φ_{σ_ν} ∈ σ_ν and φ_{π_ν} ∈ π_ν, then there exists a collection of sections φ_{τ_ν⊗σ′_ν} with ν running in S such that ... Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is a non-zero constant at s = s_0'. The mathematics is the same, with φ_π the given vectors. The open-cell section cited in the note is (A.6) in print ((A.5) in v4). v4's final remark on s-independent non-archimedean zeta integrals ([Sou17, Thm 4.1]) is deleted in print.",
    "status": "missing",
-   "note": "Sections supported in the open cell P_â U⁻_â (A.5), the Bruhat decomposition, reduction to Soudry's integral [Sou17, (4.7)] and the inductive argument of [Sou93, §§6–7] with Dixmier–Malliavin. For p-adic split orthogonal groups it is [Sou17, Prop. 4.1]."
+   "note": "Sections supported in the open cell P_â U⁻_â (A.5), the Bruhat decomposition, reduction to Soudry's integral [Sou17, (4.7)] and the inductive argument of [Sou93, §§6–7] with Dixmier–Malliavin. For p-adic split orthogonal groups it is [Sou17, Prop. 4.1]. Review note: The value at an arbitrary s_0 presupposes the continuation of Z_ν that is deferred to [43] (E3). Appendix A proves convergence only of the inner integral (A.5), for the special sections (A.6)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-5-6",
    "kind": "theorem",
    "name": "Proposition 5.6",
-   "statement": "Under the assumptions of Theorem 5.3, if (π, σ) has a non-zero Bessel period, there are factorizable φ_π, φ_σ and φ_{τ⊗σ′} with ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩ ≠ 0 and Z*_S(½, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) ≠ 0.",
-   "locator": "Section 5.3, Proposition 5.6, p. 54 (arXiv v4)",
+   "statement": "Under the assumptions of Theorem 5.3, if (π, σ) has a non-zero Bessel period, there are factorizable φ_π, φ_σ and φ_{τ⊗σ′} with ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H_m} ≠ 0 and Z*_S(½, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) ≠ 0.",
+   "locator": "Section 5.3, Proposition 5.6 and proof, pp. 789–790 (arXiv v4: p. 54). The published proof adds a step missing in v4: L_S(s, τ, π, σ; ρ) is holomorphic for Re(s) ≥ ½, by the generic unitary duals, 'following similar arguments with Appendix B' (see issues).",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The period is ⟨F^{ψ_{O_{ℓ*}}}(φ_π), \\bar φ_σ⟩_{H_m} (with the complex conjugate), as in (5.6)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/thm-5-7",
    "kind": "theorem",
    "name": "Theorem 5.7 (global Gan–Gross–Prasad: one direction)",
    "statement": "Let π ∈ A_cusp(G_n) have a G_n-relevant generic global Arthur parameter in Φ̃_2(G*_n)_{G_n} and a cuspidal realization C_π, and suppose ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩_{H_m} ≠ 0 for some φ_π ∈ C_π, φ_σ ∈ C_σ, σ ∈ A_cusp(H_m) with an H_m-relevant generic global Arthur parameter and cuspidal realization C_σ. Then L(s, π × σ) = L(s, τ × σ) is holomorphic and non-zero at s = ½.",
-   "locator": "Section 5.5, Theorem 5.7, p. 56; proof pp. 55–56 (arXiv v4)",
+   "locator": "Section 5.5, Theorem 5.7, p. 791; argument pp. 790–791 (arXiv v4: pp. 55–56)",
    "status": "missing",
    "note": "No multiplicity-one assumption (the even orthogonal case is included). Depends on Theorem 4.8 (source issue E3) and, for non-quasi-split orthogonal groups, on Theorem 2.1 (source issue E4)."
   },
@@ -508,7 +509,7 @@
    "kind": "definition",
    "name": "The non-generic parameter ψ_{τ,σ}",
    "statement": "For φ_τ = (τ_1, 1) ⊞ ⋯ ⊞ (τ_r, 1) ∈ Φ̃_2(G*_n) and σ ∈ A_cusp(H_m) with generic φ_σ ∈ Φ̃_2(H*_m): ψ_{τ,σ} := (τ_1, 2) ⊞ ⋯ ⊞ (τ_r, 2) ⊞ φ_σ (6.1), an H_{a+m}-relevant element of Ψ̃_2(H*_{a+m}).",
-   "locator": "Section 6.1, (6.1), pp. 57–58 (arXiv v4)",
+   "locator": "Section 6.1, (6.1), p. 792 (arXiv v4: pp. 57–58)",
    "status": "missing",
    "note": ""
   },
@@ -517,7 +518,7 @@
    "kind": "theorem",
    "name": "Proposition 6.1",
    "statement": "The residual representation E_{τ⊗σ} is square integrable and, if non-zero, belongs to the global Arthur packet Π̃_{ψ_{τ,σ}}(H_{a+m}).",
-   "locator": "Section 6.1, Proposition 6.1, p. 58 (arXiv v4) ([JLZ13])",
+   "locator": "Section 6.1, Proposition 6.1, p. 793 (arXiv v4: p. 58) ([41] = JLZ13)",
    "status": "missing",
    "note": "'One may easily verify' as in [JLZ13]; irreducibility of E_{τ⊗σ} is [Mœ11, Thm. B] (Section 6.3)."
   },
@@ -526,7 +527,7 @@
    "kind": "theorem",
    "name": "Proposition 6.2 (vanishing of large Bessel modules)",
    "statement": "Let Σ ∈ A_disc(H_{a+m}) lie in Π̃_{ψ_{τ,σ}}(H_{a+m}) and ℓ_0 := (𝔫 − 𝔪 − 1)/2. For every κ with a − ℓ_0 − 1 < κ ≤ a + r_m, the κ-th Bessel modules F^{O_κ}_{κ⁻}(Σ) vanish for all F-rational orbits O_κ in O^{st}_{p_κ}.",
-   "locator": "Section 6.1, Proposition 6.2, p. 58 (arXiv v4)",
+   "locator": "Section 6.1, Proposition 6.2 and proof, pp. 793–794 (arXiv v4: p. 58) ([23] = GRS11, [40] = JLXZ16)",
    "status": "missing",
    "note": "Proof at one unramified place via [GRS11, Thm. 5.1] (local twisted Jacquet modules of the induced representation (6.2))."
   },
@@ -534,53 +535,53 @@
    "id": "PAPER-JIANG-ZHANG-20/prop-6-3",
    "kind": "theorem",
    "name": "Proposition 6.3 (cuspidality of the κ_0-th Bessel module)",
-   "statement": "For Σ in Π̃_{ψ_{τ,σ}}(H_{a+m}), κ_0 = a − ℓ_0 − 1 and 𝔫 = κ_0⁻, the Bessel modules F^{O_{κ_0}}_n(Σ) are cuspidal sub-representations of L²_cusp(G^{O_{κ_0}}_n) for all F-rational O_{κ_0}.",
-   "locator": "Section 6.1, Proposition 6.3, pp. 59–61 (arXiv v4) ([GRS11, Thm. 7.3], [Mœ08, §1.3], [Mœ11, Thm. B])",
+   "statement": "Let τ, σ be as in Proposition 6.2, ℓ_0 = (𝔫 − 𝔪 − 1)/2, κ_0 = a − ℓ_0 − 1 and n = κ_0⁻. For every automorphic member Σ of Π̃_{ψ_{τ,σ}}(H_{a+m}) and every F-rational orbit O_{κ_0} in O^{st}_{p_{κ_0}}(F), the κ_0-th Bessel module F^{O_{κ_0}}_n(Σ) is cuspidal: it is a sub-representation of G^{O_{κ_0}}_n(A) in L²_cusp(G^{O_{κ_0}}_n).",
+   "locator": "Section 6.1, Proposition 6.3 and proof, pp. 794–795 (arXiv v4: pp. 59–61)",
    "status": "missing",
-   "note": "Tower property of [GRS11, Thm. 7.3] with Proposition 6.2; for residual Σ, reduction to E_{τ⊗σ}, which has the least cuspidal support by Mœglin."
+   "note": "Tower property of [GRS11, Thm. 7.3] with Proposition 6.2; for residual Σ, reduction to E_{τ⊗σ}, which has the least cuspidal support by Mœglin. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: '𝔫 = κ_0⁻' should read n = κ_0⁻: κ_0⁻ is a Witt index (κ_0⁻ = m⁻ = n), while 𝔫 = 𝔪⁻ is the dimension."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-6-4",
    "kind": "theorem",
    "name": "Proposition 6.4",
    "statement": "For Σ ∈ A_disc(H_{a+m}) the κ-th Bessel module F^{O_κ}_{κ⁻}(Σ) is Õ(G^{O_κ}_{κ⁻})-stable.",
-   "locator": "Section 6.1, Proposition 6.4, pp. 61–62 (arXiv v4)",
+   "locator": "Section 6.1, Proposition 6.4 and proof, pp. 795–796 (arXiv v4: pp. 61–62)",
    "status": "missing",
-   "note": ""
+   "note": "Review note: The proof uses discrete multiplicity one for odd special orthogonal H_{a+m} (item endoscopic-classification; for non-quasi-split forms this is conditional, as in E4). The printed claim that ε stabilizes w_0 is a slip (see issues)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/lemma-6-5",
    "kind": "theorem",
    "name": "Lemma 6.5 (unramified descent)",
    "statement": "At a finite place ν where all data are unramified, if Σ_ν is the unique unramified constituent of Ind(τ_ν|det|^{½} ⊗ σ_ν), then the unramified constituents of F^{O_{κ_0}}_n(Σ_ν) have the same Satake parameter as τ_ν under the local Langlands transfer from G^{O_{κ_0}}_n(F_ν) to G_{E/F}(F_ν).",
-   "locator": "Section 6.1, Lemma 6.5 and proof, pp. 62–65 (arXiv v4) ([GRS11, Thms. 5.1, 5.4, 5.6])",
+   "locator": "Section 6.1, Lemma 6.5 and proof, pp. 797–800 (arXiv v4: pp. 62–65)",
    "status": "missing",
-   "note": ""
+   "note": "Review note: The statement is correct. The case analysis in the proof has three misprints (issues: the κ index twice, U_{a+1}, and (6.6))."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/thm-6-6",
    "kind": "theorem",
    "name": "Theorem 6.6",
-   "statement": "For Σ in Π̃_{ψ_{τ,σ}}(H_{a+m}) with F^{O_{κ_0}}_n(Σ) ≠ 0 for some O_{κ_0} (ℓ_0 = (𝔫 − 𝔪 − 1)/2, κ_0 = a − ℓ_0 − 1, κ_0⁻ = 𝔪⁻ = 𝔫): (1) F^{O_{κ_0}}_n(Σ) is cuspidal, a sub-representation of L²_cusp(G^{O_{κ_0}}_n); (2) it is a multiplicity-free Hilbert sum π_1 ⊕ ⋯ ⊕ π_k ⊕ ⋯ of π_i ∈ A_cusp(G^{O_{κ_0}}_n), each with a generic global Arthur parameter in the Õ(G^{O_{κ_0}}_n)-orbit of φ_τ (G^{O_{κ_0}}_n-relevant, determined by τ), and it is Õ(G^{O_{κ_0}}_n)-stable.",
-   "locator": "Section 6.1, Theorem 6.6, pp. 65–66 (arXiv v4)",
+   "statement": "Let Σ be an automorphic member of Π̃_{ψ_{τ,σ}}(H_{a+m}) with F^{O_{κ_0}}_n(Σ) ≠ 0 for some F-rational O_{κ_0} in O^{st}_{p_{κ_0}}(F), where ℓ_0 = (𝔫 − 𝔪 − 1)/2, κ_0 = a − ℓ_0 − 1 and κ_0⁻ = m⁻ = n. Then: (1) F^{O_{κ_0}}_n(Σ) is cuspidal, a sub-representation of G^{O_{κ_0}}_n(A) in L²_cusp(G^{O_{κ_0}}_n). (2) It is a multiplicity-free Hilbert direct sum π_1 ⊕ ⋯ ⊕ π_k ⊕ ⋯ of π_i ∈ A_cusp(G^{O_{κ_0}}_n). Each π_i has a generic global Arthur parameter in the Õ(G^{O_{κ_0}}_n)-orbit of φ_τ, which is G^{O_{κ_0}}_n-relevant and determined by τ, and F^{O_{κ_0}}_n(Σ) is Õ(G^{O_{κ_0}}_n)-stable.",
+   "locator": "Section 6.1, Theorem 6.6, p. 800 (arXiv v4: pp. 65–66)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: 'κ_0⁻ = 𝔪⁻ = 𝔫' equates a Witt index with a dimension. Print has κ_0⁻ = m⁻ = n (with 𝔪⁻ = 𝔫 by (5.9))."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/twisted-descent",
    "kind": "definition",
    "name": "The σ-twisted automorphic descent",
-   "statement": "D^{O_{κ_0}}_n(τ; σ) := F^{O_{κ_0}}_n(E_{τ⊗σ}) (6.9), the σ-twisted automorphic descent of τ from G_{E/F}(N) to G^{O_{κ_0}}_n (N = a = n^∨); Diagram (6.7) (from π, Conjecture 2.3 gives (H_m, σ), then ψ_{τ,σ} and Σ); without σ (m = 0, G_n quasi-split) it is the automorphic descent D^{O_{κ_0}}_n(τ; ∅) = F^{O_{κ_0}}_n(E_τ) of Ginzburg–Rallis–Soudry (Diagram (6.8)).",
-   "locator": "Section 6.2, (6.7)–(6.9), pp. 66–68 (arXiv v4)",
+   "statement": "Let π ∈ A_cusp(G_n) have a G_n-relevant generic φ = φ_τ ∈ Φ̃_2(G*_n) and cuspidal realization C_π, and let ℓ_0 = ℓ_0(C_π) be the first-occurrence index (Proposition 2.2), m = ℓ_0⁻, 𝔪 = 𝔫 − 2ℓ_0 − 1, H_m = H^{O_{ℓ_0}}_m. Conjecture 2.3 supplies σ ∈ A_cusp(H_m) with an H_m-relevant generic parameter φ_σ ∈ Φ̃_2(H*_m) such that ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), \\bar φ_{σ′}⟩_{H_m} ≠ 0 for some φ_π ∈ C_π, φ_{σ′} ∈ C_{σ′}, where σ′ = σ^{w_q^ℓ} and C_{σ′} = C_σ^{w_q^ℓ} (4.34). Diagram (6.7) runs φ_τ ⇒ (H_m, σ) ⇒ ψ_{τ,σ} ⇒ Σ ∈ Π̃_{ψ_{τ,σ}}(H_{a+m}) ⇒ F^{O_{κ_0}}_n(Σ) ⊂ L²_cusp(G^{O_{κ_0}}_n). The σ-twisted automorphic descent of τ from G_{E/F}(N) to G^{O_{κ_0}}_n (N = a = 𝔫^∨) is D^{O_{κ_0}}_n(τ; σ) := F^{O_{κ_0}}_n(E_{τ⊗σ}) (6.9). When H_m is trivial (m = 0 and H_0 = {1}) and G_n = G*_n, the reduced diagram (6.8) gives the Ginzburg–Rallis–Soudry descent D^{O_{κ_0}}_n(τ; ∅) = F^{O_{κ_0}}_n(E_τ), with E_τ ∈ Π̃_{ψ_τ}(H*_a) and ψ_τ = (τ_1, 2) ⊞ ⋯ ⊞ (τ_r, 2).",
+   "locator": "Section 6.2, (6.7)–(6.9), pp. 800–802 (arXiv v4: pp. 66–68)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The item omits the convention of Section 6.2 that fixes which σ enters (6.9). There, Conjecture 2.3 supplies σ such that σ′ = σ^{w_q^ℓ} (not σ) pairs with π, so that by Theorem 5.3 the relevant residue is E_{τ⊗σ}. The two differ when H_m is even special orthogonal and ℓ is odd. The phrase 'without σ' is exact only when H_0 is trivial (see the issue on Section 7.2)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/conj-6-7",
    "kind": "theorem",
    "name": "Conjecture 6.7 (Main Conjecture)",
    "statement": "Conjecture: let τ = τ_1 ⊞ ⋯ ⊞ τ_r define a G_n-relevant generic global Arthur parameter φ = φ_τ ∈ Φ̃_2(G*_n). For every π ∈ A_cusp(G_n) in Π̃_φ(G_n) there is a datum (H_m, σ) — H_m a pure inner form of a quasi-split H*_m with (G_n, H_m), (G*_n, H*_m) relevant and G_n × H_m a relevant pure inner form of G*_n × H*_m, and σ ∈ A_cusp(H_m) in Π̃_{φ′}(H_m) for an H_m-relevant generic φ′ ∈ Φ̃_2(H*_m) — such that (a) if G_n = G^{O_{κ_0}}_n is not even special orthogonal, or is even special orthogonal with Õ(G_n)-orbit {π}, then D^{O_{κ_0}}_n(τ; σ) ≅ π; (b) if G_n is even special orthogonal with Õ(G_n)-orbit {π, π⋆}, then D^{O_{κ_0}}_n(τ; σ) ≅ π ⊕ π⋆.",
-   "locator": "Section 6.2, Conjecture 6.7, pp. 68–69 (arXiv v4)",
+   "locator": "Section 6.2, Conjecture 6.7, pp. 802–803 (arXiv v4: pp. 68–69)",
    "status": "missing",
    "note": "The special case of the Principle of concrete modules."
   },
@@ -588,17 +589,17 @@
    "id": "PAPER-JIANG-ZHANG-20/partitions-p-phi",
    "kind": "definition",
    "name": "The partitions p_{φ,φ′} and p¹_{φ,φ′}",
-   "statement": "p(E_{τ⊗σ}) is the set of H_{a+m}-relevant partitions with a non-zero Fourier coefficient of E_{τ⊗σ}. p_{φ,φ′} := [(a+m−1)(a+1)] if H*_m = SO_{2m}, [(a+m)(a−1)1] if H*_m = SO_{2m+1}, [(a+m)a] if H*_m is unitary; p¹_{φ,φ′} := [(a+m−1)1^{a+1}] if H*_m = SO_{2m} and [(a+m)1^a] otherwise. The conjecture of [Jia14, §4] asserts p ≤ p_{φ,φ′} for all p ∈ p(E_{τ⊗σ}) and all σ in Π̃_{φ′}[H*_m].",
-   "locator": "Section 6.3, pp. 70–71 (arXiv v4)",
+   "statement": "p(E_{τ⊗σ}) is the set of H_{a+m}-relevant partitions of type (2a+𝔪, H*_{a+m}) for which E_{τ⊗σ} has a non-zero Fourier coefficient. Define p_{φ,φ′} := [(a+𝔪−1)(a+1)] if H*_m = SO_{2m} (𝔪 = 2m), [(a+𝔪)(a−1)1] if H*_m = SO_{2m+1} (𝔪 = 2m+1), and [(a+𝔪)a] if H*_m is unitary. Here a = 𝔫^∨, and a+𝔪−1, resp. a+𝔪, is odd. Define p¹_{φ,φ′} := [(a+𝔪−1)1^{a+1}] if H*_m = SO_{2m} and [(a+𝔪)1^a] otherwise. It equals p_{κ_0} = [(2κ_0+1)1^{2a+𝔪−2κ_0−1}] with κ_0 = a − ℓ_0 − 1 (proof of Theorem 6.10). The conjecture of [Jia14, §4] asserts that p ≤ p_{φ,φ′} for every σ ∈ Π̃_{φ′}[H*_m] and every p ∈ p(E_{τ⊗σ}).",
+   "locator": "Section 6.3, p. 804 (arXiv v4: pp. 70–71) ([36] = Jia14)",
    "status": "missing",
-   "note": ""
+   "note": "Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: The partitions are printed with the dimension 𝔪 (Fraktur), not the rank m. For example, p_{φ,φ′} = [(a+𝔪−1)(a+1)] for H*_m = SO_{2m}, 𝔪 = 2m. The item writes (a+m−1), (a+m), and so on, which are wrong under the item's own use of m for the rank."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/conj-6-8",
    "kind": "theorem",
    "name": "Conjecture 6.8",
    "statement": "Conjecture: for the pair of generic parameters (φ, φ′) there is σ ∈ Π̃_{φ′}[H*_m] with a cuspidal realization C_σ on H_m(A) such that p¹_{φ,φ′} ∈ p(E_{τ⊗σ}).",
-   "locator": "Section 6.3, Conjecture 6.8, p. 71 (arXiv v4)",
+   "locator": "Section 6.3, Conjecture 6.8, p. 804 (arXiv v4: p. 71)",
    "status": "missing",
    "note": ""
   },
@@ -607,7 +608,7 @@
    "kind": "theorem",
    "name": "Proposition 6.9",
    "statement": "Conjecture 6.8 holds when m = 0, for all F-quasisplit H*_a [GRS11], and when m = 1 for the even special orthogonal groups H_{2n+1} = SO_{2n+2,2n} [JLXZ16].",
-   "locator": "Section 6.3, Proposition 6.9, p. 71 (arXiv v4)",
+   "locator": "Section 6.3, Proposition 6.9 and the preceding paragraph, p. 805 (arXiv v4: p. 71) ([23] = GRS11, [40] = JLXZ16)",
    "status": "missing",
    "note": "Cited results; the notation SO_{2n+2,2n} is the paper's."
   },
@@ -616,7 +617,7 @@
    "kind": "theorem",
    "name": "Theorem 6.10 (global Gan–Gross–Prasad: the other direction)",
    "statement": "Let τ be as in (4.1), a = n^∨ = N, with generic φ = φ_τ ∈ Φ̃_2(G*_n), and φ′ a generic global Arthur parameter of H*_m with L(½, φ × φ′) ≠ 0. Assume Conjecture 6.8 for (φ, (φ′)^{w_q^ℓ}). Then there are a cuspidal π in the global Vogan packet Π̃_φ[G*_n] and a cuspidal σ in Π̃_{φ′}(H_m), with cuspidal realizations C_π, C_σ, such that (π, σ) lies in Π̃_{φ×φ′}[G*_n × H*_m] and ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), φ_σ⟩_{H_m} ≠ 0 for some φ_π ∈ C_π, φ_σ ∈ C_σ, where ℓ_0⁻ = m and O_{ℓ_0} is an F-rational orbit in O^{st}_{p_{ℓ_0}}, p_{ℓ_0} = [(2ℓ_0+1)1^{𝔫−2ℓ_0−1}].",
-   "locator": "Section 6.3, Theorem 6.10 and proof, pp. 71–72 (arXiv v4)",
+   "locator": "Section 6.3, Theorem 6.10, p. 805; proof pp. 805–806 (arXiv v4: pp. 71–72)",
    "status": "missing",
    "note": "No multiplicity-one assumption."
   },
@@ -625,7 +626,7 @@
    "kind": "theorem",
    "name": "Corollary 6.11 (global Gan–Gross–Prasad for SO_{2n+1} × SO_2)",
    "statement": "Let G*_n be split SO_{2n+1}, φ = φ_τ ∈ Φ̃_2(G*_n) as in (4.1), and φ′ a generic global Arthur parameter of H*_1, an anisotropic SO_2 over F. Equivalent: (1) there are π ∈ Π̃_{φ_τ}[G*_n] and σ ∈ Π̃_{φ′}[H*_1] with ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), φ_σ⟩_{H_1} ≠ 0 for some φ_π ∈ π, φ_σ ∈ σ; (2) L(½, τ × φ′) ≠ 0.",
-   "locator": "Section 6.3, Corollary 6.11, p. 73 (arXiv v4)",
+   "locator": "Section 6.3, Corollary 6.11, pp. 806–807 (arXiv v4: p. 73)",
    "status": "missing",
    "note": "From Theorems 5.7 and 6.10 with Proposition 6.9; the cuspidal multiplicities are one here."
   },
@@ -634,7 +635,7 @@
    "kind": "theorem",
    "name": "Principle 1.1 (concrete modules)",
    "statement": "Principle: for G a pure inner form of a quasi-split classical group G* and π ∈ A_cusp(G) with a G-relevant global Arthur parameter ψ ∈ Ψ̃_2(G*), there is a datum F(π, G) (information on the Fourier coefficients of π) from which a concrete irreducible module M(ψ, F(π, G)) with π ≅ M(ψ, F(π, G)) can be constructed; if π has cuspidal multiplicity one, π = M(ψ, F(π, G)).",
-   "locator": "Section 1.1, Principle 1.1, p. 7 (arXiv v4)",
+   "locator": "Section 1.1, Principle 1.1, p. 744 (arXiv v4: p. 7)",
    "status": "missing",
    "note": "A guiding principle answering the Arthur–Schmid question; not a theorem. Conjecture 6.7 is its precise form for generic parameters."
   },
@@ -642,35 +643,35 @@
    "id": "PAPER-JIANG-ZHANG-20/thm-7-1",
    "kind": "theorem",
    "name": "Theorem 7.1 (cuspidal automorphic modules)",
-   "statement": "Conjectures 2.3 and 3.1 imply Conjecture 6.7: for π ∈ A_cusp(G_n) with G_n-relevant generic parameter φ, the module D^{O_{κ_0}}_n(τ; σ) = F^{O_{κ_0}}_n(E_{τ⊗σ}) built from the (H_m, σ) of Conjecture 2.3 is ≅ π, or π ⊕ π⋆ when the Õ(G_n)-orbit of π is {π, π⋆}.",
-   "locator": "Section 7.1, Theorem 7.1 and proof, pp. 73–75 (arXiv v4)",
+   "statement": "Conjectures 2.3 and 3.1 imply Conjecture 6.7. Let π ∈ A_cusp(G_n) have a G_n-relevant generic parameter φ = φ_τ and cuspidal realization C_π. Let (H_m, σ), with m = ℓ_0⁻, H_m = H^{O_{ℓ_0}}_{ℓ_0⁻} and ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), \\bar φ_σ⟩_{H_m} ≠ 0, be given by Conjecture 2.3, and choose O_{κ_0} with G^{O_{κ_0}}_n = G_n (Proposition 2.6). Then F^{O_{κ_0}}_n(E_{τ⊗σ′}), σ′ = σ^{w_q^{ℓ_0}}, is ≅ π, or ≅ π ⊕ π⋆ when the Õ(G_n)-orbit of π is {π, π⋆}. So the datum (H_m, σ′) satisfies Conjecture 6.7; in the labelling of Section 6.2 this is D^{O_{κ_0}}_n(τ; σ) = F^{O_{κ_0}}_n(E_{τ⊗σ}) with (π, σ′) distinguished.",
+   "locator": "Section 7.1, Theorem 7.1, p. 807; proof pp. 807–808 (arXiv v4: pp. 73–75)",
    "status": "missing",
-   "note": "Proof: Theorem 5.3 gives F^{ψ_{O_{κ_0}}}(E_{τ⊗σ′}) ≠ 0; Theorem 6.6 decomposes it; Theorem 5.3 again and the local conjecture at every place single out π (or π⋆) as the unique distinguished member of its global Vogan packet."
+   "note": "Proof: Theorem 5.3 gives F^{ψ_{O_{κ_0}}}(E_{τ⊗σ′}) ≠ 0; Theorem 6.6 decomposes it; Theorem 5.3 again and the local conjecture at every place single out π (or π⋆) as the unique distinguished member of its global Vogan packet. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Precision. The proof takes σ from Conjecture 2.3 with ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), \\bar φ_σ⟩ ≠ 0, then decomposes F^{O_{κ_0}}_n(E_{τ⊗σ′}) (σ′ = σ^{w_q^{ℓ_0}}). Its last display nevertheless writes E_{τ⊗σ} (a printed slip; see issues). The item's 'built from the (H_m, σ) of Conjecture 2.3' should state which representation pairs with π."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/cor-7-2",
    "kind": "theorem",
    "name": "Corollary 7.2 (regular orbit)",
    "statement": "Let G*_n be F-quasisplit and π ∈ A_cusp(G*_n) generic with global Arthur parameter (3.1) and τ as in (4.1). Then Conjecture 6.7 holds for π under Conjecture 3.1.",
-   "locator": "Section 7.2, Corollary 7.2, pp. 75–76 (arXiv v4) ([CKPSS04], [GRS11], [JS03])",
+   "locator": "Section 7.2, Corollary 7.2, p. 809 (arXiv v4: pp. 75–76) ([11] = CKPSS04, [23] = GRS11, [42] = JS03)",
    "status": "missing",
-   "note": "Here Conjecture 2.3 holds without (H_m, σ) and the construction is the automorphic descent of Ginzburg–Rallis–Soudry; irreducible for split SO_{2n+1} by [JS03]."
+   "note": "Here Conjecture 2.3 holds without (H_m, σ) and the construction is the automorphic descent of Ginzburg–Rallis–Soudry; irreducible for split SO_{2n+1} by [JS03]. Review note: The statement stands. For G*_n = U_{2n}, the printed argument 'without (H_m, σ)' fails: the datum is (U_1, χ) (see issues), and the corollary follows from Theorem 7.1 with that datum."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-7-3",
    "kind": "theorem",
    "name": "Proposition 7.3 (subregular orbit)",
    "statement": "Let φ = φ_τ be a generic global Arthur parameter of G*_n as in (3.1). If a cuspidal member π of the global Vogan packet Π̃_φ[G*_n] has p^m(π) = {p_subr}, the partition of the subregular nilpotent orbit, then Conjecture 2.3 holds for π.",
-   "locator": "Section 7.3, Proposition 7.3, p. 76 (arXiv v4) ([JLS16, Thm. 11.2])",
+   "locator": "Section 7.3, Proposition 7.3, p. 810; case analysis pp. 809–810 (arXiv v4: p. 76) ([38] = JLS16)",
    "status": "missing",
-   "note": "Case by case: SO_{2n} (H_m a form of SO_3, via [JLS16, Thm. 11.2]), SO_{2n+1} (a form of SO_2), U_{2n} (U_1), U_{2n+1} (a form of U_2)."
+   "note": "Case by case: SO_{2n} (H_m a form of SO_3, via [JLS16, Thm. 11.2]), SO_{2n+1} (a form of SO_2), U_{2n} (U_1), U_{2n+1} (a form of U_2). Review note: The U_{2n+1} case (H_m a form of U_2) is only asserted 'following the proof for the case of F-quasisplit SO_{2n}'. That proof rests on [JLS16, Thm. 11.2], quoted for SO_{2n}. A formalization needs its unitary analogue, and needs some σ in the U_2 Bessel module to have a generic parameter. [JLS16, Thm. 11.2] has no item (see coverage)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/cor-7-4",
    "kind": "theorem",
    "name": "Corollary 7.4 (subregular orbit)",
    "statement": "If π ∈ A_cusp(G_n) has a G_n-relevant generic global Arthur parameter in Φ̃_2(G*_n) and p^m(π) contains the subregular partition p_subr of type (𝔫, G*_n), then Conjecture 6.7 holds for π under Conjecture 3.1.",
-   "locator": "Section 7.3, Corollary 7.4, p. 77 (arXiv v4)",
+   "locator": "Section 7.3, Corollary 7.4, p. 810 (arXiv v4: p. 77)",
    "status": "missing",
    "note": ""
   },
@@ -678,17 +679,17 @@
    "id": "PAPER-JIANG-ZHANG-20/grs-descent",
    "kind": "theorem",
    "name": "The automorphic descent of Ginzburg–Rallis–Soudry",
-   "statement": "For an F-quasisplit G*_n and a generic isobaric τ determining a generic global Arthur parameter of G*_n, the descent F^{O_{κ_0}}_n(E_τ) of the residual representation E_τ (parameter (τ_1, 2) ⊞ ⋯ ⊞ (τ_r, 2)) is a non-zero generic cuspidal representation of G*_n(A) with transfer τ [GRS11]; it is irreducible for split SO_{2n+1} [JS03]; and a generic π ∈ A_cusp(G*_n) has such a τ as its transfer ([CKPSS04] with [GRS11]).",
-   "locator": "Section 1.1, p. 6; Section 7.2, pp. 75–76 (arXiv v4)",
+   "statement": "Let G*_n be F-split SO_{2n+1}, F-quasisplit SO_{2n} or F-quasisplit U_{2n+1}, and let τ = τ_1 ⊞ ⋯ ⊞ τ_r determine a generic global Arthur parameter of G*_n. Then the Bessel descent F^{O_{κ_0}}_n(E_τ) of the residual representation E_τ (parameter (τ_1, 2) ⊞ ⋯ ⊞ (τ_r, 2)) on H*_a (a = N = 𝔫^∨; SO_{2a}, SO_{2a+1}, U_{2a} respectively) is a non-zero generic cuspidal representation of G*_n(A) with transfer τ [GRS11]. It is irreducible for split SO_{2n+1} [JS03]. Every generic π ∈ A_cusp(G*_n) has such a τ as its transfer ([CKPSS04] with [GRS11]). For U_{2n} the analogous descent involves H_0 = U_1 and a character of U_1(A).",
+   "locator": "Section 1.1, p. 744; Section 6.2, after (6.8), p. 802; Section 7.2, p. 809 (arXiv v4: p. 6; pp. 66–68; pp. 75–76) ([23] = GRS11, [42] = JS03, [11] = CKPSS04)",
    "status": "missing",
-   "note": "A known functorial transfer; routed to ModularityAndLanglandsExtensions ML.5, where PAPER-BOXER-CALEGARI-GEE-25 routed the image of CKPSS functoriality."
+   "note": "A known functorial transfer; routed to ModularityAndLanglandsExtensions ML.5, where PAPER-BOXER-CALEGARI-GEE-25 routed the image of CKPSS functoriality. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: With the Bessel coefficient F^{O_{κ_0}}_n(E_τ) of E_τ on H*_a, the statement covers only the G*_n for which the first-occurrence space H_0 is trivial: SO_{2n+1} and U_{2n+1} (𝔪 = 0), and SO_{2n} (𝔪 = 1, H_0 = SO_1). For U_{2n} every Bessel partition leaves 𝔪 ≥ 1, so H_0 = U_1 and a character enters (see the issue on Section 7.2)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/grs-local-descent",
    "kind": "theorem",
    "name": "Local twisted Jacquet modules of unramified induced representations",
    "statement": "[GRS11, Thms. 5.1, 5.4, 5.6]: explicit computation of the twisted Jacquet modules with respect to (V_{p_κ}, ψ_{O_κ}) of unramified representations induced from (µ_1∘det_2) ⊗ ⋯ ⊗ (µ_{[a/2]}∘det_2) ⊗ δ_1 ⊗ ⋯ ⊗ δ_{r_m}: vanishing above the critical κ and, at the critical κ, a constituent of an explicit unramified principal series of the stabilizer.",
-   "locator": "Section 6.1, proofs of Proposition 6.2 and Lemma 6.5, pp. 58–65 (arXiv v4)",
+   "locator": "Section 6.1, proofs of Proposition 6.2 and Lemma 6.5, pp. 793–800 (arXiv v4: pp. 58–65) ([23] = GRS11, Thms. 5.1, 5.4, 5.6)",
    "status": "missing",
    "note": "Cited; [GRS11] not read."
   },
@@ -697,16 +698,16 @@
    "kind": "theorem",
    "name": "The tower property for Fourier coefficients",
    "statement": "[GRS11, Thm. 7.3]: a criterion, in terms of the vanishing of the terms of [GRS11, (7.35)], for the cuspidality of the Bessel coefficients at the first non-vanishing level of the tower.",
-   "locator": "Section 2.3, p. 19; proof of Proposition 6.3, pp. 59–61 (arXiv v4)",
+   "locator": "Section 2.3, p. 756; proof of Proposition 6.3, pp. 794–795 (arXiv v4: pp. 19, 59–61)",
    "status": "missing",
-   "note": "Cited; [GRS11] not read."
+   "note": "Cited; [GRS11] not read. Review (REV-PAPER-JIANG-ZHANG-20): Not a statement: [GRS11, Th. 7.3] is described ('a criterion …'), not stated, and [GRS11] was not read. The item needs the exact tower property from [GRS11, Ch. 7]. It expresses the constant term of an ℓ-th Bessel (Gelfand–Graev) coefficient, along a parabolic of its stabilizer, as a finite sum of Bessel coefficients of higher index of constant terms f_{U_{p−i}} of f, the terms of (7.35); it then concludes cuspidality when all of them vanish. The item also needs its hypotheses: quasi-split classical groups, which is exactly what E5 is about."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/moeglin-residues",
    "kind": "theorem",
    "name": "Mœglin's results on residual representations",
    "statement": "[Mœ08, Thm. §1.3], [Mœ11, Thm. B]: among the residual representations in Π̃_{ψ_{τ,σ}}(H_{a+m}), E_{τ⊗σ} has the least cuspidal support, and E_{τ⊗σ} is irreducible.",
-   "locator": "Proof of Proposition 6.3, p. 60; Section 6.3, p. 70 (arXiv v4)",
+   "locator": "Section 6.1, proof of Proposition 6.3, p. 794; Section 6.3, p. 804 (arXiv v4: p. 60; p. 70) ([61] = Mœ08, [62] = Mœ11)",
    "status": "missing",
    "note": "Cited; not read."
   },
@@ -714,26 +715,26 @@
    "id": "PAPER-JIANG-ZHANG-20/soudry-nonvanishing",
    "kind": "theorem",
    "name": "Soudry's inductive non-vanishing argument",
-   "statement": "The inductive argument of [Sou93, §§6–7]: an integral of the form ∫ |det g|^{s+ρ_a−ℓ} W^κ_{τ_ν}(diag(g, I_{ℓ+1})) b_ν(π(diag(g, I_{m+1}, g*)) v_π, v_σ) dg over Z_{a−ℓ−1}\\GL_{a−ℓ−1}(E_ν) vanishing for all data forces W^κ_{τ_ν}(I_a) b_ν(v_π, v_σ) = 0.",
-   "locator": "Appendix A, (A.21), pp. 83–84 (arXiv v4)",
+   "statement": "[Sou93, §§6–7], as used for [Sou17, (4.7)] and [Sou17, Prop. 4.1]. Let Z_k be the maximal unipotent subgroup of GL_k(E_ν). Suppose ∫_{Z_{a−ℓ−1}(E_ν)\\GL_{a−ℓ−1}(E_ν)} |det g|^{s+ρ_a−ℓ} W^κ_{τ_ν}(diag(g, I_{ℓ+1})) b_ν(π_ν(diag(g, I_{𝔪+1}, g*)) v_π, v_σ) dg = 0 (A.22) for all data, in particular for all W^κ_{τ_ν} in the Whittaker model of τ_ν. Then W^κ_{τ_ν}(I_a) b_ν(v_π, v_σ) = 0; at archimedean places the argument uses the Dixmier–Malliavin lemma.",
+   "locator": "Appendix A, (A.22) and the following paragraph, p. 817 (arXiv v4: (A.21), pp. 83–84) ([73] = Sou93, [75] = Sou17, [12] = DM78)",
    "status": "missing",
-   "note": "Cited; [Sou93] not read."
+   "note": "Cited; [Sou93] not read. Review (REV-PAPER-JIANG-ZHANG-20): statement corrected against the paper: Three points. The identity block is I_{𝔪+1} (dimension), not I_{m+1}. Z_k denotes the maximal unipotent subgroup of GL_k(E_ν). The equation is (A.22) in print. The vanishing hypothesis must range over the Whittaker functions of τ_ν as well, since the proof varies all data."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/prop-b-1",
    "kind": "theorem",
    "name": "Proposition B.1 (irreducible standard modules)",
    "statement": "If φ is a generic L-parameter of H*_m of the form (B.1), then every representation in Π̃_φ(H_m), for every pure inner form H_m, is an irreducible standard module: the induced representations Ind(τ(φ_1)|det|^{β_1} ⊗ ⋯ ⊗ τ(φ_t)|det|^{β_t} ⊗ σ_0) (B.2), σ_0 ∈ Π̃_{φ_0}(H_{n_0}), are irreducible.",
-   "locator": "Appendix B, Proposition B.1, p. 85 (arXiv v4) ([MW12], [GI16, Prop. 9.1], [Hei16], [ABV92, Thm. 1.24])",
+   "locator": "Appendix B, Proposition B.1 and proof, p. 818 (arXiv v4: p. 85) ([67] = MW12, [18] = GI16, [29] = Hei16, [1] = ABV92)",
    "status": "missing",
-   "note": "Cited results; routed to ML.4, which owns the local packets."
+   "note": "Cited results; routed to ML.4, which owns the local packets. Review note: The item correctly writes σ_0 ∈ Π̃_{φ_0}(H_{n_0}). Print has Π̃_φ(H_{n_0}), a misprint (see issues)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/tadic-unitary-dual",
    "kind": "theorem",
    "name": "The generic unitary dual of GL_n over p-adic fields",
    "statement": "[Tad86]: every irreducible generic unitary representation of GL_a over a non-archimedean field is an irreducible representation induced from tempered representations and complementary-series pairs with exponents in (0, ½); in particular a (conjugate) self-dual generic unitary τ of G_{E/F}(a)(F) is isomorphic to Ind(τ_1|det|^{α_1} ⊗ ⋯ ⊗ τ_d|det|^{α_d} ⊗ τ_0 ⊗ τ*_d|det|^{−α_d} ⊗ ⋯ ⊗ τ*_1|det|^{−α_1}) with τ_i unitary generic tempered and ½ > α_1 > ⋯ > α_d > 0 (B.6); likewise the generic members of Π̃_{φ⁺}(H*_m) have the form (B.2) with exponents ½ > β_1 > ⋯ > β_t > 0 (B.5).",
-   "locator": "Appendix B, (B.5)–(B.6), p. 86 (arXiv v4)",
+   "locator": "Appendix B, proof of Theorem B.2, (B.5)–(B.6), p. 819 (arXiv v4: p. 86) ([78] = Tad86)",
    "status": "missing",
    "note": "Routed to ET.6, which develops the segment and Langlands-quotient theory of GL_m."
   },
@@ -742,7 +743,7 @@
    "kind": "theorem",
    "name": "The generic unitary dual of GL_n over archimedean fields",
    "statement": "[Vog86]: the same description of the irreducible generic unitary representations of GL_a over R and C, giving (B.5) and (B.6) at archimedean places.",
-   "locator": "Appendix B, p. 86 (arXiv v4)",
+   "locator": "Appendix B, proof of Theorem B.2, pp. 818–819 (arXiv v4: p. 86) ([79] = Vog86)",
    "status": "missing",
    "note": "Routed to AF.1 (real reductive representation theory)."
   },
@@ -751,9 +752,102 @@
    "kind": "theorem",
    "name": "The Dixmier–Malliavin lemma",
    "statement": "Every smooth vector of a smooth Fréchet representation of a real Lie group is a finite sum of vectors π(f)v with f ∈ C_c^∞ [DM78].",
-   "locator": "Appendix A, p. 84 (arXiv v4)",
+   "locator": "Appendix A, end of the proof of Proposition A.1, p. 817 (arXiv v4: p. 84) ([12] = DM78)",
    "status": "missing",
    "note": "Routed to AF.1, which builds smooth Fréchet globalizations."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-global-arthur-packets-of-pure",
+   "kind": "definition",
+   "name": "Global Arthur packets of pure inner forms and relevant parameters",
+   "statement": "Let G_n be a pure inner form of the F-quasisplit G*_n (number field F) and ψ ∈ Ψ̃_2(G*_n, ξ). For each place ν, the localization ψ_ν has a local Arthur packet Π̃_{ψ_ν}(G_n(F_ν)) of (Õ(G_n)-orbits of) representations of G_n(F_ν), with its character to the component group S_{ψ_ν} determined by the pure inner twist, defined by [Art13, Ch. 9], [Mok15] and [KMSW]. This packet is empty unless ψ_ν is G_n(F_ν)-relevant, that is, unless every Levi subgroup of ^LG*_n through which ψ_ν factors minimally is relevant to G_n (dual to a Levi subgroup of G_n over F_ν). ψ is G_n-relevant if ψ_ν is relevant at every ν. The global packet is Π̃_ψ(G_n) = {⊗′_ν π_ν : π_ν ∈ Π̃_{ψ_ν}(G_n(F_ν)), π_ν unramified with the base-point character for almost all ν}. Ψ̃_2(G*_n)_{G_n} and Φ̃_2(G*_n)_{G_n} denote the relevant parameters and the generic relevant parameters.",
+   "locator": "Section 2.2, Theorem 2.1, p. 753; Section 1.1, (1.1)–(1.3), pp. 743–744 (arXiv v4: pp. 16, 5–6)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Theorem 2.1, Principle 1.1, Conjecture 2.3 and Theorems 5.7, 6.10 and 7.1 all use 'G_n-relevant global Arthur parameter' and 'the global Arthur packet Π̃_ψ(G_n)' for a non-quasi-split G_n. No item defines them: arthur-parameters covers only Ψ̃_2(G*_n, ξ) of the quasi-split group."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-generalized-bruhat-decomposition-p-h",
+   "kind": "theorem",
+   "name": "Generalized Bruhat decomposition P_â\\H_{a+m}/P_ℓ̂",
+   "statement": "Let H_{a+m} = Isom(W_{𝔪+2a}, q)° with F-rank a + 𝔯_𝔪, and let P_â and P_ℓ̂ be the standard maximal parabolic F-subgroups stabilizing V^+_a and V^+_ℓ. The relative Weyl group W_{FΔ} is W(C_{a+𝔯_𝔪}) if H_{a+m} is quasi-split even unitary (𝔪 = 2𝔯_𝔪, E ≠ F); W(B_{a+𝔯_𝔪}) if H_{a+m} is unitary but not quasi-split even unitary, or special orthogonal but not split even; and W(D_{a+𝔯_𝔪}) if H_{a+m} is split even special orthogonal. If H_{a+m} is not split even special orthogonal, P_â(F)\\H_{a+m}(F)/P_ℓ̂(F) ≅ W_â\\W_{FΔ}/W_ℓ̂ is in bijection with E_{a,ℓ} = {ε_{α,β} : 0 ≤ α ≤ β ≤ a, a ≤ ℓ + β − α ≤ a + 𝔯_𝔪}, with the representatives ε_{α,β} of [GRS11, §4.2]. The split even orthogonal case is [JZ14, §3.1], Cases (2-1) and (2-2).",
+   "locator": "Section 4.2, p. 768 (arXiv v4: pp. 32–33) ([JZ14, §3.1], [GRS11, §4.2])",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Proposition 4.1 and the open-cell reduction are indexed by it. The prop-4-1 item uses E^0_{a,ℓ} without defining E_{a,ℓ}, the representatives ε_{α,β}, or the case split. Route: TwistedAutomorphicDescents."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-the-inner-bessel-datum-n",
+   "kind": "construction",
+   "name": "The inner Bessel datum (N^η_{ℓ,β−1}, ψ_{β−1,y_{−κ}}) of G^{w_0}_{m⁻}",
+   "statement": "Assume a > ℓ, β = a − ℓ, and η = diag{I_ℓ, γ_0, I_ℓ} is the open-cell representative of (4.17). G^η_{m⁻} = G^{w_0}_{m⁻} ∩ γ_0^{-1}P′_wγ_0 decomposes as (G_{E/F}(W^+_{𝔯_𝔪+a−1,β−1}) × H(q|_{η^{-1}W_(a)})) ⋉ V_{β−1,η}, W_(a) = (W^+_a ⊕ W^-_a)^⊥, with V_{β−1,η} as in (4.23) (the entries satisfy d_1 + (−1)^{𝔪+1}(κ/2)v_1 = 0). Let Z^η_{ℓ,β−1} be the maximal unipotent subgroup of G_{E/F}(W^+_{𝔯_𝔪+a−1,β−1}) and N^η_{ℓ,β−1} := Z^η_{ℓ,β−1}V_{β−1,η}, the unipotent subgroup of G^{w_0}_{m⁻} attached to the partition [(2(β−1)+1)1^𝔪]. Let ψ_{β−1,y_{−κ}} be its generic character defined by the anisotropic vector y_{−κ}. Then the identity component of the stabilizer of ψ_{β−1,y_{−κ}} is H^η_m = Isom(η^{-1}W_(a), q)° = η^{-1}H_mη, and R^η_{ℓ,β−1} := H^η_m ⋉ N^η_{ℓ,β−1}. Moreover N^η_{ℓ,β−1} = Z_{β,η}C_{β−1,η} and C_{β−1,η}\\G^η_{m⁻} ≅ P^1_β × H^η_m (4.25), with P^1_β the mirabolic subgroup of G_{E/F}(β). For φ_π on G^{w_0}_{m⁻}(A), F^{ψ^{-1}_{β−1,y_{−κ}}}(φ_π)(h) = ∫_{[N^η_{ℓ,β−1}]} φ_π(nh) ψ_{β−1,y_{−κ}}(n) dn (4.27).",
+   "locator": "Section 4.4, (4.23)–(4.25) and (4.27), pp. 772–773 (arXiv v4: pp. 36–37)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Propositions 4.2 and 4.3, Corollary 4.4 and Theorem 4.5 are stated in terms of N^η_{ℓ,β−1}, ψ_{β−1,y_{−κ}}, H^η_m and R^η_{ℓ,β−1}. No item defines them or states that the stabilizer is η^{-1}H_mη, which is what makes the inner period a Bessel period of (π, σ′). Route: TwistedAutomorphicDescents."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-normalized-gl-gl-intertwining-operators",
+   "kind": "theorem",
+   "name": "Normalized GL × GL intertwining operators for tempered data (Mœglin–Waldspurger)",
+   "statement": "Let E be a local field of characteristic 0 and τ, τ′ irreducible unitary tempered representations of GL_k(E), GL_{k′}(E). Take the rank-one intertwining operator N(w, τ ⊗ τ′, s) attached to the maximal parabolic of GL_{k+k′}(E) with Levi GL_k × GL_{k′}, normalized as in (5.3)–(5.4) (Shahidi's normalization by Rankin–Selberg L- and ε-factors). It is holomorphic and non-zero for Re(s) > −1 [MW89], as quoted on p. 819. Hence the operators (B.7) and (B.8), whose exponents lie in (−½, ½), are holomorphic and non-zero for Re(s) ≥ 0.",
+   "locator": "Appendix B, proof of Theorem B.2, p. 819 (arXiv v4: p. 86)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): This cited input bounds the rank-one operators (B.7)–(B.8) in the proof of Theorem 5.1 = B.2. No item states it. Route: AutomorphicSpectralTheory."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-standard-intertwining-operators-for-tempered",
+   "kind": "theorem",
+   "name": "Standard intertwining operators for tempered data in the positive chamber",
+   "statement": "Let F be a local field of characteristic 0, τ an irreducible unitary tempered representation of G_{E/F}(k)(F) and σ_0 an irreducible tempered representation of a pure inner form H_{n_0}(F). The standard intertwining operator M(w″, τ ⊗ σ_0, s) from Ind(τ|det|^s ⊗ σ_0) to Ind(τ*|det|^{−s} ⊗ σ_0) is holomorphic and non-zero for Re(s) > 0. The non-archimedean case is [Wal03, Prop. IV.2.1] and the archimedean case [BW00, Lemma 4.4].",
+   "locator": "Appendix B, proof of Theorem B.2, p. 820 (arXiv v4: p. 87)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): This cited input handles the type (B.9) operators. No item states it. Route: AutomorphicSpectralTheory."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-tempered-local-l-factors-are",
+   "kind": "theorem",
+   "name": "Tempered local L-factors are holomorphic in Re(s) > 0",
+   "statement": "Let F be a local field of characteristic 0, and φ, φ_0 tempered local L-parameters of G_{E/F}(k) and H*_{n_0}. Then L(s, φ × φ_0) and L(s, φ, ρ) are holomorphic and non-zero for Re(s) > 0, where ρ = ∧², Sym² or the twisted Asai representation. For a generic member σ°_0 of Π̃_{φ_0} these are the Langlands–Shahidi factors L(s, τ × σ°_0), L(s, τ, ρ) [Kim05]. Consequently the normalizing factor β(s, τ, σ_0, ψ; ρ) of (5.4) is holomorphic and non-zero for Re(s) > 0.",
+   "locator": "Appendix B, proof of Theorem B.2, p. 820 (arXiv v4: p. 87)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Needed for the holomorphy of the normalizing factor (5.4) for tempered data. No item states it. Route: TwistedAutomorphicDescents."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-normalized-intertwining-operators-for-generic",
+   "kind": "theorem",
+   "name": "Normalized intertwining operators for generic data (Cogdell–Kim–Piatetski-Shapiro–Shahidi)",
+   "statement": "Let H_m = H*_m be quasi-split, φ⁺ the local component of a generic global Arthur parameter of H*_m, σ the generic member of Π̃_{φ⁺}(H*_m) (it exists by [Art13], [Mok15]), and τ an irreducible unitary generic (conjugate) self-dual representation of G_{E/F}(a)(F). Then N(ω_0, τ ⊗ σ, s) is holomorphic and non-zero for Re(s) ≥ ½ [CKPSS04, Thm. 11.1].",
+   "locator": "Appendix B, proof of Theorem B.2, p. 818 (arXiv v4: p. 86)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): The generic case of Theorem B.2 is quoted from this source, and no item states it. The reviewer knows [CKPSS04] to treat split SO_{2n+1}, Sp_{2n} and quasi-split SO_{2n} only, so the unitary case needs its own source (for example Kim–Krishnamurthy), which the paper does not cite. Route: AutomorphicSpectralTheory."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-holomorphy-of-the-ramified-normalizing",
+   "kind": "theorem",
+   "name": "Holomorphy of the ramified normalizing L-factors in Re(s) ≥ ½",
+   "statement": "Under the assumptions of Theorem 5.3, for every ν ∈ S the local factor L(s, τ_ν, π_ν, σ_ν; ρ) = L(s + ½, τ_ν × π_ν) / (L(s + 1, τ_ν × σ_ν) L(2s + 1, τ_ν, ρ)) of (4.47) is holomorphic for Re(s) ≥ ½. Hence L_S(s, τ, π, σ; ρ) is holomorphic there, and Z*_S(½) ≠ 0 whenever Z_S(½) ≠ 0. The exponents of τ_ν and of the localized parameter of π lie in (−½, ½) by (B.5)–(B.6), so L(s′, τ_ν × π_ν) has no pole with Re(s′) ≥ 1, and inverse local factors are entire.",
+   "locator": "Section 5.3, proof of Proposition 5.6, p. 790 (not in arXiv v4, p. 54)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Print adds this step, which v4 omits. Without it Z*_S(½) ≠ 0 does not follow from Z_S(½) ≠ 0. Route: TwistedAutomorphicDescents."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-bessel-non-vanishing-for-subregular",
+   "kind": "theorem",
+   "name": "Bessel non-vanishing for subregular wave-front sets (Jiang–Liu–Savin)",
+   "statement": "As used in the paper: let G*_n be an F-quasisplit SO_{2n} and π ∈ A_cusp(G*_n) with p^m(π) = {[(2n−3)3]}. Then the ℓ_0-th Bessel module F^{O_{ℓ_0}}(π), with ℓ_0 = n − 2 and p_{ℓ_0} = [(2n−3)1^3], is non-zero for an F-rational orbit O_{ℓ_0} whose stabilizer H^{O_{ℓ_0}}_{ℓ_0⁻} is the split SO_3 [JLS16, Thm. 11.2].",
+   "locator": "Section 7.3, p. 809 (arXiv v4: p. 76)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): This is the key input of Proposition 7.3, and hence of Corollary 7.4, in the SO_{2n} case, and it is invoked by analogy for U_{2n+1}. No item states it. Route: TwistedAutomorphicDescents."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/rev-automorphic-members-of-generic-global",
+   "kind": "theorem",
+   "name": "Automorphic members of generic global packets are cuspidal",
+   "statement": "If φ′ is a generic global Arthur parameter of H*_m, every automorphic member of the global Vogan packet Π̃_{φ′}[H*_m] that occurs in the discrete spectrum of a pure inner form H_m is cuspidal [JL16, §3].",
+   "locator": "Section 6.3, p. 803 (arXiv v4: p. 69)",
+   "status": "missing",
+   "note": "Added by the review REV-PAPER-JIANG-ZHANG-20 (coverage of the paper): Used to set up Theorem 6.10: all automorphic members of Π̃_{φ′}[H*_m] are cuspidal. No item states it. Route: GanGrossPrasadConjecturesForClassicalGroups."
   }
  ],
  "prerequisites": [
@@ -882,7 +976,8 @@
     "PAPER-JIANG-ZHANG-20/local-ggp",
     "PAPER-JIANG-ZHANG-20/local-ggp-known",
     "PAPER-JIANG-ZHANG-20/bessel-periods",
-    "PAPER-JIANG-ZHANG-20/global-ggp"
+    "PAPER-JIANG-ZHANG-20/global-ggp",
+    "PAPER-JIANG-ZHANG-20/rev-automorphic-members-of-generic-global"
    ],
    "brief": "The Gan–Gross–Prasad framework for orthogonal and unitary groups over local and number fields of characteristic 0, planned once for every roadmap that needs it. It follows Gan–Gross–Prasad, Symplectic local root numbers, central critical L-values, and restriction problems (Astérisque 346, 2012), in the form used by Jiang–Zhang, Arthur parameters and cuspidal automorphic modules of classical groups (Ann. of Math. 191 (2020) 739–827). Its statements, as that paper gives them: relevant pairs (G_n, H_m) of pure inner forms (an 𝔪-dimensional non-degenerate subspace W of V with W⊥ split of odd dimension) and relevance of products; local Vogan packets Π̃_φ[G*_n × H*_m], the union of the L-packets of the relevant pure inner forms, for localizations of generic global Arthur parameters, and global Vogan packets; local Bessel data R_{O_ℓ} = H_m ⋉ V_{p_ℓ}, ψ_{O_ℓ} for p_ℓ = [(2ℓ+1)1^{𝔫−2ℓ−1}], 2ℓ + 1 = 𝔫 − 𝔪, and local Bessel functionals Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}); the uniqueness dim ≤ 1 (Aizenbud–Gourevitch–Rallis–Schiffmann, Sun–Zhu, Jiang–Sun–Zhu, Gan–Gross–Prasad); the local conjecture Σ_{π⊗σ ∈ Π̃_φ[G*_n × H*_m]} dim Hom_{R_{O_ℓ}(F)}(π ⊗ σ, ψ_{O_ℓ}) = 1 (Conjecture 3.1) with its known cases (orthogonal p-adic generic, Mœglin–Waldspurger; orthogonal archimedean tempered, Luo; unitary p-adic and real tempered, Beuzart-Plessis; unitary p-adic generic, Gan–Ichino; discrete series of U(p, q), He), imported as cited theorems with their exact hypotheses; global Bessel periods ∫ F^{ψ_{ℓ,w_0}}(φ_1) φ_2 and their convergence when one form is cuspidal; and the global conjecture: for generic parameters φ, φ′ some pair in the global Vogan packet has a non-zero Bessel period iff L(½, φ × φ′) ≠ 0. The roadmap states the conjectures as definitions of propositions, never as axioms, and records which cases each consumer proves: the proposed roadmap TwistedAutomorphicDescents (PAPER-JIANG-ZHANG-20) proves one direction in general and the other under its Conjecture 6.8, and later papers in the queue (Beuzart-Plessis–Liu–Zhang–Zhu, Beuzart-Plessis–Chaudouard(–Zydor), W. Zhang) prove further cases for unitary groups. Fourier–Jacobi periods and the refined (Ichino–Ikeda) conjecture belong here when a consumer needs them. Imports: Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4 for global and local Arthur parameters and packets; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.3 for Jacquet modules and admissible representations; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1–AF.3 for archimedean representations, automorphic forms, constant terms and cusp forms; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3–AL.4 for the L-functions.",
    "reason": "Nothing in the atlas plans the Gan–Gross–Prasad conjectures, Bessel models or periods (the only mention is GrossZagierAndArithmeticHeights disclaiming them). They are general notions, and at least six papers now in the queue (Beuzart-Plessis–Liu–Zhang–Zhu, Beuzart-Plessis–Chaudouard, Beuzart-Plessis–Chaudouard–Zydor, W. Zhang, Li–Liu, Liu et al.) need them. PROTOCOL §15 asks for one owner, planned in general form; the maintainer's guide for BCGP18 likewise proposes a missing foundational theory (higher Coleman theory) as its own roadmap."
@@ -947,9 +1042,14 @@
     "PAPER-JIANG-ZHANG-20/grs-local-descent",
     "PAPER-JIANG-ZHANG-20/grs-tower",
     "PAPER-JIANG-ZHANG-20/moeglin-residues",
-    "PAPER-JIANG-ZHANG-20/soudry-nonvanishing"
+    "PAPER-JIANG-ZHANG-20/soudry-nonvanishing",
+    "PAPER-JIANG-ZHANG-20/rev-generalized-bruhat-decomposition-p-h",
+    "PAPER-JIANG-ZHANG-20/rev-the-inner-bessel-datum-n",
+    "PAPER-JIANG-ZHANG-20/rev-tempered-local-l-factors-are",
+    "PAPER-JIANG-ZHANG-20/rev-holomorphy-of-the-ramified-normalizing",
+    "PAPER-JIANG-ZHANG-20/rev-bessel-non-vanishing-for-subregular"
    ],
-   "brief": "The theory of twisted automorphic descents of Jiang–Zhang, Arthur parameters and cuspidal automorphic modules of classical groups (Ann. of Math. 191 (2020) 739–827), which constructs concrete modules for cuspidal automorphic representations of orthogonal and unitary groups with generic global Arthur parameters. Final theorems, stated as in the paper. Theorem 5.3: for σ ∈ A_cusp(H_m) and π ∈ A_cusp(G_n) with generic parameters φ_σ and φ_τ, a = N = n^∨, and E_{τ⊗σ′} ≠ 0, the Bessel period ⟨φ_π, F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})⟩ is non-zero for some data iff ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩ is non-zero for some data. Theorem 5.7: if π ∈ A_cusp(G_n) and σ ∈ A_cusp(H_m) with relevant generic parameters have a non-zero Bessel period, then L(s, π × σ) is holomorphic and non-zero at ½. Theorem 6.10: if L(½, φ × φ′) ≠ 0 and Conjecture 6.8 holds for (φ, (φ′)^{w_q^ℓ}), there is a pair (π, σ) in the global Vogan packet with a non-zero Bessel period. Corollary 6.11: for split SO_{2n+1} and anisotropic SO_2 the two conditions are equivalent. Theorem 7.1: the Generic Summand Conjecture 2.3 and the local Gan–Gross–Prasad Conjecture 3.1 imply the Main Conjecture 6.7, D^{O_{κ_0}}_n(τ; σ) = F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π (or π ⊕ π⋆ for even orthogonal groups with a two-element Õ(G_n)-orbit); Corollaries 7.2 and 7.4 prove it under Conjecture 3.1 alone for generic π on quasi-split groups and when p^m(π) contains the subregular partition. Layers. (1) The groups and their Fourier coefficients: the structure of G_n = Isom(V, q)°, Fourier coefficients attached to partitions and nilpotent orbits, Fourier modules and p^m(π), Bessel coefficients and modules, the first occurrence index and cuspidality (Proposition 2.2, with a proof, which the paper omits), the multiplicity-free decomposition (2.10), explicit Bessel data with Lemma 2.4 and Propositions 2.5–2.6, and the Generic Summand Conjecture 2.3. (2) Global zeta integrals of Bessel type: the Eisenstein series on H_{a+m} induced from τ|det|^s ⊗ σ, its Bessel–Fourier coefficient and the zeta integral (4.9), the unfolding (Propositions 4.1–4.3, Corollaries 4.4 and 4.6), the Euler products (Theorems 4.5 and 4.7), the local factor (4.47) and the unramified computation (Theorem 4.8, whose general proof is an unpublished preprint of Jiang–Soudry–Zhang and must be supplied here or recorded as an open input). (3) Residues and reciprocal non-vanishing: the poles of the Eisenstein series (Proposition 5.2), the special data, Theorem 5.3 with Propositions 5.4–5.6 and the local non-vanishing of Appendix A, and Theorem 5.7. (4) Twisted descents: ψ_{τ,σ}, Propositions 6.1–6.4, Lemma 6.5, Theorem 6.6, the descent (6.9), Conjectures 6.7 and 6.8, Proposition 6.9, Theorem 6.10, Corollary 6.11. (5) The main theorem: Principle 1.1, Theorem 7.1, Corollary 7.2, Proposition 7.3, Corollary 7.4. Conjectures are carried as explicit hypotheses. Imports, by title and id: The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups, proposed with this roadmap) for relevant pairs, Vogan packets, Bessel models, their uniqueness, the local and global conjectures and Bessel periods; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4 for Arthur's, Mok's and Kaletha–Minguez–Shin–White's classification (Theorem 2.1; for non-quasi-split orthogonal groups only outlined by Arthur, Ishimoto's later work covering odd special orthogonal groups with generic parameters) and ML.5 for the Ginzburg–Rallis–Soudry descent; Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.1–AS.4 for Eisenstein series, intertwining operators with Shahidi's normalization and Theorem 5.1, and the residual spectrum; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3–AL.4; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1–AF.3; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.4; and Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6 for the local Langlands correspondence of GL_n. The results of Ginzburg–Rallis–Soudry's book on local twisted Jacquet modules and the tower property, and Mœglin's on residual representations, are cited inputs to be read before this roadmap's blueprint.",
+   "brief": "The theory of twisted automorphic descents of Jiang–Zhang, Arthur parameters and cuspidal automorphic modules of classical groups (Ann. of Math. 191 (2020) 739–827), which constructs concrete modules for cuspidal automorphic representations of orthogonal and unitary groups with generic global Arthur parameters. Final theorems, stated as in the paper. Theorem 5.3: for σ ∈ A_cusp(H_m) and π ∈ A_cusp(G_n) with generic parameters φ_σ and φ_τ, a = N = n^∨, and E_{τ⊗σ′} ≠ 0, the Bessel period ⟨φ_π, F^{ψ_{O_{κ*}}}(E_{τ⊗σ′})⟩ is non-zero for some data iff ⟨F^{ψ_{O_{ℓ*}}}(φ_π), φ_σ⟩ is non-zero for some data. Theorem 5.7: if π ∈ A_cusp(G_n) and σ ∈ A_cusp(H_m) with relevant generic parameters have a non-zero Bessel period, then L(s, π × σ) is holomorphic and non-zero at ½. Theorem 6.10: if L(½, φ × φ′) ≠ 0 and Conjecture 6.8 holds for (φ, (φ′)^{w_q^ℓ}), there is a pair (π, σ) in the global Vogan packet with a non-zero Bessel period. Corollary 6.11: for split SO_{2n+1} and anisotropic SO_2 the two conditions are equivalent. Theorem 7.1: the Generic Summand Conjecture 2.3 and the local Gan–Gross–Prasad Conjecture 3.1 imply the Main Conjecture 6.7, D^{O_{κ_0}}_n(τ; σ) = F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π (or π ⊕ π⋆ for even orthogonal groups with a two-element Õ(G_n)-orbit); Corollaries 7.2 and 7.4 prove it under Conjecture 3.1 alone for generic π on quasi-split groups and when p^m(π) contains the subregular partition. Layers. (1) The groups and their Fourier coefficients: the structure of G_n = Isom(V, q)°, Fourier coefficients attached to partitions and nilpotent orbits, Fourier modules and p^m(π), Bessel coefficients and modules, the first occurrence index and cuspidality (Proposition 2.2, with a proof, which the paper omits), the multiplicity-free decomposition (2.10), explicit Bessel data with Lemma 2.4 and Propositions 2.5–2.6, and the Generic Summand Conjecture 2.3. (2) Global zeta integrals of Bessel type: the Eisenstein series on H_{a+m} induced from τ|det|^s ⊗ σ, its Bessel–Fourier coefficient and the zeta integral (4.9), the unfolding (Propositions 4.1–4.3, Corollaries 4.4 and 4.6), the Euler products (Theorems 4.5 and 4.7), the local factor (4.47) and the unramified computation (Theorem 4.8, whose general proof is an unpublished preprint of Jiang–Soudry–Zhang and must be supplied here or recorded as an open input). (3) Residues and reciprocal non-vanishing: the poles of the Eisenstein series (Proposition 5.2), the special data, Theorem 5.3 with Propositions 5.4–5.6 and the local non-vanishing of Appendix A, and Theorem 5.7. (4) Twisted descents: ψ_{τ,σ}, Propositions 6.1–6.4, Lemma 6.5, Theorem 6.6, the descent (6.9), Conjectures 6.7 and 6.8, Proposition 6.9, Theorem 6.10, Corollary 6.11. (5) The main theorem: Principle 1.1, Theorem 7.1, Corollary 7.2, Proposition 7.3, Corollary 7.4. Conjectures are carried as explicit hypotheses. Imports, by title and id: The Gan–Gross–Prasad conjectures for classical groups (GanGrossPrasadConjecturesForClassicalGroups, proposed with this roadmap) for relevant pairs, Vogan packets, Bessel models, their uniqueness, the local and global conjectures and Bessel periods; Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4 for Arthur's, Mok's and Kaletha–Minguez–Shin–White's classification (Theorem 2.1; for non-quasi-split orthogonal groups only outlined by Arthur, Ishimoto's later work covering odd special orthogonal groups with generic parameters) and ML.5 for the Ginzburg–Rallis–Soudry descent; Automorphic spectral theory and trace distributions (AutomorphicSpectralTheory) AS.1–AS.4 for Eisenstein series, intertwining operators with Shahidi's normalization and Theorem 5.1, and the residual spectrum; Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors) AL.3–AL.4; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.1–AF.3; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.2–SR.4; and Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6 for the local Langlands correspondence of GL_n. The results of Ginzburg–Rallis–Soudry's book on local twisted Jacquet modules and the tower property, and Mœglin's on residual representations, are cited inputs to be read before this roadmap's blueprint.\n\nCorrections from the review (REV-PAPER-JIANG-ZHANG-20): state Theorem 5.7 for unitary groups with L(s, τ × σ∨) (the paper's Bessel period is sesquilinear), or with the bilinear period and L(s, τ × σ); the printed step from one to the other is unjustified for unitary groups. Proposition 2.5 needs y_κ, not y_{−κ}; the ℓ = 0 Bessel module must be defined as the paper uses it; Section 7.2's 'without (H_m, σ)' fails for U_{2n} (Corollary 7.2 still holds); and E3 and E4 remain: the joint work with Soudry is still 'in preparation' in print, and the generic case of Theorem 2.1 for even orthogonal groups is now in Chen–Zou (arXiv:2103.07956).",
    "reason": "The paper's own theory is new to the atlas: Fourier coefficients attached to nilpotent orbits, global zeta integrals of Bessel type for G × GL, residues of Eisenstein series and the reciprocal non-vanishing of Bessel periods, twisted automorphic descents and the construction of concrete modules. No layer goes in this direction; AS, ML and AL supply its inputs. As for Lawrence–Venkatesh in the maintainer's guides, it is a new roadmap, importing the Gan–Gross–Prasad roadmap proposed alongside it."
   },
   {
@@ -960,7 +1060,10 @@
    ],
    "items": [
     "PAPER-JIANG-ZHANG-20/normalized-intertwining",
-    "PAPER-JIANG-ZHANG-20/thm-5-1"
+    "PAPER-JIANG-ZHANG-20/thm-5-1",
+    "PAPER-JIANG-ZHANG-20/rev-normalized-gl-gl-intertwining-operators",
+    "PAPER-JIANG-ZHANG-20/rev-standard-intertwining-operators-for-tempered",
+    "PAPER-JIANG-ZHANG-20/rev-normalized-intertwining-operators-for-generic"
    ],
    "reason": "AS.2 constructs intertwining operators, their meromorphic continuation and 'normalized intertwiners only after supplying the normalizing factors used in that case'. Shahidi's normalization (5.3)–(5.4) and the holomorphy and non-vanishing of the normalized operators for Re(s) ≥ ½ (Theorem 5.1 = Theorem B.2, proved in the paper from Mœglin–Waldspurger, Kim and Waldspurger) are general local results of that kind."
   },
@@ -1024,7 +1127,14 @@
     "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
     "the article page on annals.math.princeton.edu (no erratum listed)",
     "web and Crossref searches for an erratum and for the cited preprint [44]"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the page image of p. 762; still present in print. The parts must sum to 𝔫, and (2.9), p. 755, has 𝔫 − 2ℓ − 1.",
+    "by": "REV-PAPER-JIANG-ZHANG-20",
+    "amendedCorrection": "p_ℓ = [(2ℓ+1)1^{𝔫−2ℓ−1}].",
+    "publishedLocator": "Section 3.2, p. 762 (published); arXiv v4: p. 26"
+   }
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E2",
@@ -1039,7 +1149,14 @@
     "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
     "the article page on annals.math.princeton.edu (no erratum listed)",
     "web and Crossref searches for an erratum and for the cited preprint [44]"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the page images of pp. 819–820 and in the TeX. The third type of rank-one operator moves a constituent τ_j|det|^{s±α_j} of τ (B.6) past the tempered part σ_0 of σ (B.2). τ(φ_i) belongs to σ, and (B.7) pairs it with τ_j. The next sentences treat M(w″, τ_j ⊗ σ_0, s − α_j) and L(s − α_j, τ_j × σ_0), and the shift ±α_j is τ_j's exponent. The misprint is still present in the published version.",
+    "by": "REV-PAPER-JIANG-ZHANG-20",
+    "amendedCorrection": "N(w″_j, τ_j ⊗ σ_0, s ± α_j) in both places. For the block τ*_j|det|^{−α_j} of (B.6), the operator is N(w″_j, τ*_j ⊗ σ_0, s − α_j), which the same argument covers since τ*_j is also unitary tempered.",
+    "publishedLocator": "Appendix B, proof of Theorem B.2, (B.9), p. 819, and its last paragraph, p. 820 (arXiv v4: pp. 86–87). Unchanged in print."
+   }
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E3",
@@ -1056,7 +1173,14 @@
     "web and Crossref searches for an erratum and for the cited preprint [44]",
     "arXiv author searches for Jiang, Soudry and Zhang",
     "arXiv:2508.09066 (its reference [JSZ])"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the page images of pp. 774–775 and 781 and on reference [43], p. 823. A web search (September 2026) finds no published version; arXiv:2508.09066 still cites it as a 2018 preprint. Second checker: Verified in the published text, which still defers these proofs. It now cites the joint work as [43] 'in preparation'; arXiv v4 had '[44] ... preprint 2018'. Sections 5.3–5.4 use (4.49) through (5.11). Appendix A proves convergence only of the inner U⁻_{a,η}-integral (A.5), for the compactly supported sections (A.6).",
+    "by": "REV-PAPER-JIANG-ZHANG-20",
+    "amendedCorrection": "As E3. For the print, update the quotation: the reference is [43] and is listed as 'in preparation' (v4: [44], 'preprint 2018'). The introduction presents the local theory as done ('is given in our joint work with Soudry in [43]', p. 741; 'This is done in [43]', p. 745). Refine the scope: the absolute convergence of the U⁻_{a,η}-integral J_s is sketched in the paper (comparison with [19, App. II to §5], [73], [75, Th. 3.1], and domination by local intertwining operators, p. 774). What is missing is Theorem 4.8 in the stated generality and the local analytic theory deferred to [43] (convergence of Z_ν; Appendix A, pp. 810–811, defers meromorphic continuation to [43]). Theorem 4.5's Euler product also relies on Theorem 4.8 for convergence.",
+    "publishedLocator": "Section 4.6, Theorem 4.8, p. 781; Section 4.4, (4.33) and before Proposition 4.2, pp. 774–775; reference [43], p. 823 (published); arXiv v4: pp. 45, 38–39, [44]"
+   }
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E4",
@@ -1072,7 +1196,14 @@
     "the article page on annals.math.princeton.edu (no erratum listed)",
     "web and Crossref searches for an erratum and for the cited preprint [44]",
     "a web search for the classification of inner forms of orthogonal groups (Ishimoto 2023/24; arXiv:2506.17907 on even special orthogonal groups)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Page images of pp. 740 and 753 show the same text as v4 (reference numbers renumbered). The Chen–Zou abstract was read on arxiv.org (versions and journal note).",
+    "by": "REV-PAPER-JIANG-ZHANG-20",
+    "amendedCorrection": "As E4, with one update. For even orthogonal groups a proof does now exist for the generic part: R. Chen and J. Zou, 'Arthur's multiplicity formula for even orthogonal and unitary groups' (arXiv:2103.07956, v3 October 2024, accepted in J. Eur. Math. Soc.), prove Arthur's multiplicity formula for the generic part of the discrete spectrum of even orthogonal and unitary groups of any Witt index by theta lifts, and a seminar abstract by Zou states it for (special) orthogonal groups. Whether the published version covers SO(V), where the Õ(G_n)-twist matters, should be checked. With Ishimoto (odd SO), Theorem 2.1 is thus available for the generic parameters the main theorems use; it remains unproved as stated (all ψ) for non-quasi-split orthogonal G_n.",
+    "publishedLocator": "Section 2.2, Theorem 2.1, p. 753; Introduction, p. 740 (published); arXiv v4: pp. 16, 3"
+   }
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E5",
@@ -1087,7 +1218,455 @@
     "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
     "the article page on annals.math.princeton.edu (no erratum listed)",
     "web and Crossref searches for an erratum and for the cited preprint [44]"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the page image of p. 756. No proof is given; Section 6.1 (pp. 794–795) writes out the analogous tower argument only for residual representations.",
+    "by": "REV-PAPER-JIANG-ZHANG-20",
+    "amendedCorrection": "As E5. Proposition 2.2(2), the cuspidality of F^{O_{ℓ_0}}(C_π) for every O_{ℓ_0}, needs a proof for non-quasi-split G_n, including ℓ_0 = 0, the restriction case; part (1) is a definition of ℓ_0.",
+    "publishedLocator": "Section 2.3, Proposition 2.2 and the sentence before it, p. 756 (published); arXiv v4: p. 19"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E6",
+   "kind": "misprint",
+   "locator": "Section 2.2, the paragraph after Theorem 2.1, p. 753 (published only; arXiv v4, p. 16, is correct)",
+   "printed": "'The multiplicities of the discrete automorphic representations of classical groups depend on the multiplicity property of local Arthur packets, which is known for the p-adic and complex cases for general local Arthur parameters. However, for the general local Arthur packets, which is what we need in this paper, the multiplicity property holds for all local fields.'",
+   "correction": "'However, for the generic local Arthur packets, which is what we need in this paper, the multiplicity property holds for all local fields.'",
+   "reason": "The v4 TeX reads 'For the generic local Arthur packets that is what we need in this paper'; copy-editing changed 'generic' to 'general'. The printed sentence contradicts the preceding one (general parameters are known only in the p-adic and complex cases), and the next sentence concludes about generic global packets. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E7",
+   "kind": "error",
+   "locator": "Section 2.4, Proposition 2.5, p. 759 (published); arXiv v4: p. 22 (the same)",
+   "printed": "'Then the classical group H^{O_ℓ}_{ℓ⁻} = H^{w_0}_{ℓ⁻} is defined by an 𝔩⁻-dimensional non-degenerate subspace (W_{𝔩⁻}, q) of (V, q) with a (𝔡_0 − 1)-dimensional F-anisotropic kernel if y_{−κ} belongs to the G_{E/F}(1) × G_{n−ℓ}-orbit of a non-zero vector in the F-anisotropic kernel (V_0, q) of (V, q); … with a (𝔡_0 + 1)-dimensional F-anisotropic kernel if y_{−κ} does not belong to …'",
+   "correction": "Replace y_{−κ} by y_κ (= w_0) in both places. Equivalently: the anisotropic kernel of W_{𝔩⁻} = V_(ℓ) ∩ w_0^⊥ has dimension 𝔡_0 − 1 if (V_0, q) represents q(w_0, w_0) = (−1)^{𝔫+1}κ, and 𝔡_0 + 1 otherwise.",
+   "reason": "V_(ℓ) = W_{𝔩⁻} ⊕ ⟨w_0⟩ and V_(ℓ) ≅ H^{𝔯−ℓ} ⊕ V_0. By Witt cancellation, W_{𝔩⁻} has Witt index 𝔯 − ℓ (kernel of dimension 𝔡_0 − 1) iff V_0 ≅ ⟨q(w_0)⟩ ⊕ W_0, i.e. iff V_0 represents q(w_0). Equivalently, W_{𝔩⁻} = H′ ⊕ ⟨y_{−κ}⟩ with q(y_{−κ}) = −q(y_κ), whose kernel is that of V_0 ⊕ ⟨−q(w_0)⟩. Scaling by G_{E/F}(1) changes norms only by norms or squares, so the printed rule tests whether V_0 represents −q(w_0). Counterexample: F = Q, V = H² ⊕ ⟨1⟩ (𝔫 = 5, 𝔯 = 2, V_0 = ⟨1⟩), ℓ = 1, κ = 1. Then w_0 = e_2 + ½e_{−2} has norm 1 and W_{𝔩⁻} = ⟨e′_1, e_2 − ½e_{−2}⟩ ≅ ⟨1, −1⟩ is split (kernel of dimension 0 = 𝔡_0 − 1). But y_{−1} has norm −1, which is not a square, so it is in the orbit of no vector of V_0, and the printed rule gives 𝔡_0 + 1 = 2. κ = −1 gives the opposite failure. The authors' commented-out remark in the v4 TeX (Section 4.3: G^{w_0}_{m⁻} is anisotropic when '(−1)^{𝔪+1}κ is not represented by (W_0, q)') uses the corrected criterion. Proposition 2.5 is not cited elsewhere, so nothing downstream depends on it. Checked on the page image.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E8",
+   "kind": "misprint",
+   "locator": "Section 4.6, (4.47), p. 780 (published); arXiv v4: p. 45 (the same)",
+   "printed": "'ρ = … As ⊗ ξ^m if H_{m+a} is a unitary group.'",
+   "correction": "ρ = As^{(−1)^𝔪} in the notation of Section 2.2: As^+ if 𝔪 = dim W is even, As^− = As ⊗ ω_{E/F} if 𝔪 is odd.",
+   "reason": "ξ is not defined in Section 4; elsewhere it is the L-embedding of the endoscopic datum. No fixed ξ can work with the exponent m = [𝔪/2]: 𝔪 = 1 gives m = 0 but needs the twisted Asai factor. L(2s + 1, τ, ρ) is the second normalizing factor of the intertwining operator for GL_a × U(W) ⊂ U(W_{𝔪+2a}), and Proposition 5.2 needs L(s, τ_i, ρ) to have a pole at s = 1 for τ_i of the parity opposite to φ_σ. With κ = 1, parameters of U(N′) have every summand of sign (−1)^{N′−1}, so (τ_i, 2) ⊞ φ_σ is a parameter of U(𝔪 + 2a) iff η_{τ_i} = (−1)^𝔪, i.e. iff L(s, τ_i, As^{(−1)^𝔪}) has a pole. Sanity check: U(1,1) with Siegel Levi E^× has normalizing factor L(2s, χ|_{A_F^×}) = L(2s, χ, As^+) (𝔪 = 0). Checked on the page image and in the TeX ('\\Asai\\otimes \\xi^m').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E9",
+   "kind": "misprint",
+   "locator": "Section 4.6, the remarks after (4.47), p. 780 (published only; arXiv v4, p. 45, reads 'G.C.D.')",
+   "printed": "'Formally, one may take the greatest common denominator of the ramified local zeta integrals as the definition …'",
+   "correction": "'the greatest common divisor (g.c.d.) of the ramified local zeta integrals', i.e. the normalized generator of the fractional ideal of C[q^{±s}] they span.",
+   "reason": "The v4 TeX has 'the G.C.D. of the ramified local zeta integrals'; copy-editing expanded it wrongly. The local L-factor defined this way is the g.c.d. (divisor) in the sense of Jacquet–Piatetski-Shapiro–Shalika. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E10",
+   "kind": "misprint",
+   "locator": "Section 2.1, last paragraph, p. 750 (published); arXiv v4: p. 13 (the same)",
+   "printed": "'For a number field F, G_n is a pure inner F-form of an F-quasisplit G*_n if it is obtained by inner twisting by elements in the pointed set H¹(F, G_n).'",
+   "correction": "'… by elements in the pointed set H¹(F, G*_n).'",
+   "reason": "Pure inner forms of G*_n are the twists of G*_n by cocycles in H¹(F, G*_n) ([Vog93], [GGP12, §2]); twisting by H¹(F, G_n) presupposes G_n. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E11",
+   "kind": "misprint",
+   "locator": "Section 2.4, Lemma 2.4, p. 759 (published); arXiv v4: p. 22 (the same)",
+   "printed": "'there exists an element g in G_{𝔫−2ℓ}(F) = Isom(V_(ℓ), q)°(F)'",
+   "correction": "G_{n−ℓ}(F) = Isom(V_(ℓ), q)°(F)",
+   "reason": "Groups are indexed by n = [𝔫/2] (Section 2.1, 'G_n = Isom(V, q)° … with n = [𝔫/2]'), and dim V_(ℓ) = 𝔫 − 2ℓ gives index n − ℓ, as the sentence before (2.14) has ('the action of the product G_{E/F}(1) × G_{n−ℓ}'). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E12",
+   "kind": "error",
+   "locator": "Section 2.3, (2.7)–(2.9) and the paragraph after (2.9); Section 2.4, before (2.11), pp. 754–757 (published); arXiv v4: pp. 17–21 (the same)",
+   "printed": "'In this case, the F-algebraic group H^{O_ℓ} is the classical group H^{O_ℓ}_{ℓ⁻} = Isom(W^{O_ℓ}, q)°, where (W^{O_ℓ}, q) is an 𝔩⁻-dimensional non-degenerate subspace … 𝔩⁻ = 𝔫 − 2ℓ − 1' and 'the F-rational nilpotent orbits O_ℓ in the F-stable nilpotent orbit O^{st}_{p_ℓ} are in one-to-one correspondence with the G_{E/F}(1) × G_{n−ℓ}-orbits of F-anisotropic vectors in (E^{𝔫−2ℓ}, q)'",
+   "correction": "State these for 1 ≤ ℓ ≤ 𝔯, and define the ℓ = 0 case separately as the paper uses it (Gan–Gross–Prasad's restriction case): for an F-anisotropic w_0 ∈ V, F^{O_0}(C_π) is the space of restrictions of forms in C_π to H^{w_0}_{0⁻}(A) = Isom(V ∩ w_0^⊥, q)°(A), and 'O_0' is the G_{E/F}(1) × G_n-orbit of w_0.",
+   "reason": "For ℓ = 0, p_0 = [1^𝔫] is the zero orbit, a single F-rational orbit, so the orbit correspondence fails. Also V_{p_0} = 1, and (2.7)–(2.8) give F^{ψ_{O_{p_0}}}(φ) = φ and H^{O_{p_0}} = G_n, not a group of dimension-(𝔫 − 1) type. (2.11)–(2.12) do not make sense for ℓ = 0 (no y_ℓ); only (2.13), the stabilizer of the vector J w_0, does. The paper nevertheless uses ℓ = 0 as the restriction case: for anisotropic G_n only p_0 is relevant, yet Conjecture 2.3 and Theorem 5.7 with ℓ_0, ℓ* = 0 pair π with σ on a group of dimension-(𝔫 − 1) type. The intended meaning is recoverable, so nothing downstream fails.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E13",
+   "kind": "misprint",
+   "locator": "Section 4.1, (4.3), p. 765, and (4.9), p. 766; Section 4.5, the formula after (4.42), p. 778 (published); arXiv v4: pp. 29–30, 43 (the same)",
+   "printed": "(4.3) 'E(h, φ, s) = E(h, φ_{τ⊗σ}, s) = Σ_{δ ∈ P_â(F)\\H_{a+m}(F)} φ_s(δg)'; (4.9) 'Z(s, φ_π, φ_{τ⊗σ}, ψ_{ℓ,w_0}) := P^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s), φ_π)'; after (4.42): 'φ_s^{ψ_{Z_a,κ}}(h) = ∫_{[Z_a]} φ_s(z) ψ_{Z_a,κ}(z) dz'",
+   "correction": "(4.3): φ_s(δh). (4.9): Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}), the argument order used everywhere else. After (4.42): φ_s(zh).",
+   "reason": "Variable and argument-order slips; the intended formulas are clear from (4.29) and the surrounding text. Checked on the page images.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E14",
+   "kind": "misprint",
+   "locator": "Section 4.4, the line after (4.25), p. 772 (published); arXiv v4: p. 37 (the same)",
+   "printed": "'where H^η_m is a subgroup of G^{w_0}_{m−1} and P^1_β is the mirabolic subgroup of G_{E/F}(β)'",
+   "correction": "H^η_m is a subgroup of G^{w_0}_{m⁻}.",
+   "reason": "(4.25) is a statement about C_{β−1,η}\\G^η_{m⁻} ⊂ G^{w_0}_{m⁻}; no group G^{w_0}_{m−1} occurs. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E15",
+   "kind": "misprint",
+   "locator": "Section 4.7, pp. 781–782 (published); arXiv v4: p. 46 (the same)",
+   "printed": "'First, P_j is the standard parabolic subgroup of SO_{4a+2m} with Levi subgroup isomorphic to GL_ℓ × SO_{4n+2m−2ℓ}(W_ℓ). … The inner period over π is arisen from the open double coset of P_j\\SO_{4n+2m}/G·N_ℓ.'",
+   "correction": "The ambient group must be one group throughout; it is written both SO_{4a+2m} and SO_{4n+2m}. A Levi subgroup GL_ℓ × SO(W_ℓ) of it has SO-factor of dimension (ambient dimension) − 2ℓ, and, since P_j is then used as the parabolic of the Eisenstein series (G^η = G ∩ η^{-1}P_jη, open coset of P_j\\SO/G·N_ℓ), its Levi is presumably GL_j × SO(W_j), with GL_ℓ × SO(W_ℓ) being the Levi of the parabolic that normalizes N_ℓ.",
+   "reason": "An internal inconsistency in the same paragraph (checked on the page images of pp. 781–782). The subsection is an explanatory remark in the notation of [45], and no result depends on it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E16",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5: Case (1), H_m split odd orthogonal with G^{O_κ}_{κ⁻} split, p. 798; Case (2), ω_{τ,ν} = λ_0, p. 799 (arXiv v4: same text)",
+   "printed": "p. 798: 'one has F^{O_κ}_{κ⁻}(Σ_ν) = 0 for κ > a/2 + 𝔯_m, and for κ = a/2 + 𝔯_m − 1, F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ μ_{a/2} ⊕ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ μ^{−1}_{a/2}. Since 𝔯_m = m, we have that G^{O_κ}_{κ⁻} is isomorphic to the split special even orthogonal SO_a'. p. 799: 'one has F^{O_κ}_{κ⁻}(Σ_ν) = 0 for κ > a/2 + m, and for κ = a/2 + m − 1, F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ 1'",
+   "correction": "κ = a/2 + 𝔯_m (= a/2 + m) in both places.",
+   "reason": "In both cases H_m = SO_{2m+1} is split (𝔪 = 2m + 1, 𝔯_m = m) and G_n is even orthogonal with 𝔫 = a. So ℓ_0 = (𝔫 − 𝔪 − 1)/2 = a/2 − m − 1 and κ_0 = a − ℓ_0 − 1 = a/2 + m. The stabilizer G^{O_κ}_{κ⁻} of an anisotropic vector in V_{(κ)} (dim 2a + 𝔪 − 2κ) has dimension 2a + 2m − 2κ. This equals a (the SO_a whose torus carries the displayed a/2 characters, split or with an anisotropic SO_2) exactly when κ = a/2 + m; at κ = a/2 + m − 1 it would be SO_{a+2}. As printed, the vanishing range 'κ > a/2 + 𝔯_m' also leaves κ = a/2 + 𝔯_m unaddressed. Checked on the page images of pp. 798–799 and in the TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E17",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5, Case (1), p. 798 (arXiv v4: same text)",
+   "printed": "'and if H_m is odd unitary, then 𝔯_m = m and G^{O_κ}_{κ⁻} is isomorphic to the quasi-split odd unitary U_{a+1}.'",
+   "correction": "the quasi-split even unitary group U_a.",
+   "reason": "Here H_m = U_{2m+1} (𝔪 = 2m + 1) and G_n = U_𝔫 with 𝔫 = N = a. Integrality of ℓ_0 = (a − 𝔪 − 1)/2 forces a even, as the proof itself says for Case (1). At κ = a/2 + 𝔯_m, V_{(κ)} has dim_E 2a + 𝔪 − 2κ = a + 1, so the stabilizer of an anisotropic vector is U_a. This matches 𝔪⁻ = 𝔫 = a in (5.9) and the a/2 characters μ_1, …, μ_{a/2} of its torus (E_ν^×)^{a/2} in the displayed Ind μ_1 ⊗ ⋯ ⊗ μ_{a/2}. U_{a+1} would need an additional U_1-character.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E18",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5, Case (2), (6.6), p. 799 (arXiv v4: same text)",
+   "printed": "'(6.6) F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind^{G^{O_κ}_{κ⁻}}_{B_{G,a}} μ_1 ⊗ μ_2 ⋯ ⊗ μ_{[a/2]−1} ⊗ 1, where 1 is the trivial character of U_1(F_ν).'",
+   "correction": "Ind μ_1 ⊗ μ_2 ⊗ ⋯ ⊗ μ_{[a/2]} ⊗ 1.",
+   "reason": "Here H_m = U_{2m} is quasi-split, a is odd, κ = [a/2] + m, and the stabilizer is the quasi-split U_a (dimension 2a + 2m − 2κ − 1 = a). Its maximal torus is (E_ν^×)^{[a/2]} × U_1. τ_ν has Satake parameter {μ_i, μ_i^{−1} (1 ≤ i ≤ [a/2]), 1} (ω_{τ,ν} = 1), and all [a/2] characters appear in the inducing data of Σ_ν and of τ_1 on the same page. With μ_{[a/2]} dropped, the displayed representation lives on U_{a−2} and could not transfer to τ_ν as the lemma asserts. Compare the orthogonal case ω_{τ,ν} = λ_0 on the same page, where exactly one pair (1, λ_0) is absorbed by the anisotropic torus.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E19",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Proposition 6.4, p. 796 (arXiv v4: pp. 61–62)",
+   "printed": "'Take the element ε = diag{−I_κ, I_{a+𝔯_𝔪−κ−1}, −1, I_{𝔪−2𝔯_𝔪}, −1, I_{a+𝔯_𝔪−κ−1}, −I_κ}. It is easy to check that ε ∈ H_{a+m} and it stabilizes w_0. Note that the stabilizer of w_0 is SO(V_{(κ)} ∩ w_0^⊥, q) ⋊ ⟨ε⟩, which is isomorphic to O(V_{(κ)} ∩ w_0^⊥, q).'",
+   "correction": "ε sends w_0 to −w_0. It stabilizes the line F w_0 and the character ψ_{κ,w_0}, and ε normalizes SO(V_{(κ)} ∩ w_0^⊥, q), and SO(V_{(κ)} ∩ w_0^⊥, q) ⋊ ⟨ε⟩ ≅ O(V_{(κ)} ∩ w_0^⊥, q) stabilizes ψ_{κ,w_0} and the line F w_0, not the vector w_0.",
+   "reason": "ε has −1 at the positions of e_{a+𝔯_𝔪} and e_{−(a+𝔯_𝔪)}, so εw_0 = −w_0 for w_0 = e_{a+𝔯_𝔪} + (−1)^{𝔫+1}(x/2)e_{−(a+𝔯_𝔪)} (2.14). No element of H_{a+m} in the Levi GL_1^κ × SO(V_{(κ)}) can fix w_0 and act with determinant −1 on V_{(κ)} ∩ w_0^⊥, since its SO(V_{(κ)})-component has determinant 1. The proof needs only what holds: ε ∈ H_{a+m}(F) fixes ψ_{κ,w_0}(v) = ψ_E(Σ z_{i,i+1} + q(y_κ, w_0)) (2.12), because both y_κ and w_0 change sign, and conjugation by ε is the outer automorphism of SO(V_{(κ)} ∩ w_0^⊥). The next paragraph indeed says 'since ε stabilizes ψ_{κ,w_0}'. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E20",
+   "kind": "misprint",
+   "locator": "Section 7.1, proof of Theorem 7.1, last paragraph, p. 808 (arXiv v4: p. 75)",
+   "printed": "'Because the direct sum decomposition of F^{O_{κ_0}}_n(E_{τ⊗σ}) is multiplicity free, it follows that F^{O_{κ_0}}_n(E_{τ⊗σ}) must be of the form F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π ⊕ π⋆ ... then we must have F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π.'",
+   "correction": "E_{τ⊗σ′} throughout this paragraph, with σ′ = σ^{w_q^{ℓ_0}}. Conjecture 6.7 then holds with the datum (H_m, σ′).",
+   "reason": "In this proof σ is the representation of Conjecture 2.3 with ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), \\bar φ_σ⟩_{H_m} ≠ 0. Theorem 5.3 then gives F^{ψ_{O_{κ_0}}}(E_{τ⊗σ′}) ≠ 0, and the decomposition and identification are carried out for F^{O_{κ_0}}_n(E_{τ⊗σ′}) (p. 808). The conclusion switches to E_{τ⊗σ}. The two differ when H_m is even special orthogonal and ℓ_0 is odd, where w_q acts by the outer automorphism. Section 6.2 labels the other way round (σ′ pairs with π), so the proof mixes the conventions. The theorem is unaffected, since σ′ ∈ A_cusp(H_m) has an H_m-relevant generic parameter. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E21",
+   "kind": "error",
+   "locator": "Section 7.2, before Corollary 7.2, p. 809, and the parallel sentence after (6.8), p. 802 (arXiv v4: p. 75; pp. 67–68)",
+   "printed": "'In this case, Conjecture 2.3 holds automatically without (H_m, σ). The residual representation is E_τ on the F-quasisplit H*_a(A). The automorphic descent of Ginzburg-Rallis-Soudry in [23] shows that D^{O_{κ_0}}_n(τ; ∅) = F^{O_{κ_0}}_n(E_τ) is a non-zero cuspidal automorphic representation of G*_n(A).'",
+   "correction": "This holds when the first-occurrence space is trivial: G*_n = SO_{2n+1} or U_{2n+1} (𝔪 = 0), and SO_{2n} (𝔪 = 1, H_0 = SO_1 = 1). For G*_n = U_{2n}, a generic π has first occurrence ℓ_0 = n − 1 with p_{ℓ_0} = [(2n−1)1] and H_m = U_1 (m = 0, 𝔪 = 1). Conjecture 2.3 holds with the datum (U_1, χ) for a character χ of U_1(F)\\U_1(A) with non-zero Bessel period, as in the U_{2n} case of Section 7.3. The residue is E_{τ⊗χ} on U_{4n+1}, and Corollary 7.2 follows from Theorem 7.1 with this datum. The statement of Corollary 7.2 stands.",
+   "reason": "For G*_n = U_{2n}, a = N = 2n and H*_a = U_{4n}. Every partition p_κ = [(2κ+1)1^{4n−2κ−1}] of U_{4n} has stabilizer U_{4n−2κ−1} of odd dimension, never U_{2n}. Equivalently, ℓ_0 = (𝔫 − 𝔪 − 1)/2 is not an integer for 𝔫 = 2n, 𝔪 = 0. So F^{O_{κ_0}}_n(E_τ) with E_τ on H*_a does not produce a representation of U_{2n}. Every Bessel partition [(2ℓ+1)1^{2n−2ℓ−1}] of U_{2n} has 𝔪 ≥ 1, so a non-trivial H_m = U_𝔪 always occurs.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E22",
+   "kind": "gap",
+   "locator": "Section 5.3, proof of Proposition 5.6 (arXiv v4: p. 54). Corrected in the published version, p. 790.",
+   "printed": "arXiv v4: 'By Proposition 5.5, there exists a smooth factorizable section φ_{τ⊗σ′} such that the finite product of the local zeta integral Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is nonzero at s = 1/2. Hence the normalized Z*_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is also nonzero at 1/2.'",
+   "correction": "Since Z*_S = Z_S / L_S, one needs L_S(s, τ, π, σ; ρ) = Π_{ν∈S} L(s, τ_ν, π_ν, σ_ν; ρ) to be holomorphic at s = ½. The published proof supplies this: by the generic unitary duals of τ_ν, π_ν and σ_ν, as in Appendix B, each L(s, τ_ν, π_ν, σ_ν; ρ) is holomorphic for Re(s) ≥ ½.",
+   "reason": "If L_S had a pole at ½, then Z_S(½) ≠ 0 would give Z*_S(½) = 0. Local L-factors have no zeros, so only the numerator L(s + ½, τ_ν × π_ν) of (4.47) matters. Its poles satisfy Re(s + ½) ≤ α + β < 1 when the exponents of τ_ν and of the localized parameter of π are < ½ ((B.5)–(B.6)), and this gives holomorphy for Re(s) ≥ ½. The published text (p. 790, 'By using the structures of generic unitary dual of τ_ν, π_ν, and σ_ν ... is holomorphic for Re(s) ≥ 1/2') adds exactly this step. The gap is known: the published version corrects it.",
+   "affects": "the proof",
+   "known": "corrected in the published version, Ann. of Math. 191 (2020), Section 5.3 (the printed proof of Proposition 5.6 supplies the missing step); the gap is in arXiv v4",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E23",
+   "kind": "misprint",
+   "locator": "Appendix B, Proposition B.1, p. 818 (arXiv v4: p. 85)",
+   "printed": "'that is, the induced representations displayed in (B.2) are irreducible for all pure inner forms H_m and σ_0 ∈ Π̃_φ(H_{n_0}).'",
+   "correction": "σ_0 ∈ Π̃_{φ_0}(H_{n_0}).",
+   "reason": "σ_0 runs through the tempered packet of φ_0 (the text before (B.2), p. 817). φ is a parameter of H*_m, not of H_{n_0}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E24",
+   "kind": "misprint",
+   "locator": "Appendix A, proof of Proposition A.1, p. 816 (arXiv v4: the paragraphs before (A.20) and (A.21))",
+   "printed": "'Because M = I_m and X′E_1 = Y′E_2 in (A.14)'; 'due to AE_1 = (ι(ĝ) − I_a)E_2 in (A.14)'; 'As A = 0_{(a−ℓ)×(a−ℓ)} and AE_1 = (ι(ĝ) − I_a)E_2 in (A.14)'",
+   "correction": "'Because h = I_𝔪 and X′E_1 = Y′E_2', and I_{a−ℓ} in place of I_a (twice).",
+   "reason": "(A.14) reads X′E_1 = h · Y′E_2 and AE_1 = (ι(ĝ) − I_{a−ℓ})E_2, and h = I_𝔪 was chosen on p. 814. There is no M, and g ∈ GL_{a−ℓ}(E_ν).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E25",
+   "kind": "misprint",
+   "locator": "Appendix A, first paragraph, p. 810 (arXiv v4: p. 77)",
+   "printed": "'From Proposition 5.4, Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ_0}}) converges absolutely for Re(s) large, has a meromorphic continuation to s ∈ C, and is holomorphic at s = 1/2.'",
+   "correction": "Proposition 5.4 concerns Z*_S = Z_S / L_S and proves only its meromorphy and its holomorphy at ½. Z_S is then meromorphic, and it is holomorphic at ½ because L_S(s, τ, π, σ; ρ) is (published proof of Proposition 5.6, p. 790). The absolute convergence of the local integrals is the deferred input of E3. (The subscript κ_0 stands for κ* of Section 5.)",
+   "reason": "Compare the statement of Proposition 5.4 (p. 787), which is about Z*_S and says nothing on convergence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "found and checked on the page image by the review",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E26",
+   "kind": "gap",
+   "affects": "a stated result",
+   "locator": "Section 5.5, the paragraph before Theorem 5.7 and Theorem 5.7, p. 791 (published); arXiv v4: pp. 55–56 (the same)",
+   "printed": "Because σ̄ is isomorphic to the contragredient σ∨ of σ, it follows that L(s, τ × σ∨) is holomorphic and non-zero at s = 1/2, and so is L(s, τ × σ). … Then the tensor product L-function L(s, π×σ) = L(s, τ × σ) must be holomorphic and non-zero at s = 1/2",
+   "correction": "State the conclusion as L(s, τ × σ∨) holomorphic and non-zero at s = 1/2, which is what the argument proves for the sesquilinear period ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩; for the bilinear GGP period of π ⊠ σ the conclusion is L(1/2, τ × σ) ≠ 0. For orthogonal groups σ∨ ≅ σ (up to the Õ-twist, with the same L-function), so nothing changes there; for unitary groups the two central values differ in general.",
+   "reason": "For unitary groups BC(σ)∨ ≅ BC(σ)^c, so L(1/2, τ × σ∨) = L(1/2, τ × BC(σ)^c) = L(1/2, τ^∨ × BC(σ)), which is a different central value from L(1/2, τ × BC(σ)); already for GL₁ × GL₁ these are L(1/2, χμ) and L(1/2, χμ⁻¹) for conjugate-self-dual characters, which can vanish independently. The printed 'and so is L(s, τ × σ)' is therefore unjustified for unitary groups; it is harmless for orthogonal groups. The statement is plausibly true with the matching convention, which is how [GGP12, Conj. 24.1] is formulated (bilinear period of π ⊠ σ).",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "raised by the first checker and verified by the coordinator on the page image and against the GGP conventions",
+    "by": "REV-PAPER-JIANG-ZHANG-20"
+   }
   }
  ]
 }
