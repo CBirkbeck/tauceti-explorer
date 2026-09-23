@@ -4254,8 +4254,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4809,7 +4809,8 @@
    ],
    "avoidAccountOf": "PAPER-XU-ZHU-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-XU-ZHU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1285"
   },
   {
    "id": "PAPER-CASTELLA-ETAL-22",
