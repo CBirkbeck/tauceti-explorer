@@ -2241,8 +2241,9 @@
    ],
    "avoidAccountOf": "PAPER-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1142"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1142",
+   "finishedAt": "2026-09-23T17:11:36Z"
   },
   {
    "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -7177,7 +7178,8 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1421"
   },
   {
    "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
