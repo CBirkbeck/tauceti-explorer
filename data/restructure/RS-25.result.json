@@ -1,0 +1,564 @@
+{
+  "family": "RS-25",
+  "roadmaps": {
+    "NeronModelsAndSemistableAbelianVarieties": {
+      "action": "keep",
+      "reason": "A scheme-theoretic theory of Neron models and degeneration of general abelian varieties is not supplied by either the equation-level elliptic roadmap or curve stable reduction. Keep the six stages and public invariants; import their precise special cases and prove comparisons. This is a cross-cutting BLR/monodromy development, not a continuation of the stable-map summit or a replacement elliptic roadmap."
+    },
+    "SchemeAndStackFoundations": {
+      "action": "keep",
+      "reason": "General scheme, stack, cohomological and intersection interfaces have independent consumers. Keep the seven stages, but remove duplicate construction ownership of the finite-generated relative-Proj case, polarized etale descent and reduction theorems. The remaining generalizations build on the unchanged special-case owners, with compatibility, rather than shrinking to curve theory."
+    }
+  },
+  "layers": {
+    "NeronModelsAndSemistableAbelianVarieties:R11.1": {
+      "action": "keep",
+      "reason": "Keep local existence/smoothening over excellent DVRs and the stated Dedekind bases; dense-open extension and local-to-global gluing, finite type, the mapping property for all smooth test schemes, uniqueness and functoriality, the global invariant-differential lattice and its localizations, abelian-scheme good reduction, and permitted etale/unramified base change. SF.4 is an importer, not a competing Neron-model owner. No arbitrary ramified base-change theorem or properness is added."
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.2": {
+      "action": "keep",
+      "reason": "Keep identity and component groups, toric/abelian parts, character groups and isogeny exact sequences. EC Layer 4 supplies equation-level E1, E0, reduction and the algorithmic index. R11.2 owns the additional identification with Neron special-fibre data, including the distinction between geometric components and residue-field points and the wild-prime cases. The input and the comparison are not duplicate theorems."
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.3": {
+      "action": "keep",
+      "reason": "Keep semistable reduction and the inertia-monodromy criterion for general abelian varieties, plus Raynaud extension and the source-scoped formal/analytic uniformisation with polarization and lattice conditions. Curve reduction in SR Layer 7 and its later curve-Jacobian criterion do not supply this whole theorem. Compare the elliptic point-level Tate uniformisation; do not rebuild it or infer a rigid quotient from a point bijection."
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.4": {
+      "action": "keep",
+      "reason": "Keep the degree-zero Picard scheme/generalised Jacobian of semistable curves, toric character lattice, monodromy pairing, integral component-group comparison under exact regularity hypotheses, and relation to the Jacobian Neron model. Import smooth proper Picard/Jacobian objects from Jacobian Layer D, the nodal dual graph from SR Layer 1, and numerical types, weighted Pic(T) and line-bundle specialization from SR Layer 6. Neither numerical Pic(T) nor the raw matrix cokernel is already the geometric object. SF.3 already integrates smooth theory and does not claim this degeneration comparison."
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.5": {
+      "action": "keep",
+      "reason": "Keep general-abelian Neron-Ogg-Shafarevich, good/semistable Galois comparisons, preservation of good reduction under isogeny and the local Euler-factor comparison retaining monodromy. Import the elliptic NOS special case from EC Layer 4, Tate modules from R01.6, conductors and their general elliptic comparison from R01.3, and p-adic comparison from R06.6. The semistable algorithmic-Artin special case reserved by EC Layer 8 remains there. No general or wild comparison is dropped merely because an algorithmic exponent exists."
+    },
+    "NeronModelsAndSemistableAbelianVarieties:R11.6": {
+      "action": "keep",
+      "reason": "Keep the consumer-facing assembly of character-group and monodromy sequences with degeneracy-map functoriality, R25/R28 good and semistable inputs, and the R29 equation-versus-scheme invariant dictionary. Reuse R11.2 for component comparisons, R11.1 for differential lattices, SR Layer 5 for regular-model geometry, EC Layer 4 for local equation outputs and R01.3 for the conductor bridge. Preserve public definitions; assembling comparisons is not reconstructing those inputs."
+    },
+    "SchemeAndStackFoundations:SF.0": {
+      "action": "narrow",
+      "keeps": "Reuse the audited library carriers, morphisms, modules, gluing, pullbacks and morphism properties. Keep the missing relative-Spec interface and general relative-Proj construction beyond the finite-generated case of SR Layer 2, including affine restriction, twists and base-change compatibility. On the common domain identify the general construction canonically with the existing owner; do not assert properness or invertibility of O(1) for arbitrary graded algebras. Retain the original named-arrow acceptance checks.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ],
+      "reason": "Narrow proof ownership only: SR Layer 2 owns relative Proj of finitely generated graded quasi-coherent algebras and its stated projective-morphism package. This is not a reason to delete the more general relative-Proj target. Audited existing foundations are imports, not new work."
+    },
+    "SchemeAndStackFoundations:SF.1": {
+      "action": "narrow",
+      "keeps": "Keep effective fpqc/fppf descent for explicitly specified effective object classes beyond the polarized etale case of SR Layer 2 and beyond the classes owned by Tau Ceti ModularCurves 0E (affine schemes, finite locally free schemes and closed subschemes, sections and morphisms, polarized projective relative curves, group objects, finite group actions and torsors, with spreading out); algebraic-space quotients, representable diagonals, atlas independence, and the distinction between stacks, moduli functors, coarse and fine spaces. On polarized etale data compare the broader construction with SR Layer 2, including morphisms, sections and the polarization cocycle. Neither arbitrary scheme descent nor properness of a moduli stack follows from this import.",
+      "suppliedBy": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
+      ],
+      "reason": "Remove a second construction of polarized etale scheme descent already owned by SR Layer 2. Preserve the genuinely broader descent and space/stack targets and their effectiveness hypotheses. Review correction: Tau Ceti ModularCurves 0E already owns effective faithfully flat descent for its listed classes, so those are imports too."
+    },
+    "SchemeAndStackFoundations:SF.2": {
+      "action": "keep",
+      "reason": "Keep the stated site and coefficient-sensitive cohomology comparisons, localization, proper/smooth base change and compact support, integrating the already named CohomologicalPointCounting and EtaleDualityAndPerverseSheaves owners. No independent six-operations theory or removal of these targets is proposed by RS-25."
+    },
+    "SchemeAndStackFoundations:SF.3": {
+      "action": "keep",
+      "reason": "Keep integration of AlgebraicCurves and JacobianChallenge: divisors, line bundles, Riemann-Roch, Serre duality, genus, smooth proper Picard/Jacobian objects and Abel-Jacobi, plus the stated scalar-extension and Tate-module/cohomology compatibility checks. Preserve smoothness, projectivity, connectedness and base-point hypotheses. R11.4 is a distinct degeneration extension, not a replacement supplier for all smooth Picard theory."
+    },
+    "SchemeAndStackFoundations:SF.4": {
+      "action": "narrow",
+      "keeps": "Keep infinitesimal lifting, obstruction complexes, formal schemes and algebraization with comparison to completion; source-scoped alterations, modifications and proved resolution settings. Reduction outputs remain available as named imports, not new proofs: Neron models from R11.1, general abelian semistable reduction from R11.3, nodal curve reduction from SR Layer 7, unpointed stable reduction from SR Layer 8 and pointed stable reduction from SR Layer 9. Each model retains its base, generic-fibre identification and permissible extension; none of the different reduction predicates is identified by definition.",
+      "suppliedBy": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
+      ],
+      "reason": "Replace the unscoped semistable/stable/Neron construction wording with exact existing owners. The retained formal and birational programme is not supplied by curve reduction, and an alteration is not a modification. Existing consumer interfaces are preserved by explicit forwarding."
+    },
+    "SchemeAndStackFoundations:SF.5": {
+      "action": "keep",
+      "reason": "Keep general Chow groups, rational equivalence, pushforward, flat/lci pullback, Gysin and Chern operations, source-scoped GRR, Hodge index, surface Riemann-Roch, adjunction and the graph/diagonal route to Weil bounds. Import and compare the arithmetic-surface intersection case of SR Layer 4 rather than rebuilding that special case. The general intersection programme is not deleted."
+    },
+    "SchemeAndStackFoundations:SF.6": {
+      "action": "keep",
+      "reason": "Keep the natural arithmetic-cohomology comparison maps, their isomorphism hypotheses, and compatibility of cycle classes, traces and pairings, with topology, completion and coefficient restrictions. This is a consumer interface, not a second definition of the theories it compares."
+    }
+  },
+  "links": [
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "reason": "Supply Artin/Swan conductors with monodromy and the elliptic conductor comparison, including wild contributions. Retain the distinction from EC algorithmic exponents."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "Supply the ramification-theoretic elliptic conductor comparison to the consumer invariant dictionary; it is not already the equation-level Tate-algorithm result."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "reason": "Use the inverse-limit Tate module and continuous action as input to the monodromy criterion. Do not require the later R11.5 criterion merely to define its representation."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "reason": "Supply Tate-module construction, residual comparison and isogeny compatibility; R11.5 proves the stated model/Galois comparisons rather than a duplicate inverse-limit module."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "Supply the global invariant-differential lattice and its localizations to the invariant dictionary; equation-level differentials are compared with that lattice."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.4. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "Reuse the component-group/elliptic-filtration comparison in the downstream dictionary rather than owning the same comparison twice."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.4. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "reason": "Equation-level reduction filtration, algorithmic component count and c_p supply the input to the Neron comparison; equality with geometric scheme data is proved in the consumer."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "reason": "The point-level elliptic Tate uniformisation is the compatibility case for general Raynaud/formal uniformisation, not its proof or its rigid-space quotient."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "reason": "Import the elliptic NOS statements as the special case of the general abelian criterion. Preserve ell different from residue characteristic, and the potential-good hypothesis of the finite-level version."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "Supply local minimal-equation invariants and Tate-algorithm outputs to the R29 invariant dictionary, without identifying the algorithmic exponent with the Artin conductor by definition."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "reason": "Preserve EC Layer 8's named semistable algorithmic-Artin comparison as the special-case compatibility input, without treating it as the full wild-prime theorem."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "The semistable conductor compatibility reserved in EC Layer 8 is reused in the invariant dictionary, not reassigned or used as a substitute for the general comparison."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "reason": "Supply the smooth proper Picard/Jacobian object that the semistable degeneration construction must extend and recover on smooth fibres."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "Make the existing smooth relative-Picard and Jacobian integration explicit; this does not import semistable Picard/Neron comparison backwards into smooth foundations."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "reason": "Supply the Abel-Jacobi morphism and universal property, including the base-point convention, for the existing integration target."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "reason": "Supply the nodal dual graph with branches, loops and multiple edges. Construct its character-lattice and monodromy interpretation in R11.4; do not replace it with the simple adjacency graph of a numerical type."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "ArithmeticDynamics:DY.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.0",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.0. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.1",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5). Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.1. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "TropicalAndBerkovichArithmetic:TB.4",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.0; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "The general intersection theory must recover the arithmetic-surface Cartier/Weil intersection and projection formulas already owned by SR Layer 4; no second special-case construction."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "reason": "Supply regular/minimal curve models and special-fibre component multiplicities for the equation-versus-scheme dictionary. Keep model geometry separate from the Neron mapping property."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "reason": "Supply numerical types, weighted Pic(T), and the regular-model line-bundle specialization comparisons. R11.4 adds the geometric Picard/Neron interpretation with integral and residue-field hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.4. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.4. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.4. Preserve the supplier hypotheses and canonical comparison; the public interface remains available."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.4; inherited interface, not a claim that every supplier theorem is used (report section 5)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.1",
+      "reason": "Named import for the construction-ownership boundary in SchemeAndStackFoundations:SF.1: the effective faithfully flat descent classes of ModularCurves 0E are imported, and SF.1 proves only the broader classes and the algebraic-space/stack interfaces (review correction)."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.2",
+      "reason": "Protocol 15 forwarding of SchemeAndStackFoundations:SF.1 after the review correction naming ModularCurves 0E as a supplier; inherited interface, not a claim that every supplier theorem is used."
+    }
+  ],
+  "owners": [
+    {
+      "target": "Neron models, their mapping property, local/Dedekind existence, uniqueness and invariant-differential lattices",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "target": "Equation-level elliptic reduction filtration, Tate algorithm, ReductionSymbol and point-group index c_p",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.2",
+        "NeronModelsAndSemistableAbelianVarieties:R11.6"
+      ]
+    },
+    {
+      "target": "Comparison of Neron special-fibre component data with the elliptic filtration and algorithmic component outputs",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.6"
+      ]
+    },
+    {
+      "target": "General abelian semistable reduction and inertia-monodromy criterion",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "target": "Point-level elliptic Tate uniformisation in the exact discrete and rank-one scopes of EC Layer 4",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.3"
+      ]
+    },
+    {
+      "target": "General Raynaud extension and formal/analytic abelian uniformisation with polarization and lattice conditions",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "formerly": []
+    },
+    {
+      "target": "Nodal reduction of curves after finite separable DVR extension, and the separately scoped curve-Jacobian criterion",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "target": "Canonical contraction and unpointed stable curve reduction with the stated genus hypotheses",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "target": "Pointed stable curve reduction in the range 2g - 2 + n > 0",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "target": "Smooth proper relative Picard functor and Jacobian scheme",
+      "owner": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.3",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ]
+    },
+    {
+      "target": "Nodal dual graph with branch pairing, loops, multiple edges and component genera",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ]
+    },
+    {
+      "target": "Numerical types, weighted Pic(T), and line-bundle specialization in the Artin-Winters curve-reduction argument",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ]
+    },
+    {
+      "target": "Semistable Picard/generalised Jacobian and its toric, monodromy and integral Neron-component interpretation",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "formerly": []
+    },
+    {
+      "target": "Elliptic Neron-Ogg-Shafarevich and its potential-good and conditional finite-level variants",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.5"
+      ]
+    },
+    {
+      "target": "General-abelian model/Galois comparison and the local Euler-factor comparison retaining monodromy",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "formerly": []
+    },
+    {
+      "target": "General Artin/Swan conductor and elliptic algorithmic-versus-ramification conductor comparison, including wild terms",
+      "owner": "ArithmeticGaloisRepresentations:R01.3",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "NeronModelsAndSemistableAbelianVarieties:R11.6"
+      ]
+    },
+    {
+      "target": "Semistable algorithmic-Artin conductor special case expressly reserved by EC Layer 8",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "formerly": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "NeronModelsAndSemistableAbelianVarieties:R11.6"
+      ]
+    },
+    {
+      "target": "Consumer assembly of elliptic equation/scheme invariant comparisons and degeneracy-compatible monodromy interfaces",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "formerly": []
+    },
+    {
+      "target": "Relative Proj of finitely generated graded quasi-coherent algebras and the stated projective-morphism package",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "target": "General relative-Proj extension beyond the finite-generated anchor, canonically compatible on the common domain",
+      "owner": "SchemeAndStackFoundations:SF.0",
+      "formerly": []
+    },
+    {
+      "target": "Effective etale descent of compatibly polarized schemes, morphisms, sections and polarization cocycles",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "Effective faithfully flat descent with cocycle and uniqueness statements for affine schemes, finite locally free schemes and closed subschemes, sections and morphisms, polarized projective relative curves, group objects on a descended scheme, finite group actions and torsors, and the corresponding spreading-out",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "target": "Effective fpqc/fppf descent beyond that polarized etale case and the ModularCurves 0E classes, with specified effective classes and algebraic-space/stack interfaces",
+      "owner": "SchemeAndStackFoundations:SF.1",
+      "formerly": []
+    },
+    {
+      "target": "Arithmetic-surface Cartier/Weil intersection theory and its projection formula in the scope of stable reduction",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "formerly": [
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "target": "General Chow/Gysin/Chern and source-scoped Riemann-Roch/intersection programme beyond the arithmetic-surface case",
+      "owner": "SchemeAndStackFoundations:SF.5",
+      "formerly": []
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-25",
+    "date": "2026-09-23",
+    "notes": "Checked against both member documents, the anchor layers named in the proposal (EllipticCurves 4 and 8, StableReduction 1, 2, 4 and 6–9, JacobianChallenge D and F), ArithmeticGaloisRepresentations R01.3 and the family evidence. All duplication leads are resolved with one owner each. The three narrowings keep every original target or name its supplier, and every consumer of SF.0, SF.1 and SF.4 receives links from the new suppliers. With the twelve accepted restructurings applied, all 60 links apply and none closes a cycle; the same holds when all unreviewed proposals are applied, in either order. One missed duplicate was corrected in place: Tau Ceti ModularCurves 0E already owns effective faithfully flat descent for its listed classes. See REV-RS-25.md.",
+    "corrections": [
+      "layers[SchemeAndStackFoundations:SF.1]: added tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out to suppliedBy; keeps now excludes the ModularCurves 0E descent classes as well as the polarized étale case; reason records the correction.",
+      "owners: new entry, owner ModularCurves 0E, for effective faithfully flat descent of its listed classes (formerly SF.1); the SF.1 owner entry now says \"beyond that polarized etale case and the ModularCurves 0E classes\".",
+      "links: added ModularCurves 0E -> SF.1 (named import) and the forwarding links ModularCurves 0E -> DM.3, GS.0, LD.3 and SF.2 for the consumers of the narrowed SF.1."
+    ]
+  }
+}
