@@ -3,258 +3,1344 @@
   "protocol": "links-v1",
   "status": "complete",
   "summary": "Completed the full-catalogue dependency screen for EffectiveBounds: one new named unit-square input to Multiquadratic, two scope-overlap proposals, and two existing NumberFieldArithmetic links plus the existing ArithmeticDirichletSeries overlap retained by reference rather than duplicated. The explicit arithmetic estimates, qualitative finiteness, asymptotic counts, integral-unit quotients and higher regulators are kept distinct. Complete describes this link screen, not mathematical closure or implementation completeness of the roadmap.",
-  "provenance": {"jobId":"LINK-tauceti_Completed_EffectiveBounds","issue":35,"worker":"ChatGPT Pro — cgp-a70a276fbaff","inputRevision":"dbafc759460581dbd23999a3c112149fedefe2b5","date":"2026-09-17","baseline":{"mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174","tauceti":"f790474821cf4256814db967cb154e7af3d0c369"},"claimComment":5713510247,"claimAcceptedComment":5713511977,"inputArtifact":{"run":35210869629,"artifact":10491219312,"sha256":"42073dce6a2708590def6f040b6b88fa988a03f7ca5bf1da18b9314b8cbadfb7"},"atlasSha256":"62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56","retirementPolicy":"FoundationsAndLibraryIntegration is retired and is never used as an endpoint. Some historical consumer text still names it; that does not authorize a link.","submissionBase":"66e35f2051d4e49644701ad398112de45095d315","submissionRecheck":"Commit comparison from the input revision changes only AUDIT-24/AUDIT-25 results/reviews, the queue and ledger; the catalogue, relevant audit, protocols, pins, source roadmaps and link packets are unchanged."},
+  "provenance": {
+    "jobId": "LINK-tauceti_Completed_EffectiveBounds",
+    "issue": 35,
+    "worker": "ChatGPT Pro — cgp-a70a276fbaff",
+    "inputRevision": "dbafc759460581dbd23999a3c112149fedefe2b5",
+    "date": "2026-09-17",
+    "baseline": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "claimComment": 5713510247,
+    "claimAcceptedComment": 5713511977,
+    "inputArtifact": {
+      "run": 35210869629,
+      "artifact": 10491219312,
+      "sha256": "42073dce6a2708590def6f040b6b88fa988a03f7ca5bf1da18b9314b8cbadfb7"
+    },
+    "atlasSha256": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
+    "retirementPolicy": "FoundationsAndLibraryIntegration is retired and is never used as an endpoint. Some historical consumer text still names it; that does not authorize a link.",
+    "submissionBase": "66e35f2051d4e49644701ad398112de45095d315",
+    "submissionRecheck": "Commit comparison from the input revision changes only AUDIT-24/AUDIT-25 results/reviews, the queue and ledger; the catalogue, relevant audit, protocols, pins, source roadmaps and link packets are unchanged."
+  },
   "links": [
-    {"source":"tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","target":"tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group","confidence":"explicit","reason":"For the number-field specialization, Multiquadratic Layer 2 names units_sq_index_le as its unit-square-class input. EffectiveBounds Layer 1 supplies [O_K^×:(O_K^×)^2] ≤ 2^[K:Q]. This is an estimate on integral units, not an identification of Cl(K)[2] with Cl(K)/Cl(K)^2 or a theorem about K^×/(K^×)^2. The existing Tau Ceti declaration at the pin supplies the estimate; the edge records ownership/reuse, not new implementation.","evidence":[{"stageId":"tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","quote":"**Unit-square index.** `[O_F^× : (O_F^×)²] ≤ 2ⁿ`, from Dirichlet's unit theorem and a\n  squaring-map index computation."},{"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group","quote":"Also here: the unit-square-class input\n  `[O_K^× : (O_K^×)²]` (migrated as `units_sq_index_le`); the ambiguous-class-number\n  formula."},{"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group","quote":"(shared with the effective-bounds roadmap)."}]}
+    {
+      "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+      "target": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+      "confidence": "explicit",
+      "reason": "For the number-field specialization, Multiquadratic Layer 2 names units_sq_index_le as its unit-square-class input. EffectiveBounds Layer 1 supplies [O_K^×:(O_K^×)^2] ≤ 2^[K:Q]. This is an estimate on integral units, not an identification of Cl(K)[2] with Cl(K)/Cl(K)^2 or a theorem about K^×/(K^×)^2. The existing Tau Ceti declaration at the pin supplies the estimate; the edge records ownership/reuse, not new implementation.",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+          "quote": "**Unit-square index.** `[O_F^× : (O_F^×)²] ≤ 2ⁿ`, from Dirichlet's unit theorem and a\n  squaring-map index computation."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+          "quote": "Also here: the unit-square-class input\n  `[O_K^× : (O_K^×)²]` (migrated as `units_sq_index_le`); the ambiguous-class-number\n  formula."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+          "quote": "(shared with the effective-bounds roadmap)."
+        }
+      ]
+    }
   ],
   "overlaps": [
-    {"stages":["tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group"],"detail":"Both roadmaps still describe migrating the same units_sq_index_le estimate and the finite-generation/squaring-index argument. This is a duplicate implementation responsibility, not a second theorem needed for genus theory. The matched number-field unit-square estimate is already present at the pinned Tau Ceti revision.","recommendation":"rescope","proposal":"Keep the reusable upper bound with EffectiveBounds and its existing NumberField.units_sq_index_le API. Multiquadratic Layer 2 consumes it in its number-field specialization and retains the ambiguous-class-number formula, class-group quotient and genus-field arguments. Neither the bound nor the equality of cardinalities identifies the elementary-two quotient with two-torsion as a subgroup. No whole-roadmap merger.","evidence":[{"stageId":"tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","quote":"**Unit-square index.** `[O_F^× : (O_F^×)²] ≤ 2ⁿ`, from Dirichlet's unit theorem and a\n  squaring-map index computation."},{"stageId":"tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group","quote":"Also here: the unit-square-class input\n  `[O_K^× : (O_K^×)²]` (migrated as `units_sq_index_le`); the ambiguous-class-number\n  formula."}]},
-    {"stages":["tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine","GeometryOfNumbersAndQuadraticArithmetic:GN.4"],"detail":"GN.4 includes packing/covering of lattices, hence includes the explicit box/polydisc packing subproblem already assigned to EffectiveBounds Layer 0. GN.4 does not specify a unique direction of prerequisite use for its much broader dynamical results, so this is an overlap, not a guessed dependency edge.","recommendation":"rescope","proposal":"Route the measure-free coordinate-polydisc packing and doubling subproblem through the checked EffectiveBounds API. Prove any needed real-lattice coordinate and finiteness adapter on the actual consumer carrier. GN.4 retains general covering/star-body questions, transference, Siegel averaging, equidistribution and their independent analytic/dynamical estimates. A 49^d doubling constant is not an Oppenheim/Duke theorem or a Lipschitz-boundary error term.","evidence":[{"stageId":"tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine","quote":"Measure-free lattice-point **packing** and **doubling** bounds in boxes/polydiscs"},{"stageId":"GeometryOfNumbersAndQuadraticArithmetic:GN.4","quote":"Include packing/covering and nonconvex star-body problems, transference and Siegel mean-value formulas with their actual covolume/integrability assumptions; connect lattice codes through FF.4."}]}
+    {
+      "stages": [
+        "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+        "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group"
+      ],
+      "detail": "Both roadmaps still describe migrating the same units_sq_index_le estimate and the finite-generation/squaring-index argument. This is a duplicate implementation responsibility, not a second theorem needed for genus theory. The matched number-field unit-square estimate is already present at the pinned Tau Ceti revision.",
+      "recommendation": "rescope",
+      "proposal": "Keep the reusable upper bound with EffectiveBounds and its existing NumberField.units_sq_index_le API. Multiquadratic Layer 2 consumes it in its number-field specialization and retains the ambiguous-class-number formula, class-group quotient and genus-field arguments. Neither the bound nor the equality of cardinalities identifies the elementary-two quotient with two-torsion as a subgroup. No whole-roadmap merger.",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+          "quote": "**Unit-square index.** `[O_F^× : (O_F^×)²] ≤ 2ⁿ`, from Dirichlet's unit theorem and a\n  squaring-map index computation."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group",
+          "quote": "Also here: the unit-square-class input\n  `[O_K^× : (O_K^×)²]` (migrated as `units_sq_index_le`); the ambiguous-class-number\n  formula."
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "detail": "GN.4 includes lattice packing/covering; its coordinate-polydisc packing subproblem overlaps the explicit EffectiveBounds Layer 0 estimate. This is a narrowly scoped reuse opportunity, not an assertion that the broader dynamics or all lattice-point estimates require this engine.",
+      "recommendation": "rescope",
+      "proposal": "When GN.4 needs the coordinate-polydisc packing/doubling subproblem, reuse the existing EffectiveBounds API after proving the real-lattice coordinate and finiteness adapters on the actual consumer carrier. GN.4 retains general covering/star-body questions, transference, Siegel averaging, equidistribution and their independent analytic/dynamical estimates. The 49^d doubling constant supplies neither an Oppenheim/Duke theorem nor a Lipschitz-boundary error term. This recommendation does not impose a directed dependency on the whole GN.4 stage.",
+      "evidence": [
+        {
+          "stageId": "tauceti:Completed/EffectiveBounds#layer-0-the-geometry-of-numbers-engine",
+          "quote": "Measure-free lattice-point **packing** and **doubling** bounds in boxes/polydiscs"
+        },
+        {
+          "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+          "quote": "Include packing/covering and nonconvex star-body problems, transference and Siegel mean-value formulas with their actual covolume/integrability assumptions; connect lattice codes through FF.4."
+        }
+      ]
+    }
   ],
   "examined": [
-    {"roadmapId":"AInfCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AdditiveCombinatorics","result":"none","note":"Summary and doubling passages screened: additive sumset doubling is not subgroup-intersection doubling in coordinate polydiscs."},
-    {"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"AA.0/AA.1/AA.3-AA.5 read. Siegel sets, adelic finite volume and strong approximation are not consequences of coordinate-polydisc doubling."},
-    {"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AdicEtaleGeometry","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AdicSpacesPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AnalyticHabiroStack","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AnalyticNumberTheory","result":"none","note":"AN.4 read in full; analytic ideal-counting and class-formula imports have their stated analytic suppliers. No substitution of a coarse quadratic estimate."},
-    {"roadmapId":"AnalyticStacks","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticDynamics","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticKTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ArithmeticStatistics","result":"none","note":"ST.0, ST.2 and ST.3 read in full. Embedded-field upper counts do not identify isomorphism/stabilizer weights or supply cusp and uniform-sieve tails."},
-    {"roadmapId":"AutomorphicBundles","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicCongruences","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"BorelRegulators","result":"none","note":"R.4/R.5 read in full. Higher K-theoretic regulator lattices are not the Dirichlet integral-unit regulator of L3."},
-    {"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ClassicalArithmeticCompletion","result":"none","note":"CA.3/CA.5/CA.7 read in full. Hermite normal form and order/module arithmetic do not request the effective Hermite-Minkowski count."},
-    {"roadmapId":"ClassicalSerreModularity","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"CohomologyComparisons","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ColemanIntegration","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ColemanPowerSeries","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ComplexComparisonPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ComputationalNumberTheory","result":"none","note":"CN.0-CN.3 read in full. Bounds for the square subgroup do not certify an arbitrary proposed unit subgroup; regulator-based stopping criteria need a positive lower bound and index comparison."},
-    {"roadmapId":"CrystallineCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DeligneWeightsAndPurity","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DiamondSixOperations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DiamondsAndVStacks","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"DT.4 read in full; explicit linear forms in logarithms and Diophantine reductions are not supplied by regulator positivity or lattice doubling."},
-    {"roadmapId":"DirichletPadicLFunctions","result":"none","note":"L0 read in full: the analytic Dedekind-pole input and existing unit-lattice volumes are distinct from a new effective regulator lower bound."},
-    {"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"ED.1 read in full; certified LLL and integer-relation lattice reduction are different from the measure-free packing estimate."},
-    {"roadmapId":"EllipticCurveModularity","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EllipticKTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EllipticRegulators","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"R28.1 read in full. Arithmetic-moduli height finiteness and Jordan-Zassenhaus finite-lattice theory are not EffectiveBounds polydisc counts."},
-    {"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GL2ModularityLifting","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"overlap","note":"All seven stages read. GN.4 packing subproblem overlaps L0; generic ZLattice, Minkowski, reduction and homogeneous dynamics are not redefined here."},
-    {"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"GrossZagierAndArithmeticHeights","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HabiroNahmSeries","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HabiroNumberFields","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HabiroRings","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"H4 read in full. Polarization/level central quotients and stabilization of Delta_n(N) need comparison maps, not just the cardinal bound for ordinary integral-unit squares."},
-    {"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"K2SymbolsBrauer","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"K3BlochGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"KTheoryLowDegrees","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"KatoEulerSystems","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"LanglandsParameterStacks","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ModularCurvesPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"LV.1/LV.6/LV.7 input passages inspected. Its named Hermite-Minkowski import is not redirected to an unneeded quantitative field count."},
-    {"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PELModuli","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicFamilies","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicHodgeRegulators","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicHodgeTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PerfectoidQuotients","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PerfectoidSpaces","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"PS.3-PS.8 read in full. Motivic, Borel and Mordell-Weil regulators do not import a positive-rank Dirichlet-unit lower bound merely by sharing the word regulator."},
-    {"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"Polylogarithms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"PrismaticCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"QWittVectors","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"RankZeroOneBSD","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ReductiveGroupsPartII","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"RefinedTraceMethods","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"RingStacksAndTransmutation","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ShimuraCompactifications","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ShimuraData","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"ShimuraVarieties","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Full document read. R25.1 requires source-specific local upper/global lower discriminant inequalities and certified completeness, not merely an upper count of fields."},
-    {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SolidAnalyticRings","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"SpecialValuesBirchTate","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"WeilConjectures","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"overlap","note":"Full document and all four stages read. Historical completion prose is not used as a current implementation certificate."},
-    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Summary, stage inventory and discriminant-form passages inspected. Algebraic lattice duality/gluing and finite quadratic modules are distinct from point counting in real/complex boxes."},
-    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Summary and stage inventory inspected. Construction A/discriminant modules do not specify the EffectiveBounds packing inequality."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"overlap","note":"Full document read in this session history at unchanged text; Layer 5 rechecked. Existing overlap retained: X^2 bound is not a linear bound or negligible prime-power estimate."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Generating-triple counting passage screened: its subgroup lattice is an order-theoretic lattice, not a geometric point-counting carrier."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Lattice-homology passage screened: weighted plumbing-lattice complexes do not request the explicit box packing estimate."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Layer 7 Selmer-finiteness passage inspected: qualitative bounded-extension finiteness does not require the effective count as a new prerequisite."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"none","note":"Full Layer 3 read. Uniform ray-class counting with Lipschitz-boundary O(c^(n-1)) error is not supplied by coarse polydisc packing or the X^2 ideal bound."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Local square/power-class passage screened; local principal-unit filtrations are not the global integral-unit square-index estimate."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"none","note":"Hecke Layer 2 lattice-counting passage inspected: finite-index sublattice correspondences under p-adic completion are not polydisc lattice-point counts."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"links","note":"Full document and all four stages read; named integral-unit-square input and duplicate migration responsibility."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"links","note":"Existing Layer 1 -> Layers 3 and 8 links checked for duplicate ownership and retained in their original packet; an inequality does not compute a class number."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Layer 9 trace-transfer passage inspected. Its generic finite separable K-extension setup is broader than the Q-number-field square-root helper; the named generic trace library is the appropriate input."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Summary read; full-text screen: no exact match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"none","note":"Summary read; full-text screen: no exact match."}
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Summary and doubling passages screened: additive sumset doubling is not subgroup-intersection doubling in coordinate polydiscs."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "AA.0/AA.1/AA.3-AA.5 read. Siegel sets, adelic finite volume and strong approximation are not consequences of coordinate-polydisc doubling."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "none",
+      "note": "AN.4 read in full; analytic ideal-counting and class-formula imports have their stated analytic suppliers. No substitution of a coarse quadratic estimate."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "ST.0, ST.2 and ST.3 read in full. Embedded-field upper counts do not identify isomorphism/stabilizer weights or supply cusp and uniform-sieve tails."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "R.4/R.5 read in full. Higher K-theoretic regulator lattices are not the Dirichlet integral-unit regulator of L3."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "none",
+      "note": "CA.3/CA.5/CA.7 read in full. Hermite normal form and order/module arithmetic do not request the effective Hermite-Minkowski count."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "CN.0-CN.3 read in full. Bounds for the square subgroup do not certify an arbitrary proposed unit subgroup; regulator-based stopping criteria need a positive lower bound and index comparison."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "DT.4 read in full; explicit linear forms in logarithms and Diophantine reductions are not supplied by regulator positivity or lattice doubling."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "L0 read in full: the analytic Dedekind-pole input and existing unit-lattice volumes are distinct from a new effective regulator lower bound."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "ED.1 read in full; certified LLL and integer-relation lattice reduction are different from the measure-free packing estimate."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "R28.1 read in full. Arithmetic-moduli height finiteness and Jordan-Zassenhaus finite-lattice theory are not EffectiveBounds polydisc counts."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "overlap",
+      "note": "All seven stages read. GN.4 packing subproblem overlaps L0; generic ZLattice, Minkowski, reduction and homogeneous dynamics are not redefined here."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "H4 read in full. Polarization/level central quotients and stabilization of Delta_n(N) need comparison maps, not just the cardinal bound for ordinary integral-unit squares."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "LV.1/LV.6/LV.7 input passages inspected. Its named Hermite-Minkowski import is not redirected to an unneeded quantitative field count."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "PS.3-PS.8 read in full. Motivic, Borel and Mordell-Weil regulators do not import a positive-rank Dirichlet-unit lower bound merely by sharing the word regulator."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Full document read. R25.1 requires source-specific local upper/global lower discriminant inequalities and certified completeness, not merely an upper count of fields."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "overlap",
+      "note": "Full document and all four stages read. Historical completion prose is not used as a current implementation certificate."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Summary, stage inventory and discriminant-form passages inspected. Algebraic lattice duality/gluing and finite quadratic modules are distinct from point counting in real/complex boxes."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Summary and stage inventory inspected. Construction A/discriminant modules do not specify the EffectiveBounds packing inequality."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "overlap",
+      "note": "Full document read in this session history at unchanged text; Layer 5 rechecked. Existing overlap retained: X^2 bound is not a linear bound or negligible prime-power estimate."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Generating-triple counting passage screened: its subgroup lattice is an order-theoretic lattice, not a geometric point-counting carrier."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Lattice-homology passage screened: weighted plumbing-lattice complexes do not request the explicit box packing estimate."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Layer 7 Selmer-finiteness passage inspected: qualitative bounded-extension finiteness does not require the effective count as a new prerequisite."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "none",
+      "note": "Full Layer 3 read. Uniform ray-class counting with Lipschitz-boundary O(c^(n-1)) error is not supplied by coarse polydisc packing or the X^2 ideal bound."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Local square/power-class passage screened; local principal-unit filtrations are not the global integral-unit square-index estimate."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "none",
+      "note": "Hecke Layer 2 lattice-counting passage inspected: finite-index sublattice correspondences under p-adic completion are not polydisc lattice-point counts."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "links",
+      "note": "Full document and all four stages read; named integral-unit-square input and duplicate migration responsibility."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "links",
+      "note": "Existing Layer 1 -> Layers 3 and 8 links checked for duplicate ownership and retained in their original packet; an inequality does not compute a class number."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Layer 9 trace-transfer passage inspected. Its generic finite separable K-extension setup is broader than the Q-number-field square-root helper; the named generic trace library is the appropriate input."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Summary read; full-text screen: no exact match."
+    }
   ],
-  "remaining": [
-  ],
-  "screen": {"activeRoadmaps":217,"activeStages":2001,"upstreamRoadmaps":60,"newRoadmapFiles":6,"otherLinkPackets":25,"method":"Read all active roadmap summaries, including every upstream document summary and all classical/diophantine/analysis neighbours. Search every available roadmap document and every full stage description. Read the EffectiveBounds and Multiquadratic documents and their stages in full; read complete candidate stage descriptions for each proposed relationship and the substantive near-miss decisions. An examined record does not assert a full proof audit of that roadmap.","terms":["EffectiveBounds","geometry of numbers","Minkowski","Hermite","class-number bounds","unit-square index","unit lattice","regulator","bounded discriminant","bounded height","ideal count","lattice points","packing","doubling","polydisc","covolume","successive minima","coefficient bounds","field counts","Brauer-Siegel"],"remaining":[]},
+  "remaining": [],
+  "screen": {
+    "activeRoadmaps": 217,
+    "activeStages": 2001,
+    "upstreamRoadmaps": 60,
+    "newRoadmapFiles": 6,
+    "otherLinkPackets": 25,
+    "method": "Read all active roadmap summaries, including every upstream document summary and all classical/diophantine/analysis neighbours. Search every available roadmap document and every full stage description. Read the EffectiveBounds and Multiquadratic documents and their stages in full; read complete candidate stage descriptions for each proposed relationship and the substantive near-miss decisions. An examined record does not assert a full proof audit of that roadmap.",
+    "terms": [
+      "EffectiveBounds",
+      "geometry of numbers",
+      "Minkowski",
+      "Hermite",
+      "class-number bounds",
+      "unit-square index",
+      "unit lattice",
+      "regulator",
+      "bounded discriminant",
+      "bounded height",
+      "ideal count",
+      "lattice points",
+      "packing",
+      "doubling",
+      "polydisc",
+      "covolume",
+      "successive minima",
+      "coefficient bounds",
+      "field counts",
+      "Brauer-Siegel"
+    ],
+    "remaining": []
+  },
   "alreadyRecorded": [
-    {"file":"research/blueprint/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json","kind":"overlap","stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates","tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets"],"note":"Not re-emitted. Explicit quadratic ideal count and positive linear asymptotic have different uses."},
-    {"file":"research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json","kind":"link","source":"tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","target":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem","note":"Not re-emitted. Existing producer/consumer ownership record; independent review of that packet remains separate."},
-    {"file":"research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json","kind":"link","source":"tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets","target":"tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite","note":"Not re-emitted. Existing producer/consumer ownership record; independent review of that packet remains separate."}
+    {
+      "file": "research/blueprint/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json",
+      "kind": "overlap",
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets"
+      ],
+      "note": "Not re-emitted. Explicit quadratic ideal count and positive linear asymptotic have different uses."
+    },
+    {
+      "file": "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json",
+      "kind": "link",
+      "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+      "target": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
+      "note": "Not re-emitted. Existing producer/consumer ownership record; independent review of that packet remains separate."
+    },
+    {
+      "file": "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json",
+      "kind": "link",
+      "source": "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
+      "target": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
+      "note": "Not re-emitted. Existing producer/consumer ownership record; independent review of that packet remains separate."
+    }
   ],
   "baselineChecks": [
-    {"ref":"tauceti:NumberField.units_sq_index_le","module":"TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean","blob":"6c99845150c27dc6576a6decdec9762ad6e806ff","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean","read":"Complete file","provides":"For every number field F, (Subgroup.square (O_F)^x).index <= 2^[F:Q]. The proof uses a Dirichlet fundamental system and torsion generator. This is exactly the Multiquadratic estimate input.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"tauceti:TauCeti.GeometryOfNumbers.finite_and_ncard_le_of_subset_box_of_separated","module":"TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean","blob":"3284dc139968b978d30d29460afefa6e69de0cef","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean","read":"Lines 1-203","provides":"For finite iota, r_i>0, 0<epsilon<=c, and S in the coordinate polydisc with distinct x,y separated by epsilon*r_i < norm(x_i-y_i) for some i, S is finite and #S <= (4c/epsilon)^(2#iota). Strict separation and positive radii are retained.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"tauceti:TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one","module":"TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean","blob":"3284dc139968b978d30d29460afefa6e69de0cef","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean","read":"Lines 1-203 and 328-363","provides":"For finite iota, positive r_i and additive subgroup Lambda of iota -> C, assuming Lambda intersect box(r,2) is finite, its cardinal is <= 49^(#iota) times that at scale 1. Finiteness is an input, not supplied by the displayed bound.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le","module":"TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean","blob":"d4050f187f925a29b4a24731db5623b93b47567c","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean","read":"Lines 1-88 and 130-255","provides":"For an ambient characteristic-zero field A and N in N, number-field intermediate subfields K/Q in A with |discr K|<=N have cardinal <= (2C+1)^(D+1)*D, with the named coefficient bound C and degree bound D. This is not a weighted isomorphism-class asymptotic or a list-enumeration certificate.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"tauceti:NumberField.Units.one_le_regulator_of_rank_eq_zero","module":"TauCeti/NumberTheory/EffectiveBounds/Regulator.lean","blob":"602ccf5adcdb3f57048fe530011aedf38fee53db","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/Regulator.lean","read":"Complete file","provides":"For a number field K of unit rank zero, R_K=1 and hence 1<=R_K. Positive unit rank is not covered by this theorem.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"mathlib:NumberField.Units.regulator","module":"Mathlib/NumberTheory/NumberField/Units/Regulator.lean","blob":"ad681e27c1d3f32611e63ec7e8a96012e3cb096e","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/Regulator.lean","read":"Lines 1-63 and 250-375","provides":"The regulator is the covolume of the unit lattice; regulator_pos gives positivity. Definition and positivity do not constitute a chosen effective uniform lower bound.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."},
-    {"ref":"mathlib:NumberField.Units.regOfFamily_div_regulator","module":"Mathlib/NumberTheory/NumberField/Units/Regulator.lean","blob":"ad681e27c1d3f32611e63ec7e8a96012e3cb096e","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/Regulator.lean","read":"Lines 1-63 and 250-375","provides":"For a rank(K)-indexed family of integral units, regOfFamily(u)/regulator(K) is the index of the subgroup generated by the family and torsion. Full-rank/finite-index hypotheses are needed before using this as a positive-index stopping bound.","checked":"Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."}
+    {
+      "ref": "tauceti:NumberField.units_sq_index_le",
+      "module": "TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean",
+      "blob": "6c99845150c27dc6576a6decdec9762ad6e806ff",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/UnitSquares/Basic.lean",
+      "read": "Complete file",
+      "provides": "For every number field F, (Subgroup.square (O_F)^x).index <= 2^[F:Q]. The proof uses a Dirichlet fundamental system and torsion generator. This is exactly the Multiquadratic estimate input.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "tauceti:TauCeti.GeometryOfNumbers.finite_and_ncard_le_of_subset_box_of_separated",
+      "module": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+      "blob": "3284dc139968b978d30d29460afefa6e69de0cef",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+      "read": "Lines 1-203",
+      "provides": "For finite iota, r_i>0, 0<epsilon<=c, and S in the coordinate polydisc with distinct x,y separated by epsilon*r_i < norm(x_i-y_i) for some i, S is finite and #S <= (4c/epsilon)^(2#iota). Strict separation and positive radii are retained.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "tauceti:TauCeti.GeometryOfNumbers.ncard_inter_box_two_le_pow_mul_ncard_inter_box_one",
+      "module": "TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+      "blob": "3284dc139968b978d30d29460afefa6e69de0cef",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/GeometryOfNumbers/Doubling.lean",
+      "read": "Lines 1-203 and 328-363",
+      "provides": "For finite iota, positive r_i and additive subgroup Lambda of iota -> C, assuming Lambda intersect box(r,2) is finite, its cardinal is <= 49^(#iota) times that at scale 1. Finiteness is an input, not supplied by the displayed bound.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+      "module": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+      "blob": "d4050f187f925a29b4a24731db5623b93b47567c",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+      "read": "Lines 1-88 and 130-255",
+      "provides": "For an ambient characteristic-zero field A and N in N, number-field intermediate subfields K/Q in A with |discr K|<=N have cardinal <= (2C+1)^(D+1)*D, with the named coefficient bound C and degree bound D. This is not a weighted isomorphism-class asymptotic or a list-enumeration certificate.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "tauceti:NumberField.Units.one_le_regulator_of_rank_eq_zero",
+      "module": "TauCeti/NumberTheory/EffectiveBounds/Regulator.lean",
+      "blob": "602ccf5adcdb3f57048fe530011aedf38fee53db",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/Regulator.lean",
+      "read": "Complete file",
+      "provides": "For a number field K of unit rank zero, R_K=1 and hence 1<=R_K. Positive unit rank is not covered by this theorem.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "mathlib:NumberField.Units.regulator",
+      "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+      "blob": "ad681e27c1d3f32611e63ec7e8a96012e3cb096e",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+      "read": "Lines 1-63 and 250-375",
+      "provides": "The regulator is the covolume of the unit lattice; regulator_pos gives positivity. Definition and positivity do not constitute a chosen effective uniform lower bound.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    },
+    {
+      "ref": "mathlib:NumberField.Units.regOfFamily_div_regulator",
+      "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+      "blob": "ad681e27c1d3f32611e63ec7e8a96012e3cb096e",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+      "read": "Lines 1-63 and 250-375",
+      "provides": "For a rank(K)-indexed family of integral units, regOfFamily(u)/regulator(K) is the index of the subgroup generated by the family and torsion. Full-rank/finite-index hypotheses are needed before using this as a positive-index stopping bound.",
+      "checked": "Actual statement and surrounding parameters read at the pinned commit; no compilation or exhaustive axiom audit claimed."
+    }
   ],
   "followUp": [
-    {"id":"R1","owner":"tauceti:Completed/EffectiveBounds#layer-3-regulators-and-unit-lattice-volume","detail":"Pin a specific positive-rank regulator lower inequality and all hypotheses/source constants. Do not promote the historical completed header or rank-zero R=1 theorem into 1<=R for arbitrary number fields. The audit reports a partial positive-rank target; this screen does not prove absence from the whole library."},
-    {"id":"R2","owner":"ComputationalNumberTheory:CN.2","detail":"For a regulator-based unit stopping certificate, require a full-rank family u, a proved b(K)>0 with b(K)<=R_K, and a certified upper bound U on regOfFamily(u). The checked index comparison yields index<=U/b(K); saturation or a strict bound below 2 is still needed to conclude index 1. The square-subgroup bound is not an index bound for an arbitrary found family. No dependency on the unspecified L3 inequality is inserted."},
-    {"id":"R3","owner":"SmallRamificationAndAbelianVarietyBaseCases:R25.1","detail":"Keep source-specific ramification/discriminant inequalities and finite-list completeness explicit. An upper bound on how many subfields may exist does not certify a candidate list, and a positive lower discriminant exclusion needs its own theorem. No quantitative-Hermite edge is guessed from the reference to EffectiveBounds."},
-    {"id":"R4","owner":"GeometryOfNumbersAndQuadraticArithmetic:GN.4","detail":"Discharge the coordinate/polydisc and finiteness adapter on the GN lattice carrier before invoking the exact packing/doubling declarations. Keep uniform lattice asymptotics, transference and homogeneous dynamics in their own source-qualified development; the overlap recommendation is not a proof of those imports."}
+    {
+      "id": "R1",
+      "owner": "tauceti:Completed/EffectiveBounds#layer-3-regulators-and-unit-lattice-volume",
+      "detail": "Pin a specific positive-rank regulator lower inequality and all hypotheses/source constants. Do not promote the historical completed header or rank-zero R=1 theorem into 1<=R for arbitrary number fields. The audit reports a partial positive-rank target; this screen does not prove absence from the whole library."
+    },
+    {
+      "id": "R2",
+      "owner": "ComputationalNumberTheory:CN.2",
+      "detail": "For a regulator-based unit stopping certificate, require a full-rank family u, a proved b(K)>0 with b(K)<=R_K, and a certified upper bound U on regOfFamily(u). The checked index comparison yields index<=U/b(K); saturation or a strict bound below 2 is still needed to conclude index 1. The square-subgroup bound is not an index bound for an arbitrary found family. No dependency on the unspecified L3 inequality is inserted."
+    },
+    {
+      "id": "R3",
+      "owner": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "detail": "Keep source-specific ramification/discriminant inequalities and finite-list completeness explicit. An upper bound on how many subfields may exist does not certify a candidate list, and a positive lower discriminant exclusion needs its own theorem. No quantitative-Hermite edge is guessed from the reference to EffectiveBounds."
+    },
+    {
+      "id": "R4",
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "detail": "Discharge the coordinate/polydisc and finiteness adapter on the GN lattice carrier before invoking the exact packing/doubling declarations. Keep uniform lattice asymptotics, transference and homogeneous dynamics in their own source-qualified development; the overlap recommendation is not a proof of those imports."
+    }
   ],
   "externalChecks": [
-    {"title":"LMFDB number field 2.2.5.1","url":"https://www.lmfdb.org/NumberField/2.2.5.1","accessed":"2026-09-17","locator":"Normalized defining polynomial and Unit group: fundamental unit and regulator rows","read":"Page inspected through the web reader. It gives x^2-x-1, fundamental unit a, and regulator 0.48121182506. The formula R=log((1+sqrt(5))/2)<1 is the corresponding rank-one determinant calculation and is a rejection test for generalizing 1<=R. No Lean certification of this example is claimed.","sha256":null,"hashNote":"The independent byte download failed; no content hash was fabricated."}
+    {
+      "title": "LMFDB number field 2.2.5.1",
+      "url": "https://www.lmfdb.org/NumberField/2.2.5.1",
+      "accessed": "2026-09-17",
+      "locator": "Normalized defining polynomial and Unit group: fundamental unit and regulator rows",
+      "read": "Page inspected through the web reader. It gives x^2-x-1, fundamental unit a, and regulator 0.48121182506. The formula R=log((1+sqrt(5))/2)<1 is the corresponding rank-one determinant calculation and is a rejection test for generalizing 1<=R. No Lean certification of this example is claimed.",
+      "sha256": null,
+      "hashNote": "The independent byte download failed; no content hash was fabricated."
+    }
   ],
-  "validation": {"command":"python3 scripts/check_links.py <authored-packet>","result":"0 errors, 0 warnings","supplement":"217 unique active roadmap IDs; raw literal evidence; duplicate check against atlas and 25 other packets; no new cycle including explicit stage requires; non-retired endpoints; private-path and artifact/atlas hash checks passed.","limits":"Structural/source-statement validation only; independent review and Lean compilation not performed."}
+  "validation": {
+    "command": "python3 scripts/check_links.py <authored-packet>",
+    "result": "0 errors, 0 warnings",
+    "supplement": "217 unique active roadmap IDs; raw literal evidence; duplicate check against atlas and 25 other packets; no new cycle including explicit stage requires; non-retired endpoints; private-path and artifact/atlas hash checks passed.",
+    "limits": "Structural/source-statement validation only; independent review and Lean compilation not performed."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_Completed_EffectiveBounds",
+    "date": "2026-09-23",
+    "notes": "Independently checked the one link, both overlaps and all seven literal quotes against full endpoint descriptions and owner documents. Retain the edge and both rescope recommendations, clarifying that GN.4 reuse is conditional on the exact coordinate-packing subproblem. Read the relevant reviewed AUDIT-03 entries and pinned statements for all seven baselineChecks. Completeness covers all four existing own stages (there is no fifth stage), split into seven mathematical interface checks. No missing direct edge was established; existing records are deduplicated, and no retired endpoint is added. Acceptance concerns the link packet, not mathematical completion or Lean compilation. See the review report.",
+    "removed": [],
+    "added": []
+  }
 }
