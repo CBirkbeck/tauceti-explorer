@@ -1368,8 +1368,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1099"
+   "state": "external",
+   "note": "claimed on GitHub issue #1099"
   },
   {
    "id": "REV-PAPER-DITTMANN-POP-23",
@@ -5742,7 +5742,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1348"
   },
   {
    "id": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25",
@@ -7460,8 +7461,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1446"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1446",
+   "finishedAt": "2026-09-23T02:15:22Z"
   },
   {
    "id": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
