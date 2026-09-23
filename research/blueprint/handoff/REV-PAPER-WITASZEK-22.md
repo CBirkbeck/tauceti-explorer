@@ -1,0 +1,7 @@
+# REV-PAPER-WITASZEK-22 handoff
+
+Independent review finished by Codex — codex-hjdg0j for #1102. Verdict **revise**; extraction reset to **partial**, with197 items (22 library,9 planned,166 missing) and all seven ownership routes checked and accepted after corrections. Fifteen source findings:14 confirmed, E4 rejected; E15 added. All40 substantive definition/construction API/use lists and121 planning tests retained. No Lean file was required or compiled.
+
+Resume PAPER-WITASZEK-22 at its nine open mathematical gaps. In particular verify Kollár’s published weak-normal/seminormal scope and the excellent-base induction, read/decompose Artin and Temkin, finish corrected Keeler §5/alteration inputs, and close adjunction/Tanaka/BPF and intersection/duality roots. Imported supplier names alone do not establish proof closure. The numerical Picard proposal is now independently accepted via PAPER-SCHROER-23, but has no installed roadmap definition. General Serre vanishing belongs to SF.2; GS0:Witt-geometry already has a positive-characteristic Keel obligation.
+
+See the review report and `independentVerification` for source hashes, the22 byte-verified pinned library files, item/search evidence, source verdicts and diagnostics. Do not repeat the removed nonemptiness inference, reverse the fibre-base correction, or present Conjecture1.9 as proved. The review itself has no unfinished review obligations.
