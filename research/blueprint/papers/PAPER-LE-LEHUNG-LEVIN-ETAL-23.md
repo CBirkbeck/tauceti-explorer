@@ -5160,3 +5160,43 @@ components (Cogdell's Corollary 4.1.2) is reached through A71, not asserted.
 **Locators verified.** Both items' inherited Cogdell locators are correct: PDF page 35 is printed page 31,
 PDF 36 is printed 32, and PDF 37 is printed 33, carrying Corollary 4.1.2 and the displayed
 `Λ(φ) = W_φ(e) = ∫_{N(k)\N(A)} φ(n)ψ^{−1}(n) dn`.
+
+## A71, the finite-place functional (cc-d67081, third pass)
+
+With A69 and A70 proved by the previous checkpoint, A71 was the last step of the Whittaker
+chain still carrying no proof. It now has five steps, read against Cogdell's Fields notes
+printed 33, where Corollaries 4.1.1–4.1.3 sit. Nothing else changed: 580 items, 23 routes,
+52 findings, and only A71 differs.
+
+The argument is short, and the item's own warning — "the frozen `w` must be chosen to detect
+`Λ`; an arbitrary reference tensor need not work" — is what the first step is about. Since `Λ`
+is nonzero and elementary tensors span `V_{Π_v} ⊗_C V^v`, there are `x_0` and `w` with
+`Λ(x_0 ⊗ w) ≠ 0`; that `w` is frozen. For a general `w` the functional `x ↦ Λ(x ⊗ w)` can be
+identically zero, which is why the choice cannot be made arbitrarily. Setting
+`λ_v(x) = Λ(x ⊗ w)` then gives a nonzero linear functional, and the equivariance is immediate
+from the one hypothesis A107 supplies — that `N_n(F_v)` acts only on the first factor — together
+with `ψ_N|_{N_n(F_v)} = ψ_v`. A nonzero `ψ_v`-equivariant functional on an irreducible admissible
+representation is a Whittaker functional, so `Π_v` is generic.
+
+**What the item deliberately does not claim.** Cogdell's Corollary 4.1.1 gives *global*
+uniqueness and his Corollary 4.1.3 factorises `W_φ` as `∏_v W_{ξ_v}(g_v)` for decomposable `φ`.
+The latter needs the normalisation stated just above those corollaries: a family `{Λ_v}` is
+*suitable* only when `Λ_v(ξ_v^0) = 1` for the distinguished `K_v`-fixed vectors giving the
+restricted tensor product. A71 asserts existence of a nonzero local functional at **one** place
+and neither the product formula nor that normalisation, so it needs neither — and the fifth step
+records this, with Cogdell's own caveat on the same page as the reason to keep the distinction:
+
+> Note once again that the cusp form `φ(g)` itself does not factor. The `G(k)`-invariance mixes
+> the various places together. Only `W_φ` factors for decomposable `φ`.
+
+That is the same caveat A107 carries, and the two now agree in terms.
+
+### Source read for this pass
+
+Cogdell, *Lectures on L-functions, Converse Theorems, and Functoriality for GL_n*, Fields
+Institute notes (2003), SHA-256 `2c5ec050…18a7`: printed 33 (PDF 36) — the suitable-family
+normalisation, Corollary 4.1.1 (Global Uniqueness), Corollary 4.1.2 (genericity of `π` and each
+`π_v`), Corollary 4.1.3 (Factorization of Whittaker Functions) and the caveat following it.
+Printed page = PDF page − 3; this PDF's text layer is clean.
+
+No new findings.
