@@ -187,3 +187,31 @@ There are no duplicate labels in the source and no other numbering inconsistenci
 * The **conjectures** (1.3, 1.4, 8.2, 8.3, 8.4) are recorded as items of kind `theorem` with names that begin
   "Conjecture", following the convention of the earlier extractions in this directory; their notes say plainly
   that they are open.
+
+## Review (REV-PAPER-SCHIFFMANN-16, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1183](https://github.com/CBirkbeck/tauceti-explorer/issues/1183). **Verdict: accept.** All four
+routes accepted.
+
+- **The published version is available, and this review obtained it.** The extraction recorded its
+  findings against arXiv v2, saying the Annals text "could not be read here". It is served at
+  `annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf` — 66 pages, SHA-256
+  `8e486963…c7a5`, printed page = PDF page + 296. All four findings were re-checked there.
+- **Three survive in print:** E2 at Proposition 5.1 (p. 322), where the published text renames
+  `A^{≥0}` to `Y^{≥0}` without touching either slip; E3 in the list on p. 306; and all three parts of
+  E4 (pp. 349, 351 and 301), the unmatched parenthesis `q^{2(1+(g−1)r²` read on a rendered page image.
+- **One is corrected in print:** E1's doubled `ii)` label is fixed in the Annals text, where the
+  statement is renumbered **Lemma 2.3** (p. 309) with parts (i), (ii), (iii). Its `known` field now
+  records the published version as the correction, so the register lists it among mistakes already
+  corrected in print rather than as a mistake in published work.
+- **Also recorded in place:** each finding's published location beside its preprint one, and a
+  `publishedVersionCheck` noting the hash, the page map and the renumbering between versions
+  (preprint Cor. 1.6 = published Cor. 1.5; preprint Cor. 1.9 = published Cor. 1.4; preprint Cor. 1.10
+  = published Cor. 1.9).
+- **Items and routes:** 59 items (1 library, 3 planned, 55 missing), each missing item routed once;
+  the five library declarations opened at the pins; all four stage ids present. Nothing in the atlas
+  mentions Hall algebras, Kac polynomials or Higgs bundles, and the Higgs moduli themselves are
+  imported from ET.2b rather than re-planned.
+
+Full report: `research/blueprint/reviews/REV-PAPER-SCHIFFMANN-16.md`.
