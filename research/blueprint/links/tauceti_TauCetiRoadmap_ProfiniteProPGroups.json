@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Catalogue-wide screen of Profinite and pro-p groups (12 stages) against the 211 other atlas roadmaps and the 6 new roadmaps. I read this roadmap's document in full and wrote down every stage's inputs and outputs. ProfiniteCohomology, BelyiMaps and the Iwasawa-theory roadmaps were read in full, and the named consumers and suppliers were read stage by stage. Every other roadmap got a summary read and a keyword-in-context screen. 32 links: 18 into this roadmap and 14 out of it. Inward: ProfiniteCohomology Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12 supply the carrier, explicit low degrees, comparisons, five-term and long exact sequences, Shapiro, corestriction, cd_p, duality pairings and cups used by Layers 5, 6, 7 and 10; GrothendieckEulerForms Layer 5 supplies finrank additivity for Layer 6's Euler formula. Outward: Layers 0, 3 and 4 feed BelyiMaps Layers 12–13 (completion, maximal pro-p quotient, zHat, free pro-ℓ group); Layers 2 and 3 feed DiamondEtaleCohomology C8 (Sylow and pro-p structure); Layer 2 feeds ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles; Layer 1 feeds DiamondSixOperations S5 and SmoothRepresentationsOfLocalGroups SR.1 (pro-order and pro-p indices for Haar averaging); Layer 3 feeds ReductiveGroupsPartII RG2.3 (pro-p congruence subgroups); Layer 0 feeds PadicMeasuresIwasawaAlgebras L1; Layer 4 feeds ColemanPowerSeries L0 (ℤ_p-module of an abelian pro-p group); the Layer 9 prerequisites feed IntegralIwasawaTheory I.1 (completed group algebra). The three LocalFieldsRamification links and one overlap are already in that roadmap's packet and are not repeated. 7 overlaps, all rescope: continuous sections and the closed-subgroup cohomology colimit with ProfiniteCohomology Layers 0 and 11; the trivial 𝔽_p coefficient object with ProfiniteCohomology Layer 13; ℤ_p-powers on pro-p groups with BelyiMaps Layer 12; completed group algebras, their coordinates and Weierstrass division with PadicMeasuresIwasawaAlgebras L1–L5 and NoncommutativeAndEquivariantIwasawa NE.0; finite embedding problems with InverseGaloisAndArithmeticFundamentalGroups IG.4. LocalGaloisGroups and ProfiniteArithmetic, which the document names, are not atlas roadmaps, so nothing is recorded for them.",
+  "summary": "Independent review on 23 September 2026 retains all 32 original dependencies and seven overlaps, adds two dependencies for the three-term Euler formula, and refines degree ranges, supplier limits and ownership proposals. Final packet: 34 links (20 incoming, 14 outgoing), seven rescope recommendations, and the original complete screen of 217 partners in the 218-roadmap catalogue. All 38 distinct original link/overlap stage descriptions were read in full, with document-level quote context checked separately. Completeness was independently screened for focal Layers 0, 1, 3, 4, 5, 7 and the Layer 9 prerequisites. Belyi links refer to retained specifications pending real successor stage IDs; overlap recommendations do not authorize edits to upstream roadmaps.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
@@ -12,11 +12,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
-          "quote": "over a profinite `G`, a finite discrete module has an open **normal** subgroup acting trivially, so its action factors through a finite quotient."
+          "quote": "over a profinite `G`, a finite discrete module has an open **normal** subgroup\n  acting trivially, so its action factors through a finite quotient."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-          "quote": "a nonzero finite discrete `p`-primary `G`-module has nonzero invariants: the action factors through a finite `p`-quotient"
+          "quote": "a nonzero finite discrete `p`-primary\n  `G`-module has nonzero invariants: the action factors through a finite `p`-quotient"
         }
       ]
     },
@@ -28,11 +28,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
-          "quote": "`TopRep R G` as an abbreviation for `Action (TopModuleCat R) G`, and `Hⁿ_cont(G, X) = (continuousCohomology R G n).obj X` as the canonical object of every all-degree statement below."
+          "quote": "`TopRep R G` as an abbreviation for `Action (TopModuleCat R) G`,\n  and `Hⁿ_cont(G, X) = (continuousCohomology R G n).obj X` as the canonical object of every\n  all-degree statement below."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
-          "quote": "`trivialFp p G` is the trivial `𝔽_p`-representation of `G`, an object of `ProfiniteCohomology.TopRep (ZMod p) G`"
+          "quote": "`trivialFp p G` is the trivial `𝔽_p`-representation of `G`, an\n  object of `ProfiniteCohomology.TopRep (ZMod p) G`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
@@ -48,7 +48,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
-          "quote": "Restriction along the inclusion of a subgroup, inflation along a quotient map with invariant coefficients, and coefficient maps at `φ = id`, each as a natural transformation of functors on `TopRep R G`"
+          "quote": "Restriction along the inclusion of a subgroup, inflation along a\n  quotient map with invariant coefficients, and coefficient maps at `φ = id`, each as a natural\n  transformation of functors on `TopRep R G`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
@@ -72,11 +72,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
-          "quote": "`H¹` additively isomorphic to the continuous homomorphisms `G →ₜ* M`"
+          "quote": "`H¹` additively isomorphic to the continuous homomorphisms\n  `G →ₜ* M`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
-          "quote": "From a continuous normalized `2`-cocycle build the extension on `M × G` with the twisted multiplication"
+          "quote": "From a continuous normalized `2`-cocycle build the extension\n  on `M × G` with the twisted multiplication"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
@@ -112,11 +112,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
-          "quote": "The presentation theory of the Profinite Pro-`p` Groups roadmap is built from this sequence"
+          "quote": "The presentation theory of\n  the Profinite Pro-`p` Groups roadmap is built from this\n  sequence"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
-          "quote": "transgression `H¹(R, 𝔽_p)^F → H²(G, 𝔽_p)` is an isomorphism, by the five-term sequence and the vanishing theorem above"
+          "quote": "transgression `H¹(R, 𝔽_p)^F → H²(G, 𝔽_p)` is an\n  isomorphism, by the five-term sequence and the vanishing theorem above"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
@@ -127,12 +127,12 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
       "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-      "reason": "ProfiniteCohomology Layer 5 supplies the long exact sequence of continuous cohomology with explicit connecting maps. ProfiniteProPGroups Layer 6 uses it in the dévissage from elementary abelian to all finite p-primary coefficients and in the two-term Euler formula, citing PC-5 the long exact sequence in both.",
+      "reason": "ProfiniteCohomology Layer 5 supplies the explicit long exact sequence through degree 2 and its comparison with the canonical sequence. ProfiniteProPGroups Layer 6 uses its low-degree portion in dévissage and the two-term Euler formula. General dévissage in arbitrary degree and dimension shifting require ProfiniteCohomology Layer 10, already linked separately; Layer 5 alone does not supply an all-degree exact sequence.",
       "confidence": "explicit",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
-          "quote": "explicit connecting maps `explicitDelta0 : H⁰(G, C) → H¹(G, A)`"
+          "quote": "explicit connecting maps\n  `explicitDelta0 : H⁰(G, C) → H¹(G, A)`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
@@ -147,16 +147,16 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
       "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-      "reason": "ProfiniteCohomology Layer 5 supplies transgression, the five-term exactness theorems fiveTerm_exact_H1N and fiveTerm_exact_H2Q, and the connecting maps with their exactness. ProfiniteProPGroups Layer 7 uses the five-term sequence for cd_p G = 2 of an infinite Demushkin group, the connecting maps for the prescription property, and the long exact sequence for the three-term Euler formula. Layer 7 labels the five-term declarations 'PC-6', but they are Layer 5 exports of ProfiniteCohomology.",
+      "reason": "ProfiniteCohomology Layer 5 supplies transgression, fiveTerm_exact_H1N, fiveTerm_exact_H2Q and the low-degree connecting maps with exactness. ProfiniteProPGroups Layer 7 names these for its dimension-two route and prescription property. The consumer labels the five-term declarations PC-6, but their supplier is Layer 5. Its three-term Euler formula additionally requires Layer 10: Layer 5 stops at H²(G,B), before the required H²(G,C)→H³(G,A) step. The separate added link records that input; this link does not certify the entire Demushkin proof.",
       "confidence": "explicit",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
-          "quote": "at its four nodes, which is `explicitInfl1_injective`, `explicitInfRes_exact`, `fiveTerm_exact_H1N` and `fiveTerm_exact_H2Q`."
+          "quote": "at its four nodes, which is `explicitInfl1_injective`, `explicitInfRes_exact`,\n  `fiveTerm_exact_H1N` and `fiveTerm_exact_H2Q`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-          "quote": "*Needs:* L6 `cd_p`; PC-6 `transgression`, `fiveTerm_exact_H1N`, `fiveTerm_exact_H2Q`; L7 the predicate."
+          "quote": "*Needs:* L6 `cd_p`; PC-6 `transgression`, `fiveTerm_exact_H1N`, `fiveTerm_exact_H2Q`; L7 the\n  predicate."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
@@ -176,15 +176,15 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
-          "quote": "prove `Ind_H^G A ≅ Coind_H^G A` using a finite transversal"
+          "quote": "prove `Ind_H^G A ≅\n  Coind_H^G A` using a finite transversal"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-          "quote": "Route: dimension shifting through `Coind_1^G M`, which uses Shapiro for the **closed** trivial subgroup"
+          "quote": "Route: dimension shifting through `Coind_1^G M`, which uses\n  Shapiro for the **closed** trivial subgroup"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-          "quote": "The proof uses Shapiro for `U`, the identification `Coind_U^G 𝔽_p ≅ 𝔽_p[G/U]`, the long exact sequence"
+          "quote": "The proof uses Shapiro for `U`, the identification\n  `Coind_U^G 𝔽_p ≅ 𝔽_p[G/U]`, the long exact sequence"
         }
       ]
     },
@@ -207,7 +207,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
       "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-      "reason": "ProfiniteCohomology Layer 8 supplies the duality cup pairings Hⁱ(G, M →+ N) × H²⁻ⁱ(G, M) → H²(G, N) built from evalPairing, homAction and the cups, and the worked example that the (1,1) cup square on C₂ with 𝔽₂ coefficients is the nontrivial class of H²(C₂, 𝔽₂). ProfiniteProPGroups Layer 7 states perfect pairings H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) with M^∨(χ) = Hom(M, I(χ)/p^i) carrying the diagonal action, which are these pairings at N = I(χ)/p^i. It also proves ℤ/2 Demushkin through the nonvanishing of that cup square. Layer 7 cites only its own cupFp, which covers neither the Hom-valued coefficients nor the C₂ computation, so the link is inferred.",
+      "reason": "ProfiniteCohomology Layer 8 supplies the duality cup pairings Hⁱ(G, M →+ N) × H²⁻ⁱ(G, M) → H²(G, N) built from evalPairing, homAction and the cups, and the worked example that the (1,1) cup square on C₂ with 𝔽₂ coefficients is the nontrivial class of H²(C₂, 𝔽₂). ProfiniteProPGroups Layer 7 states perfect pairings H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) with M^∨(χ) = Hom(M, I(χ)/p^i) carrying the diagonal action, which are these pairings at N = I(χ)/p^i. It also proves ℤ/2 Demushkin through the nonvanishing of that cup square. Layer 7 cites only its own cupFp, which covers neither the Hom-valued coefficients nor the C₂ computation, so the link is inferred. The supplier gives the evaluation cup and its opposite-order version via graded commutativity; it does not supply perfection, the trace isomorphism or the identification of the extension class, which remain consumer arguments.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -216,15 +216,15 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
-          "quote": "the `(1,1)` square on `C₂` with `𝔽₂` coefficients is the nontrivial class of `H²(C₂, 𝔽₂)`"
+          "quote": "the `(1,1)` square on `C₂` with `𝔽₂` coefficients is the nontrivial class of\n`H²(C₂, 𝔽₂)`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-          "quote": "the cup pairing `H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) ≅ ℤ/p^i` is a perfect pairing"
+          "quote": "the cup pairing\n  `H^j(G, M) × H^{2-j}(G, M^∨(χ)) → H²(G, I(χ)/p^i) ≅ ℤ/p^i` is a perfect pairing"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-          "quote": "the cup square of the generator of `H¹(ℤ/2, 𝔽₂)` is the class of the extension `ℤ/4`"
+          "quote": "the cup square of the generator of `H¹(ℤ/2, 𝔽₂)`\n  is the class of the extension `ℤ/4`"
         }
       ]
     },
@@ -240,11 +240,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-          "quote": "derive the named `dimensionShiftIso : Hⁱ⁺¹(G, M) ≅ Hⁱ(G, Coind_1^G M ⧸ M)` for `i ≥ 1`"
+          "quote": "derive the named\n  `dimensionShiftIso : Hⁱ⁺¹(G, M) ≅ Hⁱ(G, Coind_1^G M ⧸ M)` for `i ≥ 1`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-          "quote": "*Needs:* L1 supernatural index; L2 Sylow existence and conjugacy; PC-10 `corestriction`, `corestriction_comp_res`; PC-11 `cd_p_eq_of_index_not_dvd`; PC-7 closed-subgroup Shapiro."
+          "quote": "*Needs:* L1 supernatural index; L2 Sylow existence and conjugacy; PC-10 `corestriction`,\n  `corestriction_comp_res`; PC-11 `cd_p_eq_of_index_not_dvd`; PC-7 closed-subgroup Shapiro."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
@@ -260,11 +260,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-          "quote": "that refinement lives in the Profinite Pro-`p` Groups roadmap, built on this layer."
+          "quote": "that refinement lives in\n  the Profinite Pro-`p` Groups roadmap, built on this layer."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-          "quote": "this layer supplies the definitions, the monotonicity, the prime-to-`p` equality, and Layer 10's all-degree tools that the Sylow argument uses."
+          "quote": "this layer supplies the definitions, the monotonicity,\n  the prime-to-`p` equality, and Layer 10's all-degree tools that the Sylow argument uses."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
@@ -272,7 +272,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-          "quote": "This is `ProfiniteCohomology.cd_p_le_iff_finite_pPrimary`, which is cited and not restated"
+          "quote": "This is\n  `ProfiniteCohomology.cd_p_le_iff_finite_pPrimary`, which is cited and not restated"
         }
       ]
     },
@@ -284,7 +284,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-          "quote": "Consumers: the Profinite Pro-`p` Groups, Class Field Theory, and Local Galois Groups roadmaps."
+          "quote": "Consumers: the Profinite Pro-`p` Groups, Class Field Theory, and Local\nGalois Groups roadmaps."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
@@ -312,11 +312,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
-          "quote": "`cd_p G ≤ 1` if and only if `G` is free pro-`p`, with no finite generation"
+          "quote": "`cd_p G ≤ 1` if and only if `G` is free pro-`p`,\n  with no finite generation"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-10-free-pro-c-groups-on-profinite-spaces",
-          "quote": "Closed subgroups of free pro-`p` groups are free pro-`p`, which is the full pro-`p` Nielsen–Schreier theorem."
+          "quote": "Closed subgroups of free pro-`p` groups are free pro-`p`, which is the full pro-`p`\n  Nielsen–Schreier theorem."
         }
       ]
     },
@@ -328,11 +328,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-          "quote": "`ofDiscreteModulePairing` builds one from a biadditive equivariant map of discrete modules"
+          "quote": "`ofDiscreteModulePairing` builds\n   one from a biadditive equivariant map of discrete modules"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-          "quote": "derive the class-level theorem `cup_gradedComm`"
+          "quote": "derive\n   the class-level theorem `cup_gradedComm`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
@@ -347,7 +347,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
       "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-      "reason": "ProfiniteCohomology Layer 12 proves the projection formula cup_projection, cor (res a ⌣ b) = a ⌣ cor b, in all bidegrees. ProfiniteProPGroups Layer 7's naturality milestone for the Demushkin duality pairings is the identity ⟨res a, b⟩_U = ⟨a, cor b⟩_G. The open-subgroup theorem uses it. ProfiniteProPGroups lists cup_projection among the operations imported from ProfiniteCohomology.",
+      "reason": "ProfiniteCohomology Layer 12 proves the projection formula cup_projection, cor (res a ⌣ b) = a ⌣ cor b, in all bidegrees. ProfiniteProPGroups Layer 7's naturality milestone for the Demushkin duality pairings is the identity ⟨res a, b⟩_U = ⟨a, cor b⟩_G. The open-subgroup theorem uses it. ProfiniteProPGroups lists cup_projection among the operations imported from ProfiniteCohomology. The projection formula supplies the cup/corestriction identity; compatibility of the chosen trace normalizations is an additional consumer obligation, not a conclusion of that formula alone.",
       "confidence": "explicit",
       "evidence": [
         {
@@ -356,7 +356,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
-          "quote": "Compatibility of the pairings with restriction to an open subgroup and with corestriction, in the form `⟨res a, b⟩_U = ⟨a, cor b⟩_G`."
+          "quote": "Compatibility of the pairings with restriction to an open subgroup and\n  with corestriction, in the form `⟨res a, b⟩_U = ⟨a, cor b⟩_G`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
@@ -367,7 +367,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
       "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
-      "reason": "GrothendieckEulerForms Layer 5 proves the finite-exact-sequence formula for the signed sum of an additive invariant and Euler–Poincaré for bounded complexes of finite-dimensional vector spaces. The Tau Ceti baseline already contains HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar. ProfiniteProPGroups Layer 6's two-term Euler formula needs additivity of finrank along a finite exact sequence of finite-dimensional vector spaces, which is that formula for finrank. Neither text names the other.",
+      "reason": "GrothendieckEulerForms Layer 5 proves the finite-exact-sequence formula for the signed sum of an additive invariant and Euler–Poincaré for bounded complexes of finite-dimensional vector spaces. ProfiniteProPGroups Layer 6's two-term Euler formula needs additivity of finrank along a finite exact sequence of finite-dimensional vector spaces, which is that formula for finrank. Neither text names the other.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -376,7 +376,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
-          "quote": "For vector spaces, record finite-dimensionality of every term and boundedness explicitly."
+          "quote": "For vector spaces, record finite-dimensionality of\n  every term and boundedness explicitly."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
@@ -387,16 +387,16 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
-      "reason": "ProfiniteProPGroups Layer 0 states the profinite completion's unbundled universal property: continuous homomorphisms out of the completion correspond to abstract homomorphisms. BelyiMaps Layer 12 defines the profinite power x ^ᶻ a as the image of a under the unique continuous homomorphism ẑ → G sending 1 to x, by that universal property applied to n ↦ xⁿ. Its milestones 12.1, 12.2 and 12.6 list ProfiniteProPGroups Layers 0 and 4 as prerequisites.",
+      "reason": "ProfiniteProPGroups Layer 0 states the profinite completion's unbundled universal property: continuous homomorphisms out of the completion correspond to abstract homomorphisms. BelyiMaps Layer 12 defines the profinite power x ^ᶻ a as the image of a under the unique continuous homomorphism ẑ → G sending 1 to x, by that universal property applied to n ↦ xⁿ. Its milestones 12.1, 12.2 and 12.6 list ProfiniteProPGroups Layers 0 and 4 as prerequisites. The target is the extant BelyiMaps dependency specification: its text assigns generic milestones to ProfiniteArithmetic and arithmetic milestones to BelyiArithmeticActions. Neither successor currently has an atlas stage ID, so this records the retained contract without assigning ownership or completion to BelyiMaps.",
       "confidence": "explicit",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
-          "quote": "Add the unbundled universal property: continuous homomorphisms from the completion to a profinite `P` correspond to abstract homomorphisms from `G`."
+          "quote": "Add the unbundled\n  universal property: continuous homomorphisms from the completion to a profinite `P`\n  correspond to abstract homomorphisms from `G`."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
-          "quote": "the image of `a` under the unique continuous homomorphism `ẑ → G` sending `1` to `x` — the completion's universal property applied to `n ↦ xⁿ`"
+          "quote": "the image of `a` under the unique continuous homomorphism `ẑ → G` sending `1` to `x` — the\ncompletion's universal property applied to `n ↦ xⁿ`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
@@ -407,12 +407,12 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
-      "reason": "ProfiniteProPGroups Layer 3 constructs maximalProPQuotient with its quotient map and universal property: continuous homomorphisms to pro-p groups factor uniquely through it. BelyiMaps Layer 12 (12.3) defines the ℤ_ℓ-power on a pro-ℓ group by factoring the powering homomorphism ẑ → G through the maximal pro-ℓ quotient of ẑ, which it calls legitimate by ProfiniteProPGroups Layer 3's universal property.",
+      "reason": "ProfiniteProPGroups Layer 3 constructs maximalProPQuotient with its quotient map and universal property: continuous homomorphisms to pro-p groups factor uniquely through it. BelyiMaps Layer 12 (12.3) defines the ℤ_ℓ-power on a pro-ℓ group by factoring the powering homomorphism ẑ → G through the maximal pro-ℓ quotient of ẑ, which it calls legitimate by ProfiniteProPGroups Layer 3's universal property. The target is the extant BelyiMaps dependency specification: its text assigns generic milestones to ProfiniteArithmetic and arithmetic milestones to BelyiArithmeticActions. Neither successor currently has an atlas stage ID, so this records the retained contract without assigning ownership or completion to BelyiMaps.",
       "confidence": "explicit",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-          "quote": "State its quotient map, its universal property, its idempotence on pro-`p` groups, and its functoriality once, here."
+          "quote": "State its quotient map, its universal property, its idempotence on\n  pro-`p` groups, and its functoriality once, here."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
@@ -427,7 +427,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
-      "reason": "ProfiniteProPGroups Layer 4 constructs freeProfiniteGroup X := profiniteCompletion (FreeGroup X). Through the rank-one chain it identifies the maximal pro-p quotient of the profinite completion of ℤ with ℤ_p, and it owns zHat as a profinite group. BelyiMaps Layer 12 compares its ring ProfiniteInt with ProfiniteProPGroups' zHat (12.1), defines the ℤ_ℓ-power through maximalProPQuotient_zHat_equiv_padicInt (12.3), and identifies π₁ᵍᵉᵒ with profiniteCompletion (FreeGroup (Fin 2)), with prerequisites ProfiniteProPGroups Layers 0 and 4 (12.6).",
+      "reason": "ProfiniteProPGroups Layer 4 constructs freeProfiniteGroup X := profiniteCompletion (FreeGroup X). Through the rank-one chain it identifies the maximal pro-p quotient of the profinite completion of ℤ with ℤ_p, and it owns zHat as a profinite group. BelyiMaps Layer 12 compares its ring ProfiniteInt with ProfiniteProPGroups' zHat (12.1), defines the ℤ_ℓ-power through maximalProPQuotient_zHat_equiv_padicInt (12.3), and identifies π₁ᵍᵉᵒ with profiniteCompletion (FreeGroup (Fin 2)), with prerequisites ProfiniteProPGroups Layers 0 and 4 (12.6). The target is the extant BelyiMaps dependency specification: its text assigns generic milestones to ProfiniteArithmetic and arithmetic milestones to BelyiArithmeticActions. Neither successor currently has an atlas stage ID, so this records the retained contract without assigning ownership or completion to BelyiMaps.",
       "confidence": "explicit",
       "evidence": [
         {
@@ -440,11 +440,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
-          "quote": "`zHat` as a profinite *group* (Layer 4), the identification of its maximal pro-`p` quotient with `ℤ_p`"
+          "quote": "`zHat` as a profinite *group* (Layer 4), the identification of its maximal pro-`p`\nquotient with `ℤ_p`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
-          "quote": "Using ProfiniteProPGroups Layer 4's `maximalProPQuotient_zHat_equiv_padicInt`, define the `ℤ_ℓ`-power `x ^[ℓ] u` for `u : ℤ_[ℓ]` on a pro-`ℓ` group"
+          "quote": "Using\nProfiniteProPGroups Layer 4's `maximalProPQuotient_zHat_equiv_padicInt`, define the\n`ℤ_ℓ`-power `x ^[ℓ] u` for `u : ℤ_[ℓ]` on a pro-`ℓ` group"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
@@ -455,16 +455,16 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
-      "reason": "ProfiniteProPGroups Layer 3 proves proPKernel p G closed, normal, characteristic for continuous automorphisms and preserved by continuous homomorphisms. BelyiMaps Layer 13 (13.1) descends the outer Galois action from the free profinite group to its pro-ℓ quotient because proPKernel ℓ is topologically characteristic, citing ProfiniteProPGroups Layer 3.",
+      "reason": "ProfiniteProPGroups Layer 3 proves proPKernel p G closed, normal, characteristic for continuous automorphisms and preserved by continuous homomorphisms. BelyiMaps Layer 13 (13.1) descends the outer Galois action from the free profinite group to its pro-ℓ quotient because proPKernel ℓ is topologically characteristic, citing ProfiniteProPGroups Layer 3. The target is the extant BelyiMaps dependency specification: its text assigns generic milestones to ProfiniteArithmetic and arithmetic milestones to BelyiArithmeticActions. Neither successor currently has an atlas stage ID, so this records the retained contract without assigning ownership or completion to BelyiMaps.",
       "confidence": "explicit",
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-          "quote": "It is closed, normal, characteristic for continuous automorphisms, and preserved by continuous homomorphisms."
+          "quote": "It is closed, normal, characteristic for continuous\n  automorphisms, and preserved by continuous homomorphisms."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
-          "quote": "`proPKernel ℓ` is topologically characteristic (ProfiniteProPGroups Layer 3)"
+          "quote": "`proPKernel ℓ` is topologically characteristic (ProfiniteProPGroups Layer\n3)"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
@@ -475,7 +475,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
       "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
-      "reason": "ProfiniteProPGroups Layer 4 constructs freeProP p X as the maximal pro-p quotient of the free profinite group, with its generators and universal property. BelyiMaps Layer 13 defines the pro-ℓ peripheral carrier Δ_ℓ as ProfiniteProPGroups.freeProP ℓ (Fin 2) with the supplier's canonical generators, and states the peripheral-power theorem and its dyadic instance on it.",
+      "reason": "ProfiniteProPGroups Layer 4 constructs freeProP p X as the maximal pro-p quotient of the free profinite group, with its generators and universal property. BelyiMaps Layer 13 defines the pro-ℓ peripheral carrier Δ_ℓ as ProfiniteProPGroups.freeProP ℓ (Fin 2) with the supplier's canonical generators, and states the peripheral-power theorem and its dyadic instance on it. The target is the extant BelyiMaps dependency specification: its text assigns generic milestones to ProfiniteArithmetic and arithmetic milestones to BelyiArithmeticActions. Neither successor currently has an atlas stage ID, so this records the retained contract without assigning ownership or completion to BelyiMaps.",
       "confidence": "explicit",
       "evidence": [
         {
@@ -484,7 +484,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/BelyiMaps#layer-13-the-pro-ℓ-peripheral-theorem-and-faithfulness",
-          "quote": "define `Δ_ℓ := ProfiniteProPGroups.freeProP ℓ (Fin 2)` directly"
+          "quote": "define\n`Δ_ℓ := ProfiniteProPGroups.freeProP ℓ (Fin 2)` directly"
         }
       ]
     },
@@ -500,7 +500,7 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
-          "quote": "a different generator changes the isomorphism by the substitution `T ↦ (1+T)^u - 1` with `u ∈ ℤ_pˣ`"
+          "quote": "a different\n  generator changes the isomorphism by the substitution `T ↦ (1+T)^u - 1` with `u ∈ ℤ_pˣ`"
         },
         {
           "stageId": "IntegralIwasawaTheory:I.1",
@@ -520,7 +520,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
-          "quote": "`A` becomes a topological `ℤ_p`-module, functorially in continuous homomorphisms of abelian pro-`p` groups."
+          "quote": "`A` becomes a topological `ℤ_p`-module, functorially in\n  continuous homomorphisms of abelian pro-`p` groups."
         },
         {
           "stageId": "ColemanPowerSeries:L0",
@@ -540,7 +540,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
-          "quote": "Restate the limit description for consumers outside the category: a compatible family of elements of the finite quotients of `G` comes from a unique element."
+          "quote": "Restate the limit description for consumers outside the\n  category: a compatible family of elements of the finite quotients of `G` comes from a\n  unique element."
         },
         {
           "stageId": "PadicMeasuresIwasawaAlgebras:L1",
@@ -564,11 +564,11 @@
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
-          "quote": "A normal `p`-Sylow subgroup is unique."
+          "quote": "A normal `p`-Sylow subgroup\n  is unique."
         },
         {
           "stageId": "DiamondEtaleCohomology:C8",
-          "quote": "import canonical continuous cohomology and its closed-subgroup/Shapiro dimension API from ProfiniteCohomology, and Sylow/pro-`p` structure from ProfiniteProPGroups"
+          "quote": "import canonical continuous cohomology and its\nclosed-subgroup/Shapiro dimension API from ProfiniteCohomology, and Sylow/pro-`p` structure\nfrom ProfiniteProPGroups"
         }
       ]
     },
@@ -580,11 +580,11 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-          "quote": "The equivalence milestone: a profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of finite `p`-groups."
+          "quote": "The equivalence milestone: a\n  profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of\n  finite `p`-groups."
         },
         {
           "stageId": "DiamondEtaleCohomology:C8",
-          "quote": "Sylow/pro-`p` structure from ProfiniteProPGroups"
+          "quote": "Sylow/pro-`p` structure\nfrom ProfiniteProPGroups"
         },
         {
           "stageId": "DiamondEtaleCohomology:C8",
@@ -600,7 +600,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
-          "quote": "Every closed pro-`p` subgroup lies in a `p`-Sylow subgroup."
+          "quote": "Every closed pro-`p`\n  subgroup lies in a `p`-Sylow subgroup."
         },
         {
           "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
@@ -616,7 +616,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
-          "quote": "`profiniteOrder G : Supernatural` takes at each prime the supremum of the valuations of the orders of the finite quotients."
+          "quote": "`profiniteOrder G : Supernatural` takes at each prime\n  the supremum of the valuations of the orders of the finite quotients."
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
@@ -624,7 +624,7 @@
         },
         {
           "stageId": "DiamondSixOperations:S5",
-          "quote": "Prove 24.2 for free actions of a profinite group of pro-order prime to `ℓ`, including the normalized `Λ`-valued Haar measure and compatibility of finite-level traces."
+          "quote": "Prove 24.2 for free actions of a profinite group of pro-order prime to `ℓ`, including the\nnormalized `Λ`-valued Haar measure and compatibility of finite-level traces."
         }
       ]
     },
@@ -636,7 +636,7 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
-          "quote": "`G` is pro-`p` if and only if `profiniteOrder G` is supported at `p`"
+          "quote": "`G` is pro-`p` if and only if `profiniteOrder G` is\n  supported at `p`"
         },
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index",
@@ -660,13 +660,59 @@
       "evidence": [
         {
           "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-          "quote": "The equivalence milestone: a profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of finite `p`-groups."
+          "quote": "The equivalence milestone: a\n  profinite group is pro-`p` if and only if it is continuously isomorphic to a limit of\n  finite `p`-groups."
         },
         {
           "stageId": "ReductiveGroupsPartII:RG2.3",
           "quote": "Identify pro-p congruence subgroups and prove their compact openness."
         }
       ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "ProfiniteCohomology Layer 10 supplies the canonical long exact sequence in every degree, including exactness at H²(G,C) and the connecting map to H³(G,A). The three-term Euler formula in ProfiniteProPGroups Layer 7 needs the resulting finite exact sequence ending in H²(G,C)→0 under cd_p G≤2. The named PC-5 supplier stops at H²(G,B); its low-degree sequence alone cannot give this endpoint. This is a direct use of the all-degree exactness contract, even though the consumer currently cites PC-5.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "quote": "then state\n  `longExact_exact` at all three repeating nodes"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "For `G` topologically finitely generated pro-`p` with\n  `cd_p G ≤ 2`, **with `H^i(G, 𝔽_p)` finite-dimensional for `i = 0, 1, 2`**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "Shapiro, the long exact sequence, and the trivial-filtration theorem of Layer 6."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+      "reason": "GrothendieckEulerForms Layer 5 supplies finite-exact-sequence formulas for signed sums of additive invariants, with boundedness and finite-dimensionality for vector spaces. ProfiniteProPGroups Layer 7 proves its three-term Euler formula by the same finite exact-sequence argument as Layer 6, now through degree 2. Specialize the additive invariant to finrank over F_p and use the consumer’s explicit finiteness and cd_p≤2 hypotheses. This supplies Euler additivity, not the separate Shapiro or cohomological-dimension arguments.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "Prove reindexing, shift/sign, direct-sum, and finite-exact-sequence formulas."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For vector spaces, record finite-dimensionality of\n  every term and boundedness explicitly."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation",
+          "quote": "The proof has the shape of the two-term case, one degree longer, with the same inputs:"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups",
+          "quote": "additivity of `finrank` along a finite exact sequence of finite-dimensional vector spaces."
+        }
+      ],
+      "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
     }
   ],
   "overlaps": [
@@ -684,16 +730,16 @@
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups"
       ],
-      "detail": "Both stages need the description of the cohomology of a closed subgroup as a colimit over the open subgroups containing it (NSW (1.5.1)). ProfiniteProPGroups Layer 6 proves it as the first step of its Sylow equality: 'the cohomology of a closed subgroup, with discrete coefficients, is the filtered colimit of the cohomology of the open subgroups containing it'. ProfiniteCohomology Layer 11 proves cd_p_le_of_isClosed 'by coinduction and Shapiro for the cofinal open case and then the limit argument' (NSW (3.3.5)). That limit argument is the same colimit theorem, but no ProfiniteCohomology layer states it, and its all-degree colimit (Layer 10) runs over finite quotients G ⧸ U, not over open subgroups above a closed H. ProfiniteProPGroups Layer 6 imports cd_p_le_of_isClosed, so the supplier cannot take the theorem from Layer 6 without a cycle. As written the theorem is proved twice, or used before it is stated.",
+      "detail": "ProfiniteProPGroups Layer 6 explicitly proposes the closed-subgroup cohomology colimit in its Sylow proof. ProfiniteCohomology Layer 11 describes its closed-subgroup dimension proof using a cofinal-open case and an unnamed limit argument, but does not state the colimit theorem. This is an overlapping proof obligation and missing interface, rather than two explicit declarations of an identical theorem. Layer 10’s finite-quotient colimit has a different indexing category. Since PPG Layer 6 already imports Layer 11, making Layer 11 depend on the consumer’s proof would be circular.",
       "recommendation": "rescope",
-      "proposal": "Add to ProfiniteCohomology Layer 10, beside continuousFiniteQuotientColimit, a named all-degree theorem: for profinite G, closed H ≤ G and discrete M, Hⁿ(H, M) is the filtered colimit over open U ⊇ H of Hⁿ(U, M) along restriction. Cite it in Layer 11's proof of cd_p_le_of_isClosed. ProfiniteProPGroups Layer 6's cd_p_eq_of_isProPSylow then imports it with corestriction_comp_res and cd_p_eq_of_index_not_dvd, and proves only the Sylow-specific steps: indices prime to p for open U ⊇ G_p, injectivity of restriction, and Shapiro for G_p."
+      "proposal": "If retaining the cofinal-open proof route, place the shared continuity theorem in ProfiniteCohomology Layer 10: for profinite G, closed H≤G and a discrete continuous G-module M, Hⁿ(H,res_H M) is the filtered colimit of Hⁿ(U,res_U M) over open U containing H, along restriction. The G-module hypothesis supplies every U-action; an arbitrary H-module cannot simply be inserted on the right. The general closed-subgroup dimension theorem can also use the existing all-degree closed-subgroup coinduction/Shapiro route directly. PPG Layer 6 imports the continuity theorem for its Sylow argument and owns only the Sylow-specific steps. Do not add a reverse edge from ProfiniteCohomology to PPG Layer 6."
     },
     {
       "stages": [
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
       ],
-      "detail": "Both roadmaps build the trivial mod-p coefficient object on the canonical carrier, and its multiplication pairing. ProfiniteProPGroups Layer 5 defines trivialFp p G, the trivial 𝔽_p-representation with carrier ULift (ZMod p), as an object of ProfiniteCohomology.TopRep (ZMod p) G, and fpPairing p G, multiplication as a TopPairing. ProfiniteCohomology lifts 𝔽₂ for the Evens norm (§3: 'trivialF2 carries ULift (ZMod 2)'). QuadraticFormInvariants' contract table takes trivialF2, trivialF2_isSmoothDiscrete and f2Pairing from ProfiniteCohomology Layer 13, as an object of TopRep ℤ G_K with multiplication as a TopPairing. At p = 2 these are two constructions of one object, in two coefficient categories (TopRep ℤ and TopRep (ZMod p)). No restriction-of-scalars comparison between the two cohomologies is stated, although ProfiniteProPGroups Layer 6 combines ProfiniteCohomology.cd_p, over ℤ-coefficient cohomology, with 𝔽_p-tests on cohomFp.",
+      "detail": "Both roadmaps build the trivial mod-p coefficient object on the canonical carrier, and its multiplication pairing. ProfiniteProPGroups Layer 5 defines trivialFp p G, the trivial 𝔽_p-representation with carrier ULift (ZMod p), as an object of ProfiniteCohomology.TopRep (ZMod p) G, and fpPairing p G, multiplication as a TopPairing. ProfiniteCohomology lifts 𝔽₂ for the Evens norm (§3: 'trivialF2 carries ULift (ZMod 2)'). QuadraticFormInvariants' contract table takes trivialF2, trivialF2_isSmoothDiscrete and f2Pairing from ProfiniteCohomology Layer 13, as an object of TopRep ℤ G_K with multiplication as a TopPairing. At p = 2 these are two constructions of one object, in two coefficient categories (TopRep ℤ and TopRep (ZMod p)). No restriction-of-scalars comparison between the two cohomologies is stated, although ProfiniteProPGroups Layer 6 combines ProfiniteCohomology.cd_p, over ℤ-coefficient cohomology, with 𝔽_p-tests on cohomFp. The two coefficient-category objects are not definitionally identical; the overlap is their common underlying trivial module and multiplication, together with the missing comparison. The Layer 13 attribution comes from the roadmap’s universe convention and QuadraticFormInvariants’ supplier contract, not a complete standalone Layer 13 construction.",
       "recommendation": "rescope",
       "proposal": "Build the trivial 𝔽_p object and its multiplication TopPairing once, for every prime p, in ProfiniteCohomology Layer 12 next to TopPairing and ofDiscreteModulePairing. Give it smooth-discreteness and the restriction-of-scalars comparison between its TopRep ℤ and TopRep (ZMod p) cohomology. Define trivialF2 and f2Pairing as the p = 2 instances that Layer 13 and QuadraticFormInvariants 7A consume. ProfiniteProPGroups Layer 5 then imports the object and the pairing, keeps cohomFp and cupFp as abbreviations over them, and states Layer 6's 𝔽_p-test through the comparison."
     },
@@ -704,7 +750,7 @@
       ],
       "detail": "Both stages construct p-adic powers in pro-p groups. ProfiniteProPGroups Layer 4 defines ℤ_p-exponentiation a^λ only on abelian pro-p groups, as an inverse limit over finite quotients, and proves freeProP p (Fin 1) ≅ Multiplicative ℤ_[p] by the universal property. BelyiMaps Layer 12 (milestone 12.3) defines the ℤ_ℓ-power x ^[ℓ] u on an arbitrary pro-ℓ group, factoring through maximalProPQuotient_zHat_equiv_padicInt, proves the same laws, and names ProfiniteArithmetic as the generic owner. ProfiniteProPGroups defers only the ẑ-power and its ℤ_ℓ comparison to ProfiniteArithmetic. Its Layers 8–9 still write the even-rank q = 2 Demushkin relator in the nonabelian free pro-2 group with a 2-adic exponent, x₁^{2+α} with α ∈ 4ℤ₂, and give no construction of that power. So the ℤ_p-power on pro-p groups is planned twice, for abelian groups here and for all pro-ℓ groups in BelyiMaps, while the stages that most need it name no supplier.",
       "recommendation": "rescope",
-      "proposal": "Add a milestone to ProfiniteProPGroups Layer 4 defining x^λ for x in any pro-p group G and λ ∈ ℤ_p. It is the image of λ under the continuous homomorphism Multiplicative ℤ_[p] ≅ freeProP p (Fin 1) → G that sends the generator to x. Prove x^{λ+μ} = x^λ x^μ, (x^λ)^μ = x^{λμ}, naturality under continuous homomorphisms, agreement with ℤ-powers, and agreement with Layer 4's abelian exponentiation. Layers 8–9 cite it for the normal-form relator demushkinWordTwoEven and its basis changes. BelyiMaps 12.3, and its generic owner ProfiniteArithmetic, import x ^[ℓ] u from here and keep only the comparison x ^ᶻ a = x ^[ℓ] (component_ℓ a)."
+      "proposal": "Preserve ProfiniteProPGroups Layer 4’s existing abelian exponentiation/module API. Its opening ownership boundary and the retained BelyiMaps Layer 12 specification both assign generic profinite powers and their pro-ℓ specialization to the planned ProfiniteArithmetic successor. That successor should construct the general operation using the existing completion and rank-one quotient APIs, then prove agreement with Layer 4’s abelian operation. The nonabelian powers used in the PPG classification need that exported operation, not an abelian module action. Record the missing consumer interface for the maintainer; do not add new milestones to the upstream roadmap or invent a successor stage ID. Once successor stages exist, migrate the retained Belyi dependency links to their actual generic/arithmetic owners."
     },
     {
       "stages": [
@@ -715,7 +761,7 @@
       ],
       "detail": "Three roadmaps construct the completed group algebra as an inverse limit over open normal subgroups, and two of them also build its compact-module theory. ProfiniteProPGroups' Layer 9 prerequisites build completedGroupAlgebra p Γ = lim_U ℤ_p[Γ/U] for any profinite Γ, as a compact topological ℤ_p-algebra with proj, of and map. They add IsCompactModule with compactModule_limit_surjective (lifting compatible families along towers of compact modules) and the Λ-scalar action labuteSMul extending conjugation on Labute's module. PadicMeasuresIwasawaAlgebras L1 builds R[[G]] = lim (R/I^n)[G/U] for complete adic R, with functoriality, Dirac elements, density of the group algebra, and the universal property for continuous actions on complete separated linearly topologized modules. Its L5 proves exactness of compact inverse systems and topological Nakayama. NoncommutativeAndEquivariantIwasawa NE.0 cites PMIA L1 but again constructs O[[G]] as the inverse limit over open normal subgroups, with its topology and continuous module actions. At R = ℤ_p these are one ring built up to three times, and labuteSMul is an instance of PMIA L1's continuous-action universal property.",
       "recommendation": "rescope",
-      "proposal": "Keep one carrier for ℤ_p coefficients. ProfiniteProPGroups keeps completedGroupAlgebra p Γ with proj, of, map, commutativity for abelian Γ, IsCompactModule and compactModule_limit_surjective, which is all Labute needs; being upstream, it takes none of this from a campaign roadmap. PadicMeasuresIwasawaAlgebras L1 defines R[[G]] for complete adic R and proves, as a named comparison, R[[G]] ≅ R ⊗̂_{ℤ_p} completedGroupAlgebra p G, which is the identity at R = ℤ_p. L1 states the continuous-action universal property so that labuteSMul is an instance of it, and L5 cites compactModule_limit_surjective as the base case of its exactness results. NoncommutativeAndEquivariantIwasawa NE.0 drops its separate inverse-limit construction of O[[G]] and keeps only the Lazard noetherian and module-finiteness theorems over PMIA L1's carrier."
+      "proposal": "Preserve the existing upstream completedGroupAlgebra p G carrier and its ℤ_p-level API. PMIA L1 constructs its broader complete-adic-coefficient theory and proves the comparison at R=ℤ_p by compatible finite-level projections; general coefficient extension is a separate theorem with a specified continuous ℤ_p-algebra structure and completed tensor topology. Do not assert R[[G]]≅R⊗̂_{ℤ_p}ℤ_p[[G]] for every complete adic ring R without those data. Prove the continuous-action comparison under a cofinal basis of open G-stable submodules before identifying the specialized Labute action. PMIA L5 imports the precise compact Hausdorff lifting result where its hypotheses match and proves only additional exactness; separatedness and completeness alone do not imply compactness. NE.0 imports PMIA L1’s existing noncommutative carrier and action interface, adding only its p-adic Lie-group noetherian and module-finiteness results. These are boundary recommendations, not changes to upstream files."
     },
     {
       "stages": [
@@ -726,7 +772,7 @@
       ],
       "detail": "Both roadmaps develop the one-variable coordinate on ℤ_p[[Γ]] and division in ℤ_p[[T]]. ProfiniteProPGroups' Layer 9 prerequisites prove the power-series coordinate ℤ_p[[T]] ≅ completedGroupAlgebra p Γ for Γ ≅ ℤ_p, with T ↦ γ − 1 and change of generator T ↦ (1+T)^u − 1. They prove convergent evaluation ψ(c) for v_p(c) ≥ 1, and the division criterion (T − c) ∣ ψ ⟺ ψ(c) = 0 ('the special case of Weierstrass division that Labute uses'). They also prove the dyadic branch ℤ₂[[C₂ × ℤ₂]] ≅ ℤ₂[C₂][[T]], insisting that C₂ × ℤ₂ is not procyclic. PadicMeasuresIwasawaAlgebras develops the same mathematics in greater generality. L2's Mahler–Amice isomorphism M(ℤ_p, O) ≅ O[[T]] gives O[[ℤ_p]] ≅ O[[T]] with [1] ↦ 1 + T. L3 proves the procyclic augmentation-ideal theorem, change of generator and evaluation at characters, and treats ℤ₂ˣ as {±1} × (1 + 4ℤ₂), not as a procyclic group. L4 proves Weierstrass division and preparation for O[[T]].",
       "recommendation": "rescope",
-      "proposal": "Let PadicMeasuresIwasawaAlgebras specialize to ProfiniteProPGroups' named statements rather than re-prove them. PMIA L2 proves that its Mahler–Amice isomorphism at O = ℤ_p equals completedGroupAlgebra.powerSeriesCoordinate at γ = 1. PMIA L3 cites that coordinate's substitution formula for change of generator, and states its ℤ₂ˣ treatment through dyadicCoordinate at Γ = ℤ₂ˣ ≅ C₂ × ℤ₂. PMIA L4 derives powerSeries_sub_C_dvd_iff and powerSeriesEval as the linear case of Weierstrass division. ProfiniteProPGroups keeps its short elementary proofs, so the upstream Demushkin classification stays independent of the campaign roadmap, and PMIA records the identifications as comparison lemmas."
+      "proposal": "Preserve the upstream ℤ_p coordinate, convergent evaluation and linear division theorem as the specialized inputs. PMIA proves its broader O-coefficient theorems and comparison maps at O=ℤ_p, rather than defining a second specialized carrier or reproving the named base result. Identify the Mahler–Amice coordinate, generator-change substitution and integral dyadic group-ring branch through these maps. Specify the topology using coefficient quotients together with group quotients; in the procyclic case it is the (p,T)-adic topology. Do not inherit the upstream text’s identification with the T-adic filtration or with projection kernels alone: p^n converges to zero in the compact topology but not T-adically, and the group-quotient polynomial is (1+T)^{p^n}−1, not T^n. General Weierstrass division gives a compatible specialization; it does not replace or duplicate the upstream elementary proof."
     },
     {
       "stages": [
@@ -735,7 +781,7 @@
       ],
       "detail": "Both stages define finite embedding problems and their weak solutions. ProfiniteProPGroups Layer 5 (5.1–5.6) defines FiniteEmbeddingProblem for a profinite group G, a continuous surjection onto a finite Q together with a surjection E ↠ Q, and FiniteEmbeddingProblem.IsSolution, a solution that need not be surjective; it warns that solutions cannot be made surjective in general. It then reduces solvability with p-group kernels to elementary abelian kernels through the lower p-central filtration and H². InverseGaloisAndArithmeticFundamentalGroups IG.4 again defines 'weak and proper solutions of finite embedding problems' for absolute Galois groups. It decomposes Shafarevich's solvable realization theorem into abelian kernels and successive proper solutions. The carrier and the weak-solution predicate are the same definitions, and the abelian-kernel reduction is the same technique.",
       "recommendation": "rescope",
-      "proposal": "IG.4 imports FiniteEmbeddingProblem and FiniteEmbeddingProblem.IsSolution from ProfiniteProPGroups Layer 5, at G the absolute Galois group, as its weak solutions. It defines only the proper-solution predicate (β surjective), the local constraints and the arithmetic realization steps. Wherever its kernels are p-groups it cites Layer 5's reductions (hasPGroupSolutions_of_hasElementaryAbelianSolutions and the H² criterion). ProfiniteProPGroups keeps the abstract definitions and criteria unchanged."
+      "proposal": "IG.4 imports FiniteEmbeddingProblem and FiniteEmbeddingProblem.IsSolution from ProfiniteProPGroups Layer 5, at G the absolute Galois group, as its weak solutions. It defines only the proper-solution predicate (β surjective), the local constraints and the arithmetic realization steps. Wherever its kernels are p-groups it cites Layer 5's reductions (hasPGroupSolutions_of_hasElementaryAbelianSolutions and the H² criterion). ProfiniteProPGroups keeps the abstract definitions and criteria unchanged. The p-group-kernel reduction supplies weak solvability only. Properness and local arithmetic conditions in Shafarevich’s theorem remain IG.4 obligations and cannot be deduced from the imported weak-solution predicate."
     }
   ],
   "examined": [
@@ -1622,7 +1668,7 @@
     {
       "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
       "result": "links",
-      "note": "I read Layer 5 in full and screened the rest. Its finite-exact-sequence formula for additive invariants and the finite-dimensional Euler–Poincaré theorem (HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar is already in the Tau Ceti baseline) supply the finrank additivity used by Layer 6's two-term Euler formula. The link is inferred."
+      "note": "I read Layer 5 in full and screened the rest. Its finite-exact-sequence formula for additive invariants and the finite-dimensional Euler–Poincaré theorem (HomologicalComplex.eulerChar_forgetFG_eq_homologyEulerChar is already in the Tau Ceti baseline) supply the finrank additivity used by Layer 6's two-term Euler formula. The link is inferred. Independent review adds its Layer 5 Euler-additivity dependency for PPG Layer 7."
     },
     {
       "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
@@ -1692,7 +1738,7 @@
     {
       "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
       "result": "links",
-      "note": "I read the whole document and all 14 stages. It is the named cohomology supplier (PC-<layer> in this roadmap), and its export contract names ProfiniteProPGroups as a consumer. Links into this roadmap's Layers 5, 6, 7 and 10 come from its Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12. Several of this roadmap's PC-labels do not match the supplier layers: transgression is Layer 5 (labelled PC-6), and shapiroIso is Layer 10 (labelled PC-7). Links follow the supplier's layers. Three overlaps (rescope): continuous sections (Layer 0 against Layer 5); the closed-subgroup colimit that Layer 11 uses without stating it (against Layer 6); and trivialF2/f2Pairing against trivialFp/fpPairing (Layer 13 against Layer 5). No reverse link: the document says it depends on no other roadmap except InductionRestriction. Boundary gaps are recorded in the handoff note: the p-primary torsion refinement that Layer 10 assigns to this roadmap has no milestone here, and degreeCast is missing from the export table."
+      "note": "I read the whole document and all 14 stages. It is the named cohomology supplier (PC-<layer> in this roadmap), and its export contract names ProfiniteProPGroups as a consumer. Links into this roadmap's Layers 5, 6, 7 and 10 come from its Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12. Several of this roadmap's PC-labels do not match the supplier layers: transgression is Layer 5 (labelled PC-6), and shapiroIso is Layer 10 (labelled PC-7). Links follow the supplier's layers. Three overlaps (rescope): continuous sections (Layer 0 against Layer 5); the closed-subgroup colimit that Layer 11 uses without stating it (against Layer 6); and trivialF2/f2Pairing against trivialFp/fpPairing (Layer 13 against Layer 5). No reverse link: the document says it depends on no other roadmap except InductionRestriction. Boundary gaps are recorded in the handoff note: the p-primary torsion refinement that Layer 10 assigns to this roadmap has no milestone here, and degreeCast is missing from the export table. Independent review adds Layer 10→PPG Layer 7: the three-term Euler sequence requires exactness beyond Layer 5’s endpoint."
     },
     {
       "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
@@ -1824,5 +1870,22 @@
       "result": "none",
       "note": "New roadmap. I read the document and all stages. Light profinite sets are condensed-mathematics test objects, not profinite groups."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+    "date": "2026-09-23",
+    "notes": "Codex — codex-7e92bd. Independently read all 38 original endpoint/overlap stage descriptions, checked each dependency and overlap, checked evidence against stage/document text, and screened seven focal stages across the atlas. Retained all original links; added all-degree exactness and finite Euler additivity for Layer 7. Corrected the low-degree scope and narrowed overlap proposals, especially coefficient extension, topology and existing successor ownership. Acceptance is of the dependency map and delimited recommendations, not theorem proofs or an authorization to re-plan upstream roadmaps. See the independent report.",
+    "removed": [],
+    "added": [
+      {
+        "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation"
+      },
+      {
+        "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+        "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation"
+      }
+    ]
+  }
 }
