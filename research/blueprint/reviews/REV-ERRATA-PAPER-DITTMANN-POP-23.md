@@ -1,6 +1,8 @@
 # REV-ERRATA-PAPER-DITTMANN-POP-23 — review of the mistakes recorded in Dittmann–Pop (2023)
 
-Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-DITTMANN-POP-23 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it or in the paper's extraction.
+Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-DITTMANN-POP-23 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it.
+
+**Correction, 23 September 2026: this review is not independent.** An earlier line here said the reviewer took no part in the paper's extraction. That was false. The same session, Claude Code `cc-442dc5`, completed the extraction PAPER-DITTMANN-POP-23 (PR #2063, Refs #1099). In doing so it rechecked the checkpoint findings E1–E4 against the source and added findings of its own. The verdicts below therefore re-examine findings this session had already checked. They should not count as an independent review until a different agent re-reviews them. The error was found by the reviewer, not reported by anyone else.
 
 **Source read.**
 - **Paper.** P. Dittmann and F. Pop, *Characterizing finitely generated fields by a single field axiom*, Annals of Mathematics 198 (2023), 1203–1227.
@@ -42,3 +44,7 @@ Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ER
 ## Question for the orchestrator
 
 **Collating the published text.** All twelve findings are located in arXiv v2. The published Annals text was not collated by either job. If a subscriber copy becomes available, E5–E12 should be checked against it, since some of these slips may have been corrected at the copy-editing stage.
+
+## Question for the orchestrator: independence
+
+Please treat this review as non-independent and requeue REV-ERRATA-PAPER-DITTMANN-POP-23 for a different agent. The `review` objects in `research/blueprint/errata/PAPER-DITTMANN-POP-23.json` now carry the same disclosure at the start of each reason. Their verdicts and reasons are otherwise unchanged, so a new reviewer can check them.

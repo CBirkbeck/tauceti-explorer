@@ -18,7 +18,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked at p.6 of arXiv 2012.01307v2 (SHA-256 f9f26f7d…2c1f, the version named): ⟨⟨a⟩⟩ is defined as the quadratic form x₁² − a x₂², and in characteristic 2 the display tensors these quadratic forms with ⟨⟨a₀]]. Quadratic forms have no tensor product in characteristic 2, and x₁² + a x₂² is the square of a linear form over F(√a), hence totally singular. [EKM, 9.B], which the paper cites, builds the quadratic Pfister form as a bilinear Pfister form ⟨⟨a_i,…,a_1⟩⟩_b acting on ⟨⟨a₀]]. The later use (a nonsingular form in 2^{i+1} variables with smooth projective quadric) needs that reading. The intended meaning is clear, so this is a misprint.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Checked at p.6 of arXiv 2012.01307v2 (SHA-256 f9f26f7d…2c1f, the version named): ⟨⟨a⟩⟩ is defined as the quadratic form x₁² − a x₂², and in characteristic 2 the display tensors these quadratic forms with ⟨⟨a₀]]. Quadratic forms have no tensor product in characteristic 2, and x₁² + a x₂² is the square of a linear form over F(√a), hence totally singular. [EKM, 9.B], which the paper cites, builds the quadratic Pfister form as a bilinear Pfister form ⟨⟨a_i,…,a_1⟩⟩_b acting on ⟨⟨a₀]]. The later use (a nonsingular form in 2^{i+1} variables with smooth projective quadric) needs that reading. The intended meaning is clear, so this is a misprint.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -38,7 +38,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked at p.12: u_i² − u_i − ε_i = u_i²(1 − 1/u_i − ε_i/u_i²), so the printed + sign is wrong. With w̃(u_i) < 0 and w̃(ε_i) = 0 either expression is a principal w̃-unit, and Proposition 3.2, 1) then gives isotropy of q_{a′_i,a_0}, hence of q_{a_i,a_0} (a_i and a′_i differ by a square). The argument is unaffected.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Checked at p.12: u_i² − u_i − ε_i = u_i²(1 − 1/u_i − ε_i/u_i²), so the printed + sign is wrong. With w̃(u_i) < 0 and w̃(ε_i) = 0 either expression is a principal w̃-unit, and Proposition 3.2, 1) then gives isotropy of q_{a′_i,a_0}, hence of q_{a_i,a_0} (a_i and a′_i differ by a square). The argument is unaffected.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -58,7 +58,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked at pp.16–17: W_T is defined on p.16 with rank-one geometric prime divisors w, but V_T and Lemma 5.3 take elements of W_T to be full-rank flags (fraktur w, residue field κ[ζ] a number field, with P_fin(κ_w) available). A rank-one divisor has residue field of transcendence degree e − 1 over κ, so the second use must mean {w ∈ D^e_{K|κ} : T ⊂ O_w}. That set is definable by the same argument (D^e_{K|κ} is a definable family), so nothing downstream changes.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Checked at pp.16–17: W_T is defined on p.16 with rank-one geometric prime divisors w, but V_T and Lemma 5.3 take elements of W_T to be full-rank flags (fraktur w, residue field κ[ζ] a number field, with P_fin(κ_w) available). A rank-one divisor has residue field of transcendence degree e − 1 over κ, so the second use must mean {w ∈ D^e_{K|κ} : T ⊂ O_w}. That set is definable by the same argument (D^e_{K|κ} is a definable family), so nothing downstream changes.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -78,7 +78,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked at p.17: the proof picks ζ over the algebraic closure of κv with ḡ(ζ) ≠ 0 and calls it an e-tuple of roots of unity, which fails if a coordinate is 0. The coordinates must also be nonzero for w_{v′}(t_i) ⩾ 0 to hold with t_i ↦ ζ_i a unit and for the Teichmüller lift. The correction is right: T₁⋯T_e·ḡ is a nonzero polynomial over an infinite field, so a torus point with ḡ(ζ) ≠ 0 exists. This is a gap with an immediate repair, and it affects nothing.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Checked at p.17: the proof picks ζ over the algebraic closure of κv with ḡ(ζ) ≠ 0 and calls it an e-tuple of roots of unity, which fails if a coordinate is 0. The coordinates must also be nonzero for w_{v′}(t_i) ⩾ 0 to hold with t_i ↦ ζ_i a unit and for the Teichmüller lift. The correction is right: T₁⋯T_e·ḡ is a nonzero polynomial over an infinite field, so a torus point with ḡ(ζ) ≠ 0 exists. This is a gap with an immediate repair, and it affects nothing.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -98,7 +98,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -118,7 +118,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -138,7 +138,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -158,7 +158,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -178,7 +178,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -198,7 +198,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -218,7 +218,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     },
@@ -238,7 +238,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
+        "reason": "Not independent (disclosed 23 September 2026): the reviewer, cc-442dc5, completed this paper's extraction (PR #2063), so this verdict is not independent of its own earlier work. Re-review by a different agent is needed. Added by the review, which checked it at the locator in the version named; not in the list of ERRATA-PAPER-DITTMANN-POP-23.",
         "by": "REV-ERRATA-PAPER-DITTMANN-POP-23"
       }
     }

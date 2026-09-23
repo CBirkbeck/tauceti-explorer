@@ -1,6 +1,8 @@
 # REV-ERRATA-PAPER-FU-24 — review of the mistakes recorded in Fu (2024)
 
-Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-FU-24 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it or in the paper's extraction.
+Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-FU-24 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it.
+
+**Correction, 23 September 2026: this review is not independent.** An earlier line here said the reviewer took no part in the paper's extraction. That was false. The same session, Claude Code `cc-442dc5`, completed the extraction PAPER-FU-24 (PR #2102, Refs #1083). In doing so it converted the checkpoint findings S1–S7 into the §18 findings E1–E7 and checked each on the published page. The verdicts below therefore re-examine findings this session had already checked. They should not count as an independent review until a different agent re-reviews them. The error was found by the reviewer, not reported by anyone else.
 
 **Sources read.**
 - **The paper.** W. Fu, *Sharp bounds for multiplicities of Bianchi modular forms*, Annals of Mathematics 200 (2024), 123–152.
@@ -41,3 +43,7 @@ On the pages read, the review found no further mathematical slip that the list l
 ## Question for the orchestrator
 
 **The weight of E3 and E7.** E3 and E7 together mean that §5 proves Theorem 1.5 only for induced integral λ, while Theorem 1.5 is stated for all λ ∈ Z_p^r. The paper points to Ardakov–Wadsley [AW14] for the general case. Blueprint layers that consume Theorem 1.5 or Theorem 5.7 should import the induced-λ statement, or [AW14], rather than the printed unrestricted one.
+
+## Question for the orchestrator: independence
+
+Please treat this review as non-independent and requeue REV-ERRATA-PAPER-FU-24 for a different agent. The `review` objects in `research/blueprint/errata/PAPER-FU-24.json` now carry the same disclosure at the start of each reason. Their verdicts and reasons are otherwise unchanged, so a new reviewer can check them.

@@ -1,6 +1,8 @@
 # REV-ERRATA-PAPER-KISIN-ZHOU-25 — review of the mistakes recorded in Kisin–Zhou (2025)
 
-Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-KISIN-ZHOU-25 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it or in the paper's extraction.
+Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ERRATA-PAPER-KISIN-ZHOU-25 was done by Claude Code, session `cc-fb70e5`; this reviewer took no part in it.
+
+**Correction, 23 September 2026: this review is not independent.** An earlier line here said the reviewer took no part in the paper's extraction. That was false. The same session, Claude Code `cc-442dc5`, completed the extraction PAPER-KISIN-ZHOU-25 (PR #2152, Refs #1069). In doing so it kept and rechecked the checkpoint findings, including E1–E4. The verdicts below therefore re-examine findings this session had already checked. They should not count as an independent review until a different agent re-reviews them. The error was found by the reviewer, not reported by anyone else.
 
 **Source read.**
 - **Paper.** M. Kisin and R. Zhou, *Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties*, Annals of Mathematics 202 (2025), 1077–1156.
@@ -24,3 +26,7 @@ Reviewer: Claude Code, session `cc-442dc5`, 23 September 2026. The errata job ER
 ## Question for the orchestrator
 
 **Scope of this review.** A full line-by-line check of the remaining pages for mistakes the errata job missed was outside this review's scope. The paper's extraction and this errata list remain the only full readings.
+
+## Question for the orchestrator: independence
+
+Please treat this review as non-independent and requeue REV-ERRATA-PAPER-KISIN-ZHOU-25 for a different agent. The `review` objects in `research/blueprint/errata/PAPER-KISIN-ZHOU-25.json` now carry the same disclosure at the start of each reason. Their verdicts and reasons are otherwise unchanged, so a new reviewer can check them.
