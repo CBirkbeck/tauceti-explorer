@@ -20386,9 +20386,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Lemma 2.4(3) gives A_m = 𝔸^{kd} only for m ≥ kd/2, and for odd kd, ⌊kd/2⌋ < kd/2. Take k = d = 3 (kd = 9). The point with b_5 = 1 and all other b_r = 0 has, for m = 4, the 5×5 anti-identity as Hankel matrix, of rank 5 > 4. So it lies outside A_4 = A_{m_0+1}, and the printed union misses it. The case is in the main range (d ≥ k−1 ≥ 2, n > 16). Only the proof is affected. No correction found in the Annals article page, arXiv 1711.10451 (v3 is the last version) or a web search (title plus erratum/corrigendum/correction, 2026-09-23); the later Browning–Sawin paper arXiv:1810.06882 (abstract page) does not mention it."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E2",
@@ -20409,9 +20409,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Take (k,d,n) = (3,4,24), so δ = 1, t = 2, and the claimed cutoff is 2dn + 4 − 4tδ = 188. The stratum m = 5 (≤ m_0 = 5) has B(5) = 24(8 − 1) + 24 = 192 > 188. More generally B(d) = [2dn + 4 − 4tδ] + 4(d − (k−1)t), which already exceeds the claim when k−1 does not divide d. When k−1 divides d, the stratum m = d+1 exceeds it by 4, and m = d+1 ≤ m_0 unless (k,d) = (3,2). So the printed proof establishes Prop. 2.6 exactly when (k,d) = (3,2), where the only stratum is m = d = 2. This refutes the inference, not the proposition; the paper gives no other route. It affects Prop. 2.6 and the ranges in Thm. 1.1, Thm. 2.7(3), Cor. 1.2, Conj. 1.3 and Cor. 1.4 ((1.1)). No correction found in the Annals article page, arXiv 1711.10451 (v3 is the last version) or a web search (title plus erratum/corrigendum/correction, 2026-09-23); the later Browning–Sawin paper arXiv:1810.06882 (abstract page) does not mention it."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E3",
@@ -20432,9 +20432,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Verified in print. With t·δ = 1, Theorem 1.1/2.7(3) identifies the limit complex with H^{i+2d(n−k)}_c only for i > 0. At i = 0, excision gives only H^{2nd}_c(A^{kd}) → H^{2nd}_c(A_d) surjective, because H^{2nd+1}_c(A^{kd} \\ A_d) = 0 while H^{2nd}_c(A^{kd} \\ A_d) need not vanish. So dim H^{2d(n−k)}_c(M) ≥ dim E∞^{0,0} = 1: an upper bound of 1, needed for a unique top component, is not available. The i > 0 part is fine at equality, since the range is then exactly i > 0. The tδ > k−1 clause rests on E2 (§5, p.934, outside this range); I checked its arithmetic, B(m) = 2dn − 4⌊m/(k−1)⌋δ + 4(r+1) with r = m mod (k−1), which gives the stated bound. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording). Second checker: (k,d,n) = (3,2,24) gives t = 1, δ = 1, tδ = 1. There the sharp range is actually proved, because (k,d) = (3,2) is the one case where the printed proof of Prop. 2.6 is complete (E2). So this is a failure of the Cor. 1.4 argument in its own right, independent of E2. Excision at j = 2dn yields only H_c^{2dn}(minor) → H_c^{2dn}(A^{kd}, S) ↠ H_c^{2dn}(A_d, S) → 0, i.e. dim H_c^{2D}(Mor) ≥ 1."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E4",
@@ -20455,9 +20455,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "At n = 3 the k = 1 exponent is 1−(n−2) = 0, so the factor is (1−1)^{−e_1(N)} with e_1(N) = N ≥ 1, which is undefined. Correspondingly π0(Ω²X) = π2(∨_N S^2) = Z^N and H^0 is infinite-dimensional; the cubic Fermat surface in C^3 has N = 8. At n = 2 every exponent 1−k(n−2) equals 1, and e_k(N) = −M(N,k) ≠ 0 for infinitely many k once N ≥ 2 (a plane curve of degree k ≥ 3 has N = (k−1)^2 ≥ 4). So the product is undefined, while Ω²(∨S^1) is contractible, and Hilton's theorem does not apply to circles. For n ≥ 4 the formula was checked by machine against the free graded-commutative algebra. Theorem 7.7 is unaffected because n > 2^k(k−1) ≥ 16 there."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E5",
@@ -20478,9 +20478,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The left side does not depend on j and the right side does. For n = 4, N = 1, j = 0 the left side is 1 − qU (e_1 = −1, e_k = 0 for k ≥ 2), while the right side contains only monomials q^{2m}U^m. The coefficient-extraction version was checked by machine for n = 4..7, N ∈ {1,2,3,8} and j ≤ 25."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E6",
@@ -20489,7 +20489,7 @@
    "printed": "Σ_i(−1)^i q^{m−i}〈χ,H_c^i〉=Σ_i(−1)^{m−i}q^i〈χ,H_c^{m−i}〉",
    "correction": "Use ordinary H^i in the first sum and ordinary H^{m−i} in the intermediate sum; duality then gives the final H_c^{m+i} sum printed correctly.",
    "reason": "For m=1 and trivial χ the squarefree linear-polynomial count is q. The printed first compact-support expression gives q^{−1}, since only H_c²(A1) survives. CEF original Thm3.7 explicitly uses ordinary cohomology.",
-   "affects": "the proof",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
@@ -20501,9 +20501,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Take m = 1 and χ trivial. Squarefree monic linear polynomials number q, but the first printed sum gives q^{−1}, since only H^2_c(A^1) is nonzero. With ordinary H^0(A^1) it gives q. Recommend affects: nothing rather than 'the proof', because the formula actually used downstream (the third sum) is correct and the intended chain is clear."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E7",
@@ -20524,9 +20524,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The preceding display and the statement of the lemma both carry the exponent. The Euler-product identity with the exponent was checked by enumeration over F_2 and F_3."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E8",
@@ -20535,7 +20535,7 @@
    "printed": "dim H^{i+2D}(Mor,Q)",
    "correction": "Use dim H_c^{i+2D}(Mor,Q), and begin the next comparison with this compact-support dimension rather than already asserting the desired E1-diagonal equality.",
    "reason": "Mor is not proper. Conjecture7.1 concerns H_c; ordinary cohomology is not the abutment. The intended dimension argument can be arranged without the circular intermediate assertion.",
-   "affects": "the proof",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
@@ -20547,9 +20547,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Theorem 1.1's spectral sequence and Conjecture 7.1 concern H_c. Mor is affine, so ordinary H^{i+2D}(Mor) vanishes for i > −D, which cannot be intended. As printed, the second display asserts the desired E1 equality before it is proved, and it drops a 'dim'. The intended argument is correct, so I recommend affects: nothing (the result records 'the proof')."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E9",
@@ -20570,9 +20570,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The kernel vector (c_1,…,c_{m+1}) has m+1 entries, and the next line uses h2(T) = Σ_{i=1}^{m+1} c_i T^{i−1}. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E10",
@@ -20593,9 +20593,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "PConf_m ⊂ A^m is open of dimension m; the vanishing is applied to H^{2m−2−(i−2)}(PConf_m/G_a), as the same paragraph set up. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E11",
@@ -20616,9 +20616,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "By Künneth and H^*_c(A^1) = Q_ℓ(−1)[−2], H^j_c(X × A^1, F ⊠ Q_ℓ) = H^{j−2}_c(X, F)(−1). The chain ends in 0 in every degree, so the conclusion stands; I agree with the reclassification to affects nothing. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E12",
@@ -20639,9 +20639,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The fibre is A^{n(d−m)}, whose compact cohomology sits in degree +2n(d−m), which is the shift [−2n(d−m)]. The next display on p.913 and the statement of Lemma 3.4 use the correct sign; I agree it affects nothing. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E13",
@@ -20662,9 +20662,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The statement of Lemma 3.5 concerns the involution switching l1 and l2 when m1 = m2; h1 and h2 have different degree constraints and are not exchanged. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E14",
@@ -20685,9 +20685,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Polynomial division by T−x leaves the simple pole λf(g(x))/(T−x); the printed right-hand side has no T^{−1} term, but the next sentence uses the intended coefficient. Checked on the page image. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E15",
@@ -20708,9 +20708,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The next paragraph uses 'because a2, …, an are generic', and the count 2(n−1)+2 = 2n needs the base A^{n−1} of the coordinates (a2,…,an). Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E16",
@@ -20731,9 +20731,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The proof invokes Lemmas 3.3 and 3.4, which assume m ≤ d; for m > d the affine fibre of dimension n(d−m) does not exist and the statement is unproved. Only 0 ≤ m ≤ d is used later (Corollary 3.12, Proposition 2.5), so no later result is affected. Since the intended hypothesis is clear from Corollary 3.12, 'misprint' would also be defensible. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E17",
@@ -20754,9 +20754,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Rπ_{2!} of a complex on U_m is a complex on A^m, so it cannot be the coefficient on U_m. Checked on the page image of Figure 2. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E18",
@@ -20777,9 +20777,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "N2 is the dimension of a symplectic space, so it is even. The subsequent bound N1 ≥ 6 excludes every exceptional isomorphism anyway. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E19",
@@ -20800,9 +20800,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The trace has target E(−(n−1)) in degree 2(n−1), as in the absolute definition on p.917. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E20",
@@ -20811,7 +20811,7 @@
    "printed": "G_b=Σ c_j b_{i1+⋯+ik+1}∏ a_{i_r,j_r}=F(a)",
    "correction": "The displayed expression uses only f0. It equals the phase for f0, not for general f. Use the degree-k homogeneous part of G_b and V_k(G_b)=V_k((G_b)_k).",
    "reason": "Replacing f0 by f0+1 changes G_b by b1, while the printed leading-form expression is unchanged. Allowing fixed a_d=x includes lower degrees coming from f0 but still cannot restore omitted lower terms of f.",
-   "affects": "the proof",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
@@ -20823,9 +20823,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Replacing f_0 by f_0 + 1 changes G_b by b_1 but leaves F unchanged, so the displayed equality is false for general f. The next sentence and the conclusion dd(G_b) = dim V(F_0) use only the leading form, so no step fails. I recommend 'affects: nothing' in place of the extraction's 'the proof'. The same display has a second slip: for i_1 = ⋯ = i_k = d the index is kd+1 > kd (that term is f_0(x)·b_{kd+1} = 0 in any case)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E21",
@@ -20846,9 +20846,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "N = dn is the number of a-variables, while A_m^{kd} ⊂ 𝔸^{kd}. The point must be F_q-rational after renaming q^r as q (p. 935)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E22",
@@ -20869,9 +20869,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The vectors of Λ_{a,c} of norm < q^{−s} are those with |x| < q^{a−s} and |γx + y| < q^{−c−s}, which is N_{γ,a−s,c+s}. The next display and the statement of the lemma both use c+s."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E23",
@@ -20892,9 +20892,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The proof needs an element with all eigenvalues −1 in the monodromy of R^{n−1}pr_{M,X!}. For (k, n) = (3, 3), (3, 4) the orthogonal factor is W(E6), which does not contain −1. For n = 2 the relevant factor is S_k on the standard representation, which contains no element acting as −1 when k ≥ 3. So the method fails in these cases. Theorems 1.1 and 2.7 assume n > 2^k(k−1) ≥ 16 and are unaffected. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E24",
@@ -20915,9 +20915,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Mor_{d,P} uses the x_j as coefficients, and they need not lie in Z[coefficients of f], so the family as printed is not defined over R. Spec K is not the generic point of Spec R in general (K ⊋ Frac R). 'Proper base change' does not by itself give constructibility. The repair is standard and changes no theorem. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E25",
@@ -20938,9 +20938,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "Lower-dimensional components lie in Z, e.g. a line together with a disjoint point. The same paragraph ends with the correct 'top-dimensional irreducible components'. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E26",
@@ -20961,9 +20961,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The dimensions must agree; in Lemma 6.4 the lattice has N = 2n."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E27",
@@ -20984,9 +20984,9 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The row count is negative for m > kd. The convention is forced by Lemma 2.4(3)–(4) (with m' = 0 the Padé condition is vacuous for m > kd), and all substantive uses have m ≤ kd. Present in print: yes (checked against the page image or the extracted text of the Annals PDF and against arXiv v3 TeX; same wording)."
   },
   {
    "id": "PAPER-BROWNING-SAWIN-20/E28",
@@ -21008,9 +21008,405 @@
    "owner": "PAPER-BROWNING-SAWIN-20",
    "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
    "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "The reviewer checked the continuation's counterexample step by step (items 120–132). Take Fermat k=3, d=2, n=40, P = [1:ζ:0:…], and the escaping loop F_s = (T^dσ, ζT^dσ, 1, 0, …) with σ = σ(s, 1/(4(1+|T|))). Each F_s equals g outside a compact set, and F is a continuous loop in Hco. The compact-family chart argument shows that the normal coordinate x0/x1 at a large radius R defines a homomorphism endWind: π1(Hco,g) → Z with endWind([F]) = −1. Meanwhile X ≃ ∨ S^{39} (Pham join), so Ω²X is connected and simply connected. The printed proof fails at 'this convex combination will not introduce any new zeroes in a neighbourhood', which is not uniform in families (w = −1 at s = 3r(R)/2). The failure is already visible on H^1(−;Q), the input Theorem 7.7 uses. The reviewer adds a corollary: in this reading Conjecture 7.1 itself fails at j = 1, because H^1(Hco;Q) ≠ 0 while H_c^{2D−1}(Mor) = 0 by Corollary 1.2 at i = −1, inside even the conservative range. So the authors must have intended a finer topology. The source specifies none, so 'gap' is the right kind; under the natural compact-open reading the statement is false. No correction is known. Searched: Annals article page and PDF (no linked correction), arXiv 1711.10451 versions v1–v3 (no v4), as listed in the result; no further search by this reviewer."
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E29",
+   "kind": "error",
+   "locator": "§1, paragraph after Conjecture 1.3, p.898 (arXiv v3: p.5)",
+   "printed": "'we can nonetheless use Theorem 1.1 to calculate 2(n − 2)(n − 3) − 1 cohomology groups, starting from the first non-zero cohomology group, without higher differentials'",
+   "correction": "The degeneration E∞^{m,s} = E1^{m,s} for m+s > 1 − 2(n−2)(n−3) is correct, but it computes H^{i+2d(n−k)}_c(Mor_{d,P}) only for i also in Theorem 1.1's range i > −4(tδ − 1), with t = ⌊d/(k−1)⌋ and δ = n/2^k − k + 1. All 2(n−2)(n−3) − 1 groups (i = 2 − 2(n−2)(n−3), …, 0) are obtained only if tδ > ((n−2)(n−3) + 1)/2. Otherwise only the groups with i > max(1 − 2(n−2)(n−3), −4(tδ − 1)) are computed.",
+   "reason": "For (k, d, n) = (3, 2, 24), which satisfies every hypothesis and (1.1), Theorem 1.1 applies only for i > 0, so none of the 923 groups i ∈ [−922, 0] is computed. For (3, 10, 24) only the 16 groups i ∈ [−15, 0] are. The sentence is unnumbered and nothing later depends on it (item topdegeneration already adds the range). Same wording in arXiv v3 and print.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E30",
+   "kind": "gap",
+   "locator": "§4, Lemma 4.4, p.925 (arXiv v3: pp.29–30)",
+   "printed": "'Lemma 4.4. For all i ∈ Z, we have an isomorphism R^i pr_{M,m!} S_{d,f} ≅ (H^a_c(PConf_m, Q_ℓ) ⊗ (R^{n−1}pr_{M,X!}Q_ℓ)^{⊗m} ⊗ sgn^{n−1})^{S_m}(−m − n(d − m)), where a = i + m(n−1) − 2nd.'",
+   "correction": "Add the hypothesis 0 ≤ m ≤ d.",
+   "reason": "The proof re-runs Lemma 3.3 through Corollary 3.12 in the relative setting, and Lemmas 3.3, 3.4 and Corollary 3.12 require m ≤ d. This is the same omission as E16. Proposition 4.1 uses the lemma only for 0 ≤ m ≤ d, so no later result is affected. Same wording in arXiv v3 and print.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E31",
+   "kind": "gap",
+   "locator": "§3, Lemmas 3.7–3.9 and Corollary 3.10 (hypothesis 'X is irreducible'), pp.917–919; proof of Lemma 3.11, p.919; Corollary 3.12, p.920 (arXiv v3: pp.23–26)",
+   "printed": "Proof of Lemma 3.11: 'follows from the definition and the fact that X is irreducible, which means that the trace map is an isomorphism in top degree'. Corollary 3.12 assumes only smooth leading terms, char(F_q) > k and d ⩾ m, yet invokes Corollary 3.10, which assumes 'X is irreducible'.",
+   "correction": "Insert: since X and Z are smooth, the homogenization X̄ ⊂ P^n is smooth (at x0 = 0 the partials ∂F/∂x_i equal ∂f0/∂x_i, not all zero because Z is smooth). A smooth projective hypersurface of dimension n−1 ≥ 1 is geometrically connected, hence geometrically irreducible, and X = X̄ \\ Z is a non-empty open subset. So X is geometrically irreducible, which is what the trace argument needs.",
+   "reason": "Geometric irreducibility, not just irreducibility over F_q, is what makes H^{2(n−1)}_c(X_F̄q) one-dimensional in Lemmas 3.7 and 3.11. It is never derived from the hypotheses of Proposition 2.5 or Corollary 3.12. It holds, by the one-line argument above, so the mathematics is right as intended. Same in arXiv v3 and print.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E32",
+   "kind": "misprint",
+   "locator": "§3, proof of Lemma 3.11, p.920 (arXiv v3: p.26)",
+   "printed": "'in every degree i < 2(n − 1), with i ≠ n − 1, the cohomology group H^i(X_F̄q, Q_ℓ) is the one-dimensional space generated by the i/2th power of the hyperplane class'",
+   "correction": "H^i(X̄_F̄q, Q_ℓ) (the projective closure).",
+   "reason": "For affine X, H^i(X) = 0 for i > n−1 by Artin vanishing, so the sentence is false for X. The surrounding sentences use X̄ (checked on the page image, where the overline is absent here and present in the neighbouring displays). Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E33",
+   "kind": "misprint",
+   "locator": "§3, Figure 2 and its list, pp.920–921 (arXiv v3: p.26)",
+   "printed": "In the diagram, (6) is the arrow H_c(PConf_m, r^*S̄_{m,f}) → H_c(Conf_m, S̄_{m,f}) and (7) is H_c(PConf_m, H^{*,red}_c(X)^{⊗m}) → H_c(PConf_m, r^*S̄_{m,f}). The list says '(6) arises from an isomorphism of complexes constructed in Lemma 3.9; (7) is the trace map of compactly supported cohomology under finite morphisms'.",
+   "correction": "Swap the labels (6) and (7) in the diagram (or in the list): the finite étale trace is the map from PConf_m to Conf_m, and the Lemma 3.9 isomorphism is the map within PConf_m.",
+   "reason": "Checked on the page image of Figure 2. The proof of Lemma 4.4 (p.926) follows the list's assignment ('(7) … the trace map'; '(6) … Lemma 3.9'). Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E34",
+   "kind": "misprint",
+   "locator": "§2, proof of Lemma 2.1, p.901 (arXiv v3: p.9)",
+   "printed": "'with g_j = x_jT^d + Σ_{i=0}^{d−1} a_{i,j}T^j'",
+   "correction": "g_j = x_jT^d + Σ_{i=0}^{d−1} a_{i,j}T^i, as in (2.1).",
+   "reason": "The summation index is i. Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E35",
+   "kind": "misprint",
+   "locator": "§1, p.897 (arXiv v3: p.5)",
+   "printed": "'In Section 6 we shall investigate a potential space with this property for the sequence of Mor_{d,P}(A^1, X) over the complex numbers.'",
+   "correction": "Section 7 (Topological interpretation, p.939).",
+   "reason": "Section 6 is 'The geometric minor arcs: arithmetic'. Hom_{d,P}(C, X), Conjecture 7.1 and Theorem 7.7 are in §7. The arXiv v3 TeX hard-codes '§ 6'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E36",
+   "kind": "misprint",
+   "locator": "§3, proof of Lemma 3.3, p.911; §4, proofs of Lemma 4.2 (p.923), Lemma 4.4 (pp.925–926) and Proposition 4.1 (p.926) (arXiv v3: pp.18, 27–31)",
+   "printed": "'Let m′, h1, h2 be as in Proposition 2.4(4)'; 'the definition of M_{d,n}'; 'M_{k,d} × U^{kd}_m', 'M_{k,d} × PConf_m', 'π1(M_{k,d})'",
+   "correction": "Lemma 2.4(4); M_{n,k} throughout.",
+   "reason": "Lemma 2.4 is a lemma, and the moduli space is defined as M_{n,k} on p.922. Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E37",
+   "kind": "misprint",
+   "locator": "§1, Figure 1 caption, p.896 (arXiv v3: p.4)",
+   "printed": "'the non-zero terms form a triangle that extends downward and rightward from the point (−(n−2), 1)'",
+   "correction": "(m, s) = (1, −(n−2)) in the paper's E^{m,s} convention.",
+   "reason": "By (1.3) the first non-zero term after (0,0) is at m = 1, s = −(n−2) (for n = 4, the entry H at m = 1, s = −2). The printed pair is in (s, m) order. Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E38",
+   "kind": "misprint",
+   "locator": "§1, Remark 1.5, p.898 (arXiv v3: p.6)",
+   "printed": "'then Mor_{d,(0:···:0)}(A^1, Y) is cut out by k(d − 1) + 1 equations in d(n − 2) variables'",
+   "correction": "The space of (n−2)-tuples of polynomials of degree ≤ d−1 (leading vector 0 at T^d) satisfying x3^k + ⋯ + xn^k + 1 = 0.",
+   "reason": "(0:⋯:0) is not a point of projective space. The intended meaning, with d(n−2) variables and k(d−1)+1 equations, is clear, and the dimension count is right (non-empty over K̄ via constant solutions). Same in arXiv v3 TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E39",
+   "kind": "misprint",
+   "locator": "§5, proof of Proposition 5.5, pp. 930–931 (arXiv v3: p. 34; identical in the TeX). Checked on the page images.",
+   "printed": "the alternating sum (5.1) is simply G(x_1, . . . , x_n)  (p. 930);  H^i_c(𝔸^n × 𝔸^n, L_ψ(G(x) − G(x + y))) ≠ 0 … H^i_c(𝔸^n × W_j, L_ψ(G(x) − G(x + y))) ≠ 0 … Let π : 𝔸^n × W_j → W_j be the projection map  (p. 931)",
+   "correction": "Replace n by N throughout: G(x_1,…,x_N), 𝔸^N × 𝔸^N, 𝔸^N × W_j.",
+   "reason": "G is a polynomial in N variables (N = dn in the application), whereas n is the number of variables of f. The dimension count and the supremum over 0 ≤ r ≤ N in the same proof use N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E40",
+   "kind": "misprint",
+   "locator": "§5, Definition 5.1, p. 927, together with Proposition 5.5 and its proof, pp. 930–931 (arXiv v3: pp. 31–35)",
+   "printed": "Definition 5.1. Let G ∈ F_q[x_1, . . . , x_N] be a polynomial of degree k. Then V(G) is defined to be the set of (y^{(1)}, . . . , y^{(k−1)}) ∈ (𝔸^N)^{k−1} such that (5.1) … is a constant function of x.  |  Proposition 5.5. … let G ∈ F_q[x_1, . . . , x_N] have degree ⩽ k. Then cd(G) ⩽ (dd(G) + N(2^{k−1} − (k−1)))/2^{k−2}, where dd(G) = dim V(G).",
+   "correction": "Define V_k(G) for every G of degree ≤ k, with the differencing order k as a parameter, and read dd(G) = dim V_k(G) with the same k as in the bound. The induction then uses V_{k−1}(G(x) − G(x+y_0)), which is the fibre of V_k(G) → 𝔸^N over y_0, whatever the actual degree of the difference.",
+   "reason": "If V is formed with deg G differencing steps, Prop. 5.5 is false. For G = x_1^2 in N ≥ 2 variables and k = 3, that locus has dimension N−1 and gives the bound (3N−1)/2, while cd(G) = 2N−1 (the Gauss-sum sheaf on 𝔸^1 has H_c^1 only). With V_3(G) = (𝔸^N)^2 the bound is 2N. In Prop. 5.7 the phase G_b can also have degree < k. The proof treats k as a parameter throughout, so the intended meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E41",
+   "kind": "misprint",
+   "locator": "§6, proof of Lemma 6.1, p. 936 (arXiv v3: p. 39; identical in the TeX). Checked on the p. 936 image.",
+   "printed": "We write u^{(i)}_j = Σ_{i=0}^{d−1} z^{(i)}_{i,j} T^i for 1 ⩽ j ⩽ n and 1 ⩽ i ⩽ k − 1. … The lemma follows on recalling that d_{j,ℓ} = c_j b_{i_1+···+i_k+1}.",
+   "correction": "u^{(r)}_j = Σ_{i=0}^{d−1} z^{(r)}_{i,j} T^i for 1 ≤ j ≤ n and 1 ≤ r ≤ k−1; and d_{j,i} = c_j b_{i_1+⋯+i_k+1}.",
+   "reason": "The block index and the coefficient index are both called i. The next display, z^{(1)}_{i_1,j_1}⋯z^{(k−1)}_{i_{k−1},j_{k−1}}, uses separate indices, as intended.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E42",
+   "kind": "misprint",
+   "locator": "§6, p. 936, and the proof of Lemma 6.4, pp. 937–938 (arXiv v3: pp. 39–41)",
+   "printed": "we put ∥β∥ = |Σ_{i⩽−1} b_i t^i|  ;  Λ_{a,c} = ( t^{−a}I_n 0 ; t^cγ t^cI_n )",
+   "correction": "Write T for t.",
+   "reason": "The variable is T everywhere else in §6 (F_q((T^{−1})), |u| < q^d); t appears only in these formulas. Harmless.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E43",
+   "kind": "gap",
+   "locator": "§1, Remark 1.5, pp. 898–899 (arXiv v3: p. 6). Outside the assigned range; found while checking item 64. The TeX and print agree.",
+   "printed": "then Mor_{d,(0:···:0)}(A^1, Y) is cut out by k(d − 1) + 1 equations in d(n − 2) variables. Hence it has dimension at least d(n − 2) − k(d − 1) − 1.",
+   "correction": "Assume n ≥ 3 and show the scheme is nonempty, for instance with constants g_3,…,g_n satisfying Σ g_j^k = −1 over an algebraically closed field. Only then does counting equations bound the dimension from below. ('(0:⋯:0)' denotes polynomials of degree ≤ d−1; it is not a point of P^{n−3}.)",
+   "reason": "'Number of variables minus number of equations' is a lower bound only for a nonempty scheme. For n = 2, Y ⊂ 𝔸^0 is {1 = 0} = ∅ and M = ∅. The remark is only an illustration, and the main results assume n > 2^k(k−1), so nothing downstream is affected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E44",
+   "kind": "misprint",
+   "locator": "§7, proof of Lemma 7.6, p. 944, five occurrences (arXiv v3: p. 46); also in TeX",
+   "printed": "Observe that X is homotopic to ∧^N S^{n−1} … The homotopy groups of ∧^N S^{n−1} … π_i(∧^N S^{n−1}) = …",
+   "correction": "∨_N S^{n−1} (the wedge, or bouquet, of N copies of S^{n−1})",
+   "reason": "∧ is the smash product, and the N-fold smash power of S^{n−1} is S^{N(n−1)}, not a bouquet. Broughton's theorem and Hilton's formula concern the wedge ∨. The intended meaning is clear from the Hilton multiplicities.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E45",
+   "kind": "misprint",
+   "locator": "§7, end of proof of Lemma 7.6, p. 945 (arXiv v3: p. 47); also in TeX",
+   "printed": "The rational cohomology algebra on H^*(Ω², Q) is the free graded commutative algebra on a basis for the rational homotopy of X, shifted by two degrees",
+   "correction": "H^*(Ω²X, Q) is the free graded-commutative algebra on the duals of π_i(X) ⊗ Q (i ≥ 3), each placed in degree i − 2, provided π2(X) = 0.",
+   "reason": "The X is missing. The 'basis' must be dual (cohomology generators are dual to rational homotopy), and the claim needs Ω²X connected with ΩX simply connected, which is exactly E4's n ≥ 4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-BROWNING-SAWIN-20/E46",
+   "kind": "misprint",
+   "locator": "§1, before Conjecture 1.3, p. 897 (arXiv v3 TeX: hard-coded '\\S~6'). Outside this reviewer's page range, recorded because it points to §7; the coordinator may deduplicate.",
+   "printed": "In Section 6 we shall investigate a potential space with this property for the sequence of Mor_{d,P}(A^1,X) over the complex numbers.",
+   "correction": "In Section 7",
+   "reason": "The mapping space Hom_{d,P}(C,X), Conjecture 7.1 and Theorem 7.7 are in §7, 'Topological interpretation'; §6 is 'The geometric minor arcs: arithmetic'. The TeX hard-codes §~6 instead of using \\ref.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 893–948 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.4, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p04), 23 September 2026: no erratum linked",
+    "arXiv 1711.10451: v3 (19 February 2020) is the latest version"
+   ],
+   "owner": "PAPER-BROWNING-SAWIN-20",
+   "file": "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+   "citation": "Browning–Sawin, \"A geometric version of the circle method\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BROWNING-SAWIN-20",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-BRUINIER-EHLEN-YANG-21/E1",
@@ -69928,35 +70324,43 @@
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed independently: θ₁=√2,θ₂=1−√2 are Q-independent but the product of their two phases is always 1, excluding the target (−1,1). The actual proof of Lemma 2.9 selects 1,θ₁,... independently."
   },
   {
    "id": "PAPER-LI-23/E2",
    "kind": "error",
    "locator": "Lemma 2.9, p. 394",
    "printed": "\"Suppose αi, ci ∈ C for i ∈ N satisfy the condition that the series defining φ(s) := Σ αi ci^s converges absolutely for s = s0 ∈ R and equals to 0 for all but finitely many s ∈ Z_{>s0}. Then we have Σ_{ci = c} αi = 0 for any c ∈ C^×.\"",
-   "correction": "Add the hypothesis that for every ε > 0 only finitely many i have |ci| ≥ ε (equivalently, the moduli |ci| can be listed in decreasing order with finite multiplicities). The proof, which starts by arranging |c1| = |cm| > |c_{m+1}| ≥ …, then works.",
-   "reason": "Without the hypothesis the lemma is false. Let F(x) = ∏_{k≥1}(1 − x/2^k), an entire function with Taylor coefficients αi, and let ci = 2^i and s0 = 0. Then Σ|αi| < ∞ and φ(s) = F(2^s) = 0 for every s ≥ 1, yet α0 = 1 with c0 = 1 unique (checked numerically). The applications are unaffected: in Corollary 2.11 with s0 > 0 the hypothesis follows from absolute convergence, and in Lemmas 3.2–3.3 the ci are values c(β, τ0)^{−𝔯}, which tend to 0 because the Eisenstein series converge.",
+   "correction": "Add: for every ε>0, only finitely many indices have |c_i|≥ε. Group equal nonzero bases, start at an integer exponent in the absolute-convergence range, remove successive finite maximal-modulus blocks, and use dominated convergence on the remaining terms. Applications must explicitly provide absolute convergence at a positive integer exponent.",
+   "reason": "Confirmed by an exact entire-function construction, not a numerical check: a_n=(−1)^n/∏_{j=1}^n(2^j−1), a₀=1. The series F(x)=Σa_n x^n is entire, satisfies F(2x)=(1−x)F(x), and F(2^s)=0 for all positive integers s. With c_n=2^n the asserted coefficient cancellation fails. Finite superlevel sets of |c_n| justify the largest-modulus argument and dominated convergence. The applications use unit coefficients and absolute convergence in a positive-power range.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed by an exact entire-function construction, not a numerical check: a_n=(−1)^n/∏_{j=1}^n(2^j−1), a₀=1. The series F(x)=Σa_n x^n is entire, satisfies F(2x)=(1−x)F(x), and F(2^s)=0 for all positive integers s. With c_n=2^n the asserted coefficient cancellation fails. Finite superlevel sets of |c_n| justify the largest-modulus argument and dominated convergence. The applications use unit coefficients and absolute convergence in a positive-power range."
   },
   {
    "id": "PAPER-LI-23/E3",
@@ -69970,14 +70374,18 @@
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed: the exponential bases in the preceding sum are reciprocal powers of products indexed by β₀,...,β_N; the all-∞ base is 1."
   },
   {
    "id": "PAPER-LI-23/E4",
@@ -69985,20 +70393,24 @@
    "locator": "Proof of Lemma 3.3, p. 400",
    "printed": "\"EP(τ0) = cK Σ_{h∈H(Q)\\H(Q̂)/K} θP(τ0, h) = θP(τ0) cK Σ_{h} 1 = θP(τ0).\"",
    "correction": "EP(τ0) = cK^{−1} Σ_h θP(τ0, h) = θP(τ0) cK^{−1} Σ_h 1 = θP(τ0).",
-   "reason": "By (3.10), EP = cK^{−1} Σ_h θP(·, h) with cK = Σ_h 1, so the last equality holds only with cK^{−1}.",
+   "reason": "By (3.23), EP = cK^{−1} Σ_h θP(·, h) with cK = Σ_h 1, so the last equality holds only with cK^{−1}.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed by (3.23), not the old extraction’s arXiv-numbered (3.10). The mass-normalized average of a constant is that constant. The reciprocal typo is separate from E19’s stabilizer issue."
   },
   {
    "id": "PAPER-LI-23/E5",
@@ -70006,41 +70418,49 @@
    "locator": "Theorem 4.3(2), equation (4.5), p. 405",
    "printed": "\"Lτ1 δ̂(τ) = (θP2(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))\"",
    "correction": "Lτ1 δ̂(τ) = (θP1(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))",
-   "reason": "As printed the right-hand side is identically 0. Part (3) of the same theorem, the proof, and its use in (4.19) and Proposition 4.8 all have (θP1 − θP2)^ℓ.",
+   "reason": "As printed the right-hand side is identically 0. Part (3) of the same theorem, the proof, and its use in (4.25) and Proposition 4.8 all have (θP1 − θP2)^ℓ.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed: (4.6), the derivative identity (3.15), and (4.25) all use θ_{P₁}−θ_{P₂}. The printed (4.5) has zero right side."
   },
   {
    "id": "PAPER-LI-23/E6",
    "kind": "gap",
-   "locator": "Proof of Theorem 4.1, p. 404",
+   "locator": "Theorem 4.1 proof, p. 403, and Proposition 4.2 proof, p. 404",
    "printed": "\"By the discussion and Lemma 31.32.4(3) in [Stacks, Tag 01OF] and Lemma 29.38.2 in [Tag 01VL], we know that O_X̃(−E) = O_X̃(1) is π-relatively ample.\"",
-   "correction": "Replace the boundary divisor E by the exceptional Cartier divisor D = V(I·O_X̃) of the (normalized) blow-up. D is supported on E but in general has multiplicities aσ ≥ 1, given by the polarization function of the admissible decomposition. Then O(−D) ⊗ π*L^k is ample, and Theorem 4.1 holds with L̃_k(−D). In Proposition 4.2 take ℓ0 ≥ n0·k·max aσ, so that g^{ℓ0}, which vanishes to order ≥ ℓ0 along every boundary component, gives a section twisted by −n0k′D.",
-   "reason": "The Stacks lemma gives O(1) = I·O_X̃ = O(−D) for the exceptional divisor of the ideal I of AMRT IV Thm. 2.2, not for the reduced boundary E. On a Hirzebruch cusp resolution (d = 2), −E is not π-ample whenever some boundary curve has self-intersection −2, since (−E)·Eσ = bσ − 2 = 0. The conclusion survives with D in place of E.",
+   "correction": "Use D=V(I O_X̃), including its multiplicities a_σ, in the ample bundle O(−D)⊗π*L^k. For cusp weight k′ choose k>k′ max a_σ and n₀ as in Serre vanishing, then ℓ₀=n₀k and n=n₀k′ have matching weights and ℓ₀E≥nD. Smooth extension of the actual differential form remains the separate obligation E17/G1.",
+   "reason": "The cited Stacks 01OF statement concerns the exceptional ideal divisor. If E means the usual reduced toroidal boundary, its equality with that divisor is not established. On a boundary cycle with E_σ²=−b_σ one has (−E)·E_σ=b_σ−2, illustrating why an arbitrary reduced boundary cannot simply replace a relatively ample exceptional divisor. No assertion that the original reduced-boundary vanishing theorem has been fully repaired is made.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed as an identification gap: Stacks 01OF identifies O(1) with the ideal of the exceptional Cartier divisor of the chosen blowup center, not automatically the reduced boundary. The corrected twist inequality must also match weights; the old proposed bound on ℓ₀ alone was not sufficient. This algebraic repair does not settle the independent smooth-boundary gap E17."
   },
   {
    "id": "PAPER-LI-23/E7",
@@ -70054,35 +70474,43 @@
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed independently by rank: dim_Q Res_{F/Q}W=4 when d=2, hence signature (n,2) forces n=2. BEY Theorem 5.10 is exactly this four-dimensional quadratic-space case."
   },
   {
    "id": "PAPER-LI-23/E8",
    "kind": "gap",
    "locator": "Proof of Theorem 1.1 (§5.3), p. 416, and Example 2.7, p. 392",
    "printed": "\"When r is even, this follows from the discussion in Example 2.7 and Theorem 1.7. When r is odd and d1 is fundamental, Theorem 7.13 of [BEY21] gives the algebraicity … Using this and proceeding with the rest of the argument in the proof of Theorem 1.7 gives Theorem 1.1.\"",
-   "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and the statement is Bruinier–Ehlen–Yang, Theorem 6.1: for CM points in the same imaginary quadratic field, |D|^r G_{r+1,f}(z1^σ, z2^σ) = −(1/t) log|α^σ| with α in the ring class field H_D (deduced from their Theorem 5.5 and Corollary 5.6, which is the F = Q case of Conjecture 1.6 quoted in §1.2). This strengthens Viazovska (arXiv:1110.4654), who obtained α ∈ Q̄.",
+   "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and the statement is Bruinier–Ehlen–Yang, Theorem 6.1: for CM points in the same imaginary quadratic field, |D|^r G_{r+1,f}(z1^σ, z2^σ) = −(1/t) log|α^σ| with α in the ring class field H_D (deduced from their Theorem 5.5 and Corollary 5.6, which is the F = Q case of Conjecture 1.6 quoted in §1.2). This strengthens Viazovska (arXiv:1110.4654), who obtained α ∈ Q̄. First require nonsingular ordinary evaluations (E12). Write d_i=t_i²D₀ and D=lcm(t₁,t₂)²D₀. If H_D is larger than H₁H₂, equivariance makes log|α^σ| constant on Gal(H_D/H₁H₂); its norm has logarithm [H_D:H₁H₂] times that value. Absorb this degree and the rational ratio (t₁t₂/lcm(t₁,t₂)²)^r into κ and an integer power/inverse of the norm.",
    "reason": "Example 2.7 and Theorems 1.3 and 1.7 require F = Q(√(d1d2)) to be a real quadratic field, while Theorem 1.1 is stated for all negative discriminants. A comment in the arXiv TeX ('it is enough to treat the case that d1d2 is not a perfect square') shows the case was known to be covered by the literature, but the published proof does not say so.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed omission: Example 2.7 assumes the quadratic field is real. BEY 5.5/5.6/6.1 supply the same-imaginary-field result, with an additional norm from H_D down to H₁H₂ before clearing rational factors. The norm uses equivariance; merely naming the larger ring class field is not enough."
   },
   {
    "id": "PAPER-LI-23/E9",
@@ -70096,14 +70524,282 @@
    "searched": [
     "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
     "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
-    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum",
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
    ],
    "owner": "PAPER-LI-23",
    "file": "research/blueprint/papers/PAPER-LI-23.result.json",
    "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Confirmed: the exponents in the preceding alternating sum and the displayed product differ by (−1)^ℓ. Replace Q by its inverse when ℓ is odd, or change λ by the same sign."
+  },
+  {
+   "id": "PAPER-LI-23/E10",
+   "kind": "misprint",
+   "locator": "§2.2, (2.10)–(2.13), pp. 386–387",
+   "printed": "f^{Δ,1}(τ′,τ₁):=f(τ₁,τ′,...,τ′), κ(1):=(trκ−k₁,k₁); C¹:=C_{κ(1),r}(f^{Δ,1}).",
+   "correction": "Use the first-variable-first restriction f(τ₁,τ′,...,τ′) with weights (k₁,trκ−k₁), or multiply the printed C¹ by (−1)^r. This matches (2.12) and the later lowering identity. In the multi-index coefficient in (2.13), s! means (e₂+⋯+e_d)!; s is otherwise unbound.",
+   "reason": "Already for r=1,d=2,k₁=k₂=1, the printed definition gives (∂₂f−∂₁f)/(2πi), whereas (2.12) gives its negative. With f=log(v₁),g=1, the printed left side of (2.15) is −1/(4π), its right side +1/(4π). Correcting orientation removes this discrepancy but does not remove E11.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Already for r=1,d=2,k₁=k₂=1, the printed definition gives (∂₂f−∂₁f)/(2πi), whereas (2.12) gives its negative. With f=log(v₁),g=1, the printed left side of (2.15) is −1/(4π), its right side +1/(4π). Correcting orientation removes this discrepancy but does not remove E11."
+  },
+  {
+   "id": "PAPER-LI-23/E11",
+   "kind": "error",
+   "locator": "Lemma 2.3, (2.15), p. 387; use in §5.1, p. 415",
+   "printed": "Let f be harmonic in τ₁ of weight k₁ and holomorphic in τ₂,...,τ_d. For any holomorphic g, L D(f,g)=binom(k₁+r−1,r)(g^Δ)^{r+1} R̃^r((L₁f)/g)^Δ.",
+   "correction": "After E10, require f/g to be harmonic of weight k₁ and holomorphic in the other variables on g≠0. Prove the denominator-cleared identity there, then extend. In §5.1, prove R_{−1}(θ_N−θ_N(h))=0 to obtain exactly this quotient harmonicity.",
+   "reason": "Even after correcting the orientation, choose d=2,κ=(1,1),r=1,f=log(v₁),g=exp(2πiτ₁). Then Δ₁f=0, but L D=g(1/(4π)−v₁) and the asserted right side is g(1/(4π)+v₁). The difference is −2v₁g. Conversely the quotient-harmonic version follows by applying the Rankin–Cohen identity to u=f/g and was checked symbolically for r=0,...,4.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Even after correcting the orientation, choose d=2,κ=(1,1),r=1,f=log(v₁),g=exp(2πiτ₁). Then Δ₁f=0, but L D=g(1/(4π)−v₁) and the asserted right side is g(1/(4π)+v₁). The difference is −2v₁g. Conversely the quotient-harmonic version follows by applying the Rankin–Cohen identity to u=f/g and was checked symbolically for r=0,...,4."
+  },
+  {
+   "id": "PAPER-LI-23/E12",
+   "kind": "gap",
+   "locator": "Theorem 1.1, p. 377; compare (1.1)–(1.2), p. 376",
+   "printed": "For any CM point z_i with discriminant d_i, there exist κ and α such that (d₁d₂)^{r/2}G_{r+1,f}(z₁,z₂)=κ⁻¹log|α|.",
+   "correction": "For ordinary finite values require (z₁,z₂) outside the support of the Hecke divisor Z_f. If a value on a singularity is intended, define and prove a separate regularization; Remark 1.5 only regularizes a difference. Take α nonzero.",
+   "reason": "For r=1, f=E₄E₆/Δ has integral q-expansion with principal part q⁻¹. At z₁=z₂=i, d₁=d₂=−4 satisfy the printed hypotheses, but the identity term in Q₁(1)=∫₀∞1 du diverges. The later Bruinier–Li–Yang introduction explicitly excludes Z_f, as does BEY Conjecture 1.1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "For r=1, f=E₄E₆/Δ has integral q-expansion with principal part q⁻¹. At z₁=z₂=i, d₁=d₂=−4 satisfy the printed hypotheses, but the identity term in Q₁(1)=∫₀∞1 du diverges. The later Bruinier–Li–Yang introduction explicitly excludes Z_f, as does BEY Conjecture 1.1."
+  },
+  {
+   "id": "PAPER-LI-23/E13",
+   "kind": "misprint",
+   "locator": "§3.1, (3.1), p. 396",
+   "printed": "φ_{p,q}(w,λ)=exp(−2π(Q_W(λ_{w⊥})+Q_W(λ_w))).",
+   "correction": "Replace the plus by a minus: exp(−2π(Q_W(λ_{w⊥})−Q_W(λ_w))).",
+   "reason": "For nonzero λ in the negative subspace, the printed Gaussian grows exponentially and is not Schwartz. At τ=i, formula (3.2) gives the corrected decaying Gaussian. Bruinier–Yang (4.4), author manuscript p. 14, has the minus sign.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "For nonzero λ in the negative subspace, the printed Gaussian grows exponentially and is not Schwartz. At τ=i, formula (3.2) gives the corrected decaying Gaussian. Bruinier–Yang (4.4), author manuscript p. 14, has the minus sign."
+  },
+  {
+   "id": "PAPER-LI-23/E14",
+   "kind": "misprint",
+   "locator": "Lemma 4.6, (4.22), p. 409, and the intermediate integral in the proof of Proposition 4.8, p. 411",
+   "printed": "∫^reg_{Γ∞\\H^d}⟨f,conj η⟩(v₂⋯v_d)^{s₀+1}dμ=−(η̂,ξ(f))_Pet+lim Σc(m,μ)b̂_{m,μ}(T).",
+   "correction": "Put D_F^(−1/2) in front of the regularized integral, consistently with (2.2), (4.16), (4.21) and the first displayed calculation in the proof of Lemma 4.6.",
+   "reason": "The u-fundamental domain O_F\\R^d has Euclidean covolume √D_F. Unfolding the proof explicitly inserts its reciprocal. The published statement omits it; Bruinier–Yang §5 and Bruinier Definition 5.1 preserve it. The final algebraic pairing identity uses the normalized integral.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "The u-fundamental domain O_F\\R^d has Euclidean covolume √D_F. Unfolding the proof explicitly inserts its reciprocal. The published statement omits it; Bruinier–Yang §5 and Bruinier Definition 5.1 preserve it. The final algebraic pairing identity uses the normalized integral."
+  },
+  {
+   "id": "PAPER-LI-23/E15",
+   "kind": "error",
+   "locator": "§3.3, (3.28), p. 402",
+   "printed": "Φ_m(z,1,r+1)=2(−1)^r/Γ(2r+2) · G^m_{r+1}(z₁,z₂).",
+   "correction": "The hypergeometric definition (3.27) and the Legendre normalization (1.1) give Φ_m(z,1,r+1)=−2/Γ(r+1) G^m_{r+1}=−2/r! G^m_{r+1}. Consequently the finite sum in (3.29) is −2G_{r+1,f}. E21 reconciles the finite-sum factor with the integral normalization; G3 retains its regularization/application hypotheses.",
+   "reason": "For m=1 this follows directly from Q_{s−1}(t)=Γ(s)²/(2Γ(2s))(2/(1+t))^s F(s,s,2s;2/(1+t)), with 2/(1+t)=1/Q(λ_z⊥). The ratio of coefficients is −2/Γ(s), as explicitly stated in BEY §6.1, p. 731. At r=1 the printed −1/3 differs from −2; at r=2 even its sign differs. The exact scalar affects downstream identities, although rational nonzero rescaling does not by itself disprove algebraicity.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "For m=1 this follows directly from Q_{s−1}(t)=Γ(s)²/(2Γ(2s))(2/(1+t))^s F(s,s,2s;2/(1+t)), with 2/(1+t)=1/Q(λ_z⊥). The ratio of coefficients is −2/Γ(s), as explicitly stated in BEY §6.1, p. 731. At r=1 the printed −1/3 differs from −2; at r=2 even its sign differs. The exact scalar affects downstream identities, although rational nonzero rescaling does not by itself disprove algebraicity."
+  },
+  {
+   "id": "PAPER-LI-23/E16",
+   "kind": "error",
+   "locator": "Lemma 4.5, (4.20), and first paragraph of its proof, pp. 407–408",
+   "printed": "h₀|_{V∩z₀⊥}=h₀′|_{V∩z₀⊥}; hence h₀(L_{m,μ})∩z₀⊥=h₀(L_{m,μ}∩z₀⊥)=h₀′(L_{m,μ})∩z₀⊥.",
+   "correction": "Require agreement of h₀⁻¹ and h₀′⁻¹ on the rational orthogonal complement, or directly equality of the weighted singular lattice-vector sets. Cancel singular terms along the full local divisor. The application h₀=1,h₀′=h_W fixing this complement satisfies the corrected condition.",
+   "reason": "Take Q=x₁²+⋯+x₄²−x₅²−x₆², L=Z⁶, and z₀ the negative coordinate plane. At p=5 let h₀ have the block [[5/3,4/3],[4/3,5/3]] on coordinates 1,5. Let k have block [[3/5,−4/5],[4/5,3/5]] on coordinates 5,6, and h₀′=h₀k; use identity at other finite places. These determinant-one isometries lift to GSpin and agree on S=Q⁴, but h₀⁻¹e₁=(5/3,0,0,0,−4/3,0) is 5-integral whereas (h₀′)⁻¹e₁=(5/3,0,0,0,−4/5,16/15) is not. Thus ±e₁ contribute norm-1 singularities for the first lattice only. Matrices and integrality were checked exactly. Also a punctured neighborhood cannot remove a positive-dimensional divisor, contrary to the next proof sentence.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Take Q=x₁²+⋯+x₄²−x₅²−x₆², L=Z⁶, and z₀ the negative coordinate plane. At p=5 let h₀ have the block [[5/3,4/3],[4/3,5/3]] on coordinates 1,5. Let k have block [[3/5,−4/5],[4/5,3/5]] on coordinates 5,6, and h₀′=h₀k; use identity at other finite places. These determinant-one isometries lift to GSpin and agree on S=Q⁴, but h₀⁻¹e₁=(5/3,0,0,0,−4/3,0) is 5-integral whereas (h₀′)⁻¹e₁=(5/3,0,0,0,−4/5,16/15) is not. Thus ±e₁ contribute norm-1 singularities for the first lattice only. Matrices and integrality were checked exactly. Also a punctured neighborhood cannot remove a positive-dimensional divisor, contrary to the next proof sentence."
+  },
+  {
+   "id": "PAPER-LI-23/E17",
+   "kind": "gap",
+   "locator": "§4.1, inclusion (4.2), p. 403, and Proposition 4.2 proof, p. 404",
+   "printed": "H⁰(X̃,E^{0,0}⊗L̃_{κ,ρ}) ⊃ A_{κ,ρ}(Γ); boundedness of f and vanishing order of g imply the differential form is a global smooth section.",
+   "correction": "Add and prove the smooth weighted boundary-extension hypothesis, or supply a valid weighted ∂̄/cohomology argument for the actual theta data. Do not identify all bounded real-analytic automorphic forms with smooth sections on the compactification.",
+   "reason": "Bounded real analyticity on a punctured cusp does not imply C∞ extension. Already for F=Q, the invariant real-analytic weight-zero function f(τ)=1/log(e+|j(τ)|²) is bounded on H; at q=0 it behaves as 1/(−2log|q|), so it is not smooth there. Multiplication by any finite cusp power q^a still has derivatives of sufficiently high order failing to extend. Passing to a neat subgroup only changes the cusp width. The paper’s argument needs more than an order-of-vanishing estimate; this review does not claim the theta-specific existence theorem is false.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Bounded real analyticity on a punctured cusp does not imply C∞ extension. Already for F=Q, the invariant real-analytic weight-zero function f(τ)=1/log(e+|j(τ)|²) is bounded on H; at q=0 it behaves as 1/(−2log|q|), so it is not smooth there. Multiplication by any finite cusp power q^a still has derivatives of sufficiently high order failing to extend. Passing to a neat subgroup only changes the cusp width. The paper’s argument needs more than an order-of-vanishing estimate; this review does not claim the theta-specific existence theorem is false."
+  },
+  {
+   "id": "PAPER-LI-23/E18",
+   "kind": "gap",
+   "locator": "§4.2, (4.13), p. 406",
+   "printed": "For g∈M_{κ̂,ρ_L}, {g,f}=(g,ξ(f))_Pet=CT⟨P(f),g⟩.",
+   "correction": "The cited Petersson/coefficient duality is for g∈S_{κ̂,ρ_L}. Extend the coefficient pairing to M or formal series by its finite sum definition, without asserting the Petersson equality there.",
+   "reason": "Bruinier’s primary Definition 4.4 and (4.21)–(4.23), author manuscript pp. 17–18, explicitly use the cusp space. Orthogonality to cusp forms characterizes ker ξ; it cannot require vanishing of every pairing with an Eisenstein series, whose coefficients supply the potentially nonzero Borcherds weight B(f). The later application only needs the cusp annihilator and the independently defined formal pairing.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Bruinier’s primary Definition 4.4 and (4.21)–(4.23), author manuscript pp. 17–18, explicitly use the cusp space. Orthogonality to cusp forms characterizes ker ξ; it cannot require vanishing of every pairing with an Eisenstein series, whose coefficients supply the potentially nonzero Borcherds weight B(f). The later application only needs the cusp annihilator and the independently defined formal pairing."
+  },
+  {
+   "id": "PAPER-LI-23/E19",
+   "kind": "gap",
+   "locator": "§3.2, (3.23), p. 399; finite averaging in Theorem 4.10",
+   "printed": "E_P=c_K⁻¹Σ_{H(Q)\\H(A_f)/K}θ_P(τ,h), c_K=Σ_h1.",
+   "correction": "Choose sufficiently small level so the relevant effective stabilizer volumes agree, or use Haar-induced inverse-stabilizer weights and divide by their total mass. Propagate the same convention to finite product averaging in Theorem 4.10.",
+   "reason": "The classical Siegel–Weil statement is an adelic integral, as in Bogo–Li Proposition 2.3. A compact quotient decomposed into K-orbits has volumes proportional to reciprocal stabilizer orders, not uniformly one for arbitrary lattice-stabilizing K. The paper states no small-level/equal-stabilizer condition at (3.23). Equality of all theta values still makes the weighted average constant, so the nonvanishing proof survives.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "The classical Siegel–Weil statement is an adelic integral, as in Bogo–Li Proposition 2.3. A compact quotient decomposed into K-orbits has volumes proportional to reciprocal stabilizer orders, not uniformly one for arbitrary lattice-stabilizing K. The paper states no small-level/equal-stabilizer condition at (3.23). Equality of all theta values still makes the weighted average constant, so the nonvanishing proof survives."
+  },
+  {
+   "id": "PAPER-LI-23/E20",
+   "kind": "misprint",
+   "locator": "§2.5, p. 392, displayed subgroup product",
+   "printed": "H_W×H_U ↪ H_V.",
+   "correction": "Use the multiplication homomorphism, with the common central G_m factored out when writing an injection.",
+   "reason": "Both GSpin subgroups contain scalar F×. Every pair (t,t⁻¹) maps to 1, so their product cannot inject. The later commuting-action notation is valid after this central-kernel convention.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "Both GSpin subgroups contain scalar F×. Every pair (t,t⁻¹) maps to 1, so their product cannot inject. The later commuting-action notation is valid after this central-kernel convention."
+  },
+  {
+   "id": "PAPER-LI-23/E21",
+   "kind": "error",
+   "locator": "§3.3, (3.29)–(3.30), p. 402; BEY Proposition 4.7 and (5.1), p. 719",
+   "printed": "Φ^r_L=r!Σc(m,μ)m^rΦ_{m,μ}, followed by the integral with R̃^r f.",
+   "correction": "Insert 1/2 in (3.29) to retain the integral convention. Alternatively retain the printed finite sum and double every integral/average formula consistently. Use a regularized finite part unless the logarithmic subtraction coefficient is proved zero.",
+   "reason": "BEY Proposition 4.7 uses F_{m,μ} with principal part q^(−m)(φ_μ+φ_{−μ}); its lift is (4πm)^r r! Φ_{m,μ}. Thus f=(1/2)Σc(m,μ)F_{m,μ} and BEY (5.1) gives (r!/2)Σc m^rΦ. In particular μ=0 already has principal coefficient 2, so the factor cannot be discarded for unimodular lattices. Negative input weight makes the principal-part decomposition unique. The general harmonic-input integral also needs the finite-part prescription in BEY §5.1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent review: published Springer article and PDF, DOI 10.1007/s00222-023-01205-5, all pages; publisher article has no linked correction, accessed 2026-09-23.",
+    "Independent review: arXiv 2106.13653 version history and v2 PDF at selected operator, compactification, local-singularity and §5 proof locators, accessed 2026-09-23.",
+    "Independent review: author publications page https://lykpi.github.io/research.html and targeted searches for the paper title with erratum/correction, 2026-09-23; no correction located.",
+    "Independent review: later Bruinier–Li–Yang paper https://arxiv.org/abs/2204.10604 and publisher introduction https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/deformations-of-theta-integrals-and-a-conjecture-of-grosszagier/A9F4ADDD5E7987FB381E716AA7A60FFD checked for a correction reference; this is a later result, not an erratum found for these formulas."
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LI-23",
+   "reviewReason": "BEY Proposition 4.7 uses F_{m,μ} with principal part q^(−m)(φ_μ+φ_{−μ}); its lift is (4πm)^r r! Φ_{m,μ}. Thus f=(1/2)Σc(m,μ)F_{m,μ} and BEY (5.1) gives (r!/2)Σc m^rΦ. In particular μ=0 already has principal coefficient 2, so the factor cannot be discarded for unimodular lattices. Negative input weight makes the principal-part decomposition unique. The general harmonic-input integral also needs the finite-part prescription in BEY §5.1."
   },
   {
    "id": "PAPER-LI-LIU-21/E1",
@@ -75089,140 +75785,442 @@
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E1",
    "kind": "misprint",
-   "locator": "§7, in the proof of Proposition 7.17, the non-superspecial supersingular case (accepted version of 25 December 2021; the same expression is in arXiv:2011.08887v1)",
+   "locator": "§7, in the proof of Proposition 7.17, the non-superspecial supersingular case; independently checked only in author manuscript (25 December 2021).",
    "printed": "≤ (h/(p-1)) · 2(p² − p + 1)/(p(p² − 1)) ≤ (11/12)(h/(p-1)) for all p ≥ 3",
    "correction": "the middle expression is 2(p² + p − 1)/(p(p² − 1)); the two summands of the numerator are transposed",
    "reason": "The displayed series is (2/(1-p^{-2}))(h(p^{-1}+1)/p² + hp/p⁴ + hp²/p⁶ + ···). Summing the geometric tail, the bracket is h((p+1)/p³ + 1/(p²(p-1))) = h(p²+p-1)/(p³(p-1)), and multiplying by 2p²/(p²-1) gives exactly (h/(p-1))·2(p²+p-1)/(p(p²-1)). At p = 3 this is 22/24 = 11/12, which is where the constant 11/12 comes from and shows the bound is sharp there; numerically, with h = 1 and p = 3 the series is (9/4)(4/27 + 1/18) = 0.4583… = (11/12)·(1/2), confirming it. The printed 2(p²-p+1)/(p(p²-1)) equals 7/12 at p = 3, so as printed the first inequality of the chain is false, although the final bound 11/12 that the proof uses is correct. The same computation carried out for the two superspecial cases of the same proof reproduces the printed constants exactly, 61/62 at p = 5 in case (1) and 17/20 at p = 5 in case (2), which confirms the method.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Exact rational summation gives 2(p²+p−1)/(p(p²−1)); its difference from 11/12 factors as (p−3)(11p²+9p−8)/(12p(p²−1))≥0. Both superspecial constants were independently checked by exact identities. Only author-manuscript scope is confirmed."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E2",
    "kind": "misprint",
-   "locator": "§7, in the proof of Proposition 7.13, the case i = b+2 (accepted version; also in arXiv:2011.08887v1)",
+   "locator": "§7, in the proof of Proposition 7.13, the case i = b+2; independently checked only in author manuscript (25 December 2021).",
    "printed": "Σ_{n≥T}(2X)^{(b+2)/2}/n^{(b+2)/b} ≤ (c₃/T^{2/(b+2)})X^{(b+2)/2}",
    "correction": "(c₃/T^{2/b})X^{(b+2)/2}, the exponent that Proposition 7.13 itself states",
-   "reason": "The exponent (b+2)/b exceeds 1 by 2/b, so the tail Σ_{n≥T} n^{-(b+2)/b} is (b/2)T^{-2/b}(1+o(1)); the exponent of T is 2/b, not 2/(b+2). The statement of Proposition 7.13 has T^{2/b}, and the proof of Theorem 7.18 uses it in that form when choosing T, so only the displayed step in the proof is wrong.",
+   "reason": "The printed inequality with T^{−2/(b+2)} is a TRUE but weaker bound for T≥1, so it is not a counterexample. The integral estimate Σ_{n≥T}n^{−1−2/b}≤(1+b/2)T^{−2/b} supplies the stronger exponent claimed in the proposition. The mismatch is an intended-exponent slip, not a false inequality.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Confirmed only as an exponent mismatch with the intended proposition; expressly reject the interpretation that the displayed weaker inequality is false."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E3",
    "kind": "misprint",
-   "locator": "§6, Definition 6.1 (3) and Theorem 6.2 (2) (accepted version; also in arXiv:2011.08887v1)",
-   "printed": "Given a submodule Λ ⊂ 𝓛 which decays rapidly and a vector w ∈ 𝓛 such that w ∉ Λ, we say that the pair (L,w) decays very rapidly to first order if w decays very rapidly to first order, and every primitive vector in Span_{Z_p}{L,w} decays rapidly to first order",
+   "locator": "§6, Definition 6.1 (3) and Theorem 6.2 (2); independently checked only in author manuscript (25 December 2021).",
+   "printed": "(L,w); Span_{Z_p}{L,w}",
    "correction": "the pair (Λ,w), and Span_{Z_p}{Λ,w}; the same substitution is needed in clause (2) of Theorem 6.2",
    "reason": "L is the ambient quadratic Z-lattice of signature (b,2) fixed in §2.1 and used with that meaning throughout the paper; the submodule just introduced is Λ ⊂ 𝓛 = 𝕃^{φ=1}, a Z_p-module of rank 2. Span_{Z_p}{L,w} does not parse, since L is not a submodule of 𝓛. The notation (Λ,w) is what the third occurrence of the phrase uses correctly, in the proof of Theorem 6.2, where the pair is written (Span_{Z_p}{e₁,f₁}, e'₁).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E4",
    "kind": "misprint",
-   "locator": "§7, Theorem 7.15 (2), the odd case of the Siegel mass formula (accepted version; also in arXiv:2011.08887v1)",
+   "locator": "§7, Theorem 7.15 (2), the odd case of the Siegel mass formula; independently checked only in author manuscript (25 December 2021).",
    "printed": "(Σ_{d|f} μ(d)χ_{𝒟}(d)d^{-(b+1)/2}σ_{-b}(f/d)), with the where-clause defining only 𝒟' = (-1)^{(b-1)/2}2m₀ det L'₁",
-   "correction": "χ_{𝒟'}(d), the character attached to the discriminant 𝒟' of the theorem",
-   "reason": "Theorem 7.15 defines 𝒟' and no 𝒟; the symbol 𝒟 is defined only in Theorem 7.4, for the ambient lattice L rather than for L'₁. The L-value in the same displayed formula is L((b+1)/2, χ_{𝒟'}), and in the parallel formula of Theorem 7.4 the divisor sum uses the same character as the L-value, so the sum here must use χ_{𝒟'} as well.",
+   "correction": "No mathematical correction established on the theorem's actual divisor range; χ_{D'} is an equivalent notational choice after proving the square-class/copimality comparison.",
+   "reason": "The original extractor inferred a misprint because Theorem7.15 defines D′ and uses χ_D in one divisor sum while its L-value uses χ_D′. That inference is rejected: D was defined for L in Theorem7.4, and the two characters agree on the allowed divisors here. See the independent review.reason for the square-class and coprimality argument.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Not established as a source mistake. In this setup the positive determinants det L and det L'_1 have the same rational square class: local isometry away from p makes the valuation differences even there, and the p-discriminant exponent is the even type. Thus D'/D is a positive rational square; for a|f, with f coprime to 2det L'_1 (in particular p), χ_D(a)=χ_{D'}(a). The source's χ_D is defined earlier and gives the same divisor sum. Using χ_{D'} uniformly in item82 is a harmless clarification, not evidence of a false printed formula."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E5",
    "kind": "misprint",
-   "locator": "§3.5, the construction of the formal curve, in the sentence beginning \"For any positive integer j₀\" (accepted version; also in arXiv:2011.08887v1)",
+   "locator": "§3.5, the construction of the formal curve, in the sentence beginning \"For any positive integer j₀\"; independently checked only in author manuscript (25 December 2021).",
    "printed": "v_{i,n_{j₀+1}-1} = e_i + (Σ_{j=0}^{j₀} p^{n_j})f_j ∈ L_{p^{n_{j+1}}}",
    "correction": "v_{i,n_{j₀+1}-1} = e_i + (Σ_{j=0}^{j₀} p^{n_j})f_i ∈ L_{p^{n_{j₀+1}}}",
    "reason": "Two slips in one display. First, the vectors were defined a few lines earlier by v_{i,n} = e_i + (a₀ + a₁p + ··· + a_n p^n)f_i, with the same index i on e and on f; the j in f_j is the bound index of the sum. Second, j is bound by the sum and has no meaning in the subscript of L on the right-hand side; the level at which the vector lies is p^{n_{j₀+1}}, which is also what the next sentence uses when it writes m_j := Q(v_{i,n_{j+1}-1}).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula."
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22/E6",
    "kind": "misprint",
-   "locator": "§8.1, in the sentence introducing 𝒮^BB (accepted version; arXiv:2011.08887v1 has the same misspelling twice, at the start of §8 and in §8.1)",
+   "locator": "§8.1, in the sentence introducing 𝒮^BB; independently checked only in author manuscript (25 December 2021).",
    "printed": "𝒮^BB_Q is the Bailey–Borel/minimal compactification Sh^BB of Sh",
    "correction": "Baily–Borel, after Walter L. Baily, Jr.",
-   "reason": "The name is spelled Baily–Borel correctly in §1.5 of the same version, \"the boundary of the Baily–Borel compactification of 𝒮_{F_p}\", and that is the standard spelling. One of the two occurrences in arXiv:2011.08887v1 has already been corrected in the accepted version; this is the one that remains.",
+   "reason": "The author manuscript uses Baily–Borel correctly in §1.5 and misspells it in §8.1. Review confirmation is restricted to this version; the inherited claim about two v1 occurrences was not independently checked.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "the arXiv listing for 2011.08887, which has only v1 of 17 November 2020 and carries no comment about a correction; that version predates publication by more than a year and is superseded by the version read",
-    "the version read itself, the authors' accepted manuscript at math.berkeley.edu/~ytang/GSpincharp.pdf (PDF created 25 December 2021, sha256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), which contains no erratum",
-    "Yunqing Tang's publication page at math.berkeley.edu/~ytang, which lists the paper and links that file, with no erratum or corrigendum",
-    "the Springer page for doi:10.1007/s00222-022-01097-x, which is paywalled: the typeset text could not be read and no \"Correction to this article\" link is offered",
-    "a web search for a correction or erratum to this paper, which returned none"
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
    ],
    "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
    "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
    "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Checked directly at the author-manuscript locator; the correction is justified by the named local formula."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E7",
+   "kind": "error",
+   "locator": "Author manuscript (25 December 2021), Proposition7.17 pp.35–36, Theorem7.18 and final proof of Theorem1.2 p.36",
+   "printed": "i_P(X,T)_mt = αΣg_P(m)+O_T(X^{1+(b+2)/4}); Σi_P = α'Σg_P+O(X^{(b+1)/2})",
+   "correction": "Use ≤ in these statements and the last step of the contradiction argument. Preserve 0<α<α'<1.",
+   "reason": "By §7.12, T=1 makes the main term the empty sum, zero. At supersingular P the proposed positive-α main term grows as X^{1+b/2}, strictly faster than X^{1+(b+2)/4} for b≥3. Hence that equality cannot hold. Both proofs establish only upper bounds; the final contradiction needs only the bounds.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E8",
+   "kind": "gap",
+   "locator": "Author manuscript (25 December 2021), Definition7.6 p.31",
+   "printed": "Σ_{P∈(C∩Z(m))(k)}g_P(m)=|q_L(m)|(ω.C)",
+   "correction": "Sum over all C(k) for equality; for the displayed subset retain ≤ unless all positive-Hasse-order points are shown to belong to it.",
+   "reason": "The degree of the pulled-back section of ω^{p−1} sums its orders at all points of C. The cited reason does not establish that its support is contained in a particular Z(m). Nonnegative subset sums give the sufficient upper bound used by the final contradiction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E9",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma4.3 p.12 and §6.4 p.26",
+   "printed": "λ∈Z_{p²}^×; λ² mod p∈F_p nonsquare; ⟨f_1,f_1⟩=−2λ²p",
+   "correction": "Choose λ²=u∈Z_p^× nonsquare modulo p and σ(λ)=−λ, for example a suitable Teichmüller square root.",
+   "reason": "If λ_0²=u∈Z_p is such a choice, λ=λ_0+p has the same residue condition but λ²=u+2pλ_0+p²∉Q_p. Then the asserted Z_p-valued Gram entry is not in Z_p. The stronger choice exists and is exactly the one used in the subsequent Frobenius calculation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E10",
+   "kind": "error",
+   "locator": "Author manuscript (25 December 2021), Lemma5.9 pp.20–22",
+   "printed": "im(∏_{j=1}^lK_{i_j}^{(i_1+…+i_{j−1})})=Span_{K[[t]]}{v_n}; ∏_jY_{i_1}^{(i_1+…+i_{j−1})}",
+   "correction": "Require length l≥2 for the one-row product formula, use Y_{i_j} in each factor, and state image containment over K[[t]]; rank one over K((t)) additionally requires a nonzero scalar.",
+   "reason": "For l=1,i_1<n the two nonzero independent columns of A_i give rank2. For any positive-length product all entries vanish at t=0, so its K[[t]]-image cannot be the full constant line generated by v_n. Zero Y_i give zero products. The displayed induction and the l=2 case determine the corrected factor index.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E11",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma5.11(3) pp.22–23",
+   "printed": "all (l_1,…,l_r)∈I_r^min must have l_α∈{i_α,j_α}",
+   "correction": "Every coordinatewise recombination l_α∈{i_α,j_α} of two minimizing tuples is minimizing.",
+   "reason": "The printed direction fails already at r=1,n=4 with X_i=Y_i=t (i=1,2,3), no primed coordinates and p=5: a=(1,1,1,2,∞), so (1),(2),(3) all minimize. Taking I=(1),J=(2) excludes the third. The proof establishes the corrected closure direction, and that is what (4),(5) use.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E12",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma5.13 proof p.23",
+   "printed": "Moore determinant vanishes iff first-row entries are linearly independent",
+   "correction": "Replace independent by dependent.",
+   "reason": "In F_25=F_5[u]/(u²−2), 1,u are F_5-independent and the 2×2 Moore determinant is u^5−u=−2u≠0. The surrounding argument already uses independence to deduce invertibility.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E13",
+   "kind": "gap",
+   "locator": "Author manuscript (25 December 2021), §5.14 and Theorem5.15 p.25",
+   "printed": "ν_(s,…,s)=a_s(1+…+p^{r+1})",
+   "correction": "From §5.10 the value is a_sΣ_{j=0}^{r+1}p^{sj}. Reprove the generalized decay rate, or state a slower p^s-spaced rate with its actual PD cutoff; do not silently keep Definition5.1's p-spaced threshold.",
+   "reason": "For p=5,s=2,r=0,a_s=1 the two sums are 26 and 6. Replacing h by a_s does not justify ν_{r+2}/p<h_r+1 by this computation. This is a proof gap for the generalized rate, not a counterexample to the ordinary main theorems, which use s=1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E14",
+   "kind": "gap",
+   "locator": "Author manuscript (25 December 2021), §§5.5–5.6, §5.10 and proof of Theorem5.2 p.24; §6.3 p.26",
+   "printed": "h=v_t(Q(t)); c_I∈W^× from leading coefficients of Y_{i_j}",
+   "correction": "Distinguish v_t of the reduction from v_t of a characteristic-zero lifted sum, and recheck the p-denominator/minimal-term argument after cancellation. Coordinate Teichmüller lifts do not make arbitrary sums of products have Teichmüller-unit leading coefficient.",
+   "reason": "At p=5 in the superspecial split chart with m=3 set x_i=t, y_1=y_2=t, y_3=3t+t². The prescribed lifts give Q(t)=−(2+[3])t²−t³. The Teichmüller lift [3] is 18 mod25, so 2+[3]=20 mod25 is nonzero divisible by5. Thus v_t(Q)=2 while v_t(Q mod5)=3, the actual Hasse order. The same phenomenon affects Y_n,Y_{n+1}, which are sums rather than coordinatewise Teichmüller lifts. A valuation-aware repair remains to be supplied; the main theorem is not declared false.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E15",
+   "kind": "error",
+   "locator": "Author manuscript (25 December 2021), Lemma6.6 p.27",
+   "printed": "P_{α,β}=cN^{(1)} for even α; ker(F_{l,m+1}p^{α+β}P_{α+β} mod p)",
+   "correction": "For α=β=0 use P=I; for α+β>0 keep the two formulas, and require nonzero reduction of the scalar for the stated kernel exclusions. Replace P_{α+β} by P_{α,β}.",
+   "reason": "The empty product is I, not rank-one N^{(1)}. The zero-factor issue is independent: take x_1=t,y_1=u t in F_25 with u²=2 (other coordinates zero). Q mod5=−u t²≠0 but R mod5=−(u^5+u)t^6=0. For α=0,β=1 the cleared product reduces to zero, so its kernel is the entire two-dimensional space. These zero terms cannot be used for the claimed obstruction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E16",
+   "kind": "gap",
+   "locator": "Author manuscript (25 December 2021), proof of Theorem6.2, Case2 and opening of Case3, p.28",
+   "printed": "P_{r−e+1,e}; P_{r−e+1,e−1}",
+   "correction": "Treat r<e−1 separately before using these products. For Case2 the candidate index must be truncated (β≤r+1, α=r+1−β); prove the corresponding minimum and obstruction.",
+   "reason": "When e≥2 and r=0, α=r−e+1 is negative although P was only defined for nonnegative indices. Case3 later treats the small-r branch for e_1,f_1, but its opening assertion about e'_1 and Case2 also need that branch. This is a missing finite-index case, not a disproof of decay.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E17",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma7.5 proof p.30",
+   "printed": "−(ω.C)+Σ_{m≥1}Z(m).C",
+   "correction": "Insert q^m in each positive-index term of the generating series.",
+   "reason": "The next sentences take Fourier coefficients and subtract the Eisenstein series; a sum of scalar intersection numbers without the formal/analytic powers cannot be that generating series. Item71 uses the corrected form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E18",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma7.16 proof p.35",
+   "printed": "(1−p^{-1})+p^{−dim M'}(1+p^{-1})",
+   "correction": "The normalized recurrence gives ≤(1−p^{-1})+p^{-1}(1+p^{-1})=1+p^{-2}≤1+p^{-1}.",
+   "reason": "The induction bounds p^{1−dim M'} times the representation count, so substituting the count into p^{−dim M'} times it leaves p^{-1}, not p^{−dim M'}. The intended final upper bound is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E19",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma8.10(1) pp.41–42",
+   "printed": "Z⊂Sh_2; T̄_X is not contained in Z_k",
+   "correction": "State properness explicitly (and, for the adjoint-monodromy argument, the proper adjoint-group image used in the proof). If ⊂ is intended strictly, record that convention.",
+   "reason": "Under non-strict subset notation Z=Sh_2 contradicts the statement immediately. The proof itself invokes a proper adjoint subgroup. The special-divisor application has the intended positive-codimension scope; this finding clarifies scope and does not dispute that application.",
+   "affects": "nothing",
+   "known": "No source correction established; notation clarification only.",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Do not register a confirmed misprint on this evidence: the displayed ⊂ can mean strict inclusion, consistent with the proof's proper-subgroup argument. The extraction should state properness/proper adjoint image explicitly, but the equality counterexample under a different notation convention is not an independently established source error."
+  },
+  {
+   "id": "PAPER-MAULIK-SHANKAR-TANG-22/E20",
+   "kind": "misprint",
+   "locator": "Author manuscript (25 December 2021), Lemma4.5 proof p.13, §5.7 p.20 and Lemma5.9 proof p.22",
+   "printed": "pv_{2n−1}=pφ^{n−2}(v); C:2n×m,D:m×2n; n<i<2n−1,−x_{n−i}; w_{n+i_1}",
+   "correction": "Use pφ^{2n−2}(v); block dimensions 2n×2m and 2m×2n; B_2(n+j,2n)=−X_j for 1≤j<n; and w_{i_1}.",
+   "reason": "These follow directly from v_i=φ^{i−1}(v), rank𝓛_1=2m, the displayed u' matrix in §4.11, and the subsequent evaluation R_{n+i_1}(w_{i_1})=1. The incorrectly excluded last row and negative coordinate index are repaired explicitly in item52.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/2011.08887 version history lists only v1 (17 November 2020); no correction indicated there.",
+    "2026-09-23: https://math.berkeley.edu/~ytang/ publication listing and linked 47-page GSpincharp.pdf (SHA256 53f4c42762f179fba71a2d344bee56f3de1fb189f4dd9aea968a4fcbfaedc494), no separately linked erratum found.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-022-01097-x public page/footnotes, no correction link found; full typeset text unavailable, so no claim about its error status.",
+    "2026-09-23: exact-title correction/erratum and title-author Theorem5.15 searches; no applicable correction located. This is bounded negative-search evidence, not a claim no correction exists."
+   ],
+   "owner": "PAPER-MAULIK-SHANKAR-TANG-22",
+   "file": "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+   "citation": "Maulik–Shankar–Tang, \"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
+   "reviewReason": "Independently checked against the manuscript and the explicit reasoning recorded here; no assertion about the unavailable typeset version."
   },
   {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E1",
