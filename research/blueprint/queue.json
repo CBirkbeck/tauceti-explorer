@@ -3716,8 +3716,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1233"
+   "state": "external",
+   "note": "claimed on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
@@ -3969,8 +3969,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1248"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1248",
+   "finishedAt": "2026-09-23T03:19:59Z"
   },
   {
    "id": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
