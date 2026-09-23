@@ -2,271 +2,1688 @@
   "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Catalogue-wide link screen completed for 212 atlas roadmaps and six additional blueprint definitions. The packet records one character-carrier input and shared analytic outputs, separates genuine overlaps from typed dependencies, and preserves the missing analytic-boundary and coefficient-adapter obligations in the handoff. Complete refers to this link screen, not to mathematical implementation or independent approval.",
+  "summary": "Catalogue-wide link screen for 212 atlas roadmaps and six additional blueprint definitions, independently reviewed at 6fb1abbb64e76b1c65de3ccbb36d91ef2af7b377. Retains one character-carrier input, 24 analytic outputs and seven ownership overlaps. The powered-Frobenius coefficient and higher-power comparison are already present at the pinned Tau Ceti baseline; reuse them while preserving the missing analytic-boundary obligations. Complete describes the link screen, not mathematical implementation.",
   "worker": "ChatGPT Pro — cgp-a70a276fbaff",
   "sessionId": "cgp-a70a276fbaff",
   "jobId": "LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
   "issue": 23,
   "date": "2026-09-16",
-  "provenance": {"worker":"ChatGPT Pro — cgp-a70a276fbaff","issue":23,"jobId":"LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries","inputCommit":"088ac3dcfb573a1e875fcea971ce54526bbe74d3","inputTree":"99ceb362bb08da148f7882570e0f924ab7886427","artifact":{"workflowRun":35096552203,"id":10446790411,"name":"github-pages","sha256":"5485fb2792d05be08a477e7f04f4bae074dc227912cc84e5405cbae11621ceb1"},"baseline":{"tauceti":"f790474821cf4256814db967cb154e7af3d0c369","mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174","created":"2026-09-16T09:50:49Z"},"checkedFiles":{"data/atlas.json":{"gitBlob":"37f2add06983c206067d1104e0f40a839cc3961a","sha256":"62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56"},"research/blueprint/atlas/index.json":{"gitBlob":"36b0f03b84cf67f9158f10145912a94f52ed6673","sha256":"026e96806684bc9ddb4ea359ec5a842ac7f958460e5057f6c53e3e1278f5be15"},"research/blueprint/atlas/stage-edges.json":{"gitBlob":"a90d0b60747b26808c04dbd3381f5739fb5a3998","sha256":"ca63a648926dda707e5c813d339daf9f75384698f69937fd013ed72e5dc7a3a8"},"content/tau-ceti/ArithmeticDirichletSeries/README.md":{"gitBlob":"e6e17096aebd5b071d9c96539eb7ab2caff718b8","sha256":"f375fdc7ee7cfda441216b12da86773f5b94f3aea10bf94400a50562f422ea8a"},"scripts/check_links.py":{"gitBlob":"88135efe5a74ef82e088f3fa3189893e27a7867a","sha256":"0263ab99f43d63eff93dc449f6be10e47d184df1282842a260ab3b6b9fcf72cc"}},"revalidatedCommit":"be09b0fb85faab7fc6a8646e9f524140cfa0df2e","revalidatedTree":"090288d978ad46e4f85b8fecff9ceac4c2b19294","revalidationArtifact":{"workflowRun":35099069170,"id":10446963221,"name":"github-pages","sha256":"4e2e1610f490ae2125bc74ea94af72c1930531b80a476ace6928d6b6da4110c9"},"unchangedCriticalInputs":true},
-  "screen": {"roadmaps":218,"atlasRoadmaps":212,"additionalDefinitions":6,"readDepth":"All summaries and catalogue-wide title/description/document synonym search; every plausible endpoint stage read in full. Negative entries are not claims that every mathematical proof or every full document was read.","searchFamilies":["carriers","ideal-arithmetic","dirichlet-euler","summation","tauberian","density-primes","analytic-tools"],"existingLinkPackets":15,"existingIncidentPairs":0,"implementationStatus":"unchecked"},
+  "provenance": {
+    "worker": "ChatGPT Pro — cgp-a70a276fbaff",
+    "issue": 23,
+    "jobId": "LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+    "inputCommit": "088ac3dcfb573a1e875fcea971ce54526bbe74d3",
+    "inputTree": "99ceb362bb08da148f7882570e0f924ab7886427",
+    "artifact": {
+      "workflowRun": 35096552203,
+      "id": 10446790411,
+      "name": "github-pages",
+      "sha256": "5485fb2792d05be08a477e7f04f4bae074dc227912cc84e5405cbae11621ceb1"
+    },
+    "baseline": {
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "created": "2026-09-16T09:50:49Z"
+    },
+    "checkedFiles": {
+      "data/atlas.json": {
+        "gitBlob": "37f2add06983c206067d1104e0f40a839cc3961a",
+        "sha256": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56"
+      },
+      "research/blueprint/atlas/index.json": {
+        "gitBlob": "36b0f03b84cf67f9158f10145912a94f52ed6673",
+        "sha256": "026e96806684bc9ddb4ea359ec5a842ac7f958460e5057f6c53e3e1278f5be15"
+      },
+      "research/blueprint/atlas/stage-edges.json": {
+        "gitBlob": "a90d0b60747b26808c04dbd3381f5739fb5a3998",
+        "sha256": "ca63a648926dda707e5c813d339daf9f75384698f69937fd013ed72e5dc7a3a8"
+      },
+      "content/tau-ceti/ArithmeticDirichletSeries/README.md": {
+        "gitBlob": "e6e17096aebd5b071d9c96539eb7ab2caff718b8",
+        "sha256": "f375fdc7ee7cfda441216b12da86773f5b94f3aea10bf94400a50562f422ea8a"
+      },
+      "scripts/check_links.py": {
+        "gitBlob": "88135efe5a74ef82e088f3fa3189893e27a7867a",
+        "sha256": "0263ab99f43d63eff93dc449f6be10e47d184df1282842a260ab3b6b9fcf72cc"
+      }
+    },
+    "revalidatedCommit": "be09b0fb85faab7fc6a8646e9f524140cfa0df2e",
+    "revalidatedTree": "090288d978ad46e4f85b8fecff9ceac4c2b19294",
+    "revalidationArtifact": {
+      "workflowRun": 35099069170,
+      "id": 10446963221,
+      "name": "github-pages",
+      "sha256": "4e2e1610f490ae2125bc74ea94af72c1930531b80a476ace6928d6b6da4110c9"
+    },
+    "unchangedCriticalInputs": true
+  },
+  "screen": {
+    "roadmaps": 218,
+    "atlasRoadmaps": 212,
+    "additionalDefinitions": 6,
+    "readDepth": "All summaries and catalogue-wide title/description/document synonym search; every plausible endpoint stage read in full. Negative entries are not claims that every mathematical proof or every full document was read.",
+    "searchFamilies": [
+      "carriers",
+      "ideal-arithmetic",
+      "dirichlet-euler",
+      "summation",
+      "tauberian",
+      "density-primes",
+      "analytic-tools"
+    ],
+    "existingLinkPackets": 15,
+    "existingIncidentPairs": 0,
+    "implementationStatus": "unchecked"
+  },
   "links": [
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters","reason":"For a finite cyclotomic Galois character, construct the canonical ideal weight on nonzero ideals and its zero extension, with value zero at ramified primes and unit modulus on good ideals. The source supplies the degree-one carrier and finite-order operations; the target supplies Frobenius and the proof that its prime values extend multiplicatively. No higher-dimensional Artin coefficient is put in this carrier.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","quote":"**0.3 Constructors and operations.** Build the trivial weight, conjugation, pointwise product,\nrestriction away from a finite prime set, norm twists, and finite-order weights. Finite-order\nHecke characters land in `UnitaryIdealWeight`. An arbitrary twist\n`I ↦ χ(I) N(I)^{-z}` lands in `MultiplicativeIdealWeight`; the imaginary twist with `Re z = 0`\npreserves `UnitaryIdealWeight`. Supply both maps to `IdealArithmeticFunction`, and prove\nfunctoriality under a number-field equivalence. Keep pointwise multiplication separate from ideal\nconvolution."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters","quote":"For each character `χ : Gal(F/K) →* ℂˣ`, define the canonical ideal weight\n`cyclotomicCharacterWeight χ`. It is `χ(Frob 𝔭)` at unramified primes and zero at ramified primes.\nProve its Euler product and character-orthogonality identities. A weight specified only away from\nramification is not enough: its values at the bad primes would remain unconstrained."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions","reason":"Use the ideal von Mangoldt/logarithmic-derivative identity on the absolute-convergence half-plane for each degree-one cyclotomic character, and then apply the target's finite character orthogonality. In the target the coefficient tests the powered Frobenius class; this link does not identify it with the coefficient for a fixed set of unpowered Frobenius primes.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives","quote":"**2.3 Von Mangoldt transform.** Define the ideal von Mangoldt weight and the transform attached to\na weight. Prove support on prime powers and the exact coefficient identity for the logarithmic\nderivative of an Euler product on its absolute-convergence half-plane."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions","quote":"where `L_χ` is the series of `cyclotomicCharacterWeight χ` from Layer 4, whose Euler product omits\nthe ramified primes. This identity is a theorem about the canonical coefficient, never a hypothesis\non an arbitrary sequence, and it is the only place the character expansion is used: the roadmap\nnever forms an Artin L-function of a higher-dimensional representation."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","reason":"Once the ray-class supplier proves the quantitative ideal partial-sum cancellation for each nontrivial character, apply the conditional Abel-summation continuation to its unitary ideal weight. Retain the uniform exponent 1-1/[K:Q] and agreement on Re(s)>1. A finite ray-class quotient alone does not establish cancellation, and the trivial character must use its separate pole branch.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","quote":"**6.5 Cancellation and a named continuation.** Define `HasCancellation χ` by the uniform\n`O(X^(1-1/[K:ℚ]))` bound for ideal partial sums. Use Abel summation to construct\n`continuedLFunctionOfWeight χ` for `χ : UnitaryIdealWeight K`, prove agreement with the\nnorm-regrouped series on `Re s > 1`,\nand analyticity on `Re s > 1-1/[K:ℚ]`. Finiteness of a coefficient quotient is not a substitute:\nthe prime values of a finite quotient of the free ideal group can be arbitrary. Export good-ideal,\nconjugation, pointwise-square, and imaginary norm-twist operations used by character-family\nconsumers; general complex norm twists remain in `MultiplicativeIdealWeight`. A good ideal\nexplicitly excludes `⊥`, even when the bad set is empty."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","quote":"Factor `cyclotomicCharacterWeight χ` through a consumed `RayClassCharacter`. Apply\n`rayClassIdealCount` class by class and `rayClassCharacter_partialSums` to show:\n\n- the nontrivial character partial sums have cancellation;\n- the associated Dirichlet series continues through a neighborhood of `Re s = 1`;\n- the trivial character has the single pole inherited from the all-ideal series;"}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","reason":"The consumer uses the generic nonnegative positive-combination argument in the nonvanishing proof for its cyclotomic character series. It must supply the continuation and, when invoking Landau, the actual finite abscissa and nonnegative coefficients; mere convergence to the right of a chosen real number is not a substitute.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity","quote":"**8.2 Positive combinations.** Package the `3-4-1` trigonometric nonnegativity argument as a\nfinite nonnegative coefficient combination, keeping analytic input separate from the positivity\nlemma. `LFunctions` supplies character-specific continuation and applies this package."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","quote":"- every nontrivial series is nonzero at `s = 1`, using the standard positive combination and\n  the exact Euler-product logarithm supplied by Arithmetic Dirichlet Series."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem","reason":"Apply Wiener–Ikehara to the real nonnegative sequence Lambda_sigma, not to the signed character coefficients. The exact summability/series-equality hypothesis on Re(s)>1 and a separately named continuous boundary remainder on the whole closed half-plane must be proved by the consumer. This general coefficient theorem does not require a false identification of Lambda_sigma with the fixed-prime-set coefficient.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara","quote":"**9.1 Boundary formulation.** Let `a n ≥ 0` and require\n`LSeriesHasSum (fun n ↦ (a n : ℂ)) s (F s)` for every `s` with `Re s > 1`. Assume there is a\nseparately named continuous function `G` on `Re s ≥ 1` agreeing on the open half-plane with\n`F(s) - κ/(s-1)`, with the residue hypothesis `0 ≤ κ`. Conclude\n`x⁻¹ ∑_{n≤x} a n → κ`, and export the `κ = 0` case explicitly. The `LSeriesHasSum` hypothesis is essential:\nMathlib's totalized `LSeries` is zero at nonsummable inputs."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem","quote":"**12.2 The cyclotomic weighted theorem.** Apply the consumed `wienerIkehara` to the nonnegative\nsequence `Λ_σ` only, never to the signed or complex coefficient `χ(𝔞)Λ(𝔞)`, and obtain"}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions","reason":"The all-prime instance of standardPrimePowerRemoval supplies an o(x) majorant for the consumer's higher-power contribution. The target separately proves the termwise bound for its powered-Frobenius filter. Its weighted residue-degree and finite-prime discard estimates remain separate target theorems.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","quote":"**10.2 Remove higher prime powers.** For the fixed standard nonnegative logarithmic prime-power\nweight, use Layer 5 to prove `standardPrimePowerRemoval : HasNegligibleHigherPrimePowers K S` and\nmake `primeTheta_asymptotic_of_primePsi` consume that named estimate. A generalized coefficient\nsystem must instead state nonnegativity, prime-power support, and the logarithmic growth bound\nneeded to prove the same little-o estimate; no arbitrary `EulerProductData` receives it for free."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions","quote":"1. *Prime powers `j ≥ 2`.* Bound `ψ_C(x) - ϑ_C(x)` termwise by the all-prime tail\n   `primePsi K univ x - primeTheta K univ x`, which Arithmetic Dirichlet Series proves is `o(x)`\n   in `standardPrimePowerRemoval`. The bound is termwise and does not need any property of `C`."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c","reason":"Use the named primeCount_asymptotic_of_primeTheta export after the target has proved its theta_C limit, with inclusive norm cutoffs and the canonical height-one prime carrier. This edge supplies the theta-to-count step only: the earlier psi_C-to-theta_C step requires the target's termwise tail bound and the generalized coefficient comparison recorded in the handoff, rather than treating psi_C as the standard fixed-set primePsi.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","quote":"**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c","quote":"and the equivalent logarithmic-integral form. Both steps are the consumed\n`primeTheta_asymptotic_of_primePsi` and `primeCount_asymptotic_of_primeTheta` specialized to the\nFrobenius fibre; do not restate them."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems","reason":"Specialize the standard all-prime psi-to-theta and theta-to-count transfers to the psi_K/x -> 1 already proved in Chebotarev 12.2. This produces the denominator for natural density without assuming a boundary package from another roadmap. No reverse dependency to the source's conditional prime ideal theorem is introduced.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","quote":"**10.2 Remove higher prime powers.** For the fixed standard nonnegative logarithmic prime-power\nweight, use Layer 5 to prove `standardPrimePowerRemoval : HasNegligibleHigherPrimePowers K S` and\nmake `primeTheta_asymptotic_of_primePsi` consume that named estimate. A generalized coefficient\nsystem must instead state nonnegativity, prime-power support, and the logarithmic growth bound\nneeded to prove the same little-o estimate; no arbitrary `EulerProductData` receives it for free.\n\n**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems","quote":"`HasNaturalDensity` is normalized by the all-prime count, so the denominator is the prime ideal\ntheorem for `K`. Obtain it by pushing the `ψ_K(x) ~ x` of 12.2 through the same consumed pair\n`primeTheta_asymptotic_of_primePsi` and `primeCount_asymptotic_of_primeTheta` used in Layer 13.\nArithmetic Dirichlet Series states its own prime ideal theorem only conditionally on a boundary\npackage; that package is not imported, and the denominator here comes from 12.2."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters","reason":"Instantiate the shared ideal Euler-product package with the degree-one cyclotomic weight and its proved coprime multiplicativity and bad-prime values. The consumer still proves the Frobenius and character identities; the supplier supplies the absolutely convergent product-to-series theorem.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters","quote":"For each character `χ : Gal(F/K) →* ℂˣ`, define the canonical ideal weight\n`cyclotomicCharacterWeight χ`. It is `χ(Frob 𝔭)` at unramified primes and zero at ramified primes.\nProve its Euler product and character-orthogonality identities. A weight specified only away from\nramification is not enough: its values at the bad primes would remain unconstrained."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","reason":"Supply the chosen Euler-product logarithm and prime-power expansion used in character nonvanishing. Apply it on an explicitly zero-free simply connected region; do not apply the principal complex logarithm globally or infer nonvanishing on Re(s)=1 from absolute convergence.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.4 Logarithm and derivative.** On a simply connected zero-free region, choose a logarithm and\nprove both the prime-power logarithmic expansion and its derivative. Do not apply the principal\ncomplex logarithm to an arbitrary Euler product."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation","quote":"- every nontrivial series is nonzero at `s = 1`, using the standard positive combination and\n  the exact Euler-product logarithm supplied by Arithmetic Dirichlet Series."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets","reason":"Use the canonical inclusive prime-count and logarithmically weighted count interfaces and their finite-symmetric-difference estimates to discard the finite ramified set. Exact counts need not be unchanged; the correction is finite and becomes negligible after the relevant normalization.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness","quote":"**4.3 `primeTheta` and `primeCount`.** Define the logarithmically weighted and unweighted counts\nfor a set of height-one primes. Prove finite-union and finite-symmetric-difference lemmas."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets","quote":"Construct the finite set `ramifiedPrimes K L` and prove that its complement is the union above.\nThe finite symmetric-difference theorem from Arithmetic Dirichlet Series then allows all later\ndensity and counting statements to discard it explicitly."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets","reason":"Apply finite-symmetric-difference invariance for the canonical Dirichlet-density predicate after proving the ramified set finite. This is an invariance of density, not an equality of finite cutoff counts.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","quote":"**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets","quote":"Construct the finite set `ramifiedPrimes K L` and prove that its complement is the union above.\nThe finite symmetric-difference theorem from Arithmetic Dirichlet Series then allows all later\ndensity and counting statements to discard it explicitly."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization","reason":"Specialize the shared all-prime normalization and finite-error calculus to Frobenius prime sets. The all-prime logarithmic asymptotic is obtained with the Euler product and a bounded higher-power contribution; a one-sided residue statement alone is not the normalization theorem.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","quote":"**7.2 The all-prime normalization.** From the Dedekind Euler product and bounded higher-prime-\npower contribution, prove\n`P_all(s) = log(1/(s-1)) + O(1)`. The Dedekind-zeta residue alone is not enough; the Euler product\nis a prerequisite. Deduce equivalence with logarithmic normalization."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization","quote":"The denominator theorem must use the ideal Euler product and the convergence of the contribution\nfrom prime powers `j ≥ 2`. The residue statement for Dedekind zeta by itself is insufficient.\nState upper- and lower-density versions because the crossing argument first produces a lower bound,\nnot an exact limit."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev","reason":"Apply the density calculus for disjoint tagged fibres and the final squeeze. The cyclic-group counting formula, auxiliary-prime construction and lower-bound limit are separate consumer proofs; shared density vocabulary does not supply them.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","quote":"**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev","quote":"One chosen generator supplies only `1/(#G(q-1))`, which tends to zero; the union over all of\n`H_{q,f}` is load-bearing. Finally use the density squeeze across all elements of the abelian\nGalois group."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev","reason":"Apply the generic constant-fibre density contraction after the consumer has supplied the exact fibre size and the residue-degree-one restriction from its Layer 8. The input density 1/f is supplied by abelian Chebotarev; neither it nor the arithmetic fibre computation is proved by the generic supplier.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","quote":"**7.4 Fibre counts.** If a locally finite map of prime carriers has constant finite fibre size\naway from a density-zero exception, relate the two prime sums and densities. State the variant\nwhere fibres are counted only after intersecting with residue-degree-one primes."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev","quote":"Apply abelian Chebotarev to `L/E`, where the relevant relative fibre has density `1/f`, and\ncontract using the exact fibre size from Layer 8."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","target":"tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems","reason":"Use the natural-to-Dirichlet bridge for the final agreement of the two density theorems, retaining AllPrimeDirichletDenominatorAsymptotic K or its proved replacement. The implication is one-way; the consumer independently proves natural density by its weighted argument.","confidence":"explicit","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density","quote":"**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."},{"stageId":"tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems","quote":"Finish with named agreement theorems for:\n\n- `K = ℚ`, `L = ℚ(ζ₅)`, where a class has density `1/4` and Frobenius sends `ζ₅ ↦ ζ₅^p`;\n- the identity class, giving the split-completely density `1/#G`;\n- cyclic degree four, verifying the `Frob^j` von Mangoldt filter;\n- the cyclic-generator fixed-field case of Layer 8;\n- deletion of the finite ramified set;\n- compatibility of the Dirichlet-density and natural-density results."}]},
-    {"source":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters","target":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","reason":"The finite-order Hecke/ray-class character carriers, factoring theorem and unitary normalization supply the domain objects for the finite-order ideal-weight constructor. The analytic adapter must still evaluate the character on good ideals, choose its finite bad set and prove the zero extension; the source does not define a second ideal-weight carrier.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters","quote":"Prove that `HeckeCharacter.IsFiniteOrder`, open kernel, and factoring through some ray class group\nare equivalent; `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` is the named form.\nDefine local components and the finite conductor ideal. For characters trivial on the identity\ncomponent, define the least ray conductor modulus. Define `RayClassCharacter.induced` against\n`classMap` and `RayClassCharacter.IsPrimitive`; prove that the trivial character of a nontrivial\nmodulus is imprimitive."},{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","quote":"**0.3 Constructors and operations.** Build the trivial weight, conjugation, pointwise product,\nrestriction away from a finite prime set, norm twists, and finite-order weights. Finite-order\nHecke characters land in `UnitaryIdealWeight`. An arbitrary twist\n`I ↦ χ(I) N(I)^{-z}` lands in `MultiplicativeIdealWeight`; the imaginary twist with `Re z = 0`\npreserves `UnitaryIdealWeight`. Supply both maps to `IdealArithmeticFunction`, and prove\nfunctoriality under a number-field equivalence. Keep pointwise multiplication separate from ideal\nconvolution."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"AutomorphicLFunctionsAndLocalFactors:AL.1","reason":"For the number-field GL_1 specialization, use the common ideal Euler-product/Dirichlet-series identification once Tate local integrals have been computed and absolute convergence established. This supplies the product-to-series part of the global comparison, not the adelic Fubini argument, Poisson summation, continuation or the functional equation.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.1","quote":"Prove the global integral Euler factorization, continuation and functional equation using Poisson summation, retaining the trivial-character poles."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.1","quote":"Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"AutomorphicLFunctionsAndLocalFactors:AL.2","reason":"For the number-field standard GL_n factors, use prime-power local data in EulerProductData to identify the absolutely convergent ideal product with its norm-grouped series. The consumer supplies the local integral calculations and convergence estimates. Higher-degree coefficients are not forced into MultiplicativeIdealWeight; the integral factorization and continuation proofs remain with the automorphic owner.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.2","quote":"Build the adelic global integral for cuspidal GL_n representations, prove Euler factorization, analytic continuation and functional equation with the n=1 exceptional pole separated."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.2","quote":"Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"AutomorphicLFunctionsAndLocalFactors:AL.4","reason":"Apply the generic ideal Euler-product construction to the coefficients of the supplied reciprocal local polynomials. The target must prove coprime multiplicativity and summability from its stated eigenvalue bound. This edge is restricted to number fields and does not provide a function-field adapter, arbitrary analytic continuation or local Langlands.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.4","quote":"Construct the partial Euler product and prove convergence where a supplied eigenvalue bound ensures it."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.4","quote":"Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"AutomorphicLFunctionsAndLocalFactors:AL.5","reason":"Reuse finite-prime restriction and finite-product identities for Euler-factor removal/reinsertion in complex interpolation inputs. The target owns its normalization, analytic continuation and exceptional-zero limit or derivative formulas; no vanishing factor is cancelled.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.5","quote":"Supply finite-set Euler-factor removal/reinsertion, imprimitive/primitive comparisons, critical-value normalization, functional-equation sign and algebraicity inputs for the precise GL_2/Rankin families already in AutomorphicPadicLFunctions."},{"stageId":"AutomorphicLFunctionsAndLocalFactors:AL.5","quote":"Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","target":"AnalyticNumberTheory:AN.0","reason":"Reuse norm-indexed Abel summation and the finite-height Perron kernel/summatory formula with its proved truncation error and endpoint convention. The consumer keeps any additional Mellin-transform results. A sharp cutoff identity is not asserted at finite height.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","quote":"**6.3 Truncated Perron.** For `x > 0`, `c > 0`, and `T ≥ 1`, parameterize the vertical segment by\n`s = c + it`. The real-`t` integral has prefactor `(2π)⁻¹`, since the `i` from `ds = i dt`\ncancels the `i` in `(2πi)⁻¹`. Define the visible finite-height value as\n`truncatedPerronKernel x c T`. Prove that this kernel is a smoothed step plus an error with a\nproved universal constant, rather than hard-coding an unchecked constant or identifying it with\nthe sharp summatory function. Prove separately that the exact value at `x = 1` is\n`π⁻¹ arctan(T/c)` and tends to `1/2`."},{"stageId":"AnalyticNumberTheory:AN.0","quote":"**Construct and export.** Develop arithmetic functions, absolute convergence, Euler products, partial summation, Mellin transforms and Perron inversion with explicit truncation errors. Match the existing Dirichlet-series carrier and normalization."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","target":"AnalyticNumberTheory:AN.2","reason":"Use the canonical theta-to-prime-count transfer after the analytic owner has proved the required Chebyshev-function limit. For arithmetic progressions, specialize the number field to Q and supply the appropriate prime set and coprime residue condition. The edge provides neither zero-free regions nor uniform error terms in the modulus.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","quote":"**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."},{"stageId":"AnalyticNumberTheory:AN.2","quote":"**Construct and export.** Prove zero-free line/region and Tauberian or contour arguments giving PNT and PNT in fixed arithmetic progressions; track Chebyshev functions and conversion to prime counts."}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"EllipticRegulators:ER.5","reason":"Use reciprocal Euler-product nonvanishing in the absolutely convergent region at s=2 for the CM Hecke L-function, after the consumer supplies its precise coefficient/normalization comparison and local factors. This supplies the analytic nonzero input, not the elliptic dilogarithm or regulator formula.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."},{"stageId":"EllipticRegulators:ER.5","quote":"Use absolute convergence and the Euler product at s=2 to prove that the relevant L-value is nonzero"}]},
-    {"source":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","target":"SpecialValuesBirchTate:B.7","reason":"Use finite Euler-factor restriction to establish the S-imprimitive Dedekind-zeta identity first on the absolute-convergence half-plane. Evaluation at -1 requires the independently supplied meromorphic continuation and an identity theorem, not evaluation of a divergent totalized series. The consumer proves its sign and K_2 comparison separately.","confidence":"inferred","evidence":[{"stageId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","quote":"**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."},{"stageId":"SpecialValuesBirchTate:B.7","quote":"Define ζ_{F,S}(s)=ζ_F(s)∏_{v∈S}(1−(Nv)^{−s}) through the same Euler-factor API. Deduce the compatible formula"}]}
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+      "reason": "For a finite cyclotomic Galois character, construct the canonical ideal weight on nonzero ideals and its zero extension, with value zero at ramified primes and unit modulus on good ideals. The source supplies the degree-one carrier and finite-order operations; the target supplies Frobenius and the proof that its prime values extend multiplicatively. No higher-dimensional Artin coefficient is put in this carrier.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+          "quote": "**0.3 Constructors and operations.** Build the trivial weight, conjugation, pointwise product,\nrestriction away from a finite prime set, norm twists, and finite-order weights. Finite-order\nHecke characters land in `UnitaryIdealWeight`. An arbitrary twist\n`I ↦ χ(I) N(I)^{-z}` lands in `MultiplicativeIdealWeight`; the imaginary twist with `Re z = 0`\npreserves `UnitaryIdealWeight`. Supply both maps to `IdealArithmeticFunction`, and prove\nfunctoriality under a number-field equivalence. Keep pointwise multiplication separate from ideal\nconvolution."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+          "quote": "For each character `χ : Gal(F/K) →* ℂˣ`, define the canonical ideal weight\n`cyclotomicCharacterWeight χ`. It is `χ(Frob 𝔭)` at unramified primes and zero at ramified primes.\nProve its Euler product and character-orthogonality identities. A weight specified only away from\nramification is not enough: its values at the bad primes would remain unconstrained."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+      "reason": "Use the ideal von Mangoldt/logarithmic-derivative identity on the absolute-convergence half-plane for each degree-one cyclotomic character, and then apply the target's finite character orthogonality. In the target the coefficient tests the powered Frobenius class; this link does not identify it with the coefficient for a fixed set of unpowered Frobenius primes.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+          "quote": "**2.3 Von Mangoldt transform.** Define the ideal von Mangoldt weight and the transform attached to\na weight. Prove support on prime powers and the exact coefficient identity for the logarithmic\nderivative of an Euler product on its absolute-convergence half-plane."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+          "quote": "where `L_χ` is the series of `cyclotomicCharacterWeight χ` from Layer 4, whose Euler product omits\nthe ramified primes. This identity is a theorem about the canonical coefficient, never a hypothesis\non an arbitrary sequence, and it is the only place the character expansion is used: the roadmap\nnever forms an Artin L-function of a higher-dimensional representation."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+      "reason": "Once the ray-class supplier proves the quantitative ideal partial-sum cancellation for each nontrivial character, apply the conditional Abel-summation continuation to its unitary ideal weight. Retain the uniform exponent 1-1/[K:Q] and agreement on Re(s)>1. A finite ray-class quotient alone does not establish cancellation, and the trivial character must use its separate pole branch.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+          "quote": "**6.5 Cancellation and a named continuation.** Define `HasCancellation χ` by the uniform\n`O(X^(1-1/[K:ℚ]))` bound for ideal partial sums. Use Abel summation to construct\n`continuedLFunctionOfWeight χ` for `χ : UnitaryIdealWeight K`, prove agreement with the\nnorm-regrouped series on `Re s > 1`,\nand analyticity on `Re s > 1-1/[K:ℚ]`. Finiteness of a coefficient quotient is not a substitute:\nthe prime values of a finite quotient of the free ideal group can be arbitrary. Export good-ideal,\nconjugation, pointwise-square, and imaginary norm-twist operations used by character-family\nconsumers; general complex norm twists remain in `MultiplicativeIdealWeight`. A good ideal\nexplicitly excludes `⊥`, even when the bad set is empty."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+          "quote": "Factor `cyclotomicCharacterWeight χ` through a consumed `RayClassCharacter`. Apply\n`rayClassIdealCount` class by class and `rayClassCharacter_partialSums` to show:\n\n- the nontrivial character partial sums have cancellation;\n- the associated Dirichlet series continues through a neighborhood of `Re s = 1`;\n- the trivial character has the single pole inherited from the all-ideal series;"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+      "reason": "The consumer uses the generic nonnegative positive-combination argument in the nonvanishing proof for its cyclotomic character series. It must supply the continuation and, when invoking Landau, the actual finite abscissa and nonnegative coefficients; mere convergence to the right of a chosen real number is not a substitute.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+          "quote": "**8.2 Positive combinations.** Package the `3-4-1` trigonometric nonnegativity argument as a\nfinite nonnegative coefficient combination, keeping analytic input separate from the positivity\nlemma. `LFunctions` supplies character-specific continuation and applies this package."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+          "quote": "- every nontrivial series is nonzero at `s = 1`, using the standard positive combination and\n  the exact Euler-product logarithm supplied by Arithmetic Dirichlet Series."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+      "reason": "Apply Wiener–Ikehara to the real nonnegative sequence Lambda_sigma, not to the signed character coefficients. The exact summability/series-equality hypothesis on Re(s)>1 and a separately named continuous boundary remainder on the whole closed half-plane must be proved by the consumer. This general coefficient theorem does not require a false identification of Lambda_sigma with the fixed-prime-set coefficient.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+          "quote": "**9.1 Boundary formulation.** Let `a n ≥ 0` and require\n`LSeriesHasSum (fun n ↦ (a n : ℂ)) s (F s)` for every `s` with `Re s > 1`. Assume there is a\nseparately named continuous function `G` on `Re s ≥ 1` agreeing on the open half-plane with\n`F(s) - κ/(s-1)`, with the residue hypothesis `0 ≤ κ`. Conclude\n`x⁻¹ ∑_{n≤x} a n → κ`, and export the `κ = 0` case explicitly. The `LSeriesHasSum` hypothesis is essential:\nMathlib's totalized `LSeries` is zero at nonsummable inputs."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-12-the-weighted-transfer-package-and-the-tauberian-theorem",
+          "quote": "**12.2 The cyclotomic weighted theorem.** Apply the consumed `wienerIkehara` to the nonnegative\nsequence `Λ_σ` only, never to the signed or complex coefficient `χ(𝔞)Λ(𝔞)`, and obtain"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+      "reason": "The all-prime instance of standardPrimePowerRemoval supplies an o(x) majorant for the consumer's higher-power contribution. At Tau Ceti f790474 the powered-Frobenius comparison is already proved by NumberField.Chebotarev.frobeniusPsi_sub_frobeniusTheta_le and frobeniusPsi_sub_frobeniusTheta_isLittleO; reuse these declarations. Weighted residue-degree and finite-prime discard estimates remain separate target obligations.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+          "quote": "**10.2 Remove higher prime powers.** For the fixed standard nonnegative logarithmic prime-power\nweight, use Layer 5 to prove `standardPrimePowerRemoval : HasNegligibleHigherPrimePowers K S` and\nmake `primeTheta_asymptotic_of_primePsi` consume that named estimate. A generalized coefficient\nsystem must instead state nonnegativity, prime-power support, and the logarithmic growth bound\nneeded to prove the same little-o estimate; no arbitrary `EulerProductData` receives it for free."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+          "quote": "1. *Prime powers `j ≥ 2`.* Bound `ψ_C(x) - ϑ_C(x)` termwise by the all-prime tail\n   `primePsi K univ x - primeTheta K univ x`, which Arithmetic Dirichlet Series proves is `o(x)`\n   in `standardPrimePowerRemoval`. The bound is termwise and does not need any property of `C`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+      "reason": "Use the named primeCount_asymptotic_of_primeTheta export after the target has proved its theta_C limit, with inclusive norm cutoffs and the canonical height-one prime carrier. This supplies only the theta-to-count step. For the preceding psi_C-to-theta_C step, reuse the powered-Frobenius tail comparison already proved at Tau Ceti f790474; do not identify psi_C with the fixed-prime-set primePsi or request a new proof of that comparison.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+          "quote": "**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c",
+          "quote": "and the equivalent logarithmic-integral form. Both steps are the consumed\n`primeTheta_asymptotic_of_primePsi` and `primeCount_asymptotic_of_primeTheta` specialized to the\nFrobenius fibre; do not restate them."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+      "reason": "Specialize the standard all-prime psi-to-theta and theta-to-count transfers to the psi_K/x -> 1 already proved in Chebotarev 12.2. This produces the denominator for natural density without assuming a boundary package from another roadmap. No reverse dependency to the source's conditional prime ideal theorem is introduced.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+          "quote": "**10.2 Remove higher prime powers.** For the fixed standard nonnegative logarithmic prime-power\nweight, use Layer 5 to prove `standardPrimePowerRemoval : HasNegligibleHigherPrimePowers K S` and\nmake `primeTheta_asymptotic_of_primePsi` consume that named estimate. A generalized coefficient\nsystem must instead state nonnegativity, prime-power support, and the logarithmic growth bound\nneeded to prove the same little-o estimate; no arbitrary `EulerProductData` receives it for free.\n\n**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+          "quote": "`HasNaturalDensity` is normalized by the all-prime count, so the denominator is the prime ideal\ntheorem for `K`. Obtain it by pushing the `ψ_K(x) ~ x` of 12.2 through the same consumed pair\n`primeTheta_asymptotic_of_primePsi` and `primeCount_asymptotic_of_primeTheta` used in Layer 13.\nArithmetic Dirichlet Series states its own prime ideal theorem only conditionally on a boundary\npackage; that package is not imported, and the denominator here comes from 12.2."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+      "reason": "Instantiate the shared ideal Euler-product package with the degree-one cyclotomic weight and its proved coprime multiplicativity and bad-prime values. The consumer still proves the Frobenius and character identities; the supplier supplies the absolutely convergent product-to-series theorem.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-4-cyclotomic-galois-characters",
+          "quote": "For each character `χ : Gal(F/K) →* ℂˣ`, define the canonical ideal weight\n`cyclotomicCharacterWeight χ`. It is `χ(Frob 𝔭)` at unramified primes and zero at ramified primes.\nProve its Euler product and character-orthogonality identities. A weight specified only away from\nramification is not enough: its values at the bad primes would remain unconstrained."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+      "reason": "Supply the chosen Euler-product logarithm and prime-power expansion used in character nonvanishing. Apply it on an explicitly zero-free simply connected region; do not apply the principal complex logarithm globally or infer nonvanishing on Re(s)=1 from absolute convergence.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.4 Logarithm and derivative.** On a simply connected zero-free region, choose a logarithm and\nprove both the prime-power logarithmic expansion and its derivative. Do not apply the principal\ncomplex logarithm to an arbitrary Euler product."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-5-ray-class-counting-and-continuation",
+          "quote": "- every nontrivial series is nonzero at `s = 1`, using the standard positive combination and\n  the exact Euler-product logarithm supplied by Arithmetic Dirichlet Series."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+      "reason": "Use the canonical inclusive prime-count and logarithmically weighted count interfaces and their finite-symmetric-difference estimates to discard the finite ramified set. Exact counts need not be unchanged; the correction is finite and becomes negligible after the relevant normalization.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-4-counting-carriers-and-local-finiteness",
+          "quote": "**4.3 `primeTheta` and `primeCount`.** Define the logarithmically weighted and unweighted counts\nfor a set of height-one primes. Prove finite-union and finite-symmetric-difference lemmas."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+          "quote": "Construct the finite set `ramifiedPrimes K L` and prove that its complement is the union above.\nThe finite symmetric-difference theorem from Arithmetic Dirichlet Series then allows all later\ndensity and counting statements to discard it explicitly."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+      "reason": "Apply finite-symmetric-difference invariance for the canonical Dirichlet-density predicate after proving the ramified set finite. This is an invariance of density, not an equality of finite cutoff counts.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+          "quote": "**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-2-frobenius-prime-sets-and-finite-exceptional-sets",
+          "quote": "Construct the finite set `ramifiedPrimes K L` and prove that its complement is the union above.\nThe finite symmetric-difference theorem from Arithmetic Dirichlet Series then allows all later\ndensity and counting statements to discard it explicitly."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+      "reason": "Specialize the shared all-prime normalization and finite-error calculus to Frobenius prime sets. The all-prime logarithmic asymptotic is obtained with the Euler product and a bounded higher-power contribution; a one-sided residue statement alone is not the normalization theorem.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+          "quote": "**7.2 The all-prime normalization.** From the Dedekind Euler product and bounded higher-prime-\npower contribution, prove\n`P_all(s) = log(1/(s-1)) + O(1)`. The Dedekind-zeta residue alone is not enough; the Euler product\nis a prerequisite. Deduce equivalence with logarithmic normalization."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-3-prime-sums-and-density-normalization",
+          "quote": "The denominator theorem must use the ideal Euler product and the convergence of the contribution\nfrom prime powers `j ≥ 2`. The residue statement for Dedekind zeta by itself is insufficient.\nState upper- and lower-density versions because the crossing argument first produces a lower bound,\nnot an exact limit."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
+      "reason": "Apply the density calculus for disjoint tagged fibres and the final squeeze. The cyclic-group counting formula, auxiliary-prime construction and lower-bound limit are separate consumer proofs; shared density vocabulary does not supply them.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+          "quote": "**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
+          "quote": "One chosen generator supplies only `1/(#G(q-1))`, which tends to zero; the union over all of\n`H_{q,f}` is load-bearing. Finally use the density squeeze across all elements of the abelian\nGalois group."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "reason": "Apply the generic constant-fibre density contraction after the consumer has supplied the exact fibre size and the residue-degree-one restriction from its Layer 8. The input density 1/f is supplied by abelian Chebotarev; neither it nor the arithmetic fibre computation is proved by the generic supplier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+          "quote": "**7.4 Fibre counts.** If a locally finite map of prime carriers has constant finite fibre size\naway from a density-zero exception, relate the two prime sums and densities. State the variant\nwhere fibres are counted only after intersecting with residue-degree-one primes."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+          "quote": "Apply abelian Chebotarev to `L/E`, where the relevant relative fibre has density `1/f`, and\ncontract using the exact fibre size from Layer 8."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "target": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+      "reason": "Use the natural-to-Dirichlet bridge for the final agreement of the two density theorems, retaining AllPrimeDirichletDenominatorAsymptotic K or its proved replacement. The implication is one-way; the consumer independently proves natural density by its weighted argument.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+          "quote": "**7.3 Calculus.** Prove finite-set density zero, invariance under finite symmetric difference,\nmonotonicity, complements, finite disjoint unions, and squeeze as extensions of Mathlib's API.\nUse Layer 6's Abel-summation interface for the implication from natural to Dirichlet density, and\nretain the exact all-prime denominator hypothesis\n`AllPrimeDirichletDenominatorAsymptotic K` (or the accepted Mathlib theorem supplying it) in the\nLean-facing bridge. Natural density alone does not silently supply this normalization."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+          "quote": "Finish with named agreement theorems for:\n\n- `K = ℚ`, `L = ℚ(ζ₅)`, where a class has density `1/4` and Frobenius sends `ζ₅ ↦ ζ₅^p`;\n- the identity class, giving the split-completely density `1/#G`;\n- cyclic degree four, verifying the `Frob^j` von Mangoldt filter;\n- the cyclic-generator fixed-field case of Layer 8;\n- deletion of the finite ramified set;\n- compatibility of the Dirichlet-density and natural-density results."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+      "reason": "The finite-order Hecke/ray-class character carriers, factoring theorem and unitary normalization supply the domain objects for the finite-order ideal-weight constructor. The analytic adapter must still evaluate the character on good ideals, choose its finite bad set and prove the zero extension; the source does not define a second ideal-weight carrier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+          "quote": "Prove that `HeckeCharacter.IsFiniteOrder`, open kernel, and factoring through some ray class group\nare equivalent; `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` is the named form.\nDefine local components and the finite conductor ideal. For characters trivial on the identity\ncomponent, define the least ray conductor modulus. Define `RayClassCharacter.induced` against\n`classMap` and `RayClassCharacter.IsPrimitive`; prove that the trivial character of a nontrivial\nmodulus is imprimitive."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+          "quote": "**0.3 Constructors and operations.** Build the trivial weight, conjugation, pointwise product,\nrestriction away from a finite prime set, norm twists, and finite-order weights. Finite-order\nHecke characters land in `UnitaryIdealWeight`. An arbitrary twist\n`I ↦ χ(I) N(I)^{-z}` lands in `MultiplicativeIdealWeight`; the imaginary twist with `Re z = 0`\npreserves `UnitaryIdealWeight`. Supply both maps to `IdealArithmeticFunction`, and prove\nfunctoriality under a number-field equivalence. Keep pointwise multiplication separate from ideal\nconvolution."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "reason": "For the number-field GL_1 specialization, use the common ideal Euler-product/Dirichlet-series identification once Tate local integrals have been computed and absolute convergence established. This supplies the product-to-series part of the global comparison, not the adelic Fubini argument, Poisson summation, continuation or the functional equation.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+          "quote": "Prove the global integral Euler factorization, continuation and functional equation using Poisson summation, retaining the trivial-character poles."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+          "quote": "Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "reason": "For the number-field standard GL_n factors, use prime-power local data in EulerProductData to identify the absolutely convergent ideal product with its norm-grouped series. The consumer supplies the local integral calculations and convergence estimates. Higher-degree coefficients are not forced into MultiplicativeIdealWeight; the integral factorization and continuation proofs remain with the automorphic owner.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+          "quote": "Build the adelic global integral for cuspidal GL_n representations, prove Euler factorization, analytic continuation and functional equation with the n=1 exceptional pole separated."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+          "quote": "Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+      "reason": "Apply the generic ideal Euler-product construction to the coefficients of the supplied reciprocal local polynomials. The target must prove coprime multiplicativity and summability from its stated eigenvalue bound. This edge is restricted to number fields and does not provide a function-field adapter, arbitrary analytic continuation or local Langlands.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+          "quote": "Construct the partial Euler product and prove convergence where a supplied eigenvalue bound ensures it."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+          "quote": "Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "reason": "Reuse finite-prime restriction and finite-product identities for Euler-factor removal/reinsertion in complex interpolation inputs. The target owns its normalization, analytic continuation and exceptional-zero limit or derivative formulas; no vanishing factor is cancelled.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+          "quote": "Supply finite-set Euler-factor removal/reinsertion, imprimitive/primitive comparisons, critical-value normalization, functional-equation sign and algebraicity inputs for the precise GL_2/Rankin families already in AutomorphicPadicLFunctions."
+        },
+        {
+          "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+          "quote": "Consume GlobalNumberFields character/adeles APIs, ArithmeticDirichletSeries for common convergence and Dirichlet-series arguments, AdelicAlgebraicGroups measures, SmoothRepresentationsOfLocalGroups Whittaker/induction/Satake, and AutomorphicFormsOnReductiveGroups cusp forms. The p-adic analytic functions are owned by the p-adic L-function branch; this roadmap supplies their complex interpolation inputs and normalization identities."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "target": "AnalyticNumberTheory:AN.0",
+      "reason": "Reuse norm-indexed Abel summation and the finite-height Perron kernel/summatory formula with its proved truncation error and endpoint convention. The consumer keeps any additional Mellin-transform results. A sharp cutoff identity is not asserted at finite height.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+          "quote": "**6.3 Truncated Perron.** For `x > 0`, `c > 0`, and `T ≥ 1`, parameterize the vertical segment by\n`s = c + it`. The real-`t` integral has prefactor `(2π)⁻¹`, since the `i` from `ds = i dt`\ncancels the `i` in `(2πi)⁻¹`. Define the visible finite-height value as\n`truncatedPerronKernel x c T`. Prove that this kernel is a smoothed step plus an error with a\nproved universal constant, rather than hard-coding an unchecked constant or identifying it with\nthe sharp summatory function. Prove separately that the exact value at `x = 1` is\n`π⁻¹ arctan(T/c)` and tends to `1/2`."
+        },
+        {
+          "stageId": "AnalyticNumberTheory:AN.0",
+          "quote": "**Construct and export.** Develop arithmetic functions, absolute convergence, Euler products, partial summation, Mellin transforms and Perron inversion with explicit truncation errors. Match the existing Dirichlet-series carrier and normalization."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+      "target": "AnalyticNumberTheory:AN.2",
+      "reason": "Use the canonical theta-to-prime-count transfer after the analytic owner has proved the required Chebyshev-function limit. For arithmetic progressions, specialize the number field to Q and supply the appropriate prime set and coprime residue condition. The edge provides neither zero-free regions nor uniform error terms in the modulus.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+          "quote": "**10.3 Count primes and expose the summit.** Use Layer 6 to export\n`primeCount_asymptotic_of_primeTheta`. The summit `primeNumberTheoremTransfer` accepts a\n`PrimeBoundaryRemainder K S δ` and returns all three conclusions—`ψ`, `ϑ`, and `π`—so its target\nmatches the export table rather than assuming the middle conclusion."
+        },
+        {
+          "stageId": "AnalyticNumberTheory:AN.2",
+          "quote": "**Construct and export.** Prove zero-free line/region and Tauberian or contour arguments giving PNT and PNT in fixed arithmetic progressions; track Chebyshev functions and conversion to prime counts."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "EllipticRegulators:ER.5",
+      "reason": "Use reciprocal Euler-product nonvanishing in the absolutely convergent region at s=2 for the CM Hecke L-function, after the consumer supplies its precise coefficient/normalization comparison and local factors. This supplies the analytic nonzero input, not the elliptic dilogarithm or regulator formula.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.3 Infinite Euler product.** Under absolute convergence, pass to the directed limit of finite\nprime sets and identify the product with `LSeries (normCoeff f)`. State nonvanishing only where\nabsolute convergence of the reciprocal product proves it."
+        },
+        {
+          "stageId": "EllipticRegulators:ER.5",
+          "quote": "Use absolute convergence and the Euler product at s=2 to prove that the relevant L-value is nonzero"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "target": "SpecialValuesBirchTate:B.7",
+      "reason": "Use finite Euler-factor restriction to establish the S-imprimitive Dedekind-zeta identity first on the absolute-convergence half-plane. Evaluation at -1 requires the independently supplied meromorphic continuation and an identity theorem, not evaluation of a divergent totalized series. The consumer proves its sign and K_2 comparison separately.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+          "quote": "**3.1 Local data.** Extend Mathlib's `ArithmeticFunction.ofPowerSeries`,\n`ArithmeticFunction.eulerProduct`, and `EulerProduct` APIs. `EulerProductData` explicitly stores\nthe coprime-multiplicativity proof for its `IdealArithmeticFunction`, as well as the prime-power\nlocal series, finite bad set, and hypotheses needed to transport the ideal product through\n`normCoeff`. A bare ideal arithmetic function has no Euler product. Supply extensionality,\nrestriction, product, conjugation, and trivial-weight instances without introducing a second\ngeneric Euler-product framework."
+        },
+        {
+          "stageId": "SpecialValuesBirchTate:B.7",
+          "quote": "Define ζ_{F,S}(s)=ζ_F(s)∏_{v∈S}(1−(Nv)^{−s}) through the same Euler-factor API. Deduce the compatible formula"
+        }
+      ]
+    }
   ],
   "overlaps": [
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates","tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting"],"detail":"Both count integral ideals by norm, but total positive two-sided linear bounds are weaker than the uniform ray-class main term and power-saving character cancellation.","recommendation":"keep","proposal":"Keep total bounds and exact trivial abscissa in ArithmeticDirichletSeries; keep ray-class counting and nontrivial-character cancellation in GlobalNumberFields. Reuse the pinned total-bound theorem instead of making the analytic carrier depend on the stronger ray-class theorem."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates","tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets"],"detail":"Both include counts of nonzero ideals of bounded norm. The effective bound X^2 2^[K:Q] has an explicit constant but cannot supply the positive linear lower/upper bounds or an o(x) higher-prime-power estimate.","recommendation":"keep","proposal":"Reuse NumberField.card_ideal_absNorm_le for the explicit quadratic subtask and TauCeti.idealCount_linearBounds for the linear subtask. Preserve the completed effective-bounds owner; do not duplicate its proof or substitute the wrong exponent."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives","ClassicalArithmeticCompletion:CA.0"],"detail":"Both mention Mobius inversion and Dirichlet convolution; the classical audit uses arithmetic functions on positive integers, while the analytic roadmap constructs ideal-indexed convolution and its normCoeff comparison.","recommendation":"keep","proposal":"Use Mathlib ArithmeticFunction for the integer carrier and export the ideal-to-integer convolution comparison once. Keep the new ideal convolution and ideal Mobius rejection test in ArithmeticDirichletSeries; do not reimplement integer inversion."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals","tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries","tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives","tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation","AnalyticNumberTheory:AN.0"],"detail":"AN.0 broadly redevelops arithmetic functions, convergence, Euler products and summation already owned by the shared infrastructure roadmap and Mathlib.","recommendation":"rescope","proposal":"Make AN.0 import the exact existing carriers, ideal/norm regrouping and convergence/Euler/Perron contracts. Keep only additional Mellin-transform, specialized estimates and comparison lemmas there. Do not merge the entire analytic-number-theory roadmap into this infrastructure roadmap."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara","tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer","AnalyticNumberTheory:AN.2"],"detail":"Both expose prime-number-theorem transfers. AN.2 additionally owns analytic zero-free input and allows a Tauberian or contour proof route.","recommendation":"keep","proposal":"Keep the generic nonnegative-coefficient Wiener-Ikehara theorem and conditional transfer here. AN.2 supplies its actual boundary or contour estimates and arithmetic-progression hypotheses. Its stated choice of proof route does not establish an unconditional dependency on Wiener-Ikehara."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products","tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"],"detail":"Both expose Euler products, but the modular-forms roadmap already owns migration of its normalized Hecke-eigenform L-series and degree-two local factors through Mathlib APIs.","recommendation":"keep","proposal":"Share Mathlib EulerProduct and ArithmeticFunction machinery. Keep the modular Fourier/Hecke coefficient comparison and migration with ModularForms, and use general coprime-multiplicative local data rather than the completely multiplicative degree-one ideal-weight subtype."},
-    {"stages":["tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity","DeligneWeightsAndPurity:DWP.2"],"detail":"Both use positivity and an analytic boundary obstruction. The weight argument uses positive ordinary power series/radii, not automatically the real finite abscissa of a number-field Dirichlet series.","recommendation":"keep","proposal":"Retain separate correctly typed statements. Any common analytic-germ positivity lemma needs an explicit statement and comparison proof before a dependency is recorded; neither coefficient positivity nor the word Landau alone identifies the theorems."}
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting"
+      ],
+      "detail": "Both count integral ideals by norm, but total positive two-sided linear bounds are weaker than the uniform ray-class main term and power-saving character cancellation.",
+      "recommendation": "keep",
+      "proposal": "Keep total bounds and exact trivial abscissa in ArithmeticDirichletSeries; keep ray-class counting and nontrivial-character cancellation in GlobalNumberFields. Reuse the pinned total-bound theorem instead of making the analytic carrier depend on the stronger ray-class theorem."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets"
+      ],
+      "detail": "Both include counts of nonzero ideals of bounded norm. The effective bound X^2 2^[K:Q] has an explicit constant but cannot supply the positive linear lower/upper bounds or an o(x) higher-prime-power estimate.",
+      "recommendation": "keep",
+      "proposal": "Reuse NumberField.card_ideal_absNorm_le for the explicit quadratic subtask and TauCeti.idealCount_linearBounds for the linear subtask. Preserve the completed effective-bounds owner; do not duplicate its proof or substitute the wrong exponent."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+        "ClassicalArithmeticCompletion:CA.0"
+      ],
+      "detail": "Both mention Mobius inversion and Dirichlet convolution; the classical audit uses arithmetic functions on positive integers, while the analytic roadmap constructs ideal-indexed convolution and its normCoeff comparison.",
+      "recommendation": "keep",
+      "proposal": "Reuse Mathlib ArithmeticFunction for the integer carrier and the existing Tau Ceti ideal convolution, ideal Mobius rejection test and normCoeff convolution comparison recorded by reviewed AUDIT-08. Keep the two carriers distinct and do not reimplement either baseline."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-0-arithmetic-functions-on-nonzero-ideals",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-2-convolution-and-logarithmic-derivatives",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+        "AnalyticNumberTheory:AN.0"
+      ],
+      "detail": "AN.0 broadly redevelops arithmetic functions, convergence, Euler products and summation already owned by the shared infrastructure roadmap and Mathlib.",
+      "recommendation": "rescope",
+      "proposal": "Make AN.0 import the exact existing carriers, ideal/norm regrouping and convergence/Euler/Perron contracts. Keep only additional Mellin-transform, specialized estimates and comparison lemmas there. Do not merge the entire analytic-number-theory roadmap into this infrastructure roadmap."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer",
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "detail": "Both expose prime-number-theorem transfers. AN.2 additionally owns analytic zero-free input and allows a Tauberian or contour proof route.",
+      "recommendation": "keep",
+      "proposal": "Keep the generic nonnegative-coefficient Wiener-Ikehara theorem and conditional transfer here. AN.2 supplies its actual boundary or contour estimates and arithmetic-progression hypotheses. Its stated choice of proof route does not establish an unconditional dependency on Wiener-Ikehara."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+      ],
+      "detail": "Both expose Euler products, but the modular-forms roadmap already owns migration of its normalized Hecke-eigenform L-series and degree-two local factors through Mathlib APIs.",
+      "recommendation": "keep",
+      "proposal": "Share Mathlib EulerProduct and ArithmeticFunction machinery. Keep the modular Fourier/Hecke coefficient comparison and migration with ModularForms, and use general coprime-multiplicative local data rather than the completely multiplicative degree-one ideal-weight subtype."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity",
+        "DeligneWeightsAndPurity:DWP.2"
+      ],
+      "detail": "Both use positivity and an analytic boundary obstruction. The weight argument uses positive ordinary power series/radii, not automatically the real finite abscissa of a number-field Dirichlet series.",
+      "recommendation": "keep",
+      "proposal": "Retain separate correctly typed statements. Any common analytic-germ positivity lemma needs an explicit statement and comparison proof before a dependency is recorded; neither coefficient positivity nor the word Landau alone identifies the theorems."
+    }
   ],
   "examined": [
-    {"roadmapId":"AInfCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AbelianSchemesAndArithmeticModuli","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AdditiveCombinatorics","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AdelicAlgebraicGroups","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AdicCoefficientsAndComparisons","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AdicEtaleGeometry","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AdicSpacesPartII","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AlgebraicModularFormsAndSerreWeights","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AlgebraicModuliForArithmeticGeometry","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AnabelianGeometryAndNonabelianChabauty","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AnalyticNumberTheory","result":"links","note":"Full document and ten stages; common summation and count transfers linked; AN.0 rescope proposed."},
-    {"roadmapId":"ArakelovGeometryAndAbelianHeights","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticDynamics","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticGaloisDuality","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticGaloisRepresentations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticKTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ArithmeticLocallySymmetricSpaces","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticQuantumTopology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ArithmeticStatistics","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AutomorphicBundles","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AutomorphicCongruences","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AutomorphicFormsOnReductiveGroups","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AutomorphicGaloisRepresentations","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AutomorphicGaloisRepresentationsPartII","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AutomorphicLFunctionsAndLocalFactors","result":"links","note":"Full document and six stages; only number-field Euler-product interfaces linked, not continuation or function-field analogues."},
-    {"roadmapId":"AutomorphicPadicLFunctions","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"AutomorphicSpectralTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"BorelRegulators","result":"none","note":"R.5 read in full; completed zeta and its series comparison arrive through the nearer automorphic owner."},
-    {"roadmapId":"BunGAndNewtonStrata","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ClassicalAdicEtaleCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ClassicalArithmeticCompletion","result":"overlap","note":"CA.0 read in full; integer inversion distinguished from ideal convolution."},
-    {"roadmapId":"ClassicalSerreModularity","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"CohomologyComparisons","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ColemanIntegration","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ColemanPowerSeries","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"CompletedCohomologyAndLocalGlobalCompatibility","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"CompletedCohomologyPartII","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ComplexComparisonPartII","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ComplexMultiplicationAndExplicitReciprocity","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ComputationalNumberTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"CrystallineCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DeformationAndDerivedPatchingAlgebra","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DeligneWeightsAndPurity","result":"overlap","note":"DWP.2 read in full; ordinary power-series positivity is not the Dirichlet-abscissa theorem."},
-    {"roadmapId":"DerivedDeRhamCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DiamondEtaleCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DiamondSixOperations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DiamondsAndVStacks","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DiophantineApproximationAndTranscendence","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"DirichletPadicLFunctions","result":"none","note":"L0 read in full; a meromorphic germ at 1 is not the whole-line PNT boundary package."},
-    {"roadmapId":"DrinfeldModulesAndTModules","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"EffectiveDiophantineMethods","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"EllipticCurveModularity","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"EllipticKTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"EllipticRegulators","result":"links","note":"ER.5 read in full; only its absolutely convergent Euler nonvanishing input linked."},
-    {"roadmapId":"EndoscopicTransferAndUnitaryTraceComparison","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"EnhancedDerivedSheaves","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"EtaleDualityAndPerverseSheaves","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"EulerSystemsAndKolyvaginSystems","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"EulerSystemsCyclotomicMainConjecture","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ExcursionOperatorsAndSpectralAction","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ExponentialSumsAndCircleMethod","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"FaltingsFinitenessAndIsogenyTheorems","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"FarguesFontaineDiamonds","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"FiniteFieldsAndCharacterSums","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"FiniteFlatGroupsAndIntegralPadicHodgeTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"FoundationsAndLibraryIntegration","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"FunctionFieldArithmetic","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"GL2AutomorphicRepresentationsAndTransfer","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"GL2ModularityLifting","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"GeneralAlgebraicKTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"GeneralizedHeegnerCycles","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"GeometricSatakeAndFusion","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"GeometryOfNumbersAndQuadraticArithmetic","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"GlobalGaloisDeformations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"GlobalShtukasAndFunctionFieldLanglands","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"GrossZagierAndArithmeticHeights","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"HabiroCohomologyFoundations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HabiroCyclotomicCompletions","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"HabiroNahmSeries","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HabiroNumberFields","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HabiroRings","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"HeckeStacksAndLocalShtukas","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HeegnerPointEulerSystems","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"HeightsRationalPointsAndObstructions","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HigherLocalFieldsAndHigherClassFieldTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HilbertModularVarietiesAndShimuraCurves","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"HodgeTateAndCanonicalSubgroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"IgusaVarietiesAndTorsionConcentration","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"IntegralHeckeAndGaloisDeterminants","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"IntegralIwasawaTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"InverseGaloisAndArithmeticFundamentalGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"K2SymbolsBrauer","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"K3BlochGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"KTheoryFiniteLocalFields","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"KTheoryLowDegrees","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"KatoEulerSystems","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"LanglandsParameterStacks","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"LefschetzPencilsAndVanishingCycles","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"LocalGaloisDeformationRings","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"LocallyAnalyticDistributions","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"LogicAndDefinabilityInNumberTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"MetaplecticAutomorphicForms","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ModularCurvesPartII","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ModularIwasawaMainConjectures","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ModularSymbolsPadicLFunctions","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ModularityAndLanglandsExtensions","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"MotivesAndAlgebraicCycles","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"MotivicEtaleKTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"NeronModelsAndSemistableAbelianVarieties","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"NoncommutativeAndEquivariantIwasawa","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"OrdinaryAutomorphicFormsAndModularityLifting","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"OverconvergentAutomorphicForms","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PELModuli","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PadicDifferentialEquationsAndRigidCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PadicFamilies","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PadicHodgeRegulators","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"PadicHodgeTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PadicLocalLanglandsForGL2Qp","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PadicMeasuresIwasawaAlgebras","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PerfectoidQuotients","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PerfectoidShimuraVarieties","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PerfectoidSpaces","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PeriodsAndSpecialValues","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"PhiGammaModulesAndIwasawaCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"Polylogarithms","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PotentialAutomorphyInfrastructure","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PotentialModularityAndCompatibleSystems","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"PrismaticCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ProbabilisticAndMetricNumberTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"QSeriesPartitionsAndMockModularForms","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"RankZeroOneBSD","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ReductiveGroupsPartII","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"RefinedTraceMethods","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"RelativeFarguesFontaine","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SchemeAndStackFoundations","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"SchemeKTheoryOperations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SelmerIwasawaCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SerreWeightAndLevelOptimisation","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"ShimuraCompactifications","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ShimuraData","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"ShimuraVarieties","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SieveMethodsAndPrimePatterns","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SmallRamificationAndAbelianVarietyBaseCases","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SmoothRepresentationsOfLocalGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"SpecialValuesBirchTate","result":"links","note":"B.7 read in full; finite Euler restriction linked, with analytic continuation required at -1."},
-    {"roadmapId":"StableHomotopyKTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"TorsionCohomologyInfrastructure","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"TropicalAndBerkovichArithmetic","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"VStackSheavesAndLisseCategories","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"VectorBundlesAndIsocrystals","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"WeightsInEtaleCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"WeilConjectures","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:Completed/ContourIntegration","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:Completed/EffectiveBounds","result":"overlap","note":"Full document and four stages; quadratic ideal bound distinguished from linear estimates."},
-    {"roadmapId":"tauceti:Completed/IntegralLattices","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:Completed/OrthogonalL2Bases","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AdicSpaces","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCodingTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicCurves","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AlgebraicTopology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/AnalyticToricGeometry","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ArithmeticDirichletSeries","result":"links","note":"Full document and all 11 stages; own I/O audit and external contracts checked."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/BelyiMaps","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CFSGStatement","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Chebotarev","result":"links","note":"Full document and 14 stages; powered-Frobenius coefficient, finite Euler deletion and boundary obligations checked."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ClassFieldTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ConformalMapping","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DGAInfinity","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/DenseGraphLimits","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/EllipticCurves","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Exchangeability","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/FuchsianOrbifolds","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GeometricTopology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalNumberFields","result":"links","note":"Full document and 12 stages; finite-order characters supply an input; stronger ray-class counting retained separately."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GlobalQuadraticForms","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/GrothendieckEulerForms","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HeegaardFloer","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HodgeStructures","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/HopfRinow","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/JacobianChallenge","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/LocalFieldsRamification","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularCurves","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ModularForms","result":"overlap","note":"Layers 5 and 7 read in full; migration ownership and degree-two local data retained."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/Multiquadratic","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/NumberFieldArithmetic","result":"none","note":"Boundary text and candidate contexts read; Frobenius and splitting go to Chebotarev, not a new direct analytic dependency."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OneParameterSemigroups","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/OptimalTransport","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PDE","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/PolynomialGaloisGroups","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteCohomology","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ProfiniteProPGroups","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/QuadraticFormInvariants","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ReductiveGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StablePeriodicCurved","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StableReduction","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/StandardDistributions","result":"none","note":"Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/UniversalCovers","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"tauceti:TauCetiRoadmap/ZigzagPreprojective","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"MordellLawrenceVenkatesh","result":"none","note":"Overview/full-text screen: no exact direct match."},
-    {"roadmapId":"AnalyticHabiroStack","result":"none","note":"New-definition summary and headings screened; q-Pochhammer/analytic-stack operations give no exact ideal-series input."},
-    {"roadmapId":"AnalyticStacks","result":"none","note":"New-definition summary and headings screened; geometric six operations are not a stated input to these analytic stages."},
-    {"roadmapId":"QWittVectors","result":"none","note":"New-definition summary and headings screened; prime-power terminology concerns Witt components, not analytic prime counts."},
-    {"roadmapId":"RingStacksAndTransmutation","result":"none","note":"New-definition summary and headings screened; ring-stack transmutation gives no exact ideal-series interface."},
-    {"roadmapId":"SolidAnalyticRings","result":"none","note":"New-definition summary and headings screened; solid analytic rings are not the stated complex LSeries carrier."}
+    {
+      "roadmapId": "AInfCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AbelianSchemesAndArithmeticModuli",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AdditiveCombinatorics",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AdelicAlgebraicGroups",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AdicCoefficientsAndComparisons",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AdicEtaleGeometry",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AdicSpacesPartII",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AlgebraicModularFormsAndSerreWeights",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "result": "links",
+      "note": "Full document and ten stages; common summation and count transfers linked; AN.0 rescope proposed."
+    },
+    {
+      "roadmapId": "ArakelovGeometryAndAbelianHeights",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticDynamics",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticKTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ArithmeticLocallySymmetricSpaces",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticQuantumTopology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ArithmeticStatistics",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AutomorphicBundles",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AutomorphicFormsOnReductiveGroups",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentations",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+      "result": "links",
+      "note": "Full document and six stages; only number-field Euler-product interfaces linked, not continuation or function-field analogues."
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "AutomorphicSpectralTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "BorelRegulators",
+      "result": "none",
+      "note": "R.5 read in full; completed zeta and its series comparison arrive through the nearer automorphic owner."
+    },
+    {
+      "roadmapId": "BunGAndNewtonStrata",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ClassicalAdicEtaleCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "result": "overlap",
+      "note": "CA.0 read in full; integer inversion distinguished from ideal convolution."
+    },
+    {
+      "roadmapId": "ClassicalSerreModularity",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "CohomologyComparisons",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ColemanIntegration",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "CompletedCohomologyAndLocalGlobalCompatibility",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "CompletedCohomologyPartII",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ComplexComparisonPartII",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ComputationalNumberTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "CrystallineCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DeligneWeightsAndPurity",
+      "result": "overlap",
+      "note": "DWP.2 read in full; ordinary power-series positivity is not the Dirichlet-abscissa theorem."
+    },
+    {
+      "roadmapId": "DerivedDeRhamCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DiamondEtaleCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DiamondSixOperations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DiamondsAndVStacks",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DiophantineApproximationAndTranscendence",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "DirichletPadicLFunctions",
+      "result": "none",
+      "note": "L0 read in full; a meromorphic germ at 1 is not the whole-line PNT boundary package."
+    },
+    {
+      "roadmapId": "DrinfeldModulesAndTModules",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "EffectiveDiophantineMethods",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "EllipticCurveModularity",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "EllipticKTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "EllipticRegulators",
+      "result": "links",
+      "note": "ER.5 read in full; only its absolutely convergent Euler nonvanishing input linked."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "EnhancedDerivedSheaves",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "EtaleDualityAndPerverseSheaves",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ExponentialSumsAndCircleMethod",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "FaltingsFinitenessAndIsogenyTheorems",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "FarguesFontaineDiamonds",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "FiniteFieldsAndCharacterSums",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "GL2ModularityLifting",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "GeneralAlgebraicKTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "GeometricSatakeAndFusion",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "GlobalShtukasAndFunctionFieldLanglands",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "HabiroCohomologyFoundations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HabiroCyclotomicCompletions",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "HabiroNahmSeries",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HabiroNumberFields",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HabiroRings",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "HeckeStacksAndLocalShtukas",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HilbertModularVarietiesAndShimuraCurves",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "HodgeTateAndCanonicalSubgroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "IgusaVarietiesAndTorsionConcentration",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "K3BlochGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "KTheoryFiniteLocalFields",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "KatoEulerSystems",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "LefschetzPencilsAndVanishingCycles",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "LocalGaloisDeformationRings",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "LocallyAnalyticDistributions",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "LogicAndDefinabilityInNumberTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "MetaplecticAutomorphicForms",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ModularCurvesPartII",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ModularSymbolsPadicLFunctions",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ModularityAndLanglandsExtensions",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "MotivesAndAlgebraicCycles",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "NeronModelsAndSemistableAbelianVarieties",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "NoncommutativeAndEquivariantIwasawa",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "OverconvergentAutomorphicForms",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PELModuli",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PadicFamilies",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "PadicHodgeTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PadicLocalLanglandsForGL2Qp",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PerfectoidQuotients",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PerfectoidShimuraVarieties",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PerfectoidSpaces",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PeriodsAndSpecialValues",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "PhiGammaModulesAndIwasawaCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "Polylogarithms",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PotentialAutomorphyInfrastructure",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "PrismaticCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ProbabilisticAndMetricNumberTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "QSeriesPartitionsAndMockModularForms",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "RankZeroOneBSD",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "RefinedTraceMethods",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "RelativeFarguesFontaine",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SchemeAndStackFoundations",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "SchemeKTheoryOperations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SerreWeightAndLevelOptimisation",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "ShimuraCompactifications",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ShimuraData",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SieveMethodsAndPrimePatterns",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SmoothRepresentationsOfLocalGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "SpecialValuesBirchTate",
+      "result": "links",
+      "note": "B.7 read in full; finite Euler restriction linked, with analytic continuation required at -1."
+    },
+    {
+      "roadmapId": "StableHomotopyKTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "TropicalAndBerkovichArithmetic",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "VStackSheavesAndLisseCategories",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "WeightsInEtaleCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "WeilConjectures",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:Completed/ContourIntegration",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:Completed/EffectiveBounds",
+      "result": "overlap",
+      "note": "Full document and four stages; quadratic ideal bound distinguished from linear estimates."
+    },
+    {
+      "roadmapId": "tauceti:Completed/IntegralLattices",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:Completed/OrthogonalL2Bases",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AdicSpaces",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "result": "links",
+      "note": "Full document and all 11 stages; own I/O audit and external contracts checked."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CFSGStatement",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "result": "links",
+      "note": "Full document and 14 stages; powered-Frobenius coefficient, finite Euler deletion and boundary obligations checked."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ConformalMapping",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DGAInfinity",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/DenseGraphLimits",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Exchangeability",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GeometricTopology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "result": "links",
+      "note": "Full document and 12 stages; finite-order characters supply an input; stronger ray-class counting retained separately."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HeegaardFloer",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/HopfRinow",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "result": "overlap",
+      "note": "Layers 5 and 7 read in full; migration ownership and degree-two local data retained."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "result": "none",
+      "note": "Boundary text and candidate contexts read; Frobenius and splitting go to Chebotarev, not a new direct analytic dependency."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PDE",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/AdoIwasawa",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StableReduction",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions",
+      "result": "none",
+      "note": "Screened hit contexts; no exact direct dependency beyond nearer owners or analogous terminology."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "result": "none",
+      "note": "Overview/full-text screen: no exact direct match."
+    },
+    {
+      "roadmapId": "AnalyticHabiroStack",
+      "result": "none",
+      "note": "New-definition summary and headings screened; q-Pochhammer/analytic-stack operations give no exact ideal-series input."
+    },
+    {
+      "roadmapId": "AnalyticStacks",
+      "result": "none",
+      "note": "New-definition summary and headings screened; geometric six operations are not a stated input to these analytic stages."
+    },
+    {
+      "roadmapId": "QWittVectors",
+      "result": "none",
+      "note": "New-definition summary and headings screened; prime-power terminology concerns Witt components, not analytic prime counts."
+    },
+    {
+      "roadmapId": "RingStacksAndTransmutation",
+      "result": "none",
+      "note": "New-definition summary and headings screened; ring-stack transmutation gives no exact ideal-series interface."
+    },
+    {
+      "roadmapId": "SolidAnalyticRings",
+      "result": "none",
+      "note": "New-definition summary and headings screened; solid analytic rings are not the stated complex LSeries carrier."
+    }
   ],
   "handoff": "research/blueprint/handoff/LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-  "requests": ["R1: powered-Frobenius coefficient adapter and tail comparison","R2: finite Euler-factor residue correction","R3: whole-line character boundary exports","R4: identify the conditional prime-ideal boundary supplier","R5: remove the obsolete density-API pin-update instruction","R6: reuse pinned ideal-count bounds at their actual strengths","R7: distinguish finite corrections from exact count identities","R8: formulate the zero-density transfer with normalized limits"],
-  "remaining": []
+  "requests": [
+    "R1: reuse the pinned powered-Frobenius coefficient, summatory bridge and higher-power comparison; retain the coefficient distinction and remaining analytic/weighted-contraction obligations",
+    "R2: finite Euler-factor residue correction",
+    "R3: whole-line character boundary exports",
+    "R4: identify the conditional prime-ideal boundary supplier",
+    "R5: remove the obsolete density-API pin-update instruction",
+    "R6: reuse pinned ideal-count bounds at their actual strengths",
+    "R7: distinguish finite corrections from exact count identities",
+    "R8: formulate the zero-density transfer with normalized limits"
+  ],
+  "remaining": [],
+  "requestReview": {
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+    "R1": "Baseline construction request superseded: the powered filter, norm-fibre coefficient, inclusive summatory bridge, nonnegative tail, all-prime domination and o(x) tail are already in Tau Ceti f790474, NumberTheory/Chebotarev/PrimeCounting/VonMangoldt.lean. Reuse these; boundary input and weighted contraction do not follow from them.",
+    "R2": "Confirmed source-document correction: finite Euler deletion multiplies the zeta residue by the nonzero factor at 1; the negative logarithmic derivative retains residue 1.",
+    "R3": "Confirmed interface obligation: at-one nonvanishing alone does not supply a continuous remainder on the entire closed half-plane.",
+    "R4": "Confirmed conditional supplier gap: AN.4 is a possible analytic owner, but its specification and AL.1 continuation do not state the required whole-line zero-free logarithmic-derivative package.",
+    "R5": "Confirmed documentation correction: Mathlib 082e2d3 already defines the three density objects in NumberField.Set.",
+    "R6": "Confirmed reuse obligation: Tau Ceti already contains both the positive two-sided linear package and the separate explicit quadratic bound.",
+    "R7": "Confirmed statement discipline: finite modifications introduce bounded/eventually constant errors in counts and theta, and O(log x) finite-prime psi terms, rather than exact unfiltered equalities.",
+    "R8": "Confirmed statement discipline: use normalized limits including delta=0. Reviewed AUDIT-08 already records separate zero-density transfer lemmas; do not re-plan those implementations."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+    "date": "2026-09-23",
+    "notes": "Independently read all endpoint descriptions, checked all 25 directions and 54 literal quotes, and confirmed all seven overlap recommendations. Retain all edges. Correct the stale R1 construction obligation and the ideal-convolution overlap to reuse the pinned baseline. Completeness spot-checks cover ten own layers and include negative and transitive candidates. Checked the reviewed AUDIT-08 coverage and read the cited counting, density and powered-Frobenius declaration statements. No endpoint implementation or missing whole-line boundary theorem is certified. See the review report for per-link decisions, baseline evidence and scope.",
+    "removed": [],
+    "added": []
+  }
 }
