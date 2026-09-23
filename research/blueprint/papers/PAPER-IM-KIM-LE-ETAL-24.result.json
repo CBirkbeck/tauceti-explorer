@@ -634,7 +634,12 @@
     "the arXiv listing and submission history of arXiv:2205.07165, read 22 September 2026: v1 (14 May 2022) and v2 (10 June 2024), the version read, whose comment records that the details of proofs were added; there is no later preprint version",
     "the published version, doi:10.1017/fmp.2024.18 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the finding below appears there in the same form",
     "the sequel, arXiv:2402.11539 (Zagier–Hoffman's conjectures in positive characteristic II), which does not correct this point"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed verbatim in the arXiv v2 source, whose e-print hash reproduces exactly (362cf73f…): `Letting $\\fs=(s_1,\\dots,s_r) \\in \\N^n$ and $\\fve=(\\varepsilon_1,\\dots,\\varepsilon_r) \\in (\\Fq^\\times)^n$, we define \\zeta_A(\\fve;\\fs) := \\sum \\frac{\\varepsilon_1^{\\deg a_1}\\dots\\varepsilon_r^{\\deg a_r}}{a_1^{s_1}\\dots a_r^{s_r}}', with the sum running `through the set of tuples $(a_1,\\ldots,a_r) \\in A_+^r$' and `$r$ \\dots called the depth' two lines below. Both tuples have $r$ entries and $n$ is not in scope, so the ambient sets are $\\N^r$ and $(\\Fq^\\times)^r$. The contrast the finding points to is there: the alternating Carlitz multiple polylogarithms are introduced with `For any tuple $\\fs=(s_1,\\ldots,s_r) \\in \\N^r$ and $\\fve=(\\varepsilon_1,\\dots,\\varepsilon_r) \\in (\\Fq^\\times)^r$'. A clean substitution slip with nothing depending on it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1359"
+   }
   }
  ]
 }

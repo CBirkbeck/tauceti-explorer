@@ -111,3 +111,31 @@ One misprint, recorded under `sourceIssues` and checked against the published te
 
 No erratum exists: arXiv 2205.07165 has versions v1 and v2 only, the Cambridge Core article carries none, and the
 sequel (arXiv:2402.11539) does not correct this point.
+
+## Review (REV-PAPER-IM-KIM-LE-ETAL-24, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1359), **accepted** this
+extraction and both routes, and needed no correction. The full record is
+[REV-PAPER-IM-KIM-LE-ETAL-24.md](../reviews/REV-PAPER-IM-KIM-LE-ETAL-24.md).
+
+The recorded arXiv e-print hash reproduces byte for byte and the archive is the recorded
+`AMZV_ZagierHoffman_arxiv_v2.tex`, 4640 lines. The review checked the extraction's locator
+convention from the source and found it right: the preprint has exactly four `\section` commands, so
+its introduction is unnumbered and its statements are `0.k` where the published version has `1.k`;
+the `theorem` counter is `[section]`-numbered and shared by conjecture, lemma, proposition,
+corollary, definition, remark, example and notation, while `theoremx` is separate, which is why
+Theorems A and B keep their letters.
+
+42 items with all 38 missing ones routed exactly once; the source stage id and all planned ids
+resolve; the Part II title reproduces the parent's atlas title exactly and its area `functionfields`
+is a galaxy id; the library item's `Polynomial`, `RatFunc`, `LaurentSeries` and `Polynomial.Monic`
+are all in Mathlib. Rebuilding the preprint's counter, **all 31 statement references resolve to a
+statement of exactly the cited kind and number**.
+
+**The single finding is confirmed verbatim**: the definition of the alternating multiple zeta values
+writes `N^n` and `(F_q^×)^n` for tuples with `r` entries, where the sum runs over `A_+^r` and `r` is
+named as the depth two lines below — and the alternating Carlitz multiple polylogarithms, introduced
+later, are written with `N^r` and `(F_q^×)^r`.
+
+The review reports one provenance gap it did not fill: no `libraryPins` are recorded. It notes this
+is the fifth extraction reviewed that day with the same gap, so it is worth a queue-level fix.
