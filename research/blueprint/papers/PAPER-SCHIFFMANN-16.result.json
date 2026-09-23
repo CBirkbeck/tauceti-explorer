@@ -23,7 +23,8 @@
    "Appendix B Density of Weil numbers of smooth projective curves",
    "Appendix C Proof of Conjecture 1.3 when r is prime",
    "References"
-  ]
+  ],
+  "publishedVersionCheck": "Published version obtained by REV-PAPER-SCHIFFMANN-16 on 23 September 2026, contrary to the extraction’s expectation: the Annals PDF is served at https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf (SHA-256 8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5, 66 pages, printed page = PDF page + 296, pp. 297–362). The four recorded findings were re-checked there. Three survive in print (E2, E3, E4) and are now located in both versions; one, E1, is corrected in print, where the lemma is renumbered 2.3 and its parts are labelled (i), (ii), (iii), so it is no longer a mistake in published work and its `known` field records the correction. The published text also renumbers statements throughout — preprint Corollary 1.6 is published Corollary 1.5, preprint Corollary 1.9 is published Corollary 1.4, preprint Corollary 1.10 is published Corollary 1.9 — and renames A^{≥0} to Y^{≥0} in Proposition 5.1."
  },
  "summary": "Schiffmann proves that the number of geometrically indecomposable vector bundles of rank r and degree d on a smooth projective geometrically connected curve X of genus g over a finite field is given by a universal function of the Weil numbers of X, computes that function explicitly, and identifies it with the point count of the moduli space of stable Higgs bundles. Precisely: there is a unique A_{g,r,d} in the localization K_g of Q[T_g]^{W_g} with A_{r,d}(X) = A_{g,r,d}(σ_X) for every such curve, where T_g is the torus of tuples (α_1,…,α_{2g}) with α_{2i−1}α_{2i} constant and σ_X the class of the Weil numbers; A_{g,r,d} is computed by an explicit residue formula from a plethystic logarithm of a sum over partitions of products J_λ(z)H_λ(z), where J_λ is a product of zeta values over the boxes of the Young diagram and H_λ an iterated residue of a symmetrising kernel; and when (r,d) are coprime and the characteristic exceeds an explicit bound, |Higgs^st_{r,d}(X)(F_q)| = q^{1+(g−1)r²}A_{r,d}(X). The proof has two halves. The arithmetic half counts pairs (F,θ) with θ a nilpotent endomorphism: their groupoid volume is the plethystic exponential of the counting series, by Krull–Schmidt, and the volume is computed by stratifying according to the Jordan type of θ and evaluating the fibres of the resulting functors, which turns the problem into a pairing of Eisenstein series in the Hall algebra of the curve; the spherical Hall algebra has a generic form over Q[T_g]^{W_g}, which makes every volume a function of σ_X alone, and Zariski density of the Weil numbers of genus-g curves gives uniqueness. The geometric half transports Crawley-Boevey and Van den Bergh's quiver argument to curves: the stack of Higgs bundles is presented by a quot scheme built from two line bundles and embedded in the representation space of a Kronecker quiver, indecomposability becomes a condition on the image of the moment map, and a smooth family over the affine line has the stable Higgs moduli space as its special fibre and the indecomposable bundles over the others; a contracting G_m-action and the Bialynicki-Birula–Hesselink decomposition make the point counts agree. The consequences are the purity of the cohomology of Higgs^st_{r,d}, its Poincaré polynomial over F_q and over C, and the count of the irreducible components of the stable global nilpotent cone as A_{g,r,d}(0); the extensions are the parabolic case and a group of conjectures, including that A_{g,r,d} is independent of d and a curve analogue of Kac's conjecture. The atlas has the two ends of this story and neither of its middles: GlobalShtukasAndFunctionFieldLanglands GS.0 constructs Bun_G on a global curve with its Harder–Narasimhan bounded opens, EndoscopicTransferAndUnitaryTraceComparison ET.2b the Hitchin base and map for a reductive group over a curve over a finite field, AlgebraicModuliForArithmeticGeometry R09.2 the Quot schemes, FunctionFieldArithmetic the curve, its adeles and its zeta function, DeligneWeightsAndPurity DWP.0 the Weil numbers, and the Tau Ceti roadmap on quiver representations the local model — Krull–Schmidt, the Euler form, Auslander–Reiten theory — for what this paper does globally. Nothing plans Hall algebras in any form, nor Eisenstein series in Hall-algebra form, nor counting problems for bundles, nor Kac polynomials, nor GIT for quiver representations. Of the 59 items, one is in Mathlib (Young diagrams and partitions), three are planned, and the remaining 55 are routed: 51 to a new roadmap, and four as sources of GlobalShtukasAndFunctionFieldLanglands GS.0, DeligneWeightsAndPurity DWP.0 and EndoscopicTransferAndUnitaryTraceComparison ET.2b.",
  "items": [
@@ -860,22 +861,27 @@
   {
    "id": "PAPER-SCHIFFMANN-16/E1",
    "kind": "misprint",
-   "locator": "Lemma 2.2, the labels of its three parts; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Lemma 2.2, the labels of its three parts; in arXiv v2, the version read (the published version could not be consulted) Published version: corrected, at Lemma 2.3 on printed p. 309, where the three parts are labelled (i), (ii), (iii).",
    "printed": "\\item[i)] $Coh(X)$ is a Krull-Schmidt category … \\item[ii)] Let $M$ be indecomposable. Then $k_M:=\\text{End}(M)/rad(\\text{End}(M))$ is a field. \\item[ii)] Let $M,M'$ be distinct indecomposables. Then any composed map $M \\to M' \\to M$ lies in $rad(\\text{End}(M))$.",
    "correction": "The third part should be labelled iii).",
    "reason": "The lemma has three parts and the second and third are both labelled ii). The mislabelling makes the references to it ambiguous: the proof of Lemma 2.3 says 'It follows from Lemma 2.2, ii) that U is a nilpotent ideal in End(M)', and the property used there is the third one, that a composite through a different indecomposable lies in the radical, not the second one, that the endomorphism ring of an indecomposable is local modulo its radical.",
    "affects": "nothing",
-   "known": "new",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), 297–362, where the statement is Lemma 2.3 on p. 309 and its three parts are labelled (i), (ii), (iii) (checked by REV-PAPER-SCHIFFMANN-16, 23 September 2026)",
    "searched": [
     "the arXiv listing and submission history of arXiv:1406.3839, read 22 September 2026: v1 (15 June 2014) and v2 (4 October 2014), the version read, whose comment records that some corollaries on the number of irreducible components of the stable global nilpotent cone were added; there is no later preprint version",
     "the published version, Annals of Mathematics 183 (2016), no. 1, 297–362: the journal page and its PDF are reachable, but no PDF text extraction is available in this environment, so the published text could not be read and it is not known whether these slips were corrected between October 2014 and publication",
     "a search for an erratum or corrigendum attached to the published article: none found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a slip of the preprint, but NOT a mistake in the published paper, and this review has recorded that. arXiv v2 does label the second and third parts of the lemma both ii), and the finding is right that the property used in the proof of the next lemma is the third one. The published Annals text, which this review obtained, corrects it: the statement is renumbered Lemma 2.3 on printed p. 309 and its parts are labelled (i), (ii), (iii). The `known` field now records the published version as the correction, so the register will list this under mistakes already corrected in print rather than as a new mistake in published work.",
+    "by": "REV-PAPER-SCHIFFMANN-16"
+   }
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E2",
    "kind": "misprint",
-   "locator": "Proposition 5.1, the displayed identity; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Proposition 5.1, the displayed identity; in arXiv v2, the version read (the published version could not be consulted) Published version: the same two slips, at Proposition 5.1 on printed p. 322, where the factor is written X_{r_1,…,r_s}(z_s,…,z_1;w) and the second factor takes (z_r,…,z_1;w); the published text renames A^{≥0} to Y^{≥0} but does not touch either slip.",
    "printed": "G^{\\geq 0}_{r_s, \\ldots, r_1}(z_s, \\ldots, z_1;w)=X_{r_1, \\ldots, r_s}(z_s, \\ldots, z_1;w) \\cdot A^{\\geq 0}_{r_s, \\ldots, r_1}(z_r, \\ldots, z_1;w)",
    "correction": "G^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w) = X_{r_s,…,r_1}(z_s,…,z_1;w)·A^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w)",
    "reason": "Two slips in the same formula. The index of the factor X is written in the reverse order, X_{r_1,…,r_s}, whereas the definition given four lines below in the same proposition reads X_{r_s,…,r_1}(z_s,…,z_1;w) = Exp(…); and the first argument of A^{≥0} is written z_r, whereas A^{≥0}_{r_s,…,r_1} takes the s variables z_s,…,z_1, as its own definition on the intervening line states. There is no variable z_r in the statement: r denotes Σ_i r_i elsewhere in the paper, and s is the number of variables.",
@@ -885,12 +891,17 @@
     "the arXiv listing and submission history of arXiv:1406.3839, read 22 September 2026: v1 (15 June 2014) and v2 (4 October 2014), the version read, whose comment records that some corollaries on the number of irreducible components of the stable global nilpotent cone were added; there is no later preprint version",
     "the published version, Annals of Mathematics 183 (2016), no. 1, 297–362: the journal page and its PDF are reachable, but no PDF text extraction is available in this environment, so the published text could not be read and it is not known whether these slips were corrected between October 2014 and publication",
     "a search for an erratum or corrigendum attached to the published article: none found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it survives in print. Published Proposition 5.1, on printed p. 322, reads ‘G^{≥0}_{r_s,…,r_1}(z_s,…,z_1;w) = X_{r_1,…,r_s}(z_s,…,z_1;w) · Y^{≥0}_{r_s,…,r_1}(z_r,…,z_1;w)’. Both slips are there: the index of X is in the reverse order to its own definition four lines below, and the first argument of the second factor is z_r, a variable that does not occur in the statement — r denotes Σ_i r_i elsewhere and s is the number of variables. The published text renames the second factor from A^{≥0} to Y^{≥0} without touching either slip, which is itself evidence that the passage was retyped and the errors survived.",
+    "by": "REV-PAPER-SCHIFFMANN-16"
+   }
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E3",
    "kind": "misprint",
-   "locator": "the list of examples following Corollary 1.10; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "the list of examples following Corollary 1.10; in arXiv v2, the version read (the published version could not be consulted) Published version: the same slip, in the list on printed p. 306, which follows published Corollary 1.9; the third and fourth entries are still written A_{g,3,d} and A_{g,4,d} without the argument 0.",
    "printed": "We list below the values $A_{g,r,d}(0)$ for $r \\leq 4$: $A_{g,1,d}(0)=1, \\quad A_{g,2,d}(0)=\\binom{g}{1}, \\quad A_{g,3,d}=4\\binom{g}{2}+\\binom{g}{1}, \\quad A_{g,4,d}=32\\binom{g}{3}+20\\binom{g}{2}+\\binom{g}{1}.$",
    "correction": "A_{g,3,d}(0) = 4C(g,2) + C(g,1) and A_{g,4,d}(0) = 32C(g,3) + 20C(g,2) + C(g,1).",
    "reason": "The sentence introducing the list says that it gives the values A_{g,r,d}(0), and the first two entries are written with the argument 0; the third and fourth drop it. Without the argument the entries would assert that the counting polynomials themselves are these integers, which is false already for r = 1, where A_{g,1,d} = ∏_{i=1}^{2g}(1 − α_i) while A_{g,1,d}(0) = 1. The sentence after the list, that A_{g,r,d}(0) is a polynomial in g of degree r − 1, confirms the reading.",
@@ -900,12 +911,17 @@
     "the arXiv listing and submission history of arXiv:1406.3839, read 22 September 2026: v1 (15 June 2014) and v2 (4 October 2014), the version read, whose comment records that some corollaries on the number of irreducible components of the stable global nilpotent cone were added; there is no later preprint version",
     "the published version, Annals of Mathematics 183 (2016), no. 1, 297–362: the journal page and its PDF are reachable, but no PDF text extraction is available in this environment, so the published text could not be read and it is not known whether these slips were corrected between October 2014 and publication",
     "a search for an erratum or corrigendum attached to the published article: none found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and it survives in print. The list on printed p. 306 still reads ‘A_{g,1,d}(0) = 1, A_{g,2,d}(0) = …, A_{g,3,d} = 4… + …, A_{g,4,d} = 32… + 20… + …’, so the third and fourth entries drop the argument that the introducing sentence and the first two entries carry. Without it the entries would assert that the counting polynomials are these integers, which is false already at r = 1, where A_{g,1,d} = ∏(1 − α_i) and only its value at 0 is 1.",
+    "by": "REV-PAPER-SCHIFFMANN-16"
+   }
   },
   {
    "id": "PAPER-SCHIFFMANN-16/E4",
    "kind": "misprint",
-   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted)",
+   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted) Published version: all three slips survive — Σ n_i = n on printed p. 349, Σ_i l_j = i on printed p. 351, and the unmatched parenthesis q^{2(1+(g−1)r²} in published Corollary 1.4(i) on printed p. 301, the last read on a rendered page image.",
    "printed": "Corollary 1.6: $\\lambda=\\prod_j \\sigma_j^{n_j}, \\qquad \\sum n_i=n$. Corollary 1.9 i): the Frobenius eigenvalues in $H^i(\\Lambda^{st}_{r,d}, \\overline{\\mathbb{Q}_l})$ all of the form $\\prod_j \\alpha_j^{l_j}$ with $\\sum_i l_j=i$.",
    "correction": "Σ_j n_j = n in Corollary 1.6, and Σ_j l_j = i in Corollary 1.9 i).",
    "reason": "In both statements the eigenvalue is a product over j of powers with exponents indexed by j, so the constraint is on the sum of those exponents over j. Corollary 1.6 writes Σ n_i, introducing an index i that appears nowhere else in the statement; Corollary 1.9 i) writes Σ_i l_j, summing over i a quantity that does not depend on i, and the letter i is already in use as the cohomological degree on the same line. Corollary 1.9 i) also carries an unmatched parenthesis in the exponent of the displayed Poincaré dual, q^{2(1+(g−1)r^2}, which should read q^{2(1+(g−1)r²)}.",
@@ -915,7 +931,23 @@
     "the arXiv listing and submission history of arXiv:1406.3839, read 22 September 2026: v1 (15 June 2014) and v2 (4 October 2014), the version read, whose comment records that some corollaries on the number of irreducible components of the stable global nilpotent cone were added; there is no later preprint version",
     "the published version, Annals of Mathematics 183 (2016), no. 1, 297–362: the journal page and its PDF are reachable, but no PDF text extraction is available in this environment, so the published text could not be read and it is not known whether these slips were corrected between October 2014 and publication",
     "a search for an erratum or corrigendum attached to the published article: none found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in all three parts, and all three survive in print. On printed p. 349 the eigenvalue is written ‘λ = ∏_j σ_j^{n_j}, Σ n_i = n’, with an index i that occurs nowhere else in the statement; on printed p. 351 the condition is ‘Σ_i l_j = i’, summing over i a quantity independent of i while i is simultaneously the cohomological degree; and published Corollary 1.4(i) on printed p. 301 prints the Poincaré dual with the exponent q^{2(1+(g−1)r²}, two opening parentheses and none closing. I read that last one on a rendered page image rather than in the text layer, since a dropped bracket is exactly what a text layer invents.",
+    "by": "REV-PAPER-SCHIFFMANN-16"
+   }
   }
- ]
+ ],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1183,
+  "job": "REV-PAPER-SCHIFFMANN-16",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv v2, re-fetched (SHA-256 7e5cbf6e…9bb2), AND the published Annals text, which the extraction expected to be unavailable but which is served at annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf (SHA-256 8e486963…c7a5, 66 pages, printed page = PDF page + 296). All four findings were checked in both versions, the unmatched parenthesis of E4 on a rendered page image. The five declarations of the single library item were opened at the pinned commits, and every stage id of the four routes and of the three planned items was checked against the atlas.",
+  "changes": "All 4 sourceIssues carry a review verdict and all are confirmed. The published version was obtained and each finding now carries its published location as well as its preprint one; a `publishedVersionCheck` records the retrieval, the hash, the page map and the renumbering between the two versions. E1's `known` field was changed from ‘new’ to record that the published text corrects it, so that the register lists it among mistakes already corrected in print rather than as a mistake in published work. No item, status, route or quotation changed.",
+  "lean": "none"
+ }
 }
