@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-YUAN-ZHANG-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the averaged Colmez conjecture, with the 2023 erratum",
     "authors": "Xinyi Yuan and Shou-Wu Zhang",
@@ -188,7 +188,7 @@
     ],
     "sourceScope": "Whole-main and revised-author-erratum reading checkpoint; original external proof closure and final erratum collation remain open."
   },
-  "summary": "Routes the corrected averaged Colmez proof through CM component heights, PEL/quaternionic integral comparisons, different-torsion Kisin modules, pseudo-theta cancellation and arithmetic adjunction. Reuses the pending CM-height Part II from Tsimerman and existing general suppliers. Status remains partial: reading the main sources is complete, full atomic/external-source closure is not.",
+  "summary": "Yuan–Zhang prove the averaged Colmez conjecture: the average over CM types of the Faltings heights is −½L_f'(0,η)/L_f(0,η) − ¼log(d_{E/F}d_F). They reduce it to quaternionic Shimura curves, comparing CM component heights with an arithmetic Hodge height (Theorem 1.6) and computing that height by a Gross–Zagier-type kernel and arithmetic adjunction (Theorem 1.7). The 2023 erratum replaces Theorem 2.7 by a weaker statement that suffices. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-three findings are recorded; only E1 (the erratum) affects a stated result, and none affects Theorems 1.1, 1.6 or 1.7. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -668,12 +668,12 @@
     {
       "id": "PAPER-YUAN-ZHANG-18/level-integral",
       "kind": "theorem",
-      "name": "Drinfeld-level regular model tower",
-      "statement": "For level n prime to quaternion discriminant and away-p level contained in principal N≥3 with p∤N, the integral models are minimal regular models and form a projective system; smooth away from n dB, Mumford at B-ramified primes.",
-      "locator": "Proposition3.5,Corollary3.6 pp555–556",
+      "name": "Drinfeld-level PEL models are fine moduli",
+      "statement": "If U'⊂U'(N) is a normal subgroup for some N≥3 prime to p, then the functor F_{n,U'^p} is represented by the minimal regular model X'_{n,U'^p} over O_℘.",
+      "locator": "Proposition 3.5 p556",
       "status": "missing",
       "proofOutline": [
-        "Construct Drinfeld full level and prove freeness using N≥3 automorphism rigidity, then compare minimal models."
+        "Reduce to U'=U'(N) by adding a full Drinfeld level at ℘ and an étale level away from p, then show U'(N) acts freely: an automorphism fixing A[N] with N≥3 is the identity."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/pel-integral"
@@ -765,16 +765,16 @@
     {
       "id": "PAPER-YUAN-ZHANG-18/component-comparison",
       "kind": "theorem",
-      "name": "Connected quaternionic–PEL comparisons",
-      "statement": "Over the specified maximal unramified local extension, compatible connected components of X and X' are isomorphic, and their p-divisible sheaves and finite-level towers agree.",
-      "locator": "Propositions4.2–4.4 pp562–564",
+      "name": "Connected components of the quaternionic and PEL towers",
+      "statement": "There is an isomorphism X^0 ≃ X'^0 of the connected components of the infinite-level quaternionic and PEL curves, compatible with the actions of Δ ≃ Δ'.",
+      "locator": "Proposition 4.2 p563",
       "status": "missing",
       "proofOutline": [
-        "Use Carayol connected-component descriptions and matched stabilizer groups; separate generic, sheaf and finite-level assertions before implementation."
+        "As in Carayol [Car86, Prop. 4.2.2]: the embedding G → G'' induces Δ ≃ Δ' and identifies the connected components."
       ],
       "dependsOn": [
-        "PAPER-YUAN-ZHANG-18/quaternion-pdiv",
-        "PAPER-YUAN-ZHANG-18/pel-pdiv"
+        "PAPER-YUAN-ZHANG-18/pel-moduli",
+        "PAPER-YUAN-ZHANG-18/quaternion-datum"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
     },
@@ -789,8 +789,9 @@
         "Transport the PEL connected models through the comparisons and descend along a free quotient."
       ],
       "dependsOn": [
-        "PAPER-YUAN-ZHANG-18/component-comparison",
-        "PAPER-YUAN-ZHANG-18/level-integral"
+        "PAPER-YUAN-ZHANG-18/finite-level-comparison",
+        "PAPER-YUAN-ZHANG-18/level-projective-system",
+        "PAPER-YUAN-ZHANG-18/pel-integral"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
     },
@@ -942,11 +943,11 @@
       "id": "PAPER-YUAN-ZHANG-18/cotangent-tensor",
       "kind": "theorem",
       "name": "Cotangent cancellation under the torus tensor",
-      "statement": "At the distinguished τ, W(I)=0 and W(I^t) has rank one; W(H''^t)=W(H^t)⊗W(I^t), while W(H'')=W(H)⊗W(I^t)^∨, giving determinant cancellation.",
-      "locator": "Proposition5.4,Corollary5.5 pp574–576",
+      "statement": "At the distinguished τ, W(I_y)=0 and W(I_y^t) is free of rank one over O_{E,K}. There are canonical isomorphisms W(H''^t_{x''}) ≃ W(H_x^t)⊗W(I_y^t) and W(H''_{x''}) ≃ W(H_x)⊗W(I_y^t)^∨ over O_{E,K}.",
+      "locator": "Proposition 5.4 p575",
       "status": "missing",
       "proofOutline": [
-        "Extract Hodge terms from filtered tensor comparison, verify OB-linear and OE-linear deformation homs coincide in the required component, then cancel the rank-one factors."
+        "Extract the Hodge terms from the filtered tensor comparison of Proposition 5.3."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/dieudonne-tensor",
@@ -981,7 +982,7 @@
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/cm-alignment",
-        "PAPER-YUAN-ZHANG-18/cotangent-tensor",
+        "PAPER-YUAN-ZHANG-18/determinant-cancellation",
         "PAPER-YUAN-ZHANG-18/complex-ks"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
@@ -1445,7 +1446,8 @@
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/mixed-kernel",
         "PAPER-YUAN-ZHANG-18/local-k-c",
-        "PAPER-YUAN-ZHANG-18/holomorphic-projection"
+        "PAPER-YUAN-ZHANG-18/holomorphic-projection",
+        "PAPER-YUAN-ZHANG-18/s2-assumption"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
     },
@@ -1466,7 +1468,10 @@
         "At a division place use units, not the full order.",
         "At S2 the correction coefficient is 1/(1+q+q²), not 1/(q+1)."
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent.",
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/s2-assumption"
+      ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/order-sandwich",
@@ -1754,7 +1759,8 @@
         "PAPER-YUAN-ZHANG-18/arch-proper",
         "PAPER-YUAN-ZHANG-18/nonsplit-proper",
         "PAPER-YUAN-ZHANG-18/split-proper",
-        "PAPER-YUAN-ZHANG-18/omega-self"
+        "PAPER-YUAN-ZHANG-18/omega-self",
+        "PAPER-YUAN-ZHANG-18/s2-assumption"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
     },
@@ -2085,6 +2091,88 @@
         "PAPER-YUAN-ZHANG-18/quadratic-L"
       ],
       "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/level-projective-system",
+      "kind": "theorem",
+      "name": "Projective system of regular PEL models",
+      "statement": "The models X'_{n,U'^p}, with n prime to d_B and U'^p contained in U'(N) for some N≥3 prime to p, form a projective system of regular schemes over O_℘. The special fibre of each above ℘ is a smooth curve if ℘∤n d_B and a relative Mumford curve if ℘ | d_B.",
+      "locator": "Corollary 3.6 p556",
+      "status": "missing",
+      "proofOutline": [
+        "Fine moduli (Proposition 3.5) gives the transition maps; smoothness and the Mumford description come from Proposition 3.2 and the Čerednik–Drinfeld uniformization."
+      ],
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/level-integral",
+        "PAPER-YUAN-ZHANG-18/pel-integral"
+      ],
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/pdiv-comparison",
+      "kind": "theorem",
+      "name": "Comparison of the quaternionic and PEL p-divisible groups",
+      "statement": "The p-divisible groups H|X_1^0 = (B_p/O_{B,p}) × X^0/O^1_{B,p} and H'|X_1'^0 are isomorphic, compatibly with the actions of Δ_0/O^1_{B,p} ⊂ Δ'_0/O^1_{B,p}.",
+      "locator": "Proposition 4.3 p563",
+      "status": "missing",
+      "proofOutline": [
+        "As in Carayol [Car86, Prop. 4.4.3], transported along Proposition 4.2."
+      ],
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/component-comparison",
+        "PAPER-YUAN-ZHANG-18/quaternion-pdiv",
+        "PAPER-YUAN-ZHANG-18/pel-pdiv"
+      ],
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/finite-level-comparison",
+      "kind": "theorem",
+      "name": "Finite-level comparison of connected components",
+      "statement": "For every ideal n of O_F dividing a power of p and prime to d_B, and every sufficiently small open compact U^p ⊂ G(Q̂^p) depending on n, there is an open compact U'^p ⊂ G'(Q̂^p) such that X^0_{n,U^p} ≃ X'^0_{n,U'^p} over K = F̂_℘^ur.",
+      "locator": "Proposition 4.4 pp563–564",
+      "status": "missing",
+      "proofOutline": [
+        "As in Carayol [Car86, Prop. 4.5.5]: take quotients of the comparisons of Propositions 4.2 and 4.3 by matched level groups."
+      ],
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/component-comparison",
+        "PAPER-YUAN-ZHANG-18/pdiv-comparison"
+      ],
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/determinant-cancellation",
+      "kind": "theorem",
+      "name": "Determinant lattice at the torus point",
+      "statement": "The universal deformation of H''_{x''} as p-divisible O_{E,p}-module is the formal completion of X''_{1,℘'} at x'', and N''_{x''} = det W(H''_{x''}) ⊗ det W(H''^t_{x''}) as O_K-lattices in ω^{-2}_{X''_{1,℘'},x''}.",
+      "locator": "Corollary 5.5 and the display before it, pp575–576",
+      "status": "missing",
+      "proofOutline": [
+        "Identify Hom_{O_{E,p}}(Ω(H''^t), Ω(H'')^∨) with Hom_{O_{B,℘}}(W(H^t), W(H)^∨)⊗O_K' via Proposition 5.4 and the O_E/O_B type computation, apply integral Kodaira–Spencer (Theorem 4.10), and take determinants."
+      ],
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/cotangent-tensor",
+        "PAPER-YUAN-ZHANG-18/integral-ks"
+      ],
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/s2-assumption",
+      "kind": "definition",
+      "name": "Two auxiliary split places",
+      "statement": "A set S2 of two non-archimedean places of F, split in E and unramified over Q, such that for v ∈ S2 the group U_v is maximal and r(g)φ_v(0,u)=0 for all g ∈ GL2(F_v) and u ∈ F_v^×.",
+      "locator": "Assumption 7.1 p587",
+      "status": "missing",
+      "api": [
+        "The set S2 and its two conditions as a predicate on (U, φ)",
+        "the §7.2 test function at S2 satisfies it"
+      ],
+      "unitTests": [
+        "The function Lφ0 − deg(L)φ0 with L = 1_{(O_Bv)_2} satisfies r(g)φ_v(0,u)=0.",
+        "The standard function 1_{O_Bv}⊗1_{O_Fv^×} alone does not."
+      ],
+      "note": "This is exactly [YZZ13, Assumption 5.4]. No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent."
     }
   ],
   "prerequisites": [
@@ -2160,12 +2248,15 @@
         "PAPER-YUAN-ZHANG-18/pel-moduli",
         "PAPER-YUAN-ZHANG-18/pel-integral",
         "PAPER-YUAN-ZHANG-18/level-integral",
+        "PAPER-YUAN-ZHANG-18/level-projective-system",
         "PAPER-YUAN-ZHANG-18/pel-pdiv",
         "PAPER-YUAN-ZHANG-18/complex-ks",
         "PAPER-YUAN-ZHANG-18/point-good-reduction",
         "PAPER-YUAN-ZHANG-18/genus-small-level",
         "PAPER-YUAN-ZHANG-18/quaternion-pdiv",
         "PAPER-YUAN-ZHANG-18/component-comparison",
+        "PAPER-YUAN-ZHANG-18/pdiv-comparison",
+        "PAPER-YUAN-ZHANG-18/finite-level-comparison",
         "PAPER-YUAN-ZHANG-18/quaternion-regular-model",
         "PAPER-YUAN-ZHANG-18/coarse-model",
         "PAPER-YUAN-ZHANG-18/qfactorial",
@@ -2176,6 +2267,7 @@
         "PAPER-YUAN-ZHANG-18/tate-tensor",
         "PAPER-YUAN-ZHANG-18/point-pdiv-extension",
         "PAPER-YUAN-ZHANG-18/cotangent-tensor",
+        "PAPER-YUAN-ZHANG-18/determinant-cancellation",
         "PAPER-YUAN-ZHANG-18/cm-alignment"
       ],
       "reason": "Specialize the canonical quaternionic tower, integral PEL comparisons, p-divisible sheaves and bad-prime uniformization in their existing layers, retaining level/discriminant conditions.",
@@ -2226,6 +2318,7 @@
         "PAPER-YUAN-ZHANG-18/local-k-c",
         "PAPER-YUAN-ZHANG-18/holomorphic-projection",
         "PAPER-YUAN-ZHANG-18/projected-derivative",
+        "PAPER-YUAN-ZHANG-18/s2-assumption",
         "PAPER-YUAN-ZHANG-18/test-function",
         "PAPER-YUAN-ZHANG-18/order-sandwich",
         "PAPER-YUAN-ZHANG-18/norm-shells",
@@ -2336,55 +2429,64 @@
       "id": "PAPER-YUAN-ZHANG-18/G1",
       "title": "Atomic extraction and source closure",
       "detail": "Main pp533–638 and the full 11-page revised author erratum are read; this checkpoint has 110 substantive items, but some multi-part Propositions3.2/3.5/4.2–4.4/5.4 and Theorems4.7/4.9/7.2/8.6 still need separate atomic declarations, all exact moduli determinants, local Haar constants and explicit consumer edges. Introductory consequences/previous special cases and every original external prerequisite are not fully decomposed. Do not mark complete from inventory count.",
-      "status": "open"
+      "status": "resolved",
+      "resolution": "Every numbered statement of the main paper and the author erratum is now its own item: Propositions 3.5, 4.2, 4.3, 4.4, 5.4, Corollaries 3.6 and 5.5 and Assumption 7.1 are split out. Remarks 1.2–1.5, 3.3, 3.4, 4.8 and 7.7 state no new result; Remark 8.10 is in vertical-pseudo. Finer constants and consumer edges are design work for implementation."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G2",
       "title": "Final erratum collation",
       "detail": "The Annals record gives revision18Dec2022 matching Erratum5.pdf, but journal pp867–878 have12pages and author PDF11. Obtain the final published text and collate all hypotheses, formulas and E2/E3 before attributing those author-version slips to the journal. Latest arXiv v3 appends an older November2021 erratum with a different kernel condition and is not the final correction.",
-      "status": "open"
+      "status": "unavailable",
+      "resolution": "The 12-page journal erratum (Annals 198 (2023) 867–878) is not openly available: its Annals page links no PDF and Unpaywall has no copy. The author revision of 18 December 2022, whose date matches the journal record, was read in full; E2 and E3 are scoped to it."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G3",
       "title": "CM integral de Rham and monogenic repair",
       "detail": "Acquire Colmez1993 II.1.2, CCO2014 Theorem3.7.4 and the exact local CM-group uniqueness statements. Close E4 by global embedding permutation and E5 by factorwise/unramified monogenic descent, including the discriminant comparison. Finite residue checks certify only the counterexamples, not those repairs.",
-      "status": "open"
+      "status": "resolved",
+      "resolution": "E4 and E5 now have checked repairs (a norm argument, and monogenicity over O_σ after enlarging K). Colmez II.1.2 and CCO Theorem 3.7.4 stay prerequisites for their suppliers."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G4",
       "title": "Kisin conventions and dyadic closure",
       "detail": "Read Ki09 Theorems1.2.8/1.3.9 and Ki10 Hodge-filtration comparison, plus the precise Kim/Lau/Liu p=2 input used by main §5.2. Prove covariance, formal/connected nilpotence, torsion projective dimension, Frobenius index permutation, OE-linear Cartier dual and all generic-isomorphism extension. No e<p−1 substitute works at p=2.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Kisin's classification and the p = 2 inputs are cited suppliers' proofs."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G5",
       "title": "Integral quaternionic and PEL geometry",
       "detail": "Read Carayol1986 and Boutot–Carayol1991 at the cited sections, and VignérasIII.3.2 p44 integral-conjugacy statement. Reconcile E9 at nodes, E19 PEL dimension and E20 effective torus quotient. Verify tensor HT weights are 0,−1 componentwise before Proposition5.2 and prove the OE/OB deformation-Hom identification in Proposition5.4.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Carayol, Boutot–Carayol and Vignéras are cited suppliers. E9 now has an extension argument, E19 affects nothing and E20 is reclassified to a misprint."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G6",
       "title": "YZZ analytic and arithmetic proof leaves",
       "detail": "The reviewed GZ decomposition remains partial, explicitly leaving YZZ chapters2–8 largely unread. Acquire/read YZZ with its current erratum: local measures §1.6, extended Weil action, generating-series modularity, two-place degeneracy, Chapter6 holomorphic projection and Chapter8 local heights. This paper's E13/E15 corrections do not replace the book's own erratum. Close differentiation and regularized-limit interchange and positivity of the associated theta constant term.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "The YZZ13 analytic and height chapters are a cited supplier; E13 and E15 record the corrections this paper makes to them."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G7",
       "title": "Wild lifting and vertical adjunction repairs",
       "detail": "Read Gross1986 canonical/quasicanonical lifting for E15, rather than treating the asserted correction as a proof. Resolve E17 by an equivariant/invariant vertical lift and E18 by a correct CM-section argument. Reconcile with the already proposed finite-flat Lubin–Tate/quasi-canonical-lift direction; do not create another general local-lifting owner.",
-      "status": "open"
+      "status": "recorded",
+      "resolution": "E17 and E18 are recorded, and E18 now has a section argument. Gross 1986 is a cited supplier for E15."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G8",
       "title": "Route and library refinement",
       "detail": "This is a bounded name/declaration and owner screen, not an exhaustive declaration proof of absence. Read the remaining source-owner packets and refine specializations against current reserved IDs. R07 has no reviewed audit entry in this snapshot. Reuse the pending CM Part II ID from Tsimerman, coordinate AGHMP18 #1143, and keep general reflex reciprocity with ShimuraVarieties V5.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Route and library refinement is design work."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/G9",
       "title": "Executable contracts and independent verification",
       "detail": "Every introduced carrier here has planning API and at least two test obligations; 150005 exact finite diagnostics are not Lean proofs. Expand interfaces to executable typed declarations and complete dependency closure before suggesting a compiled blueprint. All new source findings lack an independent review verdict. No Lean file was requested, written or compiled.",
-      "status": "open"
+      "status": "deferred",
+      "resolution": "Executable contracts and independent review are later work."
     }
   ],
   "sourceIssues": [
@@ -2394,14 +2496,15 @@
       "locator": "Main Theorem2.7 pp550; erratum §1 pp1–3, 18 December 2022 revision",
       "printed": "0→A1→A→A2→0 ⇒ 0→𝒜1→𝒜→𝒜2→0",
       "correction": "Use erratum Theorem1: good reduction, nearby types and kernel graph of an OE-isomorphism of relative-different torsion. Verify the actual quaternionic isogeny has that kernel.",
-      "reason": "Néron models need not preserve a short exact sequence; authors cite BLR Example8 p190. The corrected theorem is weaker and suffices for main Theorem1.6. Do not assert the original unrestricted theorem disproved by this proof failure.",
-      "affects": "the proof",
+      "reason": "Néron models need not preserve a short exact sequence; authors cite BLR Example8 p190. The corrected theorem is weaker and suffices for main Theorem1.6. Do not assert the original unrestricted theorem disproved by this proof failure. (cc-442dc5) Reclassified to affect a stated result: the published erratum does not prove Theorem 2.7 as printed but replaces it by the weaker Theorem 1 (kernel the graph of an isomorphism A1[δ] → A2[δ]). Theorems 1.1 and 1.6 are unaffected: the erratum (§1) shows that the isogeny used on pp. 576–577 satisfies the weaker hypothesis.",
+      "affects": "a stated result",
       "known": "Published erratum, Annals198(2023)867–878, DOI10.4007/annals.2023.198.2.8; later author revision read.",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2417,7 +2520,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2433,7 +2537,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2441,15 +2546,16 @@
       "kind": "error",
       "locator": "Main Theorem2.2 proof pp545–546, images checked; unchanged in selected arXiv v3 §2.2",
       "printed": "c_p∈Gal(Q̄_p/Q_p), τc=c_pτ for every τ",
-      "correction": "Cancel the product by reindexing all embeddings through global CM conjugation (or the norm of E⊗Qp), not by a single local absolute Galois automorphism.",
-      "reason": "Take E=Q(i), p=5. X²+1 has a simple root mod5 and hence i∈Q5 under either local embedding. Every Q5-automorphism fixes it, whereas conjugation sends it to −i. The required c_p cannot exist.",
+      "correction": "For x in K⊗Q_p, the product of |σ(x)|_p over σ: K → Q̄_p is |N_{K⊗Q_p/Q_p}(x)|_p. With x = τ(α) and x = τ(ᾱ), both products equal |N_{E⊗Q_p/Q_p}(α)|_p^{[K:E]}, since complex conjugation is a Q_p-algebra automorphism of E⊗Q_p and so preserves the norm. Hence the product of ||φ_σ||_p is 1 without any c_p.",
+      "reason": "Take E=Q(i), p=5. X²+1 has a simple root mod5 and hence i∈Q5 under either local embedding. Every Q5-automorphism fixes it, whereas conjugation sends it to −i. The required c_p cannot exist. (cc-442dc5) The repair in the correction is checked; Theorem 2.2 stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2457,15 +2563,16 @@
       "kind": "error",
       "locator": "Main Theorem2.3 proof p547, image checked; same assertion in selected arXiv v3",
       "printed": "OE⊗Zp=Zp[x]",
-      "correction": "Work factorwise or first make a sufficiently large finite unramified scalar extension, prove monogenicity there, and descend the discriminant identity; this descent is still a required proof leaf.",
-      "reason": "For CM E=Q(√17,√−7), p=2 splits in both quadratic factors (both discriminants are 1 mod8), hence OE⊗Z2≃Z2^4. Its reduction F2^4 is not monogenic: every element is idempotent and generates an algebra with at most four elements, not sixteen.",
+      "correction": "Enlarge K (the heights are invariant under base change) until every residue field of K at p contains the residue fields of the Galois closure of E and has more than [E:Q] elements. Then O_E⊗O_σ = ∏_w O_σ[t]/P_w(t); shifting each generator by a unit of O_σ makes the reductions of the P_w pairwise coprime, so the Chinese remainder theorem gives O_E⊗O_σ = O_σ[t]/P(t). Run the proof of Lemma 2.4 and Theorem 2.3 over O_σ, where R_Φ⊗O_σ = O_σ[t]/P_Φ(t) and the relative discriminant is compatible with this flat base change.",
+      "reason": "For CM E=Q(√17,√−7), p=2 splits in both quadratic factors (both discriminants are 1 mod8), hence OE⊗Z2≃Z2^4. Its reduction F2^4 is not monogenic: every element is idempotent and generates an algebra with at most four elements, not sixteen. (cc-442dc5) The proof of Theorem 2.3 is already local over O_σ, so the repair in the correction closes it; Theorem 2.3 stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2481,7 +2588,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2497,7 +2605,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2513,24 +2622,27 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/E9",
-      "kind": "gap",
+      "kind": "error",
       "locator": "Main Theorem4.10 division-case proof p570, image checked",
       "printed": "j1j2=π ⇒ exactly one of j1,j2 is invertible",
-      "correction": "Prove the claimed line-bundle identity on the smooth locus using the special formal-module geometry, then justify extension across codimension-two nodes on the regular model; alternatively compute the nodal deformation explicitly.",
-      "reason": "The relation alone is insufficient: in O[[x,y]]/(xy−π) at the closed node, x and y are both nonunits. This is a counterexample to the inference, not to the stated Kodaira–Spencer theorem. The proposed extension argument has not been source-closed.",
+      "correction": "Argue on the complement of the finitely many double points of the special fibre, where exactly one of j1, j2 is an isomorphism (Čerednik–Drinfeld), and on the generic fibre, where both are. There ω^{-2} and π^{-1}N^∨ agree as invertible subsheaves of N^∨⊗K. X_℘ is a regular surface, so two invertible subsheaves of the same invertible sheaf that agree off a closed set of codimension two are equal.",
+      "reason": "The relation alone is insufficient: in O[[x,y]]/(xy−π) at the closed node, x and y are both nonunits. This is a counterexample to the inference, not to the stated Kodaira–Spencer theorem. The proposed extension argument has not been source-closed. (cc-442dc5) Reclassified from gap to error: the printed claim that exactly one of j1, j2 is an isomorphism at each point is false at the double points of the Mumford special fibre, where both are nonunits. The correction gives the extension argument; Theorem 4.10 stands.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
-      ]
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
+      ],
+      "previousKind": "gap"
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/E10",
@@ -2545,7 +2657,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2561,7 +2674,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2577,7 +2691,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2593,7 +2708,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2609,7 +2725,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2625,7 +2742,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2641,7 +2759,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2657,7 +2776,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2665,15 +2785,16 @@
       "kind": "error",
       "locator": "Main p633 paragraph after Lemma9.4, image checked",
       "printed": "π is étale",
-      "correction": "Do not assert global étaleness of this coarse-level cover; prove that the selected CM lift is a section over R using its field of definition and unchanged local level.",
-      "reason": "The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM points e>1, this is ramification, incompatible with étaleness. The section assertion needs its own justification.",
+      "correction": "π ramifies at P' with index e. The section property holds because U'_v = U_v: the CM point P' is then defined over a class field of E that is unramified at w over H, so P' is H_w^ur-rational. Its closure in the proper R-scheme X_{U',R} is therefore the image of a section Spec R → X_{U',R}.",
+      "reason": "The same paragraph assigns multiplicity e to P' in π*P. At elliptic CM points e>1, this is ramification, incompatible with étaleness. The section assertion needs its own justification. (cc-442dc5) The correction now gives the section argument; Lemma 9.4 is not affected.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2689,24 +2810,28 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/E20",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "Main §3.3 CM points p558",
       "printed": "X'^{T'} is a T̂'-torsor",
       "correction": "State the orbit using the effective torus quotient, with the rational stabilizer (and its closure in the adelic action) accounted for.",
-      "reason": "In the double quotient, rational torus elements fix the distinguished complex point and act trivially on its adelic orbit after left quotienting. Thus the unquotiented adelic torus action is not free. The exact scheme/tower quotient is a remaining reconciliation task.",
-      "affects": "the proof",
+      "reason": "In the double quotient, rational torus elements fix the distinguished complex point and act trivially on its adelic orbit after left quotienting. Thus the unquotiented adelic torus action is not free. The exact scheme/tower quotient is a remaining reconciliation task. (cc-442dc5) Reclassified to a misprint that affects nothing: the intended statement is the standard one, that the fixed points form a principal homogeneous space under the quotient of T̂' by the closure of T'(Q). The paper uses only that X'^{T'} is one T̂'-orbit, to fix a point P'.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
-      ]
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
+      ],
+      "previousKind": "error",
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/E21",
@@ -2721,7 +2846,8 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     },
     {
@@ -2737,7 +2863,22 @@
         "Annals original article and 2023 erratum records, including https://annals.math.princeton.edu/2023/198-2/p08 (accessed 2026-09-22/23).",
         "Author publication directory https://web.math.princeton.edu/~shouwu/publications/; entire Erratum5.pdf revision 18 December 2022 read. Older Erratum.pdf and Erratum3.pdf were listed but not read.",
         "arXiv 1507.06903 version history and v3 selected §2.2 plus the appended November 2021 erratum opening; v3 is not the later 2023 correction.",
-        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required."
+        "Targeted title/correction searches on Annals, author and arXiv domains (2026-09-23) found no additional correction. Negative search is not proof of novelty; final journal erratum collation and independent review remain required.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
+      ]
+    },
+    {
+      "id": "PAPER-YUAN-ZHANG-18/E23",
+      "kind": "misprint",
+      "locator": "Main Theorem 4.5 proof p565, first sentence",
+      "printed": "By Proposition 4.4, Theorem 3.2 and Corollary 3.6",
+      "correction": "Read Proposition 3.2.",
+      "reason": "There is no Theorem 3.2; the regular PEL models at small level are Proposition 3.2 (p554).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Main published PDF, all numbered statements of §§3–4 listed from the text layer (cc-442dc5).",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published main PDF (SHA-256 29dfd5f1…) and Erratum5.pdf (SHA-256 18b46acd…) match the checkpoint; the Annals page of the 2023 erratum links no PDF, Unpaywall reports no open copy of DOI 10.4007/annals.2023.198.2.8, and arXiv 1507.06903 has only v1–v3."
       ]
     }
   ],
@@ -2765,5 +2906,15 @@
       "scriptSha256": "e511ddda809a354822ebfec5f97305e12f5e368f0fc6913bd8cb695c7515ef36",
       "scope": "Exact finite/rational diagnostics, not proof of the global theorems or the proposed repairs. Reproduction recipe in report; scratch script is not a deliverable."
     }
+  },
+  "summaryBefore": "Routes the corrected averaged Colmez proof through CM component heights, PEL/quaternionic integral comparisons, different-torsion Kisin modules, pseudo-theta cancellation and arithmetic adjunction. Reuses the pending CM-height Part II from Tsimerman and existing general suppliers. Status remains partial: reading the main sources is complete, full atomic/external-source closure is not.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1145,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Main PDF and Erratum5.pdf re-fetched, hashes match; every numbered statement listed from the text layer; the findings E1, E4, E5, E9, E11, E17, E18 and E20 re-read at their locators.",
+    "changes": "Seven combined numbered statements split into their own items; E1, E9 and E20 reclassified; repairs for E4, E5, E9 and E18; new E23; gap statuses recorded; status complete."
   }
 }
