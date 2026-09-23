@@ -27788,14 +27788,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The positive finite upper groups begin with wild inertia, not the whole chosen Galois group. An unramified factor already disproves the printed equality; the separation proof only needs the wild orbit images."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E2",
@@ -27811,14 +27812,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "At a positive break a a nontrivial break character has no R_F(a)-invariants but is trivial on R_F^+(a). Thus the printed non-plus Hom criterion uses strict <, as the proposition’s endpoint assertions require."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E3",
@@ -27834,14 +27836,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The displayed page image has e_a/e_a′. BH96 (1.4), printed p.112, scales the critical exponent by the relative period. For scalar π^−1 periods 1 and 2 give jumps 1 and 2, forcing the reciprocal correction."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E4",
@@ -27857,14 +27860,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The page image has Φ′_Θ(x) after defining φ(x)=eΦ_Θ(x/e). The chain rule gives Φ′_Θ(x/e), equal to Φ′_{Θ_K}(x) by the preceding degree comparison. The intended scaling theorem survives."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E5",
@@ -27880,14 +27884,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "BH96 p.145 gives the minimal-character clause. For GL1(Q2), m=k=1, H1=U1 and every allowed θ is the same nontrivial character of U1/U2=C2. No second same-level character can fail to intertwine. Restricting to k<m removes this counterexample; the full corrected perturbation proof remains G5."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E6",
@@ -27903,14 +27908,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The tame quotient over Q2 admits S3=C3⋊C2 with Frobenius acting by inversion. Its irreducible standard representation has trivial wild action of dimension two, hence one constituent class with multiplicity two. This refutes the explanatory equivalence; subsequent results retain the correct irreducibility definition."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E7",
@@ -27926,14 +27932,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "BH96 p.112 supplies order level e_a k for a scalar of valuation −k. Over Q3 with E=Q3(i), i²=−1, β=1/9+i/3 and c=−1/9, the level drops from 2 to 1, while scalar translation leaves the commutator and k0=−1 unchanged. A Swan-2 character linearized by c exists by extending the nontrivial character on U2/U3 to O×/U3, then over 3^Z. Thus both the n/e_a issue and cancellation are real. Full translated-character compatibility remains G5."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E8",
@@ -27949,14 +27956,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The density lemma is visibly in §5.3, while §5.2 is the real-index truncation subsection."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E9",
@@ -27972,14 +27980,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The page image reads v_F(α), although α is in E and the denominator is e(E/F)=p^s. The following sentence already uses v_E, confirming the intended normalized valuation."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E10",
@@ -27995,14 +28004,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The inverse derivative is evaluated at Ψ(x), whereas δ1 bounds the input of Φ. Continuity at Ψ(m)=m gives a smaller valid radius, but the minimum of the two radii in different coordinates alone does not. This is a local proof repair."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E11",
@@ -28018,14 +28028,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The immediately preceding §8.2 Lemma 1 proves the tame-self-twist kernel trivial; §8.1’s torsor lemma is a different result. BH14 pp.10–11 also gives the direct Schur argument."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E12",
@@ -28041,14 +28052,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The source’s absolutely wild hypothesis makes a integral. The Swan induction formula (BH epipelagic §1.3, arXiv p.4) for cyclic degree p, break a, gives m=sw_K χ+(p−1)a. The printed sw_K χ=a would force p|m, contradicting §8.4. The corrected expression is conditional on the inducing extension’s break identification; the classification and uniqueness remain G9."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E13",
@@ -28064,14 +28076,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "In the unramified quadratic extension of Q2, μ3 exists and the residue field is F4. Epipelagic §2.1 identifies a level-one degree-two parameter with a totally ramified quadratic generator, hence det α has valuation −1. All determinant ratios are units and all F4× cubes are 1; the required distinct cube classes cannot exist. No representation-existence conclusion is inferred from conditional affine computations."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E14",
@@ -28087,14 +28100,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "BH14 arXiv p.10 was read afresh: it uses compact induction from P_F to assert occurrence. BH17 published p.927 explicitly replaces the incorrect proof with closed-profinite-subgroup occurrence. Confirmed only with this published repair, not as a newly discovered defect."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E15",
@@ -28110,14 +28124,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "BH17 p.927 expressly acknowledges the older BH03 §8.2 gap and says Proposition 2 fills it. This confirms the acknowledgement and replacement input only. The full BH03 proof was not acquired, so no finer diagnosis is certified."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E16",
@@ -28133,14 +28148,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The p.954 image prints the book DOI. Numdam’s authoritative BH96 record supplies 10.1007/BF02698646; the Princeton/De Gruyter record identifies 9781400882496 as The Admissible Dual of GL(N) via Compact Open Subgroups."
   },
   {
    "id": "PAPER-BUSHNELL-HENNIART-17/E17",
@@ -28156,14 +28172,15 @@
     "arXiv https://arxiv.org/abs/1510.01528 history: v2 dated 2016-07-14 is earlier than the published revision; targeted v2 passage comparisons, not a complete v2 reading.",
     "Bounded exact-title web queries with erratum, corrigendum and correction, 2026-09-22; no correction located. This is not an exhaustive negative claim.",
     "No usable author correction page was located; the attempted ENS author URL failed. No author contact.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page."
+    "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 c9328263…, matching); no erratum is linked from the Annals article page.",
+    "Independent review 2026-09-23: publisher article record, arXiv version history and title/erratum/correction searches; no later correction located in this bounded search. Original arXiv PDF comparison is inherited provenance, not claimed reread here."
    ],
    "owner": "PAPER-BUSHNELL-HENNIART-17",
    "file": "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
    "citation": "Bushnell–Henniart, \"Higher ramification and the local Langlands correspondence\", Annals of Mathematics 185 (2017), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BUSHNELL-HENNIART-17",
+   "reviewReason": "The p.936 image omits the opening square bracket in the second field degree. Both sides compare [F[γ_i]:F], so this is a typographic correction only."
   },
   {
    "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E1",
@@ -96851,6 +96868,27 @@
     "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked",
     "Web searches2026-09-22: van Hoften Mod p points erratum correction dimension; Rong Zhou Mod p points appendix errata. No correction for the new entries found.",
     "Reviewed by cc-442dc5 on 23 September 2026 (arXiv v4 fetched; the Cambridge PDF endpoint returned HTML to this environment, so the checkpoint's published copy, SHA-256 1f86fdc5…, remains the reference)."
+   ],
+   "owner": "PAPER-VANHOFTEN-24",
+   "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
+   "citation": "van Hoften, \"Mod p points on Shimura varieties of parahoric level\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/E35",
+   "kind": "misprint",
+   "locator": "Published2024 Proposition3.1.12 proof p31, GL diagram delimiters",
+   "printed": "GL(direct_sum_{i=1}^r Lambda_{i,p}) in the top row is set with \\big delimiters while GL(direct_sum_{i=1}^s Lambda_{s_i,p}) in the bottom row is set with \\Big delimiters.",
+   "correction": "Move the vertical arrow out of the delimiter pair, so that both entries of the right-hand column are set at the same size.",
+   "reason": "In the source the top-right cell is \\operatorname{GL}\\left(\\bigoplus_{i=1}^r \\Lambda_{i,p} \\arrow{d} \\right): the tikzcd arrow command sits inside the \\left(...\\right) pair rather than after it. The two GL parentheses in the same column consequently print at different sizes. Purely typographic; the diagram is the one E13 is about.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Cambridge article DOI10.1017/fmp.2024.22 and its article listing, checked2026-09-22 for this paper (issue #1360): no linked corrigendum, so no published correction can exist for this entry either.",
+    "https://polvanhoften2.github.io/, publication entry checked2026-09-22; no correction linked.",
+    "arXiv v4 source read directly by the reviewer2026-09-23: the misplaced \\arrow{d} is present at main.tex:1517, and the published p.31 sets the two GL delimiters at different sizes."
    ],
    "owner": "PAPER-VANHOFTEN-24",
    "file": "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
