@@ -8139,7 +8139,7 @@
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
       "roadmap": "ClassicalGroupsPartII",
       "title": "Finite-dimensional representations of the classical groups, Part II: Rational symplectic-similitude characters",
-      "area": "algebra",
+      "area": "representations",
       "items": [
         "PAPER-YU-23/099"
       ],
