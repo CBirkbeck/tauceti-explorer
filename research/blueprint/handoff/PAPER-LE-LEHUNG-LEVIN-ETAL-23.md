@@ -1,5 +1,40 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-fb70e5, issue #1254, 23 September 2026. Continues cc-d67081's second pass; claim 5802272463. Status **partial**.
+
+Census unchanged in size: **580 items (86 library, 23 planned, 471 missing), 23 routes, 52 unreviewed findings**. This pass added no items and changed no routes; it proved two items that were outlines.
+
+## Completed this pass
+
+**A69 and A70 now carry step-by-step proofs**, which is resume item 1 of the previous handoff. Both are written in the style of A67/A68 and read against Cogdell's Fields Institute notes, Lecture 4.
+
+- **A69** (injectivity), seven steps: `n = 1` base; the induction on mirabolic functions through A68's identity and its cuspidality descent; `C_e f ≡ 0`; A67's two-orbit decomposition making *every* Fourier coefficient vanish (the `0`-orbit is where cuspidality enters); A104's uniqueness half giving `f = 0`; and the cusp-form case by applying the mirabolic case to each right translate. Cogdell's one-sentence version is quoted (printed 31).
+- **A70** (existence of the functional), five steps: convergence over the compact quotient with A105's probability measure and continuity from A106; equivariance as A66's identity at `g = 1`; nonvanishing from A69 via `Λ(Π(g)φ) = W_φ(g)`; and — the step worth keeping — why the *continuous* functional is the right object, since at an archimedean place the algebraic Whittaker functionals on K-finite vectors have dimension `n!` and only one extends continuously (Cogdell, printed 32, remark (ii)). That is now a fourth `non-example` test on A70.
+
+**Locators verified rather than inherited.** Cogdell's Fields notes were fetched and read: PDF 35 = printed 31, PDF 36 = printed 32, PDF 37 = printed 33 with Corollary 4.1.2 and the displayed global functional. Both items' recorded locators are correct.
+
+**Do not add a uniqueness claim to A70.** Local uniqueness (Gelfand–Kazhdan, Shalika; Cogdell Theorem 4.1) and its global corollary are separate imports; A70 needs existence only, and A71 is what carries genericity to the local components.
+
+## Resume in order
+
+1. **A71 is now the frontier of this chain.** A69 and A70 are proved and A107 supplies the one-place factorization, so A71 (the nonzero finite-place functional, hence genericity of `Π_v`) should be provable in the same style against Cogdell printed 33–34 — Corollary 4.1.2 and the factorization Corollary 4.1.3. After A71, A73's conditional split-place genericity is the only step of the chain still resting on an outline.
+2. Other queues, unchanged: `analytic-regularity-suppliers`, `approximation-and-tensor-adapter-closure`, `remaining-proof-leaves`, `closure-external-inputs`, per-item audit and shared-owner reconciliation.
+3. Appendix B: uniform integral-parameter certificates, exceptional denominator loci, minimal primes and specialized Gröbner cases.
+
+Last IDs: **A107**, **L86**, **E52**.
+
+## Checks
+
+- `scripts/check_paper.py`: ok. 580 unique item ids; every missing item routed exactly once (no duplicate route entries); prerequisite graph re-checked acyclic at 437 edges; 78 items now carry `proofSteps`.
+- Only A69 and A70 changed: their `proofSteps` and `note`, plus one added test on A70. All other statements, statuses, routes, findings and source data are byte-identical.
+- Submit only the result, report and this handoff.
+
+Earlier handoff history follows; its counters are superseded above.
+
+---
+
+# LLHLM23 — current handoff
+
 Claude Code — cc-d67081, issue #1254, 23 September 2026 (second pass). Claim confirmed by the swarm bot. Status **partial**.
 
 Current census: **580 items (86 library, 23 planned, 471 missing), 23 routes, 52 unreviewed findings**. This pass added no items and changed no routes; it proved out A67 and A68. All 576 inherited IDs and sourceData are preserved; `source`, `sourceIssues` and `sourceData` are byte-identical to the inherited file. All 163 definitions/constructions retain uses/API/at least three typed tests. No Lean deliverable required or compiled; no new formalization or independent review.

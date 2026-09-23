@@ -16882,7 +16882,7 @@
       ],
       "proofOutline": "Induct on n for mirabolic functions. P_1 is trivial and its Whittaker transform is the identity. If W_f=0, A68 makes W_(f_p')=0 for every p. The induction hypothesis gives f_p'=0, so C_e f(p)=0 for every p. Apply A67 to obtain f=0. For a cusp form phi on GL_n, restrict each right translate p↦phi(p g) to P_n(A); the cuspidality equations remain valid. Its Whittaker transform is p↦W_phi(p g)=0, so evaluation at p=1 gives phi(g)=0 for every g. This proof needs compact Fourier uniqueness and compact Fubini, not the stronger absolute-uniform-convergence part of Cogdell's expansion theorem.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-fb70e5, 23 September 2026, from the chain's own inputs (A66–A68, A104–A106) and read against Cogdell's Fields Institute notes, Lecture 4: printed 31 (PDF 35) for the injectivity remark, printed 32 (PDF 36) for the functional/model dictionary and the archimedean continuity remark, printed 33 (PDF 37) for Corollary 4.1.2 and the displayed global functional. Both inherited locators are correct as recorded.",
       "tests": [
         {
           "name": "WhittakerInjective.rank_one",
@@ -16899,6 +16899,15 @@
           "kind": "non-example",
           "statement": "Vanishing only at g=1 is not the hypothesis; the transform must vanish at every g."
         }
+      ],
+      "proofSteps": [
+        "Base case n=1. P_1 is the trivial group, N_1 is trivial and the Whittaker transform is the identity map on functions, so W_f=0 forces f=0. This is the rank_one test.",
+        "Induction step for mirabolic functions. Let f be a cuspidal function on P_n(F)\\P_n(A) with W_f=0. A68's identity W_f(diag(p',1)p) = W_{f'_p}(p') exhibits the Whittaker transform of f'_p, where f'_p(p')=C_e f(diag(p',1)p), as a restriction of W_f; so W_{f'_p}=0 for every p. A68 also shows that f'_p is a cuspidal function on P_(n-1)(F)\\P_(n-1)(A), which is what makes the induction hypothesis applicable, and that step uses A105's compatible measures rather than mere existence of invariant ones.",
+        "The induction hypothesis gives f'_p=0 for every p, that is C_e f(diag(p',1)p)=0 for all p' and p. Taking p'=1 gives C_e f(p)=0 for every p in P_n(A).",
+        "All Fourier coefficients vanish. By A67's two-orbit decomposition, the coefficients along the open orbit are C_(e gamma) f(p) = C_e f(diag(gamma,1)p) for gamma in P_(n-1)(F)\\GL_(n-1)(F), all of which vanish by the previous step, and the coefficient at 0 vanishes by cuspidality — the one place cuspidality enters A67.",
+        "Conclusion on the mirabolic group. A104's uniqueness half — that gamma ↦ psi_gamma identifies F^(n-1) with the character group of the compact (F\\A)^(n-1), so a function with all Fourier coefficients zero is zero — turns the vanishing of every coefficient into f=0. This is A67's conclusion, invoked here rather than reproved.",
+        "Cusp forms on GL_n. Let phi be a smooth cusp form with W_psi(phi)(g)=0 for every g. Fix g and put f(p)=phi(pg); by A68's descent f is a cuspidal function on P_n(F)\\P_n(A), and W_f(p)=W_psi(phi)(pg)=0, so the mirabolic case gives f=0, that is phi(pg)=0 for all p. Taking p=1 gives phi(g)=0, and g was arbitrary.",
+        "Provenance and scope. Cogdell states the consequence in one sentence (Fields notes, printed 31): 'since we can recover phi from W_phi through its Fourier expansion we are guaranteed that W_phi != 0 for all phi != 0'. Cuspidality is not decoration: the constant function on GL_n(F)\\GL_n(A) has zero transform for n>=2, which is the constant_function non-example. Nothing here asserts anything about noncuspidal forms or about other reductive groups."
       ]
     },
     {
@@ -16916,7 +16925,7 @@
       ],
       "proofOutline": "Choose nonzero phi. A69 gives g with W_phi(g)≠0. Right-translation stability and A66 yield Lambda(Pi(g)phi)=W_phi(g)≠0. The unipotent equivariance is A66's identity at g=1. Compact integration is continuous in the smooth automorphic topology supplied by AF.1/AF.0. No uniqueness theorem for Whittaker models is needed to prove nonvanishing. A chosen phi can satisfy Lambda(phi)=0; nonvanishing is a property of the functional on the representation, not of every vector.",
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation.",
+      "note": "Codex — codex-a71f92, 2026-09-23. Source-based planning adapter; no Lean implementation. Proof steps supplied by continuation Claude Code — cc-fb70e5, 23 September 2026, from the chain's own inputs (A66–A68, A104–A106) and read against Cogdell's Fields Institute notes, Lecture 4: printed 31 (PDF 35) for the injectivity remark, printed 32 (PDF 36) for the functional/model dictionary and the archimedean continuity remark, printed 33 (PDF 37) for Corollary 4.1.2 and the displayed global functional. Both inherited locators are correct as recorded.",
       "tests": [
         {
           "name": "GlobalGeneric.translate_to_detect",
@@ -16932,7 +16941,19 @@
           "name": "GlobalGeneric.GL1",
           "kind": "degenerate",
           "statement": "A nonzero idele-class character has the rank-one functional phi↦phi(1) and no unipotent constraint."
+        },
+        {
+          "name": "GlobalGeneric.archimedean_needs_continuity",
+          "kind": "non-example",
+          "statement": "At an archimedean place the algebraic Whittaker functionals on the K-finite vectors have dimension n!, and only one of them extends continuously to the smooth moderate-growth Frechet topology (Cogdell, Fields notes, printed 32, remark (ii)). An arbitrary algebraic functional therefore does not witness this statement."
         }
+      ],
+      "proofSteps": [
+        "Lambda is defined and continuous. Lambda(phi)=W_psi(phi)(1)=int_{N_n(F)\\N_n(A)} phi(n) psi_N(n)^{-1} dn is an integral over a compact quotient taken with A105's probability measure, so it converges for every smooth phi, and A106 gives its continuity for the smooth moderate-growth topology on V_Pi. The same display appears in Cogdell's Fields notes, printed 33: 'Lambda(phi) = W_phi(e) = int_{N(k)\\N(A)} phi(n) psi^{-1}(n) dn'.",
+        "Equivariance. For u in N_n(A_F), Lambda(Pi(u)phi) = int phi(nu) psi_N(n)^{-1} dn = psi_N(u) Lambda(phi), by translating the variable and using invariance of the measure; this is A66's defining identity evaluated at g=1.",
+        "Nonvanishing, by translation. Pi is nonzero, so choose phi in V_Pi with phi != 0. A69 gives a g with W_psi(phi)(g) != 0, and W_psi(phi)(g) = Lambda(Pi(g)phi) because the transform is the orbit map of Lambda under right translation. Hence Lambda(Pi(g)phi) != 0 and Lambda is not the zero functional. Cogdell records the dictionary in the local setting (printed 32): 'A model xi_v ↦ W_{xi_v} gives a functional by Lambda_v(xi_v)=W_{xi_v}(e) and a functional Lambda_v gives a model by setting W_{xi_v}(g)=Lambda_v(pi_v(g)xi_v)'; the global direction used here is the first half applied to the translate.",
+        "Why the functional must be the continuous one. At an archimedean place the algebraic Whittaker functionals on the K-finite vectors form an n!-dimensional space, of which only one extends continuously to the smooth moderate-growth Frechet completion (Cogdell, printed 32, remark (ii)). So the statement is about the functional supplied by the compact integral together with AF.1's globalization, not about an arbitrary algebraic functional on a Harish-Chandra module.",
+        "Scope. No uniqueness is claimed or used here: local uniqueness (Gelfand–Kazhdan and Shalika, Cogdell Theorem 4.1) and its global corollary are separate imports, and this item needs only existence. Genericity of the local components — Cogdell's Corollary 4.1.2, 'if (pi,V_pi) is cuspidal with pi = tensor' pi_v then pi and each of its local components pi_v are generic' — is reached from here through A71's one-place factorization, not asserted at this step."
       ]
     },
     {

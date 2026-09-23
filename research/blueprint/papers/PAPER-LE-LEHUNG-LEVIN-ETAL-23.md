@@ -5130,3 +5130,33 @@ quotations in the items were reconstructed with that in mind.
 
 No new findings: Cogdell's argument is as the items now describe it, and the 52 inherited
 findings are unchanged.
+
+## Whittaker chain: A69 and A70 proved (cc-fb70e5)
+
+The previous handoff named A69 and A70 as the frontier of the global Whittaker chain: A67 and A68 had
+step-by-step proofs and A104–A107 supplied the analytic inputs, leaving the injectivity statement and the
+existence of the functional as outlines. Both now carry proofs, in the same style and against the same
+source.
+
+**A69 — the Whittaker transform is injective on cusp forms.** Seven steps. The base case `n = 1` is the
+identity map. The induction runs on mirabolic functions: A68's identity exhibits `W_{f'_p}` as a
+restriction of `W_f`, and A68's descent makes `f'_p` cuspidal on the smaller mirabolic, so the induction
+hypothesis gives `C_e f(diag(p',1)p) = 0`, hence `C_e f ≡ 0`. A67's two-orbit decomposition turns that into
+the vanishing of *every* Fourier coefficient (the `0`-orbit term is where cuspidality enters), and A104's
+uniqueness half — `γ ↦ ψ_γ` identifies `F^{n−1}` with the character group of the compact `(F\A)^{n−1}` —
+gives `f = 0`. The cusp-form case follows by applying the mirabolic case to each right translate. Cogdell
+states the consequence in one sentence (Fields notes, printed 31): "since we can recover `φ` from `W_φ`
+through its Fourier expansion we are guaranteed that `W_φ ≠ 0` for all `φ ≠ 0`".
+
+**A70 — a nonzero cuspidal representation has a nonzero Whittaker functional.** Five steps: the integral
+converges over the compact `N_n(F)\N_n(A)` with A105's probability measure and is continuous by A106;
+equivariance is the defining identity at `g = 1`; nonvanishing comes from A69 through the translation
+`Λ(Π(g)φ) = W_φ(g)`; and the fourth step records *why the continuous functional is the right object* — at
+an archimedean place the algebraic Whittaker functionals on the K-finite vectors have dimension `n!`, of
+which only one extends continuously (Cogdell, printed 32, remark (ii)). That is now also a `non-example`
+test on A70. The fifth step fixes the scope: no uniqueness is claimed here, and genericity of the local
+components (Cogdell's Corollary 4.1.2) is reached through A71, not asserted.
+
+**Locators verified.** Both items' inherited Cogdell locators are correct: PDF page 35 is printed page 31,
+PDF 36 is printed 32, and PDF 37 is printed 33, carrying Corollary 4.1.2 and the displayed
+`Λ(φ) = W_φ(e) = ∫_{N(k)\N(A)} φ(n)ψ^{−1}(n) dn`.
