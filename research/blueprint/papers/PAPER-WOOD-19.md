@@ -787,3 +787,38 @@ Program and output hashes:
 | table-check-big.g | b9fcebe9fd5b6f59a840a01f51b27183c4a10e0689e3d1f2dc66675ef06e582a | a9cb5eb6cfdd07bb7494d606aa809647c08b555c7ed75d6bc24a1c2ad86f16ad | True |
 
 Current execution status: **41/41 type rows, 31/31 multiplier rows and 31/31 centers reproduced**. All three programs reached FINISHED without GAP errors. The two inherited Python regression programs above remain unchanged and were rerun successfully: 6,588 and 563 assertions. The paper checker, file-intake checker and structural validation were run for this continuation. No Lean file was required, written or compiled.
+
+## Review (REV-PAPER-WOOD-19, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1331), **accepted** this
+extraction and all ten routes, and needed no correction. The full record is
+[REV-PAPER-WOOD-19.md](../reviews/REV-PAPER-WOOD-19.md).
+
+The recorded hash of the NSF PAR copy reproduces byte for byte; printed pages 378–428 run over PDF
+pages 1–51. Wood's companion note, which `E9` and `E10` are about, was fetched independently from the
+author's page (`lifting.pdf`, 13 pages, `9628210e…`) and read at both locators. 344 items with all
+318 missing ones routed exactly once; all eight source stage ids and all 13 planned ids resolve; both
+Part II titles reproduce their parents' atlas titles exactly and both areas are galaxy ids; and all
+31 declarations behind the 13 library items resolve, in Mathlib and in Tau Ceti. Of 39 locator checks
+33 land exactly and the six others are right too.
+
+All ten findings are **confirmed**. Six are verbatim in the published text: the `q^n` slice on p. 407
+(`E4`), the three-part slip in the imaginary non-good display on p. 409 which the very next line of
+the same display corrects (`E5`), the real-case `+1` on p. 409 (`E6`), `u ∈ μ` without "generator" in
+Conjecture 5.1 against Lemma 3.11's homomorphism property (`E7`), and `C₃ × C₃ × C₂` printed twice on
+p. 421 for a group of order 12 (`E8`). `E1`'s gap is visible in the proof on p. 409, which restricts
+to the multidegree set `C`, discards the rest as nonnegative and concludes with `≥` — a bound on the
+liminf, not on the limit Theorem 1.2 asserts. `E2` is the classical confusion of the tame quotient
+with its maximal prime-to-`p` quotient, and the modular-cover witness is good. `E3`'s `C₃`
+counterexample works. `E10` is confirmed from the companion note's own display.
+
+The review states two limits of its own. For `E9` the symbols `φ` and `ψ` and any inverse do not
+survive text extraction from the companion note, so for the presence of the misprint — as against the
+mathematics, which it verified — it relies on the recorded reading. And it notes, without changing
+the field, that `E7` makes Conjecture 5.1 false as printed, so `affects: nothing` is generous.
+
+Two points for whoever next touches the file, neither a condition of the review: no `libraryPins` are
+recorded, so there is no commit against which the 31 library declarations were checked; and several
+`printed` fields are pointers (`a subgroup`, `tame quotient`, `q^n`, `φ·ψ`) rather than the printed
+text PROTOCOL §18 asks for, which makes those entries impossible to check without returning to the
+page.
