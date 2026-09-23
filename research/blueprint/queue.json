@@ -2958,8 +2958,9 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1180"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1180",
+   "finishedAt": "2026-09-23T23:38:50Z"
   },
   {
    "id": "PAPER-SCHIFFMANN-16",
@@ -3341,8 +3342,9 @@
    ],
    "avoidAccountOf": "PAPER-MAO-WAN-ZHANG-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-MAO-WAN-ZHANG-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1202"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1202",
+   "finishedAt": "2026-09-23T23:38:54Z"
   },
   {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
@@ -4112,8 +4114,8 @@
    ],
    "avoidAccountOf": "PAPER-NAKAMURA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-NAKAMURA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1244"
+   "state": "pending",
+   "note": "released on GitHub issue #1244"
   },
   {
    "id": "PAPER-LI-23",
@@ -4283,8 +4285,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5268,7 +5270,8 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-NIZIOL-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-NIZIOL-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1307"
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24",
