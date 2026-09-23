@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Faltings heights of abelian varieties with complex multiplication",
     "authors": "Fabrizio Andreatta, Eyal Z. Goren, Benjamin Howard and Keerthi Madapusi Pera",
@@ -108,7 +108,7 @@
     ],
     "sourceScope": "Whole-paper reading and substantial extraction checkpoint. External proof closure, the normalization repairs, and a final atomization pass remain open; this is not a complete/formalized proof."
   },
-  "summary": "The paper proves the averaged Colmez formula for maximal-order CM abelian varieties by evaluating arithmetic intersections of special divisors with a big CM cycle on GSpin integral models, including ramified and dyadic local deformation calculations. The finite-L normalization includes −d log(2π)/2. This extraction routes the local lifting package to the existing Lubin–Tate proposal, integral orthogonal geometry to the existing Kuga–Satake proposal, the big-CM intersection package to the existing GSpin divisor-height proposal, and total-reflex/height comparison to the existing CM Part II. Several printed local-length, metric, lattice and Whittaker formulas require correction or further source-level verification; no claim of disproof of the averaged Colmez theorem is made.",
+  "summary": "Andreatta–Goren–Howard–Madapusi Pera prove the averaged Colmez conjecture (Theorem A) by computing the arithmetic intersection of Borcherds divisors with a big CM cycle on GSpin Shimura varieties (Theorem B), including the ramified and dyadic local deformation calculations, and comparing the metrized Hodge bundles with Faltings heights of CM abelian varieties through the total reflex algebra. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-seven findings are recorded. Lemma 9.4.4, Proposition 9.4.5 and Lemma 9.4.3 are false as printed (E1–E3), and the corrected BKY12 formula is E26; none affects Theorems A or B. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -503,7 +503,7 @@
     {
       "kind": "definition",
       "name": "Conjugate-semilinear special endomorphisms",
-      "locator": "§2.3; Proposition2.3.1",
+      "locator": "§2.3",
       "statement": "For a quadratic local extension E/F with involution τ and an OE-module group G over a base R, V(G_R)={f∈End_OF(G_R): f[a]=[τ(a)]f for a∈OE}. Composition f∘g lies in the linear endomorphisms; where these identify with OE it gives the Hermitian pairing, and Q(f)=f∘f∈OF.",
       "api": [
         "Define the semilinear condition, left OE-action and conjugate symmetry of composition.",
@@ -520,14 +520,14 @@
     {
       "kind": "theorem",
       "name": "Special line and Frobenius fixed points",
-      "locator": "Proposition2.3.1; Lemma2.3.2",
-      "statement": "In the LT residue-field setting of §2.3, the crystalline special-endomorphism module is free of rank1 over W⊗OE with Hermitian composition, and its Frobenius-fixed part identifies with V(G_1). If this integral special module is nonzero it is an OE-line.",
+      "locator": "Lemma 2.3.2",
+      "statement": "V_cris(G) is an O_E-stable subspace of End(M_cris), free of rank 1 over W⊗O_E, and conjugation by φ0 gives an O_E⊗W-linear isomorphism φ: Fr*V_cris(G)[1/p] ≅ V_cris(G)[1/p]. V(G_1) = V_cris(G)^{φ=1}. Composition defines a τ-Hermitian W⊗O_E-valued form on V_cris(G) restricting to the form of Proposition 2.3.1.",
       "proofOutline": [
         "Decompose by unramified embeddings and impose conjugate semilinearity.",
         "Apply the Dieudonné comparison to identify actual endomorphisms with Frobenius invariants."
       ],
       "dependsOn": [
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line-rank",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-realization"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-rank",
@@ -603,7 +603,7 @@
     {
       "kind": "construction",
       "name": "One-step special-endomorphism obstruction line",
-      "locator": "Proposition2.5.1; §2.5",
+      "locator": "Proposition 2.5.1",
       "statement": "For the successive nilpotent LT thickenings OK/(ϖ^k), k≥1, construct the rank-one obstruction module Ob_{k+1} and ob_{k+1}:V_μ(G_k)→Ob_{k+1}. Its vanishing means liftability, and scalar multiplication obeys ob(af)=ι(τ(a))ob(f). Fix the inconsistent printed thickening indices before implementation (G1).",
       "api": [
         "Thickening transition maps, torsion target, additive and twisted OE-linearity.",
@@ -620,8 +620,8 @@
     {
       "kind": "theorem",
       "name": "Crystalline Hodge criterion for lifting",
-      "locator": "Proposition2.5.1; Lemma2.5.2",
-      "statement": "In the connected LT setting, a special quasi-endomorphism in V_μ(G_k) lifts to G_{k+1} exactly when its crystalline realization preserves the Hodge filtration, equivalently when ob_{k+1} vanishes. Lemma2.5.2 supplies the explicit Frobenius-horizontal polynomial lift used to compute this obstruction.",
+      "locator": "Lemma 2.5.2",
+      "statement": "(1) For k ≤ e, reduction induces V_k[1/p]^{φ_k=1} ≅ V(G_1)[1/p]. (2) For k < e and f ∈ V_μ(G_k), put β_{k+1} = Σ_{i=0}^{k} u^i ⊗ τ(π_E)^{k−i}. Then ob_{k+1}(f) = 0 iff β_{k+1}·f̃_{k+1,τ(ι0)} ∈ (1⊗τ(π_E)^{k+1})·V̆_{k+1,τ(ι0)}.",
       "proofOutline": [
         "Apply the valid Grothendieck–Messing/Zink deformation theorem to the actual nilpotent thickening.",
         "Use the explicit BK coefficient calculation to evaluate the Hodge quotient; source indexing gate G1 must be resolved."
@@ -637,8 +637,8 @@
     {
       "kind": "theorem",
       "name": "Uniformizer raises exact lift depth",
-      "locator": "Lemma2.5.3 and Lemma2.5.4",
-      "statement": "For nonzero special f, multiplication by a uniformizer raises its exact deformation depth by1 in the normalized E-valuation; an element of depth1 does not lift to level2. The initial depth of an integral special generator is1 in the unramified case and v_E(d_E/F) in the ramified case.",
+      "locator": "Lemma 2.5.3",
+      "statement": "If f ∈ V_μ(G_k) does not lift to V_μ(G_{k+1}), then for every a ∈ O_E with ord_E(a) = 1, a·f ∈ V_{aμ}(G_k) lifts to V_{aμ}(G_{k+1}) but not to V_{aμ}(G_{k+2}).",
       "proofOutline": [
         "Use twisted linearity of the obstruction and the explicit nonzero first obstruction.",
         "Separate unramified and ramified initial calculations before induction."
@@ -1014,7 +1014,7 @@
     {
       "kind": "theorem",
       "name": "CM supersingular criterion",
-      "locator": "Proposition3.6.2; Lemma3.6.3",
+      "locator": "Proposition 3.6.2",
       "statement": "In the setup of the CM integral model and faithful polarized representation, all the associated abelian-scheme fibers at q are supersingular iff p is nonsplit in E. The Newton cocharacter factors through T as in Lemma3.6.3.",
       "proofOutline": [
         "Determine slopes from the local CM cocharacter.",
@@ -1022,7 +1022,8 @@
       ],
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-nonsplit",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/polarized-cm-family"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/polarized-cm-family",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/newton-factorization"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-supersingular",
       "status": "missing",
@@ -1131,7 +1132,7 @@
     {
       "kind": "definition",
       "name": "Special endomorphism on the orthogonal model",
-      "locator": "§4.3",
+      "locator": "§4.3; Definition 4.3.1",
       "statement": "An endomorphism of the KS abelian scheme commuting with C(L) is special when its realizations lie in the distinguished V-subobjects of End_C(H); at p use the crystalline condition on the special fiber and p-adic étale condition on the generic fiber. Q(x)=x² is positive definite for nonzero special endomorphisms, componentwise on disconnected bases.",
       "api": [
         "Specialness predicates for abelian schemes and l-divisible groups, realization maps and base change.",
@@ -1181,15 +1182,17 @@
     {
       "kind": "theorem",
       "name": "Fiberwise specialness and rigidity",
-      "locator": "Propositions4.3.4–4.3.6",
-      "statement": "Specialness on a connected base is detected by the fiberwise realization criteria of §4.3; a horizontal endomorphism whose specialization lies in the special subspace remains in that subspace, using the Dwork-type rigidity argument of4.3.6.",
+      "locator": "Proposition 4.3.4",
+      "statement": "For a connected M_(p)-scheme S and a C(L)-equivariant x ∈ End(A_S), the following are equivalent: x is special; the fibre of x at every geometric point is special; the fibre of x at some geometric point is special.",
       "proofOutline": [
         "Use horizontal sections and Frobenius to compare nearby realizations.",
         "Separate connectedness, reducedness and crystalline base hypotheses; exact three-way statement atomization remains G7."
       ],
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-special",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-crys"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-crys",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-specialization",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/parallel-rigidity"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-fiberwise",
       "status": "missing",
@@ -1198,8 +1201,8 @@
     {
       "kind": "theorem",
       "name": "Positive norm of special endomorphisms",
-      "locator": "Proposition4.3.7; Proposition4.5.4",
-      "statement": "For a connected nonempty base S over the orthogonal model, the special-endomorphism module carries the integral quadratic form Q determined by x²=Q(x)id, and at geometric fibers Q is positive definite. On a disconnected base the scalar is componentwise locally constant.",
+      "locator": "Proposition 4.3.7",
+      "statement": "For an M_(p)-scheme S and x ∈ V(A_S), x∘x = Q(x)·id_{A_S} for an integer Q(x) (locally constant on a disconnected S, see E13), and x ↦ Q(x) is a positive definite quadratic form on V(A_S).",
       "proofOutline": [
         "Use the Rosati-positive involution and the Clifford relation.",
         "Use connectedness for constancy, keeping the correction to the unrestricted global-scalar reading."
@@ -1348,8 +1351,8 @@
     {
       "kind": "theorem",
       "name": "Auxiliary-independent specialness",
-      "locator": "Propositions4.5.1–4.5.2",
-      "statement": "Specialness of an endomorphism of A_S or A[l∞]_S, defined through a self-dual enlargement and the embedding End_C(L)(A)→End_C(L#)(A#), is independent of that enlargement; the complement lattice embeds as constant special endomorphisms.",
+      "locator": "Proposition 4.5.1",
+      "statement": "Whether x ∈ End_C(L)(A_S) or x ∈ End_C(L)(A_S[ℓ^∞]) is special does not depend on the choice of the auxiliary lattice L#.",
       "proofOutline": [
         "Pass to a common self-dual enlargement.",
         "Identify the orthogonal complement of the constant Λ-submodule in the ambient realization."
@@ -1382,7 +1385,7 @@
     {
       "kind": "construction",
       "name": "Special divisor Z(m,μ)",
-      "locator": "§4.5; Propositions4.5.5–4.5.6",
+      "locator": "Definition 4.5.6",
       "statement": "Z(m,μ) is the stack over M of x∈V_μ(A) with Q(x)=m. It is empty unless m≡Q(μ) mod Z. Set Z(0,0)=M and Z(0,μ)=∅ for μ≠0. For m>0 it is the finite unramified special-cycle stack, étale-locally a divisor.",
       "api": [
         "Functor of points, norm fiber, finite morphism and local multiplicity.",
@@ -1399,14 +1402,14 @@
     {
       "kind": "theorem",
       "name": "Orthogonal-complement decomposition of special cycles",
-      "locator": "Proposition4.5.5; Corollary4.5.7",
+      "locator": "Proposition 4.5.7",
       "statement": "Under L→L# with complement Λ, pullback of Z#(m,μ) decomposes as the disjoint union of Z(m1,μ1)×{x∈μ2+Λ:Q(x)=m2}, over m1+m2=m and compatible gluing classes mapping to μ.",
       "proofOutline": [
         "Decompose ambient special endomorphisms into L and Λ components.",
         "Track denominator gluing and prove equality as stacks, retaining automorphisms."
       ],
       "dependsOn": [
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cosets",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-decomposition",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-divisor"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-pullback",
@@ -1541,7 +1544,7 @@
     {
       "kind": "construction",
       "name": "Nearby coherent Hermitian line",
-      "locator": "§5.1",
+      "locator": "Definition 5.1.2; §5.1",
       "statement": "For the rank-one E-Hermitian F-space (E,ξ Nm) with one negative real place, and a nonsplit finite prime p, the nearby coherent space ^pV has local invariants reversed precisely at p and the distinguished real place. It is totally positive definite, agrees with V away from these places, and is unique up to isometry.",
       "api": [
         "Hasse-invariant prescription, local identifications and positive quadratic norm.",
@@ -1644,8 +1647,8 @@
     {
       "kind": "theorem",
       "name": "Characteristic-zero and split-prime vanishing",
-      "locator": "Propositions5.4.1 and5.4.2",
-      "statement": "The KS abelian variety at a characteristic-zero big CM point has no nonzero special endomorphism. At reduction over a split F-prime, the special rational space is also zero.",
+      "locator": "Proposition 5.4.1",
+      "statement": "For y ∈ Y(C), V(A_y) = 0.",
       "proofOutline": [
         "Use the CM torus action and Frobenius-invariant criterion.",
         "A global special endomorphism would give an invariant in the standard representation; check the distinguished cocharacter."
@@ -1661,17 +1664,18 @@
     {
       "kind": "theorem",
       "name": "Special endomorphisms as the nearby Hermitian line",
-      "locator": "Propositions5.4.3–5.4.5; Corollary5.4.6",
-      "statement": "At a geometric big CM point over a nonsplit p, the rational special-endomorphism space identifies with ^pV, compatibly with prime-to-p Tate realizations, the local crystalline Hermitian form and the integral special lattices. The connected-base extension is used only with the nonzero/spanning hypotheses checked (G2).",
+      "locator": "Corollary 5.4.6",
+      "statement": "(1) For a connected Y-scheme S, V(A_S)_Q is canonically an E-vector space with a positive definite Hermitian form. (2) V(A_S)_Q = 0 unless S → Y is supported on one special fibre Y_{F_q} with q over a prime p of F nonsplit in E. (3) In that case V(A_S)_Q ≅ ^pV as Hermitian E-spaces.",
       "proofOutline": [
         "Use supersingularity and the Tate/Dieudonné realization theorem.",
         "Compute the local norm with separate ramified/unramified special-line formulas, then apply the local-global Hermitian classification."
       ],
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-zero",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-hermitian",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-inert",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-ramified"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-split",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-local",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-supersingular",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-hermitian"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-nearby",
       "status": "missing",
@@ -1902,8 +1906,8 @@
     {
       "kind": "theorem",
       "name": "Gauss valuation and annular character cancellation",
-      "locator": "Lemmas7.1.5–7.1.7",
-      "statement": "The ramified character Gauss integral is supported at the additive conductor valuation−(m+n); the nonzero-coset annular calculation reduces to (n−r)/2<k<n−r/2 and character averages0 or±1 as specified in7.1.6–7.1.7. A measure-preserving translate by a nonnorm unit proves the zero cases.",
+      "locator": "Lemma 7.1.5",
+      "statement": "For α ∈ F_p, ∫_{O^×_{F,p}} χ(y)ψ(αy)dy is N(p)^{−f(p)/2}χ(α)ε(χ,ψ) if ord_p(α) = −f(p) and 0 otherwise. Hence W_{α,p}(I,s,Φ)_{≤1} = N(p)^{−f(p)/2}γ_p(^{(p)}V) if α ≡ s_λ mod ξ, and 0 otherwise.",
       "proofOutline": [
         "Compute the additive conductor and apply character orthogonality.",
         "Use the explicit translate y↦y+(1−η)ζ^−1; final case-by-case atomization is G7."
@@ -1918,7 +1922,7 @@
     {
       "kind": "theorem",
       "name": "Zero-index local correction factor",
-      "locator": "Proposition7.1.8; Corollary7.1.9",
+      "locator": "Proposition 7.1.8",
       "statement": "The zero-index Whittaker integral is γ_p(V)N(p)^{−(m+n)/2}L_p(s,χ)/L_p(s+1,χ) for the zero lattice coset, and0 for a nonzero coset. Hence the local factor M_p(s,φ_λ) of the constant-term formula is the constant1 or0 respectively; reconcile W* with this raw formula in G3.",
       "proofOutline": [
         "Evaluate the intertwining integral at α=0 separately from the nonzero-α limit.",
@@ -2059,8 +2063,8 @@
     {
       "kind": "theorem",
       "name": "Constant BK discriminant quotient and coset integrality",
-      "locator": "Lemma7.5.2; Lemma7.5.3",
-      "statement": "For the good local lattice, the quotient by its dual-lattice inclusion has the constant Frobenius structure described in7.5.2; an element of the rational special realization belongs to the denominator coset exactly when its crystalline image has the required integral congruence modulo the lattice (μ, not the stray u printed in7.5.3).",
+      "locator": "Lemma 7.5.2",
+      "statement": "There is a canonical φ-equivariant isomorphism S⊗_{Z_p}Λ_p^∨/Λ_p ≅ M(Λ_p)^∨/M(Λ_p) of S-modules, the left side with φ⊗1; it induces a φ-equivariant isomorphism S⊗_{Z_p}L_p^∨/L_p ≅ M(L_p)^∨/M(L_p).",
       "proofOutline": [
         "Calculate the rank-one BK modules for the two lattice choices.",
         "Pass to de Rham/crystalline specializations and check the cokernel congruence, with m measured by v_p."
@@ -2093,8 +2097,8 @@
     {
       "kind": "theorem",
       "name": "Stack-weighted CM point count",
-      "locator": "Propositions7.6.1–7.6.2; Lemmas7.6.3–7.6.4",
-      "statement": "At a good nonsplit q, the T(Af)-action is transitive on the CM geometric points with the given level; the corresponding weighted norm-α special-point count is deg_C(Y)·O(α,^pφ_μ), after the nearby Schwartz/coset identification.",
+      "locator": "Proposition 7.6.4",
+      "statement": "If α ∈ F_+ and Diff(α) = {p}, then Σ_{z ∈ Z_F(α,μ)(F_q^alg)} 1/|Aut(z)| = deg_C(Y)·O(α, ^pφ_μ).",
       "proofOutline": [
         "Identify CM points as a torus double quotient and retain automorphism stabilizers.",
         "Use the local integrality criterion and good-prime étaleness to transfer the degree; the cited5.3.1 must be5.3.4 here."
@@ -2103,7 +2107,10 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/norm-cm-cycle",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orbital-integral",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-etale",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-support",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-schwartz-image",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-torsor"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-point-count",
       "status": "missing",
@@ -2112,8 +2119,8 @@
     {
       "kind": "theorem",
       "name": "All-level KS/LT lifting equivalence",
-      "locator": "Proposition7.7.1; Lemma7.7.2",
-      "statement": "Under the good-prime KS/LT identification, a special quasi-endomorphism lifts through the kth infinitesimal CM thickening on the KS side iff it lifts on the LT side, for every k≥1. The Hodge-line identity in7.7.2 identifies the obstruction maps.",
+      "locator": "Proposition 7.7.1",
+      "statement": "For every k, the identification of §7.7 gives V_μ(A_k[p^∞]_p) = V_μ(G_{q,k}).",
       "proofOutline": [
         "Compare the integral Hodge lines via the BK discriminant quotient.",
         "Apply the crystalline lifting criterion on both sides and induct on k; do not infer all-level equality solely from tangent spaces."
@@ -2121,7 +2128,8 @@
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/obstruction-lift",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-deformation"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-deformation",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/hodge-line-match"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-lifts",
       "status": "missing",
@@ -2130,8 +2138,8 @@
     {
       "kind": "theorem",
       "name": "Exact étale-local intersection length",
-      "locator": "Proposition7.7.3; Theorem7.7.4",
-      "statement": "At a geometric point of Z_F(α,μ) over a good nonsplit q with Diff(α)={p}, the completed étale local ring has length ell_p(α). The result includes wild ramification and p=2, using the strict denominator support and normalized valuations.",
+      "locator": "Theorem 7.7.4",
+      "statement": "At every z ∈ Z_F(α, μ)(F_q^alg), the local ring O_{Z_F(α,μ),z} has length ℓ_p(α), with ℓ_p as in Proposition 7.3.2.",
       "proofOutline": [
         "Apply lift-depth through ks-lt-lifts and convert norm valuations separately in the inert and ramified cases.",
         "Identify the greatest lift level with the length of the Artinian DVR quotient, not just a lower bound."
@@ -2139,7 +2147,8 @@
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-lifts",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lift-depth",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/local-length"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/local-length",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lift-depth"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-local-ring-length",
       "status": "missing",
@@ -2235,8 +2244,8 @@
     {
       "kind": "theorem",
       "name": "Complement avoidance implies proper intersection",
-      "locator": "Lemma8.3.2; Proposition8.3.3",
-      "statement": "If proper-support holds, Z#(f) meets Y properly and [Zhat#(f):Y]/deg_C(Y)≈_L c_f(0,0)a(0,0)/Λ(0,χ).",
+      "locator": "Proposition 8.3.3",
+      "statement": "Under Hypothesis 8.3.1, [Ẑ#(f) : Y]/deg_C(Y) ≈_L c_f(0,0)·a(0,0)/Λ(0,χ).",
       "proofOutline": [
         "Use special-pullback and characteristic-zero special vanishing to exclude the m1=0 terms.",
         "Combine extended-green with finite-cm-degree and cancel the positive coefficients."
@@ -2245,7 +2254,8 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-support",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-pullback",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-zero",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/extended-green"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/extended-green",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-meeting"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-intersection",
       "status": "missing",
@@ -2272,7 +2282,7 @@
     {
       "kind": "definition",
       "name": "CM class functions and Colmez functional",
-      "locator": "§9.1",
+      "locator": "§9.1; Definition 9.1.1",
       "statement": "CM0 consists of locally constant class functions a on the absolute Galois group of Q with a(σ)+a(cσ) constant. Set a_(E,Φ)(σ)=|Φ∩σΦ| and let a0 be its conjugacy average. Decompose a into finite-image Artin characters and define Ztilde(0,a)=−Ση a(η)(L'(0,η)/L(0,η)+log fη/2).",
       "api": [
         "Finite-quotient factorization, class averaging, CM parity and character expansion.",
@@ -2585,15 +2595,16 @@
     {
       "kind": "theorem",
       "name": "Auxiliary CM lattices avoid any finite prime set",
-      "locator": "Proposition9.5.2; Lemma9.5.3",
-      "statement": "For every finite set S of rational primes, choose ξ' with the prescribed one-negative real sign and a maximal lattice L' in Tr(E,ξ'Nm) such that every prime of S is good. In particular one may make D_bad,L and D_bad,L' coprime.",
+      "locator": "Proposition 9.5.2",
+      "statement": "There are auxiliary data (V', Q') = (E, ξ'·Nm_{E/F}) and a maximal lattice L' ⊂ V' with gcd(D_bad,L, D_bad,L') = 1.",
       "proofOutline": [
         "Translate good lattices to fractional OE-ideal/norm data and the narrow ideal class group.",
         "Use surjectivity of the norm map when E/F is finitely ramified; in the unramified case use different-character and weak approximation, retaining the d mod4 branches."
       ],
       "dependsOn": [
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-prime",
-        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/different-character"
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/different-character",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-lattice"
       ],
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/auxiliary-good",
       "status": "missing",
@@ -2703,6 +2714,503 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-lci"
       ],
       "note": "Full statement collated in the published source; pending source-level proof closure. Coalesce at OrthogonalIntegralModelsAndKugaSatake rather than invent an accepted stage."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line-rank",
+      "kind": "theorem",
+      "name": "Special endomorphisms form a Hermitian O_E-line",
+      "statement": "V(G_R) ⊂ End(G_R) is O_E-stable and, if nonzero, free of rank 1 over O_E. For x1, x2 ∈ V(G_R) there is a unique ⟨x1, x2⟩ ∈ O_E with x1∘x2 = [⟨x1, x2⟩], and (x1, x2) ↦ ⟨x1, x2⟩ is Hermitian.",
+      "locator": "Proposition 2.3.1",
+      "status": "missing",
+      "proofOutline": [
+        "The composite of two τ-semilinear endomorphisms is O_E-linear, hence an element of End_{O_E}(G_R) = O_E."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-realization"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at LubinTateFormalModulesAndQuasiCanonicalLifts. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/depth-one-obstructed",
+      "kind": "theorem",
+      "name": "Depth one does not lift",
+      "statement": "If f ∈ V_μ(G_1) has ord_E(f) = 1, then f does not lift to V_μ(G_2).",
+      "locator": "Lemma 2.5.4",
+      "status": "missing",
+      "proofOutline": [
+        "Evaluate the obstruction of Lemma 2.5.2(2) with k = 1."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/obstruction-lift"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at LubinTateFormalModulesAndQuasiCanonicalLifts. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/newton-factorization",
+      "kind": "theorem",
+      "name": "Newton cocharacter through the torus",
+      "statement": "For every Q-representation N of T, the Newton cocharacter of N_cris,y[1/p] factors through θ_cris(N): T_{Q_p} → Aut°_φ(N_cris,y) of Proposition 3.5.6.",
+      "locator": "Lemma 3.6.3",
+      "status": "missing",
+      "proofOutline": [
+        "The Frobenius of the CM crystal is given by the image of the reflex-norm cocharacter under θ_cris."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-hecke"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at ComplexMultiplicationAndExplicitReciprocityPartII. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/stack-normalization",
+      "kind": "definition",
+      "name": "Normalization of a stack in a generic cover",
+      "statement": "For an algebraic stack X over Z_(p) and a normal algebraic stack Y over Q with a finite map Y → X_Q, the normalization of X in Y is the finite X-stack j: 𝒴 → X with j_*O_𝒴 the integral closure of O_X in (j_Q)_*O_Y. Equivalently, for every finite Z → X with Z normal and flat over Z_(p), every X_Q-map Z_Q → Y extends uniquely to an X-map Z → 𝒴.",
+      "locator": "Definition 4.2.1",
+      "status": "missing",
+      "dependsOn": [],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding.",
+      "api": [
+        "normalization of a stack in a finite generic cover",
+        "its universal property"
+      ],
+      "unitTests": [
+        "The normalization of Spec Z_(p) in Spec Q(i) is Spec Z_(p)[i]."
+      ]
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-specialization",
+      "kind": "theorem",
+      "name": "Specialness is detected on the closed fibre",
+      "statement": "Let R be a complete local W-algebra with perfect residue field k, t ∈ M_(p)(R), x ∈ End_C(L)(A_t), and x0 its fibre at the induced t0 ∈ M_(p)(k). Then x is special iff x0 is special.",
+      "locator": "Lemma 4.3.5",
+      "status": "missing",
+      "proofOutline": [
+        "Deformation theory of the special endomorphism (Corollary 4.3.3) and the rigidity of Lemma 4.3.6."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-special",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-deformation"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/parallel-rigidity",
+      "kind": "theorem",
+      "name": "Parallel sections vanishing at the closed point",
+      "statement": "Let M be a finite free D_R-module with a topologically nilpotent integrable connection ∇ and an isomorphism φ*M[1/p] → M[1/p] parallel for ∇. A parallel m ∈ M^{∇=0} that maps to 0 in M⊗_{D_R}W is 0.",
+      "locator": "Lemma 4.3.6",
+      "status": "missing",
+      "proofOutline": [
+        "Parallel sections are determined by their value at the closed point via the Taylor expansion."
+      ],
+      "dependsOn": [],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-positive-cosets",
+      "kind": "theorem",
+      "name": "Quadratic form on special cosets",
+      "statement": "For an M-scheme S and x ∈ V(A_S), x∘x = Q(x)·id with Q positive definite on V(A_S); if x ∈ V_μ(A_S) then Q(x) ≡ Q(μ) mod Z.",
+      "locator": "Proposition 4.5.4",
+      "status": "missing",
+      "proofOutline": [
+        "Reduce to the self-dual enlargement and use the coset description of V_μ."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-positive",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cosets"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-complement",
+      "kind": "theorem",
+      "name": "Special endomorphisms as an orthogonal complement",
+      "statement": "For any M_(p)-scheme S there are canonical isometries V(A_S) ≅ Λ^⊥ ⊂ V(A#_S) and V(A_S[p^∞]) ≅ Λ^⊥_{Z_p} ⊂ V(A#_S[p^∞]).",
+      "locator": "Lemma 4.5.2",
+      "status": "missing",
+      "proofOutline": [
+        "Λ = L^⊥ ⊂ L# embeds as constant special endomorphisms of A#; its complement is V(A_S)."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-independence",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-ambient-map"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/coset-independence",
+      "kind": "theorem",
+      "name": "Coset subsets are independent of the enlargement",
+      "statement": "The subset V_μp(A_S[p^∞]) ⊂ V(A_S[p^∞])^∨ does not depend on the auxiliary lattice L#; over a Q-scheme S it agrees with the earlier definition.",
+      "locator": "Proposition 4.5.3",
+      "status": "missing",
+      "proofOutline": [
+        "Compare two enlargements through a common third one."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-complement",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cosets"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-decomposition",
+      "kind": "theorem",
+      "name": "Special endomorphisms under an isometric embedding",
+      "statement": "Let L ⊂ L# (signature (n#, 2), maximal) with Λ = L^⊥ and S → M. (1) There is a canonical isometric embedding Λ → V(A#_S) and an isometry V(A_S) ≅ Λ^⊥ ⊂ V(A#_S). (2) For μ ∈ L#^∨/L# and (μ1, μ2) ∈ (μ+L#)/(L⊕Λ), this gives an injection V_μ1(A_S) × (μ2+Λ) → V_μ(A#_S). (3) These injections give a decomposition of V_μ(A#_S) as the disjoint union of V_μ1(A_S) × (μ2+Λ).",
+      "locator": "Proposition 4.5.5",
+      "status": "missing",
+      "proofOutline": [
+        "Orthogonal decomposition L#⊗Q = (L⊗Q) ⊕ (Λ⊗Q) and the coset bookkeeping of §4.5."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-complement",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cosets"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at OrthogonalIntegralModelsAndKugaSatake. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-realizations",
+      "kind": "theorem",
+      "name": "Special endomorphisms at big CM points by realizations",
+      "statement": "For a Y-scheme S and a prime p, V(A_S[p^∞]) consists of the endomorphisms whose p-adic realizations over S[1/p] land in (5.4.1) and whose crystalline realizations over S_{F_p} land in (5.4.2). In particular V(A_S) consists of those whose ℓ-adic realizations land in (5.4.1) and crystalline ones in (5.4.2).",
+      "locator": "Proposition 5.4.2",
+      "status": "missing",
+      "proofOutline": [
+        "Restrict Definition 4.3.1 along Y → M using Proposition 5.3.2."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/big-cm-realizations",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-special"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-split",
+      "kind": "theorem",
+      "name": "No special endomorphisms over split primes",
+      "statement": "If the prime p of F below q is split in E (printed 'split in F', see E12), then V(A_y) = V(A_y[p^∞]) = 0 for all y ∈ Y(F_q^alg).",
+      "locator": "Proposition 5.4.3",
+      "status": "missing",
+      "proofOutline": [
+        "By Proposition 3.6.1 the φ-invariants of the crystalline special space vanish."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-realizations",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-nonsplit"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-local",
+      "kind": "theorem",
+      "name": "Adelic special endomorphisms are the nearby space",
+      "statement": "For y over a prime nonsplit in E, the Hermitian space V(A_y[∞])_Q is isometric to ^pV ⊗ A_f, with ^pV the nearby Hermitian space of Definition 5.1.2.",
+      "locator": "Proposition 5.4.4",
+      "status": "missing",
+      "proofOutline": [
+        "Compute the ℓ-adic components from the CM realizations and the p-component from the Lubin–Tate special line; the invariants change exactly at p and ι0."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-realizations",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-hermitian",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-inert",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-ramified"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-supersingular",
+      "kind": "theorem",
+      "name": "Special endomorphisms at supersingular CM points",
+      "statement": "If p is not split in E, q is the prime above it and y ∈ Y(F_q^alg), then A_y is supersingular, V(A_y) ≠ 0, and Ẑ⊗V(A_y) → V(A_y[∞]) is an isometry of quadratic spaces over Ẑ.",
+      "locator": "Proposition 5.4.5",
+      "status": "missing",
+      "proofOutline": [
+        "Tate's theorem for endomorphisms of abelian varieties over finite fields, applied to special endomorphisms."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-local",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-supersingular"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-unrepresented",
+      "kind": "theorem",
+      "name": "Vanishing at unrepresented α",
+      "statement": "If α ∈ F_p^× is not represented by ^{(p)}V_p, then W_{α,p}(g_p, 0, ^{(p)}Φ^λ_p) = 0.",
+      "locator": "Proposition 7.1.1",
+      "status": "missing",
+      "proofOutline": [
+        "Local Siegel–Weil: the value at s = 0 is a representation density, zero when α is not represented."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/local-whittaker"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/annular-support",
+      "kind": "theorem",
+      "name": "Annular terms of the Whittaker integral",
+      "statement": "For c ∈ O_{F,p} with k = ord_p(c) > 1 and U^t = 1 + π_p^t O_{F,p}, put d(k,λ) = 2k − (n(p) − r(λ)). Then Φ(n_−(c)) ≠ 0 only if (n(p) − r(λ))/2 < k < n(p) − r(λ)/2, and then Φ(n_−(c)) = ψ(c^{-1}s_λ)·Vol(U^{d(k,λ)})^{-1}·∫_{U^{d(k,λ)}} χ(y)ψ(−c^{-1}s_λ y)dy. In particular W_{α,p}(I,s,Φ)_{>1} = 0 if p ≠ 2.",
+      "locator": "Lemma 7.1.6",
+      "status": "missing",
+      "proofOutline": [
+        "Iwasawa decomposition of n_−(c) and the support of the section Φ."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/gauss-support",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-denominators"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/character-average",
+      "kind": "theorem",
+      "name": "The sign M(α, λ)",
+      "statement": "M(α, λ) is 1 if α ≡ s_λ mod ξ and ^{(p)}V_p represents α, −1 if α ≡ s_λ mod ξ and it does not, and 0 if α ≢ s_λ mod ξ.",
+      "locator": "Lemma 7.1.7",
+      "status": "missing",
+      "proofOutline": [
+        "Evaluate the character average; the sign is the Hasse invariant of the local Hermitian space."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/annular-support"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/constant-factor",
+      "kind": "theorem",
+      "name": "The constant-term local factor",
+      "statement": "M_p(s, φ_λ) of (6.2.3) is constant: 1 if λ = 0 and 0 otherwise.",
+      "locator": "Corollary 7.1.9",
+      "status": "missing",
+      "proofOutline": [
+        "Divide the formula of Proposition 7.1.8 by its λ = 0 value."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-zero",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/constant-fourier"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-factor",
+      "kind": "theorem",
+      "name": "The Lubin–Tate factor of the Kuga–Satake p-divisible group",
+      "statement": "The Γ_y-module H_{p,y} is canonically the Tate module of a C(L_p)-linear p-divisible subgroup A[p^∞]_p of A[p^∞]|Spec(O_y), and A[p^∞]_p ⊗_{C(L_p)} C(L#_p) → A[p^∞]|Spec(O_y) is an isomorphism.",
+      "locator": "Proposition 7.4.1",
+      "status": "missing",
+      "proofOutline": [
+        "Tate's full faithfulness over O_y applied to the Clifford-module decomposition of the Tate module."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-decomposition",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-crys"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-complement",
+      "kind": "theorem",
+      "name": "Constant complement of the local special lattice",
+      "statement": "With L_p^p = L_p^⊥ ⊂ L#_p, there is a canonical isometric embedding L_p^p → V(A#[p^∞]_{Spec O_y}) as a direct summand, and V(A[p^∞]_{p,S}) = (L_p^p)^⊥ ⊂ V(A#_S[p^∞]) for every O_y-scheme S.",
+      "locator": "Proposition 7.4.2",
+      "status": "missing",
+      "proofOutline": [
+        "As Lemma 4.5.2, one prime at a time."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-factor",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-complement"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-coset-decomposition",
+      "kind": "theorem",
+      "name": "Local coset decomposition",
+      "statement": "For μ_p ∈ L#_p^∨/L#_p, V_μp(A#_S[p^∞]) is the disjoint union over (μ1, μ2) ∈ (μ_p + L#_p)/(L_p ⊕ L_p^p) of V_μ1(A[p^∞]_{p,S}) × (μ2 + L_p^p).",
+      "locator": "Proposition 7.4.3",
+      "status": "missing",
+      "proofOutline": [
+        "As Proposition 4.5.5(3)."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-complement",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/coset-independence"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/crystalline-coset",
+      "kind": "theorem",
+      "name": "Crystalline description of the coset subsets",
+      "statement": "V_μ(A_y[p^∞]_p) ⊂ V(A_y[p^∞]_p)_Q consists of the x whose crystalline realization lies in V^∨_{p,cris,y} and satisfies x_cris ≡ η(1⊗μ) mod V_{p,cris,y}.",
+      "locator": "Lemma 7.5.3",
+      "status": "missing",
+      "proofOutline": [
+        "Choose L# self-dual at p and read off the coset condition through (7.5.5)."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-coset-decomposition"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-support",
+      "kind": "theorem",
+      "name": "Support of the special zero-cycles",
+      "statement": "For α ∈ F_+ and μ ∈ L^∨/L, Z_F(α, μ) is nonempty only if Diff(α) = {p} for a single prime p, and then it is 0-dimensional and supported at the unique prime q of O_E above p.",
+      "locator": "Proposition 7.6.1",
+      "status": "missing",
+      "proofOutline": [
+        "A point needs a special endomorphism of norm α in ^pV, which exists only when ^pV represents α at every place."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-nearby",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/diff-set"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-schwartz-image",
+      "kind": "theorem",
+      "name": "Coset subsets are the nearby Schwartz function",
+      "statement": "For y ∈ Y(F_q^alg), the A_{f,E}-linear isometry V(A_y[∞])_Q ≅ ^pV̂ of Proposition 5.4.4 can be chosen so that, for each μ ∈ L^∨/L, the characteristic function of the image of V_μ(A_y[∞]) is ^pφ_μ of (7.2.3).",
+      "locator": "Proposition 7.6.2",
+      "status": "missing",
+      "proofOutline": [
+        "Match lattices prime by prime: away from p by the Tate modules, at p by Lemma 7.5.3 and §2."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-local",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/crystalline-coset",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-schwartz"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-torsor",
+      "kind": "theorem",
+      "name": "The torus acts simply transitively on CM points",
+      "statement": "T(A_f)/T(Q)K_{L,0} acts simply transitively on the isomorphism classes in Y(F_q^alg); each point has automorphism group T(Q) ∩ K_{L,0}; for t ∈ T(A_f) there is a canonical isometry V(A_{t·y}[∞])_Q ≅ V(A_y[∞])_Q carrying V_μ(A_{t·y}[∞]) to θ(t)^{-1}·V_μ(A_y[∞]).",
+      "locator": "Lemma 7.6.3",
+      "status": "missing",
+      "proofOutline": [
+        "Y is finite étale over O_E away from D_bad (Lemma 5.3.4), and its points are a T(A_f)-torsor."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/big-cm-cycle",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-etale"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/hodge-line-match",
+      "kind": "theorem",
+      "name": "Hodge lines of the local and ambient lattices agree",
+      "statement": "Fil^1 Λ_{p,dR,O_y} = Fil^1 V#_{dR,O_y}, the Hodge line of the auxiliary lattice self-dual at p.",
+      "locator": "Lemma 7.7.2",
+      "status": "missing",
+      "proofOutline": [
+        "Both are rank-one direct summands, and one contains the other after inverting p."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-dr"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lift-depth",
+      "kind": "theorem",
+      "name": "Lifting depth of a special quasi-endomorphism",
+      "statement": "For μ ∈ L_p^∨/L_p and x ∈ V_μ(A_y[p^∞]_p), x lifts to V_μ(A_k[p^∞]_p) iff ord_q(x) ≥ k.",
+      "locator": "Proposition 7.7.3",
+      "status": "missing",
+      "proofOutline": [
+        "Transport Theorem 2.5.5 through Proposition 7.7.1."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-lifts",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lift-depth"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-meeting",
+      "kind": "theorem",
+      "name": "Proper intersection with the CM cycle",
+      "statement": "If the image of Y(C) → M#(C) meets the support of Z#(m, μ)(C), then some x ∈ D_L^{-1}Λ has Q(x) = m. Hence, under Hypothesis 8.3.1, Z#(f) meets Y properly.",
+      "locator": "Lemma 8.3.2",
+      "status": "missing",
+      "proofOutline": [
+        "A complex point of Y has no nonzero special endomorphism (Proposition 5.4.1), so its special endomorphisms in A# come from Λ."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-zero",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-pullback"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at GSpinSpecialDivisorHeights. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-height",
+      "kind": "definition",
+      "name": "The Colmez height",
+      "statement": "h^Col_(E,Φ) = Z̃(0, a⁰_(E,Φ)), with a⁰_(E,Φ) the conjugacy average of σ ↦ |Φ ∩ σΦ|.",
+      "locator": "Definition 9.1.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-classfunction"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at ComplexMultiplicationAndExplicitReciprocityPartII. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding.",
+      "api": [
+        "colmezHeight E Φ"
+      ],
+      "unitTests": [
+        "For E imaginary quadratic, a⁰_(E,Φ) = (1 + χ_E)/2."
+      ]
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-conjecture",
+      "kind": "definition",
+      "name": "The Colmez conjecture (statement only)",
+      "statement": "For a ∈ CM⁰, ht(a) = Z̃(0, a); for a = a⁰_(E,Φ) this reads h^Falt_(E,Φ) = h^Col_(E,Φ). The paper does not prove it; Theorem A is its average over Φ.",
+      "locator": "Conjecture 9.1.6",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-linearity",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-height"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at ComplexMultiplicationAndExplicitReciprocityPartII. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding.",
+      "api": [
+        "ColmezConjecture as a Prop on CM⁰"
+      ],
+      "unitTests": [
+        "The averaged statement of Theorem A is a consequence for the averaged class function."
+      ]
+    },
+    {
+      "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-lattice",
+      "kind": "theorem",
+      "name": "A lattice good at prescribed primes",
+      "statement": "If (a, ξ') is good at every p in a finite set S, there is a maximal lattice L' ⊂ V' = (E, Tr_{F/Q}(ξ'·Nm)) that is good at every p ∈ S.",
+      "locator": "Lemma 9.5.3",
+      "status": "missing",
+      "proofOutline": [
+        "Choose the local lattices at p ∈ S as in Definition 5.3.3 and glue with a global maximal lattice."
+      ],
+      "dependsOn": [
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-prime"
+      ],
+      "note": "No matching declaration or accepted stage with this full scope found. Coalesce at ComplexMultiplicationAndExplicitReciprocityPartII. Pending paper proposals do not count as planned stages. Source/proof gates in gaps remain binding."
     }
   ],
   "prerequisites": [
@@ -2908,6 +3416,7 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-bk",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-realization",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-line-rank",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-rank",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-inert",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-ramified",
@@ -2916,6 +3425,7 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/obstruction",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/obstruction-lift",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/depth-shift",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/depth-one-obstructed",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lift-depth"
       ],
       "reason": "Reuse the reviewed candidate ID from PAPER-BURUNGALE-KOBAYASHI-OTA-21. Its general finite-Qp formal-module foundation is exactly the common supplier; AGHMP adds the conjugate-semilinear, denominator and wild lifting-depth branch, not a second LT theory.",
@@ -2932,6 +3442,7 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/gspin-datum",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-connected",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-family",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/stack-normalization",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-selfdual",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-dr",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-crys",
@@ -2939,7 +3450,10 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-deformation",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-principal",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-fiberwise",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-specialization",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/parallel-rigidity",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-positive",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-positive-cosets",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-normalization",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-flat-normal",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-lci",
@@ -2949,8 +3463,11 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-ambient-map",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-ambient-line",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-independence",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-complement",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/coset-independence",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cosets",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-divisor",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-decomposition",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-pullback",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cartier",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/reflex-clifford",
@@ -2976,7 +3493,11 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-prime",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-etale",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-zero",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-realizations",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-nearby",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-split",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-local",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/special-cm-supersingular",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/completed-l",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/incoherent-eisenstein",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/diff-set",
@@ -2986,29 +3507,43 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/green-cm",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/main-intersection",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/local-whittaker",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-unrepresented",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-inert",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-ramified",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-denominators",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/gauss-support",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/annular-support",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/character-average",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-zero",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/constant-factor",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/local-length",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/whittaker-ratio",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-schwartz",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orbital-integral",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/fourier-orbital",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-decomposition",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-factor",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-complement",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/lt-coset-decomposition",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-special",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/bk-discriminant",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/crystalline-coset",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/norm-cm-cycle",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-point-count",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-support",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/nearby-schwartz-image",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-torsor",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lt-lifts",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/hodge-line-match",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-local-ring-length",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/ks-lift-depth",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/finite-cm-degree",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/constant-good",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/complement-theta",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/extended-green",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-support",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-intersection",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/proper-meeting",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/omega-height",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/prescribed-borcherds"
       ],
@@ -3038,7 +3573,10 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/standard-cm-line",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-nonsplit",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-supersingular",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/newton-factorization",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-classfunction",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-height",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-conjecture",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/colmez-linearity",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/reflex-orbits",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/average-character",
@@ -3056,6 +3594,7 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/orth-cm-line-adapter",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/height-error",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/auxiliary-good",
+        "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-lattice",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/different-character",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/averaged-colmez",
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/cm-integral-completion",
@@ -3079,7 +3618,9 @@
         "lift-depth"
       ],
       "remaining": "Collate Kisin06/10 and Kim12, fix the Tp(H∨) versus Tp(H)^∨(1) convention, write the exact Frobenius pullback formulas and align the kth/k+1 thickening definitions/PD maps. Expand all subparts of2.1.1/2.5.1 with their complete base hypotheses.",
-      "resume": "Start with the explicit source correction to Kis10 Theorem1.4.2 and the §2.5 obstruction's actual base rings. Do not change the confirmed denominator and valuation conventions."
+      "resume": "Start with the explicit source correction to Kis10 Theorem1.4.2 and the §2.5 obstruction's actual base rings. Do not change the confirmed denominator and valuation conventions.",
+      "status": "deferred",
+      "resolution": "The Breuil–Kisin classification (Kisin 2006/2010, Kim 2012) and its PD-thickening conventions are cited suppliers' proofs; E9 and E10 record the paper's own slips."
     },
     {
       "id": "G2",
@@ -3092,7 +3633,9 @@
         "special-cm-nearby"
       ],
       "remaining": "Read exact all-prime integral model and crystalline tensor inputs, the separate KMP16 appendix erratum, and MP15/MP16 special-endomorphism results. Resolve potential-good-reduction stack extension versus finite base extension and the connected-base nonzero/spanning hypothesis of5.4.6(3).",
-      "resume": "Retain the existing orthogonal owner; check the erratum's affected theorem before importing any Tate application. Never infer that all of KMP16 is invalid."
+      "resume": "Retain the existing orthogonal owner; check the erratum's affected theorem before importing any Tate application. Never infer that all of KMP16 is invalid.",
+      "status": "deferred",
+      "resolution": "The integral orthogonal models and crystalline tensors (MP15, MP16, KMP16 with its appendix erratum) are cited suppliers' proofs."
     },
     {
       "id": "G3",
@@ -3107,7 +3650,9 @@
         "borcherds-product"
       ],
       "remaining": "Reconcile the printed W*=γ/N^(f/2)W with7.1.8 and the starred/unstarred inert nearby display. Check the r=n boundary of7.1.4 rather than extending the strict application range. Read HY12/Yan05/BKY12, coherent Siegel–Weil and Hör14/HM17/Bru16 inputs; prove all additive measures, Weil indices, factor2 and metric constants.",
-      "resume": "Use E5's paired sign correction and the raw ratio tests as diagnostics, not as a substitute for the missing normalization proof. The final coefficient sign remains negative."
+      "resume": "Use E5's paired sign correction and the raw ratio tests as diagnostics, not as a substitute for the missing normalization proof. The final coefficient sign remains negative.",
+      "status": "deferred",
+      "resolution": "The local Whittaker values are taken from HY12, Yan05 and BKY12, which are cited suppliers; the sign question in the ratio is recorded as E5."
     },
     {
       "id": "G4",
@@ -3120,7 +3665,9 @@
         "faltings-omega"
       ],
       "remaining": "Read Col93 and DMOS. Repair positive ω0 metric and trace-normalized period statement; derive the determinant metric and the local total-reflex BK conductor values independently. Then prove9.4.1/9.4.2 with the correct2π factor. E1/E2 have concrete counterexamples; they do not by themselves establish every downstream corrected identity.",
-      "resume": "Start with the rank-one ramified quadratic cokernel and positive conductor functional, then the determinant action on local Hodge eigenspaces. Do not silently switch between cohomological and homological determinant lines."
+      "resume": "Start with the rank-one ramified quadratic cokernel and positive conductor functional, then the determinant action on local Hodge eigenspaces. Do not silently switch between cohomological and homological determinant lines.",
+      "status": "recorded",
+      "resolution": "The paper's own normalization mistakes are E1, E2, E3 and E4 (E4 now affects nothing); Col93 and DMOS are cited suppliers."
     },
     {
       "id": "G5",
@@ -3130,7 +3677,9 @@
         "height-error"
       ],
       "remaining": "Replace the false full-lattice equality(9.5.3) with an actual maximal-lattice and filtered-line calculation. Establish the normalized degree comparison and archimedean |ι(ξ)| factor. A complete replacement proof has not been found here.",
-      "resume": "Test arbitrary v_p(ξ), including ξ=p² at inert p, before proposing a general Fil1 formula. Use good-prime definitions and7.7.2, not the printed scalar multiple."
+      "resume": "Test arbitrary v_p(ξ), including ξ=p² at inert p, before proposing a general Fil1 formula. Use good-prime definitions and7.7.2, not the printed scalar multiple.",
+      "status": "recorded",
+      "resolution": "The wrong lattice identity (9.5.3) is E6, with a degree check in the unramified case, and the normalization of (9.5.1) is E7."
     },
     {
       "id": "G6",
@@ -3142,14 +3691,18 @@
         "averaged-colmez"
       ],
       "remaining": "Read Armitage and Bruinier inputs, decompose auxiliary self-dual enlargement existence and infinite admissible squarefree support, and state the classical d=1 input. Prove rational-log coefficient elimination without the false globally exact(9.5.5).",
-      "resume": "Prove each prime coefficient independently after choosing p-good L and p-self-dual L#. No need to kill every bad-prime ambiguity with one auxiliary choice."
+      "resume": "Prove each prime coefficient independently after choosing p-good L and p-self-dual L#. No need to kill every bad-prime ambiguity with one auxiliary choice.",
+      "status": "deferred",
+      "resolution": "The Armitage and Bruinier inputs are cited suppliers' proofs."
     },
     {
       "id": "G7",
       "severity": "inventory",
       "scope": "whole paper",
       "remaining": "Final statement-level atomization and locator pass: split remaining grouped4.3.4–6,5.4.3–5,7.1.5–7 and7.6 inputs; split the exact numbered parts of3.5.4, base hypotheses and explicit Frobenius matrices. Include remaining external definition leaves. Inspect journal images for grouped typographic findings not yet image-collated and verify each independently. Reading is complete, extraction closure is not.",
-      "resume": "Use the complete sequential readingLedger to compare every displayed/named result against items. Candidate checks still open:7.1.4 boundary,4.4.1 extension descent,5.4.6 nonzero condition, exact finite-conductor norm in9.3.1. Do not promote these candidates to false-statement findings without proof."
+      "resume": "Use the complete sequential readingLedger to compare every displayed/named result against items. Candidate checks still open:7.1.4 boundary,4.4.1 extension descent,5.4.6 nonzero condition, exact finite-conductor norm in9.3.1. Do not promote these candidates to false-statement findings without proof.",
+      "status": "resolved",
+      "resolution": "Every numbered statement is now its own item: the grouped statements are split and the omitted ones added, 31 new items in all, including Definitions 4.2.1 and 9.1.3 and Conjecture 9.1.6; Definitions 5.1.2 and 9.1.1 are the locators of existing items."
     }
   ],
   "sourceIssues": [
@@ -3159,7 +3712,7 @@
       "locator": "Published Lemma9.4.4 pp.517–518; author version targeted collation; journal p.517 image checked",
       "printed": "length C(Υ) = within(Υ)+within(Υc)−(1/2)length(C/D_B/A C)",
       "correction": "Reverse the sign: length equals the cross-pair valuation sum, hence half-discriminant minus the two within-subset sums. First split by embeddings of B0. In the proof n1(Υ)=cross+within(Υc), and C⊗_B A must read C⊗_A B.",
-      "reason": "Take A=Z3, B=C=Z3[π], π²=3, Υ={π↦π}. K(Υ)=(t−π), K(Υc)=(t+π), so the quotient is C/(2π), length1. Both within sums are0 and v_C(discriminant12)=2, giving the printed value−1. A negative module length is impossible. For a nontrivial unramified part, distinct embeddings can agree on π; only same-B0 embedding pairs belong in the ramified formula.",
+      "reason": "Take A=Z3, B=C=Z3[π], π²=3, Υ={π↦π}. K(Υ)=(t−π), K(Υc)=(t+π), so the quotient is C/(2π), length1. Both within sums are0 and v_C(discriminant12)=2, giving the printed value−1. A negative module length is impossible. For a nontrivial unramified part, distinct embeddings can agree on π; only same-B0 embedding pairs belong in the ramified formula. (cc-442dc5) Rechecked: with X the sum of v_C(τ(π_B) − σ(π_B)) over τ ∈ Υ and σ ∈ Υ^c, the cokernel of K(Υ) → ∏_{Υ^c} C has length X plus half the Υ^c-internal sum, so length C(Υ) = X; the printed right side is −X. Proposition 9.4.1 is unaffected: the final values in (9.4.12) and (9.4.13) are the positive ones the corrected sign gives.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -3167,7 +3720,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3176,7 +3730,7 @@
       "locator": "Published Proposition9.4.5 p.519 and equation(9.4.13) p.522; author version same sign; p.519 image checked",
       "printed": "length C(M,Υ) = −(e_P/2)(μ_p(a_Υ)+μ_p(a_Υc))",
       "correction": "Use +(e_P/2) with the positively defined Artin-conductor functional; the corresponding minus in(9.4.13) also changes. Recheck the local total-reflex cancellation before accepting9.4.1.",
-      "reason": "For K=Q3(√3), each singleton indicator is(1+χ)/2 on its quadratic Galois quotient. Its conductor functional is1/2, e_P=2, so the printed result is−1, whereas E1 computes length1. Formula(9.4.12) already has positive length and supports the intended correction.",
+      "reason": "For K=Q3(√3), each singleton indicator is(1+χ)/2 on its quadratic Galois quotient. Its conductor functional is1/2, e_P=2, so the printed result is−1, whereas E1 computes length1. Formula(9.4.12) already has positive length and supports the intended correction. (cc-442dc5) Rechecked on K = Q_3(√3), Υ a singleton: a_Υ = a_{Υ^c} = (1+χ)/2, μ_3 = 1/2 each, e_P = 2, so the printed value is −1 while the length is 1. The intermediate '−e_P μ_p' in (9.4.13) has the same sign slip; its final value e(P/E_q)·ord_q(d_{E/Q}) is right.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -3184,7 +3738,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3201,7 +3756,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3210,16 +3766,18 @@
       "locator": "Published §9.4 p.514 definition of the metric on ω0; journal image checked",
       "printed": "||z||²_0=−[z,bar z]_0",
       "correction": "For the positive standard space V0=End_conj(E), use its positive Hermitian form (or explicitly change the form's sign before applying the orthogonal convention). Recompute the determinant and orthogonal metric adapters, rather than changing one sign without proof.",
-      "reason": "Writing f_a(x)=a c(x), its square is a c(a), so Q0=Tr_F/Q(a c(a)) is positive definite. Thus [z,bar z]_0>0 for any nonzero complexified vector, and the printed negative value is not a squared norm. The orthogonal V has a negative real plane and is different.",
-      "affects": "a stated result",
+      "reason": "Writing f_a(x)=a c(x), its square is a c(a), so Q0=Tr_F/Q(a c(a)) is positive definite. Thus [z,bar z]_0>0 for any nonzero complexified vector, and the printed negative value is not a squared norm. The orthogonal V has a negative real plane and is different. (cc-442dc5) Reclassified to affect nothing: −[z, z̄]_0 is negative on the positive definite V0, so the only reading that gives a metric is ||z||_0² = [z, z̄]_0. That is the reading the paper uses: in the proof of Proposition 9.5.1, (9.5.2) carries the metric of ω (from V = (E, Tr ξ Nm), ξ < 0 at ι0) to |ι(ξ)| times that of ω0.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E5",
@@ -3235,7 +3793,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3244,7 +3803,7 @@
       "locator": "Published equation(9.5.3), p.523",
       "printed": "Λ_p=ξ d_Fp/Qp^−1 L0,p",
       "correction": "Do not use this equality of full lattices. Compute the actual maximal OE,p-stable lattice from ξ and its norm valuation, then prove the required filtered Hodge-line comparison directly; a complete replacement proof has not been established in this checkpoint.",
-      "reason": "Take F_p=Q_p and unramified quadratic E_q/F_p with ξ=p². Then d_F=1 and L0,p=OE,q. For Q=p²Nm a maximal OE-stable integral lattice is p^−1OE,q, whereas the printed expression is p²OE,q. The latter is strictly smaller and is not maximal. Weak approximation allows this local ξ valuation with the required global signs.",
+      "reason": "Take F_p=Q_p and unramified quadratic E_q/F_p with ξ=p². Then d_F=1 and L0,p=OE,q. For Q=p²Nm a maximal OE-stable integral lattice is p^−1OE,q, whereas the printed expression is p²OE,q. The latter is strictly smaller and is not maximal. Weak approximation allows this local ξ valuation with the required global signs. (cc-442dc5) Degree check in the unramified case: a self-dual O_E-stable lattice in (E_p, ξ Nm) is t·L0,p with t t̄ generating (ξ d_F)^{-1}; with this lattice the finite and archimedean ξ-terms cancel by the product formula and the degree difference is log|D_F| per point, as (9.5.1) asserts. The ramified case is not rechecked.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -3252,7 +3811,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3261,16 +3821,18 @@
       "locator": "Published equation(9.5.1), p.523",
       "printed": "[omegahat:Y]−deg_hat_Y(omegahat0)−log|D_F|≈_L0",
       "correction": "Divide the difference of arithmetic degrees by deg_C(Y), or multiply log|D_F| by that degree. Keep the normalization compatible with9.4.2 and8.3.4.",
-      "reason": "A finite étale level cover multiplies both degree terms but not log|D_F|. The surrounding formulas are normalized by deg_C(Y); the printed equation is not invariant under level change.",
-      "affects": "the proof",
+      "reason": "A finite étale level cover multiplies both degree terms but not log|D_F|. The surrounding formulas are normalized by deg_C(Y); the printed equation is not invariant under level change. (cc-442dc5) Reclassified to affect nothing: the surrounding formulas (Theorems 8.3.4 and 9.4.2, Proposition 9.5.1) are normalized by deg_C(Y), and (9.5.1) is used only in that normalized form.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E8",
@@ -3278,16 +3840,18 @@
       "locator": "Published §4.2 p.435, Kuga–Satake dimension sentence",
       "printed": "relative dimension 2^(n+2)",
       "correction": "For the full Clifford representation H=C(V), use relative dimension2^(n+1). Its degree-one homological realization has rank2^(n+2).",
-      "reason": "dim_Q V=n+2, so dim_Q C(V)=2^(n+2), whereas H_1 of an abelian variety has rank twice its dimension. This corrects the numerical dimension, not the chosen full-Clifford construction.",
-      "affects": "a stated result",
+      "reason": "dim_Q V=n+2, so dim_Q C(V)=2^(n+2), whereas H_1 of an abelian variety has rank twice its dimension. This corrects the numerical dimension, not the chosen full-Clifford construction. (cc-442dc5) Reclassified to affect nothing: dim_Q C(V) = 2^{n+2} is the rank of H_1, so the abelian scheme has dimension 2^{n+1}; the index of the Siegel stack is only a label and nothing downstream uses the number.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E9",
@@ -3303,7 +3867,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3320,7 +3885,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3337,7 +3903,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3354,7 +3921,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3363,16 +3931,18 @@
       "locator": "Published §4.3 opening and Propositions4.3.7/4.5.4 scalar-norm phrasing",
       "printed": "L_(p)→H_(p); Q:V(A_S)→Z",
       "correction": "The special representation embeds into End_C(H), not H. State the scalar quadratic form over connected S or as a locally constant integer on components.",
-      "reason": "Special tensors are endomorphisms of the Clifford representation. On a disjoint union one may choose a zero endomorphism on one component and a nonzero special one on another, so a single globally constant integer need not exist.",
-      "affects": "a stated result",
+      "reason": "Special tensors are endomorphisms of the Clifford representation. On a disjoint union one may choose a zero endomorphism on one component and a nonzero special one on another, so a single globally constant integer need not exist. (cc-442dc5) Reclassified to affect nothing: every application is to a connected base or reads Q(x) = m as x∘x = m·id, which makes sense on any S (Definition 4.5.6); End_C(H) for H in §4.3 is the evident intent.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E14",
@@ -3388,7 +3958,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3405,7 +3976,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3422,7 +3994,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3439,25 +4012,28 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E18",
       "kind": "misprint",
-      "locator": "Published §7.5 definition of m(p); Lemma7.5.3 congruence",
+      "locator": "Published §7.5 definition of m(p) (p.491); proof of Lemma 7.5.3, last sentence (p.494, image checked)",
       "printed": "m(p)=ord_q(d_F/Qp); x_cris≡u",
       "correction": "Use m(p)=ord_p(d_F/Qp) as in7.1 and the specified coset μ in the congruence.",
-      "reason": "At a ramified quadratic prime ord_q restricted to F is2ord_p, so the change would double m. The congruence is meant to encode μ, not an unrelated u.",
-      "affects": "the proof",
+      "reason": "At a ramified quadratic prime ord_q restricted to F is2ord_p, so the change would double m. The congruence is meant to encode μ, not an unrelated u. (cc-442dc5) Reclassified to affect nothing: §7.5 says 'As in Section 7.1', where m(p) is the p-adic valuation of d_{F_p/Q_p}. The stray u is in the last sentence of the proof of Lemma 7.5.3; the lemma itself prints η(1⊗μ).",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E19",
@@ -3473,7 +4049,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3490,7 +4067,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3507,7 +4085,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3516,16 +4095,18 @@
       "locator": "Published §8.3 vertical error support and Theorem8.3.4 denominator",
       "printed": "p²∤D_L; division by c_f(0,0)",
       "correction": "The possible odd-prime error support is p²|D_L#, with sharp lattice/dimension indices throughout; require c_f(0,0)≠0 for the divided formula.",
-      "reason": "Theorem4.8.1 makes the error vanish at odd primes with p²∤D_L#. The division is undefined for zero constant term, which Hypothesis8.3.1 alone does not exclude.",
-      "affects": "a stated result",
+      "reason": "Theorem4.8.1 makes the error vanish at odd primes with p²∤D_L#. The division is undefined for zero constant term, which Hypothesis8.3.1 alone does not exclude. (cc-442dc5) Reclassified to affect nothing: Theorem 4.8.1, which is what is used, gives E_p(f) = 0 for odd p with p²∤D_L, so the support sentence after (8.3.1) has a dropped negation. Theorem 8.3.4 is applied only to f with c_f(0,0) ≠ 0 (proof of Theorem 9.5.5, p.526).",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E23",
@@ -3533,16 +4114,18 @@
       "locator": "Published §9.4 p.518 class-function space preceding Proposition9.4.5",
       "printed": "Continuous class functions have a basis of irreducible finite-dimensional characters",
       "correction": "Restrict to locally constant class functions (finite-quotient functions) for the algebraic character expansion and Artin-conductor linear functional used here.",
-      "reason": "A general continuous class function on a profinite group need not factor through a finite quotient or be a finite character sum. The functions a_(K,Υ) used in the proof are locally constant, so the required application lies in the corrected space.",
-      "affects": "a stated result",
+      "reason": "A general continuous class function on a profinite group need not factor through a finite quotient or be a finite character sum. The functions a_(K,Υ) used in the proof are locally constant, so the required application lies in the corrected space. (cc-442dc5) Reclassified to affect nothing: μ_p is only applied to the locally constant functions a_(K,Υ), and on locally constant class functions the Artin characters are a basis.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "a stated result"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E24",
@@ -3550,16 +4133,18 @@
       "locator": "Published equation(9.5.5), p.526",
       "printed": "Σ_p b_E(p)log p=[Ehat#(f):Y]/(4c_f(0,0)deg_C(Y))",
       "correction": "Retain ≈_L, or assert equality only of coefficients at primes not dividing D_bad,L. The proof needs only the chosen good prime's coefficient.",
-      "reason": "Proposition9.5.1 provides a congruence modulo bad-prime logarithms. Replacing it by a global equality erases an uncontrolled term; Q-linear independence permits the required coefficientwise argument.",
-      "affects": "the proof",
+      "reason": "Proposition9.5.1 provides a congruence modulo bad-prime logarithms. Replacing it by a global equality erases an uncontrolled term; Q-linear independence permits the required coefficientwise argument. (cc-442dc5) Reclassified to affect nothing: the proof of Theorem 9.5.5 goes on to show, for each prime p separately, that E(f) misses M_{F_p} for a suitable L and f, which uses only the ≈_L form of Proposition 9.5.1.",
+      "affects": "nothing",
       "known": "new",
       "searched": [
         "Published Annals article and journal record https://annals.math.princeton.edu/2018/187-2/p03, checked2026-09-23.",
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
-      ]
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
+      ],
+      "previousAffects": "the proof"
     },
     {
       "id": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E25",
@@ -3575,7 +4160,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3592,7 +4178,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     },
     {
@@ -3609,7 +4196,8 @@
         "arXiv1508.00178 abstract/history: latest listed v3 is30September2017; no arXiv PDF collation claimed.",
         "Goren publications and Colmez_v3.5.pdf: targeted trace/length/conductor and Whittaker-ratio collation; no correction in those displays.",
         "Madapusi Pera research page https://keerthimadapusi.com/research: AGHMP entry has no linked erratum. The separate KMP16 appendix erratum (2020, DOI10.1017/fms.2020.2) is a prerequisite-scope gate, not an AGHMP erratum.",
-        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review."
+        "Targeted author/publisher/arXiv title+erratum/correction searches found no further AGHMP correction. This is a bounded search, not proof of priority or absence; every finding awaits independent review.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the published PDF re-fetched (SHA-256 e1274468…, matching); the Crossref record of DOI 10.4007/annals.2018.187.2.3 registers no update or erratum relation."
       ]
     }
   ],
@@ -3638,5 +4226,15 @@
     "missingRouteCoverage": "All122 missing items assigned exactly once, independently checked even though the schema checker relaxes completeness for partial files.",
     "review": "No independent review verdict is self-assigned.",
     "additionalChecks": "PASS:141 unique IDs, all122 missing items routed exactly once, all dependency references resolve, graph acyclic, all46 carriers have APIs and≥2 specification tests, all95 theorem items have proof outlines."
+  },
+  "summaryBefore": "The paper proves the averaged Colmez formula for maximal-order CM abelian varieties by evaluating arithmetic intersections of special divisors with a big CM cycle on GSpin integral models, including ramified and dyadic local deformation calculations. The finite-L normalization includes −d log(2π)/2. This extraction routes the local lifting package to the existing Lubin–Tate proposal, integral orthogonal geometry to the existing Kuga–Satake proposal, the big-CM intersection package to the existing GSpin divisor-height proposal, and total-reflex/height comparison to the existing CM Part II. Several printed local-length, metric, lattice and Whittaker formulas require correction or further source-level verification; no claim of disproof of the averaged Colmez theorem is made.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1143,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "Published PDF re-fetched (hash matches); every numbered statement listed from the text layer; E1, E2, E3, E4, E6, E8, E13, E18, E22, E23 and E24 re-read at their locators (p.494 image checked).",
+    "changes": "31 items split out of grouped or missing numbered statements; E4, E7, E8, E13, E18, E22, E23 and E24 reclassified to affect nothing; E1, E2 and E6 checked; gap statuses recorded; status complete."
   }
 }
