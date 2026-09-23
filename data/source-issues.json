@@ -85031,9 +85031,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed, and the defect is sharper than the author's own wording. I read the footnote at author p.20 verbatim: « Added after publication. As Gabber pointed out, the isomorphism ε_z ≅ Spec(k_z[u_z]/(u_z²)) deduced here from the Cohen structure theorem is a priori not an isomorphism of k_m-schemes unless the field k_m is perfect », continuing with the [CTHK97] presentation and the translations t ↦ t+α that this entry's correction records; the published p.18 carries the same sentence with no footnote, so `known` is exact. The counterexample also checks out and shows the k_m-structure genuinely fails rather than merely not following: in O/I_z² = k_m[t]/(u²) with u = t^p − s, Frobenius gives (Σ c_j t^j)^p = Σ c_j^p (s+u)^j = h(s) + h′(s)u with h ∈ k_m^p[X]; expanding in the k_m^p-basis 1, s, …, s^{p−1} of k_m, h(s) = s forces the degree-one component to be 1 and the others 0, so h′(s) = 1 ≠ 0. No element of O/I_z² has p-th power s, hence no k_m-algebra map k_z = k_m(s^{1/p}) → O/I_z². Reach `the proof` is right: the footnote itself supplies the repair."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E2",
@@ -85051,9 +85051,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed at both ends. In Gille's 2002 article, printed p.239, the proof of Lemme 3.12 runs « On peut donc supposer la classe γ_η isotrope. Il existe donc un k-sous-groupe parabolique j : Q/k = Z_G(S₀)·R_uQ ⊂ G/k (avec S₀ ⊂ S) tel que γ_η = j_*(β) ∈ Im(H¹(k(t),Q)_an → H¹(k(t),G)) » with nothing in between, so the k-parabolic is asserted without argument, as recorded. Gille's published erratum (Transform. Groups 10 (2005), pp.268–269) inserts exactly the argument this entry gives — E(X_I), the scheme of parabolics of type I, is proper over P¹_k and has a k(t)-point, hence a P¹_k-point, and the fibre at infinity is X_I because E_∞ is trivial, so X_I(k) ≠ ∅ — then repeats the « Il existe donc » sentence verbatim and says « Le reste de la preuve est inchangé ». The lemma's statement is unchanged and CES22 cites [Gil05] at the point of use (author p.25), both as recorded."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E3",
@@ -85071,9 +85071,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed, with one sub-claim of the correction flagged as unverified. Both printed passages are in the Astérisque text at printed p.54: « Vu que Z_ℌ(𝔖)/𝔖 est un schéma en groupe réductif dont la fibre spéciale est anisotrope, la théorie de Bruhat–Tits montre que (Z_ℌ(𝔖)/𝔖)(O) = (Z_ℌ(𝔖)/𝔖)(K) [10, 4.6.33] » and « il est bien connu que 𝔖(K) ⊂ ℌ(K)^+ [7, prop. 6.11] ». Gille's errata of 26 May 2026, p.4, headed « proof of Lemma 4.5 (pointed out by A. Zidani) », opens « There is more work to do to prove that M(O) = M(K) » and gives precisely the repair recorded here: the singleton comparison Par(M)(K) ≅ Par(M)(O) ↠ Par(M)(k), so M_K has no proper K-parabolic; the character-lattice argument over a Galois extension splitting T = rad(M), so T_K is anisotropic; then Guo's Proposition 6 for M(O) = M(K). Unverified: the final sentence of the correction, replacing « [7, prop. 6.11] » by Corollaire 6.8. Gille's errata does not touch that citation; [7] is Borel–Tits, « Homomorphismes “abstraits” de groupes algébriques simples », Ann. of Math. 97 (1973), which is not publicly accessible here; and the swap cannot refer to the 1965 « Groupes réductifs », whose 6.8 is a proposition on the restriction X*(T) → X*(S) and whose corollary in that range is 6.9. The verdict is on the gap itself, which is what the register carries."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E4",
@@ -85095,9 +85095,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed at three independent points. Definition 8.1 (author p.23) defines total isotropicity pointwise — « for every s ∈ S », with the canonical decomposition over O_{S,s} and each factor containing G_{m,O_{S,s}}, equivalently having a proper parabolic O_{S,s}-subgroup — so it supplies a parabolic over each local ring, while the proof of Proposition 8.4 claim (2) writes « the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1) ». The author's post-publication footnote in the survey (arXiv 2201.06424v4, p.26) states the same defect in his own words: for semilocal A the assumption must be strengthened so that each G^{r_i} contains G_{m,S_i}, « whereas total isotropicity would supply such a parabolic only after base change to each local ring of A ». I also checked the load-bearing steps of the counterexample: 2 has order 3 mod 7 and nontrivial class in (Z/7)^×/{±1}, so it is inert in the cyclic cubic field ℚ(ζ₇+ζ₇^{-1}) and its valuation is not divisible by 3 in the unramified cubic extension of ℚ₂, whence 2 is not a norm and D = (L₁/ℚ, σ, 2) is division; L₁ splits D and ℚ(i) splits (−1,−1), which is what makes the patching data match; and parabolics of SL₂(D) and SL₃(H) have reduced dimensions in {3} and in {2,4}, disjoint, so no parabolic R-subgroup exists, its type being constant on the connected Spec R. I did not re-derive the conductor-square bookkeeping of the patching. Reach is right: Theorem 9.1 applies Proposition 8.4 to quasi-split G, which has a Borel over R."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E5",
@@ -85119,9 +85119,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed at glyph level in both versions, and the same page settles it. In the author PDF p.25 the runs read R ((t)) ↠ ∏ with a 7.97pt fraktur 𝔪 subscript, then a full-size k followed immediately by ((t)) with no subscript of any size; published p.24 is the same in its own fonts, the 𝔪 after the product set in the subscript face and the following k in the text face. Two lines above, the display of the very same surjectivity prints (ℛ_u(P))(R((t))) ↠ ∏_𝔪 (ℛ_u(P))(k_𝔪((t))) with the subscript present, and claim (2) writes k_𝔪 throughout, so the bare k is a slip and the correction is the paper's own notation, as recorded."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E6",
@@ -85143,9 +85143,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed in both versions: published p.26 and author p.28 print « y ∈ H¹(R, Out(G, B)) whose image in H¹(R, Out(G)) is also x̄ », while the short exact sequence displayed immediately above is 1 → B^ad → Aut(G, B) → Out(G) → 1 and the splitting invoked in the preceding sentence is Out(G) → Aut(G, B). Out(G, B) occurs nowhere else in the paper and is never defined, so the intended group is Aut(G, B) and the reach is nil, as recorded."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E7",
@@ -85167,9 +85167,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed, and the example holds. The proof of Corollary 9.6 opens exactly as quoted and then twists only by SO(E)- and O(E)-torsors, so pure inner twists are all it uses — which is the recorded reach of nothing. The unrestricted sentence is false for even n: (−1,−1)_ℚ ramifies at {2, ∞} and (−1,3)_ℚ at {2, 3} — at 3 because −1 is not a square mod 3, at 2 by the unit formula, and split at ∞ because 3 > 0 — so they are non-isomorphic division algebras, and A = H ⊗ H′ with σ = γ ⊗ γ′ is a degree-4 algebra with orthogonal involution of trivial discriminant whose SO(A, σ) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E), because a 4-dimensional form of trivial discriminant is similar to a quaternion norm form, whose even Clifford algebra is Q × Q with equal factors. The entry's real-place check is correct too, and avoids the classification of algebras with involution: the example has Lie algebra su(2) ⊕ sl₂(ℝ), while so(4), so(2,2) and so(3,1) are su(2) ⊕ su(2), sl₂(ℝ) ⊕ sl₂(ℝ) and the simple sl₂(ℂ)."
   },
   {
    "id": "PAPER-CESNAVICIUS-22/E8",
@@ -85192,9 +85192,9 @@
    "owner": "PAPER-CESNAVICIUS-22",
    "file": "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
    "citation": "Česnavičius, \"Grothendieck–Serre in the quasi-split unramified case\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "reviewReason": "Confirmed in the published bibliography, p.27: the entry prints « Preprint, 2020. arXiv: 1911.0766v2. » and carries, in the same entry, the URL http://arxiv.org/abs/1911.07666v2 — the identifier is one digit short of its own link. The author version p.29 gives only the correct form, so this is publication-specific, as recorded, and harmless."
   },
   {
    "id": "PAPER-CHARLES-16/E1",
@@ -91542,7 +91542,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91566,7 +91569,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91590,7 +91596,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91614,7 +91623,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91638,7 +91650,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91662,7 +91677,10 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91686,7 +91704,98 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed."
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8",
+   "kind": "error",
+   "locator": "§1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; independently rechecked by Codex codex-7e92bd on 23 September 2026; final Duke text not collated",
+   "printed": "There is a unique [b_μ]",
+   "correction": "Require existence of an ordinary class attaining the Hodge average; quasi-split G is a sufficient local hypothesis. The maximal admissible class need not attain that average. Any downstream non-emptiness or density assertion must retain its other hypotheses and separately justify realizability.",
+   "reason": "Independently checked the local obstruction for the quaternion division algebra D/Q_p. Over L, identify D× with GL₂ with Frobenius σ_D=Int(J)σ, J=[[0,p],[1,0]]. The bijection [b]_G↦[bJ]_GL₂ shifts κ by 1 and both Newton slopes by 1/2: the adjoint Frobenius actions agree and the determinant valuations differ by 1. For μ_m=(m+1,m), an ordinary class would therefore yield two distinct rank-one GL₂ isocrystals of slopes m+3/2 and m+1/2, impossible since rank-one slopes are integral. Admissibility confines the GL₂ slopes to [m+1/2,m+3/2], with sum 2m+2. Distinct slopes would each be integral, but the only integer in that interval is m+1. Thus the sole possible Newton vector is (m+1,m+1), realized by b=p^m J, for which bJ=p^(m+1)1. The G-vector is (m+1/2,m+1/2), strictly below μ_m. Taking m=−1 handles an inverse-Hodge representative (0,−1). Kisin–Zhou v2 Definition 2.2.4 and Remark 2.2.5 explicitly state the same existence restriction. This disproves the universal local assertion as printed, not a fully specified global integral-model example or the entire density corollary.",
+   "affects": "a stated result",
+   "known": "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 state the ordinary-existence restriction. No KMPS erratum identified; journal-version collation remains outstanding.",
+   "searched": [
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E9",
+   "kind": "error",
+   "locator": "Corollary 1.3.13 proof, p.19; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; independently rechecked by Codex codex-7e92bd on 23 September 2026; final Duke text not collated",
+   "printed": "C_D,L is equivalent to Rep_L G_s0",
+   "correction": "Replace the asserted equality of Tannakian groups by the subgroup H⊂G_s0 given by the full generated category. Evaluation followed by forgetting Frobenius is Vec_L-valued; F-Isoc(s0) itself remains Q_p-linear. Construct the desired functor by restriction from G_s0 to H and justify the descent of every needed invariant morphism and idempotent; this checkpoint does not complete that descent.",
+   "reason": "The selected tensors give only H⊂G_s0. This can be strict within the stated Hodge-type setting: take the CM elliptic curve y²=x³−x with CM by Q(i), its torus Shimura datum T=Res_{Q(i)/Q} G_m, and p=5. Its discriminant is a 5-adic unit; direct counting gives #E(F_5)=8 and trace −2, so its two crystalline slopes are 0 and 1. On a geometric component of the zero-dimensional special fibre, the isocrystal is 1⊕L(1), up to the dual convention, where L(1) denotes the rank-one slope-one object. Its full generated Tannakian category, after extension of scalars to L, is Rep_L G_m: the unit has no independent character and all other objects are sums of integral Tate powers. The stabilizer of the CM Hodge tensors is instead T_L≅G_m², of dimension two. Thus the printed equivalence is false, not merely unjustified; kind is changed from gap to error affecting the proof. This does not disprove the final exact faithful tensor-functor statement: restriction along G_m→G_m² can be exact and faithful without being full.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E11",
+   "kind": "misprint",
+   "locator": "Corollary 1.3.13 proof, p.19; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; independently rechecked by Codex codex-7e92bd on 23 September 2026; final Duke text not collated",
+   "printed": "ω_L(V_m,n)=D^⊗m⊗D*^⊗n",
+   "correction": "For V_m,n=V^⊗n⊗V*^⊗m, its image is D^⊗n⊗D*^⊗m.",
+   "reason": "Independently read the p.19 formula and surrounding definitions in the page image. At (m,n)=(0,1), V_m,n is V and must map to D, whereas the printed formula gives D*. Interchanging the displayed exponents fixes the tensor convention. This misprint is separate from the invalid categorical equivalence E9.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E12",
+   "kind": "misprint",
+   "locator": "Proposition 2.3.11 proof, p.34; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; independently rechecked by Codex codex-7e92bd on 23 September 2026; final Duke text not collated",
+   "printed": "{μ_X}_p",
+   "correction": "Choose the crystalline cocharacter λ_T in {μ_X^{-1}}_p with Nλ_T=ν_δ. The corresponding Hodge cocharacter is λ_T^{-1}; use it for the special pair.",
+   "reason": "Independently compared Lemma 1.3.9 (p.18), Lemma 2.3.10 (p.33), and every use of the cocharacter in the p.34 proof. Crystalline δ belongs to B(G,{μ_X^{-1}}). Choose λ_T there with Nλ_T=ν_δ; λ_T^{-1} is the Hodge cocharacter used to construct h_x, while λ_T remains in the Newton and κ formulas. Lemma 2.3.10 then compares both Frobenius elements using m log_p(q)·λ_T^♯; sufficiently divisible m removes the torsion ambiguity. Merely inserting an inverse into the first conjugacy class while leaving the later Hodge identification unchanged would not repair the proof. With the consistent two-cocharacter convention the intended sign is clear; classified as a misprint affecting nothing.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
@@ -91700,7 +91809,7 @@
    "kind": "error",
    "locator": "§2.2.7, proof of Proposition 2.2.2, p.27 in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db); the published Duke Math. J. 171 (2022), 1559–1614 text has not been collated",
    "printed": "“let G″ be the connected component of the identity of G′ ×_{G^ad} G”; “ψ″ = ψ ⊕ ψ′”",
-   "correction": "The block-diagonal map into GSp(V⊕V′,ψ⊕ψ′) additionally requires equality of the two similitude characters. Replace the group by the identity component of the subgroup of G′×_{G^ad}G cut out by c′(g′)=c(g). The paired Hodge homomorphism has equal multipliers and factors through this subgroup. Recheck the subsequent lifting and centralizer arguments for this corrected group; the present checkpoint establishes the missing condition, not the full repaired proposition.",
+   "correction": "The block-diagonal map into GSp(V⊕V′,ψ⊕ψ′) additionally requires equality of the two similitude characters. Replace the group by the identity component of the subgroup of G′×_{G^ad}G cut out by c′(g′)=c(g). The paired Hodge homomorphism has equal multipliers and factors through this subgroup. Recheck the subsequent lifting and centralizer arguments for this corrected group; the present checkpoint establishes the missing condition, not the full repaired proposition. The related construction in Kisin–Zhou arXiv:2103.09945v2 §4.3.7, p.40, explicitly uses (G₂×_{G^ad,G_m}G)^0. Its Proposition 4.4.10, p.45, checks the projection maps using product projectors, central kernels and Frobenius centralizers. Those results have additional integral-model hypotheses; they are evidence for the repair strategy, not a completed verification of this proposition in its full generality.",
    "reason": "The fibre product over the adjoint group does not identify the central multipliers, and taking its identity component does not fix this. Test G′=G=GSp_2=GL_2 with the same Siegel datum and standard representation. The curve a↦(a·1,1) lies in the identity component of the fibre product over PGL_2. At a=2 its block-diagonal action scales ψ′ by 4 and ψ by 1, so it is not a similitude of their direct sum. These data satisfy the accommodating type-C setup (standard two-dimensional representation, with no proper nonzero invariant subspace). Hence the asserted embedding fails even in this basic allowed case. The equality-of-multipliers subgroup removes the obstruction; this is distinct from E5, where equality in all of G^ab is needed for descent. Independently read §2.2.7 pp.26–28 and the p.27 image. E13 avoids reusing E8–E12, which already identify different findings in the newer extraction.",
    "affects": "the proof",
    "known": "new",
@@ -91710,7 +91819,11 @@
     "Publisher article/PDF links at https://projecteuclid.org/journals/duke-mathematical-journal/volume-171/issue-7/HondaTate-theory-for-Shimura-varieties/10.1215/00127094-2021-0063.full and the Crossref download link https://projecteuclid.org/journalArticle/Download?urlid=10.1215/00127094-2021-0063 did not yield article text (HTML challenge responses). Published-version status remains open.",
     "Author publication pages https://math.berkeley.edu/~swshin/ , https://people.math.harvard.edu/~kisin/preprints.html and https://keerthimadapusi.com/research checked: no later KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; they concern three other papers.",
     "Earlier https://people.math.harvard.edu/~kisin/dvifiles/newton2.pdf (34 pp., 18 August 2018, SHA-256 f3f2b164540a1c8524a947b413bd9facdd261441ff4665dc5d4ef0dc699f2f70) compared at (1.1.2.2), Corollary 1.1.15, Proposition 1.2.5 and A.2: E1–E3 and E7 persist. This is not a published-version collation.",
-    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation."
+    "Bounded title/DOI/erratum/corrigendum and arXiv searches on 23 September 2026 found no correction or arXiv version of this paper; absence from search results is not proof of absence. 'new' remains provisional pending published-text collation.",
+    "Independent continuation by Codex codex-7e92bd, 23 September 2026: https://math.berkeley.edu/~swshin/HT.pdf reacquired, SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; author pages 18–22, 27–28 and 33–34 read, with images 19–21, 27 and 34 checked. Published-version collation remains outstanding.",
+    "Crossref DOI 10.1215/00127094-2021-0063 metadata refreshed: no correction relation or update found. OpenAlex DOI lookup has no open-access full-text location. Publisher article, PDF and Crossref download routes did not provide the journal text; no access restriction was bypassed.",
+    "Shin, Kisin and Madapusi publication pages and bounded title/DOI/erratum searches refreshed on 23 September 2026; no KMPS correction found. Both pages of https://math.berkeley.edu/~swshin/errata.pdf read; SHA-256 0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be; only three other papers are listed.",
+    "Kisin–Zhou https://arxiv.org/pdf/2103.09945v2, SHA-256 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8: p.10 Definition 2.2.4/Remark 2.2.5 distinguish ordinary existence from maximality; p.40 §4.3.7 imposes a common multiplier; p.45 Proposition 4.4.10 checks centralizer exact sequences. This is related literature, not an identified KMPS erratum."
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
