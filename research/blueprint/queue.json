@@ -2984,8 +2984,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KALETHA-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1190"
+   "state": "pending",
+   "note": "released on GitHub issue #1190"
   },
   {
    "id": "REV-PAPER-KALETHA-16",
