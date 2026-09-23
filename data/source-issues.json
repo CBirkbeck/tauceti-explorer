@@ -44948,22 +44948,22 @@
    "kind": "error",
    "locator": "Theorem 1.1(ii), p. 2, against Theorem 5.4(ii), p. 54",
    "printed": "Theorem 1.1(ii): 'In general, the kernel and cokernel of this map are annihilated by p^N for an integer N = N(e,p,r), which depends on e, r, but not on X or n.' Theorem 5.4(ii): 'In general, the kernel and cokernel of this map is annihilated by p^N for an integer N = N(K,p,r), which depends on K, p, r.'",
-   "correction": "The constant depends on K, as Theorem 5.4(ii) says; Theorem 1.1(ii) overstates it as depending only on e, p and r.",
-   "reason": "These are the same theorem — §1.1.1 states it, §5.1 proves it — and the proof of Theorem 5.4(ii) obtains the constant by passing to R_i = R(ζ_{p^i}) with i ≥ c(K)+3, where c(K) is the conductor of K, and then descending by Lemma 5.9, whose constant involves the relative ramification index e_1 and the different δ_{K_1/K_0}. None of that is controlled by e alone. Remark 1.7 confirms the reading: the descent introduces 'constants depending on K', and the authors write that 'it seems likely that one could make the constants depend only on the valuation of the different of K and not on K itself' — an expectation, not what is proved.",
+   "correction": "Do not replace Theorem 1.1(ii) by a purported correction on this evidence. Preserve its N(e,p,r) source statement and separately record the unclosed uniform-descent obligation.",
+   "reason": "Rejected as an error claim. N(K,p,r) is a weaker statement than N(e,p,r), not a contradiction. Dependence on c(K) alone does not show that c(K) cannot be bounded in terms of e,p. Colmez 2008 §4.1–4.2, pp.148–150, defines this conductor and proves Proposition 4.5. A uniform descent estimate remains a proof obligation; this review neither disproves nor certifies Theorem 1.1(ii).",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Rejected as an error claim. N(K,p,r) is a weaker statement than N(e,p,r), not a contradiction. Dependence on c(K) alone does not show that c(K) cannot be bounded in terms of e,p. Colmez 2008 §4.1–4.2, pp.148–150, defines this conductor and proves Proposition 4.5. A uniform descent estimate remains a proof obligation; this review neither disproves nor certifies Theorem 1.1(ii)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E2",
@@ -44975,17 +44975,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed on rendered p.6 and the corrected comparison on p.66: the filtered comparison must have B_dR on both sides. Item 15 now agrees."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E3",
@@ -44997,17 +44997,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed against §2.2.7 and the same identity restated below: this is the Kummer monomial, and the map is ϕ_Kum."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E4",
@@ -45019,17 +45019,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: §2.3.4 defines v_R; r_R is not a second radius. The four occurrences in Lemma 2.18 use v_R."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E5",
@@ -45041,17 +45041,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: θϕ^(−n)(π_K) varies with n and specializes to ϖ at n=0; a fixed ϕ^(−1) cannot define this tower."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E6",
@@ -45063,17 +45063,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed by a counterexample to the stronger first estimate, not merely by comparison with a weaker iterate. Take p=3, K=Q_3(ζ_27), δ_R=0, e_0=18, n=1,k=0, γ(T)=(1+T)^28−1, and the Gauss valuation v_3(T)=1/9 on the v=2 boundary. γ(T)−T has valuation 2: the unique minimum of v_3(binomial(27,j))+j/9 is at j=9. The printed target T^10(3,T^18) has valuation at least 19/9. With T^9 the bound is 2, agreeing with the proof and iteration."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E7",
@@ -45085,17 +45085,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: the constant term is p, so the displayed polynomial is π/π_1 rather than π. The binomial expansion gives the corrected identity."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E8",
@@ -45107,61 +45107,61 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: S and Λ are the two rings at this point; R_1,R_2 belong to the later two-copy construction."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E9",
    "kind": "misprint",
    "locator": "proof of Lemma 3.1, last line, p. 32",
    "printed": "and we can take N(r,e) = inf_{k∈N}(−1 − kr + p^{k−1}/e).",
-   "correction": "N(r,e) = −inf_{k∈N}(−1 − kr + p^{k−1}/e), that is sup_{k∈N}(1 + kr − p^{k−1}/e).",
+   "correction": "Use N(r,e)=ceil(max(0,sup_{k≥0}(1+kr−p^{k−1}/e))), with the analogous u-dependent integer bound for the analytic ring.",
    "reason": "N(r,e) is used in the statement of Lemma 3.1 as the exponent of a p-power ('1 − p^{−s}ϕ is p^{N(r,e)}-bijective'), so by Definition 1.13 it must be a nonnegative integer; the printed infimum is negative already at k = 0, where it equals p^{−1}/e − 1 < 0. The infimum is the lower bound for the valuations of the terms of the inverse series Σ_k p^{−ks}ϕ^k, so the exponent needed to clear the denominators is its negative.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed with an additional integer-rounding correction: the controlling loss is the negative infimum, rounded upward and bounded below by zero. For p=3,e=2,r=1 its supremum is 3/2; an exponent in N must be 2."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E10",
    "kind": "misprint",
-   "locator": "proof of Lemma 3.2, p. 32 (four slips in one proof)",
+   "locator": "Proof of Lemma 3.2, p.32 (five slips in one proof)",
    "printed": "If j ∈ J_i, we have ϕ(ω_j) = p^jω_j. … we have A ⊂ B and ϕ(B) ≤ A. To show p^s-injectivity, since F^rA = A ∩ F^rB, it suffices to show that (p^s − p^iϕ)x ⊂ A implies that x ∈ A. … hence (1 − p^{i−s}ϕ)p^{−s}g_2 ∈ p^{−s−r}A",
-   "correction": "ϕ(ω_j) = p^iω_j (equivalently p^{|j|}ω_j); ϕ(B) ⊂ A; (p^s − p^iϕ)x ∈ A; and (1 − p^{i−s}ϕ)g_2 ∈ p^{−s−r}A, without the factor p^{−s}.",
+   "correction": "ϕ(ω_j) = p^iω_j (equivalently p^{|j|}ω_j); ϕ(B) ⊂ A; (p^s − p^iϕ)x ∈ A; and (1 − p^{i−s}ϕ)g_2 ∈ p^{−s−r}A, without the factor p^{−s}. Also replace the conclusion x∈A in the p^s-injectivity argument by p^s x∈A.",
    "reason": "j is a multi-index (j_1 < ⋯ < j_i), so p^j is undefined; the natural Frobenius multiplies each dX/X by p, hence ω_j by p^i, which is also what the parenthesis in the next clause requires ('the map becoming p^s − p^iϕ'). A and B are rings, so ≤ is not a relation between them, and the next sentence writes ϕ(B) ⊂ A. x is an element of B, so (p^s−p^iϕ)x is an element and the conclusion drawn about it is a membership. And g_2 ∈ p^{−[ru]}R^+_ϖ ⊆ p^{−r}A with ϕ(B) ⊂ A already give (1−p^{i−s}ϕ)g_2 ∈ p^{−s−r}A; the extra p^{−s} would give only p^{−2s−r}A, and the next clause subtracts (1−p^{i−s}ϕ)g_1 from f, with g = g_1+g_2 and no such factor. The p^{−s} belongs to the rewriting (1−p^{i−s}ϕ) = p^{−s}(p^s−p^iϕ) used in the last line.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed on rendered p.32, including a fifth slip: the injectivity argument proves p^s x∈A, not x∈A. The claim needed there is precisely p^s-injectivity."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E11",
@@ -45173,17 +45173,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: c_e has no definition in the text/source. The two exact comparisons and Lemma 3.6 give p^(2r) for this truncated comparison."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E12",
@@ -45195,17 +45195,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: use the arithmetic lower-case r_N tensor R^+ and take closure in the untruncated ambient ring. The printed self-reference cannot define the object."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E13",
@@ -45213,21 +45213,21 @@
    "locator": "proof of Lemma 3.4, p. 33",
    "printed": "Ω^1 = ⊕_{1≤j≤d+1} Z dX_j/X_j and Ω^i = ∧^iΩ^1",
    "correction": "Ω^1 = ⊕_{0≤j≤d} Z dX_j/X_j, the convention used everywhere else.",
-   "reason": "§3.1 sets J_i = {0 ≤ j_1 < ⋯ < j_i ≤ d}, §2.6.2 sets Ω^1 = ⊕_{j=0}^d Z dX_j/X_j and §3.5 sets Ω^1_i = ⊕_{j=0}^d Z dX_{i,j}/X_{i,j}; the eigen-decomposition in this very proof is indexed by α = (α_0,…,α_d) with the d = 0 case reading S_α --α_0--> S_α, so the first coordinate is α_0. The two index sets have the same cardinality and, through the relation X_{d+1}X_{a+1}···X_{a+b} = X_0, span the same module, so nothing downstream changes.",
+   "reason": "Confirmed index correction, but the original explanation was too strong. Since X_(d+1) product X_j=X_0^h, hω_0=ω_(d+1)+sum ω_j; the two indicated integral lattices need not coincide when p divides h. Use indices 0,…,d as in §3.1, not an asserted integral basis change.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed index correction, but the original explanation was too strong. Since X_(d+1) product X_j=X_0^h, hω_0=ω_(d+1)+sum ω_j; the two indicated integral lattices need not coincide when p divides h. Use indices 0,…,d as in §3.1, not an asserted integral basis change."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E14",
@@ -45239,17 +45239,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed by augmentation: the cokernel of γ_0−1 on Z_p[[Γ_K]] is Z_p. The terminal augmentation term is required."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E15",
@@ -45261,39 +45261,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: the referenced numbered statement is Proposition 4.5, not a lemma."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E16",
-   "kind": "misprint",
+   "kind": "gap",
    "locator": "Proposition 4.9, p. 46, against Lemma 4.10, p. 46",
    "printed": "Proposition 4.9. The natural map Kos(ϕ,Γ_R,A^{(0,v]+}_R(r)) → Kos(ϕ,Γ_R,A_R(r)) is a p^8-quasi-isomorphism. Proof. We will use the quasi-isomorphisms with ψ-complexes. The proposition is a direct consequence of Lemmas 4.10 and 4.12 below.",
-   "correction": "A p^N-quasi-isomorphism with N depending on p — the two cited lemmas give p^{p+7}.",
-   "reason": "Lemma 4.10 is stated as a p^{p+7}-quasi-isomorphism and Lemma 4.12 as a quasi-isomorphism, so the composite the proof describes is a p^{p+7}-quasi-isomorphism (applied for both S = A^{(0,v]+}_R and S = A_R); and p+7 > 8 for every prime p, so the printed exponent is smaller than what the proof yields. What the proposition needs, and what its proof gives, is that the constant is independent of r and of n — which is how Theorem 4.14 uses it, through the p-dependent c_p.",
+   "correction": "Either prove the printed p^8 bound separately or use the safe p^(2(p+7)) bound from Lemmas 4.10 and 4.12; this weaker bound suffices for the p-dependent additive constant in Theorem 4.14.",
+   "reason": "Confirmed only as a proof gap for the printed exponent 8. A larger bound from a cited lemma does not disprove p^8. From the two vertical p^(p+7)-isomorphisms and the bottom isomorphism one safely obtains p^(2(p+7)) for the top map on cohomology. The claimed sharper exponent needs another argument.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed only as a proof gap for the printed exponent 8. A larger bound from a cited lemma does not disprove p^8. From the two vertical p^(p+7)-isomorphisms and the bottom isomorphism one safely obtains p^(2(p+7)) for the top map on cohomology. The claimed sharper exponent needs another argument."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E17",
@@ -45301,21 +45301,21 @@
    "locator": "§4.7, p. 50, the displayed definition of Syn(R,r)_n",
    "printed": "Define the syntomic complexes Syn(R,r)_n := [F^rΩ^•_{E^PD_{R,n}} --p^r−p^•ϕ--> Ω^•_{E^PD_{R,n}}].",
    "correction": "Syn(R,r)_n := [F^rΩ^•_{R^PD_{ϖ,n}} --p^r−p^•ϕ--> Ω^•_{R^PD_{ϖ,n}}].",
-   "reason": "§3.1 defines Syn(R,r) := Kum(R^PD_ϖ,r), and eight lines later the same complex appears as the source of α̃^FM_{r,n} written with R^PD_{ϖ,n}, while the E^PD-version is the target inside C(G_R,−). As printed the definition would make the Fontaine–Messing period map a self-map of one object.",
+   "reason": "Confirmed by the definition in §3.1: Syn starts over R^PD_ϖ. The fat period ring occurs in the target cochain construction; calling this a self-map was inaccurate.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed by the definition in §3.1: Syn starts over R^PD_ϖ. The fat period ring occurs in the target cochain construction; calling this a self-map was inaccurate."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E18",
@@ -45327,39 +45327,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed by bibliography and Beilinson arXiv:1111.3316v4, p.13, Theorem (1.9.2), whose actual map is filtered derived log de Rham to log crystalline modulo F^m. [8] is Berger; [7] is Beilinson."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E19",
    "kind": "misprint",
-   "locator": "§3.6, p. 37, and §5.2.3, p. 58 (twice)",
+   "locator": "§3.6 p.37 and §5.1.6 p.58; both refer to §2.2.2",
    "printed": "Let X be a semistable formal scheme over O_K (i.e., locally of the form described in section 2.1.2 with h = 1)",
    "correction": "section 2.2.2.",
    "reason": "The paper has no §2.1.2: §2.1 is 'The implicit function theorem' and has no subsubsections. §2.2.2 is where the local form R_□ = O_K{X,1/(X_1···X_a),ϖ^h/(X_{a+1}···X_{a+b})} with the multiplicity h is defined.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed. The second occurrence is §5.1.6 on p.58, not §5.2.3. Both refer to the framed setup §2.2.2."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E20",
@@ -45371,17 +45371,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed: exterior degree t tensors t copies of the degree-one (−1) twist and therefore has twist (−t)."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E21",
@@ -45393,39 +45393,39 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed on rendered p.57: a divisor Gysin map shifts degree by 2 and twist by 1, yielding H^(i−2)(D,−1) before H^i and H^(i−1)(D,−1) after it."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E22",
    "kind": "gap",
    "locator": "Lemma 5.9, p. 57, against its proof, pp. 57–58",
-   "printed": "The natural map RΓ_syn(R,r) → RΓ(G,RΓ_syn(R_1,r)) is a p^{cre_1}-quasi-isomorphism for some universal constant c. … [proof] It remains to show that the map RΓ_cr(R)/F^r ≅ RΓ(G,RΓ_cr(R_1)/F^r) is a rp v_p(δ_{K_1/K_0}) + e_1-quasi-isomorphism.",
-   "correction": "Either the statement's constant or the proof's has to be adjusted so that they agree, and K_0 has to be defined.",
-   "reason": "The Frobenius half of the proof produces p^{4rm} with p^m ≥ e, and the filtration half produces a constant of the shape rp·v_p(δ_{K_1/K_0}) + e_1 quoted from Nekovář–Nizioł; neither is visibly of the form c·r·e_1 with c universal. Moreover K_0 is never defined in this paper — the notation δ_{K/K_0}, δ_{K_1/K_0} is imported from [46], while §2.2.1 defines the unrelated δ_K = e·v_p(d_{K/F_{i(K)}}). Since this lemma is what turns Theorem 5.4(i) into Theorem 5.4(ii), the shape of its constant is exactly what finding E1 is about.",
+   "printed": "Lemma 5.9: p^{c r e_1}; proof p.58: r p^{v_p(δ_{K_1/K_0})}+e_1.",
+   "correction": "Specify the meaning of K_0 in the imported absolute-different estimate, and prove a relative descent bound independent of the absolute ramification of K. Until then retain the source statement as an unclosed obligation.",
+   "reason": "Confirmed only after narrowing and correcting the evidence. The scalar printed on p.58 is r p^{v_p(δ_{K_1/K_0})}+e_1, not r p v_p(δ)+e_1. K_0 is defined as K in §2.2.1, whereas the cited Nekovář–Nizioł argument uses K_0=W(k)[1/p]. Their v5 Corollary 2.4, pp.10–11, proves rational comparison via absolute-different torsion and does not state this relative uniform exponent. The displayed p^(4rm) with p^m≥e also retains absolute ramification. A relative descent proof giving the announced universal c r e_1 is missing here; these coarser estimates are not a counterexample to the lemma.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed only after narrowing and correcting the evidence. The scalar printed on p.58 is r p^{v_p(δ_{K_1/K_0})}+e_1, not r p v_p(δ)+e_1. K_0 is defined as K in §2.2.1, whereas the cited Nekovář–Nizioł argument uses K_0=W(k)[1/p]. Their v5 Corollary 2.4, pp.10–11, proves rational comparison via absolute-different torsion and does not state this relative uniform exponent. The displayed p^(4rm) with p^m≥e also retains absolute ramification. A relative descent proof giving the announced universal c r e_1 is missing here; these coarser estimates are not a counterexample to the lemma."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-17/E23",
@@ -45433,21 +45433,329 @@
    "locator": "Remark 5.27, p. 66",
    "printed": "It is shown in [49] that the distinguished triangles (5.13) and (5.23) lift canonically to the category of finite dimensional Banach Spaces.",
    "correction": "[52].",
-   "reason": "Reference [49] is 'K-theory of log-schemes I', Doc. Math. 13 (2008), which predates the Banach-Space formalism of this paper and is about K-theory; [52] is 'Geometric syntomic cohomology and vector bundles on the Fargues–Fontaine curve' (arXiv:1605.07216), which is exactly about realising syntomic complexes in that category, and it appears in the bibliography without ever being cited in the text.",
+   "reason": "Confirmed by the actual supplier: Nizioł, Geometric syntomic cohomology, JAG 28 (2019), §6, Theorem 6.1 and the formal-scheme continuation, lifts these constructions to Banach–Colmez spaces. Correct [49] to [52]. The original claim that 2008 predates the formalism is removed; Colmez’s foundational paper appeared in 2002.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Crossref for 10.1007/s00222-016-0683-3 on 2026-09-23: no update-to, updated-by or correction relation, and only Springer's TDM licence",
-    "the Springer page for Inventiones mathematicae 208 (2017), which lists no corrigendum",
-    "arXiv:1505.06471 (v1 2015-05-24, v4 2016-05-29), the preprint of this paper: version v4 was downloaded and compared page by page with the authors' PDF, and the two are textually identical on 64 of their 68 pages, the differences being the arXiv stamp on p. 1, one letter on p. 24 and bibliography updates on pp. 66-67; the finding below is present in v4 as well, so no version of the paper corrects it. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Beware the near-namesake arXiv:2308.10736, Abhinandan, Syntomic complex and p-adic nearby cycles, Algebra & Number Theory 20 (2026) 17-108, which is a different paper.)",
-    "the authors' pages (webusers.imj-prg.fr/~wieslawa.niziol and Colmez's IMJ-PRG page) and their later papers on the same material (Nekovář–Nizioł, Algebra & Number Theory 10 (2016) 1695–1790; Colmez–Dospinescu–Nizioł, Invent. Math. 219 (2020) 873–985): no correction notice"
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
    ],
    "owner": "PAPER-COLMEZ-NIZIOL-17",
    "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
    "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Confirmed by the actual supplier: Nizioł, Geometric syntomic cohomology, JAG 28 (2019), §6, Theorem 6.1 and the formal-scheme continuation, lifts these constructions to Banach–Colmez spaces. Correct [49] to [52]. The original claim that 2008 predates the formalism is removed; Colmez’s foundational paper appeared in 2002."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E24",
+   "kind": "misprint",
+   "locator": "§1.1.2 p.4, chart preceding Theorem 1.6 (authors’ November 2016 version)",
+   "printed": "R_□=O_F{…}/(X_(d+1)X_(a+1)…X_(a+b)−ϖ)",
+   "correction": "Replace O_F by O_K.",
+   "reason": "The uniformizer ϖ is in O_K and need not belong to O_F. The correctly typed chart in §2.2.2 p.10 is over O_K. Taking K=Q_p(ζ_(p^i)) already exposes the coefficient problem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "The uniformizer ϖ is in O_K and need not belong to O_F. The correctly typed chart in §2.2.2 p.10 is over O_K. Taking K=Q_p(ζ_(p^i)) already exposes the coefficient problem."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E25",
+   "kind": "error",
+   "locator": "§2.3.3 p.16 and §4 preamble p.38 (authors’ November 2016 version)",
+   "printed": "δ_R+1<e_0/(2p)",
+   "correction": "Use δ_R+1≤e_0/(2p). In the convergence chain on p.38 change the first > to ≥; the second strict inequality still proves convergence.",
+   "reason": "Counterexample: p=3, F_i=Q_3(ζ_27), π_i=ζ_27−1, and K=F_i(α) for the Eisenstein polynomial X^3+π_iX^2+π_i. Then f=3,e=54,δ_K=v_K(3α²+2π_iα)=min(56,4)=4. K does not contain ζ_81: that degree-three cyclotomic extension has different exponent 54, unlike 4. Thus i(K)=3 and the enough-roots condition is 4+3<9, but ceil(4/3)+1=3=e_0/(2p). Lemma 2.38 uses a non-strict lower bound and remains compatible with this repair.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Counterexample: p=3, F_i=Q_3(ζ_27), π_i=ζ_27−1, and K=F_i(α) for the Eisenstein polynomial X^3+π_iX^2+π_i. Then f=3,e=54,δ_K=v_K(3α²+2π_iα)=min(56,4)=4. K does not contain ζ_81: that degree-three cyclotomic extension has different exponent 54, unlike 4. Thus i(K)=3 and the enough-roots condition is 4+3<9, but ceil(4/3)+1=3=e_0/(2p). Lemma 2.38 uses a non-strict lower bound and remains compatible with this repair."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E26",
+   "kind": "error",
+   "locator": "Lemma 2.11(ii), pp.15–16, and Remark 4.3, pp.42–43 (authors’ November 2016 version)",
+   "printed": "t^r:r^[u,v]_ϖ→F^r r^[u,v]_ϖ is a p^r-isomorphism.",
+   "correction": "Use a justified coarser arithmetic filtration bound, for example p^(3r), and recompute the downstream numerical losses. The later p^(2r) assertion for the filtered ring also fails for p=2; the p^(2r) bound on the unfiltered smaller annulus is a separate statement.",
+   "reason": "Take p=2,K=Q_2(ζ_16),i=4,e_0=8,u=3/4,v=3/2. At the Gauss valuation v_2(T)=3/16, P_0=1+(1+T)^8 has valuation 1, whereas t=16 log(1+T) has valuation 5/2 (unique minimum at term k=8). Hence v_2(2P_0/t)=−1/2. Since P_0∈F^1, this disproves the printed bound. More strongly g=P_0/T^5 belongs to F^1 and is integral on the annulus: its endpoint valuations are 9/32 and 1/16, and every Laurent coefficient satisfies the integral bounds. Thus v_2(4g/t)=−7/16, disproving the later 2r bound for the filtered ring too. For the arithmetic annulus, divide an element of F^r by P_0^r analytically; at each endpoint v(P_0)≤1 and v(t/P_0)<2, so the quotient by t^r loses at most 3r. This does not refute the existence of a universal comparison constant, but the printed downstream numerical estimates need recomputation.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Take p=2,K=Q_2(ζ_16),i=4,e_0=8,u=3/4,v=3/2. At the Gauss valuation v_2(T)=3/16, P_0=1+(1+T)^8 has valuation 1, whereas t=16 log(1+T) has valuation 5/2 (unique minimum at term k=8). Hence v_2(2P_0/t)=−1/2. Since P_0∈F^1, this disproves the printed bound. More strongly g=P_0/T^5 belongs to F^1 and is integral on the annulus: its endpoint valuations are 9/32 and 1/16, and every Laurent coefficient satisfies the integral bounds. Thus v_2(4g/t)=−7/16, disproving the later 2r bound for the filtered ring too. For the arithmetic annulus, divide an element of F^r by P_0^r analytically; at each endpoint v(P_0)≤1 and v(t/P_0)<2, so the quotient by t^r loses at most 3r. This does not refute the existence of a universal comparison constant, but the printed downstream numerical estimates need recomputation."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E27",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.36 p.28, monomial Taylor expansion (authors’ November 2016 version)",
+   "printed": "ι(X_j)^k(1−V_j)^k; sum_n (−1)^n binomial(k,n)(V_j−1)^n",
+   "correction": "Use ι(X_j)^k V_j^k and either positive coefficients in (V_j−1)^n or signed coefficients in (1−V_j)^n; retain the printed divided-power factorial conversion.",
+   "reason": "V_j=X_j/ι(X_j). For k=1, the printed middle expression has zero augmentation, while X_j has augmentation ι(X_j); the final expansion gives ι(X_j)(2−V_j), not X_j.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "V_j=X_j/ι(X_j). For k=1, the printed middle expression has zero augmentation, while X_j has augmentation ι(X_j); the final expansion gives ι(X_j)(2−V_j), not X_j."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E28",
+   "kind": "error",
+   "locator": "Lemma 3.17 and use in Corollary 3.16 p.37 (authors’ November 2016 version)",
+   "printed": "RΓ_dR(X_K,log D)→RΓ_dR(X_(K,tr)) is a filtered quasi-isomorphism.",
+   "correction": "Retain the unfiltered quasi-isomorphism. Do not infer an isomorphism after quotienting by F^r. For Corollary 3.16 compose the inverse unfiltered comparison with the projection from log de Rham to its truncation; this gives the needed lower-degree isomorphisms and boundary injection.",
+   "reason": "For X=Spf O_K⟨x⟩ and D={x=0}, gr_F^0 of the natural map is K⟨x⟩→O(X_K minus D), which is not surjective: 1/x is in the target. Kiehl 1967 Theorem 2.3, printed p.19, compares unfiltered de Rham complexes. For the corollary, F^r of the log complex is supported in degrees ≥r; projection to the quotient is an isomorphism on H^j for j≤r−2 and injective for j=r−1. Combine with Proposition 3.12(ii).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "For X=Spf O_K⟨x⟩ and D={x=0}, gr_F^0 of the natural map is K⟨x⟩→O(X_K minus D), which is not surjective: 1/x is in the target. Kiehl 1967 Theorem 2.3, printed p.19, compares unfiltered de Rham complexes. For the corollary, F^r of the log complex is supported in degrees ≥r; projection to the quotient is an isomorphism on H^j for j≤r−2 and injective for j=r−1. Combine with Proposition 3.12(ii)."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E29",
+   "kind": "misprint",
+   "locator": "Proposition 4.2 proof and Remark 4.3 p.42 (authors’ November 2016 version)",
+   "printed": "∇_0+q p^i; [∇_j,∇_0]=p^i∇_j; final RΓ(Lie Γ′_R,−)",
+   "correction": "Use ∇_0−q p^i in degree q, [∇_0,∇_j]=p^i∇_j, and full Lie Γ_R in both terms of the final Frobenius-fibre display.",
+   "reason": "From §2.5.3, at twist r=0, ∇_0=p^i t∂_t and ∇_j=t X_j∂_(X_j). The printed plus-sign square has defect 2p^i t X_j on X_j; with the minus sign it commutes. This also agrees with the β^c operator order. The final prime would omit the arithmetic Lie direction; the dimension-zero example detects it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "From §2.5.3, at twist r=0, ∇_0=p^i t∂_t and ∇_j=t X_j∂_(X_j). The printed plus-sign square has defect 2p^i t X_j on X_j; with the minus sign it commutes. This also agrees with the β^c operator order. The final prime would omit the arithmetic Lie direction; the dimension-zero example detects it."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E30",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.13(iii) p.48 (authors’ November 2016 version)",
+   "printed": "s_n=ϕ^(−n)ψ^nϕ^(n+k) on ϕ^(−n−k)(E_R); next ϕ^(−n+k)(E_R^+)",
+   "correction": "Replace ψ^n by ψ^k and the following domain by ϕ^(−n−k)(E_R^+).",
+   "reason": "For k=0 the projection must restrict to the identity on ϕ^(−n)(E_R); the printed ψ^n need not do so. At n=1, apply it to ϕ^(−1)(X_j), whose ψ component is zero. Iterating the splitting E_R=ϕ(E_R)⊕E_R^(ψ=0) gives the corrected formula.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "For k=0 the projection must restrict to the identity on ϕ^(−n)(E_R); the printed ψ^n need not do so. At n=1, apply it to ϕ^(−1)(X_j), whose ψ component is zero. Iterating the splitting E_R=ϕ(E_R)⊕E_R^(ψ=0) gives the corrected formula."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E31",
+   "kind": "gap",
+   "locator": "§1.1.1 p.2 and §2.4.3 p.23 (authors’ November 2016 version)",
+   "printed": "r=(p−1)a(r)+b(r), 0≤b(r)≤p−1",
+   "correction": "Specify one endpoint convention and verify it against the actual Fontaine–Messing map and fundamental-sequence kernel. Until then parameterize the lattice by the chosen pair and do not export a unique integral normalization.",
+   "reason": "For p=3,r=2 both (a,b)=(0,2) and (1,0) satisfy the condition, yielding different lattices Z_3(2) and (1/3)Z_3(2). Rationalization loses the distinction; the integral period map does not. This review does not choose one arbitrarily.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "For p=3,r=2 both (a,b)=(0,2) and (1,0) satisfy the condition, yielding different lattices Z_3(2) and (1/3)Z_3(2). Rationalization loses the distinction; the integral period map does not. This review does not choose one arbitrarily."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E32",
+   "kind": "misprint",
+   "locator": "Lemma 2.11 proof pp.15–16 (authors’ November 2016 version)",
+   "printed": "u/e≤v_p(T)≤v/e; inf_{v_p(T)=s} v_p(t)≥2 on each circle of the smaller annulus.",
+   "correction": "For T use e_0 rather than e in the radii. On each circle s∈[u/e_0,v/(p e_0)], the needed bound is inf_{v_p(T)=s} v_p(t)≤2.",
+   "reason": "§2.3.1 gives T=X_0^f times a unit and e=f e_0. Thus multiplying X_0 radii by f gives T radii u/e_0,v/e_0. The displayed inference from the inverse bound has its inequality reversed: the Gauss valuation of t on each circle must be bounded above by 2. The following maximum calculation supplies this upper bound on the smaller annulus, where t is invertible. This is separate from the false sharper filtration bound E26; an infimum over the whole annulus would not be the required circle-by-circle statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "§2.3.1 gives T=X_0^f times a unit and e=f e_0. Thus multiplying X_0 radii by f gives T radii u/e_0,v/e_0. The displayed inference from the inverse bound has its inequality reversed: the Gauss valuation of t on each circle must be bounded above by 2. The following maximum calculation supplies this upper bound on the smaller annulus, where t is invertible. This is separate from the false sharper filtration bound E26; an infimum over the whole annulus would not be the required circle-by-circle statement."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E33",
+   "kind": "misprint",
+   "locator": "Proposition 2.15(ii) p.18 (authors’ November 2016 version)",
+   "printed": "x_(cycl,α)∈X_0^(−pδ_K)R^((0,v]+)_ϖ",
+   "correction": "Use c_(cycl,α)(x).",
+   "reason": "Part (i) defines the components c_(cycl,α)(x); the proof of Proposition 2.16 and end of §2.3.6 use those same components. No alternative x_(cycl,α) is defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "Part (i) defines the components c_(cycl,α)(x); the proof of Proposition 2.16 and end of §2.3.6 use those same components. No alternative x_(cycl,α) is defined."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E34",
+   "kind": "misprint",
+   "locator": "β^c_q and its proof pp.44–45 (authors’ November 2016 version)",
+   "printed": "τ_(i_1)^(c,−1)⋯τ_(i_1)^(c,−1)",
+   "correction": "The last subscript is i_q, so that each of i_1,…,i_q occurs once.",
+   "reason": "The q-form component and its preceding ∇ product involve q distinct indices. The later displayed simplification on p.44 already uses the correct i_q endpoint. For q=2 the repeated i_1 cannot cancel the i_2 factor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "The q-form component and its preceding ∇ product involve q distinct indices. The later displayed simplification on p.44 already uses the correct i_q endpoint. For q=2 the repeated i_1 cannot cancel the i_2 factor."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E35",
+   "kind": "misprint",
+   "locator": "Example 5.18 p.62 (authors’ November 2016 version)",
+   "printed": "dim X^r_st(D) and dim X^r_dR(D) equal ordered pairs.",
+   "correction": "Use Dim for the pair-valued invariant in all four formulas.",
+   "reason": "The immediately preceding definition distinguishes dim∈N from Dim=(dim,ht)∈N×Z. The right sides are ordered pairs, so the printed equations are ill-typed; the subsequent scalar dimension calculations use their first coordinate.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "The immediately preceding definition distinguishes dim∈N from Dim=(dim,ht)∈N×Z. The right sides are ordered pairs, so the printed equations are ill-typed; the subsequent scalar dimension calculations use their first coordinate."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E36",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 5.15 p.60 (authors’ November 2016 version)",
+   "printed": "H^i_dR(X_K) is admissible; V_st(H^i_dR(X_K))",
+   "correction": "Use the triple D^i=(H^i_HK(X),H^i_dR(X_K),ι_dR).",
+   "reason": "The de Rham space alone has no specified Frobenius or monodromy. The final parenthesis on p.60 gives D^i explicitly, and Proposition 5.20 supplies precisely this triple.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "The de Rham space alone has no specified Frobenius or monodromy. The final parenthesis on p.60 gives D^i explicitly, and Proposition 5.20 supplies precisely this triple."
+  },
+  {
+   "id": "PAPER-COLMEZ-NIZIOL-17/E37",
+   "kind": "gap",
+   "locator": "Corollary 5.2(iii) p.54 (authors’ November 2016 version)",
+   "printed": "The displayed sequence is short exact.",
+   "correction": "Export the p^N-exact sequence supported by Proposition 3.12 and the long exact sequence; exactness requires a separate vanishing argument.",
+   "reason": "The preceding result only annihilates the unwanted Hyodo–Kato cohomology by p^N; it does not make it zero. The long exact sequence therefore gives exactness up to controlled torsion. This is a gap in the stated deduction, not a counterexample to a possible stronger theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: https://arxiv.org/abs/1505.06471 history, latest v4 dated 29 May 2016; v4 PDF and source compared with authors’ November PDF. Earlier arXiv versions were not all collated.",
+    "2026-09-23: Nizioł publication page https://webusers.imj-prg.fr/~wieslawa.niziol/ and Colmez publication page https://webusers.imj-prg.fr/~pierre.colmez/publications.html; no correction notice for this paper located. Colmez-hosted 67-page May PDF checked only at selected disputed passages.",
+    "2026-09-23: https://link.springer.com/article/10.1007/s00222-016-0683-3 public metadata/preview and https://api.crossref.org/works/10.1007/s00222-016-0683-3 (relation={}, no update-to). Full journal body unavailable; journal correction status is not certified.",
+    "2026-09-23: title/authors with erratum/correction, plus targeted searches for Lemmas 2.11, 3.17, 5.9 and Lie/Koszul signs. No explicit correction located in returned primary sources. Abhinandan’s similarly titled paper is a different work. “new” means no correction found within this bounded search."
+   ],
+   "owner": "PAPER-COLMEZ-NIZIOL-17",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+   "citation": "Colmez–Nizioł, \"Syntomic complexes and p-adic nearby cycles\", Inventiones Mathematicae (2017)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-COLMEZ-NIZIOL-17",
+   "reviewReason": "The preceding result only annihilates the unwanted Hyodo–Kato cohomology by p^N; it does not make it zero. The long exact sequence therefore gives exactness up to controlled torsion. This is a gap in the stated deduction, not a counterexample to a possible stronger theorem."
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25/E1",
