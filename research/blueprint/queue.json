@@ -2121,7 +2121,8 @@
    ],
    "avoidAccountOf": "PAPER-MOK-PILA-TSIMERMAN-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1138"
   },
   {
    "id": "PAPER-GAMBURD-MAGEE-RONAN-19",
@@ -4133,8 +4134,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -8233,7 +8234,8 @@
    ],
    "avoidAccountOf": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2174"
   },
   {
    "id": "PAPER-BETTS-STIX-25",
@@ -31233,7 +31235,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HACON-WITASZEK-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1861"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-22",
