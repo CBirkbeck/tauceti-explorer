@@ -1,0 +1,1348 @@
+{
+ "paper": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+  "authors": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł",
+  "venue": "Forum of Mathematics, Pi 11 (2023), e16, 1–62",
+  "doi": "10.1017/fmp.2023.15",
+  "arxiv": "2204.11214",
+  "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf",
+  "sha256": "1c6ee85b486a8d72f404e1e737d45b794ddf0ee03bc7bdc123b46bf0b7357d49",
+  "accessed": "2026-09-23",
+  "version": "The published version, read in full: Forum of Mathematics Pi is fully open access (CC BY 4.0), so the published PDF could be read directly — 62 pages, SHA-256 1c6ee85b486a8d72f404e1e737d45b794ddf0ee03bc7bdc123b46bf0b7357d49, received 2 July 2022, revised 7 April 2023, accepted 29 April 2023. The printed page equals the PDF page and every locator below is a printed page; the paper is in French. The LaTeX source of arXiv:2204.11214v2 (1 May 2023, i.e. after the revision) was used as a reading aid for the mathematics, and every quotation and every finding was checked in the published PDF.",
+  "readSections": [
+   "§0 Introduction (0.1 Les résultats principaux, 0.2 Finitude de la cohomologie de la tour de Drinfeld, 0.3 Multiplicités géométriques)",
+   "§1 Représentations de GL_2(F) (1.1–1.5)",
+   "§2 Coprésentation finie (2.1–2.3)",
+   "§3 Une suite spectrale pour le foncteur de Scholze",
+   "§4 Longueur finie (4.1–4.3)",
+   "§5 Factorisation de H^1_ét(M_{n,Q̄_p},L(1)) (5.1–5.3)",
+   "References"
+  ]
+ },
+ "summary": "The sequel to Colmez–Dospinescu–Nizioł's computation of the multiplicity of one irreducible Galois representation in the p-adic étale cohomology of the Drinfeld tower. Here, for F = Q_p and p > 3, they determine the whole cohomology as a Gal_{Q_p} × GL_2(Q_p) × Ǧ-module: H^1_ét(M^p_{n,Q̄_p},L(1)) ≅ ⊕_M (⊕̂_B Π^*(ρ_{B,M}) ⊗ ρ_{B,M} ⊗ Ř_{B,M}) ⊗_L JL(M), an exact analogue of Emerton's description of the completed cohomology of the tower of modular curves with the Hecke algebras replaced by Kisin rings parametrising the potentially crystalline representations of weights 0 and 1 and fixed Weil–Deligne representation. The object described is the completed cohomology of the tower of coefficient fields, a strict subobject of the cohomology over C_p — the two differ because the levels are not quasi-compact, and the authors say they failed to find an arithmetic meaning for the quotient. The engine is a mod p finiteness theorem: for [K:Q_p] < ∞, H^1_ét(M^p_{n,K},μ_p) is dual to an admissible smooth representation of finite length. Its proof is geometric and independent of the first paper's methods: an equivariant semi-stable model, the Bloch–Kato–Hyodo filtration on mod p nearby cycles (extended here to formal schemes) reducing étale to coherent cohomology on the special fibre, and Shotton's theorem that finitely presented smooth representations form an abelian category — which gives finite presentation for every F and every degree — followed, for F = Q_p only, by a spectral sequence relating Scholze's functors S^i(π) to these multiplicity spaces, Ludwig's vanishing theorem, Fust's group cohomology computation, and a globalisation that brings in Paškūnas's and Paškūnas–Tung's work on the completed cohomology of definite quaternion algebras. For F ≠ Q_p the same geometry gives finite presentation but the cohomology is provably NOT admissible, because the supersingular representations of GL_2(F) are not finitely presented: the pathologies of the mod p classification for F ≠ Q_p are visible in the p-adic cohomology of the tower, and none of them appears ℓ-adically. What the atlas lacks: the mod p finiteness theory of smooth representations of GL_2(F) (O_L⟨H⟩, Shotton coherence, the category of admissible finitely presented representations, Emerton's ordinary part functor, Gabriel's block theory for locally finite categories); Scholze's mod p functor with its spectral sequence and Ludwig's vanishing; the Bloch–Kato–Hyodo filtration for formal schemes; and every cohomological statement about the tower. What it has: the blocks, projective envelopes and R = T theorem for GL_2(Q_p) (R30.5, R30.6), Colmez's functor (R30.3), Kisin's deformation rings with fixed type (R08.3), definite quaternionic forms (R18.3), local–global compatibility (R31.4, R31.5) and the two towers (ET.6a).",
+ "conventions": "The paper is in French; locators are printed pages of Forum of Mathematics Pi 11 (2023), e16, pp. 1–62. Numbering is by section with a single counter and the introduction is §0. G = GL_2(F), G′ = G/diag(ϖ,ϖ)^Z, Ǧ = D^* for D the non-split quaternion algebra, G_n and Ǧ_n the standard congruence subgroups. M^ϖ_n is the quotient of the n-th level of the Drinfeld tower by diag(ϖ,ϖ) and is defined over F, so M^ϖ_{n,K} makes sense for K/F finite as well as for C_p; for F = Q_p one writes M^p_n. Two duals are used throughout and are not interchanged: W^* is the topological dual of a topological L-module and W^∨ the Pontryagin dual of an O_L-module; for a Banach space W^* carries the topology of uniform convergence on compacta, not the weak topology. H^1_ét(M^p_{n,Q̄_p},L(1)) always means the completed cohomology of the tower of coefficient fields, at fixed level n.",
+ "items": [
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-tower",
+   "kind": "construction",
+   "name": "The Drinfeld tower, its quotient by ϖ and the completed cohomology of the tower of coefficient fields",
+   "statement": "F/Q_p finite with G = GL_2(F), G_0 = GL_2(O_F), G_n = 1 + M_2(m_F^n), Ǧ = D^* for D the non-split quaternion algebra over F, Ǧ_0 = O_D^*, Ǧ_n = 1 + m_D^n. Drinfeld's tower M_{n,F̆} over F̆ = \\hat{F}^{nr} carries commuting actions of G × Ǧ and W_F, with M_{0,F̆} = Z × Ω_{Dr,F̆} and, for n ≥ 1, M_{n,F̆} a Galois covering of M_{0,F̆} with group Ǧ_0/Ǧ_n; π_0(M_{n,C_p}) is a principal homogeneous space under F^*/(1+m_F^n) on which G, Ǧ, W_F act through ν_H. M^ϖ_{n,F̆} is the quotient by diag(ϖ,ϖ) ∈ G, it descends to an F-analytic space M^ϖ_{n,F} with an action of G′ = G/diag(ϖ,ϖ)^Z, and M^ϖ_{n,K} denotes the base change to a finite extension K of F or to C_p.",
+   "locator": "§0.2.1, p. 4",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "note": "ET.6a constructs the Drinfeld tower with its level maps and commuting actions. The refinement this paper needs is the descent of M^ϖ_n to F and the resulting action of G′, which is what makes the arithmetic (as opposed to geometric) étale cohomology H^•_ét(M^ϖ_{n,K}, −) for [K:Q_p] < ∞ the object of study."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-completed-coh",
+   "kind": "definition",
+   "name": "The completed cohomology of the tower of coefficient fields",
+   "statement": "H^1_ét(M^p_{n,Q̄_p}, L(1)) := L ⊗_{O_L} lim_k colim_{[K:Q_p]<∞} H^1_ét(M^p_{n,K}, (O_L/p^k)(1)); it is a G × Ǧ × Gal_{Q_p}-stable subobject of H^1_ét(M^p_{n,C_p}, L(1)), and much smaller than it. Here it is the coefficient field K that varies, not the level n — in contrast with the completed cohomology of the tower of modular curves — and the two cohomologies differ because the spaces M^p_{n,C_p} are not quasi-compact.",
+   "locator": "§0.1, p. 2 et §0.3.4, p. 9",
+   "status": "missing",
+   "note": "Footnote 3 of the paper stresses both points. The paper conjectures nothing about the quotient of the cohomology of M^p_{n,C_p} by that of M^p_{n,Q̄_p}: ‘il est possible que [ce quotient] soit du bruit sans signification arithmétique (en tout cas, nous avons échoué à lui trouver une interprétation)’."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-types",
+   "kind": "definition",
+   "name": "Types: supercuspidal, special and of level ≤ n (φ,N,Gal_F)-modules, and the attached representations",
+   "statement": "For M an L-(φ,N,Gal_F)-module of rank 2 one attaches WD(M) (Fontaine's recipe), the irreducible smooth LL(M) of G (local Langlands) and the irreducible finite-dimensional JL(M) of Ǧ (local Jacquet–Langlands, with JL(M) = 0 when LL(M) is a principal series, i.e. when M is neither supercuspidal nor special). M is supercuspidal when WD(M) is irreducible of slope 1/2, special when N ≠ 0 and the slopes of φ are 0 and 1 (so M = Sp ⊗ η), and of level ≤ n when JL(M) factors through Ǧ/Ǧ_n. The central characters of LL(M) and JL(M) coincide with det WD(M)·|·|.",
+   "locator": "§0.3.1, pp. 7–8",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeTheory:R06.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1"
+   ],
+   "note": "R06.3 owns Fontaine's recipe, R16.3 local Langlands for GL_2 and R17.1 the quaternionic local transfer. The paper is a source for the bookkeeping it needs: the level filtration by Ǧ_0/Ǧ_n, the slope-1/2 normalisation of ‘supercuspidal’, and the convention JL(M) = 0 for a principal series."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-VML",
+   "kind": "construction",
+   "name": "The representations V_{M,L} and Π_{M,L}, and representations of level ≤ n",
+   "statement": "For F = Q_p and M supercuspidal, M_dR = (Q̄_p ⊗_{Q_p^{nr}} M)^{Gal_{Q_p}} has rank 2 over L, and for an L-line L ⊂ M_dR one sets V_{M,L} = Ker((B^+_cris ⊗_{Q_p^{nr}} M)^{φ=p} → C_p ⊗_{Q_p} (M_dR/L)). By Colmez–Fontaine V_{M,L} is 2-dimensional, potentially semi-stable with Hodge–Tate weights 0 and 1 and D_pst = M, and every such representation is of this form. Π_{M,L} is the representation of G attached to V_{M,L} by the p-adic local Langlands correspondence, characterised by V(Π_{M,L}) ≅ V_{M,L}. An L-representation V of Gal_{Q_p} is of level ≤ n when V ≅ V_{M,L} for some supercuspidal M of level ≤ n.",
+   "locator": "§0.3.1–0.3.2, pp. 7–8",
+   "status": "missing",
+   "note": "Identical to the construction in PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B §0.5, from which this paper's §5.1 quotes its multiplicity theorems."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-14",
+   "kind": "theorem",
+   "name": "Theorem 0.14 (from the first paper): the multiplicity of an irreducible V",
+   "statement": "If V is an absolutely irreducible L-representation of Gal_{Q_p} of dimension 2, then Hom_{W_{Q_p}}(V, H^1_ét(M_{n,C_p}, L(1))) ≅ Π^*_{M,L} ⊗ JL(M) if V = V_{M,L} with M of level ≤ n, and 0 if V is not of level ≤ n; and the same group vanishes for V absolutely irreducible of dimension ≥ 3.",
+   "locator": "Théorème 0.14, p. 7 (= Théorème 5.1, p. 50; proved in PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B)",
+   "status": "missing",
+   "note": "This is the main theorem of the companion paper, used here in full. Remark 0.15 records that the dimension ≥ 3 statement was one of the most delicate points there, and that §5.1 of this paper gives ‘une preuve nettement plus limpide’ (Theorem 5.10) using the mod-p finiteness theorem."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-16",
+   "kind": "theorem",
+   "name": "Theorem 0.16 (from the first paper's techniques): the multiplicity of an irreducible Banach representation",
+   "statement": "If V is an absolutely irreducible L-representation of Gal_{Q_p} of dimension 2, then Hom_G(Π(V)^*, H^1_ét(M_{n,C_p}, L(1))) ≅ V ⊗ JL(M) if V = V_{M,L} with M of level ≤ n, and 0 otherwise.",
+   "locator": "Théorème 0.16, p. 8 (= Théorème 5.8, p. 52)",
+   "status": "missing",
+   "note": "Proved by the methods of the companion paper; it is the statement that is interpolated over a Kisin ring in Theorem 5.24, and hence the engine of the factorisation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-kisin-rings",
+   "kind": "construction",
+   "name": "The blocks B, the Kisin rings R_{B,M} and the interpolated representations",
+   "statement": "For M special or supercuspidal with central character δ_M of LL(M), Rep^{δ_M} G is the category of smooth O_L[G]-modules of finite length with central character δ_M; its blocks B correspond to Gal(F̄_p/k_L)-orbits of semisimple 2-dimensional F̄_p-representations ρ_B of Gal_{Q_p} of determinant δ_Mε. R^{ps,δ_M}_B is the universal deformation ring of the pseudo-character Tr∘ρ_B with determinant δ_Mε. For M supercuspidal, R_{B,M} is the quotient of R^{ps,δ_M}_B[1/p] parametrising the representations of type M (potentially semi-stable, weights 0 and 1, D_pst ≅ M) and ρ_{B,M} the 2-dimensional R_{B,M}-representation interpolating them; Π^*(ρ_{B,M}) is the G-representation interpolating the Π(ρ_x)^*, x ∈ Spm(R_{B,M}), with V̌(Π^*(ρ_{B,M})) ≅ ρ_{B,M}. For M = Sp ⊗ η special one sets R_{B,M} = L, and ρ_{B,M} = 0 = Π^*(ρ_{B,M}) except for the block of St ⊗ η̄, where ρ_{B,M} = η and Π^*(ρ_{B,M}) = (St^cont ⊗ η)^*.",
+   "locator": "§0.3.3, p. 8 et §5.2, pp. 53–55",
+   "status": "missing",
+   "note": "The existence of R_{B,M} and ρ_{B,M} is due to Kisin in most cases; §5.2 completes it (Theorem 5.11). These rings are what replace Hecke algebras in the Emerton-style factorisation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-1",
+   "kind": "theorem",
+   "name": "Theorem 0.1: the Emerton-style factorisation of the completed cohomology of the tower",
+   "statement": "If L is large enough (so that the finitely many JL(M) that occur are defined over L), there is an isomorphism of topological L[Gal_{Q_p} × G × Ǧ]-modules H^1_ét(M^p_{n,Q̄_p}, L(1)) ≅ ⊕_M (⊕̂_B Π^*(ρ_{B,M}) ⊗ ρ_{B,M} ⊗ Ř_{B,M}) ⊗_L JL(M), where the first sum is over the types M of level ≤ n, the completed sum is over the blocks B (the completion being p-adic), Ř_{B,M} is the continuous L-dual of R_{B,M}, and the unspecified tensor products are over R_{B,M}.",
+   "locator": "Théorème 0.1, p. 2 (= Théorème 5.15, p. 55)",
+   "status": "missing",
+   "note": "The main theorem. It is the exact analogue of Emerton's description of the completed cohomology of the tower of modular curves, with the Hecke algebras replaced by Kisin rings parametrising the potentially crystalline representations of fixed weights and fixed Weil–Deligne representation (not merely fixed Galois type)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-2",
+   "kind": "theorem",
+   "name": "Theorem 0.2: mod p finiteness of the arithmetic étale cohomology",
+   "statement": "If [K:Q_p] < ∞ then H^1_ét(M^p_{n,K}, μ_p) is the dual of an admissible smooth representation of G, of finite length as a Z_p[G]-module.",
+   "locator": "Théorème 0.2, p. 3 (= Théorème 4.1, p. 37)",
+   "status": "missing",
+   "note": "The crucial ingredient; its proof — geometric and very different from the methods of the companion paper, in particular not using Dospinescu–Le Bras — occupies most of the article."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-3",
+   "kind": "theorem",
+   "name": "Theorem 0.3: the mod p geometric multiplicities",
+   "statement": "For ρ̄: Gal_{Q_p} → GL_d(k_L) continuous, set Π^geo_n(ρ̄) := Hom^cont_{k_L[Gal_{Q_p}]}(ρ̄, H^1_ét(M^p_{n,C_p}, k_L))^∨. Then (a) Π^geo_n(ρ̄) is a smooth G-representation of finite length; (b) if ρ̄ is absolutely irreducible then Π^geo_n(ρ̄) = 0 for d > 2, and for d = 2 it is a successive extension of copies of Π(ρ̄), the supersingular representation of G attached to ρ̄ by the mod p local Langlands correspondence.",
+   "locator": "Théorème 0.3, p. 3 (= Théorème 4.23 et Remarque 4.25, pp. 47–48)",
+   "status": "missing",
+   "note": "A mod p analogue of the main theorem of the companion paper. Remark 4.25 adds that for d = 2 absolutely irreducible, Π^geo_n(ρ̄) lies in the block of Rep^ladm G cut out by ρ̄, and that this fails for reducible ρ̄ because a map ρ̄ → H^1_ét can factor through a proper quotient."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-4",
+   "kind": "theorem",
+   "name": "Theorem 0.4: for F ≠ Q_p the cohomology is of finite presentation but not admissible",
+   "statement": "Let F ≠ Q_p be a finite extension of Q_p. (i) If K/F is finite then H^1_ét(M^p_{n,K}, μ_p)^∨ is a smooth representation of GL_2(F) of finite presentation, and for n ≥ 1 and K large enough it is not admissible. (ii) For n ≥ 1 there is a continuous ρ̄: Gal_F → GL_2(k_L) with Π^geo_n(ρ̄) not admissible.",
+   "locator": "Théorème 0.4, pp. 3–4 (= Théorèmes 2.13 et 2.14, pp. 30–31)",
+   "status": "missing",
+   "note": "‘Les problèmes rencontrés pour la classification des représentations modulo p de GL_2(F) se reflètent dans la cohomologie p-adique de la tour de Drinfeld (aucun de ces problèmes n'apparaît en ℓ-adique, avec ℓ ≠ p).’ The paper records that Dotto and Emerton expect the finitely presented Π^geo_n(ρ̄) (for F unramified) to be related to the representations constructed by Breuil–Paškūnas, which would give those a geometric interpretation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-5",
+   "kind": "theorem",
+   "name": "Theorem 0.5: finite presentation for every F and every degree",
+   "statement": "If K/F is finite and k ≥ 1 then H^q_ét(M^ϖ_{n,K}, O_L/p^k) is a profinite O_L-module whose Pontryagin dual is a smooth representation of G of finite presentation.",
+   "locator": "Théorème 0.5, p. 5 (= Théorème 2.1, p. 21)",
+   "status": "missing",
+   "note": "Three ingredients: the G-equivariant semi-stable model of M^ϖ_{n,K} from the companion paper; the Bloch–Kato–Hyodo filtration on mod p nearby cycles, which reduces the étale cohomology to coherent cohomology on the special fibre; and the fact that the category of finitely presented representations of G′ is abelian and stable under extensions (Shotton)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-remark-0-6",
+   "kind": "theorem",
+   "name": "Remark 0.6: what a Poincaré duality would give, and what is not known",
+   "statement": "(i) With a Poincaré duality the Pontryagin duals of the H^q_ét(M^ϖ_{n,K}, O_L/p^k) would be the compactly supported cohomology groups, for which Berkovich established the smoothness of the G-action — but no such duality is known for analytic spaces like M^ϖ_{n,K}. (ii) The statement probably holds for the Drinfeld tower of GL_d(F), d > 2, but two of the three ingredients (the equivariant semi-stable model and Shotton's theorem) are not available there. (iii) It is not clear at all whether H^1_ét(M^ϖ_{n,C_p}, k_L) is profinite: the techniques used here depend crucially on working over a finite extension of Q_p rather than over C_p, the filtration of Theorem 2.4 using the finiteness of the ramification in full.",
+   "locator": "Remarque 0.6, p. 5",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-7",
+   "kind": "theorem",
+   "name": "Theorem 0.7: finite-dimensionality of the mod p multiplicity spaces, for every F",
+   "statement": "If π is a smooth admissible k_L[GL_2(F)]-module with a central character, then Hom^cont_{k_L[GL_2(F)]}(π^∨, H^1_ét(M_{n,C_p}, k_L)) is finite-dimensional over k_L.",
+   "locator": "Théorème 0.7, p. 5 (= Théorème 4.22, p. 46)",
+   "status": "missing",
+   "note": "Remark 0.8: for F = Q_p this is a mod p version of Theorem 0.16, but it does not seem possible to deduce it from that; it should extend to GL_d(F) in the form ‘the Ext^i_{k_L[GL_d(F)]}(π^∨, H^j_ét(M_{n,C_p},k_L)) are finite-dimensional’, an analogue of a classical ℓ-adic result; and replacing M_{n,C_p} by M_{n,K} with [K:Q_p] < ∞ makes it an immediate consequence of Theorem 0.5, from which the C_p-statement cannot be drawn directly."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-9",
+   "kind": "theorem",
+   "name": "Theorem 0.9: vanishing for almost every irreducible π",
+   "statement": "If F = Q_p and [K:Q_p] < ∞, then Hom^cont_{k_L[G′]}(π^∨, H^1_ét(M^p_{n,K}, k_L)) = 0 for almost every (i.e. all but finitely many) smooth irreducible k_L[G′]-module π.",
+   "locator": "Théorème 0.9, p. 5 (démontré au §4.2, pp. 42–46)",
+   "status": "missing",
+   "note": "Specific to F = Q_p and markedly harder than Theorems 0.5 and 0.7. Remark 0.10 states that it implies — and, with a little representation theory of G (Theorem 1.24), is equivalent to — the statement that the Ǧ-smooth vectors of H^1_ét(LT^p_{n,K}, k_L) are finite-dimensional and come from the connected components, via Faltings's isomorphism between the completed Drinfeld and Lubin–Tate towers. It asks whether that can be proved directly, and offers an optimistic guess: for H a compact Lie group acting on an open annulus C_K with non-trivial action on O^+(C_K)/m_K, the H-invariants of H^1_ét(C_K,k_L) should be very small."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-proof-strategy",
+   "kind": "theorem",
+   "name": "The strategy for Theorem 0.9: Scholze's functor, Fust's computation and a globalisation",
+   "statement": "Two ingredients. A spectral sequence, established in the generality of Scholze's paper, relates the functors π ↦ S^i(π) to the multiplicity spaces; combined with Fust's computation of H^i(SL_2(Q_p),π) it gives a natural map S^1(π) → Hom^cont_{k_L[G]}(π^∨, H^1_ét(M_{∞,C_p},k_L)) with finite-dimensional kernel and cokernel, an isomorphism unless π lies in a twist of the Steinberg block {χ, St⊗χ, I(χ,χε)}; the admissibility of S^1(π) as a Ǧ-representation then gives Theorem 0.7. Second, a globalisation, using Gee–Kisin, lets one apply the isotypy results of Carayol and Scholze to control the Gal_{Q_p}-action on S^1(π), using the work of Paškūnas and Paškūnas–Tung on the completed cohomology attached to the global quaternion algebras produced, and to show that for each finite K/Q_p only finitely many π have S^1(π)^{Gal_K} ≠ 0.",
+   "locator": "§0.2.2, pp. 4–6",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-cor-0-11",
+   "kind": "theorem",
+   "name": "Corollary 0.12: finite length, and the cosocle criterion that gives it",
+   "statement": "If [K:Q_p] < ∞ then (i) the dual of H^1_ét(M^p_{n,K}, k_L) is a smooth G-representation of finite length; and (ii) for ρ̄: Gal_{Q_p} → GL_2(k_L) continuous, the dual of Hom^cont_{k_L[Gal_{Q_p}]}(ρ̄, H^1_ét(M^p_{n,C_p},k_L)) is a smooth G-representation of finite length. This is deduced from Theorem 0.9 through the fact (Theorem 1.21) that a finitely generated representation of G is of finite length if and only if its cosocle is, a result which uses the full classification of the smooth irreducible mod p representations of G — unknown for F ≠ Q_p — as well as finiteness results for Ext groups between irreducibles.",
+   "locator": "Corollaire 0.12 et Remarque 0.13, p. 6",
+   "status": "missing",
+   "note": "Remark 0.13: for F = Q_p a finite-length k_L-representation of G is automatically admissible and of finite presentation; for F ≠ Q_p a finitely presented k̄_L-representation is admissible iff it is of finite length, but the irreducible supersingular k_L-representations need not be admissible and are not of finite presentation (Schraen, Wu), and there are even such representations that become of infinite length after extension of scalars to k̄_L (Le)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-13",
+   "kind": "theorem",
+   "name": "Theorem 0.17 (Paškūnas, Paškūnas–Tung): the local R = T theorem",
+   "statement": "With P_B = ⊕_{π∈B} P_π the sum of the projective envelopes of the π^∨ for π in a block B, E_B = End_G P_B and Z_B its centre, there is a natural map R^{ps,δ_M}_B → Z_B inducing an isomorphism R^{ps,δ_M}_B[1/p] ≅ Z_B[1/p].",
+   "locator": "Théorème 0.17, p. 8 (= Théorème 1.16, p. 16)",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.5",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ],
+   "note": "R30.5 is ‘Blocks, projective envelopes and deformation rings’ and R30.6 extracts the precise Paškūnas, Hu–Tan and Tung statements. The precise form needed here is Theorem 1.16: a unique ι^δ_B: R^{ps,δ}_B → Z^δ_B with ι^δ_B(T^δ_B(g)) = g + δε(g)g^{-1} in End(V(π)), an isomorphism for p ≥ 5, an isomorphism after inverting p in general, with the p = 3 and p = 2 defects described."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-17",
+   "kind": "theorem",
+   "name": "Theorem 0.18: the block decomposition of the multiplicity module and its structure",
+   "statement": "From the finiteness theorem and Gabriel's theory one gets a block decomposition H^1_ét(M^p_{n,Q̄_p}, L(1)) ≅ ⊕_M (⊕̂_B (P_B ⊗_{E_B} m_{B,M})) ⊗_L JL(M) with m_{B,M} = Hom_{L[G×Ǧ]}(P_B ⊗ JL(M), H^1_ét(M^p_{n,Q̄_p}, L(1))), and: (i) the dual of m_{B,M} is a finite type Z_B[1/p]-module on which Z_B[1/p] acts through its quotient R_{B,M}; (ii) for p > 3 there is an isomorphism of E^{δ_M}_B[Gal_{Q_p}]-modules m_{B,M} ≅ Hom_{L[G]}(P_B, Π^*(ρ_{B,M})) ⊗ ρ_{B,M} ⊗ Ř_{B,M}, the tensor products being over R_{B,M}.",
+   "locator": "Théorème 0.18, p. 9 (= Théorème 5.24, p. 59)",
+   "status": "missing",
+   "note": "(i) is formal from Theorem 0.9 (i) plus Theorem 0.16; (ii) is an interpolation of the pointwise decomposition given by Theorem 0.16 at every closed point of Spec R_{B,M}, which suffices because R_{B,M} is a finite product of principal ideal rings (Theorem 5.11). The hypothesis p > 3 is used in the global arguments and to quote Paškūnas–Tung; for p = 3 the statement of Theorem 0.1 remains correct except possibly for the blocks containing a twist of the Steinberg."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-smooth-torsion",
+   "kind": "definition",
+   "name": "Smooth torsion O_L[H]-modules and the algebra O_L⟨H⟩",
+   "statement": "For H a p-adic Lie group, an O_L[H]-module is torsion when every vector is killed by a power of p, and smooth when in addition every stabiliser is open; Rep^lisse H is their category, whose irreducible objects are killed by m_L. For a compact open K ⊂ H, O_L⟨H⟩ := O_L[H] ⊗_{O_L[K]} O_L[[K]] carries a unique O_L-algebra structure making O_L[H] → O_L⟨H⟩ and O_L[[K]] → O_L⟨H⟩ algebra maps, independent of K up to canonical isomorphism, and every object of Rep^lisse H extends uniquely to an O_L⟨H⟩-module (Shotton).",
+   "locator": "§1.1.1, pp. 9–10",
+   "status": "missing",
+   "note": "Lemma 1.1 is the technical substitute for the fact — not known — that an extension of smooth O_L[H]-modules in the abstract category is smooth: if 0 → A → B → C → 0 is a sequence of O_L[U]-modules with p^a A = 0 and U acting trivially on A and C, then some open subgroup of H acts trivially on B."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-finiteness-notions",
+   "kind": "definition",
+   "name": "Admissible, locally admissible, finite length, finite type and finite presentation",
+   "statement": "π ∈ Rep^lisse H is admissible when π^K[m_L^j] has finite length over O_L for every compact open K and every j; locally admissible when every O_L[H]v is admissible; of finite length or of finite type as an O_L[H]-module; and of finite presentation when there is an exact sequence c-Ind_{K_1}^H σ_1 → c-Ind_{K_2}^H σ_2 → π → 0 with σ_i smooth of finite length over O_L. Finite type is equivalent to being a quotient of a single compact induction and to being a finite type O_L⟨H⟩-module; finite presentation is equivalent to being a finitely presented O_L⟨H⟩-module, and is NOT the same as being a finitely presented O_L[H]-module.",
+   "locator": "§1.1.2, pp. 10–11",
+   "status": "missing",
+   "note": "The categories are written Rep^adm, Rep^ladm, Rep^ℓf, Rep^tf, Rep^pf, with a superscript δ for a fixed central character. This whole finiteness vocabulary for smooth mod p representations is what the atlas lacks."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-prop-shotton-ext",
+   "kind": "theorem",
+   "name": "Proposition 1.2 (Shotton): finite type and finite presentation are stable under extensions",
+   "statement": "For an exact sequence 0 → π_1 → π → π_2 → 0 in Rep^lisse H: (a) if π_1 and π_2 are of finite type (resp. of finite presentation) so is π; (b) if π is of finite presentation and π_1 of finite type then π_2 is of finite presentation.",
+   "locator": "Proposition 1.2, p. 11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-prop-shotton-coherent",
+   "kind": "theorem",
+   "name": "Proposition 1.3 (Shotton): O_L⟨H⟩ is coherent for an amalgam of two compact opens",
+   "statement": "If H is a p-adic Lie group that is an amalgamated product of two compact open subgroups, then O_L⟨H⟩ is a coherent ring, and hence Rep^pf H is an abelian subcategory of Rep^lisse H — the kernel as well as the cokernel of a map between finitely presented representations is finitely presented.",
+   "locator": "Proposition 1.3, p. 11",
+   "status": "missing",
+   "note": "‘C'est immédiat pour le conoyau, mais pas du tout clair pour le noyau!’ By Ihara's theorem SL_2(F) and {g ∈ GL_2(F): det g ∈ O_F^*} are such amalgams, and a smooth representation of G′ is of finite type (resp. finite presentation) iff its restriction to a finite-index open subgroup is; the paper applies this to {det ∈ O_F^*} ⊂ G′."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-serre-weights",
+   "kind": "definition",
+   "name": "Serre weights, the compact inductions I(σ) and the Hecke operator T",
+   "statement": "A Serre weight is an irreducible smooth KZ-module over F̄_p on which the centre acts by a character (its restriction to K then factors through GL_2(k_F)); I(σ) := c-Ind_{KZ}^G σ. There is an isomorphism of F̄_p-algebras End_G I(σ) ≅ F̄_p[T] for a Hecke operator T, and I(σ) is free over F̄_p[T].",
+   "locator": "§1.2.1, pp. 11–12",
+   "status": "planned",
+   "planned": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+   ],
+   "note": "R07.5 (‘Local residual types and Serre weights’) owns Serre weights. What the paper needs on top is the Barthel–Livné package: End_G I(σ) = F̄_p[T] with I(σ) free over it, and the rigidity of the quotients of I(σ)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-classification",
+   "kind": "theorem",
+   "name": "The Barthel–Livné and Breuil classification of the smooth irreducible mod p representations",
+   "statement": "The smooth irreducible F̄_p-representations of G with a central character are: the characters χ∘det; the Ind_B^G(χ_1 ⊗ χ_2) for distinct smooth characters χ_1,χ_2 of F^*; the St ⊗ χ; and the supersingular ones, i.e. the irreducible quotients of the I(σ)/(T). The non-supersingular irreducibles are called ordinary and are the Jordan–Hölder constituents of the principal series. For F = Q_p, Breuil proved that the I(σ)/(T) are already irreducible (and determined when two of them agree), Berger that the existence of a central character follows from irreducibility, and every irreducible is admissible and of finite presentation, so that Rep^ℓf G ⊂ Rep^adm G ∩ Rep^pf G.",
+   "locator": "§1.2.1, pp. 11–12 et §1.2.3, pp. 12–13",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.2"
+   ],
+   "note": "R30.2 undertakes to ‘establish the mod-p classification in every residual characteristic used by R32’, i.e. for GL_2(Q_p). The general-F part (Barthel–Livné, with the supersingular representations left unclassified) is not planned, and the paper is a source for what is known and for what fails: for F ≠ Q_p the classification is unknown and the supersingulars are not of finite presentation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-rationality",
+   "kind": "theorem",
+   "name": "Lemmas 1.6 and 1.7: base change of Hom and the residue field of an irreducible",
+   "statement": "Lemma 1.6 (Paškūnas): for V of finite type over K[H] and any field extension L/K, Hom_{K[H]}(V,W) ⊗_K L ≅ Hom_{L[H]}(V ⊗_K L, W ⊗_K L). Lemma 1.7: for π ∈ Rep^adm G irreducible with k = End_{k_L[G]}π, (i) k is a finite extension of k_L; (ii) π is absolutely irreducible as a k[G]-module; (iii) k ⊗_{k_L} π = ⊕_{σ∈Hom(k,k)} k ⊗_{k,σ} π, the summands being pairwise non-isomorphic as k[G]-modules but all isomorphic as k_L[G]-modules.",
+   "locator": "Lemmes 1.6 et 1.7, p. 12",
+   "status": "missing",
+   "note": "Remark 1.8 shows admissibility is needed in Lemma 1.7: Le constructed a supersingular F_{p^3}-representation of GL_2(Q_{p^3}) with End_G π = F̄_p, so that F_{p^{3n}} ⊗ π has n irreducible components, none absolutely irreducible."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-galois-orbits",
+   "kind": "theorem",
+   "name": "The dictionary between k_L-irreducibles and Galois orbits of F̄_p-irreducibles",
+   "statement": "For F = Q_p it follows from the Barthel–Livné and Breuil classification that every irreducible F̄_p-representation of G is defined over a finite field, so its Gal(F̄_p/k_L)-orbit is finite; if H is its stabiliser and k = F̄_p^H then π is the scalar extension of a π_k with End_G π_k = k, and π ↦ π_L induces a bijection between Gal(F̄_p/k_L)-orbits of irreducible F̄_p-representations and irreducible k_L-representations, the inverse sending π to the set of Jordan–Hölder constituents of F̄_p ⊗_{k_L} π.",
+   "locator": "§1.2.3, pp. 12–13",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-plnl-functor",
+   "kind": "construction",
+   "name": "The p-adic local Langlands correspondence as a functor, and its extension to Banach representations",
+   "statement": "For F = Q_p there is an exact covariant functor Π ↦ V(Π) from the finite-length smooth representations with a central character to the continuous O_L-representations of Gal_{Q_p} of finite length over O_L; it extends by projective limit and inversion of p to the unitary L-Banach representations of G that are residually of finite length (automatically admissible, and every admissible L-Banach of finite length is residually of finite length, by Colmez–Dospinescu–Paškūnas) with a central character, and then V(Π) is finite-dimensional. Conversely, for V a 2-dimensional L-representation of Gal_{Q_p} there is a largest unitary residually-finite-length Π(V) with V(Π(V)) = V and Π(V)^{SL_2(Q_p)} = 0; V ↦ Π(V) is the p-adic local Langlands correspondence. V(Π) need not be 2-dimensional, but is always ‘of GL_2 type’ in the sense made precise by the R = T theorem.",
+   "locator": "§1.3.1, p. 13",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.3",
+    "PadicLocalLanglandsForGL2Qp:R30.2"
+   ],
+   "note": "R30.3 is Colmez's construction and R30.2 the categories and their finiteness. The paper is a source for the functorial packaging it needs: exactness of V, the characterisation of Π(V) by maximality together with Π^{SL_2} = 0, and the residual-finite-length condition."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-Ichi",
+   "kind": "construction",
+   "name": "The representations I(χ_1,χ_2), the extension Π_{χ_1,χ_2} and their images under V",
+   "statement": "For a generic pair of continuous characters χ_1,χ_2: Q_p^* → F̄_p^* (i.e. χ_1χ_2^{-1} ≠ 1, ε^{±1}) one sets I(χ_1,χ_2) := Ind_B^G(χ_2 ⊗ χ_1ε^{-1}) and I(χ_2,χ_1) := Ind_B^G(χ_1 ⊗ χ_2ε^{-1}), absolutely irreducible with central character χ_1χ_2ε^{-1}, and there is a unique non-trivial extension 0 → I(χ_1,χ_2) → Π_{χ_1,χ_2} → I(χ_2,χ_1) → 0. Then V(I(χ_1,χ_2)) = χ_1, V(I(χ_2,χ_1)) = χ_2 and V(Π_{χ_1,χ_2}) = r̄_{χ_1,χ_2}, the unique non-split extension of χ_2 by χ_1.",
+   "locator": "§1.3.2, pp. 13–14",
+   "status": "missing",
+   "note": "Remark 1.9: by the Barthel–Livné and Breuil classification, only finitely many irreducible π ∈ Rep^δ G are not of the form I(χ_1,χ_2) with (χ_1,χ_2) generic. This is what makes the ‘almost every π’ of Theorem 0.9 reduce to the generic principal series."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-blocks",
+   "kind": "definition",
+   "name": "Blocks, projective envelopes and the Gabriel equivalence",
+   "statement": "Irreducibles are declared equivalent when linked by a chain of non-vanishing Ext^1's; an equivalence class is a block B, and Rep_B G is the subcategory of finite-length objects all of whose Jordan–Hölder factors lie in B. Paškūnas's classification (Proposition 1.10) lists the blocks of Rep_{F̄_p} G: {π} for π supersingular; {I(χ_1,χ_2), I(χ_2,χ_1)} for χ_1χ_2^{-1} ≠ 1, ε^{±}; {I(χ,χ)} for p ≠ 2; and {χ, St⊗χ, I(χ,χε)} for p ≠ 3, with the stated degenerations at p = 2, 3. With P_π the Pontryagin dual of an injective envelope of π in Rep^ladm G, P_B = ⊕_{π∈B}P_π, E_B = End_G P_B and Z_B its centre, Gabriel's theory gives an equivalence Π ↦ m_B(Π) = Hom_G(P_B, Π^∨) between Rep_B G and finite length E_B-modules, with Π ≅ ⊕_B (m_B(Π) ⊗_{E_B} P_B)^∨ for every finite-length Π.",
+   "locator": "§1.3.3, pp. 14–15",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.5"
+   ],
+   "note": "R30.5 is exactly ‘Blocks, projective envelopes and deformation rings’. The paper is a source for the rationality bookkeeping it needs (Remarks 1.11–1.13: blocks over k_L versus over F̄_p as Galois orbits, and E_B ≅ E_{O_{L(B)},B^σ}) and for the bijection B ↔ ρ_B with the semisimple 2-dimensional mod p Galois representations of determinant δε."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-prop-BL-rigidity",
+   "kind": "theorem",
+   "name": "Proposition 1.17: every proper quotient of I(σ) has finite length",
+   "statement": "For σ a Serre weight, I(σ) is not of finite length, but every non-trivial quotient of I(σ) is of finite length.",
+   "locator": "Proposition 1.17, p. 16",
+   "status": "missing",
+   "note": "Proved from Barthel–Livné (Prop. 18: the I_1-invariants of the kernel have finite codimension) plus End_G I(σ) = k_L[T]. Remark 1.18 records Emerton's conjecture that for a general F an admissible proper quotient of I(σ) is of finite length, and more generally that for any p-adic reductive group an admissible representation of finite type is of finite length."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-prop-filtration",
+   "kind": "theorem",
+   "name": "Proposition 1.19: finite type representations are filtered by quotients of compact inductions",
+   "statement": "The smooth finite type k_L[G′]-modules are exactly the π admitting a filtration 0 = π_0 ⊂ … ⊂ π_r = π together with G′-equivariant surjections I(σ_i) → π_i/π_{i-1} for Serre weights σ_i. Moreover (Proposition 1.20, specific to F = Q_p) every smooth finite type representation of G′ is of finite presentation.",
+   "locator": "Propositions 1.19 et 1.20, p. 17",
+   "status": "missing",
+   "note": "Proposition 1.19 holds for every F with the same proof; Proposition 1.20 uses Proposition 1.17 and the fact that finite-length representations are of finite presentation for F = Q_p."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-thm-cosocle",
+   "kind": "theorem",
+   "name": "Theorem 1.21: finite length is detected by the cosocle",
+   "statement": "Let π be a smooth finite type k_L[G′]-module whose cosocle is admissible (equivalently of finite length). Then π is of finite length.",
+   "locator": "Théorème 1.21, p. 17",
+   "status": "missing",
+   "note": "The engine of Corollary 0.12. The proof filters π as in Proposition 1.19, uses Proposition 1.17 to see that the first graded piece is of finite length unless the surjection is an isomorphism, and then the two finiteness lemmas below to control Hom and Ext^1 into an irreducible. Uses the classification for F = Q_p in an essential way."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-finiteness-lemmas",
+   "kind": "theorem",
+   "name": "Lemmas 1.22 and 1.23: central characters and finiteness of Ext^1 into irreducibles",
+   "statement": "Lemma 1.22: every smooth irreducible k_L[G′]-module has a central character (adapted from Berger). Lemma 1.23: for π a smooth finite-length k_L[G]-module with a central character, Ext^1_G(π,π′) is finite-dimensional over k_L for every smooth irreducible π′ with a central character, and vanishes for almost every π′.",
+   "locator": "Lemmes 1.22 et 1.23, pp. 17–18",
+   "status": "missing",
+   "note": "Lemma 1.23 is proved by reduction to F̄_p using Lemma 1.6, Paškūnas's Prop. 8.1 (vanishing when the central characters differ, and the exact sequence relating Ext^1_G and Ext^1_{G,δ} otherwise) and the classical finiteness of Ext^1_{G,δ} between irreducibles."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-thm-LTappli",
+   "kind": "theorem",
+   "name": "Theorem 1.24: finite length is equivalent to finite-dimensionality of the smooth vectors of the dual",
+   "statement": "Let π be a smooth finite type k_L[G′]-module. Then π is of finite length if and only if the space of smooth vectors of π^∨ is finite-dimensional over k_L.",
+   "locator": "Théorème 1.24, p. 18",
+   "status": "missing",
+   "note": "This is what converts the Drinfeld-side Theorem 4.1 into the Lubin–Tate-side Theorem 4.26. The hard direction uses a lemma: a finite type module of infinite length admits a non-zero G-map to some I_{G′}(σ), proved with the finite-dimensionality of Ext^1(π/π_1, I_{G′}(σ)) from Dotto–Emerton–Gee and the freeness of I_{G′}(σ) over k_L[T]. A footnote records that Dotto–Emerton–Gee work with a fixed central character and credits the referee for the reduction."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-category-C",
+   "kind": "theorem",
+   "name": "Theorem 1.26: the category C of admissible finitely presented representations",
+   "statement": "Let C = Rep^adm G ∩ Rep^pf G. Then (i) C is a subcategory of Rep^ℓf G; (ii) C is stable under subquotients and extensions. For F = Q_p one has C = Rep^ℓf G.",
+   "locator": "Théorème 1.26, p. 19 (after Hu and Vignéras)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-thm-schraen-wu",
+   "kind": "theorem",
+   "name": "Theorem 1.27 (Schraen, Wu): for F ≠ Q_p the supersingulars are not of finite presentation",
+   "statement": "If F ≠ Q_p, the supersingular representations of GL_2(F) over F̄_p are not of finite presentation.",
+   "locator": "Théorème 1.27, p. 19",
+   "status": "missing",
+   "note": "With Theorem 1.26 this is what makes the cohomology of the tower non-admissible for F ≠ Q_p: a finitely presented representation cannot contain a supersingular constituent and remain admissible. Remark 1.28 recalls Le's smooth irreducible non-admissible k_L-representations of GL_2(Q_{p^3})."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-ord-functor",
+   "kind": "construction",
+   "name": "Emerton's ordinary part functor and the description of C for F ≠ Q_p",
+   "statement": "Ind_{B̄}^G: Rep(A)^adm → Rep(G)^adm is exact and admits a right adjoint Ord = Ord_B (Emerton), so that Hom_G(Ind_{B̄}^G U, V) ≅ Hom_A(U, Ord V) and there is a canonical ι_V: Ind_{B̄}^G(Ord V) → V with Ord(Ker ι_V) = 0. Proposition 1.30 computes Ord and R^1Ord on a parabolic induction, on St ⊗ χ∘det and on a character; Lemma 1.31 shows Ord is exact on C with Ord(π) of finite type over O_L; Lemma 1.32 that π ∈ C with Ord(π) = 0 is of finite type over O_L; and Proposition 1.33 that for every π ∈ C the kernel and cokernel of ι_π are of finite type over O_L. Corollary 1.34: for Θ a lattice in an admissible unitary L-Banach Π with Θ/ϖ_LΘ ∈ C there are a representation σ of A of finite type over O_L and a map Ind_{B̄}^G σ → Θ with kernel and cokernel of finite type over O_L.",
+   "locator": "§1.5.2–1.5.3, pp. 20–21",
+   "status": "missing",
+   "note": "Nothing in the atlas builds Emerton's ordinary part functor. This package is what proves the non-admissibility Theorem 2.14: it says that an object of C is, up to finite O_L-modules, a parabolic induction, and hence cannot receive a non-zero map from a universal completion of a supercuspidal representation (Proposition 2.18)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-jordan-holder-ord",
+   "kind": "theorem",
+   "name": "Lemma 1.29: the Jordan–Hölder constituents of an object of C killed by m_L",
+   "statement": "For every π ∈ C killed by m_L there is a finite extension k of k_L with π ⊗_{k_L} k ∈ C^ord_k, the category of smooth finite-length k[G]-modules all of whose irreducible subquotients are of the form χ∘det, St ⊗ χ∘det or Ind_B^G(χ_1 ⊗ χ_2).",
+   "locator": "Lemme 1.29, p. 20",
+   "status": "missing",
+   "note": "In other words: for F ≠ Q_p an admissible finitely presented representation has no supersingular constituent after a finite extension of scalars. Together with Theorem 1.27 this is the representation-theoretic heart of the non-admissibility result."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-1",
+   "kind": "theorem",
+   "name": "Theorem 2.1: the cohomology of every level is dual to a finitely presented representation",
+   "statement": "For K/F finite, k ≥ 1 and q ≥ 0, the G′-module H^q_ét(M^ϖ_{n,K}, O_L/p^k) is the Pontryagin dual of a smooth finitely presented representation of G′; in particular it is a profinite O_L-module.",
+   "locator": "Théorème 2.1, p. 21 (= Théorème 0.5, p. 5)",
+   "status": "missing",
+   "note": "Remark 2.2: for F = Q_p, §4 shows H^1_ét(M^ϖ_{n,K}, k_L)^∨ is of finite length and hence admissible; for F ≠ Q_p, Theorem 2.1 implies it is NOT admissible for K large enough. Remark 2.3: in arbitrary dimension the analogous statement with ‘finite type’ is very likely."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-log-setup",
+   "kind": "definition",
+   "name": "The canonical log structure on a semi-stable formal scheme and the nearby cycle sheaves",
+   "statement": "For X a semi-stable formal scheme over O_K (locally admitting an étale map to Spf(O_K{X_1,…,X_n}/(X_1⋯X_r − ϖ_K))), or a base change of one, equipped with the log structure induced by the special fibre — canonical in Berkovich's sense, so that M(U) = {x ∈ O_X(U): x_K ∈ O^*_{X_K}(U_K)} and M^gp(U) = O(U_K)^* — one defines R^iΨ Z/p^n(j) as the sheaf on X_{0,ét} associated to U_0 ↦ H^i_ét(U_K, Z/p^n(j)), the i-th derived functor of the nearby-cycle functor of Berkovich, and the Kummer sequence gives symbol maps i^*(M^gp)^{⊗q} → R^qΨ Z/p^n(q).",
+   "locator": "§2.1.1, pp. 22–24",
+   "status": "planned",
+   "planned": [
+    "ClassicalAdicEtaleCohomology:H1",
+    "CrystallineCohomology:CR.5"
+   ],
+   "note": "H1 owns formal models, specialisation and nearby cycles with the tube stalk formula; CR.5 the log structures, charts and fs monoids. The paper is a source for the formal-scheme version of the canonical log structure and for the symbol maps, which it needs for a non-quasi-compact X."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-BKH",
+   "kind": "theorem",
+   "name": "Theorem 2.4: the Bloch–Kato–Hyodo filtration on mod p nearby cycles, for formal schemes",
+   "statement": "With e the absolute ramification index of K, the filtration ⋯ ⊂ U^2 ⊂ V^1 ⊂ U^1 ⊂ V^0 ⊂ U^0 = (M_2^gp)^{⊗q} transported to R^qΨ Z/p(q) by the symbol map has graded pieces: U^0/V^0 ≅ Ω^q_{Y/k,log} and V^0/U^1 ≅ Ω^{q-1}_{Y/k,log} (via {a_1,…,a_q} ↦ ∧ dlog ā_i and {a_1,…,a_{q-1},ϖ} ↦ ∧ dlog ā_i); for 0 < m < pe/(p−1) prime to p, U^m/V^m ≅ Ω^{q-1}_{Y/k}/B^{q-1}_{Y/k} and V^m/U^{m+1} ≅ Ω^{q-2}_{Y/k}/Z^{q-2}_{Y/k}; for such m divisible by p, U^m/V^m ≅ Ω^{q-1}_{Y/k}/Z^{q-1}_{Y/k} and the same V^m/U^{m+1}; and U^m = 0 for m ≥ pe/(p−1).",
+   "locator": "Théorème 2.4, pp. 23–24",
+   "status": "missing",
+   "note": "‘Nous allons étendre aux schémas formels la filtration de Bloch-Kato-Hyodo … que ce soit possible est bien connu des experts mais nous n'avons pas trouvé de référence où ceci est fait.’ It is a corollary of the algebraic statement of Bloch–Kato and Hyodo (see also Tsuji). Remark 2.6 spells out the case q = 1, which is what is used: an extension 0 → F_p → U^0/U^1 → Ω^1_{Y/k,log} → 0, U^m/U^{m+1} ≅ O_Y or O_Y/Z^0_{Y/k} according as p ∤ m or p | m, and O_Y ≅ Z^0_{Y/k} by a ↦ a^p since Y is log-smooth of Cartier type."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-prop-semistable",
+   "kind": "theorem",
+   "name": "Proposition 2.7: an equivariant semi-stable formal model of M^ϖ_n with a finite orbit structure",
+   "statement": "M^ϖ_n has a G × Ǧ × Gal_F-equivariant semi-stable formal model defined over a finite extension of F; the irreducible components of its special fibre form finitely many G-orbits, and each of them is fixed by an open subgroup of G.",
+   "locator": "Proposition 2.7, p. 25",
+   "status": "missing",
+   "note": "‘Essentiellement prouvé dans l'appendice de [16]’ — the appendix of the companion paper — and valid for GL_2(F) but not for GL_d(F). The statement about finitely many orbits of components, each with open stabiliser, is the extra input that makes the coherent cohomology of the special fibre a compact induction."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-cpcf",
+   "kind": "definition",
+   "name": "Cohomologically profinite, G′-continuous and cpcf sheaves",
+   "statement": "For Y an O_L-scheme with an increasing cover by quasi-compact opens U_s, one sets SP^i(F) = {H^i_ét(U_s, F|_{U_s})}_s ∈ Pro(Mod_{O_L}) and calls F cohomologically profinite when every SP^i(F) lies in the thick subcategory E(Mod^ℓf_{O_L}) of profinite pro-systems, so that H^i_ét(Y,F) ≅ lim_s H^i_ét(U_s,F) is profinite by Mittag-Leffler. If G′ acts on Y with each U_s fixed by an open subgroup, F is G′-continuous when each H^i_ét(U_s,F) is killed by a power of p and fixed by a compact open subgroup, so that H^i_ét(Y,F)^∨ is smooth; and F is cohomologically profinite of finite copresentation (cpcf) when in addition every H^i_ét(Y,F)^∨ is of finite presentation.",
+   "locator": "§2.1.3, pp. 25–27",
+   "status": "missing",
+   "note": "Built on Porter's theory of pro-objects: E(A_1) is thick in Pro(A) when A_1 is thick in A, and the projective limit functor is exact on profinite pro-systems. This bookkeeping is what lets a non-quasi-compact space be handled one finite union of components at a time."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-cpcf-lemmas",
+   "kind": "theorem",
+   "name": "Lemmas 2.8 and 2.9: two-out-of-three, and a five-term criterion for finite presentation",
+   "statement": "Lemma 2.8: in an exact sequence 0 → F_1 → F → F_2 → 0 of G′-equivariant sheaves, (i) if two of the three are cohomologically profinite so is the third; (ii) likewise for G′-continuity; (iii) if all three are cohomologically profinite and G′-continuous and two are cpcf, so is the third. Lemma 2.9: if A → B → C → D → E is an exact sequence of smooth O_L[G′]-modules with A, B, D, E of finite presentation, then so is C.",
+   "locator": "Lemmes 2.8 et 2.9, pp. 26–27",
+   "status": "missing",
+   "note": "Lemma 2.9 is where Shotton's coherence theorem (Proposition 1.3) is used; without the abelian-ness of Rep^pf it would be false."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-proof-structure",
+   "kind": "theorem",
+   "name": "The proof of Theorem 2.1: from coherent sheaves on the special fibre to the étale cohomology",
+   "statement": "One takes a semi-stable model X over a large enough K′ (containing the p-th roots of unity, with K′/K Galois), its special fibre Y, and closed/open subschemes Y_s ⊂ U_s ⊂ Y_{s+1} with Y_s a finite union of irreducible components whose tubes form a Stein cover of X_{K′}. Step 1 shows Ω^t_{Y/k′} is cpcf, using closed Mayer–Vietoris over the components C_j and their intersections C_{i,j} and the fact that the resulting products of coherent cohomologies are compact inductions I(W)^∨ ≅ Ind_H^{G′}(W^∨) for an open compact H and a finite-dimensional W — which is exactly what Proposition 2.7 provides. The Bloch–Kato–Hyodo filtration then propagates the cpcf property from the coherent graded pieces to R^1Ψ Z/p(1), and a dévissage gives the theorem for O_L/p^k and all q.",
+   "locator": "§2.2, pp. 27–30",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-13",
+   "kind": "theorem",
+   "name": "Theorem 2.13: non-admissibility for F ≠ Q_p",
+   "statement": "If F ≠ Q_p and n > 0, then H^1_ét(M^ϖ_{n,K}, k_L)^∨ is not admissible for K a large enough finite extension of F.",
+   "locator": "Théorème 2.13, p. 30",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-14",
+   "kind": "theorem",
+   "name": "Theorem 2.14: the precise non-admissibility statement",
+   "statement": "For M supercuspidal with a Ǧ-stable lattice JL(M)^+ and V an L-representation of Gal_F with a stable lattice V^+, set Π_M(V) = Hom_{Gal_F × Ǧ}(V ⊗ JL(M), H^1_ét(M^ϖ_{n,C_p}, L(1)))^*, and Π_M(V^+), Π_M(V^+_k) with O_L- resp. (O_L/m_L^k)-coefficients and duals. If Π_M(V) ≠ 0 then for every k ≥ 1 the representation Π_M(V^+_k) is smooth and NOT admissible.",
+   "locator": "Théorème 2.14, p. 31",
+   "status": "missing",
+   "note": "Remark 2.15: (i) for F = Q_p all these are admissible; (ii) for every supercuspidal M on which ϖ acts trivially one can find V with Π_M(V) ≠ 0, using a cocompact Γ ⊂ G′, the proper curve X_n = M^ϖ_{n,F}/Γ of genus ≥ 2 and Nakajima's theorem that every representation of Gal(X_n/X_0) = Ǧ_0/Ǧ_n occurs in Ω^1(X_n); (iii) it does not seem possible to deduce that Π_M(V) itself is non-admissible, so that question is open; (iv) Π^an_M(V), defined with pro-étale cohomology, is for n = 1 a coadmissible locally analytic representation of finite length, by combining the companion paper with Patel–Schmidt–Strauch and Ardakov–Wadsley, and probably for every n."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-nonadm-lemmas",
+   "kind": "theorem",
+   "name": "Lemmas 2.16–2.17 and Proposition 2.18: the mechanism of non-admissibility",
+   "statement": "Lemma 2.16: Π_M(V) is a unitary representation with lattice Π_M(V)^+, and (O_L/m_L^k) ⊗ Π_M(V^+) is a quotient of Π_M(V^+_k). Lemma 2.17: if some Π_M(V^+_k) is admissible then k_L ⊗ Π_M(V^+) is an object of C. Proposition 2.18: if π is a smooth supercuspidal L-representation of G with universal unitary completion π̂, and Π is a unitary L-Banach representation having a G-invariant lattice whose reduction lies in C, then Hom_G(π̂, Π) = 0.",
+   "locator": "Lemmes 2.16, 2.17 and Proposition 2.18, pp. 31–32",
+   "status": "missing",
+   "note": "Proposition 2.18 is where the ordinary-part description of C (Proposition 1.33 and Corollary 1.34) is used: an object of C is, up to finite O_L-modules, a parabolic induction, and a supercuspidal universal completion admits no non-zero map into such a thing. The contradiction with the companion paper's computation of Π_M(V) gives the theorem."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-scholze-functor",
+   "kind": "construction",
+   "name": "Scholze's functor: the sheaf F_π on P^{n-1} and the functors S^i",
+   "statement": "For F/Q_p finite, D_p central division of invariant 1/n and (M_{LT,K})_K the Lubin–Tate tower with its GL_n(F)-action on the tower and D_p^*-action on each level, the period maps π_GH: M_{LT,K} → P^{n-1}_{F̆} are étale surjective with fibres GL_n(F)/K, D_p^*-equivariant and compatible with the Weil descent data; at infinite level M_{LT,∞,F̆} is a perfectoid space and π_GH makes it a pro-étale GL_n(F)-torsor over P^{n-1}_{F̆}. For a GL_n(F)-module π with the discrete topology one sets F_π := (π_{GH,*} π̲)^{GL_n(F)}, an étale D_p^*- and Weil-equivariant sheaf on P^{n-1}_{F̆} with F_π(U) = C^0_{GL_n(F)}(|U_∞|,π), whose geometric fibres are π when π is smooth, and S^i(π) := H^i_ét(P^{n-1}_{C_p}, F_π).",
+   "locator": "§3.1, pp. 32–33",
+   "status": "missing",
+   "note": "Nothing in the atlas constructs this functor: the mod p ‘Jacquet–Langlands’ functor of Scholze's ‘On the p-adic cohomology of the Lubin–Tate tower’. ET.6a plans the ℓ-adic two-tower realisation, which is a different statement."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-thm-scholze",
+   "kind": "theorem",
+   "name": "Theorem 3.1 (Scholze): the local properties of the functors S^i",
+   "statement": "For (A,m) local noetherian complete with finite residue field and π an admissible A[GL_n(F)]-module: (1) S^i(π) is an admissible A[D_p^*]-module and S^i(π) ⊗_{Z_p} O_{C_p} → H^i_ét(P^{n-1}_{C_p}, F_π ⊗_{Z_p} O^+) is an almost isomorphism; (2) S^i(π) = 0 for i > 2(n−1); (3) the W_F-action on S^i(π) extends by continuity to Gal_F; (4) S^0(π^{SL_n(F)}) = S^0(π), on which GL_n(F) acts through det and W_F × D_p^* through the inverse of the product of the Artin map and the reduced norm.",
+   "locator": "Théorème 3.1, p. 33",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-thm-compare",
+   "kind": "theorem",
+   "name": "Theorem 3.2: a spectral sequence relating Scholze's functors to the cohomology of the tower",
+   "statement": "For π a smooth admissible A[G]-module killed by p^k (G = GL_n(F)) there is a spectral sequence of D_p^* × W_F-modules E_2^{i,j} = H^i(G, H^j_ét(M_∞, π̲)) ⇒ S^{i+j}(π), and H^j_ét(M_∞, π̲) = 0 for j ≥ 2, where M_∞ = M_{LT,∞,C_p} and the cohomology of G is continuous cochain cohomology with values in a prodiscrete module.",
+   "locator": "Théorème 3.2, p. 34",
+   "status": "missing",
+   "note": "Established in the generality of Scholze's paper; the paper says the spectral sequence ‘a sans doute un intérêt en soi’. Lemma 3.10 is the technical input: for a Stein affinoid perfectoid cover {U_s} of M_∞ the projective system {H^i_ét(U_s, Z/p^k)}_s is Mittag-Leffler, so that H^q_ét(M_∞,Z/p^k) is prodiscrete."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-cor-SS",
+   "kind": "theorem",
+   "name": "Corollary 3.11: the spectral sequence in terms of the multiplicity spaces",
+   "statement": "For π smooth admissible over A[G] killed by p^k there is a spectral sequence of D_p^* × W_F-modules E_2^{i,j} = H^i(G, Hom^cont_{Z_p}(π^∨, H^j_ét(M_∞, Z/p^k))) ⇒ S^{i+j}(π), with H^j_ét(M_∞,Z/p^k) = 0 for j ≥ 2.",
+   "locator": "Corollaire 3.11, p. 36",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-cor-cafe52",
+   "kind": "theorem",
+   "name": "Corollary 3.13: for GL_2(Q_p), S^1(π) computes the multiplicity space up to finite dimensions",
+   "statement": "For π a smooth admissible irreducible k_L[GL_2(Q_p)]-module there is a natural map S^1(π) → Hom^cont_{k_L[G]}(π^∨, H^1_ét(M_∞,k_L)) which is an isomorphism if π does not belong to a twist of the Steinberg block {χ, St⊗χ, I(χ,χε)}, and whose kernel and cokernel are finite-dimensional over k_L if it does.",
+   "locator": "Corollaire 3.13, pp. 36–37",
+   "status": "missing",
+   "note": "Obtained from Corollary 3.11 together with Fust's computation of H^i(SL_2(Q_p),π); the admissibility of S^1(π) as a Ǧ-representation then yields Theorem 4.22."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-1",
+   "kind": "theorem",
+   "name": "Theorem 4.1: finite length of the mod p cohomology for F = Q_p",
+   "statement": "For F = Q_p with p > 2 and ϖ = p, and for every finite extension K of Q_p, the G-module H^1_ét(M^p_{n,K}, k_L) is the dual of a smooth representation of G of finite length.",
+   "locator": "Théorème 4.1, p. 37 (= Théorème 0.2, p. 3)",
+   "status": "missing",
+   "note": "The hypothesis p > 2 is used only to invoke the existence of globalisations with good properties (Proposition 4.5). Combined with §1.2.3 this gives the admissibility of the H^1_ét(M^p_{n,K}, O_L/ϖ_L^k)^∨ — ‘par voie assez détournée’, the paper notes, since Theorem 2.13 seems to obstruct any purely geometric argument."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-key",
+   "kind": "theorem",
+   "name": "Proposition 4.3: the key local statement proved by global means",
+   "statement": "Let (χ_1,χ_2) be a generic pair of smooth characters Q_p^* → F̄_p^*. If K/Q_p is finite and S^1(I(χ_1,χ_2))^{Gal_K} ≠ 0, then χ_1 or χ_2 factors through Gal(K/Q_p).",
+   "locator": "Proposition 4.3, p. 37",
+   "status": "missing",
+   "note": "‘Même si la prop. 4.3 est purement locale, nous aurons besoin d'un certain nombre d'objets de nature globale pour la prouver.’ The ingredients are Scholze's functor, Ludwig's vanishing theorem S^2 = 0 on principal series, and Paškūnas's work. Remark 4.4 points to chapter 8 of Hellmann–Wang for finer results on the structure of S^1(I(χ_1,χ_2))."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-globalisation",
+   "kind": "theorem",
+   "name": "Proposition 4.5 (Gee–Kisin, via Dotto–Paškūnas–Schraen): globalisation of a residual local representation",
+   "statement": "For r̄: Gal_{Q_p} → GL_2(k_L) continuous there exist a totally real field E of even degree over Q in which p is totally split, and a regular algebraic cuspidal automorphic representation of GL_2(A_E) of weight 0, such that the attached ρ_π is unramified outside p, SL_2(k_L) ⊂ Im(ρ̄_π) ⊂ GL_2(k_L) (so ρ̄_π is absolutely irreducible) and ρ̄_{π,v} ≅ r̄ for every place v | p.",
+   "locator": "Proposition 4.5, pp. 37–38",
+   "status": "missing",
+   "note": "A direct consequence of Gee–Kisin's Corollary A.3. It is the only place where p > 2 is used. The atlas audits globalisation inputs (R30.6, R31.6, R32.6) but no stage proves such an existence theorem."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-quaternionic-setup",
+   "kind": "construction",
+   "name": "The two quaternion algebras, the tame level and the spaces of algebraic modular forms",
+   "statement": "D_0/E is a quaternion algebra compact at every infinite place and split at every finite place, D is obtained from D_0 by interchanging the invariants at a fixed p | p (so E_p = Q_p) and at an infinite place ∞_0, with G(R) = (R ⊗_E D_0)^* and Ǧ(R) = (R ⊗_E D)^*, so that G(E_p) ≅ GL_2(Q_p) and Ǧ(E_p) ≅ Ǧ. A tame level U is chosen with an auxiliary place w_1 (Dotto–Paškūnas–Schraen's Lemma 8.2) making the level small enough, and one forms S(U^p,A) = C^0(G(E)∖G(A_f)/U^p, A), its ψ-isotypic part, and S_{ψ,λ}(U^p,A) = Hom_{U_p^p}(λ, S_ψ(U^p,A)) for a suitable λ.",
+   "locator": "§4.1.2–4.1.3, pp. 38–41",
+   "status": "planned",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "note": "R18.3 (‘Definite quaternionic forms’) plans exactly these spaces of algebraic modular forms, and R17.3 the global Jacquet–Langlands transfer that relates the two algebras. The paper is a source for the interchange-of-invariants construction and the auxiliary place."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-hecke-algebra",
+   "kind": "construction",
+   "name": "The universal Hecke algebra and the maximal ideal attached to a residual representation",
+   "statement": "T^univ_S = O[T_v,S_v]_{v∉S} acts on S(U^p,A) commuting with the group action, and ρ induces T^univ_S → k_L sending T_v ↦ tr(ρ̄(Frob_v)) and S_v ↦ N(v)^{-1}det(ρ̄(Frob_v)), with kernel the maximal ideal m.",
+   "locator": "§4.1.3, pp. 39–41",
+   "status": "planned",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "note": "Same stage: the Hecke operators on definite quaternionic forms and the Galois-to-Hecke dictionary."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-paskunas-input",
+   "kind": "theorem",
+   "name": "Propositions 4.7, 4.8 and 4.10: the local structure of the space of automorphic forms",
+   "statement": "Proposition 4.7: S_ψ(U^p, L/O_L)_m is non-zero, admissible and injective in Rep^{lisse,ψ_p} U_p, and λ may be chosen as a tensor product with S_{ψ,λ}(U^p,L/O_L)_m ≠ 0. Proposition 4.8: with B the block of r̄^ss, S_{ψ,λ,m} is an admissible object of Rep^ζ_B G whose restriction to K = GL_2(Z_p) is injective. Proposition 4.10: M_{ψ,λ,m} = (k_L ⊗_{R^{ps,ζ}_B} S^∨_{ψ,λ,m})^∨ is an object of finite length of Rep^ζ_B G, and every π ∈ B is an irreducible subquotient of it.",
+   "locator": "Propositions 4.7, 4.8 and 4.10, pp. 39–41",
+   "status": "planned",
+   "planned": [
+    "PadicLocalLanglandsForGL2Qp:R30.5",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+   ],
+   "note": "These are Paškūnas's and Paškūnas–Tung's statements about the completed cohomology of a definite quaternion algebra, transported to this setting; R30.5 owns the block/projective-envelope side and R31.5 the patched/completed-module side. The paper is a source for the precise form used: that every π in the block occurs in M_{ψ,λ,m}."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-LGC",
+   "kind": "theorem",
+   "name": "Proposition 4.11 (Paškūnas, after Scholze): local–global compatibility for Scholze's functor",
+   "statement": "There is a natural isomorphism of T^univ_S[Gal_{Q_p} × D_p^*]-modules S^1(S_{ψ,λ,m}) ≅ Ĥ^1_{ψ,λ,m}, where Ĥ^1_{ψ,λ,m} is the ψ-isotypic, λ-typical, m-localised completed cohomology colim_n lim_V H^1_ét(Sh_{VU^p,Ē}, O_L/ϖ_L^n) of the Shimura curves attached to the quaternion algebra D.",
+   "locator": "Proposition 4.11, p. 41",
+   "status": "planned",
+   "planned": [
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+   ],
+   "note": "R31.4 is p-adic local–global compatibility and R31.5 the patched completed modules. The statement quoted here is Paškūnas's Lemma 6.2, itself resting on Scholze's results; it is the bridge that turns a purely local question about S^1 into a question about completed cohomology."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-isotypic",
+   "kind": "theorem",
+   "name": "Proposition 4.12: the completed cohomology is ρ_m-isotypic",
+   "statement": "With ρ_m: Gal_{E,S} → GL_2(T(U^p)_m) the deformation of ρ̄ characterised by char(ρ_m(Frob_v)) = X² − T_vX + N(v)S_v, and N = Hom_{T(U^p)_m[Gal_{E,S}]}(ρ_m, Ĥ^1_{ψ,λ}(U^p,O_L)_m), the natural map ρ_m ⊗_{T(U^p)_m} N → Ĥ^1_{ψ,λ}(U^p,O_L)_m is an isomorphism.",
+   "locator": "Proposition 4.12, p. 41",
+   "status": "missing",
+   "note": "This is the isotypy result of Carayol and Scholze in the form needed; it is what forces every Gal_{Q_p}-subquotient of S^1(I(χ_1,χ_2)) to contain a copy of χ_1 or χ_2, which is exactly Proposition 4.3."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-proof-key",
+   "kind": "theorem",
+   "name": "The proof of Proposition 4.3, and Ludwig's vanishing theorem",
+   "statement": "Take r̄ = r̄_{χ_1,χ_2}. By Proposition 4.10, M = M_{ψ,λ,m} has irreducible subquotients exactly {I(χ_1,χ_2), I(χ_2,χ_1)}. Ludwig's theorem gives S^2(I(χ_1,χ_2)) = 0 = S^2(I(χ_2,χ_1)), and S^0 of both vanishes because they have no SL_2(Q_p)-invariants, so S^1(M) is a successive extension of copies of the S^1(I(χ_i,χ_j)); Proposition 4.11 and Paškūnas's Lemma 6.1 identify S^1(M) with Ĥ^1_{ψ,λ}(U^p,k_L)_m[m_A], which by Proposition 4.12 is of the form r̄ ⊗ N′ with trivial Galois action on N′, and the extension 0 → χ_1 ⊗ N′ → r̄ ⊗ N′ → χ_2 ⊗ N′ → 0 shows every subquotient contains a copy of χ_1 or χ_2.",
+   "locator": "§4.1.5, p. 42",
+   "status": "missing",
+   "note": "Ludwig's vanishing theorem (the main result of her paper) is an essential input and is not planned anywhere in the atlas."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-proof-finite-length",
+   "kind": "theorem",
+   "name": "The proof of Theorem 4.1: reduction to the finiteness of the image of π ↦ S^1(π)^{Gal_K × Ǧ_n}",
+   "statement": "The argument combines: Theorem 2.1 (the cohomology is dual to a finitely presented representation), Theorem 1.21 (finite length is detected by the cosocle), the spectral sequence of Corollary 3.11 in the form of Corollary 3.13 (so that the cosocle question becomes the finiteness of the set of irreducible π with S^1(π)^{Gal_K × Ǧ_n} ≠ 0), Remark 1.9 (only finitely many irreducibles are not generic principal series) and Proposition 4.3 (which bounds the generic principal series that can contribute).",
+   "locator": "§4.2, pp. 42–46",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-22",
+   "kind": "theorem",
+   "name": "Theorem 4.22: finite-dimensionality of the mod p multiplicity spaces, for every F",
+   "statement": "If π is a smooth admissible k_L-representation of GL_2(F) with a central character, then Hom^cont_{k_L[G]}(π^∨, H^1_ét(M_{n,C_p}, k_L)) is finite-dimensional over k_L.",
+   "locator": "Théorème 4.22, p. 46 (= Théorème 0.7, p. 5)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-23",
+   "kind": "theorem",
+   "name": "Theorem 4.23: the mod p geometric multiplicity of a residual Galois representation",
+   "statement": "For ρ̄: Gal_{Q_p} → GL_d(k_L) continuous and Π^geo_n(ρ̄) = Hom_{k_L[Gal_{Q_p}]}(ρ̄, H^1_ét(M^p_{n,C_p},k_L))^∨: (a) Π^geo_n(ρ̄) is a smooth G-module of finite length; (b) if d > 2 and ρ̄ is absolutely irreducible then Π^geo_n(ρ̄) = 0.",
+   "locator": "Théorème 4.23, pp. 47–48",
+   "status": "missing",
+   "note": "The proof of (b) uses that S^2 kills the Steinberg and the parabolic inductions (Ludwig) and turns characters into characters, so that S^2(X)^H is a successive extension of characters as a Gal_{Q_p}-module, which cannot receive a non-zero map from an absolutely irreducible ρ̄ of dimension > 2."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-LTfin",
+   "kind": "theorem",
+   "name": "Theorem 4.26: finite-dimensionality of the Ǧ-smooth vectors on the Lubin–Tate side",
+   "statement": "For F = Q_p and K/Q_p finite, the space of Ǧ-smooth vectors of H^1_ét(LT^p_{n,K}, k_L) is finite-dimensional over k_L. Moreover H^1_ét(M^p_{∞,C_p},k_L) contains no non-zero finite-dimensional G-submodule, and Theorem 4.26 is in fact equivalent to Theorem 4.1 by Theorem 1.24.",
+   "locator": "Théorème 4.26 and the lemmas following it, pp. 48–49",
+   "status": "missing",
+   "note": "The paper expects Theorem 4.26 to hold for F ≠ Q_p as well, whereas Theorem 4.1 is specific to Q_p."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-PhiN-sets",
+   "kind": "definition",
+   "name": "The sets ΦN, ΦN^p and the M-decomposition of a smooth Ǧ-module",
+   "statement": "ΦN is the set of special or supercuspidal (φ,N,Gal_{Q_p})-modules, ΦN^p the subset of those on which p ∈ Z(Ǧ) acts trivially on JL(M), with a subscript n for level ≤ n. For X a smooth L[Ǧ]-module on which p acts trivially there is a decomposition X = ⊕_M X[M] ⊗_L JL(M) with Ǧ acting trivially on X[M].",
+   "locator": "§5, pp. 49–50",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-1",
+   "kind": "theorem",
+   "name": "Theorem 5.1: the multiplicity of an irreducible Galois representation, including characters",
+   "statement": "For V ∈ Rep_L Gal_{Q_p} absolutely irreducible of dimension ≤ 2, Hom_{W_{Q_p}}(V, H^1_ét(M_{n,C_p})) is Π^*_{M,L} ⊗_L JL(M) if V = V_{M,L} with M of level ≤ n; (St^cont ⊗ δ_G)^* ⊗ δ_Ǧ if V = δ is a character of level ≤ n; and 0 if V is not of level ≤ n.",
+   "locator": "Théorème 5.1, p. 50",
+   "status": "missing",
+   "note": "Remark 5.2 (i): the case of characters is not treated in the companion paper but follows easily, because for supercuspidal M the space X_st(M) has no 1-dimensional Gal_{Q_p}-subrepresentation, so characters live in the [M]-components with M special, which come by twisting from the cohomology of the Drinfeld half-plane."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-bounded-vectors",
+   "kind": "theorem",
+   "name": "Lemma 5.3 and Proposition 5.6: G-bounded vectors, universal completions and étale versus pro-étale",
+   "statement": "For a locally convex L-space F with a continuous G-action let F^b be the space of G-bounded vectors. Lemma 5.3: (a) for Π a unitary Banach representation, (Π^*)^b = Π^*; (b) for π smooth admissible of finite length, (π^*)^b ≅ π̂^*, with π̂ the universal unitary completion; (c) for Π unitary admissible of finite length, ((Π^an)^*)^b = Π^*. Proposition 5.6 (companion paper): H^1_ét(M_{n,C_p}) → H^1_proét(M_{n,C_p}) is injective with image the G-bounded vectors.",
+   "locator": "Lemme 5.3, p. 50 et Proposition 5.6, p. 51",
+   "status": "missing",
+   "note": "Lemmas 5.4 and 5.5 are the functional-analytic tools used alongside: Hom(E, F ⊗̂ D) ≅ Hom(E,F) ⊗̂ D for E a nuclear Fréchet space, and (X ⊗̂ B)^G ≅ X^G ⊗̂ B for B a Banach space with trivial action."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-omega",
+   "kind": "theorem",
+   "name": "Proposition 5.7: the multiplicity of a Banach representation in the differentials of the tower",
+   "statement": "For Π a unitary admissible absolutely irreducible L-Banach representation of G, Hom_G(Π^*, L ⊗ Ω^1(M^p_{n,Q_p})) is L ⊗_L JL(M) if Π = Π_{M,L} with M of level ≤ n; δ_Ǧ if Π = St^cont ⊗ δ_G with δ of level ≤ n; and 0 otherwise.",
+   "locator": "Proposition 5.7, p. 51",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-8",
+   "kind": "theorem",
+   "name": "Theorem 5.8: the multiplicity of a Banach representation in the étale cohomology",
+   "statement": "For Π a unitary admissible absolutely irreducible L-Banach representation of G, Hom_G(Π^*, H^1_ét(M^p_{n,C_p})) is V_{M,L} ⊗_L JL(M) if Π = Π_{M,L} with M of level ≤ n; δ ⊗ δ_Ǧ if Π = St^cont ⊗ δ_G with δ of level ≤ n; and 0 otherwise.",
+   "locator": "Théorème 5.8, p. 52 (= Théorème 0.16, p. 8)",
+   "status": "missing",
+   "note": "Proved from the fundamental diagram of the companion paper (its Theorem 5.11) together with Proposition 5.7: applying Hom_G((Π^an)^*,−) to the exact sequence 0 → H^1_proét[M] → Ω^1[M] → (M_dR ⊗ C_p)/X^+_st(M) ⊗̂ LL(M)^* → 0 and computing the kernel gives X^+_st(M) ∩ (L ⊗ C_p) ≅ V_{M,L}. This is the statement that Theorem 5.24 interpolates."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-9",
+   "kind": "theorem",
+   "name": "Theorem 5.10: a cleaner proof that representations of dimension ≥ 3 do not occur",
+   "statement": "If V is an absolutely irreducible L-representation of Gal_{Q_p} of dimension ≥ 3 then Hom_{Gal_{Q_p}}(V, H^1_ét(M^p_{n,C_p})) = 0.",
+   "locator": "Théorème 5.10, p. 53",
+   "status": "missing",
+   "note": "‘Une preuve nettement plus naturelle (mais pas forcément plus simple...)’ of one of the most delicate results of the companion paper, obtained by combining the finiteness theorem 4.1 with Theorem 5.8."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-kisin-ring",
+   "kind": "construction",
+   "name": "The Kisin ring R_{B,M} and its integral model",
+   "statement": "For M supercuspidal and a block B, I_{M,B} is the intersection of the maximal ideals p of R^{ps,δ_M}_B[1/p] at which the universal pseudo-character specialises to the trace of a de Rham representation of weights 0 and 1 and type M; R_{B,M} := R^{ps,δ_M}_B[1/p]/I_{B,M} is reduced and Jacobson, and R^+_{B,M} is the image of R^{ps,δ_M}_B in it, so R_{B,M} = R^+_{B,M}[1/p].",
+   "locator": "§5.2, pp. 53–55",
+   "status": "planned",
+   "planned": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "note": "R08.3 constructs Kisin's potentially semi-stable deformation rings with fixed Hodge and inertial type and proves the characterisation of their characteristic-zero points. The refinement needed here is that the type is fixed as a Weil–Deligne representation (the whole M), not merely as a Galois type, and that the ring is a quotient of a pseudo-character deformation ring."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-fami5",
+   "kind": "theorem",
+   "name": "Theorem 5.11: R_{B,M} is a finite product of principal ideal rings carrying a universal representation",
+   "statement": "R_{B,M} is isomorphic to the ring of bounded analytic functions on an open subset of P^1, is a finite product of principal ideal rings, and there is a unique representation ρ_{B,M}: Gal_{Q_p} → GL_2(R_{B,M}) (up to isomorphism) with Tr ∘ ρ_{B,M} = α_{B,M} ∘ T^{δ_M}_B.",
+   "locator": "Théorème 5.11, p. 54",
+   "status": "missing",
+   "note": "For most blocks this follows from Kisin's results plus the observation (Sandra Rozensztajn) that the rigid space attached to R_{B,M} is an open subset of the analytic projective line, using the Hodge filtration of the interpolated representations; the delicate blocks are those of a twist of 1 ⊕ 1 and (for p = 3) of 1 ⊕ ε, and the approach of a companion note handles all blocks uniformly. Lemma 5.12 is the rigidity statement used: two representations over a product of principal ideal rings with infinitely many primes, locally free of finite type with absolutely irreducible specialisations everywhere, are isomorphic if all their specialisations are."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-def-Pi-rho",
+   "kind": "construction",
+   "name": "Definition 5.14: the interpolated representation Π^*(ρ_{B,M})",
+   "statement": "Π^*(ρ_{B,M}) is the R_{B,M}[G]-module with κ(x) ⊗_{R_{B,M}} Π^*(ρ_{B,M}) = Π(ρ_x)^* for every maximal ideal x. It is built from a Gal_{Q_p}-stable R^+_{B,M}-lattice ρ^{◇,+}_{B,M} of the dual of ρ_{B,M}: the Pontryagin dual of that lattice is a colimit of 2-dimensional representations over quotients of R^+_{B,M}, and Π^*(ρ_{B,M}) = L ⊗_{O_L} lim_i Π(V_i)^∨. Equivalently Π^*(ρ_{B,M}) = D(ρ^{◇,+}_{B,M})^♮ ⊠ P^1(Q_p), or Hom_{R_{B,M}}(LL^{[0,1]}_{M,B}, R_{B,M}) with LL^{[0,1]}_{M,B} the B-adic completion of LL(M).",
+   "locator": "Définition 5.14, p. 54",
+   "status": "missing",
+   "note": "Three descriptions of the same object; a design job should prove them equivalent. The last one connects the interpolation to the completed local Langlands correspondence of the companion note."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-factor10",
+   "kind": "theorem",
+   "name": "Theorem 5.15: the factorisation at finite level",
+   "statement": "If L is large enough that all the JL(M) are defined over L, then H^1_ét(M^p_{n,Q̄_p}) ≅ ⊕_M (⊕̂_B Π^*(ρ_{B,M}) ⊗ ρ_{B,M} ⊗ Ř_{B,M}) ⊗_L JL(M), the unspecified tensor products being over R_{B,M} and Ř_{B,M} the L-dual of R_{B,M}.",
+   "locator": "Théorème 5.15, p. 55 (= Théorème 0.1)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-QC1",
+   "kind": "theorem",
+   "name": "Proposition 5.16: the arithmetic cohomology is the almost smooth part of the geometric one",
+   "statement": "The natural map H^{1,+}_{Q̄_p} → H^{1,+}_{C_p} is injective and identifies H^{1,+}_{Q̄_p} with the set of x ∈ H^{1,+}_{C_p} that are almost smooth for the action of Gal_{Q_p}, i.e. fixed modulo p^k by an open subgroup of Gal_{Q_p} for every k ≥ 1.",
+   "locator": "Proposition 5.16, p. 55",
+   "status": "missing",
+   "note": "Corollary 5.17: H^{1,+}_{Q̄_p} is p-torsion free, p-adically complete and p-saturated in H^{1,+}_{C_p}, and H^{1,+}_{Q̄_p}/p^k is a smooth Gal_{Q_p}-module. Question 5.18 asks whether H^{1,+}_{Q̄_p} is dense in H^{1,+}_{C_p} — an open question, not a target."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-damntricky",
+   "kind": "theorem",
+   "name": "Proposition 5.19: finite length of the invariants at finite level",
+   "statement": "(H^{1,+}_{Q̄_p}/p^k)^{Gal_K} is the dual of a smooth O_L[G′]-module of finite length, for every k ≥ 1 and every finite K/Q_p.",
+   "locator": "Proposition 5.19, p. 56",
+   "status": "missing",
+   "note": "The paper gives two proofs; the second is a topological argument showing that Y_k ∩ H^1_{k,K} is closed, hence compact and topologically of finite length. This is what allows Gabriel's block decomposition to be applied at integral level."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-block-decomposition",
+   "kind": "theorem",
+   "name": "The integral block decomposition of the completed cohomology",
+   "statement": "H^{1,+}_{Q̄_p} ≅ ⊕̂_B [P_B ⊗_{E_B} m_B(H^{1,+}_{Q̄_p})] with the completion p-adic and m_B(H^{1,+}_{Q̄_p}) a torsion-free, separated, p-adically complete O_L-module whose continuous O_L-dual is of finite type over R^ps_B.",
+   "locator": "§5.3.2, pp. 56–58 (Proposition 5.21 et Théorème 5.22)",
+   "status": "missing",
+   "note": "The paper notes that it does not seem easy to describe the integral module m_B(H^{1,+}_{Q̄_p}) itself; only its generic fibre is computed, in Theorem 5.24."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-remark-factor4",
+   "kind": "theorem",
+   "name": "Remark 5.23: the finitely many types, and the central character",
+   "statement": "Since H^1_{Q̄_p} injects into H^1_ét(M^p_{n,C_p}), on which the Ǧ-action factors through a finite quotient, only finitely many M have H^1_{Q̄_p}[M] ≠ 0, and H^1_{Q̄_p} = ⊕_M (H^1_{Q̄_p}[M] ⊗_L JL(M)), whence m_B(H^1_{Q̄_p}) = ⊕_M (m_{B,M} ⊗_L JL(M)) with m_{B,M} = Hom_{G×Ǧ}(P_B ⊗ JL(M), H^1_ét(M^p_{n,Q̄_p})). The module m_{B,M} does not depend on n ≥ level(M), and the centre of G acts on it by δ_M because the centres of G and Ǧ act by inverse characters on H^1_ét(M^p_{n,C_p}).",
+   "locator": "Remarque 5.23, p. 58",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-factor5",
+   "kind": "theorem",
+   "name": "Theorem 5.24: the structure of the multiplicity module over the Kisin ring",
+   "statement": "(i) R^{ps,δ_M}_B acts on m_{B,M} through its quotient R_{B,M}. (ii) There is an isomorphism of E^{δ_M}_B[Gal_{Q_p}]-modules m_{B,M} ≅ m^{δ_M}_B(Π^*(ρ_{B,M})) ⊗ ρ_{B,M} ⊗ Ř_{B,M}, the tensor products being over R_{B,M}.",
+   "locator": "Théorème 5.24, p. 59 (= Théorème 0.18, p. 9)",
+   "status": "missing",
+   "note": "(i) is formal from Theorem 4.1 (i) and Theorem 5.8; (ii) interpolates the pointwise decomposition of Theorem 5.8 over the closed points of Spec R_{B,M}, which suffices because R_{B,M} is a finite product of principal ideal rings. The hypothesis p > 3 enters through the global arguments and Paškūnas–Tung."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-perfectoid-tower",
+   "kind": "construction",
+   "name": "The completed Lubin–Tate and Drinfeld towers as perfectoid spaces, and Faltings's isomorphism",
+   "statement": "M_{LT,∞,F̆} and M̂_{∞,C_p} are perfectoid spaces, isomorphic to one another, with M_{LT,∞} a pro-étale GL_n(F)-torsor over P^{n-1} through the period map; the isomorphism of the two completed towers (Faltings, Scholze–Weinstein) is what lets Scholze's functor be read on the Drinfeld side, and is used in Remark 0.10 and Theorem 4.26.",
+   "locator": "§0.2.2 et §3.1–3.2, pp. 6 et 33–35",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+    "PerfectoidSpaces:P2"
+   ],
+   "note": "ET.6a constructs both towers and proves the infinite-level moduli description and duality isomorphism; P2 provides affinoid perfectoids and their acyclicity. The paper is a source for the Stein affinoid perfectoid cover of M_∞ with its Mittag-Leffler property (Lemma 3.10)."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-fundamental-diagram",
+   "kind": "theorem",
+   "name": "The fundamental diagram of the companion paper",
+   "statement": "For M ∈ ΦN^p_n supercuspidal there is a commutative diagram of G-Fréchet spaces with exact rows 0 → (L ⊗ O(M^p_{n,C_p}))[M] --exp--> H^1_proét(M^p_{n,C_p})[M] → X^+_st(M) ⊗̂_L LL(M)^* → 0 and 0 → (L ⊗ O(M^p_{n,C_p}))[M] --d--> Ω^1(M^p_{n,C_p})[M] → (C_p ⊗ M_dR) ⊗̂_L LL(M)^* → 0, with injective vertical maps of closed image, whence an exact sequence 0 → H^1_proét(M^p_{n,C_p})[M] → (L ⊗ Ω^1)[M] → ((M_dR ⊗ C_p)/X^+_st(M)) ⊗̂_L LL(M)^* → 0.",
+   "locator": "§5.1.3, pp. 51–52 (Theorem 5.11 of the companion paper, with Theorem 1.8 of ‘Cohomology of p-adic Stein spaces’ for the closedness)",
+   "status": "missing",
+   "note": "Routed in PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B to the roadmap proposed there; this paper consumes it to prove Theorem 5.8."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-ludwig",
+   "kind": "theorem",
+   "name": "Ludwig's vanishing theorem",
+   "statement": "S^2(π) = 0 for π a generic principal series I(χ_1,χ_2) of GL_2(Q_p) — and, more generally, S^2 kills the Steinberg and the parabolic inductions and turns characters into characters.",
+   "locator": "used in §4.1.5 and §4.3.3, pp. 42 and 48",
+   "status": "missing",
+   "note": "The main result of Ludwig's paper. It is indispensable twice: to know that S^1(M) is built from the S^1(I(χ_i,χ_j)) in the proof of Proposition 4.3, and to control S^2(X) in the proof of Theorem 4.23 (b). Nothing in the atlas plans Scholze's functor, let alone this vanishing."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-fust",
+   "kind": "theorem",
+   "name": "Fust's computation of the continuous cohomology of SL_2(Q_p)",
+   "statement": "The computation of H^i(SL_2(Q_p), π) for π a smooth admissible mod p representation, which together with the spectral sequence of Corollary 3.11 produces the comparison map of Corollary 3.13 with finite-dimensional kernel and cokernel.",
+   "locator": "used in §0.2.2 and §3.2, pp. 6 and 37",
+   "status": "missing",
+   "note": "An essential input with no home in the atlas: the continuous cohomology of a p-adic group acting on a mod p smooth representation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-scholze-isotypy",
+   "kind": "theorem",
+   "name": "The isotypy results of Carayol and Scholze for completed cohomology",
+   "statement": "The results used to control the Gal_{Q_p}-action on S^1(π) through a globalisation: Scholze's local–global compatibility for the completed cohomology of Shimura curves, and the deformation ρ_m of ρ̄ over the Hecke algebra with its characteristic polynomial condition.",
+   "locator": "§4.1.4, pp. 41–42",
+   "status": "planned",
+   "planned": [
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+    "AutomorphicGaloisRepresentations:R19.4"
+   ],
+   "note": "R31.4 owns p-adic local–global compatibility and R19.4 local–global compatibility away from p; the specific statement used (Scholze's Prop. 5.7 giving ρ_m) belongs to their exports."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-kummer-etale",
+   "kind": "theorem",
+   "name": "The Kummer sequence and the étale cohomology of affinoids with torsion coefficients",
+   "statement": "The Kummer exact sequence on the étale site of a rigid space or formal scheme, giving the symbol maps O(U_K)^* → H^1_ét(U_K, Z/p^n(1)) that carry the Bloch–Kato–Hyodo filtration, together with the finiteness of étale cohomology of a proper scheme over a finite field used in Step 1 of the proof of Theorem 2.1.",
+   "locator": "§2.1.1 and §2.2, pp. 22 and 27–30",
+   "status": "planned",
+   "planned": [
+    "ClassicalAdicEtaleCohomology:H1",
+    "AdicEtaleGeometry:A1"
+   ],
+   "note": "A1 builds the étale sites and H1 the formal models with specialisation and nearby cycles; the paper is a source for the formal-scheme symbol maps with their log-structure description."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-berkovich-smoothness",
+   "kind": "theorem",
+   "name": "Berkovich's smoothness of the G-action on compactly supported cohomology",
+   "statement": "Berkovich's result that the action of G on the compactly supported étale cohomology of the relevant analytic spaces is smooth, which would give the first part of Theorem 2.1 directly if a Poincaré duality for spaces like M^ϖ_{n,K} were available.",
+   "locator": "Remarque 0.6 (i), p. 5",
+   "status": "missing",
+   "note": "Recorded because the paper's Remark 0.6 (i) makes the missing duality explicit: ‘l'existence d'une telle dualité pour des espaces analytiques comme M^ϖ_{n,K} n'est pas connue’. A design job should record the gap rather than assume the duality."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-nakajima",
+   "kind": "theorem",
+   "name": "Nakajima's theorem on the differentials of a Galois covering of curves",
+   "statement": "For a Galois covering X_n → X_0 of proper smooth curves with X_0 of genus ≥ 2, every representation of Gal(X_n/X_0) occurs with non-zero multiplicity in Ω^1(X_n).",
+   "locator": "Remarque 2.15 (ii), p. 31",
+   "status": "missing",
+   "note": "Used to produce, for every supercuspidal M with ϖ acting trivially on JL(M), a V with Π_M(V) ≠ 0 — i.e. to show that the non-admissibility theorem is not vacuous. With the étale–de Rham comparison it gives H^1_ét(X_{n,C_p},L(1))[M] ≠ 0."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-gabriel",
+   "kind": "theorem",
+   "name": "Gabriel's theory of locally finite abelian categories and block decomposition",
+   "statement": "The general theory giving, for a locally finite abelian category, the decomposition into blocks and the equivalence with modules over the endomorphism ring of the sum of the projective envelopes — used here as Proposition 1.12 and again at integral level in §5.3.2.",
+   "locator": "§1.3.3, p. 14 et §5.3.2, pp. 56–58",
+   "status": "missing",
+   "note": "The atlas has Gabriel's theorems only for finite-dimensional algebras and quivers (in a Tau Ceti roadmap); the version for locally finite categories of smooth representations, with the compact projective envelopes P_π, is not planned. It is the formal engine of the whole factorisation."
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-schikhof",
+   "kind": "theorem",
+   "name": "Schikhof duality and the compact duals of spaces of automorphic forms",
+   "statement": "Schikhof duality for compact O_L-modules, used with Paškūnas's relation (27) to identify S^∨_{ψ,λ,m} with the continuous O_L-dual of the projective limit of the spaces of automorphic forms, and similarly for the completed cohomology.",
+   "locator": "§4.1.3–4.1.4, pp. 40–41",
+   "status": "missing",
+   "note": "Elementary but load-bearing: all the module-theoretic identifications of §4 are between a smooth representation and the dual of a compact module, and the paper's topological care (Pontryagin versus continuous duals, ∨ versus *) is part of the statement."
+  }
+ ],
+ "routes": [
+  {
+   "route": "new",
+   "roadmap": "ModpRepresentationsOfGL2OverLocalFields",
+   "title": "Smooth mod p representations of GL_2 over a local field: finiteness, blocks and the ordinary part",
+   "area": "representations",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-thm-cosocle",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-jordan-holder-ord",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-finiteness-notions",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-smooth-torsion",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-finiteness-lemmas",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-Ichi",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-rationality",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-galois-orbits",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-prop-filtration",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-prop-shotton-ext",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-category-C",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.1-prop-shotton-coherent",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-thm-LTappli",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-ord-functor",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.4-prop-BL-rigidity",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.5-thm-schraen-wu",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-gabriel",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-schikhof"
+   ],
+   "reason": "The atlas plans the mod p classification only for GL_2(Q_p), inside PadicLocalLanglandsForGL2Qp R30.2, and as an input to modularity lifting. It plans none of the finiteness theory that this paper runs on and that is stated for an arbitrary finite extension F of Q_p: the algebra O_L⟨H⟩ and the categories of finite type and finitely presented smooth representations, Shotton's theorem that O_L⟨H⟩ is coherent for a p-adic group that is an amalgam of two compact opens, the category C of admissible finitely presented representations, Emerton's ordinary part functor and the resulting description of C for F ≠ Q_p, and the criteria by which finite length is detected. SmoothRepresentationsOfLocalGroups is about the smooth complex/ℓ-adic theory and its Bernstein decomposition, not the mod p theory.",
+   "brief": "Final theorems, for H a p-adic Lie group and G = GL_2(F) with F/Q_p finite. (1) The categories: smooth torsion O_L[H]-modules, the algebra O_L⟨H⟩ = O_L[H] ⊗_{O_L[K]} O_L[[K]] with its independence of K, and the five finiteness conditions — admissible, locally admissible, finite length, finite type, finite presentation — with the equivalences that finite type means a quotient of one compact induction and a finite type O_L⟨H⟩-module, and finite presentation means a finitely presented O_L⟨H⟩-module and NOT a finitely presented O_L[H]-module (§1.1). (2) Stability: finite type and finite presentation are stable under extensions and quotients in the stated directions (Proposition 1.2), and Shotton's theorem: if H is an amalgam of two compact open subgroups then O_L⟨H⟩ is coherent, so Rep^pf H is abelian — the kernel of a map of finitely presented representations is finitely presented (Proposition 1.3), which by Ihara's theorem applies to SL_2(F) and to {g: det g ∈ O_F^*} ⊂ G′. Add the five-term criterion of Lemma 2.10. (3) The mod p irreducibles: Serre weights, I(σ) = c-Ind_{KZ}^G σ with End_G I(σ) = F̄_p[T] and I(σ) free over it, the Barthel–Livné list (characters, principal series, Steinberg twists, supersingulars) and, for F = Q_p, Breuil's irreducibility of I(σ)/(T) and Berger's automatic central character; import the GL_2(Q_p) classification from R30.2 rather than reproving it. (4) Rigidity and finiteness: every proper quotient of I(σ) has finite length (Proposition 1.16); every finite type representation of G′ is filtered by quotients of compact inductions (Proposition 1.18) and, for F = Q_p, is of finite presentation (Proposition 1.19); Theorem 1.20, that a finite type representation whose cosocle is admissible is of finite length; Lemma 1.22, that Ext^1_G(π,π′) is finite-dimensional for every irreducible π′ and vanishes for almost every π′; and Theorem 1.24, that a finite type representation is of finite length if and only if the smooth vectors of its Pontryagin dual are finite-dimensional. (5) The category C = Rep^adm ∩ Rep^pf: it is contained in Rep^ℓf and stable under subquotients and extensions (Theorem 1.25), equals Rep^ℓf for F = Q_p, and for F ≠ Q_p contains no supersingular constituent after a finite extension of scalars (Lemma 1.33) because the supersingulars are not of finite presentation (Schraen, Wu). Plan Emerton's ordinary part functor Ord, right adjoint to Ind_{B̄}^G, with its computation on parabolic inductions, Steinberg twists and characters, its exactness on C, and the theorem that for π ∈ C the kernel and cokernel of Ind_{B̄}^G(Ord π) → π are of finite type over O_L (Propositions 1.28–1.31 and Corollary 1.32). (6) Plan Gabriel's block theory for these locally finite categories: blocks, compact projective envelopes P_π, E_B = End_G P_B with its centre Z_B, and the equivalence Π ↦ Hom_G(P_B, Π^∨) — importing the GL_2(Q_p) block classification and the R = T theorem from R30.5/R30.6. Record as known-unknown: the classification of the supersingular representations for F ≠ Q_p, and Emerton's conjecture that an admissible representation of finite type is of finite length. Also record Le's examples of smooth irreducible non-admissible representations and of representations becoming of infinite length after extension of scalars."
+  },
+  {
+   "route": "new",
+   "roadmap": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
+   "title": "Scholze's mod p functor and the mod p cohomology of the Lubin–Tate and Drinfeld towers",
+   "area": "langlands",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-cor-SS",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-proof-key",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-proof-finite-length",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-isotypic",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-scholze-functor",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-key",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-23",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-4-22",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-thm-LTfin",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-cor-cafe52",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-thm-scholze",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/3-thm-compare",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-globalisation",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-ludwig",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-fust"
+   ],
+   "reason": "Scholze's functor π ↦ S^i(π) — the candidate mod p Jacquet–Langlands transfer built from the pro-étale GL_n(F)-torsor M_{LT,∞} → P^{n-1} — is not planned anywhere. EndoscopicTransferAndUnitaryTraceComparison ET.6a plans the ℓ-adic two-tower realisation of classical local Langlands, a different statement with a different proof; CompletedCohomologyAndLocalGlobalCompatibility plans completed cohomology and local–global compatibility, which are inputs here, not the functor. Nor is the mod p cohomology of the towers planned: the finiteness and finite-length theorems of §4, the vanishing for almost every irreducible π, and the mod p multiplicity of a residual Galois representation are the new mathematics this paper adds, and its spectral sequence relating S^i to that cohomology is proved in the generality of Scholze's paper and, as the authors say, ‘a sans doute un intérêt en soi’.",
+   "brief": "Final theorems. (1) The functor: for F/Q_p finite, D_p central division of invariant 1/n and the Lubin–Tate tower with its period maps π_GH: M_{LT,K} → P^{n-1}_{F̆}, construct at infinite level the pro-étale GL_n(F)-torsor M_{LT,∞,F̆} → P^{n-1}_{F̆}, the sheaf F_π = (π_{GH,*}π̲)^{GL_n(F)} with F_π(U) = C^0_{GL_n(F)}(|U_∞|,π) and geometric fibres π for π smooth, and S^i(π) = H^i_ét(P^{n-1}_{C_p}, F_π); prove Scholze's properties (Theorem 3.1): admissibility of S^i(π) as a D_p^*-module, the almost isomorphism S^i(π) ⊗ O_{C_p} ≅ H^i_ét(P^{n-1}, F_π ⊗ O^+), vanishing above 2(n−1), the extension of the W_F-action to Gal_F, and the computation of S^0. (2) The spectral sequence (Theorem 3.2): H^i(G, H^j_ét(M_∞, π̲)) ⇒ S^{i+j}(π) with H^j_ét(M_∞,π̲) = 0 for j ≥ 2, its variant with Hom^cont(π^∨, H^j_ét(M_∞,Z/p^k)) (Corollary 3.4), and the Mittag-Leffler property of a Stein affinoid perfectoid cover that makes the cohomology prodiscrete (Lemma 3.3). Deduce, for GL_2(Q_p), the comparison map S^1(π) → Hom^cont_{k_L[G]}(π^∨, H^1_ét(M_∞,k_L)) with finite-dimensional kernel and cokernel, an isomorphism away from the Steinberg block (Corollary 3.5), using Fust's computation of H^i(SL_2(Q_p),π). Plan Ludwig's vanishing theorem S^2 = 0 on principal series, which is used twice and has no other home. (3) The mod p finiteness theorems: Theorem 4.22, that Hom^cont(π^∨, H^1_ét(M_{n,C_p},k_L)) is finite-dimensional for every smooth admissible π with a central character and every F; Theorem 0.9, that for F = Q_p and [K:Q_p] < ∞ the space Hom^cont_{k_L[G′]}(π^∨, H^1_ét(M^p_{n,K},k_L)) vanishes for almost every irreducible π; Theorem 4.1, that H^1_ét(M^p_{n,K},k_L) is the dual of a finite-length smooth representation; Theorem 4.23, that Π^geo_n(ρ̄) is of finite length and vanishes for ρ̄ absolutely irreducible of dimension > 2, being a successive extension of copies of Π(ρ̄) when d = 2; and Theorem 4.26, the finite-dimensionality of the Ǧ-smooth vectors on the Lubin–Tate side, equivalent to Theorem 4.1 through Theorem 1.24. (4) The global method: the Gee–Kisin globalisation of a residual local representation (Proposition 4.4), the definite quaternionic setting with its two algebras, and the chain Proposition 4.13 (Paškūnas, after Scholze) → Proposition 4.14 (isotypy) → Proposition 4.2, the purely local statement that S^1(I(χ_1,χ_2))^{Gal_K} ≠ 0 forces χ_1 or χ_2 to factor through Gal(K/Q_p). Import the mod p representation theory from the roadmap proposed above, the blocks and R = T from R30.5/R30.6, the towers from ET.6a, completed cohomology and local–global compatibility from R31.4/R31.5, and the quaternionic forms from R18.3. Record the open questions as such: whether the mod p statements extend to GL_d(F), whether H^1_ét(M^ϖ_{n,C_p},k_L) is profinite, and the expected relation of the finitely presented Π^geo_n(ρ̄) for F unramified with the representations of Breuil–Paškūnas."
+  },
+  {
+   "route": "new",
+   "roadmap": "ProetaleCohomologyOfPAdicCurvesAndTowers",
+   "title": "Pro-étale cohomology of p-adic curves and of the Drinfeld tower",
+   "area": "padic",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-nonadm-lemmas",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-proof-structure",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-cpcf",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-cpcf-lemmas",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-14",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-BKH",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-13",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-prop-semistable",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-completed-coh",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-remark-0-6",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-QC1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-damntricky",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-berkovich-smoothness",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-nakajima"
+   ],
+   "reason": "This is the roadmap proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B for the cohomology of a non-proper p-adic curve and of the Drinfeld tower; nothing in the atlas covers it. The geometric half of this paper belongs to the same design job: it is the mod p and integral counterpart of that paper's rational statements, it reuses the same equivariant semi-stable model of M^ϖ_n (for which this paper gives the sharper orbit statement), and its comparison of the arithmetic and geometric cohomologies is the integral analogue of that paper's G-bounded-vectors theorem. Recording it here is what PROTOCOL §15 asks: two papers, one design job.",
+   "brief": "Added to the brief already proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B. Final theorems: (1) Theorem 2.1 — for K/F finite, k ≥ 1 and every q, H^q_ét(M^ϖ_{n,K}, O_L/p^k) is a profinite O_L-module whose Pontryagin dual is a smooth finitely presented representation of G′ — together with the machinery its proof needs: the equivariant semi-stable formal model of M^ϖ_n with finitely many G-orbits of irreducible components, each with open stabiliser (Proposition 2.6); the Bloch–Kato–Hyodo filtration on mod p nearby cycles extended to formal schemes, with its graded pieces Ω^q_log, Ω^{q-1}/B, Ω^{q-1}/Z and the vanishing above pe/(p−1) (Theorem 2.4, and Remark 2.5 for q = 1); and the pro-object formalism of cohomologically profinite, G′-continuous and cpcf sheaves with its two-out-of-three lemma (§2.1.3, Lemmas 2.9 and 2.10). (2) Theorem 2.14 — for F ≠ Q_p and n ≥ 1 the mod p^k multiplicity spaces Π_M(V^+_k) are not admissible whenever Π_M(V) ≠ 0 — with Nakajima's theorem supplying the non-vacuity, and the mechanism: an admissible finitely presented representation is, up to finite O_L-modules, a parabolic induction, so it admits no map from the universal completion of a supercuspidal representation (Proposition 2.18). (3) The comparison of the arithmetic and geometric cohomologies: the completed cohomology H^1_ét(M^p_{n,Q̄_p}, L(1)) of the tower of coefficient fields, the theorem that it is the almost-smooth part of H^{1,+}_{C_p} (Proposition 5.16) with its corollaries, and the finite length of (H^{1,+}_{Q̄_p}/p^k)^{Gal_K} (Proposition 5.19). Record as open: whether H^{1,+}_{Q̄_p} is dense in H^{1,+}_{C_p} (Question 5.18), whether H^1_ét(M^ϖ_{n,C_p},k_L) is profinite, and the missing Poincaré duality for such analytic spaces, which would make Theorem 2.1 a statement about compactly supported cohomology where Berkovich's smoothness of the G-action is available. Import the log structures from CrystallineCohomology CR.5, the formal-model nearby cycles from ClassicalAdicEtaleCohomology H1, and the mod p representation theory of G′ from the roadmap proposed above; do not plan the p-adic local Langlands correspondence here."
+  },
+  {
+   "route": "part-ii",
+   "parent": "PadicLocalLanglandsForGL2Qp",
+   "roadmap": "PadicLocalLanglandsForGL2QpPartIIGeometricRealisation",
+   "title": "P-adic local Langlands for GL₂(Q_p), Part II: the geometric realisation in the Drinfeld tower",
+   "area": "langlands",
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-remark-factor4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-2",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-factor5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-16",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-bounded-vectors",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-PhiN-sets",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-proof-strategy",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-14",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-VML",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-9",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-kisin-rings",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-4",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-cor-0-11",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-prop-omega",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-1",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-9",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-7",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-fundamental-diagram",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-3",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-factor10",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-def-Pi-rho",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-17",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-5-8",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-thm-fami5",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-block-decomposition",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-1"
+   ],
+   "reason": "This is the Part II proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B for the geometric realisation of the correspondence in the Drinfeld tower, and the present paper completes it: where the first paper computed the multiplicity of one irreducible representation, this one determines the whole cohomology as a Gal_{Q_p} × G × Ǧ-module, in an Emerton-style factorisation over the blocks of the mod p representation theory and the Kisin rings of the types. That is new layers in the direction of the same parent — R30.5 already owns the blocks and projective envelopes and R30.3 the correspondence — and no stage of the parent mentions the tower.",
+   "brief": "Added to the brief already proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B. Final theorem (Theorem 5.15 = Theorem 0.1): for L large enough, H^1_ét(M^p_{n,Q̄_p}, L(1)) ≅ ⊕_M (⊕̂_B Π^*(ρ_{B,M}) ⊗ ρ_{B,M} ⊗ Ř_{B,M}) ⊗_L JL(M), the first sum over the types M of level ≤ n, the completed sum over the blocks B of the mod p category, the tensor products over the Kisin ring R_{B,M}. Plan the three layers it decomposes into. (1) The individual multiplicities: Theorem 5.1, the multiplicity of an absolutely irreducible V of dimension ≤ 2 (including the characters, which live in the special types and come by twisting from the Drinfeld half-plane); Theorem 5.8, the multiplicity Hom_G(Π^*, H^1_ét) = V_{M,L} ⊗ JL(M) of an absolutely irreducible unitary Banach representation, proved from the fundamental diagram together with the computation of Hom_G(Π^*, Ω^1) (Proposition 5.7); and Theorem 5.9, the vanishing for V of dimension ≥ 3, which the mod p finiteness theorem makes natural. Add the functional analysis these need: G-bounded vectors, universal unitary completions and the identification of the étale inside the pro-étale cohomology (Lemma 5.3, Proposition 5.6). (2) The families: the Kisin ring R_{B,M} of the representations of type M in a block, its structure as a finite product of principal ideal rings of bounded analytic functions on an open subset of P^1 with its universal representation ρ_{B,M} (Theorem 5.11), the rigidity lemma that makes such a representation unique (Lemma 5.12), and the interpolated G-representation Π^*(ρ_{B,M}) with its three equivalent descriptions (Definition 5.13). (3) The decomposition: the block decomposition of the integral cohomology, the multiplicity modules m_{B,M} = Hom_{G×Ǧ}(P_B ⊗ JL(M), H^1_ét(M^p_{n,Q̄_p})) with their independence of n and their central character (Remark 5.21), and Theorem 5.22 — that R^{ps,δ_M}_B acts through R_{B,M} and that m_{B,M} ≅ m^{δ_M}_B(Π^*(ρ_{B,M})) ⊗ ρ_{B,M} ⊗ Ř_{B,M} — which interpolates Theorem 5.8 over the closed points. Import the blocks, projective envelopes and R = T from R30.5/R30.6, the Kisin rings from LocalGaloisDeformationRings R08.3, the mod p finiteness from the two roadmaps proposed above, and the geometry of the tower from the pro-étale roadmap. Record the hypothesis p > 3 as a hypothesis (it enters through the global arguments and Paškūnas–Tung; for p = 3 the statement survives except possibly for the blocks containing a twist of the Steinberg), and record as an expectation, not a target, that the quotient of the geometric by the arithmetic cohomology may be arithmetically meaningless."
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicLocalLanglandsForGL2Qp",
+   "stages": [
+    "PadicLocalLanglandsForGL2Qp:R30.2",
+    "PadicLocalLanglandsForGL2Qp:R30.3",
+    "PadicLocalLanglandsForGL2Qp:R30.5",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-thm-0-13",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-classification",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-plnl-functor",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.3-blocks",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-paskunas-input"
+   ],
+   "reason": "This paper is a heavy consumer of the parent roadmap of the Part II below: R30.2 for the categories of smooth mod p, admissible Banach and locally analytic representations and the mod p classification, R30.3 for Colmez's functor and the correspondence V ↦ Π(V), R30.5 for the blocks, the projective envelopes P_π and the deformation rings, and R30.6 for the precise Paškūnas, Hu–Tan and Tung statements. It is in turn a good source for the exact forms it needs and which those stages must export: the R = T theorem in the shape ι^δ_B(T^δ_B(g)) = g + δε(g)g^{-1} in End(V(π)) with its p ≥ 5, p = 3 and p = 2 cases (Theorem 1.15); the rationality bookkeeping relating blocks over k_L to Galois orbits of blocks over F̄_p (Remarks 1.11–1.13); and the statement that every π in a block occurs in the finite-length module cut out of a space of automorphic forms (Proposition 4.10)."
+  },
+  {
+   "route": "source",
+   "roadmap": "LocalGaloisDeformationRings",
+   "stages": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/5-kisin-ring"
+   ],
+   "reason": "R08.3 constructs Kisin's potentially semi-stable deformation rings with fixed Hodge and inertial type and characterises their characteristic-zero points. The ring R_{B,M} of §5.2 is the refinement this paper needs: the type is fixed as a whole Weil–Deligne representation M rather than as a Galois type, the ring is cut out of a pseudo-character deformation ring, and it is proved to be a finite product of principal ideal rings isomorphic to bounded analytic functions on an open subset of P^1 (Theorem 5.11) — which is what makes a pointwise decomposition interpolate."
+  },
+  {
+   "route": "source",
+   "roadmap": "CompletedCohomologyAndLocalGlobalCompatibility",
+   "stages": [
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.5"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-prop-LGC",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-scholze-isotypy"
+   ],
+   "reason": "R31.4 owns p-adic local–global compatibility and R31.5 the patched completed modules with their support and multiplicity statements. §4.1 consumes precisely those, for the Shimura curves of a quaternion algebra over a totally real field: Paškūnas's identification S^1(S_{ψ,λ,m}) ≅ Ĥ^1_{ψ,λ,m} of Scholze's functor with completed cohomology (Proposition 4.13) and the isotypy statement ρ_m ⊗ N ≅ Ĥ^1_{ψ,λ}(U^p,O_L)_m (Proposition 4.14). The paper is a good source for the shape in which these have to be exported to answer a purely local question."
+  },
+  {
+   "route": "source",
+   "roadmap": "HilbertModularVarietiesAndShimuraCurves",
+   "stages": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-hecke-algebra"
+   ],
+   "reason": "R18.3 (‘Definite quaternionic forms’) defines algebraic modular forms on a definite quaternion algebra with their Hecke operators. §4.1.3 needs exactly that, together with the Galois-to-Hecke dictionary sending T_v to tr(ρ̄(Frob_v)) and S_v to N(v)^{-1}det(ρ̄(Frob_v)) and the resulting maximal ideal m."
+  },
+  {
+   "route": "source",
+   "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+   "stages": [
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/4-quaternionic-setup"
+   ],
+   "reason": "R16.3 is local Langlands for GL_2, R17.1 the quaternionic local transfer and R17.3 the global Jacquet–Langlands correspondence. §4.1.2 builds its two quaternion algebras by interchanging the invariants at one place above p and one infinite place, and moves between them; the paper is a good source for that construction and for the auxiliary place that makes the tame level small enough."
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicHodgeTheory",
+   "stages": [
+    "PadicHodgeTheory:R06.3"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-types"
+   ],
+   "reason": "R06.3 attaches a potentially semi-stable Weil–Deligne parameter to a de Rham representation (Fontaine's recipe). The paper needs it for (φ,N,Gal_F)-modules of rank 2 and in the packaged form M ↦ (WD(M), LL(M), JL(M)), with the notions of supercuspidal (WD irreducible of slope 1/2), special (N ≠ 0, slopes 0 and 1) and of level ≤ n."
+  },
+  {
+   "route": "source",
+   "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "stages": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/1.2-serre-weights"
+   ],
+   "reason": "R07.5 (‘Local residual types and Serre weights’) owns Serre weights. What this paper needs on top is the Barthel–Livné package for the compact inductions they generate: End_G I(σ) ≅ F̄_p[T] with I(σ) free over it, and the rigidity statement that every proper quotient of I(σ) has finite length."
+  },
+  {
+   "route": "source",
+   "roadmap": "ClassicalAdicEtaleCohomology",
+   "stages": [
+    "ClassicalAdicEtaleCohomology:H1"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-log-setup",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-kummer-etale"
+   ],
+   "reason": "H1 builds formal models, specialisation and the nearby-cycle formalism with the tube stalk formula. §2.1.1 needs the formal-scheme version: the canonical log structure of a semi-stable formal scheme in Berkovich's sense, the sheaves R^iΨ Z/p^n(j) on the special fibre as derived functors of Berkovich's nearby-cycle functor, and the Kummer symbol maps i^*(M^gp)^{⊗q} → R^qΨ Z/p^n(q) that carry the Bloch–Kato–Hyodo filtration. The paper is a good source for all of it, and its Theorem 2.4 is the statement H1 would have to export for a non-quasi-compact model."
+  },
+  {
+   "route": "source",
+   "roadmap": "EndoscopicTransferAndUnitaryTraceComparison",
+   "stages": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+   ],
+   "items": [
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/0-tower",
+    "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/in-perfectoid-tower"
+   ],
+   "reason": "ET.6a constructs the Lubin–Tate and Drinfeld towers with their actions and period morphisms and proves the infinite-level moduli description and duality isomorphism. This paper needs, beyond that, the descent of M^ϖ_n to F with its G′-action — which is what makes the arithmetic cohomology H^•_ét(M^ϖ_{n,K}, −) over a finite K the object of study — and the Stein affinoid perfectoid cover of the infinite level with its Mittag-Leffler property (Lemma 3.3)."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "P. Colmez, G. Dospinescu, W. Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1, J. Amer. Math. Soc. 33 (2020), 311–362 [16]",
+   "link": "10.1090/jams/935",
+   "why": "The companion paper, ‘pleinement utilisé’. Its fundamental diagram (its Theorem 5.11) is the exact sequence out of which Theorem 5.8 — the pointwise multiplicity of a Banach representation — is extracted, and its main theorem is quoted here as Theorem 0.14 = Theorem 5.1. Everything in §5.1 is a complement to it, and the whole factorisation is an interpolation of its pointwise answer."
+  },
+  {
+   "citation": "G. Dospinescu, A.-C. Le Bras, Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique, Ann. of Math. 186 (2017), 321–411 [23]",
+   "link": "10.4007/annals.2017.186.2.1",
+   "why": "The second input the paper says it uses fully. It supplies the representations Π_M(V) attached to a supercuspidal type, whose non-admissibility for F ≠ Q_p is the contradiction exploited in Theorem 2.14, and the p-adic Jacquet–Langlands picture that the factorisation refines."
+  },
+  {
+   "citation": "V. Paškūnas, The image of Colmez's Montreal functor, Publ. Math. IHÉS 118 (2013), 1–191 [53]",
+   "link": "10.1007/s10240-013-0049-y",
+   "why": "Blocks, the compact projective envelopes P_B, the algebra E_B = End_G P_B and its centre Z_B, together with the explicit description of E_B that footnote 32 needs (and which forces the exclusion of the blocks containing a twist of the Steinberg when p = 2, 3). Proposition 1.12, Theorem 1.16 and the whole of §5.3 rest on it."
+  },
+  {
+   "citation": "V. Paškūnas, S.-N. Tung, Finiteness properties of the category of mod p representations of GL_2(Q_p), Forum Math. Sigma 9 (2021), e80 [56]",
+   "link": "10.1017/fms.2021.72",
+   "why": "Theorem 1.16 (the local R = T statement: a unique ι^δ_B : R^{ps,δ}_B → Z^δ_B, an isomorphism for p ≥ 5 and after inverting p in general) and Corollary 6.7, used both to identify k_L ⊗ P_B with a dual (p. 58) and in the proof of Proposition 4.8."
+  },
+  {
+   "citation": "V. Paškūnas, On some consequences of a theorem of J. Ludwig, J. Inst. Math. Jussieu 21 (2022), 1067–1106 [55]",
+   "link": "10.1017/s1474748020000547",
+   "why": "Its Lemma 6.2 is quoted as Proposition 4.11, the local–global compatibility that turns the purely local Proposition 4.3 into a statement about the completed cohomology of Shimura curves; its Lemma 6.1 and Theorem 6.5 are used in the same proof."
+  },
+  {
+   "citation": "J. Ludwig, A quotient of the Lubin–Tate tower, Forum Math. Sigma 5 (2017), e17 [49]",
+   "link": "10.1017/fms.2017.15",
+   "why": "The vanishing S^2 = 0 on generic principal series. It is what makes S^1(M) a successive extension of the S^1(I(χ_i,χ_j)) in the proof of Proposition 4.3, and it is used again to control S^2 in Theorem 4.23."
+  },
+  {
+   "citation": "P. Scholze, On the p-adic cohomology of the Lubin–Tate tower, Ann. Sci. Éc. Norm. Supér. 51 (2018), 811–863 [61]",
+   "link": "10.24033/asens.2367",
+   "why": "Scholze's functors S^i and their basic properties (quoted as Theorem 3.1), plus the propositions 4.6, 4.7, 5.3, 5.4 and 5.8 used throughout §3 and §4. The spectral sequence of Theorem 3.2 is built on top of this construction."
+  },
+  {
+   "citation": "P. Scholze, Étale cohomology of diamonds, arXiv:1709.07343 [62]",
+   "link": "https://arxiv.org/abs/1709.07343",
+   "why": "Lemma 23.6 (the cohomology of a product with a profinite set) is the computation that makes the Stein-cover argument of Lemma 3.10 work, and hence that H^q_ét(M_∞, Z/p^k) is prodiscrete."
+  },
+  {
+   "citation": "P. Scholze, J. Weinstein, Moduli of p-divisible groups, Camb. J. Math. 1 (2013), 145–237 [63]",
+   "link": "10.4310/CJM.2013.v1.n2.a1",
+   "why": "The two completed towers are perfectoid and G × Ǧ-equivariantly isomorphic; this is what lets a statement about the Drinfeld tower be read on the Lubin–Tate side, as in Remark 0.10 and Theorem 4.26."
+  },
+  {
+   "citation": "M. Kisin, Potentially semi-stable deformation rings, J. Amer. Math. Soc. 21 (2008), 513–546 [46]",
+   "link": "10.1090/s0894-0347-07-00576-0",
+   "why": "The rings R_{B,M} that replace Hecke algebras in the factorisation: the quotient of the pseudo-character deformation ring parametrising the potentially semi-stable representations of fixed type. Theorem 5.11 completes Kisin's construction in the cases needed here."
+  },
+  {
+   "citation": "M. Emerton, Ordinary parts of admissible representations of p-adic reductive groups I, Astérisque 331 (2010), 335–381 [29]",
+   "link": "https://zbmath.org/?q=an%3A1246.22015",
+   "why": "The ordinary part functor Ord, right adjoint to Ind^G_B̄, with its exactness properties (its Propositions 4.1.5 and 4.1.7) and the conjecture recorded in Remark 1.18. The description of the category C for F ≠ Q_p — the engine of the non-admissibility theorem — is entirely in terms of Ord."
+  },
+  {
+   "citation": "L. Barthel, R. Livné, Irreducible modular representations of GL_2 of a local field, Duke Math. J. 75 (1994), 261–292 [2]",
+   "link": "10.1215/s0012-7094-94-07508-x",
+   "why": "The classification of the irreducible smooth mod p representations of GL_2(F) in terms of the Hecke operator on I(σ), and the finite-codimension statement (their Proposition 18) that yields Proposition 1.17. Everything in §1.4 that is special to F = Q_p uses the completed Barthel–Livné–Breuil classification."
+  },
+  {
+   "citation": "S. Bloch, K. Kato, p-adic étale cohomology, Publ. Math. IHÉS 63 (1986), 107–152 [9], and O. Hyodo, A note on p-adic étale cohomology in the semistable reduction case, Invent. Math. 91 (1988), 543–557 [44]",
+   "link": "10.1007/bf02831624",
+   "why": "The filtration on the mod p symbols and the identification of its graded pieces with logarithmic differentials, which Theorem 2.4 transports to formal schemes; the paper states that extending it to formal schemes ‘est bien connu des experts mais nous n'avons pas trouvé de référence’."
+  },
+  {
+   "citation": "P. Fust, Continuous cohomology and Ext-groups, Münster J. Math. 15 (2022), 279–304 [34]",
+   "link": "https://zbmath.org/?q=an%3A1502.22013",
+   "why": "The computation of H^i(SL_2(Q_p), π) for π smooth admissible mod p (its Theorem 1.2 and Lemma 6.3): finite-dimensional, and zero unless π lies in a twist of the Steinberg block. With the spectral sequence it gives Corollary 3.13, the comparison between S^1(π) and the multiplicity space."
+  },
+  {
+   "citation": "G. Dospinescu, V. Paškūnas, B. Schraen, Gelfand–Kirillov dimension and the p-adic Jacquet–Langlands correspondence, J. reine angew. Math. (2023) [25]",
+   "link": "10.1515/crelle-2023-0033",
+   "why": "The globalisation of Proposition 4.5 with the auxiliary place of its Lemma 8.2, its Proposition 8.4 and Lemma 8.6 for the local structure of the space of automorphic forms, and its Lemma 7.4 for the vanishing used in Lemma 4.28."
+  },
+  {
+   "citation": "P. Colmez, G. Dospinescu, W. Nizioł, Cohomology of p-adic Stein spaces, Invent. Math. 219 (2020), 873–985 [17]; Cohomologie des courbes analytiques p-adiques, Camb. J. Math. 10 (2022), 511–655 [18]",
+   "link": "10.1007/s00222-019-00923-z",
+   "why": "Theorem 1.8 of [17] gives the closedness of the image of X^+_st(M) → C_p ⊗ M_dR that makes the exact sequence of Fréchet spaces behind Theorem 5.8 usable; Corollary 2.10 of [18] is quoted for the prodiscrete module Y_B in the proof of Theorem 5.24."
+  },
+  {
+   "citation": "B. Schraen, Sur la présentation des représentations supersingulières de GL_2(F), J. reine angew. Math. 704 (2015), 187–208 [66]; Z. Wu, A note on presentations of supersingular representations of GL_2(F), Manuscripta Math. 165 (2021), 583–596 [71]",
+   "link": "10.1515/crelle-2013-0049",
+   "why": "Theorem 1.27: for F ≠ Q_p the supersingular representations are not of finite presentation. Combined with the finite-presentation Theorem 2.1 this is exactly what makes the cohomology of the tower non-admissible for F ≠ Q_p."
+  },
+  {
+   "citation": "P. Gabriel, Des catégories abéliennes, Bull. Soc. Math. France 90 (1962), 323–448 [35]",
+   "link": "https://zbmath.org/?q=an%3A0201.35602",
+   "why": "The decomposition of a locally finite abelian category into blocks and the equivalence with modules over the endomorphism ring of the projective envelopes. The paper derives its block decomposition (Proposition 1.12, and its integral form in §5.3.2) from this theory; it is the formal engine of the whole factorisation."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E1",
+   "kind": "misprint",
+   "locator": "Théorème 5.15, p. 55",
+   "printed": "où les produits tensoriels non spécifiés sont au-dessus de R_{B,M} et Ř_{B,M} = Hom(Ř_{B,M}, L).",
+   "correction": "et Ř_{B,M} = Hom(R_{B,M}, L).",
+   "reason": "As printed the definition is circular: Ř_{B,M} is defined as the dual of itself. The intended object is the continuous L-dual of R_{B,M}, as Theorem 0.1 (p. 2) states correctly (‘où Ř_{B,M} est le L-dual continu de R_{B,M}’) and as Theorem 5.24 (ii) (p. 59) repeats (‘où Ř_{B,M} est le L-dual de R_{B,M}’). Theorem 5.15 is the main theorem of the paper, so the misprint sits in the statement that the title announces. The same circular formula is in the arXiv v2 source, so it is not a production error.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E2",
+   "kind": "misprint",
+   "locator": "Proposition 5.16, p. 55",
+   "printed": "à l’ensemble des x ∈ H^{1,+}_{C_p} presque lisses sous l’action de G_{Q_p} (i.e. qui, pour pour tout k ≥ 1, sont fixes modulo p^k par un sous-groupe ouvert de G_{Q_p})",
+   "correction": "qui, pour tout k ≥ 1, sont fixes modulo p^k …",
+   "reason": "‘pour’ is printed twice. Present in the arXiv v2 source as well.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E3",
+   "kind": "gap",
+   "locator": "Théorème 5.24 (ii), p. 59 (and Théorème 5.15, p. 55)",
+   "printed": "Théorème 5.24. (i) R^{ps,δ_M}_B agit sur 𝕞_{B,M} à travers son quotient R_{B,M}. (ii) On a un isomorphisme de E^{δ_M}_B[G_{Q_p}]-modules 𝕞_{B,M} ≃ 𝕞^{δ_M}_B(Π^*(ρ_{B,M})) ⊗ ρ_{B,M} ⊗ Ř_{B,M} …",
+   "correction": "Part (ii) needs the hypothesis of Theorem 0.18 (ii): p > 3, or p = 3 and B not containing a twist of the Steinberg; and Theorem 5.15, whose proof cites (ii), inherits it.",
+   "reason": "Neither Theorem 5.24 (ii) nor Theorem 5.15 carries any hypothesis on p, and no standing hypothesis supplies one: chapter 4 assumes only p > 2 (p. 37, footnote 23) and chapter 5 assumes nothing. But the proof of (ii) ends ‘en adaptant le lemme 5.12’ through footnote 32 (p. 60), which needs the semi-simplicity of F ⊗_{R_{B,M}} E_{B,M} and states that Paškūnas's explicit description ‘demande d'exclure les blocs contenant un twist de la steinberg si p = 2, 3’. Accordingly the introduction states the same result as Theorem 0.18 (ii) with ‘Supposons que p > 3’, and footnote 14 (p. 9) relaxes it to p = 3 away from the Steinberg blocks. As printed, the two body statements assert for all p what is proved only under that restriction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E4",
+   "kind": "misprint",
+   "locator": "reference [52], p. 62",
+   "printed": "[52] V. Paškūnas, Extensions for supersingular representations of ), Astérisque 331 (2010), 317–353.",
+   "correction": "Extensions for supersingular representations of GL_2(Q_p).",
+   "reason": "The group has disappeared from the title, leaving a stray closing parenthesis; checked on the rendered page, not only in the extracted text. The source has the malformed ‘${\\rm GL}_2(\\Q_p$)’, with the closing parenthesis outside the formula, which is presumably what the production system dropped.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E5",
+   "kind": "misprint",
+   "locator": "reference [42], p. 62",
+   "printed": "[42] Y. Hu, H. Wang, On some mod p representations of quaternion algebra over g p, arXiv:2201.01464 [math.NT]",
+   "correction": "… of quaternion algebra over Q_p.",
+   "reason": "The field is printed as an italic ‘g p’ instead of Q_p (verified on the rendered page and by two independent text extractors). The source writes ‘over $\\qp$’, so the substitution happened in production.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E6",
+   "kind": "misprint",
+   "locator": "reference [68], p. 62",
+   "printed": "[68] M. Strauch, Geometrically connected components of of Lubin-Tate deformation spaces with level structures, Pure and Applied Mathematics Q. 4 (2008), 1215–1232",
+   "correction": "Geometrically connected components of Lubin-Tate deformation spaces …",
+   "reason": "‘of’ is printed twice; the doubling is already in the arXiv v2 bibliography.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "inputs-unpublished-at-the-time",
+   "detail": "Four inputs were unpublished when the paper appeared and must not be treated as available: [19] (Colmez–Dospinescu–Nizioł, ‘Correspondance de Langlands locale p-adique et anneaux de Kisin’, Acta Arith., ‘à paraître’) supplies the prodiscrete module Y_B with its Corollary 3.12 and the fact that J kills Y_B, both used in the proof of Theorem 5.24 (i); [25] (Dospinescu–Paškūnas–Schraen, ‘à paraître’, since published in J. reine angew. Math.) supplies the globalisation and several lemmas of §4.1; [42] (Hu–Wang, arXiv:2201.01464) is cited in Remark 4.4 for finer results on S^1(I(χ_1,χ_2)); [26] (Dotto–Emerton–Gee, arXiv:2207.04671) is cited for an alternative argument in §1.4. A design job should plan the statements actually used, not the papers."
+  },
+  {
+   "id": "p-greater-than-3-is-not-known-to-be-necessary",
+   "detail": "The factorisation is proved for p > 3. Footnote 2 (p. 2) says the hypothesis is used in some global arguments and to quote [53] directly, and that it is ‘sans doute superflue’; for p = 3 the statement of Theorem 0.1 remains correct except possibly for the contribution of the blocks containing a twist of the Steinberg, and p = 2 is excluded throughout (the finiteness theorem of chapter 4 assumes p > 2). Removing the hypothesis is open and may not be planned as a target."
+  },
+  {
+   "id": "the-integral-multiplicity-module-is-not-described",
+   "detail": "The paper obtains the integral block decomposition H^{1,+}_{Q̄_p} ≅ ⊕̂_B [P_B ⊗_{E_B} 𝕞_B(H^{1,+}_{Q̄_p})] (§5.3.2) but says explicitly that it does not seem easy to describe the integral module 𝕞_B(H^{1,+}_{Q̄_p}); only its generic fibre is computed, in Theorem 5.24. An integral form of the factorisation is not available."
+  },
+  {
+   "id": "open-questions-and-expectations",
+   "detail": "Several statements in the paper are expectations, not results: Question 5.18 asks whether H^{1,+}_{Q̄_p} is dense in H^{1,+}_{C_p}; Remark 0.6 (i) observes that a Poincaré duality for the tower — not available — would give the first part of Theorem 0.5 for all q; Remark 2.3 expects the finite-presentation statement to hold in arbitrary dimension; Remark 4.29 expects Theorem 4.26 to hold for F ≠ Q_p although Theorem 4.1 does not; Remark 1.18 records Emerton's conjecture that an admissible proper quotient of I(σ) is of finite length for general F. The introduction also suggests that the quotient of the cohomology of M^p_{n,C_p} by that of M^p_{n,Q̄_p} may be arithmetically meaningless ‘bruit’, to which the authors ‘ont échoué à lui trouver une interprétation’."
+  },
+  {
+   "id": "mod-p-classification-missing-for-F-not-Qp",
+   "detail": "Theorem 1.21 (finite length is detected by the cosocle) and Theorem 1.24 are proved only for F = Q_p because they use the full Barthel–Livné–Breuil classification of the smooth irreducible mod p representations, which is unknown for F ≠ Q_p; the same gap is why the finite-length Theorem 4.1 is specific to Q_p while the finite-presentation Theorem 2.1 holds for all F. The classification for F ≠ Q_p may not be planned."
+  },
+  {
+   "id": "no-p-adic-jacquet-langlands-functor",
+   "detail": "The factorisation produces, for each type M, the G-representation Π^*(ρ_{B,M}) interpolating the duals Π(ρ_x)^* and the Ǧ-representation JL(M), but the paper constructs no functor realising a p-adic Jacquet–Langlands correspondence; that remains a programme (as in Remark 0.3 of the companion paper). A roadmap may plan the objects appearing in Theorem 5.15 but not a correspondence."
+  }
+ ]
+}
