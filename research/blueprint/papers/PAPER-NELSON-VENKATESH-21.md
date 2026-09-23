@@ -209,7 +209,7 @@ Locators are in the published text; every finding except the citation (E7) is al
 
 | Item | Kind | Name | Locator | Status | Layers or declarations |
 |---|---|---|---|---|---|
-| /1 | theorem | Schwartz spaces and Fourier inversion on the Lie algebra | §2, §2.1, p. 25 | library | mathlib:SchwartzMap, mathlib:SchwartzMap.fourierTransformCLM, mathlib:SchwartzMap.fourierTransformCLE |
+| /1 | theorem | Schwartz spaces and Fourier inversion on the Lie algebra | §2, §2.1, p. 25 | library | mathlib:SchwartzMap, mathlib:SchwartzMap.fourierTransformCLM, mathlib:SchwartzMap.instFourierTransform, mathlib:Continuous.fourierInv_fourier_eq |
 | /2 | definition | The operator assignment Op and its rescaling Op_h | §2, §2.2, p. 25 | missing | routed: new QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups |
 | /3 | construction | The star product and the composition formula | §2, Lemma 2.1, p. 27 | missing | routed: new QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups |
 | /4 | definition | Sobolev spaces and operator classes Ψ^m | §3, Definition 3.1, p. 29 | missing | routed: new QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups |
