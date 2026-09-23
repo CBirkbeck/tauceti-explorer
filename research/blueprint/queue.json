@@ -3171,8 +3171,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-PILLONI-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1199"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1199",
+   "finishedAt": "2026-09-23T14:11:18Z"
   },
   {
    "id": "REV-PAPER-BOXER-PILLONI-26",
@@ -7377,7 +7378,8 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1435"
   },
   {
    "id": "PAPER-BHARGAVA-GROSS-WANG-17",
@@ -8079,7 +8081,8 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2165"
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
@@ -12394,8 +12397,9 @@
    ],
    "avoidAccountOf": "RS-08",
    "prompt": "research/blueprint/prompts/REV-RS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #815"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #815",
+   "finishedAt": "2026-09-23T14:11:20Z"
   },
   {
    "id": "RS-09",
