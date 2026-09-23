@@ -5908,7 +5908,8 @@
    ],
    "avoidAccountOf": "PAPER-PASKUNAS-QUAST-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-PASKUNAS-QUAST-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1345"
   },
   {
    "id": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
