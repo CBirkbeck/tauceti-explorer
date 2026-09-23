@@ -1,0 +1,143 @@
+{
+  "family": "RS-22",
+  "roadmaps": {
+    "GlobalShtukasAndFunctionFieldLanglands": {
+      "action": "keep",
+      "reason": "Own the global-curve construction over a finite field, both the general reductive automorphic-to-Galois direction and the independent full GL_n correspondence. The Fargues–Fontaine Hecke roadmap is neither its base nor a replacement."
+    },
+    "HeckeStacksAndLocalShtukas": {
+      "action": "keep",
+      "title": "Hecke correspondences on the Fargues–Fontaine curve and local shtuka cohomology",
+      "reason": "Clarify which curve global in HS0 means. Own the local-field/Fargues–Fontaine constructions in both characteristics, with their solid/lisse coefficient and local Weil interfaces. No global function-field Langlands prerequisite is introduced."
+    }
+  },
+  "layers": {
+    "GlobalShtukasAndFunctionFieldLanglands:GS.0": {
+      "action": "keep",
+      "reason": "Keep the global-curve G-bundle stack, levels, deformation/HN geometry, finite-type bounded opens, torsor-class adelic comparison and nonsplit descent. BG2 constructs bundles on a different curve. FA.6 supplies the automorphic quotient, not this bundle-theoretic comparison."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.1": {
+      "action": "keep",
+      "reason": "Keep classical equal-characteristic Beilinson–Drinfeld geometry on powers of the global curve, bounded Hecke stacks, convolution/fusion and the rational ell-adic Satake proof with normalization and nonsplit descent. HS0 and the Fargues–Fontaine Satake roadmap do not supply this theorem by a change of notation."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.2": {
+      "action": "keep",
+      "reason": "Keep multi-leg global Frobenius modifications, bounds, levels, partial Frobenius, HN truncation, central-lattice quotients, representability with stabilizer hypotheses and local-model maps. HS2 is a different local moduli problem. DM.7 remains an optional specialized realization, not a prerequisite."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.3": {
+      "action": "keep",
+      "reason": "Keep the construction of intersection cohomology on global shtuka truncations, transition maps/colimit, Hecke/cohomological correspondences, Hecke-finite/cuspidal sector and comparison with FA.6. Generic scheme IC is imported; extending it to these stacky objects remains an obligation here. No finite-dimensional full untruncated cohomology claim."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.4": {
+      "action": "keep",
+      "reason": "Keep classical Drinfeld descent for lisse finite-rank sheaves with partial Frobenius on powers of a finite-field curve, its Hecke-finite application, continuous global Galois product action and specialization/coalescence compatibilities. VS1 gives a different divisor/local-Weil theorem and HS1 applies that theorem."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5": {
+      "action": "keep",
+      "reason": "Keep global excursion operators, relations, continuous semisimple global L-parameters, cuspidal decomposition and unramified compatibility, with generalized eigenspaces and nonsplit projection retained. The local Weil character theorem of LP2 and local operators ES0 are not already a theorem for the global Galois group. Import FA.4 for the rank-one comparison."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.6": {
+      "action": "keep",
+      "reason": "Keep the independent Laurent Lafforgue GL_n compactification/boundary/negligible-cohomology/rank-induction/trace route, both directions and exact local-factor, purity and multiplicity conclusions. GS.5 and the specialized D-elliptic local realization are not substitutes. Import FA.4 for rank one."
+    },
+    "GlobalShtukasAndFunctionFieldLanglands:GS.7": {
+      "action": "keep",
+      "reason": "Keep restriction-versus-local-parameter comparison, general global-to-local uniformization and nearby-cycle maps with source-gated hypotheses. Import HS2/HS3 for the local endpoint and ES7:equal-characteristic for its specialized D-elliptic/local-parameter package. Additional general-G ramified comparison proofs remain here; retain semisimplification versus monodromy."
+    },
+    "HeckeStacksAndLocalShtukas:HS0": {
+      "action": "keep",
+      "reason": "Keep the global correspondence of bundles on the Fargues–Fontaine curve, including leg maps, bounded fibres, descent, chains/collisions and group-map compatibilities. Global here does not mean a global function-field curve. Import the existing local-Grassmannian, divisor and torsor suppliers; retain all properness/representability qualifications."
+    },
+    "HeckeStacksAndLocalShtukas:HS1": {
+      "action": "keep",
+      "reason": "Keep the actual solid relative-homology Hecke kernel construction, lisse/compact/ULA preservation, coefficient change, unit/composition and continuous local Weil-product action. Import VS1 Drinfeld descent and completed normalized Satake; this does not import or prove GS.4 global Galois descent. HS4 proves downstream explicit finite-set/duality compatibility diagrams for these same functors."
+    },
+    "HeckeStacksAndLocalShtukas:HS2": {
+      "action": "keep",
+      "reason": "Keep framed Hecke fibres for general b,b-prime and bounds, both group actions, level quotients, representability, reflex descent/Weil action and justified inverse limits. Classical minuscule moduli comparisons remain required; they neither define all local shtukas nor imply the characteristic-zero two-tower realization. Keep these comparison obligations downstream of the relevant independent classical construction."
+    },
+    "HeckeStacksAndLocalShtukas:HS3": {
+      "action": "keep",
+      "reason": "Keep local compact-support complexes and ordered coefficient/level limits, commuting group/Weil actions, Hecke-fibre comparison, source-range compactness/admissibility, duality and level-change maps. The classical supercuspidal realization remains ET.6a or ES7:equal-characteristic; this stage does not reconstruct either proof or assert finite-dimensional infinite-level cohomology."
+    },
+    "HeckeStacksAndLocalShtukas:HS4": {
+      "action": "keep",
+      "reason": "Keep permutation, dual-leg creation/annihilation with triangle identities, iterated modification and finite-set coherence, plus geometry of group/Levi comparison diagrams. Import the same HS1 kernels and Satake fusion; parameter identities remain ES6/ES7 and uniform wild-inertia cutoff remains ES1:finite-ramification. The older decomposition node does not reverse that current ownership."
+    }
+  },
+  "links": [
+    {
+      "source": "FunctionFieldArithmetic:FA.6",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+      "reason": "Supply the fixed-level central-character cuspidal automorphic space to be identified with the trivial-representation/no-leg shtuka sector."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+      "reason": "Use the existing function-field reciprocity normalization for the GL_1 comparison, rather than constructing a second reciprocity map."
+    },
+    {
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "reason": "Use the existing function-field reciprocity normalization for the GL_1 comparison, rather than constructing a second reciprocity map."
+    },
+    {
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+      "reason": "Supply the scheme perverse/intermediate-extension/IC interface. Descent to the actual shtuka stack and truncation/colimit support control remain GS.3 work."
+    },
+    {
+      "source": "SchemeAndStackFoundations:SF.1",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+      "reason": "Use the common algebraic-stack and descent interface to prove the shtuka-specific representability and stabilizer statements."
+    },
+    {
+      "source": "HeckeStacksAndLocalShtukas:HS2",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "reason": "Supply the constructed local moduli or their cohomology as the local endpoint; GS.7 must prove its uniformization and nearby-cycle comparison maps in the asserted characteristic and coefficient range."
+    },
+    {
+      "source": "HeckeStacksAndLocalShtukas:HS3",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "reason": "Supply the constructed local moduli or their cohomology as the local endpoint; GS.7 must prove its uniformization and nearby-cycle comparison maps in the asserted characteristic and coefficient range."
+    },
+    {
+      "source": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "reason": "Supply the independently constructed D-elliptic equal-characteristic local realization and parameter comparison used by the late global-to-local stage. No converse dependence on the full global correspondence."
+    },
+    {
+      "source": "VStackSheavesAndLisseCategories:VS1",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "reason": "The divisor/local-Weil Drinfeld theorem is an imported input; constructing its action on the actual Hecke kernels is HS1."
+    },
+    {
+      "source": "GeometricSatakeAndFusion:GS3:fusion",
+      "target": "HeckeStacksAndLocalShtukas:HS4",
+      "reason": "Import Satake collision/factorization coherences before proving their action-level and dual-leg compatibility."
+    },
+    {
+      "source": "HeckeStacksAndLocalShtukas:HS4",
+      "target": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+      "reason": "Export the continuous coherent Hecke data to the sole current owner of the uniform wild subgroup theorem; the old HS4 decomposition node is stale."
+    },
+    {
+      "source": "HeckeStacksAndLocalShtukas:HS4",
+      "target": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "reason": "Supply geometric Hecke compatibility diagrams; the consumer proves parameter identities, retaining its additional hypotheses."
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "reason": "Import the local Weil group and its Weil topology from the existing Tau Ceti roadmap; a global Galois product action is not this carrier."
+    }
+  ],
+  "owners": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-22",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was Codex, session codex-c83e7a. The reviewer read both member documents and all thirteen layer descriptions, the eight family leads, and the linked stages: FA.4, FA.6, EDC.5, SF.1, VS1, ES7:equal-characteristic, the GeometricSatakeAndFusion stages, and Tau Ceti ClassFieldTheory Layer 9. It also read every other restructuring proposal that touches these layers (RS-05, RS-17, RS-20, RS-21 and RS-25; all only add incoming links). Duplication: the four flagged pairs are distinct constructions on different curves. GS.1/HS0 and GS.2/HS0 put Beilinson–Drinfeld/shtuka geometry on a finite-field curve against Hecke correspondences on the Fargues–Fontaine curve. GS.2/HS2 puts global shtukas against framed local Hecke fibres. GS.4/HS1 puts the classical Drinfeld lemma and a global Galois action against the divisor Drinfeld lemma (VS1) and a local Weil action. So an empty owners list is right. GS.1's classical equal-characteristic geometric Satake is not planned by GeometricSatakeAndFusion, which is the Fargues–Scholze Satake over the Fargues–Fontaine curve (its GS4:classical-Satake-comparison is a trace comparison only). Nothing lost: every layer is kept, and no consumer changes. Links: all thirteen endpoints exist in data/atlas.json. Nine are new edges (FA.6→GS.3, FA.4→GS.5, FA.4→GS.6, EDC.5→GS.3, SF.1→GS.2, HS2→GS.7, HS3→GS.7, ES7:equal-characteristic→GS.7 and Tau Ceti ClassFieldTheory Layer 9→HS1) and four restate existing edges. A whole-atlas reachability check shows that no new edge closes a cycle. No anchors are involved, and no roadmap is extended; the HeckeStacksAndLocalShtukas retitling is applied by scripts/restructure.py for a keep action. The format follows PROTOCOL §15, and check_restructure.py passes. No corrections were needed.",
+    "corrections": []
+  }
+}
