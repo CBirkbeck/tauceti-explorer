@@ -1,3 +1,265 @@
+# LLHLM23 continuation: residual recognition and coefficient topology
+
+Codex — codex-hjdg0j, issue #1254, 23 September 2026. Claim5801479550 was confirmed by bot comment5801482105, and the whole issue was reread. Base main: `713360d7f9daf3804fda79874399973194dc9f19`.
+
+**Partial:576 items (86 library,23 planned,467 missing),21 routes,52 unreviewed source findings.** All565 inherited IDs and their source data are preserved. All163 definitions/constructions retain their uses, APIs and at least three typed tests. This continuation adds A98–A103 and L82–L86, and updates A46–A49/A77. The historical report below retains its original attribution; its census and open residual/topology statements are superseded here.
+
+The new proof chain has three parts. A98–A99 prove polynomial recognition in arbitrary characteristic using a finite-dimensional image algebra, cancellation of common simple factors, and repeated division of remaining multiplicities by p. A100–A101 apply existing Chebotarev to both places above good split primes and upgrade a simple residual semisimplification to the actual representation. A102–A103 supply finite-module topology and closedness of the integral trace ring. No formal implementation or independent review is claimed.
+
+## Recognition in positive characteristic
+
+A98 applies existing Mathlib radical annihilation and Artin–Wedderburn to the image of the group algebra on a finite sum of pairwise inequivalent simple representations. The group itself may be infinite. A matrix unit in a single block has trace1 on its simple module and0 on the others. This proves independence in every characteristic. Using a central idempotent instead would give the dimension, which may vanish modulo p. The pinned Tau Ceti character-pairing theorem requires a finite group of invertible order and does not supply this modular argument.
+
+A99 reuses the existing IHG.1 reconstruction target. After cancelling common composition factors, equal traces force all remaining multiplicities to be divisible by p. The characteristic polynomials are then pth powers; injectivity of Frobenius on k[T] gives equality for the modules with multiplicities divided by p. Induction on dimension finishes. Only the trace identity is extended linearly to the group algebra. The proof does not assume that characteristic polynomials are linear in the group element, or that a chosen generating set spans that algebra.
+
+A101 reuses AGR R01.5. A representation with a simple semisimplification already has composition length one. Thus absolute irreducibility on one side recovers an actual residual isomorphism, as required before A47's polarized alignment. The finitely many entries of an intertwiner over the algebraic closure of a finite field descend to a finite extension. This recognition works in characteristic2; the later polarized square-root step retains its separate p>2 hypothesis. A77's mistaken reference to A50 as residual recognition is corrected: A50 lifts irreducibility to characteristic zero.
+
+## The split-prime and topology hypotheses
+
+For A100, a basic open coset in G_F is tested in a finite extension L/F+ normal over the quadratic base. Chebotarev supplies the class of an element in Gal(L/F), so the base prime splits in F. Choose a prime of L whose Frobenius equals the desired element and contract it to one of the two places w of F. The residue degree is1, so the tower formula introduces no power. This proves density of the G_F-conjugacy saturation with arbitrary finite exceptions removed.
+
+Both split places matter. In S3, the conjugacy class of a 3-cycle splits into two distinct classes in A3. A single arbitrarily chosen place above every split base prime can select only one of them. A100 therefore neither discards the second place nor asserts density of individual chosen representatives without conjugation. It imports existing Chebotarev Layer10; no new density theorem is planned.
+
+A102 identifies the pi-adic topology of a finite O-module M with the quotient topology of every finite presentation O^r→M, using q(pi^a O^r)=pi^a M. It works for torsion modules. Pinned Krull separation and finite-module completion give separation and completeness; the pinned compact-DVR criterion gives compactness. For a nonzero finite local O-algebra T, the maximal ideal of T/pi T is nilpotent by finite-length stabilization and Nakayama. Hence for some d≥1,
+
+```
+m^(da) ⊂ pi^a T ⊂ m^a  (a≥0).
+```
+
+A103 proves that an injective O-algebra map from finite T into a Hausdorff topological O-algebra is continuous: compose with O^r→T and express it as a finite linear combination. Compactness then makes it a closed embedding. This supplies the exact closed trace-ring hypothesis of A49 and the intrinsic-versus-subspace topology for A46/A48. General coefficient topology stays with DeformationAndDerivedPatchingAlgebra:R03.1; the integral trace-ring application stays with IHG.2.
+
+## Reading scope and source finding
+
+Fresh reading covers [CHT's author manuscript](https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf), PDF107–108, and [Wiese's Galois Representations](https://math.uni.lu/~wiese/notes/GalRep.pdf), version13 February2012, printed/PDF34–37. PDF37 was also read as an image. Hashes and the exact bounded scope are recorded in JSON. The inherited complete main-paper reading is preserved with its earlier attribution. Wiese's arbitrary-field scalar-extension proof is not certified by this continuation; A98–A99 give the algebraically closed version actually consumed.
+
+E52 records a false generator-only variant in Wiese Remark2.4.7(iv). Over C, put G=C2*C2 and
+
+```
+rho_a(s) = diag(1,−1),
+rho_a(t) = [[a,1],[1−a²,−a]],  a=0,2.
+```
+
+Both generators are involutions with the same eigenvalues. Both representations are irreducible because neither coordinate axis is invariant under t. Every power of each generator has the same trace in both representations, while the traces of st are0 and4. Thus even semisimple recognition cannot use only powers of the chosen generators. The current author PDF, notes index, course page and targeted correction searches yielded no dedicated correction. This is an unreviewed finding about the supplementary source; it does not contradict the all-element Brauer–Nesbitt theorem used here. All51 inherited findings remain unchanged.
+
+## Validation and remaining work
+
+Paper checker and intake pass. All565 inherited IDs preserved among576 unique items;407 internal prerequisite edges are acyclic; supplier stages resolve; all467 missing items have exactly one route;163 definition/construction APIs and typed tests remain complete;51 inherited findings and sourceData unchanged; exact three-file archive scope; all three deliverables unchanged on refreshed main.
+
+Exact diagnostics check E52,91 semisimple C2 representations in characteristic3 (55 trace collisions but distinct characteristic-polynomial classes), the nonsemisimple C3 boundary, S3/A3 class splitting, and finite dual-number/congruence-ring topology boundaries at p=2,3,5. These are finite diagnostics, not proofs of the infinite or topological theorems. Six Mathlib files were byte-verified against the full pinned commit. No Lean file was requested, produced or compiled.
+
+Remaining work starts with compact additive-character duality/Fourier uniqueness, compatible quotient Haar/Fubini, smooth-globalization continuity and finite-place Flath factorization for A66–A73. Analytic regularity, approximation/tensor adapters, other proof leaves, the fine item audit/shared ownership and uniform Appendix B specialization certificates remain explicit gaps. This continuation does not certify the whole extraction as complete.
+
+## New supplier statements and proof plans
+
+### L82. Compactness of finite modules and finitely generated submodules
+
+Let R be a compact commutative semiring and M a topological R-module with continuous addition and scalar multiplication. Every finitely generated R-submodule N⊂M is compact. In particular a module-finite M is compact. If M is Hausdorff, such N is closed. These statements do not require M to be free or torsionfree.
+
+Source: Mathlib/Topology/Algebra/Module/Compact.lean:24; Mathlib/Topology/Algebra/Module/Compact.lean:40 at 082e2d37e8b0463410cdb532e111cd43d5a66174 Status: library.
+
+Pinned imports: `mathlib:Submodule.isCompact_of_fg`, `mathlib:Module.Finite.compactSpace`.
+
+### L83. Compactness criterion for a rank-one valuation ring
+
+For a field K with a rank-one valuation, its valuation ring O is compact if and only if O is complete, is a discrete valuation ring, and has finite residue field. Use the valuation topology, not an arbitrary topology on the underlying ring.
+
+Source: Mathlib/Topology/Algebra/Valued/LocallyCompact.lean:315 at 082e2d37e8b0463410cdb532e111cd43d5a66174 Status: library.
+
+Pinned imports: `mathlib:Valued.integer.compactSpace_iff_completeSpace_and_isDiscreteValuationRing_and_finite_residueField`.
+
+### L84. Finite-dimensional split semisimple algebras are products of matrices
+
+A finite-dimensional semisimple algebra B over an algebraically closed field k is k-algebra isomorphic to a finite product of matrix algebras M_(d_i)(k), with every d_i nonzero. No characteristic-zero or group-order invertibility hypothesis is present.
+
+Source: Mathlib/RingTheory/SimpleModule/IsAlgClosed.lean:33 at 082e2d37e8b0463410cdb532e111cd43d5a66174 Status: library.
+
+Pinned imports: `mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_of_isAlgClosed`.
+
+### L85. Radical annihilation and Artinian semisimplicity
+
+The Jacobson radical of an arbitrary ring B annihilates every semisimple B-module. For an Artinian ring B, B is semisimple if and only if its Jacobson radical is zero. Thus the finite-dimensional image algebra acting faithfully on a semisimple module is semisimple.
+
+Source: Mathlib/RingTheory/Jacobson/Semiprimary.lean:44; Mathlib/RingTheory/Artinian/Module.lean:650 at 082e2d37e8b0463410cdb532e111cd43d5a66174 Status: library.
+
+Pinned imports: `mathlib:IsSemisimpleModule.jacobson_le_annihilator`, `mathlib:IsArtinianRing.isSemisimpleRing_iff_jacobson`.
+
+### L86. Compact-to-Hausdorff embeddings and quotient maps
+
+A continuous injective map from a compact space to a Hausdorff space is a closed embedding. A continuous surjective map between such spaces is a quotient map. These results retain the given topologies.
+
+Source: Mathlib/Topology/Separation/Hausdorff.lean:677; Mathlib/Topology/Separation/Hausdorff.lean:683 at 082e2d37e8b0463410cdb532e111cd43d5a66174 Status: library.
+
+Pinned imports: `mathlib:Continuous.isClosedEmbedding`, `mathlib:Topology.IsQuotientMap.of_surjective_continuous`.
+
+### A98. Independence of simple characters for an arbitrary group
+
+Let k be algebraically closed, G any group, and S_1,…,S_r pairwise nonisomorphic nonzero finite-dimensional simple k[G]-modules. Their k-valued trace characters on G are k-linearly independent, in every characteristic. G need not be finite.
+
+Source: Wiese, Galois Representations (13 February 2012), Theorem2.4.4 and Remark2.4.2(i), printed/PDF34–35; explicit arbitrary-group image-algebra specialization. Status: missing.
+
+1. Let V be the direct sum of the S_i and B the image of k[G] in End_k(V). This is finite-dimensional, acts faithfully, and V is semisimple over B because B-invariant and G-invariant subspaces agree. L85 makes B semisimple.
+2. Apply L84. The simple B-modules are the column modules of its matrix blocks. Distinct S_i occupy different blocks. For a chosen i, take a matrix unit E_11 in its block and zero in all other blocks, and lift this element to k[G]. Its trace on S_i is 1 and on every other S_j is 0.
+3. A linear relation among characters on G extends linearly to k[G], since group elements span that algebra. Evaluating at these lifted matrix units kills each coefficient. This uses trace 1 on E_11, not trace dim(S_i) on the central idempotent, which may vanish in characteristic p.
+
+Planning tests:
+
+- A98.modular_dimension (non-example): In characteristic p, the identity of M_p(k) has trace0 while E_11 has trace1; central idempotents alone cannot perform this separation.
+- A98.infinite_group (compatibility): The argument applies to the infinite cyclic group with distinct one-dimensional characters; no finite-group orthogonality or division by |G| is used.
+- A98.repeated_simple (non-example): Two copies of the same simple module have the same character; pairwise nonisomorphism is required.
+
+### A99. Brauer–Nesbitt by cancellation and division of multiplicities
+
+Let k be algebraically closed, G any group, and V,W finite-dimensional k[G]-modules. If det(T−g|V)=det(T−g|W) for every g∈G, then V and W have isomorphic semisimplifications. If both are semisimple they are isomorphic. This holds in every characteristic and imposes no bound on dimension.
+
+Source: Wiese Theorem2.4.6, printed/PDF36, cancellation and p-divisibility proof, and Remark2.4.7(iii), PDF37; algebraically closed group version. Do not use the generator-only assertion in Remark2.4.7(iv); E52. Status: planned.
+
+Existing owner: IntegralHeckeAndGaloisDeterminants:IHG.1.
+
+1. Pass to composition factors: a basis adapted to a composition series makes every operator block upper triangular, so its characteristic polynomial is the product of the factor polynomials. Cancel common simple summands using that k[T] is an integral domain. The remaining semisimple modules have disjoint simple supports and equal characteristic polynomials at every g.
+2. Equal characteristic polynomials give equal traces. A98 shows that the multiplicity of each remaining simple factor is zero as an element of k. In characteristic zero the multiplicities are zero integers, finishing the proof.
+3. In characteristic p>0 every remaining multiplicity is divisible by p. Write V=V_1^(⊕p), W=W_1^(⊕p). Their characteristic polynomials satisfy P_(V_1,g)^p=P_(W_1,g)^p for every g. In k[T], (P−Q)^p=0 implies P=Q, so the smaller modules again satisfy the same hypothesis.
+4. Use strong induction on the common dimension after cancellation: division by p strictly decreases every positive dimension. Hence the disjoint remainders are zero. At no point is equality of characteristic polynomials extended by linearity from G to its group algebra; only equality of traces is extended. Only semisimplification is recovered.
+
+Planning tests:
+
+- A99.trace_loss (non-example): For G=C2 in characteristic3, 1^(⊕3) and sign^(⊕3) both have identically zero trace, but at the nontrivial element their polynomials are T^3−1 and T^3+1. Trace equality is insufficient.
+- A99.extension_loss (non-example): For G=C_p in characteristic p, a nontrivial two-dimensional unipotent Jordan block and the two-dimensional trivial action have identical characteristic polynomials at every element; their semisimplifications agree but the representations need not.
+- A99.zero_rank (degenerate): The zero-dimensional representation has polynomial1 at the identity. Equality forces the other dimension to be zero.
+- A99.generators_do_not_span (non-example): E52 gives two irreducible representations of C2*C2 with identical polynomials for all powers of each chosen generator but different trace on their product. All group elements, or a spanning subset of the image of the group algebra, are required.
+
+### A100. Frobenius classes above split primes are conjugacy-dense
+
+Let F/F+ be a quadratic extension of number fields, S a finite set of finite places of F+, and G_F⊂G_(F+) the absolute Galois groups in a common closure. Let C contain Frobenius lifts for both places w of F above every v∉S that splits in F, with each lift taken using a decomposition group. The G_F-conjugacy saturation of C is dense in G_F. In a quotient unramified outside S one may use Frobenius classes directly. Both arithmetic and geometric conventions work after simultaneous inversion.
+
+Source: CHT Proposition3.4.4 proof, author PDF107–108, split-prime polynomial input; explicit application of existing Chebotarev Layer10 and the residue-degree-one tower law. Status: missing.
+
+1. To hit a basic open coset gU in G_F, shrink the open normal subgroup U of G_F to U∩cUc^(−1), for a lift c of the nontrivial quadratic automorphism. It is normal in G_(F+): c² lies in G_F. Let L be its fixed field. Then L/F+ is finite Galois and contains F.
+2. Apply the existing Chebotarev infinitude theorem to the conjugacy class of the image of g in Gal(L/F+), excluding S and the finitely many primes ramified in L. Its restriction to F is trivial, so the resulting base prime v splits in F.
+3. Choose a prime of L above v whose Frobenius is exactly the selected image of g, using conjugation of primes above v. Its contraction w to F is one of the two split places. Because f(w/v)=1, the Frobenius in L/F equals the Frobenius in L/F+, with no additional power. A representative from C for this w is G_F-conjugate to it modulo U; every Frobenius lift has the same image because L is unramified at v.
+4. Thus the G_F-conjugacy saturation meets gU. This does not assert that arbitrarily selected individual representatives themselves form a dense set. Inversion carries the arithmetic statement to the geometric one, and exclusion of any further finite set is built into Chebotarev infinitude.
+
+Planning tests:
+
+- A100.two_split_places (non-example): In the finite quotient S3 with index-two subgroup A3, the S3 class of a 3-cycle contains g and g^(−1), but these are different A3 classes. One arbitrarily chosen place over every split base prime can select only one class; retaining both places avoids the loss.
+- A100.inert_places (non-example): Frobenius of a base prime inert in F restricts nontrivially to Gal(F/F+); it cannot replace the kernel-class argument.
+- A100.orientation (compatibility): In A3 the two nonidentity classes are interchanged by inversion. Geometric Frobenius requires inverting the class as well as the cyclotomic convention.
+
+### A101. Residual recognition gives an actual isomorphism when one side is absolutely irreducible
+
+Let F/F+ and S be as in A100. Let rho_1,rho_2:G_F→GL_n(kbar) be continuous with kbar an algebraic closure of a finite field carrying the discrete topology, unramified above every split v∉S. If their characteristic polynomials agree at both w above each such v, their semisimplifications over kbar are isomorphic. If rho_1 is absolutely irreducible, rho_2 itself is isomorphic to rho_1. If both are originally over finite coefficient fields, the conjugating matrix is defined over a common finite extension; no descent to a smaller field is asserted.
+
+Source: CHT Proposition3.4.4, author PDF107–108, implicit residual recognition before Lemma2.1.4; Wiese Corollary2.4.8 PDF37 and the explicit absolutely irreducible upgrade. Status: planned.
+
+Existing owner: ArithmeticGaloisRepresentations:R01.5.
+
+1. For each coefficient, its equality set is closed, since the representations are continuous and the coefficient field is Hausdorff discrete. It is conjugation invariant and contains C. A100 therefore extends equality to every element of G_F.
+2. Apply A99 over kbar. If one semisimplification is the single simple module rho_1, the other module has composition length one, so it is already simple and isomorphic, without a separate semisimplicity assumption on the chosen lattice reduction.
+3. An intertwining matrix has finitely many entries algebraic over the common finite field; they generate a finite extension. Its determinant is nonzero there. In A47 this produces the actual residual GL_n isomorphism before the polarized square-class alignment; p>2 is needed by that later polarized step, not by this recognition argument.
+
+Planning tests:
+
+- A101.unipotent_boundary (non-example): A reducible semisimplification cannot upgrade to an isomorphism of original modules: the C_p Jordan-block example in A99 remains a counterexample.
+- A101.rank_one (degenerate): For n=1 characteristic polynomial equality gives equality of the characters on the dense Frobenius set and then on all of G_F.
+- A101.no_small_prime_exclusion (compatibility): The recognition step remains valid in characteristic2; only the later polarized square-root statements retain their p>2 hypothesis.
+
+### A102. Finite modules over complete coefficient DVRs have the expected topology
+
+Let O be a complete DVR with finite residue field and uniformizer pi, equipped with its valuation topology. For every finite O-module M, the pi-adic topology is Hausdorff, compact and complete and equals the quotient topology for every O-linear surjection O^r→M. Every O-linear map between finite such modules is continuous. If T is a nonzero finite local O-algebra with maximal ideal m, its pi-adic and m-adic topologies coincide, so T is a complete Noetherian local ring. T and M may have O-torsion.
+
+Source: CHT Proposition3.4.4 author PDF108 and A46/A48 coefficient-ring topology; explicit finite-module adapter to pinned L03/L07/L83. Status: missing.
+
+1. Choose finite generators and q:O^r→M. For every a≥0, q(pi^a O^r)=pi^a M. These submodules are neighborhood bases and q is surjective, continuous and open for the pi-adic topology, proving precisely the quotient-topology assertion.
+2. L03 gives separation because M is finite over the Noetherian local ring O. L07 identifies its completion with O-hat tensor_O M=M; thus completeness is inherited from O. L83 makes O compact, so M is compact as a continuous image of O^r. An O-linear f maps pi^a M into pi^a N, proving continuity directly; no unverified module-topology instance is needed.
+3. T is Noetherian because it is finite over O. The element pi is not a unit in a nonzero finite O-algebra: otherwise pi T=T and Nakayama over O gives T=0. Hence pi∈m. The finite-dimensional local k-algebra T/pi T is Artinian. The descending powers of its maximal ideal stabilize, and Nakayama for that stabilized finite module forces it to vanish. Thus m^d⊂pi T for some d≥1.
+4. Taking a-th powers yields m^(da)⊂pi^a T⊂m^a for every a≥0. The two topologies therefore coincide. This also applies to the common-residue ring A46 and to T in A48. Finite residue is used for compactness, not for the displayed cofinality inclusions or finite-module completeness.
+
+Planning tests:
+
+- A102.torsion (computation): M=O/(pi^2) has the finite discrete topology and is complete; freeness is unnecessary.
+- A102.dual_numbers (computation): For T=O[e]/(e^2), m=(pi,e) and m^2⊂pi T; in general m^a is not equal to pi^a T.
+- A102.infinite_residue (non-example): For O=C[[t]], O is complete and separated but not compact: its continuous residue quotient is the infinite discrete field C. Compactness requires the finite residue hypothesis.
+- A102.embedding_not_open (non-example): The diagonal O→O×O is a closed embedding but not an open map. The quotient-map assertion above is for surjections.
+
+### A103. Finite integral Hecke algebras are closed in their coefficient products
+
+Let O be as in A102 and T a finite O-algebra with its pi-adic topology. Let A be a Hausdorff topological O-algebra with continuous addition and scalar multiplication, and j:T→A an injective O-algebra map. Then j is continuous and a closed embedding. Equivalently, a finite O-subalgebra of such A is closed. If A is the finite coefficient product or the common-residue subring in A46, its intrinsic coefficient topology agrees with the induced topology.
+
+Source: CHT Proposition3.4.4 author PDF108, closed integral trace-ring step; explicit finite-O coefficient adapter. Status: missing.
+
+1. Write T as a quotient of O^r using finite generators t_i. The composite O^r→A is (a_i)↦sum a_i j(t_i), hence continuous by finite sums and scalar continuity. A102 identifies the topology on T with the quotient topology, so j is continuous.
+2. A102 makes T compact. L86 applied to j gives the closed embedding. Alternatively view j(T) as a finitely generated O-submodule of A and apply L82, then compact sets are closed in a Hausdorff space.
+3. For A46, the finite O-module congruence subring has its pi-adic topology and the injective coordinate map into the Hausdorff product. This argument identifies that topology with the subspace topology. Combining A102 with its explicit unit criterion gives the m-adic topology required by A45/A48.
+
+Planning tests:
+
+- A103.proper_congruence_ring (computation): T={(x,y)∈O²:x≡y mod pi} is closed in O² and has the induced topology, although it is not the full product.
+- A103.hausdorff_required (non-example): The injective identity from compact O with its valuation topology to the same ring with indiscrete topology is continuous but is not an embedding; the target Hausdorff hypothesis matters.
+- A103.finite_generation_required (non-example): The prime subring Z⊂Z_p is dense and proper, so an arbitrary subring need not be closed. It is not a finite Z_p-submodule.
+
+## Reproducible finite diagnostics
+
+```python
+import itertools,json
+import sympy as s
+from pathlib import Path
+T=s.symbols('T');ans={}
+# Source finding E52: exact irreducible pair, all generator powers follow from involutivity.
+S=s.diag(1,-1); mats=[s.Matrix([[a,1],[1-a*a,-a]])for a in [0,2]]
+for B in mats:
+ assert B*B==s.eye(2) and B.charpoly(T).as_expr()==T*T-1
+ assert B[0,1]!=0 and B[1,0]!=0
+assert [(S*B).trace()for B in mats]==[0,4]
+ans['E52']='PASS: two irreducible C2*C2 representations; both generators involutions; product traces0/4'
+# Exhaust all semisimple C2 multiplicities over F3 through dimension12.
+cases=0;collisions=0
+for n in range(13):
+ polys={};traces={}
+ for a in range(n+1):
+  b=n-a;poly=tuple(s.Poly((T-1)**a*(T+1)**b,T,modulus=3).all_coeffs())
+  assert poly not in polys;polys[poly]=(a,b)
+  tr=(n%3,(a-b)%3)
+  collisions+=tr in traces;traces[tr]=(a,b);cases+=1
+ans['C2_modular_recognition']={'representations':cases,'distinct_polynomial_classes':cases,'trace_collisions':collisions}
+assert s.Poly((T-1)**3,T,modulus=3)!=s.Poly((T+1)**3,T,modulus=3)
+# Nonsemisimple boundary: nontrivial C3 Jordan representation vs trivial2.
+J=s.Matrix([[1,1],[0,1]])
+for a in range(3):assert s.Poly((J**a).charpoly(T).as_expr(),T,modulus=3)==s.Poly((T-1)**2,T,modulus=3)
+assert J!=s.eye(2)
+ans['nonsemisimple_boundary']='PASS: equal polynomials for every C3 element, unequal actions'
+# Normal-subgroup conjugacy loss in S3.
+group=list(itertools.permutations(range(3)))
+def mul(g,h):return tuple(g[h[i]]for i in range(3))
+def inv(g):return tuple(g.index(i)for i in range(3))
+def cl(g,G):return {mul(mul(h,g),inv(h))for h in G}
+e=(0,1,2);g=(1,2,0);a3=[e,g,mul(g,g)]
+assert len(cl(g,group))==2 and len(cl(g,a3))==1
+assert cl(g,group)=={g,inv(g)}
+ans['split_place_classes']='PASS: one S3 class contains two distinct A3 classes'
+# Finite-quotient topology diagnostics: nilpotent dual numbers and proper congruence subrings.
+count=0
+for prime in [2,3,5]:
+ q=prime**3;elts=list(itertools.product(range(q),repeat=2))
+ m=[a for a in elts if a[0]%prime==0]
+ for x in m:
+  for y in m:
+   z=(x[0]*y[0]%q,(x[0]*y[1]+x[1]*y[0])%q)
+   assert z[0]%prime==0 and z[1]%prime==0;count+=1
+ assert (0,1)in m and 1%prime!=0
+ ring=[a for a in elts if (a[0]-a[1])%prime==0]
+ assert (1,0)not in ring
+ for x in ring[:30]:
+  for y in ring[:30]:
+   z=(x[0]*y[0]%q,x[1]*y[1]%q);assert z in ring
+ans['finite_topology_boundaries']={'dual_number_products_checked':count,'prime_cases':[2,3,5],'status':'PASS; finite diagnostics only, not a proof of compactness'}
+print(json.dumps(ans,indent=2))
+```
+
+---
+
+## Historical report from the preceding continuation
+
+The following report retains its attribution. Its census and open residual/topology obligations are historical.
+
 # LLHLM23 continuation: integral polarizations and trace descent
 
 Codex — codex-7e92bd, issue #1254, 23 September 2026. Claim5800991144 was confirmed by the bot. Input: merged main `f33e882562816872c8815d93b9e8fc3a6b499a83`.
