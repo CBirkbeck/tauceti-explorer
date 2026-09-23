@@ -2324,3 +2324,35 @@ The current paper checker and authorized-path intake check pass with zero proble
 - **G7 (medium):** The continuation refreshed464 input blobs and screened122 peer paper route inventories; existing candidate identities are retained. Before design activation refresh again and give shared ring/module and generic representation ingredients their finest existing supplier nodes.
 
 Resume with independent review of the two explicit counterexamples and a valid replacement analytic proof. Then extract the KZ/MW, Lapid–Mínguez and corrected JPSS/Matringe inputs to the same statement depth. A schema pass is not mathematical closure.
+
+## Review (REV-PAPER-ATOBE-KONDO-YASUDA-22, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1396](https://github.com/CBirkbeck/tauceti-explorer/issues/1396). **Verdict: accept.**
+No item, status or route changed.
+
+- **Mistakes: 18 of 19 confirmed, 1 rejected.** E3 is rejected: its claimed second Hecke
+  eigenfunction `h_k = k·q^{−k/2}x^k` satisfies the interior recursion `c_{k+1} = 2c_k −
+  c_{k−1}` but violates the boundary condition `w_{−1} = 0` — it is exactly the solution the
+  Whittaker support condition excludes, which is why the eigenspace is one-dimensional, as
+  Lemma 8.10 says. Its alternative route also fails, the family `W^0(xe^t, xe^{−t})` being
+  even in `t`.
+- **Two findings amended.** E13's appeal to "the flawed Lemma 8.10 argument" is withdrawn.
+  E19's flat assertion that "the uniqueness itself is false" is softened to a statement about
+  the printed proof, matching E19's own reason field.
+- **E1/E19 confirmed at the level of the proof**, on the page image: Corollary 9.4,
+  Propositions 9.5–9.6 and the uniqueness of Theorem 9.1 all run through one step on p. 50
+  justified only by measure-invariance, and `(1+tE₁₃)(1+bE₃₂)(1−tE₁₃) = 1 + bE₃₂ + tbE₁₂`
+  shows `Ψ` is not preserved.
+- **E2 confirmed more strongly than recorded:** for `λ = 0` the defining congruence is
+  vacuous, so `X_0 = M_n(o)` and central scaling puts *all* of `G_n` in every
+  `Z_n X_0^{≥m}` — for every `n`.
+- **Provenance corrected:** the published PDF's `sha256` is **not reproducible** — Cambridge
+  stamps each download, and two downloads eleven seconds apart gave different hashes. The
+  arXiv hash was re-verified byte for byte, and a reproducible stamp-stripped text hash
+  (`c8beb4ee…1866`) was recorded.
+- **Items and routes:** 8 library citations read at the pinned commits, 10 planned items
+  resolving, 143 missing items routed exactly once, four Part II titles exact prefix
+  extensions with free names. Run-together numbering repaired in 295 places.
+
+Full report: `research/blueprint/reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md`.
