@@ -10,7 +10,7 @@ The result has **84 items**:
 - 8 planned items: CM types (CM.0), existence of CM abelian schemes (CM.2), the dual abelian scheme and H^1_dR (A2, A4), algebraic Hecke characters and their L-functions (L0, AL.1), Deligne's periods (PS.0–PS.1), p-ordinary CM types (L3), the Mahler–Amice transform (PadicMeasuresIwasawaAlgebras L2), and the p-adic avatar with the ray-class Galois group (L0);
 - 74 missing items, routed as follows:
   - 52 to a **Part II of AutomorphicPadicLFunctions**, *critical Hecke L-values of totally imaginary fields* (`AutomorphicPadicLFunctionsPartIICriticalHeckeValues`, area `iwasawa`);
-  - 13 to a **Part II of AbelianSchemesAndArithmeticModuli**, *the universal vector extension and the completed Poincaré bundle* (`AbelianSchemesAndArithmeticModuliPartIIPoincareBundle`, area `diophantine`);
+  - 13 to a **Part II of AbelianSchemesAndArithmeticModuli**, *the universal vector extension and the completed Poincaré bundle* (`AbelianSchemesAndArithmeticModuliPartIIPoincareBundle`, area `arithmeticgeometry`);
   - 6 as a **source** of SchemeAndStackFoundations SF.2 (equivariant coherent cohomology, supports, local cohomology, derived limits, the Borel construction);
   - 3 as a **source** of ComplexMultiplicationAndExplicitReciprocity CM.0–CM.1 (the Serre construction, the CM decomposition and the period pairings).
 
@@ -144,7 +144,7 @@ All sources were accessed on 23 September 2026.
    - the p-adic construction through Theorem 5.27 (§5).
 
    AutomorphicPadicLFunctions plans Katz's CM-field case in L3 but nothing beyond CM fields, so this continues that roadmap in its own direction. The brief tells the formalizer to carry the sign corrections E2, E3 and E6 and to fix the orientation and trace conventions explicitly. Its tests are the case d = 1 (including signs) and Katz's CM-field case.
-2. **Part II of AbelianSchemesAndArithmeticModuli** (13 items, area `diophantine`). It covers:
+2. **Part II of AbelianSchemesAndArithmeticModuli** (13 items, area `arithmeticgeometry`). It covers:
    - TSym and divided powers;
    - the universal vector extension;
    - formal completions and moment maps;
