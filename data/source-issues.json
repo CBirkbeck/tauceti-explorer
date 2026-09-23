@@ -12592,9 +12592,9 @@
    "owner": "PAPER-BHATT-MATHEW-21",
    "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-21.result.json",
    "citation": "Bhatt–Mathew, \"The arc-topology\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MATHEW-21",
+   "reviewReason": "Confirmed decisively, the same page settling it three times. Page 23 of v4 states ‘Lemma 3.29. Let A be an arbitrary commutative ring and let κ = max(card(A), ℵ₀)’, and the two paragraphs before Remark 3.31 refer to it twice more as ‘Lemma 3.29’; Remark 3.31 then opens ‘Proposition 3.29 and Lemma 3.27 imply that for every commutative ring A, there is a v-cover A → B such that each connected component of B is a valuation ring.’ There is no Proposition 3.29 in the paper. The number itself is right, so only the hand-typed environment name is wrong. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020)."
   },
   {
    "id": "PAPER-BHATT-MATHEW-21/E2",
@@ -12613,9 +12613,9 @@
    "owner": "PAPER-BHATT-MATHEW-21",
    "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-21.result.json",
    "citation": "Bhatt–Mathew, \"The arc-topology\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MATHEW-21",
+   "reviewReason": "Confirmed decisively. The proof of Corollary 6.18 ends, on p. 52, ‘But this follows from formal glueing for étale cohomology (Proposition 6.4).’, while p. 48 states ‘Theorem 6.4 (Formal glueing squares for arc-sheaves)’ and the introduction cites the same result as ‘Theorem 6.4’ in Theorem 1.15. Again the number is right and the environment name is not. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020)."
   },
   {
    "id": "PAPER-BHATT-MATHEW-21/E3",
@@ -12634,9 +12634,9 @@
    "owner": "PAPER-BHATT-MATHEW-21",
    "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-21.result.json",
    "citation": "Bhatt–Mathew, \"The arc-topology\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHATT-MATHEW-21",
+   "reviewReason": "Confirmed, and it is the one finding that reaches a stated result. Theorem 1.19 of the introduction (p. 7), labelled ‘Theorem 7.3’, reads ‘Fix a prime ℓ and let F be an ℓ-power torsion étale sheaf on Spec(A). If A is smooth or if ℓ is not the residue characteristic of K, then H^i(Spec(A)_ét, F) = 0 for i > d.’ Theorem 7.3 itself (p. 56) has no smoothness clause at all: its part (2) assumes ‘ℓ prime to the characteristic of the residue field of K’, and part (1) gives only i > d + 1 in general. What the paper says about the smooth case is in Remark 7.4, which opens ‘We would expect that part (2) of Theorem 7.3 holds for arbitrary torsion sheaves’ and lists two special cases ‘within reach’, the second being ‘The algebraization method used to prove Lemma 7.8 below can be adapted to prove this statement when A is smooth (in the sense of rigid spaces) and F is constant’. So the introduction asserts for arbitrary ℓ-power torsion sheaves what the body offers for constant sheaves only, and offers as an adaptation rather than a proof. The same remark closes by saying that over p-adic fields ‘the general case remains out of reach by our methods’, which is the opposite of a claim. The extraction’s two proposed remedies — restrict the introduction’s smooth disjunct to constant coefficients and point at Remark 7.4(2), or write the adaptation out — are both right, and it is careful to record this as a gap in what is claimed rather than as a false statement. Checked in arXiv v4, re-fetched by this review and hashed to 4cdf5593…6620, matching the recorded PDF hash byte for byte. The published Duke version remains unavailable: Unpaywall reports is_oa false for doi:10.1215/00127094-2020-0088 and lists no open location, which independently confirms the extraction’s account, and arXiv’s submission history ends at v4 (14 December 2020)."
   },
   {
    "id": "PAPER-BHATT-MATHEW-23/E1",
